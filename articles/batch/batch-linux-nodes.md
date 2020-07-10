@@ -4,11 +4,12 @@ description: Aprenda a processar as suas cargas de trabalho paralelas em piscina
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, tracking-python
-ms.openlocfilehash: 1a87b72b16c1d41e5569c4ce9e5e1a6e2c51a2e0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 05e23093a00eab70db683c10eae59ef27152d2f7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960083"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145051"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisão Linux nómada em piscinas de Lote
 
@@ -28,7 +29,7 @@ A **Configuração de Serviços Cloud** fornece nós de computação do Windows 
 
 ### <a name="virtual-machine-image-reference"></a>Referência de imagem de máquina virtual
 
-O serviço Batch utiliza [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para fornecer nós de computação na Configuração da Máquina Virtual. Pode especificar uma imagem do [Azure Marketplace][vm_marketplace]ou fornecer uma imagem personalizada que preparou. Para obter mais detalhes sobre imagens personalizadas, consulte [Criar uma piscina com a Galeria de Imagens Partilhadas.](batch-sig-images.md)
+O serviço Batch utiliza [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/overview.md) para fornecer nós de computação na Configuração da Máquina Virtual. Pode especificar uma imagem do [Azure Marketplace][vm_marketplace]ou fornecer uma imagem personalizada que preparou. Para obter mais detalhes sobre imagens personalizadas, consulte [Criar uma piscina com a Galeria de Imagens Partilhadas.](batch-sig-images.md)
 
 Ao configurar uma referência de imagem de máquina virtual, especifica as propriedades da imagem da máquina virtual. São necessárias as seguintes propriedades quando cria uma referência de imagem de máquina virtual:
 
@@ -279,7 +280,7 @@ O Azure Batch é construído com base nos Serviços Azure Cloud e na tecnologia 
 
 Se implementar aplicações nos seus nós Batch utilizando [pacotes de aplicações,](batch-application-packages.md)também é cobrado pelos recursos de Armazenamento Azure que os seus pacotes de aplicação consomem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 As [amostras][github_samples_py] de código Python no repositório [de amostras de azure-batch][github_samples] no GitHub contêm scripts que mostram como realizar operações comuns do Batch, tais como piscina, trabalho e criação de tarefas. A [README][github_py_readme] que acompanha as amostras python tem detalhes sobre como instalar as embalagens necessárias.
 

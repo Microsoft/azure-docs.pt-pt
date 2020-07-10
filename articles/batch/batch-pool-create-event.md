@@ -3,12 +3,12 @@ title: Piscina Azure Batch criar evento
 description: Referência para o lote de lote criar evento, que é emitido uma vez que uma piscina foi criada. O conteúdo do registo exporá informações gerais sobre a piscina.
 ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: d8e4537e0074b7af1e65ea5f13a9668483abc45e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: eee512bbeed223269c43bde77435fbff2b67b533
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962497"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147326"
 ---
 # <a name="pool-create-event"></a>Evento de criação de conjunto
 
@@ -53,7 +53,7 @@ ms.locfileid: "85962497"
 |-------------|----------|-----------|
 |`id`|String|A identificação da piscina.|
 |`displayName`|String|O nome de exibição da piscina.|
-|`vmSize`|String|O tamanho das máquinas virtuais na piscina. Todas as máquinas virtuais numa piscina têm o mesmo tamanho. <br/><br/> Para obter informações sobre os tamanhos disponíveis de máquinas virtuais para piscinas de Serviços cloud (piscinas criadas com cloudServiceConfiguration), consulte [Tamanhos para Serviços cloud.](../cloud-services/cloud-services-sizes-specs.md) O lote suporta todos os tamanhos VM dos Serviços cloud, `ExtraSmall` exceto.<br/><br/> Para obter informações sobre tamanhos VM disponíveis para piscinas utilizando imagens do Mercado de Máquinas Virtuais (piscinas criadas com configuração virtual) consulte [tamanhos para máquinas virtuais](/azure/virtual-machines/linux/sizes?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json) (Linux) ou [Tamanhos para Máquinas Virtuais](/azure/virtual-machines/windows/sizes?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
+|`vmSize`|String|O tamanho das máquinas virtuais na piscina. Todas as máquinas virtuais numa piscina têm o mesmo tamanho. <br/><br/> Para obter informações sobre os tamanhos disponíveis de máquinas virtuais para piscinas de Serviços cloud (piscinas criadas com cloudServiceConfiguration), consulte [Tamanhos para Serviços cloud.](../cloud-services/cloud-services-sizes-specs.md) O lote suporta todos os tamanhos VM dos Serviços cloud, `ExtraSmall` exceto.<br/><br/> Para obter informações sobre tamanhos VM disponíveis para piscinas utilizando imagens do Mercado de Máquinas Virtuais (piscinas criadas com configuração virtual) consulte [tamanhos para máquinas virtuais](../virtual-machines/linux/sizes.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json) (Linux) ou [Tamanhos para Máquinas Virtuais](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
 |`imageType`|String|O método de implantação para a imagem. Valores suportados são `virtualMachineConfiguration` ou`cloudServiceConfiguration`|
 |[`cloudServiceConfiguration`](#bk_csconf)|Tipo Complexo|A configuração de serviço em nuvem para a piscina.|
 |[`virtualMachineConfiguration`](#bk_vmconf)|Tipo Complexo|A configuração da máquina virtual para a piscina.|

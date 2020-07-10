@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -20,12 +20,12 @@ ms.locfileid: "85378389"
 | ----- | ----- | ----- | ----- | ----- |
 | [&nbsp;Serviço web local &nbsp;](../articles/machine-learning/how-to-deploy-and-where.md#local) | Teste/depuragem | &nbsp; | &nbsp; | Utilização para testes limitados e resolução de problemas. A aceleração do hardware depende da utilização de bibliotecas no sistema local.
 | [Serviço web de computação de casos de aprendizagem de máquinas Azure &nbsp; &nbsp;](../articles/machine-learning/how-to-deploy-and-where.md#notebookvm) | Teste/depuragem | &nbsp; | &nbsp; | Utilização para testes limitados e resolução de problemas.
-| [Serviço de Kubernetes do Azure (AKS)](../articles/machine-learning/how-to-deploy-and-where.md#aks) | Inferência em tempo real |  [Sim](../articles/machine-learning/how-to-deploy-inferencing-gpus.md) (implantação de serviço web) | [Sim](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Utilização para implantações de produção de alta escala. Proporciona tempo de resposta rápida e autoscalagem do serviço implantado. A autoescalagem do cluster não é suportada através do Azure Machine Learning SDK. Para alterar os nós no cluster AKS, utilize o UI para o seu cluster AKS no portal Azure. AKS é a única opção disponível para o designer. |
+| [Azure Kubernetes Service (AKS)](../articles/machine-learning/how-to-deploy-and-where.md#aks) | Inferência em tempo real |  [Sim](../articles/machine-learning/how-to-deploy-inferencing-gpus.md) (implantação de serviço web) | [Sim](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Utilização para implantações de produção de alta escala. Proporciona tempo de resposta rápida e autoscalagem do serviço implantado. A autoescalagem do cluster não é suportada através do Azure Machine Learning SDK. Para alterar os nós no cluster AKS, utilize o UI para o seu cluster AKS no portal Azure. AKS é a única opção disponível para o designer. |
 | [Azure Container Instances](../articles/machine-learning/how-to-deploy-and-where.md#aci) | Teste ou desenvolvimento | &nbsp;  | &nbsp; | Utilize cargas de trabalho baseadas em CPU de baixa escala que exijam menos de 48 GB de RAM. |
 | [Clusters de computação do Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | &nbsp;Inferência do lote | [Sim](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline de aprendizagem automática) | &nbsp;  | Executar a pontuação do lote no cálculo sem servidor. Suporta VMs normais e de baixa prioridade. |
 | [Funções do Azure](../articles/machine-learning/how-to-deploy-functions.md) | (Pré-visualização) Inferência em tempo real | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Pré-visualização) &nbsp;Módulo IoT |  &nbsp; | &nbsp; | Implementar e servir modelos ML em dispositivos IoT. |
-| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Sim | Implementar e servir modelos ML em dispositivos IoT. |
+| [Borda da caixa de dados Azure](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Sim | Implementar e servir modelos ML em dispositivos IoT. |
 
 > [!NOTE]
 > Embora metas de cálculo como a instância local, Azure Machine Learning compute instance, e Azure Machine Learning clusters suportam GPU para treino e experimentação, usando GPU para inferência __quando implementado como um serviço web__ é suportado apenas no Serviço Azure Kubernetes.

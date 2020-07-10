@@ -4,12 +4,12 @@ description: Quando utiliza pela primeira vez a Compreensão linguística (LUIS)
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7cc53e7105ba08ad33e02775fcfb0791c6cf1310
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144641"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
@@ -154,9 +154,9 @@ Pode controlar quem pode ver a tecla de ponto final de previsão LUIS, chamando-
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Inscreva-se no portal LUIS e comece a autorizar
 
 1. Inscreva-se no [portal LUIS](https://www.luis.ai) e concorde com os termos de utilização.
-1. Inicie a sua aplicação LUIS escolhendo que tipo de chave de autoria LUIS gostaria de usar: chave de teste gratuito ou nova chave de autoria Azure LUIS.
+1. Inicie a sua aplicação LUIS escolhendo a sua chave de autoria Azure LUIS.
 
-    ![Escolha um tipo de recurso de autoria de compreensão linguística](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+   ![Escolha um tipo de recurso de autoria de compreensão linguística](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. Quando terminar o processo de seleção de recursos, [crie uma nova aplicação.](luis-how-to-start-new-app.md#create-new-app-in-luis)
 
@@ -301,7 +301,7 @@ Se quiser saber quando atingiu um determinado limiar de transação, por exemplo
 
 Adicione um alerta métrico para a métrica total das **chamadas** durante um determinado período de tempo. Adicione endereços de e-mail de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Também pode executar uma aplicação lógica quando o alerta é desencadeado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Migrar para o novo [recurso de autoria](luis-migration-authoring.md)

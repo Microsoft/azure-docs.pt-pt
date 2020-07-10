@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: ff16b175c3ea2a323ccca3c3b2eabc5f93520079
-  ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+  ms.openlocfilehash: 8049897cf7a08eeac79e4a217f4ecc3ec636eab9
+  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84170431"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86143895"
 landingContent:
 - title: Acerca do Balanceador de Carga
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
       url: concepts.md
     - text: Componentes do Balanceador de Carga
       url: components.md
+    - text: Novidades
+      url: whats-new.md
     - text: SKUs do Balanceador de Carga
       url: skus.md
 - title: Introdução

@@ -3,16 +3,16 @@ title: Use Azure AD no serviço Azure Kubernetes
 description: Saiba como utilizar o Azure AD no Serviço Azure Kubernetes (AKS)
 services: container-service
 manager: gwallace
-author: mlearned
+author: TomGeske
 ms.topic: article
-ms.date: 06/25/2020
-ms.author: mlearned
-ms.openlocfilehash: f22b79cb8a730fb9c28dd1a208ab672473218b79
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/08/2020
+ms.author: thomasge
+ms.openlocfilehash: 9cacd2454dc987f7d507bb4b677e742f0be0d391
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105953"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166506"
 ---
 # <a name="aks-managed-azure-active-directory-integration-preview"></a>Integração do Azure Ative Directory gerido pela AKS (Pré-visualização)
 
@@ -26,10 +26,6 @@ A integração AZure AD gerida pela AKS foi projetada para simplificar a experi�
 Os administradores do cluster podem configurar o controlo de acesso baseado em funções (RBAC) baseado em funções com base na identidade de um utilizador ou na adesão ao grupo de diretórios. A autenticação AZure AD é fornecida aos clusters AKS com OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação de ligação Open ID][open-id-connect].
 
 Saiba mais sobre o fluxo de integração da AAD na documentação de [conceitos de integração do Azure Ative Directory.](concepts-identity.md#azure-active-directory-integration)
-
-## <a name="limitations"></a>Limitações
-
-* Não é possível atualmente atualizar um cluster integrado AKS AD existente para a nova experiência Azure AD gerida pela AKS.
 
 > [!IMPORTANT]
 > As funcionalidades de pré-visualização AKS estão disponíveis numa base de autosserviço, opt-in. As pré-visualizações são fornecidas "as-is" e "conforme disponível", e estão excluídas dos Contratos de Nível de Serviço e garantia limitada. As pré-visualizações da AKS são parcialmente cobertas pelo apoio ao cliente numa base de melhor esforço. Como tal, estas características não se destinam ao uso da produção. Para mais informações, consulte os seguintes artigos de apoio:
@@ -173,7 +169,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 Existem alguns cenários não interativos, como os oleodutos de integração contínua, que não estão atualmente disponíveis com kubectl. Pode utilizar [`kubelogin`](https://github.com/Azure/kubelogin) para aceder ao cluster com o principal de inscrição do serviço não interativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a integração do Azure RBAC para a Autorização Kubernetes][azure-rbac-integration]
 * Saiba mais sobre [a integração da AD AZure com a Kubernetes RBAC][azure-ad-rbac].

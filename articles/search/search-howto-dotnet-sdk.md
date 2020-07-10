@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4714fbb5d9f08e0b02dbc8f6cb32845642911e51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 929241d7bc5db5476bab84d00fde90d4db55aedc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556298"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146913"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET
 
@@ -171,46 +171,49 @@ Desta vez usamos uma chave de consulta, uma vez que não precisamos de escrever 
 
 Se executar esta aplicação com um nome de serviço válido e teclas API, a saída deve parecer-se com este exemplo: (Alguma saída da consola foi substituída por "..." para fins de ilustração.)
 
-    Deleting index...
+```output
 
-    Creating index...
+Deleting index...
 
-    Uploading documents...
+Creating index...
 
-    Waiting for documents to be indexed...
+Uploading documents...
 
-    Search the entire index for the term 'motel' and return only the HotelName field:
+Waiting for documents to be indexed...
 
-    Name: Secret Point Motel
+Search the entire index for the term 'motel' and return only the HotelName field:
 
-    Name: Twin Dome Motel
+Name: Secret Point Motel
 
-
-    Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
-
-    HotelId: 1
-    Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
-
-    HotelId: 2
-    Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
+Name: Twin Dome Motel
 
 
-    Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
 
-    Name: Triple Landscape Hotel
-    Last renovated on: 9/20/2015 12:00:00 AM +00:00
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
 
-    Name: Twin Dome Motel
-    Last renovated on: 2/18/1979 12:00:00 AM +00:00
+HotelId: 2
+Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
 
 
-    Search the hotel names for the term 'hotel':
+Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
 
-    HotelId: 3
-    Name: Triple Landscape Hotel
-    ...
+Name: Triple Landscape Hotel
+Last renovated on: 9/20/2015 12:00:00 AM +00:00
 
-    Complete.  Press any key to end application... 
+Name: Twin Dome Motel
+Last renovated on: 2/18/1979 12:00:00 AM +00:00
+
+
+Search the hotel names for the term 'hotel':
+
+HotelId: 3
+Name: Triple Landscape Hotel
+...
+
+Complete.  Press any key to end application... 
+```
 
 O código fonte completo da aplicação é fornecido no final deste artigo.
 
@@ -566,7 +569,9 @@ Ao desenhar as suas próprias classes de modelo para mapear para um índice de P
 
 Esta não é apenas uma preocupação hipotética: imagine um cenário onde adiciona um novo campo a um índice existente do tipo `Edm.Int32`. Após a atualização da definição de índice, todos os documentos terão um valor nulo para esse novo campo (uma vez que todos os tipos são anulados na Pesquisa Cognitiva Azure). Se, em seguida, utilizar uma classe de modelo com uma propriedade `int` não anulável para esse campo, obterá uma `JsonSerializationException` assim ao tentar obter documentos:
 
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```output
+Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```
 
 Por este motivo, recomendamos que utilize tipos anuláveis nas suas classes de modelos como uma melhor prática.
 
@@ -680,9 +685,11 @@ WriteDocuments(results);
 
 Neste caso, estamos procurando todo o índice para a palavra "motel" em qualquer campo pescandável e só queremos recuperar os nomes do hotel, conforme especificado pelo `Select` parâmetro. Aqui estão os resultados:
 
-    Name: Secret Point Motel
+```output
+Name: Secret Point Motel
 
-    Name: Twin Dome Motel
+Name: Twin Dome Motel
+```
 
 A próxima consulta é um pouco mais interessante.  Queremos encontrar qualquer hotel que tenha um quarto com uma diária de menos de $100 e devolva apenas a iD do hotel e descrição:
 
@@ -703,11 +710,13 @@ Esta consulta utiliza uma `$filter` expressão OData, para `Rooms/any(r: r/BaseR
 
 Aqui estão os resultados da consulta:
 
-    HotelId: 1
-    Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
+```output
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
 
-    HotelId: 2
-    Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+HotelId: 2
+Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+```
 
 Em seguida, queremos encontrar os dois melhores hotéis que foram recentemente renovados, e mostrar o nome do hotel e última data de renovação. Apresentamos o código a seguir: 
 
@@ -729,8 +738,10 @@ Neste caso, voltamos a utilizar a sintaxe OData para especificar o `OrderBy` par
 
 Aqui estão os resultados:
 
-    Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-    Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```output
+Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
+Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```
 
 Finalmente, queremos encontrar todos os nomes de hotéis que correspondam à palavra "hotel":
 
@@ -746,13 +757,15 @@ WriteDocuments(results);
 
 E aqui estão os resultados, que incluem todos os campos uma vez que não especificamos a `Select` propriedade:
 
+```output
     HotelId: 3
     Name: Triple Landscape Hotel
     ...
+```
 
 Este passo completa o tutorial, mas não pare aqui. **Os próximos passos fornecem recursos adicionais para aprender mais sobre a Pesquisa Cognitiva Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 * [Reveja as convenções de nomeação](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para aprender as regras para nomear vários objetos.
 * Reveja [os tipos de dados suportados](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) na Pesquisa Cognitiva Azure.

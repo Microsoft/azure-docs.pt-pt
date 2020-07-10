@@ -4,12 +4,12 @@ description: Criar, eliminar e modificar os recursos da conta Azure Batch com a 
 ms.topic: how-to
 ms.date: 04/24/2017
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 1e372ebca9edf1fcbd72edd4f070ba26f87e9e67
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1684a177f139a3acff8a4957c0c1e89f46d8848d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961630"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145034"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas e quotas do Batch com a biblioteca de clientes de Batch Management para .NET
 
@@ -165,7 +165,7 @@ Para executar a aplicação da amostra com sucesso, você deve primeiro registr�
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é O Diretório Ativo Azure?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Cenários de autenticação para Azure AD"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integração de Aplicações com Diretório Ativo Azure"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement

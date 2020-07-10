@@ -3,11 +3,12 @@ title: Controlos de segurança
 description: Saiba mais sobre os controlos de segurança utilizados no serviço Azure Backup. Estes controlos ajudam o serviço a prevenir, detetar e responder a vulnerabilidades de segurança.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 0e3f5ce942ea8aef9bf5eb98883ae1e72a7ab239
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8fd98467e975c6151d09779ab450810ea32c6e
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172144"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165571"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controlos de segurança para Azure Backup
 
@@ -17,8 +18,8 @@ Este artigo documenta os controlos de segurança incorporados na Azure Backup.
 
 ## <a name="network"></a>Rede
 
-| Controlo de segurança | Sim/Não | Notas | Documentation
-|---|---|--|
+| Controlo de segurança | Sim/Não | Notas | Documentação
+|---|---|--|--|
 | Suporte ao ponto final de serviço| Não |  |  |
 | Suporte à injeção VNet| Não |  |  |
 | Isolamento de rede e suporte de firewall| Sim | O túnel forçado é suportado para apoio VM. Os túneis forçados não são suportados para cargas de trabalho que correm dentro de VMs. |  |
@@ -26,23 +27,23 @@ Este artigo documenta os controlos de segurança incorporados na Azure Backup.
 
 ## <a name="monitoring--logging"></a>Monitorização & registos
 
-| Controlo de segurança | Sim/Não | Notas| | Documentation
-|---|---|--|
+| Controlo de segurança | Sim/Não | Notas| Documentação
+|---|---|--|--|
 | Suporte de monitorização Azure (análise de log, insights de aplicativo, etc.)| Sim | O Log Analytics é suportado através de registos de recursos. Para obter mais informações, consulte [monitor Azure Backup cargas de trabalho protegidas usando Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Registo e auditoria de avião de controlo e gestão| Sim | Todas as ações desencadeadas pelo cliente a partir do portal Azure são registadas em registos de atividade. |  |
 | Registo e auditoria de planos de dados| Não | O avião de dados Azure Backup não pode ser contactado diretamente.  |  |
 
 ## <a name="identity"></a>Identidade
 
-| Controlo de segurança | Sim/Não | Notas| | Documentation
-|---|---|--|
+| Controlo de segurança | Sim/Não | Notas| Documentação
+|---|---|--|--|
 | Autenticação| Sim | A autenticação é através do Diretório Ativo Azure. |  |
 | Autorização| Sim | São utilizadas funções DE RBAC criadas e incorporadas. Para obter mais informações, consulte [use o Controlo de Acesso Baseado em Funções para gerir os pontos de recuperação de backup do Azure](/azure/backup/backup-rbac-rs-vault). |  |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controlo de segurança | Sim/Não | Notas | | Documentation
-|---|---|--|
+| Controlo de segurança | Sim/Não | Notas | Documentação
+|---|---|--|--|
 | Encriptação do lado do servidor em repouso: teclas geridas pela Microsoft | Sim | Utilização de encriptação de serviço de armazenamento para contas de armazenamento. |  |
 | Encriptação do lado do servidor em repouso: teclas geridas pelo cliente (BYOK) | Não |  |  |
 | Encriptação de nível de coluna (Serviços de Dados Azure)| Não |  |  |
@@ -51,8 +52,8 @@ Este artigo documenta os controlos de segurança incorporados na Azure Backup.
 
 ## <a name="configuration-management"></a>Gestão da configuração
 
-| Controlo de segurança | Sim/Não | Notas| | Documentation
-|---|---|--|
+| Controlo de segurança | Sim/Não | Notas| Documentação
+|---|---|--|--|
 | Suporte de gestão de configuração (versão da configuração, etc.)| Sim|  |  |
 
 ## <a name="next-steps"></a>Próximos passos

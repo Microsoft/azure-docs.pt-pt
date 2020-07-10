@@ -4,12 +4,12 @@ description: Como criar um pool de Lote numa rede virtual Azure para que os nós
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 22344b5466b0388921a481b1adf41495d66dbfe0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115416"
+ms.locfileid: "86142772"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar uma piscina Azure Batch numa rede virtual
 
@@ -27,7 +27,7 @@ Para permitir que os nós computacional se comuniquem de forma segura com outras
 
 - **Um Azure VNet.** Consulte a seguinte secção para os requisitos e configuração do VNet. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface da Linha de Comando Azure (CLI) ou outros métodos.
   - Para criar um VNet baseado em Recursos Azure, consulte [criar uma rede virtual.](../virtual-network/manage-virtual-network.md#create-a-virtual-network) Um VNet baseado em Gestor de Recursos é recomendado para novas implementações, e é suportado apenas em piscinas que usam configuração de máquina virtual.
-  - Para criar um VNet clássico, consulte [Criar uma rede virtual (clássica) com várias sub-redes.](../virtual-network/create-virtual-network-classic.md) Um VNet clássico é suportado apenas em piscinas que usam configuração de serviços cloud.
+  - Para criar um VNet clássico, consulte [Criar uma rede virtual (clássica) com várias sub-redes.](/previous-versions/azure/virtual-network/create-virtual-network-classic) Um VNet clássico é suportado apenas em piscinas que usam configuração de serviços cloud.
 
 ## <a name="vnet-requirements"></a>Requisitos de VNet
 
@@ -64,7 +64,7 @@ Quando adicionar um UDR, defina a rota para cada prefixo de endereço IP do lote
 > [!WARNING]
 > Os endereços IP do serviço Batch podem ser alterados ao longo do tempo. Para evitar interrupções devido a uma alteração de endereço IP, crie um processo para atualizar automaticamente os endereços IP do serviço Batch e mantê-los atualizados na sua tabela de rotas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como [criar uma rota definida pelo utilizador no portal Azure](../virtual-network/tutorial-create-route-table-portal.md).

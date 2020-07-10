@@ -19,17 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113243"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146061"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de recolha OData em Pesquisa Cognitiva Azure - `any` e`all`
 
 Ao escrever uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) para usar com Azure Cognitive Search, é frequentemente útil filtrar em campos de recolha. Pode conseguir isso utilizando os `any` operadores e `all` operadores.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática de uma expressão OData que utiliza `any` ou `all` .
 
@@ -65,23 +66,33 @@ Uma **expressão de lambda** num filtro de coleção é como o corpo de um loop 
 
 Documentos de correspondência cujo `tags` campo contém exatamente a cadeia "wifi":
 
-    tags/any(t: t eq 'wifi')
+```text
+tags/any(t: t eq 'wifi')
+```
 
 Documentos de correspondência onde cada elemento do `ratings` campo cai entre 3 e 5, inclusive:
 
-    ratings/all(r: r ge 3 and r le 5)
+```text
+ratings/all(r: r ge 3 and r le 5)
+```
 
 Combine documentos em que qualquer uma das coordenadas de geo no `locations` campo esteja dentro do polígono dado:
 
-    locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```text
+locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```
 
 Combine documentos onde o `rooms` campo está vazio:
 
-    not rooms/any()
+```text
+not rooms/any()
+```
 
 Documentos de correspondência onde para todos os quartos, o `rooms/amenities` campo contém "tv" e `rooms/baseRate` é inferior a 100:
 
-    rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```text
+rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```
 
 ## <a name="limitations"></a>Limitações
 
@@ -91,7 +102,7 @@ Nem todas as características das expressões de filtro estão disponíveis dent
 
 Para obter mais detalhes sobre estas limitações, bem como exemplos, consulte [os filtros de recolha de resolução de problemas em Azure Cognitive Search](search-query-troubleshoot-collection-filters.md). Para obter informações mais aprofundadas sobre o porquê destas limitações existirem, consulte [filtros de recolha de compreensão na Pesquisa Cognitiva Azure.](search-query-understand-collection-filters.md)
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)

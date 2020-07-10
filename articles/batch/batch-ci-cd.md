@@ -5,11 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d6b68a8448d8b644500b62e54ab763838d707c66
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956666"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145262"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize gasodutos Azure para construir e implementar soluções HPC
 
@@ -48,7 +49,7 @@ A estrutura da base de código utilizada nesta amostra assemelha-se ao seguinte;
 Esta secção pressupõe que está familiarizado com o controlo de versão e projetando modelos de Gestor de Recursos. Se não está familiarizado com estes conceitos, consulte as seguintes páginas para obter mais informações.
 
 * [O que é controlo de fontes?](/azure/devops/user-guide/source-control?view=azure-devops)
-* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
+* [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
@@ -188,7 +189,7 @@ O modelo seguinte mostra um exemplo de criação de um Pool de Lote Azure (as m�
 
 Finalmente, temos um modelo que age semelhante a um orquestrador. Este modelo é responsável pela implementação dos modelos de capacidade.
 
-Também pode saber mais sobre [a criação de modelos ligados ao Gestor de Recursos Azure](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) num artigo separado.
+Também pode saber mais sobre [a criação de modelos ligados ao Gestor de Recursos Azure](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) num artigo separado.
 
 ```json
 {
@@ -499,7 +500,7 @@ Redimensione a piscina para que existam nóns de computação disponíveis para 
 az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Além deste artigo, existem dois tutoriais que utilizam o ffmpeg, utilizando .NET e Python. Consulte estes tutoriais para obter mais informações sobre como interagir com uma conta Batch através de uma aplicação simples.
 

@@ -12,11 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 28b687577f01d6e83f012a51bd18ad082f2bd48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db7a1489b877544cd36627f3962b6b4e1b8c462
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433275"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146430"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde guardar e escrever ficheiros para experiências de Aprendizagem automática Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +30,9 @@ Ao lançar treinos com um [alvo de computação,](how-to-set-up-training-targets
 
 Antes de iniciar uma experiência num alvo de computação ou na sua máquina local, tem de garantir que os ficheiros necessários estão disponíveis para esse alvo de computação, como ficheiros de dependência e ficheiros de dados que o seu código necessita de executar.
 
-O Azure Machine Learning executa scripts de formação copiando toda a pasta de scripts para o contexto de computação alvo e, em seguida, tira uma foto. O limite de armazenamento para instantâneos de experimentação é 300 MB e/ou 2000 ficheiros.
+A Azure Machine Learning executa scripts de formação copiando todo o diretório de origem. Se tiver dados sensíveis que não pretende fazer o upload, utilize um [ficheiro .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem . Em vez disso, aceda aos seus dados através de uma [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+
+O limite de armazenamento para instantâneos de experimentação é 300 MB e/ou 2000 ficheiros.
 
 Por esta razão, recomendamos:
 
@@ -55,7 +58,7 @@ Descrição da &nbsp; experiência|Solução limite de armazenamento
 Menos de 2000 ficheiros & não podem usar uma loja de dados| Anular limite de tamanho de instantâneo com <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Isto pode demorar vários minutos dependendo do número e tamanho dos ficheiros.
 Deve usar diretório de script específico| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Use um subdiretório diferente para cada passo
-Jupyter Notebooks| Crie um `.amlignore` ficheiro ou mova o seu caderno para um novo, vazio, subdirecional e volte a executar o seu código.
+Blocos de notas do Jupyter| Crie um `.amlignore` ficheiro ou mova o seu caderno para um novo, vazio, subdirecional e volte a executar o seu código.
 
 ## <a name="where-to-write-files"></a>Onde escrever ficheiros
 
@@ -72,7 +75,7 @@ Se não necessitar de uma loja de dados, escreva ficheiros para a `./outputs` pa
 
 * **Para guardar o ficheiro escrito como registos no histórico de execução,** escreva ficheiros para `./logs` pasta. Os registos são carregados em tempo real, pelo que este método é adequado para transmitir atualizações ao vivo a partir de uma execução remota.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o acesso aos dados das suas datastores.](how-to-access-data.md)
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: diberry
-ms.openlocfilehash: 338868c954df68fbf43bee9581a6afada58f7e97
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055465"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145628"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
 
@@ -226,7 +226,7 @@ Se estiver a colaborar em aplicações e tiver atribuído uma chave de previsão
 ## <a name="troubleshooting-the-migration-process"></a>Resolução de problemas do processo de migração
 
 Quando tenta migrar, mas não consegue encontrar a sua subscrição do Azure na lista de drop-down:
-* Certifique-se de que tem uma subscrição válida do Azure que está autorizada a criar recursos de Serviços Cognitivos. Vá ao [portal Azure](https://ms.portal.azure.com) e verifique o estado da subscrição. Se não tiver um, [crie um julgamento gratuito.](https://azure.microsoft.com/free/)
+* Certifique-se de que tem uma subscrição válida do Azure que está autorizada a criar recursos de Serviços Cognitivos. Vá ao [portal Azure](https://ms.portal.azure.com) e verifique o estado da subscrição. Se não tiver uma, [crie uma conta Azure gratuita.](https://azure.microsoft.com/free/cognitive-services/)
 * Certifique-se de que está no inquilino adequado associado à sua subscrição válida. Pode trocar os inquilinos do avatar para a esquerda das suas iniciais nesta barra de ferramentas: ![ Toolbar onde pode trocar de inquilinos](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 Se tiver um recurso de autoria existente, mas não o encontrar quando selecionar a opção Utilizar o **recurso de autoria existente:**
@@ -244,7 +244,7 @@ Se vir o seguinte erro, verifique os [passos recomendados se é colaborador numa
 ![Erro que mostra que a migração falhou para os colaboradores](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja [conceitos sobre a autoria e as teclas de tempo de execução.](luis-how-to-azure-subscription.md)
 * Reveja como [atribuir chaves](luis-how-to-azure-subscription.md) e [adicionar contribuintes](luis-how-to-collaborate.md).

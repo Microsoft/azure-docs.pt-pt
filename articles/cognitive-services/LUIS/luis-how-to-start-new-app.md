@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: 3d6b2b5896242ff85c6fb96071b747083893b03a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343171"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144394"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar uma nova app LUIS no portal LUIS
 Há algumas formas de criar uma aplicação LUIS. Pode criar uma aplicação LUIS no portal LUIS, ou através das [APIs](developer-reference-resource.md)de autoria do LUIS.
@@ -45,7 +45,7 @@ Pode criar uma nova aplicação com as APIs de autoria de algumas formas:
 
 ## <a name="create-new-app-in-luis"></a>Criar nova app no LUIS
 
-1. Na página **My Apps,** selecione a sua **Subscrição**e **o recurso de autoria** e, em **seguida, + Criar**. Se estiver a utilizar a chave de teste gratuita, aprenda a [criar um recurso de autoria.](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)
+1. Na página **My Apps,** selecione a sua **Subscrição**e **o recurso de autoria** e, em **seguida, + Criar**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista de aplicações LUIS](./media/create-app-in-portal.png)
@@ -75,6 +75,6 @@ A barra de ferramentas de contexto fornece outras ações:
 * Registos de pontos finais de exportação, como um `.csv` , para análise offline
 * Excluir app
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se o design da sua aplicação incluir deteção de [intenções, crie novas intenções](luis-how-to-add-intents.md)e adicione palavras de exemplo. Se o design da sua aplicação for apenas a extração de dados, adicione palavras de exemplo à intenção de Zero, em seguida, [crie entidades](luis-how-to-add-example-utterances.md), e rotule as expressões de exemplo com essas entidades.

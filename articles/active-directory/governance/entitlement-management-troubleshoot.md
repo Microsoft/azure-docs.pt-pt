@@ -16,11 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7494f8e65f0b92540fec3ddc1f07e59004227625
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338178"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145759"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure AD gestão de direitos
 
@@ -94,7 +95,9 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver p
 
 Se um erro for atingido depois de desencadear um pedido de reprocessamento do pacote de acesso, deve esperar enquanto o sistema reprocessa o pedido. O sistema tenta várias vezes reprocessar durante várias horas, pelo que não é possível forçar o reprocessamento durante este tempo. 
 
-Só é possível reprocessar um pedido que tenha um estado de **entrega falhado** ou **parcialmente entregue** e uma data completa de menos de uma semana.
+Só é possível reprocessar um pedido que tenha um estado de **entrega falhado** ou **parcialmente entregue** e uma data completa de menos de uma semana. O botão **de reprocessamento** seria acinzentado de outra forma.
+
+![Botão de reprocessamento acinzentado](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - Se o erro for corrigido durante a janela de ensaios, o estado do pedido mudará para **Entrega**. O pedido será reprocessado sem ações adicionais do utilizador.
 
@@ -116,7 +119,7 @@ Só é possível reprocessar um pedido que tenha um estado de **entrega falhado*
 
 ### <a name="cancel-a-pending-request"></a>Cancelar um pedido pendente
 
-Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja entrega tenha falhado.
+Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja entrega tenha falhado. O botão **de cancelamento** seria acinzentado de outra forma.
 
 **Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
 
@@ -147,7 +150,7 @@ Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja 
     
     Se alguma política estiver numa categoria de prioridade mais elevada, as categorias de prioridades mais baixas são ignoradas. Para um exemplo de como são apresentadas várias políticas com a mesma prioridade ao solicitador, consulte [Selecione uma política](entitlement-management-request-access.md#select-a-policy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso dos utilizadores externos](entitlement-management-external-users.md)
 - [Ver relatórios de como os utilizadores tiveram acesso na gestão de direitos](entitlement-management-reports.md)

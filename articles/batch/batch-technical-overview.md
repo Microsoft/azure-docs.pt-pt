@@ -3,12 +3,12 @@ title: Azure Batch tem grandes trabalhos paralelos na nuvem
 description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho em larga e escala e de HPC
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 134706622655029c6673aea5dd04a9284155be6f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 03c958f44f707e7c5b6ac5c4414bdb5fd4963635
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965081"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142801"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -34,7 +34,7 @@ Alguns exemplos de cargas de trabalho intrinsecamente paralelas que pode colocar
 * Ingestão de dados, processamento e operações de ETL
 * Execução de testes de software
 
-Também pode utilizar o Batch para [executar cargas de trabalho fortemente conjugadas](batch-mpi.md); são cargas de trabalho em que as aplicações executadas têm de comunicar entre si, em vez de serem executadas de forma independente. As aplicações fortemente conjugadas utilizam normalmente a API de MPI (Message Passing Interface). Pode executar as cargas de trabalho fortemente conjugadas com o Batch através do [Microsoft MPI](/message-passing-interface/microsoft-mpi) ou do Intel MPI. Melhore o desempenho das aplicações com tamanhos de VM [HPC](../virtual-machines/linux/sizes-hpc.md) e [otimizados para GPU](../virtual-machines/linux/sizes-gpu.md) especializados.
+Também pode utilizar o Batch para [executar cargas de trabalho fortemente conjugadas](batch-mpi.md); são cargas de trabalho em que as aplicações executadas têm de comunicar entre si, em vez de serem executadas de forma independente. As aplicações fortemente conjugadas utilizam normalmente a API de MPI (Message Passing Interface). Pode executar as cargas de trabalho fortemente conjugadas com o Batch através do [Microsoft MPI](/message-passing-interface/microsoft-mpi) ou do Intel MPI. Melhore o desempenho das aplicações com tamanhos de VM [HPC](../virtual-machines/sizes-hpc.md) e [otimizados para GPU](../virtual-machines/sizes-gpu.md) especializados.
 
 Alguns exemplos de cargas de trabalho fortemente conjugadas:
 * Análise de elementos finitos
@@ -60,7 +60,7 @@ O diagrama seguinte mostra os passos num fluxo de trabalho comum do Batch, com u
 ![Instruções para a solução Batch](./media/batch-technical-overview/tech_overview_03.png)
 
 
-|Passo  |Description  |
+|Passo  |Descrição  |
 |---------|---------|
 |1. Faça upload dos **ficheiros de entrada** e das aplicações para processar esses **ficheiros** na sua conta de Armazenamento Azure.     |Os ficheiros de entrada podem ser quaisquer dados que a sua aplicação processa, tais como dados de modelação financeira ou ficheiros de vídeo para transcodificação. Os ficheiros da aplicação podem incluir scripts ou aplicações que processam os dados, como um transcodificador multimédia.|
 |2. Crie um **lote** de nós computacional na sua conta Batch, um **trabalho** para executar a carga de trabalho na piscina e **tarefas** no trabalho.     | Os nós do conjunto são as VMs que executam as tarefas. Especifique as propriedades, como o número e o tamanho dos nós, uma imagem de VM do Windows ou do Linux e a aplicação a instalar quando os nós forem associados ao conjunto. Efetue a gestão do custo e do tamanho do conjunto através de [VMs de prioridade baixa](batch-low-pri-vms.md) ou do [dimensionamento automático](batch-automatic-scaling.md) do número de nós à medida que a carga de trabalho muda. <br/><br/>Ao adicionar tarefas a um trabalho, o serviço Batch agenda automaticamente as tarefas para execução nos nós de computação do conjunto. Cada tarefa utiliza a aplicação que carregou para processar os ficheiros de entrada. |
@@ -83,4 +83,3 @@ Introdução ao Azure Batch com um dos seguintes inícios rápidos:
 * [Executar o seu primeiro trabalho do Batch com o portal do Azure](quick-create-portal.md)
 * [Executar o seu primeiro trabalho do Batch com a API .NET](quick-run-dotnet.md)
 * [Executar o seu primeiro trabalho do Batch com a API Python](quick-run-python.md)
-

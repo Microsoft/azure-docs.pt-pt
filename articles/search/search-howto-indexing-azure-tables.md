@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0a711b9239e1a76774d8e75f035e6c862218c82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6670966b4cf74510df5dd26c994e0c53b219ba9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563127"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145249"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas a partir do armazenamento da Tabela Azure com Azure Cognitive Search
 
@@ -49,6 +49,7 @@ Para a indexação da tabela, o dado fonte deve ter as seguintes propriedades:
 
 Para criar um dadosource:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -59,6 +60,7 @@ Para criar um dadosource:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
+```
 
 Para obter mais informações sobre a API de Fonte de Dados, consulte [Criar Fonte de Dados.](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 
@@ -81,6 +83,7 @@ O índice especifica os campos num documento, os atributos e outras construçõe
 
 Para criar um índice:
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -92,6 +95,7 @@ Para criar um índice:
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
           ]
     }
+```
 
 Para obter mais informações sobre a criação de índices, consulte [Criar Índice.](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
@@ -100,6 +104,7 @@ Um indexante conecta uma fonte de dados com um índice de pesquisa alvo e fornec
 
 Após a criação do índice e da fonte de dados, está pronto para criar o indexador:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -110,6 +115,7 @@ Após a criação do índice e da fonte de dados, está pronto para criar o inde
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Este indexante funciona a cada duas horas. (O intervalo de horário é definido para "PT2H".) Para executar um indexante a cada 30 minutos, desajuste o intervalo para "PT30M". O intervalo mais curto suportado é de cinco minutos. O horário é opcional; se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexante a qualquer momento.   
 
@@ -135,6 +141,7 @@ Quando configura um indexador de tabelas para executar num horário, ele reindex
 
 Para indicar que certos documentos devem ser removidos do índice, pode utilizar uma estratégia de eliminação suave. Em vez de eliminar uma linha, adicione uma propriedade para indicar que é eliminada, e crie uma política de deteção de eliminação suave na fonte de dados. Por exemplo, a seguinte política considera que uma linha é eliminada se a linha tiver um imóvel `IsDeleted` com o valor `"true"` :
 
+```http
     PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -146,9 +153,10 @@ Para indicar que certos documentos devem ser removidos do índice, pode utilizar
         "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+```
 
 <a name="Performance"></a>
-## <a name="performance-considerations"></a>Considerações de desempenho
+## <a name="performance-considerations"></a>Considerações sobre desempenho
 
 Por predefinição, a Azure Cognitive Search utiliza o seguinte filtro de consulta: `Timestamp >= HighWaterMarkValue` . Como as tabelas Azure não têm um índice secundário no `Timestamp` campo, este tipo de consulta requer uma varredura completa da tabela e, portanto, é lento para grandes tabelas.
 

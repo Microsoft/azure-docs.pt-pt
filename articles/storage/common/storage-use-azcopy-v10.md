@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504479"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143005"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -31,7 +31,7 @@ Em primeiro lugar, descarregue o ficheiro executável AzCopy V10 para qualquer d
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (alcatrão)
+- [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (alcatrão)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Estes ficheiros são comprimidos como um ficheiro zip (Windows e Mac) ou um ficheiro de alcatrão (Linux). Para descarregar e descomprimir o ficheiro de alcatrão no Linux, consulte a documentação para a sua distribuição Linux.
@@ -65,7 +65,7 @@ Use esta tabela como guia:
 
 | Tipo de armazenamento | Método de autorização atualmente suportado |
 |--|--|
-|**Armazenamento de bolhas** | Azure AD & SAS |
+|**Armazenamento de blobs** | Azure AD & SAS |
 |**Armazenamento de bolhas (espaço hierárquico)** | Azure AD & SAS |
 |**Armazenamento de ficheiros** | APENAS SAS |
 
@@ -255,7 +255,7 @@ Para encontrar comandos de exemplo, consulte qualquer um destes artigos.
 
 - [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
 
-- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 
 - [Transfira dados com baldes AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
@@ -318,6 +318,6 @@ Se precisar de utilizar a versão anterior do AzCopy, consulte qualquer uma das 
 
 Consulte [Configuração, otimização e resolução de problemas AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas, problemas ou feedback geral, envie-os na página [do GitHub.](https://github.com/Azure/azure-storage-azcopy)

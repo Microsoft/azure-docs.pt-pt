@@ -3,12 +3,12 @@ title: Utilize VMs Azure intensivos computacional com Lote
 description: Como tirar partido dos tamanhos de máquina virtual HPC e GPU nas piscinas Azure Batch. Conheça as dependências do OS e veja vários exemplos de cenários.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: acc56679d8be157541b0d7c056e57659584645be
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962514"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147334"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilize casos de RDMA ou GPU em piscinas de Lote
 
@@ -20,9 +20,9 @@ Para executar certos trabalhos em Batch, você pode aproveitar os tamanhos Azure
 
 Este artigo fornece orientações e exemplos para usar alguns dos tamanhos especializados da Azure em piscinas de Lote. Para especificações e antecedentes, consulte:
 
-* Tamanhos VM compute de alto desempenho[(Linux,](../virtual-machines/linux/sizes-hpc.md) [Windows)](../virtual-machines/windows/sizes-hpc.md) 
+* Tamanhos VM compute de alto desempenho[(Linux,](../virtual-machines/sizes-hpc.md) [Windows)](../virtual-machines/sizes-hpc.md) 
 
-* Tamanhos VM ativados por GPU[(Linux,](../virtual-machines/linux/sizes-gpu.md) [Windows)](../virtual-machines/windows/sizes-gpu.md) 
+* Tamanhos VM ativados por GPU[(Linux,](../virtual-machines/sizes-gpu.md) [Windows)](../virtual-machines/sizes-gpu.md) 
 
 > [!NOTE]
 > Certos tamanhos VM podem não estar disponíveis nas regiões onde cria as suas contas Batch. Para verificar se existe um tamanho, consulte [os produtos disponíveis por região](https://azure.microsoft.com/regions/services/) e [escolha um tamanho VM para uma piscina de Lote.](batch-pool-vm-sizes.md)
@@ -33,9 +33,9 @@ As capacidades de RDMA ou GPU de tamanhos computacionalmente intensivos em Batch
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Piscinas Linux - Configuração de máquina virtual
 
-| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Configurações de piscina |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações de piscina |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>HPC baseado em CentOS<br/>(Mercado Azure) | Intel MPI 5<br/><br/>Condutores linux RDMA | Ativar a comunicação inter-node, desativar a execução de tarefas simultâneas |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>HPC baseado em CentOS<br/>(Mercado Azure) | Intel MPI 5<br/><br/>Condutores linux RDMA | Ativar a comunicação inter-node, desativar a execução de tarefas simultâneas |
 | [Série NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia por série) | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3 ou 7.4<br/>(Mercado Azure) | Condutores de kits de ferramentas NVIDIA CUDA ou CUDA | N/D | 
 | [NV, série NVv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3<br/>(Mercado Azure) | Condutores da NVIDIA GRID | N/D |
 
@@ -43,7 +43,7 @@ As capacidades de RDMA ou GPU de tamanhos computacionalmente intensivos em Batch
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Piscinas Windows - Configuração de máquina virtual
 
-| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Configurações de piscina |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações de piscina |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (Mercado Azure) | Microsoft MPI 2012 R2 ou mais tarde, ou<br/> Intel MPI 5<br/><br/>Controladores RDMA do Windows | Ativar a comunicação inter-node, desativar a execução de tarefas simultâneas |
 | [Série NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia por série) | Windows Server 2016 ou <br/>2012 R2 (Mercado Azure) | Condutores de kits de ferramentas NVIDIA CUDA ou CUDA| N/D | 
@@ -57,7 +57,7 @@ As capacidades de RDMA ou GPU de tamanhos computacionalmente intensivos em Batch
 > Os tamanhos da série N não são suportados em piscinas de Lote com a configuração do Cloud Service.
 >
 
-| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Configurações de piscina |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações de piscina |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (família guest OS) | Microsoft MPI 2012 R2 ou mais tarde, ou<br/>Intel MPI 5<br/><br/>Controladores RDMA do Windows | Ativar a comunicação entre nó,<br/> desativar execução de tarefas simultâneas |
 
@@ -161,7 +161,7 @@ Utilizando as APIs do lote ou portal Azure, crie uma piscina utilizando esta ima
 | **Comunicação internade ativada** | Verdadeiro |
 | **Tarefas máximas por nó** | 1 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para executar trabalhos de MPI numa piscina do Azure Batch, consulte os exemplos [windows](batch-mpi.md) ou [Linux.](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch)
 

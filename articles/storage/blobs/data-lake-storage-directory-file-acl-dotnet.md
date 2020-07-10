@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 1bf21b8714554dcdc52ab6e34041c738ec2653f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1836be2a5feb6dad747d0da9b42cbd31ddc28a63
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105069"
+ms.locfileid: "86142600"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utilize .NET para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -91,11 +91,11 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 > [!NOTE]
 > Para mais exemplos, consulte a biblioteca do [cliente de identidade Azure para](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) obter documentação .NET..
 
-## <a name="create-a-file-system"></a>Criar um sistema de ficheiros
+## <a name="create-a-container"></a>Criar um contentor
 
-Um sistema de ficheiros funciona como um recipiente para os seus ficheiros. Pode criar um chamando o método [DataLakeServiceClient.CreateFileSystem.](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync)
+Um contentor funciona como um sistema de ficheiros para os seus ficheiros. Pode criar um chamando o método [DataLakeServiceClient.CreateFileSystem.](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync)
 
-Este exemplo cria um sistema de ficheiros chamado `my-file-system` . 
+Este exemplo cria um recipiente chamado `my-file-system` . 
 
 ```cs
 public async Task<DataLakeFileSystemClient> CreateFileSystem
@@ -109,7 +109,7 @@ public async Task<DataLakeFileSystemClient> CreateFileSystem
 
 Crie uma referência de diretório chamando o método [DataLakeFileSystemClient.CreateDirectoryAsync.](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync)
 
-Este exemplo adiciona um diretório nomeado `my-directory` a um sistema de ficheiros e, em seguida, adiciona um sub-directório chamado `my-subdirectory` . 
+Este exemplo adiciona um diretório nomeado `my-directory` a um contentor e, em seguida, adiciona um sub-diretório chamado `my-subdirectory` . 
 
 ```cs
 public async Task<DataLakeDirectoryClient> CreateDirectory
@@ -201,7 +201,7 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 
 ```
 
-Também pode obter e definir o ACL do diretório de raiz de um sistema de ficheiros. Para obter o diretório de raiz, passe uma corda vazia `""` () para o método [DataLakeFileSystemClient.GetDirectoryClient.](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient)
+Você também pode obter e definir o ACL do diretório de raiz de um recipiente. Para obter o diretório de raiz, passe uma corda vazia `""` () para o método [DataLakeFileSystemClient.GetDirectoryClient.](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient)
 
 ## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório
 

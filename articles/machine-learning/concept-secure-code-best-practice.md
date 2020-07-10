@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: larryfr
 author: larryfr
 ms.date: 11/12/2019
-ms.openlocfilehash: 8932640a69ad68e0fd30b8577ba95768dbf8b9b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e41323d05f1a81fbc73a9158cf30c2b0f7953f3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85660884"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147071"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Melhores práticas de código seguro com Azure Machine Learning
 
-No Azure Machine Learning, pode fazer o upload de ficheiros e conteúdos a partir de qualquer fonte. Os conteúdos dentro de cadernos ou scripts da Jupyter podem potencialmente ler dados das suas sessões, aceder a dados dentro da sua organização em Azure ou executar processos maliciosos em seu nome.
+No Azure Machine Learning, pode enviar ficheiros e conteúdos de qualquer fonte para o Azure. Os conteúdos dentro de cadernos ou scripts da Jupyter que carrega podem potencialmente ler dados das suas sessões, aceder a dados dentro da sua organização em Azure ou executar processos maliciosos em seu nome.
 
 > [!IMPORTANT]
 > Apenas execute cadernos ou scripts de fontes fidedignas. Por exemplo, onde você ou a sua equipa de segurança reviram o caderno ou o script.
@@ -68,6 +69,6 @@ __Ações recomendadas:__
 
 O Azure Machine Learning é elegível ao abrigo do Programa Microsoft Azure Bounty. Para mais informações,  [https://www.microsoft.com/msrc/bounty-microsoft-azure](https://www.microsoft.com/msrc/bounty-microsoft-azure) visite.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Segurança empresarial para Azure Machine Learning](concept-enterprise-security.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 7c2484892f3de3c8eca3f766793be83bc7a29dc8
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: a56e815e3a4ac04d20b29163139ab40332c4bec4
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445547"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146965"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar pedidos aos Serviços Cognitivos da Azure
 
@@ -28,7 +28,7 @@ Cada pedido a um Serviço Cognitivo Azure deve incluir um cabeçalho de autentic
 
 Antes de fazer um pedido, precisa de uma conta Azure e uma subscrição dos Serviços Cognitivos Azure. Se já tem uma conta, vá em frente e salte para a secção seguinte. Se não tiver uma conta, temos um guia para o configurar em minutos: [Crie uma conta de Serviços Cognitivos para o Azure.](cognitive-services-apis-create-account.md)
 
-Pode obter a sua chave de subscrição a partir do [portal Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de criar a sua conta ou ativar um [teste gratuito.](https://azure.microsoft.com/try/cognitive-services/my-apis)
+Pode obter a sua chave de subscrição a partir do [portal Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) depois de [criar a sua conta.](https://azure.microsoft.com/free/cognitive-services/)
 
 ## <a name="authentication-headers"></a>Cabeçalhos de autenticação
 
@@ -160,7 +160,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 * [O que são os Serviços Cognitivos?](welcome.md)
 * [Preços dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)

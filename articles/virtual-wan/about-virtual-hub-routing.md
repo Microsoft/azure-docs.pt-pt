@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6809429b26eea30ca0569044634308d2e4dff9f7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025986"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147389"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca do encaminhamento do hub virtual
 
@@ -24,6 +24,10 @@ Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do 
 ## <a name="routing-concepts"></a><a name="concepts"></a>Conceitos de encaminhamento
 
 As secções seguintes descrevem os conceitos-chave no encaminhamento de hubs virtuais.
+
+> [!NOTE]
+> Alguns destes novos conceitos para a tabela de rotas hub, associação, propagação e rotas estáticas numa ligação de rede virtual ainda podem estar a ser lançados e espera-se que estejam concluídos na semana de 3 de agosto.
+>
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela de rota do hub
 
@@ -60,10 +64,6 @@ Uma **tabela de rotas Zero** também está disponível para cada hub virtual. A 
 
 Configurar as rotas estáticas fornece um mecanismo para orientar o tráfego através de um próximo IP de lúpulo, que poderia ser de um Aparelho Virtual de Rede (NVA) a provisionado num VNet Spoke ligado a um hub virtual. A rota estática é composta por um nome de rota, lista de prefixos de destino e um próximo IP de lúpulo.
 
-> [!NOTE]
-> Alguns destes novos conceitos de associação, propagação e rotas estáticas numa ligação de rede virtual ainda podem estar a ser lançados e espera-se que estejam concluídos na semana de 3 de agosto.
->
-
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Tabelas de rotas em WANs virtuais básicas e padrão antes do conjunto de funcionalidades de Associação e Propagação
 
 As tabelas de rotas têm agora características de associação e propagação. Uma tabela de rotas pré-existente é uma tabela de rotas que não tem estas funcionalidades. Se tiver rotas pré-existentes no Hub Encaminhamento e quiser utilizar as novas capacidades, considere o seguinte:
@@ -74,7 +74,7 @@ Para utilizar novas capacidades de tabela de rotas, por favor, espere até a sem
 
 * **Clientes Básicos de WAN Virtuais com rotas pré-existentes no hub virtual**: Para utilizar as novas capacidades de tabela de rotas, por favor, aguarde até a semana de 3 de agosto para que o lançamento em Azure esteja concluído. Se tiver rotas pré-existentes na secção de encaminhamento para o hub no portal Azure, terá de as eliminar primeiro e, em seguida, **atualize** o seu WAN Virtual Básico para O WAN Virtual Padrão. Consulte [a Atualização de um WAN virtual de Basic para Standard](upgrade-virtual-wan.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do hub virtual](how-to-virtual-hub-routing.md).
 

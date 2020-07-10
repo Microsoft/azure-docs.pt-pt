@@ -4,19 +4,19 @@ description: Aprenda os tipos de contas de utilizador e como configurá-las.
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 514a104c879a8d601bb03e2ed1c59b69516bc621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209730"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142674"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de utilizadores em Batch
 
 > [!NOTE]
 > As contas de utilizador discutidas neste artigo são diferentes das contas de utilizador utilizadas para o Protocolo de Ambiente de Trabalho Remoto (RDP) ou Secure Shell (SSH), por razões de segurança.
 >
-> Para ligar a um nó que executa a configuração da máquina virtual Linux via SSH, consulte [utilizar o Ambiente de Trabalho Remoto para um Linux VM em Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar aos nós que executam o Windows via RDP, consulte [Connect a um VM do Servidor do Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Para ligar a um nó que executa a configuração da máquina virtual Linux via SSH, consulte [utilizar o Ambiente de Trabalho Remoto para um Linux VM em Azure](../virtual-machines/linux/use-remote-desktop.md). Para ligar aos nós que executam o Windows via RDP, consulte [Connect a um VM do Servidor do Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para ligar a um nó que executa a configuração do serviço de nuvem através de RDP, consulte [Ativar a Conexão de Ambiente de Trabalho Remoto para uma função nos serviços de cloud Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 Uma tarefa em Azure Batch é sempre executada numa conta de utilizador. Por predefinição, as tarefas são executadas em contas de utilizador padrão, sem permissões de administrador. Para determinados cenários, poderá querer configurar a conta de utilizador na qual pretende que uma tarefa seja executada. Este artigo discute os tipos de contas de utilizador e como configurá-las para o seu cenário.
@@ -309,7 +309,7 @@ A versão de serviço Batch 2017-01-01.4.0 introduz uma mudança de rutura, subs
 | `run_elevated=False`                      | `user_identity=user`, onde <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated`não especificado | Nenhuma atualização necessária                                                                                                                                  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba mais [sobre ficheiros e diretórios](files-and-directories.md) em Azure Batch.

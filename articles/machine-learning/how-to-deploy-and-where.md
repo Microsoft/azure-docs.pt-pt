@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
+ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: aa961cb94816b50aa515532e69454fce9b370c54
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083086"
+ms.locfileid: "86146564"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ O seguinte código mostra como ligar-se a um espaço de trabalho Azure Machine L
 
 + **Utilizar o Visual Studio Code**
 
-   Quando utilizar o Código do Estúdio Visual, selecione o espaço de trabalho utilizando uma interface gráfica. Para obter mais informações, consulte [Implementar e gerir modelos](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) na documentação de extensão do Código do Estúdio Visual.
+   Quando utilizar o Código do Estúdio Visual, selecione o espaço de trabalho utilizando uma interface gráfica. Para obter mais informações, consulte [Implementar e gerir modelos](how-to-manage-resources-vscode.md#endpoints) na documentação de extensão do Código do Estúdio Visual.
 
 ## <a name="register-your-model"></a><a id="registermodel"></a>Registe o seu modelo
 
@@ -613,7 +613,7 @@ A tabela a seguir descreve os diferentes estados de serviço:
 | Transição | O serviço está em processo de implantação. | Não |
 | Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
 | Insodulável | O serviço não pode ser implantado neste momento devido à falta de recursos. | Não |
-| Falhou | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
+| Com falhas | O serviço falhou em ser acionado devido a um erro ou acidente. | Sim |
 | Bom estado de funcionamento | O serviço é saudável e o ponto final está disponível. | Sim |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Serviço web de instância computacional (dev/teste)
@@ -1104,7 +1104,7 @@ Para parar o recipiente, utilize o seguinte comando a partir de uma concha ou li
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar um serviço web implantado, utilize `service.delete()` .
 Para eliminar um modelo registado, utilize `model.delete()` .
@@ -1222,7 +1222,7 @@ def run(request):
 > A Azure Machine Learning irá encaminhar apenas os pedidos POST e GET para os contentores que executam o serviço de pontuação. Isto pode causar erros devido aos navegadores que usam pedidos OPTIONS para pedidos de CORS pré-voo.
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)

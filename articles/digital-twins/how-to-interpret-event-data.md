@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f6794559c2296b02ef61d0e280d29456904ae607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142443"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
 
@@ -103,7 +103,7 @@ As notificações do ciclo de vida são desencadeadas quando:
 
 Aqui estão os campos no corpo de uma notificação de ciclo de vida.
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto. |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -125,6 +125,7 @@ Aqui está um exemplo de um corpo para um dispositivo [IoT Plug and Play (PnP),]
 ```json
 {
   "$dtId": "device-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "thermostat": {
     "temperature": 80,
     "humidity": 45,
@@ -157,6 +158,7 @@ Aqui está outro exemplo de um gémeo digital. Este baseia-se num [modelo](conce
 ```json
 {
   "$dtId": "logical-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
@@ -187,7 +189,7 @@ Aqui está outro exemplo de um gémeo digital. Este baseia-se num [modelo](conce
 
 Aqui estão os campos no corpo de uma notificação de mudança de borda.
 
-| Name    | Valor |
+| Nome    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto |
 | `source` | Nome do exemplo das Gémeas Digitais Azure, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -243,7 +245,7 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 
 Aqui estão os campos no corpo de uma notificação digital de mudança de gémeos.
 
-| Name    | Valor |
+| Nome    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id`é único para cada evento distinto |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*
@@ -295,7 +297,7 @@ A notificação correspondente (se executada sincronizadamente pelo serviço, co
   }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar pontos finais e rotas para entregar eventos:
 * [Como fazer: Gerir pontos finais e rotas](how-to-manage-routes.md)

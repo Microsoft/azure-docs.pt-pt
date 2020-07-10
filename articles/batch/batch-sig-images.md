@@ -4,12 +4,12 @@ description: As piscinas de imagem personalizadas são uma forma eficiente de co
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 962b3c84e7f3cecc5f4d64febbfca635733a0bae
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 38233bc5d279c1c0ae7789dd06acff78ea26fb89
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851712"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147292"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
@@ -30,7 +30,7 @@ A utilização de uma Imagem Partilhada configurada para o seu cenário pode pro
 - **Pré-instalar aplicações.** A pré-instalação de aplicações no disco OS é mais eficiente e menos propensa a erros do que a instalação de aplicações depois de ter previsto os nós computacionais com uma tarefa inicial.
 - **Copie grandes quantidades de dados uma vez.** Faça parte dos dados estáticos da imagem partilhada gerida copiando-a para os discos de dados de uma imagem gerida. Isto só precisa ser feito uma vez e disponibilizar dados para cada nó da piscina.
 - **Cresça piscinas para tamanhos maiores.** Com a Galeria de Imagens Partilhadas, pode criar piscinas maiores com as suas imagens personalizadas juntamente com mais réplicas de Imagem Partilhada.
-- **Melhor desempenho do que usar apenas uma imagem gerida como uma imagem personalizada.** Para um pool de imagem personalizado image shared Image, o tempo para alcançar o estado estável é até 25% mais rápido e a latência ociosa VM é até 30% mais curta.
+- **Melhor desempenho do que usar apenas uma imagem gerida como uma imagem personalizada.** Para um pool de imagem personalizado image shared Image, o tempo para alcançar o estado estável é até 25% mais rápido, e a latência ociosa VM é até 30% mais curta.
 - **Imagem de versão e agrupamento para uma gestão mais fácil.** A definição de agrupamento de imagens contém informações sobre o porquê da imagem ter sido criada, para que é o SISTEMA e informação sobre a utilização da imagem. Agrupar imagens permite uma gestão de imagem mais fácil. Para obter mais informações, consulte [as definições de imagem.](../virtual-machines/windows/shared-image-galleries.md#image-definitions)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -83,7 +83,7 @@ Para criar uma imagem gerida a partir de um instantâneo, utilize ferramentas da
 
 ### <a name="create-a-shared-image-gallery"></a>Criar um Shared Image Gallery
 
-Uma vez criada com sucesso a sua imagem gerida, precisa de criar uma Galeria de Imagens Partilhada para disponibilizar a sua imagem personalizada. Para aprender a criar uma Galeria de Imagens Partilhadas para as suas imagens, consulte [Criar uma Galeria de Imagens Partilhadas com Azure CLI](../virtual-machines/linux/shared-images.md) ou Criar uma Galeria de [Imagens Partilhadas utilizando o portal Azure.](../virtual-machines/linux/shared-images-portal.md)
+Uma vez criada com sucesso a sua imagem gerida, precisa de criar uma Galeria de Imagens Partilhada para disponibilizar a sua imagem personalizada. Para aprender a criar uma Galeria de Imagens Partilhadas para as suas imagens, consulte [Criar uma Galeria de Imagens Partilhadas com Azure CLI](../virtual-machines/shared-images-cli.md) ou Criar uma Galeria de [Imagens Partilhadas utilizando o portal Azure.](../virtual-machines/linux/shared-images-portal.md)
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Criar uma piscina a partir de uma imagem partilhada usando o Azure CLI
 
@@ -203,7 +203,7 @@ client.pool.add(new_pool)
 
 Use os seguintes passos para criar uma piscina a partir de uma imagem partilhada no portal Azure.
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 1. Vá às **contas do Batch** e selecione a sua conta.
 1. Selecione **Pools** e, em seguida, **Adicione** para criar uma nova piscina.
 1. Na secção **Tipo de Imagem,** selecione **Galeria de Imagens Partilhadas.**
@@ -220,7 +220,7 @@ Se planeia criar uma piscina com centenas ou milhares de VMs ou mais usando uma 
 
 - **Redimensionar o tempo limite.** Se a sua piscina contiver um número fixo de nós (se não for auto-escalado), aumente a `resizeTimeout` propriedade da piscina dependendo do tamanho da piscina. Para cada 1000 VMs, o tempo limite recomendado de redimensionar é de pelo menos 15 minutos. Por exemplo, o tempo limite recomendado para uma piscina com 2000 VMs é de pelo menos 30 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral aprofundada do Lote, consulte o fluxo de trabalho e os recursos do [serviço Batch.](batch-service-workflow-features.md)
 - Conheça a [Galeria de Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md)

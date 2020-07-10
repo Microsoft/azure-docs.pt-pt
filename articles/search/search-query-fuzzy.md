@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81262439"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146131"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa fuzzy para corrigir erros ortográficos e erros de tipografia
 
@@ -85,37 +86,49 @@ Assuma que o seguinte fio existe num `"Description"` campo num documento de pesq
 
 Comece com uma pesquisa difusa em "especial" e adicione o ponto de destaque ao campo Descrição:
 
-    search=special~&highlight=Description
+```console
+search=special~&highlight=Description
+```
 
 Na resposta, porque adicionou o destaque do sucesso, a formatação é aplicada a "especial" como termo correspondente.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Tente novamente o pedido, soletrando mal "especial" ao retirar várias letras ("pe"):
 
-    search=scial~&highlight=Description
+```console
+search=scial~&highlight=Description
+```
 
 Até agora, nenhuma alteração na resposta. Utilizando o padrão de distância de 2 graus, remover dois caracteres "pe" de "especial" ainda permite uma correspondência bem sucedida nesse termo.
 
-    "@search.highlights": {
-        "Description": [
-            "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
-        ]
+```output
+"@search.highlights": {
+    "Description": [
+        "Test queries with <em>special</em> characters, plus strings for MSFT, SQL and Java."
+    ]
+```
 
 Tentando mais um pedido, modificar ainda mais o termo de pesquisa, retirando um último carácter para um total de três supressões (de "especial" a "escala"):
 
-    search=scal~&highlight=Description
+```console
+search=scal~&highlight=Description
+```
 
 Note que a mesma resposta é devolvida, mas agora em vez de combinar em "especial", o jogo fuzzy está em "SQL".
 
-            "@search.score": 0.4232868,
-            "@search.highlights": {
-                "Description": [
-                    "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
-                ]
+```output
+        "@search.score": 0.4232868,
+        "@search.highlights": {
+            "Description": [
+                "Mix of special characters, plus strings for MSFT, <em>SQL</em>, 2019, Linux, Java."
+            ]
+```
 
 O objetivo deste exemplo alargado é ilustrar a clareza que o destaque pode trazer a resultados ambíguos. Em todos os casos, o mesmo documento é devolvido. Se tivesse confiado em documentos de identificação para verificar uma correspondência, poderia ter perdido a mudança de "especial" para "SQL".
 

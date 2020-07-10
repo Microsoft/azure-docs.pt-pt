@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 2baf2b209cae11f734494c377aebd731f69f514d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b395931d11c7bc7119be0122531908ed680fc3b9
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610868"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145978"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar entradas de DNS pendentes e evitar a aquisição de subdomínios
 
@@ -61,7 +61,7 @@ As entradas de DNS pendentes tornam possível que os atores de ameaça assumam o
 
 - **Perda de controlo sobre o conteúdo do subdomínio** - Imprensa negativa sobre a incapacidade da sua organização em garantir o seu conteúdo, bem como os danos e perda de confiança da marca.
 
-- **Colheita de cookies de visitantes insuspeitos** - É comum que as aplicações web exponham cookies de sessão a subdomínios (*.contoso.com), consequentemente qualquer subdomínio pode aceder a eles. Os atores de ameaça podem usar a aquisição de subdomínio para construir uma página autêntica de aparência, enganar utilizadores insuspeitos para visitá-la e colher os seus cookies (até mesmo cookies seguros). Um equívoco comum é que a utilização de certificados SSL protege o seu site, e os cookies dos seus utilizadores, de uma aquisição. No entanto, um ator ameaça pode usar o subdomínio sequestrado para solicitar e receber um certificado SSL válido. Isto então lhes dá acesso a cookies seguros e pode aumentar ainda mais a legitimidade percebida do site malicioso.
+- **Colheita de cookies de visitantes insuspeitos** - É comum que as aplicações web exponham cookies de sessão a subdomínios (*.contoso.com), consequentemente qualquer subdomínio pode aceder a eles. Os atores de ameaça podem usar a aquisição de subdomínio para construir uma página autêntica de aparência, enganar utilizadores insuspeitos para visitá-la e colher os seus cookies (até mesmo cookies seguros). Um equívoco comum é que a utilização de certificados SSL protege o seu site, e os cookies dos seus utilizadores, de uma aquisição. No entanto, um ator ameaça pode usar o subdomínio sequestrado para solicitar e receber um certificado SSL válido. Os certificados SSL válidos concedem-lhes acesso a cookies seguros e podem aumentar ainda mais a legitimidade percebida do site malicioso.
 
 - **Campanhas de phishing** - Subdomínios de aparência autêntica podem ser usados em campanhas de phishing. Isto é verdade para sites maliciosos e também para registos MX que permitiriam que o ator ameaçasse receber e-mails dirigidos a um subdomínio legítimo de uma marca conhecida e segura.
 
@@ -78,14 +78,14 @@ As medidas preventivas de que hoje dispõem estão listadas abaixo.
 
 ### <a name="use-azure-dns-alias-records"></a>Use registos de pseudónimos Azure DNS
 
-Ao acoplar firmemente o ciclo de vida de um registo de DNS com um recurso Azure, [os registos de pseudónimos](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) do Azure DNS podem impedir referências pendentes. Por exemplo, considere um registo DNS que seja qualificado como um registo de pseudónimo para apontar para um endereço IP público ou um perfil de Gestor de Tráfego. Se eliminar os recursos subjacentes, o registo de pseudónimos DNS torna-se um recorde vazio. Já não faz referência ao recurso eliminado. É importante notar que há limites para o que se pode proteger com registos de pseudónimos. Hoje, a lista está limitada a:
+[Os registos de pseudónimos](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) do Azure DNS podem impedir referências pendentes acoplamento do ciclo de vida de um registo DNS com um recurso Azure. Por exemplo, considere um registo DNS que seja qualificado como um registo de pseudónimo para apontar para um endereço IP público ou um perfil de Gestor de Tráfego. Se eliminar os recursos subjacentes, o registo de pseudónimos DNS torna-se um recorde vazio. Já não faz referência ao recurso eliminado. É importante notar que há limites para o que se pode proteger com registos de pseudónimos. Hoje, a lista está limitada a:
 
 - Azure Front Door
 - Perfis do Gestor de Tráfego
 - Pontos finais da Rede de Entrega de Conteúdos Azure (CDN)
 - IPs públicos
 
-Se você tem recursos que podem ser protegidos contra a aquisição de subdomínio com registos de pseudónimos, recomendamos fazê-lo apesar das ofertas limitadas de serviços hoje em dia.
+Apesar das ofertas de serviços limitadas hoje em dia, recomendamos a utilização de registos de alias para se defender contra a aquisição de subdomínio sempre que possível.
 
 [Saiba mais](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) sobre as capacidades dos registos de pseudónimos do Azure DNS.
 
@@ -120,7 +120,7 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
         - **Exista** - Consultar as suas zonas DNS para recursos que apontam para subdomínios Azure tais como *.azurewebsites.net ou *.cloudapp.azure.com (consulte [esta lista de referência).](azure-domains.md)
         - **Possui** - Confirme que possui todos os recursos que os seus subdomínios DNS estão a ser alvo.
 
-    - Mantenha um catálogo de serviços do seu nome de domínio Azure totalmente qualificado (FQDN) e dos proprietários da aplicação. Para construir o seu catálogo de serviços, execute a seguinte consulta de Gráfico de Recursos Azure com os parâmetros da tabela abaixo:
+    - Mantenha um catálogo de serviços do seu nome de domínio Azure totalmente qualificado (FQDN) e dos proprietários da aplicação. Para construir o seu catálogo de serviços, execute a seguinte consulta Azure Resource Graph (ARG) com os parâmetros da tabela abaixo:
     
         >[!IMPORTANT]
         > **Permissões** - Executar a consulta como utilizador com acesso a todas as suas subscrições Azure. 
@@ -139,9 +139,12 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
         
         Também pode combinar vários tipos de recursos. Este exemplo de consulta devolve os recursos do Azure App Service **e** do Azure App Service - Slots:
 
-        ```
+        ```azurepowershell
         Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
         ```
+
+
+        Por parâmetros de serviço para a consulta ARG:
 
         |Nome do recurso  |[ResourceType]  | [FQDNproperty]  |
         |---------|---------|---------|
@@ -149,9 +152,9 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
         |Armazenamento de Blobs do Azure|microsoft.storage/storageaccounts|propriedades.primaryEndpoints.blob|
         |CDN do Azure|microsoft.cdn/perfis/pontos finais|propriedades.hostName|
         |Endereços IP públicos|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
-        |Traffic Manager do Azure|microsoft.network/trafficmanagerprofils|properties.dnsConfig.fqdn|
+        |Gestor de Tráfego do Azure|microsoft.network/trafficmanagerprofils|properties.dnsConfig.fqdn|
         |Instância de Contentor do Azure|microsoft.containerinstance/containergroups|propriedades.ipAddress.fqdn|
-        |API Management do Azure|microsoft.apimanagement/service|propriedades.hostnameConfigurations.hostName|
+        |Gestão de API do Azure|microsoft.apimanagement/service|propriedades.hostnameConfigurations.hostName|
         |Serviço de Aplicações do Azure|microsoft.web/sites|propriedades.defaultName|
         |Serviço de Aplicações Azure - Slots|microsoft.web/sites/slots|propriedades.defaultName|
 
@@ -162,7 +165,7 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
     - Elimine o registo DNS se já não estiver em uso, ou aponte-o para o recurso Azure (FQDN) de propriedade da sua organização.
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre serviços relacionados e funcionalidades Azure que pode usar para se defender contra a aquisição de subdomínios, consulte as páginas seguintes.
 

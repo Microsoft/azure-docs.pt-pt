@@ -7,19 +7,19 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80060273"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143841"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do Azure Web Application Firewall (WAF)
 
 As políticas de firewall de aplicação web contêm todas as definições e configurações da WAF. Isto inclui exclusões, regras personalizadas, regras geridas, e assim por diante. Estas políticas estão então associadas a uma porta de aplicação (global), a um ouvinte (por local) ou a uma regra baseada em caminhos (per-URI) para que eles entrem em vigor.
 
 > [!NOTE]
-> As políticas Azure Web Application Firewall (WAF) por site e per-URI estão na Pré-visualização Pública.
+> As políticas Azure Web Application Firewall (WAF) per-URI estão em Visualização Pública.
 > 
 > Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

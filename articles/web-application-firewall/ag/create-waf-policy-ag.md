@@ -7,11 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84014541"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146610"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Criar políticas de Firewall de Aplicação Web para Gateway de Aplicações
 
@@ -22,7 +23,7 @@ Pode fazer quantas políticas quiser. Uma vez que crie uma política, deve ser a
 Se o seu Application Gateway tiver uma política aplicada, e depois aplicar uma política diferente a um ouvinte no Gateway de Aplicação, a política do ouvinte entrará em vigor, mas apenas para os ouvintes a que estão designados. A política de Gateway de Aplicação ainda se aplica a todos os outros ouvintes que não têm uma política específica que lhes seja atribuída. 
 
    > [!NOTE]
-   > As políticas por site e per-URI WAF estão em Visualização Pública. Isto significa que esta funcionalidade está sujeita aos Termos Complementares de Utilização da Microsoft. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > As políticas per-URI WAF estão em Visualização Pública. Isto significa que esta funcionalidade está sujeita aos Termos Complementares de Utilização da Microsoft. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
    > [!NOTE]
    > Uma vez que uma Política de Firewall está associada a um WAF, deve haver sempre uma política associada a essa WAF. Podes sobrepor essa política, mas desassociar uma política da WAF não é inteiramente apoiado. 
 
@@ -111,6 +112,6 @@ $appgw.ForceFirewallPolicyAssociation = $true
 
 Em seguida, procees com os passos para associar uma Política WAF ao seu gateway de aplicação. Para obter mais informações, consulte [uma Política WAF com um Gateway de aplicação existente.](associate-waf-policy-existing-gateway.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [grupos e regras de regras do CRS do Firewall de Aplicação Web.](application-gateway-crs-rulegroups-rules.md)

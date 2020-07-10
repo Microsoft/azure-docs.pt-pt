@@ -8,16 +8,22 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0716ca8f0457ca801098c97dd7a5e68751822d4d
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: ed64b9d281cfbbf8202a99335ea2759b27a6fc42
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848103"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142963"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
 Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cenários disponíveis. Neste cenário NVA, o objetivo é encaminhar o tráfego através de um NVA (Network Virtual Appliance) para ramo para VNet e VNet para ramificar. Para obter informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> Algumas das capacidades de encaminhamento ainda podem estar a ser lançadas. Se o lançamento ainda não tiver acontecido na sua região, por favor, use os passos nestas versões dos artigos entretanto:
+>* [Artigo do portal Azure](virtual-wan-route-table-nva-portal.md)
+>* [Artigo PowerShell](virtual-wan-route-table-nva.md)
+>
 
 ## <a name="scenario-architecture"></a><a name="architecture"></a>Arquitetura do cenário
 
@@ -59,9 +65,9 @@ Para configurar o encaminhamento via NVA, aqui estão os passos a considerar:
 
 Isto resultará em alterações na configuração do encaminhamento, como visto na figura abaixo
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Resultado":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Result":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

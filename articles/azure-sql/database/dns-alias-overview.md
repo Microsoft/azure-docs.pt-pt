@@ -11,11 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: aa8fa9ff6973e908d6af700f7c2965a844e87b04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170992"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145649"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Pseudónimo de DNS para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -111,7 +112,9 @@ Atualmente, um pseudónimo DNS tem as seguintes limitações:
 ## <a name="related-resources"></a>Recursos relacionados
 
 - [Visão geral da continuidade do negócio com a Base de Dados Azure SQL,](business-continuity-high-availability-disaster-recover-hadr-overview.md)incluindo recuperação de desastres.
+- [Referência à API REST do Azure](https://docs.microsoft.com/rest/api/azure/)
+- [Servidor Dns Aliases API](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [PowerShell para DNS Alias para Azure SQL Database](dns-alias-powershell-create.md)

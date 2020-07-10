@@ -3,11 +3,12 @@ title: Monte um sistema de arquivo virtual em uma piscina
 description: Saiba como montar um sistema de ficheiros virtuais numa piscina de Lote.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 80acf5df0cf5262249b2eac584152744a4224a35
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3f948f8441208f4a8741949e65afc8032f0a5080
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954677"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144422"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monte um sistema de ficheiros virtual numa piscina de Lote
 
@@ -76,7 +77,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Sistema de ficheiros Azure Blob
 
-Outra opção é utilizar o armazenamento Azure Blob via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de ficheiros blob requer uma `AccountKey` ou para a sua conta de `SasKey` armazenamento. Para obter informações sobre a obtenção destas teclas, consulte [as teclas de acesso à conta de armazenamento,](../storage/common/storage-account-keys-manage.md)ou [utilize assinaturas de acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Para obter mais informações sobre a utilização de blobfuse, consulte o blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Para obter acesso predefinido ao diretório montado blobfuse, executar a tarefa como **Administrador**. Blobfuse monta o diretório no espaço do utilizador, e na criação da piscina é montado como raiz. No Linux todas as tarefas **do Administrador** são raiz. Todas as opções para o módulo FUSE estão descritas na página de referência do [FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Outra opção é utilizar o armazenamento Azure Blob via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). A montagem de um sistema de ficheiros blob requer uma `AccountKey` ou para a sua conta de `SasKey` armazenamento. Para obter informações sobre a obtenção destas teclas, consulte [as teclas de acesso à conta de armazenamento,](../storage/common/storage-account-keys-manage.md)ou [utilize assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md). Para obter mais informações sobre a utilização de blobfuse, consulte o blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Para obter acesso predefinido ao diretório montado blobfuse, executar a tarefa como **Administrador**. Blobfuse monta o diretório no espaço do utilizador, e na criação da piscina é montado como raiz. No Linux todas as tarefas **do Administrador** são raiz. Todas as opções para o módulo FUSE estão descritas na página de referência do [FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Além do guia de resolução de problemas, as questões do GitHub no repositório blobfuse são uma forma útil de verificar as questões e resoluções atuais do blobfuse. Para mais informações, consulte [questões blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
 
@@ -174,7 +175,7 @@ Para obter os ficheiros de registo para depurar, utilize [o OutputFiles](batch-t
 | Oracle | Oráculo-Linux | 7.6 | :x: | :x: | :x: | :x: |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais detalhes sobre a montagem de uma partilha de Ficheiros Azure com [o Windows](../storage/files/storage-how-to-use-files-windows.md) ou [o Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Saiba como utilizar e montar sistemas de ficheiros virtuais [blobfuse.](https://github.com/Azure/azure-storage-fuse)

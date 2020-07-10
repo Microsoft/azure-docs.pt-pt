@@ -4,12 +4,12 @@ description: Monitorize a sua aplicação web em tempo real com métricas person
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 10818a531a43b50b86a6d413c7a504e2c19c3986
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e554595a7a88e1455f7426636dc69db99a7d3e94
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507351"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166489"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnóstico com latência de 1 segundo
 
@@ -49,12 +49,12 @@ Verifique se as [portas de saída do Live Metrics Stream](../../azure-monitor/ap
 
 | |Live Stream | Métricas Explorer e Analytics |
 |---|---|---|
-|Latência|Dados apresentados dentro de um segundo|Agregado ao longo de minutos|
-|Sem retenção|Os dados persistem enquanto estão na tabela, e são depois descartados|[Dados retidos por 90 dias](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|A pedido|Os dados só são transmitidos enquanto o painel de Métricas Ao Vivo está aberto |Os dados são enviados sempre que o SDK é instalado e habilitado|
-|Gratuito|Não há nenhuma taxa para os dados do Live Stream|Sujeito a [preços](../../azure-monitor/app/pricing.md)
-|Amostragem|Todas as métricas e balcões selecionados são transmitidos. Falhas e vestígios de pilha são amostrados. Os processos de telemetria não são aplicados.|Os eventos podem ser [amostrados](../../azure-monitor/app/api-filtering-sampling.md)|
-|Canal de controlo|Os sinais de controlo do filtro são enviados para o SDK. Recomendamos que proteja este canal.|A comunicação é uma maneira, para o portal|
+|**Latência**|Dados apresentados dentro de um segundo|Agregado ao longo de minutos|
+|**Sem retenção**|Os dados persistem enquanto estão na tabela, e são depois descartados|[Dados retidos por 90 dias](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|**A pedido**|Os dados só são transmitidos enquanto o painel de Métricas Ao Vivo está aberto |Os dados são enviados sempre que o SDK é instalado e habilitado|
+|**Gratuito**|Não há nenhuma taxa para os dados do Live Stream|Sujeito a [preços](../../azure-monitor/app/pricing.md)
+|**Amostragem**|Todas as métricas e balcões selecionados são transmitidos. Falhas e vestígios de pilha são amostrados. Os processos de telemetria não são aplicados.|Os eventos podem ser [amostrados](../../azure-monitor/app/api-filtering-sampling.md)|
+|**Canal de controlo**|Os sinais de controlo do filtro são enviados para o SDK. Recomendamos que proteja este canal.|A comunicação é uma maneira, para o portal|
 
 ## <a name="select-and-filter-your-metrics"></a>Selecione e filtre as suas métricas
 
@@ -208,7 +208,7 @@ Por predefinição, as Métricas Vivas são desativadas no Node.js SDK. Para ati
 
 Não existem dados? Se a sua aplicação estiver numa rede protegida: Live Metrics Stream utiliza diferentes endereços IP do que outros telemetria de Insights de Aplicação. Certifique-se de que [os endereços IP](../../azure-monitor/app/ip-addresses.md) estão abertos na sua firewall.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Monitorização da utilização com Insights de Aplicação](../../azure-monitor/app/usage-overview.md)
 * [Usando a pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Gerador de perfis](../../azure-monitor/app/profiler.md)

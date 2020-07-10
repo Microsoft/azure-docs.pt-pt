@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: e9e809eb805e891fdf70a85d42eebc3e17da8902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210189"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147101"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Prevenir a sobremontagem e os dados desequilibrados com a aprendizagem automática de máquinas
 
@@ -71,7 +71,7 @@ O ML automatizado também implementa **limitações explícitas** de complexidad
 **A validação cruzada (CV)** é o processo de tomada de muitos subconjuntos dos seus dados completos de treino e formação de um modelo em cada subconjunto. A ideia é que um modelo possa ter "sorte" e ter uma grande precisão com um subconjunto, mas ao utilizar muitos subconjuntos o modelo não vai conseguir sempre esta elevada precisão. Ao fazer CV, fornece um conjunto de dados de retenção de validação, especifica as suas dobras CV (número de subconjuntos) e o ML automatizado treinará o seu modelo e afinará hiperparmetros para minimizar o erro no seu conjunto de validação. Uma dobra cv pode estar em excesso, mas ao usar muitos deles reduz a probabilidade de o seu modelo final estar demasiado ajustado. A contrapartida é que o CV resulta em tempos de treino mais longos e, portanto, num custo maior, porque em vez de treinar um modelo uma vez, treina-se uma vez para cada subconjunto de *CV.* 
 
 > [!NOTE]
-> A validação cruzada não é ativada por defeito; deve ser configurado em definições automáticas de ML. No entanto, após a validação cruzada ser configurada e ter sido fornecido um conjunto de dados de validação, o processo é automatizado para si. Consulte 
+> A validação cruzada não é ativada por defeito; deve ser configurado em definições automáticas de ML. No entanto, após a validação cruzada ser configurada e ter sido fornecido um conjunto de dados de validação, o processo é automatizado para si. Saiba mais sobre [a configuração de validação cruzada em Auto ML](how-to-configure-cross-validation-data-splits.md)
 
 <a name="imbalance"></a>
 
@@ -93,7 +93,7 @@ Como parte do seu objetivo de simplificar o fluxo de trabalho de machine learnin
 
 - Uma coluna de **peso**: ML automatizado suporta uma coluna de pesos como entrada, fazendo com que as linhas nos dados sejam ponderadas para cima ou para baixo, o que pode ser usado para tornar uma classe mais ou menos "importante".
 
-- Os algoritmos usados pelo ML automatizado podem lidar corretamente com o desequilíbrio de até 20:1, o que significa que a classe mais comum pode ter 20 vezes mais linhas nos dados do que a classe menos comum.
+- Os algoritmos utilizados pelo ML automatizado detetam desequilíbrio quando o número de amostras na classe minoritária é igual ou inferior a 20% do número de amostras na classe maioritária, onde a classe minoritária se refere à que tem menos amostras e a classe maioritária refere-se à que tem mais amostras. Posteriormente, a AutoML realizará uma experiência com dados sub-amostrados para verificar se a utilização de pesos de classe resolveria este problema e melhoraria o desempenho. Se verificar um melhor desempenho através desta experiência, então este remédio é aplicado.
 
 - Use uma métrica de desempenho que lida melhor com dados desequilibrados. Por exemplo, o AUC_weighted é uma métrica primária que calcula a contribuição de cada classe com base no número relativo de amostras que representam essa classe, portanto é mais robusto contra o desequilíbrio.
 
@@ -103,7 +103,7 @@ As seguintes técnicas são opções adicionais para lidar com dados desequilibr
 
 - Rever métricas de desempenho para dados desequilibrados. Por exemplo, a pontuação F1 é uma média ponderada de precisão e recordação. A precisão mede a exatidão de um classificador- a baixa precisão indica um elevado número de falsos positivos--, enquanto a recuperação mede a completude de um classificador-- a baixa recuperação indica um elevado número de falsos negativos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja exemplos e aprenda a construir modelos utilizando machine learning automatizado:
 

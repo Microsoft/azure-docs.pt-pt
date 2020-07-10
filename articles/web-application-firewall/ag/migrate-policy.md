@@ -7,15 +7,16 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536629"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143849"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrar políticas de Firewall de aplicação web usando Azure PowerShell
 
-Este script facilita a transição de um config WAF ou de uma política waf personalizada apenas para uma política waf completa. Pode ver um aviso no portal que diz *migrar para a política da WAF,* ou pode querer as novas funcionalidades de pré-visualização do WA, como regras personalizadas geomatch, política por local e waf per-URI, ou o bot mitigation ruleset. Para utilizar qualquer uma destas funcionalidades, precisa de uma política WAF completa associada ao seu gateway de aplicações. 
+Este script facilita a transição de um config WAF ou de uma política waf personalizada apenas para uma política waf completa. Pode ver um aviso no portal que diz *migrar para a política da WAF,* ou pode querer as novas funcionalidades da WAF, tais como regras personalizadas geomatch (pré-visualização), política de WAF por local e política de WAF per-URI (pré-visualização), ou o bot mitigation ruleset (pré-visualização). Para utilizar qualquer uma destas funcionalidades, precisa de uma política WAF completa associada ao seu gateway de aplicações. 
 
 Para obter mais informações sobre a criação de uma nova política DA WAF, consulte as políticas de Firewall de [Aplicação Web para Gateway de aplicações.](create-waf-policy-ag.md) Para obter informações sobre migração, consulte [a política de Migração para a WAF](create-waf-policy-ag.md#migrate-to-waf-policy).
 
@@ -216,6 +217,6 @@ function Main() {
 
 Main
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [grupos e regras de regras do CRS do Firewall de Aplicação Web.](application-gateway-crs-rulegroups-rules.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b4980ee8ea252b4ce13601501e4bf1f7af97d1b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295447"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166370"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilizar a autenticação do Azure AD para aceder à API de Serviços de Multimédia com REST
 
@@ -58,11 +58,11 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obtenha a informação de autenticação do portal Azure
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 
 Para aceder à API dos Serviços de Mídia, é necessário recolher os seguintes pontos de dados.
 
-|Definição|Exemplo|Description|
+|Definição|Exemplo|Descrição|
 |---|-------|-----|
 |Domínio do inquilino do Diretório Ativo Azure|microsoft.onmicrosoft.com|A Azure AD como um ponto final secure Token Service (STS) é criado usando o seguinte formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> . A Azure AD emite um JWT para aceder a recursos (um token de acesso).|
 |Ponto final da API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto final contra o qual todos os serviços de mídia REST API chama na sua aplicação.|
@@ -137,8 +137,10 @@ Esta secção mostra como usar **o Carteiro** para executar uma API REST que dev
 
     Em alternativa, clique no link **de edição** a granel à direita da janela do Carteiro e cole o seguinte código.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. Pressione a aba **do Corpo.**
 7. Introduza a informação do corpo utilizando a grelha de dados "Chave/Valor" (substitua o ID do cliente e os valores secretos). 
@@ -147,10 +149,12 @@ Esta secção mostra como usar **o Carteiro** para executar uma API REST que dev
 
     Em alternativa, clique em **Edição a granel** à direita da janela do Carteiro e cole o seguinte corpo (substitua o ID do cliente e os valores secretos):
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. Prima **Enviar**.
 
@@ -180,11 +184,13 @@ Esta secção mostra como aceder à API **de Ativos** utilizando **o Carteiro**.
 5. Clique no link **de edição** a granel na janela direita do Carteiro.
 6. Cole os seguintes cabeçalhos:
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. Prima **Enviar**.
 

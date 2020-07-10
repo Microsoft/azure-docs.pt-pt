@@ -3,11 +3,12 @@ title: Monitorização de Kubernetes com monitor Azure para contentores Microsof
 description: Este artigo descreve como pode ver e analisar o desempenho de um cluster Kubernetes com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 17efb89e36429f9658759a0ed90d4e7b785fe4b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340893"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166642"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o desempenho do cluster Kubernetes com o Azure Monitor para contentores
 
@@ -65,7 +66,7 @@ O estado de saúde calcula o estado global do cluster como o *pior dos* três es
 
 O quadro seguinte fornece uma repartição do cálculo que controla os estados de saúde para um cluster monitorizado na vista multi-cluster.
 
-| |Estado |Disponibilidade |
+| Aglomerado monitorizado |Estado |Disponibilidade |
 |-------|-------|-----------------|
 |**Cápsula de utilizador**| | |
 | |Bom estado de funcionamento |100% |
@@ -116,7 +117,7 @@ O Azure Monitor para contentores também suporta [o explorador de métricas](../
 
 No explorador de métricas, pode ver métricas de utilização de nó agregados e pod do Monitor Azure para recipientes. A tabela seguinte resume os detalhes para ajudá-lo a entender como usar as tabelas métricas para visualizar as métricas do recipiente.
 
-|Espaço de Nomes | Metric | Descrição |
+|Espaço de Nomes | Métrica | Descrição |
 |----------|--------|-------------|
 | insights.container/nós | |
 | | cpuUsageMillicores | Medição agregada da utilização do CPU em todo o cluster. É um núcleo de CPU dividido em 1000 unidades (milli = 1000). Usado para determinar o uso de núcleos em um recipiente onde muitas aplicações podem estar usando um núcleo.|
@@ -190,7 +191,7 @@ As informações apresentadas quando vê o **separador Nodes** são descritas na
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do hospedeiro. |
+| Nome | O nome do hospedeiro. |
 | Estado | Kubernetes visualizam o estado do nó. |
 | Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;%  | Percentagem média de nó com base no percentil durante a duração selecionada. |
 | Min, Avg, 50º, 90º, 95º, Max | Valor real dos nós médios com base no percentil durante a duração selecionada. O valor médio é medido a partir do limite de CPU/Memória definido para um nó. Para cápsulas e contentores, é o valor médio reportado pelo hospedeiro. |
@@ -233,7 +234,7 @@ As informações apresentadas quando visualizam os controladores são descritas 
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Estado | O estado de rollup dos contentores depois de ter terminado a funcionar com o estado *ok,* *terminado,* *falhado,* *parado*ou *pausado*. Se o contentor estiver em funcionamento, mas o estado não foi devidamente visualizado ou não foi recolhido pelo agente e não respondeu há mais de 30 minutos, o estado é *desconhecido.* Detalhes adicionais do ícone de estado são fornecidos na tabela seguinte.|
 | Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;%| Rollup média da percentagem média de cada entidade para a métrica e percentil selecionados. |
 | Min, Avg, 50º, 90º, 95º, Max  | Rollup do miliére cpu médio ou desempenho de memória do recipiente para o percentil selecionado. O valor médio é medido a partir do limite cpu/memória definido para uma vagem. |
@@ -270,7 +271,7 @@ A informação apresentada quando vê os recipientes é descrita na tabela segui
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Estado | Estado dos contentores, se houver. Detalhes adicionais do ícone de estado são fornecidos na tabela seguinte.|
 | Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;% | O rollup da percentagem média de cada entidade para a métrica e percentil selecionados. |
 | Min, Avg, 50º, 90º, 95º, Max | O rollup do valor médio do CPU millicore ou do desempenho da memória do recipiente para o percentil selecionado. O valor médio é medido a partir do limite cpu/memória definido para uma vagem. |
@@ -318,7 +319,7 @@ Aceda a estes livros selecionando cada um deles na lista de drop-down do **View 
 
 ![Ver lista de drop-down de livros de trabalho](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja Criar alertas de desempenho com o Azure Monitor para que os recipientes](container-insights-alerts.md) aprendam a criar alertas para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.
 

@@ -11,11 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444255"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165775"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
 
@@ -65,7 +66,7 @@ Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectati
 
 Para este plano, adicione as seguintes partes interessadas à sua lista:
 
-| Função| Descrição |
+| Função| Description |
 | - | - |
 | Administrador do dispositivo| Um representante da equipa de dispositivos que pode verificar se o plano irá satisfazer os requisitos do dispositivo da sua organização. |
 | Administrador de rede| Um representante da equipa de rede que pode certificar-se de que cumpre os requisitos da rede. |
@@ -101,7 +102,7 @@ Use esta árvore para determinar opções para dispositivos pertencentes à orga
 
 Os dispositivos iOS e Android só podem estar registados no Azure AD. A tabela a seguir apresenta considerações de alto nível para dispositivos clientes Windows. Use-o como uma visão geral, em seguida, explore os diferentes métodos de integração em detalhe.
 
-| | Azure AD registado| Associação ao Azure AD| Associação ao Azure AD Híbrido |
+| Consideração | Azure AD registado| Associação ao Azure AD| Associação ao Azure AD Híbrido |
 | - | - | - | - |
 | **Sistemas operativos do cliente**| | |  |
 | Dispositivos Windows 10| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png)| ![selecionar](./media/plan-device-deployment/check.png) |
@@ -264,7 +265,7 @@ Se sentir problemas com a conclusão da azure híbrida ad para dispositivos Wind
 
 * [Híbrido de resolução de problemas Azure AD junta-se para dispositivos de nível baixo do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Planeie a sua implementação Azure AD](azureadjoin-plan.md)
 * [Planeie a sua implementação híbrida Azure AD](hybrid-azuread-join-plan.md)

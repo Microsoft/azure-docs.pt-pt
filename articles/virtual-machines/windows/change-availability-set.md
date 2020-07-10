@@ -6,11 +6,12 @@ author: cynthn
 ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e014dbe440f1b7baf39c290b8b7ab8fcaea0bada
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964928"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165860"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Alterar o conjunto de disponibilidade de uma VM
 Os seguintes passos descrevem como alterar o conjunto de disponibilidade de um VM utilizando a Azure PowerShell. Um VM só pode ser adicionado a um conjunto de disponibilidade quando é criado. Para alterar o conjunto de disponibilidade, é necessário eliminar e, em seguida, recriar a máquina virtual. 
@@ -18,6 +19,8 @@ Os seguintes passos descrevem como alterar o conjunto de disponibilidade de um V
 Este artigo aplica-se tanto aos VMs Linux como ao Windows.
 
 Este artigo foi testado pela última vez em 2/12/2019 utilizando a [Azure Cloud Shell](https://shell.azure.com/powershell) e a versão 1.2.0 do [módulo Az PowerShell.](https://docs.microsoft.com/powershell/azure/install-az-ps)
+
+Este exemplo não verifica se o VM está ligado a um equilibrador de carga. Se o seu VM estiver ligado a um equilibrador de carga, terá de atualizar o script para lidar com essa caixa. 
 
 
 ## <a name="change-the-availability-set"></a>Alterar o conjunto de disponibilidade 
@@ -101,7 +104,7 @@ O seguinte script fornece um exemplo de recolha das informações necessárias, 
        -DisableBginfoExtension
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Adicione armazenamento adicional ao seu VM adicionando um disco de [dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
 

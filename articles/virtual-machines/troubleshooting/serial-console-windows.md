@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0fd2bcfb32524c6911a70157f58cea1e48b7bea9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135248"
+ms.locfileid: "86146646"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola em série Azure para Windows
 
@@ -100,11 +100,10 @@ Se precisar de ativar as solicitações de carregamento de arranque do Windows p
 
 1. Ligue-se à consola em série. Se ligar com sucesso, o pedido é **SAC>: **
 
-    ![Ligue-se ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
-
+   ![Ligue-se ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 1. `cmd`Insira para criar um canal que tenha uma instância CMD.
 
-1. Introduza `ch -si 1` ou prima `<esc>+<tab>` as teclas de atalho para mudar para o canal que está a executar a instância CMD.
+1. Introduza `ch -si 1` ou pressione as `<esc>+<tab>` teclas de atalho para mudar para o canal que está a executar a instância CMD.
 
 1. Pressione **Intromia**e, em seguida, introduza credenciais de inscrição com permissões administrativas.
 
@@ -112,7 +111,7 @@ Se precisar de ativar as solicitações de carregamento de arranque do Windows p
 
 1. Para iniciar uma instância PowerShell, insira `PowerShell` na instância CMD e, em seguida, prima **Enter**.
 
-    ![Exemplo Open PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+   ![Exemplo Open PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Utilize a consola em série para chamadas NMI
 Uma interrupção não mascarada (NMI) foi concebida para criar um sinal de que o software numa máquina virtual não ignorará. Historicamente, as NMIs têm sido usadas para monitorizar problemas de hardware em sistemas que exigiam tempos de resposta específicos. Hoje em dia, programadores e administradores de sistemas usam frequentemente o NMI como um mecanismo para depurar ou resolver sistemas que não respondem.
@@ -170,7 +169,7 @@ A consola em série tem suporte para leitores de ecrã incorporado. Navegar por 
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Cenários comuns para aceder à consola em série
 
-Scenario          | Ações na consola em série
+Cenário          | Ações na consola em série
 :------------------|:-----------------------------------------
 Regras de firewall incorretas | Aceda à consola em série e corrija as regras de firewall do Windows.
 Corrupção/verificação do sistema de ficheiros | Aceda à consola em série e recupere o sistema de ficheiros.
@@ -217,7 +216,7 @@ R. A sua imagem está provavelmente mal configurada para o acesso à consola em 
 
 R. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para obter um guia aprofundado dos comandos CMD e PowerShell que pode utilizar no Windows SAC, consulte os [comandos windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 * A consola em série também está disponível para Os VMs [Linux.](serial-console-linux.md)
 * Saiba mais sobre [diagnósticos de arranque.](boot-diagnostics.md)

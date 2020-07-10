@@ -15,12 +15,12 @@ ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 875c503a9959565d76d46902b5ecb386995ef1e5
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360304"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144725"
 ---
 # <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)
 O Azure AD Connect instala um serviço no local que orquestra a sincronização entre o Ative Directory e o Azure Ative Directory.  O serviço de sincronização do Microsoft Azure AD Sync (ADSync) funciona num servidor no seu ambiente no local.  As credenciais para o serviço são definidas por padrão nas instalações do Express, mas podem ser personalizadas de acordo com os seus requisitos de segurança organizacional.  Estas credenciais não são usadas para ligar às suas florestas no local ou ao Diretório Ativo Azure.
@@ -46,9 +46,9 @@ A Microsoft recomenda a execução do serviço ADSync no contexto de uma Conta d
 - conta de serviço gerido – utilize um MSA autónomo ou grupo MSA aprovisionado pelo seu administrador
 - conta de domínio – utilize uma conta de serviço de domínio a ser disponibilizada pelo seu administrador
 
-![](media/concept-adsync-service-account/adsync1.png)
+![Screenshot da página Azure AD Connect Express Settings com botões de opção "Personalizar" ou "Utilizar definições expressas".](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![Screenshot da página Azure AD Connect "Instalar componentes necessários" com a opção de utilizar uma conta de serviço gerida existente selecionada.](media/concept-adsync-service-account/adsync2.png)
 
 ## <a name="diagnosing-adsync-service-account-changes"></a>Diagnóstico de alterações na conta de serviço ADSync
 A alteração das credenciais para o serviço ADSync após a instalação resultará na falha do arranque do serviço, na perda de acesso à base de dados de sincronização e na não autenticação com os seus diretórios conectados (Azure e AD DS).  A concessão de acesso à base de dados à nova conta de serviçoSync é insuficiente para recuperar desta edição. Não ocorrerá sincronização até que as credenciais originais sejam restauradas.
@@ -81,5 +81,5 @@ Failure Code = 0x80004005
 Minor Number = 0 
 Description  = 'A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.'
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113219"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146027"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData em Azure Cognitive Search - `eq` , , , , , `ne` `gt` `lt` `ge` e`le`
 
@@ -46,7 +47,7 @@ Pode utilizar os operadores de gama em combinação com os [operadores lógicos]
 > [!NOTE]
 > Se preferir, pode colocar o valor constante no lado esquerdo do operador e o nome de campo no lado direito. Para os operadores de gama, o significado da comparação é invertido. Por exemplo, se o valor constante estiver à esquerda, `gt` testaria se o valor constante é maior do que o campo. Também pode utilizar os operadores de comparação para comparar o resultado de uma função, `geo.distance` como, por exemplo, com um valor. Para funções booleanas tais como `search.ismatch` , comparando o resultado `true` com ou seja `false` opcional.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática de uma expressão OData que utiliza os operadores de comparação.
 
@@ -135,25 +136,35 @@ As cordas podem ser comparadas em filtros para partidas exatas utilizando o `eq`
 
 Documentos de correspondência em que o `Rating` campo é entre 3 e 5, inclusive:
 
-    Rating ge 3 and Rating le 5
+```text
+Rating ge 3 and Rating le 5
+```
 
 Combine documentos onde o `Location` campo esteja a menos de 2 km da latitude e longitude dada:
 
-    geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```text
+geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```
 
 Documentos de correspondência em que o `LastRenovationDate` campo é maior ou igual a 1 de janeiro de 2015, meia-noite UTC:
 
-    LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```text
+LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```
 
 Documentos de correspondência onde o `Details/Sku` campo não `null` é:
 
-    Details/Sku ne null
+```text
+Details/Sku ne null
+```
 
 Combine documentos para hotéis onde pelo menos um quarto tem o tipo "Deluxe Room", onde a cadeia do `Rooms/Type` campo combina exatamente com o filtro:
 
-    Rooms/any(room: room/Type eq 'Deluxe Room')
+```text
+Rooms/any(room: room/Type eq 'Deluxe Room')
+```
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)

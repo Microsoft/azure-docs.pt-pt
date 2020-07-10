@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 03/18/2020
-ms.openlocfilehash: 50ddbffd00e0cbbd0641089613aaa40d03658c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 437db3e1ad367a75d6c8d3a77b138bce79b5f61e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80064196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147128"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes de aprendizagem automática Azure?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,6 +48,7 @@ Pode criar ambientes através de:
 * Utilizando `Environment` objetos existentes do seu espaço de trabalho. Esta abordagem permite consistência e reprodutibilidade com as suas dependências.
 * Importando de uma definição ambiental de Anaconda existente.
 * Utilização do CLI de Aprendizagem da Máquina azul
+* [Utilização da extensão do Código VS](how-to-manage-resources-vscode.md#create-environment)
 
 Para obter amostras de código específicas, consulte a secção "Criar um ambiente" de ambientes de [reutilização para treino e implantação](how-to-use-environments.md#create-an-environment). Os ambientes também são facilmente geridos através do seu espaço de trabalho. Incluem a seguinte funcionalidade:
 

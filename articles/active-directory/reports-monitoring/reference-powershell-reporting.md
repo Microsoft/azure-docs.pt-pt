@@ -13,15 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/12/2019
+ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2192c472e00d123780ec6bc5574e7b9fe326258b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75495303"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144488"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
 
@@ -46,12 +47,12 @@ Este artigo dá-lhe uma visão geral dos cmdlets PowerShell para usar para regis
 Obtém acesso aos registos de auditoria utilizando o cmdlet 'Get-AzureADAuditDirectoryLogs.
 
 
-| Scenario                      | Comando do PowerShell |
+| Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
 | Nome do display da aplicação      | Get-AzureADAuditDirectoryLogs -Filtro "iniciado Por/app/displayName eq 'Azure AD Cloud Sync'" |
-| Categoria                      | Get-AzureADAuditDirectoryLogs -Filtrar "categoria eq 'Gestão de aplicações'" |
+| Categoria                      | Get-AzureADAuditDirectoryLogs -Filtrar "categoria eq 'ApplicationManagement'" |
 | Data de Data de Atividade            | Get-AzureADAuditDirectoryLogs -Filtrar "atividadeDateTime gt 2019-04-18" |
-| Todos os anteriores              | Get-AzureADAuditDirectoryLogs -Filtro "iniciado Por/app/displayName eq 'Azure AD Cloud Sync' e categoria eq 'Application Management' e atividadeDateTime gt 2019-04-18"|
+| Todas as opções acima              | Get-AzureADAuditDirectoryLogs -Filtro "iniciado Por/app/displayName eq 'Azure AD Cloud Sync' e categoria eq 'ApplicationManagement' e atividadeDateTime gt 2019-04-18"|
 
 
 A imagem que se segue mostra um exemplo para este comando. 
@@ -67,13 +68,13 @@ Os [registos de login](concept-sign-ins.md) fornecem informações sobre o uso d
 Obtém acesso aos registos de entrada utilizando o cmdlet 'Get-AzureADAuditSignInLogs.
 
 
-| Scenario                      | Comando do PowerShell |
+| Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
 | Nome de exibição do utilizador             | Get-AzureADAuditSignInLogs -Filtro "userDisplayName eq 'Timothy Perkins'" |
 | Criar hora da data              | Get-AzureADAuditSignInLogs -Filtro "createdDateTime gt 2019-04-18T17:30:00.0Z" (Tudo desde as 17h30 do dia 4/18) |
 | Estado                        | Get-AzureADAuditSignInLogs -Filtrar "status/errorCode eq 50105" |
 | Nome do display da aplicação      | Get-AzureADAuditSignInLogs -Filter "appDisplayName eq 'StoreFrontStudio [wsfed enabled]'" |
-| Todos os anteriores              | Get-AzureADAuditSignInLogs -Filtro "userDisplayName eq 'Timothy Perkins' e status/errorCode ne 0 e appDisplayName eq 'StoreFrontStudio [wsfed enabled]". |
+| Todas as opções acima              | Get-AzureADAuditSignInLogs -Filtro "userDisplayName eq 'Timothy Perkins' e status/errorCode ne 0 e appDisplayName eq 'StoreFrontStudio [wsfed enabled]". |
 
 
 A imagem que se segue mostra um exemplo para este comando. 
@@ -82,7 +83,7 @@ A imagem que se segue mostra um exemplo para este comando.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [AZure AD reporta uma visão geral](overview-reports.md).
 - [Relatório de registos de auditoria.](concept-audit-logs.md) 

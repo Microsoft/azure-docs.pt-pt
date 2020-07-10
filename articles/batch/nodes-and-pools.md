@@ -3,12 +3,12 @@ title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: f71be75c0358dbc7f76a61680df2c54f44bc4173
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 5707d834a7d99e147a81ee2b39952863a63ed695
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964047"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144927"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -111,7 +111,7 @@ Para obter informações sobre preços para nós de baixa prioridade e dedicados
 
 ## <a name="node-size"></a>Tamanho do nó
 
-Quando cria um conjunto do Azure Batch, pode escolher entre quase todas as famílias e tamanhos de VM disponíveis no Azure. O Azure oferece um leque diversificado de tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados preparados para [HPC](../virtual-machines/linux/sizes-hpc.md) ou [GPU](../virtual-machines/linux/sizes-gpu.md). 
+Quando cria um conjunto do Azure Batch, pode escolher entre quase todas as famílias e tamanhos de VM disponíveis no Azure. O Azure oferece um leque diversificado de tamanhos de VM para diferentes cargas de trabalho, incluindo tamanhos de VM especializados preparados para [HPC](../virtual-machines/sizes-hpc.md) ou [GPU](../virtual-machines/sizes-gpu.md). 
 
 Para obter mais informações, veja [Escolher um tamanho de VM para nós de computação num conjunto do Azure Batch](batch-pool-vm-sizes.md).
 
@@ -195,6 +195,6 @@ Quando um certificado é associado a um conjunto, o serviço Batch instala o cer
 
 Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós de cálculo para que o certificado seja aplicado aos nós.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9891e3ac12de3f8735407c603ff59b61f4eb05d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6d14094edc7ae21ca0d56b544fb9c2b19f1f0582
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118975"
+ms.locfileid: "86144995"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Como configurar o encaminhamento do hub virtual
 
@@ -22,9 +22,7 @@ Um hub virtual pode conter vários gateways, tais como um gateway VPN local-para
 Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Algumas destas capacidades ainda podem estar a ser lançadas. Se o lançamento ainda não tiver acontecido na sua região, por favor, use os passos nestas versões dos artigos entretanto:
->* [Artigo do portal Azure](virtual-wan-route-table-nva-portal.md)
->* [Artigo PowerShell](virtual-wan-route-table-nva.md)
+> Algumas destas capacidades ainda podem estar a ser lançadas. Espera-se que isto esteja concluído até 3 de agosto.
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Criar uma tabela de rotas
@@ -38,7 +36,7 @@ Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](
 
    :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Separador básico":::
 
-   * **Nome**
+   * **Name**
    * **Rotas**
    * **Nome da rota**
    * **Tipo de destino**
@@ -47,7 +45,7 @@ Para obter mais informações, consulte [sobre o encaminhamento do hub virtual](
 
      Se selecionar uma ligação de rede virtual, verá **rotas estáticas de configuração**. Esta é uma configuração opcional. Para obter mais informações, consulte [as rotas estáticas de configuração.](about-virtual-hub-routing.md#static)
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Salto seguinte":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Próximo salto":::
 
 5. Selecione o **separador Etiquetas** para configurar os nomes das etiquetas. As etiquetas fornecem um mecanismo para agrupar logicamente as tabelas de rotas.
 
@@ -90,7 +88,7 @@ No portal Azure, localize a tabela de rotas do seu hub virtual. Clique **em "...
 
 :::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Configurar configuração de encaminhamento" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).
 Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)

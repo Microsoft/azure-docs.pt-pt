@@ -4,12 +4,12 @@ description: Saiba como utilizar a API do serviço Batch para persistir os dados
 ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9d8eab5b4f4b89a613f5ffc3a7f9c9d9d53dcfc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965132"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143519"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Persistir dados de tarefas para o Azure Storage com o serviço Batch API
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Obtenha uma assinatura de acesso compartilhado para o recipiente
 
-Depois de criar o recipiente, obtenha uma assinatura de acesso partilhado (SAS) com acesso de escrita ao recipiente. Um SAS fornece acesso delegado ao contentor. O SAS concede acesso com um conjunto especificado de permissões e durante um intervalo de tempo especificado. O serviço Batch necessita de um SAS com permissões de escrita para escrever a saída da tarefa para o recipiente. Para obter mais informações sobre o SAS, consulte [utilização de assinaturas de acesso partilhado \( SAS \) no Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Depois de criar o recipiente, obtenha uma assinatura de acesso partilhado (SAS) com acesso de escrita ao recipiente. Um SAS fornece acesso delegado ao contentor. O SAS concede acesso com um conjunto especificado de permissões e durante um intervalo de tempo especificado. O serviço Batch necessita de um SAS com permissões de escrita para escrever a saída da tarefa para o recipiente. Para obter mais informações sobre o SAS, consulte [utilização de assinaturas de acesso partilhado \( SAS \) no Azure Storage](../storage/common/storage-sas-overview.md).
 
 Quando obtém um SAS utilizando as APIs de Armazenamento Azure, a API devolve uma corda simbólica SAS. Esta cadeia simbólica inclui todos os parâmetros do SAS, incluindo as permissões e o intervalo sobre o qual o SAS é válido. Para utilizar o SAS para aceder a um contentor no Azure Storage, é necessário anexar a cadeia de fichas SAS ao recurso URI. O recurso URI, juntamente com o token SAS anexado, fornece acesso autenticado ao Azure Storage.
 
@@ -179,7 +179,7 @@ O projeto de amostra [persistOutputs][github_persistoutputs] é uma das amostras
 6. Quando solicitado para escolher a tecnologia de persistência a utilizar para executar a amostra, introduza **2** para executar a amostra utilizando a API de serviço de lote para persistir na saída da tarefa.
 7. Se desejar, volte a executar a amostra, entrando **em 3** para persistir na saída com a API de serviço de lote, e também para nomear o contentor de destino e o caminho do blob de acordo com a norma das Convenções de Arquivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a saída de tarefas persistentes com a biblioteca de Convenções de Ficheiros para .NET, consulte [os dados de trabalho e de tarefa de Persistência para O Armazenamento do Azure com a biblioteca de Convenções de Ficheiros de Lote para .NET](batch-task-output-file-conventions.md).
 - Para obter informações sobre outras abordagens para a persistência dos dados de saída em Azure Batch, consulte [a produção de trabalho e tarefa persistente para o Azure Storage](batch-task-output.md).

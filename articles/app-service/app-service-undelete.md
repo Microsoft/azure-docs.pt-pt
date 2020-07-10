@@ -5,11 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: d147c87e8fb0fa9e01ba2dbaf732adaae082bcd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167796"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146238"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar a aplicação do Serviço de Aplicações eliminada com o PowerShell
 
@@ -17,6 +18,10 @@ Se por acaso eliminar acidentalmente a sua aplicação no Azure App Service, pod
 
 > [!NOTE]
 > As aplicações eliminadas são expurgadas do sistema 30 dias após a eliminação inicial. Uma vez que uma aplicação foi purgada, não pode ser recuperada.
+>
+
+> [!NOTE]
+> A funcionalidade Undelete não é suportada para o plano de Consumo.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>Re-registrar fornecedor de recursos do Serviço de Aplicações

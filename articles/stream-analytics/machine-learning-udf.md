@@ -7,11 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: b138d93b400c16837c250ede1e264b54a851327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488754"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86141947"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integre a Azure Stream Analytics com Azure Machine Learning (Preview)
 
@@ -27,7 +28,7 @@ Complete os seguintes passos antes de adicionar um modelo de aprendizagem autom�
 
 3. Certifique-se de que o seu serviço web aceita e devolve dados serializados da JSON.
 
-4. Implemente o seu modelo no [Serviço Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implantações de produção de alta escala. Se o serviço web não for capaz de lidar com o número de pedidos provenientes do seu trabalho, o desempenho do seu trabalho stream Analytics será degradado, o que tem impacto na latência. Os modelos implantados em Instâncias de Contentores Azure só são suportados quando utilizar o portal Azure.
+4. Implemente o seu modelo no [Serviço Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implantações de produção de alta escala. Se o serviço web não for capaz de lidar com o número de pedidos provenientes do seu trabalho, o desempenho do seu trabalho stream Analytics será degradado, o que tem impacto na latência. Os modelos implantados em Instâncias de Contentores Azure só são suportados quando utilizar o portal Azure. Os modelos construídos com [o Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) ainda não são suportados no Stream Analytics.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Adicione um modelo de aprendizagem automática ao seu trabalho
 
@@ -162,7 +163,7 @@ No escalonamento ideal, o seu trabalho stream Analytics deve ser capaz de enviar
 
 Para evitar tal latência, certifique-se de que o seu cluster Azure Kubernetes Service (AKS) foi a provisionado com o [número certo de nós e réplicas](../machine-learning/how-to-deploy-azure-kubernetes-service.md#using-the-cli). É fundamental que o seu serviço web esteja altamente disponível e retorne respostas bem sucedidas. Se o seu trabalho receber uma resposta indisponíveis (503) do seu serviço web, ele irá continuamente voltar a tentar com o recuo exponencial. Qualquer resposta que não seja o sucesso (200) e o serviço indisponível (503) fará com que o seu trabalho vá para um estado falhado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Escalar o seu trabalho stream analytics com a função Azure Machine Learning Studio (clássico)](stream-analytics-scale-with-machine-learning-functions.md)

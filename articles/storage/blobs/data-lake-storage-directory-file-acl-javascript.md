@@ -8,11 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c774d3f56eaf666a31ff73f433a3b4a5a363ce2f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466073"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142500"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o JavaScript para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -89,11 +90,11 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 > [!NOTE]
 > Para mais exemplos, consulte a biblioteca de [clientes de identidade Azure para](https://www.npmjs.com/package/@azure/identity) obter documentação JS.
 
-## <a name="create-a-file-system"></a>Criar um sistema de ficheiros
+## <a name="create-a-container"></a>Criar um contentor
 
-Um sistema de ficheiros funciona como um recipiente para os seus ficheiros. Pode criar um através de uma instância **FileSystemClient** e, em seguida, ligar para o método **FileSystemClient.Create.**
+Um contentor funciona como um sistema de ficheiros para os seus ficheiros. Pode criar um através de uma instância **FileSystemClient** e, em seguida, ligar para o método **FileSystemClient.Create.**
 
-Este exemplo cria um sistema de ficheiros chamado `my-file-system` . 
+Este exemplo cria um recipiente chamado `my-file-system` . 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -111,7 +112,7 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 Crie uma referência de diretório obtendo uma instância **de Diretório** e, em seguida, chamando o método **DirectoryClient.create.**
 
-Este exemplo adiciona um diretório nomeado `my-directory` a um sistema de ficheiros. 
+Este exemplo adiciona um diretório nomeado `my-directory` a um contentor. 
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {

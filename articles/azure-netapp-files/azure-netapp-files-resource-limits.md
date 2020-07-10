@@ -12,13 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/08/2020
 ms.author: b-juche
-ms.openlocfilehash: 8b417559a17dc05a07467a28d37fec9b9a7c12cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d672f782cb9f476fa81d28ee369072caf8509b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84553475"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147197"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 
@@ -60,7 +61,7 @@ O serviço ajusta dinamicamente o limite máximo para um volume baseado no seu t
 |    >= 3 TiB mas < 4 TiB    |    80 milhões     |
 |    >= 4 TiB                |    100 milhões    |
 
-Para qualquer tamanho de volume, pode iniciar um [pedido de suporte](#limit_increase) para aumentar o limite máximo para além de 100 milhões.
+Se já alocou pelo menos 4 TiB de quota para um volume, pode iniciar um pedido de [apoio](#limit_increase) para aumentar o limite máximo para além de 100 milhões.
 
 ## <a name="request-limit-increase"></a>Aumento do limite de pedido<a name="limit_increase"></a> 
 
@@ -80,7 +81,7 @@ Do plano de navegação do portal Azure:
 
         |  Recurso  |    Recursos-mãe      |    Novos limites solicitados     |    Razão para o aumento das quotas       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
-        |  Conta |  *ID da subscrição*   |  *Novo número de **conta** máxima solicitado*    |  *Que cenário ou caso de utilização motivou o pedido?*  |
+        |  Conta |  *ID da Subscrição*   |  *Novo número de **conta** máxima solicitado*    |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Conjunto    |  *ID de assinatura, Conta URI*  |  *Solicitado novo número máximo **de piscina***   |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Volume  |  *ID de assinatura, Conta URI, Pool URI*   |  *Novo número máximo de **volume** solicitado*     |  *Que cenário ou caso de utilização motivou o pedido?*  |
         |  Maxfiles  |  *ID de assinatura, Conta URI, Pool URI, Volume URI*   |  *Pedido novo número máximo **de maxfiles***     |  *Que cenário ou caso de utilização motivou o pedido?*  |    
@@ -90,7 +91,7 @@ Do plano de navegação do portal Azure:
     3. Clique **em Seguinte: Rever + criar** para criar o pedido. 
 
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 - [Modelo de custo para os Azure NetApp Files](azure-netapp-files-cost-model.md)

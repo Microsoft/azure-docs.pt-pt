@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aca245592bef98bc5d0cff3268d5b6496d2220
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103556"
+ms.locfileid: "86147006"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
 Este tópico descreve o programador incorporado na sincronização Azure AD Connect (motor de sincronização).
@@ -41,8 +41,12 @@ O programador é responsável por duas tarefas:
 O agendador em si está sempre em execução, mas pode ser configurado para executar apenas uma ou nenhuma destas tarefas. Por exemplo, se precisar de ter o seu próprio processo de ciclo de sincronização, pode desativar esta tarefa no programador, mas ainda assim executar a tarefa de manutenção.
 
 >[!IMPORTANT]
->É necessário certificar-se de que um ciclo de sincronização é executado pelo menos uma vez a cada 7 dias. Se não o fizer, poderá causar problemas de sincronização que exigirão que execute uma sincronização completa para resolver.
-
+>Por predefinição a cada 30 minutos, é executado um ciclo de sincronização. Se tiver modificado a ciclo de sincronização, terá de se certificar de que um ciclo de sincronização é executado pelo menos uma vez a cada 7 dias. 
+>
+>* Uma sincronização delta tem de acontecer dentro de 7 dias a partir da última sincronização delta.
+>* Uma sincronização delta (seguindo uma sincronização completa) tem de acontecer dentro de 7 dias a partir do momento em que a última sincronização completa foi concluída.
+>
+>Se não o fizer, poderá causar problemas de sincronização que exigirão que execute uma sincronização completa para resolver. Isto também se aplica aos servidores no modo de encenação.
 
 ## <a name="scheduler-configuration"></a>Configuração do programador
 Para ver as definições de configuração atuais, vá ao PowerShell e corra `Get-ADSyncScheduler` . Mostra algo como esta foto:
@@ -208,7 +212,7 @@ Na imagem acima, a primeira linha é de um estado onde o motor de sincronizaçã
 ## <a name="scheduler-and-installation-wizard"></a>Programador e assistente de instalação
 Se iniciar o assistente de instalação, o programador está temporariamente suspenso. Este comportamento deve-se ao facto de se ter assumido que faz alterações de configuração e estas definições não podem ser aplicadas se o motor de sincronização estiver a funcionar ativamente. Por esta razão, não deixe o assistente de instalação aberto, uma vez que impede que o motor de sincronização efetua quaisquer ações de sincronização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

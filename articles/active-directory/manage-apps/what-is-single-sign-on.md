@@ -1,5 +1,5 @@
 ---
-title: Inscrição única nas candidaturas - Azure Ative Directory / Microsoft Docs
+title: O que é Azure single sign-on (SSO)?
 description: Aprenda a escolher um único método de inscrição ao configurar aplicações no Azure Ative Directory (Azure AD). Utilize um único sinal de entrada para que os utilizadores não precisem de se lembrar de senhas para cada aplicação e de simplificar a administração da gestão de conta.
 services: active-directory
 author: kenwith
@@ -12,14 +12,14 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8b20d7d285f30eb0aa9ba5ac22739b57856d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479713"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144597"
 ---
-# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inscrição única para aplicações no Azure Ative Directory
+# <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
 O sign-on único (SSO) adiciona segurança e comodidade quando os utilizadores se inscrevem em aplicações no Azure Ative Directory (Azure AD). Este artigo descreve os métodos de inscrição único e ajuda-o a escolher o método SSO mais adequado ao configurar as suas aplicações.
 
@@ -40,7 +40,7 @@ Este fluxograma ajuda-o a decidir qual o método de inscrição único melhor pa
 
 A tabela a seguir resume os métodos de inscrição única e liga-se a mais detalhes.
 
-| Método de inscrição único | Tipos de aplicação | Quando utilizar |
+| Método de inscrição único | Tipos de aplicações | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem apenas | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
 | [SAML](#saml-sso) | nuvem e no local | Escolha SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam usando um dos protocolos SAML.|
@@ -54,7 +54,7 @@ A tabela a seguir resume os métodos de inscrição única e liga-se a mais deta
 
 Ao desenvolver novas aplicações, utilize protocolos modernos como OpenID Connect e OAuth para obter a melhor experiência de súp livre para a sua aplicação em várias plataformas de dispositivos. A OAuth permite que utilizadores ou administradores [concedam consentimento](configure-user-consent.md) para recursos protegidos como [o Microsoft Graph](/graph/overview). Fornecemos [SDKs](../develop/reference-v2-libraries.md) fáceis de adotar para a sua aplicação e, além disso, a sua aplicação estará pronta para usar [o Microsoft Graph.](/graph/overview)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md)
 - [OpenID Connect 1.0](../develop/v2-protocols-oidc.md)
@@ -99,8 +99,8 @@ O único sinal baseado em palavra-passe é suportado para qualquer aplicação b
 - Microsoft Edge na Edição de Aniversário do Windows 10 ou mais tarde
 - Microsoft Edge para iOS e Android
 - Browser Gerido do Intune
-- Chrome no Windows 7 ou mais tarde, e no MacOS X ou mais tarde
-- Firefox 26.0 ou mais tarde no Windows XP SP2 ou mais tarde, e no Mac OS X 10.6 ou mais tarde
+- Chrome no Windows 7 ou mais tarde, e no macOS X ou mais tarde
+- Firefox 26.0 ou mais tarde no Windows XP SP2 ou mais tarde, e no macOS X 10.6 ou mais tarde
 
 Para configurar uma aplicação em nuvem para um único sinal de assinatura baseado em palavra-passe, consulte [configurar a palavra-passe de um único sinal](configure-password-single-sign-on-non-gallery-applications.md).
 

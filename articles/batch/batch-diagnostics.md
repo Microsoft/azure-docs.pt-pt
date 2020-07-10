@@ -4,11 +4,12 @@ description: Grave e analise os eventos de registo de diagnóstico para recursos
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6e10a4fc6cd13854682f094274c975931b056365
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960729"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145095"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de diagnóstico
  
@@ -86,8 +87,8 @@ Um cenário comum é selecionar uma conta de Armazenamento Azure como destino de
 
 Alternadamente, pode:
 
-- Stream Batch diagnostic registrs para um [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real. 
-- Envie registos de diagnóstico para [registos do Azure Monitor,](../log-analytics/log-analytics-overview.md)onde pode analisá-los ou exportá-los para análise em Power BI ou Excel.
+- Stream Batch diagnostic registrs para um [Azure Event Hub](../event-hubs/event-hubs-about.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real. 
+- Envie registos de diagnóstico para [registos do Azure Monitor,](../azure-monitor/log-query/log-query-overview.md)onde pode analisá-los ou exportá-los para análise em Power BI ou Excel.
 
 > [!NOTE]
 > Pode incorrer em custos adicionais para armazenar ou processar dados de registo de diagnóstico com os serviços Azure. 
@@ -134,7 +135,7 @@ Abaixo está um exemplo de uma `PoolResizeCompleteEvent` entrada num ficheiro de
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [os registos de recursos do Archive Azure para a conta de armazenamento.](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account) Para aceder aos registos na sua conta de armazenamento programáticamente, utilize as APIs de armazenamento.
+Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [os registos de recursos do Archive Azure para a conta de armazenamento.](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) Para aceder aos registos na sua conta de armazenamento programáticamente, utilize as APIs de armazenamento.
 
 ### <a name="service-log-events"></a>Eventos de registo de serviço
 
@@ -173,8 +174,7 @@ Os eventos de registo de serviço emitidos pelo serviço Batch incluem o seguint
 - [Tarefa concluída](batch-task-complete-event.md)
 - [Falha de tarefa](batch-task-fail-event.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 - Saiba mais sobre [a monitorização das soluções do Batch.](monitoring-overview.md)
-

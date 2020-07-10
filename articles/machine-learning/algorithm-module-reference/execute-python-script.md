@@ -10,18 +10,18 @@ ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
 ms.date: 06/16/2020
-ms.openlocfilehash: f64c79a970ec54c07c2934a92a9ca349ea56ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2115a0bae8b26113fc10648db2584210809441de
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907555"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147253"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
 Este artigo descreve o módulo executo python script em Azure Machine Learning designer (pré-visualização).
 
-Use este módulo para executar o código Python. Para mais informações sobre os princípios de arquitetura e design da Python, consulte [este artigo.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+Use este módulo para executar o código Python. Para obter mais informações sobre os princípios de arquitetura e design de Python, veja [como executar o código Python em Azure Machine Learning designer.](../how-to-designer-python.md)
 
 Com python, você pode executar tarefas que os módulos existentes não suportam, tais como:
 
@@ -263,6 +263,6 @@ O módulo devolve dois conjuntos de dados:
 + **Resultado Dataset 2**, definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

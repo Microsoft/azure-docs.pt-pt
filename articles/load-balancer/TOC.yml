@@ -4,6 +4,8 @@
   items:
     - name: O que é o Balanceador de Carga do Azure?
       href: load-balancer-overview.md
+    - name: Novidades
+      href: whats-new.md
     - name: Perguntas mais frequentes
       href: load-balancer-faqs.md
 - name: Início Rápido

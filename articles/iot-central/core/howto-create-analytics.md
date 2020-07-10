@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 40460b58ede0ca0da8fe25475906bdbe41bfffe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29605fc2a9094f70c26487691e74a4dd72a85813
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158287"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147264"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Como usar a análise para analisar dados do dispositivo
 
@@ -86,9 +86,11 @@ Uma vez consultados os seus dados, pode começar a visualizá-lo na tabela de li
 
   ![Ampliar os dados](media/howto-create-analytics/zoom.png)
 
-Sob a elipse, há mais controlos de gráficos para interagir com os dados.
+Sob a elipse, há mais controlos de gráficos para interagir com os dados:
 
 - **Grelha de exibição:** Os seus resultados estão disponíveis num formato de tabela, permitindo-lhe visualizar o valor específico de cada ponto de dados.
+
+- **Descarregue como CSV:** Os seus resultados estão disponíveis para exportar como um ficheiro de valores separados por vírgula (CSV). O ficheiro CSV contém dados para cada dispositivo. Os resultados são exportados utilizando o intervalo e o prazo especificados. 
 
 - **Deixe cair um marcador:** O controlo 'Drop Marker' fornece uma forma de ancorar certos pontos de dados na tabela. É útil quando se está a tentar comparar dados para várias linhas em diferentes períodos de tempo.
 

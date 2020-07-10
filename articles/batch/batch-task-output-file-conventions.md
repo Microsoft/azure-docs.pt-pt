@@ -4,12 +4,12 @@ description: Saiba como utilizar a biblioteca de convenções de ficheiros Azure
 ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba1b35bd8f2a4cc58558607581d10b598d23058c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2e06bc90c95f9951895e0434ec8a8a7defaa6156
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965200"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147174"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de trabalho e de tarefa para o Azure Storage com a biblioteca de convenções de ficheiros de lote para .NET
 
@@ -55,7 +55,7 @@ Para persistir os dados de saída para o Azure Storage utilizando a biblioteca d
 
 Para persistir os dados de saída de trabalho e de tarefa com a biblioteca de Convenções de Ficheiros, crie um recipiente no Armazenamento Azure e guarde a saída para o recipiente. Utilize a [biblioteca cliente de Armazenamento Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) no seu código de tarefa para carregar a saída da tarefa para o recipiente.
 
-Para obter mais informações sobre o trabalho com recipientes e bolhas no Azure Storage, consulte [Começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Para obter mais informações sobre o trabalho com recipientes e bolhas no Azure Storage, consulte [Começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 > [!WARNING]
 > Todas as saídas de trabalho e tarefas persistiu com a biblioteca de Convenções de Ficheiros são armazenadas no mesmo recipiente. Se um grande número de tarefas tentar persistir ficheiros ao mesmo tempo, os limites de estrangulamento do Azure Storage podem ser aplicados. Para obter mais informações sobre limites de estrangulamento, consulte [a lista de verificação de desempenho e escalabilidade para armazenamento blob](../storage/blobs/storage-performance-checklist.md).
@@ -204,7 +204,7 @@ O projeto de amostra [persistOutputs][github_persistoutputs] é uma das amostras
 5. **Inicie** (executar) o projeto **PersistOutputs.**
 6. Quando solicitado para escolher a tecnologia de persistência a utilizar para executar a amostra, introduza **1** para executar a amostra utilizando a biblioteca de Convenções de Ficheiros para persistir na saída da tarefa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="get-the-batch-file-conventions-library-for-net"></a>Obtenha a biblioteca de convenções de ficheiros de lote para .NET
 

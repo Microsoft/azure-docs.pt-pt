@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6c7e1fcaebd415fcacfffcef62ca25cccde3e476
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e3a35d95e7d2a339bf33620c9d1a140fb6a0a1d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563174"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143749"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Azure Blob Storage com Azure Cognitive Search
 
@@ -53,6 +53,7 @@ Para a indexação de bolhas, a fonte de dados deve ter as seguintes propriedade
 
 Para criar uma fonte de dados:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -63,6 +64,7 @@ Para criar uma fonte de dados:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
+```
 
 Para obter mais informações sobre a API de Fonte de Dados, consulte [Criar Fonte de Dados.](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 
@@ -85,6 +87,7 @@ O índice especifica os campos num documento, atributos e outras construções q
 
 Aqui está como criar um índice com um `content` campo pesquisável para armazenar o texto extraído de bolhas:   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -96,6 +99,7 @@ Aqui está como criar um índice com um `content` campo pesquisável para armaze
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
@@ -104,6 +108,7 @@ Um indexante conecta uma fonte de dados com um índice de pesquisa de alvo, e fo
 
 Uma vez criado o índice e a fonte de dados, está pronto para criar o indexador:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -114,6 +119,7 @@ Uma vez criado o índice e a fonte de dados, está pronto para criar o indexador
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Este indexante será executado de duas em duas horas (o intervalo de horário está definido para "PT2H"). Para executar um indexante a cada 30 minutos, desajuste o intervalo para "PT30M". O intervalo suportado mais curto é de 5 minutos. O horário é opcional - se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexante a qualquer momento.   
 
@@ -174,13 +180,16 @@ Deve considerar cuidadosamente qual o campo extraído que deve mapear para o cam
 
 Para este exemplo, vamos escolher o `metadata_storage_name` campo como chave de documento. Vamos também assumir que o seu índice tem um campo chave nomeado `key` e um campo para armazenar o tamanho do `fileSize` documento. Para ligar as coisas conforme desejado, especifique os seguintes mapeamentos de campo ao criar ou atualizar o seu indexante:
 
+```http
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
+```
 
 Para juntar tudo isto, eis como pode adicionar mapeamentos de campo e ativar a codificação de chaves base-64 para um indexante existente:
 
+```http
     PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -194,6 +203,7 @@ Para juntar tudo isto, eis como pode adicionar mapeamentos de campo e ativar a c
         { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
       ]
     }
+```
 
 > [!NOTE]
 > Para saber mais sobre mapeamentos de campo, consulte [este artigo.](search-indexer-field-mappings.md)
@@ -207,6 +217,7 @@ Pode controlar quais as bolhas indexadas e que são ignoradas.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexar apenas as bolhas com extensões de ficheiros específicas
 Só pode indexar as bolhas com as extensões de nome de ficheiro que especifica utilizando o parâmetro de configuração do `indexedFileNameExtensions` indexante. O valor é uma cadeia que contém uma lista separada por vírgula de extensões de ficheiros (com um ponto principal). Por exemplo, para indexar apenas o . PDF e . Bolhas DOCX, faça isto:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -215,10 +226,12 @@ Só pode indexar as bolhas com as extensões de nome de ficheiro que especifica 
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
     }
+```
 
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Excluir bolhas com extensões de ficheiros específicas
 Pode excluir blobs com extensões específicas de nome de ficheiros de indexação utilizando o `excludedFileNameExtensions` parâmetro de configuração. O valor é uma cadeia que contém uma lista separada por vírgula de extensões de ficheiros (com um ponto principal). Por exemplo, para indexar todas as bolhas exceto aquelas com o . PNG e . Extensões JPEG, faça isto:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -227,6 +240,7 @@ Pode excluir blobs com extensões específicas de nome de ficheiros de indexaç�
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
+```
 
 Se ambos `indexedFileNameExtensions` e `excludedFileNameExtensions` parâmetros estiverem presentes, a Azure Cognitive Search primeiro olha `indexedFileNameExtensions` para , em seguida, em `excludedFileNameExtensions` . Isto significa que, se a mesma extensão de ficheiro estiver presente em ambas as listas, será excluída da indexação.
 
@@ -241,6 +255,7 @@ Pode controlar quais as partes das bolhas indexadas utilizando o `dataToExtract`
 
 Por exemplo, para indexar apenas os metadados de armazenamento, utilize:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -249,6 +264,7 @@ Por exemplo, para indexar apenas os metadados de armazenamento, utilize:
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
+```
 
 ### <a name="using-blob-metadata-to-control-how-blobs-are-indexed"></a>Usando metadados blob para controlar como as bolhas são indexadas
 
@@ -264,6 +280,7 @@ Os parâmetros de configuração acima descritos aplicam-se a todas as bolhas. �
 
 Por predefinição, o indexante blob para assim que encontra uma bolha com um tipo de conteúdo não suportado (por exemplo, uma imagem). É claro que pode utilizar o `excludedFileNameExtensions` parâmetro para saltar certos tipos de conteúdo. No entanto, poderá ser necessário indexar as bolhas sem conhecer antecipadamente todos os tipos de conteúdo possíveis. Para continuar a indexar quando for encontrado um tipo de conteúdo não suportado, defina o `failOnUnsupportedContentType` parâmetro de configuração `false` para:
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -272,21 +289,28 @@ Por predefinição, o indexante blob para assim que encontra uma bolha com um ti
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
+```
 
 Para algumas bolhas, a Azure Cognitive Search não consegue determinar o tipo de conteúdo, ou não é capaz de processar um documento do tipo de conteúdo suportado de outra forma. Para ignorar este modo de falha, desa ajuste o parâmetro de `failOnUnprocessableDocument` configuração para falso:
 
+```http
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+```
 
 A Azure Cognitive Search limita o tamanho das bolhas que são indexadas. Estes limites estão documentados nos [Limites de Serviço na Pesquisa Cognitiva Azure.](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) As bolhas de grandes dimensões são tratadas como erros por defeito. No entanto, ainda pode indexar metadados de armazenamento de bolhas de grandes dimensões se definir `indexStorageMetadataOnlyForOversizedDocuments` o parâmetro de configuração para ser verdadeiro: 
 
+```http
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
+```
 
 Também pode continuar a indexar se os erros ocorrerem em qualquer ponto de processamento, quer enquanto analisa as bolhas, quer adicionando documentos a um índice. Para ignorar um número específico de erros, desa um determinado `maxFailedItems` parâmetros e `maxFailedItemsPerBatch` configurar para os valores pretendidos. Por exemplo:
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
     }
+```
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Deteção incremental de indexação e eliminação
 
@@ -345,6 +369,7 @@ Utilize os passos seguintes:
 
 Por exemplo, a seguinte política considera que uma bolha deve ser eliminada se tiver uma propriedade de metadados `IsDeleted` com o `true` valor:
 
+```http
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -360,6 +385,7 @@ Por exemplo, a seguinte política considera que uma bolha deve ser eliminada se 
             "softDeleteMarkerValue" : "true"
         }
     }
+```
 
 #### <a name="reindexing-undeleted-blobs"></a>Bolhas indelégais reindexoras
 
@@ -396,6 +422,7 @@ Para que isto funcione, todos os indexantes e outros componentes têm de concord
 
 Se todas as suas bolhas contiverem texto simples na mesma codificação, pode melhorar significativamente o desempenho da indexação utilizando o **modo de análise de texto**. Para utilizar o modo de análise de texto, desa ajuste a `parsingMode` propriedade de configuração para `text` :
 
+```http
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -404,14 +431,16 @@ Se todas as suas bolhas contiverem texto simples na mesma codificação, pode me
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
+```
 
 Por predefinição, a `UTF-8` codificação é assumida. Para especificar uma codificação diferente, utilize a `encoding` propriedade de configuração: 
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
     }
-
+```
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propriedades de metadados específicos do tipo de conteúdo

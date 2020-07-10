@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 253d2c80f5a6ff96ba9249eddd127abb74f79a33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c87812e665617f3ccfe48db3a0cca2ceac67f0bc
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515814"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147438"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e utilizar metas de computação para a formação de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -389,7 +389,7 @@ Para mais informações, consulte [a gestão de Recursos.](reference-azure-machi
 
 ## <a name="set-up-with-vs-code"></a>Configurar com código VS
 
-Pode aceder, criar e gerir os alvos de computação que estão associados ao seu espaço de trabalho utilizando a [extensão](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) do Código VS para Azure Machine Learning.
+Pode aceder, criar e gerir os alvos de computação que estão associados ao seu espaço de trabalho utilizando a [extensão](how-to-manage-resources-vscode.md#compute-clusters) do Código VS para Azure Machine Learning.
 
 ## <a name="submit-training-run-using-azure-machine-learning-sdk"></a><a id="submit"></a>Submeter a formação usando Azure Machine Learning SDK
 
@@ -536,7 +536,7 @@ Consulte estes cadernos para exemplos de formação com vários alvos de computa
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.
 * Aprenda a [sintonizar eficientemente os hiperparmetros](how-to-tune-hyperparameters.md) para construir modelos melhores.

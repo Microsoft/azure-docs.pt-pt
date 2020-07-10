@@ -7,13 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 8b4876377501209e19ac496d605d228208d2323d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46108ed06659d234907c6eaa6841dc18022c73bf
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84670923"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86144140"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel formato na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +27,7 @@ O formato Excel é suportado para os seguintes conectores: [Amazon S3](connector
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Excel.
 
-| Propriedade         | Descrição                                                  | Necessário |
+| Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade tipo do conjunto de dados deve ser definida para **Excel**.   | Sim      |
 | localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . | Sim      |
@@ -71,7 +72,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
 
-| Propriedade      | Descrição                                                  | Necessário |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **ExcelSource**. | Sim      |
 | lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . | Não       |
@@ -96,7 +97,55 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+
+No mapeamento dos fluxos de dados, pode ler o formato Excel nas seguintes lojas de dados: [Azure Blob Storage,](connector-azure-blob-storage.md#mapping-data-flow-properties) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). Pode apontar para ficheiros do Excel utilizando o conjunto de dados do Excel ou utilizando um [conjunto de dados inline](data-flow-source.md#inline-datasets).
+
+### <a name="source-properties"></a>Propriedades de origem
+
+A tabela abaixo lista as propriedades suportadas por uma fonte do Excel. Pode editar estas propriedades no separador **Opções Fonte.** Ao utilizar o conjunto de dados inline, verá definições de ficheiros adicionais que são as mesmas que as propriedades descritas na secção [de propriedades do conjunto de dados.](#dataset-properties)
+
+| Nome                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
+| ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
+| Caminhos de wild card           | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não       | Corda[]                                                  | wildcardPaths                     |
+| Caminho da raiz da partição       | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não       | String                                                    | partitionRootPath                 |
+| Lista de ficheiros             | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não       | `true` ou `false`                                         | fileList                          |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem       | não       | String                                                    | rowUrlColumn                      |
+| Após a conclusão          | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não       | Excluir: `true` ou`false` <br> Mover-se:`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Filtrar por última modificação   | Opte por filtrar ficheiros com base na última alteração que foram alterados | não       | CarimboDeDataEHora                                                 | modificado Depois <br> modificadoSForo antes |
+
+### <a name="source-example"></a>Exemplo de origem
+
+A imagem abaixo é um exemplo de uma configuração de fonte excel no mapeamento de fluxos de dados usando o modo dataset.
+
+![Fonte excel](media/data-flow/excel-source.png)
+
+O script de fluxo de dados associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    wildcardPaths:['*.xls']) ~> ExcelSource
+```
+
+Se utilizar o conjunto de dados inline, vê as seguintes opções de origem no fluxo de dados de mapeamento.
+
+![Conjunto de dados inline de fonte excel](media/data-flow/excel-source-inline-dataset.png)
+
+O script de fluxo de dados associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'excel',
+    fileSystem: 'container',
+    folderPath: 'path',
+    fileName: 'sample.xls',
+    sheetName: 'worksheet',
+    firstRowAsHeader: true) ~> ExcelSourceInlineDataset
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)

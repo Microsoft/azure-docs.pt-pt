@@ -8,11 +8,12 @@ ms.service: web-application-firewall
 ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682486"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86143940"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configure as políticas waf por site usando a Azure PowerShell
 
@@ -28,7 +29,7 @@ Neste artigo, vai aprender a:
 > * Configurar a rede
 > * Criar uma política de WAF
 > * Criar um gateway de aplicação com a WAF ativada
-> * Aplicar a política da WAF globalmente, por site e per-URI
+> * Aplicar a política da WAF globalmente, por site e por URI (pré-visualização)
 > * Criar um conjunto de dimensionamento de máquinas virtuais
 > * Criar uma conta de armazenamento e configurar o diagnóstico
 > * Testar o gateway de aplicação
@@ -249,7 +250,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>Aplicar uma política per-URI
+### <a name="apply-a-per-uri-policy-preview"></a>Aplicar uma política per-URI (pré-visualização)
 
 Para aplicar uma política per-URI, basta criar uma nova política e aplicá-la à regra do caminho config. 
 
@@ -434,7 +435,7 @@ curl 1.1.1.1/URIAllow?1=1
 
 ![Testar o URL base no gateway de aplicação](../media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados utilizando [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
@@ -442,6 +443,6 @@ Quando já não for necessário, remova o grupo de recursos, o gateway de aplica
 Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Personalizar regras de firewall de aplicações Web](application-gateway-customize-waf-rules-portal.md)

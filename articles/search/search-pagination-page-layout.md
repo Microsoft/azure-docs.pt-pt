@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 15d2a7a2ad00f7f9b5db59d3d4803f60508b7b2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561580"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146184"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Azure Cognitive Search
 
@@ -55,20 +55,26 @@ Os resultados das consultas paginadas não são garantidos como estáveis se o �
  
 Segue-se um exemplo de como se pode obter duplicados. Assuma um índice com quatro documentos:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
-    { "id": "4", "rating": 1 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+{ "id": "4", "rating": 1 }
+```
  
 Agora assuma que quer resultados devolvidos dois de cada vez, ordenados por classificação. Executaria esta consulta para obter a primeira página de resultados: `$top=2&$skip=0&$orderby=rating desc` , produzindo os seguintes resultados:
 
-    { "id": "1", "rating": 5 }
-    { "id": "2", "rating": 3 }
+```text
+{ "id": "1", "rating": 5 }
+{ "id": "2", "rating": 3 }
+```
  
 No serviço, assuma que um quinto documento é adicionado ao índice entre chamadas de consulta: `{ "id": "5", "rating": 4 }` .  Pouco depois, executa-se uma consulta para ir buscar a segunda página: `$top=2&$skip=2&$orderby=rating desc` e obter estes resultados:
 
-    { "id": "2", "rating": 3 }
-    { "id": "3", "rating": 2 }
+```text
+{ "id": "2", "rating": 3 }
+{ "id": "3", "rating": 2 }
+```
  
 Note que o documento 2 é recolhido duas vezes. Isto porque o novo documento 5 tem um valor maior para a classificação, por isso classifica antes do documento 2 e aterra na primeira página. Embora este comportamento possa ser inesperado, é típico de como um motor de busca se comporta.
 
@@ -129,7 +135,7 @@ Com o novo comportamento:
 
 Quando estiver a escrever o código do cliente que implementa o destaque, esteja ciente desta mudança. Note que isso não irá impactá-lo a menos que crie um serviço de pesquisa completamente novo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para gerar rapidamente uma página de pesquisa para o seu cliente, considere estas opções:
 

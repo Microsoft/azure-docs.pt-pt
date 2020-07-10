@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 75b533368a01b2e98bece0751f45b12f36796658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6af9db5ed76ecb79f8891895eab52ff71bcab048
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556257"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146879"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Como configurar caching para enriquecimento incremental em Azure Cognitive Search
 
@@ -103,11 +103,13 @@ api-key: [YOUR-ADMIN-KEY]
 
 Se agora emitir outro pedido GET no indexante, a resposta do serviço incluirá uma `ID` propriedade no objeto cache. A cadeia alfanumérica é anexada ao nome do recipiente contendo todos os resultados em cache e o estado intermédio de cada documento processado por este indexante. O ID será usado para nomear exclusivamente a cache no armazenamento Blob.
 
+```http
     "cache": {
         "ID": "<ALPHA-NUMERIC STRING>",
         "enableReprocessing": true,
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
     }
+```
 
 ### <a name="step-5-run-the-indexer"></a>Passo 5: Executar o indexante
 
@@ -176,7 +178,7 @@ O quadro que se segue resume a forma como várias APIs se relacionam com a cache
 
 Para obter mais informações sobre o controlo do que acontece com a cache, consulte a [gestão cache.](cognitive-search-incremental-indexing-conceptual.md#cache-management)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O enriquecimento incremental é aplicável em indexadores que contêm habilidades. Como próximo passo, visite a documentação skillset para entender conceitos e composição. 
 

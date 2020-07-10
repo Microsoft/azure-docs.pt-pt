@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/8/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e653469eb5bffbf81a0e09982edcbd1e937ba61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a0d4d205e82f377d6ea02c91fbd6db7820c3868
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553547"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165877"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo
 
@@ -47,7 +47,7 @@ Os passos que se seguem constituem o fluxo OBO e são explicados com a ajuda do 
 > [!NOTE]
 > Neste cenário, o serviço de nível médio não tem qualquer interação do utilizador para obter o consentimento do utilizador para aceder à API a jusante. Por isso, a opção de conceder acesso à API a jusante é apresentada antecipadamente como parte do passo de consentimento durante a autenticação. Para aprender a configurar isto para a sua aplicação, consulte [Obter o consentimento para a aplicação de nível médio.](#gaining-consent-for-the-middle-tier-application)
 
-## <a name="service-to-service-access-token-request"></a>Pedido de acesso de serviço ao serviço
+## <a name="middle-tier-access-token-request"></a>Pedido de sinal de acesso de nível médio
 
 Para solicitar um token de acesso, faça um HTTP POST para o ponto final da plataforma de identidade da Microsoft específica para o arrendatário com os seguintes parâmetros.
 
@@ -63,12 +63,12 @@ Ao utilizar um segredo partilhado, um pedido de sinal de acesso de serviço cont
 
 | Parâmetro | Tipo | Description |
 | --- | --- | --- |
-| `grant_type` | Necessário | O tipo de pedido simbólico. Para um pedido de utilização de um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Necessário | A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
-| `client_secret` | Necessário | O segredo do cliente que gerou para a sua aplicação na página de registos do portal Azure - App. |
-| `assertion` | Necessário | O valor do símbolo utilizado no pedido.  Este token deve ter uma audiência da app que faz este pedido OBO (a app denotada pelo `client-id` campo). |
-| `scope` | Necessário | Uma lista de âmbitos separados para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md) |
-| `requested_token_use` | Necessário | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
+| `grant_type` | Obrigatório | O tipo de pedido simbólico. Para um pedido de utilização de um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
+| `client_id` | Obrigatório | A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
+| `client_secret` | Obrigatório | O segredo do cliente que gerou para a sua aplicação na página de registos do portal Azure - App. |
+| `assertion` | Obrigatório | O sinal de acesso que foi enviado para a API de nível médio.  Este token deve ter uma reivindicação de audiência `aud` () da aplicação que faz este pedido OBO (a app denotada pelo `client-id` campo). As aplicações não podem resgatar um símbolo para uma aplicação diferente (por exemplo, se um cliente enviar um token API destinado a MS Graph, a API não pode resgatá-la usando o OBO.  Deveria, em vez disso, rejeitar o símbolo).  |
+| `scope` | Obrigatório | Uma lista de âmbitos separados para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md) |
+| `requested_token_use` | Obrigatório | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
 
 #### <a name="example"></a>Exemplo
 
@@ -95,13 +95,13 @@ Um pedido de sinal de acesso de serviço ao serviço com um certificado contém 
 
 | Parâmetro | Tipo | Description |
 | --- | --- | --- |
-| `grant_type` | Necessário | O tipo de pedido simbólico. Para um pedido de utilização de um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
-| `client_id` | Necessário |  A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
-| `client_assertion_type` | Necessário | O valor deve `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ser. |
-| `client_assertion` | Necessário | Uma afirmação (um token web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Para saber como registar o seu certificado e o formato da afirmação, consulte [as credenciais](active-directory-certificate-credentials.md)de certificado. |
-| `assertion` | Necessário | O valor do símbolo utilizado no pedido. |
-| `requested_token_use` | Necessário | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
-| `scope` | Necessário | Uma lista de âmbitos separados pelo espaço para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md)|
+| `grant_type` | Obrigatório | O tipo de pedido simbólico. Para um pedido de utilização de um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
+| `client_id` | Obrigatório |  A aplicação (cliente) ID que [o portal Azure - Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
+| `client_assertion_type` | Obrigatório | O valor deve `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` ser. |
+| `client_assertion` | Obrigatório | Uma afirmação (um token web JSON) que precisa de criar e assinar com o certificado que registou como credenciais para a sua aplicação. Para saber como registar o seu certificado e o formato da afirmação, consulte [as credenciais](active-directory-certificate-credentials.md)de certificado. |
+| `assertion` | Obrigatório |  O sinal de acesso que foi enviado para a API de nível médio.  Este token deve ter uma reivindicação de audiência `aud` () da aplicação que faz este pedido OBO (a app denotada pelo `client-id` campo). As aplicações não podem resgatar um símbolo para uma aplicação diferente (por exemplo, se um cliente enviar um token API destinado a MS Graph, a API não pode resgatá-la usando o OBO.  Deveria, em vez disso, rejeitar o símbolo).  |
+| `requested_token_use` | Obrigatório | Especifica como o pedido deve ser processado. No fluxo OBO, o valor deve ser definido para `on_behalf_of` . |
+| `scope` | Obrigatório | Uma lista de âmbitos separados pelo espaço para o pedido simbólico. Para mais informações, consulte [os âmbitos.](v2-permissions-and-consent.md)|
 
 Note-se que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado, exceto que o `client_secret` parâmetro é substituído por dois parâmetros: a e `client_assertion_type` `client_assertion` .
 
@@ -125,7 +125,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
-## <a name="service-to-service-access-token-response"></a>Serviço para resposta de acesso ao serviço
+## <a name="middle-tier-access-token-response"></a>Resposta simbólica de acesso de nível médio
 
 Uma resposta de sucesso é uma resposta JSON OAuth 2.0 com os seguintes parâmetros.
 
@@ -210,7 +210,7 @@ Em alguns cenários, você pode ter apenas um único emparelhamento de cliente d
 
 Se um cliente usa o fluxo implícito para obter uma id_token, e esse cliente também tem wildcards em um URL de resposta, o id_token não pode ser usado para um fluxo OBO.  No entanto, os tokens de acesso adquiridos através do fluxo implícito de subvenção ainda podem ser resgatados por um cliente confidencial, mesmo que o cliente iniciante tenha um URL de resposta wildcard registado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra forma de realizar o serviço de atendimento usando credenciais de cliente.
 

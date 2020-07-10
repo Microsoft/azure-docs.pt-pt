@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cf78a2f7d909fb260c5ff99f80c9d1482f2cd08b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 85635ff3a52236d0c53b72c68eda0d71debe1f61
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027312"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86145903"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Adicione e gere bibliotecas para Apache Spark em Azure Synapse Analytics
 
@@ -34,7 +35,7 @@ Quando uma instância Spark começa, um novo ambiente virtual é criado usando e
 
 ### <a name="requirements-format"></a>Formato de requisitos
 
-O seguinte corte mostra o formato do ficheiro de requisitos. O nome do pacote PyPi está listado juntamente com uma versão exata. Este ficheiro segue o formato descrito na documentação de referência de congelamento de [pip.](https://pip.pypa.io/en/stable/reference/pip_freeze/) Este exemplo fixa uma versão específica. Também pode especificar versões "não maiores do que" e "menos do que" neste ficheiro.
+O seguinte corte mostra o formato do ficheiro de requisitos. O nome do pacote PyPi está listado juntamente com uma versão exata. Este ficheiro segue o formato descrito na documentação de referência de congelamento de [pip.](https://pip.pypa.io/en/stable/reference/pip_freeze/) Este exemplo fixa uma versão específica. 
 
 ```
 absl-py==0.7.0
@@ -60,7 +61,7 @@ for i in pip.get_installed_distributions(local_only=True):
     print(i)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Documentação de faíscas apache](https://spark.apache.org/docs/2.4.4/)

@@ -8,12 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
-ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77505573"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86147030"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho de aprendizagem automática Azure?
 
@@ -52,6 +53,7 @@ Pode interagir com o seu espaço de trabalho das seguintes formas:
 + Em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Em qualquer ambiente R com o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Na linha de comando utilizando a [extensão CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) de aprendizagem da máquina Azure
++ [Extensão de código VS de aprendizagem de máquina de Azure](how-to-manage-resources-vscode.md#workspaces)
 
 ## <a name="machine-learning-with-a-workspace"></a>Aprendizagem automática com espaço de trabalho
 
@@ -69,13 +71,13 @@ Tarefas de aprendizagem automática lêem e/ou escrevem artefactos para o seu es
 
 Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 
-| Tarefa de gestão do espaço de trabalho   | Portal              | Studio | Python SDK / R SDK       | CLI        |
-|---------------------------|---------|---------|------------|------------|
-| Criar uma área de trabalho        | **&check;**     | | **&check;** | **&check;** |
-| Gerir o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    |
-| Upgrade para edição enterprise    | **&check;** | **&check;**  | |     |
-| Criar e gerir recursos computacional    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
-| Criar um VM de caderno |   | **&check;** | |     |
+| Tarefa de gestão do espaço de trabalho   | Portal              | Studio | Python SDK / R SDK       | CLI        | Código VS
+|---------------------------|---------|---------|------------|------------|------------|
+| Criar uma área de trabalho        | **&check;**     | | **&check;** | **&check;** | **&check;** |
+| Gerir o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    ||
+| Upgrade para edição enterprise    | **&check;** | **&check;**  | |     ||
+| Criar e gerir recursos computacional    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
+| Criar um VM de caderno |   | **&check;** | |     ||
 
 > [!WARNING]
 > Mover o seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou mover a subscrição proprietária para um novo inquilino, não é suportado. Fazê-lo pode causar erros.
@@ -89,7 +91,7 @@ Existem várias formas de criar um espaço de trabalho:
 * Utilize o [portal Azure](how-to-manage-workspace.md) para uma interface de ponto e clique para o acompanhar através de cada passo.
 * Use o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) para criar um espaço de trabalho em movimento a partir de scripts python ou cadernos de Júpiter
 * Utilize um [modelo de Gestor de Recursos Azure](how-to-create-workspace-template.md) ou o [CLI de Aprendizagem de Máquinas Azure](reference-azure-machine-learning-cli.md) quando precisar de automatizar ou personalizar a criação com padrões de segurança corporativos.
-* Se trabalhar no Código do Estúdio Visual, utilize a [extensão vs Code](tutorial-setup-vscode-extension.md).
+* Se trabalhar no Código do Estúdio Visual, utilize a [extensão vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
 > O nome do espaço de trabalho é insensível a caso.
@@ -110,7 +112,7 @@ Ao criar um novo espaço de trabalho, cria automaticamente vários recursos Azur
 > [!NOTE]
 > Além de criar novas versões, também pode utilizar os serviços Azure existentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a Azure Machine Learning, consulte:
 

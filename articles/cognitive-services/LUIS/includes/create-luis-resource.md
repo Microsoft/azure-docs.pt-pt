@@ -26,18 +26,18 @@ ms.locfileid: "80879219"
     |Nome|Objetivo|
     |--|--|
     |Nome da subscrição| a subscrição que será faturada para o recurso.|
-    |Grupo de recursos| Um nome de grupo de recursos personalizado que você escolhe ou cria. Os grupos de recursos permitem-lhe agrupar os recursos do Azure para acesso e gestão.|
-    |Nome| Um nome personalizado que escolher, usado como subdomínio personalizado para as suas consultas de autor e ponto final de previsão.|
+    |Grupo de recursos| Um nome de grupo de recursos personalizado que escolher ou criar. Os grupos de recursos permitem-lhe agrupar recursos Azure para acesso e gestão.|
+    |Nome| Um nome personalizado que escolhe, usado como subdomínio personalizado para as suas consultas de autoria e previsão final.|
     |Localização de autoria|A região associada ao seu modelo.|
-    |Nível de preços de autoria|O nível de preços determina a transação máxima por segundo e mês.|
-    |Localização do tempo de execução|A região associada ao seu tempo de execução de previsão publicada.|
-    |Nível de preços de tempo de execução|O nível de preços determina a transação máxima por segundo e mês.|
+    |Nível de preço de autoria|O nível de preços determina a transação máxima por segundo e mês.|
+    |Localização do tempo de execução|A região associada ao seu tempo de fim de prazo de previsão publicado.|
+    |Nível de preços de execução|O nível de preços determina a transação máxima por segundo e mês.|
 
     > [!div class="mx-imgBorder"]
-    > [![Criar o recurso de compreensão da linguagem](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
+    > [![Criar o recurso de compreensão linguística](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-1. Clique em **Rever + criar** e esperar pela criação do recurso.
-1. Depois de ambos os recursos serem criados, ainda no portal Azure, selecione o novo recurso de autoria, depois **quickstarts** para obter o **URL final de** autor e **chave** para a autoria programática.
+1. Clique **em Rever + criar** e esperar que o recurso seja criado.
+1. Depois de ambos os recursos serem criados, ainda no portal Azure, selecione o novo recurso de autoria, em seguida, **Quickstarts** para obter o **URL de ponta de** autor e **chave** para a autoria programática.
 
 > [!TIP]
-> Para utilizar os recursos, no portal LUIS, [atribuir os recursos.](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps)
+> Para utilizar os recursos, no portal LUIS, [atribua os recursos.](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps)

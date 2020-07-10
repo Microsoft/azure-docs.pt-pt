@@ -3,12 +3,12 @@ title: Monitorizar uma aplicação Web ASP.NET com o Application Insights do Azu
 description: Monitorize o desempenho de um site sem o reimplementar. Funciona com ASP.NET aplicações web hospedadas no local ou em VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: e30700deaa0121fbe473580d868a79d75a899a1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f4ce01ea8fc7b6bf1f294071f04e2bebce3e1d27
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107483"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86166387"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -39,14 +39,14 @@ Segue-se um resumo do que pode usufruir:
 
 |  | Hora da compilação | Tempo de execução |
 | --- | --- | --- |
-| Pedidos e exceções |Sim |Sim |
-| [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
-| [Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md) |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
-| [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
-| [API para telemetria personalizada][api] |Sim |Não |
-| [Integração de registo de rastreio](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não |
-| [Dados de utilizador e vista de página](../../azure-monitor/app/javascript.md) |Sim |Não |
-| É necessário reprogramar o código |Sim | Não |
+| **Pedidos & exceções** |Sim |Sim |
+| **[Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md)** | |Sim |
+| **[Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md)** |Em .NET 4.6+, mas com menos detalhe |Sim, detalhe completo: códigos de resultado, texto do comando do SQL, verbo HTTP|
+| **[Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md)** |Sim |Sim |
+| **[API para telemetria personalizada][api]** |Sim |Não |
+| **[Integração de registo de rastreio](../../azure-monitor/app/asp-net-trace-logs.md)** |Sim |Não |
+| **[Visualização da página & dados do utilizador](../../azure-monitor/app/javascript.md)** |Sim |Não |
+| **É necessário reprogramar o código** |Sim | Não |
 
 
 
@@ -315,7 +315,7 @@ Para aplicações já instrumentadas no momento da compilação:
 - Descarregue e execute o [instalador status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Ou executar [o Instalador de Plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e pesquisar nele para o Monitor de Estado de Insights de Aplicação.
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
 Ver a telemetria:
 
