@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 57dbec2b91d313c9c93c141c9f3ec839a299d47d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 840d2afa72de290d5534adc766f8634efa6926e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385489"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170059"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integração da App Twilio Check com o Azure Ative Directory B2C
 
@@ -42,7 +42,7 @@ Os seguintes componentes compõem a solução Twilio:
 
     ![fluxo twilio](media/partner-twilio/twilio-flow.png)
 
-|      |      |
+| Passo | Descrição |
 |------|------|
 | 1     | O utilizador inicia a inscrição ou inscrição na app DEMO PSD2. O utilizador é autenticado através da política de inscrição combinada Azure AD B2C. Um símbolo é devolvido ao pedido. Na inscrição, o número de telefone do utilizador é verificado através de SMS/Telefone e gravado na sua conta Azure AD B2C.     |
 | 2     | O utilizador inicia uma transação de alto risco, como uma transferência de $50,00. O token de acesso atual do utilizador é avaliado para o PolicyId para determinar se o utilizador já autenticou através de uma política personalizada Step-Up.     |
@@ -116,7 +116,7 @@ Adicione os ficheiros de política ao Azure AD B2C:
 
 * Navegue pela sua aplicação e teste as ações de inscrição, inscrição e envio de dinheiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

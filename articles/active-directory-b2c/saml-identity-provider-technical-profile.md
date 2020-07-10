@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 268295ce86a9323a1f7ae16bbfcbd4e78367c3a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 724178f71befbe4eace0d3d5615871c21253c1f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203627"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170076"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do fornecedor de identidade SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -70,7 +70,7 @@ Para encriptar a afirmação de resposta SAML:
 3. Desafie os metadados de perfil técnico **Quer Configurações encriptadas** para `true` .
 4. Atualize o fornecedor de identidade com os novos metadados de perfil técnico Azure AD B2C. Deverá consultar o **KeyDescriptor** com a propriedade **de utilização** definida para `encryption` conter a chave pública do seu certificado.
 
-O exemplo a seguir mostra a secção de encriptação de perfil técnico Azure AD B2C dos metadados:
+O exemplo a seguir mostra a secção de descritor chave dos metadados SAML utilizados para encriptação:
 
 ```xml
 <KeyDescriptor use="encryption">
@@ -170,7 +170,7 @@ O elemento **CryptographicKeys** contém os seguintes atributos:
 | SamlAssertionDecryption |Sim | O certificado X509 (conjunto de teclas RSA) para utilizar para desencriptar mensagens SAML. Este certificado deve ser fornecido pelo fornecedor de identidade. A Azure AD B2C utiliza este certificado para desencriptar os dados enviados pelo fornecedor de identidade. |
 | MetadadosSigning |Não | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados.  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para exemplos de trabalhar com fornecedores de identidade SAML em Azure AD B2C:
 

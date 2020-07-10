@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 146cf01d99ccc00a972c98128d8e93e1ed5fb690
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830774"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185709"
 ---
 # <a name="query-update-management-logs"></a>Consultar os registos da Gestão de Atualizações
 
@@ -32,14 +33,14 @@ A Atualização Management recolhe registos de VMs Windows e Linux e os tipos de
 | ManagementGroupName | Nome do grupo de gestão de gestores de operações ou espaço de trabalho Log Analytics. | 
 | Produto | Os produtos para os quais a atualização é aplicável. | 
 | PublishDate | A data em que a atualização está pronta para ser descarregada e instalada a partir do Windows Update. |
-| Server | | 
+| Servidor | | 
 | SourceHealthServiceId | Identificador único que representa o ID do agente do Log Analytics Windows. |
 | SourceSystem | *OperationsManager* | 
 | TenantId | Identificador único que representa a sua instância de azure Ative Directory. | 
 | TimeGenerated | Data e hora que o disco foi criado. | 
 | Tipo | *Atualizar* | 
-| ActualizaçãoClassificação | Indica o tipo de atualizações que podem ser aplicadas. Para Windows:<br> *Atualizações críticas*<br> *Atualizações de segurança*<br> *Update rollups*<br> *Pacotes de funcionalidades*<br> *Service packs*<br> *Atualizações de definições*<br> *Ferramentas*<br> *Atualizações*. Para Linux:<br> *Atualizações críticas e de segurança*<br> *Outros* |
-| AtualizaçõesEverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderado*<br> *Baixa* |
+| ActualizaçãoClassificação | Indica o tipo de atualizações que podem ser aplicadas. Para Windows:<br> *Atualizações críticas*<br> *Atualizações de segurança*<br> *Update rollups*<br> *Pacotes de funcionalidades*<br> *Service packs*<br> *Atualizações de definições*<br> *Ferramentas*<br> *Atualizações*. Para Linux:<br> *Atualizações críticas e de segurança*<br> *Outro* |
+| AtualizaçõesEverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderado*<br> *Baixo* |
 | UpdateTle | O título da atualização.|
 
 ### <a name="query-update-record"></a>Registo de atualização de consultas
@@ -54,7 +55,7 @@ A Atualização Management recolhe registos de VMs Windows e Linux e os tipos de
 | Computador | Nome de domínio totalmente qualificado da máquina de reporte. |
 | Ambiente informático | O ambiente. Os valores possíveis são Azure ou Non-Azure. |
 | MSRCBulletinID | Número de identificação do boletim de segurança. | 
-| MSRCSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> Crítico<br> Importante<br> Moderado<br> Baixa |  
+| MSRCSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> Crítico<br> Importante<br> Moderado<br> Baixo |  
 | KBID | ID de base de conhecimento para a atualização do Windows. |
 | ManagementGroupName | Nome do grupo de gestão de Gestores de Operações ou do espaço de trabalho Log Analytics. |
 | UpdateID | Identificador único da atualização de software. |
@@ -91,7 +92,7 @@ A Atualização Management recolhe registos de VMs Windows e Linux e os tipos de
 | DaySinceLastUpdateBucket | | 
 | ManagementGroupName | Nome do grupo de gestão de gestores de operações ou espaço de trabalho Log Analytics. |
 | OSVersion | A versão do sistema operativo. |
-| Server | |
+| Servidor | |
 | SourceHealthServiceId | Identificador único que representa o ID do agente do Log Analytics Windows. |
 | SourceSystem | O sistema de origem para o registo. O valor `OperationsManager` é. | 
 | TenantId | Identificador único que representa o exemplo da sua organização de Azure Ative Directory. |
@@ -193,7 +194,7 @@ Num computador Windows, pode rever as seguintes informações para verificar a c
 1. No Painel de Controlo, abra o **Agente de Monitorização da Microsoft.** No **separador Azure Log Analytics,** o agente apresenta a seguinte mensagem: **O Agente de Monitorização da Microsoft ligou-se com sucesso ao Log Analytics**.
 2. Abra o Registo de Eventos do Windows. Aceda aos **Registos de Aplicações e Serviços\Gestor de Operações** e procure o ID do evento 3000 e o ID do evento 5002 a partir do **Conector**de Serviço de origem . Estes eventos indicam que o computador foi registado na área de trabalho do Log Analytics e que está a receber a configuração.
 
-Se o agente não conseguir comunicar com os registos do Azure Monitor e o agente estiver configurado para comunicar com a internet através de uma firewall ou servidor de procuração, confirme que a firewall ou o servidor proxy estão corretamente configurados. Para saber como verificar se a firewall ou o servidor proxy estão corretamente configurados, consulte [a configuração da Rede para o agente Windows](../azure-monitor/platform/agent-windows.md) ou para a [configuração da rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
+Se o agente não conseguir comunicar com os registos do Azure Monitor e o agente estiver configurado para comunicar com a internet através de uma firewall ou servidor de procuração, confirme que a firewall ou o servidor proxy estão corretamente configurados. Para saber como verificar se a firewall ou o servidor proxy estão corretamente configurados, consulte [a configuração da Rede para o agente Windows](../azure-monitor/platform/agent-windows.md) ou para a [configuração da rede para o agente Linux](../azure-monitor/learn/quick-collect-linux-computer.md).
 
 > [!NOTE]
 > Se os seus sistemas Linux estiverem configurados para comunicar com um proxy ou Log Analytics Gateway e estiver a permitir a Gestão de Atualização, atualize as `proxy.conf` permissões para conceder ao grupo omiuser a permissão de leitura no ficheiro utilizando os seguintes comandos:
@@ -406,7 +407,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre os registos do [Monitor Azure, consulte os registos do Monitor Azure](../log-analytics/log-analytics-log-searches.md).
+* Para obter informações sobre os registos do [Monitor Azure, consulte os registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md).
 * Para obter ajuda com alertas, consulte [alertas de configuração.](automation-tutorial-update-management.md#configure-alerts)

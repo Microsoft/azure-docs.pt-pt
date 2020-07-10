@@ -3,15 +3,15 @@ title: Implantar imagem de contentor a partir do registo do contentor de Azure
 description: Saiba como implantar contentores em instâncias de contentores Azure, retirando imagens de contentores de um registo de contentores Azure.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a82b0b70b7be8897d8f85cabea2ee21ce84d913
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81453528"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169617"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances a partir do Azure Container Registry
 
@@ -136,7 +136,7 @@ Pode especificar as propriedades do seu registo de contentores Azure num modelo 
 [...]
 ```
 
-Para obter definições completas do grupo de contentores, consulte a referência do [modelo do Gestor de Recursos](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+Para obter definições completas do grupo de contentores, consulte a referência do [modelo do Gestor de Recursos](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 Para obter detalhes sobre a referência aos segredos do Cofre de Chaves Azure num modelo de Gestor de Recursos, consulte [use a anteure Key Vault para passar o valor do parâmetro seguro durante a implementação](../azure-resource-manager/templates/key-vault-parameter.md).
 

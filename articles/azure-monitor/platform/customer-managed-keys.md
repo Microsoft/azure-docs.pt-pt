@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: aab0de11972f7d1abaaa0140da002f838e319fdf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134613"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170348"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente Azure Monitor 
 
@@ -23,7 +23,7 @@ Recomendamos que reveja [as limitações e constrangimentos](#limitationsandcons
 
 [Encriptação em Repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)   é um requisito comum de privacidade e segurança nas organizações.Pode deixar o Azure gerir completamente a Encriptação em Repouso, enquanto tem várias opções para gerir de perto chaves de encriptação ou encriptação.
 
-O Azure Monitor garante que todos os dados são encriptados em repouso utilizando as teclas geridas pelo Azure.O Azure Monitor também fornece uma opção para encriptação de dados usando a sua própria chave que é armazenada no seu [Cofre de Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview)   e acedida por armazenamento usando a autenticação de [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)atribuída pelo   sistema.Esta chave pode ser protegida por [software ou hardware-HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+O Azure Monitor garante que todos os dados e consultas guardadas são encriptados em repouso utilizando as teclas geridas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de encriptação utilizando a sua própria chave que é armazenada no seu [Cofre de Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-overview) e acedida por armazenamento utilizando a autenticação de [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) atribuída pelo sistema. Esta chave (CMK) pode ser [protegida por software ou hardware-HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 O uso do Azure Monitor da encriptação é idêntico ao funcionamento da [encriptação do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   Storage.
 
@@ -235,7 +235,7 @@ Content-type: application/json
 
 A identidade é atribuída ao recurso *Cluster* no momento da criação.
 
-**Resposta**
+**Response**
 
 200 OK e cabeçalho.
 
@@ -249,7 +249,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-**Resposta**
+**Response**
 
 ```json
 {
@@ -334,7 +334,7 @@ Content-type: application/json
 
 "KeyVaultProperties" contém os detalhes do identificador da chave do cofre.
 
-**Resposta**
+**Response**
 
 200 OK e cabeçalho.
 A propagação do identificador chave leva alguns minutos para ser concluída. Pode verificar o estado de atualização de duas formas:
@@ -401,7 +401,7 @@ Content-type: application/json
 }
 ```
 
-**Resposta**
+**Response**
 
 200 OK e cabeçalho.
 
@@ -415,7 +415,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 Authorization: Bearer <token>
 ```
 
-**Resposta**
+**Response**
 
 ```json
 {
@@ -546,7 +546,7 @@ Após a configuração, qualquer nova consulta de alerta será guardada no seu a
   Authorization: Bearer <token>
   ```
 
-  **Resposta**
+  **Response**
   
   ```json
   {
@@ -592,7 +592,7 @@ Após a configuração, qualquer nova consulta de alerta será guardada no seu a
   Authorization: Bearer <token>
   ```
     
-  **Resposta**
+  **Response**
     
   A mesma resposta que para *"Recursos cluster* para um grupo de recursos", mas no âmbito de subscrição.
 
@@ -652,7 +652,7 @@ Após a configuração, qualquer nova consulta de alerta será guardada no seu a
   Authorization: Bearer <token>
   ```
 
-  **Resposta**
+  **Response**
 
   200 OK e cabeçalho.
 
@@ -684,7 +684,7 @@ Após a configuração, qualquer nova consulta de alerta será guardada no seu a
   Authorization: Bearer <token>
   ```
 
-  **Resposta**
+  **Response**
 
   200 OK
 

@@ -6,11 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fa64562f8d26297d2b2c8a13cd8b6a513c2c630
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74672215"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170025"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configure nível PremiumV2 para O Serviço de Aplicações Azure
 
@@ -42,7 +43,7 @@ Ao configurar o plano de Serviço de Aplicações no <a href="https://portal.azu
 
 Selecione **Produção**, em seguida, selecione **P1V2,** **P2V2**ou **P3V2,** em seguida, clique em **Aplicar**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot mostrando os níveis de preços recomendados para a sua aplicação.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Se não vir **o P1V2,** **P2V2**e **P3V2** como opções, ou se as opções estiverem cinzentas, então o **PremiumV2** provavelmente não está disponível na implementação subjacente do Serviço de Aplicações que contém o plano de Serviço de Aplicações. Consulte [a Scale up a partir de um grupo de recursos não suportado e combinação de região](#unsupported) para obter mais detalhes.
@@ -57,15 +58,15 @@ No <a href="https://portal.azure.com" target="_blank">portal Azure,</a>abra a su
 
 Na navegação à esquerda da sua página de aplicações do Serviço de Aplicações, selecione **Scale up (Plano de Serviço de Aplicações)**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
+![Screenshot mostrando como aumentar o seu plano de serviço de aplicações.](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
 Selecione **Produção**, em seguida, selecione **P1V2,** **P2V2**ou **P3V2,** em seguida, clique em **Aplicar**.
 
-![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
+![Screenshot mostrando os níveis de preços recomendados para a sua aplicação.](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 Se a sua operação terminar com sucesso, a página geral da sua aplicação mostra que está agora num nível **PremiumV2.**
 
-![](media/app-service-configure-premium-tier/finished.png)
+![Screenshot mostrando o nível de preços PremiumV2 na página geral da sua aplicação.](media/app-service-configure-premium-tier/finished.png)
 
 ### <a name="if-you-get-an-error"></a>Se tiver um erro
 
@@ -80,7 +81,7 @@ Se a sua aplicação funcionar numa implementação do Serviço de Aplicações 
 - Crie um **novo** grupo de recursos e, em seguida, crie um **novo** plano de app e App Service no **novo** grupo de recursos, escolhendo a região Azure desejada durante o processo de criação.  Tem **de** selecionar o plano **PremiumV2** no momento da criação do novo plano de serviço de aplicações.  Isto garante a combinação de grupo de recursos, plano de Serviço de Aplicações e região de Azure resultará na criação do plano de Serviço de Aplicações numa implementação do Serviço de Aplicações que suporta **o PremiumV2**.  Em seguida, reimplante o seu código de aplicação no plano de serviço de aplicações e aplicações recém-criado. Se desejar, poderá posteriormente reduzir o plano do Serviço de Aplicações a partir do **PremiumV2** para economizar custos, e ainda poderá voltar a escalar com sucesso no futuro usando o **PremiumV2**.
 - Se a sua aplicação já funciona num nível **Premium** existente, então pode clonar a sua aplicação com todas as definições de aplicações, cordas de ligação e configuração de implementação num novo plano de serviço de aplicações que utilize **o PremiumV2**.
 
-    ![](media/app-service-configure-premium-tier/clone-app.png)
+    ![Screenshot mostrando como clonar a sua aplicação.](media/app-service-configure-premium-tier/clone-app.png)
 
     Na página de **aplicações Clone,** pode criar um plano de Serviço de Aplicações utilizando o **PremiumV2** na região que pretende e especificar as definições e configurações da aplicação que pretende clonar.
 

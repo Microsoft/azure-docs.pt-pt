@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73888590"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170790"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com REST  
 > [!div class="op_single_selector"]
@@ -149,7 +150,7 @@ Para receber o URL de upload real, crie um localizador SAS (mostrado abaixo). Os
 
 Um URL SAS tem o seguinte formato:
 
-    {https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
+`{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}`
 
 ### <a name="considerations"></a>Considerações
 
@@ -172,7 +173,7 @@ São aplicáveis algumas considerações:
 
 ### <a name="overview"></a>Descrição geral
 
-Agora que tem o URL de upload, precisa de escrever algum código utilizando as APIs Azure Blob diretamente para fazer o upload do seu ficheiro para o contentor SAS. Para obter mais informações, veja os seguintes artigos:
+Agora que tem o URL de upload, precisa de escrever algum código utilizando as APIs Azure Blob diretamente para fazer o upload do seu ficheiro para o contentor SAS. Para obter mais informações, veja os artigos seguintes:
 
 - [Utilizar a API REST do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
@@ -212,16 +213,18 @@ Para validar que o ficheiro foi carregado com sucesso, é melhor consultar o [As
 
 Por exemplo, a seguinte operação **GET** traz dados de ficheiro para o seu ficheiro de ativos (em caso ou caso, o ficheiro BigBuckBunny.mp4). A consulta está a usar as [variáveis ambientais](postman-environment.md) que definiu anteriormente.
 
-    {{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files
+`{{RESTAPIEndpoint}}/Assets('{{LastAssetId}}')/Files`
 
 A resposta conterá tamanho, nome e outras informações.
 
-    "Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
-    "Name": "BigBuckBunny.mp4",
-    "ContentFileSize": "3186542",
-    "ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
-            
-## <a name="next-steps"></a>Próximos passos
+```console
+"Id": "nb:cid:UUID:69e72ede-2886-4f2a-8d36-80a59da09913",
+"Name": "BigBuckBunny.mp4",
+"ContentFileSize": "3186542",
+"ParentAssetId": "nb:cid:UUID:0b8f3b04-72fb-4f38-8e7b-d7dd78888938",
+```
+  
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, pode codificar os elementos que carregar. Para obter mais informações, veja [Codificar elementos](media-services-portal-encode.md)
 

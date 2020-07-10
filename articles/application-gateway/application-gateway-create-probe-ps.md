@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 1a244cd17ecf1f6165936d86791f9b2e320666c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807162"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186746"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Crie uma sonda personalizada para O Gateway de Aplicações Azure utilizando o PowerShell para O Gestor de Recursos Azure
 
@@ -90,9 +90,9 @@ Configura todos os itens de configuração antes de criar o gateway de aplicaç�
 | **Componente** | **Descrição** |
 |---|---|
 | **Configuração de IP do gateway** | Uma configuração IP para um gateway de aplicação.|
-| **Piscina backend** | Um conjunto de endereços IP, FQDN's ou NICs que estão nos servidores de aplicações que hospedam a aplicação web|
+| **Conjunto de back-end** | Um conjunto de endereços IP, FQDN's ou NICs que estão nos servidores de aplicações que hospedam a aplicação web|
 | **Sonda de estado de funcionamento** | Uma sonda personalizada usada para monitorizar a saúde dos membros da piscina backend|
-| **Definições HTTP** | Uma coleção de configurações incluindo, porta, protocolo, afinidade baseada em cookies, sonda e tempo limite.  Estas definições determinam como o tráfego é encaminhado para os membros da piscina backend|
+| **Definições de HTTP** | Uma coleção de configurações incluindo, porta, protocolo, afinidade baseada em cookies, sonda e tempo limite.  Estas definições determinam como o tráfego é encaminhado para os membros da piscina backend|
 | **Porta frontal** | O porto que o gateway de aplicação ouve para o tráfego em|
 | **Serviço de Escuta** | Uma combinação de protocolo, configuração IP frontend e porta frontal. Isto é o que ouve os pedidos de entrada.
 |**Regra**| Encaminha o tráfego para o backend apropriado com base nas definições HTTP.|
@@ -195,7 +195,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a configurar a descarga de TLS visitando: [Configure TLS Offload](application-gateway-ssl-arm.md)
 

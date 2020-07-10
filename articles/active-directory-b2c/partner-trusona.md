@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78de242cb6fd1d670dc9564a2725070b7424b5b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385557"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170110"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrando Trusona com Azure Ative Directory B2C
 
@@ -40,8 +40,7 @@ Neste cenário, Trusona atua como um fornecedor de identidade para a Azure AD B2
 
 ![Diagrama de arquitetura de Trusona](media/partner-trusona/trusona-architecture-diagram.png)
 
-
-|  |  |
+| Passo | Descrição |
 |------|------|
 |1     | Um utilizador tenta iniciar sção ou inscrever-se na aplicação. O utilizador é autenticado através da política de inscrição e inscrição Azure AD B2C. Durante a inscrição, é utilizado o endereço de e-mail previamente verificado do utilizador a partir da aplicação Trusona.     |
 |2     | O Azure B2C redireciona o utilizador para o fornecedor de identidade Trusona OpenID Connect (OIDC) utilizando o fluxo implícito.     |
@@ -158,7 +157,7 @@ Neste cenário, Trusona atua como um fornecedor de identidade para a Azure AD B2
 
 5. Depois de digitalizar o código Secure QR, deverá ser redirecionado para o URL de resposta definido no passo 3.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

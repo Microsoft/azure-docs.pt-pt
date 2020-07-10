@@ -3,18 +3,18 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: ddc4af9a164de3a822e8aebd6c0a4db769ec62a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262587"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170331"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes - Apoiar bases de dados SAP HANA em VMs Azure
 
 Este artigo responde a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 ### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos reforços completos são suportados por dia?
 
@@ -59,15 +59,19 @@ Atualmente não temos a capacidade de configurar a solução apenas contra um IP
 
 ### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Como posso mover uma cópia de segurança a pedido para o sistema de ficheiros local em vez do cofre do Azure?
 
-1. Aguarde que a cópia de segurança atualmente em execução esteja concluída na base de dados desejada (verifique a partir do estúdio para conclusão)
+1. Aguarde que a cópia de segurança atualmente em execução esteja concluída na base de dados desejada (verifique a partir do estúdio para conclusão).
 1. Desative as cópias de segurança de registo e descreva a cópia de segurança do catálogo para o **Ficheiro** para o DB pretendido utilizando os seguintes passos:
 1. Configuração de duplo clique **SYSTEMDB**  ->  **configuration**  ->  **Selecione**filtro de base de dados  ->  **(log)**
     1. Definir enable_auto_log_backup para **não**
-    1. Definir log_backup_using_backint em **falso**
-1. Faça uma cópia de segurança a pedido na base de dados desejada e aguarde que a cópia de segurança e o backup do catálogo completem.
+    1. Definir catalog_backup_using_backint a **falso**
+1. Pegue uma cópia de segurança a pedido (completa/diferencial/ incremental) na base de dados desejada e aguarde a conclusão da cópia de segurança e do catálogo.
+1. Se também pretender mover as cópias de segurança de registo para o Sistema de Ficheiros, desloque enable_auto_log_backup para **sim**
 1. Reverta para as definições anteriores para permitir que as cópias de segurança fluam para o cofre Azure:
     1. Definir enable_auto_log_backup para **sim**
-    1. Definir log_backup_using_backint para **verdade**
+    1. Definir catalog_backup_using_backint para **verdade**
+
+>[!NOTE]
+>Mover cópias de segurança para o sistema de ficheiros locais e voltar a mudar para o cofre Azure pode causar uma rutura da corrente de registo das cópias de segurança do cofre. Isto irá desencadear uma cópia de segurança completa, que uma vez concluída com sucesso, começará a fazer backup dos registos.
 
 ### <a name="how-can-i-use-sap-hana-backup-with-my-hana-replication-set-up"></a>Como posso usar o SAP HANA Backup com a minha configuração de replicação HANA?
 
@@ -121,6 +125,6 @@ Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148
 
 Sim, pode utilizar cópias de segurança de streaming ativadas numa base de dados HANA em funcionamento no SLES para restaurar para um sistema RHEL HANA e vice-versa. Ou seja, a restauração do sistema operativo transversal é possível utilizando cópias de segurança de streaming. No entanto, terá de garantir que o sistema HANA a que pretende restaurar, e o sistema HANA utilizado para restauro, são ambos compatíveis para restauro de acordo com o SAP. Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver quais os tipos de restauro compatíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [fazer o back bases de dados SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) em funcionamento em VMs Azure.

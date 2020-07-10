@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808223"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186804"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Crie uma sonda personalizada para o Application Gateway utilizando o portal
 
@@ -46,19 +46,21 @@ As sondas são configuradas num processo de duas etapas através do portal. O pr
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Nome**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
+   |**Name**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
    |**Protocolo**|HTTP OU HTTPS | O protocolo que a sonda usa. |
-   |**Anfitrião**|i.e contoso.com|Este valor é o nome do anfitrião virtual (diferente do nome do anfitrião VM) que está a ser gerido no servidor de aplicações. A sonda é enviada para (protocolo)://(nome de anfitrião):(port from httpsetting)/urlPath.  Isto é aplicável quando vários sites são configurados no Gateway de aplicação. Se o Gateway de Aplicação estiver configurado para um único local, insira '127.0.0.1'.|
-   |**Escolha o nome do anfitrião a partir das definições HTTP backend**|Sim ou Não|Define o cabeçalho do *anfitrião* na sonda para o nome de anfitrião do recurso back-end na piscina de back-end associada à definição HTTP à qual esta sonda está associada. Especialmente necessário no caso de apoios multi-inquilinos, como o serviço de aplicações Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Caminho**|/ ou outro caminho|O restante da url completa para a sonda personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http: \/ /contoso.com basta usar '/' |
+   |**Anfitrião**|i.e contoso.com|Este valor é o nome do anfitrião virtual (diferente do nome do anfitrião VM) que está a ser gerido no servidor de aplicações. A sonda é enviada para \<protocol\> \<host name\> :\<port\>/\<urlPath\>|
+   |**Escolha o nome do anfitrião a partir das definições HTTP backend**|Sim ou Não|Define o cabeçalho do *anfitrião* na sonda para o nome do anfitrião a partir das definições HTTP às quais esta sonda está associada. Especialmente necessário no caso de apoios multi-inquilinos, como o serviço de aplicações Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Escolha a porta a partir das definições HTTP de backend**| Sim ou Não|Define a *porta* da sonda de saúde para a porta a partir das definições HTTP às quais esta sonda está associada. Se escolher não, pode entrar numa porta de destino personalizada para usar |
+   |**Porta**| 1-65535 | Porta personalizada para ser usada para as sondas de saúde | 
+   |**Caminho**|/ ou qualquer caminho válido|O restante da url completa para a sonda personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http: \/ /contoso.com basta usar '/' |
    |**Intervalo (segs)**|30|Quantas vezes a sonda é executada para verificar se há saúde. Não é aconselhável definir o inferior a 30 segundos.|
    |**Intervalo (segs)**|30|A quantidade de tempo que a sonda espera antes do tempo de 20 minutos. Se não for recebida uma resposta válida dentro deste período de tempo, a sonda será marcada como falhada. O intervalo de tempo tem de ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de saúde de backend está disponível. Note que o valor de tempo de desatado não deve ser mais do que o valor 'Intervalo' utilizado nesta definição de sonda ou o valor 'Tempo de pedido' na definição HTTP que estará associado a esta sonda.|
-|**Limiar com funcionamento incorreto**|3|Número de tentativas falhadas consecutivas para ser considerado insalubre. O limiar pode ser definido para 1 ou mais.|
+   |**Limiar com funcionamento incorreto**|3|Número de tentativas falhadas consecutivas para ser considerado insalubre. O limiar pode ser definido para 1 ou mais.|
    |**Utilize condições de correspondência da sonda**|Sim ou Não|Por predefinição, uma resposta HTTP(S) com código de estado entre 200 e 399 é considerada saudável. Pode alterar o intervalo aceitável de código de resposta de backend ou do corpo de resposta de backend. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
-   |**Definições de HTTP**|seleção de dropdown|A sonda ficará associada com a definição(s) HTTP selecionada aqui e, portanto, monitorizará a saúde desse pool de backend que está associado à definição http selecionada. Utilizará a mesma porta para o pedido de sonda que o que está a ser utilizado na definição HTTP selecionada. Só pode escolher as definições HTTP que não estão associadas a qualquer outra sonda personalizada. <br>Note que apenas as definições HTTP(s) estão disponíveis para associação que têm o mesmo protocolo que o protocolo escolhido nesta configuração de sonda e têm o mesmo estado para o interruptor *de definição de Nome de Anfitrião Pick From Backend HTTP.*|
+   |**Definições HTTP**|seleção de dropdown|A sonda ficará associada com a definição(s) HTTP selecionada aqui e, portanto, monitorizará a saúde desse pool de backend que está associado à definição http selecionada. Utilizará a mesma porta para o pedido de sonda que o que está a ser utilizado na definição HTTP selecionada. Só pode escolher as definições HTTP que não estão associadas a qualquer outra sonda personalizada. <br>Note que apenas as definições HTTP(s) estão disponíveis para associação que têm o mesmo protocolo que o protocolo escolhido nesta configuração de sonda e têm o mesmo estado para o interruptor *de definição de Nome de Anfitrião Pick From Backend HTTP.*|
    
    > [!IMPORTANT]
-   > A sonda monitorizará a saúde do backend apenas quando estiver associada a uma ou mais definições HTTP. Monitorizará os recursos de back-end das piscinas de back-end que estão associadas à definição(s) HTTP(s) à qual esta sonda está associada. O pedido de sonda será enviado para http://(nome anfitrião):(port a partir de httpsetting)/urlPath.
+   > A sonda monitorizará a saúde do backend apenas quando estiver associada a uma ou mais definições HTTP. Monitorizará os recursos de back-end das piscinas de back-end que estão associadas à definição(s) HTTP(s) à qual esta sonda está associada. O pedido de sonda será enviado como \<protocol\> \<hostName\> : . \<port\> / \<urlPath\> .
 
 ### <a name="test-backend-health-with-the-probe"></a>Teste de saúde com a sonda
 
@@ -71,7 +73,7 @@ Depois de introduzir as propriedades da sonda, pode testar a saúde dos recursos
 2. Se houver algum recurso de backend pouco saudável, verifique a coluna **Details** para entender a razão do estado pouco saudável do recurso. Se o recurso tiver sido marcado como insalubre devido a uma configuração incorreta da sonda, então selecione o **Go back para sondar** link e edite a configuração da sonda. Caso contrário, se o recurso tiver sido marcado como insalubre devido a um problema com o backend, então resolva os problemas com o recurso backend e, em seguida, teste novamente o backend selecionando o **Go de volta para a** ligação sonda e selecione **Test**.
 
    > [!NOTE]
-   > Pode optar por salvar a sonda mesmo com recursos de backend pouco saudáveis, mas não é recomendado. Isto porque o Gateway de Aplicação remove os recursos de backend da piscina de backend que são determinados como insalubres pela sonda. Caso não existam recursos saudáveis num pool de backend, não poderá aceder à sua aplicação e terá um erro de 502.
+   > Pode optar por salvar a sonda mesmo com recursos de backend pouco saudáveis, mas não é recomendado. Isto porque o Gateway de Aplicação não irá encaminhar pedidos para os servidores backend do pool backend que são determinados como insalubres pela sonda. Caso não existam recursos saudáveis num pool de backend, não poderá aceder à sua aplicação e terá um erro HTTP 502.
 
    ![Ver resultado da sonda][6]
 
@@ -95,18 +97,18 @@ As sondas são configuradas num processo de duas etapas através do portal. O pr
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Nome**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
+   |**Name**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
    |**Protocolo**|HTTP OU HTTPS | O protocolo que a sonda usa. |
    |**Anfitrião**|i.e contoso.com|Este valor é o nome do anfitrião virtual (diferente do nome do anfitrião VM) que está a ser gerido no servidor de aplicações. A sonda é enviada para (protocolo)://(nome de anfitrião):(port from httpsetting)/urlPath.  Isto é aplicável quando vários sites são configurados no Gateway de aplicação. Se o Gateway de Aplicação estiver configurado para um único local, insira '127.0.0.1'.|
    |**Escolha o nome do anfitrião a partir das definições HTTP backend**|Sim ou Não|Define o cabeçalho do *anfitrião* na sonda para o nome de anfitrião do recurso back-end na piscina de back-end associada à definição HTTP à qual esta sonda está associada. Especialmente necessário no caso de apoios multi-inquilinos, como o serviço de aplicações Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Caminho**|/ ou outro caminho|O restante da url completa para a sonda personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http: \/ /contoso.com basta usar '/' |
+   |**Caminho**|/ ou qualquer caminho válido|O restante da url completa para a sonda personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http: \/ /contoso.com basta usar '/' |
    |**Intervalo (segs)**|30|Quantas vezes a sonda é executada para verificar se há saúde. Não é aconselhável definir o inferior a 30 segundos.|
    |**Intervalo (segs)**|30|A quantidade de tempo que a sonda espera antes do tempo de 20 minutos. Se não for recebida uma resposta válida dentro deste período de tempo, a sonda será marcada como falhada. O intervalo de tempo tem de ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de saúde de backend está disponível. Note que o valor de tempo de desatado não deve ser mais do que o valor 'Intervalo' utilizado nesta definição de sonda ou o valor 'Tempo de pedido' na definição HTTP que estará associado a esta sonda.|
-|**Limiar com funcionamento incorreto**|3|Número de tentativas falhadas consecutivas para ser considerado insalubre. O limiar pode ser definido para 1 ou mais.|
+   |**Limiar com funcionamento incorreto**|3|Número de tentativas falhadas consecutivas para ser considerado insalubre. O limiar pode ser definido para 1 ou mais.|
    |**Utilize condições de correspondência da sonda**|Sim ou Não|Por predefinição, uma resposta HTTP(S) com código de estado entre 200 e 399 é considerada saudável. Pode alterar o intervalo aceitável de código de resposta de backend ou do corpo de resposta de backend. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
 
    > [!IMPORTANT]
-   > O nome do anfitrião não é o mesmo que o nome do servidor. Este valor é o nome do anfitrião virtual em execução no servidor de aplicações. A sonda é enviada para http://(nome de anfitrião):(port a partir de httpsetting)/urlPath
+   > O nome do anfitrião não é o mesmo que o nome do servidor. Este valor é o nome do anfitrião virtual em execução no servidor de aplicações. A sonda é enviada para \<protocol\> \<hostName\> :\<port from http settings\>/\<urlPath\>
 
 ### <a name="add-probe-to-the-gateway"></a>Adicione sonda ao portal
 
@@ -119,7 +121,7 @@ Agora que a sonda foi criada, é hora de adicioná-la ao portal. As definições
 2. Na página de definições de **configurações do AppGatewayBackEndHttpSettings,** verifique a caixa de verificação **da sonda personalizada Use** e escolha a sonda criada na secção ['Criar'](#createprobe) na secção **de sonda personalizada.**
    Quando estiver concluído, clique em **Guardar** e as definições são aplicadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja a saúde dos recursos de backend como determinado pela sonda utilizando a [visão de saúde backend](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
 

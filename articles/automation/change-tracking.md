@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555038"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185590"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -48,11 +49,11 @@ O Change Tracking and Inventory está atualmente a experimentar as seguintes que
 
 - As atualizações do Hotfix não são recolhidas nas máquinas Core RS3 do Windows Server 2016.
 
-- Os daemons de Linux podem mostrar um estado alterado, mesmo que não tenha ocorrido qualquer alteração. Este problema surge devido à forma como os `SvcRunLevels` dados no registo Azure Monitor [ConfigurationChange são capturados.](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange)
+- Os daemons de Linux podem mostrar um estado alterado, mesmo que não tenha ocorrido qualquer alteração. Este problema surge devido à forma como os `SvcRunLevels` dados no registo Azure Monitor [ConfigurationChange são capturados.](/azure/azure-monitor/reference/tables/configurationchange)
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-O Change Tracking and Inventory é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões oficiais do sistema operativo são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. A funcionalidade também é suportada em vários sistemas operativos Linux. Para sistemas operativos que suportam o Log Analytics, consulte [a visão geral do agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+O Change Tracking and Inventory é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. As versões oficiais do sistema operativo são o Windows Server 2008 SP1 ou mais tarde e o Windows 7 SP1 ou mais tarde. A funcionalidade também é suportada em vários sistemas operativos Linux. Para sistemas operativos que suportam o Log Analytics, consulte [a visão geral do agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -90,7 +91,7 @@ Pode adicionar, modificar ou remover cada alteração. O exemplo abaixo mostra u
 
 ## <a name="fim-support-in-azure-security-center"></a>Suporte FIM no Centro de Segurança Azure
 
-O Rastreio e Inventário de Alteração faz uso da Monitorização da Integridade do Ficheiro do Centro de [Segurança Azure (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Enquanto o FIM monitoriza apenas ficheiros e registos, a funcionalidade completa de Rastreio e Inventário de Alterações também inclui rastreio para:
+O Rastreio e Inventário de Alteração faz uso da Monitorização da Integridade do Ficheiro do Centro de [Segurança Azure (FIM)](../security-center/security-center-file-integrity-monitoring.md). Enquanto o FIM monitoriza apenas ficheiros e registos, a funcionalidade completa de Rastreio e Inventário de Alterações também inclui rastreio para:
 
 - Alterações de software
 - Serviços da Microsoft
@@ -105,7 +106,7 @@ Para rastrear alterações em ficheiros tanto no Windows como no Linux, o Change
 
 ## <a name="tracking-of-file-content-changes"></a>Rastreio das alterações do conteúdo de ficheiros
 
-Alterar o Tracking e o Inventário permite-lhe visualizar o conteúdo de um ficheiro Windows ou Linux. Para cada alteração a um ficheiro, o Change Tracking and Inventory armazena o conteúdo do ficheiro numa [conta de Armazenamento Azure](../storage/common/storage-create-storage-account.md). Quando está a seguir um ficheiro, pode ver o seu conteúdo antes ou depois de uma alteração. O conteúdo do ficheiro pode ser visto dentro ou lado a lado. 
+Alterar o Tracking e o Inventário permite-lhe visualizar o conteúdo de um ficheiro Windows ou Linux. Para cada alteração a um ficheiro, o Change Tracking and Inventory armazena o conteúdo do ficheiro numa [conta de Armazenamento Azure](../storage/common/storage-account-create.md). Quando está a seguir um ficheiro, pode ver o seu conteúdo antes ou depois de uma alteração. O conteúdo do ficheiro pode ser visto dentro ou lado a lado. 
 
 ![Ver alterações num ficheiro](./media/change-tracking/view-file-changes.png)
 
@@ -170,7 +171,7 @@ A tabela a seguir mostra os limites de produto rastreado por máquina para Chang
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho Log Analytics, pode ver os dados ingeridos por Change Tracking e Inventory num gráfico de utilização. Utilize esta visão de dados para avaliar o uso dos seus dados e determinar como isso afeta a sua conta. Consulte [Compreender os seus custos de utilização e estimativa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho Log Analytics, pode ver os dados ingeridos por Change Tracking e Inventory num gráfico de utilização. Utilize esta visão de dados para avaliar o uso dos seus dados e determinar como isso afeta a sua conta. Consulte [Compreender os seus custos de utilização e estimativa](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dados do serviço da Microsoft
 
@@ -198,7 +199,7 @@ Uma capacidade chave do Change Tracking and Inventory está a alertar para as al
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey == @"HKEY_LOCAL_MACHINE \\ SOFTWARE Microsoft Windows \\ \\ \\ CurrentVersion \\ QualityCompat"| Útil para rastrear alterações em chaves antivírus cruciais.|
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey contém @"HKEY_LOCAL_MACHINE \\ SYSTEM \\ CurrentControlSet \\ Services \\ SharedAccess \\ Parameters \\ FirewallPolicy"| Útil para rastrear alterações nas definições de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para ativar a funcionalidade a partir de uma conta de Automação, consulte [Ativar o Tracking e o Inventário de Mudança a partir de uma conta de Automação.](automation-enable-changes-from-auto-acct.md)
 

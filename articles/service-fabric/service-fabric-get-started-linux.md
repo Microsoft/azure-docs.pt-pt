@@ -3,12 +3,12 @@ title: Crie o seu ambiente de desenvolvimento no Linux
 description: Instale o runtime e o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir esta configuração, estará pronto para criar aplicações.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: cfc97a540ed8c4c17ca4030c45b16021b926d7c5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8610feb68e16646c73c132c0577fd3ff198d74b8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854796"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186899"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -161,8 +161,8 @@ O runtime do Service Fabric, que vem incluído com a instalação do SDK, inclui
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | mais recente |
-RHEL | - | OpenJDK 1.8 | Implícito de npm | mais recente |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implícito de npm | mais recente |
+**RHEL** | - | OpenJDK 1.8 | Implícito de npm | mais recente |
 
 ## <a name="set-up-a-local-cluster"></a>Configurar um cluster local
 Inicie um cluster local após a conclusão da instalação.
@@ -307,7 +307,7 @@ Para remover os SDKs do Service Fabric, execute os seguintes comandos.
     npm uninstall -g generator-azuresfguest
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

@@ -3,11 +3,12 @@ title: Amostras de modelo do gestor de recursos Azure
 description: Encontre amostras de modelo do Gestor de Recursos Azure para implementar instâncias de contentores Azure em diferentes configurações
 ms.topic: article
 ms.date: 03/07/2019
-ms.openlocfilehash: 7208e1b4b67879979507cc451d40a188a84373de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c487087b39244178643fd81364150ceb3ac4a63
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299762"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169651"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos de gestor de recursos Azure para instâncias de contentores Azure
 
@@ -17,7 +18,7 @@ Para obter opções de implantação, consulte a secção [De Implementação.](
 
 ## <a name="sample-templates"></a>Modelos de exemplo
 
-| | |
+| Modelo | Descrição |
 |-|-|
 | **Aplicações** ||
 | [WordPress][app-wp] | Cria um website WordPress e a sua base de dados MySQL num grupo de contentores. O conteúdo do site WordPress e a base de dados MySQL são persistidos a uma partilha de Ficheiros Azure. Também cria uma porta de aplicação para expor o acesso da rede pública ao WordPress. |

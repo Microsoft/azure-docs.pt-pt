@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255139"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169980"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restaurar uma aplicação em Azure a partir de um instantâneo
 Este artigo mostra-lhe como restaurar uma aplicação no [Azure App Service](../app-service/overview.md) a partir de uma foto. Pode restaurar a sua aplicação para um estado anterior, com base numa das fotos da sua aplicação. Não é necessário ativar a cópia de segurança das imagens, a plataforma guarda automaticamente uma imagem de todas as aplicações para efeitos de recuperação de dados.
@@ -36,15 +37,15 @@ Restaurar a partir de instantâneos está disponível para aplicações em execu
 
 1. Na página **definições** da sua aplicação no [portal Azure,](https://portal.azure.com)clique em **Backups** para exibir a página **de Backups.** Em seguida, clique em **Restaurar** na secção **Snapshot (Preview).**
    
-    ![](./media/app-service-web-restore-snapshots/1.png)
+    ![Screenshot que mostra como restaurar uma aplicação a partir de uma cópia de segurança instantânea.](./media/app-service-web-restore-snapshots/1.png)
 
 2. Na página **'Restaurar',** selecione o instantâneo para restaurar.
    
-    ![](./media/app-service-web-restore-snapshots/2.png)
+    ![Screenshot que mostra como selecionar o instantâneo para restaurar. ](./media/app-service-web-restore-snapshots/2.png)
    
 3. Especifique o destino para a restauração da aplicação no **destino Restaurar.**
    
-    ![](./media/app-service-web-restore-snapshots/3.png)
+    ![Screenshot que mostra como especificar o destino de restauração.](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
    > Se escolher **Overwrite,** todos os dados existentes no sistema de ficheiros atuais da sua aplicação são apagados e substituídos. Antes de clicar **em OK,** certifique-se de que é o que quer fazer.
@@ -60,6 +61,6 @@ Restaurar a partir de instantâneos está disponível para aplicações em execu
 
 4. Pode optar por restaurar a configuração do seu site.
    
-    ![](./media/app-service-web-restore-snapshots/4.png)
+    ![Screenshot que mostra como restaurar a configuração do site.](./media/app-service-web-restore-snapshots/4.png)
 
 5. Clique em **OK**.

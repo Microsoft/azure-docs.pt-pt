@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f7e24e1b4546c76348e61e3c2736fcfe4b66410d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0560d9a5156f06f7ae7473f63359d9d17926b7ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836945"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186457"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integre-se com registos do Monitor Azure
 
@@ -35,7 +36,7 @@ Para começar a enviar os seus relatórios de Configuração do Estado da Automa
 
 - O lançamento de novembro de 2016 ou posterior da [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 - Uma conta de Automatização do Azure. Para mais informações, consulte [Uma introdução à Azure Automation.](automation-intro.md)
-- Um espaço de trabalho Log Analytics com uma oferta de serviço de Controlo de & de Automação. Para obter mais informações, consulte [Começar com o Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+- Um espaço de trabalho Log Analytics com uma oferta de serviço de Controlo de & de Automação. Para obter mais informações, consulte [Começar com o Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 - Pelo menos um nó de configuração do estado da Azure Automation. Para obter mais informações, consulte [máquinas de embarque para gestão através da Azure Automation State Configuration](automation-dsc-onboarding.md).
 - O módulo [xDscDiagnostics,](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) versão 2.7.0.0 ou maior. Para etapas de instalação, consulte a configuração de [estado desejada da Automatização de Azure de Resolução](./troubleshoot/desired-state-configuration.md)de Problemas .
 
@@ -43,7 +44,7 @@ Para começar a enviar os seus relatórios de Configuração do Estado da Automa
 
 Para começar a importar dados da Azure Automation State Configuration para registos Azure Monitor, complete os seguintes passos:
 
-1. Faça login na sua conta Azure em PowerShell. Ver [Iniciar sação com Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Faça login na sua conta Azure em PowerShell. Ver [Iniciar sação com Azure PowerShell](/powershell/azure/authenticate-azureps).
 1. Obtenha o ID de recursos da sua conta Automation executando o seguinte cmdlet PowerShell. Se tiver mais do que uma conta de automação, escolha o ID de recurso para a conta que pretende configurar.
 
    ```powershell
@@ -90,7 +91,7 @@ Detalhes da filtragem:
 * Filtrar `DscResourceStatusData` para devolver as operações de cada recurso DSC chamado na configuração do nó aplicado a esse recurso. 
 * Filtrar `DscResourceStatusData` para devolver informações de erro para quaisquer recursos DSC que falhem.
 
-Para saber mais sobre a construção de consultas de registo para encontrar dados, consulte [a visão geral das consultas de registo no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Para saber mais sobre a construção de consultas de registo para encontrar dados, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Envie um e-mail quando uma verificação de conformidade de configuração do Estado falhar
 
@@ -104,7 +105,7 @@ Para criar uma regra de alerta, comece por criar uma pesquisa de registo para os
    Se tiver configurado registos de mais de uma conta de Automação ou subscrição do seu espaço de trabalho, pode agrupar os seus alertas por subscrição e conta Demôm automação. Obtém o nome da conta Automation do `Resource` campo na procura dos `DscNodeStatusData` registos.
 1. Para abrir o ecrã **de regras Criar,** clique em **Nova Regra de Alerta** no topo da página. 
 
-Para obter mais informações sobre as opções para configurar o alerta, consulte [Criar uma regra de alerta.](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)
+Para obter mais informações sobre as opções para configurar o alerta, consulte [Criar uma regra de alerta.](../azure-monitor/platform/alerts-metric.md)
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Encontre recursos DSC falhados em todos os nós
 
@@ -134,7 +135,7 @@ Os diagnósticos da Azure Automation criam duas categorias de registos em regist
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade correu. |
 | OperationName |`DscNodeStatusData`. |
-| ResultadoType |Valor que indica se o nó está em conformidade. |
+| ResultType |Valor que indica se o nó está em conformidade. |
 | NodeName_s |O nome do nó gerido. |
 | NodeComplianceStatus_s |Valor de estado que especifica se o nó está em conformidade. |
 | DscReportStatus |Valor do estado indicando se a verificação de conformidade correu com sucesso. |
@@ -152,7 +153,7 @@ Os diagnósticos da Azure Automation criam duas categorias de registos em regist
 | NumberOfResources_d | O número de recursos DSC chamados na configuração aplicada ao nó. |
 | SourceSystem | O sistema de origem que identifica como os registos do Azure Monitor recolheram os dados. Sempre `Azure` para diagnósticos Azure. |
 | ResourceId |O identificador de recursos da conta Azure Automation. |
-| ResultadoDescrição | A descrição dos recursos para esta operação. |
+| ResultDescription | A descrição dos recursos para esta operação. |
 | SubscriptionId | O ID de assinatura Azure (GUID) para a conta Automation. |
 | ResourceGroup | O nome do grupo de recursos para a conta Automation. |
 | ResourceProvider | A MICROSOFT. AUTOMAÇÃO. |
@@ -165,7 +166,7 @@ Os diagnósticos da Azure Automation criam duas categorias de registos em regist
 | --- | --- |
 | TimeGenerated |Data e hora quando a verificação de conformidade correu. |
 | OperationName |`DscResourceStatusData`.|
-| ResultadoType |Se o recurso está em conformidade. |
+| ResultType |Se o recurso está em conformidade. |
 | NodeName_s |O nome do nó gerido. |
 | Categoria | DscNodeStatus. |
 | Recurso | O nome da conta Azure Automation. |
@@ -183,21 +184,20 @@ Os diagnósticos da Azure Automation criam duas categorias de registos em regist
 | DscResourceDuration_d |O tempo, em segundos, que o recurso DSC correu. |
 | SourceSystem | Como os registos do Azure Monitor recolheram os dados. Sempre `Azure` para diagnósticos Azure. |
 | ResourceId |O identificador da conta da Azure Automation. |
-| ResultadoDescrição | A descrição desta operação. |
+| ResultDescription | A descrição desta operação. |
 | SubscriptionId | O ID de assinatura Azure (GUID) para a conta Automation. |
 | ResourceGroup | O nome do grupo de recursos para a conta Automation. |
 | ResourceProvider | A MICROSOFT. AUTOMAÇÃO. |
 | ResourceType | CONTAGEM DE AUTOMAÇÃO. |
 | CorrelationId |GUID que é a identificação de correlação do relatório de conformidade. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral, consulte [a visão geral da configuração do Estado da Automação Azure](automation-dsc-overview.md).
 - Para começar, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).
 - Para saber sobre a compilação de configurações de DSC para que possa atribuí-las aos nós-alvo, consulte [as configurações do Compile DSC na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
-- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Para obter informações sobre preços, consulte [os preços de configuração do Estado da Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver um exemplo da utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [Configurar uma implementação contínua com chocolateria](automation-dsc-cd-chocolatey.md).
-- Para saber mais sobre como construir diferentes consultas de pesquisa e rever os registos de Configuração do Estado da Automação com registos do Monitor Azure, consulte [as pesquisas de Registo nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
-- Para saber mais sobre os registos do Azure Monitor e as fontes de recolha de dados, consulte [a recolha de dados de armazenamento do Azure monitor na visão geral dos registos do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Para saber mais sobre como construir diferentes consultas de pesquisa e rever os registos de Configuração do Estado da Automação com registos do Monitor Azure, consulte [as pesquisas de Registo nos registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+- Para saber mais sobre os registos do Azure Monitor e as fontes de recolha de dados, consulte [a recolha de dados de armazenamento do Azure monitor na visão geral dos registos do Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).

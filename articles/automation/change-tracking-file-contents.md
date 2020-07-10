@@ -5,11 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0eebd626013614bb6240fc0e6530a358a2b86d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781196"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185607"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
 
@@ -43,7 +44,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |---------|---------|
     |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-    |Grupo     | Um nome de grupo para agrupar logicamente ficheiros.        |
+    |Group     | Um nome de grupo para agrupar logicamente ficheiros.        |
     |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temp \\ \* .txt**. Também pode utilizar variáveis ambientais, tais `%winDir%\System32\\\*.*` como.       |
     |Tipo de Caminho     | O tipo de caminho. Os valores possíveis são Ficheiro e Pasta.        |    
     |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |    
@@ -64,7 +65,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |---------|---------|
     |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-    |Grupo     | Um nome de grupo para agrupar logicamente ficheiros.        |
+    |Group     | Um nome de grupo para agrupar logicamente ficheiros.        |
     |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **/etc/*.conf**.       |
     |Tipo de Caminho     | O tipo de caminho. Os valores possíveis são Arquivo e Diretório.        |
     |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |
@@ -78,10 +79,10 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
 
 ## <a name="track-file-contents"></a>Rastrear o conteúdo do ficheiro
 
-O rastreio de conteúdos de ficheiros permite-lhe visualizar o conteúdo de um ficheiro antes e depois de uma alteração rastreada. A funcionalidade guarda o conteúdo do ficheiro numa [conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-overview) depois de ocorrer cada alteração. Aqui estão algumas regras a seguir para rastrear o conteúdo do ficheiro:
+O rastreio de conteúdos de ficheiros permite-lhe visualizar o conteúdo de um ficheiro antes e depois de uma alteração rastreada. A funcionalidade guarda o conteúdo do ficheiro numa [conta de armazenamento](../storage/common/storage-account-overview.md) depois de ocorrer cada alteração. Aqui estão algumas regras a seguir para rastrear o conteúdo do ficheiro:
 
 * É necessária uma conta de armazenamento padrão utilizando o modelo de implementação do Gestor de Recursos para armazenar o conteúdo dos ficheiros. 
-* Não utilize contas de armazenamento de modelos de implantação premium e clássicas. Consulte [as contas de armazenamento Azure](../storage/common/storage-create-storage-account.md).
+* Não utilize contas de armazenamento de modelos de implantação premium e clássicas. Consulte [as contas de armazenamento Azure](../storage/common/storage-account-create.md).
 * Pode ligar a conta de armazenamento a apenas uma conta De Automação.
 * [O Rastreio e Inventário](change-tracking.md) de Alteração devem ser ativados na sua conta de Automação.
 
@@ -133,7 +134,7 @@ Utilize os seguintes passos para configurar o rastreio das chaves de registo nos
     |---------|---------|
     |Ativado     | Verdade se uma definição é aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável da chave de registo para rastrear.        |
-    |Grupo     | Nome do grupo para agrupar logicamente chaves de registo.        |
+    |Group     | Nome do grupo para agrupar logicamente chaves de registo.        |
     |Chave do Registo do Windows   | Nome chave com caminho, por `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` exemplo, .      |
 
 ## <a name="search-logs-for-change-records"></a>Registos de pesquisa para registos de alteração
@@ -166,10 +167,10 @@ Vamos usar este exemplo para discutir os passos para criar alertas sobre uma mud
 
     ![Configurar grupo de ação para alertar sobre a mudança](./media/change-tracking/action-groups.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre configurações de âmbito, consulte [o âmbito de rastreio de alterações de limite e o âmbito de implantação do inventário](automation-scope-configurations-change-tracking.md).
-* Se necessitar de pesquisar registos armazenados no seu espaço de trabalho Log Analytics, consulte [as pesquisas de Registo nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Se necessitar de pesquisar registos armazenados no seu espaço de trabalho Log Analytics, consulte [as pesquisas de Registo nos registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Se terminar com as implementações, consulte [o espaço de trabalho Desvinculação da Conta de Automação para Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md).
 * Para eliminar os seus VMs de Change Tracking and Inventory, consulte [remover VMs do Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
 * Para resolver erros de funcionalidades, consulte [problemas de rastreio e inventário de alterações de resolução de problemas.](troubleshoot/change-tracking.md)

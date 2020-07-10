@@ -4,11 +4,12 @@ description: Transferir coleções de imagens ou outros artefactos de um registo
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: fd551671422931a51f5aa6468de87e28e3a81b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83006329"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186933"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -57,7 +58,7 @@ A autenticação de armazenamento utiliza fichas SAS, geridas como segredos em c
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** - Recurso utilizado para invocar um recurso ExportPipeline ou ImportPipeline.  
   * Você executou o ExportPipeline manualmente criando um recurso PipelineRun e especificando os artefactos para exportar.  
   * Se um gatilho de importação estiver ativado, o ImportPipeline funciona automaticamente. Também pode ser executado manualmente usando um PipelineRun. 
-  * Atualmente, um máximo de **10 artefactos** pode ser transferido com cada PipelineRun.
+  * Atualmente, um máximo de **50 artefactos** pode ser transferido com cada PipelineRun.
 
 ### <a name="things-to-know"></a>Aspetos importantes
 * O ExportPipeline e o ImportPipeline estarão tipicamente em diferentes inquilinos do Ative Directory associados às nuvens de origem e destino. Este cenário requer identidades geridas separadas e cofres-chave para os recursos de exportação e importação. Para efeitos de teste, estes recursos podem ser colocados na mesma nuvem, partilhando identidades.
@@ -336,12 +337,12 @@ az deployment group delete \
 * **Problemas com a AzCopy**
   * Consulte [problemas de AzCopy de resolução de problemas](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Problemas de transferência de artefactos**
-  * Nem todos os artefactos, ou nenhum, são transferidos. Confirme a ortografia dos artefactos em execução de exportação, e o nome do blob nas operações de exportação e importação. Confirme que está a transferir um máximo de 10 artefactos.
+  * Nem todos os artefactos, ou nenhum, são transferidos. Confirme a ortografia dos artefactos em execução de exportação, e o nome do blob nas operações de exportação e importação. Confirme que está a transferir um máximo de 50 artefactos.
   * O gasoduto pode não ter terminado. Uma viagem de exportação ou importação pode demorar algum tempo. 
   * Para outras questões relacionadas com o gasoduto, fornecer o ID de [correlação](../azure-resource-manager/templates/deployment-history.md) de implantação da execução de exportação ou a importação para a equipa de registo de contentores de Azure.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para importar imagens de um único contentor para um registo de contentores Azure a partir de um registo público ou de outro registo privado, consulte a referência do comando [de importação az acr.][az-acr-import]
 

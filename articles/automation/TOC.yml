@@ -308,7 +308,7 @@
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-automation.html'
+      href: /answers/topics/azure-automation.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Calculadora de preços

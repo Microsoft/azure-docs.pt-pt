@@ -3,11 +3,12 @@ title: Índice de exemplos de esquema
 description: Índice de exemplos de conformidade e normas para a implementação de ambientes, políticas e fundações do Framework de Adoção da Cloud com o Azure Blueprints.
 ms.date: 07/01/2020
 ms.topic: sample
-ms.openlocfilehash: 7e45cbbbf7cf6c2e267156dbb0087a19d8288aa2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef85ef0615fa0817a574240e65b7670daeaff33b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832326"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181561"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -15,7 +16,7 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 
 ## <a name="standards-based-blueprint-samples"></a>Exemplos de esquema baseado em normas
 
-|  |  |
+| Sample | Descrição |
 |---------|---------|
 | [ISM PROTECTED da Administração Australiana](./ism-protected/control-mapping.md) | Fornece proteções para garantir a conformidade com o ISM PROTECTED da Administração Australiana. |
 | [Referência de Segurança do Azure](./azure-security-benchmark.md) | Fornece proteções para garantir a conformidade com a [Referência de Segurança do Azure](../../../security/benchmarks/overview.md). |

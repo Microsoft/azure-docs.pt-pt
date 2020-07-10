@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/26/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 18c6e9aac220d7e76a82a2abded6840db931f2d1
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b53c81a52c06780378e45b2141cbef452b4d363a
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057726"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170637"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Criar programáticamente subscrições Azure (pré-visualização)
 
@@ -40,7 +40,7 @@ Depois de ser adicionado a uma Conta de Inscrição associada a um Proprietário
 
 Para executar os seguintes comandos, tem de fazer login no *diretório*de casa do Proprietário da Conta , que é o diretório em que as subscrições são criadas por padrão.
 
-### <a name="rest"></a>[REST](#tab/rest)
+### <a name="rest"></a>[DESCANSE](#tab/rest)
 
 Solicitação para listar todas as contas de inscrição a que tenha acesso:
 
@@ -129,7 +129,7 @@ Utilize a `principalName` propriedade para identificar a conta a que pretende qu
 
 O exemplo a seguir cria uma subscrição *denominada Dev Team Subscription* na conta de inscrição selecionada no passo anterior. A oferta de subscrição é *MS-AZR-0017P* (Acordo Regular da Microsoft Enterprise Agreement). Também adiciona opcionalmente dois utilizadores como RBAC Owners para a subscrição.
 
-### <a name="rest"></a>[REST](#tab/rest)
+### <a name="rest"></a>[DESCANSE](#tab/rest)
 
 Faça o pedido a seguir ao substituir `<enrollmentAccountObjectId>` por `name`, copiado do primeiro passo (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se quiser especificar os proprietários, aprenda [a obter identificações de objetos de utilizador.](grant-access-to-create-subscription.md#userObjectId)
 
@@ -156,7 +156,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Sim      | String | A oferta da assinatura. As duas opções para a EA são [a MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização da produção) e [a MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/teste, precisa de ser [ligada através do portal EA).](https://ea.azure.com/helpdocs/DevOrTestOffer)                |
 | `owners`      | Não       | String | O ID de objeto de qualquer utilizador que gostaria de adicionar como Um Proprietário RBAC na subscrição quando este for criado.  |
 
-Na resposta, recebes um `subscriptionOperation` objeto para monitorização. Quando a criação de subscrição estiver concluída, o `subscriptionOperation` objeto devolveria um `subscriptionLink` objeto, que tem o ID de subscrição.
+Na resposta, recebes uma `Location` url para monitorização. Quando a criação de subscrição estiver concluída, um GET on `Location` url devolverá um `subscriptionLink` objeto, que tem o ID de subscrição. Para mais detalhes, consulte a [documentação da API de subscrição](https://docs.microsoft.com/rest/api/subscription/)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -513,7 +513,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 
 Na resposta, recebes um `subscriptionCreationResult` objeto para monitorização. Quando a criação de subscrição estiver concluída, o `subscriptionCreationResult` objeto devolveria um `subscriptionLink` objeto, que tem o ID de subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para um exemplo sobre a criação de uma subscrição do Enterprise Agreement (EA) utilizando .NET, consulte [o código de amostra no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Agora que criou uma subscrição, pode conceder essa capacidade a outros utilizadores e diretores de serviços. Para obter mais informações, consulte [o acesso do Grant para criar subscrições da Azure Enterprise (pré-visualização)](grant-access-to-create-subscription.md).

@@ -233,7 +233,7 @@ Para suprimir todos os registos de uma categoria, pode utilizar o nível de regi
 
 ## <a name="configure-the-aggregator"></a>Configure o agregador
 
-Como indicado na secção anterior, o tempo de execução agrega dados sobre execuções de funções durante um período de tempo. O período de incumprimento é de 30 segundos ou 1.000 corridas, o que vier primeiro. Pode configurar esta definição na [host.jsno] ficheiro.  Veja este exemplo:
+Como indicado na secção anterior, o tempo de execução agrega dados sobre execuções de funções durante um período de tempo. O período de incumprimento é de 30 segundos ou 1.000 corridas, o que vier primeiro. Pode configurar esta definição na [host.jsno] ficheiro.  Eis um exemplo:
 
 ```json
 {
@@ -246,7 +246,7 @@ Como indicado na secção anterior, o tempo de execução agrega dados sobre exe
 
 ## <a name="configure-sampling"></a>Amostragem de configure
 
-A Application Insights tem uma funcionalidade [de amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo de produzir demasiados dados de telemetria em execuções concluídas em momentos de carga máxima. Quando a taxa de execuções recebidas excede um limiar especificado, os Insights de Aplicação começam a ignorar aleatoriamente algumas das execuções recebidas. A definição predefinição para o número máximo de execuções por segundo é de 20 (cinco na versão 1.x). Pode configurar a amostragem em [host.js.](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights)  Veja este exemplo:
+A Application Insights tem uma funcionalidade [de amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo de produzir demasiados dados de telemetria em execuções concluídas em momentos de carga máxima. Quando a taxa de execuções recebidas excede um limiar especificado, os Insights de Aplicação começam a ignorar aleatoriamente algumas das execuções recebidas. A definição predefinição para o número máximo de execuções por segundo é de 20 (cinco na versão 1.x). Pode configurar a amostragem em [host.js.](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights)  Eis um exemplo:
 
 ### <a name="version-2x-and-later"></a>Versão 2.x e mais tarde
 
@@ -595,7 +595,7 @@ As funções v2 recolhem automaticamente dependências para pedidos HTTP, Servic
 
 Pode escrever código personalizado para mostrar as dependências. Por exemplo, consulte o código de amostra na [secção de telemetria personalizada C](#log-custom-telemetry-in-c-functions)# . O código de amostra resulta num *mapa de aplicações* em Application Insights que se parece com a seguinte imagem:
 
-![Mapeamento de aplicações](./media/functions-monitoring/app-map.png)
+![Mapa da aplicação](./media/functions-monitoring/app-map.png)
 
 ## <a name="enable-application-insights-integration"></a>Ativar a integração do Application Insights
 

@@ -5,11 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 13f17ed9d165e368d2e9d9cde694408b600006cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 302e0cc9b77605afd4012e95fc7c0ab8a22fef3e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171128"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186321"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Ativar o Controlo de Alterações e Inventário a partir de uma conta de Automatização
 
@@ -21,7 +22,7 @@ Este artigo descreve como pode utilizar a sua conta Demômessa para ativar a fun
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Conta de automatização](automation-offering-get-started.md) para gerir máquinas.
+* [Conta de automatização](./index.yml) para gerir máquinas.
 * Uma [máquina virtual.](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -72,7 +73,7 @@ Máquinas ou máquinas instaladas manualmente que já reportam ao seu espaço de
 
 6. Para ativar a funcionalidade para uma ou mais máquinas, selecione **Ative em máquinas selecionadas** e clique em **Adicionar** ao lado de cada máquina para ativar a funcionalidade. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador que guardou a consulta de pesquisa para a funcionalidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para trabalhar com a funcionalidade, consulte [Gerir o Tracking e o Inventário](change-tracking-file-contents.md)de Mudanças.
 * Para resolver problemas gerais com a funcionalidade, consulte [problemas de rastreio e inventário de alterações de resolução de problemas](troubleshoot/change-tracking.md).

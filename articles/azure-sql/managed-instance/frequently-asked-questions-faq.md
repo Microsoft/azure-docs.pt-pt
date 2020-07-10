@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 88f92117dc07fc241ca714851956e386cd10d617
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135031"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171164"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Gestd Instance frequentemente fez perguntas (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -33,18 +33,44 @@ Para obter uma lista de funcionalidades suportadas em SQL Managed Instance, cons
 Para diferenças de sintaxe e comportamento entre Azure SQL Managed Instance e SQL Server, consulte [as diferenças T-SQL do SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
-## <a name="tech-spec--resource-limits"></a>Limites de recursos de & de especificação tecnológica
+## <a name="technical-specification-resource-limits-and-other-limitations"></a>Especificação técnica, limites de recursos e outras limitações
  
 **Onde posso encontrar características técnicas e limites de recursos para a SQL Managed Instance?**
 
 Para obter as características de geração de hardware disponíveis, consulte [diferenças técnicas nas gerações de hardware](resource-limits.md#hardware-generation-characteristics).
 Para os níveis de serviço disponíveis e as suas características, consulte [diferenças técnicas entre os níveis de serviço.](resource-limits.md#service-tier-characteristics)
 
+**Para que nível de serviço sou elegível?**
+
+Qualquer cliente é elegível para qualquer nível de serviço. No entanto, se pretender trocar as licenças existentes por tarifas com desconto em Azure SQL Managed Instance utilizando [o Azure Hybrid Benefit,](https://azure.microsoft.com/pricing/hybrid-benefit/)tenha em mente que os clientes da SQL Server Enterprise Edition com Garantia de Software são elegíveis para os níveis de desempenho [da General Purpose](../database/service-tier-general-purpose.md) ou Business [Critical](../database/service-tier-business-critical.md) e os clientes SQL Server Standard Edition com Garantia de Software são elegíveis apenas para o nível de desempenho para fins gerais. Para mais detalhes, consulte [os direitos específicos da AHB.](../azure-hybrid-benefit.md?tabs=azure-powershell#what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server)
+
+**Que tipos de subscrição são suportados para SQL Managed Instance?**
+
+Para a lista de tipos de subscrição suportados, consulte [os tipos de subscrição suportados](resource-limits.md#supported-subscription-types). 
+
+**Quais as regiões de Azure que são apoiadas?**
+
+Casos geridos podem ser criados na maior parte das regiões de Azure; ver [regiões apoiadas para o SQL Managed Instance](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se necessitar de uma instância gerida numa região que não é suportada, [envie um pedido de apoio através do portal Azure](../database/quota-increase-request.md).
+
+**Existem limitações de quota para implantações de instâncias geridas sql?**
+
+A instância gerida tem dois limites por defeito: limite no número de sub-redes que pode utilizar e um limite no número de vCores que pode prever. Os limites variam entre os tipos e regiões de subscrição. Para a lista de limitações de recursos regionais por tipo de subscrição, consulte a tabela a partir da [limitação regional](resource-limits.md#regional-resource-limitations)de recursos. Estes são limites suaves que podem ser aumentados a pedido. Se precisar de providenciar casos mais geridos nas suas regiões atuais, envie um pedido de apoio para aumentar a quota utilizando o portal Azure. Para obter mais informações, consulte [os aumentos de quota de pedido para a Base de Dados Azure SQL](../database/quota-increase-request.md).
+
+**Posso aumentar o número de bases de dados limite (100) no meu caso gerido a pedido?**
+
+Não, e atualmente não existem planos comprometidos para aumentar o número de bases de dados em SQL Managed Instance. 
+
+**Onde posso migrar se tenho mais de 8TB de dados?**
+Pode considerar migrar para outros sabores Azure que se adequam à sua carga de trabalho: [Azure SQL Database Hyperscale](../database/service-tier-hyperscale.md) ou [SQL Server em Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
+
+**Onde posso migrar se tiver requisitos específicos de hardware, tais como maior rácio RAM para vCore ou mais CPUs?**
+Pode considerar migrar para [o SQL Server em Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) ou [Azure SQL Database](../database/sql-database-paas-overview.md) memory/cpu otimizado.
+
 ## <a name="known-issues--bugs"></a>Problemas conhecidos & insetos
 
 **Onde posso encontrar problemas e insetos conhecidos?**
 
-Para bugs e questões conhecidas, veja [questões conhecidas.](../database/doc-changes-updates-release-notes.md#known-issues)
+Para bugs e questões conhecidas, consulte [questões conhecidas.](../database/doc-changes-updates-release-notes.md#known-issues)
 
 ## <a name="new-features"></a>Novas funcionalidades
 
@@ -52,22 +78,48 @@ Para bugs e questões conhecidas, veja [questões conhecidas.](../database/doc-c
 
 Para funcionalidades novas e de pré-visualização, consulte [as notas de lançamento](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
 
-## <a name="deployment-times"></a>Tempos de implantação 
+## <a name="create-update-delete-or-move-sql-managed-instance"></a>Criar, atualizar, eliminar ou mover a SQL Gestão de Instâncias
 
-**Quanto tempo demora a criar ou atualizar instâncias, ou a restaurar uma base de dados?**
+**Como posso providenciar sql Caso Gerido?**
 
-O tempo esperado para criar uma instância gerida ou alterar o nível de serviço (vCores, armazenamento) depende de vários fatores. Dê uma olhada nas [operações de gestão.](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
+Pode providenciar uma instância a partir de [modelos](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates) [Azure Portal,](instance-create-quickstart.md) [PowerShell,](scripts/create-configure-managed-instance-powershell.md) [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e ARM .
 
+**Posso providenciar casos geridos numa subscrição existente?**
+
+Sim, pode providenciar uma Instância Gerida numa subscrição existente se essa subscrição pertencer aos [tipos de subscrição suportados.](resource-limits.md#supported-subscription-types)
+
+**Por que não posso providenciar uma Instância Gerida na sub-rede que nome começa com um dígito?**
+
+Trata-se de uma limitação atual do componente subjacente que verifica o nome da sub-rede contra o regex ^[a-zA-Z_][^]**(<!. \\ \/ \: \* \? \" \<\> \| \` \' \^ \. \s])$. Todos os nomes que passam no regex e são nomes de sub-redes válidos são atualmente suportados.
+
+**Como posso escalar o meu caso?**
+
+Pode escalar a sua instância gerida a partir de [modelos](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates) [Azure Portal,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [PowerShell,](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou ARM .
+
+**Posso mover o meu Caso Gerido de uma região para outra?**
+
+Sim, pode. Para obter instruções, consulte [mover recursos através das regiões.](../database/move-resources-across-regions.md)
+
+**Como posso apagar o meu Caso Gerido?**
+
+Pode eliminar instâncias geridas através do Portal Azure, [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+
+**Quanto tempo demora a criar ou atualizar um caso, ou a restaurar uma base de dados?**
+
+O tempo esperado para criar uma nova instância gerida ou para alterar os níveis de serviço (vCores, armazenamento), depende de vários fatores. Ver [operações de Gestão](sql-managed-instance-paas-overview.md#management-operations).
+ 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
 **Um caso gerido pode ter o mesmo nome que um exemplo do SQL Server no local?**
 
 A alteração de um nome de instância gerida não é suportada.
 
-A zona de DNS predefinido *.database.windows.net* para uma instância gerida pode ser alterada. 
+**Posso alterar o prefixo da zona DE DNS?**
+
+Sim, A zona de DNS padrão de Instância Gerida *(database.windows.net DS) pode* ser alterada. 
 
 Para utilizar outra zona DNS em vez do padrão, por exemplo, *.contoso.com*: 
-- Use o CliConfig para definir um pseudónimo. A ferramenta é apenas um invólucro de definições de registo, por isso pode ser feito usando a política de grupo ou um script também.
+- Use o CliConfig para definir um pseudónimo. A ferramenta é apenas um invólucro de definições de registo, para que possa ser feito usando a política de grupo ou um script também.
 - Utilize *CNAME* com a opção *TrustServerCertificate=true.*
 
 ## <a name="move-a-database-from-sql-managed-instance"></a>Mover uma base de dados da SQL Managed Instance 
@@ -179,45 +231,6 @@ Isto não é necessário. Pode [criar uma rede virtual para Azure SQL Managed In
 
 Não. Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
 
-## <a name="connectivity"></a>Conectividade 
-
-**Posso ligar-me à minha instância gerida usando o endereço IP?**
-
-Não, isto não é apoiado. O nome de anfitrião de uma instância gerida mapeia para o equilibrador de carga em frente ao cluster virtual da Instância Gerida. Como um cluster virtual pode hospedar várias Instâncias Geridas, uma ligação não pode ser encaminhada para a instância gerida adequada sem especificar o seu nome.
-Para obter mais informações sobre a arquitetura de cluster virtual SQL Managed Instance, consulte [a arquitetura de conectividade de cluster virtual.](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)
-
-**Um caso gerido pode ter um endereço IP estático?**
-
-Atualmente, isto não é apoiado.
-
-Em situações raras, mas necessárias, talvez tenhamos de fazer uma migração on-line de um caso gerido para um novo cluster virtual. Se necessário, esta migração deve-se a mudanças na nossa pilha de tecnologia destinadas a melhorar a segurança e a fiabilidade do serviço. Migrar para um novo cluster virtual resulta na alteração do endereço IP que está mapeado para o nome de anfitrião de instância gerida. O serviço de instância gerida não reclama suporte a endereço IP estático e reserva-se o direito de alterá-lo sem aviso prévio como parte de ciclos de manutenção regulares.
-
-Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma vez que poderia causar tempo de inatividade desnecessário.
-
-**A Managed Instance tem um ponto final público?**
-
-Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para a gestão de serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
-
-**Como é que a Managed Instance controla o acesso ao ponto final público?**
-
-A Instância Gerida controla o acesso ao ponto final público tanto a nível da rede como ao nível da aplicação.
-
-Os serviços de gestão e implantação conectam-se a uma instância gerida utilizando um [ponto final de gestão](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) que mapeia para um equilibrador de carga externo. O tráfego só é encaminhado para os nós se for recebido num conjunto de portas predefinido que apenas os componentes de gestão da instância gerida usam. Uma firewall incorporada nos nós é configurada para permitir o tráfego apenas a partir das gamas IP da Microsoft. Os certificados autenticam mutuamente toda a comunicação entre componentes de gestão e o plano de gestão. Para mais detalhes, consulte [a arquitetura de conectividade para sql Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
-
-**Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
-
-Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [Portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
-
-**Posso especificar uma porta personalizada para o ponto final de dados SQL?**
-
-Não, esta opção não está disponível.  Para o ponto final de dados privados, a Instância Gerida utiliza o número de porta padrão 1433 e para o ponto final de dados públicos, a Managed Instance utiliza o número de porta padrão 3342.
-
-**Qual é a forma recomendada de ligar instâncias geridas colocadas em diferentes regiões?**
-
-O prescêdo do circuito da Rota Expresso é a forma preferida de o fazer. Isto não deve ser misturado com o espreguiçadamento da rede virtual entre regiões que não é suportado devido à [restrição](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)interna relacionada com o balançador de carga .
-
-Se o perspitamento do circuito De Rota Expresso não for possível, a única outra opção é criar ligação VPN Local-a-Local[(portal Azure,](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI).](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)
-
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Mitigar riscos de exfiltração de dados  
 
@@ -266,6 +279,20 @@ A configuração do DNS é eventualmente renovada:
 Como uma solução alternativa, desclasse a SQL Managed Instance para 4 vCores e atualize-a novamente depois. Isto tem um efeito colateral de refrescar a configuração do DNS.
 
 
+## <a name="ip-address"></a>Endereço IP
+
+**Posso ligar-me à SQL Managed Instance usando um endereço IP?**
+
+A ligação à sql Gestd Instance utilizando um endereço IP não é suportada. O SQL Managed Instance apresenta mapas de nomes para um equilibrador de carga em frente ao cluster virtual SQL Managed Instance. Como um cluster virtual poderia acolher várias instâncias geridas, as ligações não podem ser encaminhadas para o caso gerido adequado sem especificar o nome explicitamente.
+
+Para obter mais informações sobre a arquitetura de cluster virtual SQL Managed Instance, consulte [a arquitetura de conectividade de cluster virtual.](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)
+
+**A SQL Managed Instance pode ter um endereço IP estático?**
+
+Em situações raras mas necessárias, podemos precisar de fazer uma migração on-line da SQL Managed Instance para um novo cluster virtual. Se necessário, esta migração deve-se a mudanças na nossa pilha de tecnologia destinadas a melhorar a segurança e a fiabilidade do serviço. Migrar para um novo cluster virtual resulta na alteração do endereço IP que está mapeado para o nome de anfitrião SQL Managed Instance. O serviço SQL Managed Instance não reclama suporte a endereço IP estático e reserva-se o direito de alterá-lo sem aviso prévio como parte de ciclos de manutenção regulares.
+
+Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma vez que poderia causar tempo de inatividade desnecessário.
+
 ## <a name="change-time-zone"></a>Alterar fuso horário
 
 **Posso mudar o fuso horário para um caso gerido?**
@@ -275,16 +302,29 @@ A configuração do fuso horário pode ser definida quando uma instância gerida
 As soluções alternativas incluem a criação de uma nova instância gerida com o fuso horário adequado e, em seguida, ou executar uma cópia de segurança manual e restaurar, ou o que recomendamos, realizando uma [restauração pontual transversal no tempo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
 
 
-## <a name="resolve-performance-issues"></a>Resolver problemas de desempenho
+## <a name="security-and-database-encryption"></a>Encriptação de segurança e base de dados
 
-**Como resolvo problemas de desempenho com a SQL Managed Instance?**
+**A função do servidor sysadmin está disponível para a SQL Managed Instance?**
 
-Para uma comparação de desempenho entre SQL Managed Instance e SQL Server, um bom ponto de partida são [as melhores práticas para comparação de desempenho entre Azure SQL Managed Instance e SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+Sim, os clientes podem criar logins que são membros do papel sysadmin.  Os clientes que assumem o privilégio sysadmin também assumem a responsabilidade pela exploração do caso, o que pode ter um impacto negativo no compromisso do SLA. Para adicionar login à função do servidor Sysadmin, consulte [a autenticação AD do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication).
 
-O carregamento de dados é frequentemente mais lento em SQL Managed Instance do que no SQL Server devido ao modelo obrigatório de recuperação total e [limites](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) na produção de registo de transações. Por vezes, isto pode ser trabalhado carregando dados transitórios em temporário em vez da base de dados do utilizador, ou usando colunas agrupadas ou tabelas otimizadas para a memória.
+**A Encriptação de Dados Transparente é suportada para a SQL Managed Instance?**
 
+Sim, a Encriptação de Dados Transparente é suportada para a SQL Managed Instance. Para mais detalhes, consulte [a encriptação de dados transparente para a sql Managed Instance](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal).
 
-## <a name="restore-encrypted-backup"></a>Restaurar cópias de segurança encriptadas
+**Posso aproveitar o modelo "traga a sua própria chave" para o TDE?**
+
+Sim, o Azure Key Vault para o cenário BYOK está disponível para Azure SQL Managed Instance. Para mais detalhes, consulte [a Encriptação de Dados Transparente com a chave gerida pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+
+**Posso migrar uma base de dados de servidor SQL encriptada?**
+
+Sim, pode. Para migrar uma base de dados de servidor SQL encriptada, precisa exportar e importar os certificados existentes para a Gestão de Instâncias, em seguida, fazer uma cópia de segurança completa da base de dados e restaurá-la em Instância Gerida. 
+
+Também pode utilizar [o Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) para migrar as bases de dados encriptadas TDE.
+
+**Como posso configurar a rotação do protetor TDE para a SQL Managed Instance?**
+
+Pode rodar o protetor TDE para Instância Gerida utilizando a Azure Cloud Shell. Para obter instruções, consulte [a encriptação de dados transparente em SQL Managed Instance utilizando a sua própria chave a partir do Cofre da Chave Azure](scripts/transparent-data-encryption-byok-powershell.md).
 
 **Posso restaurar a minha base de dados encriptada para a SQL Managed Instance?**
 

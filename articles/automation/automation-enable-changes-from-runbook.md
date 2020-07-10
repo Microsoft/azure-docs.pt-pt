@@ -5,11 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171094"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186287"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Ativar o Controlo de alterações e Inventário a partir de um runbook
 
@@ -21,7 +22,7 @@ Este artigo descreve como pode utilizar um livro de bordo para ativar a funciona
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Conta de automatização](automation-offering-get-started.md) para gerir máquinas.
+* [Conta de automatização](./index.yml) para gerir máquinas.
 * Uma [máquina virtual.](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário 
@@ -50,7 +51,7 @@ Com o Change Tracking e o Inventário ativados, pode adicionar um VM Azure para 
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
-É necessário atualizar os mais recentes módulos Azure e importar o módulo [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) para ativar com sucesso o Change Tracking and Inventory para o seu VM.
+É necessário atualizar os mais recentes módulos Azure e importar o módulo [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) para ativar com sucesso o Change Tracking and Inventory para o seu VM.
 
 1. Na sua conta Demômes, selecione Módulos em **Recursos Partilhados.** **Modules** 
 2. Selecione **Atualizar Módulos do Azure** para atualizar os módulos do Azure para a versão mais recente. 
@@ -99,7 +100,7 @@ Deve ter ativado o Change Tracking and Inventory para que um VM Azure inicie est
 1. Selecione **OK** para iniciar a tarefa de runbook.
 1. Monitorize o progresso e os erros na página de tarefa de runbook.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para agendar um livro de [corridas, consulte Gerir os horários na Azure Automation.](shared-resources/schedules.md)
 * Para obter detalhes sobre o trabalho com a funcionalidade, consulte [Manage Change Tracking and Inventory](change-tracking-file-contents.md).

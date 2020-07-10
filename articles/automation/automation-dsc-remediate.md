@@ -9,11 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: ff785bf3ace7c65f83fe8e505f0544edd24776d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836860"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186372"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Remediar servidores de configuração do Estado de Azure Automation não conformes
 
@@ -24,7 +25,7 @@ Este documento fornece scripts de exemplo para esta funcionalidade ao corrigir m
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Deriva correta de máquinas virtuais do Windows usando PowerShell
 
-Pode corrigir a deriva das máquinas virtuais do Windows utilizando a `Run` função de comando. Consulte [os scripts 'Executar PowerShell' no seu Windows VM com o comando Executar](/azure/virtual-machines/windows/run-command).
+Pode corrigir a deriva das máquinas virtuais do Windows utilizando a `Run` função de comando. Consulte [os scripts 'Executar PowerShell' no seu Windows VM com o comando Executar](../virtual-machines/windows/run-command.md).
 
 Para forçar um nó de configuração do Estado da Automatização Azure a descarregar a configuração mais recente e aplicá-la, utilize o cmdlet [Update-DscConfiguration.](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration)
 
@@ -40,7 +41,7 @@ Para os nós Azure, pode corrigir deriva do portal Azure ou usar cmdlets de mód
 
 Para nós híbridos, pode corrigir deriva usando os scripts Python. Consulte [as operações DSC a partir do computador Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Para ver um exemplo da utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [Configurar uma implementação contínua com chocolateria](automation-dsc-cd-chocolatey.md).

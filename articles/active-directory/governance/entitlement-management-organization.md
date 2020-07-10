@@ -16,11 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8928e7293f184e8eb366df6a29e50cbea6a7c93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078196"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170501"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicione uma organização conectada na gestão de direitos AD Azure
 
@@ -53,7 +54,7 @@ Para uma demonstração de como adicionar uma organização conectada, veja o se
 
 Para adicionar um diretório ou domínio AD AD externo como uma organização conectada, siga as instruções nesta secção.
 
-**Função pré-requisito**: *Administrador global,* *administrador de utilizador,* ou *convidado convidado*
+**Função pré-requisito**: *Administrador global* ou *administrador de utilizador*
 
 1. No portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **A Identity Governance**.
 
@@ -131,7 +132,7 @@ Se já não tiver uma relação com um diretório ou domínio Azure AD externo, 
 
     ![O botão delete da organização conectada](./media/entitlement-management-organization/organization-delete.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso dos utilizadores externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [Regule o acesso aos utilizadores que não estão no seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

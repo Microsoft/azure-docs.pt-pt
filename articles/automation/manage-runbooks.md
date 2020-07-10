@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9202eae49175615c4fffcd0b006ddda6e8281292
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb5eb18351f6411a8049e962deed35e5d8f181d9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718313"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185250"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
@@ -34,7 +35,7 @@ Crie um novo runbook na Azure Automation utilizando o portal Azure ou Windows Po
 
 ### <a name="create-a-runbook-with-powershell"></a>Criar um livro de bordo com PowerShell
 
-Utilize o [cmdlet New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de bordo vazio. Utilize o `Type` parâmetro para especificar um dos tipos de livro definidos para `New-AzAutomationRunbook` .
+Utilize o [cmdlet New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de bordo vazio. Utilize o `Type` parâmetro para especificar um dos tipos de livro definidos para `New-AzAutomationRunbook` .
 
 O exemplo a seguir mostra como criar um novo livro de bordo vazio.
 
@@ -76,7 +77,7 @@ Pode utilizar o seguinte procedimento para importar um ficheiro de script para a
 
 ### <a name="import-a-runbook-with-windows-powershell"></a>Importar um livro com Windows PowerShell
 
-Utilize o [cmdlet Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro de script como um rascunho de livro de recortes. Se o livro já existir, a importação falha a menos que utilize o `Force` parâmetro com o cmdlet.
+Utilize o [cmdlet Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro de script como um rascunho de livro de recortes. Se o livro já existir, a importação falha a menos que utilize o `Force` parâmetro com o cmdlet.
 
 O exemplo a seguir mostra como importar um ficheiro de script num livro de aplicação.
 
@@ -191,7 +192,7 @@ Se o seu livro de execução normalmente funcionar dentro de uma restrição de 
 
 ## <a name="work-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
 
-O seu livro de execução deve poder trabalhar com [subscrições.](automation-runbook-execution.md#subscriptions) Por exemplo, para lidar com várias subscrições, o runbook utiliza o cmdlet [Disable-AzContextAutosave.](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro runbook que funciona na mesma caixa de areia. O livro também utiliza o `Get-AzContext` cmdlet para recuperar o contexto da sessão atual, e atribuí-lo à variável `$AzureContext` .
+O seu livro de execução deve poder trabalhar com [subscrições.](automation-runbook-execution.md#subscriptions) Por exemplo, para lidar com várias subscrições, o runbook utiliza o cmdlet [Disable-AzContextAutosave.](/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro runbook que funciona na mesma caixa de areia. O livro também utiliza o `Get-AzContext` cmdlet para recuperar o contexto da sessão atual, e atribuí-lo à variável `$AzureContext` .
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -256,7 +257,7 @@ Quando cria ou importa um novo livro de bordo, deve publicá-lo antes de o poder
 
 ### <a name="publish-a-runbook-using-powershell"></a>Publique um livro de execução usando o PowerShell
 
-Utilize o [cmdlet Publish-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) para publicar o seu runbook. 
+Utilize o [cmdlet Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) para publicar o seu runbook. 
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -304,7 +305,7 @@ Em alternativa, pode visualizar os dados do resumo do trabalho para um livro de 
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar o estatuto de trabalho usando o PowerShell
 
-Utilize o [cmdlet Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de bordo e os detalhes de um determinado trabalho. Se iniciar um livro de bordo `Start-AzAutomationRunbook` utilizando, devolve o trabalho resultante. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída do trabalho.
+Utilize o [cmdlet Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de bordo e os detalhes de um determinado trabalho. Se iniciar um livro de bordo `Start-AzAutomationRunbook` utilizando, devolve o trabalho resultante. Use [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída do trabalho.
 
 O exemplo a seguir obtém o último trabalho para um livro de amostras e apresenta o seu estado, os valores fornecidos para os parâmetros do livro de bordo e a saída do trabalho.
 
@@ -335,7 +336,7 @@ foreach($item in $output)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre a gestão de [runbook, consulte a execução do Runbook na Azure Automation](automation-runbook-execution.md).
 * Para preparar um livro de bordo PowerShell, consulte [editar livros de texto em Azure Automation](automation-edit-textual-runbook.md).

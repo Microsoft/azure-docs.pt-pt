@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: dd6ec2057ede076511b567c013fc1b6fa12d8281
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: ebb3e6ba777646d39e3732215aa6c8fdd12ca40a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669737"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186695"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Quais as novidades no Azure Application Gateway?
 
@@ -27,7 +27,8 @@ O Azure Application Gateway é atualizado de forma contínua. Para se manter atu
 
 |Funcionalidade  |Descrição  |Data adicionada  |
 |---------|---------|---------|
-| Controlador de entrada de entrada de aplicação (AGIC) Addon AKS (Pré-visualização) |O Controlador de Entrada de Gateway de Aplicação pode agora ser implantado como um addon AKS nativo numa linha através do Azure CLI. Ser um addon AKS permite que a AGIC se torne um serviço totalmente gerido, enquanto ainda está em execução no cluster AKS do cliente. Para obter mais informações, consulte [as diferenças adicionais da AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |junho de 2020 |
+| Porto personalizado para sondas de saúde | Application Gateway v2 SKU agora dá a capacidade de fornecer uma porta personalizada na configuração da sonda de saúde. Para mais informações, consulte a [visão geral da sonda de saúde](application-gateway-probe-overview.md) | Julho de 2020
+| Controlador de entrada de entrada de aplicação (AGIC) Addon AKS (Pré-visualização) |O Controlador de Entrada de Gateway de Aplicação pode agora ser implantado como um addon AKS nativo numa linha através do Azure CLI. Ser um addon AKS permite que a AGIC se torne um serviço totalmente gerido, enquanto ainda está em execução no cluster AKS do cliente. Para obter mais informações, consulte [as diferenças adicionais da AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Junho de 2020 |
 | Rotas definidas pelo utilizador (UDR) em v2 (Pré-visualização) |As rotas definidas pelo utilizador são agora suportadas em alguns cenários em Application Gateway v2 SKUs. Para obter mais informações, consulte a [visão geral da configuração do Gateway de Aplicação](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Março de 2020 |
 |Alterações no cookie de afinidade |Quando a afinidade baseada em cookies está ativada, o Application Gateway injeta outro cookie idêntico chamado *ApplicationGatewayAffinityCORS,* além do cookie applicationGatewayAffinity existente. *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados a ele *(SameSite=Nenhum; Secure*), de modo a que as sessões pegajosas sejam mantidas mesmo para pedidos de origem cruzada. Consulte [a afinidade baseada em Cookies de Gateway para](configuration-overview.md#cookie-based-affinity) obter mais informações. |Fevereiro de 2020 |
 |Melhorias da sonda |Com as melhorias personalizadas da sonda em Application Gateway v2 SKU, temos [configuração](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku)de sonda simplificada, facilitamos [os testes de saúde de backend a pedido](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) e adicionamos mais [informações de diagnóstico](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) para ajudá-lo a resolver problemas de saúde.  |Outubro de 2019 |
@@ -40,8 +41,8 @@ O Azure Application Gateway é atualizado de forma contínua. Para se manter atu
 |Autoscalagem, redundância de zona, suporte VIP estático      |Com o V2 SKU, existem muitas melhorias como Autoscaling, melhor desempenho, e muito mais. Veja [o que é Azure Application Gateway?](overview.md)|Setembro de 2018|
 |Drenagem de ligação     |A drenagem de ligação permite-lhe remover graciosamente os membros das suas piscinas de backend. Para obter mais informações, consulte [a drenagem de ligação.](features.md#connection-draining)|Setembro de 2018|
 |Páginas de erro personalizadas     |Com páginas de erro personalizadas, pode criar uma página de erro dentro do formato do resto dos seus websites. Para ativar isto, consulte [as páginas de erro personalizadas Do Portal da Aplicação.](custom-error.md)|Setembro de 2018|
-|Melhorias métricas     |Pode ter uma melhor visão do estado do seu Gateway de aplicação com métricas melhoradas. Para ativar métricas no seu Gateway de aplicação, consulte [saúde back-end, registos de diagnóstico e métricas para o Gateway de Aplicações](application-gateway-diagnostics.md).|Junho de 2018|
+|Melhorias métricas     |Pode ter uma melhor visão do estado do seu Gateway de aplicação com métricas melhoradas. Para ativar métricas no seu Gateway de aplicação, consulte [saúde back-end, registos de diagnóstico e métricas para o Gateway de Aplicações](application-gateway-diagnostics.md).|junho de 2018|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Gateway de Aplicações Azure, veja [o que é O Gateway de Aplicação Azure?](overview.md)

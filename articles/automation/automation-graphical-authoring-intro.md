@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849761"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186338"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos do autor na Azure Automation
 
@@ -60,7 +61,7 @@ Selecione uma atividade na tela para configurar as suas propriedades e parâmetr
 
 Um conjunto de parâmetros define os parâmetros obrigatórios e opcionais que aceitam valores para um cmdlet particular. Todos os cmdlets têm pelo menos um parâmetro definido, e alguns têm vários conjuntos. Se um cmdlet tiver vários parâmetros, deve selecionar o que usar antes de configurar parâmetros. Pode alterar o parâmetro definido por uma atividade selecionando Conjunto de **Parâmetros** e escolhendo outro conjunto. Neste caso, perdem-se os valores de parâmetro que já configuraram.
 
-No exemplo seguinte, o [cmdlet Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tem três parâmetros. O exemplo utiliza um conjunto chamado **ListVirtualMachineInResourceGroupGroup,** com um único parâmetro opcional, para devolver todas as máquinas virtuais num grupo de recursos. O exemplo também utiliza o parâmetro **GetVirtualMachineInResourceGroupGroup** para especificar a máquina virtual para devolver. Este conjunto tem dois parâmetros obrigatórios e um parâmetro opcional.
+No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tem três parâmetros. O exemplo utiliza um conjunto chamado **ListVirtualMachineInResourceGroupGroup,** com um único parâmetro opcional, para devolver todas as máquinas virtuais num grupo de recursos. O exemplo também utiliza o parâmetro **GetVirtualMachineInResourceGroupGroup** para especificar a máquina virtual para devolver. Este conjunto tem dois parâmetros obrigatórios e um parâmetro opcional.
 
 ![Conjunto de parâmetros](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -255,7 +256,7 @@ Cada parâmetro de entrada é definido pelas propriedades no quadro seguinte:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Name | Necessário. O nome do parâmetro. O nome deve ser único dentro do livro de bordo. Deve começar com uma letra e conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
+| Nome | Necessário. O nome do parâmetro. O nome deve ser único dentro do livro de bordo. Deve começar com uma letra e conter apenas letras, números e sublinhados. O nome não pode conter um espaço. |
 | Descrição |Opcional. Descrição da finalidade para o parâmetro de entrada. |
 | Tipo | Opcional. Tipo de dados esperado para o valor do parâmetro. O portal Azure fornece um controlo adequado para o tipo de dados para cada parâmetro quando solicita a entrada. Os parâmetros suportados são String, Int32, Int64, Decimal, Boolean, DateTime e Object. Se um tipo de dado não for selecionado, predefinitivo ao String.|
 | Obrigatório | Opcional. Definição que especifica se deve ser fornecido um valor para o parâmetro. Se `yes` escolher, deve ser fornecido um valor quando o livro de recortes for iniciado. Se `no` escolher, não é necessário um valor quando o livro de execução é iniciado e pode ser utilizado um valor predefinido. O livro de execuções não pode arrancar se não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
@@ -263,11 +264,11 @@ Cada parâmetro de entrada é definido pelas propriedades no quadro seguinte:
 
 ## <a name="handle-runbook-output"></a>Executar a saída do livro de execução
 
-A autoria gráfica guarda dados criados por qualquer atividade que não tenha uma ligação de saída com a [saída do livro de bordo.](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages) A saída é guardada com o trabalho de runbook e está disponível para um livro de bordo dos pais quando o livro de recortes é usado em criança.
+A autoria gráfica guarda dados criados por qualquer atividade que não tenha uma ligação de saída com a [saída do livro de bordo.](./automation-runbook-output-and-messages.md) A saída é guardada com o trabalho de runbook e está disponível para um livro de bordo dos pais quando o livro de recortes é usado em criança.
 
 ## <a name="work-with-powershell-expressions"></a>Trabalhar com expressões PowerShell
 
-Uma das vantagens da autoria gráfica é que permite construir um runbook com o mínimo conhecimento da PowerShell. Atualmente, porém, precisa de conhecer um pouco de PowerShell para povoar certos valores de [parâmetros](#use-activities) e para definir [condições de ligação](#use-links-for-workflow). Esta secção proporciona uma introdução rápida às expressões PowerShell. Todos os detalhes do PowerShell estão disponíveis no [Scripting com o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+Uma das vantagens da autoria gráfica é que permite construir um runbook com o mínimo conhecimento da PowerShell. Atualmente, porém, precisa de conhecer um pouco de PowerShell para povoar certos valores de [parâmetros](#use-activities) e para definir [condições de ligação](#use-links-for-workflow). Esta secção proporciona uma introdução rápida às expressões PowerShell. Todos os detalhes do PowerShell estão disponíveis no [Scripting com o Windows PowerShell](/powershell/scripting/overview).
 
 ### <a name="use-a-powershell-expression-as-a-data-source"></a>Use uma expressão PowerShell como fonte de dados
 
@@ -322,7 +323,7 @@ O runbook pode utilizar a saída de uma atividade numa expressão mais complexa,
 
 ### <a name="compare-values"></a>Comparar valores
 
-Utilize [operadores de comparação](https://technet.microsoft.com/library/hh847759.aspx) para comparar valores ou determinar se um valor corresponde a um padrão especificado. Uma comparação devolve um valor de Verdadeiro ou Falso.
+Utilize [operadores de comparação](/powershell/module/microsoft.powershell.core/about/about_comparison_operators) para comparar valores ou determinar se um valor corresponde a um padrão especificado. Uma comparação devolve um valor de Verdadeiro ou Falso.
 
 Por exemplo, a seguinte condição determina se a máquina virtual de uma atividade nomeada `Get-AzureVM` está atualmente parada.
 
@@ -336,7 +337,7 @@ A seguinte condição determina se a mesma máquina virtual está em qualquer es
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-Pode juntar várias condições no seu livro de bordo utilizando um [operador lógico,](https://technet.microsoft.com/library/hh847789.aspx)como `-and` ou `-or` . Por exemplo, a seguinte condição verifica se a máquina virtual no exemplo anterior está num estado de paragem ou paragem.
+Pode juntar várias condições no seu livro de bordo utilizando um [operador lógico,](/powershell/module/microsoft.powershell.core/about/about_logical_operators)como `-and` ou `-or` . Por exemplo, a seguinte condição verifica se a máquina virtual no exemplo anterior está num estado de paragem ou paragem.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -344,7 +345,7 @@ Pode juntar várias condições no seu livro de bordo utilizando um [operador l�
 
 ### <a name="use-hashtables"></a>Use haxixe
 
-[Hashtables](https://technet.microsoft.com/library/hh847780.aspx) são pares de valor-nome que são úteis para devolver um conjunto de valores. Você também pode ver um haxixe referido como um dicionário. Propriedades para certas atividades esperam um haxixe em vez de um valor simples.
+[Hashtables](/powershell/module/microsoft.powershell.core/about/about_hash_tables) são pares de valor-nome que são úteis para devolver um conjunto de valores. Você também pode ver um haxixe referido como um dicionário. Propriedades para certas atividades esperam um haxixe em vez de um valor simples.
 
 Crie um haxixe utilizando a seguinte sintaxe. Pode conter qualquer número de entradas, mas cada uma é definida por um nome e valor.
 
@@ -372,7 +373,7 @@ O exemplo a seguir utiliza a saída de uma atividade chamada `Get Twitter Connec
 
 ## <a name="authenticate-to-azure-resources"></a>Autenticar recursos da Azure
 
-Os runbooks na Azure Automation que gerem os recursos da Azure requerem autenticação ao Azure. A [conta Run As](automation-create-runas-account.md), também referida como principal de serviço, é o mecanismo padrão que um runbook Automation usa para aceder aos recursos do Azure Resource Manager na sua subscrição. Pode adicionar esta funcionalidade a um runbook gráfico adicionando o `AzureRunAsConnection` ativo de ligação, que utiliza o cmdlet PowerShell [Get-AutomationConnection,](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) à tela. Também pode adicionar o [cmdlet Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Este cenário é ilustrado no exemplo seguinte.
+Os runbooks na Azure Automation que gerem os recursos da Azure requerem autenticação ao Azure. A [conta Run As](./manage-runas-account.md), também referida como principal de serviço, é o mecanismo padrão que um runbook Automation usa para aceder aos recursos do Azure Resource Manager na sua subscrição. Pode adicionar esta funcionalidade a um runbook gráfico adicionando o `AzureRunAsConnection` ativo de ligação, que utiliza o cmdlet PowerShell [Get-AutomationConnection,](/system-center/sma/manage-global-assets) à tela. Também pode adicionar o [cmdlet Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Este cenário é ilustrado no exemplo seguinte.
 
 ![Executar como atividades de autenticação](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -389,7 +390,7 @@ A próxima atividade, `Connect-AzAccount` adiciona a execução autenticada Como
 
 Para os campos de **parâmetros APPLICATIONID,** **CERTIFICATETHUMBPRINT,** e **TENANTID,** especifiquem o nome do imóvel para o percurso de campo, uma vez que a atividade produz um objeto com múltiplas propriedades. Caso contrário, quando o livro de recortes executa, falha enquanto tenta autenticar. Isto é o que precisa no mínimo para autenticar o seu runbook com a conta Run As.
 
-Alguns subscritores criam uma conta Automation utilizando uma [conta de utilizador Azure AD](automation-create-aduser-account.md) para gerir a implementação clássica do Azure ou para os recursos do Azure Resource Manager. Para manter a retrocompatibilidade para estes assinantes, o mecanismo de autenticação a utilizar no seu runbook é o `Add-AzureAccount` cmdlet com um [ativo credencial](automation-credentials.md). O ativo representa um utilizador do Ative Directory com acesso à conta Azure.
+Alguns subscritores criam uma conta Automation utilizando uma [conta de utilizador Azure AD](./shared-resources/credentials.md) para gerir a implementação clássica do Azure ou para os recursos do Azure Resource Manager. Para manter a retrocompatibilidade para estes assinantes, o mecanismo de autenticação a utilizar no seu runbook é o `Add-AzureAccount` cmdlet com um [ativo credencial](./shared-resources/credentials.md). O ativo representa um utilizador do Ative Directory com acesso à conta Azure.
 
 Pode ativar esta funcionalidade para o seu runbook gráfico adicionando um ativo credencial à tela, seguido de uma `Add-AzureAccount` atividade que utiliza o ativo credencial para a sua entrada. Veja o seguinte exemplo.
 
@@ -429,9 +430,9 @@ Publique um runbook gráfico abrindo o runbook para edição e, em seguida, clic
 
 Tem a opção de reverter para a versão publicada de um livro de execução. Esta operação deita fora quaisquer alterações feitas desde que o livro foi publicado pela última vez. Substitui a versão Draft do livro de bordo pela versão publicada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar com os runbooks gráficos, consulte [Tutorial: Crie um runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para saber mais sobre os tipos de runbook e as suas vantagens e limitações, consulte [os tipos de runbook da Azure Automation](automation-runbook-types.md).
 * Para compreender como autenticar utilizando a conta Automation Run As, consulte [a conta Executar Como.](automation-security-overview.md#run-as-account)
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

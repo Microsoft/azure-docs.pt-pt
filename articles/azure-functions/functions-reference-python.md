@@ -4,11 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730752"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170382"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -427,17 +428,15 @@ Quando estiver pronto para publicar, certifique-se de que todas as suas dependê
 
 Os ficheiros e pastas do projeto que estão excluídos da publicação, incluindo a pasta de ambiente virtual, estão listados no ficheiro .funcignore.
 
-Existem três ações de construção apoiadas para a publicação do seu projeto Python ao Azure:
+Existem três ações de construção apoiadas para a publicação do seu projeto Python para a Azure: construção remota, construção local e construções usando dependências personalizadas.
 
-+ Construção remota: As dependências são obtidas remotamente com base no conteúdo do ficheiro requirements.txt. [A construção remota](functions-deployment-technologies.md#remote-build) é o método de construção recomendado. O controlo remoto é também a opção de construção padrão da ferramenta Azure.
-+ Construção local: As dependências são obtidas localmente com base no conteúdo do ficheiro requirements.txt.
-+ Dependências personalizadas: O seu projeto utiliza pacotes não disponíveis publicamente para as nossas ferramentas. (Requer Docker.)
-
-Para construir as suas dependências e publicar utilizando um sistema de entrega contínua (CD), [utilize a Azure Pipelines](functions-how-to-azure-devops.md).
+Também pode utilizar pipelines Azure para construir as suas dependências e publicar usando a entrega contínua (CD). Para saber mais, consulte [a entrega contínua utilizando Azure DevOps](functions-how-to-azure-devops.md).
 
 ### <a name="remote-build"></a>Construção remota
 
-Por predefinição, as Ferramentas Principais Azure Functions solicitam uma construção remota quando utiliza o seguinte comando [de publicação func azure functionapp](functions-run-local.md#publish) para publicar o seu projeto Python para a Azure.
+Ao utilizar a construção remota, as dependências restauradas no servidor e dependências nativas correspondem ao ambiente de produção. Isto resulta num pacote de implantação menor para carregar. Utilize a construção remota ao desenvolver aplicações Python no Windows. Se o seu projeto tiver dependências personalizadas, pode [utilizar a construção remota com URL de índice extra.](#remote-build-with-extra-index-url) 
+ 
+As dependências são obtidas remotamente com base no conteúdo do ficheiro requirements.txt. [A construção remota](functions-deployment-technologies.md#remote-build) é o método de construção recomendado. Por predefinição, as Ferramentas Principais Azure Functions solicitam uma construção remota quando utiliza o seguinte comando [de publicação func azure functionapp](functions-run-local.md#publish) para publicar o seu projeto Python para a Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -449,7 +448,7 @@ A [extensão de funções Azure para Código do Estúdio Visual](functions-creat
 
 ### <a name="local-build"></a>Construção local
 
-Pode evitar fazer uma construção remota utilizando o seguinte comando [de publicação func azure functionapp](functions-run-local.md#publish) para publicar com uma construção local.
+As dependências são obtidas localmente com base no conteúdo do ficheiro requirements.txt. Pode evitar fazer uma construção remota utilizando o seguinte comando [de publicação func azure functionapp](functions-run-local.md#publish) para publicar com uma construção local.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -457,9 +456,21 @@ func azure functionapp publish <APP_NAME> --build local
 
 Lembre-se de substituir `<APP_NAME>` pelo nome da sua aplicação de função em Azure.
 
-Utilizando a `--build local` opção, as dependências do projeto são lidas a partir do ficheiro requirements.txt e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do computador local para o Azure. Isto resulta num pacote de implementação maior a ser enviado para a Azure. Se, por alguma razão, as dependências do seu ficheiro requirements.txt não puderem ser adquiridas pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação.
+Utilizando a `--build local` opção, as dependências do projeto são lidas a partir do ficheiro requirements.txt e esses pacotes dependentes são descarregados e instalados localmente. Os ficheiros e dependências do projeto são implantados do computador local para o Azure. Isto resulta num pacote de implementação maior a ser enviado para a Azure. Se, por alguma razão, as dependências do seu ficheiro requirements.txt não puderem ser adquiridas pela Core Tools, deve utilizar a opção de dependências personalizadas para publicação. 
+
+Não recomendamos a utilização de construções locais quando se desenvolve localmente no Windows.
 
 ### <a name="custom-dependencies"></a>Dependências personalizadas
+
+Quando o seu projeto tem dependências não encontradas no [Python Package Index,](https://pypi.org/)existem duas formas de construir o projeto. O método de construção depende de como se constrói o projeto.
+
+#### <a name="remote-build-with-extra-index-url"></a>Construção remota com URL de índice extra
+
+Quando os seus pacotes estiverem disponíveis a partir de um índice de pacote personalizado acessível, utilize uma construção remota. Antes de publicar, certifique-se de [criar uma definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings) chamada `PIP_EXTRA_INDEX_URL` . O valor desta definição é o URL do seu índice de pacote personalizado. A utilização desta definição diz à construção remota para funcionar `pip install` utilizando a `--extra-index-url` opção. Para saber mais, consulte o [pip Python para instalar documentação.](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format) 
+
+Também pode utilizar credenciais básicas de autenticação com os seus URLs de índice de pacote extra. Para saber mais, consulte [credenciais básicas de autenticação](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) na documentação Python.
+
+#### <a name="install-local-packages"></a>Instalar pacotes locais
 
 Se o seu projeto utilizar pacotes não disponíveis publicamente para as nossas ferramentas, pode disponibilizá-los para a sua aplicação colocando-os na \_ \_ app \_ \_ /.python_packages diretório. Antes de publicar, executar o seguinte comando para instalar as dependências localmente:
 
@@ -467,7 +478,7 @@ Se o seu projeto utilizar pacotes não disponíveis publicamente para as nossas 
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-Ao utilizar dependências personalizadas, deve utilizar `--no-build` a opção de publicação, uma vez que já instalou as dependências.
+Ao utilizar dependências personalizadas, deve utilizar `--no-build` a opção de publicação, uma vez que já instalou as dependências na pasta do projeto.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -682,9 +693,9 @@ Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 * [Documentação API do pacote de funções AZure Functions](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)

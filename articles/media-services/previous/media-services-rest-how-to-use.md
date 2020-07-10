@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773667"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170824"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Operações de Serviços de Mídia REST Visão geral da API 
 
@@ -38,21 +39,23 @@ Aplicam-se as seguintes considerações ao utilizar o REST.
 
 * Ao consultar entidades, há um limite de 1000 entidades devolvidas de uma só vez porque o REST v2 público limita os resultados da consulta a 1000 resultados. É necessário utilizar **Skip** and **Take** (.NET)/ **top** (REST) conforme descrito neste [exemplo .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 * Ao utilizar o JSON e especificar a utilização da palavra-chave **__metadata** no pedido (por exemplo, para referência a um objeto ligado) deve definir o cabeçalho **Aceitar** para [o formato JSON Verbose](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (ver o seguinte exemplo). A Odata não entende a **propriedade __metadata** no pedido, a não ser que o deslome para verbose.  
-  
-        POST https://media.windows.net/API/Jobs HTTP/1.1
-        Content-Type: application/json;odata=verbose
-        Accept: application/json;odata=verbose
-        DataServiceVersion: 3.0
-        MaxDataServiceVersion: 3.0
-        x-ms-version: 2.19
-        Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
-  
-        {
-            "Name" : "NewTestJob", 
-            "InputMediaAssets" : 
-                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-        . . . 
+
+    ```console
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.19
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.windows.net
+
+    {
+        "Name" : "NewTestJob", 
+        "InputMediaAssets" : 
+            [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+    . . . 
+   ```
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Cabeçalhos de pedido padrão HTTP suportados pelos Media Services
 Para cada chamada que fizer nos Serviços de Comunicação Social, há um conjunto de cabeçalhos necessários que deve incluir no seu pedido e também um conjunto de cabeçalhos opcionais que poderá querer incluir. A tabela abaixo lista os cabeçalhos necessários:
@@ -119,7 +122,7 @@ Para mais informações sobre como obter os dados de autenticação necessários
 
 Para obter mais informações sobre o código de escrita que se liga à API REST utilizando a autenticação AZure AD, consulte o artigo [Utilize a autenticação Azure AD para aceder à AZure Media Services API com REST](media-services-rest-connect-with-aad.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para aprender a utilizar a autenticação AZure AD com serviços de mídia REST API, consulte [a autenticação AD do Azure para aceder à Azure Media Services API com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

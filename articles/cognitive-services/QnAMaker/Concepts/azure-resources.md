@@ -3,12 +3,12 @@ title: Recursos Azure - QnA Maker
 description: O Fabricante QnA usa várias fontes Azure, cada uma com um propósito diferente. Compreender como são usados individualmente permite-lhe planear e selecionar o nível de preços correto ou saber quando alterar o seu nível de preços. Compreender como são usados em combinação permite-lhe encontrar e corrigir problemas quando ocorrem.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 7d6598510ae75a76e0a4fcaff59297b4c724ba78
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236076"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171079"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos Azure para O Criador QNA
 
@@ -44,11 +44,11 @@ Normalmente, há três parâmetros que deve considerar:
 
 A tabela a seguir dá-lhe algumas diretrizes de alto nível.
 
-|                        | Gestão do Fabricante QNA | Serviço de Aplicações | Azure Cognitive Search | Limitações                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Experimentação        | SKU grátis             | Nível Gratuito   | Nível Gratuito    | Publicar até 2 KBs, tamanho de 50 MB  |
-| Ambiente dev/Teste   | SKU Standard         | Partilhado      | Básico        | Publicar até 14 KBs, tamanho de 2 GB    |
-| Ambiente de Produção | SKU Standard         | Básico       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
+|                            | Gestão do Fabricante QNA | Serviço de Aplicações | Azure Cognitive Search | Limitações                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Experimentação**        | SKU grátis             | Nível Gratuito   | Nível Gratuito    | Publicar até 2 KBs, tamanho de 50 MB  |
+| **Ambiente dev/Teste**   | SKU Standard         | Partilhado      | Básico        | Publicar até 14 KBs, tamanho de 2 GB    |
+| **Ambiente de Produção** | SKU Standard         | Básica       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
 ## <a name="recommended-settings"></a>Definições recomendadas
 
@@ -147,7 +147,7 @@ A QnA Maker cria vários recursos Azure. Para reduzir a gestão e beneficiar da 
 |Serviço|Partilhar|Razão|
 |--|--|--|
 |Serviços Cognitivos|X|Não é possível por design|
-|Plano do App Service|✔|Espaço fixo em disco atribuído para um plano de Serviço de Aplicações. Se outras aplicações que partilham o mesmo plano de Serviço de Aplicações utilizarem espaço significativo em disco, a instância do Serviço de Aplicações QnAMaker irá encontrar problemas.|
+|Plano do Serviço de Aplicações|✔|Espaço fixo em disco atribuído para um plano de Serviço de Aplicações. Se outras aplicações que partilham o mesmo plano de Serviço de Aplicações utilizarem espaço significativo em disco, a instância do Serviço de Aplicações QnAMaker irá encontrar problemas.|
 |Serviço de Aplicações|X|Não é possível por design|
 |Application Insights|✔|Pode ser partilhado|
 |Serviço de pesquisa|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; não pode ser utilizado por outros.<br>2. O mapa synonym com o nome `synonym-map` está reservado para o serviço QnAMaker.<br>3. O número de bases de conhecimento publicadas é limitado pelo nível de serviço de pesquisa. Se houver índices gratuitos disponíveis, outros serviços podem usá-los.|
@@ -172,7 +172,7 @@ Utilize estas teclas ao escrutinar os pedidos ao serviço através de APIs.
 
 ![Gestão de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Name|Localização|Objetivo|
+|Nome|Localização|Objetivo|
 |--|--|--|
 |Chave de autoria|[Portal do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Estas chaves são utilizadas para aceder às APIs do [serviço de gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimento, e publicar a sua base de conhecimentos. Estas teclas são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso **serviços cognitivos** na página **Chaves.**|
 |Chave de ponto final de consulta|[Portal do Criador de FAQ](https://www.qnamaker.ai)|Estas teclas são usadas para consultar o ponto final da base de conhecimento publicado para obter uma resposta para uma questão do utilizador. Normalmente, utiliza este ponto final de consulta no seu chat bot ou no código de aplicação do cliente que se conecta ao serviço QnA Maker. Estas chaves são criadas quando publica a sua base de conhecimento qnA Maker.<br><br>Encontre estas chaves na página **de definições de Serviço.** Encontre esta página a partir do menu do utilizador no canto superior direito da página no menu suspenso.|

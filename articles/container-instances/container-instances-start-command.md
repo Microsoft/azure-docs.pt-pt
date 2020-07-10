@@ -3,11 +3,12 @@ title: Ponto de entrada de substituição em caso de contentor
 description: Desloque uma linha de comando para anular o ponto de entrada numa imagem de contentor quando colocar uma instância de contentor Azure
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84693061"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169634"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando numa instância de contentor para anular a operação da linha de comando predefinido
 
@@ -53,8 +54,8 @@ A sintaxe da linha de comando varia consoante a API ou a ferramenta Azure utiliz
 
 |    |  CLI do Azure   | Portal | Modelo | 
 | ---- | ---- | --- | --- |
-| Comando único | `--command-line "python myscript.py arg1 arg2"` | **Sobreposição de comando:**`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Vários comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Sobreposição de comando:**`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Comando único** | `--command-line "python myscript.py arg1 arg2"` | **Sobreposição de comando:**`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Vários comandos** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Sobreposição de comando:**`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## <a name="azure-cli-example"></a>Exemplo de Azure CLI
 
@@ -109,7 +110,7 @@ Saída:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Cenários baseados em tarefas, como o processamento de um grande conjunto de dados com vários contentores, podem beneficiar de linhas de comando personalizadas em tempo de execução. Para obter mais informações sobre a execução de recipientes baseados em tarefas, consulte [executar tarefas contentorizadas com políticas de reinício](container-instances-restart-policy.md).
 

@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d388162738930030ba311a04a0dce1db15590c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836843"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186355"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Editar livros de texto na Azure Automation
 
@@ -56,7 +57,7 @@ Este artigo fornece passos detalhados para o desempenho de diferentes funções 
 1. No controlo de tela do editor textual, posicione o cursor onde pretende colocar o código para o livro de aplicação da criança.
 2. Expandir o nó **de Ativos** no controlo da Biblioteca.
 3. Expanda o nó para o tipo de ativo pretendido.
-4. Clique com o botão direito no nome do ativo para inserir e **selecione Adicionar à tela**. Para [ativos variáveis](automation-variables.md), selecione **"Obter Variável" para tela** ou Adicione **"set Variable" à tela,** dependendo se pretende obter ou definir a variável.
+4. Clique com o botão direito no nome do ativo para inserir e **selecione Adicionar à tela**. Para [ativos variáveis](./shared-resources/variables.md), selecione **"Obter Variável" para tela** ou Adicione **"set Variable" à tela,** dependendo se pretende obter ou definir a variável.
 5. Note que o código do ativo está inserido no livro de recortes.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Editar um runbook Azure Automation utilizando o Windows PowerShell
@@ -90,14 +91,14 @@ Import-AzAutomationRunbook -Path "$scriptfolder\Hello-World.ps1" -Name $runbookN
 Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir os runbooks na Azure Automation](manage-runbooks.md).
 * [Learning PowerShell workflow](automation-powershell-workflow.md).
 * [Autoria gráfica na Azure Automation.](automation-graphical-authoring-intro.md)
-* [Certificados](automation-certificates.md).
+* [Certificados](./shared-resources/certificates.md).
 * [Ligações](automation-connections.md).
-* [Credenciais](automation-credentials.md).
-* [Horários.](automation-schedules.md)
-* [Variáveis.](automation-variables.md)
-* [Referência de cmdlet PowerShell](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* [Credenciais](./shared-resources/credentials.md).
+* [Horários.](./shared-resources/schedules.md)
+* [Variáveis.](./shared-resources/variables.md)
+* [Referência de cmdlet PowerShell](/powershell/module/az.automation/?view=azps-3.7.0#automation).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e1262aedda95f3feb7cf5604644d938bf4d00a53
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854915"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185624"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -206,9 +206,9 @@ Pode obter as informações necessárias para os parâmetros `Url` e a partir da
 
 Os runbooks podem utilizar qualquer uma das atividades e cmdlets definidos nos módulos instalados no seu ambiente Azure Automation. Uma vez que estes módulos não são automaticamente implantados em máquinas no local, deve instalá-los manualmente. A exceção é o módulo Azure. Este módulo é instalado por predefinição e fornece acesso a cmdlets para todos os serviços e atividades da Azure Automation.
 
-Como o principal objetivo do Trabalhador de Runbook Híbrido é gerir os recursos locais, é provável que seja necessário instalar os módulos que suportam estes recursos, nomeadamente o `PowerShellGet` módulo. Para obter informações sobre a instalação de módulos Windows PowerShell, consulte [o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Como o principal objetivo do Trabalhador de Runbook Híbrido é gerir os recursos locais, é provável que seja necessário instalar os módulos que suportam estes recursos, nomeadamente o `PowerShellGet` módulo. Para obter informações sobre a instalação de módulos Windows PowerShell, consulte [o Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-Os módulos instalados devem estar num local referenciado pela `PSModulePath` variável ambiental para que o trabalhador híbrido possa importar automaticamente. Para obter mais informações, consulte [instalar módulos em PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Os módulos instalados devem estar num local referenciado pela `PSModulePath` variável ambiental para que o trabalhador híbrido possa importar automaticamente. Para obter mais informações, consulte [instalar módulos em PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>Remova o Trabalhador de Runbook Híbrido de uma máquina Windows no local
 
@@ -238,7 +238,7 @@ Para remover um grupo híbrido de runbook worker, primeiro precisa remover o Tra
 
    Este processo pode demorar vários segundos a terminar. Pode acompanhar o progresso em **Notificações**, no menu.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a configurar os seus livros para automatizar processos no seu datacenter no local ou noutro ambiente em nuvem, consulte [runbooks Runbooks num Trabalhador de Runbook Híbrido](automation-hrw-run-runbooks.md).
 

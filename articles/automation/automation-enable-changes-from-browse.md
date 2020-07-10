@@ -5,11 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f84a609ea2821546c4001b98ad11495305ac101a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d657dc38cd5b4149bcf7d1dbf1ad73afa75a5e6
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84171077"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186304"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Ativar o rastreio de alterações e o inventário a partir do portal Azure
 
@@ -23,7 +24,7 @@ O número de grupos de recursos que pode utilizar para gerir os seus VMs é limi
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Conta de automatização](automation-offering-get-started.md) para gerir máquinas.
+* [Conta de automatização](./index.yml) para gerir máquinas.
 * Uma [máquina virtual.](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -57,7 +58,7 @@ Inscreva-se no Azure at https://portal.azure.com .
 
 8. Clique **em Ativar** para ativar a funcionalidade selecionada. A configuração leva até 15 minutos para ser concluída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre o trabalho com a funcionalidade, consulte [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
 * Para resolver problemas gerais com a funcionalidade, consulte [problemas de rastreio e inventário de alterações de resolução de problemas](troubleshoot/change-tracking.md).

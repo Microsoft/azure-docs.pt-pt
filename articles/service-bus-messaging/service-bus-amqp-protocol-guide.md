@@ -3,12 +3,12 @@ title: AMQP 1.0 no Azure Service Bus and Event Hubs guia de protocolos / Microso
 description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure Service Bus and Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337893"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186916"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
 
@@ -223,7 +223,7 @@ Qualquer propriedade que a aplicação precise definir deve ser mapeada para o m
 | mensagem id |Identificador de formulário livre definido para aplicação para esta mensagem. Usado para deteção duplicada. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificador de utilizador definido por aplicação, não interpretado pela Service Bus. |Não acessível através da API de autocarro de serviço. |
 | para |Identificador de destino definido por aplicação, não interpretado pela Service Bus. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| Assunto |Identificador de finalidade de mensagem definido pela aplicação, não interpretado pela Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificador de finalidade de mensagem definido pela aplicação, não interpretado pela Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | resposta a |Indicador de linha de resposta definido por aplicação, não interpretado pela Service Bus. |[RespostaTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificador de correlação definido por aplicação, não interpretado pela Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | tipo de conteúdo |Indicador de tipo de conteúdo definido para aplicação para o corpo, não interpretado pela Service Bus. |[ConteúdoType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -264,8 +264,8 @@ Cada ligação tem de iniciar a sua própria ligação de controlo para poder in
 
 Para começar o trabalho transacional. o controlador deve obter um `txn-id` do coordenador. Fá-lo enviando uma `declare` mensagem tipo. Se a declaração for bem sucedida, o coordenador responde com um resultado de disposição, que carrega o designado `txn-id` .
 
-| Cliente (Controlador) | | Autocarro de serviço (Coordenador) |
-| --- | --- | --- |
+| Cliente (Controlador) | Direção | Autocarro de serviço (Coordenador) |
+| :--- | :---: | :--- |
 | anexar;<br/>nome={link name},<br/>... ,<br/>papel=**remetente,**<br/>alvo=**Coordenador**<br/>) | ------> |  |
 |  | <------ | anexar;<br/>nome={link name},<br/>... ,<br/>target=Coordenador()<br/>) |
 | transferência.<br/>entrega-id=0, ...)<br/>{ AmqpValue **(Declarar)}**| ------> |  |
@@ -277,8 +277,8 @@ O controlador conclui o trabalho transacional enviando uma `discharge` mensagem 
 
 > Nota: fail=true refere-se a Reversão de uma transação, e fail=false refere-se a Commit.
 
-| Cliente (Controlador) | | Autocarro de serviço (Coordenador) |
-| --- | --- | --- |
+| Cliente (Controlador) | Direção | Autocarro de serviço (Coordenador) |
+| :--- | :---: | :--- |
 | transferência.<br/>entrega-id=0, ...)<br/>{ AmqpValue (Declare)}| ------> |  |
 |  | <------ | disposição. <br/> primeiro=0, último=0, <br/>estado=Declarado(<br/>txn-id={iD transação}<br/>))|
 | | . . . <br/>Trabalho transacional<br/>em outros links<br/> . . . |
@@ -289,8 +289,8 @@ O controlador conclui o trabalho transacional enviando uma `discharge` mensagem 
 
 Todo o trabalho transacional é feito com o estado de entrega transacional `transactional-state` que transporta o txn-id. No caso de envio de mensagens, o estado transacional é transportado pelo quadro de transferência da mensagem. 
 
-| Cliente (Controlador) | | Autocarro de serviço (Coordenador) |
-| --- | --- | --- |
+| Cliente (Controlador) | Direção | Autocarro de serviço (Coordenador) |
+| :--- | :---: | :--- |
 | transferência.<br/>entrega-id=0, ...)<br/>{ AmqpValue (Declare)}| ------> |  |
 |  | <------ | disposição. <br/> primeiro=0, último=0, <br/>estado=Declarado(<br/>txn-id={iD transação}<br/>))|
 | transferência.<br/>pega=1,<br/>entrega-id=1, <br/>**estado= <br/> Estado transacional( <br/> txn-id=0)**)<br/>{ carga útil }| ------> |  |
@@ -300,8 +300,8 @@ Todo o trabalho transacional é feito com o estado de entrega transacional `tran
 
 A disposição da mensagem inclui operações como `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer` . Para realizar estas operações dentro de uma transação, passe a `transactional-state` com a disposição.
 
-| Cliente (Controlador) | | Autocarro de serviço (Coordenador) |
-| --- | --- | --- |
+| Cliente (Controlador) | Direção | Autocarro de serviço (Coordenador) |
+| :--- | :---: | :--- |
 | transferência.<br/>entrega-id=0, ...)<br/>{ AmqpValue (Declare)}| ------> |  |
 |  | <------ | disposição. <br/> primeiro=0, último=0, <br/>estado=Declarado(<br/>txn-id={iD transação}<br/>))|
 | | <------ |transferência.<br/>pega=2,<br/>entrega-id=11, <br/>estado=nulo)<br/>{ carga útil }|  
@@ -399,12 +399,12 @@ Com esta funcionalidade, cria-se um remetente e estabelece-se a ligação com o 
 
 > Nota: A autenticação tem de ser realizada tanto para *a entidade via-entidade* como para *a entidade de destino* antes de estabelecer este link.
 
-| Cliente | | Service Bus |
-| --- | --- | --- |
+| Cliente | Direção | Service Bus |
+| :--- | :---: | :--- |
 | anexar;<br/>nome={link name},<br/>role=remetente,<br/>ID de ligação ao cliente source={},<br/>alvo=**{via-entidade}**,<br/>**propriedades=mapa <br/> [(com.microsoft:transfer-destination-address= <br/> {destination-entity} ))** | ------> | |
 | | <------ | anexar;<br/>nome={link name},<br/>role=recetor,<br/>ID de ligação ao cliente source={},<br/>target={via-entidade},<br/>propriedades=mapa [.<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino} )] ) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre AMQP, visite os seguintes links:
 

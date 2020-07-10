@@ -6,11 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100005"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186151"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerir permissões e segurança de funções
 
@@ -32,7 +33,7 @@ Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC ade
 | Leitor do Log Analytics | A função 'Leitor de Análise de Registo' permite-lhe visualizar e pesquisar todos os dados de monitorização, bem como visualizar as definições de monitorização. Isto inclui visualizar a configuração dos diagnósticos Azure em todos os recursos Azure. |
 | Colaborador de monitorização | A função de Colaborador de Monitorização permite-lhe ler todos os dados de monitorização e atualizar as definições de monitorização.|
 | Leitor de Monitorização | A função Monitoring Reader permite-lhe ler todos os dados de monitorização. |
-| Administrador de Acesso de Utilizador |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
+| Administrador de Acesso dos Utilizadores |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
 
 ## <a name="role-permissions"></a>Permissões de funções
 
@@ -193,7 +194,7 @@ Um Leitor de Monitorização pode ler todos os dados de monitorização. A tabel
 |Microsoft.OperationalInsights/workspaces/search/action|Pesquisar log analytics espaços de trabalho.|
 |Microsoft.Support/*|Criar e gerir bilhetes de apoio|
 
-### <a name="user-access-administrator"></a>Administrador de Acesso de Utilizador
+### <a name="user-access-administrator"></a>Administrador de Acesso dos Utilizadores
 
 Um Administrador de Acesso ao Utilizador pode gerir o acesso do utilizador aos recursos do Azure. A tabela a seguir mostra as permissões concedidas para o papel:
 
@@ -310,7 +311,7 @@ Pode remover a permissão de acesso para um utilizador que não esteja a gerir a
 
 Também pode configurar o acesso baseado em funções a uma conta Automation utilizando os [seguintes cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[A Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções RBAC que estão disponíveis no Azure Ative Directory. Pode utilizar este cmdlet com o `Name` parâmetro para listar todas as ações que um papel específico pode desempenhar.
+[A Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções RBAC que estão disponíveis no Azure Ative Directory. Pode utilizar este cmdlet com o `Name` parâmetro para listar todas as ações que um papel específico pode desempenhar.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -329,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[A Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista atribuições de funções Azure AD RBAC no âmbito especificado. Sem parâmetros, este cmdlet devolve todas as atribuições de funções es feitas no âmbito da subscrição. Utilize o `ExpandPrincipalGroups` parâmetro para listar as atribuições de acesso para o utilizador especificado, bem como os grupos a que o utilizador pertence.
+[A Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) lista atribuições de funções Azure AD RBAC no âmbito especificado. Sem parâmetros, este cmdlet devolve todas as atribuições de funções es feitas no âmbito da subscrição. Utilize o `ExpandPrincipalGroups` parâmetro para listar as atribuições de acesso para o utilizador especificado, bem como os grupos a que o utilizador pertence.
 
 **Exemplo:** Utilize o cmdlet seguinte para listar todos os utilizadores e as suas funções numa conta Automation.
 
@@ -351,7 +352,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Utilize [o Design New-AzRoleAss para](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) atribuir acesso a utilizadores, grupos e aplicações a um determinado âmbito.
+Utilize [o Design New-AzRoleAss para](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) atribuir acesso a utilizadores, grupos e aplicações a um determinado âmbito.
     
 **Exemplo:** Utilize o seguinte comando para atribuir a função "Operador de Automação" a um utilizador no âmbito da conta Automação.
 
@@ -373,7 +374,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Utilize [o Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) para remover o acesso de um utilizador, grupo ou aplicação especificados de um determinado âmbito.
+Utilize [o Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) para remover o acesso de um utilizador, grupo ou aplicação especificados de um determinado âmbito.
 
 **Exemplo:** Utilize o seguinte comando para remover o utilizador da função de Operador de Automação no âmbito da conta Automação.
 
@@ -422,7 +423,7 @@ Quando um utilizador atribuído à função de Operador de Automação no âmbit
 
 ![Só tem acesso para começar](media/automation-role-based-access-control/automation-only-start.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais PowerShell RBAC, consulte [Gerir o RBAC com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter mais informações sobre os tipos de livros de execução, consulte os tipos de [runbook da Azure Automation](automation-runbook-types.md).

@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 06/22/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bdb387739be65b761c773ca13b7a407d7aebf738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1c6bb39e743a96ad110a60e41cc59306e7a2ae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206891"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186389"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da configuração do estado da Azure Automation
 
@@ -77,7 +77,7 @@ Para os nós que executam o Linux, a extensão DSC Linux suporta todas as distri
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
-Para todos os nós Windows em execução em Azure, [o WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) é instalado quando as máquinas estão ativadas. Para os nós que executam o Windows Server 2012 e o Windows 7, [o WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) está ativado.
+Para todos os nós Windows em execução em Azure, [o WMF 5.1](/powershell/scripting/wmf/setup/install-configure) é instalado quando as máquinas estão ativadas. Para os nós que executam o Windows Server 2012 e o Windows 7, [o WinRM](/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) está ativado.
 
 Para todos os nós Linux em execução em Azure, [o PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) é instalado quando as máquinas estão ativadas.
 
@@ -90,7 +90,7 @@ Se os seus nós estiverem localizados numa rede privada, são necessários os se
 * URL global dos EUA Gov Virginia: ***.azure-automation.us**
 * Serviço de agente: **https:// \<workspaceId\> .agentsvc.azure-automation.net**
 
-Se estiver a utilizar recursos DSC que comunicam entre nós, como os [recursos WaitFor*,](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)também precisa de permitir o tráfego entre nós. Consulte a documentação de cada recurso DSC para compreender estes requisitos de rede.
+Se estiver a utilizar recursos DSC que comunicam entre nós, como os [recursos WaitFor*,](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)também precisa de permitir o tráfego entre nós. Consulte a documentação de cada recurso DSC para compreender estes requisitos de rede.
 
 Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -107,12 +107,11 @@ Para os nós Linux, o agente DSC suporta o proxy e utiliza a `http_proxy` variá
 
 Recomenda-se a utilização dos endereços listados nos [registos DNS por tabela da região](how-to/automation-region-dns-records.md) ao definir exceções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Começar com a Configuração do Estado da Automação Azure](automation-dsc-getting-started.md).
 - Para aprender a ativar os nós, consulte [Ativar a Configuração do Estado da Automação Azure](automation-dsc-onboarding.md).
 - Para saber sobre a compilação de configurações de DSC para que possa atribuí-las aos nós-alvo, consulte [as configurações do Compile DSC na Configuração do Estado da Automação Azure](automation-dsc-compile.md).
 - Para ver um exemplo da utilização da Configuração do Estado da Automação Azure num gasoduto de implantação contínua, consulte [Configurar uma implementação contínua com chocolateria](automation-dsc-cd-chocolatey.md).
 - Para obter informações sobre preços, consulte [os preços de configuração do Estado da Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
