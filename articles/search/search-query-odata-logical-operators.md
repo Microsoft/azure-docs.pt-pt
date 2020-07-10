@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113183"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201990"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos OData em Pesquisa Cognitiva Azure - `and` , `or``not`
 
@@ -35,7 +36,7 @@ ms.locfileid: "74113183"
 
 Estes, juntamente com os operadores de [recolha `any` e, `all` ](search-query-odata-collection-operators.md)permitem-lhe construir filtros que possam expressar critérios de pesquisa muito complexos.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O seguinte EBNF[(Formulário Backus-Naur Alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática de uma expressão OData que utiliza os operadores lógicos.
 
@@ -71,7 +72,7 @@ Existem duas formas de expressões lógicas: binárias, `and` / `or` onde existe
 
 A maioria das expressões booleanas, tais como funções e comparações, não podem produzir `null` valores, e os operadores lógicos não podem ser aplicados diretamente ao `null` literal (por exemplo, `x and null` não é permitido). No entanto, os campos booleanos podem ser `null` , por isso é preciso estar ciente de como os , e os `and` `or` `not` operadores se comportam na presença de nulos. Isto é resumido na tabela seguinte, onde `b` está um campo de `Edm.Boolean` tipo:
 
-| Expression | Resultado quando `b` é`null` |
+| Expressão | Resultado quando `b` é`null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -92,21 +93,29 @@ Quando um campo Boolean `b` aparece por si só numa expressão de filtro, compor
 
 Documentos de correspondência em que o `rating` campo é entre 3 e 5, inclusive:
 
+```odata-filter-expr
     rating ge 3 and rating le 5
+```
 
 Corresponda documentos em que todos os elementos do campo sejam inferiores a `ratings` 3 ou superiores a 5:
 
+```odata-filter-expr
     ratings/all(r: r lt 3 or r gt 5)
+```
 
 Combine documentos em que o `location` campo se encontra dentro do polígono dado, e o documento não contém o termo "público".
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
+```
 
 Combine documentos para hotéis em Vancouver, Canadá onde há um quarto de luxo com uma taxa base inferior a 160:
 
+```odata-filter-expr
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
+```
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)

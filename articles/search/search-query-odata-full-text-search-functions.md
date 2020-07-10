@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72793356"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201402"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>OData funções de pesquisa de texto completo em Azure Cognitive Search - `search.ismatch` e`search.ismatchscoring`
 
@@ -33,7 +33,7 @@ A Azure Cognitive Search suporta a pesquisa de texto completo no contexto das ex
 > [!NOTE]
 > As `search.ismatch` `search.ismatchscoring` funções e as funções só são suportadas em filtros na [API de Pesquisa.](https://docs.microsoft.com/rest/api/searchservice/search-documents) Não são suportados nas APIs [sugerem](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [autocompletas.](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática das `search.ismatch` e `search.ismatchscoring` funções:
 
@@ -69,7 +69,7 @@ A `search.ismatch` função avalia uma consulta de pesquisa de texto completo co
 
 Os parâmetros são definidos na tabela seguinte:
 
-| Nome do parâmetro | Tipo | Description |
+| Nome do parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `search` | `Edm.String` | A consulta de pesquisa (na sintaxe de consulta de Lucene [simples](query-simple-syntax.md) ou [completa).](query-lucene-syntax.md) |
 | `searchFields` | `Edm.String` | Lista separada por vírgula de campos pes pesjáveis para pesquisar; incumprimentos para todos os campos pes pesjáveis no índice. Ao utilizar a pesquisa de [campo](query-lucene-syntax.md#bkmk_fields) no `search` parâmetro, os especificadores de campo na consulta Lucene sobrepõem-se a quaisquer campos especificados neste parâmetro. |
@@ -98,25 +98,35 @@ Tanto as funções como as `search.ismatch` `search.ismatchscoring` funções po
 
 Encontre documentos com a palavra "cais". Esta consulta de filtro é idêntica a um [pedido de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com `search=waterfront` .
 
+```odata-filter-expr
     search.ismatchscoring('waterfront')
+```
 
 Encontre documentos com a palavra "hostel" e classificação superior ou igual a 4, ou documentos com a palavra "motel" e classificação igual a 5. Nota: este pedido não poderia ser expresso sem a `search.ismatchscoring` função.
 
+```odata-filter-expr
     search.ismatchscoring('hostel') and Rating ge 4 or search.ismatchscoring('motel') and Rating eq 5
+```
 
 Encontre documentos sem a palavra "luxo".
 
+```odata-filter-expr
     not search.ismatch('luxury')
+```
 
 Encontre documentos com a frase "vista para o mar" ou classificação igual a 5. A `search.ismatchscoring` consulta será executada apenas contra campos e `HotelName` `Rooms/Description` .
 
 Documentos que correspondam apenas à segunda cláusula da disjunção também serão devolvidos- hotéis com `Rating` igual a 5. Para deixar claro que esses documentos não correspondem a nenhuma das partes pontuadas da expressão, serão devolvidos com pontuação igual a zero.
 
+```odata-filter-expr
     search.ismatchscoring('"ocean view"', 'Rooms/Description,HotelName') or Rating eq 5
+```
 
 Encontre documentos onde os termos "hotel" e "aeroporto" estão a menos de 5 palavras umas das outras na descrição do hotel, e onde fumar não é permitido em pelo menos alguns dos quartos. Esta consulta utiliza a [linguagem de consulta lucene completa.](query-lucene-syntax.md)
 
+```odata-filter-expr
     search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and Rooms/any(room: not room/SmokingAllowed)
+```
 
 ## <a name="next-steps"></a>Passos seguintes  
 

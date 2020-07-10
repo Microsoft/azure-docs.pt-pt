@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9a4b6bc8ae20789c1420e68f91cee34ac5b3a3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554256"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202296"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Azure Cognitive Search
 
@@ -67,7 +67,9 @@ Para post e GET, você precisa fornecer o seu nome de *serviço,* *nome de índi
 
 No GET, os parâmetros de consulta são fornecidos na *cadeia de consulta* no final do URL. Veja a seguir o formato URL:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+```http
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+```
 
 O formato para POST é o mesmo, mas com `api-version` os parâmetros de cadeia de consulta.
 
@@ -75,9 +77,9 @@ O formato para POST é o mesmo, mas com `api-version` os parâmetros de cadeia d
 
 O modelo de extração pesquisa uma origem de dados suportada e carrega automaticamente os dados para o seu índice. Na Pesquisa Cognitiva do Azure, esta capacidade é implementada através *de indexadores,* atualmente disponíveis para estas plataformas:
 
-+ [Armazenamento de bolhas](search-howto-indexing-azure-blob-storage.md)
-+ [Armazenamento de mesa](search-howto-indexing-azure-tables.md)
-+ [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
++ [Armazenamento de blobs](search-howto-indexing-azure-blob-storage.md)
++ [Armazenamento de tabelas](search-howto-indexing-azure-tables.md)
++ [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Base de Dados Azure SQL, SQL Managed Instance e SQL Server em VMs Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Os indexadores ligam índices a uma origem de dados (geralmente, uma tabela, vista ou estrutura equivalente) e mapeiam os campos da origem para os campos equivalentes nos índices. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado para o índice especificado. Todos os indexadores suportam o agendamento, de modo a que possa especificar a frequência com que os dados devem ser atualizados. A maioria dos indexadores disponibilizam o registo de alterações, se as origens de dados o suportarem. Os indexadores, através do registo de alterações e eliminações aos documentos existentes, além do reconhecimento de novos documentos, suprimem a gestão ativa dos dados no índice. 

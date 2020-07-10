@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610654"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202866"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificado no Azure Active Directory
 
@@ -69,6 +69,7 @@ Para configurar as autoridades de certificados no Diretório Ativo Azure, para c
 
 O esquema de uma autoridade de certificados é o seguinte:
 
+```csharp
     class TrustedCAsForPasswordlessAuth
     {
        CertificateAuthorityInformation[] certificateAuthorities;
@@ -90,53 +91,66 @@ O esquema de uma autoridade de certificados é o seguinte:
         RootAuthority = 0,
         IntermediateAuthority = 1
     }
+```
 
 Para a configuração, pode utilizar o [Azure Ative Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
 
 1. Inicie o Windows PowerShell com privilégios de administrador.
 2. Instale a versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior do módulo AD Azure.
 
-        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```powershell
+    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+```
 
 Como primeiro passo de configuração, você precisa estabelecer uma ligação com o seu inquilino. Assim que existir uma ligação com o seu inquilino, pode rever, adicionar, excluir e modificar as autoridades de certificados fidedignos que são definidas no seu diretório.
 
-### <a name="connect"></a>Ligar
+### <a name="connect"></a>Ligar-se
 
 Para estabelecer uma ligação com o seu inquilino, utilize o cmdlet [Connect-AzureAD:](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
+```azurepowershell
     Connect-AzureAD
+```
 
 ### <a name="retrieve"></a>Recuperar
 
 Para recuperar as autoridades de certificados fidedignos que estão definidas no seu diretório, utilize o [cmdlet Get-AzureADTrustedCertificateAuthority.](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0)
 
+```azurepowershell
     Get-AzureADTrustedCertificateAuthority
+```
 
 ### <a name="add"></a>Adicionar
 
-Para criar uma autoridade de certificados de confiança, utilize o cmdlet de certificado [new-AzureADTrustedCertificatee](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e desconte o atributo **crlDistributionPoint** para um valor correto:
+Para criar uma autoridade de certificados de confiança, utilize o cmdlet de certificado [new-AzureADTrustedCertificatee](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e desconte o atributo **crlDistributionPoint** para um valor correto:
 
+```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
+```
 
 ### <a name="remove"></a>Remover
 
 Para remover uma autoridade de certificados fidedigna, utilize o [cmdlet Remove-AzureADTrustedCertificateAuthority:](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0)
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
+```
 
 ### <a name="modify"></a>Modificar
 
 Para modificar uma autoridade de certificados fidedigna, utilize o cmdlet de certificado [Set-AzureADTrustedCertificate:](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0)
 
+```azurepowershell
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
+```
 
 ## <a name="step-3-configure-revocation"></a>Passo 3: Revogação de configuração
 
@@ -152,17 +166,23 @@ Os passos seguintes descrevem o processo de atualização e invalidação do tok
 
 1. Conecte-se com credenciais de administração ao serviço MSOL:
 
+```powershell
         $msolcred = get-credential
         connect-msolservice -credential $msolcred
+```
 
 2. Recupere o valor atual da StsRefreshTokensValidFrom para um utilizador:
 
+```powershell
         $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
         $user.StsRefreshTokensValidFrom
+```
 
 3. Configure um novo valor StsRefreshTokensValidD valor para o utilizador igual à atual timetamp:
 
+```powershell
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+```
 
 A data que definiu deve ser no futuro. Se a data não for no futuro, a propriedade **StsRefreshTokensValidFrom** não está definida. Se a data for no futuro, **o StsRefreshTokensValidFrom** está definido para a hora atual (não a data indicada pelo comando Set-MsolUser).
 

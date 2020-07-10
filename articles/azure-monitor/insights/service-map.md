@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 217b15b4004b1f06ef63414adc25890d4d87b027
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557592"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203124"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
@@ -41,7 +41,7 @@ Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho L
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de utilização: Sensibilizar os seus processos de TI para a dependência
 
-### <a name="discovery"></a>Deteção
+### <a name="discovery"></a>Descoberta
 
 O Mapa de Serviços constrói automaticamente um mapa comum de dependências através dos seus servidores, processos e serviços de terceiros. Descobre e mapeia todas as dependências da TCP, identificando ligações surpresa, sistemas remotos de terceiros de que depende, e dependências para áreas escuras tradicionais da sua rede, como o Ative Directory. O Mapa de Serviços descobre ligações de rede falhadas que os seus sistemas geridos estão a tentar fazer, ajudando-o a identificar potenciais erros de configuração do servidor, falha de serviço e problemas de rede.
 
@@ -457,43 +457,43 @@ Os registos com um tipo de *ServiceMapProcess_CL* têm dados de inventário para
 
 ### <a name="list-all-known-machines"></a>Listar todas as máquinas conhecidas
 
-ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Listar a capacidade de memória física de todos os computadores geridos.
 
-ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId / projeto PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Lista nome de computador, DNS, IP e OS.
 
-ServiceMapComputer_CL resumir arg_max (TimeGenerated, *) by ResourceId / projeto ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Encontre todos os processos com "sql" na linha de comando
 
-ServiceMapProcess_CL onde CommandLine_s contains_cs "sql" resumir arg_max (TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Encontre uma máquina (registo mais recente) pelo nome de recurso
 
-pesquisa em (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" resumir arg_max (TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Encontre uma máquina (registo mais recente) por endereço IP
 
-pesquisa em (ServiceMapComputer_CL) "10.229.243.232" resumir arg_max (TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Listar todos os processos conhecidos numa máquina especificada
 
-ServiceMapProcess_CL onde MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961 abc" resumir arg_max (TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Listar todos os computadores que executam o SQL
 
-ServiceMapComputer_CL onde ResourceName_s (search in (ServiceMapProcess_CL) " \* sql \* " [ MachineResourceName_s distinto)) / ComputerName_s distintos
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões únicas do produto do curl no meu datacenter
 
-ServiceMapProcess_CL onde ExecutableName_s == "curl" ProductVersion_s distintas
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computador de todos os computadores que executam o CentOS
 
-ServiceMapComputer_CL onde OperatingSystemFullName_s contains_cs "CentOS" ComputerName_s distintos
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as ligações de saída de um grupo de máquinas
 
@@ -548,7 +548,7 @@ A Microsoft recolhe automaticamente dados de utilização e desempenho através 
 
 Para obter mais informações sobre a recolha e utilização de dados, consulte a [Declaração de Privacidade dos Serviços Online da Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [pesquisas de registo](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
 

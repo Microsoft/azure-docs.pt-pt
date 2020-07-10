@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 4a8353cf38c63e2642c7f76d05b4b7a2764e0706
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2c02f6858711173a2ddd2217bbb9e241a5a2109d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117387"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201458"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Quickstart: Use Azure Cache para Redis com uma aplicação .NET Core
 
@@ -117,7 +117,7 @@ dotnet add package StackExchange.Redis
 Depois de concluída a instalação, o cliente de cache *StackExchange.Redis* está disponível para utilizar com o seu projeto.
 
 
-## <a name="connect-to-the-cache"></a>Ligar à cache
+## <a name="connect-to-the-cache"></a>Ligar-se à cache
 
 Adicione a seguinte instrução `using` ao ficheiro *Program.cs*:
 
@@ -284,7 +284,7 @@ dotnet run
 ![Aplicação de consola concluída](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
@@ -315,6 +315,7 @@ Neste arranque rápido, aprendeu a usar a Cache Azure para Redis a partir de uma
 > [!div class="nextstepaction"]
 > [Crie uma aplicação web ASP.NET que utilize um Cache Azure para Redis.](./cache-web-app-howto.md)
 
+Quer otimizar e economizar nos gastos na nuvem?
 
-
-
+> [!div class="nextstepaction"]
+> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

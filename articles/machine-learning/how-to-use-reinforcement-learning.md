@@ -1,7 +1,7 @@
 ---
-title: Treine e implemente um modelo de aprendizagem de reforço.
+title: Treine e implemente um modelo de aprendizagem de reforço (pré-visualização).
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar a Azure Machine Learning Reinforcement Learning (RL) para treinar um agente RL para jogar Pong.
+description: Aprenda a usar Azure Machine Learning Reinforcement Learning (pré-visualização) para treinar um agente RL para jogar Pong.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
 ms.custom: tracking-python
-ms.openlocfilehash: f8559733de9b7acfb23e2846e4d92ce6db5e2df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b918369f68c3b0047213c24f1d4666fd0593cf30
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84556946"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203279"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
 
@@ -428,6 +429,6 @@ Se navegar em registos da execução da criança, pode ver os resultados da aval
 
 Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://aka.ms/azureml-rl-notebooks)

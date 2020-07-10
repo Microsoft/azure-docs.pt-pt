@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 07/08/2020
 ms.author: alkohli
-ms.openlocfilehash: 3aa48f42c767a8f1fb1c7bf0ad78fef8b8af1594
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85558536"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200143"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Problemas relacionados com Azure Data Box e Azure Data Box Heavy
 
-Este artigo detalha informações sobre como resolver problemas que pode ver ao utilizar a Caixa de Dados Azure ou a Caixa de Dados Azure Heavy. O artigo inclui a lista de possíveis erros vistos quando os dados são copiados para a Caixa de Dados ou quando os dados são enviados a partir da Caixa de Dados.
+Este artigo detalha informações sobre como resolver problemas que pode ver ao utilizar a Caixa de Dados Azure ou a Caixa de Dados Azure Pesada para encomendas de importação. O artigo inclui a lista de possíveis erros vistos quando os dados são copiados para a Caixa de Dados ou quando os dados são enviados da Caixa de Dados para uma ordem de importação.
+
+A informação neste artigo não se aplica às encomendas de exportação criadas para a Caixa de Dados.
 
 ## <a name="error-classes"></a>Aulas de erro
 
@@ -254,6 +256,6 @@ Para mais informações, consulte as convenções de nomeação Azure para nomes
 Para obter mais informações, consulte [Copy para discos geridos.](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os requisitos do [sistema de armazenamento de caixa de dados.](data-box-system-requirements-rest.md)

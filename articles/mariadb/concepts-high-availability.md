@@ -1,35 +1,75 @@
 ---
 title: Alta disponibilidade - Base de Dados Azure para MariaDB
-description: Este tópico fornece informações de alta disponibilidade ao utilizar a Base de Dados Azure para MariaDB
-author: ajlam
-ms.author: andrela
+description: Este artigo fornece informações sobre alta disponibilidade na Base de Dados Azure para MariaDB
+author: kummanish
+ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: a87646f6195a06cf0a5382cb248efa5516c953f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/7/2020
+ms.openlocfilehash: bea32b3b60c9013ea223513c95629092b9ab231b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79531996"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203356"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Conceitos de alta disponibilidade na Base de Dados Azure para MariaDB
-A Base de Dados Azure para o serviço MariaDB proporciona um elevado nível de disponibilidade garantido. O contrato de nível de serviços com apoio financeiro (SLA) é de 99,99% em termos de disponibilidade geral. Não existe praticamente nenhum tempo de insusição de aplicação ao utilizar este serviço.
+# <a name="high-availability-in-azure-database-for-mariadb"></a>Alta disponibilidade na Base de Dados Azure para MariaDB
+A Base de Dados Azure para o serviço MariaDB proporciona um elevado nível de disponibilidade garantido com o contrato de nível de serviço (SLA) apoiado financeiramente de [99,99%](https://azure.microsoft.com/support/legal/sla/MariaDB) de tempo de duração. A Azure Database for MariaDB fornece alta disponibilidade durante eventos planeados, como operação de computação em escala initada pelo utilizador, e também quando ocorrem eventos não planeados, tais como hardware, software ou falhas de rede subjacentes. A Azure Database for MariaDB pode rapidamente recuperar da maioria das circunstâncias críticas, garantindo praticamente nenhum tempo de inação ao utilizar este serviço.
 
-## <a name="high-availability"></a>Elevada disponibilidade
-O modelo de alta disponibilidade (HA) baseia-se em mecanismos incorporados de fail-over quando ocorre uma interrupção do nível do nó. Uma interrupção do nível do nó pode ocorrer devido a uma falha de hardware ou em resposta a uma implementação de serviço.
+A base de dados Azure para MariaDB é adequada para executar bases de dados críticas da missão que requerem tempo alto. Construído sobre a arquitetura Azure, o serviço tem capacidades inerentes de alta disponibilidade, redundância e resiliência para mitigar o tempo de inatividade da base de dados a partir de paragens planeadas e não planeadas, sem que você configue quaisquer componentes adicionais. 
 
-Em todos os momentos, as alterações efetuadas a uma Base de Dados Azure para o servidor de base de dados MariaDB ocorrem no contexto de uma transação. As alterações são registadas sincronizadamente no armazenamento do Azure quando a transação é efecída. Se ocorrer uma interrupção do nível do nó, o servidor de base de dados cria automaticamente um novo nó e anexa o armazenamento de dados ao novo nó. Quaisquer ligações ativas são retiradas e quaisquer transações de bordo não são cometidas.
+## <a name="components-in-azure-database-for-mariadb"></a>Componentes na Base de Dados Azure para MariaDB
 
-## <a name="application-retry-logic-is-essential"></a>A lógica de relemisão da aplicação é essencial
-É importante que as aplicações de base de dados MariaDB sejam construídas para detetar e revatar ligações abandonadas e transações falhadas. Quando a aplicação é retrácente, a ligação da aplicação é redirecionada de forma transparente para o caso recém-criado, que assume o exemplo falhado.
+| **Componente** | **Descrição**|
+| ------------ | ----------- |
+| <b>Servidor de base de dados MariaDB | A Azure Database for MariaDB fornece segurança, isolamento, salvaguardas de recursos e capacidade de reinício rápido para servidores de bases de dados. Estas capacidades facilitam operações como a operação de recuperação de servidores de escala e de base de dados após uma paragem em segundos. <br/> As modificações de dados no servidor da base de dados ocorrem normalmente no contexto de uma transação de base de dados. Todas as alterações na base de dados são registadas sincronizadamente sob a forma de registos de escrita antecipada (ib_log) no Azure Storage – que está anexado ao servidor de base de dados. Durante o processo [de verificação](https://mariadb.com/kb/innodb-redo-log/#checkpoints) da base de dados, as páginas de dados da memória do servidor de base de dados também são lavadas para o armazenamento. |
+| <b>Armazenamento remoto | Todos os ficheiros de dados físicos e ficheiros de registo da MariaDB são armazenados no Azure Storage, que é projetado para armazenar três cópias de dados dentro de uma região para garantir a redundância, disponibilidade e fiabilidade dos dados. A camada de armazenamento também é independente do servidor de base de dados. Pode ser desligado de um servidor de base de dados falhado e religado a um novo servidor de base de dados em poucos segundos. Além disso, o Azure Storage monitoriza continuamente quaisquer falhas de armazenamento. Se for detetada uma corrupção de bloco, é automaticamente corrigida através da instantânea nova cópia de armazenamento. |
+| <b>Porta de entrada | O Gateway funciona como um representante de base de dados, encaminha todas as ligações do cliente para o servidor de base de dados. |
 
-Internamente em Azure, um gateway é usado para redirecionar as ligações para o novo exemplo. Após uma interrupção, todo o processo de fail-over normalmente leva dezenas de segundos. Uma vez que o redirecionamento é manuseado internamente pelo gateway, a cadeia de ligação externa permanece a mesma para as aplicações do cliente.
+## <a name="planned-downtime-mitigation"></a>Mitigação prevista para o tempo de inatividade
+A Azure Database for MariaDB é arquitetada para fornecer alta disponibilidade durante as operações planeadas de inatividade. 
 
-## <a name="scaling-up-or-down"></a>Escalonamento para cima ou para baixo
-Semelhante ao modelo HA, quando uma Base de Dados Azure para MariaDB é dimensionada para cima ou para baixo, uma nova instância do servidor com o tamanho especificado é criada. O armazenamento de dados existente é separado da instância original, e anexado à nova instância.
+![vista de Elastic Scaling em Azure MariaDB](./media/concepts-high-availability/elastic-scaling-mariadb-server.png)
 
-Durante a operação de escala, ocorre uma interrupção das ligações da base de dados. As aplicações do cliente estão desligadas e as transações abertas não comprometidas são canceladas. Uma vez que a aplicação do cliente recauchuta a ligação, ou faz uma nova ligação, o gateway direciona a ligação para a nova instância de tamanho.
+Aqui estão alguns cenários de manutenção planeados:
+
+| **Cenário** | **Descrição**|
+| ------------ | ----------- |
+| <b>Escala de cálculo para cima/para baixo | Quando o utilizador executa a operação de escala de cálculo para cima/para baixo, um novo servidor de base de dados é a provisionado utilizando a configuração de computação em escala. No antigo servidor de bases de dados, os pontos de verificação ativos são autorizados a completar, as ligações do cliente são drenadas, quaisquer transações não comprometidas são canceladas e, em seguida, é desligado. O armazenamento é então desligado do antigo servidor de base de dados e anexado ao novo servidor de base de dados. Quando a aplicação do cliente retrição a ligação, ou tenta fazer uma nova ligação, o Gateway direciona o pedido de ligação para o novo servidor de base de dados.|
+| <b>Armazenamento de escalonamento | O escalonamento do armazenamento é uma operação online e não interrompe o servidor de base de dados.|
+| <b>Nova implementação de software (Azure) | As novas funcionalidades de lançamento ou correções de bugs acontecem automaticamente como parte da manutenção planeada do serviço. Para mais informações, consulte a [documentação,](concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
+| <b>Upgrades de versão menores | A Azure Database for MariaDB remenda automaticamente os servidores de base de dados para a versão menor determinada pelo Azure. Acontece como parte da manutenção planeada do serviço. Isto incorreria num curto período de inatividade em termos de segundos, e o servidor de base de dados é automaticamente reiniciado com a nova versão menor. Para mais informações, consulte a [documentação,](concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
+
+
+##  <a name="unplanned-downtime-mitigation"></a>Mitigação não planeada do tempo de inatividade
+
+O tempo de inatividade não planeado pode ocorrer em resultado de falhas imprevistas, incluindo falhas subjacentes ao hardware, problemas de rede e bugs de software. Se o servidor de base de dados se avariar inesperadamente, um novo servidor de base de dados é automaticamente a provisionado em segundos. O armazenamento remoto é automaticamente anexado ao novo servidor de base de dados. O motor MariaDB realiza a operação de recuperação utilizando ficheiros WAL e base de dados e abre o servidor de base de dados para permitir que os clientes se conectem. As transações não autorizadas perdem-se e têm de ser novamente julgadas pelo pedido. Embora não seja possível evitar um tempo de inatividade não planeado, a Base de Dados Azure para MariaDB atenua o tempo de inatividade, realizando automaticamente operações de recuperação tanto no servidor de base de dados como nas camadas de armazenamento sem necessidade de intervenção humana. 
+
+
+![vista de Alta Disponibilidade em Azure MariaDB](./media/concepts-high-availability/availability-mariadb-server.png)
+
+### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tempo de inatividade não planeado: cenários de avaria e recuperação de serviços
+Aqui estão alguns cenários de falha e como a Base de Dados Azure para MariaDB recupera automaticamente:
+
+| **Cenário** | **Recuperação automática** |
+| ---------- | ---------- |
+| <B>Falha do servidor de base de dados | Se o servidor de base de dados estiver em baixo devido a alguma falha de hardware subjacente, as ligações ativas são retiradas e quaisquer transações de voo são abortadas. Um novo servidor de base de dados é automaticamente implantado e o armazenamento remoto de dados é anexado ao novo servidor de base de dados. Após a recuperação da base de dados estar concluída, os clientes podem ligar-se ao novo servidor de base de dados através do Gateway. <br /> <br /> As aplicações que utilizam as bases de dados MariaDB devem ser construídas de forma a detetarem e recaírem ligações e transações falhadas.  Quando a aplicação recauchutado, o Gateway redireciona transparentemente a ligação para o servidor de base de dados recém-criado. |
+| <B>Falha de armazenamento | As aplicações não vêem qualquer impacto para quaisquer questões relacionadas com o armazenamento, tais como uma falha no disco ou uma corrupção de bloco físico. Como os dados são armazenados em 3 exemplares, a cópia dos dados é servida pelo armazenamento sobrevivente. As corrupçãos de blocos são automaticamente corrigidas. Se uma cópia dos dados for perdida, uma nova cópia dos dados é criada automaticamente. |
+
+Eis alguns cenários de falha que exigem que a ação do utilizador recupere:
+
+| **Cenário** | **Plano de recuperação** |
+| ---------- | ---------- |
+| <b>Falha na região | O fracasso de uma região é um acontecimento raro. No entanto, se precisar de proteção contra uma falha da região, pode configurar uma ou mais réplicas lidas noutras regiões para a recuperação de desastres (DR). (Consulte [este artigo](howto-read-replicas-portal.md) sobre a criação e gestão de réplicas de leitura para mais detalhes). Em caso de falha a nível da região, pode promover manualmente a réplica de leitura configurada na outra região para ser o seu servidor de base de dados de produção. |
+| <b>Erros lógicos/de utilizador | A recuperação de erros do utilizador, tais como tabelas acidentalmente largadas ou dados incorretamente atualizados, envolve a realização de uma [recuperação pontual](concepts-backup.md) (PITR), restaurando e recuperando os dados até ao momento antes do erro ter ocorrido.<br> <br>  Se pretender restaurar apenas um subconjunto de bases de dados ou tabelas específicas em vez de todas as bases de dados no servidor de bases de dados, pode restaurar o servidor de base de dados num novo caso, exportar a tabela(s) através do [mysqldump](howto-migrate-dump-restore.md), e depois utilizar [o restauro](howto-migrate-dump-restore.md#restore-your-mariadb-database) para restaurar essas tabelas na sua base de dados. |
+
+
+
+## <a name="summary"></a>Resumo
+
+A Azure Database for MariaDB fornece uma capacidade de reinício rápido de servidores de base de dados, armazenamento redundante e encaminhamento eficiente a partir do Gateway. Para uma proteção adicional de dados, pode configurar cópias de segurança para serem geo-replicadas, e também implementar uma ou mais réplicas de leitura noutras regiões. Com capacidades inerentes de elevada disponibilidade, a Azure Database for MariaDB protege as suas bases de dados das falhas mais comuns, e oferece uma indústria líder, apoiada por financiamento, [99,99% do SLA em alta.](https://azure.microsoft.com/support/legal/sla/MariaDB) Todas estas capacidades de disponibilidade e fiabilidade permitem ao Azure ser a plataforma ideal para executar as suas aplicações críticas de missão.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para uma visão geral do serviço, consulte [a Base de Dados Azure para a Visão Geral da MariaDB](overview.md)
+- Conheça as [regiões de Azure](../availability-zones/az-overview.md)
+- Saiba como [lidar com erros de conectividade transitórios](concepts-connectivity.md)
+- Saiba como [replicar os seus dados com réplicas lidas](howto-read-replicas-portal.md)

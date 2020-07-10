@@ -8,11 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78196931"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202591"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
 
@@ -55,7 +56,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |---|---|
     |Nome da Política|read-hivesampletable-all|
     |Base de Dados da Colmeia|predefinição|
-    |table|hivesmpletable|
+    |tabela|hivesmpletable|
     |Coluna da Colmeia|*|
     |Selecionar Utilizador|hiveuser1|
     |Permissões|selecionar|
@@ -73,7 +74,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |---|---|
     |Nome da Política|read-hivesampletable-devicemake|
     |Base de Dados da Colmeia|predefinição|
-    |table|hivesmpletable|
+    |tabela|hivesmpletable|
     |Coluna de colmeia|cliente, fabricante de dispositivos|
     |Selecionar Utilizador|hiveuser2|
     |Permissões|selecionar|
@@ -120,7 +121,9 @@ Na última secção, configuraste duas apólices.  O hiveuser1 tem a permissão 
 
 1. Selecione o **separador Definição.** O texto de comando é:
 
-       SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"`
+    ```
 
    Através das políticas do Ranger que definiu, o hiveuser1 tem permissão de seleção em todas as colunas.  Portanto, esta consulta funciona com as credenciais da Hiveuser1, mas esta consulta não funciona com as credenciais da Hiveuser2.
 
@@ -135,19 +138,25 @@ Para testar a segunda política (read-hivesampletable-devicemake), criou na últ
 1. Adicione uma nova folha no Excel.
 2. Siga o último procedimento para importar os dados.  A única mudança que se faz é usar as credenciais do hiveuser2 em vez de hiveuser1. Isto falha porque a hiveuser2 só tem permissão para ver duas colunas. Deve receber o erro seguinte:
 
-        [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
-        
+    ```output
+    [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
+    ```
+
 3. Siga o mesmo procedimento para importar dados. Desta vez, utilize as credenciais do hiveuser2 e modifique a instrução de seleção de:
 
-        SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT * FROM "HIVE"."default"."hivesampletable"
+    ```
 
     para:
 
-        SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```sql
+    SELECT clientid, devicemake FROM "HIVE"."default"."hivesampletable"
+    ```
 
     Quando estiver feito, verá duas colunas de dados importadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar um cluster HDInsight com pacote de segurança empresarial, consulte [clusters Configure HDInsight com ESP](apache-domain-joined-configure.md).
 * Para gerir um cluster HDInsight com ESP, consulte [Gerir clusters HDInsight com ESP](apache-domain-joined-manage.md).

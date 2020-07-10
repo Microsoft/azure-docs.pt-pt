@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e5f1e38461b7f229f9eb7559aeb6203563fceb6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974177"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200212"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutorial: Criptografe o vídeo com a AES-128 e use o serviço de entrega de chaves
 
@@ -46,7 +47,7 @@ Este tutorial mostrar-lhe como:
 > * Configure o Localizador de Streaming para encriptar o vídeo com AES (ClearKey).
 > * Faça um teste.
 > * Construa uma URL de streaming.
-> * Limpar recursos.
+> * Limpe os recursos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -148,11 +149,11 @@ Agora que o [Localizador de Streaming](https://docs.microsoft.com/rest/api/media
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos na conta dos Serviços de Multimédia
 
-Geralmente, deve limpar tudo, exceto objetos que planeia reutilizar (normalmente, reutilizará Transformas, Localizadores de Streaming, e assim por diante). Se quiser que a sua conta esteja limpa após a experiência, elimine os recursos que não pretende reutilizar. Por exemplo, o seguinte código elimina empregos:
+Geralmente, deve limpar tudo, exceto objetos que planeia reutilizar (normalmente, reutilizará Transformas, Localizadores de Streaming, e assim por diante). Se quiser que a sua conta esteja limpa após a experiência, elimine os recursos que não pretende reutilizar. Por exemplo, o seguinte código elimina o trabalho, cria ativos e política de chave de conteúdo:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 
@@ -170,7 +171,7 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Proteger com DRM](protect-with-drm.md)

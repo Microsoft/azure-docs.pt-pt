@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75394768cc41d3ca73398c2691b9ec0feb8c17f8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686669"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202573"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -30,20 +31,20 @@ As tabelas seguintes proporcionam uma comparação rápida dos agentes do Monito
 
 | | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|
-| Ambientes apoiados | Azure | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local | 
-| Requisitos do agente  | Nenhuma | Nenhuma | Requer agente log analytics |
-| Dados recolhidos | Registos de Eventos<br>Eventos da ETW<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>Registos de aplicações .NET<br>Informações de falha de sistema<br>Registos de diagnóstico de agentes | Registos de Eventos<br>Desempenho<IIS logs><br>Registos baseados em ficheiros<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de ligação de rede |
-| Dados enviados para | Storage do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor |
+| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local | 
+| **Requisitos do agente**  | Nenhum | Nenhum | Requer agente log analytics |
+| **Dados recolhidos** | Registos de Eventos<br>Eventos da ETW<br>Desempenho<br>Registos baseados em ficheiros<br>Registos do IIS<br>Registos de aplicações .NET<br>Informações de falha de sistema<br>Registos de diagnóstico de agentes | Registos de Eventos<br>Desempenho<IIS logs><br>Registos baseados em ficheiros<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de ligação de rede |
+| **Dados enviados para** | Armazenamento do Azure<br>Métricas do Monitor Azure<br>Hub de Eventos | Registos do Azure Monitor | Registos do Azure Monitor |
 
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
 | | Diagnóstico<br>extensão (LAD) | Telegrafa<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
-| Ambientes apoiados | Azure | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local |
-| Requisitos do agente  | Nenhuma | Nenhuma | Nenhuma | Requer agente log analytics |
-| Dados recolhidos | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de ligação de rede |
-| Dados enviados para | Storage do Azure<br>Hub de Eventos | Métricas do Monitor Azure | Registos do Azure Monitor | Registos do Azure Monitor |
+| **Ambientes apoiados** | Azure | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local | Azure<br>Outra nuvem<br>No local |
+| **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente log analytics |
+| **Dados recolhidos** | Syslog<br>Desempenho | Desempenho | Syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de ligação de rede |
+| **Dados enviados para** | Armazenamento do Azure<br>Hub de Eventos | Métricas do Monitor Azure | Registos do Azure Monitor | Registos do Azure Monitor |
 
 ## <a name="log-analytics-agent"></a>Agente do Log Analytics
 
@@ -112,7 +113,7 @@ Considere o seguinte ao utilizar o agente Desadependição:
 A extensão Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) instala o agente Log Analytics em máquinas virtuais Azure. A extensão de dependência do Monitor Azure para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) instala o agente Dependency em máquinas virtuais Azure. Estes são os mesmos agentes descritos acima, mas permitem-lhe geri-los através [de extensões de máquinas virtuais.](../../virtual-machines/extensions/overview.md) Deve utilizar extensões para instalar e gerir os agentes sempre que possível.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Obtenha mais detalhes sobre cada um dos agentes no seguinte:
 

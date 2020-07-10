@@ -19,17 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68e6ec0af0b24771b21dac35c944fc7fa098b404
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113158"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203104"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>OData $orderby sintaxe na pesquisa cognitiva de Azure
 
  Pode utilizar o [parâmetro OData **$orderby** ](query-odata-filter-orderby-syntax.md) para aplicar uma ordem de classificação personalizada para resultados de pesquisa em Azure Cognitive Search. Este artigo descreve a sintaxe de **$orderby** em detalhe. Para obter informações mais gerais sobre como utilizar **$orderby** ao apresentar resultados de pesquisa, consulte [Como trabalhar com os resultados da pesquisa na Azure Cognitive Search](search-pagination-page-layout.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O parâmetro **$orderby** aceita uma lista separada por vírgula de até 32 **cláusulas de encomenda**. A sintaxe de uma cláusula de encomenda é descrita pelo seguinte formulário EBNF[(Formulário Backus-Naur Alargado):](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)
 
@@ -63,21 +64,29 @@ A sintaxe para `search.score` **em $orderby** é `search.score()` . A função `
 
 Classificar hotéis ascendentes por taxa base:
 
+```odata-filter-expr
     $orderby=BaseRate asc
+```
 
 Classificar hotéis descendo por classificação, em seguida, subindo por taxa base (lembre-se que subir é o padrão):
 
+```odata-filter-expr
     $orderby=Rating desc,BaseRate
+```
 
 Classificar hotéis descendo por classificação, em seguida, subindo por distância das coordenadas dadas:
 
+```odata-filter-expr
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Ordenar hotéis em ordem descendente por pesquisa.pontuação e classificação, e em seguida, em ordem ascendente por distância das coordenadas dadas. Entre dois hotéis com pontuações e classificações de relevância idênticas, o mais próximo é listado primeiro:
 
+```odata-filter-expr
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Como trabalhar com resultados de pesquisa na Azure Cognitive Search](search-pagination-page-layout.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)

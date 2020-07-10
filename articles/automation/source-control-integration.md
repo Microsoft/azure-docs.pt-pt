@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828887"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187307"
 ---
 # <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte
 
@@ -72,8 +73,7 @@ Utilize este procedimento para configurar o controlo de origem utilizando o port
 
 ### <a name="configure-source-control-in-powershell"></a>Configure o controlo de fontes na PowerShell
 
-Também pode utilizar o PowerShell para configurar o controlo de origem na Azure Automation. Para utilizar os cmdlets PowerShell para esta operação, necessita de um token de acesso pessoal (PAT). Utilize o cmdlet [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
-) para criar a ligação de controlo de fonte. Este cmdlet requer uma corda segura para o PAT. Para aprender a criar uma cadeia segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Também pode utilizar o PowerShell para configurar o controlo de origem na Azure Automation. Para utilizar os cmdlets PowerShell para esta operação, necessita de um token de acesso pessoal (PAT). Utilize o cmdlet [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) para criar a ligação de controlo de fonte. Este cmdlet requer uma corda segura para o PAT. Para aprender a criar uma cadeia segura, consulte [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 As subsecções seguintes ilustram a criação da PowerShell da ligação de controlo de origem para GitHub, Azure Repos (Git) e Azure Repos (TFVC). 
 
@@ -122,7 +122,7 @@ A tabela a seguir define as permissões mínimas de PAT necessárias para o GitH
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Permissões mínimas de PAT para Azure Repos
 
-A lista a seguir define as permissões mínimas de PAT necessárias para a Azure Repos. Para obter mais informações sobre a criação de um PAT em Azure Repos, consulte [o Acesso Authenticate com fichas de acesso pessoal.](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
+A lista a seguir define as permissões mínimas de PAT necessárias para a Azure Repos. Para obter mais informações sobre a criação de um PAT em Azure Repos, consulte [o Acesso Authenticate com fichas de acesso pessoal.](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page)
 
 | Âmbito  |  Tipo de Acesso  |
 |---------| ----------|
@@ -195,16 +195,16 @@ Para desligar de um repositório de controlo de origem:
 
 ## <a name="handle-encoding-issues"></a>Lidar com problemas de codificação
 
-Se várias pessoas estiverem a editar livros no seu repositório de controlo de origem usando diferentes editores, podem ocorrer problemas de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues)
+Se várias pessoas estiverem a editar livros no seu repositório de controlo de origem usando diferentes editores, podem ocorrer problemas de codificação. Para saber mais sobre esta situação, consulte [as causas comuns das questões de codificação.](/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues)
 
 ## <a name="update-the-pat"></a>Atualizar o PAT
 
 Atualmente, não é possível utilizar o portal Azure para atualizar o PAT no controlo de origem. Quando o seu PAT expirar ou ser revogado, pode atualizar o controlo de origem com um novo token de acesso de uma destas formas:
 
-* Utilize a [API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Utilize o [cmdlet Update-AzAutomationSourceControl.](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol)
+* Utilize a [API REST](/rest/api/automation/sourcecontrol/update).
+* Utilize o [cmdlet Update-AzAutomationSourceControl.](//powershell/module/az.automation/update-azautomationsourcecontrol)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para integrar o controlo de origem na Azure Automation, consulte [a Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
 * Para integrar o controlo de origem do runbook com o Visual Studio Online, consulte [a Azure Automation: Integrando o Runbook Source Control utilizando o Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

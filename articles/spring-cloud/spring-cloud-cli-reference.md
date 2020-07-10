@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
-ms.openlocfilehash: 33d13d2d4fa9003ef041c4c96be83a69ac595a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 957931407987e116924677341df4effe5347590e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298782"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187647"
 ---
 # <a name="az-spring-cloud"></a>az nuvem de primavera
 
@@ -20,7 +20,7 @@ ms.locfileid: "80298782"
 >[!Note]
 > A azure Spring Cloud está atualmente em pré-visualização.  Estes comandos podem ser alterados ou removidos numa futura libertação.
 
-| az nuvem de primavera |  |
+| az nuvem de primavera | Comandos |
 |------|------:|
 | [az primavera-nuvem criar](#az-spring-cloud-create) | Crie uma instância Azure Spring Cloud. |
 | [az nuvem de primavera delete](#az-spring-cloud-delete) | Apague uma instância da Nuvem de primavera Azure. |
@@ -89,13 +89,13 @@ az spring-cloud create  --name -n
                         --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome para este exemplo de Azure Spring Cloud. |
 | --grupo de recursos -g | Especifica o grupo de recursos para esta aplicação.  Configure o grupo predefinido usando`az configure --defaults group=<name>` |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --localização -l | Especifica a localização do servidor para esta aplicação.  Encontre locais válidos usando`az account list-locations` |
 | -- sem espera | Não durante muito tempo as operações de longo prazo estão concluídas.
 
@@ -117,13 +117,13 @@ az spring cloud --name -n
                 --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da instância Azure Spring Cloud a ser eliminada. |
 | --grupo de recursos -g | Nome do grupo de recursos a que pertence a Nuvem de primavera de Azure. |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | - não esperar | Não espere que as operações de longo prazo terminem. |
 
 ### <a name="example"></a>Exemplo
@@ -142,8 +142,8 @@ Lista todas as instâncias Azure Spring Cloud associadas ao grupo de recursos. S
 az spring-cloud list --resource-group -g
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --grupo de recursos -g | Nome do grupo de recursos. |
 
 ## <a name="az-spring-cloud-show"></a>az primavera-nuvem show
@@ -155,8 +155,8 @@ az spring-cloud show --name -n
                      -- resource-group -g
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome do exemplo da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do Grupo de Recursos a que pertence a azure Spring Cloud.
 
@@ -175,14 +175,14 @@ az spring-cloud app create --name -n
                             --memory
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --cpu | Número de núcleos virtuais por exemplo.  Predefinição: 1. |
 | --ativar o armazenamento persistente | Valor booleano.  Se for verdade, monta um disco de 50GB com o caminho predefinido. |
 | --contagem de instâncias | Número de casos.  Predefinição: 1. |
@@ -213,8 +213,8 @@ az spring cloud app delete  --name -n
                             --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
@@ -240,14 +240,14 @@ az spring cloud app deploy  --name -n
                             --version
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --cpu | Número de núcleos CPI virtuais por exemplo. |
 | --implantação -d | Nome de uma aplicação existente.  Predefinições na implantação da produção se não for especificado. |
 | --env | Variáveis de ambiente separadas pelo espaço no formato 'chave[=valor]». |
@@ -289,8 +289,8 @@ az spring-cloud app list --resource-group -g
                          --service -s
 ```
 
-|Parâmetros Obrigatórios | |
-| --- | ---: |
+|Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
@@ -306,14 +306,14 @@ az spring-cloud app restart --name -n
                             --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --implantação -d | Nome da implementação existente da app.  Predefinições na implantação da produção se não for especificado. |
 | -- sem espera | Não espere que as operações de longo prazo terminem. |
 
@@ -332,14 +332,14 @@ az spring-cloud app scale --name -n
                           --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --cpu | Número de núcleos de CPU virtuais por instância de aplicação. |
 | --implantação -d | Nome da implementação existente da app.  Predefinições na implantação da produção se não for especificado. |
 | --contagem de instâncias | Número de casos desta aplicação. |
@@ -372,15 +372,15 @@ az spring-cloud app set-deployment --deployment -d
                                    --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --implantação -d | Nome de uma implementação existente da aplicação. |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | -- sem espera | Não espere que as operações de longo prazo terminem. |
 
 ### <a name="examples"></a>Exemplos
@@ -401,8 +401,8 @@ az spring-cloud app show --name -n
                          --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
@@ -418,14 +418,14 @@ az spring-cloud app show-deploy-log --name -n
                                     --deployment -d
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --implantação -d | Nome de uma implementação existente da aplicação.  Incumprimentos do ambiente de produção. |
 
 ## <a name="az-spring-cloud-app-start"></a>az primavera-cloud app começar
@@ -440,14 +440,14 @@ az spring-cloud app start --name -n
                           --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --implantação -d | Nome de uma implementação existente da aplicação.  Incumprimentos do ambiente de produção. |
 | -- sem espera | Não espere que as operações de longo prazo terminem. |
 
@@ -463,14 +463,14 @@ az spring-cloud app stop --name -n
                          --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --implantação -d | Nome de uma implementação existente da aplicação.  Incumprimentos do ambiente de produção. |
 | -- sem espera | Não espere que as operações de longo prazo terminem. |
 
@@ -491,14 +491,14 @@ az spring-cloud app update --name -n
                            --runtime-version
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome -n | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --implantação -d | Nome de uma implementação existente da aplicação.  Incumprimentos do ambiente de produção. |
 | --ativar o armazenamento persistente | O Boolean.  Se for verdade, monte um disco de 50GB com o caminho predefinido. |
 | --env | Variáveis de ambiente separadas pelo espaço no formato 'chave[=valor]». |
@@ -525,8 +525,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
@@ -542,8 +542,8 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço a remover. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
@@ -560,8 +560,8 @@ az spring-cloud app binding show --app
                                  --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
@@ -590,16 +590,16 @@ az spring-cloud app binding list --app
                                  --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --tipo api | Especifique o tipo API utilizando um dos seguintes valores: cassandra, gremlin, mongo, sql, tabela. |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-|Parâmetros Opcionais | |
-| --- | ---: |
+|Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --nome de coleção | O nome da coleção.  Necessário para a utilização de Gremlin. |
 | --nome da base de dados | O nome da base de dados.  Necessário para a utilização de Mongo, SQL e Gremlin. |
 | --espaço-chave | Espaço-chave cassandra.  Necessário ao usar a Cassandra. |
@@ -616,15 +616,15 @@ az spring-cloud app binding cosmos update --app
                                           --key-space
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-|Parâmetros Opcionais | |
-| --- | ---: |
+|Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --nome de coleção | O nome da coleção.  Necessário para a utilização de Gremlin. |
 | --nome da base de dados | O nome da base de dados.  Necessário para a utilização de Mongo, SQL e Gremlin. |
 | --espaço-chave | Espaço-chave cassandra.  Necessário ao usar a Cassandra. |
@@ -641,8 +641,8 @@ az spring-cloud app binding mysql add --app
                                       --username
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome da base de dados | O nome da base de dados. |
 | ---chave | Chave da API do serviço. |
@@ -666,15 +666,15 @@ az spring-cloud app binding mysql update --add
                                          --username
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --nome da base de dados | O nome da base de dados. |
 | ---chave | Chave da API do serviço. |
 | --username | Nome de utilizador para acesso à base de dados. |
@@ -692,31 +692,31 @@ az spring-cloud app binding redis add --app
                                       --disable-ssl
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --id de recursos | Identificação de recursos Azure do serviço com o que pretende ligar. |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --desativação | Desativar os TLS. |
 
 ## <a name="az-spring-cloud-app-binding-redis-update"></a>az app de ligação de molas redis atualização
 
 Atualize uma ligação de serviço para Azure Cache para Redis.
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --desativação | Desativar os TLS. |
 
 ## <a name="az-spring-cloud-app-deployment-create"></a>implementação de aplicativos az nuvem de primavera criar
@@ -725,15 +725,15 @@ Crie uma implementação de encenação para a aplicação.
 
 Para implementar código ou atualizar as definições para uma implementação, utilização `az spring-cloud app deploy --deployment <staging-deployment>` ou atualização de aplicações de nuvem de mola az --implantação <staging deployment> .
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da ligação de serviço. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --cpu | Número de núcleos de CPU virtuais por exemplo.  Predefinição: 1 |
 | --env | Variáveis de ambiente separadas pelo espaço no formato 'chave[=valor]». |
 | --contagem de instâncias | Número de casos. Predefinição: 1. |
@@ -771,8 +771,8 @@ az spring-cloud app deployment delete --app
                                       --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da implantação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
@@ -788,8 +788,8 @@ az spring-cloud app deployment list --app
                                     --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --serviço-s | Nome da Nuvem de primavera de Azure.  Pode configurar o serviço predefinido utilizando `az configure --defaults spring-cloud=<name>` . |
@@ -805,8 +805,8 @@ az spring-cloud app deployment show --app
                                     --service -s
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --nome | Nome da implantação. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
@@ -821,8 +821,8 @@ az spring-cloud config-server clear --name
                                         --resource-group -g
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
@@ -837,14 +837,14 @@ az spring-cloud config-server set --config-file
                                   --no-wait
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --config-file | Caminho de arquivo para um manifesto YAML para a configuração do Servidor Config. |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | -- sem espera | Não durante muito tempo as operações de longo prazo estão concluídas.
 
 ## <a name="az-spring-cloud-config-server-show"></a>az primavera-nuvem config-servidor show
@@ -856,8 +856,8 @@ az spring-cloud config-server show --name -n
                                    --resource-group -g
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
@@ -880,14 +880,14 @@ az spring-cloud config-server git set --name -n
                                       --username
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --uri | URI do config adicionado. |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --adiar | Guarde temporariamente o objeto na cache local em vez de enviar para Azure.  Use `az cache` para ver /limpar. |
 | ---chave de hospedeiro | Chave de anfitrião para o config adicionado. |
 | --host-key-algorithm | Algoritmo chave de anfitrião para o config adicionado. |
@@ -917,15 +917,15 @@ az spring-cloud config-server git repo add --name -n
                                            --username
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --repo-nome | URI do repo. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | --uri | URI do config adicionado. |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --adiar | Guarde temporariamente o objeto na cache local em vez de enviar para Azure.  Use `az cache` para ver /limpar. |
 | ---chave de hospedeiro | Chave de anfitrião para o config adicionado. |
 | --host-key-algorithm | Algoritmo chave de anfitrião para o config adicionado. |
@@ -947,13 +947,13 @@ az spring-cloud config-server git repo list --name -n
                                        --defer
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --adiar | Guarde temporariamente o objeto na cache local em vez de enviar para Azure.  Use `az cache` para ver /limpar. |
 
 ## <a name="az-spring-cloud-config-server-git-repo-remove"></a>az primavera-nuvem config-servidor git repo remover
@@ -967,14 +967,14 @@ az spring-cloud config-server git repo remove --name -n
                                          --defer
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --repo-nome | URI do repo. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --adiar | Guarde temporariamente o objeto na cache local em vez de enviar para Azure.  Use `az cache` para ver /limpar. |
 
 ## <a name="az-spring-cloud-test-endpoint-disable"></a>az mola-nuvem teste-ponto final para desativar
@@ -986,8 +986,8 @@ az spring-cloud test-endpoint disable --name -n
                                       --resource-group -g
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
@@ -1000,8 +1000,8 @@ az spring-cloud test-endpoint enable --name -n
                                      --resource-group -g
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
@@ -1016,13 +1016,13 @@ az spring-cloud test-endpoint list --name -n
                                    --deployment -d
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 
-| Parâmetros Opcionais | |
-| --- | ---: |
+| Parâmetros Opcionais | Descrição |
+| --- | :--- |
 | --app | Nome da aplicação. |
 | --implantação -d | Nome de uma implementação existente da aplicação.  Incumprimentos à produção se não for especificado. |
 
@@ -1036,8 +1036,8 @@ az spring-cloud test-endpoint renew-key --name -n
                                         --type
 ```
 
-| Parâmetros Obrigatórios | |
-| --- | ---: |
+| Parâmetros Obrigatórios | Descrição |
+| --- | :--- |
 | --nome | Nome da Nuvem de primavera de Azure. |
 | --grupo de recursos -g | Nome do grupo de recursos.  Pode configurar o grupo predefinido utilizando `az configure --defaults group=<name>` . |
 | -tipo | Tipo de chave de ponto final de teste.  Valores permitidos: Primário, Secundário. |

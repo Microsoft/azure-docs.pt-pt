@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 7cc2b7871c7141a0e466bf8620351c5beed0c684
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed525230315781eeca41956047a173f27b1447e1
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82165693"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201289"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a sua implementação de registos de monitores Azure
 
@@ -62,7 +62,7 @@ Com o controlo de acesso baseado em funções (RBAC), pode conceder aos utilizad
 
 Os dados a que um utilizador tem acesso são determinados por uma combinação de fatores listados na tabela seguinte. Cada um é descrito nas secções abaixo.
 
-| Fator | Description |
+| Fator | Descrição |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método que o utilizador utiliza para aceder ao espaço de trabalho.  Define o âmbito dos dados disponíveis e o modo de controlo de acesso que é aplicado. |
 | [Modo de controlo de acesso](#access-control-mode) | Definição no espaço de trabalho que define se as permissões são aplicadas no espaço de trabalho ou no nível de recursos. |
@@ -97,7 +97,7 @@ O Azure Monitor determina automaticamente o modo certo, dependendo do contexto a
 
 A tabela a seguir resume os modos de acesso:
 
-| | Contexto do espaço de trabalho | Contexto de recursos |
+| Problema | Contexto do espaço de trabalho | Contexto de recursos |
 |:---|:---|:---|
 | Para quem é destinado cada modelo? | Administração central. Administradores que precisam de configurar a recolha de dados e utilizadores que precisam de acesso a uma grande variedade de recursos. Também atualmente necessário para os utilizadores que precisam de aceder a registos de recursos fora do Azure. | Equipas de candidatura. Administradores dos recursos da Azure a ser monitorizados. |
 | O que um utilizador necessita para visualizar registos? | Permissões para o espaço de trabalho. Consulte **permissões do Espaço de Trabalho** em Gerir o acesso utilizando [permissões de espaço de trabalho.](manage-access.md#manage-access-using-workspace-permissions) | Leia o acesso ao recurso. Consulte **permissões de Recursos** em Gerir o acesso utilizando [permissões Azure](manage-access.md#manage-access-using-azure-permissions). As permissões podem ser herdadas (por exemplo, do grupo de recursos contendo) ou diretamente atribuídas ao recurso. A permissão para os registos do recurso será automaticamente atribuída. |

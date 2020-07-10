@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 629df1c43ff104d89f4b61a9aacb6c7f7720a1ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077142"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203470"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Fluxo Estruturado de Faíscas Apache com Apache Kafka e Azure Cosmos DB
 
@@ -136,7 +136,9 @@ Utilize os seguintes passos para fazer o upload dos cadernos do projeto para o s
 
 1. No seu browser, ligue ao bloco de notas Jupyter no cluster do Spark. No seguinte URL, substitua `CLUSTERNAME` pelo nome do seu cluster do __Spark__:
 
-        https://CLUSTERNAME.azurehdinsight.net/jupyter
+    ```http
+    https://CLUSTERNAME.azurehdinsight.net/jupyter
+    ```
 
     Quando lhe for pedido, introduza o início de sessão do cluster (admin) e a palavra-passe utilizada quando criou o cluster.
 
@@ -154,7 +156,7 @@ Uma vez que os ficheiros tenham sido carregados, selecione a entrada __Stream-ta
 
 Na página inicial do [Jupyter Notebook,](https://jupyter.org/) selecione a entrada __Stream-data-from-Kafka-to-Cosmos-DB.ipynb.__ Siga os passos no caderno para transmitir dados de Kafka e para a Azure Cosmos DB usando o Spark Structured Streaming.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar o Apache Spark Structured Streaming, veja os seguintes documentos para saber mais sobre trabalhar com Apache Spark, Apache Kafka e Azure Cosmos DB:
 

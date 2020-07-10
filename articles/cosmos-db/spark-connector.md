@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: f576da01a7d80559419376f1629c0765074065da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2691f63d7bb8c468d065b82c9726e8f7740c20
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262230"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203161"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelere a análise de big data usando o conector Apache Spark para Azure Cosmos DB
 
@@ -233,7 +233,7 @@ Pode construir o conector a partir de fonte no GitHub, ou baixar os frascos uber
 Crie uma biblioteca utilizando o seu espaço de trabalho Databricks seguindo as orientações no Guia de Dados Azure > [Utilize o conector Azure Cosmos DB Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
 
 > [!NOTE]
-> Note que a página **de Utilização do Conector de FaíscaS Azure Cosmos** não está atualmente atualizada. Em vez de descarregar os seis frascos separados em seis bibliotecas diferentes, você pode baixar o frasco uber de maven https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) at e instalar este frasco/biblioteca.
+> A **página de Utilização do Conector de Faíscas DB Azure Cosmos** não está atualmente atualizada. Em vez de descarregar os seis frascos separados em seis bibliotecas diferentes, você pode baixar o frasco uber de maven em [azure-cosmosdb-spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) e instalar este frasco/biblioteca.
 > 
 
 ### <a name="using-spark-cli"></a>Usando spark-cli
@@ -313,7 +313,7 @@ Temos mais informações no `azure-cosmosdb-spark` [wiki,](https://github.com/Az
 
 * [Monitorização de empregos de faíscas com insights de aplicação](https://github.com/Azure/azure-cosmosdb-spark/tree/2.3/samples/monitoring)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, baixe o conector Spark para Azure Cosmos DB do [repositório azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub. Explore os seguintes recursos adicionais no repo:
 

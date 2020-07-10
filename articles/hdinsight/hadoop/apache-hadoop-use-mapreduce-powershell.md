@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: 2eb5817a3339494417bb426bfdccb09ae3ac7230
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bd6d02ce1cd60a6d54047139f06fa59f359f9da9
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087780"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202411"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando PowerShell
 
@@ -49,21 +49,25 @@ Os passos a seguir demonstram como usar estes cmdlets para executar um trabalho 
 
 2. Abra um novo pedido de comando **Azure PowerShell.** Altere os diretórios para a localização do ficheiro **mapreducejob.ps1** e, em seguida, use o seguinte comando para executar o script:
 
-        .\mapreducejob.ps1
+    ```azurepowershell
+    .\mapreducejob.ps1
+    ```
 
     Quando executam o script, são solicitados o nome do cluster HDInsight e do login do cluster. Também pode ser solicitado a autenticar a sua subscrição Azure.
 
 3. Quando o trabalho estiver concluído, recebe uma saída semelhante ao seguinte texto:
 
-        Cluster         : CLUSTERNAME
-        ExitCode        : 0
-        Name            : wordcount
-        PercentComplete : map 100% reduce 100%
-        Query           :
-        State           : Completed
-        StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
-        SubmissionTime  : 12/5/2014 8:34:09 PM
-        JobId           : job_1415949758166_0071
+    ```output
+    Cluster         : CLUSTERNAME
+    ExitCode        : 0
+    Name            : wordcount
+    PercentComplete : map 100% reduce 100%
+    Query           :
+    State           : Completed
+    StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
+    SubmissionTime  : 12/5/2014 8:34:09 PM
+    JobId           : job_1415949758166_0071
+    ```
 
     Esta saída indica que o trabalho foi concluído com sucesso.
 
@@ -79,7 +83,7 @@ Para ver as palavras e contagens produzidas pelo trabalho, abra o ficheiro **out
 > [!NOTE]  
 > Os ficheiros de saída de um trabalho do MapReduce são imutáveis. Por isso, se voltar a fazer esta amostra, tem de alterar o nome do ficheiro de saída.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Se nenhuma informação for devolvida quando o trabalho estiver concluído, ver erros para o trabalho. Para visualizar informações de erro para este trabalho, adicione o seguinte comando ao fim do ficheiro **mapreducejob.ps1.** Em seguida, guarde o ficheiro e reexame o script.
 
@@ -95,7 +99,7 @@ Get-AzHDInsightJobOutput `
 
 Este cmdlet devolve a informação que foi escrita à STDERR à medida que o trabalho funciona.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Como pode ver, a Azure PowerShell fornece uma maneira fácil de executar trabalhos MapReduce num cluster HDInsight, monitorizar o estado do trabalho e recuperar a produção. Para obter informações sobre outras formas de trabalhar com Hadoop em HDInsight:
 

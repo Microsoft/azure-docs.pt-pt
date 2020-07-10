@@ -4,12 +4,12 @@ description: Saiba como pode utilizar o Azure Backup para enviar dados para fora
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 5611b5a6fc9ba8bbff11e35449caf0dd9d33fa21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373307"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187834"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline em Azure Backup
 
@@ -136,7 +136,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
     | Parâmetro | Descrição |
     | --- | --- |
     | s: &lt; *Caminho de localização de encenação*&gt; |Esta entrada obrigatória é utilizada para fornecer o caminho para o local de preparação que inseriu no fluxo de trabalho na secção "Iniciar backup offline". |
-    | p: &lt; *Caminho para publicarSettingsFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação Azure que inseriu no fluxo de trabalho na secção "Iniciar cópia de segurança offline". |
+    | p: &lt; *Caminho para publicarSettingsFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação Azure.  |
 
     Quando você dirige o comando, o utilitário solicita a seleção do trabalho de importação Azure que corresponde às unidades que precisam de ser preparadas. Se apenas um único trabalho de importação estiver associado ao local de preparação fornecido, você vê uma página como esta.
 
@@ -212,10 +212,10 @@ Após a conclusão do trabalho de importação com sucesso, os dados de backup i
 
 No momento do próximo backup programado, o Azure Backup executa uma cópia de segurança incremental.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminada a cópia de segurança inicial, pode eliminar com segurança os dados importados para o contentor de armazenamento Azure e os dados de backup no local de paragem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).

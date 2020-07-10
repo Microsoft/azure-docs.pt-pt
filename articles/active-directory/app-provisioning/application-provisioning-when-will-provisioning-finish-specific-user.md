@@ -11,11 +11,12 @@ ms.topic: how-to
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 03af572c94500e046265a5e9affa4f1742fae544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8f712604ae854a1870fe96112db3ae0f2ed60a8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782029"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203005"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verifique o estado do fornecimento do utilizador
 
@@ -76,12 +77,11 @@ O quadro seguinte resume os tempos de sincronização para cenários comuns de p
 | Sync todos os utilizadores em Azure AD|  < 1.000  | < 30 minutos | < 30 minutos |
 | Sync todos os utilizadores em Azure AD | 1,000 - 10,000  | 43 - 86 minutos | < 30 minutos |
 
-
 Apenas para a configuração **Sync designado utilizador e grupos,** pode utilizar as seguintes fórmulas para determinar os tempos de **ciclo** mínimo e máximo esperados:
 
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
+- Minutos mínimos = 0,01 x [Número de utilizadores, grupos e membros do grupo designados]
+- Minutos máximos = 0,08 x [Número de utilizadores, grupos e membros do grupo designados]
+
 Resumo dos fatores que influenciam o tempo que leva para completar um **ciclo inicial:**
 
 - O número total de utilizadores e grupos em possibilidade de provisionamento.
@@ -98,5 +98,5 @@ Resumo dos fatores que influenciam o tempo que leva para completar um **ciclo in
 
 - Se o desempenho se tornar um problema e estiver a tentar provisionar a maioria dos utilizadores e grupos no seu inquilino, utilize filtros de deteção. Os filtros de deteção permitem-lhe afinar os dados que o serviço de fornecimento extrai do Azure AD filtrando os utilizadores com base em valores específicos de atributos. Para obter mais informações sobre filtros de deteção, consulte [o provisionamento de aplicações baseados em Atributos com filtros de escoamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS com o Azure Ative Directory](user-provisioning.md)

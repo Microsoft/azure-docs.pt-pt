@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 13b6753d7c04951839852b3090e99fd8cde1fe2d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0d76bf29efeb40f9f29f80b6e3e6414f5e9b6fc8
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079807"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203261"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -84,7 +84,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
     |Tipo de autenticação | __Senha__ ou __chave pública SSH__: O método de autenticação para a conta SSH. Recomendamos usar chaves públicas, já que são mais seguras. Este exemplo utiliza **a Palavra-passe.**  Para obter mais informações, consulte as [teclas Criar e utilizar as teclas SSH para o documento Linux VMs.](../virtual-machines/linux/mac-create-ssh-keys.md)|
     |Nome de utilizador |Introduza o nome de utilizador do administrador para o VM.  Este exemplo usa **sshuser**.|
     |Senha ou chave pública SSH | O campo disponível é determinado pela sua escolha para **tipo de autenticação**.  Insira o valor apropriado.|
-    |Portos de entrada pública|Selecione **Deixe as portas selecionadas.** Em seguida, selecione **SSH (22)** da lista de descida das portas de **entrada Select.**|
+    |Portas de entrada públicas|Selecione **Deixe as portas selecionadas.** Em seguida, selecione **SSH (22)** da lista de descida das portas de **entrada Select.**|
 
     ![Configuração básica da máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
 
@@ -95,7 +95,7 @@ Estes passos utilizam o [portal Azure](https://portal.azure.com) para criar uma 
     | Campo | Valor |
     | --- | --- |
     |Rede virtual | Selecione a rede virtual que criou anteriormente.|
-    |Subrede | Selecione a sub-rede predefinitiva para a rede virtual que criou anteriormente. __Não__ selecione a sub-rede utilizada pelo gateway VPN.|
+    |Sub-rede | Selecione a sub-rede predefinitiva para a rede virtual que criou anteriormente. __Não__ selecione a sub-rede utilizada pelo gateway VPN.|
     |IP público | Utilize o valor autopovoado.  |
 
     ![Definições de rede virtual HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
@@ -131,29 +131,31 @@ Uma vez criada a máquina virtual, receberá uma notificação **conseguida da I
 
 3. Para configurar o Bind para enviar pedidos de resolução de nomes para o seu servidor DNS nas instalações, utilize o seguinte texto como o conteúdo do `/etc/bind/named.conf.options` ficheiro:
 
-        acl goodclients {
-            10.0.0.0/16; # Replace with the IP address range of the virtual network
-            10.1.0.0/16; # Replace with the IP address range of the on-premises network
-            localhost;
-            localnets;
-        };
+    ```DNS Zone file
+    acl goodclients {
+        10.0.0.0/16; # Replace with the IP address range of the virtual network
+        10.1.0.0/16; # Replace with the IP address range of the on-premises network
+        localhost;
+        localnets;
+    };
 
-        options {
-                directory "/var/cache/bind";
+    options {
+            directory "/var/cache/bind";
 
-                recursion yes;
+            recursion yes;
 
-                allow-query { goodclients; };
+            allow-query { goodclients; };
 
-                forwarders {
-                192.168.0.1; # Replace with the IP address of the on-premises DNS server
-                };
+            forwarders {
+            192.168.0.1; # Replace with the IP address of the on-premises DNS server
+            };
 
-                dnssec-validation auto;
+            dnssec-validation auto;
 
-                auth-nxdomain no;    # conform to RFC1035
-                listen-on { any; };
-        };
+            auth-nxdomain no;    # conform to RFC1035
+            listen-on { any; };
+    };
+    ```
 
     > [!IMPORTANT]  
     > Substitua os valores na `goodclients` secção pela gama de endereços IP da rede virtual e da rede no local. Esta secção define os endereços de que este servidor DNS aceita pedidos.
@@ -184,11 +186,13 @@ Uma vez criada a máquina virtual, receberá uma notificação **conseguida da I
 
 5. Para configurar o Bind para resolver os nomes dns para recursos dentro da rede virtual, utilize o seguinte texto como conteúdo do `/etc/bind/named.conf.local` ficheiro:
 
-        // Replace the following with the DNS suffix for your virtual network
-        zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-            type forward;
-            forwarders {168.63.129.16;}; # The Azure recursive resolver
-        };
+    ```DNS Zone file
+    // Replace the following with the DNS suffix for your virtual network
+    zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+        type forward;
+        forwarders {168.63.129.16;}; # The Azure recursive resolver
+    };
+    ```
 
     > [!IMPORTANT]  
     > Deve substituir o `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` sufixo DNS que recuperou anteriormente.
@@ -256,10 +260,12 @@ Um avançado condicional apenas remete os pedidos para um sufixo de DNS específ
 
 O texto a seguir é um exemplo de uma configuração de reencaminhamento condicional para o software **Bind** DNS:
 
-    zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-        type forward;
-        forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
-    };
+```DNS Zone file
+zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+    type forward;
+    forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
+};
+```
 
 Para obter informações sobre a utilização de DNS no **Windows Server 2016,** consulte a documentação [Add-DnsServerConditionalForwarderZone...](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone)
 
@@ -335,7 +341,7 @@ Para ligar diretamente ao HDInsight através da rede virtual, utilize os seguint
     >
     > Por exemplo, Apache Ambari só está ativo num nó de cada vez. Se tentar aceder a Ambari num nó de cabeça e retornar um erro de 404, então está a correr no outro nó da cabeça.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a utilização do HDInsight numa rede virtual, consulte [Plan uma implementação de rede virtual para clusters Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 

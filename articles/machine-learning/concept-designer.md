@@ -1,5 +1,5 @@
 ---
-title: Construa modelos ML com designer
+title: Construa modelos ML com o designer (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Conheça os termos, conceitos e fluxo de trabalho que compõe o designer para Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 184db0280629e07314f9589338a33cdf442e63cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517385"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199989"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,7 +71,7 @@ Cada vez que corre um oleoduto, a configuração do gasoduto e os seus resultado
 
 As corridas de gasodutos são agrupadas em [experiências](concept-azure-machine-learning-architecture.md#experiments) para organizar a história da execução. Pode definir a experiência para cada corrida de gasodutos. 
 
-## <a name="datasets"></a>Conjuntos de Dados
+## <a name="datasets"></a>Conjuntos de dados
 
 Um conjunto de dados de machine learning facilita o acesso e o trabalho com os seus dados. Vários conjuntos de dados de amostra estão incluídos no designer para você experimentar. Pode [registar](how-to-create-register-datasets.md) mais conjuntos de dados à medida que necessitar.
 
@@ -90,7 +90,7 @@ Para alguma ajuda na navegação através da biblioteca de algoritmos de machine
 
 Utilize recursos compute do seu espaço de trabalho para executar o seu pipeline e hospedar os seus modelos implantados como pontos finais em tempo real ou pontos finais do gasoduto (para inferência do lote). Os objetivos de computação suportados são:
 
-| Destino de computação | Formação | Implementação |
+| Destino de computação | Training (Em preparação) | Implementação |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
 | Exemplo de computação de aprendizagem automática Azure | ✓ | |
@@ -135,7 +135,7 @@ Pode converter experiências de interface visual existentes e serviços web em o
 [!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda os fundamentos da análise preditiva e machine learning com [tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Aprenda a modificar as amostras de [designers existentes](samples-designer.md) para as adaptar às suas necessidades.

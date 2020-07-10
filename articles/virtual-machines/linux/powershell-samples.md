@@ -7,17 +7,18 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 8d7db5fe88890b7f807263e50757e637ad808eb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d476572ace6803dba6cd9cab97a55953be1d5f6
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759318"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202261"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Amostras Azure Virtual Machine PowerShell
 
 A tabela seguinte inclui links para amostras de scripts PowerShell que criam e gerem máquinas virtuais Linux.
 
-| | |
+| Script | Descrição |
 |---|---|
 |**Criar máquinas virtuais**||
 | [Criar uma máquina virtual totalmente configurada](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um grupo de recursos, máquina virtual e todos os recursos relacionados.|

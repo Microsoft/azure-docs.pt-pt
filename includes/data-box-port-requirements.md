@@ -5,15 +5,15 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4a3925752d1af5e43d5984b06c0a68aa9faa214b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 948f5399ceb931d701341c2cf378482ede94979d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67839744"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200283"
 ---
-| Porto não.| Dentro ou fora | Âmbito portuário| Necessário| Notas |   |
-|--------|-----|-----|-----------|----------|-----------|
+| Porto não.| Dentro ou fora | Âmbito portuário| Obrigatório| Notas |
+|--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|Em|LAN|Sim|Esta porta é utilizada para ligar ao armazenamento de blogs de dados REST APIs em HTTP. Se não estiver ligado às APIs rest, este redireciona automaticamente para a UI web local sobre 8443. |
 | TCP 443 (HTTPS)|Em|LAN|Sim|Esta porta é utilizada para ligar ao armazenamento de blogs de dados REST APIs sobre HTTPS. Se não estiver ligado às APIs rest, este redireciona automaticamente para a UI web local sobre 8443. |
 | TCP 8443 (HTTPS-Alt)|Em|LAN|Sim|Esta é uma porta alternativa para HTTPS e é usada ao ligar-se à UI web local para a gestão de dispositivos. |

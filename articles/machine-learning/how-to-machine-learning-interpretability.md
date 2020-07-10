@@ -1,5 +1,5 @@
 ---
-title: Interpretação do modelo em Azure Machine Learning
+title: Interpretação do modelo em Azure Machine Learning (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Saiba como explicar porque é que o seu modelo faz previsões utilizando o Azure Machine Learning SDK. Pode ser usado durante o treino e inferência para entender como o seu modelo faz previsões.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: 97401b2bdbcc2dc1379505f8dade443a4f1eb318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 83fc13362a373686ee027fd642f03003b411cd63
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601688"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201453"
 ---
-# <a name="model-interpretability-in-azure-machine-learning"></a>Interpretação do modelo em Azure Machine Learning
+# <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação do modelo em Azure Machine Learning (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 ## <a name="overview-of-model-interpretability"></a>Visão geral da interpretação do modelo
@@ -116,7 +116,7 @@ O `azureml.interpret` pacote foi concebido para funcionar com alvos de computaç
 Pode executar a explicação remotamente no Azure Machine Learning Compute e registar a informação de explicação no Serviço de História da Aprendizagem da Máquina de Azure. Uma vez que esta informação é registada, relatórios e visualizações da explicação estão prontamente disponíveis no estúdio Azure Machine Learning para análise do utilizador.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o como permitir [a](how-to-machine-learning-interpretability-aml.md) interpretação para modelos que treinam localmente e em recursos de computação remota Azure Machine Learning. 
 - Consulte os cadernos de [amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para obter cenários adicionais. 

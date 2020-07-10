@@ -19,11 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09e492ae950003f97ed86355257c97777cd71c1a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113170"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202006"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>OData funções geo-espaciais em Azure Cognitive Search - `geo.distance` e`geo.intersects`
 
@@ -34,7 +35,7 @@ A `geo.distance` função também pode ser usada no parâmetro [ **$orderby** ](
 > [!NOTE]
 > Ao utilizar `geo.distance` no parâmetro **$orderby,** o campo que passa para a função deve conter apenas um único ponto geoponto. Por outras palavras, deve ser do tipo `Edm.GeographyPoint` e `Collection(Edm.GeographyPoint)` não. Não é possível ordenar em campos de recolha em Azure Cognitive Search.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O seguinte EBNF[(Formulário Backus-Naur alargado)](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)define a gramática das `geo.distance` funções e `geo.intersects` funções, bem como os valores geo-espaciais em que operam:
 
@@ -104,23 +105,31 @@ Como todos os outros campos de não-recolha na Pesquisa Cognitiva Azure, os camp
 
 Encontre todos os hotéis a menos de 10 km de um determinado ponto de referência (onde a localização é um campo de `Edm.GeographyPoint` tipo):
 
+```odata-filter-expr
     geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
 Encontre todos os hotéis dentro de um determinado viewport descrito como um polígono (onde a localização é um campo de `Edm.GeographyPoint` tipo). Note que o polígono está fechado (os conjuntos de primeiro e último ponto devem ser os [mesmos) e os pontos devem ser listados por ordem anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 ### <a name="order-by-examples"></a>Exemplos de encomenda
 
 Classificar hotéis `rating` descendo, em seguida, subindo por distância das coordenadas:
 
+```odata-filter-expr
     rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Ordenar hotéis em ordem descendente por `search.score` `rating` e, em seguida, em ordem ascendente por ordem ascendente das coordenadas dadas para que entre dois hotéis com classificações idênticas, o mais próximo é listado primeiro:
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Filtros em Pesquisa Cognitiva Azure](search-filters.md)
 - [Visão geral da linguagem de expressão OData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)

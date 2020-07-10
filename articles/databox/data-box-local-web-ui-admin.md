@@ -5,14 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 06/03/2019
+ms.topic: article
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 4e16f57d7a8ee10ef870ac102c5458cea4946304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608252"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202527"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
@@ -27,6 +28,8 @@ Este artigo inclui os seguintes tutoriais:
 - Descarregue ficheiros BOM ou manifesto
 - Ver a capacidade disponível do dispositivo
 - Ignorar a validação da soma de verificação
+
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Gerar Pacote de suporte
 
@@ -79,9 +82,9 @@ Para reiniciar o Data Box, execute os passos seguintes.
 
 ## <a name="download-bom-or-manifest-files"></a>Descarregue ficheiros BOM ou manifesto
 
-A Fatura de Material (BOM) ou os ficheiros manifestos contêm a lista dos ficheiros que são copiados para a Caixa de Dados ou Caixa de Dados Pesada. Estes ficheiros são gerados quando se prepara o dispositivo para o envio.
+A Fatura de Material (BOM) ou os ficheiros manifestos contêm a lista dos ficheiros que são copiados para a Caixa de Dados ou Caixa de Dados Pesada. Estes ficheiros são gerados para uma ordem de importação quando se prepara o dispositivo para o envio.
 
-Antes de começar, certifique-se de que o seu dispositivo está concluído **Prepare-se para o envio.** Siga estes passos para descarregar ficheiros BOM ou manifestos:
+Antes de começar, certifique-se de que o seu dispositivo está concluído **Prepare-se para o envio.** Siga estes passos para descarregar ficheiros BOM ou manifestos para a sua encomenda de importação:
 
 1. Vá à uI local para o seu dispositivo. Verá que o dispositivo completou a preparação para o navio. Quando a preparação do dispositivo estiver concluída, o estado do dispositivo é apresentado como **Pronto para enviar**.
 
@@ -167,6 +170,8 @@ Pode utilizar o dashboard do dispositivo para ver a capacidade disponível e a u
 
 As datas de verificação são geradas para os seus dados por padrão quando se prepara para enviar. Em certos casos raros, dependendo do tipo de dados (tamanhos de ficheiros pequenos), o desempenho pode ser lento. Nesses casos, pode ignorar a soma de verificação.
 
+O cálculo da caixa de controlo durante a preparação do navio é feito apenas para encomendas de importação e não para encomendas de exportação. 
+
 Recomendamos vivamente que não desative a soma de verificação, a não ser que o desempenho tenha sido bastante afetado.
 
 1. No canto superior direito da UI web local do seu dispositivo, vá para **Definições**.
@@ -176,7 +181,8 @@ Recomendamos vivamente que não desative a soma de verificação, a não ser que
 2. **Desativar** validação da soma de verificação
 3. Clique em **Aplicar**.
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> A opção de cálculo skip checksum só está disponível quando a Caixa de Dados Azure estiver desbloqueada. Não verá esta opção quando o dispositivo estiver bloqueado.
 
 - Saiba como gerir a Caixa de [Dados e a Caixa de Dados Pesada através do portal Azure](data-box-portal-admin.md).
 

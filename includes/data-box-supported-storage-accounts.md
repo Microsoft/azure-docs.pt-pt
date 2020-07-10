@@ -3,16 +3,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 06/08/2020
 ms.author: alkohli
-ms.openlocfilehash: f230fc247c6ad94bfdfb3cdbc0f897d66313b039
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da36e2bbf358a1c61d2b9b3f7ede592ac88fd427
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83696479"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200320"
 ---
 Aqui está uma lista das contas de armazenamento suportadas e dos tipos de armazenamento para o dispositivo Data Box. Para obter uma lista completa de todos os tipos de contas de armazenamento e todas as suas capacidades, consulte [tipos de contas de armazenamento.](/azure/storage/common/storage-account-overview#types-of-storage-accounts)
+
+Para as encomendas de importação, a tabela seguinte mostra as contas de armazenamento suportadas.
 
 | **Conta de armazenamento / Tipos de armazenamento suportados** | **Blob de blocos** |**Bolha de página*** |**Ficheiros Azure** |**Notas**|
 | --- | --- | -- | -- | -- |
@@ -24,3 +26,26 @@ Aqui está uma lista das contas de armazenamento suportadas e dos tipos de armaz
 | Padrão de armazenamento de bolhas |S | | |Tanto quentes como frescos são suportados. |
 
 \**- Os dados enviados para as bolhas de página devem estar alinhados com 512 bytes, tais como VHDs.*
+
+Para as encomendas de exportação, a tabela seguinte mostra as contas de armazenamento suportadas.
+
+| **Conta de armazenamento / Tipos de armazenamento suportados** | **Blob de blocos** |**Bolha de página*** |**Ficheiros Azure** |**Níveis de acesso suportados**|
+| --- | --- | -- | -- | -- |
+| Padrão Clássico | S | S | S | |
+| Padrão v1 para fins gerais  | S | S | S | Quente, Fresco|
+| Finalidade geral v1 Premium  |  | S| | |
+| Padrão v2 para fins gerais  | S | S | S | Quente, Fresco|
+| V2 Premium para fins gerais  |  |S | | |
+| Padrão de armazenamento de bolhas |S | | |Quente, Fresco |
+| Bloco Blob armazenamento Premium |S | | |Quente, Fresco |
+| Armazenamento blob de página Premium | |S | | |
+
+> [!IMPORTANT]
+> - Para contas para fins gerais, a Data Box não suporta tipos de armazenamento de Fila, Tabela, Disco e Azure Data Lake Gen 2.
+> - A Data Box não suporta blobs de apêndice para contas blob de armazenamento de blob e blocos de armazenamento.
+> - A Caixa de Dados não suporta contas de Armazenamento de Ficheiros Premium.
+> - Os dados enviados para as bolhas de página devem estar alinhados com 512 bytes, tais como VHDs.
+> - Um máximo de 80 TB pode ser exportado.
+> - O histórico de ficheiros e as fotos blob não são exportadas.
+
+

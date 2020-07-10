@@ -1,5 +1,5 @@
 ---
-title: 'Depurativo: VS Código & casos de computação ML'
+title: 'Depurativo: VS Código & instâncias de computação ML (pré-visualização)'
 titleSuffix: Azure Machine Learning
 description: Confiem o código VS Remote para depurar interativamente o seu código com a Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 12/09/2019
-ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 46aefa62ab00c0b3bc2b90467a9fafd61439a10e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433130"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203449"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Debug interativamente em uma Azure Machine Learning Compute Instance com VS Code Remote
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>Depurar interativamente numa Azure Machine Learning Compute Instance com VS Code Remote (pré-visualização)
 
 Neste artigo, você vai aprender a configurar o Visual Studio Code Remote em uma Azure Machine Learning Compute Instance para que você possa **depurar interativamente o seu código** a partir de CÓDIGO VS. 
 
@@ -46,7 +47,7 @@ Nas plataformas do Windows, tem de [instalar um cliente SSH compatível com Open
    vi ~/.ssh/id_azmlcitest_rsa  
    ```
 
-   **Janelas:** 
+   **Windows**: 
    ```
    notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa 
    ```
@@ -88,7 +89,7 @@ Aqui alguns detalhes sobre os campos:
 |Campo|Descrição|
 |----|---------|
 |Anfitrião|Use a abreviatura que quiser para a instância computacional |
-|NomedeAnfitrião|Este é o endereço IP da instância computacional |
+|Nome do Anfitrião|Este é o endereço IP da instância computacional |
 |Porta|Esta é a porta mostrada no diálogo SSH acima |
 |Utilizador|Isto tem de ser `azureuser` |
 |Ficheiro de Identidade|Deve apontar para o ficheiro onde guardou a chave privada |
@@ -109,7 +110,7 @@ Agora, você deve ser capaz de ssh para a sua instância de cálculo usando a ab
 
 A partir de agora, está a trabalhar inteiramente na instância computacional e agora pode editar, depurar, usar git, usar extensões, etc. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste o Visual Studio Code Remote, podes usar uma instância de computação como computação remota do Código do Estúdio Visual para depurar interativamente o teu código. 
 

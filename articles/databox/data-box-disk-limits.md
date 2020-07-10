@@ -8,11 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099066"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203520"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados Azure
 
@@ -59,11 +60,11 @@ Para obter as informações mais recentes sobre os limites do serviço de armaze
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento Azure
 
-Aqui estão os limites do tamanho dos dados que são copiados na conta de armazenamento. Certifique-se de que os dados que envia estão em conformidade com estes limites. Para obter as informações mais atualizadas sobre estes limites, aceda aos alvos da [escala de armazenamento de blob Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) e aos [alvos de escala de ficheiros Azure](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
+Aqui estão os limites do tamanho dos dados que podem ser copiados numa conta de armazenamento. Certifique-se de que os dados que envia estão em conformidade com estes limites. 
 
-| Tamanho dos dados copiados na conta de armazenamento Azure                      | Limite predefinido          |
-|---------------------------------------------------------------------|------------------------|
-| Blob de bloco e bolha de página                                            | 500 TB por conta de armazenamento. <br> Isto inclui dados de todas as fontes, incluindo o Disco de Caixa de Dados.|
+| Tipo de dados             | Limite predefinido          |
+|--------------------------|------------------------|
+| blob bloco, blob página    | Para obter informações atuais sobre estes limites, consulte [alvos da escala de armazenamento Azure Blob,](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) [metas de escala de armazenamento padrão Azure](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)e alvo de escala de [ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> Os limites incluem dados de todas as fontes, incluindo o Disco caixa de dados.|
 
 
 ## <a name="azure-object-size-limits"></a>Limites de tamanho de objeto azul
@@ -75,7 +76,7 @@ Aqui estão os tamanhos dos objetos Azure que podem ser escritos. Certifique-se 
 | Blob de Bloco        | ~ 4.75 TiB                                                 |
 | Blob de página         | 8 TiB <br> (Todos os ficheiros carregados no formato Page Blob devem estar alinhados com 512 bytes, caso contrário o upload falha. <br> Tanto o VHD como o VHDX estão alinhados com 512 bytes.) |
 |Ficheiros do Azure        | 1 TiB <br> Um máximo de tamanho de ação é 5 TiB     |
-| Managed disks     |4 TiB <br> Para obter mais informações sobre o tamanho e os limites, consulte: <li>[Metas de escalabilidade para discos geridos](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Discos geridos     |4 TiB <br> Para obter mais informações sobre o tamanho e os limites, consulte: <li>[Metas de escalabilidade para discos geridos](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Blob bloco Azure, bolha de página e convenções de nomeação de arquivos
@@ -92,6 +93,6 @@ Aqui estão os tamanhos dos objetos Azure que podem ser escritos. Certifique-se 
 |-------------------|-----------------------------------------------------------|
 | Nomes de discos geridos       | <li> O nome deve ter entre 1 a 80 caracteres. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, períodos ou hífenes. </li><li>   O nome não deve ter espaços ou `/` . .                                              |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever [os requisitos do sistema de disco de caixa de dados](data-box-disk-system-requirements.md)

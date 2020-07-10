@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 194610845d9625139ff826711fc361bd9670a426
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445530"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202657"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquinas virtuais do Windows em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e de terceiros para ambientes de aplicação e SISTEMA mais comuns, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
@@ -111,6 +111,9 @@ Crie um ficheiro nomeado *windows.js* e cole o seguinte conteúdo. Insira os seu
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
+      "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
+      "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
@@ -119,6 +122,8 @@ Crie um ficheiro nomeado *windows.js* e cole o seguinte conteúdo. Insira os seu
 ```
 
 Este modelo constrói um VM windows Server 2016, instala o IIS e, em seguida, generaliza o VM com sysprep. A instalação do IIS mostra como pode utilizar o provisionador PowerShell para executar comandos adicionais. A imagem final do Packer inclui então a instalação e configuração do software necessários.
+
+O Windows Guest Agent participa no processo Sysprep. O agente deve ser totalmente instalado antes que o VM possa ser sysprep'ed. Para garantir que isso é verdade, todos os serviços de agente devem estar a funcionar antes de executar sysprep.exe. O corte JSON anterior mostra uma maneira de fazê-lo no provisionador PowerShell. Este corte só é necessário se o VM estiver configurado para instalar o agente, que é o padrão.
 
 
 ## <a name="build-packer-image"></a>Construa a imagem do Packer
@@ -242,5 +247,5 @@ Para ver o seu VM, que inclui a instalação IIS do provisionador Packer, em aç
 ![Site predefinido do IIS](./media/build-image-with-packer/iis.png) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Também pode utilizar scripts de provisionadores Packer existentes com [O Azure Image Builder](image-builder.md).

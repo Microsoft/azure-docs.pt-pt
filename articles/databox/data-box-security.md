@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 19f06893c862e1e34cd79a42c428d202918f92e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817723"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200408"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 
@@ -30,11 +30,14 @@ A solução Microsoft Azure Data Box é composta por quatro componentes principa
 - **Clientes/anfitriões ligados ao dispositivo** – Os clientes na sua infraestrutura que ligam ao dispositivo Data Box e contêm dados que precisam de ser protegidos.
 - **Armazenamento na cloud** – A localização na cloud do Azure onde os dados são armazenados. Normalmente, trata-se da conta de armazenamento ligada ao recurso do Azure Data Box que criou.
 
-O diagrama seguinte indica o fluxo de dados através da solução Azure Data Box do local para o Azure.
+O diagrama seguinte indica o fluxo de dados através da solução Azure Data Box do local para o Azure. Este fluxo destina-se a uma encomenda de importação para a sua Caixa de Dados.
 
 ![Segurança do Data Box](media/data-box-security/data-box-security-2.png)
 
-À medida que os dados fluem através desta solução, os eventos são registados e os registos são gerados. Para mais informações, aceda ao [rastreio e ao registo de eventos para a sua Caixa de Dados Azure.](data-box-logs.md)
+À medida que os dados fluem através desta solução, os eventos são registados e os registos são gerados. Para mais informações, aceda a:
+
+- [Rastreio e registo de eventos para as suas encomendas de importação da Caixa de Dados Azure.](data-box-logs.md)
+- [Rastreio e registo de eventos para as suas encomendas de exportação da Azure Data Box](data-box-export-logs.md)
 
 ## <a name="security-features"></a>Funcionalidades de segurança
 
@@ -81,7 +84,7 @@ O Azure Data Box recolhe e apresenta informações pessoais nas seguintes instâ
   - Número de telefone
   - E-mail
   - Morada
-  - Localidade
+  - City
   - Código postal
   - Estado
   - País/Província/Região
@@ -107,7 +110,7 @@ As seguintes diretrizes de segurança são implementadas no Data Box:
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Para proteção de dados         |
 |Apêndice A, para Discos Rígidos ATA em [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Para a limpeza de dados         |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [Requisitos do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).

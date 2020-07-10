@@ -1,7 +1,7 @@
 ---
-title: Categorias de pesquisa para a API local de pesquisa de negócios bing
+title: Categorias de pesquisa para a API de Pesquisa local de Negócios de Bing
 titleSuffix: Azure Cognitive Services
-description: Utilize este artigo para saber como especificar categorias de pesquisa para o ponto final de pesquisa de Negócios Locais Bing.
+description: Utilize este artigo para saber como especificar categorias de pesquisa para o ponto final de pesquisa de API da Bing Local Business.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,80 +10,48 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 56b94d66eb0929d2fd0ca74a1a631d229330adfa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "69906402"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200506"
 ---
-# <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorias de pesquisa para a API local de pesquisa de negócios bing
+# <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorias de pesquisa para a API de Pesquisa local de Negócios de Bing
 
-A API de Pesquisa de Negócios Local Bing permite-lhe pesquisar entidades empresariais locais em várias categorias, com prioridade dada aos resultados que fecham a localização de um utilizador. Pode incluir estas pesquisas em pesquisas `localCircularView` juntamente com os e `localMapView` [parâmetros](specify-geographic-search.md).
+A API de Pesquisa local de Negócios de Bing permite-lhe pesquisar entidades empresariais locais em diversas categorias, com prioridade dada aos resultados que fecham a localização de um utilizador. Pode incluir estas pesquisas em pesquisas juntamente com os `localCircularView` parâmetros e `localMapView` [parâmetros.](specify-geographic-search.md)
 
 
-## <a name="toplevel-categories"></a>Categorias de Nível Superior 
+## <a name="toplevel-categories"></a>Categorias TopLevel 
 
-Os seguintes tipos definem as principais categorias de pesquisa.  Mais de uma categoria pode ser especificada utilizando uma lista `localCategories` delimitada de vírvia atribuída ao parâmetro.  
+Os seguintes tipos definem as principais categorias de pesquisa.  Mais de uma categoria pode ser especificada usando uma lista delimitada por vírgula atribuída ao `localCategories` parâmetro.  
 - EatDrink 
-- Seedo 
+- VerDo 
 - Loja 
-- Hotéis AndMotels 
-- BancosAndCreditUnions 
+- HotéisAndMotels 
+- BanksAndCreditUnions 
 - Estacionamento 
 - Hospitais 
 
-## <a name="sub-categories"></a>Subcategorias
-As subcategorias são aprovadas da mesma forma que `localCategories`. As subcategorias são categorias mais específicas. São subordinados no sentido em que, se especificar uma categoria C e uma das suas subcategorias S na mesma lista de comma delimitada, receberá os mesmos resultados que se especificasse apenas C.
+## <a name="sub-categories"></a>Sub-Categorias
+As subcategorias são aprovadas da mesma forma `localCategories` que. As subcategorias são categorias mais específicas. São subordinados no sentido de que se especificar uma categoria C e uma das suas subcategorias S na mesma lista delimitada em vírgula, receberá os mesmos resultados que se especificasse apenas C.
 
-### <a name="eat-drink"></a>Beber 
-|  |  |  |  |
-| - | - | - | - |
-| CervejariasAndBrewPubs | CocktailLounges | Restaurantes Africanos |
-| Restaurantes Americanos | Bagels | BarbecueRestaurants |
-| Tabernas | SportsBars | Bares |
-| BarsGrillsAndPubs | BuffetRestaurantes| Restaurantes belgas | 
-| Restaurantes Britânicos | CaféRestaurantes | Restaurantes caribenhos |
-| Restaurantes chineses | Café Andtea | Delicatessens | 
-| Serviço de Entrega | Comensais | Lojas discount | 
-| Donuts | FastFood | Restaurantes franceses | 
-| Iogurte Congelado | Restaurantes Alemães | Supermercados | 
-| Restaurantes gregos | Mercearias | Restaurantes havaianos | 
-| Restaurantes húngaros | IceCream AndFrozenDesserts | Restaurantes Indianos | 
-| Restaurantes italianos | Restaurantes japoneses | Sumos | 
-| Restaurantes coreanos | Lojas de Bebidas | Restaurantes Mexicanos |
-| Restaurantes do Médio Oriente | Pizza | Restaurantes Polacos | 
-| PortuguesesRestaurantes | Pretzels | Restaurantes | 
-| Restaurantes russos e ucranianos | Sanduíches | Restaurantes Seafood | 
-| Restaurantes espanhóis | Restaurantes SteakHouse | SushiRestaurants | 
-| Takeaway | Restaurantes Tailandeses | Restaurantes turcos | 
-| Restaurantes Vegetarianos e Vegan | Restaurantes vietnamitas|  |
- 
-### <a name="see-do"></a>Ver Fazer 
-|  |  |  |
-| -- | -- | -- |
-| Parques de Diversões | Atrações | Carnavalescos |
-| Casinos | Marcos ESítios Históricos | MiniaturaGolfCourses |
-| Cinemas | Museus | Parques |
-| Passeios turísticos | Informação turística | Zoológicos |
- 
-### <a name="shop"></a>Loja 
-|  |  |  |
-| -- | -- | -- |
-| Lojas De Antiguidades | Livrarias | Lojas CDAnd Record |
-| Lojas ChildrensClothing | Tabaqueiras | ComicBookStores |
-| Lojas de Departamentos | Lojas discount | FleaMarketsAndBazaars |
-| Lojas de Móveis | HomeImprovementStores | Joalharia e Relógios |
-| KitchenwareStores | Lojas de Bebidas | Centros ComerciaisAndShoppingCenters |
-| MensClothingStores | Lojas de Música | Lojas Outlet |
-| PetShops | PetSupplyStores | Lojas SchoolAndOfficeSupply |
-| Lojas de Sapatos | Lojas SportingGoods | ToyAndGameStores |
-| VitaminandSupplementstores | Lojas WomensClothing |  |
+### <a name="eat-drink"></a>Comer Bebida
+
+> CervejariasAndBrewPubs, CocktailLounges, AfricanRestaurants, AmericanRestaurants, Bagels, BarbecueRestaurants, Taverns, SportsBars, Bares, BarsGrillsAndPubs, BuffetRestaurants. BelgaRestaurants, BritishRestaurants, CafeRestaurants, CaribbeanRestaurants, ChinesesRestaurants, CoffeeAndTea, Delicatessens, DeliveryService, Diners, DiscountStores, Donuts, FastFood, FrenchRestaurants, FrozenYogurt, GermanRestaurants, Supermercados, GregoRestaurants, Mercearias, HawaiianRestaurants, HúngaroRestaurants, IceCreamAndFrozenDess, IndianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaus, ItalianRestaurants, ItalianRestas, ItalianRestaurants, ItalianRestaurants, ItalianRess, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaurants, ItalianRestaus, JaponesesRestaurants, Sumos, CoreanoRestaurants, Lojas de Licor, MexicanoRestaurants, MiddleEasternRestaurants, Pizza, PolacoRestaurants, PortuguesesRestaurants, Pretzels, Restaurantes, RussianAndUkrainianRestaurants Sanduíches, Frutos do MarRestaurants, EspanhóisRestaurants, SteakHouseRestaurants, SushiRestaurants, TakeAway, ThaiRestaurants, TurkishRestaurants, VegetarianAndVeganRestaurants, VietnamitaRestaurants
+
+### <a name="see-do"></a>Ver Fazer
+
+> Parques de Diversões, Atrações, Carnavales, Casinos, Marcos EHistoricalSites, MiniatureGolfCourses, MovieTheaters, Museus, Parques, SightseeingTours, Informação Turística, Jardins Zoológicos
+
+### <a name="shop"></a>Loja
+
+> Lojas de Antiguidades, Livrarias, CDAndRecordStores, Lojas de Roupa Infantil, CigarAndTobaccoShops, ComicBookStores, DepartmentStores, DiscountStores, FleaMarketsAndBazaars, Lojas de Mobiliário, HomeImprovementStores, JoalhariaAndWatchesStores, KitchenwareStores, Lojas de Licor, MallsAndShoppingCenters, Lojas de Roupas, Lojas de Música, Lojas de Lojas, PetShops, PetSupplyStores, SchoolAndOfficeSupplyS, ShoeStores, SportingGoodsstores, ToyAndGamestores, VitaminAndSupplements, WomenSstores, WomenSstores, WomenStores,
 
 
-## <a name="examples-of-local-categories-search"></a>Exemplos de pesquisa de Categorias Locais
+## <a name="examples-of-local-categories-search"></a>Exemplos de pesquisa de categorias locais
 
-Os seguintes exemplos OBTÊM `localCategories` resultados de acordo com o parâmetro:
+Os seguintes exemplos GET resultados de acordo com o `localCategories` parâmetro:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=HotelsAndMotels`
 
@@ -93,11 +61,11 @@ Os seguintes exemplos OBTÊM `localCategories` resultados de acordo com o parâm
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals`
 
-A seguinte consulta limita o número de resultados 'hospitalares' aos três primeiros devolvidos da API local de pesquisa de negócios bing:
+A seguinte consulta limita o número de resultados 'hospitalares' aos três primeiros devolvidos da API de Pesquisa Local de Bing:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0`
 
-O exemplo seguinte da resposta da JSON inclui três hospitais na área de Seattle:
+O exemplo seguinte, a resposta JSON inclui três hospitais na grande área de Seattle:
 
 ```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
@@ -219,4 +187,4 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
 ## <a name="next-steps"></a>Passos seguintes
 - [Limites de pesquisa geográfica](specify-geographic-search.md)
 - [Consulta e resposta](local-search-query-response.md)
-- [Quickstart em C #](quickstarts/local-quickstart.md)
+- [Arranque rápido em C #](quickstarts/local-quickstart.md)

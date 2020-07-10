@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22848d84896989b1872c55e687c4a5e73da31de8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134039"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201213"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questões comuns: Recuperação de desastres Azure-to-Azure
 
@@ -120,7 +120,7 @@ Não, este é um cenário não apoiado. No entanto, se mover acidentalmente as c
 Uma política de replicação define as definições para o histórico de retenção dos pontos de recuperação. A política também define a frequência de instantâneos consistentes com aplicações. Por predefinição, a Azure Site Recovery cria uma nova política de replicação com definições predefinidas de:
 
 - 24 horas para o histórico de retenção de pontos de recuperação.
-- 60 minutos para a frequência de instantâneos consistentes com aplicações.
+- 4 horas para a frequência de instantâneos consistentes com aplicações.
 
 [Saiba mais sobre as definições de replicação.](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings)
 
@@ -323,7 +323,7 @@ A Recuperação do Local é certificada pela ISO 27001:2013, 27018, HIPAA e DPA.
 
 Sim, tanto a encriptação em trânsito como [a encriptação em repouso em Azure](../storage/common/storage-service-encryption.md) são suportadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja os requisitos de suporte Azure-to-Azure](azure-to-azure-support-matrix.md).
 - [Configurar a replicação Azure-to-Azure](azure-to-azure-tutorial-enable-replication.md).

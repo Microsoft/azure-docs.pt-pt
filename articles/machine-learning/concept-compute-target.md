@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 06/26/2020
-ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95177282ad5b07a600f11f72789e0fc08f4b52c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483283"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199807"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação em Azure Machine Learning? 
 
@@ -48,7 +48,7 @@ Saiba [onde e como implementar o seu modelo num alvo de computação.](how-to-de
 
 Um recurso de computação gerido é criado e gerido pela Azure Machine Learning. Este cálculo está otimizado para trabalhos de aprendizagem automática. Azure Machine Learning compute clusters e [compute instances](concept-compute-instance.md) são os únicos computas geridos. No futuro, poderão ser adicionados recursos de computação geridos adicionais.
 
-Pode criar casos de cálculo de aprendizagem automática Azure (pré-visualização) ou clusters de cálculo a partir de:
+Pode criar casos de cálculo de aprendizagem automática Azure ou clusters de cálculo a partir de:
 * Azure Machine Learning studio
 * Portal do Azure
 * Aulas python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
@@ -59,7 +59,7 @@ Pode criar casos de cálculo de aprendizagem automática Azure (pré-visualizaç
 Quando criados estes recursos computacional são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de metas de computação.
 
 
-|Funcionalidade  |Cluster computacional  |Instância de computação  |
+|Capacidade  |Cluster computacional  |Instância de computação  |
 |---------|---------|---------|
 |Cluster de nó único ou multi-nódoa     |    **&check;**       |         |
 |Autoescala cada vez que submete uma corrida     |     **&check;**      |         |
@@ -82,17 +82,17 @@ Consulte a tabela seguinte para saber mais sobre séries e restrições apoiadas
 
 | **SérieS VM suportadas**  | **Restrições** |
 |------------|------------|
-| D | Nenhuma |
-| Dv2 | Nenhuma |  
-| DSv2 | Nenhuma |  
-| FSv2 | Nenhuma |  
+| D | Nenhum |
+| Dv2 | Nenhum |  
+| DSv2 | Nenhum |  
+| FSv2 | Nenhum |  
 | M | Requer aprovação |
-| NC | Nenhuma |    
+| NC | Nenhum |    
 | NCsv2 | Requer aprovação |
 | NCsv3 | Requer aprovação |  
 | NDs | Requer aprovação |
 | NDv2 | Requer aprovação |
-| NV | Nenhuma |
+| NV | Nenhum |
 | NVv3 | Requer aprovação | 
 
 
@@ -102,7 +102,7 @@ Embora a Azure Machine Learning suporte estas séries VM, podem não estar dispo
 
 Um alvo computacional não gerido *não* é gerido pela Azure Machine Learning. Você cria este tipo de meta de computação fora do Azure Machine Learning e, em seguida, anexá-lo ao seu espaço de trabalho. Os recursos computacional não geridos podem exigir medidas adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
 * [Crie um alvo de computação para treinar o seu modelo](how-to-set-up-training-targets.md)

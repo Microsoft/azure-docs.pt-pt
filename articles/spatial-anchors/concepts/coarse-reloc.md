@@ -8,11 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ed1a7cacc6c40cb12976c8703164d46e0dc0458
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76844399"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202381"
 ---
 # <a name="coarse-relocalization"></a>Relocalização genérica
 
@@ -119,13 +120,11 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 Em seguida, terá de decidir quais os sensores que gostaria de usar para a relocalização grosseira. Esta decisão é específica para a aplicação que está a desenvolver, mas as recomendações na tabela seguinte devem dar-lhe um bom ponto de partida:
 
-
-|             | Dentro de casa | Ao ar livre |
-|-------------|---------|----------|
-| GPS         | Desativado | Ativado |
-| Wi-Fi        | Ativado | Em (opcional) |
-| Balizas BLE | Em (opcional com ressalvas, ver abaixo) | Desativado |
-
+|                 | Dentro de casa | Ao ar livre |
+|-----------------|---------|----------|
+| **GPS**         | Desligado | Ativado |
+| **Wi-Fi**        | Ativado | Em (opcional) |
+| **Balizas BLE** | Em (opcional com ressalvas, ver abaixo) | Desligado |
 
 ### <a name="enabling-gps"></a>Ativar GPS
 
@@ -657,14 +656,13 @@ A tabela abaixo estima o espaço de pesquisa esperado para cada tipo de sensor:
 
 O quadro seguinte resume os dados do sensor recolhidos em cada uma das plataformas suportadas, juntamente com quaisquer ressalvas específicas da plataforma:
 
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | N/D | Suportado através [de APIs de LocalizaçãoManager][3] (GPS e REDE) | Suportado através [de APIs do CLLocationManager][4] |
+| **Wi-Fi**        | Suportado a uma taxa de aproximadamente um scan a cada 3 segundos | Suportado. Começando pelo nível API 28, os exames wi-fi são acelerados a 4 chamadas a cada 2 minutos. A partir do Android 10, o estrangulamento pode ser desativado a partir do menu de definições do Desenvolvedor. Para mais informações, consulte a documentação do [Android.][5] | N/A - sem API pública |
+| **Balizas BLE** | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
-|             | HoloLens | Android | iOS |
-|-------------|----------|---------|-----|
-| GPS         | N/D | Suportado através [de APIs de LocalizaçãoManager][3] (GPS e REDE) | Suportado através [de APIs do CLLocationManager][4] |
-| Wi-Fi        | Suportado a uma taxa de aproximadamente um scan a cada 3 segundos | Suportado. Começando pelo nível API 28, os exames wi-fi são acelerados a 4 chamadas a cada 2 minutos. A partir do Android 10, o estrangulamento pode ser desativado a partir do menu de definições do Desenvolvedor. Para mais informações, consulte a documentação do [Android.][5] | N/A - sem API pública |
-| Balizas BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize a relocalização grosseira numa aplicação.
 
