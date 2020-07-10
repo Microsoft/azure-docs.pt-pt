@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: & de comboios implementam modelos: Vs Code'
+title: 'Tutorial: Modelos de implantação de & de comboio: Código VS (pré-visualização)'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar e implementar um modelo de classificação de imagem utilizando o TensorFlow e a extensão do código do estúdio visual de aprendizagem da máquina de azure
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/08/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 1d7b712e27ad73516606564ea125298cb3dea314
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143306"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203546"
 ---
-# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Treine e implemente um modelo de classificação de imagem TensorFlow utilizando a extensão do código do estúdio visual de aprendizagem visual Azure Machine Learning
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Treine e implemente um modelo de classificação de imagem TensorFlow utilizando a extensão do código do estúdio visual de aprendizagem visual Azure Machine Learning (pré-visualização)
 
 Aprenda a treinar e implementar um modelo de classificação de imagem para reconhecer números escritos à mão usando o TensorFlow e a extensão do código do estúdio de aprendizagem visual Azure Machine Learning.
 
@@ -278,7 +278,7 @@ Para criar uma configuração de execução:
 
 A `MNIST-rc` configuração de execução é adicionada sob o nó de computação *TeamWkspc-com* e a configuração do `MNIST-env` ambiente é adicionada sob o nó *Ambientes.*
 
-## <a name="train-the-model"></a>Dar formação sobre o modelo
+## <a name="train-the-model"></a>Preparar o modelo
 
 Durante o processo de treino, um modelo TensorFlow é criado através do processamento dos dados de formação e dos padrões de aprendizagem incorporados no mesmo para cada um dos respetivos dígitos ser classificado. 
 

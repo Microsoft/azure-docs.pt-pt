@@ -1,16 +1,16 @@
 ---
-title: Modelos manipuladores
+title: Manipular modelos
 description: Manipular modelos remotamente renderizados movendo-se, escalando rotativa e muito mais
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: d3ccdc54e50c3b5a722f490e04ce50d4aaf6e2fd
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 182ceca11d6e9b9bbebcf2911de1783cef43dd1a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569672"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207333"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 

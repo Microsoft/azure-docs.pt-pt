@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9c587ad9b791d953dce66df2337cf0e7dca52324
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559565"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185369"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutorial: Criar um livro de bordo python
 
@@ -31,7 +31,7 @@ Este tutorial acompanha-o através da criação de um [livro python](../automati
 Para concluir este tutorial, precisa do seguinte:
 
 - Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Conta de automatização](../automation-offering-get-started.md) para manter o runbook e autenticar-se nos recursos do Azure. Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
+- [Conta de automatização](../index.yml) para manter o runbook e autenticar-se nos recursos do Azure. Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
 - Uma máquina virtual do Azure. O utilizador para e inicia esta máquina, pelo que não deve ser uma VM de produção.
 
 ## <a name="create-a-new-runbook"></a>Criar um novo livro de bordo
@@ -161,7 +161,7 @@ Para isso, o script tem de autenticar utilizando as credenciais da sua conta Dem
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Adicione código para criar o cliente Python Compute e inicie o VM
 
-Para trabalhar com os VMs Azure, crie uma instância do [cliente Azure Compute para Python.](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)
+Para trabalhar com os VMs Azure, crie uma instância do [cliente Azure Compute para Python.](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient)
 
 Use o cliente computacional para iniciar o VM. Adicione o seguinte código ao livro de bordo:
 

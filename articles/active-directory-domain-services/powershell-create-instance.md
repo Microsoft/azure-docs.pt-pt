@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 09/05/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9dbb8a6011b4f2aebc73df7d37e6f43e7f27b747
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 2d291af3cc6175b371f71fb63402ecb45afcba34
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734525"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223470"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar os serviços de domínio do diretório ativo Azure utilizando o PowerShell
 
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Com o grupo *de administradores AAD DC* criado, adicione um utilizador ao grupo utilizando o cmdlet [Add-AzureADGroupMember.][Add-AzureADGroupMember] Primeiro obtém o ID do grupo *de administradores AAD DC* utilizando o cmdlet [Get-AzureADGroup,][Get-AzureADGroup] em seguida, o ID do objeto do utilizador desejado usando o cmdlet [Get-AzureADUser.][Get-AzureADUser]
 
-No exemplo seguinte, o iD do objeto de utilizador para a conta com uma UPN de `admin@aaddscontoso.onmicrosoft.com` . Substitua esta conta de utilizador pela UPN do utilizador que pretende adicionar ao grupo *de administradores AAD DC:*
+No exemplo seguinte, o iD do objeto de utilizador para a conta com uma UPN de `admin@contoso.onmicrosoft.com` . Substitua esta conta de utilizador pela UPN do utilizador que pretende adicionar ao grupo *de administradores AAD DC:*
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -74,7 +74,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -167,7 +167,7 @@ O seguinte script completo powerShell combina todas as tarefas mostradas neste a
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@aaddscontoso.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"

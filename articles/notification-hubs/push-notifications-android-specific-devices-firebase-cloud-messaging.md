@@ -1,6 +1,6 @@
 ---
-title: Envie notificações push para dispositivos específicos usando hubs de notificação Azure e Mensagens Cloud da Base de Fogo do Google [ Microsoft Docs
-description: Saiba como usar os Centros de Notificação para pressionar notificações para dispositivos Android específicos, utilizando hubs de notificação do Azure e mensagens cloud da Base de Fogo do Google (FCM).
+title: Envie notificações push para dispositivos específicos usando hubs de notificação Azure e Mensagens cloud do Google Firebase Microsoft Docs
+description: Saiba como usar os Centros de Notificação para empurrar notificações para dispositivos Android específicos, utilizando os Hubs de Notificação do Azure e as Mensagens cloud do Google Firebase (FCM).
 services: notification-hubs
 documentationcenter: android
 author: sethmanheim
@@ -17,14 +17,14 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 273827e68a81e87dcff15760f0b400b2d5ce8723
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80126868"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220869"
 ---
-# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Enviar notificações a dispositivos específicos usando Centros de Notificação e Mensagens Cloud da Base de Fogo do Google
+# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Enviar notificações para dispositivos específicos usando Centros de Notificação e Mensagens cloud do Google Firebase
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -38,19 +38,19 @@ Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Adicionar a seleção de categorias à aplicação móvel.
-> * Registado para notificações com etiquetas.
+> * Registrado para notificações com etiquetas.
 > * Enviar notificações com etiquetas.
 > * Testar a aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial baseia-se na aplicação que criou no [Tutorial: Push notificações para dispositivos Android utilizando hubs de notificação Azure e Mensagens Cloud Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md). Antes de iniciar este tutorial, complete o [Tutorial: Push notificações para dispositivos Android utilizando Hubs de Notificação Azure e Mensagens cloud firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Este tutorial baseia-se na aplicação que criou no [Tutorial: Push notificações para dispositivos Android utilizando hubs de notificação Azure e Mensagens cloud Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md). Antes de iniciar este tutorial, complete o [Tutorial: Empurre as notificações para dispositivos Android utilizando os Hubs de Notificação do Azure e mensagens em nuvem firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias à aplicação
 
 O primeiro passo consiste em adicionar os elementos de IU à sua atividade principal existente, para permitir que o utilizador selecione categorias a registar. As categorias selecionadas por um utilizador são armazenadas no dispositivo. Quando a aplicação é iniciada, é criado um registo do dispositivo no seu hub de notificação com as categorias selecionadas como etiquetas.
 
-1. Abra `res/layout/activity_main.xml file`o , e substitua o conteúdo pelo seguinte:
+1. Abra o `res/layout/activity_main.xml file` , e substitua o conteúdo pelo seguinte:
 
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -103,7 +103,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
             />
     </LinearLayout>
     ```
-2. Abra `res/values/strings.xml` o ficheiro e adicione as seguintes linhas:
+2. Abra o `res/values/strings.xml` ficheiro e adicione as seguintes linhas:
 
     ```xml
     <string name="button_subscribe">Subscribe</string>
@@ -115,10 +115,10 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     <string name="label_sports">Sports</string>
     ```
 
-    O `main_activity.xml` seu layout gráfico deve parecer na seguinte imagem:
+    O seu `main_activity.xml` layout gráfico deve parecer-se com a seguinte imagem:
 
-    ![][A1]
-3. Crie `Notifications` uma aula no `MainActivity` mesmo pacote que a sua classe.
+    ![Screenshot de um emulador exibindo como será a atividade principal X M L layout gráfico.][A1]
+3. Crie uma aula `Notifications` no mesmo pacote que a sua `MainActivity` turma.
 
     ```java
     import java.util.HashSet;
@@ -204,12 +204,12 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     ```
 
     Esta classe utiliza o armazenamento local para armazenar as categorias de notícias que este dispositivo tem de receber. Contém também métodos para se registar nestas categorias.
-4. Na `MainActivity` sua aula, adicione `Notifications`um campo para:
+4. Na sua `MainActivity` aula, adicione um campo `Notifications` para:
 
     ```java
     private Notifications notifications;
     ```
-5. Em seguida, `onCreate` atualize o método como mostrado no seguinte código. Registe-se com Centros de Notificação no método **subscritoCategorias** da classe **Notificações.** 
+5. Em seguida, atualize o `onCreate` método como mostrado no código seguinte. Regista-se com Os Centros de Notificação no método **subscreva AsCategorias** da classe **Notificações.** 
 
     ```java
     @Override
@@ -267,7 +267,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     }
     ```
 
-    Este método cria uma lista de `Notifications` categorias e utiliza a classe para armazenar a lista no armazenamento local e registar as etiquetas correspondentes com o seu centro de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
+    Este método cria uma lista de categorias e utiliza a `Notifications` classe para armazenar a lista no armazenamento local e registar as etiquetas correspondentes com o seu centro de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
 
 A sua aplicação pode agora armazenar um conjunto de categorias no armazenamento local do dispositivo e ficar registada no Hub de Notificação sempre que o utilizador alterar a seleção das categorias.
 
@@ -275,7 +275,7 @@ A sua aplicação pode agora armazenar um conjunto de categorias no armazenament
 
 Estes passos efetuam o registo através do hub de notificação no arranque mediante a utilização das categorias que foram armazenadas no armazenamento local.
 
-1. Confirme que o seguinte código `onCreate` está no `MainActivity` final do método da classe:
+1. Confirme que o seguinte código está no fim do `onCreate` método na `MainActivity` classe:
 
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());

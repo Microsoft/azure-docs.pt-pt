@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 067a0383c90ce42120269ff40f910805dacfd11a
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4bf2f12ef79f8551291316b5446121f2735d9347
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143877"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206585"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o Serviço Cognitivo de Análise de Texto
 
@@ -91,7 +91,7 @@ Também pode considerar filtrar e deixar de fora as mensagens em branco ao utili
 
 A [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) do serviço Análise de Texto consegue processar até mil documentos de texto por pedido HTTP. O Power BI prefere lidar com registos um de cada vez, pelo que, neste tutorial, as nossas chamadas à API vão incluir apenas um documento para cada uma. A API de Expressões-Chave precisa dos seguintes campos para cada documento que está a ser processado.
 
-| | |
+| Campo | Descrição |
 | - | - |
 | `id`  | Um identificador exclusivo para este documento dentro do pedido. A resposta também contém este campo. Desta forma, se processar mais do que um documento, poderá associar facilmente as expressões-chave extraídas ao documento do qual provêm. Neste tutorial, uma vez que está a processar apenas um documento por pedido, pode codificar o valor de `id` para ser o mesmo para cada pedido.|
 | `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. A API das Frases-Chave exige que estes dados não sejam superiores a 5.120 caracteres.|

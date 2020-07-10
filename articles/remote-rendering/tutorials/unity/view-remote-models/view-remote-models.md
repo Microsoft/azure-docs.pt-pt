@@ -1,16 +1,16 @@
 ---
-title: Visualização de um modelo prestado remotamente
+title: Ver um modelo composto remotamente
 description: O "Hello World" da Renderização Remota Azure, tutorial mostra como ver um Modelo prestado remotamente por Azure
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: f0b9bf1c7e085efd86f70f8246214d366265036a
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bd9e9b6754c8626a8d858b9832a8e3547b72352d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569909"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231914"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
@@ -101,7 +101,7 @@ Os seguintes passos asseguram que o seu projeto está a utilizar a versão mais 
 
 1. Definir **bandeiras claras** para a *cor sólida*
 
-1. **set Background** to *Black* (#000000), com alfa completo (255) alfa (A)
+1. **set Background** to *Black* (#000000), com alfa totalmente transparente (0) alfa (A)
 
     ![Roda de cor](./media/color-wheel-black.png)
 

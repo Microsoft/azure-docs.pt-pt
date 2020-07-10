@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 06be9e7c4ce41ff01494ecef84a800b52db6b82e
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 5f1d12081591b180acca8ee35ecc5a5bf202211e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308137"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223946"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações Xamarin.Android usando Centros de Notificação
 
@@ -60,7 +60,7 @@ Neste tutorial, siga os seguintes passos:
 2. Introduza a **tecla** de servidor que anotado a partir da Consola Google Firebase.
 3. Selecione **Guardar** na barra de ferramentas.
 
-    ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+    ![Screenshot do Notification Hub em Azure Portal com a opção Google G C M F C M M M em destaque e delineada a vermelho.](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 O Notification Hub está configurado para trabalhar com FCM e tem as cadeias de ligação para registar a sua aplicação e para receber notificações e enviar notificações push.
 
@@ -361,7 +361,7 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos And
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Estúdio Visual com Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio para Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx

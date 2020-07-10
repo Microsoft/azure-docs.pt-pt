@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 95370a45b9fce69e5c1d06ac9bb987e1bfcfba4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d55a47e4eb921c71ff3539d34b6db514684da073
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204077"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186134"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Ativar a Gestão de Atualizações a partir de um runbook
 
@@ -22,7 +22,7 @@ Este artigo descreve como pode utilizar um livro de bordo para ativar a funciona
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Conta de automatização](automation-offering-get-started.md) para gerir máquinas.
+* [Conta de automatização](./index.yml) para gerir máquinas.
 * Uma [máquina virtual.](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="enable-update-management"></a>Ativar a Gestão de Atualizações
@@ -50,7 +50,7 @@ Com a Gestão de Atualização ativada, pode adicionar um VM Azure para receber 
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
-É necessário atualizar os mais recentes módulos Azure e importar o módulo [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) para ativar com sucesso a Gestão de Atualização para os seus VMs.
+É necessário atualizar os mais recentes módulos Azure e importar o módulo [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) para ativar com sucesso a Gestão de Atualização para os seus VMs.
 
 1. Na sua conta Demômes, selecione Módulos em **Recursos Partilhados.** **Modules** 
 2. Selecione **Atualizar Módulos do Azure** para atualizar os módulos do Azure para a versão mais recente. 

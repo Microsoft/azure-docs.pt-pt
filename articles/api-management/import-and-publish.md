@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 16c14774b1b032132040ea3fdcf810a4f9de8f18
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 38b723cb823547d4737a68576575c2b629f5eb67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077359"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206282"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar a sua primeira API
 
@@ -57,7 +57,7 @@ Esta secção mostra como importar e publicar uma API de backend de especificaç
    |-------|-----|-----------|
    |**Especificação OpenAPI**|*https: \/ /conferenceapi.azurewebsites.net?format=json*|O serviço de implementação da API. A API de Gestão reencaminha os pedidos para este endereço.|
    |**Nome a apresentar**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|O nome apresentado no portal do desenvolvedor.|
-   |**Nome**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Um nome único para a API.|
+   |**Name**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Um nome único para a API.|
    |**Descrição**|Depois de introduzir o URL de serviço anterior, a API Management preenche este campo com base no JSON.|Uma descrição opcional da API.|
    |**Esquema do URL**|**HTTPS**|Quais os protocolos que podem ser usados para aceder à API.|
    |**Sufixo do URL da API**|*conferência*|O sufixo anexado ao URL base para o serviço de Gestão da API. A API Management distingue as APIs pelo seu sufixo, pelo que o sufixo deve ser único para cada API para um determinado editor.|
@@ -79,7 +79,7 @@ Você pode ligar para as operações da API diretamente a partir do portal Azure
 
 1. Na navegação à esquerda da sua instância de Gestão de API, selecione **APIs** na secção **de Gestão** da API e, em seguida, selecione **API da Conferência de Demonstração**.
 1. Selecione o separador **Teste** e, em seguida, selecione **GetSpeakers**. A página mostra **parâmetros de consulta** e **cabeçalhos,** se houver. A **Chave de Subscrição Ocp-Apim** é preenchida automaticamente para a chave de subscrição associada a esta API.
-1. Selecione **Enviar**.
+1. Selecione **Send** (Enviar).
 
    ![Testar o mapa da API](./media/api-management-import-and-publish/01-import-first-api-01.png)
 
@@ -97,8 +97,3 @@ Avance para o próximo tutorial para aprender a criar e publicar um produto:
 
 > [!div class="nextstepaction"]
 > [Criar e publicar um produto](api-management-howto-add-products.md)
-
-Quer otimizar e economizar nos gastos na nuvem?
-
-> [!div class="nextstepaction"]
-> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

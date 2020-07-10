@@ -4,11 +4,12 @@ description: Saiba como preparar máquinas no local para migração com a Azure 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: e6840b75d58bf19f742f94caad74e10aebe24666
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044163"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223623"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar máquinas no local para migração para Azure
 
@@ -121,7 +122,7 @@ Para outras versões, prepare as máquinas como resumido na tabela.
 --- | --- | ---
 **Instalar serviços de integração do Linux Hiper-V** | Reconstrua a imagem init Linux para conter os condutores hiper-V necessários. A reconstrução da imagem init garante que o VM arrancará em Azure. | A maioria das novas versões de distribuição do Linux incluem isto por padrão.<br/><br/> Se não estiver incluído, instale manualmente todas as versões, exceto as chamadas acima.
 **Ativar o registo da consola em série do Azure** | Ativar o registo de consolas ajuda-o a resolver problemas. Não precisas de reiniciar o VM. O Azure VM arrancará utilizando a imagem do disco. A bota de imagem do disco equivale a um reboot para o novo VM.<br/><br/> Siga [estas instruções](../virtual-machines/troubleshooting/serial-console-linux.md) para ativar.
-**Atualizar o ficheiro do mapa do dispositivo** | Atualize o ficheiro do mapa do dispositivo com as associações nome-volume do dispositivo, para que utilize identificadores de dispositivos persistentes. | Instale manualmente para todas as versões, exceto as chamadas acima.
+**Atualizar o ficheiro do mapa do dispositivo** | Atualize o ficheiro do mapa do dispositivo com as associações nome-volume do dispositivo, para que utilize identificadores de dispositivos persistentes. | Instale manualmente para todas as versões, exceto as chamadas acima. (Apenas aplicável no cenário VMware baseado em agente)
 **Atualizar entradas fstab** |  Atualize as entradas para utilizar identificadores de volume persistentes.    | Atualize manualmente para todas as versões, exceto as chamadas acima.
 **Remover a regra udev** | Remova quaisquer regras udev que reservam nomes de interface com base no endereço mac, etc. | Remova manualmente para todas as versões, exceto as chamadas acima.
 **Atualizar interfaces de rede** | Atualizar interfaces de rede para receber endereço IP com base em DHCP.nst | Atualize manualmente para todas as versões, exceto as chamadas acima.
@@ -170,7 +171,7 @@ Após a migração, complete estes passos sobre os VMs Azure que são criados:
 3. Verifique [os diagnósticos](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) de arranque para ver o VM.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Decida qual o método que pretende utilizar para [migrar VMware VMs](server-migrate-overview.md) para Azure, ou começar a migrar [Hiper-VMs](tutorial-migrate-hyper-v.md) ou [servidores físicos ou VMs virtualizados ou em nuvem](tutorial-migrate-physical-virtual-machines.md).
 

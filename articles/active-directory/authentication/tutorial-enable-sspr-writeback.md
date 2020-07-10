@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 353bc49ad6a64ff00a8a3ab8594fd76e02ca7913
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85551747"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202548"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
 
@@ -43,7 +43,7 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se necessário, [complete o tutorial anterior para ativar a Azure AD SSPR](tutorial-enable-sspr.md).
 * Um ambiente AD DS existente no local configurado com uma versão atual do Azure AD Connect.
     * Se necessário, configufique o Azure AD Connect utilizando as definições [Express](../hybrid/how-to-connect-install-express.md) ou [Custom.](../hybrid/how-to-connect-install-custom.md)
-    * Para utilizar a Writeback de Palavra-Passe, os seus Controladores de Domínio devem ser o Windows Server 2008 R2 ou mais tarde.
+    * Para utilizar a Writeback de Palavra-Passe, os seus Controladores de Domínio devem ser o Windows Server 2012 ou mais tarde.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configure permissões de conta para Azure AD Connect
 
@@ -124,7 +124,7 @@ Para ativar a gravação de palavra-passe em SSPR, complete os seguintes passos:
 
 1. Quando estiver pronto, **selecione Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a funcionalidade de writeback SSPR que configuraste como parte deste tutorial, complete os seguintes passos:
 

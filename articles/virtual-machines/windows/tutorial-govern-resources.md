@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Gerir máquinas virtuais com powerShell
+title: Tutorial - Gerir máquinas virtuais com PowerShell
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para gerir máquinas virtuais do Azure através da aplicação de RBAC, políticas, bloqueios e etiquetas
 author: tfitzmac
 ms.service: virtual-machines-windows
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: b4ce4cd53f9dda3d0f96e892128d543e59c83b26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fce613da352e55bae64db2912af23a07f4bf954f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100367"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200675"
 ---
-# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Conheça a gestão de máquinas virtuais do Windows com a Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre a gestão de máquinas virtuais do Windows com o Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -23,7 +23,7 @@ ms.locfileid: "82100367"
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
@@ -53,7 +53,7 @@ Para gerir soluções de máquina virtual, existem três funções de recursos e
 
 Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil utilizar um grupo do Azure Active Directory que tem utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Neste artigo, utilize um grupo existente para gerir a máquina virtual ou utilize o portal para [criar um grupo do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Depois de criar um novo grupo ou encontrar um existente, utilize o comando [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) para atribuir o grupo de Diretório Ativo Azure à função de Colaborador de Máquina Virtual para o grupo de recursos.  
+Depois de criar um novo grupo ou encontrar um existente, use o comando [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) para atribuir o grupo Azure Ative Directory ao papel de Contribuinte de Máquina Virtual para o grupo de recursos.  
 
 ```azurepowershell-interactive
 $adgroup = Get-AzADGroup -DisplayName <your-group-name>
@@ -63,7 +63,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Se receber um erro indicando que **o principal \<guia> não existe no diretório**, o novo grupo não se propagou por todo o Diretório Ativo do Azure. Tente executar o comando novamente.
+Se receber um erro a indicar que o **Principal\<guid> não existe no diretório**, o novo grupo ainda não foi propagado pelo Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
@@ -81,7 +81,7 @@ Poderá ver as definições de política existentes. O tipo de política é **Bu
 * Limitar os SKUs das máquinas virtuais.
 * Auditar máquinas virtuais que não utilizam discos geridos.
 
-No exemplo seguinte, obtém três definições de políticas baseadas no nome a apresentar. Usa o comando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment) para atribuir essas definições ao grupo de recursos. Para algumas políticas, forneça valores de parâmetros para especificar os valores permitidos.
+No exemplo seguinte, obtém três definições de políticas baseadas no nome a apresentar. Usa o comando [new-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment) para atribuir essas definições ao grupo de recursos. Para algumas políticas, forneça valores de parâmetros para especificar os valores permitidos.
 
 ```azurepowershell-interactive
 # Values to use for parameters
@@ -163,11 +163,11 @@ Verá um erro a indicar que a operação de eliminação não pode ser concluíd
 
 ## <a name="tag-resources"></a>Etiquetar recursos
 
-Aplica [etiquetas](../../azure-resource-manager/management/tag-resources.md) aos seus recursos Azure para logicamente organizá-las por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
+Aplica [etiquetas](../../azure-resource-manager/management/tag-resources.md) nos seus recursos Azure para organizá-las logicamente por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
-Para aplicar etiquetas a uma máquina virtual, utilize o comando [Set-AzResource:](https://docs.microsoft.com/powershell/module/az.resources/set-azresource)
+Para aplicar tags numa máquina virtual, utilize o comando [Set-AzResource:](https://docs.microsoft.com/powershell/module/az.resources/set-azresource)
 
 ```azurepowershell-interactive
 # Get the virtual machine
@@ -197,7 +197,7 @@ Get-AzResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O grupo de segurança de rede bloqueado não pode ser eliminado até que o bloqueio seja removido. Para remover o bloqueio, utilize o comando [Remove-AzResourceLock:](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock)
 
@@ -212,11 +212,15 @@ Remove-AzResourceLock -LockName LockNSG `
   -ResourceGroupName myResourceGroup
 ```
 
-Quando já não for necessário, pode utilizar o comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
+Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
+
+## <a name="manage-costs"></a>Gerir os custos
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

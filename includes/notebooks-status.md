@@ -4,15 +4,15 @@ ms.author: joshuapa
 ms.service: azure-notebooks
 ms.topic: include
 ms.date: 07/01/2020
-ms.openlocfilehash: c866ebac9701f31dbdafab87cdda6fc26edcf88c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5011a5d265c61cf26520f6c012037a67a8afacae
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830315"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181505"
 ---
 > [!IMPORTANT]
-> No dia 29 de setembro, o site de pré-visualização pública Azure Notebooks será retirado e substituído por serviços integrados do Visual Studio, Azure e GitHub.
+> No dia 9 de outubro de 2020 o site de pré-visualização pública Azure Notebooks será retirado e substituído por serviços integrados do Visual Studio, Azure e GitHub.
 > [Saiba mais](https://aka.ms/aznb-notebooks-at-msft/) sobre as suas opções e as nossas experiências de outros cadernos da Microsoft.
 >
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.

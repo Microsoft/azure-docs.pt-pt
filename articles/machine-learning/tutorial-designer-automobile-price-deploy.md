@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementar modelos ML com designer'
+title: 'Tutorial: Implementar modelos ML com o designer (pré-visualização)'
 titleSuffix: Azure Machine Learning
 description: Este tutorial mostra-lhe como construir uma solução de análise preditiva no designer de Aprendizagem automática Azure (pré-visualização). Treine, marque e implemente um modelo de aprendizagem automática utilizando módulos de arrasto e queda.
 author: peterclu
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: e10e5050912788732128a8b765716c22fe9e576e
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 1d0cd074f6e4ad836bc5102f3f6edc61b75215e4
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517480"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199968"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementar um modelo de machine learning com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -117,7 +117,7 @@ Após o fim da implementação, pode testar o seu ponto de chegada em tempo real
 
     ![Screenshot mostrando como testar o ponto final em tempo real com a etiqueta pontuada para o preço realçado](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

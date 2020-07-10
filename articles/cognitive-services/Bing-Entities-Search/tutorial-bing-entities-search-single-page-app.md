@@ -10,21 +10,21 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: a376c5d223121774b6c707b3bdc8edce42649e42
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 53731540c4a2861c77c02b1a4b25b60fd0e23872
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800062"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184145"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
 A API de Pesquisa de Entidades do Bing permite-lhe procurar informações sobre *entidades* e *locais* na Web. Pode pedir um destes dois tipos de resultados, ou ambos, numa dada consulta. As definições dos locais e das entidades são indicadas abaixo.
 
-|||
+| Result | Descrição |
 |-|-|
 |Entidades|Pessoas famosas, sítios conhecidos e coisas que podem ser encontradas por nome|
-|Locais|Restaurantes, hotéis e outros negócios locais que podem ser encontrados por nome *ou* por tipo (restaurantes italianos)|
+|Realiza|Restaurantes, hotéis e outros negócios locais que podem ser encontrados por nome *ou* por tipo (restaurantes italianos)|
 
 Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa de Entidades do Bing para apresentar resultados de pesquisa diretamente na página. A aplicação inclui componentes HTML, CSS e JavaScript.
 
@@ -141,7 +141,7 @@ A tag `<body>` HTML inclui o atributo `onload` que chama `getSearchSubscriptionK
 
 O formulário HTML inclui os controlos seguintes:
 
-| | |
+| Controlar | Descrição |
 |-|-|
 |`where`|Um menu pendente para selecionar o mercado (localização e idioma) utilizado para a pesquisa.|
 |`query`|O campo de texto no qual introduzir os termos da pesquisa.|
@@ -411,7 +411,7 @@ Por fim, `sidebar` refere-se aos resultados da pesquisa secundários. Podem ser 
 
 Cada item numa coleção `rankingResponse` refere-se aos itens reais do resultado da pesquisa de duas formas diferentes, ainda que equivalentes.
 
-| | |
+| Item | Descrição |
 |-|-|
 |`id`|`id` é semelhante a um URL, mas não deve ser utilizado para ligações. O tipo `id` de um resultado de classificação corresponde ao `id` de um item do resultado da pesquisa numa coleção de respostas *ou* a uma coleção de respostas completa (como `Entities`).
 |`answerType`<br>`resultIndex`|`answerType` refere-se à coleção de respostas de nível superior que contém o resultado (por exemplo, `Entities`). `resultIndex` refere-se ao índice dos resultados dentro dessa coleção. Se `resultIndex` for omitido, o resultado da classificação refere-se a toda a coleção.
@@ -452,7 +452,7 @@ searchItemRenderers = {
 
 Uma função de compositor pode aceitar os parâmetros seguintes:
 
-| | |
+| Parâmetro | Descrição |
 |-|-|
 |`item`|O objeto JavaScript que contém as propriedades do item, como o URL e a descrição.|
 |`index`|O índice do item do resultado dentro da respetiva coleção.|

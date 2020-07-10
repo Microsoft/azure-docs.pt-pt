@@ -6,18 +6,18 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbefcec884fcf179c182cd50efeb58a0fc357378
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5db8aed0a47e7d8d928ef3287010d60efbc5e5da
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555133"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200459"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Adicione uma aplicação não cotada (não-galeria) à sua organização AZure AD
 
@@ -30,7 +30,7 @@ Além das escolhas na galeria de [aplicações AZure AD,](https://azure.microsof
 
 Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicações empresariais** no portal Azure sem código de escrita. Se em vez disso estiver à procura de orientação do programador sobre como integrar aplicações personalizadas com AD AZure, consulte [Cenários de Autenticação para AZure AD](../develop/authentication-scenarios.md). Quando desenvolve uma aplicação que utiliza um protocolo moderno como [o OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) para autenticar os utilizadores, pode registá-la com a plataforma de identidade da Microsoft utilizando a experiência de [registos](../develop/quickstart-register-app.md) da App no portal Azure.
 
-## <a name="add-a-non-gallery-application"></a>Adicione uma aplicação não-galeria
+## <a name="add-a-non-gallery-application"></a>Adicionar uma aplicação que não está na galeria
 
 1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com/) utilizando a sua conta de administrador da plataforma de identidade Microsoft.
 
@@ -104,7 +104,7 @@ Este artigo descreve como adicionar uma aplicação não-galeria às **Aplicaç�
 
 4. Quando terminar, **selecione Save**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que adicionou a aplicação à sua organização Azure AD, [escolha um único método de inscrição](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que pretende utilizar e consulte o artigo apropriado abaixo:
 

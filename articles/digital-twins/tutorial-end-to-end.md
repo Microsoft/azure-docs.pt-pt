@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391932"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206550"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Construir uma solução de ponta a ponta
 
@@ -120,7 +120,7 @@ Na *App de Função (Windows) - Crie uma nova* janela, preencha os campos da seg
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publicar função Azure em Visual Studio: Function App (Windows) - Criar novos":::
 
-Em seguida, **selecione Criar**.
+Em seguida, selecione **Criar**.
 
 Isto deve levá-lo de volta à página *de instância funções,* onde a sua nova aplicação de função está agora visível por baixo do seu grupo de recursos. Hit *Finish*.
 
@@ -177,7 +177,7 @@ Aqui estão as ações que irá completar para configurar esta ligação do disp
 4. Executar o dispositivo simulado e gerar telemetria
 5. Consulta Azure Digital Twins para ver os resultados ao vivo
 
-### <a name="create-an-iot-hub-instance"></a>Criar uma instância IoT Hub
+### <a name="create-an-iot-hub-instance"></a>Criar uma instância do Hub IoT
 
 A Azure Digital Twins foi concebida para trabalhar ao lado [do IoT Hub,](../iot-hub/about-iot-hub.md)um serviço Azure para gestão de dispositivos e seus dados. Neste passo, você vai criar um hub IoT que irá gerir o dispositivo de amostra neste tutorial.
 
@@ -205,8 +205,9 @@ Isto irá trazer para cima a página *de Subscrição de Eventos* Criar.
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Portal Azure: criar subscrição de eventos":::
 
-Preencha os campos da seguinte forma:
+Preencha os campos da seguinte forma (não são mencionados os campos preenchidos por defeito):
 * *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome**: Dê um nome à subscrição do seu evento.
+* *DETALHES TÓPICOS*  >  **Nome do tópico do sistema**: Dê um nome para usar para o tópico do sistema. 
 * *TIPOS DE EVENTOS*  >  **Filtrar para tipos de eventos**: Selecione *a telemetria* do dispositivo a partir das opções do menu.
 * *DETALHES DO PONTO FINAL*  >  **Tipo ponto final**: Selecione *Azure Function* a partir das opções do menu.
 * *DETALHES DO PONTO FINAL*  >  **Ponto final**: Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *Select Azure Function:* :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Subscrição do evento do portal Azure: selecione a função Azure" border="false":::
@@ -361,11 +362,9 @@ No [portal Azure,](https://portal.azure.com/)navegue para o tópico da grelha de
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Portal Azure: Subscrição de eventos da Grade de Eventos":::
 
-Os passos para criar esta subscrição do evento são semelhantes ao de quando subscreveu a primeira função Azure ao IoT Hub no início deste tutorial. A diferença é que desta vez não precisa de especificar a *Telemetria do Dispositivo* como o tipo de evento para ouvir, e irá ligar-se a uma função Azure diferente.
+Os passos para criar esta subscrição do evento são semelhantes ao de quando subscreveu a primeira função Azure ao IoT Hub no início deste tutorial. Desta vez, não precisa de especificar a *Telemetria do Dispositivo* como o tipo de evento para ouvir, e irá ligar-se a uma função Azure diferente.
 
-Aqui estão novamente os passos de subscrição:
-
-Na página *'Criar Subscrição de* Eventos', preencha os campos da seguinte forma:
+Na página *'Criar Subscrição de* Eventos', preencha os campos da seguinte forma (os campos preenchidos por predefinição não são mencionados):
 * *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome**: Dê um nome à subscrição do seu evento.
 * *DETALHES DO PONTO FINAL*  >  **Tipo ponto final**: Selecione *Azure Function* a partir das opções do menu.
 * *DETALHES DO PONTO FINAL*  >  **Ponto final**: Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *de função Select Azure:*
@@ -398,7 +397,7 @@ Deve ver as temperaturas atualizadas ao vivo *a partir da sua instância Azure D
 
 Assim que verificares que isto está a funcionar com sucesso, podes parar de executar ambos os projetos. Também pode fechar as janelas do Estúdio Visual, uma vez que o tutorial está agora completo.
 
-## <a name="review"></a>Rever
+## <a name="review"></a>Revisão
 
 Aqui está uma revisão do cenário que você construiu neste tutorial.
 
@@ -408,7 +407,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Gráfico do cenário de construção completo. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), em seguida, através da Grade de Evento para outra função Azure para o processamento (seta C)":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 

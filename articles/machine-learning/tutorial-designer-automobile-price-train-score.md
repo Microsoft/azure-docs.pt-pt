@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Prever preços dos carros com o designer'
+title: 'Tutorial: Prever preços dos carros com o designer (pré-visualização)'
 titleSuffix: Azure Machine Learning
 description: Aprenda a treinar, marcar e implementar um modelo de machine learning utilizando uma interface de arrastar e largar. Este tutorial é parte uma parte de uma série de duas partes sobre a previsão dos preços dos automóveis usando a regressão linear.
 author: peterclu
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 7068c1e795e7a607776c48d1b026562a1be6b25d
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 2922b5d3aa6cee0f1222c041a0e9728936754c21
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517638"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200034"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço do automóvel com o designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Na primeira parte do tutorial, vais aprender a:
 > [!div class="checklist"]
 > * Criar um novo oleoduto.
 > * Dados de importação.
-> * Preparar dados.
+> * Prepare os dados.
 > * Treine um modelo de aprendizagem automática.
 > * Avaliar um modelo de aprendizagem automática.
 
@@ -44,7 +44,7 @@ Os oleodutos Azure Machine Learning organizam múltiplas etapas de aprendizagem 
 
 Para criar um oleoduto Azure Machine Learning, precisa de um espaço de trabalho para aprendizagem automática Azure. Nesta secção, aprende-se a criar estes dois recursos.
 
-### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
+### <a name="create-a-new-workspace"></a>Crie uma nova área de trabalho
 
 Para utilizar o designer, primeiro precisa de um espaço de trabalho para aprendizagem automática Azure. O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning, fornece um lugar centralizado para trabalhar com todos os artefactos que você cria em Azure Machine Learning.
 
@@ -210,7 +210,7 @@ Dividir dados é uma tarefa comum na aprendizagem automática. Dividirá os seus
 
 1. No painel de detalhes do módulo à direita da tela, selecione a caixa **de comentários** e *introduza dividir o conjunto de dados no conjunto de treino (0.7) e no conjunto de teste (0.3)*.
 
-### <a name="train-the-model"></a>Dar formação sobre o modelo
+### <a name="train-the-model"></a>Preparar o modelo
 
 Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo constrói um modelo que explica a relação entre as características e o preço apresentado pelos dados de formação.
 
@@ -315,7 +315,7 @@ As seguintes estatísticas são mostradas para o seu modelo:
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor menor indica que as previsões estão mais próximas dos valores reais. Para o coeficiente de determinação, quanto mais próximo o seu valor for de um (1.0), melhor serão as previsões.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Salte esta secção se quiser continuar com a parte 2 do tutorial, [implantando modelos](tutorial-designer-automobile-price-deploy.md).
 

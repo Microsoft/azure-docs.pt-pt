@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 6c6620a83be2eade3b449553824116a4bea7e4d8
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 219551f2bba229fb627092548fe5c5f5ff8798b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144108"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220618"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação site a site com a WAN Virtual do Azure
 
@@ -87,17 +87,7 @@ Neste passo, ligue o seu site VPN ao centro.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Ligue o VNet ao hub
 
-Neste passo, cria-se a ligação entre o seu hub e um VNet. Repita estes passos para cada VNet que queira ligar.
-
-1. Na página da WAN virtual, clique em **Ligações de rede virtual**.
-2. Na página de ligação da rede virtual, clique em **+Add connection** (+Adicionar ligação).
-3. Na página **Add connection** (Adicionar ligação), preencha os seguintes campos:
-
-    * **Connection name** (Nome da ligação) - dê um nome à ligação.
-    * **Hubs** - selecione o hub que pretende associar a esta ligação.
-    * **Subscription** (Subscrição) - verifique a subscrição.
-    * **Virtual network** (Rede virtual) - selecione a rede virtual que pretende ligar a este hub. A rede virtual não pode ter um gateway de rede virtual já existente.
-4. Clique **em OK** para criar a ligação de rede virtual.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="download-vpn-configuration"></a><a name="device"></a>Transferir a configuração da VPN
 

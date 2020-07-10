@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 92b3489113aff9d48940131c80df00aedcf45325
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172814"
+ms.locfileid: "86205165"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
 
@@ -61,7 +61,7 @@ São utilizadas as versões e conceitos mais recentes da tecnologia. Recomenda-s
 * O código de amostra. Descarregue o código de [amostra.](https://github.com/Azure-Samples/media-services-content-protection-azure-ad)
 * Uma instalação do Código do Estúdio Visual. Baixe aqui o Código do Estúdio Visual [https://code.visualstudio.com/download](https://code.visualstudio.com/download) .
 * Uma instalação de Node.js. Faça o download Node.js [https://nodejs.org](https://nodejs.org) aqui. A NPM vem com a instalação.
-* Uma [assinatura Azure](https://azure.microsoft.com/free/).
+* Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 * Uma conta Azure Media Services (AMS).
 * @azure/msal-browserv2.0, um dos membros da [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) SDK família para diferentes plataformas de clientes
 * A versão mais recente do [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(incluído na amostra.)
@@ -120,18 +120,17 @@ A aplicação do jogador SPA completa as seguintes ações:
 * Desencriptação, descodificar e exibir.
 * A Microsoft Graph API pede para efeitos de resolução de problemas. <!--See more details in the subsection Shortest path: testing my protected asset in my subscription with your hosted player app and underlying tenant. -->
 
-<!--
-The screen for sign-in, token acquisition, token renewal, and token display:
+O ecrã para o sign-in, aquisição simbólica, renovação simbólica e ecrã simbólico:
 
- ![Screen for sign in, token acquisition, token renewal, and token display](media/aad-ams-content-protection/token-acquisition2.png)
+ ![Tela para iniciar sposição, aquisição simbólica, renovação de fichas e exibição simbólica](media/aad-ams-content-protection/token-acquisition.png)
 
-The screen for parsing JWT tokens (access_token or id_token):
+O ecrã para analisar fichas JWT (access_token ou id_token):
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens2.png)
+![tela para analisar tokens JWT](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
-The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
+O ecrã para testar conteúdo protegido com diferentes combinações de DRM/AES vs Protocolos de Streaming vs Formato de Contentor:
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content2.png)
+![tela para analisar tokens JWT](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -261,7 +260,7 @@ Tem duas opções para configurar a aplicação do jogador:
 
 ### <a name="option-1"></a>Opção 1
 
-1. Iniciar código de estúdio visual.
+1. Inicie o Visual Studio Code.
 1. Para abrir o projeto, clique em Ficheiros -> Open Folder -> navegue e selecione a pasta-mãe do *package.jsno* ficheiro.
 1. Abra o ficheiro JavaScript *público/javascript/constants.js*.
 1. Substitua `OAUTH2_CONST.CLIENT_ID` pela `client_id` aplicação do seu cliente registado no inquilino da AAD.  Pode encontrar a `client_id` secção Geral da aplicação registada no portal Azure. Nota: é a identificação do cliente, não a identificação do objeto.
@@ -372,7 +371,7 @@ O seu cliente pode então navegar na sua configuração, iniciar sôr-se na cont
 
 A sua solução de amostra pode ser configurada num inquilino da Microsoft com subscrição da Microsoft ou inquilino personalizado com subscrição da Microsoft. A instância do Azure Media Service pode ser de outra subscrição com o seu inquilino.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!WARNING]
 > Se não vai continuar a utilizar esta aplicação, elimine os recursos que criou enquanto segue este tutorial. Caso contrário, serás cobrado por eles.

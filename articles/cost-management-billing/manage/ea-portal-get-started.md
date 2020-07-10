@@ -3,16 +3,16 @@ title: Introdução ao portal Azure Enterprise
 description: Este artigo explica como é que os clientes do Contrato Enterprise do Azure (Azure EA) utilizam o portal Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/29/2020
+ms.date: 07/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6b31f3cd8ca6baa2d20d0281de51ed83424eca17
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 2d4fbf90afa93f3dbde12a3bc5ce02f9a60b6c5d
+ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560357"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86044962"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao portal Azure Enterprise
 
@@ -372,7 +372,7 @@ Se o Contrato Enterprise não tiver uma subscrição de suporte e o utilizador a
 
 ## <a name="view-usage-summary-and-download-reports"></a>Ver o resumo de utilização e os relatórios de transferências
 
-Os administradores do Enterprise podem ver um resumo dos dados de utilização, da alocação monetária consumida e dos custos associados à utilização adicional no portal Azure Enterprise. Os custos são apresentados ao nível do resumo em todas as contas e subscrições.
+Os administradores de Enterprise podem ver um resumo dos dados de utilização, dos Pré-pagamentos consumidos do Azure e dos custos associados à utilização adicional no portal Azure Enterprise. Os custos são apresentados ao nível do resumo em todas as contas e subscrições.
 
 Para ver a utilização detalhada de contas específicas, transfira o relatório de detalhes de utilização:
 
@@ -390,7 +390,7 @@ Para ver relatórios e grafos do resumo da utilização:
 
 1. Inicie sessão no portal Azure Enterprise.
 
-1. Selecione um termo de alocação.
+1. Selecione um termo de Pré-pagamento.
 
    Para alterar o intervalo de datas do **Resumo de Utilização**, pode alternar entre **M** (Mensal) e **P** (Personalizado) no canto superior direito da página e, em seguida, introduzir datas de início e de fim personalizadas.
 
@@ -455,7 +455,7 @@ O portal Azure Enterprise filtra as inscrições inativas de forma a não serem 
 - **Conta**: uma unidade organizacional no portal Azure Enterprise. É utilizada para administrar subscrições e para gerar relatórios.
 - **Proprietário da conta**: a pessoa que gere as subscrições e os administradores de serviços no Azure. Podem ver os dados de utilização nessa conta e as subscrições.
 - **Subscrição de emenda**: uma subscrição de um ano ou consubstancial ao abrigo da emenda da inscrição.
-- **Alocação**: alocação de um montante monetário anual para os serviços do Azure a uma tarifa de alocação com desconto para utilização em relação a este pré-pagamento.
+- **Pré-pagamento**: O Pré-pagamento de um montante monetário anual para os serviços do Azure a uma tarifa de Pré-pagamento com desconto para utilização em relação a este pré-pagamento.
 - **Administrador de departamento**: a pessoa que gere departamentos, cria novas contas e proprietários de contas, vê detalhes de utilização dos departamentos que gerem e pode ver os custos quando forem concedidas permissões.
 - **Número da inscrição**: um identificador exclusivo fornecido pela Microsoft para identificar a inscrição específica associada a um Contrato Enterprise.
 - **Administrador do Enterprise**: a pessoa que gere departamentos, proprietários de departamentos, contas e proprietários de contas no Azure. Têm a capacidade de gerir administradores do Enterprise e de ver os dados de utilização, as quantidades faturadas e os custos não faturados em todas as contas e subscrições associadas à inscrição Enterprise.
@@ -478,7 +478,7 @@ O portal Azure Enterprise filtra as inscrições inativas de forma a não serem 
 
    Antes de a inscrição Azure EA atingir a data limite do Contrato Enterprise, o administrador da inscrição precisa de decidir qual das seguintes opções deve ser tomada:
 
-  - Renovar a inscrição ao adicionar uma alocação monetária adicional.
+  - Renove a inscrição ao adicionar um Pré-pagamento do Azure adicional.
   - Transferir para uma nova inscrição.
   - Migrar para o Programa de Subscrição Online da Microsoft (MOSP).
   - Confirmar a desativação de todos os serviços associados à inscrição.

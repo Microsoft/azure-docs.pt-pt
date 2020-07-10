@@ -3,7 +3,7 @@ title: Tutorial de aplicação de página única angular - Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como as aplicações angulares de SPA podem chamar uma API que requer acesso a tokens a partir do ponto final da plataforma de identidade da Microsoft.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6d869243f7f125ef7a795d6049d0b4f70fc51361
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322775"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231697"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
@@ -35,7 +35,7 @@ Este tutorial demonstra como uma aplicação de uma página única angular (SPA)
 
 ### <a name="more-information"></a>Mais informações
 
-A aplicação de amostra criada neste tutorial permite a um SPA angular consultar a API do Microsoft Graph ou uma API web que aceita fichas do ponto final da plataforma de identidade da Microsoft. O MSAL para biblioteca angular é um invólucro da biblioteca core MSAL.js. Permite que as aplicações Angular (6+) autensem os utilizadores empresariais utilizando o Microsoft Azure Ative Directory, os utilizadores de contas microsoft e os utilizadores de identidade social (como facebook, Google e LinkedIn). A biblioteca também permite que as aplicações tenham acesso aos serviços de cloud da Microsoft ou ao Microsoft Graph.
+A aplicação de amostra criada neste tutorial permite a um SPA angular consultar a API do Microsoft Graph ou uma API web que aceita fichas do ponto final da plataforma de identidade da Microsoft. O MSAL para biblioteca angular é um invólucro do núcleo MSAL.js biblioteca. Permite que as aplicações Angular (6+) autensem os utilizadores empresariais utilizando o Microsoft Azure Ative Directory, os utilizadores de contas microsoft e os utilizadores de identidade social (como facebook, Google e LinkedIn). A biblioteca também permite que as aplicações tenham acesso aos serviços de cloud da Microsoft ou ao Microsoft Graph.
 
 Neste cenário, após a indicação de um utilizador, é solicitado um token de acesso e adicionado aos pedidos HTTP através do cabeçalho de autorização. A aquisição e renovação da Token são tratadas pela MSAL.
 
@@ -43,7 +43,7 @@ Neste cenário, após a indicação de um utilizador, é solicitado um token de 
 
 Este tutorial utiliza a seguinte biblioteca:
 
-|Biblioteca|Description|
+|Biblioteca|Descrição|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para invólucro angular JavaScript|
 
@@ -53,10 +53,10 @@ Pode encontrar o código fonte da biblioteca MSAL.js no repositório [AzureAD/mi
 
 Para executar este tutorial, você precisa:
 
-* Um servidor web local, como [o Node.js.](https://nodejs.org/en/download/) As instruções deste tutorial são baseadas em Node.js.
+* Um servidor web local, como [Node.js](https://nodejs.org/en/download/). As instruções deste tutorial são baseadas em Node.js.
 * Um ambiente de desenvolvimento integrado (IDE), como [o Visual Studio Code,](https://code.visualstudio.com/download)para editar os ficheiros do projeto.
 
-## <a name="create-your-project"></a>Crie o seu projeto
+## <a name="create-your-project"></a>Criar o seu projeto
 
 Gere uma nova aplicação Angular utilizando os seguintes comandos npm:
 
@@ -68,7 +68,7 @@ npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 
-## <a name="register-your-application"></a>Registar a sua aplicação
+## <a name="register-your-application"></a>Registar a aplicação
 
 Siga as [instruções para registar uma aplicação de uma página](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) no portal Azure.
 
@@ -76,7 +76,7 @@ Na página **geral** da aplicação do seu registo, note o valor de **ID da Apli
 
 Registe o seu valor **URI de redirecionamento** como **http://localhost:4200/** e permita configurações implícitas de concessão.
 
-## <a name="configure-the-application"></a>Configure a aplicação
+## <a name="configure-the-application"></a>Configurar a aplicação
 
 1. Na pasta *src/app,* edite *app.module.ts* e adicione `MSALModule` a bem como a `imports` `isIE` constante:
 
@@ -138,7 +138,7 @@ Registe o seu valor **URI de redirecionamento** como **http://localhost:4200/** 
 3. Adicione as seguintes declarações de importação ao topo `src/app/app.component.ts` de:
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## <a name="sign-in-a-user"></a>Inscreva-se num utilizador
@@ -148,6 +148,8 @@ Adicione o seguinte código `AppComponent` para iniciar sinsução num utilizado
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+    
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -338,7 +340,7 @@ Se uma API de back-end não necessitar de um âmbito (não recomendado), pode ut
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se é novo na gestão de identidade e acesso, temos vários artigos para ajudá-lo a aprender conceitos modernos de autenticação, começando pela [autenticação vs. autorização.](authentication-vs-authorization.md)
 

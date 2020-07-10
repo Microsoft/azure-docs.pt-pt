@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1fa270907c96cb341f6ce2cbaeb91dfa323c4431
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c01e329e4e4ab403c8966f096239abffee1c1fc5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855216"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185862"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Enviar um e-mail a partir de um runbook
 
@@ -19,16 +19,16 @@ Pode enviar um e-mail de um livro com [a SendGrid](https://sendgrid.com/solution
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Uma conta SendGrid.](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account)
-* [Conta de automação](automation-offering-get-started.md) com módulos **Az.**
-* [Executar como conta](automation-create-runas-account.md) para armazenar e executar o livro de execução.
+* [Uma conta SendGrid.](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account)
+* [Conta de automação](./index.yml) com módulos **Az.**
+* [Executar como conta](./manage-runas-account.md) para armazenar e executar o livro de execução.
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Azure Key Vault
 
 Pode criar um Cofre de Chaves Azure utilizando o seguinte script PowerShell. Substitua os valores variáveis por valores específicos do seu ambiente. Utilize o Azure Cloud Shell incorporado através do botão **Try It,** localizado no canto superior direito do bloco de código. Também pode copiar e executar o código localmente se tiver os [módulos Az instalados](/powershell/azure/install-az-ps) na sua máquina local.
 
 > [!NOTE]
-> Para recuperar a sua chave API, utilize os passos na [tecla SendGrid API](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
+> Para recuperar a sua chave API, utilize os passos na [tecla SendGrid API](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key).
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -61,7 +61,7 @@ $appID = $connection.FieldDefinitionValues.ApplicationId
 Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
 ```
 
-Para outras formas de criar um Cofre de Chaves Azure e armazenar um segredo, consulte [os quickstarts do Key Vault](/azure/key-vault/).
+Para outras formas de criar um Cofre de Chaves Azure e armazenar um segredo, consulte [os quickstarts do Key Vault](../key-vault/index.yml).
 
 ## <a name="import-required-modules-into-your-automation-account"></a>Importar módulos necessários na sua conta de Automação
 
@@ -74,12 +74,12 @@ Para obter instruções, consulte [os módulos Import Az](shared-resources/modul
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Crie o livro de corridas para enviar um e-mail
 
-Depois de ter criado um Key Vault e armazenado a sua `SendGrid` chave API, é hora de criar o runbook que recupera a chave API e envia um e-mail. Vamos usar um runbook que usa `AzureRunAsConnection` como conta Run [As](automation-create-runas-account.md) para autenticar com a Azure para recuperar o segredo do Azure Key Vault. Vamos chamar o runbook **Send-GridMailMessage.** Pode modificar o script PowerShell utilizado para fins de exemplo e reutilizá-lo para diferentes cenários.
+Depois de ter criado um Key Vault e armazenado a sua `SendGrid` chave API, é hora de criar o runbook que recupera a chave API e envia um e-mail. Vamos usar um runbook que usa `AzureRunAsConnection` como conta Run [As](./manage-runas-account.md) para autenticar com a Azure para recuperar o segredo do Azure Key Vault. Vamos chamar o runbook **Send-GridMailMessage.** Pode modificar o script PowerShell utilizado para fins de exemplo e reutilizá-lo para diferentes cenários.
 
 1. Vá à sua conta Azure Automation.
 2. Em **Automatização de Processos,** selecione **Runbooks**.
 3. No topo da lista de runbooks, selecione **+ Crie um livro de bordo.**
-4. Na página Add Runbook, **insira send-GridMailMessage** para o nome do livro de execuções. Para o tipo de livro de execução, selecione **PowerShell**. Em seguida, **selecione Criar**.
+4. Na página Add Runbook, **insira send-GridMailMessage** para o nome do livro de execuções. Para o tipo de livro de execução, selecione **PowerShell**. Em seguida, selecione **Criar**.
    ![Criar Runbook](./media/automation-send-email/automation-send-email-runbook.png)
 5. O runbook é criado e a página Editar Runbook do PowerShell é aberta.
    ![Editar o Runbook](./media/automation-send-email/automation-send-email-edit.png)
@@ -142,7 +142,7 @@ Se não vir inicialmente o seu e-mail de teste, verifique as **pastas Junk** e *
 
 1. Quando o livro de execuções já não for necessário, selecione-o na lista de runbook e clique em **Eliminar**.
 
-2. Elimine o cofre da chave utilizando o [cmdlet Remove-AzKeyVault.](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0)
+2. Elimine o cofre da chave utilizando o [cmdlet Remove-AzKeyVault.](/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0)
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"
