@@ -2,12 +2,13 @@
 title: Implementar a instância do contentor ativada pela GPU
 description: Saiba como implantar instâncias de contentores Azure para executar aplicações de contentores intensivos com computação utilizando recursos gpu.
 ms.topic: article
-ms.date: 02/19/2020
-ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 78b67843978583dd6b0f0aee2c1d8ad0e5a7ca77
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77525293"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169753"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizem recursos da GPU
 
@@ -72,7 +73,7 @@ Uma forma de adicionar recursos gpu é implantar um grupo de contentores usando 
 
 ```YAML
 additional_properties: {}
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -138,7 +139,7 @@ Outra forma de implantar um grupo de contentores com recursos GPU é utilizando 
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2019-12-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -167,10 +168,10 @@ Outra forma de implantar um grupo de contentores com recursos GPU é utilizando 
 }
 ```
 
-Implementar o modelo com a implementação do [grupo az criar][az-group-deployment-create] comando. Você precisa fornecer o nome de um grupo de recursos que foi criado em uma região como eastus que suporta recursos *gpu.*
+Implementar o modelo com o [grupo de implementação az criar][az-deployment-group-create] comando. Você precisa fornecer o nome de um grupo de recursos que foi criado em uma região como eastus que suporta recursos *gpu.*
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
+az deployment group create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
 A conclusão da implementação demora vários minutos. Em seguida, o recipiente começa e executa o trabalho TensorFlow. Executar o comando [de registos de contentores az][az-container-logs] para visualizar a saída do registo:
@@ -206,7 +207,7 @@ Accuracy at step 990: 0.969
 Adding run metadata for 999
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Porque a utilização de recursos gpu pode ser dispendiosa, certifique-se de que os seus recipientes não funcionam inesperadamente por longos períodos. Monitorize os seus recipientes no portal Azure ou verifique o estado de um grupo de contentores com o comando de demonstração do [contentor az.][az-container-show] Por exemplo:
 
@@ -221,7 +222,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergroup -y
 az container delete --resource-group myResourceGroup --name gpucontainergrouprm -y
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a implantação de um grupo de contentores utilizando um [ficheiro YAML](container-instances-multi-container-yaml.md) ou [um modelo de Gestor de Recursos](container-instances-multi-container-group.md).
 * Saiba mais sobre [os tamanhos de VM otimizados](../virtual-machines/linux/sizes-gpu.md) da GPU em Azure.
@@ -239,4 +240,4 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

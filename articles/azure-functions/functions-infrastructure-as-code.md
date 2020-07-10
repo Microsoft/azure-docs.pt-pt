@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382530"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170399"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de funções em Funções Azure
 
@@ -26,12 +26,12 @@ Para modelos de amostra, consulte:
 
 Uma implantação de funções Azure consiste tipicamente nestes recursos:
 
-| Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Um aplicativo de função                                                                     | Necessário    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Necessário    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Um componente [de Insights de Aplicação](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/componentes](/azure/templates/microsoft.insights/components)         |   |
-| Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
+| Um aplicativo de função                                                                     | Obrigatório    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |
+| Um componente [de Insights de Aplicação](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/componentes](/azure/templates/microsoft.insights/components)         |
+| Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> Um plano de hospedagem só é necessário quando optar por executar a sua aplicação de função num [plano Premium](./functions-premium-plan.md) ou num plano de Serviço [de Aplicações.](../app-service/overview-hosting-plans.md)
 
@@ -107,14 +107,14 @@ Além disso, a chave de instrumentação deve ser fornecida à aplicação de fu
 ]
 ```
 
-### <a name="hosting-plan"></a>Plano de alojamento
+### <a name="hosting-plan"></a>Plano de hospedagem
 
 A definição do plano de hospedagem varia e pode ser uma das seguintes:
 * [Plano de consumo](#consumption) (padrão)
 * [Plano Premium](#premium)
-* [Plano de Serviço de Aplicações](#app-service-plan)
+* [Plano do Serviço de Aplicações](#app-service-plan)
 
-### <a name="function-app"></a>Function app
+### <a name="function-app"></a>Aplicação de funções
 
 O recurso de aplicação de função é definido utilizando um recurso do tipo **Microsoft.Web/sites** e **do app de função**do tipo :
 
@@ -137,7 +137,7 @@ O recurso de aplicação de função é definido utilizando um recurso do tipo *
 
 Uma aplicação de função deve incluir estas definições de aplicação:
 
-| Nome da definição                 | Description                                                                               | Valores de exemplo                        |
+| Nome da definição                 | Descrição                                                                               | Valores de exemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Uma cadeia de ligação a uma conta de armazenamento que o tempo de execução de Funções utiliza para a fila interna | Ver [conta de armazenamento](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | A versão do tempo de funcionamento das Funções Azure                                                | `~2`                                  |
@@ -210,7 +210,7 @@ O plano de consumo é um tipo especial de recurso "serverfarm". Para o Windows, 
 
 Se definir explicitamente o seu plano de Consumo, terá de definir o `serverFarmId` imóvel na aplicação para que este aponte para o ID de recursos do plano. Deve certificar-se de que a aplicação de função também tem uma `dependsOn` definição para o plano.
 
-### <a name="create-a-function-app"></a>Criar uma aplicação de função
+### <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 #### <a name="windows"></a>Windows
 
@@ -332,7 +332,7 @@ Um plano Premium é um tipo especial de recurso "serverfarm". Pode especiá-lo u
 }
 ```
 
-### <a name="create-a-function-app"></a>Criar uma aplicação de função
+### <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 Uma aplicação de função num plano Premium deve ter a `serverFarmId` propriedade definida para o ID de recursos do plano criado anteriormente. Além disso, um plano Premium requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Estas propriedades configuram a conta de armazenamento e o caminho do ficheiro onde o código e configuração da aplicação de função são armazenados.
 
@@ -429,7 +429,7 @@ Para executar a sua aplicação no Linux, também deve definir `kind` o `Linux` 
 }
 ```
 
-### <a name="create-a-function-app"></a>Criar uma aplicação de função
+### <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 Uma aplicação de função num plano de Serviço de Aplicações deve ter a `serverFarmId` propriedade definida para o ID de recursos do plano criado anteriormente.
 
@@ -643,7 +643,7 @@ Uma aplicação de função tem muitos recursos para crianças que pode usar na 
 > [!TIP]
 > Este modelo utiliza o valor de definições de aplicações [do Projeto,](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) que define o diretório base no qual o motor de implantação de Funções (Kudu) procura código implantável. No nosso repositório, as nossas funções estão numa sub-dobra da pasta **src.** Assim, no exemplo anterior, definimos o valor das definições da aplicação para `src` . Se as suas funções estiverem na raiz do seu repositório, ou se não estiver a implementar a partir do controlo de origem, pode remover o valor das definições desta aplicação.
 
-## <a name="deploy-your-template"></a>Implementar o modelo
+## <a name="deploy-your-template"></a>Implementar o seu modelo
 
 Pode utilizar qualquer uma das seguintes formas de implantar o seu modelo:
 

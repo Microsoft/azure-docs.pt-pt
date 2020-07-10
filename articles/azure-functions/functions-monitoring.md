@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5560d24601b8aef0d8a4058cc2c04e27e9c86362
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207012"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170416"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -143,7 +143,7 @@ O madeireiro Azure Functions também inclui um *nível de registo* com cada regi
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
-|Nenhuma        | 6 |
+|Nenhum        | 6 |
 
 O nível de `None` registo é explicado na secção seguinte. 
 
@@ -233,7 +233,7 @@ Para suprimir todos os registos de uma categoria, pode utilizar o nível de regi
 
 ## <a name="configure-the-aggregator"></a>Configure o agregador
 
-Como indicado na secção anterior, o tempo de execução agrega dados sobre execuções de funções durante um período de tempo. O período de incumprimento é de 30 segundos ou 1.000 corridas, o que vier primeiro. Pode configurar esta definição na [host.jsno] ficheiro.  Eis um exemplo:
+Como indicado na secção anterior, o tempo de execução agrega dados sobre execuções de funções durante um período de tempo. O período de incumprimento é de 30 segundos ou 1.000 corridas, o que vier primeiro. Pode configurar esta definição na [host.jsno] ficheiro.  Veja este exemplo:
 
 ```json
 {
@@ -246,7 +246,7 @@ Como indicado na secção anterior, o tempo de execução agrega dados sobre exe
 
 ## <a name="configure-sampling"></a>Amostragem de configure
 
-A Application Insights tem uma funcionalidade [de amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo de produzir demasiados dados de telemetria em execuções concluídas em momentos de carga máxima. Quando a taxa de execuções recebidas excede um limiar especificado, os Insights de Aplicação começam a ignorar aleatoriamente algumas das execuções recebidas. A definição predefinição para o número máximo de execuções por segundo é de 20 (cinco na versão 1.x). Pode configurar a amostragem em [host.js.](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights)  Eis um exemplo:
+A Application Insights tem uma funcionalidade [de amostragem](../azure-monitor/app/sampling.md) que pode protegê-lo de produzir demasiados dados de telemetria em execuções concluídas em momentos de carga máxima. Quando a taxa de execuções recebidas excede um limiar especificado, os Insights de Aplicação começam a ignorar aleatoriamente algumas das execuções recebidas. A definição predefinição para o número máximo de execuções por segundo é de 20 (cinco na versão 1.x). Pode configurar a amostragem em [host.js.](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights)  Veja este exemplo:
 
 ### <a name="version-2x-and-later"></a>Versão 2.x e mais tarde
 
@@ -626,7 +626,7 @@ Para reportar um problema com a integração de Application Insights em Funçõe
 
 ## <a name="streaming-logs"></a>Registos de streaming
 
-Ao desenvolver uma aplicação, muitas vezes quer ver o que está a ser escrito nos registos em quase tempo real quando corre em Azure.
+Ao desenvolver uma aplicação, muitas vezes quer ver o que está a ser escrito nos registos em tempo real quando corre em Azure.
 
 Existem duas formas de ver um fluxo de ficheiros de registo a ser gerado pelas execuções de funções.
 
@@ -688,27 +688,41 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-## <a name="scale-controller-logs"></a>Troncos de controlador de escala
+## <a name="scale-controller-logs-preview"></a>Registos de controlador de escala (pré-visualização)
 
-O [controlador de escala Azure Functions](./functions-scale.md#runtime-scaling) monitoriza as instâncias do anfitrião da função que executam a sua aplicação e toma decisões sobre quando adicionar ou remover instâncias de anfitrião da função. Se precisar de compreender as decisões que o controlador de escala está a tomar na sua aplicação, pode configurá-la para emitir registos para o Application Insights ou para o Blob Storage.
+Esta funcionalidade está em pré-visualização. 
 
-> [!WARNING]
-> Esta funcionalidade está em pré-visualização. Não recomendamos que deixe esta funcionalidade ativada indefinidamente, e deve, em vez disso, ative-a quando necessitar da informação que recolhe e depois desativá-la.
+O [controlador de escala Azure Functions](./functions-scale.md#runtime-scaling) monitoriza as instâncias do anfitrião Azure Functions em que a sua aplicação é executada. Este controlador toma decisões sobre quando adicionar ou remover casos com base no desempenho atual. Pode ter o controlador de escala a emitir registos para o Application Insights ou para o armazenamento blob para entender melhor as decisões que o controlador de escala está a tomar para a sua aplicação de função.
 
-Para ativar esta funcionalidade, adicione uma nova definição de aplicação chamada `SCALE_CONTROLLER_LOGGING_ENABLED` . O valor desta definição deve ser do `{Destination}:{Verbosity}` formato, onde:
-* `{Destination}`especifica o destino para os registos a enviar, e deve ser ou `AppInsights` `Blob` .
-* `{Verbosity}`especifica o nível de registo que deseja, e deve ser um de `None` `Warning` , ou `Verbose` .
+Para ativar esta funcionalidade, adicione uma nova definição de aplicação chamada `SCALE_CONTROLLER_LOGGING_ENABLED` . O valor desta definição deve ser do `<DESTINATION>:<VERBOSITY>` formato, com base no seguinte:
 
-Por exemplo, para registar informações verbosas do controlador de escala para Insights de Aplicação, utilize o valor `AppInsights:Verbose` .
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
-> [!NOTE]
-> Se ativar o `AppInsights` tipo de destino, deve assegurar-se de que configura [os Insights de Aplicação para a sua aplicação de função.](#enable-application-insights-integration)
+Por exemplo, o seguinte comando Azure CLI liga a registar verbose do controlador de escala para Insights de Aplicação:
 
-Se definir o destino para `Blob` , os registos serão criados num recipiente de bolhas denominado `azure-functions-scale-controller` dentro da conta de armazenamento definida na definição de `AzureWebJobsStorage` aplicação.
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
 
-Se definir a verbosidade, `Verbose` o controlador de escala registará uma razão para cada alteração na contagem de trabalhadores, bem como informações sobre os gatilhos que participam nas decisões do controlador de escala. Por exemplo, os registos incluem avisos de disparo e os hashes utilizados pelos gatilhos antes e depois do comando de escala.
+Neste exemplo, substitua `<FUNCTION_APP_NAME>` e pelo nome da sua app de `<RESOURCE_GROUP_NAME>` função e pelo nome do grupo de recursos, respectivamente. 
 
-Para desativar a marcação do controlador de escala, defina o valor do `{Verbosity}` para `None` ou remova a definição de `SCALE_CONTROLLER_LOGGING_ENABLED` aplicação.
+O seguinte comando Azure CLI desativa o registo, definindo a verbosidade `None` para:
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+Também pode desativar a sessão, removendo a `SCALE_CONTROLLER_LOGGING_ENABLED` definição utilizando o seguinte comando Azure CLI:
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
 
 ## <a name="disable-built-in-logging"></a>Desativar a exploração madeireira incorporada
 
@@ -716,9 +730,9 @@ Quando ativar o Application Insights, desative a exploração madeireira incorpo
 
 Para desativar a sessão de registos incorporados, elimine a definição da `AzureWebJobsDashboard` aplicação. Para obter informações sobre como eliminar as definições de aplicações no portal Azure, consulte a secção de **definições** de Aplicação de [Como gerir uma aplicação de função](functions-how-to-use-azure-function-app-settings.md#settings). Antes de eliminar a definição da aplicação, certifique-se de que nenhuma função existente na mesma aplicação de função utiliza a definição para gatilhos ou encadernações de armazenamento Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 * [Application Insights](/azure/application-insights/)
 * [Registo do núcleo de ASP.NET](/aspnet/core/fundamentals/logging/)

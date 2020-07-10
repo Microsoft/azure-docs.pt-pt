@@ -5,17 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424079"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185879"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
 Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/platform/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários. 
 
-Esta função utiliza [o cmdlet Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) para iniciar VMs. Utiliza [o Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar os VMs.
+Esta função utiliza [o cmdlet Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar VMs. Utiliza [o Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar os VMs.
 
 > [!NOTE]
 > Embora os livros tenham sido atualizados para utilizar os novos cmdlets do módulo Azure Az, utilizam o pseudónimo prefixo AzureRM.
@@ -36,7 +37,7 @@ Seguem-se limitações com a característica atual:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os livros para os VMs de início/paragem durante o horário de folga funcionam com uma [conta Azure Run As](automation-create-runas-account.md). A conta Run As é o método de autenticação preferencial porque utiliza a autenticação do certificado em vez de uma palavra-passe que pode expirar ou alterar com frequência.
+Os livros para os VMs de início/paragem durante o horário de folga funcionam com uma [conta Azure Run As](./manage-runas-account.md). A conta Run As é o método de autenticação preferencial porque utiliza a autenticação do certificado em vez de uma palavra-passe que pode expirar ou alterar com frequência.
 
 Recomendamos que utilize uma conta de Automatização separada para trabalhar com VMs ativados para os VMs de início/paragem durante o período de folga. As versões do módulo Azure são frequentemente atualizadas e os seus parâmetros podem mudar. A funcionalidade não é atualizada na mesma cadência e pode não funcionar com versões mais recentes dos cmdlets que utiliza. Recomenda-se testar as atualizações dos módulos numa conta de automatização de teste antes de as importar para a sua conta de automação de produção.
 
@@ -107,7 +108,7 @@ Todos os livros de bordo dos pais incluem o `WhatIf` parâmetro. Quando definido
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertaAção <br> WebHookURI | Liga do livro dos pais. Este runbook cria alertas por recurso para o cenário de paragem automática.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta Azure em VMs nos grupos de subscrição ou recursos direcionados. <br> `VMList`é uma lista separada por vm (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf`permite validação da lógica do runbook sem executar.|
-|AutoStop_Disable | Nenhuma | Desativa os alertas de paragem automática e o horário predefinido.|
+|AutoStop_Disable | Nenhum | Desativa os alertas de paragem automática e o horário predefinido.|
 |AutoStop_VM_Child | WebHookData | Liga do livro dos pais. As regras de alerta chamam este runbook para parar um VM clássico.|
 |AutoStop_VM_Child_ARM | WebHookData |Liga do livro dos pais. As regras de alerta chamam este livro de bordo para parar um VM.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Ação: Iniciar ou Parar<br> VMList  | Executa início de ação ou paragem no grupo VM clássico da Cloud Services. |
@@ -121,7 +122,7 @@ Todos os livros de bordo dos pais incluem o `WhatIf` parâmetro. Quando definido
 A tabela seguinte lista as variáveis criadas na sua conta Automation. Apenas modificar variáveis prefixadas com `External` . Modificar variáveis prefixadas com `Internal` efeitos indesejáveis.
 
 > [!NOTE]
-> As limitações no nome VM e no grupo de recursos são em grande parte resultado de tamanho variável. Ver [ativos variáveis na Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
+> As limitações no nome VM e no grupo de recursos são em grande parte resultado de tamanho variável. Ver [ativos variáveis na Azure Automation](./shared-resources/variables.md).
 
 |Variável | Descrição|
 |---------|------------|
@@ -176,7 +177,7 @@ Se tiver mais de 20 VMs por serviço na nuvem, aqui ficam algumas recomendaçõe
 
 Caso contrário, se o trabalho de Automação para esta funcionalidade for superior a três horas, é temporariamente descarregado ou parado de acordo com o limite [de quota justa.](automation-runbook-execution.md#fair-share)
 
-As subscrições Azure CSP suportam apenas o modelo Azure Resource Manager. Os serviços não-Azure Resource Manager não estão disponíveis no programa. Quando os VMs iniciar/parar durante o período de funcionamento, poderá receber erros, uma vez que tem cmdlets para gerir recursos clássicos. Para saber mais sobre a CSP, consulte [os serviços disponíveis em assinaturas CSP.](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services) Se utilizar uma subscrição CSP, deverá definir a [variável External_EnableClassicVMs](#variables) para Falso após a implementação.
+As subscrições Azure CSP suportam apenas o modelo Azure Resource Manager. Os serviços não-Azure Resource Manager não estão disponíveis no programa. Quando os VMs iniciar/parar durante o período de funcionamento, poderá receber erros, uma vez que tem cmdlets para gerir recursos clássicos. Para saber mais sobre a CSP, consulte [os serviços disponíveis em assinaturas CSP.](/azure/cloud-solution-provider/overview/azure-csp-available-services) Se utilizar uma subscrição CSP, deverá definir a [variável External_EnableClassicVMs](#variables) para Falso após a implementação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -232,6 +233,6 @@ Para eliminar VMs de início/paragem durante as horas de folga:
 
     4. Se não pretender manter os [componentes](#components)da conta Azure Automation, pode eliminar manualmente cada um deles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ativar a funcionalidade em VMs no seu ambiente, consulte [Ativar VMs de arranque/paragem durante as horas de folga](automation-solution-vm-management-enable.md).
