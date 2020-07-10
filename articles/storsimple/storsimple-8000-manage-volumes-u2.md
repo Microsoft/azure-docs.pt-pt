@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3d8ab6da9327048469c8b781657bb03b6a4b9669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508253"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204458"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilize o serviço StorSimple Device Manager para gerir volumes (atualização 3 ou posterior)
 
@@ -51,7 +51,7 @@ Se estiver a utilizar o volume hierarquizado para dados de arquivo, selecione o 
 
 Consulte o quadro seguinte para obter a capacidade máxima a provisionada para cada dispositivo e tipo de volume. (Note que os volumes fixados localmente não estão disponíveis num dispositivo virtual.)
 
-|  | Tamanho máximo do volume nivelado | Tamanho máximo de volume fixado localmente |
+| Tipo | Tamanho máximo do volume nivelado | Tamanho máximo de volume fixado localmente |
 | --- | --- | --- |
 | **Dispositivos físicos** | | |
 | 8100 |64 TB |8 TB |
@@ -317,7 +317,7 @@ Execute os seguintes passos para ativar ou desativar a monitorização para um v
 
 4. Clique **em Guardar** e quando solicitado para confirmação, clique em **Sim**. O portal Azure apresenta uma notificação para atualizar o volume e, em seguida, uma mensagem de sucesso, depois de o volume ser atualizado com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [clonar um volume StorSimple](storsimple-8000-clone-volume-u2.md).
 * Saiba como [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81ac76ef5eeebd278dc10e03d661bb21469c8f4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610575"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203675"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -138,7 +138,7 @@ A tabela que se segue lista os parâmetros do modelo do Gestor de Recursos para 
 | volumeType | Tipo de volume em que a operação de encriptação é executada. Valores válidos são _OS,_ _Dados_e _Todos._ 
 | forceUpdateTag | Passe um valor único como um GUID sempre que a operação precisa de ser executada à força. |
 | redimensionarOSDisco | Se a partição de SO for redimensionada para ocupar o VHD completo do SO antes de dividir o volume do sistema. |
-| localização | Localização para todos os recursos. |
+| localização | Localização de todos os recursos. |
 
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Novos VMs iaas criados a partir de VHD encriptados pelo cliente e chaves de encriptação
@@ -238,8 +238,11 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série Lsv2 (ver: [série Lsv2)](../lsv2-series.md)
 - VMs da série M com discos de acelerador de escrita.
+- Aplicação [de encriptação do lado do servidor com chaves geridas pelo cliente](disk-encryption.md) a um VMs encriptado por ADE, e vice-versa.
+- Migrar um VM encriptado com ADE para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da encriptação do disco Azure](disk-encryption-overview.md)
 - [Scripts de exemplo do Azure Disk Encryption](disk-encryption-sample-scripts.md)

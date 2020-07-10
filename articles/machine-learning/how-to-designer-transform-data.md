@@ -1,7 +1,7 @@
 ---
-title: Transformar dados
+title: Transforme os dados no designer (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Aprenda a transformar dados no designer Azure Machine Learning para criar os seus próprios conjuntos de dados.
+description: Aprenda a transformar dados em Azure Machine Learning designer (pré-visualização) para criar os seus próprios conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: ea0ba58c3eb38a54be5ff777519ca12d6a2cf9ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68ed1b83b1e82daa9c4578a6b3bec24792a8268d
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517548"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203787"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transforme dados em Azure Machine Learning designer (pré-visualização)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -164,13 +164,13 @@ Depois de o gasoduto terminar a funcionar, pode ver os seus resultados navegando
 
 1. Verifique se a coluna "país nativo" não contém o valor "Estados Unidos".
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Salte esta secção se quiser continuar com a parte 2 deste como, [retrain modelos com o designer de Machine Learning Azure](how-to-retrain-designer.md).
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a transformar um conjunto de dados e guardá-lo para uma datastore registada.
 

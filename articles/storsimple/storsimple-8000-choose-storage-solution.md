@@ -7,11 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68965348"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203986"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar o StorSimple com as opções de transferência de dados do Azure File Sync e do Data Box Edge 
 
@@ -27,16 +28,16 @@ Este documento fornece uma visão geral das opções para transferência de dado
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|Descrição geral         |Armazenamento híbrido hierárquico e arquivo|Armazenamento geral de servidor de ficheiros com tiering de nuvem e sincronização de vários locais.  |Solução de armazenamento para pré-processar dados e enviá-lo em rede para Azure.        |
-|Cenários        |Servidor de ficheiros, arquivo, alvo de backup |Servidor de ficheiros, arquivo (multi-site)   |Transferência de dados, pré-processamento de dados, incluindo inferição de ML, IoT, arquivo    |
-|Computação Edge     |Não disponível |Não disponível |Suporta recipientes de funcionamento usando Azure IoT Edge    |
-|Fator de forma      |Dispositivo físico   |Agente instalado no Windows Server |Dispositivo físico   |
-|Hardware         |Dispositivo físico fornecido pela Microsoft como parte do serviço | Cliente fornecido |Dispositivo físico fornecido pela Microsoft como parte do serviço  |
-|Formato de dados      |Formato personalizado   |Ficheiros         |Blobs ou Ficheiros    |
-|Suporte de protocolo |iSCSI          |SMB, NFS    | SMB ou NFS      |
-|Preços          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|**Descrição geral**     |Armazenamento híbrido hierárquico e arquivo|Armazenamento geral de servidor de ficheiros com tiering de nuvem e sincronização de vários locais.  |Solução de armazenamento para pré-processar dados e enviá-lo em rede para Azure.        |
+|**Cenários**    |Servidor de ficheiros, arquivo, alvo de backup |Servidor de ficheiros, arquivo (multi-site)   |Transferência de dados, pré-processamento de dados, incluindo inferição de ML, IoT, arquivo    |
+|**Computação Edge** |Não disponível |Não disponível |Suporta recipientes de funcionamento usando Azure IoT Edge    |
+|**Fator de forma**  |Dispositivo físico   |Agente instalado no Windows Server |Dispositivo físico   |
+|**Hardware**     |Dispositivo físico fornecido pela Microsoft como parte do serviço | Cliente fornecido |Dispositivo físico fornecido pela Microsoft como parte do serviço  |
+|**Formato de dados**  |Formato personalizado   |Ficheiros         |Blobs ou Ficheiros    |
+|**Suporte de protocolo** |iSCSI          |SMB, NFS    | SMB ou NFS      |
+|**Preços**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) e [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
 - Saiba mais sobre [o Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)

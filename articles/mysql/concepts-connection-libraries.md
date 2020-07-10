@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 5f83f937b8d9ec50ec7dc6ec781bff1f435eb45a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5520072ba16b117c33c2ad172030807e51c7cf7a
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537198"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203887"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliotecas de conexão para Azure Database para MySQL
 Este artigo lista cada biblioteca ou controlador que os programas do cliente podem usar ao ligar à Base de Dados Azure para o MySQL.
@@ -35,5 +35,11 @@ O MySQL oferece conectividade padrão do controlador de base de dados para a uti
 ## <a name="next-steps"></a>Passos seguintes
 Leia estes quickstarts sobre como ligar e consultar a Base de Dados Azure para o MySQL utilizando o seu idioma de eleição:
 
-[PHP](./connect-php.md)  |  [Rio Java](./connect-java.md)  |   [.NET (C#)](./connect-csharp.md)  |  [Pitão](./connect-python.md)  |  [Node.JS](./connect-nodejs.md)  |  [Rio Ruby](./connect-ruby.md)  |  [C++](connect-cpp.md)  |  [Vai](./connect-go.md)
-
+- [PHP](./connect-php.md)
+- [Java](./connect-java.md)
+- [.NET (C#)](./connect-csharp.md)
+- [Python](./connect-python.md)
+- [Node.JS](./connect-nodejs.md)
+- [Ruby](./connect-ruby.md)
+- [C++](connect-cpp.md)
+- [Ir](./connect-go.md)

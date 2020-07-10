@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 827d68a5f0f35e42acae1fa225646eb509f69c89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4525ea6e23c4f1c2c96ab2beb21e8bfd5b66ca50
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729324"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204221"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 Este artigo ajuda-o a verificar e a resolver problemas a conectividade ExpressRoute. O ExpressRoute estende uma rede no local para a nuvem da Microsoft sobre uma ligação privada que é geralmente facilitada por um fornecedor de conectividade. A conectividade ExpressRoute envolve tradicionalmente três zonas de rede distintas, da seguinte forma:
@@ -94,7 +95,9 @@ Para que um circuito ExpressRoute esteja operacional, o estado do *circuito* dev
 ### <a name="verification-via-powershell"></a>Verificação via PowerShell
 Para listar todos os circuitos ExpressRoute num Grupo de Recursos, utilize o seguinte comando:
 
-    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+```azurepowershell
+Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+```
 
 >[!TIP]
 >Se estiver à procura do nome de um grupo de recursos, pode obtê-lo listando todos os grupos de recursos da sua subscrição, utilizando o comando *Get-AzResourceGroup*
@@ -103,37 +106,43 @@ Para listar todos os circuitos ExpressRoute num Grupo de Recursos, utilize o seg
 
 Para selecionar um determinado circuito ExpressRoute num Grupo de Recursos, utilize o seguinte comando:
 
-    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+```azurepowershell
+Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+```
 
 Uma resposta da amostra é:
 
-    Name                             : Test-ER-Ckt
-    ResourceGroupName                : Test-ER-RG
-    Location                         : westus2
-    Id                               : /subscriptions/***************************/resourceGroups/Test-ER-RG/providers/***********/expressRouteCircuits/Test-ER-Ckt
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                        "Name": "Standard_UnlimitedData",
-                                        "Tier": "Standard",
-                                        "Family": "UnlimitedData"
-                                        }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             : 
-    ServiceProviderProperties        : {
-                                        "ServiceProviderName": "****",
-                                        "PeeringLocation": "******",
-                                        "BandwidthInMbps": 100
-                                        }
-    ServiceKey                       : **************************************
-    Peerings                         : []
-    Authorizations                   : []
+```output
+Name                             : Test-ER-Ckt
+ResourceGroupName                : Test-ER-RG
+Location                         : westus2
+Id                               : /subscriptions/***************************/resourceGroups/Test-ER-RG/providers/***********/expressRouteCircuits/Test-ER-Ckt
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                    "Name": "Standard_UnlimitedData",
+                                    "Tier": "Standard",
+                                    "Family": "UnlimitedData"
+                                    }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             : 
+ServiceProviderProperties        : {
+                                    "ServiceProviderName": "****",
+                                    "PeeringLocation": "******",
+                                    "BandwidthInMbps": 100
+                                    }
+ServiceKey                       : **************************************
+Peerings                         : []
+Authorizations                   : []
+```
 
 Para confirmar se um circuito ExpressRoute está operacional, preste especial atenção aos seguintes campos:
 
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
+```output
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+```
 
 > [!NOTE]
 > Depois de configurar um circuito ExpressRoute, se o estado do *Circuito* for atingido em estado não ativado, contacte o [Microsoft Support][Support]. Por outro lado, se o *estado do Fornecedor* for atingido em estado não previsto, contacte o seu prestador de serviços.
@@ -167,47 +176,56 @@ No exemplo anterior, como se nota, o espreitamento privado Azure é a provisiona
 ### <a name="verification-via-powershell"></a>Verificação via PowerShell
 Para obter os detalhes de configuração de observação privado do Azure, utilize os seguintes comandos:
 
-    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+```azurepowershell
+$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+```
 
 Uma resposta de amostra, para um olhar privado configurado com sucesso, é:
 
-    Name                       : AzurePrivatePeering
-    Id                         : /subscriptions/***************************/resourceGroups/Test-ER-RG/providers/***********/expressRouteCircuits/Test-ER-Ckt/peerings/AzurePrivatePeering
-    Etag                       : W/"################################"
-    PeeringType                : AzurePrivatePeering
-    AzureASN                   : 12076
-    PeerASN                    : 123##
-    PrimaryPeerAddressPrefix   : 172.16.0.0/30
-    SecondaryPeerAddressPrefix : 172.16.0.4/30
-    PrimaryAzurePort           : 
-    SecondaryAzurePort         : 
-    SharedKey                  : 
-    VlanId                     : 200
-    MicrosoftPeeringConfig     : null
-    ProvisioningState          : Succeeded
+```output
+Name                       : AzurePrivatePeering
+Id                         : /subscriptions/***************************/resourceGroups/Test-ER-RG/providers/***********/expressRouteCircuits/Test-ER-Ckt/peerings/AzurePrivatePeering
+Etag                       : W/"################################"
+PeeringType                : AzurePrivatePeering
+AzureASN                   : 12076
+PeerASN                    : 123##
+PrimaryPeerAddressPrefix   : 172.16.0.0/30
+SecondaryPeerAddressPrefix : 172.16.0.4/30
+PrimaryAzurePort           : 
+SecondaryAzurePort         : 
+SharedKey                  : 
+VlanId                     : 200
+MicrosoftPeeringConfig     : null
+ProvisioningState          : Succeeded
+```
 
  Um contexto de observação bem-sucedido teria os prefixos de endereço primário e secundário listados. As sub-redes /30 são utilizadas para o endereço IP de interface dos MSEEs e CEs/PE-MSEEs.
 
 Para obter os detalhes de configuração de observação do público Azure, utilize os seguintes comandos:
 
-    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+```azurepowershell
+$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+```
 
 Para obter os detalhes de configuração de esquisito da Microsoft, utilize os seguintes comandos:
 
-    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-     Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+```azurepowershell
+$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+```
 
 Se um olhar não estiver configurado, haverá uma mensagem de erro. Uma resposta da amostra, quando o espreitamento declarado (Azure Public espreitando neste exemplo) não está configurado dentro do circuito:
 
-    Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
-    At line:1 char:1
-        + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
-        + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
-            + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
-
+```azurepowershell
+Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
+At line:1 char:1
+    + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
+        + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
+```
 
 > [!NOTE]
 > Se ativar um estorte falhar, verifique se as subnetas primárias e secundárias atribuídas correspondem à configuração do CE/PE-MSEE ligado. Verifique também se os *VlanId*corretos, *AzureASN*e *PeerASN* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no CE/PE-MSEE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e PE-MSEE/CE. A chave partilhada previamente configurada não seria apresentada por razões de segurança. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].  
@@ -233,28 +251,31 @@ Consulte [as tabelas ARP no documento do modelo de implementação do Gestor de 
 
 Para obter a tabela de encaminhamento do MSEE no caminho *primário* para o contexto de encaminhamento *privado,* utilize o seguinte comando:
 
-    Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName ******* -PeeringType AzurePrivatePeering -ResourceGroupName ****
+```azurepowershell
+Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName ******* -PeeringType AzurePrivatePeering -ResourceGroupName ****
+```
 
 Uma resposta de exemplo é:
 
-    Network : 10.1.0.0/16
-    NextHop : 10.17.17.141
-    LocPrf  : 
-    Weight  : 0
-    Path    : 65515
+```output
+Network : 10.1.0.0/16
+NextHop : 10.17.17.141
+LocPrf  : 
+Weight  : 0
+Path    : 65515
 
-    Network : 10.1.0.0/16
-    NextHop : 10.17.17.140*
-    LocPrf  : 
-    Weight  : 0
-    Path    : 65515
+Network : 10.1.0.0/16
+NextHop : 10.17.17.140*
+LocPrf  : 
+Weight  : 0
+Path    : 65515
 
-    Network : 10.2.20.0/25
-    NextHop : 172.16.0.1
-    LocPrf  : 
-    Weight  : 0
-    Path    : 123##
-
+Network : 10.2.20.0/25
+NextHop : 172.16.0.1
+LocPrf  : 
+Weight  : 0
+Path    : 123##
+```
 
 > [!NOTE]
 > Se o estado de um eBGP que espreita entre um MSEE e um CE/PE-MSEE estiver em Ativo ou Idle, verifique se as sub-redes de pares primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE ligado. Verifique também se os *VlanId*corretos, *AzureAsn*e *PeerAsn* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no PE-MSEE/CE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e CE/PE-MSEE. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].
@@ -268,24 +289,32 @@ Uma resposta de exemplo é:
 
 O exemplo a seguir mostra a resposta do comando para um espreguiva que não existe:
 
-    Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
-    StatusCode: 400
+```azurepowershell
+Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
+StatusCode: 400
+```
 
 ## <a name="confirm-the-traffic-flow"></a>Confirme o fluxo de tráfego
 Para obter as estatísticas combinadas de tráfego de vias primárias e secundárias -- bytes dentro e fora -- de um contexto de espreitar, use o seguinte comando:
 
-    Get-AzExpressRouteCircuitStats -ResourceGroupName $RG -ExpressRouteCircuitName $CircuitName -PeeringType 'AzurePrivatePeering'
+```azurepowershell
+Get-AzExpressRouteCircuitStats -ResourceGroupName $RG -ExpressRouteCircuitName $CircuitName -PeeringType 'AzurePrivatePeering'
+```
 
 Uma amostra de saída do comando é:
 
-    PrimaryBytesIn PrimaryBytesOut SecondaryBytesIn SecondaryBytesOut
-    -------------- --------------- ---------------- -----------------
-         240780020       239863857        240565035         239628474
+```output
+PrimaryBytesIn PrimaryBytesOut SecondaryBytesIn SecondaryBytesOut
+-------------- --------------- ---------------- -----------------
+     240780020       239863857        240565035         239628474
+```
 
 Uma amostra do comando para um espreitamento inexistente é:
 
-    Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
-    StatusCode: 400
+```azurepowershell
+Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
+StatusCode: 400
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para mais informações ou ajuda, confira os seguintes links:

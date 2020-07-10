@@ -1,26 +1,27 @@
 ---
-title: Acompanhe e faça login Azure Data Box, Azure Data Box Eventos pesados / Microsoft Docs
-description: Descreve como rastrear e registar eventos nas várias fases da sua caixa de dados Azure e da caixa de dados Azure.
+title: Track and log Azure Data Box, Azure Data Box Eventos pesados para encomenda de importação/ Microsoft Docs
+description: Descreve como rastrear e registar eventos nas várias fases da sua caixa de dados Azure e da encomenda de importação pesada da Caixa de Dados Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676415"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86204301"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Caixa de Dados Azure Pesada
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Azure Data Box Encomenda pesada de importação
 
-Uma Caixa de Dados ou Caixa de Dados A encomenda pesada passa pelos seguintes passos: encomenda, configuração, cópia de dados, retorno, upload para Azure e verificar, e apagamento de dados. Correspondendo a cada passo da encomenda, pode tomar múltiplas ações para controlar o acesso à encomenda, auditar os eventos, rastrear a encomenda e interpretar os vários registos que são gerados.
+Uma caixa de dados ou caixa de dados A ordem de importação pesada passa pelos seguintes passos: encomenda, configuração, cópia de dados, retorno, upload para Azure e verificar, e apagamento de dados. Correspondendo a cada passo da encomenda, pode tomar múltiplas ações para controlar o acesso à encomenda, auditar os eventos, rastrear a encomenda e interpretar os vários registos que são gerados.
 
-A tabela seguinte mostra um resumo dos passos de encomenda pesada da Caixa de Dados ou da Caixa de Dados e as ferramentas disponíveis para rastrear e auditar a encomenda durante cada etapa.
+O quadro seguinte mostra um resumo das etapas de encomenda pesada da Caixa de Dados ou caixa de dados e as ferramentas disponíveis para acompanhar e auditar a encomenda durante cada etapa.
 
-| Fase de encomenda da Caixa de Dados       | Ferramenta para acompanhar e auditar                                                                        |
+| Fase de encomenda de importação de caixa de dados       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Criar encomenda               | [Configurar o controlo de acesso na ordem via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Encomenda processada            | [Acompanhe a encomenda](#track-the-order) através <ul><li> Portal do Azure </li><li> Site da transportadora de envio </li><li>Notificações por e-mail</ul> |
@@ -30,7 +31,7 @@ A tabela seguinte mostra um resumo dos passos de encomenda pesada da Caixa de Da
 | Upload de dados para Azure       | [Reveja os registos de cópias](#review-copy-log-during-upload-to-azure) de erros durante o upload de dados no Azure datacenter                         |
 | Apagamento de dados do dispositivo   | [Ver cadeia de registos de custódia,](#get-chain-of-custody-logs-after-data-erasure) incluindo registos de auditoria e histórico de encomendas                |
 
-Este artigo descreve em detalhe os vários mecanismos ou ferramentas disponíveis para rastrear e auditar data box ou data box encomenda pesada. A informação neste artigo aplica-se a ambos, Data Box e Data Box Heavy. Nas secções seguintes, quaisquer referências à Caixa de Dados também se aplicam à Data Box Heavy.
+Este artigo descreve em detalhe os vários mecanismos ou ferramentas disponíveis para rastrear e auditar data box ou data box encomenda de importação pesada. As informações deste artigo aplicam-se a ambas, data box e data box encomendas pesadas de importação. Nas secções seguintes, quaisquer referências à Caixa de Dados também se aplicam à Data Box Heavy.
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurar o controlo de acesso na ordem
 
@@ -410,6 +411,6 @@ Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [resolver problemas na sua Caixa de Dados e Caixa de Dados Pesada](data-box-troubleshoot.md).

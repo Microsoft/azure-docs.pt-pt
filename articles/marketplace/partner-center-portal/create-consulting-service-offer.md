@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: b9bac7b5b23c4e7d4042b53b93347628488be953
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984275"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203816"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -98,12 +98,22 @@ Esta página permite definir o produto primário que o seu serviço de consultor
 
 3. Se selecionar **o Azure** como produto primário, selecione até três **Áreas de Solução**. Estes facilitam a vida dos clientes no Azure Marketplace. Se não escolheste o Azure, salta este passo.
 
-    | Área de Solução | | | |
-    | --- | --- | --- | --- |
-    | Análise | Cópia de segurança | DevOps | Migração |
-    | Modernização da App | Macrodados | Recuperação Após Desastre | Redes |
-    | Arquivo | Plataforma de Dados | Identidade | Segurança |
-    | IA + Machine Learning | Gestão de Datacenter | Internet das Coisas | Armazenamento |
+    - Análise
+    - Modernização da App
+    - Archive (Arquivo)
+    - IA + Machine Learning
+    - Cópia de segurança
+    - Macrodados
+    - Plataforma de Dados
+    - Gestão de Datacenter
+    - DevOps
+    - Recuperação Após Desastre
+    - Identidade
+    - Internet das Coisas
+    - Migração
+    - Rede
+    - Segurança
+    - Armazenamento
 
 1. Se selecionou **o Azure** como produto primário, tem a opção de selecionar até seis **Indústrias**. Estes facilitam a vida dos clientes no Azure Marketplace. Consulte a lista completa de indústrias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md) Se não escolheste o Azure, salta este passo.
 1. Se selecionar um produto primário *diferente* do Azure, selecione até três **produtos aplicáveis.** Estes facilitam a vida dos clientes no AppSource. Para mais detalhes, consulte [as Diretrizes de Listagem de Serviços de Consultoria de Consultoria da Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
@@ -150,7 +160,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 8. Screenshots/vídeos
 9. Documentos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 

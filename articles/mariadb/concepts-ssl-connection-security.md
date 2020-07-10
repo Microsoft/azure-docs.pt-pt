@@ -5,12 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 4111b0b01690097535412205b60619172e2c100a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 2b166c1907a538d528ddabe3f2c53a962664eaa0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416661"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203870"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL/TLS na Base de Dados Azure para MariaDB
 A Azure Database for MariaDB suporta ligar o seu servidor de base de dados a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -19,6 +20,10 @@ A Azure Database for MariaDB suporta ligar o seu servidor de base de dados a apl
 Por predefinição, o serviço de base de dados deve ser configurado para exigir ligações SSL ao ligar-se ao MariaDB.  Recomendamos que evite desativar a opção SSL sempre que possível.
 
 Ao providenciar uma nova Base de Dados Azure para o servidor MariaDB através do portal Azure e do CLI, a aplicação das ligações SSL é ativada por padrão.
+
+Em alguns casos, os pedidos requerem um ficheiro de certificado local gerado a partir de um ficheiro de certificado fidedigno da Autoridade de Certificados (CA) para se conectarem de forma segura. O certificado para ligar a uma base de dados Azure para o servidor MariaDB está localizado em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
+
+Consulte os seguintes links para certificados para servidores em nuvens soberanas: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 As cadeias de ligação para várias linguagens de programação são mostradas no portal Azure. Essas cadeias de ligação incluem os parâmetros SSL necessários para ligar à sua base de dados. No portal Azure, selecione o seu servidor. No título **Definições,** selecione as **cordas de ligação**. O parâmetro SSL varia em base no conector, por exemplo "ssl=true" ou "sslmode=requir" ou "sslmode=required" e outras variações.
 
@@ -43,13 +48,13 @@ A Azure Database for MariaDB fornece a capacidade de impor a versão TLS para as
 Por exemplo, definir o valor da versão de definição mínima de TLS para TLS 1.0 significa que o seu servidor permitirá ligações de clientes que utilizem TLS 1.0, 1.1 e 1.2+. Em alternativa, defini-lo para 1.2 significa que só permite ligações de clientes que utilizem TLS 1.2+ e todas as ligações com TLS 1.0 e TLS 1.1 serão rejeitadas.
 
 > [!Note] 
-> A azure Database for MariaDB predefinições para TLS ser desativado para todos os novos servidores. 
+> Por predefinição, a Base de Dados Azure para MariaDB não impõe uma versão TLS mínima (a definição `TLSEnforcementDisabled` ).
 >
-> Atualmente, as versões TLS suportadas pela Base de Dados Azure para MariaDB são TLS 1.0, 1.1 e 1.2. Uma vez aplicada a uma versão TLS mínima específica, não pode alterá-la para desativada.
+> Uma vez executada uma versão TLS mínima, não pode desativar a aplicação mínima da versão.
 
 Para aprender a configurar a definição de TLS para a sua Base de Dados Azure para MariaDB, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [as regras de firewall do servidor](concepts-firewall-rules.md)
 - Saiba como configurar o [SSL](howto-configure-ssl.md)
 - Saiba como [configurar o TLS](howto-tls-configurations.md)

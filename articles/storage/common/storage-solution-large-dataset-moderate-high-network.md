@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b60162800695be67c742554881b296c3d8bb9dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 900221bd27fe4020a927b3155c91aa8e494ca890
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504377"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86203838"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Data transfer for large datasets with moderate to high network bandwidth (Transferência de dados para conjuntos de dados grandes com largura de banda de rede moderada ou alta)
  
@@ -64,19 +64,19 @@ Se utilizar a transferência de dados offline, utilize a tabela seguinte para co
 
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Importação/Exportação                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
-|    Tamanho dos dados                        |    Até 35 TBs                 |    Até 80 TBs por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
-|    Tipo de dados                        |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
-|    Fator de forma                      |    5 SSDs por encomenda             |    1 X 50-lbs. dispositivo do tamanho de desktop por ordem    |    1 X ~500-lbs. grande dispositivo por ordem    |    Até 10 HDDs/SSDs por encomenda        |
-|    Tempo inicial de configuração               |    Baixa <br>(15 minutos)            |    Baixo a moderado <br> (<30 minutos)               |    Moderado<br>(1-2 horas)               |    Moderado a difícil<br>(variável) |
-|    Enviar dados para a Azure               |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
-|    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
-|    Encriptação                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
-|    Hardware                         |     Microsoft fornecida          |    Microsoft fornecida                            |    Microsoft fornecida                    |    Cliente fornecido                   |
-|    Interface de rede                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    Integração de parceiros              |    Alguns                         |    [Alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Alto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Alguns                                |
-|    Shipping                         |    Microsoft gerido            |    Microsoft gerido                             |    Microsoft gerido                     |    Gerido pelo cliente                    |
-| Use quando os dados se movem         |Dentro de um limite de comércio|Dentro de um limite de comércio|Dentro de um limite de comércio|Além das fronteiras geográficas, por exemplo, eua à UE|
-|    Preços                          |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    **Tamanho dos dados**                    |    Até 35 TBs                 |    Até 80 TBs por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
+|    **Tipo de dados**                    |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
+|    **Fator de forma**                  |    5 SSDs por encomenda             |    1 X 50-lbs. dispositivo do tamanho de desktop por ordem    |    1 X ~500-lbs. grande dispositivo por ordem    |    Até 10 HDDs/SSDs por encomenda        |
+|    **Tempo inicial de configuração**               |    Baixo <br>(15 minutos)            |    Baixo a moderado <br> (<30 minutos)               |    Moderado<br>(1-2 horas)               |    Moderado a difícil<br>(variável) |
+|    **Enviar dados para a Azure**           |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
+|    **Exportar dados do Azure**           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
+|    **Encriptação**                   |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
+|    **Hardware**                     |     Microsoft fornecida          |    Microsoft fornecida                            |    Microsoft fornecida                    |    Cliente fornecido                   |
+|    **Interface de rede**            |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
+|    **Integração de parceiros**          |    Alguns                         |    [Elevado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                          |    [Elevado](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureExpressPod)                                  |    Alguns                                |
+|    **Shipping**                     |    Microsoft gerido            |    Microsoft gerido                             |    Microsoft gerido                     |    Gerido pelo cliente                    |
+| **Use quando os dados se movem**     |Dentro de um limite de comércio|Dentro de um limite de comércio|Dentro de um limite de comércio|Além das fronteiras geográficas, por exemplo, eua à UE|
+|    **Preços**                          |    [Preços](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Preços](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Preços](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Preços](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 Se utilizar a transferência de dados on-line, utilize a tabela na secção seguinte para uma largura de banda de alta rede.
@@ -85,15 +85,15 @@ Se utilizar a transferência de dados on-line, utilize a tabela na secção segu
 
 |                                     |    Ferramentas AzCopy, <br>Azure PowerShell, <br>CLI do Azure             |    Azure Storage REST APIs, SDKs                   |    Gateway de caixa de dados ou borda da caixa de dados          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
-|    Tipo de dados                  |    Azure Blobs, Ficheiros Azure, Tabelas Azure    |    Azure Blobs, Ficheiros Azure, Tabelas Azure    |    Azure Blobs, Ficheiros Azure                           |   Suporta mais de 70 conectores de dados para lojas de dados e formatos    |
-|    Fator de forma                |    Ferramentas de linha de comandos                        |    Interface programática                    |    Microsoft fornece um virtual <br>ou dispositivo físico     |    Serviço no portal Azure                                            |
-|    Configuração inicial de uma vez     |    Fácil               |    Moderado                       |    Fácil (<30 minutos) a moderado (1-2 horas)            |    Extensa                                                          |
-|    Pré-processamento de dados              |    Não                                        |    Não                                        |    Sim (Com o cálculo Edge)                               |    Sim                                                                |
-|    Transferência de outras nuvens       |    Não                                        |    Não                                        |    Não                                                    |    Sim                                                                |
-|    Tipo de utilizador                        |    IT Pro ou dev                                       |    Dev                                       |    Profissional de TI                                                |    Profissional de TI                                                             |
-|    Preços                          |    Taxas gratuitas e de saída de dados aplicam-se         |    Taxas gratuitas e de saída de dados aplicam-se         |    [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
+|    **Tipo de dados**              |    Azure Blobs, Ficheiros Azure, Tabelas Azure    |    Azure Blobs, Ficheiros Azure, Tabelas Azure    |    Azure Blobs, Ficheiros Azure                           |   Suporta mais de 70 conectores de dados para lojas de dados e formatos    |
+|    **Fator de forma**            |    Ferramentas de linha de comandos                        |    Interface programática                    |    Microsoft fornece um virtual <br>ou dispositivo físico     |    Serviço no portal Azure                                            |
+|    **Configuração inicial de uma vez** |    Fácil               |    Moderado                       |    Fácil (<30 minutos) a moderado (1-2 horas)            |    Extensa                                                          |
+|    **Pré-processamento de dados**          |    Não                                        |    Não                                        |    Sim (Com o cálculo Edge)                               |    Sim                                                                |
+|    **Transferência de outras nuvens**   |    Não                                        |    Não                                        |    Não                                                    |    Sim                                                                |
+|    **Tipo de utilizador**                    |    IT Pro ou dev                                       |    Dev                                       |    Profissional de TI                                                |    Profissional de TI                                                             |
+|    **Preços**                      |    Taxas gratuitas e de saída de dados aplicam-se         |    Taxas gratuitas e de saída de dados aplicam-se         |    [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba como transferir dados com Importação/Exportação.](/azure/storage/common/storage-import-export-data-to-blobs)
 - Compreender como
