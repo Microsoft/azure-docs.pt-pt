@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3312d1ec7c2535e103cf8959599c0d4c3014f520
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561771"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218301"
 ---
 1. [Ligue-se à interface PowerShell](#connect-to-the-powershell-interface).
 2. Use o `Get-HcsApplianceInfo` para obter a informação para o seu dispositivo.
@@ -44,15 +44,15 @@ ms.locfileid: "82561771"
     ```
 
     Aqui está uma tabela que resume algumas das informações importantes do dispositivo:
-    
-    | Parâmetro                             | Descrição                                                                                                                                                  |   |
-    |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | O nome amigável do dispositivo configurado através da UI web local durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo.  |   |
-    | SerialNumber                   | O número de série do dispositivo é um número único atribuído na fábrica.                                                                             |   |
-    | Modelo                          | O modelo para o seu dispositivo Azure Stack Edge ou Data Box Gateway. O modelo é físico para Azure Stack Edge e virtual para Data Box Gateway.                   |   |
-    | FriendlySoftwareVersion        | A cadeia amigável que corresponde à versão do software do dispositivo. Para uma pré-visualização do sistema em execução, a versão amigável do software seria Data Box Edge 1902. |   |
-    | HcsVersion                     | A versão de software HCS em execução no seu dispositivo. Por exemplo, a versão de software HCS correspondente ao Data Box Edge 1902 é de 1.4.771.324.            |   |
-    | Capacidade LocalInMb              | A capacidade local total do dispositivo em Megabits.                                                                                                        |   |
-    | IsRegistered                   | Este valor indica se o seu dispositivo está ativado com o serviço.                                                                                         |   |
+
+    | Parâmetro | Descrição |
+    |-----------|-------------|
+    | FriendlyName                   | O nome amigável do dispositivo configurado através da UI web local durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo.  |
+    | SerialNumber                   | O número de série do dispositivo é um número único atribuído na fábrica.                                                                             |
+    | Modelo                          | O modelo para o seu dispositivo Azure Stack Edge ou Data Box Gateway. O modelo é físico para Azure Stack Edge e virtual para Data Box Gateway.                   |
+    | FriendlySoftwareVersion        | A cadeia amigável que corresponde à versão do software do dispositivo. Para uma pré-visualização do sistema em execução, a versão amigável do software seria Data Box Edge 1902. |
+    | HcsVersion                     | A versão de software HCS em execução no seu dispositivo. Por exemplo, a versão de software HCS correspondente ao Data Box Edge 1902 é de 1.4.771.324.            |
+    | Capacidade LocalInMb              | A capacidade local total do dispositivo em Megabits.                                                                                                        |
+    | IsRegistered                   | Este valor indica se o seu dispositivo está ativado com o serviço.                                                                                         |
 
 

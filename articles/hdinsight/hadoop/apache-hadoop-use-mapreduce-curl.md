@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
-ms.openlocfilehash: a1d411662fd7afe57c714b97ab67b9d490acd40d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076373"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207720"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando REST
 
@@ -61,7 +61,7 @@ Faça o seguinte:
 
     Recebe uma resposta semelhante à seguinte JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -83,9 +83,7 @@ Faça o seguinte:
      * **classe**: A classe que contém a lógica MapReduce
      * **arg**: Os argumentos a serem passados para o trabalho mapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são usados para a saída
 
-    Este comando deve devolver uma ID de trabalho que pode ser usada para verificar o estado do trabalho:
-
-       job_1415651640909_0026
+    Este comando deve devolver uma identificação de trabalho que pode ser usada para verificar o estado do trabalho: `job_1415651640909_0026` .
 
 1. Para verificar o estado do trabalho, utilize o seguinte comando. Substitua o valor pelo `JOBID` valor **real** devolvido no passo anterior. Rever a localização do **JQ** conforme necessário.
 
@@ -105,7 +103,7 @@ Faça o seguinte:
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-1. utilize o seguinte comando para verificar se pode ligar-se ao seu cluster HDInsight:
+1. Utilize o seguinte comando para verificar se pode ligar-se ao seu cluster HDInsight:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -116,7 +114,7 @@ Faça o seguinte:
 
     Recebe uma resposta semelhante à seguinte JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -146,9 +144,7 @@ Faça o seguinte:
     * **classe**: A classe que contém a lógica MapReduce
     * **arg**: Os argumentos a serem passados para o trabalho mapReduce. Neste caso, o ficheiro de texto de entrada e o diretório que são usados para a saída
 
-   Este comando deve devolver uma ID de trabalho que pode ser usada para verificar o estado do trabalho:
-
-       job_1415651640909_0026
+   Este comando deve devolver uma identificação de trabalho que pode ser usada para verificar o estado do trabalho: `job_1415651640909_0026` .
 
 1. Para verificar o estado do trabalho, utilize o seguinte comando:
 
@@ -173,7 +169,7 @@ Faça o seguinte:
 
 Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do CLI Azure para trabalhar com o armazenamento Azure Blob, consulte [Quickstart: Criar, descarregar e listar bolhas com Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre outras formas de trabalhar com Hadoop em HDInsight:
 

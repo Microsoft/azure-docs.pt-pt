@@ -1,18 +1,18 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ca9d41134bf33a9e007da4b5a56652ccdbd4e22
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84317624"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218246"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens geridas. As Galerias de Imagem Partilhadas fornecem:
 
@@ -31,7 +31,7 @@ Se tiver um grande número de imagens que precisa de manter, e quiser disponibil
 
 A funcionalidade Image Gallery partilhada tem vários tipos de recursos:
 
-| Recurso | Description|
+| Recurso | Descrição|
 |----------|------------|
 | **Fonte de imagem** | Este é um recurso que pode ser usado para criar uma **versão de imagem** numa galeria de imagens. Uma fonte de imagem pode ser um Azure VM existente que é [generalizado ou especializado](#generalized-and-specialized-images), uma imagem gerida, um instantâneo ou uma versão de imagem em outra galeria de imagens. |
 | **Galeria de imagens** | Tal como o Azure Marketplace, uma **galeria de imagens** é um repositório para gerir e partilhar imagens, mas você controla quem tem acesso. |
@@ -52,7 +52,7 @@ Existem três parâmetros para cada definição de imagem que são usados em com
 |---|---|---|---|
 |myImage1|Contoso|Finance|Back-end|
 |myImage2|Contoso|Finance|Front-end|
-|myImage3|Testar|Finance|Front-end|
+|myImage3|Teste|Finance|Front-end|
 
 Todos estes três têm conjuntos únicos de valores. O formato é semelhante ao que pode especificar atualmente as imagens de editor, oferta e SKU para [Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) em Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem precisa de ter um conjunto único destes valores.
 
@@ -84,20 +84,7 @@ Os VM especializados não passaram por um processo para remover informações e 
 
 As regiões de origem estão listadas no quadro abaixo. Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição whitelist. Para solicitar a whitelisting, vá a:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-
-| Regiões-fonte        |                   |                    |                    |
-| --------------------- | ----------------- | ------------------ | ------------------ |
-| Austrália Central     | Leste da China        | Sul da Índia        | Europa Ocidental        |
-| Austrália Central 2   | China Leste 2      | Ásia Sudeste     | Sul do Reino Unido           |
-| Leste da Austrália        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
-| Austrália Sudeste   | China Norte 2     | Oeste do Japão         | US DoD Centro     |
-| Sul do Brasil          | Ásia Leste         | Coreia do Sul Central      | US DoD - Leste        |
-| Canadá Central        | E.U.A. Leste           | Sul da Coreia do Sul        | US Gov - Arizona     |
-| Leste do Canadá           | E.U.A. Leste 2         | E.U.A. Centro-Norte   | US Gov - Texas       |
-| Índia Central         | Leste DOS EUA 2    | Europa do Norte       | US Gov - Virginia    |
-| E.U.A. Central            | França Central    | E.U.A. Centro-Sul   | Oeste da Índia         |
-| EUA Central EUAP       | Sul de França      | E.U.A. Centro-Oeste    | E.U.A. Oeste            |
-|                       |                   |                    | E.U.A.Oeste 2          |
+> Austrália Central, China Oriental, Índia do Sul, Europa Ocidental, Austrália Central 2, China Leste 2, Sudeste Asiático, Reino Unido Sul, Austrália Oriental, China Norte, Japão Leste, Reino Unido, Austrália Sudeste, China Norte 2, Japão Oeste, EUA Central, Brasil Sul, Ásia Oriental, Coreia Central, EUA Dod Leste, Canadá Central, Leste dos EUA, Coreia do Sul, Eua Gov, Canadá , EUA Gov Texas, Central India, East US 2 EUAP, North Europe, US Gov Virginia, Central US, France Central US, West India, Central US EUAP, France South, West Central US, West Us, West US, West US 2 !
 
 
 
@@ -139,7 +126,7 @@ As regiões para ver uma imagem partilhada são replicadas para serem atualizada
 
 ![Gráfico mostrando como pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acesso
 
 Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são todos recursos, podem ser partilhados usando os controlos Azure RBAC nativos incorporados. Utilizando o RBAC, pode partilhar estes recursos com outros utilizadores, diretores de serviços e grupos. Pode até partilhar o acesso a indivíduos fora do inquilino onde foram criados. Uma vez que um utilizador tenha acesso à versão Imagem Partilhada, pode implementar um VM ou um Conjunto de Escala de Máquina Virtual.  Aqui está a matriz de partilha que ajuda a entender a que o utilizador tem acesso:
 
@@ -162,12 +149,12 @@ Não existe qualquer custo extra para a utilização do serviço Image Gallery P
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Description
+- Descrição
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Description
+- Descrição
 - Data de fim de vida
 
 Versão de imagem:
@@ -218,7 +205,7 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 
 Para listar todos os recursos da Galeria de Imagens Partilhadas através de subscrições a que tem acesso no portal Azure, siga os passos abaixo:
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 1. Percorra a página e selecione **Todos os recursos**.
 1. Selecione todas as subscrições sob as quais gostaria de listar todos os recursos.
 1. Procure recursos de galeria de **imagens partilhadas,**.

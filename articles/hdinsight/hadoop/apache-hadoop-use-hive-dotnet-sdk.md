@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 12d3762889253e2e3d359c6bf44bd166482c69f3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f1927d44daf49d938d2c43ce9de02cb1dbfb735f
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076543"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207749"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas de Hive Apache usando HDInsight .NET SDK
 
@@ -43,7 +43,9 @@ O HDInsight .NET SDK fornece bibliotecas de clientes .NET, o que facilita o trab
 
 1. A partir da Consola Nuget Package Manager, executar o seguinte comando:
 
-        Install-Package Microsoft.Azure.Management.HDInsight.Job
+    ```console
+    Install-Package Microsoft.Azure.Management.HDInsight.Job
+    ```
 
 1. Editar o código abaixo para rubricar os valores para variáveis: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` . Em seguida, use o código revisto como todo o conteúdo de **Program.cs** em Visual Studio.
 
@@ -138,7 +140,7 @@ A saída da aplicação deve ser semelhante:
 
 ![Saída de trabalho da DDInsight Hadoop Hive](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a submeter consultas de Hive Apache usando HDInsight .NET SDK. Para saber mais, consulte os seguintes artigos:
 

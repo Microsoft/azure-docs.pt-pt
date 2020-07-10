@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4e31560126919e4c61b176a6eaa62ee7f9b4a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8d712e4eecb930b52a519a1aaddf97c744a24ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112109"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218338"
 ---
 Os discos EFÉMER OS são criados no armazenamento da máquina virtual local (VM) e não guardados para o remoto Azure Storage. Os discos efémeros de OS funcionam bem para cargas de trabalho apátridas, onde as aplicações são tolerantes a falhas individuais de VM, mas são mais afetadas pelo tempo de implantação de VM ou pela reimaging das instâncias VM individuais. Com o disco Efemeral OS, obtém-se uma menor leitura/escrita latência para o disco de OS e uma reimagem VM mais rápida. 
  
@@ -30,17 +30,17 @@ As principais características dos discos efémeros são:
  
 Principais diferenças entre discos de OS persistentes e efémeros:
 
-|                             | Disco de SO persistente                          | Disco de SO Efémero                              |    |
+|                             | Disco de SO persistente                          | Disco de SO Efémero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Limite de tamanho para disco de SO      | 2 TiB                                                                                        | Tamanho da cache para o tamanho VM ou 2TiB, o que for menor. Para o tamanho da **cache em GiB**, ver [DS,](../articles/virtual-machines/linux/sizes-general.md) [ES,](../articles/virtual-machines/linux/sizes-memory.md) [M,](../articles/virtual-machines/linux/sizes-memory.md) [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| Tamanhos VM suportados          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
-| Suporte do tipo de disco           | Disco de OS gerido e não gerido                                                                | Apenas disco de SO gerido                                                               |
-| Suporte de região              | Todas as regiões                                                                                  | Todas as regiões                              |
-| Persistência de dados            | Os dados do disco de SO escritos no disco OS são armazenados no Azure Storage                                  | Os dados escritos no disco OS são armazenados no armazenamento local de VM e não são persistidos ao Azure Storage. |
-| Estado stop-deallocated      | VMs e instâncias definidas em escala podem ser stop-dealloced e reiniciado a partir do estado stop-deallocated | VMs e instâncias definidas em escala não podem ser stop-deallocated                                  |
-| Suporte especializado em disco de SO | Sim                                                                                          | Não                                                                                 |
-| Redimensionar o disco de OS              | Suportado durante a criação de VM e depois de VM é stop-deallocated                                | Suportado apenas durante a criação de VM                                                  |
-| Redimensionamento para um novo tamanho VM   | Os dados do disco de SO são preservados                                                                    | Os dados do disco de so são eliminados, o SO é re-provisionado                                      |
+| **Limite de tamanho para disco de SO**      | 2 TiB                                                                                        | Tamanho da cache para o tamanho VM ou 2TiB, o que for menor. Para o tamanho da **cache em GiB**, ver [DS,](../articles/virtual-machines/linux/sizes-general.md) [ES,](../articles/virtual-machines/linux/sizes-memory.md) [M,](../articles/virtual-machines/linux/sizes-memory.md) [FS](../articles/virtual-machines/linux/sizes-compute.md)e [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
+| **Tamanhos VM suportados**          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
+| **Suporte do tipo de disco**           | Disco de OS gerido e não gerido                                                                | Apenas disco de SO gerido                                                               |
+| **Suporte de região**              | Todas as regiões                                                                                  | Todas as regiões                              |
+| **Persistência de dados**            | Os dados do disco de SO escritos no disco OS são armazenados no Azure Storage                                  | Os dados escritos no disco OS são armazenados no armazenamento local de VM e não são persistidos ao Azure Storage. |
+| **Estado stop-deallocated**      | VMs e instâncias definidas em escala podem ser stop-dealloced e reiniciado a partir do estado stop-deallocated | VMs e instâncias definidas em escala não podem ser stop-deallocated                                  |
+| **Suporte especializado em disco de SO** | Sim                                                                                          | Não                                                                                 |
+| **Redimensionar o disco de OS**              | Suportado durante a criação de VM e depois de VM é stop-deallocated                                | Suportado apenas durante a criação de VM                                                  |
+| **Redimensionamento para um novo tamanho VM**   | Os dados do disco de SO são preservados                                                                    | Os dados do disco de so são eliminados, o SO é re-provisionado                                      |
 
 ## <a name="size-requirements"></a>Requisitos de tamanho
 
@@ -185,7 +185,7 @@ POST https://management.azure.com/subscriptions/{sub-
 id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2018-06-01" 
 ```
  
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Qual é o tamanho dos discos oss locais?**
 

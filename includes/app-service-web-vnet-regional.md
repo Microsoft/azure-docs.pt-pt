@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: ee81b391587b994bd79e9f0950d041de70153b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488800"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218209"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -28,7 +28,7 @@ Quando utilizar a Integração VNet com VNets na mesma região, pode utilizar as
 
 Por padrão, a sua aplicação apenas encaminha o tráfego RFC1918 para o seu VNet. Se quiser encaminhar todo o tráfego de saída para o seu VNet, aplique a definição da aplicação WEBSITE_VNET_ROUTE_ALL para a sua aplicação. Para configurar a definição da aplicação:
 
-1. Aceda ao **UI de configuração** no portal da aplicação. Selecione **nova definição de aplicação**.
+1. Aceda ao **UI de configuração** no portal da aplicação. Selecione **Nova definição da aplicação**.
 1. Introduza **WEBSITE_VNET_ROUTE_ALL** na caixa **Nome** e introduza **1** na caixa **Valor.**
 
    ![Fornecer definição de aplicação][4]
@@ -41,7 +41,7 @@ Se encaminhar todo o tráfego de saída para o seu VNet, está sujeito aos NSGs 
 Existem algumas limitações com a utilização da Integração VNet com VNets na mesma região:
 
 * Não se pode alcançar recursos através de ligações globais de observação.
-* A funcionalidade está disponível apenas a partir de novas unidades de escala do Azure App Service que suportam planos do Serviço de Aplicações PremiumV2.
+* A funcionalidade está disponível apenas a partir de novas unidades de escala do Azure App Service que suportam planos do Serviço de Aplicações PremiumV2. Note que *isso não significa que a sua aplicação deve funcionar num nível de preços PremiumV2*, apenas que deve funcionar num Plano de Serviço de Aplicações onde a opção PremiumV2 está disponível (o que implica que é uma unidade de escala mais recente onde esta funcionalidade de integração VNet também está disponível).
 * A sub-rede de integração pode ser utilizada apenas por um plano de Serviço de Aplicações.
 * A funcionalidade não pode ser utilizada por aplicações de plano isolado que se encontrem num Ambiente de Serviço de Aplicações.
 * A funcionalidade requer uma sub-rede não utilizada que seja uma /27 com 32 endereços ou maior num VNet do Gestor de Recursos Azure.

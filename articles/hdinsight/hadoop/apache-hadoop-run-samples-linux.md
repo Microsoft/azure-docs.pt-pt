@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
-ms.openlocfilehash: bef655c4dd30147733b28252199a7d8b58df42f8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cc0918f3d9739a214e682d7faa460b6cc519cb0b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085995"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207846"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos MapReduce incluídos no HDInsight
 
@@ -107,10 +107,12 @@ Neste arquivo estão contidas as seguintes amostras:
 
     Este comando concatena todos os ficheiros de saída produzidos pelo trabalho. Apresenta a saída para a consola. O resultado é semelhante ao seguinte texto:
 
-        zum     1
-        zur     1
-        zwanzig 1
-        zweite  1
+    ```output
+    zum     1
+    zur     1
+    zwanzig 1
+    zweite  1
+    ```
 
     Cada linha representa uma palavra e quantas vezes ocorreu nos dados de entrada.
 
@@ -124,15 +126,17 @@ Neste arquivo estão contidas as seguintes amostras:
 
 Há uma certa maneira de construir puzzles sudoku; não se pode repetir um número numa coluna ou numa linha. Há um exemplo no cluster HDInsight que é devidamente construído. Está localizado `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` e contém o seguinte texto:
 
-    8 5 ? 3 9 ? ? ? ?
-    ? ? 2 ? ? ? ? ? ?
-    ? ? 6 ? 1 ? ? ? 2
-    ? ? 4 ? ? 3 ? 5 9
-    ? ? 8 9 ? 1 4 ? ?
-    3 2 ? 4 ? ? 8 ? ?
-    9 ? ? ? 8 ? 5 ? ?
-    ? ? ? ? ? ? 2 ? ?
-    ? ? ? ? 4 5 ? 7 8
+```output
+8 5 ? 3 9 ? ? ? ?
+? ? 2 ? ? ? ? ? ?
+? ? 6 ? 1 ? ? ? 2
+? ? 4 ? ? 3 ? 5 9
+? ? 8 9 ? 1 4 ? ?
+3 2 ? 4 ? ? 8 ? ?
+9 ? ? ? 8 ? 5 ? ?
+? ? ? ? ? ? 2 ? ?
+? ? ? ? 4 5 ? 7 8
+```
 
 Para passar este exemplo do problema através do exemplo de Sudoku, utilize o seguinte comando:
 
@@ -142,15 +146,17 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 Os resultados parecem semelhantes ao seguinte texto:
 
-    8 5 1 3 9 2 6 4 7
-    4 3 2 6 7 8 1 9 5
-    7 9 6 5 1 4 3 8 2
-    6 1 4 8 2 3 7 5 9
-    5 7 8 9 6 1 4 2 3
-    3 2 9 4 5 7 8 1 6
-    9 4 7 2 8 6 5 3 1
-    1 8 5 7 3 9 2 6 4
-    2 6 3 1 4 5 9 7 8
+```output
+8 5 1 3 9 2 6 4 7
+4 3 2 6 7 8 1 9 5
+7 9 6 5 1 4 3 8 2
+6 1 4 8 2 3 7 5 9
+5 7 8 9 6 1 4 2 3
+3 2 9 4 5 7 8 1 6
+9 4 7 2 8 6 5 3 1
+1 8 5 7 3 9 2 6 4
+2 6 3 1 4 5 9 7 8
+```
 
 ## <a name="pi--example"></a>Pi (π) exemplo
 
@@ -206,7 +212,7 @@ Utilize os seguintes passos para gerar dados, classificar e, em seguida, validar
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A partir deste artigo, aprendeu a executar as amostras incluídas com os clusters HDInsight baseados em Linux. Para tutoriais sobre a utilização de Porco, Colmeia e MapReduce com HDInsight, consulte os seguintes tópicos:
 

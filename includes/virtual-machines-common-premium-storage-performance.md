@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84017614"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218284"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
@@ -119,10 +119,10 @@ O quadro abaixo resume os fatores de desempenho e os passos necessários para ot
 
 Para obter mais informações sobre os tamanhos VM e sobre o IOPS, produção e latência disponíveis para cada tipo de VM, consulte [os tamanhos Linux VM](../articles/virtual-machines/linux/sizes.md) ou [tamanhos VM do Windows](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **IOPS** | **Débito** | **Latência** |
+| | **IOPS** | **Débito** | **Latência** |
 | --- | --- | --- | --- |
 | **Cenário de exemplo** |Aplicação OLTP da Empresa que requer transações muito elevadas por segunda taxa. |Aplicação de armazenamento de dados da empresa que processa grandes quantidades de dados. |Aplicações quase em tempo real que requerem respostas instantâneas aos pedidos dos utilizadores, como jogos online. |
-| Fatores de desempenho | &nbsp; | &nbsp; | &nbsp; |
+| **Fatores de desempenho** | &nbsp; | &nbsp; | &nbsp; |
 | **Tamanho IO** |O tamanho IO menor produz IOPS mais alto. |Maior tamanho IO para rendimentos mais altos. | &nbsp;|
 | **Tamanho VM** |Utilize um tamanho VM que ofereça IOPS superior ao seu requisito de aplicação. |Utilize um tamanho VM com limite de produção superior ao seu requisito de aplicação. |Utilize um tamanho VM que ofereça limites de escala superiores aos requisitos da sua aplicação. |
 | **Tamanho do disco** |Utilize um tamanho de disco que ofereça IOPS superior ao seu requisito de aplicação. |Utilize um tamanho de disco com limite de potência superior ao seu requisito de aplicação. |Utilize um tamanho de disco que ofereça limites de escala superiores aos requisitos da sua aplicação. |
@@ -237,7 +237,7 @@ Os VMs de alta escala que alavancam o Azure Premium Storage têm uma tecnologia 
 > [!WARNING]
 > O Caching do disco não é suportado para discos 4 TiB e maiores. Se vários discos estiverem ligados ao seu VM, cada disco que seja menor que 4 TiB irá suportar o cache.
 >
-> Alterar a definição de cache de um disco do Azure desanexa e anexa o disco de destino. Se for o disco do sistema operativo, o VM é reiniciado. Pare todas as aplicações/serviços que possam ser afetados por esta interrupção antes de alterar a definição da cache do disco. Não seguir estas recomendações pode levar à corrupção de dados.
+> Alterar a definição de cache de um disco do Azure desanexa e anexa o disco de destino. Se for o disco do sistema operativo, o VM é reiniciado. Pare todas as aplicações/serviços que possam ser afetadas por esta interrupção antes de alterar a definição da cache do disco. Não seguir estas recomendações pode levar à corrupção de dados.
 
 Para saber mais sobre como funciona o BlobCache, consulte o post de blog Inside [Azure Premium Storage.](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 
@@ -252,7 +252,7 @@ Seguem-se as definições recomendadas de cache de disco para discos de dados,
 
 | **Definição de cache de disco** | **recomendação sobre quando usar esta definição** |
 | --- | --- |
-| Nenhuma |Configure a cache do hospedeiro como Nenhum para discos só de escrita e de escrita pesada. |
+| Nenhum |Configure a cache do hospedeiro como Nenhum para discos só de escrita e de escrita pesada. |
 | ReadOnly |Configure a cache do anfitrião como ReadOnly para discos de leitura e leitura. |
 | ReadWrite |Configure a cache do hospedeiro como ReadWrite apenas se a sua aplicação manusear corretamente a escrita de dados em cache para discos persistentes quando necessário. |
 
@@ -262,10 +262,10 @@ Ao configurar o ReadOnly caching em discos de dados de armazenamento premium, po
 1. As leituras realizadas a partir de cache, que está na memória VM e SSD local, são muito mais rápidas do que as leituras do disco de dados, que está no armazenamento de bolhas Azure.  
 1. Premium Armazenamento não conta as Leituras servidas a partir de cache, para o disco IOPS e Produção. Portanto, a sua aplicação é capaz de alcançar um total mais elevado de IOPS e Produção.
 
-*ReadWrite*  
+*LerWrite*  
 Por predefinição, os discos OS têm o cache ReadWrite ativado. Recentemente, acrescentámos suporte para o cache readWrite em discos de dados também. Se estiver a utilizar o cache ReadWrite, deve ter uma forma adequada de escrever os dados da cache para discos persistentes. Por exemplo, o SQL Server trata da escrita de dados em cache para os discos de armazenamento persistentes por si só. A utilização da cache ReadWrite com uma aplicação que não lida com a persistência dos dados necessários pode levar à perda de dados, se o VM falhar.
 
-*Nenhum*  
+*Nenhuma*  
 Atualmente, **nenhum** é suportado apenas em discos de dados. Não é suportado em discos de SO. Se colocar **Nenhum** num disco DE, irá sobrepor-se internamente e defini-lo-á para **ReadOnly**.
 
 Como exemplo, pode aplicar estas diretrizes ao SQL Server em execução no Armazenamento Premium, fazendo o seguinte,
@@ -383,5 +383,5 @@ Para um volume listrado, mantenha uma profundidade de fila suficientemente alta 
 
 As disposições de Armazenamento Azure Premium especificaram o número de IOPS e Depute dependendo dos tamanhos de VM e dos tamanhos do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Produção acima destes limites do que o VM ou o disco podem manusear, o Premium Storage irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor produção ou iops mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente excedendo o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, sempre fornecendo recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos de VM e tamanhos de disco acima. O benchmarking é a melhor maneira de descobrir quais os recursos necessários para hospedar a sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 

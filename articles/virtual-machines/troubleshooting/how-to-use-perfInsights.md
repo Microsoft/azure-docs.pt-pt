@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 896e69bad9cd75b57ef2bf93048c332ef4d974c0
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847450"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207708"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
@@ -101,9 +101,8 @@ Quando se faz uma análise de desempenho avançada, seleciona-se vestígios para
 
 São recolhidas informações sobre a configuração de conjuntos de discos ou piscinas de armazenamento, contadores de desempenho, registos e vários vestígios. Depende do cenário de desempenho que está a usar. A tabela seguinte fornece detalhes:
 
-|Dados recolhidos                              |  |  | Cenários de desempenho |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Análise rápida do desempenho | Benchmarking | Análise de desempenho | Análise de Ficheiros Azure | Análise avançada de desempenho |
+| Dados recolhidos | Análise rápida do desempenho | Benchmarking | Análise de desempenho | Análise de Ficheiros Azure | Análise avançada de desempenho |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Informações dos registos de eventos       | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Informações do sistema                | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Mapa de volume                        | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
@@ -303,7 +302,7 @@ Diskspd é um gerador de carga de armazenamento e uma ferramenta de teste de des
 
 Xperf é uma ferramenta de linha de comando para capturar vestígios do Conjunto de Ferramentas de Desempenho do Windows. Para mais informações, consulte [o Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode fazer o upload de registos e relatórios de diagnóstico para o Microsoft Support para posterior revisão. O suporte poderá solicitar que transmita a saída gerada pela PerfInsights para ajudar no processo de resolução de problemas.
 

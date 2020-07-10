@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 6490292ef898e00c7677c829be41f3b06c638164
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076611"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207832"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilizar a Vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -66,7 +66,7 @@ Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apach
     |CRIAR TABELA EXTERNA|Cria uma nova tabela "externa" na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.|
     |FORMATO DE LINHA|Mostra como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
     |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Mostra onde os dados são armazenados, e que é armazenado como texto.|
-    |SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna t4 contém o valor [ERROR].|
+    |SELECT|Seleciona uma contagem de todas as linhas onde a coluna t4 contém o valor [ERROR].|
 
    > [!IMPORTANT]  
    > Deixe a seleção __da Base de Dados__ __por defeito__. Os exemplos deste documento utilizam a base de dados padrão incluída no HDInsight.
@@ -75,8 +75,10 @@ Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apach
 
 1. Depois de concluída a consulta, o separador **Resultados** apresenta os resultados da operação. O seguinte texto é o resultado da consulta:
 
-        loglevel       count
-        [ERROR]        3
+    ```output
+    loglevel       count
+    [ERROR]        3
+    ```
 
     Pode utilizar o **separador LOG** para visualizar as informações de registo que o trabalho criou.
 
@@ -157,7 +159,7 @@ Para obter mais informações sobre a utilização de UDFs com Hive em HDInsight
 
 Pode alterar várias definições de Hive, tais como alterar o motor de execução da Colmeia de Tez (o padrão) para MapReduce.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para informações gerais sobre a Colmeia em HDInsight:
 

@@ -4,15 +4,15 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71460af42b4da97a578ae5a3e23a714577e71867
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184699"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86218297"
 ---
-| Porto não.| Dentro ou fora | Âmbito portuário| Necessário|   Notas |   |
-|--------|-----|-----|-----------|----------|-----------|
+| Porto não.| Dentro ou fora | Âmbito portuário| Obrigatório|   Notas |
+|--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|Saída|WAN |Não|A porta de saída é utilizada para o acesso à Internet para recuperar atualizações. <br>O representante da web de saída é configurável pelo utilizador. |
 | TCP 443 (HTTPS)|Saída|WAN|Sim|A porta de saída é utilizada para aceder a dados na nuvem.<br>O representante da web de saída é configurável pelo utilizador.|
 | UDP 123 (NTP)|Saída|WAN|Em alguns casos<br>Ver notas|Esta porta só é necessária se estiver a utilizar um servidor NTP baseado na Internet.  |   
