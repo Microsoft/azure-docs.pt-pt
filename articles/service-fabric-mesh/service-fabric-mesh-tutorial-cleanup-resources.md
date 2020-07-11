@@ -1,17 +1,17 @@
 ---
-title: Tutorial- Cleanup Azure Service Malha de malha
+title: Tutorial- Limpeza Azure Serviço Recursos de Malha de Tecido
 description: Saiba como remover recursos do Azure Service Fabric Mesh, para que não lhe sejam cobrados recursos que já não está a utilizar.
 author: dkkapur
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8ce3c795bc9ad212331ce1c1f413fe7fd6da909
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75351864"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246759"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Tutorial: Remover recursos do Azure
 
@@ -37,7 +37,7 @@ Antes de começar este tutorial:
 
 * Se ainda não implementou a aplicação de tarefas pendentes, siga as instruções em [Publicar uma aplicação Web do Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Chegou ao fim do tutorial. Quando tiver concluído a utilização dos recursos que criou, elimine-os para que não lhe sejam cobrados recursos que já não está a utilizar. Isto é particularmente importante, porque o Mesh é um serviço sem servidor que é cobrado ao segundo. Para saber mais sobre os preços do Mesh, consulte https://aka.ms/sfmeshpricing.
 
@@ -62,4 +62,4 @@ Agora que concluiu a publicação de uma aplicação do Service Fabric Mesh no A
 * Para ver outro exemplo de comunicação serviço a serviço, explore o [exemplo de aplicação de votação](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp)
 * Para saber mais sobre o Modelo de Recursos do Service Fabric, consulte [Modelo de Recursos do Service Fabric Mesh](service-fabric-mesh-service-fabric-resources.md).
 * Para saber mais sobre o Service Fabric Mesh, consulte [Descrição geral do Service Fabric Mesh](service-fabric-mesh-overview.md).
-* Saiba mais sobre o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
+* Saiba mais sobre o [Cloud Shell](../cloud-shell/overview.md)

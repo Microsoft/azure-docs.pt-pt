@@ -1,5 +1,5 @@
 ---
-title: Utilize revisões para efazer alterações não-rupturas com segurança na Gestão da API
+title: Utilize revisões para fazer alterações não quebrando com segurança na Gestão da API
 titleSuffix: Azure API Management
 description: Siga os passos deste tutorial para aprender a efetuar alterações sem interrupções com revisões na Gestão de API.
 services: api-management
@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a4655b20fabcc72e02037de05dd0ef7c4671e52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75442755"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254916"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Utilizar revisões para efetuar alterações sem interrupções de forma segura
-Quando a API está pronta e começa a ser utilizada pelos programadores, poderá ter de fazer alterações a essa API e ao mesmo tempo não interromper os autores de chamadas da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. É possível fazê-lo na Gestão de API do Azure com **revisões**. Para obter mais informações, veja [Versões e revisões](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) e [Controlo de versões de API com a Gestão de API do Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
+Quando a API está pronta e começa a ser utilizada pelos programadores, poderá ter de fazer alterações a essa API e ao mesmo tempo não interromper os autores de chamadas da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. É possível fazê-lo na Gestão de API do Azure com **revisões**. Para obter mais informações, veja [Versões e revisões](https://azure.microsoft.com/blog/versions-revisions/) e [Controlo de versões de API com a Gestão de API do Azure](https://azure.microsoft.com/blog/api-versioning-with-azure-api-management/).
 
 Neste tutorial, ficará a saber como:
 
@@ -84,7 +84,7 @@ Neste tutorial, ficará a saber como:
 
 2. Abra o menu de contexto (**...**) para **Revisão 2**.
 3. Selecione **Tornar Atual**.
-4. Selecione **Publicar no Registo de Alterações Públicas para esta API**, se quiser publicar notas sobre esta alteração. Forneça uma descrição para a sua mudança que os desenvolvedores vêem, por exemplo: **Análises de testes. Acrescentou uma nova operação de "teste".**
+4. Selecione **Publicar no Registo de Alterações Públicas para esta API**, se quiser publicar notas sobre esta alteração. Forneça uma descrição para a sua mudança que os desenvolvedores vêem, por exemplo: **Testar revisões. Adicionou uma nova operação de "teste".**
 5. **Revisão 2** é agora atual.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Navegar até ao portal do programador para ver as alterações e o registo de alterações
@@ -93,7 +93,7 @@ Neste tutorial, ficará a saber como:
 2. Selecione **Portal do Programador** no menu superior.
 3. Selecione **APIs** e, em seguida, selecione **Demo Conference API**.
 4. Tenha em atenção que a nova operação **test** está agora disponível.
-5. Clique no **Changelog** perto do nome API.
+5. Clique em **Changelog** perto do nome API.
 6. Tenha em atenção que a entrada do registo de alterações é apresentada nesta lista.
 
 ## <a name="next-steps"></a>Passos seguintes

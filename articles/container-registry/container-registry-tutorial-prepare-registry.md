@@ -4,12 +4,12 @@ description: Criar um registo de contentor do Azure, configurar a georreplicaç�
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 159426b7258d83fc28fc7d126c064167bbe00975
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799475"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259522"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, a primeira parte de uma série de três:
 
 Nos tutoriais seguintes, vai implementar o contentor do seu registo privado para uma aplicação web a executar em duas regiões do Azure. Em seguida, atualiza o código na aplicação e ambas as instâncias da Aplicação Web com um único `docker push` no seu registo.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Este tutorial requer a instalação local da CLI do Azure (versão 2.0.31 ou posterior). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
@@ -35,7 +35,7 @@ Para concluir este tutorial, precisa de uma instalação local do Docker. O Dock
 
 O Azure Cloud Shell não inclui os componentes do Docker necessários para concluir todos os passos deste tutorial. Portanto, recomendamos uma instalação local da CLI do Azure e do ambiente de desenvolvimento do Docker.
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
 Para este tutorial, você precisa de um registo de contentores Azure no nível de serviço Premium. Para criar um novo registo de contentores Azure, siga os passos nesta secção.
 
@@ -98,7 +98,7 @@ Navegue para o seu novo registo de contentores no portal Azure e selecione **as 
 
 Agora que configurou a georreplicação, crie uma imagem de contentor e envie-a para o seu registo. Primeiro tem de iniciar sessão no seu registo antes de lhe dar imagens.
 
-Utilize o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) para autenticar e colocar as credenciais em cache para o seu registo. Substitua `<acrName>` pelo nome do registo que criou anteriormente.
+Utilize o comando [az acr login](/cli/azure/acr#az-acr-login) para autenticar e colocar as credenciais em cache para o seu registo. Substitua `<acrName>` pelo nome do registo que criou anteriormente.
 
 ```azurecli
 az acr login --name <acrName>
@@ -212,7 +212,7 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 
 ## <a name="push-image-to-azure-container-registry"></a>Enviar imagens para o Azure Container Registry
 
-Em seguida, utilize o comando `docker push` para enviar a imagem *acr-helloworld* para o registo. Substitua `<acrName>` com o nome do seu registo.
+Em seguida, utilize o comando `docker push` para enviar a imagem *acr-helloworld* para o registo. Substitua `<acrName>` pelo nome do seu registo.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1

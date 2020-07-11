@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: bc22a92f09f2e922d4f262c1defbe0238e32ad7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48b33638a5a78eb1adf0839dee227ffe5f68b8ae
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313919"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276794"
 ---
-|Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|Nome<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Adicione uma etiqueta aos grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |Adiciona a etiqueta e o valor especificados quando qualquer grupo de recursos que falte a esta etiqueta é criado ou atualizado. Os grupos de recursos existentes podem ser remediados desencadeando uma tarefa de reparação. Se a etiqueta existir com um valor diferente, não será alterada. |modificar |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json) |
 |[Adicione uma etiqueta aos recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f9dc7db-30c1-420c-b61a-e1d640128d26) |Adiciona a etiqueta e o valor especificados quando qualquer recurso em falta esta etiqueta é criado ou atualizado. Os recursos existentes podem ser corrigidos ao acionar uma tarefa de remediação. Se a etiqueta existir com um valor diferente, não será alterada. Não modifica as etiquetas nos grupos de recursos. |modificar |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Modify.json) |

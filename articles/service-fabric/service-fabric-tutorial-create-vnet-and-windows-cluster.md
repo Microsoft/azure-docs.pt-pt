@@ -4,16 +4,16 @@ description: Neste tutorial, aprende-se a implantar um cluster de Tecido de Serv
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: dfcee93ffa5eea0b2aa0b9a93ff53ad7b61ea245
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611667"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245063"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster de tecido de serviço que executa o Windows numa rede virtual Azure
 
-Este tutorial é a primeira parte de uma série. Aprende a implantar um cluster de tecido de serviço Azure que executa o Windows num grupo de segurança de rede e [rede](../virtual-network/virtual-networks-nsg.md) [Azure,](../virtual-network/virtual-networks-overview.md) utilizando o PowerShell e um modelo. Quando terminar, tem um cluster a correr na nuvem para o qual pode implementar aplicações. Para criar um cluster Linux que utilize o CLI Azure, consulte [criar um cluster Linux seguro em Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Este tutorial é a primeira parte de uma série. Aprende a implantar um cluster de tecido de serviço Azure que executa o Windows num grupo de segurança de rede e [rede](../virtual-network/virtual-network-vnet-plan-design-arm.md) [Azure,](../virtual-network/virtual-networks-overview.md) utilizando o PowerShell e um modelo. Quando terminar, tem um cluster a correr na nuvem para o qual pode implementar aplicações. Para criar um cluster Linux que utilize o CLI Azure, consulte [criar um cluster Linux seguro em Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Este tutorial descreve um cenário de produção. Se pretender criar um cluster menor para efeitos de teste, consulte [criar um cluster de testes](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -48,7 +48,7 @@ Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [módulo SDK e PowerShell do tecido de serviço](service-fabric-get-started.md).
-* Instalar [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Instalar [a Azure PowerShell](/powershell/azure/install-az-ps).
 * Reveja os conceitos-chave dos [clusters Azure.](service-fabric-azure-clusters-overview.md)
 * [Planeie e prepare-se](service-fabric-cluster-azure-deployment-preparation.md) para uma implantação de clusters de produção.
 
@@ -78,7 +78,7 @@ No recurso **Microsoft.ServiceFabric/clusters**, é configurado um cluster Windo
 * Ponto final de ligação do cliente: 19000 (configurável nos parâmetros do modelo).
 * Ponto final http gateway: 19080 (configurável nos parâmetros do modelo).
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
 
 No recurso **Microsoft.Network/loadBalancers,** um equilibrador de carga é configurado. As sondas e regras são criadas para as seguintes portas:
 
@@ -111,7 +111,7 @@ As seguintes regras de tráfego de entrada estão ativadas no recurso **Microsof
 Se forem necessárias outras portas de aplicação, terá de ajustar o recurso **Microsoft.Network/loadBalancers** e o recurso **Microsoft.Network/networkSecurityGroups** para permitir o tráfego.
 
 ### <a name="windows-defender"></a>Windows Defender
-Por predefinição, o [programa antivírus do Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) encontra-se instalado e funcional no Windows Server 2016. A interface do utilizador é instalada por padrão em alguns SKUs, mas não é necessária. Para cada conjunto de escala tipo de nó/VM declarado no modelo, a [extensão antimalware Azure VM](/azure/virtual-machines/extensions/iaas-antimalware-windows) é utilizada para excluir os diretórios e processos do Tecido de Serviço:
+Por predefinição, o [programa antivírus do Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) encontra-se instalado e funcional no Windows Server 2016. A interface do utilizador é instalada por padrão em alguns SKUs, mas não é necessária. Para cada conjunto de escala tipo de nó/VM declarado no modelo, a [extensão antimalware Azure VM](../virtual-machines/extensions/iaas-antimalware-windows.md) é utilizada para excluir os diretórios e processos do Tecido de Serviço:
 
 ```json
 {
@@ -145,8 +145,8 @@ O ficheiro de parâmetro [azuredeploy.parameters.json][parameters] declara vári
 
 **Parâmetro** | **Valor de exemplo** | **Notas** 
 |---|---|---|
-|adminUserName|vmadmin| O nome de utilizador administrador para as VMs do cluster. [Requisitos de nome de utilizador para VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
-|adminPassword|Password#1234| A palavra-passe de utilizador administrador para as VMs do cluster. [Requisitos de senha para VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUserName|vmadmin| O nome de utilizador administrador para as VMs do cluster. [Requisitos de nome de utilizador para VM](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). |
+|adminPassword|Password#1234| A palavra-passe de utilizador administrador para as VMs do cluster. [Requisitos de senha para VM](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| O nome do cluster. Pode conter apenas letras e números. O comprimento pode ter entre 3 e 23 carateres.|
 |localização|southcentralus| A localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor do thumbprint SHA-1 do certificado. Por exemplo, “6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
@@ -701,9 +701,9 @@ Verifique se está conectado e se o cluster está saudável usando o [cmdlet Get
 Get-ServiceFabricClusterHealth
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Os outros artigos desta série tutorial usam o cluster que criaste. Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](service-fabric-cluster-delete.md) para evitar incorrer em custos.
+Os outros artigos desta série tutorial usam o cluster que criaste. Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](./service-fabric-tutorial-delete-cluster.md) para evitar incorrer em custos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

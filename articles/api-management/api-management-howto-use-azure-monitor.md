@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84982055"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243244"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
 Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas ou registos provenientes de recursos do Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ver registos de atividades
@@ -43,7 +43,7 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 
 ## <a name="view-metrics-of-your-apis"></a>Ver métricas das APIs
 
-A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilidade quase em tempo real sobre o estado geral e o estado de funcionamento das suas APIs. Abaixo estão as duas métricas mais usadas. Para obter uma lista de todas as métricas disponíveis, consulte [as métricas suportadas.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice)
+A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilidade quase em tempo real sobre o estado geral e o estado de funcionamento das suas APIs. Abaixo estão as duas métricas mais usadas. Para obter uma lista de todas as métricas disponíveis, consulte [as métricas suportadas.](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)
 
 * Capacidade: ajuda-o a tomar decisões sobre a atualização/degradação dos seus serviços APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da criação de relatórios. A métrica varia entre 0 e 100 e é calculada com base nos recursos do gateway, como a utilização da CPU e da memória.
 * Pedidos: ajuda-o a analisar o tráfego da API através dos seus serviços APIM. A métrica é emitida por minuto e relata o número de pedidos de gateway com dimensões, incluindo códigos de resposta, localização, nome de hospedeiro e erros. 
@@ -176,7 +176,7 @@ A API Management fornece atualmente registos de recursos (lotados por hora) sobr
 }  
 ```
 
-| Propriedade  | Tipo | Description |
+| Propriedade  | Tipo | Descrição |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | “Verdadeiro” se o pedido HTTP for concluído com o código de estado de resposta no intervalo 2xx ou 3xx |
 | hora | date-time | Timetamp de quando o gateway começa a processar o pedido |

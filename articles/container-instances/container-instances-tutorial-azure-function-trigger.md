@@ -4,12 +4,12 @@ description: Criar uma função PowerShell acionada por HTTP para automatizar a 
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: ''
-ms.openlocfilehash: d5fa4acf7ac5a7d0b9103458636adff4befcc3d9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 298cf1452e514ede540e23d4e64f6dd1059cceab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144866"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259738"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutorial: Utilize uma função Azure acionada por HTTP para criar um grupo de contentores
 
@@ -33,7 +33,7 @@ Passos adicionais neste artigo use Azure PowerShell. Se precisar de instalar ou 
 
 ## <a name="create-a-basic-powershell-function"></a>Criar uma função básica PowerShell
 
-Siga os passos na [Criar a sua primeira função PowerShell em Azure](../azure-functions/functions-create-first-function-powershell.md) para criar uma função PowerShell utilizando o modelo de gatilho HTTP. Utilize o nome de função Azure padrão **HttpTrigger**. Como mostrado no quickstart, teste a função localmente e publique o projeto numa aplicação de função em Azure. Este exemplo é uma função básica desencadeada por HTTP que devolve uma cadeia de texto. Em etapas posteriores neste artigo, modifica a função para criar um grupo de contentores.
+Siga os passos na [Criar a sua primeira função PowerShell em Azure](../azure-functions/functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar uma função PowerShell utilizando o modelo de gatilho HTTP. Utilize o nome de função Azure padrão **HttpTrigger**. Como mostrado no quickstart, teste a função localmente e publique o projeto numa aplicação de função em Azure. Este exemplo é uma função básica desencadeada por HTTP que devolve uma cadeia de texto. Em etapas posteriores neste artigo, modifica a função para criar um grupo de contentores.
 
 Este artigo pressupõe que publique o projeto usando o nome *myfunctionapp,* num grupo de recursos Azure automaticamente nomeado de acordo com o nome da aplicação de funções (também *myfunctionapp).* Substitua o nome da aplicação de funções única e o nome do grupo de recursos em etapas posteriores.
 
@@ -181,7 +181,7 @@ Resultado do exemplo:
 Hello from an Azure container instance triggered by an Azure function
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não precisar de nenhum dos recursos que criou neste tutorial, pode executar o comando [az-group-delete] para remover o grupo de recursos e todos os recursos que contém. Este comando elimina a aplicação de função que criou, bem como o recipiente de funcionamento, e todos os recursos relacionados.
 
@@ -201,7 +201,7 @@ Neste tutorial, criou uma função Azure que aceita um pedido HTTP e desencadeia
 
 Para obter um exemplo detalhado para lançar e monitorizar um trabalho contentorizado, consulte o blog post [Containers Serverless driven Event com Funções PowerShell Azure e Instâncias de Contentores Azure](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) e amostra de [código](https://github.com/anthonychu/functions-powershell-run-aci)de acompanhamento .
 
-Consulte a documentação do [Azure Functions](/azure/azure-functions/) para obter orientações detalhadas sobre a criação de funções Azure e a publicação de um projeto de funções. 
+Consulte a documentação do [Azure Functions](../azure-functions/index.yml) para obter orientações detalhadas sobre a criação de funções Azure e a publicação de um projeto de funções. 
 
 <!-- IMAGES -->
 

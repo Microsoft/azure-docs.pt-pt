@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85513808"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245335"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutorial: Construa e implemente uma habilidade personalizada com a Azure Machine Learning 
 
@@ -29,6 +29,9 @@ Há dois conjuntos de dados fornecidos. Se desejar treinar o modelo por si mesmo
 > * Treine e implemente um modelo para um cluster Azure Kubernetes
 > * Ligue um gasoduto de enriquecimento de IA ao modelo implantado
 > * Ingerir saída do modelo implementado como uma habilidade personalizada
+
+> [!IMPORTANT] 
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe suporte .NET SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,7 +97,7 @@ Salve a habilidade.
 
 Depois de guardar o skillset, vá ao indexante e selecione a ligação De definição de Indexer (JSON). O portal apresentará o JSON do indexante que foi criado nas primeiras células do caderno. Os mapeamentos do campo de saída terão de ser atualizados com mapeamentos de campo adicionais para garantir que o indexante pode manusear e passá-los corretamente. Guarde as alterações e, em seguida, selecione Executar. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

@@ -1,17 +1,17 @@
 ---
-title: Monitorizar e diagnosticar serviços core ASP.NET
-description: Neste tutorial, aprende-se a configurar monitorização e diagnósticopara uma aplicação Azure Service Fabric ASP.NET Core.
+title: Monitorizar e diagnosticar ASP.NET Serviços core
+description: Neste tutorial, você aprende a configurar monitorização e diagnósticos para uma aplicação Azure Service Fabric ASP.NET Core.
 author: dkkapur
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f06387ea317029f5648ab0884cea80262e8640a2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159954"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245012"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric com o Application Insights
 
@@ -36,13 +36,13 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instale o Visual Studio 2019](https://www.visualstudio.com/) e instale o **desenvolvimento do Azure** e ASP.NET e trabalhos de **desenvolvimento web.**
-* [Instale o SDK de Tecido de Serviço](service-fabric-get-started.md)
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Instale o Visual Studio 2019](https://www.visualstudio.com/) e instale as cargas de trabalho de desenvolvimento do **Azure** e **ASP.NET e desenvolvimento web.**
+* [Instalar o Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Transferir a aplicação de votação de exemplo
 
-Se não construiu a aplicação da amostra de voto na [primeira parte desta série tutorial,](service-fabric-tutorial-create-dotnet-app.md)pode descarregá-la. Num terminal ou janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
+Se não tiver construído a aplicação da amostra de voto na [primeira parte desta série tutorial,](service-fabric-tutorial-create-dotnet-app.md)pode descarregá-la. Num terminal ou janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
 
 ```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -65,18 +65,18 @@ Assim que tiver preenchido as informações necessárias, clique em **Criar** pa
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Adicionar o Application Insights aos serviços da aplicação
 
-Lance o Visual Studio 2019 com privilégios elevados clicando no ícone do Estúdio Visual no Menu Iniciar e escolhendo **Run como administrador.** Clique em **File** > **Open** > **Project/Solution** e navegue para a aplicação De Voto (criada na parte um do tutorial ou clonada). Open *Voting.sLN*. Se solicitado para restaurar os pacotes NuGet da aplicação, clique **em Sim**.
+Lançar Visual Studio 2019 com privilégios elevados clicando no ícone do Estúdio Visual no Menu Iniciar e escolhendo **Run como administrador**. Clique em **File**  >  **Open**  >  **Project/Solution** e navegue para a aplicação de voto (criada na parte um do tutorial ou git clonado). *Voto Aberto.sln*. Se solicitado para restaurar os pacotes NuGet da aplicação, clique em **Sim**.
 
-Siga estes passos para configurar os Insights de Aplicação tanto para os serviços VotingWeb como VoteData:
+Siga estes passos para configurar insights de aplicações tanto para os serviços VoteWeb como VoteData:
 
-1. Clique no nome do serviço e clique em **Adicionar > Serviços Conectados > Monitorização com Insights**de Aplicação .
+1. Clique com o botão direito no nome do serviço e clique em **Adicionar > Serviços Conectados > Monitorização com Insights de Aplicação**.
 
     ![Configurar a IA](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
 >[!NOTE]
->Dependendo do tipo de projeto, quando clicar no nome do serviço, poderá ter de clicar em Adição > Aplicação Insights Telemetria...
+>Dependendo do tipo de projeto, quando clicar no nome do serviço, poderá ter de clicar em Add-> Application Insights Telemetria ...
 
 2. Clique em **Começar**.
-3. Inscreva-se na conta que usou para configurar a sua subscrição Azure e selecione a subscrição na qual criou o recurso Application Insights. Localize o recurso em *Recurso do Application Insights existente* na lista pendente "Recurso". Clique em **Registar** para adicionar o Application Insights ao seu serviço.
+3. Faça o sômis na conta que usou para configurar a sua subscrição Azure e selecione a subscrição na qual criou o recurso Application Insights. Localize o recurso em *Recurso do Application Insights existente* na lista pendente "Recurso". Clique em **Registar** para adicionar o Application Insights ao seu serviço.
 
     ![Registar IA](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
 
@@ -92,24 +92,24 @@ O Application Insights tem dois NuGets específicos do Service Fabric que podem 
 
 Aqui estão os passos para configurar o pacote NuGet:
 
-1. Clique à direita na **Solução 'Votação'** no topo do seu Solution Explorer, e clique em **Gerir pacotes NuGet para solução...**.
+1. Clique com o botão direito na **solução 'Votando'** no topo do seu Solution Explorer e clique em **Gerir Pacotes NuGet para solução...**.
 2. Clique em **Procurar** no menu de navegação superior da janela de "NuGet – Solução" e selecione a caixa **Incluir Pré-lançamento** junto à barra de pesquisa.
 >[!NOTE]
 >Poderá ter de instalar o pacote de Microsoft.ServiceFabric.Diagnostics.Internal de forma semelhante, se não for pré-instalado antes de instalar o pacote do Application Insights
 
 3. Procure `Microsoft.ApplicationInsights.ServiceFabric.Native` e clique no pacote NuGet adequado.
-4. À direita, clique nas duas caixas de verificação junto aos dois serviços da aplicação, **VoteWeb** e **VoteData** e clique em **Instalar**.
+4. À direita, clique nas duas caixas de verificação ao lado dos dois serviços na aplicação, **VoteWeb** e **VoteData** e clique em **Instalar**.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
-5. Clique **OK** na caixa de diálogo *'Alterações de Pré-visualização'* que aparece e aceite a *Aceitação*da Licença . Deste modo, irá concluir a adição do NuGet aos serviços.
-6. Agora tem de configurar o inicializador de telemetria nos dois serviços. Para isso, abra *VotingWeb.cs* e *VotingData.cs.* Para ambos os parâmetros, execute os dois passos seguintes:
-    1. Adicione estes dois *usando* declarações no topo de cada * \<ServiceName>.cs*, após as declarações *existentes:*
+5. Clique em **OK** na caixa de diálogo de alterações de *pré-visualização* que aparece e aceite a *Aceitação*da Licença . Deste modo, irá concluir a adição do NuGet aos serviços.
+6. Agora tem de configurar o inicializador de telemetria nos dois serviços. Para isso, *abram-se VotingWeb.cs* e *VotingData.cs.* Para ambos os parâmetros, execute os dois passos seguintes:
+    1. Adicione estes dois *utilizando* declarações no topo de cada * \<ServiceName> .cs,* após as declarações *existentes:*
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. Em ambos os ficheiros, na declaração de *devolução* aninhada de *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()* ao abrigo dos*serviços* *Da Configuração,* > com os outros serviços singleton declarados, adicione:
+    2. Em ambos os ficheiros, na declaração de *devolução* aninhada dos *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, nos *serviços ConfigureServices,*  >  *services*com os outros serviços singleton declarados, adicione:
     ```csharp
     .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
     ```
@@ -150,7 +150,7 @@ Aqui estão os passos para configurar o pacote NuGet:
         .Build();
     ```
 
-Verifique duas `UseApplicationInsights()` vezes se o método é chamado tanto em *VotingWeb.cs* como em *VotingData.cs,* como mostrado acima.
+Verifique duas vezes se o `UseApplicationInsights()` método é chamado tanto *VotingWeb.cs* como *VotingData.cs* como mostrado acima.
 
 >[!NOTE]
 >Esta aplicação de exemplo utiliza http para os serviços para comunicar. Se desenvolver uma aplicação com o serviço Gestão remota V2 também terá de adicionar as seguintes linhas de código no mesmo local como fez acima
@@ -166,9 +166,9 @@ ConfigureServices(services => services
 Agora, está pronto para implementar a aplicação. Clique em **Iniciar** na parte superior (ou **F5**) e o Visual Studio irá criar e empacotar a aplicação, configurar o seu cluster local e implementar a aplicação no mesmo.
 
 >[!NOTE]
->Pode ter um erro de construção se não tiver uma versão atualizada do .NET Core SDK instalado.
+>Pode obter um erro de construção se não tiver uma versão atualizada do .NET Core SDK instalado.
 
-Uma vez que a aplicação `localhost:8080`esteja implementada, dirija-se para, onde deverá poder ver a aplicação da amostra de voto única. Vote nalguns itens da sua preferência para criar alguns dados e telemetria de exemplo – escolhi as sobremesas!
+Uma vez que a aplicação seja feita, dirija-se para `localhost:8080` , onde você deve ser capaz de ver a aplicação de uma página única amostra de voto. Vote nalguns itens da sua preferência para criar alguns dados e telemetria de exemplo – escolhi as sobremesas!
 
 ![Votos de exemplo de IA](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -181,7 +181,7 @@ Vá para recurso do Application Insights no Portal do Azure.
 Clique em **Descrição Geral** para voltar à página de destino do seu recurso. Em seguida, clique em **Pesquisar** na parte superior para ver os rastreios a chegar. Demora alguns minutos para que os rastreios apareçam no Application Insights. Se não vir nenhum, aguarde um pouco e toque no botão **Atualizar** na parte superior.
 ![IA a ver rastreios](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-Desloque-se para baixo na janela *Pesquisar* para mostrar toda a telemetria de entrada que obtém inicialmente com o Application Insights. Para cada ação realizada na aplicação de Votação, deverá haver um pedido PUT de saída de *VotingWeb* (Votos PUT/Put [nome]), um pedido PUT recebido de *VotingData* (PUT VoteData/Put [nome]), seguido de um par de pedidos GET para atualizar os dados que estão a ser apresentados. Também haverá um rastreio de dependência de HTTP no localhost, uma vez que estes são pedidos HTTP. Aqui está um exemplo do que verá como um voto é adicionado:
+Desloque-se para baixo na janela *Pesquisar* para mostrar toda a telemetria de entrada que obtém inicialmente com o Application Insights. Para cada ação realizada na aplicação de Votação, deverá haver um pedido PUT de saída de *VotingWeb* (Votos PUT/Put [nome]), um pedido PUT recebido de *VotingData* (PUT VoteData/Put [nome]), seguido de um par de pedidos GET para atualizar os dados que estão a ser apresentados. Também haverá um rastreio de dependência de HTTP no localhost, uma vez que estes são pedidos HTTP. Aqui está um exemplo do que verá pela forma como um voto é adicionado:
 
 ![Vestígios de pedido de amostra de IA](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Depois de realizar estas alterações, **Inicie** a aplicação para criar e implementar a versão mais recente da mesma. Uma vez que a aplicação `localhost:8080`seja feita, dirija-se a , e adicione e elimine algumas opções de voto. Em seguida, volte para o recurso do Application Insights para ver os rastreios para a execução mais recente (como anteriormente, os rastreios podem demorar 1 a 2 minutos a aparecer no Application Insights). Para todos os votos adicionados e eliminados, deverá ver agora um "Evento Personalizado* juntamente com toda a telemetria de resposta.
+Depois de realizar estas alterações, **Inicie** a aplicação para criar e implementar a versão mais recente da mesma. Uma vez que a aplicação é feita, dirija-se para `localhost:8080` , e adicione e elimine algumas opções de votação. Em seguida, volte para o recurso do Application Insights para ver os rastreios para a execução mais recente (como anteriormente, os rastreios podem demorar 1 a 2 minutos a aparecer no Application Insights). Para todos os votos adicionados e eliminados, deverá ver agora um "Evento Personalizado* juntamente com toda a telemetria de resposta.
 
 ![eventos personalizados](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
@@ -268,4 +268,4 @@ Agora que concluiu a configuração da monitorização e diagnóstico para a sua
 
 * [Explorar profundamente a monitorização e diagnóstico no Service Fabric](service-fabric-diagnostics-overview.md)
 * [Análise de eventos do Service Fabric com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* Para saber mais sobre o Application Insights, veja a [Documentação do Application Insights](https://docs.microsoft.com/azure/application-insights/)
+* Para saber mais sobre o Application Insights, veja a [Documentação do Application Insights](/azure/application-insights/)

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 6f4626a8c42f3a50fa273c55099158750241bfee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6ec2be6daee931a4066ff5ce4f64fc949d497ac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202928"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243431"
 ---
-# <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
+# <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Aplicação de Funções do Azure como uma API na Gestão de API do Azure
 
-A Gestão de API do Azure suporta a importação de Function Apps do Azure como novas APIs ou anexa-as às APIs existentes. O processo gera automaticamente uma chave de anfitrião na Function App do Azure que, em seguida, é atribuída a um valor nomeado na Gestão de API do Azure.
+A Gestão de API do Azure suporta a importação de Aplicações de Funções do Azure como novas APIs ou anexa-as às APIs existentes. O processo gera automaticamente uma chave de anfitrião na Aplicação de Funções do Azure que, em seguida, é atribuída a um valor nomeado na Gestão de API do Azure.
 
 Este artigo explica como importar uma Function App do Azure como uma API na Gestão de API do Azure. Também descreve o processo de teste.
 
@@ -46,7 +46,7 @@ Vai aprender a:
 
 Siga os passos abaixo para criar uma nova API a partir de uma Function App do Azure.
 
-1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** do menu.
+1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
 
 2. Na lista **Adicionar uma nova API**, selecione **Aplicação de Funções**.
 
@@ -71,7 +71,7 @@ Siga os passos abaixo para criar uma nova API a partir de uma Function App do Az
     > [!NOTE]
     > Pode importar apenas as Funções que são baseadas no acionador HTTP e ter a definição do nível de autorização definido como *Anónimo* ou *Função*.
 
-7. Mude para a vista **Completa** e atribua o **Produto** à sua nova API. Se necessário, especifique outros campos durante a criação ou configure-os mais tarde, indo ao separador **Definições.** As definições são explicadas no Importar e publicar o seu primeiro tutorial [API.](import-and-publish.md#-import-and-publish-a-backend-api)
+7. Mude para a vista **Completa** e atribua o **Produto** à sua nova API. Se necessário, especifique outros campos durante a criação ou configufique-os mais tarde, indo ao **separador Definições.** As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#-import-and-publish-a-backend-api)
 8. Clique em **Criar**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Anexar uma Function App do Azure como uma API existente
@@ -104,7 +104,7 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
     ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-05.png)
 
-8. Clique **em Importar**.
+8. Clique **em Importar.**
 
     ![Anexar a partir da Function App](./media/import-function-app-as-api/append-04.png)
 
@@ -112,10 +112,10 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
 A importação de uma Function App do Azure gera automaticamente:
 
-* Chave de hospedar dentro da App função com o nome apim-{ o nome de instância de*serviço Azure API Management*},
-* Valor nomeado dentro da instância de Gestão API Azure com o nome { o nome da aplicação de*função Azure*}-chave, que contém a chave de hospedar criada.
+* Chave de anfitrião dentro da App de funções com o nome apim-{*o nome da instância de serviço API Management Azure },*
+* Valor nomeado dentro da instância de Gestão API Azure com o nome {*o nome da aplicação de função Azure*}-chave, que contém a chave de anfitrião criada.
 
-Para APIs criadaapós 4 de abril de 2019, a chave anfitriã é passada em pedidos HTTP da API Management para a App de Funções em um cabeçalho. APIs mais antigos passam a chave hospedeira como parâmetro de [consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Este comportamento pode ser `PATCH Backend` alterado através da [chamada REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) sobre a entidade *Backend* associada à App de Função.
+Para as APIs criadas após o dia 4 de abril de 2019, a chave de anfitrião é passada em pedidos HTTP da API Management para a App de Função num cabeçalho. As APIs mais antigas passam a chave hospedeira como [parâmetro de consulta.](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) Este comportamento pode ser alterado através da `PATCH Backend` [chamada REST API](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na entidade *Backend* associada à App de Função.
 
 > [!WARNING]
 > Remover ou alterar o valor da chave de anfitrião da Aplicação de Funções do Azure ou o valor nomeado da Gestão de API do Azure irá interromper a comunicação entre os serviços. Os valores não são sincronizados automaticamente.
@@ -150,9 +150,9 @@ Pode chamar operações diretamente a partir do portal do Azure. Utilizar o port
 
 3. Selecione uma operação.
 
-    A página apresenta campos para os parâmetros de consulta e campos para os cabeçalhos. Um dos cabeçalhos é **o Ocp-Apim-Subscription-Key,** para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de Gestão de API, já é um administrador, pelo que a chave é preenchida automaticamente. 
+    A página apresenta campos para os parâmetros de consulta e campos para os cabeçalhos. Um dos cabeçalhos é **a Chave de Subscrição Ocp-Apim,** para a chave de subscrição do produto que está associada a esta API. Se tiver criado a instância de Gestão de API, já é um administrador, pelo que a chave é preenchida automaticamente. 
 
-4. Selecione **Enviar**.
+4. Selecione **Send** (Enviar).
 
     O back-end responde com **200 OK** e alguns dados.
 

@@ -1,17 +1,17 @@
 ---
 title: Definições políticas incorporadas para o Azure Monitor
 description: Lista definições de políticas incorporadas para Azure Monitor. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-samples
-ms.openlocfilehash: f5d7268413983a3cc2d0155d301bd09f16060f71
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 975bdc5981fa72228329f62ceb1c75a640c7099b
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313166"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276379"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-monitor"></a>Definições incorporadas da Política Azure para o Azure Monitor
 

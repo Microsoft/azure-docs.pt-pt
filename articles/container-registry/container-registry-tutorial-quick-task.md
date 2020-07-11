@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Construção rápida de imagem de recipiente
+title: Tutorial - Construção rápida da imagem do recipiente
 description: Neste tutorial, vai aprender a compilar uma imagem do contentor de Docker no Azure com o Azure Container Registry Tasks (ACR Tasks) e, em seguida, implementá-la no Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78398514"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259490"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Construir e implantar imagens de contentores na nuvem com tarefas de registo de contentores azure
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilar e implementar imagens de contentor na cloud com Tarefas do Azure Container Registry
 
 O **ACR Tasks** é um conjunto de funcionalidades no Azure Container Registry que fornece compilações de imagens do contentor de Docker simplificadas e eficientes no Azure. Neste artigo, vai aprender a utilizar a funcionalidade *tarefa rápida * do ACR Tasks.
 
@@ -26,11 +26,11 @@ Neste tutorial, a primeira parte de uma série:
 > * Compilar uma imagem do contentor no Azure
 > * Implementar um contentor no Azure Container Instances
 
-Nos tutoriais subsequentes, vai aprender a utilizar o ACR Tasks para obter compilações automatizadas de imagens do contentor após a consolidação do código e a atualização da imagem de base. As Tarefas ACR também podem executar [tarefas em várias etapas,](container-registry-tasks-multi-step.md)utilizando um ficheiro YAML para definir passos para construir, empurrar e testar opcionalmente vários recipientes.
+Nos tutoriais subsequentes, vai aprender a utilizar o ACR Tasks para obter compilações automatizadas de imagens do contentor após a consolidação do código e a atualização da imagem de base. As tarefas ACR também podem executar [tarefas em várias etapas,](container-registry-tasks-multi-step.md)utilizando um ficheiro YAML para definir passos para construir, empurrar e testar opcionalmente vários recipientes.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se quiser utilizar o Azure CLI localmente, deve ter a versão Azure CLI **2.0.46** ou posteriormente instalada e iniciada com [login az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
+Se quiser utilizar o Azure CLI localmente, tem de ter a versão **2.0.46** do Azure CLI ou posteriormente instalada e iniciada com [início de sessão][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Bifurcar este repositório: https://github.com/Azure-Samples/acr-build-helloworl
 
 Depois de concluir a bifurcação do repositório, clone a bifurcação e introduza o diretório que contém o clone local.
 
-Clone o repo com `git`, substitua ** \<o\> seu nome de utilizador github** pelo seu nome de utilizador GitHub:
+Clone o repo com `git` , **\<your-github-username\>** substitua-o pelo seu nome de utilizador GitHub:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -70,9 +70,9 @@ Os comandos nesta série de tutoriais estão formatados para a shell do Bash. Se
 
 Agora que já descarregou o código de origem para o seu computador, siga estes passos para criar um registo do contentor e compilar a imagem do contentor com o ACR Tasks.
 
-Para a execução dos comandos de exemplo ser mais fácil, os tutoriais nesta série utilizam variáveis de ambiente da shell. Execute o comando seguinte para definir a variável `ACR_NAME`. Substitua ** \<\> ** o nome do registo por um nome único para o seu novo registo de contentores. O nome do registo deve ser único dentro de Azure, conter apenas letras minúsculas e conter 5-50 caracteres alfanuméricos. Os outros recursos que criar no tutorial baseiam-se neste nome, pelo que necessita de modificar apenas esta primeira variável.
+Para a execução dos comandos de exemplo ser mais fácil, os tutoriais nesta série utilizam variáveis de ambiente da shell. Execute o comando seguinte para definir a variável `ACR_NAME`. **\<registry-name\>** Substitua-o por um nome único para o seu novo registo de contentores. O nome do registo deve ser único dentro de Azure, conter apenas letras minúsculas e conter 5-50 caracteres alfanuméricos. Os outros recursos que criar no tutorial baseiam-se neste nome, pelo que necessita de modificar apenas esta primeira variável.
 
-[![Lançamento emcamado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
+[![Lançamento incorporado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 ```console
 ACR_NAME=<registry-name>
@@ -176,7 +176,7 @@ Todos os cenários de produção devem utilizar [principais de serviço][service
 
 #### <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-Se ainda não tiver um cofre no [Azure Key Vault](/azure/key-vault/), crie um com a CLI do Azure através dos comandos seguintes.
+Se ainda não tiver um cofre no [Azure Key Vault](../key-vault/index.yml), crie um com a CLI do Azure através dos comandos seguintes.
 
 ```azurecli-interactive
 AKV_NAME=$ACR_NAME-vault
@@ -203,7 +203,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O `--role` argumento no comando anterior confunde o diretor de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto empurrar e `--role` puxar o acesso, mude o argumento para *acrpush*.
+O `--role` argumento no comando anterior configura o diretor de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto o impulso como o acesso, mude o `--role` argumento para *acrpush*.
 
 Em seguida, armazene o *appId* do principal de serviço no cofre, que é o **nome de utilizador** que passa para o Azure Container Registry para autenticação:
 
@@ -278,7 +278,7 @@ Quando `Server running at http://localhost:80` for apresentado, navegue para o F
 
 Para desanexar a consola do contentor, prima `Control+C`.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Pare a instância de contentor com o comando [az container delete][az-container-delete]:
 

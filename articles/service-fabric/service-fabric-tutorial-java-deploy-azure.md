@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: df6719cad79bdb063c2d4d74892206b6e5bbd414
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 672f8916749362e7145799bdefa3bbd628fc9116
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292041"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244825"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação Java num cluster do Service Fabric no Azure
 
@@ -36,8 +36,8 @@ Nesta série de tutoriais, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Instalar o SDK do Service Fabric para [Mac](service-fabric-get-started-mac.md) ou [Linux](service-fabric-get-started-linux.md)
 * [Instalar o Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -162,9 +162,9 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    O url sas para os EventHubs segue a estrutura: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Por exemplo, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    O url SAS para os EventHubs segue a estrutura: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>` . Por exemplo, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
-12. Abra o ficheiro *sfdeploy.parâmetros.json* e substitua o seguinte conteúdo dos passos anteriores. [SAS-URL-STORAGE-ACCOUNT] foi indicado no passo 8. [SAS-URL-EVENT-HUBS] foi indicado no passo 11.
+12. Abra a *sfdeploy.parameters.jsno* ficheiro e substitua os seguintes conteúdos dos passos anteriores. [SAS-URL-STORAGE-ACCOUNT] foi indicado no passo 8. [SAS-URL-EVENT-HUBS] foi indicado no passo 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {

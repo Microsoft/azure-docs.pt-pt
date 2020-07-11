@@ -1,15 +1,15 @@
 ---
 title: Definições políticas incorporadas para a Azure Automation
 description: Lista definições de políticas incorporadas para a Azure Automation. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 1cb0ee391e97d87a0c2e96035cc8405b83bb0654
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b4a5c1d36b139bddeb39c3d0876140744c692fd3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318334"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275699"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-automation"></a>Definições incorporadas da Política Azure para a Azure Automation
 

@@ -1,15 +1,15 @@
 ---
 title: Lista de definições políticas incorporadas
 description: Listar definições políticas incorporadas para a Política Azure. As categorias incluem Tags, Conformidade Regulamentar, Cofre-Chave, Kubernetes, Configuração de Hóspedes, e muito mais.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 94f69754ab51728a18da10b45e05770f1271760b
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1db053744a68e34fc3995916605be75a49887f01
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313427"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277347"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições políticas incorporadas da Política Azure
 
@@ -97,7 +97,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-samples-policies-internet-of-things](../../../../includes/policy/samples/bycat/policies-internet-of-things.md)]
 
-## <a name="key-vault"></a>Cofre de Chaves
+## <a name="key-vault"></a>Key Vault
 
 [!INCLUDE [azure-policy-samples-policies-key-vault](../../../../includes/policy/samples/bycat/policies-key-vault.md)]
 
@@ -109,7 +109,7 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 
 [!INCLUDE [azure-policy-samples-policies-lighthouse](../../../../includes/policy/samples/bycat/policies-lighthouse.md)]
 
-## <a name="logic-apps"></a>Aplicações Lógicas
+## <a name="logic-apps"></a>Logic Apps
 
 [!INCLUDE [azure-policy-samples-policies-logic-apps](../../../../includes/policy/samples/bycat/policies-logic-apps.md)]
 
@@ -164,6 +164,10 @@ O nome de cada ligação incorporada à definição de política no portal Azure
 ## <a name="tags"></a>Etiquetas
 
 [!INCLUDE [azure-policy-samples-policies-tags](../../../../includes/policy/samples/bycat/policies-tags.md)]
+
+## <a name="vm-image-builder"></a>Construtor de Imagens da VM
+
+[!INCLUDE [azure-policy-samples-policies-vm-image-builder](../../../../includes/policy/samples/bycat/policies-vm-image-builder.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

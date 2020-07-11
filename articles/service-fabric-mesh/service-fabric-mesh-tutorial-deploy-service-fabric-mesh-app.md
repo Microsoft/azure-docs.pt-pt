@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2bb37252bc93c982dbc090a0c3f20aef842325f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f0dca5aa9e430fa21d09509121a7ad26feda446
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75351853"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261331"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementar uma aplicação do Service Fabric Mesh
 
@@ -59,13 +59,13 @@ Em seguida, verá a caixa de diálogo **Publish Service Fabric Application** (Pu
 
 ![Caixa de diálogo de publicação do Service Fabric Mesh do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Selecione a conta e a subscrição do Azure. Escolha uma **Localização**. Este artigo utiliza **E.U.A. Leste**.
+Selecione a conta e a subscrição do Azure. Escolha uma **localização**. Este artigo utiliza **E.U.A. Leste**.
 
-Em **Resource group** (Grupo de recursos), selecione **\<Create New Resource Group...>** (Criar Novo Grupo de Recursos). É apresentada uma caixa de diálogo onde irá criar um novo grupo de recursos. Este artigo utiliza a localização **E.U.A. Leste** e atribui o nome **sfmeshTutorial1RG** ao grupo (se a sua organização tiver várias pessoas a utilizar a mesma subscrição, escolha um nome de grupo exclusivo).  Prima **Create** (Criar) para criar o grupo de recursos e voltar à caixa de diálogo de publicação.
+No **grupo De Recursos,** selecione **\<Create New Resource Group...>** . É apresentada uma caixa de diálogo onde irá criar um novo grupo de recursos. Este artigo utiliza a localização **E.U.A. Leste** e atribui o nome **sfmeshTutorial1RG** ao grupo (se a sua organização tiver várias pessoas a utilizar a mesma subscrição, escolha um nome de grupo exclusivo).  Prima **Create** (Criar) para criar o grupo de recursos e voltar à caixa de diálogo de publicação.
 
 ![Caixa de diálogo do novo grupo de recursos do Service Fabric Mesh do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-De volta à caixa de diálogo **Publish Service Fabric Application** (Publicar Aplicação do Service Fabric), em **Azure Container Registry**, selecione **\<Create New Container Registry...>** (Criar Novo Registo de Contentor). Na caixa de diálogo **Create Container Registry** (Criar Registo de Contentor), utilize um nome exclusivo para o **Container registry name** (Nome do registo de contentor). Especifique uma **Localização** (este tutorial utiliza **E.U.A. Leste**). Selecione o **Grupo de recursos** que criou no passo anterior na lista pendente, por exemplo, **sfmeshTutorial1RG**. Defina o **SKU** como **Básico** e, em seguida, prima **Criar** para criar o registo de contentor do Azure privado e regressar à caixa de diálogo.
+De volta ao diálogo **de aplicação de tecido de serviço de publicação,** sob **registo de contentores Azure,** selecione **\<Create New Container Registry...>** . Na caixa de diálogo **Create Container Registry** (Criar Registo de Contentor), utilize um nome exclusivo para o **Container registry name** (Nome do registo de contentor). Especifique uma **Localização** (este tutorial utiliza **E.U.A. Leste**). Selecione o **Grupo de recursos** que criou no passo anterior na lista pendente, por exemplo, **sfmeshTutorial1RG**. Defina o **SKU** como **Básico** e, em seguida, prima **Criar** para criar o registo de contentor do Azure privado e regressar à caixa de diálogo.
 
 ![Caixa de diálogo do novo registo de contentor do Service Fabric Mesh do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -139,4 +139,4 @@ Avance para o tutorial seguinte:
 > [!div class="nextstepaction"]
 > [Atualizar uma aplicação do Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

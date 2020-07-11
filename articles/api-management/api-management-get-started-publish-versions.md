@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b683910180e597cb8cbfa642bb2d9ac3200b42ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73176829"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255035"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicar várias versões da sua API 
 
-Quando não for prático ter todos os autores de chamadas direcionados para a sua API, utilize exatamente a mesma versão. Quando os autores de chamadas quiserem atualizar para uma versão posterior, querem fazê-lo com uma abordagem de fácil compreensão. É possível fazê-lo com **versões** na Gestão de API do Azure. Para obter mais informações, veja [Versões e revisões](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
+Quando não for prático ter todos os autores de chamadas direcionados para a sua API, utilize exatamente a mesma versão. Quando os autores de chamadas quiserem atualizar para uma versão posterior, querem fazê-lo com uma abordagem de fácil compreensão. É possível fazê-lo com **versões** na Gestão de API do Azure. Para obter mais informações, veja [Versões e revisões](https://azure.microsoft.com/blog/versions-revisions/).
 
 Neste tutorial, ficará a saber como:
 
@@ -94,8 +94,8 @@ Para os autores de chamadas verem a nova versão, esta tem de ser adicionada a u
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Navegar até ao portal do programador para ver a versão
 
 1. Selecione **Portal do Programador** no menu superior.
-2. Selecione **APIs** e clique na API da **Conferência de Demonstração**.
-3. Deve ver uma queda com várias versões ao lado do nome API.
+2. Selecione **APIs** e clique na **API da Conferência de Demonstração**.
+3. Você deve ver um dropdown com várias versões ao lado do nome API.
 4. Selecione **v1**.
 5. Repare no **URL do pedido** da primeira operação na lista. Indica que o caminho do URL da API inclui **v1**.
 

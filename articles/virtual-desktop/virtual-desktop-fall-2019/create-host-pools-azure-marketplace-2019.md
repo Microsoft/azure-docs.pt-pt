@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd309b7c3b37e338b1d8e69635247cc90511b34f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204749"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256854"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar uma piscina de anfitriões utilizando o Azure Marketplace
 
@@ -58,7 +58,7 @@ Para executar o Azure Marketplace oferecendo uma nova piscina de anfitriões:
 
 Depois disso, siga as instruções na secção seguinte para introduzir as informações para os separadores apropriados.
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Informações básicas
 
 Aqui está o que se faz para o **separador Básico:**
 
@@ -115,7 +115,7 @@ Para o separador **de informações do windows Virtual Desktop:**
    Se tiver concluído os [principais de serviço create e atribuições de funções com o tutorial PowerShell](create-service-principal-role-powershell.md), selecione **Service principal**.
 
 1. Para **o diretor de serviço**, para a identificação do inquilino da **Azure AD**, insira a conta de administração do arrendatário para a instância AD Azure que contém o principal do serviço. Apenas os princípios de serviço com uma credencial de senha são suportados.
-1. Selecione **Seguinte: Revisão + criar**.
+1. Selecione **Seguinte: Rever + criar**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Configuração completa e criar a máquina virtual
 
@@ -154,7 +154,7 @@ Os utilizadores que adicionar ao grupo de aplicações de ambiente de trabalho p
 
 Aqui estão os atuais clientes apoiados:
 
-* [Cliente de desktop remoto para Windows 7 e Windows 10](../connect-windows-7-and-10.md)
+* [Cliente de desktop remoto para Windows 7 e Windows 10](connect-windows-7-10-2019.md)
 * [Cliente web virtual do Windows Desktop](connect-web-2019.md)
 
 ## <a name="next-steps"></a>Passos seguintes

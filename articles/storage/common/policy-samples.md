@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para armazenamento Azure
 description: Lista definições políticas incorporadas da Azure Policy para o Armazenamento Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 3e2f4095d57fd224fb08228ca2ca904235f7ab0a
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 144c1960af353e3ff6e641ca5597436b00813e31
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85312433"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277038"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Definições incorporadas da Política Azure para armazenamento Azure
 

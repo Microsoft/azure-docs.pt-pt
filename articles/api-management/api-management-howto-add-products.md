@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d90b212286b555bf5b858990fd5dcb062348be8d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81261001"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254729"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -57,7 +57,7 @@ Neste tutorial, ficará a saber como:
     | Requer aprovação        | Selecione **Exigir aprovação**, se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição deste produto. Se a caixa estiver desmarcada, as tentativas de subscrição são aprovadas automaticamente.                                                                                                                         |
     | Limite da contagem de subscrições | Para limitar a contagem de várias subscrições simultâneas, introduza o limite de subscrições.                                                                                                                                                                                                                                |
     | Termos legais              | Pode incluir os termos de utilização do produto, que os subscritores têm de aceitar para poderem utilizar o produto.                                                                                                                                                                                                             |
-    | APIs                     | Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/> Pode adicionar uma API existente durante a criação de produtos. Pode adicionar uma API ao produto mais tarde, quer a partir da página **Definições** do Produto, quer durante a criação de uma API. |
+    | APIs                     | Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/> Pode adicionar uma API existente durante a criação de produtos. Pode adicionar uma API ao produto mais tarde, quer a partir da página **Definições** do Produto, quer enquanto cria uma API. |
 
 3. Clique em **Criar** para criar o novo produto.
 
@@ -67,7 +67,7 @@ Pode continuar a configurar o produto após guardá-lo, ao escolher o separador 
 
 Veja/adicione subscritores ao produto, a partir do separador **Subscrições**.
 
-Detete a visibilidade de um produto para desenvolvedores ou hóspedes a partir do separador **de controlo de acesso.**
+Desaprote a visibilidade de um produto para programadores ou hóspedes a partir do **separador de controlo Access.**
 
 ## <a name="add-apis-to-a-product"></a><a name="add-apis"> </a>Adicionar APIs a um produto
 
@@ -85,7 +85,7 @@ Os programadores têm de subscrever primeiro um produto para obter acesso à API
 4. Escolha uma API e clique em **Selecionar**.
 
 > [!TIP]
-> Pode criar ou atualizar a subscrição do utilizador para um *Produto*, com chaves de subscrição personalizadas [através da API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) ou do comando do PowerShell.
+> Pode criar ou atualizar a subscrição do utilizador para um *Produto*, com chaves de subscrição personalizadas [através da API REST](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) ou do comando do PowerShell.
 
 ## <a name="next-steps"></a>Passos seguintes
 

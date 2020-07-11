@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 61b6ad0bedb4817c262b4269a6e9f6930a6caa6c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985693"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260677"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
@@ -20,7 +20,7 @@ Neste tutorial, parte um de três, você vai preparar o seu ambiente para criar 
 > * Configurar os pré-requisitos e criar a rede virtual e sub-redes necessárias
 > * Implementar um cluster
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.0.75 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -87,11 +87,26 @@ Ao executar o `az aro create` comando, pode fazer referência ao seu segredo de 
 
 Se estiver a copiar o seu segredo de puxar ou a fazê-lo referenciar noutros scripts, o seu segredo de puxar deve ser formatado como uma cadeia JSON válida.
 
+### <a name="prepare-a-custom-domain-for-your-cluster-optional"></a>Prepare um domínio personalizado para o seu cluster (opcional)
+
+Ao executar o `az aro create` comando, pode especificar um domínio personalizado para o seu cluster utilizando o `--domain foo.example.com` parâmetro.
+
+Se fornecer um domínio personalizado para o seu cluster, note os seguintes pontos:
+
+* Depois de criar o seu cluster, deve criar 2 registos DNS A no seu servidor DNS para o `--domain` especificado:
+    * **api** - apontando para o servidor api
+    * ** \* .apps** - apontando para a entrada
+    * Recupere estes valores executando o seguinte comando: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'` .
+
+* A consola OpenShift estará disponível num URL `https://console-openshift-console.apps.foo.example.com` como, em vez do domínio `https://console-openshift-console.apps.<random>.<location>.aroapp.io` incorporado.
+
+* Por predefinição, o OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io` .  Se optar por utilizar DNS personalizados após a ligação ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador de entrada](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e um CA personalizado para o seu servidor [API.](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html)
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Criar uma rede virtual contendo duas sub-redes vazias
 
 Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
 
-1. **Desa estarda as seguintes variáveis.**
+1. **Desaprote as seguintes variáveis no ambiente da concha em que executará os `az` comandos.**
 
    ```console
    LOCATION=eastus                 # the location of your cluster
@@ -99,9 +114,9 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Criar um grupo de recursos**
+1. **Criar um grupo de recursos.**
 
-    Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o comando [az-group-create].
+    Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o [grupo az criar](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) comando.
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -126,7 +141,7 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
 
     Os clusters Azure Red Hat OpenShift que executam o OpenShift 4 requerem uma rede virtual com duas sub-redes vazias, para os nós de mestre e trabalhador.
 
-    Crie uma nova rede virtual no mesmo grupo de recursos que criou anteriormente.
+    Crie uma nova rede virtual no mesmo grupo de recursos que criou anteriormente:
 
     ```azurecli-interactive
     az network vnet create \
@@ -189,10 +204,12 @@ Em seguida, irá criar uma rede virtual contendo duas sub-redes vazias.
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Executar o seguinte comando para criar um cluster. Opcionalmente, pode [passar o seu segredo de puxar o Chapéu Vermelho,](#get-a-red-hat-pull-secret-optional) o que permite ao seu cluster aceder aos registos de contentores do Red Hat juntamente com conteúdo adicional.
+Executar o seguinte comando para criar um cluster. Se optar por utilizar qualquer uma das seguintes opções, modifique o comando em conformidade:
+* Opcionalmente, pode [passar o seu segredo de puxar o Chapéu Vermelho,](#get-a-red-hat-pull-secret-optional) o que permite ao seu cluster aceder aos registos de contentores do Red Hat juntamente com conteúdo adicional. Adicione o `--pull-secret @pull-secret.txt` argumento ao seu comando.
+* Opcionalmente, pode [utilizar um domínio personalizado.](#prepare-a-custom-domain-for-your-cluster-optional) Adicione o `--domain foo.example.com` argumento ao seu comando, substituindo-o `foo.example.com` pelo seu próprio domínio personalizado.
 
->[!NOTE]
-> Se estiver a copiar/colar comandos e utilizar um dos parâmetros opcionais, certifique-se de que apaga as hashtags iniciais e o texto de comentário de fuga. Além disso, feche o argumento na linha anterior do comando com uma faixa de recuo.
+> [!NOTE]
+> Se adicionar argumentos opcionais ao seu comando, certifique-se de encerrar o argumento na linha anterior do comando com uma faixa de retrocesso.
 
 ```azurecli-interactive
 az aro create \
@@ -201,17 +218,9 @@ az aro create \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
-  # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
 Após a execução do `az aro create` comando, normalmente demora cerca de 35 minutos a criar um cluster.
-
->[!IMPORTANT]
-> Se optar por especificar um domínio personalizado, por exemplo **foo.example.com,** a consola OpenShift estará disponível num URL como `https://console-openshift-console.apps.foo.example.com` , em vez do domínio incorporado `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
->
-> Por predefinição, o OpenShift utiliza certificados auto-assinados para todas as rotas criadas em `*.apps.<random>.<location>.aroapp.io` .  Se optar por utilizar DNS personalizados após a ligação ao cluster, terá de seguir a documentação OpenShift para [configurar um CA personalizado para o seu controlador de entrada](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) e um CA personalizado para o seu servidor [API.](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html)
->
 
 ## <a name="next-steps"></a>Passos seguintes
 

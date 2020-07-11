@@ -3,16 +3,16 @@ title: Implementar uma aplicação .NET num recipiente para o Azure Service Fabr
 description: Saiba como colocar uma aplicação .NET existente num contentor com o Visual Studio e depurar contentores no Service Fabric localmente. A aplicação em contentor é enviada para um registo de contentor do Azure e implementada num cluster do Service Fabric. Quando implementada no Azure, a aplicação utiliza a BD SQL do Azure para manter os dados.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: aa99897da99ff1a1443e548e98ae415b6a8d49f5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234223"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258869"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
-Este tutorial explica como colocar uma aplicação ASP.NET existente num contentor e empacotá-la como uma aplicação do Service Fabric.  Execute os contentores localmente no cluster de desenvolvimento do Service Fabric e, em seguida, implemente a aplicação no Azure.  A aplicação mantém os dados na [Base de Dados SQL do Azure](/azure/sql-database/sql-database-technical-overview).
+Este tutorial explica como colocar uma aplicação ASP.NET existente num contentor e empacotá-la como uma aplicação do Service Fabric.  Execute os contentores localmente no cluster de desenvolvimento do Service Fabric e, em seguida, implemente a aplicação no Azure.  A aplicação mantém os dados na [Base de Dados SQL do Azure](../azure-sql/database/sql-database-paas-overview.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -55,7 +55,7 @@ Neste tutorial, ficará a saber como:
 
 Quando executa a aplicação Fabrikam Fiber CallCenter em produção, os dados têm de ser mantidos numa base de dados. Não existe atualmente nenhuma forma de garantir que os dados fiquem num contentor, por isso não pode armazenar dados de produção no SQL Server num contentor.
 
-Recomendamos a [Base de Dados SQL do Azure](/azure/sql-database/sql-database-get-started-powershell). Para configurar e executar uma Base de Dados SQL Server gerida no Azure, execute o seguinte script.  Modifique as variáveis do script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento. Tome nota do nome do servidor descoduído pelo script.
+Recomendamos a [Base de Dados SQL do Azure](../azure-sql/database/powershell-script-content-guide.md). Para configurar e executar uma Base de Dados SQL Server gerida no Azure, execute o seguinte script.  Modifique as variáveis do script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento. Tome nota do nome do servidor descoduído pelo script.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -124,9 +124,9 @@ Volte para o projeto **FabrikamFiber.Web**, atualize a cadeia de ligação no fi
 
 Prima **F5** para executar e depurar a aplicação num contentor no cluster de desenvolvimento do Service Fabric local. Clique em **Sim** se for apresentada uma caixa de mensagem a pedir para conceder permissões de leitura e execução do grupo “ServiceFabricAllowedUsers” ao diretório do projeto do Visual Studio.
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
-Agora que a aplicação é executada localmente, comece a preparar a implementação do Azure.  As imagens de contentor têm de ser armazenadas num registo de contentor.  Crie um [registo de contentor do Azure](/azure/container-registry/container-registry-intro) com o script seguinte. O nome de registo do contentor é visível para as outras subscrições do Azure, pelo que tem de ser exclusivo.
+Agora que a aplicação é executada localmente, comece a preparar a implementação do Azure.  As imagens de contentor têm de ser armazenadas num registo de contentor.  Crie um [registo de contentor do Azure](../container-registry/container-registry-intro.md) com o script seguinte. O nome de registo do contentor é visível para as outras subscrições do Azure, pelo que tem de ser exclusivo.
 Antes de implementar a aplicação no Azure, coloque a imagem de contentor neste registo.  Quando a aplicação é implementada no cluster no Azure, a imagem de contentor é retirada deste registo.
 
 ```powershell
@@ -179,7 +179,7 @@ Ao criar o cluster:
 
 ## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Permitir que a sua aplicação em funcionamento em Azure aceda à Base de Dados SQL
 
-Anteriormente, criou uma regra de firewall de SQL para dar acesso à sua aplicação em execução localmente.  Em seguida, precisa de ativar a aplicação em execução no Azure para aceder à BD SQL.  Crie um [ponto final de serviço de rede virtual](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) para o cluster do Service Fabric e, em seguida, crie uma regra para permitir que esse ponto final aceda à BD SQL. Certifique-se de especificar a variável do grupo de recursos de cluster que tomou nota ao criar o cluster.
+Anteriormente, criou uma regra de firewall de SQL para dar acesso à sua aplicação em execução localmente.  Em seguida, precisa de ativar a aplicação em execução no Azure para aceder à BD SQL.  Crie um [ponto final de serviço de rede virtual](../azure-sql/database/vnet-service-endpoint-rule-overview.md) para o cluster do Service Fabric e, em seguida, crie uma regra para permitir que esse ponto final aceda à BD SQL. Certifique-se de especificar a variável do grupo de recursos de cluster que tomou nota ao criar o cluster.
 
 ```powershell
 # Create a virtual network service endpoint
@@ -241,7 +241,7 @@ Siga o progresso da implementação na janela de saída. Quando a aplicação fo
 
 Para saber como utilizar o Azure DevOps para configurar a implementação de aplicação de CI/CD num cluster do Service Fabric, veja o [Tutorial: Implementar uma aplicação com a CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar, lembre-se de remover todos os recursos que criou.  A forma mais simples de fazê-lo consiste em remover os grupos de recursos que contêm o cluster do Service Fabric, a BD SQL do Azure e o Azure Container Registry.
 

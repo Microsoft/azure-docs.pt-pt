@@ -1,6 +1,6 @@
 ---
 title: Configurar alertas de serviço para Windows Virtual Desktop - Azure
-description: Como configurar a Azure Service Health para receber notificações de serviço para o Windows Virtual Desktop.
+description: Como configurar o Azure Service Health para receber notificações de serviço para o Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,54 +8,54 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad25ab219cdb83227d39f86109d18b2c8402c38f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 035fc4840b08a0a9807c228cb5f63c191efc524a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612355"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256888"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
 
 >[!IMPORTANT]
->Este conteúdo aplica-se à atualização da primavera de 2020 com os objetos de ambiente de trabalho virtual do Gestor de Recursos Do Azure Windows. Se estiver a utilizar o lançamento do Windows Virtual Desktop Fall 2019 sem objetos do Gestor de Recursos Azure, consulte [este artigo](./virtual-desktop-fall-2019/set-up-service-alerts-2019.md).
+>Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/set-up-service-alerts-2019.md).
 >
-> A atualização Do Windows Virtual Desktop Spring 2020 encontra-se atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos usá-la para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
-> Para mais informações, consulte [os Termos Suplementares de Utilização para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)do Microsoft Azure .
+> A atualização Virtual Desktop Spring 2020 do Windows está atualmente em pré-visualização pública. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não recomendamos a sua utilização para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pode utilizar a Azure Service Health para monitorizar problemas de serviço e aconselhamento de saúde para o Windows Virtual Desktop. A Azure Service Health pode notificá-lo com diferentes tipos de alertas (por exemplo, e-mail ou SMS), ajudá-lo a entender o efeito de um problema, e mantê-lo atualizado à medida que o problema resolve. A Azure Service Health também pode ajudá-lo a mitigar o tempo de inatividade e a preparar-se para a manutenção planeada e alterações que possam afetar a disponibilidade dos seus recursos.
+Pode utilizar o Azure Service Health para monitorizar problemas de serviço e avisos de saúde para o Windows Virtual Desktop. A Azure Service Health pode notificá-lo com diferentes tipos de alertas (por exemplo, e-mail ou SMS), ajudá-lo a entender o efeito de um problema, e mantê-lo atualizado à medida que o problema resolve. O Serviço Azure Health também pode ajudá-lo a mitigar o tempo de inatividade e preparar-se para a manutenção planeada e alterações que possam afetar a disponibilidade dos seus recursos.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Crie e configure alertas de serviço.
+> * Criar e configurar alertas de serviço.
 
-Para saber mais sobre a Azure Service Health, consulte a Documentação de [Saúde Azure.](https://docs.microsoft.com/azure/service-health/)
+Para saber mais sobre a Azure Service Health, consulte a [Documentação da Saúde do Azure.](https://docs.microsoft.com/azure/service-health/)
 
 ## <a name="create-service-alerts"></a>Criar alertas de serviço
 
-Esta secção mostra-lhe como configurar a Azure Service Health e como configurar notificações, às quais pode aceder no portal Azure. Pode configurar diferentes tipos de alertas e agende-os para o notificar em tempo útil.
+Esta secção mostra-lhe como configurar a Azure Service Health e como configurar notificações, às quais pode aceder no portal Azure. Pode configurar diferentes tipos de alertas e agificá-los para o notificar em tempo útil.
 
 ### <a name="recommended-service-alerts"></a>Alertas de serviço recomendados
 
 Recomendamos que crie alertas de serviço para os seguintes tipos de eventos de saúde:
 
-- **Problema de serviço:** Receba notificações sobre grandes problemas que impactam a conectividade dos seus utilizadores com o serviço ou com a capacidade de gerir o seu inquilino do Windows Virtual Desktop.
-- **Aconselhamento em saúde:** Receba notificações que requerem a sua atenção. Seguem-se alguns exemplos deste tipo de notificação:
+- **Emissão de serviço:** Receba notificações sobre grandes problemas que impactem a conectividade dos seus utilizadores com o serviço ou com a capacidade de gerir o seu inquilino virtual do Windows Desktop.
+- **Aviso de saúde:** Receba notificações que exijam a sua atenção. Seguem-se alguns exemplos deste tipo de notificação:
     - Máquinas Virtuais (VMs) não configuradas de forma segura como porta aberta 3389
     - Depreciação da funcionalidade
 
-### <a name="configure-service-alerts"></a>Configurar alertas de serviço
+### <a name="configure-service-alerts"></a>Configure alertas de serviço
 
 Para configurar alertas de serviço:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Service Health.**
-3. Siga as instruções em Criar alertas de registo de [atividade sonantes em notificações](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) de serviço para configurar os seus alertas e notificações.
+2. Selecione **Saúde de Serviço.**
+3. Siga as instruções no [Criar alertas de registo de atividades nas notificações de serviço](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) para configurar os seus alertas e notificações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a configurar e utilizar a Azure Service Health para monitorizar problemas de serviço e aconselhamento de saúde para o Windows Virtual Desktop. Para saber como iniciar sessão no Windows Virtual Desktop, continue a ligar ao Windows Virtual Desktop How-tos.
+Neste tutorial, aprendeu a configurar e utilizar o Azure Service Health para monitorizar problemas de serviço e avisos de saúde para o Windows Virtual Desktop. Para saber como iniciar sôm no Windows Virtual Desktop, continue a ligar ao Windows Virtual Desktop Como-tos.
 
 > [!div class="nextstepaction"]
-> [Ligue-se ao cliente do Ambiente de Trabalho Remoto no Windows 7 e Windows 10](./connect-windows-7-and-10.md)
+> [Ligue-se ao cliente de ambiente de trabalho remoto no Windows 7 e Windows 10](./connect-windows-7-10.md)

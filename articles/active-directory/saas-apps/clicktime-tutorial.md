@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27803187e06ee523ff7e6b773bd302eed7422111
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: b0db29309c2f691a1c7811258fee59582643a6e6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608879"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Diretório Ativo Azure com o ClickTime
 
@@ -110,10 +110,10 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
     
-        ```https
-        https://app.clicktime.com/Login/
-        https://app.clicktime.com/App/Login/Consume.aspx
-        ```
+    ```http
+    https://app.clicktime.com/Login/
+    https://app.clicktime.com/App/Login/Consume.aspx
+    ```
 
 4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -145,7 +145,7 @@ Para configurar o Azure AD com o ClickTime, execute os seguintes passos:
    
     c.  Abra o **certificado codificado base-64** descarregado do portal Azure no Bloco de **Notas,** copie o conteúdo e, em seguida, cole-o na caixa de texto **do Certificado X.509.**
    
-    d.  Clique em **Guardar**.
+    d.  Clique em **Save** (Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -229,7 +229,7 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
     > [!NOTE]
     > Se quiser, pode definir propriedades adicionais do objeto da nova pessoa.
    
-    c.  Clique em **Guardar**.
+    c.  Clique em **Save** (Guardar).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

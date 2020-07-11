@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para a pesquisa cognitiva do Azure
 description: Lista definições políticas incorporadas da Azure Policy para Azure Cognitive Search. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-samples
-ms.openlocfilehash: a5d33b9305446bd2db059c90939a860286a42afe
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 5e4a12af83fd81134b930103cd28377bf4185fa3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318556"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274306"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cognitive-search"></a>Definições incorporadas da Política Azure para a Pesquisa Cognitiva Azure
 
