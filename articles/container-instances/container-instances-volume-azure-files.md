@@ -2,13 +2,14 @@
 title: Monte Azure Files volume para grupo de contentores
 description: Saiba como montar um volume de Ficheiros Azure para persistir com instâncias de contentores Azure
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: f66890c503de8de9160f11fb28795012ae57daeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 593400f67db5018f1533dd37eed88ece7fd596c6
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75561342"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169583"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar uma partilha de ficheiros do Azure no Azure Container Instances
 
@@ -102,7 +103,7 @@ O modelo YAML seguinte define um grupo de contentores com um recipiente criado c
 Tal como no exemplo do CLI, o `dnsNameLabel` valor deve ser único na região de Azure onde se cria a instância do contentor. Atualizar o valor no ficheiro YAML, se necessário.
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: file-share-demo
 properties:
@@ -167,7 +168,7 @@ Tal como nos exemplos anteriores, o `dnsNameLabel` valor deve ser único na regi
     {
       "name": "file-share-demo",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -268,7 +269,7 @@ Em seguida, para cada recipiente no grupo de contentores em que pretende montar 
 }]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como montar outros tipos de volume em Instâncias de Contentores Azure:
 

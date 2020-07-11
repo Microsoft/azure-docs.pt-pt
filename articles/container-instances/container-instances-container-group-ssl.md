@@ -2,12 +2,13 @@
 title: Ativar TLS com recipiente sidecar
 description: Criar um ponto final SSL ou TLS para um grupo de contentores que funciona em Instâncias de Contentores Azure, executando o Nginx num recipiente de sidecar
 ms.topic: article
-ms.date: 02/14/2020
-ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: f7f5d8e8136f4357067888f5a39fa0c3635122d1
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80984611"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169855"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Ativar um ponto final TLS num recipiente de sidecar
 
@@ -146,7 +147,7 @@ code deploy-aci.yaml
 Introduza o conteúdo dos ficheiros codificados de base64, quando indicado em `secret` . Por exemplo, `cat` cada um dos ficheiros codificados de base64 para ver o seu conteúdo. Durante a colocação, estes ficheiros são adicionados a um [volume secreto](container-instances-volume-secret.md) no grupo de contentores. Neste exemplo, o volume secreto é montado no recipiente Nginx.
 
 ```YAML
-api-version: 2018-10-01
+api-version: 2019-12-01
 location: westus
 name: app-with-ssl
 properties:
@@ -231,7 +232,7 @@ Utilize o seu navegador para navegar para o endereço IP público do grupo de co
 
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como configurar um recipiente Nginx para permitir ligações TLS a uma aplicação web em execução no grupo de contentores. Pode adaptar este exemplo para apps que ouvem em portas que não a porta 80. Também pode atualizar o ficheiro de configuração Nginx para redirecionar automaticamente as ligações do servidor na porta 80 (HTTP) para utilizar HTTPS.
 
@@ -240,5 +241,5 @@ Enquanto este artigo utiliza o Nginx no sidecar, pode utilizar outro fornecedor 
 Se colocar o seu grupo de contentores numa [rede virtual Azure,](container-instances-vnet.md)pode considerar outras opções para ativar um ponto final TLS para uma instância de recipiente de backend, incluindo:
 
 * [Proxies de Funções Azure](../azure-functions/functions-proxies.md)
-* [API Management do Azure](../api-management/api-management-key-concepts.md)
+* [Gestão de API do Azure](../api-management/api-management-key-concepts.md)
 * [Azure Application Gateway](../application-gateway/overview.md) - consulte um [modelo de implementação de](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)amostras .

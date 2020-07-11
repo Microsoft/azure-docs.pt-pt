@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d348f2696ef865616669af311477cb3a90a59a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a3516d96e397944adcd31628a561a243e178c2d
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995870"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183040"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos de licença e configuração do Apple FairPlay 
 
@@ -26,7 +27,7 @@ O Azure Media Services permite-lhe encriptar o seu conteúdo HLS com **o Apple F
 
 Os Serviços de Mídia também fornecem APIs que pode utilizar para configurar as suas licenças FairPlay. Este tópico discute os requisitos de licença fairPlay e demonstra como pode configurar uma licença **FairPlay** usando APIs de Serviços de Media. 
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 São necessários os seguintes ao utilizar os Serviços de Comunicação Social para encriptar o seu conteúdo HLS com **o Apple FairPlay** e utilizar os Serviços de Media para fornecer licenças FairPlay:
 
@@ -60,6 +61,9 @@ São necessários os seguintes ao utilizar os Serviços de Comunicação Social 
   * .der arquivo
   * Arquivo .pfx
   * palavra-passe para o .pfx
+  
+> [!NOTE]
+> A Azure Media Services não verifica a data de validade do certificado durante a embalagem ou entrega de chaves. Continuará a funcionar após o termo do certificado.
 
 ## <a name="fairplay-and-player-apps"></a>FairPlay e aplicativos de jogadores
 
@@ -114,6 +118,6 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Confira como [proteger com DRM](protect-with-drm.md)

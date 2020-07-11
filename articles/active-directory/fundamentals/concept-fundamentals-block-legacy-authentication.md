@@ -12,11 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83196396"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200546"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloquear a autenticação do legado
  
@@ -31,9 +32,9 @@ Hoje, a maioria de todas as tentativas de inscrição comprometedoras provêm da
 
 Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro compreender se os seus utilizadores têm aplicações que utilizam a autenticação antiga e como isso afeta o seu diretório geral. Os registos de login AD do Azure podem ser utilizados para entender se está a utilizar a autenticação antiga.
 
-1. Navegue para o **portal**   >  **Azure Ative Directory**   >  **Ins**.
+1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins**.
 1. Adicione a coluna **'App' cliente** se não for mostrada clicando na App do Cliente **das Colunas.**   >  **Client App**
-1. Filter by **Client App**> verificar todas   as opções de **Clientes de Autenticação Legacy apresentadas.**
+1. Filter by **Client App** > verificar todas as opções de Clientes de Autenticação Legacy **apresentadas.**
 1. Filtrar por **Status**  >  **Success**. 
 1. Aumente o seu intervalo de datas, se necessário, utilizando o filtro **Data.**
 
@@ -95,8 +96,8 @@ Os passos para permitir a autenticação moderna podem ser encontrados nos segui
 * [Como configurar o Exchange Server no local para utilizar a autenticação moderna híbrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [Como utilizar a Autenticação Moderna (ADAL) com o Skype para o negócio](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como configurar o Exchange Server no local para utilizar a autenticação moderna híbrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 - [Como utilizar a Autenticação Moderna (ADAL) com o Skype para o negócio](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
-- [Bloquear a autenticação do legado](../conditional-access/block-legacy-authentication.md)
+- [Bloquear a autenticação legada](../conditional-access/block-legacy-authentication.md)

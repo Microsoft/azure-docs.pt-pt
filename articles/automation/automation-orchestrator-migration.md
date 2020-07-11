@@ -5,17 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b6778c4eab4dee382ec38d6218aa647e8aedc4cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3399138ef7c14dd2db9133334a08b3984bd26448
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836758"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186011"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orchestrator para a Automatização do Azure (Beta)
 
-Runbooks in [System Center 2012 - O Orquestrador](https://technet.microsoft.com/library/hh237242.aspx) baseia-se em atividades de pacotes de integração que são escritos especificamente para Orquestrador, enquanto os livros de execução em Azure Automation são baseados no Windows PowerShell. [Os runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na Azure Automation têm uma aparência semelhante aos runbooks do Orquestrador, com as suas atividades representando cmdlets PowerShell, livros infantis e ativos. Além de converter os próprios runbooks, é necessário converter os pacotes de integração com as atividades que os runbooks utilizam para módulos de integração com cmdlets Windows PowerShell. 
+Runbooks in [System Center 2012 - O Orquestrador](/previous-versions/system-center/system-center-2012-R2/hh237242(v=sc.12)) baseia-se em atividades de pacotes de integração que são escritos especificamente para Orquestrador, enquanto os livros de execução em Azure Automation são baseados no Windows PowerShell. [Os runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na Azure Automation têm uma aparência semelhante aos runbooks do Orquestrador, com as suas atividades representando cmdlets PowerShell, livros infantis e ativos. Além de converter os próprios runbooks, é necessário converter os pacotes de integração com as atividades que os runbooks utilizam para módulos de integração com cmdlets Windows PowerShell. 
 
-[A Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) (SMA) armazena e executa livros de recortes no seu datacenter local como o Orchestrator, e utiliza os mesmos módulos de integração que a Azure Automation. O Runbook Converter converte os runbooks do Orquestrador em livros gráficos, que não são suportados em SMA. Ainda pode instalar os Módulos de Integração do Módulo de Atividades Padrão e do Centro de Sistemas orquestradores em SMA, mas tem de reescrever manualmente [os seus livros de execução](https://technet.microsoft.com/library/dn469262.aspx).
+[A Service Management Automation](/previous-versions/system-center/system-center-2012-R2/dn469260(v=sc.12)) (SMA) armazena e executa livros de recortes no seu datacenter local como o Orchestrator, e utiliza os mesmos módulos de integração que a Azure Automation. O Runbook Converter converte os runbooks do Orquestrador em livros gráficos, que não são suportados em SMA. Ainda pode instalar os Módulos de Integração do Módulo de Atividades Padrão e do Centro de Sistemas orquestradores em SMA, mas tem de reescrever manualmente [os seus livros de execução](/system-center/sma/authoring-automation-runbooks).
 
 ## <a name="download-the-orchestrator-migration-toolkit"></a>Descarregue o kit de ferramentas de migração do Orquestrador
 
@@ -23,28 +24,28 @@ O primeiro passo na migração é descarregar o [Kit de Ferramentas de Migraçã
 
 ## <a name="import-the-standard-activities-module"></a>Importar o módulo de Atividades Padrão
 
-Importe o [Módulo de Atividades Padrão](https://docs.microsoft.com/system-center/orchestrator/standard-activities?view=sc-orch-2019) para a Azure Automation. Isto inclui versões convertidas de atividades orquestradoras padrão que os livros gráficos convertidos podem usar.
+Importe o [Módulo de Atividades Padrão](/system-center/orchestrator/standard-activities?view=sc-orch-2019) para a Azure Automation. Isto inclui versões convertidas de atividades orquestradoras padrão que os livros gráficos convertidos podem usar.
 
 ## <a name="import-orchestrator-integration-modules"></a>Módulos de integração de orquestradores de importação
 
-A Microsoft fornece [pacotes de integração](https://technet.microsoft.com/library/hh295851.aspx) para a construção de livros para automatizar componentes do System Center e outros produtos. Alguns destes pacotes de integração são atualmente baseados no OIT, mas não podem ser convertidos para módulos de integração devido a problemas conhecidos. [Módulos de Integração de Orquestradores do Centro de Sistemas](https://www.microsoft.com/download/details.aspx?id=49555) de Importação em Azure Automation para os pacotes de integração utilizados pelos seus runbooks que acedem ao System Center. Este pacote inclui versões convertidas dos pacotes de integração que podem ser importados para a Azure Automation and Service Management Automation.  
+A Microsoft fornece [pacotes de integração](/previous-versions/system-center/packs/hh295851(v=technet.10)) para a construção de livros para automatizar componentes do System Center e outros produtos. Alguns destes pacotes de integração são atualmente baseados no OIT, mas não podem ser convertidos para módulos de integração devido a problemas conhecidos. [Módulos de Integração de Orquestradores do Centro de Sistemas](https://www.microsoft.com/download/details.aspx?id=49555) de Importação em Azure Automation para os pacotes de integração utilizados pelos seus runbooks que acedem ao System Center. Este pacote inclui versões convertidas dos pacotes de integração que podem ser importados para a Azure Automation and Service Management Automation.  
 
 ## <a name="convert-integration-packs"></a>Converter pacotes de integração
 
-Utilize o [Conversor de Pacotes de Integração](https://docs.microsoft.com/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard?view=sc-orch-2019) para converter quaisquer pacotes de integração criados utilizando o Kit de Ferramentas de [Integração de Orquestradores (OIT)](https://technet.microsoft.com/library/hh855853.aspx) para módulos de integração baseados em PowerShell que podem ser importados para Azure Automation ou Service Management Automation. Quando executar o Conversor de Pacotes de Integração, é-lhe apresentado um assistente que lhe permite selecionar um ficheiro de pacote de integração (.oip). Em seguida, o assistente lista as atividades incluídas nesse pacote de integração e permite-lhe selecionar quais as atividades a migrar. Quando completa o assistente, cria um módulo de integração que inclui um cmdlet correspondente para cada uma das atividades no pacote de integração original.
+Utilize o [Conversor de Pacotes de Integração](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard?view=sc-orch-2019) para converter quaisquer pacotes de integração criados utilizando o Kit de Ferramentas de [Integração de Orquestradores (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) para módulos de integração baseados em PowerShell que podem ser importados para Azure Automation ou Service Management Automation. Quando executar o Conversor de Pacotes de Integração, é-lhe apresentado um assistente que lhe permite selecionar um ficheiro de pacote de integração (.oip). Em seguida, o assistente lista as atividades incluídas nesse pacote de integração e permite-lhe selecionar quais as atividades a migrar. Quando completa o assistente, cria um módulo de integração que inclui um cmdlet correspondente para cada uma das atividades no pacote de integração original.
 
 > [!NOTE]
 > Não é possível utilizar o Conversor de Pacotes integrais para converter pacotes de integração que não foram criados com o OIT. Existem também alguns packs de integração fornecidos pela Microsoft que não podem ser convertidos com esta ferramenta. As versões convertidas destes pacotes de integração são fornecidas para download para que possam ser instaladas na Azure Automation ou na Service Management Automation.
 
 ### <a name="parameters"></a>Parâmetros
 
-Quaisquer propriedades de uma atividade no pacote de integração são convertidas em parâmetros do cmdlet correspondente no módulo de integração.  Os cmdlets Windows PowerShell têm um conjunto de [parâmetros comuns](https://technet.microsoft.com/library/hh847884.aspx) que podem ser utilizados com todos os cmdlets. Por exemplo, o parâmetro -Verbose faz com que um cmdlet produza informações detalhadas sobre o seu funcionamento.  Nenhum cmdlet pode ter um parâmetro com o mesmo nome que um parâmetro comum. Se uma atividade tiver uma propriedade com o mesmo nome que um parâmetro comum, o assistente pede-lhe que forneça outro nome para o parâmetro.
+Quaisquer propriedades de uma atividade no pacote de integração são convertidas em parâmetros do cmdlet correspondente no módulo de integração.  Os cmdlets Windows PowerShell têm um conjunto de [parâmetros comuns](/powershell/module/microsoft.powershell.core/about/about_commonparameters) que podem ser utilizados com todos os cmdlets. Por exemplo, o parâmetro -Verbose faz com que um cmdlet produza informações detalhadas sobre o seu funcionamento.  Nenhum cmdlet pode ter um parâmetro com o mesmo nome que um parâmetro comum. Se uma atividade tiver uma propriedade com o mesmo nome que um parâmetro comum, o assistente pede-lhe que forneça outro nome para o parâmetro.
 
 ### <a name="monitor-activities"></a>Monitorizar atividades
 
-Monitor de runbooks em Orchestrator começa com uma [atividade de monitor](https://technet.microsoft.com/library/hh403827.aspx) e corre continuamente à espera de ser invocado por um evento particular. A Azure Automation não suporta os runbooks monitor, pelo que quaisquer atividades de monitorização no pacote de integração não são convertidas. Em vez disso, é criado um cmdlet de espaço reservado no módulo de integração para a atividade do monitor.  Este cmdlet não tem funcionalidade, mas permite que qualquer livro de bordo convertido que o utilize seja instalado. Este runbook não é capaz de funcionar na Azure Automation, mas pode ser instalado para que possa modificá-lo.
+Monitor de runbooks em Orchestrator começa com uma [atividade de monitor](/previous-versions/system-center/system-center-2012-R2/hh403827(v=sc.12)) e corre continuamente à espera de ser invocado por um evento particular. A Azure Automation não suporta os runbooks monitor, pelo que quaisquer atividades de monitorização no pacote de integração não são convertidas. Em vez disso, é criado um cmdlet de espaço reservado no módulo de integração para a atividade do monitor.  Este cmdlet não tem funcionalidade, mas permite que qualquer livro de bordo convertido que o utilize seja instalado. Este runbook não é capaz de funcionar na Azure Automation, mas pode ser instalado para que possa modificá-lo.
 
-O orquestrador inclui um conjunto de [atividades padrão](https://technet.microsoft.com/library/hh403832.aspx) que não estão incluídas num pacote de integração, mas são usadas por muitos runbooks.  O módulo Atividades Standard é um módulo de integração que inclui um equivalente cmdlet para cada uma destas atividades. Deve instalar este módulo de integração na Azure Automation antes de importar quaisquer livros de execução convertidos que utilizem uma atividade padrão.
+O orquestrador inclui um conjunto de [atividades padrão](/previous-versions/system-center/system-center-2012-R2/hh403832(v=sc.12)) que não estão incluídas num pacote de integração, mas são usadas por muitos runbooks.  O módulo Atividades Standard é um módulo de integração que inclui um equivalente cmdlet para cada uma destas atividades. Deve instalar este módulo de integração na Azure Automation antes de importar quaisquer livros de execução convertidos que utilizem uma atividade padrão.
 
 Além de suportar em runbooks convertidos, os cmdlets no módulo de atividades padrão podem ser usados por alguém familiarizado com o Orquestrador para construir novos runbooks na Azure Automation. Embora a funcionalidade de todas as atividades padrão possa ser realizada com cmdlets, podem funcionar de forma diferente. Os cmdlets do módulo de atividades padrão convertido funcionam da mesma forma que as suas atividades correspondentes e utilizam os mesmos parâmetros. Isto pode ajudá-lo na transição para os runbooks da Azure Automation.
 
@@ -99,7 +100,7 @@ O Conversor runbook converte cada atividade no runbook do Orquestrador para uma 
 
 Todas as atividades do Orquestrador no Módulo de Atividades Padrão são convertidas. Existem algumas atividades orquestradoras padrão que não estão neste módulo e não são convertidas. Por exemplo, `Send Platform Event` não tem equivalente da Azure Automation uma vez que o evento é específico do Orquestrador.
 
-[As atividades de](https://technet.microsoft.com/library/hh403827.aspx) monitorização não são convertidas, uma vez que não existem equivalentes a elas na Azure Automation. As exceções são as atividades de monitorização em pacotes de integração convertidos que são convertidos para a atividade do espaço reservado.
+[As atividades de](/previous-versions/system-center/system-center-2012-R2/hh403827(v=sc.12)) monitorização não são convertidas, uma vez que não existem equivalentes a elas na Azure Automation. As exceções são as atividades de monitorização em pacotes de integração convertidos que são convertidos para a atividade do espaço reservado.
 
 Qualquer atividade de um pacote de integração convertido é convertida se fornecer o caminho para o módulo de integração com o `modules` parâmetro. Para pacotes de integração de centros de sistema, você pode usar os módulos de integração do Sistema Center Orchestrator.
 
@@ -117,7 +118,7 @@ A razão pela qual esta estratégia é usada é para melhor espelhar a funcional
 
 ### <a name="invoke-runbook-activity"></a>Invocar atividade de Runbook
 
-Os runbooks em Orchestrator iniciam outros livros com a `Invoke Runbook` atividade. Se o livro de execução que está a ser convertido incluir esta atividade e a `Wait for completion` opção for definida, então é criada uma atividade de runbook para ele no runbook convertido.  Se a `Wait for completion` opção não estiver definida, então é criada uma atividade de Script de Fluxo de Trabalho que utiliza [o Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) para iniciar o livro de execução. Depois de importar o livro de bordo convertido para a Azure Automation, deve modificar esta atividade com as informações especificadas na atividade.
+Os runbooks em Orchestrator iniciam outros livros com a `Invoke Runbook` atividade. Se o livro de execução que está a ser convertido incluir esta atividade e a `Wait for completion` opção for definida, então é criada uma atividade de runbook para ele no runbook convertido.  Se a `Wait for completion` opção não estiver definida, então é criada uma atividade de Script de Fluxo de Trabalho que utiliza [o Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) para iniciar o livro de execução. Depois de importar o livro de bordo convertido para a Azure Automation, deve modificar esta atividade com as informações especificadas na atividade.
 
 ## <a name="create-orchestrator-assets"></a>Criar ativos de Orquestrador
 
@@ -129,8 +130,8 @@ O orquestrador armazena os runbooks num servidor de base de dados e executa-os e
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-* Para mais detalhes do Orquestrador, consulte [o System Center 2012 - Orquestrador.](https://technet.microsoft.com/library/hh237242.aspx)
-* Saiba mais sobre automatização da gestão de serviços na Automação de Gestão de [Serviços.](https://technet.microsoft.com/library/dn469260.aspx)
-* Os detalhes das atividades do Orquestrador podem ser encontrados nas [Atividades Standard Do Orquestrador.](https://technet.microsoft.com/library/hh403832.aspx)
+* Para mais detalhes do Orquestrador, consulte [o System Center 2012 - Orquestrador.](/previous-versions/system-center/system-center-2012-R2/hh237242(v=sc.12))
+* Saiba mais sobre automatização da gestão de serviços na Automação de Gestão de [Serviços.](/previous-versions/system-center/system-center-2012-R2/dn469260(v=sc.12))
+* Os detalhes das atividades do Orquestrador podem ser encontrados nas [Atividades Standard Do Orquestrador.](/previous-versions/system-center/system-center-2012-R2/hh403832(v=sc.12))
 * Para obter o kit de ferramentas de migração do Orquestrador, consulte [download System Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323).
 * Para uma visão geral do Azure Automation Hybrid Runbook Worker, consulte a [visão geral do Trabalhador do Runbook Híbrido](automation-hybrid-runbook-worker.md).

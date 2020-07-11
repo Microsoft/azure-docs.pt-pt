@@ -1,5 +1,5 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 description: file
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

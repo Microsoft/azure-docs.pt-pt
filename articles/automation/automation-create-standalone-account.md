@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3739f8691a144f183e72af19233f776a24066cbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118799"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186593"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -98,11 +99,10 @@ As contas Classic Run As já não são criadas por padrão quando cria uma conta
 2. Selecione **Azure Classic Run como conta**.
 3. Clique em **Criar** para prosseguir com a Classic Run Como criação de conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a autoria gráfica, consulte [os livros gráficos do Autor na Azure Automation.](automation-graphical-authoring-intro.md)
 * Para começar com os livros powerShell, consulte [Tutorial: Crie um livro de execução PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para começar com os livros de fluxo de trabalho PowerShell, consulte [Tutorial: Crie um livro de fluxo de trabalho PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Para começar com os runbooks Python 2, consulte [Tutorial: Crie um livro de bordo Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

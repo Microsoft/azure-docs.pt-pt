@@ -3,12 +3,12 @@ title: Criar e clonar cadernos Jupyter - Pré-visualização de cadernos Azure
 description: Os projetos de pré-visualização de Cadernos Azure gerem uma coleção de cadernos e ficheiros relacionados, que pode criar novos ou clones a partir de outra fonte.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: e1321afc2ce294c8a39ba8d55574e2ca949f632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831289"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181506"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos em Azure Notebooks Preview
 
@@ -61,20 +61,40 @@ Quando utiliza o comando **+ New Project,** os Cadernos Azure exibem um popup **
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que a Azure Notebooks usa para fins de exibição. Por exemplo, "O Meu Projeto De Caderno". |
 | ID do Projeto | Um identificador personalizado que se torna parte do URL que usa para partilhar um projeto (o formulário `https://notebooks.azure.com/<user_id>/projects/<project_id>` é). Este ID só pode usar letras, números e hífens, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](#reserved-project-ids). Se não tem a certeza do que usar, uma convenção comum é usar uma versão minúscula do seu nome de projeto onde os espaços são transformados em hífenes, como "my-notebook-project" (truncado se necessário para encaixar o limite de comprimento). |
-| Público | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
+| Públicos | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
 | Inicializar este projeto com uma README | Se for definido, cria um ficheiro *de README.md* predefinido no projeto. Um *ficheiro README.md* é onde fornece documentação para o seu projeto, se desejar. |
 
 ### <a name="reserved-project-ids"></a>IDs de projeto reservados
 
 As seguintes palavras reservadas não podem ser usadas por si mesmas como IDs do projeto. Estas palavras reservadas podem, no entanto, ser usadas como parte de iDs de projeto mais longos.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| acerca de | conta | administração | api | blogue | sala de aula |
-| conteúdo | dashboard | explorar | Perguntas Frequentes | Ajuda | html |
-| home | importar | biblioteca | gestão | novo | caderno |
-| notebooks | pdf | preview | preços | perfil | pesquisar |
-| status | suporte | test | | | |
+- acerca de
+- conta
+- administração
+- api
+- blogue
+- sala de aula
+- conteúdo
+- dashboard
+- explorar
+- Perguntas Frequentes
+- Ajuda
+- html
+- home
+- importar
+- biblioteca
+- gestão
+- novo
+- caderno
+- notebooks
+- pdf
+- preview
+- preços
+- perfil
+- pesquisar
+- status
+- suporte
+- test
 
 Se tentar usar uma destas palavras como ID de projeto, os popups **Create New Project** e Project **Settings** indicam: "O id da biblioteca é um identificador reservado".
 
@@ -90,7 +110,7 @@ Você pode facilmente importar um repo público inteiro GitHub como um projeto, 
 | Clone recursivamente | Os repositórios do GitHub podem conter vários repositórios infantis. Desista esta opção se quiser clonar o repositório dos pais e todos os seus filhos. Porque é possível um repositório ter muitos filhos, deixar esta opção clara a menos que saiba que precisa dela. |
 | Nome do projeto | Um nome amigável para o seu projeto que a Azure Notebooks usa para fins de exibição. |
 | ID do Projeto | Um identificador personalizado que se torna parte do URL que usa para partilhar um projeto (o formulário `https://notebooks.azure.com/<user_id>/projects/<project_id>` é). Este ID só pode usar letras, números e hífens, está limitado a 30 caracteres, e não pode ser um [ID de projeto reservado](#reserved-project-ids). Se não tem a certeza do que usar, uma convenção comum é usar uma versão minúscula do seu nome de projeto onde os espaços são transformados em hífenes, como "my-notebook-project" (truncado se necessário para encaixar o limite de comprimento). |
-| Público | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
+| Públicos | Se definido, permite que qualquer pessoa com o link aceda ao projeto. Ao criar um projeto privado, limpe esta opção. |
 
 Importar um repositório do GitHub também importa a sua história. Pode utilizar comandos Git padrão do terminal para cometer novas alterações, retirar mudanças do GitHub, e assim por diante.
 
@@ -110,7 +130,7 @@ Para clonar um projeto:
 
 1. Depois de selecionar o botão **Clone,** os Blocos de Notas Azure navegam diretamente para a cópia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Explore cadernos de amostras](azure-notebooks-samples.md)
 - [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)

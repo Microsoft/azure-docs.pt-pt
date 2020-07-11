@@ -3,11 +3,12 @@ title: Definir variáveis ambientais em instância de contentor
 description: Saiba como definir variáveis ambientais nos recipientes que corre em Instâncias de Contentores Azure
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84686739"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169770"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis ambientais em instâncias de contentores
 
@@ -165,7 +166,7 @@ Desaprovar uma variável de ambiente segura especificando a `secureValue` propri
 Crie um `secure-env.yaml` ficheiro com o seguinte corte.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: securetest
 properties:
@@ -235,7 +236,7 @@ root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET
 my-secret-value
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Cenários baseados em tarefas, como o processamento de um grande conjunto de dados com vários contentores, podem beneficiar de variáveis de ambiente personalizados em tempo de execução. Para obter mais informações sobre a execução de recipientes baseados em tarefas, consulte [executar tarefas contentorizadas com políticas de reinício](container-instances-restart-policy.md).
 

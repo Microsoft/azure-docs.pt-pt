@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddd41756f0e373e3bf627a88f441512fe0db91b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684860"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187239"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Resolver problemas do Controlo de Alterações e Inventário
 
@@ -99,11 +100,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Deve haver um problema de configuração local e deve reinstalar o agente. Para obter informações sobre a instalação e configuração, consulte [recolher dados de registo com o agente Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Deve haver um problema de configuração local e deve reinstalar o agente. Para obter informações sobre a instalação e configuração, consulte [recolher dados de registo com o agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
 
-Se a sua máquina aparecer nos resultados da consulta, verifique a configuração do âmbito. Consulte [soluções de monitorização de direções no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting).
+Se a sua máquina aparecer nos resultados da consulta, verifique a configuração do âmbito. Consulte [soluções de monitorização de direções no Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-Para uma maior resolução de problemas desta questão, consulte [A questão: Não está a ver quaisquer dados do Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux-troubleshoot#issue-you-are-not-seeing-any-linux-data).
+Para uma maior resolução de problemas desta questão, consulte [A questão: Não está a ver quaisquer dados do Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Log Analytics agente para Linux não configurado corretamente
 
@@ -113,7 +114,7 @@ O agente Log Analytics do Linux pode não estar configurado corretamente para a 
 
 A funcionalidade FIM do Azure Security Center pode estar a validar incorretamente a integridade dos seus ficheiros Linux. Verifique se o FIM está operacional e corretamente configurado para a monitorização de ficheiros Linux. Consulte [o tracking de alterações e a visão geral do inventário](../change-tracking.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

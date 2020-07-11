@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67e2639c2d4b168babeb7c29ef977d39d9e11cb
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 456a7e4f07b2416e1d2037205574f2e7149e70e2
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855295"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185947"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Implementar um VM de Serviços Web da Amazon com um livro de bordo
 
@@ -97,11 +97,10 @@ Certifique-se de que o módulo AWS PowerShell foi importado para a Azure Automat
 7. Pode visualizar o progresso do trabalho e visualizar os fluxos de saída selecionando **Todos os Registos** no painel de trabalho do runbook.<br><br> ![Saída de fluxo](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 8. Para confirmar que o VM está a ser a provisionado, inicie sessão na Consola de Gestão AWS se não estiver a fazer login.<br><br> ![Consola AWS implantada VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 * Para saber quais os livros de execução suportados, consulte os[tipos de runbook da Azure Automation](automation-runbook-types.md).
 * Para trabalhar com runbooks, consulte [Gerir os runbooks na Azure Automation.](manage-runbooks.md)
-* Para mais detalhes sobre o PowerShell, consulte [o PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Para mais detalhes sobre o PowerShell, consulte [o PowerShell Docs](/powershell/scripting/overview).
 * Para suporte ao script, consulte [o suporte para scripts Native PowerShell na Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

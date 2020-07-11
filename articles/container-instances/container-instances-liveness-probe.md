@@ -2,12 +2,13 @@
 title: Configurar sonda de vida na instância do recipiente
 description: Saiba como configurar sondas de vida para reiniciar recipientes não saudáveis em instâncias de contentores de Azure
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934168"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169702"
 ---
 # <a name="configure-liveness-probes"></a>Configurar as pesquisas liveness
 
@@ -25,7 +26,7 @@ Azure Container Instances também suporta [sondas de prontidão](container-insta
 Crie um `liveness-probe.yaml` ficheiro com o seguinte corte. Este ficheiro define um grupo de contentores que consiste num recipiente NGNIX que eventualmente se torna insalubre.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: livenesstest
 properties:
@@ -98,7 +99,7 @@ Se a sonda de vida falhar continuamente e ativar demasiados recomeços, o seu re
 
 Reiniciar as políticas substitui o comportamento de reinício desencadeado pelas sondas de vivacidade. Por exemplo, se definir uma sonda `restartPolicy = Never` *e* uma sonda de vida, o grupo de contentores não recomeçará devido a uma verificação de vida falhada. Em vez disso, o grupo de contentores adere à política de reinício do grupo de contentores `Never` de .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Cenários baseados em tarefas podem exigir uma sonda de vida para permitir o reinício automático se uma função pré-necessária não estiver a funcionar corretamente. Para obter mais informações sobre o funcionamento de recipientes baseados em tarefas, consulte [executar tarefas contentorizadas em instâncias de contentores Azure](container-instances-restart-policy.md).
 

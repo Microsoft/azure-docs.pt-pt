@@ -5,15 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea05e75c0d1db1ef27ae2e8e9364327528a7c8ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e30d1606a3928f421d2155e2d1abac0c8a6872aa
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837166"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186644"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Configurar as definições da Atualização do Windows para a gestão de atualização de automação Azure
 
-A Azure Automation Update Management conta com o [cliente Windows Update](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) para descarregar e instalar atualizações do Windows. Existem definições específicas que são utilizadas pelo cliente do Windows Update ao ligar-se aos Serviços de Atualização do Windows Server (WSUS) ou ao Windows Update. Muitas destas configurações podem ser geridas com:
+A Azure Automation Update Management conta com o [cliente Windows Update](/windows/deployment/update/windows-update-overview) para descarregar e instalar atualizações do Windows. Existem definições específicas que são utilizadas pelo cliente do Windows Update ao ligar-se aos Serviços de Atualização do Windows Server (WSUS) ou ao Windows Update. Muitas destas configurações podem ser geridas com:
 
 - Editor de Políticas de Grupo Local
 - Política de Grupo
@@ -22,7 +23,7 @@ A Azure Automation Update Management conta com o [cliente Windows Update](https:
 
 A Atualização Management respeita muitas das definições especificadas para controlar o cliente Do Windows Update. Se utilizar definições para ativar atualizações não-Windows, a Gestão de Atualizações também gerirá essas atualizações. Se pretender ativar o download de atualizações antes de ocorrer uma implementação de atualização, a implementação da atualização pode ser mais rápida, mais eficiente e menos provável de ultrapassar a janela de manutenção.
 
-Para recomendações adicionais sobre a configuração do WSUS na sua subscrição Azure e mantenha as suas máquinas virtuais Windows atualizadas, reveja [o Plano de implementação para atualizar máquinas virtuais do Windows em Azure utilizando o WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
+Para recomendações adicionais sobre a configuração do WSUS na sua subscrição Azure e mantenha as suas máquinas virtuais Windows atualizadas, reveja [o Plano de implementação para atualizar máquinas virtuais do Windows em Azure utilizando o WSUS](/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Atualizações de pré-download
 
@@ -57,8 +58,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 A Atualização Gestão suporta as definições da WSUS. Pode especificar as fontes para digitalizar e descarregar atualizações usando instruções no [ponto de localização do serviço intranet Microsoft Update](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Por predefinição, o cliente do Windows Update está configurado para descarregar atualizações a partir do Windows Update. Quando especificar um servidor WSUS como fonte para as suas máquinas, se as atualizações não forem aprovadas no WSUS, a implementação da atualização falha. 
 
-Para restringir as máquinas ao serviço de atualização interna, decida [Não ligar a nenhuma localização da Internet do Windows Update](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
+Para restringir as máquinas ao serviço de atualização interna, decida [Não ligar a nenhuma localização da Internet do Windows Update](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agende uma atualização seguindo as instruções em [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).

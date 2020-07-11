@@ -2,12 +2,13 @@
 title: Configurar sonda de prontidão na instância do recipiente
 description: Saiba como configurar uma sonda para garantir que os contentores em Azure Container Instances recebem pedidos apenas quando estão prontos
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76935683"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169668"
 ---
 # <a name="configure-readiness-probes"></a>Configurar pesquisas readiness
 
@@ -25,7 +26,7 @@ Azure Container Instances também suporta [sondas de vida,](container-instances-
 Como exemplo, crie um `readiness-probe.yaml` ficheiro com o seguinte corte que inclua uma sonda de prontidão. Este ficheiro define um grupo de contentores que consiste num contentor que executa uma pequena aplicação web. A aplicação é implementada a partir da `mcr.microsoft.com/azuredocs/aci-helloworld` imagem pública. Esta aplicação contentorizada também é demonstrada no [Deploy a container instance in Azure usando o Azure CLI](container-instances-quickstart.md) e outros quickstarts.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:
@@ -137,7 +138,7 @@ Quando o recipiente estiver pronto, também pode aceder à aplicação web naveg
 > A sonda de prontidão continua a funcionar durante toda a vida do grupo de contentores. Se o comando de prontidão falhar mais tarde, o recipiente volta a ficar inacessível. 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma sonda de prontidão pode ser útil em cenários que envolvam grupos multi-contentores que consistem em contentores dependentes. Para obter mais informações sobre cenários de vários contentores, consulte [os grupos de contentores em instâncias de contentores Azure](container-instances-container-groups.md).
 

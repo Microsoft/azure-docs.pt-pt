@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828938"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187341"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Utilize a integração de controlo de fonte na Azure Automation - Legacy
 
@@ -55,7 +56,7 @@ Se já tem uma conta GitHub e um repositório que pretende ligar à Azure Automa
 5. Uma vez que clique **em OK,** a integração do controlo de origem está agora configurada para a sua conta Dem automação e deve ser atualizada com as informações do GitHub. Agora pode clicar nesta parte para ver todo o histórico de trabalho sincronizado de controlo de origem.  
 
     ![Valores para a configuração de controlo de origem configurada atual](media/source-control-integration-legacy/automation-RepoValues.png)
-6. Depois de configurar o controlo de origem, são criados dois [ativos variáveis](automation-variables.md) na sua conta Demôm automação. Adicionalmente, um pedido autorizado é adicionado à sua conta GitHub.
+6. Depois de configurar o controlo de origem, são criados dois [ativos variáveis](./shared-resources/variables.md) na sua conta Demôm automação. Adicionalmente, um pedido autorizado é adicionado à sua conta GitHub.
 
    * A variável **Microsoft.Azure.Automation.SourceControl.Connection** contém os valores da cadeia de ligação, como mostrado abaixo.  
 
@@ -83,7 +84,7 @@ Se já tem uma conta GitHub e um repositório que pretende ligar à Azure Automa
 
 O check-in do runbook permite-lhe empurrar as alterações que fez a um livro de recortes na Azure Automation para o seu repositório de controlo de origem. Abaixo estão os passos para verificar num livro de bordo:
 
-1. A partir da sua conta Automation, [crie um novo livro textual,](automation-first-runbook-textual.md)ou edite um livro de texto [existente.](automation-edit-textual-runbook.md) Este livro pode ser um fluxo de trabalho PowerShell ou um script de powerShell.  
+1. A partir da sua conta Automation, [crie um novo livro textual,](./learn/automation-tutorial-runbook-textual.md)ou edite um livro de texto [existente.](automation-edit-textual-runbook.md) Este livro pode ser um fluxo de trabalho PowerShell ou um script de powerShell.  
 2. Depois de editar o seu runbook, guarde-o e clique **em Check-in** na página de edição.  
 
     ![Uma janela mostrando o checkin para o botão GitHub](media/source-control-integration-legacy/automation-CheckinButton.png)
@@ -129,7 +130,7 @@ Para desligar a sua conta GitHub, abra a página de sincronização do Repositó
 
   ![Uma janela mostrando o botão Desligar para desligar o controlo de origem](media/source-control-integration-legacy/automation-Disconnect.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para integrar o controlo de origem na Azure Automation, consulte [a Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
 * Para integrar o controlo de origem do runbook com o Visual Studio Online, consulte [a Azure Automation: Integrando o Runbook Source Control utilizando o Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).  

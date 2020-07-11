@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 184e65c929d43e7a5d4ca3be8bd93770c55cd2a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836571"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185930"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook Azure Automation
 
@@ -67,15 +68,15 @@ Os livros powerShell são baseados no Windows PowerShell. Edita diretamente o c�
 * Deves estar familiarizado com os scripts da PowerShell.
 * Os runbooks não podem usar [o processamento paralelo](automation-powershell-workflow.md#use-parallel-processing) para executar várias ações em paralelo.
 * Os runbooks não podem usar [postos de controlo](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) para retomar o livro de contas se houver um erro.
-* Pode incluir apenas livros de fluxo de trabalho PowerShell e runbooks gráficos como livros infantis utilizando o [cmdlet Start-AzAutomationRunbook,](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) que cria um novo emprego.
+* Pode incluir apenas livros de fluxo de trabalho PowerShell e runbooks gráficos como livros infantis utilizando o [cmdlet Start-AzAutomationRunbook,](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) que cria um novo emprego.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
 Seguem-se os problemas atuais conhecidos com os livros de execução PowerShell:
 
-* Os livros powerShell não conseguem recuperar um [ativo variável](automation-variables.md) não encriptado com um valor nulo.
+* Os livros powerShell não conseguem recuperar um [ativo variável](./shared-resources/variables.md) não encriptado com um valor nulo.
 * Os livros powerShell não conseguem recuperar um ativo variável com `*~*` o nome.
-* Uma operação [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) em loop num livro de execução PowerShell pode colidir após cerca de 80 iterações.
+* Uma operação [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) em loop num livro de execução PowerShell pode colidir após cerca de 80 iterações.
 * Um livro de execução PowerShell pode falhar se tentar escrever uma grande quantidade de dados para o fluxo de saída de uma só vez. Normalmente, pode trabalhar em torno deste problema, tendo a saída do runbook apenas a informação necessária para trabalhar com objetos grandes. Por exemplo, em vez de utilizar `Get-Process` sem limitações, pode ter a saída de cmdlet apenas os parâmetros necessários como em `Get-Process | Select ProcessName, CPU` .
 
 ## <a name="powershell-workflow-runbooks"></a>Livros de fluxo de trabalho PowerShell
@@ -112,7 +113,7 @@ Os livros de python compilam-se sob Python 2. Pode editar diretamente o código 
 * Apenas Python 2 é apoiado atualmente. Quaisquer funções específicas da Python falham.
 * Para utilizar bibliotecas de terceiros, deve [importar os pacotes](python-packages.md) para a conta Automation.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os livros de execução PowerShell, consulte [Tutorial: Crie um livro de regras PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para saber mais sobre os livros de fluxo de trabalho powerShell, consulte [Tutorial: Crie um manual de fluxo de trabalho PowerShell](learn/automation-tutorial-runbook-textual.md).

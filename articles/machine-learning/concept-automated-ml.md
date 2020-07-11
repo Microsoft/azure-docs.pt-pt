@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f12f080f2b1b7379b622fe4d7c5e0b35e358d0ef
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041732"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199881"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -105,7 +105,7 @@ Aprenda a utilizar um [alvo de computação remota.](how-to-auto-train-remote.md
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
-## <a name="feature-engineering"></a>Com engenharia
+## <a name="feature-engineering"></a>Desenvolvimento de funcionalidades
 
 A engenharia de recursos é o processo de utilização do conhecimento de domínio dos dados para criar funcionalidades que ajudam os algoritmos ML a aprender melhor. No Azure Machine Learning, aplicam-se técnicas de escala e normalização para facilitar a engenharia de recursos. Coletivamente, estas técnicas e engenharia de recursos são referidas como caracterização.
 
@@ -220,21 +220,21 @@ As seguintes definições permitem-lhe configurar a sua experiência automatizad
 
 | |O Python SDK|A experiência web do estúdio|
 ----|:----:|:----:
-Dividir dados em conjuntos de comboio/validação| ✓|✓
-Suporta tarefas ML: classificação, regressão e previsão| ✓| ✓
-Otimiza com base na métrica primária| ✓| ✓
-Suporta o cálculo AML como alvo de computação | ✓|✓
-Configure horizonte de previsão, meta fica & janela rolante|✓|✓
-Definir critérios de saída |✓|✓ 
-Definir iterações simultâneas| ✓|✓
-Colunas de queda| ✓|✓
-Algoritmos de bloco|✓|✓
-Validação cruzada |✓|✓
-Apoia a formação em clusters Azure Databricks| ✓|
-Ver nomes de recursos projetados|✓|
-Resumo da exibição| ✓|
-Exibição para férias|✓|
-Registar níveis de verbosidade de ficheiros| ✓|
+|**Dividir dados em conjuntos de comboio/validação**| ✓|✓
+|**Suporta tarefas ML: classificação, regressão e previsão**| ✓| ✓
+|**Otimiza com base na métrica primária**| ✓| ✓
+|**Suporta o cálculo AML como alvo de computação** | ✓|✓
+|**Configure horizonte de previsão, meta fica & janela rolante**|✓|✓
+|**Definir critérios de saída** |✓|✓ 
+|**Definir iterações simultâneas**| ✓|✓
+|**Colunas de queda**| ✓|✓
+|**Algoritmos de bloco**|✓|✓
+|**Validação cruzada** |✓|✓
+|**Apoia a formação em clusters Azure Databricks**| ✓|
+|**Ver nomes de recursos projetados**|✓|
+|**Resumo da exibição**| ✓|
+|**Exibição para férias**|✓|
+|**Registar níveis de verbosidade de ficheiros**| ✓|
 
 ### <a name="model-settings"></a>Configurações de modelos
 
@@ -242,11 +242,11 @@ Estas definições podem ser aplicadas ao melhor modelo como resultado da sua ex
 
 | |O Python SDK|A experiência web do estúdio|
 |----|:----:|:----:|
-|Melhor registo de modelo, implantação, explicabilidade| ✓|✓|
-|Ativar os modelos de conjunto de pilhas & de votação| ✓|✓|
-|Mostrar o melhor modelo baseado em métrica não primária|✓||
-|Ativar/desativar a compatibilidade do modelo ONNX|✓||
-|Testar o modelo | ✓| |
+|**Melhor registo de modelo, implantação, explicabilidade**| ✓|✓|
+|**Ativar os modelos de conjunto de pilhas & de votação**| ✓|✓|
+|**Mostrar o melhor modelo baseado em métrica não primária**|✓||
+|**Ativar/desativar a compatibilidade do modelo ONNX**|✓||
+|**Testar o modelo** | ✓| |
 
 ### <a name="run-control-settings"></a>Executar definições de controlo
 
@@ -254,10 +254,10 @@ Estas definições permitem-lhe rever e controlar as suas corridas de experiênc
 
 | |O Python SDK|A experiência web do estúdio|
 |----|:----:|:----:|
-|Tabela de resumo de execução| ✓|✓|
-|Cancelar corre & corridas de crianças| ✓|✓|
-|Obter guarda-costas| ✓|✓|
-|Pausa & currículo corre| ✓| |
+|**Tabela de resumo de execução**| ✓|✓|
+|**Cancelar corre & corridas de crianças**| ✓|✓|
+|**Obter guarda-costas**| ✓|✓|
+|**Pausa & currículo corre**| ✓| |
 
 <a name="use-with-onnx"></a>
 
@@ -269,7 +269,7 @@ Veja como converter para o formato ONNX [neste exemplo de caderno Jupyter](https
 
 O tempo de execução ONNX também suporta C#, para que possa utilizar o modelo construído automaticamente nas suas aplicações C# sem qualquer necessidade de recoding ou qualquer uma das latências de rede que os pontos finais REST introduzem. Saiba mais sobre [a inferencção dos modelos ONNX com o tempo de execução ONNX C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Existem vários recursos para te pôr a funcionar com o AutoML. 
 

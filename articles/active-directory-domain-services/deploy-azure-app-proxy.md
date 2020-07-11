@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 285f5aabe32013a629eebb150e55ba343150f589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0880f697ceea9c10a070ede0a73235022ce0529d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734848"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220294"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Implementar Proxy de aplicação AD Azure para acesso seguro a aplicações internas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -39,9 +40,9 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 ## <a name="create-a-domain-joined-windows-vm"></a>Criar um Windows VM de domínio
 
-Para encaminhar o tráfego para aplicações em execução no seu ambiente, instale o componente de conector de aplicação AD AD Azure. Este conector Proxy da aplicação AD Azure deve ser instalado em máquinas virtuais do Windows Server (VM) que se unem ao domínio gerido. Para algumas aplicações, pode implementar vários servidores que cada um tem o conector instalado. Esta opção de implementação dá-lhe maior disponibilidade e ajuda a lidar com cargas de autenticação mais pesadas.
+Para encaminhar o tráfego para aplicações em execução no seu ambiente, instale o componente de conector de aplicação AD AD Azure. Este conector Proxy da aplicação AD Azure deve ser instalado numa máquina virtual do Windows Server (VM) que se una ao domínio gerido. Para algumas aplicações, pode implementar vários servidores que cada um tem o conector instalado. Esta opção de implementação dá-lhe maior disponibilidade e ajuda a lidar com cargas de autenticação mais pesadas.
 
-O VM que executa o conector Azure AD Application Proxy deve estar na mesma, ou numa rede virtual esprevada em que tenha ativado O Azure AD DS. Os VMs que depois acolhem as aplicações que publica através do Application Proxy também devem ser implantados na mesma rede virtual Azure.
+O VM que executa o conector Azure AD Application Proxy deve estar na mesma, ou numa rede virtual esprevada como o seu domínio gerido. Os VMs que depois acolhem as aplicações que publica através do Application Proxy também devem ser implantados na mesma rede virtual Azure.
 
 Para criar um VM para o conector Proxy aplicação AD Azure, complete os seguintes passos:
 
@@ -71,7 +72,7 @@ Com um VM pronto a ser usado como conector Proxy aplicação AD Azure, agora cop
         > [!NOTE]
         > A conta de administrador global utilizada para registar o conector deve pertencer ao mesmo diretório onde ativa o serviço Application Proxy.
         >
-        > Por exemplo, se o domínio AD Azure for *aaddscontoso.com,* o administrador global deve ser `admin@aaddscontoso.com` ou outro pseudónimo válido nesse domínio.
+        > Por exemplo, se o domínio AD Azure for *contoso.com*, o administrador global deve ser `admin@contoso.com` ou outro pseudónimo válido nesse domínio.
 
    * Se a configuração de segurança melhorada do Internet Explorer for ligada para o VM onde instala o conector, o ecrã de registo poderá estar bloqueado. Para permitir o acesso, siga as instruções na mensagem de erro ou desligue a Segurança Reforçada do Internet Explorer durante o processo de instalação.
    * Se o registo do conector falhar, consulte [o Proxy de aplicação de resolução de problemas](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -110,7 +111,7 @@ Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount 
 
 Se implementar vários conectores proxy de aplicação AD Azure, tem de configurar kCD baseado em recursos para cada instância do conector.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com o Azure AD Application Proxy integrado com Azure AD DS, publique aplicações para os utilizadores acederem. Para obter mais informações, consulte [as aplicações de publicação utilizando o Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
 

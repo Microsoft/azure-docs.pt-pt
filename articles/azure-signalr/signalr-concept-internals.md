@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 8ba34edfc382f0f03abe080d78a6a47dcb65501b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f06b8f9a2d41fc5400aa0fa610a2be3f31e21f1c
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82105765"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169804"
 ---
 # <a name="azure-signalr-service-internals"></a>Detalhes internos do Serviço SignalR do Azure
 
@@ -84,7 +84,9 @@ Quando um cliente está ligado ao Serviço SignalR, o tempo de funcionação do 
 
 Neste momento, o servidor de aplicações recebe um evento com informações do novo cliente. Uma ligação lógica ao cliente é criada no servidor de aplicações. O canal de dados é estabelecido de cliente para servidor de aplicações, via Serviço SignalR.
 
-O serviço SignalR transmite dados do cliente para o servidor de aplicações de emparelhamento. E os dados do servidor de aplicações serão enviados para os clientes mapeados.
+O Serviço SignalR transmite dados do cliente para o servidor de aplicações de emparelhamento. E os dados do servidor de aplicações serão enviados para os clientes mapeados.
+
+O Serviço SignalR não guarda nem armazena os dados do cliente, todos os dados do cliente recebidos são transmitidos para servidor ou clientes alvo em tempo real.
 
 Como pode ver, o Serviço Azure SignalR é essencialmente uma camada lógica de transporte entre servidor de aplicações e clientes. Todas as ligações persistentes são descarregadas para o Serviço SignalR.
 O servidor de aplicações apenas precisa de lidar com a lógica de negócio na classe hub, sem se preocupar com as ligações com o cliente.

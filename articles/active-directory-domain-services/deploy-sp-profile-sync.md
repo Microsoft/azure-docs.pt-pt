@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: c45921b75fff000185c7e24b998b761ecc088d9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a65065a6f3cbc7264a8efb9bcf128b06897aacf
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734797"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220274"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configure Azure Ative Directory Domain Services para suportar a sincronização do perfil do utilizador para o SharePoint Server
 
@@ -41,18 +42,18 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
 ## <a name="service-accounts-overview"></a>Visão geral das contas de serviço
 
-Num domínio gerido, existe um grupo de segurança chamado **AAD DC Service Accounts** como parte da unidade organizacional dos *Utilizadores* (OU). Os membros deste grupo de segurança são delegados os seguintes privilégios:
+Num domínio gerido, existe um grupo de segurança chamado *AAD DC Service Accounts* como parte da unidade organizacional dos *Utilizadores* (OU). Os membros deste grupo de segurança são delegados os seguintes privilégios:
 
 - Replicar o privilégio **de Alterações** de Diretório na raiz DSE.
 - Replicar o privilégio **de alterações** no contexto de nomeação *de configuração* `cn=configuration` (recipiente).
 
-O grupo de segurança **de contas de serviço AAD DC** é também membro do grupo integrado **Pré-Windows 2000 Compatível Access**.
+O grupo de segurança *de contas de serviço AAD DC* é também membro do grupo integrado *Pré-Windows 2000 Compatível Access*.
 
 Quando adicionado a este grupo de segurança, a conta de serviço para o serviço de sincronização do perfil do utilizador do SharePoint Server é concedida aos privilégios necessários para funcionar corretamente.
 
 ## <a name="enable-support-for-sharepoint-server-user-profile-sync"></a>Ativar o suporte para sincronização de perfil de utilizador do SharePoint Server
 
-A conta de serviço do SharePoint Server necessita de privilégios adequados para replicar alterações no diretório e deixar o perfil do utilizador do SharePoint Server funcionar corretamente. Para fornecer estes privilégios, adicione a conta de serviço utilizada para a sincronização do perfil do utilizador SharePoint ao grupo **de Contas de Serviço AAD DC.**
+A conta de serviço do SharePoint Server necessita de privilégios adequados para replicar alterações no diretório e deixar o perfil do utilizador do SharePoint Server funcionar corretamente. Para fornecer estes privilégios, adicione a conta de serviço utilizada para a sincronização do perfil do utilizador SharePoint ao grupo *de Contas de Serviço AAD DC.*
 
 A partir da sua VM de gestão AZure AD, complete os seguintes passos:
 
@@ -68,7 +69,7 @@ A partir da sua VM de gestão AZure AD, complete os seguintes passos:
 
     ![Adicione a conta de serviço SharePoint ao grupo de segurança de contas de serviço AAD DC](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [permissões de Grant Ative Directory Domain Services para sincronização de perfis no SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx)
 

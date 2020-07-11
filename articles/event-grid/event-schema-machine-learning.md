@@ -3,12 +3,12 @@ title: Azure Machine Learning como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de espaço de trabalho de machine learning com Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 11d8c38ee041ac9278e08166c4c060cdad87655f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5a39539a6f39c78251a3cc7788b8e5ee4babbf9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102502"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181527"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como fonte de grade de eventos
 
@@ -26,7 +26,7 @@ A Azure Machine Learning emite os seguintes tipos de eventos:
 | Microsoft.MachineLearningServices.ModelDeployed | Elevados quando os modelos foram implantados com sucesso num Ponto Final. |
 | Microsoft.MachineLearningServices.RunCompleted | Levantado quando uma Corrida tiver sido concluída com sucesso. |
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Levantado quando um monitor de deriva dataset deteta deriva. |
-| Microsoft.MachineLearningServices.RunStatusChanged | Levantado quando um estado de execução muda para 'falhado'. |
+| Microsoft.MachineLearningServices.RunStatusChanged | Levantado quando um estado de execução muda. |
 
 ### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta do evento
 
@@ -186,10 +186,10 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento.
 
 Um evento tem os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
@@ -201,7 +201,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft.MachineLearningServices.ModelRegistered
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | ModelName | string | O nome do modelo que foi registado. |
 | ModelVersão | string | A versão do modelo que foi registado. |
@@ -210,7 +210,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft.MachineLearningServices.ModelDeployed
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | ServiceName | string | O nome do serviço implantado. |
 | ServiceComputeType | string | O tipo de cálculo (por exemplo, ACI, AKS) do serviço implantado. |
@@ -259,7 +259,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 | ----- | ----- |
 | [Consumir eventos de aprendizagem automática Azure](../machine-learning/concept-event-grid-integration.md) | Visão geral da integração da Aprendizagem automática Azure com grelha de eventos. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md)

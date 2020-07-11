@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/10/2020
-ms.openlocfilehash: feb1cc132bf5463550a2e7921f347c8f2f48260e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad9029b44ffb0c98bad58bbf012eb19d084d5446
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668003"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185760"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Ativar a Gestão de Atualizações com o modelo do Azure Resource Manager
 
@@ -33,14 +34,14 @@ A tabela que se segue lista as versões API para os recursos utilizados neste mo
 | Recurso | Tipo de recurso | Versão API |
 |:---|:---|:---|
 | Área de trabalho | áreas de trabalho | Antevisão 2020-03-01 |
-| Conta de automatização | automation | 2018-06-30 | 
+| Conta de automatização | automatização | 2018-06-30 | 
 | Solução | soluções | Antevisão 2015-11-01 |
 
 ## <a name="before-using-the-template"></a>Antes de usar o modelo
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de executar [o Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para criar uma ligação com o Azure. Com a Azure PowerShell, a implementação utiliza [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de executar [o Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) para criar uma ligação com o Azure. Com a Azure PowerShell, a implementação utiliza [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 ou mais tarde do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza [a criação de implementação de grupo az](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 ou mais tarde do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza [a criação de implementação de grupo az](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 O modelo JSON está configurado para o solicitar para:
 
@@ -232,7 +233,7 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
 
     ![Exemplo resultado quando a implementação está completa](media/automation-update-management-deploy-template/template-output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
 

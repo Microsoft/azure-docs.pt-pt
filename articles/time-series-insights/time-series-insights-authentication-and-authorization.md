@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 94fef951bf1c5c9d69a9b49cd9465d7d248c74a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9668307047771304c2d3785dc7ff3f760171a43f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099228"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86182003"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -91,7 +91,7 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
 > [!IMPORTANT]
 > Se estiver a utilizar [a Azure Ative Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) leia sobre [a migração para o MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
 
-    See our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
+   Consulte [os nossos dados de referência da Manage GA para um ambiente Azure Time Series Insights utilizando](time-series-insights-manage-reference-data-csharp.md) o artigo C# para saber mais.
 
 ## <a name="common-headers-and-parameters"></a>Cabeçalhos e parâmetros comuns
 
@@ -157,7 +157,7 @@ Os parâmetros de cadeia de consulta de URL opcionais incluem a definição de u
 | `timeout=<timeout>` | Tempo de tempo do lado do servidor para a execução do pedido HTTP. Aplicável apenas aos [Eventos De Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Obter ApIs agregados ambientais.](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) O valor de tempo limite deve estar no formato de duração ISO 8601, por `"PT20S"` exemplo, e deve estar na gama `1-30 s` . O valor predefinido é `30 s` . | GA |
 | `storeType=<storeType>` | Para ambientes de pré-visualização com loja quente ativada, a consulta pode ser executada no `WarmStore` ou `ColdStore` no . Este parâmetro na consulta define em que loja a consulta deve ser executada. Se não estiver definida, a consulta será executada na loja de frio. Para consultar a loja quente, **o storeType** precisa de ser configurado para `WarmStore` . Se não estiver definida, a consulta será executada contra a loja de frio. | Pré-visualizar |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para o código de amostra que chama a API de Insights de Séries De Tempo GA, leia [os dados de consulta utilizando C#](./time-series-insights-query-data-csharp.md).
 

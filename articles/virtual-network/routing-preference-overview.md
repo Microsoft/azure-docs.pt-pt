@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171ae04a70f3639981e74d20d260a03359a0f2c8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193367"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187443"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de encaminhamento (pré-visualização)?
 
@@ -88,7 +88,7 @@ A diferença de preços entre ambas as opções reflete-se nos preços de transf
 
 O apoio de encaminhamento Preferencial está disponível nas seguintes regiões para serviços como máquina virtual e equilibrador de carga virado para a Internet que usam um IP público para a saída da Internet - Europa do Norte, Europa Ocidental, França Sul, Reino Unido, Leste dos EUA, Norte-Americano Central, Eua Ocidental, Centro Ocidental dos EUA, Sudeste Asiático, Alemanha Ocidental, Suíça Ocidental, Japão Leste e Japão Ocidental.
 
-O apoio de encaminhamento preferencial para a conta de armazenamento está disponível nas seguintes regiões de Azure - França Sul, Norte Central EUA, Centro Ocidental dos EUA, Japão Leste, Japão Oeste, Alemanha West Central e Suíça Oeste.
+O apoio de encaminhamento preferencial para a conta de armazenamento está disponível nas seguintes regiões de Azure - Norte Central EUA, Centro-Oeste dos EUA, Eua Oriental, Eua Ocidental, Norte da Europa, França Sul, Alemanha West Central, Suíça Oeste, Sudeste Asiático, Japão Leste e Japão Ocidental.
 ## <a name="limitations"></a>Limitações
 
 * A preferência de encaminhamento só é compatível com o SKU padrão do endereço IP público. O SKU básico do endereço IP público não é suportado.
@@ -96,7 +96,7 @@ O apoio de encaminhamento preferencial para a conta de armazenamento está dispo
 * Máquinas virtuais com vários NICs podem ter apenas um tipo de preferência de encaminhamento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configure a preferência de encaminhamento para um VM utilizando o Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
 * [Configure a preferência de encaminhamento para um VM utilizando o CLI Azure](configure-routing-preference-virtual-machine-cli.md)

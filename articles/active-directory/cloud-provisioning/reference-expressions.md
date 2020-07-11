@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e1dc68aba4ba294bccca6da278d3e30e51f056
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360458"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201856"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressãos de escrita para mapeamentos de atributos no Azure Ative Directory
 Ao configurar o fornecimento de nuvens, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. 
@@ -39,7 +39,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 * Para as constantes de corda, se necessitar de uma inclinação traseira (\ ) ou marca de citação (" ) na corda, deve ser escapado com o símbolo de backslash (\ ). Por exemplo: "Nome da empresa: \\ \\ "Contoso".
 
 ## <a name="list-of-functions"></a>Lista de funções
-| Lista de funções | Description |
+| Lista de funções | Descrição |
 |-----|----|
 |[Acrescentar](#append)|Pega num valor de cadeia de origem e apê o sufixo até ao fim.|
 |[BitAnd](#bitand)|A função BitAnd define bits especificados num valor.|
@@ -61,7 +61,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 |[IsPresent](#ispresent)|Se a expressão avaliar a uma cadeia que não é nula e não está vazia, então a função IsPresent retorna verdadeiramente.|    
 |[IsString](#isstring)|Se a expressão pode ser avaliada para um tipo de corda, então a função IsString avalia para True.|
 |[Item](#item)|A função Item devolve um item de uma cadeia/atributo multi-valor.|
-|[Aderir](#join) |A junção é semelhante ao Apêndice,), exceto que pode combinar múltiplos valores de cadeia de **origem** numa única corda, e cada valor será separado por uma corda **separador.**| 
+|[Join](#join) |A junção é semelhante ao Apêndice,), exceto que pode combinar múltiplos valores de cadeia de **origem** numa única corda, e cada valor será separado por uma corda **separador.**| 
 |[Esquerda](#left)|A função Esquerda retorna um número especificado de caracteres à esquerda de uma corda.|
 |[Meio](#mid) |Devolve um sub-cordão do valor de origem. Um sub-cordão é uma cadeia que contém apenas alguns dos caracteres da cadeia de origem.|
 |[NormalizarDiacráticos](#normalizediacritics)|Requer um argumento de corda. Devolve a corda, mas com caracteres diacríticos substituídos por caracteres não diacríticos equivalentes.|
@@ -87,7 +87,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
    | **sufixo** |Necessário |String |A corda que quer anexar ao fim do valor de origem. |
@@ -250,7 +250,7 @@ Se a conta de atributosName não estiver presente, atire um erro no objeto.
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
    | **inputFormat** |Necessário |String |Formato esperado do valor da origem. Para formatos suportados, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) . |
@@ -392,7 +392,7 @@ Se um dos valores de origem for um atributo de vários valores, então todos os 
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **separador** |Necessário |String |A corda usada para separar os valores de origem quando são concatenadas numa única corda. Pode ser "" se não for necessário um separador. |
    | **fonte1 ... fonteN** |Obrigatório, número variável de vezes |String |Valores de cordas a serem unidos. |
@@ -429,7 +429,7 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo. |
    | **começar** |Necessário |número inteiro |Índice na cadeia **de origem** onde o sublpeso deve começar. O primeiro personagem da cadeia terá índice de 1, o segundo personagem terá índice 2, e assim por diante. |
@@ -443,7 +443,7 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String | Normalmente um primeiro nome ou atributo de apelido. |
 
@@ -455,7 +455,7 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |Corda Booleana |Os valores de **origem** esperados são "Verdadeiro" ou "Falso". |
 
@@ -497,7 +497,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto **de origem.** |
    | **oldValue** |Opcional |String |Valor a ser substituído na **fonte** ou **no modelo.** |
@@ -522,7 +522,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras únicas de geração de valor para avaliar. |
 
@@ -535,7 +535,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-  | Name | Obrigatório/ Repetição | Tipo | Notas |
+  | Nome | Obrigatório/ Repetição | Tipo | Notas |
   |--- | --- | --- | --- |
   | **[appRoleAssignments]** |Necessário |String |**[appRoleAssignments]** objeto. |
 
@@ -547,7 +547,7 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |valor **de origem** para atualizar. |
    | **delimitador** |Necessário |String |Especifica o carácter que será usado para dividir a corda (exemplo: "") |
@@ -568,7 +568,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |valor **de origem** para atualizar. |
 
@@ -580,7 +580,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |**Valor de origem** para verificar. |
    | **padrãoValue** |Opcional |String |Valor predefinido a ser utilizado quando a fonte não corresponde a nenhuma tecla. Pode ser corda vazia (""). |
@@ -595,7 +595,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |String |Normalmente o nome do atributo a partir do objeto de origem |
    | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
@@ -609,7 +609,7 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-  | Name | Obrigatório/ Repetição | Tipo | Notas |
+  | Nome | Obrigatório/ Repetição | Tipo | Notas |
   | --- | --- | --- | --- |
   | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
   | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
@@ -769,11 +769,13 @@ Com base no nome do utilizador, nome do meio e apelido, é necessário gerar um 
 
 **Expressão:** <br>
 
+```ad-attr-mapping-expr
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
+```
 
 **Entrada/saída da amostra:**
 

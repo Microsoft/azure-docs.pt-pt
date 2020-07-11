@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05e705f351d75fdf772d3197b94fcece40d43fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 246fcdb27737e99bb677e23216f0305037f54526
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100376"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187460"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerir pré-scripts e pós-scripts
 
@@ -146,7 +147,7 @@ As pré-tarefas e pós-tarefas funcionam como livros de execução e não funcio
 * Uma conta Run As
 * Um livro de corridas que quer executar
 
-Para interagir com as máquinas Azure, deve utilizar o cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) para interagir com os seus VMs Azure. Para um exemplo de como fazê-lo, consulte o exemplo de [gestão de atualização do](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)exemplo do runbook – executar script com comando Run .
+Para interagir com as máquinas Azure, deve utilizar o cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) para interagir com os seus VMs Azure. Para um exemplo de como fazê-lo, consulte o exemplo de [gestão de atualização do](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)exemplo do runbook – executar script com comando Run .
 
 ### <a name="interact-with-non-azure-machines"></a>Interaja com máquinas não-Azure
 
@@ -157,7 +158,7 @@ As pré-tarefas e pós-tarefas são executadas no contexto Azure e não têm ace
 * Um livro de corridas que você quer executar localmente
 * Um livro de corridas dos pais
 
-Para interagir com máquinas não-Azure, um livro de bordo dos pais é executado no contexto Azure. Este livro de recortes chama um livro de crianças com o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) Tem de especificar o `RunOn` parâmetro e fornecer o nome do Trabalhador do Runbook Híbrido para o script ser executado. Consulte o exemplo de runbook [Update Management – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Para interagir com máquinas não-Azure, um livro de bordo dos pais é executado no contexto Azure. Este livro de recortes chama um livro de crianças com o [cmdlet Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) Tem de especificar o `RunOn` parâmetro e fornecer o nome do Trabalhador do Runbook Híbrido para o script ser executado. Consulte o exemplo de runbook [Update Management – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Abortar implantação de patch
 
@@ -242,8 +243,8 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre a gestão da atualização, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).

@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 39d37b1a032a386219a98a409f2eb04a6ccc6eca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078739"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187783"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtenha dados meteorológicos dos parceiros meteorológicos
 
@@ -211,6 +211,11 @@ Para consultar os dados meteorológicos utilizando a API do FarmBeats REST, siga
 
 No exemplo anterior, a resposta tem dados para dois timetamps juntamente com o nome da medida ("Temperatura") e os valores dos dados meteorológicos reportados nos dois picos de tempo. Terá de consultar o Modelo de Dados Meteorológicos associado (conforme descrito no passo 2 acima) para interpretar o tipo e a unidade dos valores relatados.
 
+## <a name="troubleshoot-job-failures"></a>Falhas no trabalho de resolução de problemas
+
+Para resolver problemas de trabalho, pode verificar os registos de trabalho. Por favor, siga os [passos aqui](troubleshoot-azure-farmbeats.md#weather-data-job-failures) para o mesmo.
+
+
 ## <a name="appendix"></a>Anexo
 
 |        Parceiro   |  Detalhes   |
@@ -226,6 +231,6 @@ No exemplo anterior, a resposta tem dados para dois timetamps juntamente com o n
 |  name   |   Nome desejado do parceiro no sistema FarmBeats   |
 |  descrição |  Descrição   |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, já questionou os dados dos sensores da sua instância Azure FarmBeats. Agora, aprendam a [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para as vossas quintas.

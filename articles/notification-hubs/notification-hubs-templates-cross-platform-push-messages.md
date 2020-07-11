@@ -16,13 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76263749"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219968"
 ---
-# <a name="templates"></a>Modelos
+# <a name="notification-hubs-templates"></a>Modelos de Centros de Notificação
 
 Os modelos permitem que uma aplicação do cliente especifique o formato exato das notificações que pretende receber. Utilizando modelos, uma aplicação pode realizar vários benefícios diferentes, incluindo os seguintes:
 
@@ -61,7 +62,7 @@ A funcionalidade de modelo 'Hubs' de notificação permite a uma aplicação do 
 
 A imagem a seguir ilustra o processo:
 
-![](./media/notification-hubs-templates/notification-hubs-hello.png)
+![Diagrama mostrando o processo de utilização de modelos cross-platform](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 O modelo para o registo de aplicações do cliente iOS é o seguinte:
 
@@ -120,7 +121,7 @@ A mensagem enviada para o Centro de Notificação contém todas as seguintes pro
 
 Ao utilizar este padrão, o backend apenas envia uma única mensagem sem ter de armazenar opções específicas de personalização para os utilizadores da aplicação. A seguinte imagem ilustra este cenário:
 
-![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
+![Diagrama mostrando como o backend apenas envia uma única mensagem para cada plataforma.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## <a name="how-to-register-templates"></a>Como registar modelos
 
@@ -170,6 +171,6 @@ Como explicado anteriormente, quando se utiliza a concatenação, as expressões
 </tile>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre os Hubs de Notificação Azure](notification-hubs-push-notification-overview.md)

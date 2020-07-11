@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/09/2020
-ms.openlocfilehash: 6b26db522db246add48941da9af4784ed2942a0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b9d3ea30f502f8f95bb12c6a3b270f8eddde0cf
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84661026"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186627"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure
 
@@ -35,13 +36,13 @@ A tabela que se segue lista a versão API para os recursos utilizados neste exem
 | Recurso | Tipo de recurso | Versão API |
 |:---|:---|:---|
 | Área de trabalho | áreas de trabalho | Antevisão 2020-03-01 |
-| Conta de automatização | automation | 2018-06-30 | 
+| Conta de automatização | automatização | 2018-06-30 | 
 
 ## <a name="before-you-use-the-template"></a>Antes de usar o modelo
 
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o módulo Azure PowerShell Az. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure. Com o PowerShell, a implementação utiliza [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza [a criação de grupo az](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão 2.1.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Com o Azure CLI, esta implementação utiliza [a criação de grupo az](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 O modelo JSON está configurado para o solicitar para:
 
@@ -306,6 +307,6 @@ Se é novo na Azure Automation e Azure Monitor, é importante que compreenda os 
 
     ![Exemplo resultado quando a implementação está completa](media/automation-create-account-template/template-output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para encaminhar o estado de trabalho do runbook e os fluxos de emprego para o seu espaço de trabalho linked's Log Analytics, reveja [os dados de trabalho da Forward Azure Automation para os registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md). Isto configura as definições de diagnóstico da conta Automation utilizando comandos Azure PowerShell para completar a integração para envio de registos para o espaço de trabalho para análise. 

@@ -5,15 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2d16bdca18b7fc0afab2a3deb325d1a75be3bb8
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834633"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185182"
 ---
 # <a name="manage-updates-for-multiple-vms"></a>Gerir atualizações de várias VMs
 
-Pode utilizar a Azure Automation Update Management para gerir atualizações e patches para os seus VMs Windows e Linux. Na sua conta da [Automatização do Azure](automation-offering-get-started.md), pode:
+Pode utilizar a Azure Automation Update Management para gerir atualizações e patches para os seus VMs Windows e Linux. Na sua conta da [Automatização do Azure](./index.yml), pode:
 
 - Ativar VMs para gestão de atualizações.
 - Avaliar o estado das atualizações disponíveis.
@@ -75,9 +76,9 @@ A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão supo
 
 | Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação de atualizações necessárias. |
-| Agentes do Linux |Sim |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes do Linux e inicia a instalação de atualizações necessárias nas distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado. |
+| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação de atualizações necessárias. |
+| Agentes do Linux |Yes |A Update Management recolhe informações sobre atualizações do sistema a partir de agentes do Linux e inicia a instalação de atualizações necessárias nas distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado. |
 | Conta de armazenamento do Azure |Não |O Azure Storage não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
@@ -179,6 +180,6 @@ Para ver o fluxo de trabalho do runbook que gere a implementação da atualizaç
 
 Para ver informações detalhadas sobre os erros da implementação, selecione **Erros**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Se precisar de pesquisar registos de atualização, consulte [os registos de Gestão de Atualização de Consultas](automation-update-management-query-logs.md).

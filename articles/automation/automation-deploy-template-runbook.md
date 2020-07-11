@@ -6,24 +6,25 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, azure automação
-ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10eadd7b8ee6c2e954f40469a02d42dc77c2bf41
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837081"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186559"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Implemente um modelo de gestor de recursos Azure num livro de execução PowerShell
 
-Pode escrever um [manual Azure Automation PowerShell](automation-first-runbook-textual-powershell.md) que implementa um recurso Azure utilizando um [modelo de Gestão de Recursos Azure](../azure-resource-manager/resource-manager-create-first-template.md). A utilização do modelo permite-lhe utilizar a Azure Automation e a Azure Storage para automatizar a implementação dos seus recursos Azure. Pode manter os seus modelos de Gestor de Recursos numa localização central e segura, como o Azure Storage.
+Pode escrever um [manual Azure Automation PowerShell](./learn/automation-tutorial-runbook-textual-powershell.md) que implementa um recurso Azure utilizando um [modelo de Gestão de Recursos Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). A utilização do modelo permite-lhe utilizar a Azure Automation e a Azure Storage para automatizar a implementação dos seus recursos Azure. Pode manter os seus modelos de Gestor de Recursos numa localização central e segura, como o Azure Storage.
 
 Neste artigo, criamos um runbook PowerShell que utiliza um modelo de Gestor de Recursos armazenado no [Azure Storage](../storage/common/storage-introduction.md) para implementar uma nova conta de Armazenamento Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/).
-* [Conta de automatização](automation-sec-configure-azure-runas-account.md) para manter o runbook e autenticar-se nos recursos do Azure.  Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
-* [Conta de Armazenamento Azure](../storage/common/storage-create-storage-account.md) na qual armazenar o modelo de Gestor de Recursos
-* Azure PowerShell instalado numa máquina local. Consulte [a Instalação do Módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0) para obter informações sobre como obter a Azure PowerShell.
+* [Conta de automatização](./manage-runas-account.md) para manter o runbook e autenticar-se nos recursos do Azure.  Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
+* [Conta de Armazenamento Azure](../storage/common/storage-account-create.md) na qual armazenar o modelo de Gestor de Recursos
+* Azure PowerShell instalado numa máquina local. Consulte [a Instalação do Módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.5.0) para obter informações sobre como obter a Azure PowerShell.
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 
@@ -191,8 +192,7 @@ Publish-AzAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Iniciar o runbook
 
-Agora começamos o runbook chamando o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0
-) Para obter informações sobre como iniciar um livro de bordo no portal Azure, consulte [Iniciar um livro de recortes na Azure Automation](automation-starting-a-runbook.md).
+Agora começamos o runbook chamando o [cmdlet Start-AzAutomationRunbook.](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) Para obter informações sobre como iniciar um livro de bordo no portal Azure, consulte [Iniciar um livro de recortes na Azure Automation](./start-runbooks.md).
 
 Executar os seguintes comandos na consola PowerShell:
 
@@ -226,10 +226,10 @@ Pode ver que a nova conta de armazenamento foi criada executando o seguinte coma
 Get-AzStorageAccount
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os modelos do Gestor de Recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
 * Para começar com o Azure Storage, consulte [Introdução ao Armazenamento Azure](../storage/common/storage-introduction.md).
 * Para encontrar outros livros úteis da Azure Automation, consulte [use livros e módulos em Azure Automation](automation-runbook-gallery.md).
 * Para encontrar outros modelos úteis de Gestor de Recursos, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

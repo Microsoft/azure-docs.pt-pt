@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 191c6d411418229d40b10704ea14d5a536c0d5f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110628"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184553"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
@@ -95,7 +95,7 @@ Se um salto é vermelho, significa que faz parte de pelo menos um caminho pouco 
 O NPM usa um mecanismo probabilístico para atribuir probabilidades de falhas a cada caminho de rede, segmento de rede e o lúpulo de rede constituinte com base no número de caminhos insalubres dos quais fazem parte. À medida que os segmentos de rede e o lúpulo se tornam parte de um maior número de caminhos insalubres, a probabilidade de falha associada a eles aumenta. Este algoritmo funciona melhor quando você tem muitos nós com o agente NPM ligados uns aos outros, uma vez que isso aumenta os pontos de dados para calcular as probabilidades de falha.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Como posso criar alertas no NPM?
-Consulte a [secção de alertas na documentação](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) para obter instruções passo a passo.
+A criação de alertas a partir do NPM UI está atualmente a falhar devido a um problema. Por favor, crie alertas manualmente.
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quais são as consultas padrão de Log Analytics para alertas
 Consulta do monitor de desempenho
@@ -297,6 +297,6 @@ Pode visualizar o estado de saúde dos nós utilizados para a monitorização a 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>A NPM pode reportar números de latência em microsegundos?
 O NPM completa os números de latência na UI e em milissegundos. Os mesmos dados são armazenados numa granularidade mais elevada (às vezes até quatro casas decimais).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o Monitor de Desempenho da Rede referindo-se à [solução Monitor de Desempenho da Rede em Azure](../../azure-monitor/insights/network-performance-monitor.md).

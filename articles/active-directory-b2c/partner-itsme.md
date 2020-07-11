@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8229864acc80a27994ae3c795213dc2a65d22db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385574"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170127"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configure o seu nome OpenID Connect (OIDC) com o Azure Ative Directory B2C
 
@@ -40,7 +40,7 @@ Para começar, vai precisar de:
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-|   |   |
+| Passo | Descrição |
 |------|------|
 |1     | No seu website ou aplicação, inclua o Login com o **botão de me,** adaptando-se no fluxo de utilizador Azure AD B2C. O fluxo de interação começa quando o utilizador clica neste botão.  |
 |2     | A Azure AD B2C inicia o fluxo de ligação OpenID enviando um pedido autorizado à API secreta do seu cliente. Um ponto final de configuração conhecido/OpenID está disponível contendo informações sobre os pontos finais.  |
@@ -151,7 +151,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 6. Confirme a ação na sua aplicação de nome.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

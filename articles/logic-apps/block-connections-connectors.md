@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 06/19/2020
-ms.openlocfilehash: 938f10b621d6081af84cf15d7e04c5f5ab517417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6563f3e263867387332940db58abff62e085cded
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84977753"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187698"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Ligações de blocos criadas por conectores em Azure Logic Apps
 
@@ -125,11 +125,11 @@ Para bloquear a criação de uma ligação completamente numa aplicação lógic
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Localização de definição** | Sim | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
-   | **Nome** | Sim | <*nome de definição de política*> | O nome a usar para a definição de política |
+   | **Localização de definição** | Yes | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
+   | **Nome** | Yes | <*nome de definição de política*> | O nome a usar para a definição de política |
    | **Descrição** | Não | <*nome de definição de política*> | Uma descrição para a definição de política |
-   | **Categoria** | Sim | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
-   | **Aplicação da política** | Sim | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
+   | **Categoria** | Yes | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
+   | **Aplicação da política** | Yes | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
    ||||
 
 1. De acordo com **a REGRA POLÍTICA,** a caixa de edição JSON é pré-povoada com um modelo de definição de política. Substitua este modelo pela [definição de política](../governance/policy/concepts/definition-structure.md) com base nas propriedades descritas na tabela abaixo e seguindo esta sintaxe:
@@ -246,11 +246,11 @@ Quando cria uma ligação dentro de uma aplicação lógica, essa ligação exis
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Localização de definição** | Sim | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
-   | **Nome** | Sim | <*nome de definição de política*> | O nome a usar para a definição de política |
+   | **Localização de definição** | Yes | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
+   | **Nome** | Yes | <*nome de definição de política*> | O nome a usar para a definição de política |
    | **Descrição** | Não | <*nome de definição de política*> | Uma descrição para a definição de política |
-   | **Categoria** | Sim | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
-   | **Aplicação da política** | Sim | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
+   | **Categoria** | Yes | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
+   | **Aplicação da política** | Yes | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
    ||||
 
 1. De acordo com **a REGRA POLÍTICA,** a caixa de edição JSON é pré-povoada com um modelo de definição de política. Substitua este modelo pela [definição de política](../governance/policy/concepts/definition-structure.md) com base nas propriedades descritas na tabela abaixo e seguindo esta sintaxe:
@@ -331,13 +331,13 @@ Em seguida, você precisa atribuir a definição de política onde você quer ap
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Âmbito** | Sim | Os recursos onde quer fazer cumprir a atribuição de políticas. <p><p>1. Ao lado da caixa **Scope,** selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** selecione a subscrição do Azure. <br>3. Opcionalmente, a partir da lista **do Grupo de Recursos,** selecione o grupo de recursos. <br>4. Quando terminar, **selecione Select**. |
+   | **Âmbito** | Yes | Os recursos onde quer fazer cumprir a atribuição de políticas. <p><p>1. Ao lado da caixa **Scope,** selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** selecione a subscrição do Azure. <br>3. Opcionalmente, a partir da lista **do Grupo de Recursos,** selecione o grupo de recursos. <br>4. Quando terminar, **selecione Select**. |
    | **Exclusões** | Não | Quaisquer recursos da Azure para excluir da atribuição de políticas. <p><p>1. Ao lado da caixa **Exclusions,** selecione o botão elipses **(...**) . <br>2. Na lista **de recursos,** selecione o recurso > **Adicionar ao Âmbito Selecionado.** <br>3. Quando terminar, **selecione Save**. |
-   | **Definição de política** | Sim | O nome para a definição de política que quer atribuir e impor. Este exemplo continua com o exemplo da política do Instagram, "Bloquear as ligações do Instagram". <p><p>1. Ao lado da caixa **de definição de política,** selecione o botão elipses **(...**) . <br>2. Encontre e selecione a definição de política utilizando o filtro **Tipo** ou a caixa **de busca.** <br>3. Quando terminar, **selecione Select**. |
-   | **Nome da atribuição** | Sim | O nome a usar para a atribuição de políticas, se diferente da definição de política |
-   | **ID de atribuição** | Sim | O ID gerado automaticamente para a atribuição de políticas |
+   | **Definição de política** | Yes | O nome para a definição de política que quer atribuir e impor. Este exemplo continua com o exemplo da política do Instagram, "Bloquear as ligações do Instagram". <p><p>1. Ao lado da caixa **de definição de política,** selecione o botão elipses **(...**) . <br>2. Encontre e selecione a definição de política utilizando o filtro **Tipo** ou a caixa **de busca.** <br>3. Quando terminar, **selecione Select**. |
+   | **Nome da atribuição** | Yes | O nome a usar para a atribuição de políticas, se diferente da definição de política |
+   | **ID de atribuição** | Yes | O ID gerado automaticamente para a atribuição de políticas |
    | **Descrição** | Não | Uma descrição para a atribuição de políticas |
-   | **Aplicação da política** | Sim | A definição que permite ou desativa a atribuição de políticas |
+   | **Aplicação da política** | Yes | A definição que permite ou desativa a atribuição de políticas |
    | **Atribuído por** | Não | O nome para a pessoa que criou e aplicou a atribuição de política |
    ||||
 
@@ -363,7 +363,7 @@ Para experimentar a sua política, comece a criar uma ligação utilizando o con
 
 A mensagem inclui esta informação:
 
-| | |
+| Descrição | Conteúdo |
 |---|---|
 | Razão para o fracasso | `"Resource 'instagram' was disallowed by policy."` |
 | Nome da atribuição | `"Block Instagram connections"` |
@@ -371,6 +371,6 @@ A mensagem inclui esta informação:
 | ID de definição de política | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"` |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a Política Azure](../governance/policy/overview.md)

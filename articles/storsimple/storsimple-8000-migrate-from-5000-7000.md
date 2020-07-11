@@ -13,11 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: c05b62b254320bd56a6f0591f1edbe32d5362e56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 721dffcaea64e949ac7a5230e24f3aa37261fa9e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514734"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206478"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados da série StorSimple 5000-7000 para 8000
 
@@ -40,21 +41,21 @@ Pode mover os seus dados utilizando a funcionalidade de migração ou realizando
 
 A funcionalidade de migração simula um processo de recuperação de desastres (DR) de séries 7000/5000 para 8000. Esta funcionalidade permite migrar os dados do formato da série 5000/7000 para o formato da série 8000 no Azure. O processo de migração é iniciado utilizando a ferramenta migração StorSimple. A ferramenta inicia o download e a conversão de metadados de backup no dispositivo da série 8000 e, em seguida, utiliza a cópia de segurança mais recente para expor os volumes no dispositivo.
 
-|      | Vantagens                                                                                                                                     |Contras                                                                                                                                                              |
-|------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.   | O processo de migração preserva a história dos backups que foram feitos em séries 5000/7000.                                               | Quando os utilizadores tentam aceder aos dados, esta migração irá descarregar os dados do Azure, incorrendo assim nos custos de descarregamento de dados.                                     |
-| 2.   | Nenhum dado é migrado no lado hospedeiro.                                                                                                     | O processo necessita de tempo de inatividade entre o início da cópia de segurança e a última cópia de segurança que está a ser publicada na série 8000 (pode estimar-se com a ferramenta de migração). |
-| 3.   | Este processo preserva todas as políticas, modelos de largura de banda, encriptação e outras configurações em dispositivos da série 8000.                      | O acesso ao utilizador trará apenas os dados acedidos pelos utilizadores e não irá hidratar todo o conjunto de dados.                                                  |
-| 4.   | Este processo requer tempo adicional para converter todos os backups mais antigos em Azure, que é feito assíncronamente sem afetar a produção | A migração só pode ser feita a um nível de configuração em nuvem.  Volumes individuais numa configuração de nuvem não podem ser migrados separadamente                       |
+| Vantagens                                                                                                                                     |Desvantagens                                                                                                                                                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| O processo de migração preserva a história dos backups que foram feitos em séries 5000/7000.                                               | Quando os utilizadores tentam aceder aos dados, esta migração irá descarregar os dados do Azure, incorrendo assim nos custos de descarregamento de dados.                                     |
+| Nenhum dado é migrado no lado hospedeiro.                                                                                                     | O processo necessita de tempo de inatividade entre o início da cópia de segurança e a última cópia de segurança que está a ser publicada na série 8000 (pode estimar-se com a ferramenta de migração). |
+| Este processo preserva todas as políticas, modelos de largura de banda, encriptação e outras configurações em dispositivos da série 8000.                      | O acesso ao utilizador trará apenas os dados acedidos pelos utilizadores e não irá hidratar todo o conjunto de dados.                                                  |
+| Este processo requer tempo adicional para converter todos os backups mais antigos em Azure, que é feito assíncronamente sem afetar a produção | A migração só pode ser feita a um nível de configuração em nuvem.  Volumes individuais numa configuração de nuvem não podem ser migrados separadamente                       |
 
 Uma migração do lado do anfitrião permite configurar a série 8000 de forma independente e copiar os dados de dispositivo da série 5000/7000 para dispositivo da série 8000. Isto equivale a migrar dados de um dispositivo de armazenamento para outro. Uma variedade de ferramentas como Diskboss, robocopia são usadas para copiar os dados.
 
-|      | Vantagens                                                                                                                      |Contras                                                                                                                                                                                                      |
-|------|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1.   | A migração pode ser abordada de forma faseada numa base volume a volume.                                               | Cópias de segurança anteriores (tomadas em série 5000/7000) não estarão disponíveis no dispositivo da série 8000.                                                                                                       |
-| 2.   | Permite a consolidação de dados numa única conta de armazenamento no Azure.                                                       | O primeiro backup para a nuvem na série 8000 levará mais tempo, uma vez que todos os dados da série 8000 precisam de ser apoiados até Azure.                                                                     |
-| 3.   | Após uma migração bem sucedida, todos os dados são locais no aparelho. Não há latências no acesso aos dados. | O consumo de armazenamento Azure aumentará até que os dados sejam eliminados do dispositivo 5000/7000.                                                                                                        |
-| 4.   |                                                                                                                           | Se o dispositivo da série 7000/5000 tiver uma grande quantidade de dados, durante a migração estes dados precisam de ser descarregados do azul que incorrerá em custos e latências relacionadas com o descarregamento de dados do Azure |
+| Vantagens                                                                                                                      |Desvantagens                                                                                                                                                                                                      |
+|---------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| A migração pode ser abordada de forma faseada numa base volume a volume.                                               | Cópias de segurança anteriores (tomadas em série 5000/7000) não estarão disponíveis no dispositivo da série 8000.                                                                                                       |
+| Permite a consolidação de dados numa única conta de armazenamento no Azure.                                                       | O primeiro backup para a nuvem na série 8000 levará mais tempo, uma vez que todos os dados da série 8000 precisam de ser apoiados até Azure.                                                                     |
+| Após uma migração bem sucedida, todos os dados são locais no aparelho. Não há latências no acesso aos dados. | O consumo de armazenamento Azure aumentará até que os dados sejam eliminados do dispositivo 5000/7000.                                                                                                        |
+|                                                                                                                           | Se o dispositivo da série 7000/5000 tiver uma grande quantidade de dados, durante a migração estes dados precisam de ser descarregados do azul que incorrerá em custos e latências relacionadas com o descarregamento de dados do Azure |
 
 Este artigo centra-se apenas na funcionalidade de migração de 5000/7000 a 8000 dispositivos da série. Para obter mais informações sobre a migração do lado do hospedeiro, vá para a [Migração de outros dispositivos de armazenamento](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf).
 
@@ -148,5 +149,5 @@ Execute os seguintes passos para instalar a ferramenta de migração StorSimple 
 5.  É apresentada a ferramenta de migração StorSimple UI.
   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Descarregue as instruções passo a passo sobre como [migrar dados de uma série StorSimple 5000-7000 para um dispositivo de série 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b).

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7a7fe3f7e1c39837106471d118a8b1bb770a524e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 75db20bdb746e7d15bef56ce7ac0a064993d3f3a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045829"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187766"
 ---
 # <a name="deploy-an-azure-stream-analytics-job-using-cicd-npm-package"></a>Implementar um trabalho Azure Stream Analytics usando pacote de npm CI/CD 
 
@@ -41,15 +41,11 @@ Quando um projeto stream Analytics Visual Studio Code se constrói com sucesso, 
 
 * Ficheiro de modelo do gestor de recursos
 
-   ```
-   [ProjectName].JobTemplate.json 
-   ```
+   `[ProjectName].JobTemplate.json`
 
 * Ficheiro de parâmetros do Gestor de Recursos
 
-   ```
-   [ProjectName].JobTemplate.parameters.json
-   ```   
+   `[ProjectName].JobTemplate.parameters.json`   
 
 Os parâmetros padrão no parameters.jsno ficheiro são das definições do seu projeto Visual Studio Code. Se pretender implantar-se noutro ambiente, substitua os parâmetros em conformidade.
 
@@ -192,7 +188,7 @@ Para criar um desbloqueio, selecione **Criar o desbloqueio** no canto superior d
 Para utilizar a Identidade Gerida para a Azure Data Lake Store Gen1 como pia de saída, precisa de fornecer acesso ao principal do serviço usando o PowerShell antes de se deslocar para a Azure. Saiba mais sobre como [implementar a ADLS Gen1 com identidade gerida com o modelo de Gestor de Recursos.](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Criar um trabalho em nuvem Azure Stream Analytics em Código de Estúdio Visual (Pré-visualização)](quick-create-vs-code.md)
 * [Teste Stream Analytics consultas localmente com Código de Estúdio Visual (Pré-visualização)](visual-studio-code-local-run.md)

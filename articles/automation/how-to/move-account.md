@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3cfc63b29b51b70cb41c476c49bc17f5e9cbd308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83746623"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185556"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mude a sua conta Azure Automation para outra subscrição
 
@@ -40,7 +41,7 @@ Para desvincular o seu espaço de trabalho da sua conta Demômpa, tem de remover
 
     ![Screenshot de apagar recursos de recurso do portal Azure](../media/move-account/delete-solutions.png)
 
-Se preferir, pode eliminar os recursos utilizando o [cmdlet Remove-AzResource:](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0)
+Se preferir, pode eliminar os recursos utilizando o [cmdlet Remove-AzResource:](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0)
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -79,7 +80,7 @@ Para os VMs de arranque/paragem durante o horário de folga, também é necessá
 
     ![Screenshot da página do grupo Action](../media/move-account/delete-action-group.png)
 
-Se preferir, pode eliminar o seu grupo de ação utilizando o cmdlet [Remove-AzActionGroup:](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0)
+Se preferir, pode eliminar o seu grupo de ação utilizando o cmdlet [Remove-AzActionGroup:](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0)
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -146,7 +147,7 @@ Depois de recriar as contas Run As, tem de voltar a ativar as funcionalidades qu
 
 Quando o movimento estiver completo, verifique se as capacidades listadas abaixo estão ativadas. 
 
-|Funcionalidade|Testes|Resolução de problemas|
+|Capacidade|Testes|Resolução de problemas|
 |---|---|---|
 |Runbooks|Um runbook pode executar e conectar-se com sucesso aos recursos da Azure.|[Resolver problemas de runbooks](../troubleshoot/runbooks.md)
 |Controlo de código fonte|Pode executar uma sincronização manual no seu repositório de controlo de origem.|[Integração do controlo de origem](../source-control-integration.md)|
@@ -154,6 +155,6 @@ Quando o movimento estiver completo, verifique se as capacidades listadas abaixo
 |Gestão de atualizações|Verifique se vê as suas máquinas e que estão saudáveis.</br>Executar uma implementação de atualização de software de teste.|[Gestão de atualização de resolução de problemas](../troubleshoot/update-management.md)|
 |Recursos partilhados|Verifique se vê todos os seus recursos partilhados, tais como [credenciais](../shared-resources/credentials.md) e [variáveis.](../shared-resources/variables.md)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre a movimentação de recursos em Azure, consulte [os recursos move em Azure.](../../azure-resource-manager/management/move-support-resources.md)

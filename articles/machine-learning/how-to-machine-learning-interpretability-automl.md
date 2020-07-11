@@ -1,5 +1,5 @@
 ---
-title: Explicabilidade em ML automatizado
+title: Explicabilidade em ML automatizado (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações sobre como o seu modelo automatizado de ML determina a importância do recurso e faz previsões ao utilizar o Azure Machine Learning SDK.
 services: machine-learning
@@ -8,14 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki
-ms.date: 03/11/2020
-ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: af3fe7bffbf985936a1648088daaf1a294a69905
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430526"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206600"
 ---
-# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretação: explicações de modelos na aprendizagem automática de máquinas
+# <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretação: explicações de modelos em machine learning automatizado (pré-visualização)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -118,7 +119,7 @@ Nesta secção, aprende-se a operacionalizar um modelo de ML automatizado com o 
 
 Utilize `TreeScoringExplainer` o para criar o explicador de pontuação que irá calcular os valores de importância da característica projetada no tempo de inferência. Inicializa-se o explicador de pontuação com o `feature_map` que foi calculado anteriormente. 
 
-Guarde o explicador de pontuação e, em seguida, registe o modelo e o explicador de pontuação com o Serviço de Gestão de Modelos. Executar o seguinte código:
+Guarde o explicador de pontuação e, em seguida, registe o modelo e o explicador de pontuação com o Serviço de Gestão de Modelos. Execute o seguinte código:
 
 ```python
 from azureml.interpret.scoring.scoring_explainer import TreeScoringExplainer, save
@@ -211,6 +212,6 @@ Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho
 
 [![Arquitetura de Interpretação de Aprendizagem Automática](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como pode permitir explicações de modelos e destacar importância em áreas do Azure Machine Learning SDK que não seja o machine learning automatizado, consulte o [artigo de conceito sobre interpretação.](how-to-machine-learning-interpretability.md)

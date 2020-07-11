@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835257"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186202"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor
 
@@ -27,8 +28,8 @@ A Azure Automation pode enviar o estado de trabalho do runbook e os fluxos de tr
 
 Para começar a enviar os seus registos de Automação para registos do Azure Monitor, é necessário:
 
-* O mais recente lançamento da [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
-* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [Começar com os registos do Azure Monitor](../log-analytics/log-analytics-get-started.md).
+* O mais recente lançamento da [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [Começar com os registos do Azure Monitor](../azure-monitor/overview.md).
 * O ID de recursos para a sua conta Azure Automation.
 
 Utilize o seguinte comando para encontrar o ID de recurso para a sua conta Azure Automation:
@@ -66,12 +67,12 @@ Os diagnósticos de Automatização Azure criam dois tipos de registos em regist
 | Caller_s |O chamador que iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
 | Tenant_g | GUID que identifica o inquilino para quem ligou. |
 | JobId_g |GUID que identifica o trabalho do runbook. |
-| ResultadoType |O estado do trabalho do runbook. Os valores possíveis são:<br>- Novo<br>- Criado<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>- Concluído |
+| ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>- Novo<br>- Criado<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>- Concluído |
 | Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
 | OperationName | O tipo de operação realizada em Azure. Para a Automação, o valor é Trabalho. |
 | Recurso | O nome da conta Automation |
 | SourceSystem | Sistema que os registos do Azure Monitor utilizam para recolher os dados. O valor é sempre Azure para diagnósticos Azure. |
-| ResultadoDescrição |O estado do resultado do trabalho. Os valores possíveis são:<br>- Trabalho iniciado<br>- Trabalho falhado<br>- Trabalho Concluído |
+| ResultDescription |O estado do resultado do trabalho. Os valores possíveis são:<br>- Trabalho iniciado<br>- Trabalho falhado<br>- Trabalho Concluído |
 | CorrelationId |A correlação GUID do trabalho de runbook. |
 | ResourceId |Identificação de recurso de conta Azure Automation do livro de contas. |
 | SubscriptionId | A assinatura Azure GUID para a conta Automation. |
@@ -88,12 +89,12 @@ Os diagnósticos de Automatização Azure criam dois tipos de registos em regist
 | StreamType_s |O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Em Curso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso |
 | Tenant_g | GUID que identifica o inquilino para quem ligou. |
 | JobId_g |GUID que identifica o trabalho do runbook. |
-| ResultadoType |O estado do trabalho do runbook. Os valores possíveis são:<br>- Em curso |
+| ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>- Em curso |
 | Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
 | OperationName | Tipo de operação realizada em Azure. Para a Automação, o valor é Trabalho. |
 | Recurso | O nome da conta Automation. |
 | SourceSystem | Sistema que os registos do Azure Monitor utilizam para recolher os dados. O valor é sempre Azure para diagnósticos Azure. |
-| ResultadoDescrição |Descrição que inclui o fluxo de saída do livro de recortes. |
+| ResultDescription |Descrição que inclui o fluxo de saída do livro de recortes. |
 | CorrelationId |A correlação GUID do trabalho de runbook. |
 | ResourceId |Identificação de recurso de conta Azure Automation do livro de contas. |
 | SubscriptionId | A assinatura Azure GUID para a conta Automation. |
@@ -183,10 +184,10 @@ $automationAccountId = "[resource ID of your Automation account]"
 Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Para aprender a construir consultas de pesquisa e rever os registos de trabalho da Automação com registos do Azure Monitor, consulte [as pesquisas de Registo nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Para aprender a construir consultas de pesquisa e rever os registos de trabalho da Automação com registos do Azure Monitor, consulte [as pesquisas de Registo nos registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 * Para compreender a criação e recuperação de mensagens de saída e erro a partir de runbooks, consulte [a saída do livro de execução do Monitor](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbook, como monitorizar os trabalhos de runbook, e outros detalhes técnicos, consulte [a execução do Runbook na Azure Automation](automation-runbook-execution.md).
-* Para saber mais sobre os registos do Azure Monitor e as fontes de recolha de dados, consulte [a recolha de dados de armazenamento do Azure monitor na visão geral dos registos do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Para saber mais sobre os registos do Azure Monitor e as fontes de recolha de dados, consulte [a recolha de dados de armazenamento do Azure monitor na visão geral dos registos do Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 * Para ajudar a resolver problemas no Log Analytics, consulte [a resolução de problemas por que o Log Analytics já não está a recolher dados](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

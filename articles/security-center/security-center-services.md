@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 4d048bb348b8093db7d3bf92ef0fc93aead35055
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762297"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187018"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -40,8 +40,7 @@ As tabelas abaixo mostram funcionalidades do Azure Security Center que estão di
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Controlos de rede adaptativos|✔|✔|-|Standard|
+|[Endurecimento da rede adaptativa](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|-|-|-|Standard|
 |Avaliação de patches de SO em falta|✔|✔|✔|Gratuito|
@@ -66,7 +65,7 @@ As tabelas abaixo mostram funcionalidades do Azure Security Center que estão di
 |[Monitorização da integridade do ficheiro](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controlos de aplicações adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[Endurecimento da rede adaptativa](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |Controlos de rede adaptativos|✔|✔|-|Standard|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|✔|✔|✔|Standard|
@@ -95,8 +94,8 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 
 | Endpoint Protection| Plataformas | Instalação do Centro de Segurança | Deteção do Centro de Segurança |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Incorporado no SO| Sim |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Sim |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Incorporado no SO| Yes |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (ver nota abaixo) | Através de Extensão | Yes |
 | Trend Micro – Segurança Profunda | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
@@ -109,7 +108,7 @@ Para obter informações sobre quando são geradas recomendações para cada uma
 > A deteção da Proteção de Pontos Finais do Centro de Sistema (SCEP) numa máquina virtual Do Windows Server 2008 R2 requer que o SCEP seja instalado após o PowerShell (v3.0 ou mais recente).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como o [Security Center recolhe dados e o Agente de Análise de Registos.](security-center-enable-data-collection.md)
 - Saiba como o [Security Center gere e salvaguarda dados.](security-center-data-security.md)

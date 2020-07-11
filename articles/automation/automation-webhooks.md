@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361681"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185641"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Iniciar um runbook a partir de um webhook
 
-Um webhook permite que um serviço externo inicie um determinado runbook na Azure Automation através de um único pedido HTTP. Os serviços externos incluem serviços Azure DevOps, GitHub, registos Azure Monitor e aplicações personalizadas. Tal serviço pode usar um webhook para iniciar um runbook sem implementar a API total da Azure Automation. Pode comparar webhooks com outros métodos de iniciar um livro de formulários no [Início de um livro de formulários na Azure Automation](automation-starting-a-runbook.md).
+Um webhook permite que um serviço externo inicie um determinado runbook na Azure Automation através de um único pedido HTTP. Os serviços externos incluem serviços Azure DevOps, GitHub, registos Azure Monitor e aplicações personalizadas. Tal serviço pode usar um webhook para iniciar um runbook sem implementar a API total da Azure Automation. Pode comparar webhooks com outros métodos de iniciar um livro de formulários no [Início de um livro de formulários na Azure Automation](./start-runbooks.md).
 
 > [!NOTE]
 > Não é suportado o suporte de um webhook para iniciar um livro de aplicações Python.
@@ -29,7 +29,7 @@ A tabela a seguir descreve as propriedades que deve configurar para um webhook.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Name |O nome do webhook. Pode dar o nome que quiser, já que não está exposto ao cliente. Só é utilizado para identificar o livro de recortes na Azure Automation. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
+| Nome |O nome do webhook. Pode dar o nome que quiser, já que não está exposto ao cliente. Só é utilizado para identificar o livro de recortes na Azure Automation. Como uma boa prática, deve dar ao webhook um nome relacionado com o cliente que o utiliza. |
 | URL |URL do webhook. Este é o endereço único que um cliente chama com um HTTP POST para iniciar o livro de aplicação ligado ao webhook. É gerado automaticamente quando se cria o webhook. Não é possível especificar uma URL personalizada. <br> <br> O URL contém um símbolo de segurança que permite a um sistema de terceiros invocar o livro de bordo sem mais autenticação. Por esta razão, deve tratar o URL como uma palavra-passe. Por razões de segurança, só pode ver o URL no portal Azure ao criar o webhook. Note o URL num local seguro para utilização futura. |
 | Data de validade | Data de validade do webhook, após o qual já não pode ser utilizado. Pode modificar a data de validade após a criação do webhook, desde que o webhook não tenha expirado. |
 | Ativado | Definição indicando se o webhook é ativado por padrão quando é criado. Se definir esta propriedade para Disabled, nenhum cliente pode usar o webhook. Você pode definir esta propriedade quando você criar o webhook ou qualquer outro tempo após a sua criação. |
@@ -133,7 +133,7 @@ Assumindo que o pedido é bem sucedido, a resposta webhook contém o ID de traba
 {"JobIds":["<JobId>"]}
 ```
 
-O cliente não pode determinar quando o trabalho do runbook termina ou o seu estado de conclusão a partir do webhook. Pode descobrir esta informação utilizando o ID do trabalho com outro mecanismo, como o [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou a API da [Automação Azure](/rest/api/automation/job).
+O cliente não pode determinar quando o trabalho do runbook termina ou o seu estado de conclusão a partir do webhook. Pode descobrir esta informação utilizando o ID do trabalho com outro mecanismo, como o [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) ou a API da [Automação Azure](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Renovar um webhook
 
@@ -151,7 +151,7 @@ Pode estender um webhook que não atingiu o seu tempo de validade. Para estender
 O seguinte livro de amostras aceita os dados do webhook e inicia as máquinas virtuais especificadas no corpo de pedido. Para testar este livro de execução, na sua conta de Automação em **Runbooks,** clique em **Criar um runbook**. Se não sabe como criar um livro de bordo, consulte [criar um livro de recortes](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
+> Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Pode utilizar estes cmdlets ou [atualizar os seus módulos](automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
 ```powershell
 param
@@ -242,6 +242,6 @@ A imagem que se segue mostra o pedido enviado do Windows PowerShell e a resposta
 
 ![Botão Webhooks](media/automation-webhooks/webhook-request-response.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para ativar um livro de bordo a partir de um alerta, consulte [Utilize um alerta para acionar um livro de execução da Azure Automation](automation-create-alert-triggered-runbook.md).

@@ -6,15 +6,19 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74129426"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184978"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a geo-replicação para Azure Cache para Redis
 
-A geo-replicação fornece um mecanismo para ligar dois Cache Azure de nível Premium para instâncias Redis. Uma cache é escolhida como a cache primária ligada, e a outra como cache ligada secundária. A cache ligada secundária torna-se apenas de leitura, e os dados escritos na cache primária são replicados para a cache ligada secundária. Esta funcionalidade pode ser usada para replicar uma cache em todas as regiões de Azure. Este artigo fornece um guia para configurar a geo-replicação para o seu Nível Premium Azure Cache para instâncias Redis.
+A geo-replicação fornece um mecanismo para ligar dois Cache Azure de nível Premium para instâncias Redis. Uma cache é escolhida como a cache primária ligada, e a outra como cache ligada secundária. A cache ligada secundária torna-se apenas de leitura, e os dados escritos na cache primária são replicados para a cache ligada secundária. A transferência de dados entre as instâncias de cache primária e secundária é assegurada pelo TLS. A geo-replicação pode ser usada para criar uma cache que abrange duas regiões de Azure. Este artigo fornece um guia para configurar a geo-replicação para o seu Nível Premium Azure Cache para instâncias Redis.
+
+> [!NOTE]
+> A geo-replicação é projetada como uma solução de recuperação de desastres. Por predefinição, a sua aplicação escreverá e lerá da região primária. Pode opcionalmente ser configurado para ser lido a partir da região secundária. A geo-replicação não fornece falhas automáticas devido a preocupações sobre a latência da rede adicionada entre regiões se o resto da sua aplicação permanecer na região primária. Terá de gerir e iniciar a falha desvinculando a cache secundária. Isto irá promovê-lo para ser o novo exemplo primário.
 
 ## <a name="geo-replication-prerequisites"></a>Pré-requisitos de geo-replicação
 
@@ -181,6 +185,6 @@ A falha automática nas regiões de Azure não é suportada por caches geo-repli
 
 Para iniciar uma falha iniciada pelo cliente, primeiro desvincula as caches. Em seguida, mude o seu cliente Redis para utilizar o ponto final de ligação da cache secundária (anteriormente ligada). Quando os dois caches são desvinculados, a cache secundária torna-se novamente uma cache de leitura-escrita regular e aceita pedidos diretamente dos clientes Redis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [Azure Cache para o nível Redis Premium.](cache-premium-tier-intro.md)

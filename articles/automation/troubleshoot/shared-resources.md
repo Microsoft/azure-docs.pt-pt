@@ -8,11 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680879"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187171"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Problemas de recursos partilhados na resolução de problemas
 
@@ -32,7 +33,7 @@ Como importar módulos PowerShell é um processo complexo e multipasso, um módu
 
 #### <a name="resolution"></a>Resolução
 
-Para resolver este problema, tem de remover o módulo que está preso utilizando o [cmdlet Remove-AzAutomationModule.](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) Em seguida, pode voltar a tentar importar o módulo.
+Para resolver este problema, tem de remover o módulo que está preso utilizando o [cmdlet Remove-AzAutomationModule.](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) Em seguida, pode voltar a tentar importar o módulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -69,7 +70,7 @@ Algumas razões comuns para que um módulo pode não importar com sucesso para a
 * A estrutura não corresponde à estrutura de que a Automação precisa.
 * O módulo depende de outro módulo que não tenha sido implantado na sua conta de Automação.
 * O módulo está a perder as suas dependências na pasta.
-* O [cmdlet New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) está a ser utilizado para carregar o módulo, e não forneceu o caminho de armazenamento completo ou não carregou o módulo utilizando um URL acessível ao público.
+* O [cmdlet New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) está a ser utilizado para carregar o módulo, e não forneceu o caminho de armazenamento completo ou não carregou o módulo utilizando um URL acessível ao público.
 
 #### <a name="resolution"></a>Resolução
 
@@ -161,7 +162,7 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se este artigo não resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

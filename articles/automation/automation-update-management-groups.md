@@ -5,11 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25a306b3281079e8476a67ee70c2ca2cfffdd30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830944"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185743"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Utilizar grupos dinâmicos com a Gestão de Atualizações
 
@@ -20,7 +21,7 @@ A Atualização De gestão permite-lhe direcionar um grupo dinâmico de VMs Azur
 
 Pode definir grupos dinâmicos para máquinas Azure ou não-Azure da gestão de **Atualização** no portal Azure. Consulte [As atualizações para várias máquinas virtuais Azure](manage-update-multi.md).
 
-Um grupo dinâmico é definido por uma consulta que a Azure Automation avalia no momento da implementação. Mesmo que uma consulta dinâmica de grupo recupere um grande número de máquinas, a Azure Automation pode processar apenas um máximo de 1000 máquinas de cada vez. Veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#update-management). 
+Um grupo dinâmico é definido por uma consulta que a Azure Automation avalia no momento da implementação. Mesmo que uma consulta dinâmica de grupo recupere um grande número de máquinas, a Azure Automation pode processar apenas um máximo de 1000 máquinas de cada vez. Veja [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#update-management). 
 
 > [!NOTE]
 > Se espera atualizar mais de 1000 máquinas, recomendamos que divida as atualizações entre vários horários de atualização. 
@@ -46,6 +47,6 @@ Um grupo dinâmico para máquinas não-Azure usa pesquisas guardadas, também ch
 
 ![Selecione grupos](./media/automation-update-management/select-groups-2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para trabalhar com a Gestão de Atualização, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).

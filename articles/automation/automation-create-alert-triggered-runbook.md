@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf31af6d3ba3d78a6435210fa17562aaddac0a3
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837115"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186610"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Use um alerta para ativar um runbook da Azure Automation
 
@@ -44,14 +45,14 @@ Como descrito na secção anterior, cada tipo de alerta tem um esquema diferente
 
 Este exemplo usa um alerta de um VM. Recupera os dados VM da carga útil e, em seguida, utiliza essa informação para parar o VM. A ligação deve ser configurada na conta Automation onde o livro é executado. Ao utilizar alertas para ativar os runbooks, é importante verificar o estado de alerta no livro de verificação que é acionado. O livro de bordo dispara cada vez que o estado de alerta muda de estado. Os alertas têm vários estados, sendo os dois mais comuns ativados e resolvidos. Verifique se está o estado na sua lógica de runbook para garantir que o livro de recortes não funciona mais do que uma vez. O exemplo neste artigo mostra como procurar alertas apenas com estado ativado.
 
-O runbook utiliza o ativo de ligação `AzureRunAsConnection` [Run As account](automation-create-runas-account.md) to authenticate with Azure to execute a ação de gestão contra o VM.
+O runbook utiliza o ativo de ligação `AzureRunAsConnection` [Run As account](./manage-runas-account.md) to authenticate with Azure to execute a ação de gestão contra o VM.
 
 Utilize este exemplo para criar um livro de recortes chamado **Stop-AzureVmInResponsetoVMAlert**. Pode modificar o script PowerShell e usá-lo com muitos recursos diferentes.
 
 1. Vá à sua conta Azure Automation.
 2. Em **Automatização de Processos,** selecione **Runbooks**.
 3. No topo da lista de runbooks, selecione **+ Crie um livro de bordo.**
-4. Na página **Add Runbook,** insira **Stop-AzureVmInResponsetoVMAlert** para o nome do livro de verificação. Para o tipo de livro de execução, selecione **PowerShell**. Em seguida, **selecione Criar**.  
+4. Na página **Add Runbook,** insira **Stop-AzureVmInResponsetoVMAlert** para o nome do livro de verificação. Para o tipo de livro de execução, selecione **PowerShell**. Em seguida, selecione **Criar**.  
 5. Copie o exemplo PowerShell a seguir na página **Editar.**
 
     ```powershell-interactive
@@ -188,10 +189,10 @@ Os alertas utilizam grupos de ação, que são coleções de ações que são de
 
 1. Em **Detalhes de Alerta**, adicione um nome e descrição da regra de alerta e clique em Criar regra de **alerta**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para iniciar um runbook utilizando um webhook, consulte [Iniciar um livro de formulários a partir de um webhook](automation-webhooks.md).
-* Para descobrir diferentes formas de iniciar um livro de bordo, consulte [Iniciar um livro de recortes](automation-starting-a-runbook.md).
+* Para descobrir diferentes formas de iniciar um livro de bordo, consulte [Iniciar um livro de recortes](./start-runbooks.md).
 * Para criar um alerta de registo de atividade, consulte [Criar alertas de registo de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Para aprender a criar um alerta quase em tempo real, consulte [Criar uma regra de alerta no portal Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

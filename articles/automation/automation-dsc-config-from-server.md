@@ -10,11 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 775fae09c4d618551327669362cd28a0ae2cc801
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f376fb383e50a39f0f12d45cf9b5ae47ad6fcbb
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837013"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186508"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Criar configurações a partir de servidores existentes
 
@@ -37,12 +38,12 @@ A versão mais recente tem [vários modos de extração](https://github.com/Micr
 
 O resultado da utilização da solução é gerar dados de [configuração](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) para serem utilizados com scripts de configuração SharePointDSC.
 
-Uma vez gerados os ficheiros de dados, pode usá-los com [scripts de configuração DSC](/powershell/scripting/dsc/overview/overview) para gerar ficheiros MOF e [fazer o upload dos ficheiros MOF para a Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Em seguida, registe os seus servidores a partir [de instalações no local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou em [Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para puxar configurações.
+Uma vez gerados os ficheiros de dados, pode usá-los com [scripts de configuração DSC](/powershell/scripting/dsc/overview/overview) para gerar ficheiros MOF e [fazer o upload dos ficheiros MOF para a Azure Automation](./tutorial-configure-servers-desired-state.md#create-and-upload-a-configuration-to-azure-automation).
+Em seguida, registe os seus servidores a partir [de instalações no local](./automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines) ou em [Azure](./automation-dsc-onboarding.md#enable-azure-vms) para puxar configurações.
 
 Para experimentar o ReverseDSC, visite a [Galeria PowerShell](https://www.powershellgallery.com/packages/ReverseDSC/) e descarregue a solução ou clique em "Project Site" para ver a [documentação.](https://github.com/Microsoft/sharepointDSC.reverse)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para compreender o PowerShell DSC, consulte a visão geral da [configuração do estado desejada do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 - Descubra os recursos da PowerShell DSC em [Recursos DSC.](/powershell/scripting/dsc/resources/resources)

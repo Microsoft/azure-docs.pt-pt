@@ -8,13 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: c8cdb75c821f45fe7fcf0f455145beb2b9be2a55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2760f0d91f7ed1066b0020c4aedc7572af095cfb
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734865"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220325"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Implementação e gestão de serviços de domínio de diretório ativo Azure para fornecedores de soluções de nuvem Azure
 
@@ -92,6 +93,6 @@ Aplicam-se as seguintes considerações importantes ao administrar um domínio g
     
     Para que um parceiro da CSP execute estas tarefas num domínio gerido, deve ser criada uma conta de utilizador dentro do inquilino AZure AD do cliente. As credenciais desta conta devem ser partilhadas com os agentes administrativos do parceiro da CSP. Além disso, esta conta de utilizador deve ser adicionada ao grupo *de administradores AAD DC* para permitir que as tarefas de configuração no domínio gerido sejam executadas usando esta conta de utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, [inscreva-se no programa Azure CSP](/partner-center/enrolling-in-the-csp-program). Em seguida, pode ativar os Serviços de Domínio AZure AD utilizando [o portal Azure](tutorial-create-instance.md) ou [Azure PowerShell](powershell-create-instance.md).

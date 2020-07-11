@@ -1,7 +1,7 @@
 ---
 title: Bolhas de índice que contêm vários documentos
 titleSuffix: Azure Cognitive Search
-description: Crawl Azure blobs para conteúdo de texto usando o indexante Azure Congitive Search Blob, onde cada blob pode produzir um ou mais documentos de índice de pesquisa.
+description: Crawl Azure blobs para conteúdo de texto usando o indexante Azure Cognitive Search Blob, onde cada blob pode produzir um ou mais documentos de índice de pesquisa.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,11 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74112276"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146794"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexação de bolhas para produzir vários documentos de pesquisa
 Por predefinição, um indexante blob tratará o conteúdo de uma bolha como um único documento de pesquisa. Certos **valores de parsingMode** suportam cenários onde uma bolha individual pode resultar em vários documentos de pesquisa. Os diferentes tipos de **parsingMode** que permitem a um indexante extrair mais de um documento de pesquisa de uma bolha são:
@@ -41,25 +42,31 @@ E o seu recipiente blob tem bolhas com a seguinte estrutura:
 
 _Blob1.js_
 
+```json
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
+```
 
 _Blob2.js_
 
+```json
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
+```
 
 Quando criar um indexador e definir o **ParsingMode** `jsonLines` para - sem especificar quaisquer mapeamentos de campo explícitos para o campo chave, o seguinte mapeamento será aplicado implicitamente
-    
+
+```http
     {
         "sourceFieldName" : "AzureSearch_DocumentKey",
         "targetFieldName": "id",
         "mappingFunction": { "name" : "base64Encode" }
     }
+```
 
 Esta configuração resultará no índice de Pesquisa Cognitiva Azure contendo as seguintes informações (id codificado base64 encurtado para brevidade)
 
-| ID | temperatura | pressure | carimbo de data/hora |
+| ID | temperatura | pressão | carimbo de data/hora |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |
@@ -72,22 +79,28 @@ Assumindo a mesma definição de índice que o exemplo anterior, diga que o seu 
 
 _Blob1.js_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
+```
 
 _Blob2.js_
 
+```json
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
+```
 
 Quando cria um indexador com `delimitedText` **parsingMode,** pode parecer natural configurar uma função de mapeamento de campo para o campo chave da seguinte forma:
 
+```http
     {
         "sourceFieldName" : "recordid",
         "targetFieldName": "id"
     }
+```
 
 No entanto, este mapeamento _não_ resultará em 4 documentos que aparecem no índice, porque o `recordid` campo não é único entre _bolhas._ Por isso, recomendamos que faça uso do mapeamento de campo implícito aplicado da `AzureSearch_DocumentKey` propriedade para o campo de índice chave para modos de análise "um a muitos".
 
@@ -96,7 +109,7 @@ Se pretender configurar um mapeamento de campo explícito, certifique-se de que 
 > [!NOTE]
 > A abordagem utilizada para `AzureSearch_DocumentKey` garantir a singularidade por entidade extraída está sujeita a alterações e, por isso, não deve confiar no seu valor para as necessidades da sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não está familiarizado com a estrutura básica e o fluxo de trabalho da indexação de bolhas, deve rever o [Indexing Azure Blob Storage com Azure Cognitive Search](search-howto-index-json-blobs.md) em primeiro lugar. Para obter mais informações sobre modos de análise para diferentes tipos de conteúdo de bolhas, reveja os seguintes artigos.
 

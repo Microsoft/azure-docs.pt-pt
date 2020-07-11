@@ -5,13 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 6/2/2020
+ms.date: 7/9/2020
 ms.subservice: alerts
-ms.openlocfilehash: e9a1980eccb42342ebc5cb739b2c1f5a539e9f18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d8ec0c76259a8567906e9ac415864e2cd37a9cd
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299337"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187579"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -1520,7 +1521,9 @@ Esta secção descreverá modelos do Gestor de Recursos Azure para três cenári
 
 > [!NOTE]
 >
-> Numa regra de alerta métrico que monitoriza múltiplos recursos, apenas é permitida uma condição.
+> Numa regra de alerta métrico que monitoriza múltiplos recursos, aplicam-se as seguintes limitações:
+> - O âmbito da regra de alerta deve conter pelo menos um recurso do tipo de recurso selecionado.
+> - A regra de alerta só pode conter uma condição.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de limiar estático em todas as máquinas virtuais em um ou mais grupos de recursos
 
@@ -3620,7 +3623,7 @@ az group deployment create \
     --parameters @availabilityalert.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ler mais sobre [alertas em Azure](alerts-overview.md)
 - Saiba como [criar um grupo de ação com modelos de Gestor de Recursos](action-groups-create-resource-manager-template.md)

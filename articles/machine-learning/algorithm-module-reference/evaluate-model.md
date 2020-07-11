@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/24/2020
-ms.openlocfilehash: 0b7ca2654fb8b7bdcca6dcb5f2fd354a138f2fcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/08/2020
+ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564350"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171125"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo de modelo
 
@@ -35,10 +35,10 @@ Utilize este módulo para medir a precisão de um modelo treinado. Fornece um co
 
 ## <a name="how-to-use-evaluate-model"></a>Como utilizar o Modelo de Avaliação
 1. Ligue a saída de conjunto de **dados pontuado** do modelo de [pontuação](./score-model.md) ou saída de conjunto de dados de resultados dos [dados de atribuição aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda do Modelo de **Avaliação**. 
-  > [!NOTE] 
-  > Se utilizar módulos como "Selecione Colunas no Conjunto de Dados" para selecionar parte do conjunto de dados de entrada, certifique-se de que a coluna de etiquetas reais (utilizada em treino), a coluna 'Probabilidades Pontuadas' e a coluna 'Etiquetas Pontuadas' existem para calcular métricas como AUC, Precisão para classificação binária/deteção de anomalias.
-  > Coluna de etiquetas reais, coluna 'Labels Scored' existe para calcular métricas para classificação/regressão multi-classes.
-  > Coluna 'Atribuições', colunas 'DistancesToClusterCenter no. X' (X é índice centroid, que varia de 0, ..., Número de centrosids-1) existem para calcular métricas para o agrupamento.
+    > [!NOTE] 
+    > Se utilizar módulos como "Selecione Colunas no Conjunto de Dados" para selecionar parte do conjunto de dados de entrada, certifique-se de que a coluna de etiquetas reais (utilizada em treino), a coluna 'Probabilidades Pontuadas' e a coluna 'Etiquetas Pontuadas' existem para calcular métricas como AUC, Precisão para classificação binária/deteção de anomalias.
+    > Coluna de etiquetas reais, coluna 'Labels Scored' existe para calcular métricas para classificação/regressão multi-classes.
+    > Coluna 'Atribuições', colunas 'DistancesToClusterCenter no. X' (X é índice centroid, que varia de 0, ..., Número de centrosids-1) existem para calcular métricas para o agrupamento.
 
 2. [Opcional] Ligue a saída de conjunto de **dados pontuado** do modelo de [pontuação](./score-model.md) ou saída de conjunto de dados de resultados dos dados de atribuição a clusters para o segundo modelo à porta de entrada **direita** do Modelo de **Avaliação**. Pode facilmente comparar resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ser do mesmo tipo de algoritmo. Ou, pode comparar pontuações de duas corridas diferentes sobre os mesmos dados com parâmetros diferentes.
 
@@ -49,7 +49,12 @@ Utilize este módulo para medir a precisão de um modelo treinado. Fornece um co
 
 ## <a name="results"></a>Resultados
 
-Depois de executar **o Modelo de Avaliação,** selecione o módulo para abrir o painel de navegação **do Modelo avaliar** à direita.  Em seguida, escolha o **separador Saídas + Registos** e nesse separador a secção **Saídas de Dados** tem vários ícones.   O ícone **do Visualize** tem um ícone de gráfico de barras, e é uma primeira maneira de ver os resultados.
+Depois de executar **o Modelo de Avaliação,** selecione o módulo para abrir o painel de navegação **do Modelo avaliar** à direita.  Em seguida, escolha o **separador Saídas + Registos** e nesse separador a secção **Saídas de Dados** tem vários ícones. O ícone **do Visualize** tem um ícone de gráfico de barras, e é uma primeira maneira de ver os resultados.
+
+Para classificação binária, depois de clicar no ícone **Visualize,** pode visualizar a matriz de confusão binária.
+Para multi-classificação, pode encontrar o ficheiro de enredo de matriz de confusão no separador **Saídas + Logs** como seguinte:
+> [!div class="mx-imgBorder"]
+> ![Pré-visualização da imagem carregada](media/module/multi-class-confusion-matrix.png)
 
 Se ligar conjuntos de dados a ambas as entradas do Modelo de **Avaliação,** os resultados conterão métricas para ambos os conjuntos de dados, ou ambos os modelos.
 O modelo ou dados anexados à porta esquerda é apresentado primeiro no relatório, seguido das métricas para o conjunto de dados, ou modelo anexado na porta direita.  
@@ -70,7 +75,8 @@ Esta secção descreve as métricas devolvidas para os tipos específicos de mod
 
 ### <a name="metrics-for-classification-models"></a>Métricas para modelos de classificação
 
-As seguintes métricas são reportadas na avaliação dos modelos de classificação.
+
+As seguintes métricas são reportadas ao avaliar modelos de classificação binária.
   
 -   **A precisão** mede a bondade de um modelo de classificação como a proporção de resultados verdadeiros para os casos totais.  
   
@@ -78,13 +84,10 @@ As seguintes métricas são reportadas na avaliação dos modelos de classifica�
   
 -   **A recuperação** é a fração de todos os resultados corretos devolvidos pelo modelo.  
   
--   **A pontuação F** é calculada como a média ponderada de precisão e recordação entre 0 e 1, onde o valor ideal de pontuação F é 1.  
+-   **A pontuação F1** é calculada como a média ponderada de precisão e recordação entre 0 e 1, onde o valor ideal de pontuação de F1 é 1.  
   
 -   **A AUC** mede a área sob a curva traçada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Esta métrica é útil porque fornece um único número que permite comparar modelos de diferentes tipos.  
-  
-- **A perda média de registo** é uma única pontuação usada para expressar a penalidade pelos resultados errados. É calculada como a diferença entre duas distribuições de probabilidades – a verdadeira, e a do modelo.  
-  
-- **A perda de registo de treino** é uma pontuação única que representa a vantagem do classificador sobre uma previsão aleatória. A perda de registo mede a incerteza do seu modelo comparando as probabilidades que produz com os valores conhecidos (verdade básica) nos rótulos. Pretende minimizar a perda de registos para o modelo como um todo.
+
 
 ### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
  
@@ -129,6 +132,6 @@ As seguintes métricas são reportadas para a avaliação de modelos de agrupame
 -   A **pontuação de Avaliação Combinada** na parte inferior de cada secção de resultados lista as pontuações médias para os clusters criados nesse modelo específico.  
   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

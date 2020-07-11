@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680839"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187137"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Resolver problemas do agente de atualização do Windows
 
@@ -109,7 +110,7 @@ A verificação de acesso à pasta Crypto determina se a conta do sistema local 
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Resolução de problemas offline
 
-Pode utilizar o resolução de problemas num Trabalhador de Runbook Híbrido offline executando o script localmente. Obtenha o seguinte script na PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, você deve ter WMF 4.0 ou mais tarde instalado. Para descarregar a versão mais recente do PowerShell, consulte [instalar várias versões do PowerShell.](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)
+Pode utilizar o resolução de problemas num Trabalhador de Runbook Híbrido offline executando o script localmente. Obtenha o seguinte script na PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Para executar o script, você deve ter WMF 4.0 ou mais tarde instalado. Para descarregar a versão mais recente do PowerShell, consulte [instalar várias versões do PowerShell.](/powershell/scripting/install/installing-powershell)
 
 A saída deste script parece ser o seguinte exemplo:
 
@@ -205,6 +206,6 @@ CheckResultMessageId        : TlsVersionCheck.Passed.EnabledByDefault
 CheckResultMessageArguments : {}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Problemas com o trabalhador do runbook híbrido.](hybrid-runbook-worker.md)

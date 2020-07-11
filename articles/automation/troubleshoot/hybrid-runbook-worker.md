@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28b6b09c679e37ca4ecd901371e65bffb27ecba4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681003"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187205"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Resolver problemas da Função de Trabalho de Runbook Híbrida
 
@@ -57,7 +58,7 @@ Verifique o registo **de eventos microsoft-SMA** para obter um evento correspond
 
 #### <a name="issue"></a>Problema
 
-O Trabalhador De Runbook Híbrido recebe o evento 15011, indicando que um resultado de consulta não é válido. O seguinte erro aparece quando o trabalhador tenta abrir uma ligação com o [servidor SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+O Trabalhador De Runbook Híbrido recebe o evento 15011, indicando que um resultado de consulta não é válido. O seguinte erro aparece quando o trabalhador tenta abrir uma ligação com o [servidor SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -237,7 +238,7 @@ Os trabalhadores híbridos enviam [produção e mensagens runbook](../automation
 
 #### <a name="issue"></a>Problema
 
-Um script que está a decorrer num Windows Hybrid Runbook Worker não pode ligar-se como esperado ao Office 365 numa caixa de areia do Orquestrador. O script está a utilizar [o Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para ligação. 
+Um script que está a decorrer num Windows Hybrid Runbook Worker não pode ligar-se como esperado ao Office 365 numa caixa de areia do Orquestrador. O script está a utilizar [o Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para ligação. 
 
 Se ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a caixa de areia ainda não se conecta corretamente. Um **ficheiroPowershell_ise.exe.config** com as mesmas definições de lista de procuração e bypass parece funcionar como espera. Os registos de Automação de Gestão de Serviços (SMA) e os registos PowerShell não fornecem qualquer informação sobre o proxy.
 
@@ -247,9 +248,9 @@ A ligação aos Serviços da Federação de Diretório Ativo (AD FS) no servidor
 
 #### <a name="resolution"></a>Resolução
 
-Pode resolver o problema para a caixa de areia do Orquestrador migrando o seu script para utilizar os módulos Azure Ative Directory em vez do módulo MSOnline para cmdlets PowerShell. Para mais informações, consulte [Migração de Orquestrador para Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Pode resolver o problema para a caixa de areia do Orquestrador migrando o seu script para utilizar os módulos Azure Ative Directory em vez do módulo MSOnline para cmdlets PowerShell. Para mais informações, consulte [Migração de Orquestrador para Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
-Se pretender continuar a utilizar os cmdlets do módulo MSOnline, altere o seu script para utilizar [o Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique valores para os `ComputerName` parâmetros e `Credential` parâmetros. 
+Se pretender continuar a utilizar os cmdlets do módulo MSOnline, altere o seu script para utilizar [o Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique valores para os `ComputerName` parâmetros e `Credential` parâmetros. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
@@ -312,7 +313,7 @@ Para resolver este problema, retire a seguinte chave de registo, `HealthService`
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

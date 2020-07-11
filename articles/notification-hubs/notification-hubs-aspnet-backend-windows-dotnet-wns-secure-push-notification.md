@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f953b21a221967c2310b2fc70056d48863149821
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75530736"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220053"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>As notificações de aviso de Azure
 
@@ -93,7 +94,7 @@ O próximo passo é criar o componente de fundo de impulso.
 1. No Solution Explorer, clique no nó de nível superior da solução **(Solution SecurePush** neste caso), clique em **Adicionar**e, em seguida, clique em **Novo Projeto**.
 2. Expandir **as aplicações da loja,** em seguida, clicar em **Aplicativos windows phone**e, em seguida, clicar no Componente de tempo de **execução do Windows (Windows Phone)**. Nomeie o projeto **PushBackgroundComponent**e, em seguida, clique **em OK** para criar o projeto.
 
-    ![][12]
+    ![Screenshot do diálogo Add New Project com a opção Visual C# do Windows Runtime Component (Windows Phone).][12]
 3. No Solution Explorer, clique com o botão direito no projeto **PushBackgroundComponent (Windows Phone 8.1)** e, em seguida, clique em **Adicionar**e, em seguida, clique em **Classe**. Diga o nome da nova `PushBackgroundTask.cs` classe. Clique **em Adicionar** para gerar a classe.
 4. Substitua todo o conteúdo da definição de `PushBackgroundComponent` espaço de nome pelo seguinte código, substituindo o espaço reservado pelo ponto final de `{back-end endpoint}` back-end obtido enquanto implementa o seu back-end:
 
@@ -161,12 +162,12 @@ O próximo passo é criar o componente de fundo de impulso.
 11. No Solution Explorer, no projeto **NotifyUserWindowsPhone (Windows Phone 8.1),** clique com o botão direito **Referências,** em seguida, clique em **Adicionar Referência...**. No diálogo do Gestor de Referência, verifique a caixa ao lado do **PushBackgroundComponent**e, em seguida, clique **em OK**.
 12. No Solution Explorer, clique duplo **em Package.appxmanifest** no projeto **NotifyUserWindowsPhone (Windows Phone 8.1).** Em **Notificações**, definir **Torrada capaz** de **sim**.
 
-    ![][3]
+    ![Screenshot da janela Solution Explorer focada no Package.appxmanifest com a opção "Torrada" definida para Sim delineada a vermelho.][3]
 13. Ainda em **Package.appxmanifest,** clique no menu **Declarações** perto do topo. Nas **declarações disponíveis,** clique em **"Background Tasks"** e, em seguida, clique em **Adicionar**.
 14. Em **Package.appxmanifest**, under **Properties**, verifique **a notificação push**.
 15. Em **Package.appxmanifest**, em **Definições de Aplicação**, **escreva PushBackgroundComponent.PushBackgroundTask** no campo **Ponto de Entrada.**
 
-    ![][13]
+    ![Screenshot da janela Solution Explorer focada no Package.appxmanifest com as declarações disponíveis, declarações apoiadas, notificações push e opções de ponto de entrada delineadas a vermelho.][13]
 16. No menu **Ficheiro**, clique em **Guardar Tudo**.
 
 ## <a name="run-the-application"></a>Executar a Aplicação

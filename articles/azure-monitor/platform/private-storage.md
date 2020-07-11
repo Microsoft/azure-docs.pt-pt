@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05eb92e2fb887b5c64e2c73576fe85a4543ac1b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610071"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184502"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Contas de armazenamento de propriedade do cliente para ingestão de registos no Azure Monitor
 
@@ -39,7 +40,7 @@ A conta de armazenamento deve satisfazer os seguintes requisitos:
 
 - Acessível a recursos no seu VNet que escrevem registos para o armazenamento.
 - Deve estar na mesma região que o espaço de trabalho a que está ligado.
-- Explicitamente permitiu que o Log Analytics lesse registos a partir da conta de armazenamento, *selecionando, permitindo que serviços de MS fidedignos acedam a esta conta de armazenamento.*
+- Permitir o acesso do Azure Monitor - Se optar por limitar o acesso da sua conta de armazenamento a redes selecionadas, certifique-se de permitir esta exceção: *permita que serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.*
 
 ## <a name="process-to-configure-customer-owned-storage"></a>Processo de configuração do armazenamento do cliente
 O processo básico de utilização da sua própria conta de armazenamento para ingestão é o seguinte:
@@ -50,7 +51,12 @@ O processo básico de utilização da sua própria conta de armazenamento para i
 
 O único método disponível para criar e remover links é através da API REST. Os detalhes sobre o pedido específico da API necessário para cada processo são fornecidos nas secções abaixo.
 
-## <a name="api-request-values"></a>Valores de pedido da API
+## <a name="command-line-and-rest-api"></a>Linha de comando e REST API
+
+### <a name="command-line"></a>Linha de comandos
+Para criar e gerir contas de armazenamento ligadas, utilize [o espaço de trabalho de monitorização de log-analytics az](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Este comando pode ligar e desvincular as contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento ligadas.
+
+### <a name="request-and-cli-values"></a>Valores de Pedido e CLI
 
 #### <a name="datasourcetype"></a>DataSourceType 
 
@@ -72,37 +78,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
-
-## <a name="get-current-links"></a>Obtenha links atuais
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obtenha contas de armazenamento ligadas para um tipo específico de fonte de dados
-
-#### <a name="api-request"></a>Pedido da API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Resposta 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### <a name="get-all-linked-storage-accounts"></a>Obtenha todas as contas de armazenamento ligadas
+### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Obtenha contas de armazenamento ligadas para todos os tipos de fonte de dados
 
 #### <a name="api-request"></a>Pedido da API
 
@@ -144,6 +120,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
         }
     ]
+}
+```
+
+
+### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Obtenha contas de armazenamento ligadas para um tipo específico de fonte de dados
+
+#### <a name="api-request"></a>Pedido da API
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### <a name="response"></a>Resposta 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
 }
 ```
 
@@ -217,7 +221,7 @@ A configuração do agente será atualizada após alguns minutos, e mudarão par
 
 ## <a name="manage-storage-account"></a>Gerir conta de armazenamento
 
-### <a name="load"></a>Carregar
+### <a name="load"></a>Carregamento
 
 As contas de armazenamento podem lidar com uma certa carga de pedidos de leitura e de escrita antes de começarem a estrangular os pedidos. O estrangulamento afeta o tempo que leva a ingerir registos e pode resultar em dados perdidos. Se o seu armazenamento estiver sobrecarregado, registe contas de armazenamento adicionais e espalhe a carga entre elas. 
 
@@ -229,6 +233,6 @@ Se a conta de armazenamento registada do seu espaço de trabalho estiver noutra 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a criação de um link privado, consulte [Use Azure Private Link para ligar de forma segura as redes ao Azure Monitor](private-link-security.md)

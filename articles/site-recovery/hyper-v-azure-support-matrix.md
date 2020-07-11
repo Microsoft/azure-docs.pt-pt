@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 7/10/2020
 ms.author: raynew
-ms.openlocfilehash: b48dfba6fa5dc270a4d711864d15e9128f4beb98
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132416"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86219883"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -68,11 +68,12 @@ Rede de anfitriões: IPv4 | Sim | Sim
 Rede de anfitriões: IPv6 | Não | Não
 Rede VM convidada: NIC Teaming | Não | Não
 Rede VM convidada: IPv4 | Sim | Sim
-Rede VM convidada: IPv6 | Não | Sim
+Rede VM convidada: IPv6 | Não | Yes
 Rede VM do hóspede: IP estático (Windows) | Sim | Sim
 Rede VM convidada: IP estático (Linux) | Não | Não
 Rede VM convidada: Multi-NIC | Sim | Sim
 Procuração https | Não | Não
+
 
 
 
@@ -83,7 +84,7 @@ Procuração https | Não | Não
 Azure ExpressRoute | Sim | Sim
 ILB | Sim | Sim
 ELB | Sim | Sim
-Traffic Manager do Azure | Sim | Sim
+Gestor de Tráfego do Azure | Sim | Sim
 Multi-NIC | Sim | Sim
 IP reservado | Sim | Sim
 IPv4 | Sim | Sim
@@ -136,11 +137,13 @@ Armazenamento quente| Não | Não
 Blobs de blocos | Não | Não
 Encriptação em repouso (SSE)| Sim | Sim
 Encriptação em repouso (CMK) <br></br> (Apenas para falhas a gerir discos)| Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
+Dupla encriptação em repouso <br></br> (Apenas para falhas a gerir discos) <br></br> Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md) | Sim (via módulo PowerShell Az 3.3.0 em diante) | Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
 Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
+Opção de transferência segura | Yes
 
 
 ## <a name="azure-compute-features"></a>Características do cálculo Azure
@@ -149,7 +152,7 @@ Modificar a conta de armazenamento | Não. A conta de armazenamento Azure alvo n
 --- | --- | ---
 Conjuntos de disponibilidade | Sim | Sim
 HUB | Sim | Sim  
-Managed disks | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado. | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado.
+Discos geridos | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado. | Sim, por falhar.<br/><br/> O fracasso dos discos geridos não é suportado.
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 
@@ -196,5 +199,5 @@ Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicaç�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [preparar o Azure](tutorial-prepare-azure.md) para a recuperação de desastres dos Hiper-V VMs no local.

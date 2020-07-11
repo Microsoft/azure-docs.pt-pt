@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830587"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185658"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Rastreia ficheiros atualizados com uma tarefa de observador
 
@@ -19,7 +20,7 @@ A Azure Automation utiliza uma tarefa de observador para procurar eventos e dese
 > As tarefas de observadores não são suportadas no Azure China Vianet 21.
 
 > [!IMPORTANT]
-> A partir de maio de 2020, a utilização de Azure Logic Apps é a forma suportada de monitorizar eventos, agendar tarefas recorrentes e desencadear ações. Consulte [Agendar e executar tarefas, processos e fluxos de trabalho automáticos recorrentes com apps Azure Logic](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
+> A partir de maio de 2020, a utilização de Azure Logic Apps é a forma suportada de monitorizar eventos, agendar tarefas recorrentes e desencadear ações. Consulte [Agendar e executar tarefas, processos e fluxos de trabalho automáticos recorrentes com apps Azure Logic](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Este tutorial acompanha-o através da criação de uma tarefa de observador para monitorizar quando um novo ficheiro é adicionado a um diretório. Saiba como:
 
@@ -36,7 +37,7 @@ Este tutorial acompanha-o através da criação de uma tarefa de observador para
 Para concluir este tutorial, é necessário o seguinte:
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Conta de automação](automation-offering-get-started.md) para manter os livros de observadores e de ação e a Tarefa do Observador.
+* [Conta de automação](./index.yml) para manter os livros de observadores e de ação e a Tarefa do Observador.
 * Um [trabalhador híbrido de runbook](automation-hybrid-runbook-worker.md) onde a tarefa do observador funciona.
 * Livros powerShell. Os livros de fluxo de trabalho PowerShell não são suportados por tarefas de observadores.
 
@@ -60,7 +61,7 @@ Também pode importar este livro de bordo para a sua conta de automação a part
 
 ## <a name="create-an-automation-variable"></a>Criar uma variável de automação
 
-Uma [variável de automatização](automation-variables.md) é usada para armazenar os sinais temporais que o livro de execução anterior lê e armazena de cada ficheiro.
+Uma [variável de automatização](./shared-resources/variables.md) é usada para armazenar os sinais temporais que o livro de execução anterior lê e armazena de cada ficheiro.
 
 1. Selecione **variáveis** em **Recursos Partilhados** e clique **+ Adicione uma variável.**
 1. Introduza o relógio-NewFileTimestamp para o nome.

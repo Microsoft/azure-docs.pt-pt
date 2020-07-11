@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6db4ceed0121f072104312ac24abb13fb241737b
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361630"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186049"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbooks na Automatização do Azure
 
@@ -56,12 +56,12 @@ A tabela que se segue lista algumas tarefas de execução do livro com o ambient
 |Utilizar módulos com requisitos específicos| Função de Trabalho de Runbook Híbrida|Alguns exemplos incluem:</br> WinSCP - dependência de winscp.exe </br> Administração IIS - dependência de permitir ou gerir o IIS|
 |Instale um módulo com um instalador|Função de Trabalho de Runbook Híbrida|Os módulos para caixa de areia devem suportar a cópia.|
 |Utilize livros ou módulos que exijam a versão .NET Framework diferente de 4.7.2|Função de Trabalho de Runbook Híbrida|O suporte de caixas de areia Azure .NET Framework 4.7.2 e a atualização para uma versão diferente não é suportada.|
-|Executar scripts que requerem elevação|Função de Trabalho de Runbook Híbrida|Caixas de areia não permitem elevação. Com um Trabalhador De Runbook Híbrido, pode desligar o UAC e utilizar [o Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) ao executar o comando que requer elevação.|
+|Executar scripts que requerem elevação|Função de Trabalho de Runbook Híbrida|Caixas de areia não permitem elevação. Com um Trabalhador De Runbook Híbrido, pode desligar o UAC e utilizar [o Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) ao executar o comando que requer elevação.|
 |Executar scripts que requerem acesso à Instrumentação de Gestão do Windows (WMI)|Função de Trabalho de Runbook Híbrida|Os empregos que correm em caixas de areia na nuvem não podem aceder ao fornecedor de WMI. |
 
 ## <a name="resources"></a>Recursos
 
-Os seus runbooks devem incluir lógica para lidar com [recursos](https://docs.microsoft.com/rest/api/resources/resources), por exemplo, VMs, a rede, e recursos na rede. Os recursos estão ligados a uma subscrição do Azure, e os livros requerem credenciais apropriadas para aceder a qualquer recurso. Para um exemplo de manipulação de recursos num livro de bordo, consulte [os recursos do Handle](manage-runbooks.md#handle-resources). 
+Os seus runbooks devem incluir lógica para lidar com [recursos](/rest/api/resources/resources), por exemplo, VMs, a rede, e recursos na rede. Os recursos estão ligados a uma subscrição do Azure, e os livros requerem credenciais apropriadas para aceder a qualquer recurso. Para um exemplo de manipulação de recursos num livro de bordo, consulte [os recursos do Handle](manage-runbooks.md#handle-resources). 
 
 ## <a name="security"></a>Segurança
 
@@ -71,7 +71,7 @@ A ASC coloca restrições aos utilizadores que possam executar quaisquer scripts
 
 ## <a name="subscriptions"></a>Subscrições
 
-Uma [subscrição](https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) do Azure é um acordo com a Microsoft para utilizar um ou mais serviços baseados na nuvem, para os quais é cobrado. Para a Azure Automation, cada subscrição está ligada a uma conta Azure Automation, e pode [criar várias subscrições](manage-runbooks.md#work-with-multiple-subscriptions) na conta.
+Uma [subscrição](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) do Azure é um acordo com a Microsoft para utilizar um ou mais serviços baseados na nuvem, para os quais é cobrado. Para a Azure Automation, cada subscrição está ligada a uma conta Azure Automation, e pode [criar várias subscrições](manage-runbooks.md#work-with-multiple-subscriptions) na conta.
 
 ## <a name="credentials"></a>Credenciais
 
@@ -79,18 +79,18 @@ Um livro de aplicação requer [credenciais](shared-resources/credentials.md) ad
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-A Azure Automation utiliza o [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para monitorizar as suas operações de máquinas. As operações requerem um espaço de trabalho log analytics e [agentes de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+A Azure Automation utiliza o [Azure Monitor](../azure-monitor/overview.md) para monitorizar as suas operações de máquinas. As operações requerem um espaço de trabalho log analytics e [agentes de Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 ### <a name="log-analytics-agent-for-windows"></a>Log Analytics agente para Windows
 
-O [agente Log Analytics para o Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) trabalha com o Azure Monitor para gerir VMs do Windows e computadores físicos. As máquinas podem estar a funcionar em Azure ou num ambiente não-Azure, como um datacenter local. Tem de configurar o agente para se apresentar a um ou mais espaços de trabalho do Log Analytics. 
+O [agente Log Analytics para o Windows](../azure-monitor/platform/agent-windows.md) trabalha com o Azure Monitor para gerir VMs do Windows e computadores físicos. As máquinas podem estar a funcionar em Azure ou num ambiente não-Azure, como um datacenter local. Tem de configurar o agente para se apresentar a um ou mais espaços de trabalho do Log Analytics. 
 
 >[!NOTE]
 >O agente Log Analytics para windows era anteriormente conhecido como o Agente de Monitorização da Microsoft (MMA).
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente de Log Analytics para Linux
 
-O [agente Log Analytics do Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux) funciona da mesma forma que o agente para o Windows, mas liga os computadores Linux ao Azure Monitor. O agente é instalado com uma conta de utilizador **de nxautomation** que permite a execução de comandos que requerem permissões de raiz, por exemplo, num Trabalhador de Runbook Híbrido. A **conta de nxautomation** é uma conta do sistema que não requer uma senha. 
+O [agente Log Analytics do Linux](../azure-monitor/platform/agent-linux.md) funciona da mesma forma que o agente para o Windows, mas liga os computadores Linux ao Azure Monitor. O agente é instalado com uma conta de utilizador **de nxautomation** que permite a execução de comandos que requerem permissões de raiz, por exemplo, num Trabalhador de Runbook Híbrido. A **conta de nxautomation** é uma conta do sistema que não requer uma senha. 
 
 A conta **de nxautomação** com as permissões de sudo correspondentes deve estar presente durante [a instalação de um trabalhador do Linux Hybrid Runbook](automation-linux-hrw-install.md). Se tentar instalar o trabalhador e a conta não estiver presente ou não tiver as permissões adequadas, a instalação falha.
 
@@ -120,7 +120,7 @@ Os seus livros podem utilizar certificados auto-assinados, que não são assinad
 
 A Azure Automation suporta um ambiente para gerir postos de trabalho a partir da mesma conta Demômes. Um único livro pode ter muitos empregos a funcionar ao mesmo tempo. Quanto mais trabalhos se gere ao mesmo tempo, mais frequentemente podem ser enviados para a mesma caixa de areia. 
 
-Os empregos que correm no mesmo processo de caixa de areia podem afetar-se mutuamente. Um exemplo é executar o [cmdlet Disconnect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) A execução deste cmdlet desliga cada trabalho de runbook no processo de caixa de areia partilhada. Para um exemplo de trabalhar com este cenário, consulte [Prevenir empregos simultâneos.](manage-runbooks.md#prevent-concurrent-jobs)
+Os empregos que correm no mesmo processo de caixa de areia podem afetar-se mutuamente. Um exemplo é executar o [cmdlet Disconnect-AzAccount.](/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) A execução deste cmdlet desliga cada trabalho de runbook no processo de caixa de areia partilhada. Para um exemplo de trabalhar com este cenário, consulte [Prevenir empregos simultâneos.](manage-runbooks.md#prevent-concurrent-jobs)
 
 >[!NOTE]
 >Os trabalhos powerShell começaram a partir de um livro de bordo que funciona numa caixa de areia Azure pode não funcionar em todo o [modo de linguagem PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). 
@@ -132,11 +132,11 @@ A tabela seguinte descreve os estatutos que são possíveis para um trabalho. Po
 | Estado | Descrição |
 |:--- |:--- |
 | Concluído |A tarefa foi concluída com êxito. |
-| Falhou |Um livro gráfico ou powerShell Workflow não conseguiu compilar. Um livro de corridas da PowerShell não começou ou o trabalho teve uma exceção. Consulte os [tipos de runbook da Azure Automation](automation-runbook-types.md).|
+| Com falhas |Um livro gráfico ou powerShell Workflow não conseguiu compilar. Um livro de corridas da PowerShell não começou ou o trabalho teve uma exceção. Consulte os [tipos de runbook da Azure Automation](automation-runbook-types.md).|
 | Falhado, à espera de recursos |O trabalho falhou porque atingiu o limite [de quota justa](#fair-share) três vezes e começou a partir do mesmo ponto de verificação ou desde o início do livro de cada vez. |
 | Em fila |O trabalho está à espera que os recursos de um trabalhador da Automação estejam disponíveis para que possa ser iniciado. |
 | A retomar |O sistema está a retomar o trabalho depois de ter sido suspenso. |
-| A executar |A tarefa está a ser executada. |
+| Em Execução |A tarefa está a ser executada. |
 | Correr, esperar por recursos |O trabalho foi descarregado porque atingiu o limite de quota-parte justa. Será retomado em breve do seu último posto de controlo. |
 | A iniciar |O trabalho foi atribuído a um trabalhador, e o sistema está a iniciá-lo. |
 | Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
@@ -156,7 +156,7 @@ Esta secção descreve algumas formas de lidar com exceções ou problemas inter
 
 A variável [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) determina como o PowerShell responde a um erro não-terminal. Os erros de terminação terminam sempre e não são afetados por `ErrorActionPreference` .
 
-Quando o livro de recortes utiliza `ErrorActionPreference` , um erro normalmente não terminante, como `PathNotFound` o cmdlet [Get-ChildItem,](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) impede que o livro de recortes se complete. O exemplo que se segue mostra a utilização de `ErrorActionPreference` . O comando final [de Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nunca executa, pois o script para.
+Quando o livro de recortes utiliza `ErrorActionPreference` , um erro normalmente não terminante, como `PathNotFound` o cmdlet [Get-ChildItem,](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) impede que o livro de recortes se complete. O exemplo que se segue mostra a utilização de `ErrorActionPreference` . O comando final [de Write-Output](/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nunca executa, pois o script para.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -222,14 +222,13 @@ Para partilhar recursos entre todos os runbooks na nuvem, a Azure usa um conceit
 
 Para tarefas de automação Azure de longa duração, recomenda-se a utilização de um Trabalhador De Runbook Híbrido. Os Trabalhadores de Runbook Híbridos não são limitados por uma parte justa, e não têm uma limitação de quanto tempo um runbook pode executar. Os [outros limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de emprego aplicam-se tanto às caixas de areia Azure como aos Trabalhadores De Runbook Híbridos. Embora os Trabalhadores de Runbook Híbridos não estejam limitados pelo limite de 3 horas de quota justa, você deve desenvolver runbooks para executar os trabalhadores que suportam o recomeço de problemas inesperados de infraestruturas locais.
 
-Outra opção é otimizar um runbook utilizando livros infantis. Por exemplo, o seu runbook pode circular pela mesma função em vários recursos, por exemplo, com uma operação de base de dados em várias bases de dados. Pode mover esta função para um livro de [crianças](automation-child-runbooks.md) e pedir ao seu livro de execução que o chame de [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Os livros infantis executam em paralelo em processos separados.
+Outra opção é otimizar um runbook utilizando livros infantis. Por exemplo, o seu runbook pode circular pela mesma função em vários recursos, por exemplo, com uma operação de base de dados em várias bases de dados. Pode mover esta função para um livro de [crianças](automation-child-runbooks.md) e pedir ao seu livro de execução que o chame de [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Os livros infantis executam em paralelo em processos separados.
 
-A utilização de livros infantis diminui o tempo total para o livro de bordo dos pais completar. O seu runbook pode utilizar o [cmdlet Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) para verificar o estado do trabalho de um livro de aplicação de crianças se ainda tiver mais operações após a conclusão da criança.
+A utilização de livros infantis diminui o tempo total para o livro de bordo dos pais completar. O seu runbook pode utilizar o [cmdlet Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) para verificar o estado do trabalho de um livro de aplicação de crianças se ainda tiver mais operações após a conclusão da criança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar com um livro de execução PowerShell, consulte [Tutorial: Crie um livro de execução PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para trabalhar com runbooks, consulte [Gerir os runbooks na Azure Automation.](manage-runbooks.md)
-* Para mais detalhes sobre o PowerShell, consulte [o PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-* * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para mais detalhes sobre o PowerShell, consulte [o PowerShell Docs](/powershell/scripting/overview).
+* * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

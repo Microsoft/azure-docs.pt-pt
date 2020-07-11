@@ -2,12 +2,13 @@
 title: Monte o volume secreto para o grupo de contentores
 description: Saiba como montar um volume secreto para armazenar informações sensíveis para acesso através de instâncias de contentores
 ms.topic: article
-ms.date: 04/03/2020
-ms.openlocfilehash: 756828e71174246450245938595c8872afc62961
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/02/2020
+ms.openlocfilehash: ea82ba5994feaf102d4622eada284df431e004d0
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657156"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169566"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monte um volume secreto em Instâncias de Contentores Azure
 
@@ -61,7 +62,7 @@ Quando implementar com um modelo YAML, os valores secretos devem estar codificad
 O modelo YAML que se segue define um grupo de contentores com um recipiente que monta um volume *secreto* em `/mnt/secrets` . O volume secreto tem dois ficheiros que contêm segredos, "mysecret1" e "mysecret2".
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -120,7 +121,7 @@ az deployment group create \
   --template-file deploy-aci.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="volumes"></a>Volumes
 

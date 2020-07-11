@@ -5,15 +5,14 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
-ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77086602"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171436"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reagir aos eventos de armazenamento blob em IoT Edge (Preview)
 Este artigo mostra-lhe como implementar o Azure Blob Storage no módulo IoT, que funcionaria como um editor de Grade de Eventos para enviar eventos sobre a criação blob e a eliminação de Blob para a Grade de Eventos.  
@@ -38,7 +37,7 @@ Existem várias formas de implantar módulos para um dispositivo IoT Edge e todo
 
 ### <a name="select-your-iot-edge-device"></a>Selecione o seu dispositivo IoT Edge
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Navegue até ao seu Hub IoT.
 1. Selecione **IoT Edge** do menu na secção De Gestão automática de **Dispositivos.** 
 1. Clique no ID do dispositivo alvo a partir da lista de dispositivos
@@ -76,7 +75,7 @@ Um manifesto de implantação é um documento JSON que descreve quais os módulo
         }
     ```    
 
- 1. Clique **em Guardar**
+ 1. Clique em **Guardar**
  1. Continue na secção seguinte para adicionar o módulo Azure Event Grid Subscriber antes de os colocar em conjunto.
 
     >[!IMPORTANT]
@@ -96,7 +95,7 @@ Esta secção mostra-lhe como implantar outro módulo IoT que funcionaria como u
    * **Nome**: assinante
    * **Imagem URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opções de criação de contentores:** Nenhuma
-1. Clique **em Guardar**
+1. Clique em **Guardar**
 1. Continue até a secção seguinte para adicionar o módulo de armazenamento Azure Blob
 
 ## <a name="deploy-azure-blob-storage-module"></a>Implementar módulo de armazenamento Azure Blob
@@ -147,7 +146,7 @@ Esta secção mostra-lhe como implantar o módulo de armazenamento Azure Blob, q
      - Para recipientes Linux, **o meu volume:/blobroot**
      - Para recipientes Windows,**o meu volume:C:/BlobRoot**
 
-5. Clique **em Guardar**
+5. Clique em **Guardar**
 6. Clique **ao lado** para continuar na secção de rotas
 
     > [!NOTE]
@@ -328,7 +327,7 @@ Aqui está a lista de propriedades de eventos suportados e seus tipos e descriç
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| Assunto | string | Caminho definido pelo publicador para o assunto do evento. |
+| subject | string | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | string | Identificador único para o evento. |
@@ -350,7 +349,7 @@ O objeto de dados tem as seguintes propriedades:
 | url | string | O caminho para a bolha. <br>Se o cliente utilizar uma API Blob REST, então o url tem esta estrutura: * \<storage-account-name\> .blob.core.windows.net/ \<container-name\> / \<file-name\> *. <br>Se o cliente utilizar uma API de Armazenamento de Data Lake, então o url tem esta estrutura: * \<storage-account-name\> .dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos da documentação blob Storage:
 

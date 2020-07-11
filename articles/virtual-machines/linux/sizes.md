@@ -9,11 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2620795d8c4fc8adf11fc0795048ff9999d6ef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 568f4189c55b49aa6f3e2d4e86582165a4a89cdd
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783360"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201104"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Windows no Azure
 
@@ -21,7 +22,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 
 | Tipo | Tamanhos | Descrição |
 |------|-------|-------------|
-| [Fins gerais](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | Relação CPU-memória equilibrada. Ideais para testes e programação, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
+| [Fins gerais](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | Relação CPU-memória equilibrada. Ideais para testes e desenvolvimento, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
 | [Com otimização de computação](../sizes-compute.md) | Fsv2 | Elevado rácio CPU-memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações. |
 | [Com otimização de memória](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Relação memória alta-CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](../sizes-storage.md) | Lsv2 | Alta produção de disco e IO ideal para Big Data, SQL, bases de dados NoSQL, armazenamento de dados e grandes bases de dados transacionais.  |
@@ -49,7 +50,11 @@ Saiba mais sobre como [as unidades de computação Azure (ACU)](../acu.md) podem
 
 Saiba mais sobre o desempenho do cálculo para Os VMs do Linux utilizando as [pontuações de referência](compute-benchmark-scores.md)do CoreMark .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="manage-costs"></a>Gerir os custos
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 2/10/2020
-ms.openlocfilehash: 39329eb9ea2c396f8b5f04287f3e933bb6242f85
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/09/2020
+ms.openlocfilehash: a4624d16f29834e8948a7bbc7ef882041727a823
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983011"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171878"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -239,7 +239,7 @@ Como cada instância está isolada no seu próprio VNet, deve ser permitido trá
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Criar um grupo de failover entre instâncias geridas em diferentes subscrições
 
-Pode criar um grupo de failover entre as Instâncias Geridas SQL em duas subscrições diferentes. Ao utilizar a PowerShell API, pode fazê-lo especificando o `PartnerSubscriptionId` parâmetro para a instância gerida do SQL secundário. Ao utilizar a API REST, cada ID de instância incluído no parâmetro pode ter a `properties.managedInstancePairs` sua própria subscriçãoID.
+Pode criar um grupo de failover entre as Instâncias Geridas SQL em duas subscrições diferentes, desde que as subscrições estejam associadas ao mesmo [Azure Ative Directory Tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Ao utilizar a PowerShell API, pode fazê-lo especificando o `PartnerSubscriptionId` parâmetro para a instância gerida do SQL secundário. Ao utilizar a API REST, cada ID de instância incluído no parâmetro pode ter a `properties.managedInstancePairs` sua própria subscriçãoID.
   
 > [!IMPORTANT]
 > O portal Azure não suporta a criação de grupos de failover em diferentes subscrições. Além disso, para os grupos de failover existentes em diferentes subscrições e/ou grupos de recursos, a falha não pode ser iniciada manualmente através do portal a partir da primeira sql Managed Instance. Inicie-o a partir da instância geo-secundária.
@@ -474,7 +474,7 @@ Tal como discutido anteriormente, os grupos de auto-failover e a geo-replicaçã
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para tutoriais detalhados, consulte
   - [Adicione a Base de Dados SQL a um grupo de failover](failover-group-add-single-database-tutorial.md)

@@ -4,11 +4,12 @@ description: Saiba como lidar com eventos externos na extensão de Funções Dur
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262967"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165554"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidar com eventos externos em Funções Duradouras (Funções Azure)
 
@@ -19,7 +20,7 @@ As funções orquestradoras têm a capacidade de esperar e ouvir eventos externo
 
 ## <a name="wait-for-events"></a>Aguarde os eventos
 
-Os `WaitForExternalEvent` métodos (.NET) e `waitForExternalEvent` (JavaScript) da ligação do gatilho de [orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função orquestradora aguarde assíncronamente e ouça um evento externo. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
+Os métodos [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) e `waitForExternalEvent` (JavaScript) da ligação do gatilho da [orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função orquestradora aguarde assíncronamente e ouça um evento externo. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -172,7 +173,14 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="send-events"></a>Enviar eventos
 
-O `RaiseEventAsync` método (.NET) ou `raiseEvent` (JavaScript) da ligação do cliente de [orquestração](durable-functions-bindings.md#orchestration-client) envia os eventos que `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript) esperam.  O `RaiseEventAsync` método toma o *eventName* e *eventData* como parâmetros. Os dados do evento devem ser json-serializáveis.
+Pode utilizar os métodos [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) ou `raiseEventAsync` (JavaScript) para enviar um evento externo para uma orquestração. Estes métodos são expostos pela ligação do cliente da [orquestração.](durable-functions-bindings.md#orchestration-client) Também pode utilizar o evento de elevação incorporado [HTTP API](durable-functions-http-api.md#raise-event) para enviar um evento externo para uma orquestração.
+
+Um evento elevado inclui um *ID de exemplo,* um *nome de eventos,* e *o EventData* como parâmetros. As funções de orquestrador lidam com estes eventos usando as `WaitForExternalEvent` APIs (.NET) ou `waitForExternalEvent` (JavaScript). O *nome do evento* deve coincidir tanto com as extremidades de envio como de receção para que o evento seja processado. Os dados do evento também devem ser serializáveis por JSON.
+
+Internamente, os mecanismos de "raise event" encostam uma mensagem que é captada pela função de orquestrador de espera. Se a instância não estiver à espera do nome especificado do *evento,* a mensagem do evento é adicionada a uma fila de memória. Se a instância de orquestração começar mais tarde a ouvir o nome do *evento,* verificará a fila para obter mensagens de evento.
+
+> [!NOTE]
+> Se não houver qualquer instância de orquestração com o *ID de instância*especificado, a mensagem do evento é descartada.
 
 Abaixo está uma função de exemplo desencadeada por filas que envia um evento de "Aprovação" para uma instância de função orquestradora. A identificação do caso de orquestração vem do corpo da mensagem da fila.
 
@@ -209,7 +217,20 @@ Internamente, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) encoste uma 
 > [!NOTE]
 > Se não houver qualquer instância de orquestração com o *ID de instância*especificado, a mensagem do evento é descartada.
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="http"></a>HTTP
+
+Segue-se um exemplo de um pedido HTTP que eleva um evento de "Aprovação" a uma instância de orquestração. 
+
+```http
+POST /runtime/webhooks/durabletask/instances/MyInstanceId/raiseEvent/Approval&code=XXX
+Content-Type: application/json
+
+"true"
+```
+
+Neste caso, o ID de exemplo é codificado como *MyInstanceId*.
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar o tratamento de erros](durable-functions-error-handling.md)

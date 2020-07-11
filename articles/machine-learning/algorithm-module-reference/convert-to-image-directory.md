@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904597"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171147"
 ---
 # <a name="convert-to-image-directory"></a>Converter para o Diretório da Imagem
 
@@ -24,11 +24,15 @@ Este artigo descreve como utilizar o módulo Converte para Diretório de Imagem 
 
 1.  Adicione o módulo **Converte-imagem ao Diretório de Imagens** à sua experiência. Pode encontrar este módulo na categoria 'Visão de Computador/Transformação de Dados de Imagem' na lista de módulos. 
 
-2.  Conecte um conjunto de dados de imagem como entrada. Certifique-se de que há imagem no conjunto de dados de entrada.
+2.  [Registe um conjunto de dados de imagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) e conecte-o à porta de entrada do módulo. Certifique-se de que há imagem no conjunto de dados de entrada. 
     Os seguintes formatos de conjunto de dados são suportados:
 
     - Ficheiro comprimido nestas extensões: ".zip", ".tar", ".gz", ".bz2".
     - Pasta contendo imagens. **Recomendo vivamente a compressão desta pasta primeiro e depois utilize o ficheiro comprimido como conjunto de dados**.
+
+    > [!WARNING]
+    > Não **é possível** utilizar o módulo **de Dados de Importação** para importar conjunto de dados de imagem, porque o tipo de saída do módulo de **dados de importação** é o DataFrame Directory, que contém apenas a cadeia de trajetória de ficheiro.
+    
 
     > [!NOTE]
     > Se utilizar o conjunto de dados de imagem na aprendizagem supervisionada, é necessário o rótulo.
@@ -54,16 +58,16 @@ A saída do módulo **Converte para Diretório de Imagem** está no formato de D
 
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Name          | Tipo                  | Descrição   |
+| Nome          | Tipo                  | Descrição   |
 | ------------- | --------------------- | ------------- |
 | Conjunto de dados de entrada | AnyDirectory, ZipFile | Conjunto de dados de entrada |
 
 ###  <a name="output"></a>Saída  
 
-| Name                   | Tipo           | Descrição            |
+| Nome                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

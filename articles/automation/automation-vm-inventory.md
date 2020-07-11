@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: inventário, automatização,alteração, controlo
 ms.date: 06/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73f5105240b8b6475bb9ebed48baadd501aec87d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32d3c17a5f3d152f32b19ffbfd5c9793a7a34b80
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603116"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185726"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Gerir a recolha de inventário a partir de VMs
 
@@ -43,7 +43,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
    ![Ver opções de inclusão](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Uma barra de estado notifica-o de que a funcionalidade de Rastreio e Inventário de Alterações está a ser ativada. Este processo pode demorar até 15 minutos a concluir. Durante este tempo, pode fechar a janela, ou pode mantê-la aberta e notifica-o quando a funcionalidade está ativada. Pode monitorizar o estado da implementação a partir do painel de notificações.
+    Uma barra de estado notifica-o de que a funcionalidade de Rastreio e Inventário de Alterações está a ser ativada. Este processo pode demorar cerca de 15 minutos. Durante este tempo, pode fechar a janela, ou pode mantê-la aberta e notifica-o quando a funcionalidade está ativada. Pode monitorizar o estado da implementação a partir do painel de notificações.
 
    ![Ver inventário](./media/automation-vm-inventory/inventory-onboarded.png)
 
@@ -128,8 +128,8 @@ Para remover o seu VM da gestão de Change Tracking e Inventário:
 >[!NOTE]
 >As máquinas ainda são mostradas depois de as ter desenrolado porque reportamos todas as máquinas inventariadas nas últimas 24 horas. Depois de desligar a máquina, é necessário esperar 24 horas antes de deixarem de estar listadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre o trabalho com a funcionalidade, consulte [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* Para saber mais sobre as alterações de software de rastreio, consulte [as alterações de software track no seu ambiente com Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* Para saber mais sobre as alterações de software de rastreio, consulte [as alterações de software track no seu ambiente com Change Tracking](./change-tracking.md).
 * Para resolver problemas gerais com a funcionalidade, consulte [problemas de rastreio e inventário de alterações de resolução de problemas](troubleshoot/change-tracking.md).

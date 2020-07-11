@@ -7,11 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76c8d09ef2ef0130ddac856a1f37f8b68d977494
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836622"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186236"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>AZure Automation frequentemente fez perguntas
 
@@ -37,7 +38,7 @@ Implementar atualizações por classificação de atualização não funciona na
 
 ### <a name="can-i-deploy-updates-across-azure-tenants"></a>Posso implementar atualizações em inquilinos do Azure?
 
-Se você tem máquinas que precisam de remendar em outro inquilino Azure reportando à Update Management, você deve usar uma solução seguinte para o agendar. Pode utilizar o cmdlet [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) com o `ForUpdateConfiguration` parâmetro especificado para criar um horário. Você pode usar o [Cmdlet New-AzAutomationSoftwareConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passar as máquinas do outro inquilino para o `NonAzureComputer` parâmetro. O exemplo que se segue mostra como fazê-lo.
+Se você tem máquinas que precisam de remendar em outro inquilino Azure reportando à Update Management, você deve usar uma solução seguinte para o agendar. Pode utilizar o cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) com o `ForUpdateConfiguration` parâmetro especificado para criar um horário. Você pode usar o [Cmdlet New-AzAutomationSoftwareConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passar as máquinas do outro inquilino para o `NonAzureComputer` parâmetro. O exemplo que se segue mostra como fazê-lo.
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -49,9 +50,9 @@ $sched = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountN
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se a sua pergunta não for respondida aqui, pode consultar as seguintes fontes para perguntas e respostas adicionais.
 
-- [Automatização do Azure](https://docs.microsoft.com/answers/topics/azure-automation.html)
+- [Automatização do Azure](/answers/topics/azure-automation.html)
 - [Fórum de comentários](https://feedback.azure.com/forums/905242-update-management)

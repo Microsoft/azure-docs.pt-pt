@@ -2,8 +2,8 @@
 title: Conecte a Azure ExpressRoute com a Oracle Cloud Infrastructure Microsoft Docs
 description: Conecte o Azure ExpressRoute com a Oracle Cloud Infrastructure (OCI) FastConnect para permitir soluções de aplicação oracle em nuvem cruzada
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -12,12 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
-ms.author: borisb
-ms.openlocfilehash: 70556cbbfefd6ad22ef96ee16065209031ea456c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: 95f1f7b42b88baaab6d89192f226ca67962544fb
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683759"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220478"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Criar uma interligação direta entre a Infraestrutura Azure e a Oracle Cloud  
 
@@ -101,7 +102,7 @@ Para eliminar a interligação, devem ser seguidos os seguintes passos, na ordem
 
 Neste momento, o processo de eliminação e desprovisionamento está concluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a ligação entre o OCI e o Azure, consulte a documentação do [Oráculo.](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm)
 * Utilize [scripts Terraform](https://aka.ms/azureociinterconnecttf) para implantar infraestruturas para aplicações Oráculos direcionadas sobre a Azure e configurar a interligação da rede. 

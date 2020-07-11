@@ -5,16 +5,20 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 2421f8a9396b47d04db35a7cad843f6baa6f6177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 0956a38349ef7bc7571dfac2f3722dd9fea425a3
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416108"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201656"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Conectividade SSL/TLS na Base de Dados Azure para o MySQL
 
 A Azure Database for MySQL suporta ligar o seu servidor de base de dados a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
+
+> [!NOTE]
+> A atualização do valor do parâmetro do `require_secure_transport` servidor não afeta o comportamento do serviço MySQL. Utilize as funcionalidades de execução SSL e TLS descritas neste artigo para garantir ligações ao seu .
 
 ## <a name="ssl-default-settings"></a>Definições padrão SSL
 
@@ -23,6 +27,10 @@ Por predefinição, o serviço de base de dados deve ser configurado para exigir
 Ao providenciar uma nova Base de Dados Azure para o servidor MySQL através do portal Azure e CLI, a aplicação das ligações SSL é ativada por padrão. 
 
 As cadeias de ligação para várias linguagens de programação são mostradas no portal Azure. Essas cadeias de ligação incluem os parâmetros SSL necessários para ligar à sua base de dados. No portal Azure, selecione o seu servidor. No título **Definições,** selecione as **cordas de ligação**. O parâmetro SSL varia em base no conector, por exemplo "ssl=true" ou "sslmode=requir" ou "sslmode=required" e outras variações.
+
+Em alguns casos, os pedidos requerem um ficheiro de certificado local gerado a partir de um ficheiro de certificado fidedigno da Autoridade de Certificados (CA) para se conectarem de forma segura. O certificado para ligar a uma base de dados Azure para o servidor MySQL está localizado em https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem . 
+
+Consulte os seguintes links para certificados para servidores em nuvens soberanas: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 Para saber como ativar ou desativar a ligação SSL ao desenvolver uma aplicação, consulte como [configurar o SSL](howto-configure-ssl.md).
 
@@ -45,13 +53,13 @@ A Azure Database for MySQL fornece a capacidade de impor a versão TLS para as l
 Por exemplo, definir o valor da versão mínima de definição de TLS para TLS 1.0 significa que o seu servidor permitirá ligações de clientes que utilizem TLS 1.0, 1.1 e 1.2+. Em alternativa, defini-lo para 1.2 significa que só permite ligações de clientes que utilizem TLS 1.2+ e todas as ligações com TLS 1.0 e TLS 1.1 serão rejeitadas.
 
 > [!Note] 
-> Azure Database for MySQL predefinições para TLS ser desativado para todos os novos servidores.
+> Por predefinição, a Base de Dados Azure para o MySQL não impõe uma versão TLS mínima (a definição `TLSEnforcementDisabled` ).
 >
-> Atualmente, as versões TLS suportadas pela Azure Database para o MySQL são TLS 1.0, 1.1 e 1.2. Uma vez aplicada a uma versão TLS mínima específica, não pode alterá-la para desativada.
+> Uma vez executada uma versão TLS mínima, não pode desativar a aplicação mínima da versão.
 
 Para saber como definir a definição de TLS para a sua Base de Dados Azure para o MySQL, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Bibliotecas de conexão para Azure Database para MySQL](concepts-connection-libraries.md)
 - Saiba como configurar o [SSL](howto-configure-ssl.md)

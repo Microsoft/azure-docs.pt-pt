@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701835"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220699"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar uma aplicação web num App Service Environment v1
 
@@ -33,7 +34,7 @@ Este tutorial pressupõe que criou um Ambiente de Serviço de Aplicações. Se a
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
 1. No [Portal Azure,](https://portal.azure.com/)clique em **Criar um recurso > Web + Mobile > Web App.** 
    
-    ![][1]
+    ![Screenshot que mostra onde criar uma aplicação web no portal Azure.][1]
 2. Selecione a sua subscrição.  
    
     Se tiver várias subscrições, saiba que para criar uma aplicação no seu Ambiente de Serviço de Aplicações, precisa de utilizar a mesma subscrição que utilizou ao criar o ambiente. 
@@ -46,7 +47,7 @@ Este tutorial pressupõe que criou um Ambiente de Serviço de Aplicações. Se a
    
     Pode identificar os planos do Serviço de Aplicações no seu ASE, olhando para o local que é anotado no nome do plano.  
    
-    ![][5]
+    ![Screenshot que mostra era para ver os planos do Serviço de Aplicações no seu ASE.][5]
    
     Se pretender utilizar um plano de Serviço de Aplicações que já exista no seu Ambiente de Serviço de Aplicações, selecione esse plano. Se pretender criar um novo plano de Serviço de Aplicações, consulte a seguinte secção deste tutorial, Crie um plano de Serviço de [Aplicações num Ambiente de Serviço de Aplicações.](#createplan)
 5. Introduza o nome para a sua aplicação web e, em seguida, clique em **Criar**. 
@@ -68,18 +69,18 @@ As seguintes instruções mostram como criar um plano de Serviço de Aplicaçõe
    
     Como um Ambiente de Serviço de Aplicações é essencialmente um local de implantação privado, mostra em localização. 
    
-    ![][2]
+    ![Screenshot que mostra o selecionador de localização para selecionar o ASE que deseja.][2]
    
     Após a seleção de um ASE no selecionador de localização, o plano de aplicação do serviço de aplicação atualiza as atualizações do UI.  A localização mostra agora o nome do sistema ASE e da região em que se encontra, e o selecionador de planos de preços é substituído por um apanhador de piscina de trabalhadores.  
    
-    ![][3]
+    ![Screenshot que mostra os detalhes do sistema ASE depois de selecionar o ASE no seletor de localização.][3]
 
 ### <a name="selecting-a-worker-pool"></a>Selecionando uma piscina de trabalhadores
 Normalmente no Azure App Service e fora de um App Service Environment, existem 3 tamanhos de cálculo que estão disponíveis com a seleção de um plano de preço dedicado.  De forma semelhante, para um ASE pode definir até 3 piscinas de trabalhadores e especificar o tamanho do cálculo que é usado para essa piscina de trabalhadores.  O que isso significa para os inquilinos da ASE é que, em vez de selecionar um plano de preços com tamanho de cálculo para o seu plano de Serviço de Aplicações, selecione o que é chamado de *piscina de trabalhadores.*  
 
 A UI de seleção de piscinas de trabalhadores mostra o tamanho do cálculo usado para a piscina de trabalhadores abaixo do nome.  A quantidade disponível refere-se ao número de casos de computação disponíveis para utilização nessa piscina.  O pool total pode realmente ter mais casos do que este número, mas este valor refere-se simplesmente a quantos não estão em uso.  Se precisar de ajustar o seu Ambiente de Serviço de Aplicações para adicionar mais recursos computacional, consulte [configurar o seu Ambiente de Serviço de Aplicações.](app-service-web-configure-an-app-service-environment.md)
 
-![][4]
+![Screenshot que mostra o painel da Piscina dos Trabalhadores onde você pode selecionar piscinas de trabalhadores para o ASE.][4]
 
 Neste exemplo, vê-se apenas duas piscinas de trabalhadores disponíveis. Isto porque o administrador da ASE apenas atribuiu anfitriões a esses dois grupos de trabalhadores.  O terceiro apareceria quando houvesse VMs nele atribuídos.  
 

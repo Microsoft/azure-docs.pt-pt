@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 49655d11858086b16099a1864fd4d2dc5988f02a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117432"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185913"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limite de rastreio de alteração e implementação de inventário
 
-Este artigo descreve como trabalhar com configurações de âmbito quando se utiliza a função [de Rastreio e Inventário de Alterações](change-tracking.md) para implementar alterações nos seus VMs. Para obter mais informações, consulte [soluções de monitorização de direcionamento no Azure Monitor (Preview)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+Este artigo descreve como trabalhar com configurações de âmbito quando se utiliza a função [de Rastreio e Inventário de Alterações](change-tracking.md) para implementar alterações nos seus VMs. Para obter mais informações, consulte [soluções de monitorização de direcionamento no Azure Monitor (Preview)](../azure-monitor/insights/solution-targeting.md). 
 
 ## <a name="about-scope-configurations"></a>Sobre configurações de âmbito
 
@@ -33,7 +34,7 @@ Para limitar o âmbito de aplicação da sua implementação de 'Change Tracking
 
 5. No painel de edição, **selecione Select Computer Groups**. O painel de grupos de computador mostra as pesquisas guardadas que são usadas para criar a configuração do âmbito. A pesquisa guardada utilizada por Change Tracking and Inventory é:
 
-    |Name     |Categoria  |Alias  |
+    |Nome     |Categoria  |Alias  |
     |---------|---------|---------|
     |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 
@@ -41,7 +42,7 @@ Para limitar o âmbito de aplicação da sua implementação de 'Change Tracking
 
     ![Pesquisas guardadas](media/automation-scope-configurations-change-tracking/logsearch.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para trabalhar com o Change Tracking and Inventory, consulte [Gerir o Tracking e o Inventário de Mudanças.](change-tracking-file-contents.md)
 * Para resolver problemas gerais de recursos, consulte [problemas de rastreio e inventário de alterações de resolução de problemas](troubleshoot/change-tracking.md).

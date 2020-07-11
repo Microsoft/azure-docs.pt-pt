@@ -5,11 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343059"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186168"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestão dos dados da Automatização do Azure
 
@@ -36,9 +37,9 @@ Para obter informações sobre o suporte TLS 1.2 com o agente Log Analytics para
 |Plataforma/Idioma | Suporte | Mais Informações |
 | --- | --- | --- |
 |Linux | As distribuições linux tendem a contar com [o suporte OpenSSL](https://www.openssl.org) para suporte TLS 1.2.  | Verifique o [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar que a sua versão do OpenSSL está suportada.|
-| Windows 8.0 - 10 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidos](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por defeito. | Consulte a página [de definições de registo de segurança da camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
+| Windows 8.0 - 10 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidos](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por defeito. | Consulte a página [de definições de registo de segurança da camada de transporte (TLS)](/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
 
 ## <a name="data-retention"></a>Retenção de dados
 
@@ -50,7 +51,7 @@ O quadro que se segue resume a política de retenção de diferentes recursos.
 |:--- |:--- |
 | Contas |Uma conta é permanentemente removida 30 dias após o utilizador a eliminar. |
 | Elementos |Um ativo é permanentemente removido 30 dias após um utilizador o eliminar, ou 30 dias após um utilizador apagar uma conta que detém o ativo. |
-| Nó de DSC |Um nó DSC é removido permanentemente 30 dias após não ter sido registado numa conta de Automação utilizando o portal Azure ou o cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) no Windows PowerShell. Um nó também é removido permanentemente 30 dias após um utilizador apagar a conta que detém o nó. |
+| Nó de DSC |Um nó DSC é removido permanentemente 30 dias após não ter sido registado numa conta de Automação utilizando o portal Azure ou o cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) no Windows PowerShell. Um nó também é removido permanentemente 30 dias após um utilizador apagar a conta que detém o nó. |
 | Tarefas |Um trabalho é eliminado e permanentemente removido 30 dias após a modificação, por exemplo, após o fim do trabalho, é interrompido ou suspenso. |
 | Módulos |Um módulo é removido permanentemente 30 dias após um utilizador o eliminar, ou 30 dias após um utilizador apagar a conta que detém o módulo. |
 | Configurações de nó/ficheiros MOF |Uma configuração de nó antigo é removida permanentemente 30 dias após a geração de uma nova configuração do nó. |
@@ -65,7 +66,7 @@ Quando elimina uma conta Desmômes em Azure, todos os objetos da conta são elim
 
 ### <a name="runbooks"></a>Runbooks
 
-Pode exportar os seus livros para scripts utilizando o portal Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) no Windows PowerShell. Pode importar estes ficheiros de script para outra conta de Automação, como discutido na [Manage runbooks in Azure Automation](manage-runbooks.md).
+Pode exportar os seus livros para scripts utilizando o portal Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) no Windows PowerShell. Pode importar estes ficheiros de script para outra conta de Automação, como discutido na [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Módulos de integração
 
@@ -79,8 +80,7 @@ Não é possível recuperar os valores para variáveis encriptadas ou os campos 
 
 ### <a name="dsc-configurations"></a>Configurações de DSC
 
-Pode exportar as suas configurações DSC para ficheiros de scripts utilizando o portal Azure ou o cmdlet [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
-) no Windows PowerShell. Pode importar e utilizar estas configurações noutra conta de Automação.
+Pode exportar as suas configurações DSC para ficheiros de scripts utilizando o portal Azure ou o cmdlet [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) no Windows PowerShell. Pode importar e utilizar estas configurações noutra conta de Automação.
 
 ## <a name="geo-replication-in-azure-automation"></a>Geo-replicação na Azure Automation
 
@@ -98,8 +98,8 @@ O serviço de geo-replicação automation não é acessível diretamente a clien
 
 4. Importe os livros para a sua conta de Automação na região secundária.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre ativos seguros na Azure Automation, consulte [encriptação de ativos seguros na Azure Automation](automation-secure-asset-encryption.md).
 
-* Para saber mais sobre a geo-replicação, consulte [criar e utilizar a geo-replicação ativa.](../sql-database/sql-database-active-geo-replication.md)
+* Para saber mais sobre a geo-replicação, consulte [criar e utilizar a geo-replicação ativa.](../azure-sql/database/active-geo-replication-overview.md)

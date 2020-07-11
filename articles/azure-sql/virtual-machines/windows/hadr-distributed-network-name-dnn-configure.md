@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae9b6bf41d90b0a9111414302b2eafea3c8332d3
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965627"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169821"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurar um nome de rede distribuído para um FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -81,6 +81,10 @@ Set-ClusterParameter -Name DnsName -Value FCIDNN
 
 Os clientes entrarão agora `FCIDNN` na sua cadeia de ligação quando se ligarem ao SQL Server FCI. 
 
+   > [!WARNING]
+   > Não elimine o nome de rede virtual atual (VNN) uma vez que é um componente necessário da infraestrutura FCI. 
+
+
 ### <a name="rename-the-vnn"></a>Mude o nome da VNN 
 
 Se tiver um nome de rede virtual existente e pretender que os clientes continuem a utilizar este valor para ligar ao SQL Server FCI, deve mudar o nome do VNN atual para um valor de espaço reservado. Depois de o VNN atual ser renomeado, pode definir o valor do nome DNS para o DNN para o VNN. 
@@ -122,7 +126,7 @@ Para atualizar possíveis proprietários, siga estes passos:
 
 ## <a name="restart-sql-server-instance"></a>Reiniciar a instância do Servidor SQL 
 
-Utilize o Gestor de Cluster Failover para reiniciar a instância do SQL Server. Siga estes passos.
+Utilize o Gestor de Cluster Failover para reiniciar a instância do SQL Server. Siga estes passos:
 
 1. Aceda ao seu recurso SQL Server no Failover Cluster Manager.
 1. Clique com o botão direito no recurso SQL Server e desative-o. 
@@ -159,7 +163,7 @@ Se precisar, pode [baixar o SQL Server Management Studio](/sql/ssms/download-sql
 - Atualmente, um DNN é suportado apenas para casos de cluster de failover com SQL Server em Azure VMs. Utilize o nome de rede virtual com o Azure Load Balancer para os ouvintes do grupo de disponibilidade.
 - Pode haver mais considerações quando estiver a trabalhar com outras funcionalidades do SQL Server e um FCI com um DNN. Para obter mais informações, consulte [a FCI com interoperabilidade da DNN.](failover-cluster-instance-dnn-interoperability.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as funcionalidades HADR do SQL Server no Azure, consulte [os grupos Availability](availability-group-overview.md) e [o caso do cluster Failover](failover-cluster-instance-overview.md). Você também pode aprender [as melhores práticas](hadr-cluster-best-practices.md) para configurar o seu ambiente para alta disponibilidade e recuperação de desastres. 
 

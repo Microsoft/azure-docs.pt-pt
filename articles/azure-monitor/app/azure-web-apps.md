@@ -3,12 +3,12 @@ title: Desempenho dos serviços de aplicações Monitor Azure Microsoft Docs
 description: Monitorização do desempenho da aplicação para serviços de aplicações Azure. Cartografe o tempo de carga e resposta, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 574aefa4d554be7b0027c921289d8d15cffb8e49
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733469"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169940"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -58,7 +58,7 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
  
  Abaixo está um resumo dos dados recolhidos para cada rota:
         
-|  | .NET Coleção Básica | .NET Coleção recomendada |
+| Dados | .NET Coleção Básica | .NET Coleção recomendada |
 | --- | --- | --- |
 | Adiciona tendências de utilização da CPU, memória e E/S |Sim |Sim |
 | Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
@@ -116,9 +116,9 @@ A monitorização do lado do cliente é opt-in para ASP.NET. Para permitir a mon
 * Selecione **Definições** >** **Definições de aplicação****
    * Nas definições de Aplicação, adicione um novo nome e **valor** **de definição de aplicações** :
 
-     Nome:`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valor:`true`
+     Valor: `true`
 
    * **Guarde** as definições e **reinicie** a aplicação.
 
@@ -137,7 +137,7 @@ Se por alguma razão pretender desativar a monitorização do lado do cliente:
 
      nome:`APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valor:`false`
+     Valor: `false`
 
    * **Guarde** as definições e **reinicie** a aplicação.
 

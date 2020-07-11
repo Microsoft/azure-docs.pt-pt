@@ -3,12 +3,12 @@ title: Encriptação no Backup Azure
 description: Saiba como as funcionalidades de encriptação no Azure Backup ajudam a proteger os seus dados de backup e a satisfazer as necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ca570cfdc6e78e712715ba075168f4b06c55e4af
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116561"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86171827"
 ---
 # <a name="encryption-in-azure-backup"></a>Encriptação no Backup Azure
 
@@ -26,8 +26,7 @@ Por predefinição, todos os seus dados são encriptados utilizando chaves gerid
 
 Ao fazer o backup das suas Máquinas Virtuais Azure, pode agora encriptar os seus dados utilizando as teclas de propriedade e geridas por si. O Azure Backup permite-lhe utilizar as suas teclas RSA armazenadas no Cofre da Chave Azure para encriptar as suas cópias de segurança. A chave de encriptação utilizada para encriptar cópias de segurança pode ser diferente da utilizada para a origem. Os dados estão protegidos utilizando uma chave de encriptação de dados baseada em AES 256 (DEK), que está, por sua vez, protegida usando as suas chaves. Isto dá-lhe controlo total sobre os dados e as chaves. Para permitir a encriptação, é necessário que o cofre dos Serviços de Recuperação tenha acesso à chave de encriptação no Cofre da Chave Azure. Pode desativar a chave ou revogar o acesso sempre que necessário. No entanto, tem de ativar a encriptação utilizando as suas chaves antes de tentar proteger quaisquer itens no cofre.
 
->[!NOTE]
->Esta funcionalidade encontra-se atualmente em disponibilidade limitada. Preencha [este inquérito](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) e envie-nos um e-mail se desejar AskAzureBackupTeam@microsoft.com encriptar os seus dados de backup utilizando as teclas geridas pelo cliente. Note que a capacidade de utilização desta funcionalidade está sujeita à aprovação do serviço Azure Backup.
+Leia mais sobre como encriptar os seus dados de backup utilizando chaves geridas pelo cliente [aqui.](encryption-at-rest-with-cmk.md)
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Backup de VMs de disco gerido encriptados usando chaves geridas pelo cliente
 
@@ -38,12 +37,12 @@ O Azure Backup também permite fazer backup dos seus VMs Azure que utilizam a su
 Além de encriptar os seus dados no cofre dos Serviços de Recuperação utilizando chaves geridas pelo cliente, também pode optar por ter uma camada adicional de encriptação configurada na infraestrutura de armazenamento. Esta encriptação de infraestrutura é gerida pela plataforma e, juntamente com a encriptação em repouso, utilizando chaves geridas pelo cliente, permite encriptação de duas camadas dos seus dados de backup. Note-se que a encriptação da infraestrutura só pode ser configurada se optar pela primeira vez por utilizar as suas próprias chaves para encriptação em repouso. A encriptação da infraestrutura utiliza chaves geridas pela plataforma para encriptar dados.
 
 >[!NOTE]
->A encriptação da infraestrutura está atualmente em pré-visualização limitada e está disponível apenas nas regiões norte-americanas do Leste, Dos Eua West2 e Centro Sul dos EUA. Se desejar utilizar a funcionalidade em qualquer uma destas regiões, preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) e envie-nos um e-mail para [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>A encriptação da infraestrutura está atualmente em pré-visualização limitada e está disponível apenas nas regiões norte-americanas east, EUA West2, US South Central, US Gov Arizona e EUA GOV Virginia apenas. Se desejar utilizar a funcionalidade em qualquer uma destas regiões, preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) e envie-nos um e-mail para [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Cópia de segurança dos VMs encriptados através do ADE
 
 Com o Azure Backup, também pode fazer backup das suas máquinas Azure Virtual que têm o seu SISTEMA ou discos de dados encriptados através da Encriptação do Disco Azure. O ADE utiliza o BitLocker para VMs windows e DM-Crypt para os VMs do Linux para executar encriptação no hóspede. Para mais detalhes, consulte [Back up e restaure máquinas virtuais encriptadas com Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recue e restaure um Azure VM encriptado](backup-azure-vms-encryption.md)

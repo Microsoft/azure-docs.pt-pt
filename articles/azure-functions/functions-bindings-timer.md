@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: e1dd20514fcb14e411fbb7efee4157b670d462b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389705"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165669"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho temporizador para funções Azure 
 
@@ -287,24 +287,7 @@ Aqui estão alguns exemplos de expressões NCRONTAB que pode usar para o gatilho
 
 Os números numa expressão CRON referem-se a uma hora e data, e não a um período de tempo. Por exemplo, um 5 no `hour` campo refere-se às 5:00, não a cada 5 horas.
 
-O fuso horário padrão utilizado com as expressões CRON é Tempo Universal Coordenado (UTC). Para ter a sua expressão CRON baseada em outro fuso horário, crie uma definição de aplicação para a sua aplicação de função chamada `WEBSITE_TIME_ZONE` . Desa cos assimtre o valor do fuso horário pretendido, tal como indicado no Índice de [Fuso Horário](https://technet.microsoft.com/library/cc749073)da Microsoft .
-
-  > [!NOTE]
-  > `WEBSITE_TIME_ZONE`não é atualmente apoiado no plano de consumo de Linux.
-
-Por exemplo, *o horário padrão oriental* é UTC-05:00. Para ter o seu temporizador disparar às 10:00 AM EST todos os dias, utilize a seguinte expressão NCRONTAB que explica o fuso horário UTC:
-
-```
-"0 0 15 * * *"
-``` 
-
-Ou crie uma configuração de aplicativo para a sua aplicação de função nomeada `WEBSITE_TIME_ZONE` e defina o valor para **o Horário Padrão Oriental**.  Em seguida, utiliza a seguinte expressão NCRONTAB: 
-
-```
-"0 0 10 * * *"
-``` 
-
-Quando `WEBSITE_TIME_ZONE` utilizar, o tempo é ajustado para alterações de tempo no fuso horário específico, como o horário de verão. 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## <a name="timespan"></a>TimeSpan
 
@@ -346,7 +329,7 @@ Ao contrário do gatilho da fila, o gatilho do temporizador não se ressando dep
 
 Para obter informações sobre o que fazer quando o gatilho do temporizador não funcionar como esperado, consulte [questões de investigação e reporte com funções desacionadas de temporizador que não disparem](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Vá a um arranque rápido que usa um gatilho do temporizador](functions-create-scheduled-function.md)

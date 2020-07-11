@@ -1,7 +1,7 @@
 ---
-title: Execute o Python Script no designer
+title: Execute o Python Script no designer (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar python em azure machine learning designer para transformar dados.
+description: Aprenda a usar python em Azure Machine Learning designer (pré-visualização) para transformar dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
 ms.custom: designer, tracking-python
-ms.openlocfilehash: 31028ba0417f312aa0caaf49cb4b2d432f89979f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 61086bf8c215a09e457e931ffed157559b339a9b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041018"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86206811"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Executar código Python em Azure Machine Learning designer
 
@@ -82,6 +83,6 @@ Neste exemplo, você usa Pandas para combinar duas colunas encontradas no conjun
 
 Agora, você tem um conjunto de dados com a nova funcionalidade **Dólares/HP,** o que pode ser útil na formação de um recomendador de carro. Este é um exemplo de extração de recursos e redução da dimensionalidade. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a [importar os seus próprios dados](how-to-designer-import-data.md) no designer de Machine Learning Azure.

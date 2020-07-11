@@ -1,21 +1,22 @@
 ---
-title: Implementar privacidade diferencial com o pacote WhiteNoise
+title: Implementar privacidade diferencial com o pacote WhiteNoise (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Saiba o que é a privacidade diferencial e como o pacote WhiteNoise pode ajudá-lo a implementar sistemas privados diferenciais que preservem a privacidade dos dados.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/03/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982667"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86199799"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Preservar a privacidade dos dados utilizando a privacidade diferencial e o pacote WhiteNoise
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Preservar a privacidade dos dados utilizando a privacidade diferencial e o pacote WhiteNoise (pré-visualização)
 
 Saiba o que é a privacidade diferencial e como o pacote WhiteNoise pode ajudá-lo a implementar sistemas diferencialmente privados.
 
@@ -79,7 +80,7 @@ A biblioteca do sistema fornece as seguintes ferramentas e serviços para trabal
 |Serviço     | Serviço de execução que fornece um ponto final REST para servir pedidos ou consultas contra fontes de dados partilhadas. O serviço foi concebido para permitir a composição de módulos de privacidade diferenciais que operam em pedidos que contenham diferentes valores delta e epsilon, também conhecidos como pedidos heterogéneos. Esta implementação de referência explica o impacto adicional das consultas sobre dados correlacionados. |
 |Avaliador     | Avaliador estocástico que verifica por violações de privacidade, precisão e preconceito. O avaliador suporta os seguintes testes: <ul><li>Teste de Privacidade - Determina se um relatório adere às condições de privacidade diferencial.</li><li>Teste de Precisão - Mede se a fiabilidade dos relatórios se enquadra nos limites superior e inferior, dado um nível de confiança de 95%.</li><li>Teste de Utilidade - Determina se os limites de confiança de um relatório estão suficientemente próximos dos dados, maximizando ainda a privacidade.</li><li>Teste de Enviesamento - Mede a distribuição de relatórios para consultas repetidas para garantir que não são desequilibrados</li></ul> |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Preservar a privacidade dos dados](how-to-differential-privacy.md) no Azure Machine Learning.
 

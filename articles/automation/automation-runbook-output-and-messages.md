@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 387e100a05cb51eb034f737b259bad4e5812465c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4be7934002730253b77b1c129165ad9f19f23b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557875"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185981"
 ---
 # <a name="monitor-runbook-output"></a>Monitorizar o resultado do runbook
 
 A maioria dos runbooks da Azure Automation têm alguma forma de saída. Esta saída pode ser uma mensagem de erro para o utilizador ou um objeto complexo destinado a ser utilizado com outro livro de aplicação. O Windows PowerShell fornece [vários streams](/powershell/module/microsoft.powershell.core/about/about_redirection) para enviar saída a partir de um script ou fluxo de trabalho. A Azure Automation trabalha com cada um destes fluxos de forma diferente. Deve seguir as melhores práticas para usar os streams quando estiver a criar um livro de corridas.
 
-A tabela seguinte descreve brevemente cada fluxo com o seu comportamento no portal Azure para os livros de ensaios publicados e durante [o teste de um livro de bordo](automation-testing-runbook.md). O fluxo de saída é o fluxo principal utilizado para a comunicação entre os livros de execução. Os outros streams são classificados como streams de mensagens, destinados a comunicar informações ao utilizador. 
+A tabela seguinte descreve brevemente cada fluxo com o seu comportamento no portal Azure para os livros de ensaios publicados e durante [o teste de um livro de bordo](./manage-runbooks.md). O fluxo de saída é o fluxo principal utilizado para a comunicação entre os livros de execução. Os outros streams são classificados como streams de mensagens, destinados a comunicar informações ao utilizador. 
 
 | Fluxo | Descrição | Publicado | Teste |
 |:--- |:--- |:--- |:--- |
@@ -33,7 +33,7 @@ O fluxo de saída é utilizado para a saída de objetos criados por um script ou
 
 O seu runbook utiliza o fluxo de saída para comunicar informações gerais ao cliente apenas se nunca for chamado por outro runbook. Como uma boa prática, no entanto, os seus livros devem normalmente utilizar o [fluxo verboso](#monitor-verbose-stream) para comunicar informações gerais ao utilizador.
 
-Faça com que o seu livro de execução escreva dados para o fluxo de saída utilizando [a Write-Output](https://technet.microsoft.com/library/hh849921.aspx). Em alternativa, pode colocar o objeto na sua própria linha no script.
+Faça com que o seu livro de execução escreva dados para o fluxo de saída utilizando [a Write-Output](/powershell/module/microsoft.powershell.utility/write-output). Em alternativa, pode colocar o objeto na sua própria linha no script.
 
 ```powershell
 #The following lines both write an object to the output stream.
@@ -133,7 +133,7 @@ O aviso e os fluxos de erro registam problemas que ocorrem num livro de recortes
 
 Por predefinição, um livro de bordo continua a ser executado após um aviso ou erro. Pode especificar que o seu livro de execução deve suspender um aviso ou erro, tendo o livro de execuções definido uma [variável de preferência](#work-with-preference-variables) antes de criar a mensagem. Por exemplo, para fazer com que o livro de bordo suspenda um erro como faz numa exceção, desacione a `ErrorActionPreference` variável para Parar.
 
-Crie uma mensagem de aviso ou erro utilizando o cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error.](https://technet.microsoft.com/library/hh849962.aspx) As atividades também podem escrever para os fluxos de aviso e erro.
+Crie uma mensagem de aviso ou erro utilizando o cmdlet [Write-Warning](/powershell/module/microsoft.powershell.utility/write-warning) ou [Write-Error.](/powershell/module/microsoft.powershell.utility/write-error) As atividades também podem escrever para os fluxos de aviso e erro.
 
 ```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -153,9 +153,9 @@ O fluxo de mensagens Verbose suporta informações gerais sobre o funcionamento 
 
 Por padrão, o histórico de trabalho não armazena mensagens verbosas de livros publicados, por razões de desempenho. Para armazenar mensagens verbose, utilize o separador **Configure** portal Azure com a definição **Log Verbose Records** para configurar os seus livros publicados para registar mensagens verbose. Ative esta opção apenas para resolver problemas ou para depurar um runbook. Na maioria dos casos, deve manter a definição padrão de não registar registos verbosos.
 
-Ao [testar um livro de execução,](automation-testing-runbook.md)as mensagens verbosas não são apresentadas mesmo que o livro de execuções esteja configurado para registar registos verbosos. Para exibir mensagens verbosas durante o [teste de um livro de recortes,](automation-testing-runbook.md)tem de definir a `VerbosePreference` variável para Continuar. Com este conjunto variável, as mensagens verbosas são apresentadas no painel de saída de Teste do portal Azure.
+Ao [testar um livro de execução,](./manage-runbooks.md)as mensagens verbosas não são apresentadas mesmo que o livro de execuções esteja configurado para registar registos verbosos. Para exibir mensagens verbosas durante o [teste de um livro de recortes,](./manage-runbooks.md)tem de definir a `VerbosePreference` variável para Continuar. Com este conjunto variável, as mensagens verbosas são apresentadas no painel de saída de Teste do portal Azure.
 
-O código a seguir cria uma mensagem verbose utilizando o [cmdlet Write-Verbose.](https://technet.microsoft.com/library/hh849951.aspx)
+O código a seguir cria uma mensagem verbose utilizando o [cmdlet Write-Verbose.](/powershell/module/microsoft.powershell.utility/write-verbose)
 
 ```powershell
 #The following line creates a verbose message.
@@ -170,11 +170,11 @@ Pode utilizar o **separador Configurar** do portal Azure para configurar um livr
 Se ativar a registo de registos de progresso, o seu livro escreve um registo para o histórico de trabalho antes e depois de cada atividade ser executada. Testar um livro de execução não apresenta mensagens de progresso mesmo que o livro de execuções esteja configurado para registar registos de progresso.
 
 >[!NOTE]
->O [cmdlet Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) não é válido num livro de aplicação, uma vez que este cmdlet se destina a ser utilizado com um utilizador interativo.
+>O [cmdlet Write-Progress](/powershell/module/microsoft.powershell.utility/write-progress) não é válido num livro de aplicação, uma vez que este cmdlet se destina a ser utilizado com um utilizador interativo.
 
 ## <a name="work-with-preference-variables"></a>Trabalhar com variáveis preferenciais
 
-Pode definir [determinadas variáveis de preferência](https://technet.microsoft.com/library/hh847796.aspx) do Windows PowerShell nos seus livros de execução para controlar a resposta aos dados enviados para diferentes fluxos de saída. A tabela que se segue lista as variáveis preferenciais que podem ser utilizadas em runbooks, com os seus valores predefinidos e válidos. Estão disponíveis valores adicionais para as variáveis preferenciais quando utilizadas no Windows PowerShell fora da Azure Automation.
+Pode definir [determinadas variáveis de preferência](/powershell/module/microsoft.powershell.core/about/about_preference_variables) do Windows PowerShell nos seus livros de execução para controlar a resposta aos dados enviados para diferentes fluxos de saída. A tabela que se segue lista as variáveis preferenciais que podem ser utilizadas em runbooks, com os seus valores predefinidos e válidos. Estão disponíveis valores adicionais para as variáveis preferenciais quando utilizadas no Windows PowerShell fora da Azure Automation.
 
 | Variável | Valor Predefinido | Valores válidos |
 |:--- |:--- |:--- |
@@ -198,7 +198,7 @@ Pode ver os detalhes de um trabalho de runbook no portal Azure utilizando o **se
 
 ### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Recupere a saída do runbook e as mensagens no Windows PowerShell
 
-No Windows PowerShell, pode obter saídas e mensagens de um livro de execução utilizando o [cmdlet Get-AzAutomationJobOutput.](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) Este cmdlet requer a identificação do trabalho e tem um parâmetro chamado `Stream` para especificar o fluxo para recuperar. Pode especificar um valor de Any para este parâmetro para recuperar todos os fluxos para o trabalho.
+No Windows PowerShell, pode obter saídas e mensagens de um livro de execução utilizando o [cmdlet Get-AzAutomationJobOutput.](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) Este cmdlet requer a identificação do trabalho e tem um parâmetro chamado `Stream` para especificar o fluxo para recuperar. Pode especificar um valor de Any para este parâmetro para recuperar todos os fluxos para o trabalho.
 
 O exemplo seguinte inicia um runbook de exemplo e depois aguarda que este seja concluído. Uma vez que o livro de execução completa a execução, o script recolhe o fluxo de saída do runbook a partir do trabalho.
 
@@ -257,9 +257,8 @@ A Azure Automation pode enviar o estado de trabalho do runbook e os fluxos de tr
 
 Para obter mais informações sobre a configuração da integração com os registos do Azure Monitor para recolher, correlacionar e agir em dados de trabalho, consulte [o estado do trabalho de encaminhamento e os fluxos de trabalho da Automação para os registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para trabalhar com runbooks, consulte [Gerir os runbooks na Azure Automation.](manage-runbooks.md)
-* Para mais detalhes sobre o PowerShell, consulte [o PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-* * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Para mais detalhes sobre o PowerShell, consulte [o PowerShell Docs](/powershell/scripting/overview).
+* * Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

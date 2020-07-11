@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6b6da2a15441564ef0b67e76ee5a0e0c85839a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609321"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142403"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -97,6 +98,7 @@ Quando representado como um objeto JSON, um gémeo digital apresentará os segui
 | Nome do campo | Descrição |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do gémeo digital |
+| `$etag` | Campo HTTP padrão atribuído pelo servidor web |
 | `$conformance` | Um enum que contém o estado de conformidade deste gémeo digital *(conformante,* *não-conformante,* *desconhecido)* |
 | `{propertyName}` | O valor de um imóvel em JSON `string` (, tipo de número ou objeto) |
 | `$relationships` | A URL do caminho para a coleção de relacionamentos. Este campo está ausente se o gémeo digital não tiver limites de relacionamento. |
@@ -115,6 +117,7 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -162,6 +165,7 @@ Quando representado como um objeto JSON, uma relação de um gémeo digital most
 | Nome do campo | Descrição |
 | --- | --- |
 | `$relationshipId` | Uma cadeia fornecida pelo utilizador que representa a identificação desta relação. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `relationshipId` é única no contexto da instância Azure Digital Twins. |
+| `$etag` | Campo HTTP padrão atribuído pelo servidor web |
 | `$sourceId` | O ID da fonte digital twin |
 | `$targetId` | A ID do gémeo digital alvo |
 | `$relationshipName` | O nome da relação |
@@ -180,7 +184,7 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir elementos gráficos com APIs Azure Digital Twin:
 * [Como fazer: Gerir gémeos digitais](how-to-manage-twin.md)

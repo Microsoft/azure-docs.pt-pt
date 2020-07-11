@@ -5,15 +5,16 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8770762fa2d2ae6bc0584d75397829298a62e8c0
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117393"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185896"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Limite de implementação de gestão de atualização
 
-Este artigo descreve como trabalhar com configurações de âmbito quando se utiliza a função [de Gestão](automation-update-management.md) de Atualização para implementar atualizações e patches nos seus VMs. Para obter mais informações, consulte [soluções de monitorização de direcionamento no Azure Monitor (Preview)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+Este artigo descreve como trabalhar com configurações de âmbito quando se utiliza a função [de Gestão](automation-update-management.md) de Atualização para implementar atualizações e patches nos seus VMs. Para obter mais informações, consulte [soluções de monitorização de direcionamento no Azure Monitor (Preview)](../azure-monitor/insights/solution-targeting.md). 
 
 ## <a name="about-scope-configurations"></a>Sobre configurações de âmbito
 
@@ -33,7 +34,7 @@ Para limitar o âmbito de aplicação da sua gestão de atualização:
 
 5. No painel de edição, **expanda os grupos de computador selecionados.** O painel de grupos de computador mostra as pesquisas guardadas que são usadas para criar a configuração do âmbito. A pesquisa guardada utilizada pela Update Management é:
 
-    |Name     |Categoria  |Alias  |
+    |Nome     |Categoria  |Alias  |
     |---------|---------|---------|
     |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
 
@@ -41,7 +42,7 @@ Para limitar o âmbito de aplicação da sua gestão de atualização:
 
     ![Pesquisas guardadas](media/automation-scope-configurations-update-management/logsearch.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para trabalhar com a funcionalidade, consulte [Gerir atualizações e patches para os seus VMs Azure](automation-tutorial-update-management.md).
 * Para resolver erros de funcionalidades, consulte [problemas de Gestão de Atualização de Resolução de Problemas](troubleshoot/update-management.md).

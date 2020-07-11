@@ -1,18 +1,18 @@
 ---
 title: Debug funções definidas pelo utilizador no Azure Stream Analytics
 description: Este artigo descreve como depurar funções definidas pelo utilizador no Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: jenssuessmeyer
+ms.author: jenss
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: a6c2e390af39b496a871ae9b5799288ea3609bca
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 46aa9879af4bda1cd4a5e06894ea2d964f838f32
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981508"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181357"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Debug funções definidas pelo utilizador no Azure Stream Analytics 
 
@@ -126,7 +126,7 @@ Selecione **Run and Debug** ou pressione **CTRL + SHIFT + D** para começar a de
 > ![Stream Analytics run e debug uda](./media/debug-user-defined-functions/run-debug-uda.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Desenvolver e depurar Azure Stream Analytics empregos localmente](develop-locally.md)
 * [Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual](debug-locally-using-job-diagram.md)

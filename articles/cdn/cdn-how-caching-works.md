@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: d0c438aee7f56e96feb7167fad718fd9519a9f76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81253718"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201797"
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
 
@@ -111,11 +112,11 @@ Quando a cache está em estado de s paliação, os validadores de cache HTTP sã
 
 Nem todos os recursos podem ser cached. A tabela a seguir mostra quais os recursos que podem ser cached, com base no tipo de resposta HTTP. Os recursos entregues com respostas HTTP que não satisfaçam todas estas condições não podem ser cached. Para **o Azure CDN Premium apenas da Verizon,** pode utilizar o motor de regras para personalizar algumas destas condições.
 
-|                   | Azure CDN da Microsoft          | Azure CDN de Verizon | Azure CDN da Akamai        |
-|-------------------|-----------------------------------|------------------------|------------------------------|
-| Códigos de estado HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| Métodos HTTP      | GET, CABEÇA                         | GET                    | GET                          |
-| Limites de tamanho do ficheiro  | 300 GB                            | 300 GB                 | - Otimização geral da entrega web: 1,8 GB<br />- Otimizações de streaming de mídia: 1,8 GB<br />- Otimização de ficheiros grandes: 150 GB |
+|                       | Azure CDN da Microsoft          | Azure CDN de Verizon | Azure CDN da Akamai        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **Códigos de estado HTTP** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **Métodos HTTP**      | GET, CABEÇA                         | GET                    | GET                          |
+| **Limites de tamanho do ficheiro**  | 300 GB                            | 300 GB                 | - Otimização geral da entrega web: 1,8 GB<br />- Otimizações de streaming de mídia: 1,8 GB<br />- Otimização de ficheiros grandes: 150 GB |
 
 Para **o Azure CDN Standard da Microsoft** para trabalhar num recurso, o servidor de origem deve suportar quaisquer pedidos HEAD e GET HTTP e os valores de comprimento do conteúdo devem ser os mesmos para qualquer resposta HEAD e GET HTTP para o ativo. Para um pedido DE CABEÇA, o servidor de origem deve apoiar o pedido DE CABEÇA, e deve responder com os mesmos cabeçalhos como se tivesse recebido um pedido GET.
 
@@ -125,14 +126,14 @@ A tabela seguinte descreve o comportamento padrão de caching para os produtos A
 
 |    | Microsoft: Entrega geral da web | Verizon: Entrega geral da web | Verizon: DSA | Akamai: Entrega geral da web | Akamai: DSA | Akamai: Grande download de ficheiros | Akamai: streaming de meios de comunicação geral ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Origem de honra**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
-| **Duração da cache CDN** | 2 dias |7 dias | Nenhuma | 7 dias | Nenhuma | 1 dia | 1 ano |
+| **Origem de honra**       | Sim    | Sim   | Não   | Yes    | Não   | Sim   | Sim    |
+| **Duração da cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
 **Origem de honra**: Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.
 
 **Duração da cache cdN**: Especifica a quantidade de tempo para a qual um recurso está em cache no Azure CDN. No entanto, se **a origem honor** é Sim e a resposta HTTP do servidor de origem inclui o cabeçalho da diretiva cache `Expires` ou , `Cache-Control: max-age` Azure CDN usa o valor de duração especificado pelo cabeçalho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a personalizar e sobrepor o comportamento padrão de caching no CDN através de regras de caching, consulte o [comportamento do caching do Control Azure CDN com regras de caching](cdn-caching-rules.md). 
 - Para aprender a usar cordas de consulta para controlar o comportamento do caching, consulte [o comportamento do Caching Do Control Azure CDN com cordas de consulta](cdn-query-string.md).

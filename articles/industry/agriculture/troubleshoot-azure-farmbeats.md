@@ -5,11 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6527ee8be64d57b42d7753c266a5c416ceeef589
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656812"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187715"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -313,3 +314,39 @@ Este problema pode ocorrer se estiverem a ser feitas atividades de manutenção 
 1. Vá ao seu grupo de recursos FarmBeats Datahub.
 2. Selecione o **serviço App**.  
 3. Vá à página de preços do [Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/windows/)de escala e, em seguida, selecione um nível de preços apropriado.
+
+## <a name="weather-data-job-failures"></a>Falhas no emprego dos dados meteorológicos
+
+**Erro:** Você gere jobs para obter dados meteorológicos, mas o trabalho falha
+
+### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>Recolher registos para resolver problemas de falhas no emprego de dados meteorológicos
+
+1. Vá ao seu grupo de recursos FarmBeats no portal Azure.
+2. Clique no serviço Data Factory que faz parte do grupo de recursos. O serviço terá uma etiqueta "sku: Datahub"
+
+> [!NOTE]
+> Para ver as etiquetas dos serviços dentro do grupo de recursos, clique em "Editar Colunas" e adicione "Tags" à vista do grupo de recursos
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Projeto FarmBeats":::
+
+3. Na página geral da fábrica de dados, clique em **Autor e Monitor.** Um novo separador abre no seu navegador. Clique no **Monitor**
+
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Projeto FarmBeats":::
+
+4. Verá uma lista de oleodutos que fazem parte da execução do trabalho meteorológico. Clique no Trabalho para o que pretende recolher registos
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Projeto FarmBeats":::
+
+5. Na página geral do pipeline, verá a lista de atividades. Tome nota dos IDs de execução das atividades para as quais pretende recolher registos
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Projeto FarmBeats":::
+
+6. Volte para o seu grupo de recursos FarmBeats no portal Azure e clique na Conta de Armazenamento com o nome **datahublogs-XXXX**
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Projeto FarmBeats":::
+
+7. Clique em **contentores**  ->  **adfjobs**. Na caixa de Pesquisa, insira o trabalho Executar ID que notou no passo 5 acima.
+ 
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Projeto FarmBeats":::
+
+8. O resultado da pesquisa conterá a pasta que tem os registos relativos ao trabalho. Descarregue os registos e farmbeatssupport@microsoft.com envie-os para assistência na depuragem do problema.

@@ -5,11 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95e156c17b723c679772293401c730cbdff2220b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828649"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86169889"
 ---
 # <a name="create-modular-runbooks"></a>Criar runbooks modulares
 
@@ -19,12 +20,12 @@ Existem duas maneiras de chamar um livro infantil, e há diferenças distintas q
 
 |  | Inline | Cmdlet |
 |:--- |:--- |:--- |
-| Tarefa |O runbook subordinado é executado na mesma tarefa que o principal. |É criada uma tarefa separada para o runbook subordinado. |
-| Execução |O runbook principal aguarda que o runbook subordinado seja concluído antes de continuar. |O livro de bordo dos pais continua imediatamente após o início do livro de recortes de crianças *ou* o livro de bordo dos pais espera que o trabalho da criança termine. |
-| Saída |O runbook principal pode obter resultados diretamente do runbook subordinado. |O livro de bordo dos pais deve obter a saída do trabalho do livro de recortes de *crianças ou* do livro de bordo dos pais pode obter diretamente a saída do livro infantil. |
-| Parâmetros |Os valores para o runbook subordinado são especificados em separado e podem utilizar quaisquer tipos de dados. |Os valores para os parâmetros do livro de crianças têm de ser combinados numa única hashtable. Este hashtable só pode incluir tipos de dados simples, array e objeto que usam a serialização JSON. |
-| Conta de Automatização |O livro de bordo dos pais só pode utilizar o livro de crianças na mesma conta Dem automação. |Os livros de bordo dos pais podem utilizar um livro de crianças a partir de qualquer conta de Automação, a partir da mesma subscrição do Azure, e até mesmo de uma subscrição diferente à qual tem uma ligação. |
-| Publicar |O runbook subordinado tem de ser publicado antes da publicação do runbook principal. |O livro infantil é publicado a qualquer momento antes do início do livro de bordo dos pais. |
+| **Tarefa** |O runbook subordinado é executado na mesma tarefa que o principal. |É criada uma tarefa separada para o runbook subordinado. |
+| **Execução** |O runbook principal aguarda que o runbook subordinado seja concluído antes de continuar. |O livro de bordo dos pais continua imediatamente após o início do livro de recortes de crianças *ou* o livro de bordo dos pais espera que o trabalho da criança termine. |
+| **Saída** |O runbook principal pode obter resultados diretamente do runbook subordinado. |O livro de bordo dos pais deve obter a saída do trabalho do livro de recortes de *crianças ou* do livro de bordo dos pais pode obter diretamente a saída do livro infantil. |
+| **Parâmetros** |Os valores para o runbook subordinado são especificados em separado e podem utilizar quaisquer tipos de dados. |Os valores para os parâmetros do livro de crianças têm de ser combinados numa única hashtable. Este hashtable só pode incluir tipos de dados simples, array e objeto que usam a serialização JSON. |
+| **Conta de Automatização** |O livro de bordo dos pais só pode utilizar o livro de crianças na mesma conta Dem automação. |Os livros de bordo dos pais podem utilizar um livro de crianças a partir de qualquer conta de Automação, a partir da mesma subscrição do Azure, e até mesmo de uma subscrição diferente à qual tem uma ligação. |
+| **Publicar** |O runbook subordinado tem de ser publicado antes da publicação do runbook principal. |O livro infantil é publicado a qualquer momento antes do início do livro de bordo dos pais. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Invocar um livro infantil usando a execução inline
 
@@ -114,7 +115,7 @@ Start-AzAutomationRunbook `
     –Parameters $params –Wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para executar o seu runbook, consulte [Iniciar um livro de recortes na Azure Automation](start-runbooks.md).
 * Para monitorizar a operação do runbook, consulte [a saída do Runbook e as mensagens na Azure Automation](automation-runbook-output-and-messages.md).

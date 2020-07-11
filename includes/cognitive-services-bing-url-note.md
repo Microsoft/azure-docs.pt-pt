@@ -12,4 +12,4 @@ ms.lasthandoff: 04/29/2020
 ms.locfileid: "67541527"
 ---
 > [!NOTE]
-> Como os formatos e parâmetros de URL estão sujeitos a alterações sem aviso prévio, utilize todos os URLs como está. Não deve assumir dependências do formato url ou dos parâmetros, exceto quando se nota.
+> Como os formatos e parâmetros de URL estão sujeitos a alterações sem aviso prévio, utilize todos os URLs como está. Não deve assumir dependências do formato URL ou parâmetros, exceto quando for anotado.

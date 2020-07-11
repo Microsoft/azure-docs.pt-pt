@@ -3,12 +3,12 @@ title: Backup offline para Gestor de Proteção de Dados (DPM) e Microsoft Azure
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374836"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186950"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (versões anteriores)
 
@@ -44,6 +44,9 @@ A cópia de segurança offline é suportada por todos os modelos de implementaç
 > * Cópia de segurança de ficheiros e pastas com o Agente MARS ou o Agente de Reserva Azure.
 > * Cópia de segurança de todas as cargas de trabalho e ficheiros com DPM.
 > * Cópia de segurança de todas as cargas de trabalho e ficheiros com MABS.
+
+>[!NOTE]
+>As subscrições Azure CSP não são suportadas para utilização com sementeira offline para DPM 2019 RTM e versões anteriores, e MABS v3 RTM e versões anteriores. As cópias de segurança online da rede ainda são suportadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +99,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
 Siga estes passos para enviar manualmente o certificado de cópia de segurança offline para uma aplicação de Diretório Azure Ative anteriormente criada destinada a cópias de segurança offline.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. Aceda às inscrições da **Azure Ative Directory**  >  **App**.
 1. No **separador aplicações Possuídas,** localize uma aplicação com o formato de nome de `AzureOfflineBackup _<Azure User Id` exibição.
 
@@ -278,6 +281,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento da próxima cópia de segurança programada, o Azure Backup executa cópia de backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).

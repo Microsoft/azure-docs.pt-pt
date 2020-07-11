@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
-ms.openlocfilehash: 6ff33bd594181aabc4fd7d55ce33f780a0d06086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d14e030898db364d6621933d0032fa9ce0cab676
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74122199"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185029"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Failover e patching para Azure Cache para Redis
 
@@ -22,32 +23,32 @@ Vamos começar com uma visão geral do failover para Azure Cache para Redis.
 
 ### <a name="a-quick-summary-of-cache-architecture"></a>Um resumo rápido da arquitetura cache
 
-Uma cache é construída de várias máquinas virtuais com endereços IP separados e privados. Cada máquina virtual, também conhecida como nó, está ligada a um equilibrador de carga partilhado com um único endereço IP virtual. Cada nó executa o processo do servidor Redis e é acessível através do nome de anfitrião e das portas Redis. Cada nó é considerado um mestre ou um nó de réplica. Quando uma aplicação do cliente se liga a uma cache, o seu tráfego passa por este equilibrador de carga e é automaticamente encaminhado para o nó principal.
+Uma cache é construída de várias máquinas virtuais com endereços IP separados e privados. Cada máquina virtual, também conhecida como nó, está ligada a um equilibrador de carga partilhado com um único endereço IP virtual. Cada nó executa o processo do servidor Redis e é acessível através do nome de anfitrião e das portas Redis. Cada nó é considerado um nó primário ou um nó de réplica. Quando uma aplicação do cliente se liga a uma cache, o seu tráfego passa por este equilibrador de carga e é automaticamente encaminhado para o nó primário.
 
-Numa cache básica, o nó único é sempre um mestre. Numa cache Standard ou Premium, há dois nós: um é escolhido como mestre e o outro é a réplica. Como os caches Standard e Premium têm múltiplos nós, um nó pode estar indisponível enquanto o outro continua a processar pedidos. Caches agrupados são feitos de muitos fragmentos, cada um com nódoas de mestre e réplica distintas. Um fragmento pode estar em baixo enquanto os outros permanecem disponíveis.
+Numa cache básica, o nó único é sempre primário. Numa cache Standard ou Premium, existem dois nós: um é escolhido como o principal e o outro é a réplica. Como os caches Standard e Premium têm múltiplos nós, um nó pode estar indisponível enquanto o outro continua a processar pedidos. Caches agrupados são feitos de muitos fragmentos, cada um com nódoas primárias e réplicas distintas. Um fragmento pode estar em baixo enquanto os outros permanecem disponíveis.
 
 > [!NOTE]
 > Uma cache Basic não tem múltiplos nós e não oferece um acordo de nível de serviço (SLA) para a sua disponibilidade. As caches básicas são recomendadas apenas para fins de desenvolvimento e teste. Utilize uma cache Standard ou Premium para uma implementação multi-nós, para aumentar a disponibilidade.
 
 ### <a name="explanation-of-a-failover"></a>Explicação de um fracasso
 
-Um failover ocorre quando um nó réplica se promove para se tornar um nó mestre, e o antigo nó mestre fecha as conexões existentes. Depois que o nó mestre volta, nota a mudança de papéis e despromo-se para se tornar uma réplica. Em seguida, conecta-se ao novo mestre e sincroniza dados. Um fracasso pode ser planeado ou não planeado.
+Um failover ocorre quando um nó réplica se promove para se tornar um nó primário, e o antigo nó primário fecha as ligações existentes. Depois que o nó primário volta a subir, nota a mudança de papéis e despromo-se para se tornar uma réplica. Em seguida, liga-se ao novo primário e sincroniza os dados. Um fracasso pode ser planeado ou não planeado.
 
 Uma *falha planeada* ocorre durante as atualizações do sistema, tais como patching Redis ou atualizações de SO, e operações de gestão, tais como dimensionamento e reboot. Como os nós recebem aviso prévio da atualização, podem trocar cooperativamente funções e atualizar rapidamente o equilibrador de carga da alteração. Um failover planeado normalmente termina em menos de 1 segundo.
 
-Uma *falha não planeada* pode acontecer devido a falha de hardware, falha de rede ou outras interrupções inesperadas no nó principal. O nó réplica promove-se a dominar, mas o processo demora mais tempo. Um nó de réplica deve primeiro detetar que o seu nó principal não está disponível antes de poder iniciar o processo de failover. O nó de réplica também deve verificar se esta falha não planeada não é transitória ou local, para evitar uma falha desnecessária. Este atraso na deteção significa que uma falha não planeada normalmente termina dentro de 10 a 15 segundos.
+Uma *falha não planeada* pode acontecer devido a falha de hardware, falha de rede ou outras interrupções inesperadas no nó primário. O nó réplica promove-se ao primário, mas o processo demora mais tempo. Um nó de réplica deve primeiro detetar que o nó primário não está disponível antes de poder iniciar o processo de failover. O nó de réplica também deve verificar se esta falha não planeada não é transitória ou local, para evitar uma falha desnecessária. Este atraso na deteção significa que uma falha não planeada normalmente termina dentro de 10 a 15 segundos.
 
 ## <a name="how-does-patching-occur"></a>Como é que o remendos ocorre?
 
 O serviço Azure Cache for Redis atualiza regularmente o seu cache com as mais recentes funcionalidades e correções da plataforma. Para remendar uma cache, o serviço segue estes passos:
 
 1. O serviço de gestão seleciona um nó a ser remendado.
-1. Se o nó selecionado for um nó mestre, o nó de réplica correspondente promove-se cooperativamente. Esta promoção é considerada uma falha planeada.
+1. Se o nó selecionado for um nó primário, o nó de réplica correspondente promove-se cooperativamente. Esta promoção é considerada uma falha planeada.
 1. O nó selecionado reinicia para receber as novas alterações e volta a ser um nó de réplica.
-1. O nó de réplica liga-se ao nó principal e sincroniza os dados.
+1. O nó de réplica liga-se ao nó primário e sincroniza os dados.
 1. Quando a sincronização de dados estiver concluída, o processo de remendação repete-se para os restantes nós.
 
-Como o patching é um fracasso planeado, o nó de réplica rapidamente se promove para se tornar um mestre e começa a servir pedidos e novas conexões. Caches básicos não têm um nó de réplica e estão indisponíveis até que a atualização esteja completa. Cada fragmento de uma cache agrupada é remendado separadamente e não fecha as ligações a outro fragmento.
+Como o patching é um fracasso planeado, o nó de réplica rapidamente se promove para se tornar um primário e começa a servir pedidos e novas ligações. Caches básicos não têm um nó de réplica e estão indisponíveis até que a atualização esteja completa. Cada fragmento de uma cache agrupada é remendado separadamente e não fecha as ligações a outro fragmento.
 
 > [!IMPORTANT]
 > Os nós são remendados um de cada vez para evitar a perda de dados. Caches básicos terão perda de dados. Caches agrupados são remendados um fragmento de cada vez.
@@ -81,7 +82,7 @@ Certas alterações na configuração da rede do lado do cliente podem desencade
 
 Tais alterações podem causar um problema de conectividade que dura menos de um minuto. A sua aplicação ao cliente provavelmente perderá a sua ligação a outros recursos de rede externos, além do serviço Azure Cache para o redis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Agendar atualizações](cache-administration.md#schedule-updates) para o seu cache.
 - Resiliência da aplicação de teste utilizando um [reboot](cache-administration.md#reboot).

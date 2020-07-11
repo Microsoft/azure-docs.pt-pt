@@ -3,11 +3,12 @@ title: Cópia de segurança offline para o DPM e Azure Backup Server
 description: Com a Azure Backup, pode enviar dados para fora da rede utilizando o serviço Azure Import/Export. Este artigo explica o fluxo de trabalho de backup offline para DPM e Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 0ff6198eed4e3e365b443a51e5c63534c2cf0973
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921264"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187800"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para DPM e Azure Backup Server (MABS)
 
@@ -123,7 +124,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
     | Parâmetro | Descrição |
     | --- | --- |
     | s: &lt; *Caminho de localização de encenação*&gt; |Esta entrada obrigatória é utilizada para fornecer o caminho para o local de preparação que inseriu no fluxo de trabalho na secção "Iniciar backup offline". |
-    | p: &lt; *Caminho para publicarSettingsFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação Azure que inseriu no fluxo de trabalho na secção "Iniciar cópia de segurança offline". |
+    | p: &lt; *Caminho para publicarSettingsFile*&gt; |Esta entrada opcional é utilizada para fornecer o caminho para o ficheiro de definições de publicação Azure. |
 
     Quando você dirige o comando, o utilitário solicita a seleção do trabalho Azure Import que corresponde às unidades que precisam de ser preparadas. Se apenas um único trabalho de importação estiver associado ao local de paragem fornecido, você vê um ecrã como o que se segue.
 
@@ -195,6 +196,6 @@ Após o fim do trabalho de importação, os dados de backup iniciais estão disp
 
 No momento do próximo trabalho de criação de réplicas online programado, o Data Protection Manager realiza backup incremental sobre a cópia inicial de backup.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para qualquer dúvida sobre o fluxo de trabalho do serviço Azure Import/Export, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento blob](../storage/common/storage-import-export-service.md).

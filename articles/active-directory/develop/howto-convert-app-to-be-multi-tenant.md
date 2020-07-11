@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f4b76bd91a47f14104a9f7f23a4a545ee3d40e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477860"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201962"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
 
@@ -71,15 +71,21 @@ As aplicações web e as APIs web recebem e validam fichas da plataforma de iden
 
 Vejamos como uma aplicação valida os tokens que recebe da plataforma de identidade da Microsoft. Uma aplicação de inquilino único normalmente tem um valor de ponto final como:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 e usa-o para construir um URL de metadados (neste caso, OpenID Connect) como:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 para descarregar duas peças críticas de informação que são usadas para validar fichas: as chaves de assinatura do inquilino e o valor do emitente. Cada inquilino da AD AZure tem um valor emitente único do formulário:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 onde o valor GUID é a versão segura do nome do inquilino ID do inquilino. Se selecionar o link de metadados `contoso.onmicrosoft.com` anterior, pode ver este valor do emitente no documento.
 
@@ -87,7 +93,9 @@ Quando um único pedido de inquilino valida um token, verifica a assinatura do t
 
 Como o ponto final /comum não corresponde a um inquilino e não é um emitente, quando examina o valor do emitente nos metadados para /comum tem um URL modelo em vez de um valor real:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 Portanto, uma aplicação multi-inquilino não pode validar fichas apenas combinando o valor do emitente nos metadados com o `issuer` valor no token. Uma aplicação multi-arrendatário precisa de lógica para decidir quais os valores do emitente válidos e que não se baseiam na parte de identificação do inquilino do valor do emitente. 
 
@@ -135,7 +143,9 @@ A sua aplicação pode ter vários níveis, cada um representado pelo seu própr
 
 Isto pode ser um problema se a sua aplicação lógica consistir em dois ou mais registos de candidaturas, por exemplo um cliente e recurso separados. Como é que se consegue o recurso para o inquilino do cliente primeiro? A Azure AD cobre este caso, permitindo que o cliente e o recurso sejam consentidos num único passo. O utilizador vê a soma total das permissões solicitadas tanto pelo cliente como pelo recurso na página de consentimento. Para permitir este comportamento, o registo de candidatura do recurso deve incluir o ID da Aplicação do cliente como um `knownClientApplications` manifesto de [aplicação.][AAD-App-Manifest] Por exemplo:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 Isto é demonstrado num cliente nativo de vários níveis que chama amostra de API web na secção de [conteúdo relacionado](#related-content) no final deste artigo. O diagrama seguinte fornece uma visão geral do consentimento para uma aplicação multi-nível registada num único inquilino.
 
@@ -169,7 +179,7 @@ Se um administrador consentir com uma aplicação para todos os utilizadores de 
 
 As aplicações multi-arrendadas também podem ter acesso a fichas para chamar APIs que estão protegidas pela Azure AD. Um erro comum ao utilizar a Biblioteca de Autenticação de Diretório Ativo (ADAL) com uma aplicação multi-arrendatário é solicitar inicialmente um token para um utilizador que utilize /comum, receber uma resposta e, em seguida, solicitar um token subsequente para esse mesmo utilizador também usando /comum. Porque a resposta da AZure AD vem de um inquilino, não /comum, ADAL caches o símbolo como sendo do inquilino. A chamada subsequente para /comum para obter um token de acesso para o utilizador falha a entrada de cache, e o utilizador é solicitado a iniciar novamente a sposição. Para evitar a falta da cache, certifique-se de que as chamadas subsequentes para um utilizador já assinado são feitas no ponto final do arrendatário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Office 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Office 365 como Exchange, SharePoint, OneDrive, OneNote, e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
 

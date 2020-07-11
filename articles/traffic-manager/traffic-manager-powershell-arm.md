@@ -11,11 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
-ms.openlocfilehash: de637bc30420ce494e553100a9f1126e88027bd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af19586807bf676f1f449f7402b364a054721eec
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704153"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187596"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Utilização do PowerShell para gerir o Gestor de Tráfego
 
@@ -29,7 +30,7 @@ O Azure Traffic Manager está configurado usando uma coleção de configuraçõe
 
 Cada perfil de Gestor de Tráfego é representado por um recurso do tipo 'TrafficManagerProfiles'. Ao nível da API REST, o URI para cada perfil é o seguinte:
 
-    https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+`https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}`
 
 ## <a name="setting-up-azure-powershell"></a>Criação do Azure PowerShell
 
@@ -60,7 +61,7 @@ A tabela a seguir descreve os parâmetros:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Name |O nome de recurso para o recurso de perfil do Gestor de Tráfego. Os perfis do mesmo grupo de recursos devem ter nomes únicos. Este nome é separado do nome DNS usado para consultas DNS. |
+| Nome |O nome de recurso para o recurso de perfil do Gestor de Tráfego. Os perfis do mesmo grupo de recursos devem ter nomes únicos. Este nome é separado do nome DNS usado para consultas DNS. |
 | ResourceGroupName |O nome do grupo de recursos que contém o recurso de perfil. |
 | TrafficRoutingMethod |Especifica o método de encaminhamento de tráfego utilizado para determinar qual o ponto final devolvido em resposta a uma consulta de DNS. Os valores possíveis são 'Performance', 'Ponderado' ou 'Prioridade'. |
 | Nome relativo |Especifica a parte do nome anfitrião do nome DNS fornecido por este perfil de Gestor de Tráfego. Este valor é combinado com o nome de domínio DNS usado pelo Azure Traffic Manager para formar o nome de domínio totalmente qualificado (FQDN) do perfil. Por exemplo, definir o valor de 'contoso' torna-se "contoso.trafficmanager.net". |
@@ -320,7 +321,7 @@ Esta sequência também pode ser canalizada:
 Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzTrafficManagerProfile [-Force]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorização do Gestor de Tráfego](traffic-manager-monitoring.md)
 

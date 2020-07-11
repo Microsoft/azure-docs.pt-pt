@@ -1,5 +1,5 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 description: file
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -16,7 +16,7 @@ ms.locfileid: "86109678"
 ---
 Utilize tags HTML para formatar a sua descrição para que seja mais envolvente. A maioria das etiquetas requer um componente de abertura e fecho, como mostrado nesta tabela.
 
-|   Para efetuar isto  |  Utilizar  |  Assim  |  Para obter este   |
+|   Para efetuar isto  |  Utilização  |  Assim  |  Para obter este   |
 | --- | --- | --- | --- |
 |   Negrito  |  `<b> & </b>`  |  `<b>`Exemplo: `</b>` Julgamento gratuito  |  **Exemplo:** Julgamento gratuito   |
 |   Itálico  |  `<i> & </i>`  |  Selecione a `<i>` primeira `</i>` linha.  |  Selecione a *primeira* linha.   |

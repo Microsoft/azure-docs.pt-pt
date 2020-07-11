@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 46aea9ab113a0c75ed24497ee39793d08c4f7165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790896"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146658"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Adicione ou remova atribuições de funções Azure usando Azure PowerShell
 
@@ -108,7 +109,7 @@ Mesmo que um papel seja renomeado, o iD do papel não muda. Se estiver a usar sc
 Para adicionar uma tarefa de função utilizando o ID de função único em vez do nome de função, utilize [o Design New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -Scope <resource_group_name/resource/management groups>
 ```
 
 O exemplo a seguir atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao *alain \@ example.com* utilizador no âmbito do grupo de recursos *de vendas de pharma.* Para obter o ID de papel único, você pode usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções incorporadas Azure](built-in-roles.md).
@@ -226,7 +227,7 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 
 Se receber a mensagem de erro: "As informações fornecidas não mapeiam para uma atribuição de funções", certifique-se de que também especifica os `-Scope` parâmetros ou `-ResourceGroupName` parâmetros. Para mais informações, consulte [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [List Azure fun assignments using Azure PowerShell](role-assignments-list-powershell.md)
 - [Tutorial: Conceder a um grupo acesso aos recursos da Azure utilizando a Azure PowerShell](tutorial-role-assignments-group-powershell.md)

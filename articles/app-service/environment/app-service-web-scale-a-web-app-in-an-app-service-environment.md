@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74688668"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220563"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Aplicativos de escala em um Ambiente de Serviço de Aplicações v1
 No Serviço de Aplicações Azure existem normalmente três coisas que pode escalar:
@@ -29,7 +30,7 @@ No que diz respeito ao tamanho dos trabalhadores, o administrador da ASE pode at
 
 A alteração de qualquer um dos artigos é feita através da UI adequada mostrada para os planos de serviço de aplicações hospedados pela ASE.  
 
-![][1]
+![Screenshot que mostra onde ver os detalhes do plano de serviço escala e o plano de serviço da Piscina dos Trabalhadores.][1]
 
 Não é possível aumentar o seu ASP para além do número de recursos de computação disponíveis na piscina de trabalhadores em que o seu ASP se encontra.  Se precisar de calcular recursos nesse pool de trabalhadores, precisa de obter o seu administrador ASE para adicioná-los.  Para obter informações sobre a reescoguração do seu ASE leia aqui as informações: [Como configurar um ambiente de Serviço de Aplicações][HowtoConfigureASE].  Também pode querer aproveitar as funcionalidades de autoescala ase para adicionar capacidade com base no horário ou métricas.  Para obter mais detalhes sobre a configuração da autoescala para o próprio ambiente ASE, consulte [Como configurar a autoescala para um Ambiente de Serviço de Aplicações][ASEAutoscale].
 
@@ -40,14 +41,14 @@ Quando cria a sua aplicação web pela primeira vez num Ambiente de Serviço de 
 
 Se o seu ASE tem capacidade suficiente, então isto é muito simples.  Você vai ao seu Plano de Serviço de Aplicações que detém os sites que deseja escalar e selecionar Escala.  Isto abre o UI onde pode definir manualmente a balança para o seu ASP ou configurar regras de autoescala para o seu ASP.  Para escalar manualmente a sua aplicação basta definir ***Escala através*** de uma contagem ***de exemplos que eu insira manualmente***.  A partir daqui, arraste o slider para a quantidade desejada ou introduza-o na caixa ao lado do deslizador.  
 
-![][2] 
+![Screenshot que mostra onde pode definir a escala para o seu ASP ou configurar regras de autoescala para o seu ASP.][2] 
 
 As regras de autoescala para um ASP num ASE funcionam da mesma forma que normalmente.  Pode selecionar ***a Percentagem de CPU*** em ***Escala e*** criar regras de autoescala para o seu ASP com base na Percentagem de CPU ou pode criar regras mais complexas usando ***regras de programação e desempenho***.  Para ver mais detalhes completos sobre configurar a autoescalação, utilize o guia aqui [Escala uma aplicação no Azure App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Seleção de piscina de trabalhadores
 Como já foi notado, a seleção da piscina dos trabalhadores é acedida a partir da UI ASP.  Abra a lâmina para o ASP que pretende escalar e selecionar a piscina do trabalhador.  Você verá todas as piscinas de trabalhadores que você configuraram no seu Ambiente de Serviço de Aplicações.  Se você tem apenas uma piscina de trabalhadores, então você só verá a piscina listada.  Para alterar em que grupo de trabalhadores o seu ASP está, basta selecionar o pool de trabalhadores para onde pretende que o seu Plano de Serviço de Aplicações se mude.  
 
-![][3]
+![Screenshot que mostra onde você pode mudar em que trabalhador pool o seu ASP está dentro.][3]
 
 Antes de mover o seu ASP de uma piscina de trabalhadores para outra, é importante ter a certeza de que terá capacidade adequada para o seu ASP.  Na lista de piscinas de trabalhadores, não só o nome da piscina dos trabalhadores está listado, como também pode ver quantos trabalhadores estão disponíveis nessa piscina de trabalhadores.  Certifique-se de que existem casos suficientes disponíveis para conter o seu Plano de Serviço de Aplicações.  Se precisar de mais recursos de computação no pool de trabalhadores para onde pretende mudar-se, então faça com que o administrador da ASE os adicione.  
 

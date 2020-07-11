@@ -4,11 +4,12 @@ description: O lote suporta o Azure AD para autenticação a partir do serviço 
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed2bfb8e0fbaff0b7ad0ded734e33512c82a4040
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958213"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86170314"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço batch com Diretório Ativo
 
@@ -62,7 +63,7 @@ Depois de ter registado o seu pedido, verá o ID da aplicação:
 
 ![Registe a sua aplicação de Lote com Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-Para obter mais informações sobre o registo de uma aplicação com Azure AD, consulte [Cenários de Autenticação para Azure AD](../active-directory/develop/authentication-scenarios.md).
+Para obter mais informações sobre o registo de uma aplicação com Azure AD, consulte [Cenários de Autenticação para Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Obtenha a iD do inquilino para o seu Diretório Ativo
 
@@ -120,7 +121,7 @@ Siga os passos abaixo no portal do Azure:
 
 ### <a name="assign-rbac-to-your-application"></a>Atribua o RBAC à sua aplicação
 
-Para autenticar com um diretor de serviço, precisa de atribuir o RBAC à sua aplicação. Siga estes passos.
+Para autenticar com um diretor de serviço, precisa de atribuir o RBAC à sua aplicação. Siga estes passos:
 
 1. No portal Azure, navegue para a conta Batch utilizada pela sua aplicação.
 1. Na secção **Definições** da conta Lote, selecione **Access Control (IAM)**.
@@ -416,7 +417,7 @@ Utilize as credenciais principais de serviço para abrir um objeto **BatchServic
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a Azure AD, consulte a [Documentação do Diretório Ativo Azure](../active-directory/index.yml). Exemplos aprofundados que mostram como utilizar o ADAL estão disponíveis na biblioteca [Azure Code Samples.](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
@@ -426,8 +427,8 @@ Utilize as credenciais principais de serviço para abrir um objeto **BatchServic
 
 - Para um exemplo python de como criar um cliente Batch autenticado usando um token AD Azure, consulte a Imagem Personalizada do [Lote de Azure implantando com uma](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) amostra de Script Python.
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é O Diretório Ativo Azure?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Cenários de autenticação para Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integração de Aplicações com Diretório Ativo Azure"
+[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "O que é O Diretório Ativo Azure?"
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Cenários de autenticação para Azure AD"
+[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Integração de Aplicações com Diretório Ativo Azure"
 [azure_portal]: https://portal.azure.com

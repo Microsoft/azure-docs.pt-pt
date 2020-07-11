@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53a7e113d64ea4cf7018d51a44f9488342f1470f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83715635"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187154"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Resolução de problemas Iniciar/Parar VMs durante problemas fora de horas
 
@@ -98,7 +99,7 @@ Este erro pode ser causado por uma das seguintes razões:
 
 Reveja a seguinte lista para potenciais resoluções:
 
-* Verifique se configurau corretamente um horário para VMs de início/paragem durante as horas de folga. Para aprender a configurar um horário, consulte [horários.](../automation-schedules.md)
+* Verifique se configurau corretamente um horário para VMs de início/paragem durante as horas de folga. Para aprender a configurar um horário, consulte [horários.](../shared-resources/schedules.md)
 
 * Verifique os [fluxos de trabalho](../automation-runbook-execution.md#job-statuses) para procurar quaisquer erros. Procure empregos a partir de um dos seguintes livros:
 
@@ -227,7 +228,7 @@ Muitas vezes os erros podem ser causados pela utilização de uma versão antiga
 
 Para resolver muitos erros, remova e [atualize VMs iniciar/parar durante as horas de folga](../automation-solution-vm-management.md#update-the-feature). Também pode verificar os [fluxos de trabalho](../automation-runbook-execution.md#job-statuses) para procurar quaisquer erros. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

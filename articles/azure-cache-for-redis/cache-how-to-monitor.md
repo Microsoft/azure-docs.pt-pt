@@ -6,11 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 86cbeddba699e89ce1127dbac72dac81dcc41449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd228add317b5c4cd19f1d0daefa90ce3c937b7
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76547494"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86184876"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorizar a Cache Azure para Redis
 
@@ -67,7 +68,7 @@ Para configurar uma conta de armazenamento para as suas métricas de cache:
 4. Verifique **o Arquivo numa conta de armazenamento.** Serão cobradas taxas normais de dados para armazenamento e transações quando enviar diagnósticos para uma conta de armazenamento.
 4. Selecione **Configurar** para escolher a conta de armazenamento na qual guarde as métricas de cache.
 5. Sob a **métrica**da cabeça da mesa, verifique a caixa ao lado dos itens de linha que pretende armazenar, como **a AllMetrics**. Especificar uma política **de retenção (dias).** A retenção máxima de dias que pode especificar é **de 365 dias.** No entanto, se quiser reter os dados das métricas para sempre, desembarate **a Retenção (dias)** para **0**.
-6. Clique em **Guardar**.
+6. Clique em **Save** (Guardar).
 
 
 ![Diagnósticos de Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -93,7 +94,7 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de toda a cac
 > 
 > 
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | --- | --- |
 | Acertos na Cache |O número de exames de chave bem sucedidos durante o intervalo de reporte especificado. Este número mapeia para `keyspace_hits` a partir do comando REDIS [INFO.](https://redis.io/commands/info) |
 | Latência cache (pré-visualização) | A latência da cache calculada com base na latência internada da cache. Esta métrica é medida em microsegundos, e tem três dimensões: `Avg` , e , que representam a `Min` `Max` média, mínima e a latência máxima da cache, respectivamente durante o intervalo de reporte especificado. |
@@ -102,13 +103,13 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de toda a cac
 | Escrita na Cache |A quantidade de dados escritos na cache em Megabytes por segundo (MB/s) durante o intervalo de reporte especificado. Este valor é derivado dos cartões de interface de rede que suportam a máquina virtual que hospeda a cache e não é específica do Redis. Este valor corresponde à largura de banda de rede dos dados enviados para a cache do cliente. |
 | Clientes Ligados |O número de ligações do cliente à cache durante o intervalo de reporte especificado. Este número mapeia para `connected_clients` a partir do comando REDIS INFO. Uma vez atingido o [limite de ligação,](cache-configure.md#default-redis-server-configuration) as tentativas de ligação subsequentes à cache falharão. Mesmo que não existam aplicações ativas de clientes, pode ainda haver alguns casos de clientes conectados devido a processos internos e conexões. |
 | CPU |A utilização do CPU da Cache Azure para o servidor Redis em percentagem durante o intervalo de reporte especificado. Este valor mapeia para o contador de desempenho do sistema `\Processor(_Total)\% Processor Time` operativo. |
-| Erros | Falhas específicas e problemas de desempenho que a cache pode estar a experimentar durante um intervalo de reporte especificado. Esta métrica tem oito dimensões que representam diferentes tipos de erro, mas poderia ter sido adicionada no futuro. Os tipos de erros agora representados são os seguintes: <br/><ul><li>**Failover** – quando uma cache falha (subordinado promove a dominar)</li><li>**Dataloss** – quando há perda de dados na cache</li><li>**Sem RespostaSAtenção** – quando os clientes não estão a ler dados do servidor suficientemente rápido</li><li>**AOF** – quando há um problema relacionado com a persistência da AOF</li><li>**RDB** – quando há um problema relacionado com a persistência do RDB</li><li>**Importação** – quando há uma questão relacionada com a Importação RDB</li><li>**Exportação** – quando há uma questão relacionada com a Exportação de RDB</li></ul> |
+| Erros | Falhas específicas e problemas de desempenho que a cache pode estar a experimentar durante um intervalo de reporte especificado. Esta métrica tem oito dimensões que representam diferentes tipos de erro, mas poderia ter sido adicionada no futuro. Os tipos de erros agora representados são os seguintes: <br/><ul><li>**Failover** – quando uma cache falha (subordinado promove ao primário)</li><li>**Dataloss** – quando há perda de dados na cache</li><li>**Sem RespostaSAtenção** – quando os clientes não estão a ler dados do servidor suficientemente rápido</li><li>**AOF** – quando há um problema relacionado com a persistência da AOF</li><li>**RDB** – quando há um problema relacionado com a persistência do RDB</li><li>**Importação** – quando há uma questão relacionada com a Importação RDB</li><li>**Exportação** – quando há uma questão relacionada com a Exportação de RDB</li></ul> |
 | Chaves Excluídas |O número de artigos despejados da cache durante o intervalo de reporte especificado devido ao `maxmemory` limite. Este número mapeia para `evicted_keys` a partir do comando REDIS INFO. |
 | Chaves Expiradas |O número de itens expirou a partir da cache durante o intervalo de reporte especificado. Este valor mapeia para `expired_keys` a partir do comando REDIS INFO.|
 | Obtenções |O número de operações de obtém da cache durante o intervalo de reporte especificado. Este valor é a soma dos seguintes valores do Redis INFO todos os `cmdstat_get` `cmdstat_hget` `cmdstat_hgetall` comandos: , , , , e é equivalente à soma de cache hits e `cmdstat_hmget` `cmdstat_mget` `cmdstat_getbit` `cmdstat_getrange` misses durante o intervalo de reporte. |
 | Operações por Segundo | O número total de comandos processados por segundo pelo servidor cache durante o intervalo de reporte especificado.  Este valor mapeia para "instantaneous_ops_per_sec" a partir do comando Redis INFO. |
 | Carga do servidor Redis |A percentagem de ciclos em que o servidor Redis está ocupado a processar e não está à espera de mensagens inativas. Se este contador chegar aos 100, significa que o servidor Redis atingiu um teto de desempenho e o CPU não pode processar o trabalho mais rápido. Se estiver a ver uma carga elevada do Redis Server, verá exceções no tempo limite no cliente. Neste caso, deve considerar aumentar ou dividir os seus dados em várias caches. |
-| Definições |O número de operações definidas na cache durante o intervalo de reporte especificado. Este valor é a soma dos seguintes valores do Redis INFO todos os comandos: , , , , , , , `cmdstat_set` `cmdstat_hset` , , , `cmdstat_hmset` e `cmdstat_hsetnx` `cmdstat_lset` `cmdstat_mset` `cmdstat_msetnx` `cmdstat_setbit` `cmdstat_setex` `cmdstat_setrange` `cmdstat_setnx` . |
+| Conjuntos |O número de operações definidas na cache durante o intervalo de reporte especificado. Este valor é a soma dos seguintes valores do Redis INFO todos os comandos: , , , , , , , `cmdstat_set` `cmdstat_hset` , , , `cmdstat_hmset` e `cmdstat_hsetnx` `cmdstat_lset` `cmdstat_mset` `cmdstat_msetnx` `cmdstat_setbit` `cmdstat_setex` `cmdstat_setrange` `cmdstat_setnx` . |
 | Chaves totais  | O número máximo de chaves na cache durante o período de tempo de reporte anterior. Este número mapeia para `keyspace` a partir do comando REDIS INFO. Devido a uma limitação do sistema de métricas subjacente, para caches com agrupamento ativado, a Total Keys devolve o número máximo de chaves do fragmento que tinha o número máximo de chaves durante o intervalo de reporte.  |
 | Total de Operações |O número total de comandos processados pelo servidor cache durante o intervalo de reporte especificado. Este valor mapeia para `total_commands_processed` a partir do comando REDIS INFO. Quando a Cache Azure para Redis é utilizada exclusivamente para pub/sub, não haverá métricas para `Cache Hits` , , ou , mas `Cache Misses` `Gets` `Sets` haverá `Total Operations` métricas que refletem o uso da cache para pub/sub operações. |
 | Memória Utilizada |A quantidade de memória de cache utilizada para os pares chave/valor na cache em MB durante o intervalo de reporte especificado. Este valor mapeia para `used_memory` a partir do comando REDIS INFO. Este valor não inclui metadados ou fragmentação. |

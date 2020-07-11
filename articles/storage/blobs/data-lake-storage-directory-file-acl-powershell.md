@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 67aa9fcb51742432dcd629073f15a65d14bf3597
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d22b83e1f3464f6d87d2bc3821682b25e05d947b
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961205"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86142538"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o PowerShell para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -81,11 +81,11 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-file-system"></a>Criar um sistema de ficheiros
+## <a name="create-a-container"></a>Criar um contentor
 
-Um sistema de ficheiros funciona como um recipiente para os seus ficheiros. Pode criar um utilizando o `New-AzStorageContainer` cmdlet. 
+Um contentor funciona como um sistema de ficheiros para os seus ficheiros. Pode criar um utilizando o `New-AzStorageContainer` cmdlet. 
 
-Este exemplo cria um sistema de ficheiros chamado `my-file-system` .
+Este exemplo cria um recipiente chamado `my-file-system` .
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -96,7 +96,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 Crie uma referência de diretório utilizando o `New-AzDataLakeGen2Item` cmdlet. 
 
-Este exemplo adiciona um diretório nomeado `my-directory` a um sistema de ficheiros.
+Este exemplo adiciona um diretório nomeado `my-directory` a um contentor.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -202,7 +202,7 @@ $properties.Group
 $properties.Owner
 ```
 
-Para listar o conteúdo de um sistema de ficheiros, omita o `-Path` parâmetro do comando.
+Para listar o conteúdo de um recipiente, omita o `-Path` parâmetro do comando.
 
 ## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório
 
@@ -270,7 +270,7 @@ Pode obter, definir e atualizar permissões de acesso de diretórios e ficheiros
 
 Obtenha o ACL de um diretório ou ficheiro utilizando o `Get-AzDataLakeGen2Item` cmdlet.
 
-Este exemplo obtém o ACL do diretório de raiz de um sistema de **ficheiros** e, em seguida, imprime o ACL na consola.
+Este exemplo obtém o ACL do diretório de raiz de um **recipiente** e, em seguida, imprime o ACL na consola.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -305,7 +305,7 @@ Neste exemplo, o próprio utilizador leu, escreveu e executou permissões. O gru
 
 Utilize o `set-AzDataLakeGen2ItemAclObject` cmdlet para criar um ACL para o utilizador, grupo próprio ou outros utilizadores. Em seguida, use o `Update-AzDataLakeGen2Item` cmdlet para cometer a ACL.
 
-Este exemplo define o ACL no diretório de raiz de um sistema de **ficheiros** para o utilizador próprio, grupo próprio ou outros utilizadores, e depois imprime o ACL à consola.
+Este exemplo coloca o ACL no diretório de raiz de um **recipiente** para o utilizador próprio, grupo próprio ou outros utilizadores, e depois imprime o ACL à consola.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -349,9 +349,9 @@ A imagem a seguir mostra a saída após a definição do ACL de um ficheiro.
 Neste exemplo, o próprio utilizador e o grupo de proprietária apenas leram e escreveram permissões. Todos os outros utilizadores têm permissões de escrita e execução. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
-### <a name="set-acls-on-all-items-in-a-file-system"></a>Definir ACLs em todos os itens num sistema de ficheiros
+### <a name="set-acls-on-all-items-in-a-container"></a>Definir ACLs em todos os itens em um recipiente
 
-Pode utilizar o `Get-AzDataLakeGen2Item` e o `-Recurse` parâmetro juntamente com o `Update-AzDataLakeGen2Item` cmdlet para recursivamente definir o ACL para diretórios e ficheiros num sistema de ficheiros. 
+Pode utilizar o `Get-AzDataLakeGen2Item` e o `-Recurse` parâmetro juntamente com o `Update-AzDataLakeGen2Item` cmdlet para recursivamente definir o ACL para diretórios e ficheiros num recipiente. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -422,7 +422,7 @@ A tabela seguinte mostra como os cmdlets usados para o mapa de Data Lake Storage
 |Set-AzDataStoreItemOwner<br>Set-AzDataStoreItemPermission<br>Set-AzDataStoreItemAcl|Atualização-AzDataLakeGen2Item|O cmdlet Update-AzDataLakeGen2Item atualiza apenas um item e não recursivamente. Se pretender atualizar novamente, liste os itens utilizando o cmdlet Get-AzDataLakeStoreChildItem e, em seguida, faça o pipeline para o cmdlet Update-AzDataGen2Item.|
 |Teste-AzDataLakeStoreItem|Get-AzDataGen2Item|O cmdlet Get-AzDataLakeGen2Item reportará um erro se o item não existir.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)

@@ -9,11 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830128"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86185845"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Encriptação de recursos seguros na Automatização do Azure
 
@@ -51,12 +52,12 @@ Antes de ativar as chaves geridas pelo cliente para uma conta Demôm automação
 
  - A chave manejada pelo cliente está guardada num Cofre de Chaves Azure. 
  - Ativar as propriedades **Soft Delete** e **Não Purgar** no cofre da chave. Estas características são necessárias para permitir a recuperação das chaves em caso de eliminação acidental.
- - Apenas as teclas RSA são suportadas com encriptação Azure Automation. Para obter mais informações sobre as chaves, consulte [as chaves, segredos e certificados do Azure Key Vault.](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+ - Apenas as teclas RSA são suportadas com encriptação Azure Automation. Para obter mais informações sobre as chaves, consulte [as chaves, segredos e certificados do Azure Key Vault.](../key-vault/general/about-keys-secrets-certificates.md)
 - A conta Automation e o cofre-chave podem estar em diferentes subscrições, mas precisam de estar no mesmo inquilino do Azure Ative Directory.
 
 ### <a name="assignment-of-an-identity-to-the-automation-account"></a>Atribuição de uma identidade à conta Automation
 
-Para utilizar chaves geridas pelo cliente com uma conta Automation, a sua conta Automation precisa de autenticar contra o cofre-chave que armazena as chaves geridas pelo cliente. A Azure Automation utiliza identidades geridas do sistema para autenticar a conta com o Azure Key Vault. Para obter mais informações sobre identidades geridas, veja [quais são as identidades geridas para os recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para utilizar chaves geridas pelo cliente com uma conta Automation, a sua conta Automation precisa de autenticar contra o cofre-chave que armazena as chaves geridas pelo cliente. A Azure Automation utiliza identidades geridas do sistema para autenticar a conta com o Azure Key Vault. Para obter mais informações sobre identidades geridas, veja [quais são as identidades geridas para os recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 Configure um sistema atribuído à conta Automation' (2H00)
 
@@ -184,9 +185,9 @@ Rodar a tecla não desencadeia a reencriminação de ativos seguros na conta Aut
 
 ## <a name="revocation-of-access-to-a-customer-managed-key"></a>Revogação do acesso a uma chave gerida pelo cliente
 
-Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para obter mais informações, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) ou [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). A revogação do acesso bloqueia eficazmente o acesso a todos os ativos seguros na conta Automation, uma vez que a chave de encriptação é inacessível pela Azure Automation.
+Para revogar o acesso às chaves geridas pelo cliente, utilize o PowerShell ou o Azure CLI. Para obter mais informações, consulte [Azure Key Vault PowerShell](/powershell/module/az.keyvault/) ou [Azure Key Vault CLI](/cli/azure/keyvault). A revogação do acesso bloqueia eficazmente o acesso a todos os ativos seguros na conta Automation, uma vez que a chave de encriptação é inacessível pela Azure Automation.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para entender o Azure Key Vault, veja [o que é Azure Key Vault?](../key-vault/general/overview.md)
 - Para trabalhar com certificados, consulte [Gerir certificados na Azure Automation.](shared-resources/certificates.md)
