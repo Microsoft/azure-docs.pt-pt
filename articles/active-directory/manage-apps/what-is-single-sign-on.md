@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a50f2cf6fc00189c8cc764a132b550153b80b52e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b7b2a75bff21825a47f4364a8936ee7d5f122c1a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144597"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223895"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é o Início de Sessão Único (SSO)?
 
@@ -40,7 +40,7 @@ Este fluxograma ajuda-o a decidir qual o método de inscrição único melhor pa
 
 A tabela a seguir resume os métodos de inscrição única e liga-se a mais detalhes.
 
-| Método de inscrição único | Tipos de aplicações | Quando utilizar |
+| Método de inscrição único | Tipos de aplicação | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem apenas | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
 | [SAML](#saml-sso) | nuvem e no local | Escolha SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam usando um dos protocolos SAML.|
@@ -90,6 +90,9 @@ Escolha o único sinal de sôm- insi por palavra-passe quando:
 - Uma aplicação não suporta um único protocolo de inscrição da SAML.
 - Uma aplicação autentica-se com um nome de utilizador e palavra-passe em vez de acesso a tokens e cabeçalhos.
 
+>[!NOTE]
+>Não é possível aplicar políticas de acesso condicional ou autenticação de vários fatores para SSO baseado em palavras-passe.
+
 O único sinal baseado em palavra-passe é suportado para qualquer aplicação baseada na nuvem que tenha uma página de surgiusinseção baseada em HTML. O utilizador pode utilizar qualquer um dos seguintes navegadores:
 
 - Internet Explorer 11 no Windows 7 ou mais tarde
@@ -136,6 +139,9 @@ O sign-on ligado permite que a Azure AD forneça um único sinal de acesso a uma
 O s-on ligado pode proporcionar uma experiência consistente do utilizador enquanto migra aplicações durante um período de tempo. Se estiver a migrar aplicações para o Azure Ative Directory, pode utilizar o sign-on ligado para publicar rapidamente links para todas as aplicações que pretende migrar.  Os utilizadores podem encontrar todos os links no [portal MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou no [launcher da aplicação Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Os utilizadores não saberão que estão a aceder a uma aplicação ligada ou a uma aplicação migratória.  
 
 Uma vez que um utilizador tenha autenticado com uma aplicação ligada, é necessário criar um registo de conta antes de o utilizador final ter acesso único de s.a.. O provisionamento deste registo de conta pode ocorrer automaticamente ou pode ocorrer manualmente por um administrador.
+
+>[!NOTE]
+>Não é possível aplicar políticas de acesso condicional ou autenticação de vários fatores a uma aplicação ligada. Isto porque uma aplicação ligada não fornece capacidades únicas de inscrição através do Azure AD. Ao configurar uma aplicação ligada, está simplesmente a adicionar um link que aparecerá no lançador de aplicações ou no portal MyApps. 
 
 ## <a name="disabled-sso"></a>SSO desativado
 

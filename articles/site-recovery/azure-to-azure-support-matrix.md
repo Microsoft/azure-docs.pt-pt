@@ -2,14 +2,14 @@
 title: Matriz de suporte para recuperação de desastres Azure VM com recuperação do local de Azure
 description: Resume o apoio à recuperação de desastres dos VMs do Azure para uma região secundária com recuperação do local de Azure.
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 07/10/2020
 ms.author: raynew
-ms.openlocfilehash: c729645eadc192dba4d7bb4f2c346d7b9d36434a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d56a507586c9d62fdbeae01d47bb734b98bf385b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132686"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223810"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de apoio à recuperação de desastres em Azure VM entre regiões de Azure
 
@@ -205,7 +205,7 @@ Disco temporário | Não suportado | O disco temporário está sempre excluído 
 Tamanho máximo do disco de dados | 8192 GB para discos geridos<br></br>4095 GB para discos não geridos|
 Tamanho mínimo do disco de dados | Sem restrições para discos não geridos. 2 GB para discos geridos |
 Número máximo do disco de dados | Até 64, de acordo com o suporte para um tamanho Azure VM específico | [Saiba mais](../virtual-machines/windows/sizes.md) sobre os tamanhos de VM.
-Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento standard. | Se a taxa média de alteração de dados no disco for continuamente superior ao máximo, a replicação não se alcança.<br/><br/>  No entanto, se o máximo for ultrapassado esporadicamente, a replicação pode recuperar, mas poderá ver pontos de recuperação ligeiramente atrasados.
+Taxa de alteração do disco de dados | Máximo de 20 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento standard. | Se a taxa média de alteração de dados no disco for continuamente superior ao máximo, a replicação não se alcança.<br/><br/>  No entanto, se o máximo for ultrapassado esporadicamente, a replicação pode recuperar, mas poderá ver pontos de recuperação ligeiramente atrasados.
 Disco de dados - conta de armazenamento padrão | Suportado |
 Disco de dados - conta de armazenamento premium | Suportado | Se um VM tiver discos espalhados por contas de armazenamento premium e standard, pode selecionar uma conta de armazenamento de alvo diferente para cada disco, para garantir que tem a mesma configuração de armazenamento na região alvo.
 Disco gerido - padrão | Apoiado nas regiões de Azure em que a Recuperação do Sítio Azure é apoiada. |
@@ -216,6 +216,7 @@ Armazenamento fresco e quente | Não suportado | Os discos VM não são suportad
 Espaços de Armazenamento | Suportado |
 Encriptação em repouso (SSE) | Suportado | SSE é a definição padrão nas contas de armazenamento.
 Encriptação em repouso (CMK) | Suportado | Tanto as teclas de Software como as teclas HSM são suportadas para discos geridos
+Dupla encriptação em repouso | Suportado | Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
 Encriptação do disco Azure (ADE) para o Windows OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. |
 Encriptação do disco Azure (ADE) para Linux OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. |
 Adicionar quente    | Suportado | Ativar a replicação de um disco de dados que adiciona a um VM Azure replicado é suportado para VMs que utilizam discos geridos. <br/><br/> Apenas um disco pode ser adicionado quente a um Azure VM de cada vez. A adição paralela de vários discos não é suportada. |
@@ -234,6 +235,7 @@ Contas de armazenamento V2 para fins gerais (nível quente e fresco) | Suportado
 Geração 2 (bota UEFI) | Suportado
 Discos NVMe | Não suportado
 Discos partilhados do Azure | Não suportado
+Opção de transferência segura | Suportado
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que segue a escalabilidade do disco VM e os alvos de desempenho para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [do Windows.](../virtual-machines/windows/disk-scalability-targets.md) Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessários, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga a escalabilidade do disco e os alvos de desempenho para os seus VMs de origem.
@@ -281,6 +283,8 @@ IPv6  | Não suportado | As configurações mistas que incluem o IPv4 e o IPv6 t
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
 - Leia [orientação de rede](./azure-to-azure-about-networking.md) para replicar VMs Azure.
 - Implementar a recuperação de [desastres replicando VMs Azure](./azure-to-azure-quickstart.md).
+

@@ -3,8 +3,8 @@ title: Integre o Microsoft Azure com a Oracle Cloud Infrastructure Microsoft Doc
 description: Conheça as soluções que integram as aplicações da Oracle em execução no Microsoft Azure com bases de dados em Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d93446f4db914c736235daeb4e08e82b9ff00e62
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299881"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224507"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicações oracle que integram a Microsoft Azure e a Oracle Cloud Infrastructure
 
@@ -77,7 +78,7 @@ A identidade é um dos pilares fundamentais da parceria entre a Microsoft e a Or
 
 Atualmente, esta integração permite-lhe gerir numa localização central, que é o Azure Ative Directory. O Azure AD sincroniza quaisquer alterações no diretório com o diretório oráculo correspondente e é utilizado para soluções oracle de sinalização única e de nuvem cruzada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com uma [rede de nuvens cruzadas](configure-azure-oci-networking.md) entre o Azure e o OCI. 
 

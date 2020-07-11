@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b66ef1a28faf97759045d40ea0f649282b2d837
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91360776c50ce514985ad36242606223becbd933
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392957"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230881"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação personalizada de e-mail com Mailjet
 
@@ -57,7 +57,7 @@ Em seguida, guarde a chave API mailjet numa chave de política Azure AD B2C para
 
 ## <a name="create-a-mailjet-template"></a>Criar um modelo de mailjet
 
-Com uma conta Mailjet criada e a chave API Mailjet armazenada numa chave de política Azure AD B2C, crie um [modelo de transacional dinâmico](https://Mailjet.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)Mailjet .
+Com uma conta Mailjet criada e a chave API Mailjet armazenada numa chave de política Azure AD B2C, crie um [modelo de transacional dinâmico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)Mailjet .
 
 1. No site mailjet, abra a página [de modelos de transação](https://app.mailjet.com/templates/transactional) e selecione **Criar um novo modelo**.
 1. **Selecione codificando-o em HTML**e, em seguida, selecione Código do **zero**.
@@ -499,7 +499,7 @@ Para localizado o e-mail, tem de enviar cordas localizadas para o Mailjet ou par
     </InputClaimsTransformations>
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar um exemplo de uma política de verificação de email personalizada no GitHub:
 

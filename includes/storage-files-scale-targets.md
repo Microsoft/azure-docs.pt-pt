@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cf9be653da2dd587b93724b6e319dc4d20686c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c130fb2e032a24384f52f11957632319093e1e3
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536450"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226408"
 ---
 | Recurso | Ações de ficheiros padrão | Ações de ficheiros premium |
 |----------|---------------|------------------------------------------|
@@ -22,7 +22,7 @@ ms.locfileid: "81536450"
 | Produção de destino para uma única partilha de ficheiros | até 300 MiB/seg*, até 60 MiB/seg,  | Ver valores de entradas e saídas de ficheiros premium|
 | Saída máxima para uma única partilha de ficheiros | Ver produção-alvo de partilha de ficheiros padrão | Até 6.204 MiB/s |
 | Entrada máxima para uma única partilha de ficheiros | Ver produção-alvo de partilha de ficheiros padrão | Até 4.136 MiB/s |
-| Pegas abertas máximas por ficheiro | 2.000 pegas abertas | 2.000 pegas abertas |
+| Pegas abertas máximas por ficheiro ou diretório | 2.000 pegas abertas | 2.000 pegas abertas |
 | Número máximo de instantâneos de partilha | 200 fotos partilhadas | 200 fotos partilhadas |
 | Comprimento máximo do nome do objeto (diretórios e ficheiros) | 2.048 caracteres | 2.048 caracteres |
 | Componente de nome de pathname máximo (no caminho \A\B\C\D, cada letra é um componente) | 255 caracteres | 255 caracteres |

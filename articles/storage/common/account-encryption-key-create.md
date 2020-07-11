@@ -10,12 +10,12 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf7d72e6f16605827b55e3a460a9b28010842d2f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805703"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220835"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Crie uma conta que suporte chaves geridas pelo cliente para mesas e filas
 
@@ -31,7 +31,7 @@ Pode criar uma conta de armazenamento que se baseie na chave de encriptação da
 
 - E.U.A. Leste
 - E.U.A. Centro-Sul
-- E.U.A.Oeste 2  
+- E.U.A. Oeste 2  
 
 ### <a name="register-to-use-the-account-encryption-key"></a>Registar-se para utilizar a chave de encriptação da conta
 
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para verificar se um serviço numa conta de armazenamento está a usar a chave de encriptação da conta, ligue para o comando da [conta de armazenamento AZ.](/cli/azure/storage/account#az-storage-account-show) Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo para cada serviço dentro da propriedade de encriptação e verifique se está definido para `Account` .
+Para verificar se um serviço numa conta de armazenamento está a usar a chave de encriptação da conta, ligue para o comando [do show da conta de armazenamento AZ.](/cli/azure/storage/account#az-storage-account-show) Este comando devolve um conjunto de propriedades de conta de armazenamento e seus valores. Procure o `keyType` campo para cada serviço dentro da propriedade de encriptação e verifique se está definido para `Account` .
 
 ```azurecli
 az storage account show /
@@ -251,7 +251,7 @@ N/D
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos) 
 - [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

@@ -3,12 +3,12 @@ title: Exportação com Stream Analytics da Azure Application Insights / Microso
 description: O Stream Analytics pode transformar, filtrar e encaminhar continuamente os dados que exporta do Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 400c727b44d3794dc9a17c59959dc5c75cea71fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110492"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224524"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilize o Stream Analytics para processar dados exportados a partir de Insights de Aplicação
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para o processamento de dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de fontes. Pode transformar e filtrar os dados, e depois encaminhá-lo para uma variedade de pias.
@@ -60,7 +60,7 @@ A exportação contínua produz sempre dados para uma conta de Armazenamento Azu
     Além disso, os dados serão exportadas para o seu armazenamento. 
 2. Inspecione os dados exportados. No Estúdio Visual, escolha **View / Cloud Explorer,** e abra O Azure / Storage. (Se não tiver esta opção de menu, tem de instalar o Azure SDK: Abra o diálogo do Novo Projeto e abra o Visual C# / Cloud / Obtenha o Microsoft Azure SDK para .NET.)
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![Screenshot mostrando como definir os tipos de eventos que você deseja ver.](./media/export-stream-analytics/04-data.png)
    
     Tome nota da parte comum do nome do caminho, que é derivado do nome da aplicação e da chave de instrumentação. 
 
@@ -69,21 +69,21 @@ Os eventos são escritos para ficheiros blob no formato JSON. Cada ficheiro pode
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar um exemplo de Azure Stream Analytics
 A partir do [portal Azure,](https://portal.azure.com/)selecione o serviço Azure Stream Analytics e crie um novo trabalho stream Analytics:
 
-![](./media/export-stream-analytics/SA001.png)
+![Screenshot que mostra a página principal para criar o trabalho stream Analytics no portal Azure.](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![Screenshot que mostra os detalhes necessários ao criar um novo trabalho stream Analytics.](./media/export-stream-analytics/SA002.png)
 
 Quando o novo trabalho for criado, selecione **Ir para o recurso**.
 
-![](./media/export-stream-analytics/SA003.png)
+![Screenshot que mostra a mensagem recebida quando a nova implementação de trabalho stream Analytics é bem sucedida.](./media/export-stream-analytics/SA003.png)
 
 ### <a name="add-a-new-input"></a>Adicione uma nova entrada
 
-![](./media/export-stream-analytics/SA004.png)
+![Screenshot que mostra como adicionar entradas ao trabalho stream Analytics.](./media/export-stream-analytics/SA004.png)
 
 Desacalça-o para obter a entrada da sua bolha de exportação contínua:
 
-![](./media/export-stream-analytics/SA0005.png)
+![Screenshot que mostra configurar o trabalho stream Analytics para obter a entrada de uma bolha de exportação contínua.](./media/export-stream-analytics/SA0005.png)
 
 Agora vai precisar da chave de acesso primário da sua conta de armazenamento, que observou anteriormente. Desa esta medida como a chave de conta de armazenamento.
 
@@ -109,7 +109,7 @@ Neste exemplo:
 ## <a name="add-new-output"></a>Adicionar nova saída
 Agora selecione o seu trabalho > **Outputs**  >  **Add**.
 
-![](./media/export-stream-analytics/SA006.png)
+![Screenshot que mostra selecionar o seu trabalho Stream Analytics para adicionar uma nova saída.](./media/export-stream-analytics/SA006.png)
 
 
 ![Selecione o novo canal, clique em Saídas, Adicionar, Power BI](./media/export-stream-analytics/SA010.png)
@@ -208,7 +208,7 @@ Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Exportação contínua](export-telemetry.md)
 * [Referência detalhada do modelo de dados para os tipos e valores da propriedade.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)

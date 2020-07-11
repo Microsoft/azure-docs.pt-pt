@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81455367"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231714"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de aparelho virtual
 Um cenário comum entre o maior cliente Azure é a necessidade de fornecer uma aplicação de dois níveis exposta à Internet, ao mesmo tempo que permite o acesso ao nível de trás a partir de um datacenter no local. Este documento irá acompanhá-lo através de um cenário que utiliza as Rotas Definidas pelo Utilizador (UDR), um Gateway VPN e aparelhos virtuais de rede para implantar um ambiente de dois níveis que satisfaça os seguintes requisitos:
@@ -31,10 +31,10 @@ Um cenário comum entre o maior cliente Azure é a necessidade de fornecer uma a
 
 Este é um cenário de rede de perímetro padrão (também conhecido como DMZ) com um DMZ e uma rede protegida. Tal cenário pode ser construído em Azure usando NSGs, aparelhos virtuais de firewall ou uma combinação de ambos. A tabela abaixo mostra alguns dos prós e contras entre NSGs e aparelhos virtuais de firewall.
 
-|  | Vantagens | Contras |
+|  | Vantagens | Desvantagens |
 | --- | --- | --- |
-| NSG |Sem custo. <br/>Integrado no Azure RBAC. <br/>As regras podem ser criadas nos modelos do Gestor de Recursos Azure. |A complexidade pode variar em ambientes maiores. |
-| Firewall |Controlo total sobre o plano de dados. <br/>Gestão central através da consola de firewall. |Custo do aparelho de firewall. <br/>Não integrado com a Azure RBAC. |
+| **NSG** |Sem custo. <br/>Integrado no Azure RBAC. <br/>As regras podem ser criadas nos modelos do Gestor de Recursos Azure. |A complexidade pode variar em ambientes maiores. |
+| **Firewall** |Controlo total sobre o plano de dados. <br/>Gestão central através da consola de firewall. |Custo do aparelho de firewall. <br/>Não integrado com a Azure RBAC. |
 
 A solução abaixo utiliza aparelhos virtuais de firewall para implementar uma rede de perímetro (DMZ)/cenário de rede protegida.
 

@@ -8,17 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 8109b7b1f6cd8477d49bafd114be24b91530d123
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734967"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221454"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Alterar o SKU para um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure existentes
 
-Nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS), o desempenho e funcionalidades disponíveis são baseados no tipo SKU. Estas diferenças incluem a frequência de backup ou o número máximo de fundos florestais de saída de ida (atualmente em pré-visualização). Selecione um SKU quando cria o domínio gerido e pode mudar os SKUs para cima ou para baixo à medida que o seu negócio necessita de ser alterado após a implementação do domínio gerido. As alterações nos requisitos empresariais podem incluir a necessidade de cópias de segurança mais frequentes ou de criar fundos florestais adicionais. Para obter mais informações sobre os limites e preços dos diferentes SKUs, consulte os [conceitos AZure AD DS SKU][concepts-sku] e as páginas [de preços da Azure AD DS.][pricing]
+Nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS), o desempenho e funcionalidades disponíveis são baseados no tipo SKU. Estas diferenças incluem a frequência de backup ou o número máximo de fundos florestais de saída de ida (atualmente em pré-visualização).
+
+Selecione um SKU quando cria o domínio gerido e pode mudar os SKUs para cima ou para baixo à medida que o seu negócio necessita de ser alterado após a implementação do domínio gerido. As alterações nos requisitos empresariais podem incluir a necessidade de cópias de segurança mais frequentes ou de criar fundos florestais adicionais. Para obter mais informações sobre os limites e preços dos diferentes SKUs, consulte os [conceitos AZure AD DS SKU][concepts-sku] e as páginas [de preços da Azure AD DS.][pricing]
 
 Este artigo mostra-lhe como mudar o SKU para um domínio gerido Azure AD DS existente usando o portal Azure.
 
@@ -61,7 +64,7 @@ Para alterar o SKU para um domínio gerido utilizando o portal Azure, complete o
 
 Pode levar um minuto ou dois para mudar o tipo SKU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver uma floresta de recursos e quiser criar fundos adicionais após a mudança do SKU, consulte [Criar uma confiança florestal de saída para um domínio no local em Azure AD DS (pré-visualização)][create-trust].
 

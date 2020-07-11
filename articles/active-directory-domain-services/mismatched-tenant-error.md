@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 40dd985b7cf09ddc2a902630cec3f0c74a1edbe1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734610"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223487"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Resolver erros de diretório desajustados para os domínios geridos pelo Azure Ative Directory Domain Services
 
@@ -27,26 +28,32 @@ Este artigo explica por que o erro ocorre e como resolvê-lo.
 
 Um erro de diretório desajustado ocorre quando um domínio gerido AZure AD DS e rede virtual pertencem a dois inquilinos AD Azure diferentes. Por exemplo, você pode ter um domínio gerido chamado *aaddscontoso.com* que funciona no inquilino AD Azure de Contoso. No entanto, a rede virtual Azure para domínio gerido faz parte do inquilino da AD Fabrikam Azure.
 
-O Azure utiliza o controlo de acesso baseado em funções (RBAC) para limitar o acesso aos recursos. Quando você ativa Azure AD DS em um inquilino AZURE AD, as hashes credenciais são sincronizadas para o domínio gerido. Esta operação requer que você seja um administrador inquilino para o diretório AZure AD, e o acesso às credenciais deve ser controlado. Para implantar recursos para uma rede virtual Azure e controlar o tráfego, você deve ter privilégios administrativos na rede virtual em que você implementa Azure AD DS.
+O Azure utiliza o controlo de acesso baseado em funções (RBAC) para limitar o acesso aos recursos. Quando você ativa Azure AD DS em um inquilino AZURE AD, as hashes credenciais são sincronizadas para o domínio gerido. Esta operação requer que você seja um administrador inquilino para o diretório AZure AD, e o acesso às credenciais deve ser controlado.
+
+Para implantar recursos para uma rede virtual Azure e controlar o tráfego, você deve ter privilégios administrativos na rede virtual em que você implementa o domínio gerido.
 
 Para que o RBAC funcione de forma consistente e segura o acesso a todos os recursos que o Azure AD usa, o domínio gerido e a rede virtual devem pertencer ao mesmo inquilino AD AZure.
 
-As seguintes regras aplicam-se no ambiente gestor de recursos:
+Aplicam-se as seguintes regras para as implantações:
 
 - Um diretório AD Azure pode ter várias subscrições Azure.
 - Uma subscrição do Azure pode ter vários recursos, como redes virtuais.
-- Um único domínio gerido por Azure AD Domain Services está ativado para um diretório AD Azure.
-- Um domínio gerido pelos Serviços de Domínio Azure AD pode ser ativado numa rede virtual pertencente a qualquer uma das subscrições do Azure dentro do mesmo inquilino AZure AD.
+- Um único domínio gerido está ativado para um diretório AD Azure.
+- Um domínio gerido pode ser ativado numa rede virtual pertencente a qualquer uma das subscrições Azure dentro do mesmo inquilino AZure AD.
 
 ### <a name="valid-configuration"></a>Configuração válida
 
-No seguinte cenário de implantação de exemplo, o domínio gerido por Contoso está ativado no inquilino Da AD Contoso Azure. O domínio gerido é implantado numa rede virtual que pertence a uma subscrição da Azure detida pelo inquilino DaD Contoso Azure. Tanto o domínio gerido como a rede virtual pertencem ao mesmo inquilino AD AZure. Esta configuração de exemplo é válida e totalmente suportada.
+No seguinte cenário de implantação de exemplo, o domínio gerido por Contoso está ativado no inquilino Da AD Contoso Azure. O domínio gerido é implantado numa rede virtual que pertence a uma subscrição da Azure detida pelo inquilino DaD Contoso Azure.
+
+Tanto o domínio gerido como a rede virtual pertencem ao mesmo inquilino AD AZure. Esta configuração de exemplo é válida e totalmente suportada.
 
 ![Configuração de inquilino válido Azure AD DS com o domínio gerido e parte da rede virtual do mesmo inquilino AD AZure](./media/getting-started/valid-tenant-config.png)
 
 ### <a name="mismatched-tenant-configuration"></a>Configuração de inquilino desajustada
 
-Neste cenário de implantação de exemplo, o domínio gerido por Contoso está ativado no inquilino Da AD Contoso Azure. No entanto, o domínio gerido é implantado numa rede virtual que pertence a uma subscrição da Azure detida pelo inquilino da AD Fabrikam Azure. O domínio gerido e a rede virtual pertencem a dois inquilinos AD Azure diferentes. Esta configuração de exemplo é um inquilino desajustado e não é suportado. A rede virtual deve ser transferida para o mesmo inquilino AZure AD que o domínio gerido.
+Neste cenário de implantação de exemplo, o domínio gerido por Contoso está ativado no inquilino Da AD Contoso Azure. No entanto, o domínio gerido é implantado numa rede virtual que pertence a uma subscrição da Azure detida pelo inquilino da AD Fabrikam Azure.
+
+O domínio gerido e a rede virtual pertencem a dois inquilinos AD Azure diferentes. Esta configuração de exemplo é um inquilino desajustado e não é suportado. A rede virtual deve ser transferida para o mesmo inquilino AZure AD que o domínio gerido.
 
 ![Configuração de inquilino desajustada](./media/getting-started/mismatched-tenant-config.png)
 
@@ -54,9 +61,9 @@ Neste cenário de implantação de exemplo, o domínio gerido por Contoso está 
 
 As duas opções seguintes resolvem o erro de diretório desajustado:
 
-* [Elimine o domínio gerido](delete-aadds.md) do seu diretório AD Azure existente. [Crie um domínio gerido por substituição](tutorial-create-instance.md) no mesmo diretório AD Azure que a rede virtual que pretende utilizar. Quando estiver pronto, junte todas as máquinas previamente unidas ao domínio eliminado ao domínio gerido recriado.
+* Em primeiro lugar, [elimine o domínio gerido](delete-aadds.md) do seu diretório AD Azure existente. Em seguida, [crie um domínio gerido de substituição](tutorial-create-instance.md) no mesmo diretório AD Azure que a rede virtual que pretende utilizar. Quando estiver pronto, junte todas as máquinas previamente unidas ao domínio eliminado ao domínio gerido recriado.
 * [Mover a assinatura Azure](../cost-management-billing/manage/billing-subscription-transfer.md) contendo a rede virtual para o mesmo diretório AD Azure que o domínio gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre problemas de resolução de problemas com a Azure AD DS, consulte o [guia de resolução de problemas](troubleshoot.md).

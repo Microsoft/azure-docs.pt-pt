@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 14da272ce5ce7c078719909345961f6ddf57f37b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833796"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224099"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -797,11 +797,11 @@ Para garantir plenamente os pontos finais da sua função na produção, deve co
 
 Na versão 1.x, os modelos webhook fornecem validação adicional para cargas webhook. Na versão 2.x e superior, o gatilho HTTP base ainda funciona e é a abordagem recomendada para webhooks. 
 
-### <a name="github-webhooks"></a>Webhooks gitHub
+### <a name="github-webhooks"></a>Webhooks do GitHub
 
 Para responder a webhooks GitHub, primeiro crie a sua função com um trigger HTTP e desloque a propriedade **webHookType** para `github` . Em seguida, copie a sua chave URL e API na página **Add webhook** do seu repositório GitHub. 
 
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![Screenshot que mostra como adicionar um webhook para a sua função.](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### <a name="slack-webhooks"></a>Webhooks de slack
 
@@ -829,6 +829,6 @@ O comprimento do pedido HTTP é limitado a 100 MB (104.857.600 bytes), e o compr
 Se uma função que utiliza o gatilho HTTP não estiver concluída dentro de 230 segundos, o Balançador de [Carga Azure](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) irá esgotar-se e devolver-lhe um erro HTTP 502. A função continuará a funcionar mas não poderá devolver uma resposta HTTP. Para funções de longa duração, recomendamos que siga os padrões async e devolva um local onde possa verificar o estado do pedido. Para obter informações sobre quanto tempo uma função pode funcionar, consulte [Escala e hospedagem - Plano de consumo](functions-scale.md#timeout).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Devolver uma resposta HTTP de uma função](./functions-bindings-http-webhook-output.md)

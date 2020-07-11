@@ -7,13 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733403"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223045"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 
@@ -31,8 +32,8 @@ Para completar este artigo, precisa dos seguintes recursos e privilégios:
     * Se necessário, [crie um inquilino do Azure Ative Directory][create-azure-ad-tenant] ou [associe uma assinatura Azure à sua conta.][associate-azure-ad-tenant]
 * Um domínio de domínio do Azure Ative Directory Services gerido ativo e configurado no seu inquilino AZure AD.
     * Se necessário, complete o tutorial para criar e configurar um domínio gerido pelos [Serviços de Domínio do Diretório Ativo Azure][create-azure-ad-ds-instance].
-* Eventos de auditoria de segurança habilitados para o seu Azure Ative Directory Domain Services geriram o domínio que transmite dados para um espaço de trabalho log analytics.
-    * Se necessário, [ative as auditorias de segurança para os Serviços de Domínio do Diretório Ativo Azure][enable-security-audits].
+* Eventos de auditoria de segurança habilitados para o seu domínio gerido que fluem dados para um espaço de trabalho Log Analytics.
+    * Se necessário, [permitir auditorias de segurança para a Azure AD DS][enable-security-audits].
 
 ## <a name="azure-monitor-workbooks-overview"></a>Visão geral dos livros de trabalho do Monitor Azure
 
@@ -60,11 +61,13 @@ Para aceder ao modelo de livro para o relatório geral de segurança, complete o
     ![Selecione a opção de menu de livros de trabalho no portal Azure](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Escolha o **Relatório geral de segurança**.
-1. A partir dos menus suspensos no topo do livro, selecione a sua subscrição Azure e, em seguida, o espaço de trabalho do Azure Monitor. Escolha um **intervalo de tempo,** como *os últimos 7 dias*.
+1. A partir dos menus suspensos no topo do livro, selecione a sua subscrição Azure e, em seguida, um espaço de trabalho do Azure Monitor.
+
+    Escolha um **intervalo de tempo**, como os *últimos 7 dias*, como mostrado no seguinte exemplo de imagem:
 
     ![Selecione a opção de menu de livros de trabalho no portal Azure](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
-    As opções **de visualização de azulejos** e **gráficos** também podem ser alteradas para analisar e visualizar os dados como desejado
+    As opções **de visualização de azulejos** e **gráficos** também podem ser alteradas para analisar e visualizar os dados conforme desejado.
 
 1. Para aprofundar um tipo de evento específico, selecione um dos cartões **de resultado de entrada de inscrição,** como conta *bloqueada,* como mostra o seguinte exemplo:
 
@@ -84,7 +87,11 @@ Para aceder ao modelo de livro para o relatório de atividade da conta, complete
 1. Selecione o seu domínio gerido, como *aaddscontoso.com*
 1. A partir do menu do lado esquerdo, escolha **Monitoring > Workbooks**
 1. Escolha o **Relatório de Atividade da Conta.**
-1. A partir dos menus suspensos no topo do livro, selecione a sua subscrição Azure e, em seguida, o espaço de trabalho do Azure Monitor. Escolha um **intervalo de tempo**, como os *últimos 30 dias*, então como pretende que a vista de **Azulejos** represente os dados. Pode filtrar o **nome de utilizador da conta**, como o *félix,* como mostra o seguinte relatório de exemplo:
+1. A partir dos menus suspensos no topo do livro, selecione a sua subscrição Azure e, em seguida, um espaço de trabalho do Azure Monitor.
+
+    Escolha um **intervalo de tempo**, como os *últimos 30 dias*, então como pretende que a vista de **Azulejos** represente os dados.
+
+    Pode filtrar o **nome de utilizador da conta**, como o *félix,* como mostra o seguinte relatório de exemplo:
 
     [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
@@ -101,7 +108,7 @@ Os dois livros de modelo fornecidos pela Azure AD DS são um bom lugar para come
 
 Todos os gráficos e tabelas em Azure Monitor Workbooks são gerados usando consultas kusto. Para obter mais informações sobre a criação das suas próprias consultas, consulte [as consultas de registo do Azure Monitor][azure-monitor-queries] e o tutorial de consultas de [Kusto.][kusto-queries]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de ajustar as políticas de senha e bloqueio, consulte [as políticas de bloqueio de passwords e de conta em domínios geridos][password-policy].
 

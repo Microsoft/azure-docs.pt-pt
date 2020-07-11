@@ -4,11 +4,12 @@ description: Saiba mais sobre o dimensionamento no Serviço Azure Kubernetes (AK
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 83cbaf49f26a53518b1aa1e211b61af1959642a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c9c3cf159d67d2f4acaaab943ecf9d99263ae55
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465342"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223844"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -79,13 +80,13 @@ Para escalar rapidamente o seu cluster AKS, pode integrar-se com instâncias de 
 
 ![Kubernetes explodem escalando para ACI](media/concepts-scale/burst-scaling.png)
 
-O ACI permite-lhe implantar rapidamente casos de contentores sem sobrecargas adicionais de infraestruturas. Quando se conecta com a AKS, a ACI torna-se uma extensão lógica segura do seu cluster AKS. O componente [de nós virtuais,][virtual-nodes-cli] baseado no [Kubelet Virtual,][virtual-kubelet]está instalado no seu cluster AKS que apresenta o ACI como um nó virtual de Kubernetes. Os Kubernetes podem então agendar cápsulas que funcionam como instâncias ACI através de nós virtuais, e não como pods nos nós VM diretamente no seu cluster AKS. Os nós virtuais estão atualmente em pré-visualização em AKS.
+O ACI permite-lhe implantar rapidamente casos de contentores sem sobrecargas adicionais de infraestruturas. Quando se conecta com a AKS, a ACI torna-se uma extensão lógica segura do seu cluster AKS. O componente [de nós virtuais,][virtual-nodes-cli] baseado no [Kubelet Virtual,][virtual-kubelet]está instalado no seu cluster AKS que apresenta o ACI como um nó virtual de Kubernetes. Os Kubernetes podem então agendar cápsulas que funcionam como instâncias ACI através de nós virtuais, e não como pods nos nós VM diretamente no seu cluster AKS.
 
 A sua aplicação não requer modificação para usar nós virtuais. As implementações podem escalar através de AKS e ACI e sem atrasos, uma vez que o autoescalador de cluster implementa novos nós no seu cluster AKS.
 
 Os nós virtuais são implantados numa sub-rede adicional na mesma rede virtual que o seu cluster AKS. Esta configuração de rede virtual permite que o tráfego entre ACI e AKS seja seguro. Como um cluster AKS, um caso ACI é um recurso de computação segura e lógica que é isolado de outros utilizadores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com aplicações de escala, siga primeiro o [quickstart para criar um cluster AKS com o Azure CLI][aks-quickstart]. Em seguida, pode começar a escalar as aplicações manualmente ou automaticamente no seu cluster AKS:
 

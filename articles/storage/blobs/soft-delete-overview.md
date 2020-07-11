@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: dd5d9c721c3e0204a66367b76654f9a917e26ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e84e845910b8f84a9b3f84ad414f2ecdd250a5
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82884634"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223793"
 ---
 # <a name="soft-delete-for-blob-storage"></a>Excluir suave para armazenamento Blob
 
@@ -53,7 +54,7 @@ A eliminação suave preserva os seus dados em muitos casos em que os objetos s�
 
 Quando uma bolha é substituída através do **Put Blob**, **Put Block List**, ou Copy **Blob**, uma versão ou instantâneo do estado da bolha antes da operação de escrita é gerada automaticamente. Este objeto é invisível a menos que os objetos apagados sejam explicitamente listados. Consulte a secção [Recovery](#recovery) para saber como listar objetos apagados suaves.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
+![Um diagrama que mostra como as imagens de bolhas são armazenadas à medida que são substituídas através da Put Blob, Put Block List ou Copy Blob.](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
 *Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Quando B0 é substituído com B1, é gerada uma imagem suave apagada de B0. Quando B1 é substituído com B2, é gerada uma imagem suave apagada de B1.*
 
@@ -65,13 +66,13 @@ Quando uma bolha é substituída através do **Put Blob**, **Put Block List**, o
 
 Quando **delete Blob** é chamado em um instantâneo, esse instantâneo é marcado como suave apagado. Um novo instantâneo não é gerado.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
+![Um diagrama que mostra como as imagens de bolhas são apagadas suavemente quando se utilizam Delete Blob.](media/soft-delete-overview/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
 *Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Quando **o Snapshot Blob** é chamado, B0 torna-se um instantâneo e B1 é o estado ativo da bolha. Quando a imagem B0 é apagada, é marcada como suavemente apagada.*
 
 Quando **delete Blob** é chamado numa bolha de base (qualquer bolha que não seja em si uma instantânea), essa bolha é marcada como suave apagada. Consistente com o comportamento anterior, chamar **Delete Blob** numa bolha que tenha instantâneos ativos devolve um erro. Chamar **Delete Blob** numa bolha com instantâneos apagados suaves não devolve um erro. Pode ainda apagar uma bolha e todas as suas imagens numa única operação quando a eliminação suave é ligada. Ao fazê-lo, marca a bolha de base e as instantâneas como suaves apagadas.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
+![Um diagrama que mostra o que acontece quando o Delete Blog é chamado numa bolha de base.](media/soft-delete-overview/storage-blob-soft-delete-explicit-include.png)
 
 *Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Aqui, é feita uma chamada **Delete Blob** para eliminar B2 e todas as imagens associadas. A bolha ativa, B2, e todos os instantâneos associados são marcados como suaves apagados.*
 
@@ -104,7 +105,7 @@ Chamar a operação [Undelete Blob](/rest/api/storageservices/undelete-blob) num
 
 Para restaurar uma bolha para um instantâneo específico e suave, pode chamar **Undelete Blob** na bolha de base. Em seguida, pode copiar a imagem sobre a bolha agora ativa. Também pode copiar a imagem para uma nova bolha.
 
-![](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
+![Um diagrama que mostra o que acontece quando a bolha undelete é usada.](media/soft-delete-overview/storage-blob-soft-delete-recover.png)
 
 *Os dados apagados suaves são cinzentos, enquanto os dados ativos são azuis. Os dados mais recentemente escritos aparecem abaixo dos dados mais antigos. Aqui, **Undelete Blob** é chamado na bolha B, restaurando assim a bolha de base, B1, e todos os instantâneos associados, aqui apenas B0, como ativo. No segundo passo, B0 é copiado sobre a bolha da base. Esta operação de cópia gera uma imagem suave apagada de B1.*
 
@@ -190,7 +191,7 @@ Uma máquina virtual Azure escreve para um disco não gerido usando chamadas par
 
 É possível aproveitar a eliminação suave independentemente da versão API que está a utilizar. No entanto, para listar e recuperar blobs e snapshots de bolhas apagadas suaves, terá de utilizar a versão 2017-07-29 da [API de Armazenamento Azure REST](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou superior. A Microsoft recomenda sempre a utilização da versão mais recente da Azure Storage API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar a eliminação suave para bolhas](soft-delete-enable.md)
 - [Veragem blob (pré-visualização)](versioning-overview.md)

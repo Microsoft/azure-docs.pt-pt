@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: 95ca527d8f7912e2c455f94036fe61828b220257
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121474"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229453"
 ---
 # <a name="what-is-a-test-drive"></a>O que é uma versão de teste?
 
@@ -74,7 +74,7 @@ O processo de transformar uma arquitetura de recursos num test drive pode ser as
 
 ## <a name="generate-leads-from-your-test-drive"></a>Gerer os cabos a partir da sua unidade de teste
 
-Um test drive de marketplace comercial é uma ótima ferramenta para os marketers. Recomendamos que incorpore-o nos seus esforços de ir ao mercado quando lançar para gerar mais pistas para o seu negócio. Para obter orientações detalhadas, consulte [os leads do Cliente da sua oferta de mercado comercial.](https://github.com/partner-center-portal/commercial-marketplace-get-customer-leads.md)
+Um test drive de marketplace comercial é uma ótima ferramenta para os marketers. Recomendamos que incorpore-o nos seus esforços de ir ao mercado quando lançar para gerar mais pistas para o seu negócio. Para obter orientações detalhadas, consulte [os leads do Cliente da sua oferta de mercado comercial.](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads.md)
 
 Se fechar um acordo com um cabo de test drive, certifique-se de que o regista no [Microsoft Partner Sales Connect](https://support.microsoft.com/help/3155788/getting-started-with-microsoft-partner-sales-connect). Além disso, gostaríamos de saber que o seu cliente ganha onde um test drive desempenhou um papel.
 

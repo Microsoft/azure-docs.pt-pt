@@ -3,8 +3,8 @@ title: Conceber e implementar uma base de dados da Oracle no Azure Microsoft Doc
 description: Desenhe e implemente uma base de dados Oracle no seu ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
-ms.openlocfilehash: ad446180b3bd864c5b6df808e6e4efac7d6c1c65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: b553256d3e6a498e36e8b5c98d90c6c14b10df75
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687528"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224575"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -52,10 +53,10 @@ O quadro que se segue enumera algumas das diferenças entre uma implementação 
 > | **Recurso** |Dedicada  |Partilhado com outros clientes|
 > | **Regiões** |Datacenters |[Pares de região](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **Armazenamento** |DISCOS SAN/Físicos |[Armazenamento gerido pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Escala** |Escala vertical |Dimensionamento horizontal|
+> | **Dimensionamento** |Escala vertical |Dimensionamento horizontal|
 
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 - Determine o tamanho e a taxa de crescimento da base de dados.
 - Determine os requisitos do IOPS, que pode estimar com base em relatórios oracle AWR ou outras ferramentas de monitorização da rede.
@@ -143,7 +144,7 @@ Com base nos requisitos de largura de banda da sua rede, existem vários tipos d
 - A latência da rede é maior em comparação com uma implantação no local. A redução das viagens de ida e volta na rede pode melhorar consideravelmente o desempenho.
 - Para reduzir as viagens de ida e volta, consolidar aplicações que tenham transações elevadas ou aplicações "chatty" na mesma máquina virtual.
 - Utilize máquinas virtuais com [rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para um melhor desempenho da rede.
-- Para certas distruções do Linux, considere permitir o [suporte TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Para certas distribuições do Linux, considere permitir o [suporte TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Instale [o Gestor da Empresa Oracle](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) numa máquina virtual separada.
 - As páginas enormes não são ativadas no linux por defeito. Considere ativar páginas enormes e definir `use_large_pages = ONLY` no Oráculo DB. Isto pode ajudar a aumentar o desempenho. Mais informações podem ser [encontradas aqui.](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)
 
@@ -231,7 +232,7 @@ Depois de configurar e configurar o seu ambiente Azure, o próximo passo é prot
 - [Configure Portão Dourado oráculo](configure-oracle-golden-gate.md)
 - [Apoio e recuperação da Oráculo](oracle-backup-recovery.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 - [Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)

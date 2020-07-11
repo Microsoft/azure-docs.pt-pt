@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: a3e78ff2936cb3dbbc1bcf432f130fbd17622d14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610071"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223463"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -181,7 +181,27 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
 |Ao rever imagens, imagens recentemente rotuladas não são mostradas.     |   Para carregar todas as imagens etiquetadas, escolha o botão **First.** O botão **First** irá levá-lo de volta para a frente da lista, mas carrega todos os dados rotulados.      |
 |Premir a tecla Esc durante a rotulagem para deteção de objetos cria uma etiqueta de tamanho zero no canto superior esquerdo. Enviar etiquetas neste estado falha.     |   Elimine a etiqueta clicando na marca transversal ao lado.  |
 
-### <a name="data-drift-monitors"></a>Monitores de deriva de dados
+### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitores de deriva de dados
+
+Limitações e questões conhecidas para monitores de deriva de dados:
+
+* O intervalo de tempo ao analisar dados históricos limita-se a 31 intervalos da definição de frequência do monitor. 
+* Limitação de 200 funcionalidades, a menos que não seja especificada uma lista de recursos (todas as funcionalidades utilizadas).
+* O tamanho do cálculo deve ser grande o suficiente para lidar com os dados.
+* Certifique-se de que o seu conjunto de dados tem dados dentro da data de início e de fim para uma determinada execução do monitor.
+* Os monitores do Dataset só funcionarão em conjuntos de dados que contenham 50 linhas ou mais.
+* Colunas ou características, no conjunto de dados são classificadas como categóricas ou numéricas com base nas condições do quadro seguinte. Se a funcionalidade não corresponder a estas condições - por exemplo, uma coluna de tipo string com >100 valores únicos - a funcionalidade é retirada do nosso algoritmo de deriva de dados, mas ainda está perfilada. 
+
+    | Tipo de recurso | Tipo de dados | Condição | Limitações | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categórico | corda, bool, int, flutuar | O número de valores únicos na funcionalidade é inferior a 100 e menos de 5% do número de linhas. | O nulo é tratado como a sua própria categoria. | 
+    | Numérico | int, flutuar | Os valores na funcionalidade são de um tipo de dado numérico e não correspondem à condição de uma característica categórica. | A função caiu se >15% dos valores forem nulos. | 
+
+* Quando tiver [criado um monitor à deriva de dados,](how-to-monitor-datasets.md) mas não conseguir ver dados na página de monitores do **Dataset** no estúdio Azure Machine Learning, experimente o seguinte.
+
+    1. Verifique se selecionou o intervalo de datas certo no topo da página.  
+    1. No **separador Dataset Monitors,** selecione o link de experiência para verificar o estado da execução.  Esta ligação está na extrema direita da mesa.
+    1. Se o funcionado for concluído com sucesso, verifique os registos do controlador para ver quantas métricas foram geradas ou se há alguma mensagem de aviso.  Encontre registos de controlador no **separador Saída + registos** depois de clicar numa experiência.
 
 * Se a função SDK `backfill()` não gerar a saída esperada, poderá ser devido a um problema de autenticação.  Quando criar o cálculo para passar para esta função, não utilize `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, utilize [a Concessão de ServiçoPrincipal,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) como a seguinte, para criar o cálculo que passa para essa `backfill()` função: 
 
@@ -320,7 +340,7 @@ Se efetuar uma operação de gestão num alvo de computação a partir de um tra
 
 Por exemplo, receberá um erro se tentar criar ou anexar um alvo de cálculo a partir de um Pipeline ML que é submetido para execução remota.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

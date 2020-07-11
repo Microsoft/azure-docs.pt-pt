@@ -9,17 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: b9770e46e8e52d8644143c9912c98e0f7913db9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734287"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223402"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Compreenda os estados de saúde e resolva domínios suspensos nos Serviços de Domínio do Diretório Ativo do Azure
 
-Quando o Azure Ative Directory Domain Services (Azure AD DS) não consegue servir um domínio gerido por um longo período de tempo, coloca o domínio gerido num estado suspenso. Se um domínio gerido permanecer então em estado suspenso, é automaticamente eliminado. Para manter o seu Azure AD DS gerido domínio saudável e evitar a suspensão, resolva quaisquer alertas o mais rápido possível.
+Quando o Azure Ative Directory Domain Services (Azure AD DS) não consegue servir um domínio gerido por um longo período de tempo, coloca o domínio gerido num estado suspenso. Se um domínio gerido permanecer num estado suspenso, é automaticamente eliminado. Para manter o seu Azure AD DS gerido domínio saudável e evitar a suspensão, resolva quaisquer alertas o mais rápido possível.
 
 Este artigo explica por que os domínios geridos são suspensos e como recuperar um domínio suspenso.
 
@@ -31,14 +32,14 @@ Através do ciclo de vida de um domínio gerido, existem diferentes estados que 
 
 Um domínio gerido pode estar num dos seguintes estados:
 
-* [A executar](#running-state)
+* [Em Execução](#running-state)
 * [Precisa de atenção](#needs-attention-state)
 * [Suspenso](#suspended-state)
 * [Eliminado](#deleted-state)
 
 ## <a name="running-state"></a>Estado de funcionamento
 
-Um domínio gerido que está configurado corretamente e funcionando sem problemas está no estado *de Execução.* Este é o estado desejado para um domínio gerido.
+Um domínio gerido que está configurado corretamente e sem problemas está no estado *de Corrida.* Este é o estado desejado para um domínio gerido.
 
 ### <a name="what-to-expect"></a>O que esperar
 
@@ -49,7 +50,9 @@ Um domínio gerido que está configurado corretamente e funcionando sem problema
 
 ## <a name="needs-attention-state"></a>Precisa de estado de atenção
 
-Um domínio gerido com um ou mais problemas que precisam de ser corrigidos está no estado *de atenção das Necessidades.* A página de saúde do domínio gerido lista os alertas, e indica onde há um problema. Alguns alertas são transitórios e são automaticamente resolvidos pela plataforma Azure. Para outros alertas, pode corrigir o problema seguindo as etapas de resolução fornecidas. Há um alerta crítico, abra um pedido de [apoio do Azure][azure-support] para assistência adicional para resolução de problemas.
+Um domínio gerido com um ou mais problemas que precisam de ser corrigidos está no estado *de atenção das Necessidades.* A página de saúde do domínio gerido lista os alertas, e indica onde há um problema.
+
+Alguns alertas são transitórios e são automaticamente resolvidos pela plataforma Azure. Para outros alertas, pode corrigir o problema seguindo as etapas de resolução fornecidas. Há um alerta crítico, abra um pedido de [apoio do Azure][azure-support] para assistência adicional para resolução de problemas.
 
 Um exemplo de alerta é quando há um grupo restritivo de segurança de rede. Nesta configuração, a plataforma Azure pode não ser capaz de atualizar e monitorizar o domínio gerido. Um alerta é gerado, e o estado muda para *Necessidades de atenção*.
 
@@ -57,7 +60,7 @@ Para obter mais informações, consulte [Como resolver alertas para um domínio 
 
 ### <a name="what-to-expect"></a>O que esperar
 
-Quando um domínio gerido se encontra no estado *de Atenção às Necessidades,* a plataforma Azure pode não ser capaz de monitorizar, corrigir, atualizar ou fazer dados de back-up regularmente. Em alguns casos, tal como com uma configuração de rede inválida, os controladores de domínio para o domínio gerido podem ser inacessíveis.
+Quando um domínio gerido se encontra no estado *de Atenção às Necessidades,* a plataforma Azure pode não ser capaz de monitorizar, corrigir, atualizar ou fazer dados de back-up regularmente. Em alguns casos, como uma configuração de rede inválida, os controladores de domínio para o domínio gerido podem ser inacessíveis.
 
 * O domínio gerido encontra-se num estado pouco saudável e a monitorização contínua da saúde pode parar até que o alerta seja resolvido.
 * Os controladores de domínio para o domínio gerido não podem ser remendados ou atualizados.
@@ -101,7 +104,7 @@ Para restaurar a saúde de um domínio gerido que está no estado *suspenso,* co
 
 Um domínio gerido só pode ser restaurado até à data da última cópia de segurança. A data da sua última cópia de segurança é apresentada na página **Saúde** do domínio gerido. Quaisquer alterações que ocorreram após a última cópia de segurança não serão restauradas. As cópias de segurança para um domínio gerido são armazenadas até 30 dias. As cópias de segurança com mais de 30 dias são eliminadas.
 
-Depois de resolver alertas quando o domínio gerido estiver no estado *suspenso,* abra um pedido de apoio do [Azure][azure-support] para regressar a um estado saudável. Se houver uma cópia de segurança inferior a 30 dias, o suporte do Azure pode restaurar o domínio gerido.
+Depois de resolver alertas quando o domínio gerido estiver no estado *suspenso,* abra um pedido de apoio do [Azure][azure-support] para regressar a um estado saudável. Se houver uma cópia de segurança com menos de 30 dias, o suporte do Azure pode restaurar o domínio gerido.
 
 ## <a name="deleted-state"></a>Estado apagado
 
@@ -112,10 +115,10 @@ Se um domínio gerido permanecer no estado *suspenso* por 15 dias, é eliminado.
 Quando um domínio gerido entra no estado *eliminado,* vê-se o seguinte comportamento:
 
 * Todos os recursos e backups para o domínio gerido são eliminados.
-* Não é possível restaurar o domínio gerido e precisa de criar um domínio gerido de substituição para reutilizar o Azure AD DS.
+* Não se pode restaurar o domínio gerido. Tem de criar um domínio gerido por substituição para reutilizar o Azure AD DS.
 * Depois de ser apagado, não é cobrado para o domínio gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para manter o seu domínio gerido saudável e minimizar o risco de ser suspenso, aprenda a [resolver alertas para o seu domínio gerido][resolve-alerts].
 

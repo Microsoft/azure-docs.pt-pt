@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 693e552c8743b435fac6fda9d5ab023be5d9adeb
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77482977"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221141"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sync conteúdo de uma pasta de nuvem para Azure App Service
 Este artigo mostra-lhe como sincronizar o seu conteúdo com [o Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e oneDrive. 
@@ -23,11 +24,11 @@ Para ativar a sincronização de conteúdos, navegue para a sua página de aplic
 
 No menu esquerdo, clique em **Deployment Center**  >  **OneDrive** ou **Dropbox**  >  **Authorize**. Siga as indicações de autorização. 
 
-![](media/app-service-deploy-content-sync/choose-source.png)
+![Mostra como autorizar o OneDrive ou o Dropbox no Centro de Implementação no portal Azure.](media/app-service-deploy-content-sync/choose-source.png)
 
 Só é necessário autorizar com o OneDrive ou o Dropbox uma vez. Se já está autorizado, basta clicar em **Continuar.** Pode alterar a conta oneDrive ou Dropbox autorizada clicando na **conta Change**.
 
-![](media/app-service-deploy-content-sync/continue.png)
+![Mostra como alterar a conta oneDrive ou Dropbox autorizada no Centro de Implementação no portal Azure.](media/app-service-deploy-content-sync/continue.png)
 
 Na página **Configurar,** selecione a pasta que pretende sincronizar. Esta pasta é criada sob o seguinte caminho de conteúdo designado no OneDrive ou dropbox. 
    
@@ -42,7 +43,7 @@ Na página **Resumo,** verifique as suas opções e clique em **Terminar**.
 
 Quando pretender sincronizar o conteúdo na sua pasta de nuvem com o Serviço de Aplicações, volte para a página **do Centro de Implementação** e clique em **Sync**.
 
-![](media/app-service-deploy-content-sync/synchronize.png)
+![Mostra como sincronizar a sua pasta em nuvem com o Serviço de Aplicações.](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
    > Devido às diferenças subjacentes nas APIs, o **OneDrive for Business** não é suportado neste momento. 
@@ -55,11 +56,11 @@ Para desativar a sincronização de conteúdos, navegue para a sua página de ap
 
 No menu esquerdo, clique em **'Desligar o Centro de**  >  **Implementação'.**
 
-![](media/app-service-deploy-content-sync/disable.png)
+![Mostra como desligar a sincronização da pasta cloud com a sua aplicação De Serviço de Aplicações no portal Azure.](media/app-service-deploy-content-sync/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Implantação a partir de git repo local](deploy-local-git.md)

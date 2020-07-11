@@ -3,12 +3,12 @@ title: Perguntas comuns sobre migração de servidores Azure Migrate
 description: Obtenha respostas para perguntas comuns sobre a utilização da migração do servidor Azure Migrate para migrar máquinas.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82744330"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224133"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor Azure Migrate: Questões comuns
 
@@ -27,7 +27,7 @@ Reveja as regiões suportadas em [clouds públicas](migrate-support-matrix.md#su
 
 O método de replicação sem agente para VMware utiliza instantâneos VMware e VMware Change Block Tracking (CBT).
 
-Eis o processo:
+Segue-se o processo:
 
 1. Quando se inicia a replicação, está programado um ciclo inicial de replicação. No ciclo inicial, é tirada uma imagem do VM. O instantâneo é utilizado para replicar os VMs VMDKs (discos). 
 2. Após o fim do ciclo de replicação inicial, os ciclos de replicação delta são programados periodicamente.
@@ -66,6 +66,9 @@ Não. As Zonas de Disponibilidade Azure não são suportadas pela migração do 
 ## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Que protocolo de transporte a Azure Migrate utiliza durante a replicação?
 
 A Azure Migrate utiliza o protocolo dispositivo de bloqueio de rede (NBD) com encriptação TLS.
+
+## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>Como é transmitidos os dados do ambiente on-prem para o Azure? Está encriptado antes da transmissão? 
+O aparelho Azure Migrate no caso de replicação sem agente comprime dados e encripta antes de ser carregado. Os dados são transmitidos através de um canal de comunicação seguro através de https e utilizam o TLS 1.2 ou mais tarde. Além disso, o Azure Storage encripta automaticamente os seus dados quando este é persistido na nuvem (encriptação em repouso).  
 
 ## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Qual é a versão mínima do vCenter Server necessária para a migração?
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: d2e4b07c97e09fce5cdaa034e2fe67a18ef0d7f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b5fad1e287ffca569546092893c4f1a6501a3b7b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171164"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224422"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Gestd Instance frequentemente fez perguntas (FAQ)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -122,56 +122,121 @@ Para utilizar outra zona DNS em vez do padrão, por exemplo, *.contoso.com*:
 - Use o CliConfig para definir um pseudónimo. A ferramenta é apenas um invólucro de definições de registo, para que possa ser feito usando a política de grupo ou um script também.
 - Utilize *CNAME* com a opção *TrustServerCertificate=true.*
 
-## <a name="move-a-database-from-sql-managed-instance"></a>Mover uma base de dados da SQL Managed Instance 
+## <a name="migration-options"></a>Opções de migração
 
-**Como posso mover uma base de dados do SQL Managed Instance de volta para SQL Server ou Azure SQL Database?**
+**Como posso migrar da Base de Dados Azure SQL piscina única ou elástica para SQL Managed Instance?**
 
-Pode [exportar uma base de dados para BACPAC](../database/database-export.md) e depois [importar o ficheiro BACPAC.](../database/database-import.md) Esta é a abordagem recomendada se a sua base de dados for inferior a 100 GB.
+A instância gerida oferece os mesmos níveis de desempenho por computação e tamanho de armazenamento que outras opções de implementação da Base de Dados Azure SQL. Se quiser consolidar dados num único caso, ou simplesmente precisar de uma funcionalidade suportada exclusivamente em caso gerido, pode migrar os seus dados utilizando a funcionalidade de exportação/importação (BACPAC). Aqui estão outras formas de considerar a migração da Base de Dados SQL para a SQL Managed Instance: 
+- Utilização de [Fonte de Dados Externa]()
+- Utilização [de SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
+- Usando o [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
-A replicação transacional pode ser usada se todas as tabelas da base de dados tiverem chaves primárias.
+**Como posso migrar a minha base de dados de casos para uma única Base de Dados Azure SQL?**
 
-As `COPY_ONLY` cópias de segurança nativas retiradas do SQL Managed Instance não podem ser restauradas no SQL Managed Server porque o SQL Managed Instance tem uma versão de base de dados mais alta em comparação com o SQL Server.
+Uma opção é [exportar uma base de dados para BACPAC](../database/database-export.md) e, em seguida, [importar o ficheiro BACPAC.](../database/database-import.md) Esta é a abordagem recomendada se a sua base de dados for inferior a 100 GB.
 
-## <a name="migrate-an-instance-database"></a>Migrar uma base de dados de casos
+[A replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) pode ser utilizada se todas as tabelas da base de dados tiverem chaves *primárias* e não existirem objetos OLTP na base de dados.
 
-**Como posso migrar a minha base de dados de casos para a Base de Dados Azure SQL?**
+As cópias de segurança nativas COPY_ONLY retiradas de instâncias geridas não podem ser restauradas no SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server. Para obter mais detalhes, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)
 
-Uma opção é [exportar a base de dados para um BACPAC](../database/database-export.md) e, em seguida, [importar o ficheiro BACPAC.](../database/database-import.md) 
+**Como posso migrar a minha instância do SQL Server para o SQL Managed Instance?**
 
-Esta é a abordagem recomendada se a sua base de dados for inferior a 100 GB. A replicação transacional pode ser usada se todas as tabelas da base de dados tiverem chaves primárias.
+Para migrar a sua instância sql Server, consulte [a migração de instâncias SQL Server para Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+
+**Como posso migrar de outras plataformas para a SQL Managed Instance?**
+
+Para obter informações sobre migração de outras plataformas, consulte [o Guia de Migração da Base de Dados Azure.](https://datamigration.microsoft.com/)
 
 ## <a name="switch-hardware-generation"></a>Mudar geração de hardware 
 
-**Posso mudar a minha geração de hardware SQL Managed Instance entre a Gen 4 e a Gen 5 online?**
+**Posso mudar a minha geração de hardware de exemplo entre a Gen 4 e a Gen 5 online?**
 
-A comutação on-line automatizada entre gerações de hardware é possível se ambas as gerações de hardware estiverem disponíveis na região onde o SQL Managed Instance é a provisionado. Neste caso, pode consultar a [página de visão geral](../database/service-tiers-vcore.md)do modelo vCore , que explica como alternar entre gerações de hardware.
+A mudança on-line automatizada da Gen4 para a Gen5 é possível se o hardware da Gen5 estiver disponível na região onde a sua instância gerida é a provisionada. Neste caso, pode consultar [a página geral do modelo vCore](../database/service-tiers-vcore.md) explicando como alternar entre gerações de hardware.
 
-Trata-se de uma operação de longa duração, uma vez que uma nova instância gerida será a provisionada em segundo plano e as bases de dados serão automaticamente transferidas entre as instâncias antigas e as novas, com uma rápida falha no final do processo. 
+Trata-se de uma operação de longa duração, uma vez que uma nova instância gerida será ausquisada em segundo plano e as bases de dados serão automaticamente transferidas entre a antiga e a nova instância com uma rápida falha no final do processo.
 
-**E se ambas as gerações de hardware não forem suportadas na mesma região?**
+Nota: O hardware da Gen4 está a ser eliminado e já não está disponível para novas implementações. Todas as novas bases de dados devem ser implantadas no hardware da Gen5. A mudança da Gen5 para a Gen4 também não está disponível.
 
-Se ambas as gerações de hardware não forem suportadas na mesma região, a mudança na geração de hardware é possível, mas deve ser feita manualmente. Isto requer que você fornece um novo caso na região onde a geração de hardware procurado está disponível, e manualmente retroicordá-lo e restaurar dados entre as instâncias antigas e novas.
+## <a name="performance"></a>Desempenho 
 
-**E se não houver endereços IP suficientes para a realização de operação de atualização?**
+**Como posso comparar o desempenho da Instância Gerida com o desempenho do SQL Server?**
 
-Caso não existam endereços IP suficientes na sub-rede onde a sua instância gerida é alocada, terá de criar uma nova sub-rede e uma nova instância gerida no seu interior. Sugerimos também que a nova sub-rede seja criada com mais endereços IP atribuídos para que futuras operações de atualização evitem situações semelhantes. (Para o tamanho adequado da sub-rede, verifique [como determinar o tamanho de uma sub-rede VNet](vnet-subnet-determine-size.md).) Após o fornecimento da nova instância, pode fazer o back up manual e restaurar os dados entre as instâncias antigas e novas ou efetuar [a restauração pontual](point-in-time-restore.md?tabs=azure-powershell)transversal . 
+Para uma comparação de desempenho entre o exemplo gerido e o SQL Server, um bom ponto de partida são [as melhores práticas para comparação de desempenho entre o exemplo gerido do Azure SQL e](https://techcommunity.microsoft.com/t5/azure-sql-database/the-best-practices-for-performance-comparison-between-azure-sql/ba-p/683210) o artigo do SQL Server.
 
+**O que causa diferenças de desempenho entre o Caso Gerido e o Servidor SQL?**
 
-## <a name="tune-performance"></a>Otimizar o desempenho
+Consulte [as principais causas das diferenças de desempenho entre a instância gerida pelo SQL e o SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/). Para obter mais informações sobre o impacto do tamanho do ficheiro de registo no desempenho do caso gerido para fins gerais , consulte [o impacto do tamanho do ficheiro de registo na Finalidade Geral](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-**Como sinto o desempenho de SQL Managed Instance?**
+**Como sinto o desempenho do meu caso?**
 
-SQL Caso gerido no nível de finalidade geral utiliza armazenamento remoto, pelo que o tamanho dos dados e ficheiros de registo é importante para o desempenho. Para obter mais informações, consulte [o impacto do tamanho do ficheiro de registo no desempenho da sql Managed Instance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)para fins gerais .
+Pode otimizar o desempenho da sua instância gerida através de:
+- [Afinação automática](../database/automatic-tuning-overview.md) que proporciona o desempenho máximo e cargas de trabalho estáveis através de afinação contínua do desempenho com base na IA e aprendizagem automática.
+-   [Em memória, o OLTP](../in-memory-oltp-overview.md) melhora a produção e a latência nas cargas de trabalho de processamento transacional e fornece insights de negócio mais rápidos. 
 
-Se a sua carga de trabalho consistir em muitas pequenas transações, considere mudar o tipo de ligação de proxy para modo de redirecionamento.
+Para afinar ainda mais o desempenho, considere aplicar algumas das *melhores práticas* para [aplicação e afinação de bases de dados.](../database/performance-guidance.md#tune-your-database)
+Se a sua carga de trabalho consistir em muitas pequenas transações, considere [mudar o tipo de ligação de proxy para modo de redirecionamento](connection-types-overview.md#changing-connection-type) para menor latência e maior produção.
 
-## <a name="maximum-storage-size"></a>Tamanho máximo de armazenamento
+## <a name="monitoring-metrics-and-alerts"></a>Monitorização, Métricas e Alertas
+
+**Quais são as opções de monitorização e alerta para o meu caso gerido?**
+
+Para todas as opções possíveis para monitorizar e alertar sobre o consumo e desempenho de exemplos geridos [sql SQL, consulte o blog de monitorização de instâncias geridas Azure SQL](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Para a monitorização de desempenho em tempo real para o SQL MI, consulte [a monitorização do desempenho em tempo real para Azure SQL DB Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+
+**Posso usar o PERFIL SQL para rastreio de desempenho?**
+
+Sim, o Perfil SQL é suportado ou SQL Managed Instance. Para mais detalhes, consulte [o SqL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+
+**O Database Advisor e o Questionry Performance Insight são suportados para bases de dados de casos geridos?**
+
+Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.md) e [Loja de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) juntamente com o [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) e [xEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) para monitorizar as suas bases de dados.
+
+**Posso criar alertas métricos no SQL Managed Instance?**
+
+Sim. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
+
+**Posso criar alertas métricos numa base de dados em casos geridos?**
+
+Não é possível, alertando as métricas estão disponíveis apenas para casos geridos. Não estão disponíveis métricas de alerta para bases de dados individuais em casos geridos.
+
+## <a name="storage-size"></a>Tamanho do armazenamento
 
 **Qual é o tamanho máximo de armazenamento para SQL Managed Instance?**
 
 O tamanho do armazenamento para sql Gestd Instance depende do nível de serviço selecionado (Final Geral ou Critical De Negócio). Para limitações de armazenamento destes níveis de serviço, consulte [as características do nível de serviço](../database/service-tiers-general-purpose-business-critical.md).
 
-  
+**Qual é o tamanho mínimo de armazenamento disponível para um caso gerido?**
+
+A quantidade mínima de armazenamento disponível num caso é de 32 GB. O armazenamento pode ser adicionado em incrementos de 32 GB até ao tamanho máximo de armazenamento. Os primeiros 32GB são gratuitos.
+
+**Posso aumentar o espaço de armazenamento atribuído a um caso, independentemente dos recursos de computação?**
+
+Sim, pode comprar armazenamento de complemento, independentemente do cálculo, até certo ponto. Consulte *o armazenamento reservado de instância Max* na [tabela](resource-limits.md#hardware-generation-characteristics).
+
+**Como posso otimizar o meu desempenho de armazenamento no nível de serviço de Finalidade Geral?**
+
+Para otimizar o desempenho do armazenamento, consulte [as melhores práticas de armazenamento em Finalidade Geral](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
+
+## <a name="backup-and-restore"></a>Cópia de segurança e restauro
+
+**O armazenamento de reserva é deduzido do armazenamento de instância gerida?**
+
+Não, o armazenamento de cópias de segurança não é deduzido do seu espaço de armazenamento de instância gerida. O armazenamento de backup é independente do espaço de armazenamento de instância e não é limitado em tamanho. O armazenamento de backup é limitado pelo período de tempo para reter a cópia de segurança das bases de dados do seu caso, configurando até 35 dias. Para mais informações, consulte [cópias de segurança automatizadas.](../database/automated-backups-overview.md)
+
+**Como posso ver quando as cópias de segurança automáticas são feitas no meu caso gerido?**
+Para acompanhar quando foram realizadas cópias de segurança automatizadas em Caso Gerido, consulte [como rastrear a cópia de segurança automatizada para uma Instância Gerida Azure SQL](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
+
+**O apoio a pedido é apoiado?**
+Sim, pode criar uma cópia-apenas cópia de backup no seu Azure Blob Storage, mas só será restaurado em Caso Gerido. Para mais informações, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15) No entanto, a cópia de segurança só é impossível se a base de dados for encriptada pelo TDE gerido pelo serviço, uma vez que o certificado utilizado para encriptação é inacessível. Nesse caso, utilize a função de restauro ponto-a-tempo para mover a base de dados para outra SQL Managed Instance ou mudar para a chave gerida pelo cliente.
+
+**A restauração nativa (de ficheiros .bak) para Instância Gerida é suportada?**
+Sim, é suportado e disponível para versões SQL Server 2005+.  Para utilizar a restauração nativa, faça o upload do seu ficheiro .bak para o armazenamento de blob Azure e execute os comandos T-SQL. Para mais detalhes, consulte [a restauração nativa da URL.](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url)
+
+## <a name="business-continuity"></a>Continuidade do negócio
+
+**As bases de dados do meu sistema são replicadas para a segunda instância num grupo de falhanços?**
+
+As bases de dados do sistema não são replicadas para a instância secundária num grupo de failover. Portanto, os cenários que dependem de objetos das bases de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário. Para obter soluções [alternativas, consulte Ativar cenários dependentes do objeto a partir das bases de dados do sistema](../database/auto-failover-group-overview.md?tabs=azure-powershell#enable-scenarios-dependent-on-objects-from-the-system-databases).
+ 
 ## <a name="networking-requirements"></a>Requisitos de rede 
 
 **Quais são as restrições atuais de entrada/saída nSG na sub-rede de Instância Gerida?**
@@ -231,6 +296,44 @@ Isto não é necessário. Pode [criar uma rede virtual para Azure SQL Managed In
 
 Não. Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
 
+## <a name="connectivity"></a>Conectividade 
+
+**Posso ligar-me à minha instância gerida usando o endereço IP?**
+
+Não, isto não é apoiado. O nome de anfitrião de uma instância gerida mapeia para o equilibrador de carga em frente ao cluster virtual da Instância Gerida. Como um cluster virtual pode hospedar várias Instâncias Geridas, uma ligação não pode ser encaminhada para a instância gerida adequada sem especificar o seu nome.
+Para obter mais informações sobre a arquitetura de cluster virtual SQL Managed Instance, consulte [a arquitetura de conectividade de cluster virtual.](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)
+
+**O meu caso gerido pode ter um endereço IP estático?**
+
+Atualmente, isto não é apoiado.
+
+Em situações raras, mas necessárias, talvez tenhamos de fazer uma migração on-line de um caso gerido para um novo cluster virtual. Se necessário, esta migração deve-se a mudanças na nossa pilha de tecnologia destinadas a melhorar a segurança e a fiabilidade do serviço. Migrar para um novo cluster virtual resulta na alteração do endereço IP que está mapeado para o nome de anfitrião de instância gerida. O serviço de instância gerida não reclama suporte a endereço IP estático e reserva-se o direito de alterá-lo sem aviso prévio como parte de ciclos de manutenção regulares.
+
+Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma vez que poderia causar tempo de inatividade desnecessário.
+
+**A Managed Instance tem um ponto final público?**
+
+Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para a gestão de serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
+
+**Como é que a Managed Instance controla o acesso ao ponto final público?**
+
+A Instância Gerida controla o acesso ao ponto final público tanto a nível da rede como ao nível da aplicação.
+
+Os serviços de gestão e implantação conectam-se a uma instância gerida utilizando um [ponto final de gestão](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) que mapeia para um equilibrador de carga externo. O tráfego só é encaminhado para os nós se for recebido num conjunto de portas predefinido que apenas os componentes de gestão da instância gerida usam. Uma firewall incorporada nos nós é configurada para permitir o tráfego apenas a partir das gamas IP da Microsoft. Os certificados autenticam mutuamente toda a comunicação entre componentes de gestão e o plano de gestão. Para mais detalhes, consulte [a arquitetura de conectividade para sql Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+
+**Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
+
+Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [Portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
+
+**Posso especificar uma porta personalizada para o ponto final de dados SQL?**
+
+Não, esta opção não está disponível.  Para o ponto final de dados privados, a Instância Gerida utiliza o número de porta padrão 1433 e para o ponto final de dados públicos, a Managed Instance utiliza o número de porta padrão 3342.
+
+**Qual é a forma recomendada de ligar instâncias geridas colocadas em diferentes regiões?**
+
+O prescêdo do circuito da Rota Expresso é a forma preferida de o fazer. Isto não deve ser misturado com o espreguiçadamento da rede virtual entre regiões que não é suportado devido à [restrição](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)interna relacionada com o balançador de carga .
+
+Se o perspitamento do circuito De Rota Expresso não for possível, a única outra opção é criar ligação VPN Local-a-Local[(portal Azure,](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI).](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Mitigar riscos de exfiltração de dados  
 
@@ -277,21 +380,6 @@ A configuração do DNS é eventualmente renovada:
 - No upgrade da plataforma.
 
 Como uma solução alternativa, desclasse a SQL Managed Instance para 4 vCores e atualize-a novamente depois. Isto tem um efeito colateral de refrescar a configuração do DNS.
-
-
-## <a name="ip-address"></a>Endereço IP
-
-**Posso ligar-me à SQL Managed Instance usando um endereço IP?**
-
-A ligação à sql Gestd Instance utilizando um endereço IP não é suportada. O SQL Managed Instance apresenta mapas de nomes para um equilibrador de carga em frente ao cluster virtual SQL Managed Instance. Como um cluster virtual poderia acolher várias instâncias geridas, as ligações não podem ser encaminhadas para o caso gerido adequado sem especificar o nome explicitamente.
-
-Para obter mais informações sobre a arquitetura de cluster virtual SQL Managed Instance, consulte [a arquitetura de conectividade de cluster virtual.](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)
-
-**A SQL Managed Instance pode ter um endereço IP estático?**
-
-Em situações raras mas necessárias, podemos precisar de fazer uma migração on-line da SQL Managed Instance para um novo cluster virtual. Se necessário, esta migração deve-se a mudanças na nossa pilha de tecnologia destinadas a melhorar a segurança e a fiabilidade do serviço. Migrar para um novo cluster virtual resulta na alteração do endereço IP que está mapeado para o nome de anfitrião SQL Managed Instance. O serviço SQL Managed Instance não reclama suporte a endereço IP estático e reserva-se o direito de alterá-lo sem aviso prévio como parte de ciclos de manutenção regulares.
-
-Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma vez que poderia causar tempo de inatividade desnecessário.
 
 ## <a name="change-time-zone"></a>Alterar fuso horário
 

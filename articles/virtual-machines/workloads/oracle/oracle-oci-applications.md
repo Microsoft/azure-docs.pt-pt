@@ -3,21 +3,22 @@ title: Arquiteturas para implementar aplicativos Oracle em Azure Virtual Machine
 description: Arquiteturas de aplicações para implementar aplicativos Oracle incluindo E-Business Suite, JD Edwards EnterpriseOne, e PeopleSoft em máquinas virtuais Microsoft Azure com bases de dados em Azure ou em Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: f36dfe0092e3447053871ee0e5b4d659bb443779
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe6886f368d053af919b326fabf1ad4c3066717
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687491"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224541"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Arquiteturas para implementar aplicações da Oracle no Azure
 
@@ -67,7 +68,7 @@ As seguintes secções descrevem os diferentes componentes a um nível elevado.
 
 O nível de aplicação está isolado na sua própria sub-rede. Existem várias máquinas virtuais preparadas para tolerância a falhas e gestão fácil de patchs. Estes VMs podem ser apoiados por armazenamento partilhado, que é oferecido por Azure NetApp Files e Ultra SSDs. Esta configuração permite uma implementação mais fácil de patches sem tempo de inatividade. As máquinas do nível de aplicação devem ser frontalizadas por um balançador de carga pública de modo a que os pedidos ao nível de aplicação EBS sejam processados mesmo que uma máquina no nível esteja offline devido a uma falha.
 
-### <a name="load-balancer"></a>Load balancer
+### <a name="load-balancer"></a>Balanceador de carga
 
 Um equilibrador de carga Azure permite-lhe distribuir tráfego em várias instâncias da sua carga de trabalho para garantir uma elevada disponibilidade. Neste caso, é criado um equilibrador de carga pública, uma vez que os utilizadores estão autorizados a aceder à aplicação EBS pela web. O equilibrador de carga distribui a carga a ambas as máquinas no nível médio. Para uma maior segurança, permita o tráfego apenas de utilizadores que acedam ao sistema a partir da sua rede corporativa utilizando uma VPN site-site ou ExpressRoute e grupos de segurança de rede.
 
@@ -188,7 +189,7 @@ O Cliente PeopleTools é utilizado para realizar atividades de administração, 
 
 [!INCLUDE [virtual-machines-oracle-applications-identity](../../../../includes/virtual-machines-oracle-applications-identity.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Utilize [scripts Terraform](https://github.com/microsoft/azure-oracle) para configurar aplicações Oracle em Azure e estabelecer conectividade cruzada com o OCI.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 983005e815061f65907fc54aa6a3dfec1771b3f0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 740c5dfb7dd4bece32aa2df5ef47d5f87091445b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055499"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231646"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -54,7 +54,7 @@ Com *o Azure CNI*, uma questão comum é que a gama de endereços IP atribuída 
 
 Como compromisso, pode criar um cluster AKS que utiliza *kubenet* e se conecta a uma sub-rede de rede virtual existente. Esta abordagem permite que os nós recebam endereços IP definidos, sem a necessidade de reservar um grande número de endereços IP na frente para todas as cápsulas potenciais que poderiam funcionar no cluster.
 
-Com *o kubenet,* você pode usar uma gama de endereços IP muito menor e ser capaz de suportar grandes clusters e pedidos de aplicação. Por exemplo, mesmo com uma gama de endereços IP */27,* você pode executar um cluster de nó 20-25 com espaço suficiente para escalar ou atualizar. Este tamanho de cluster suportaria até *2.200-2.750* cápsulas (com um máximo de 110 cápsulas por nó). O número máximo de cápsulas por nó que pode configurar com *kubenet* em AKS é de 110.
+Com *o kubenet,* você pode usar uma gama de endereços IP muito menor e ser capaz de suportar grandes clusters e pedidos de aplicação. Por exemplo, mesmo com um intervalo de endereço IP */27* na sua sub-rede, pode executar um cluster de nó de 20-25 com espaço suficiente para escalar ou atualizar. Este tamanho de cluster suportaria até *2.200-2.750* cápsulas (com um máximo de 110 cápsulas por nó). O número máximo de cápsulas por nó que pode configurar com *kubenet* em AKS é de 110.
 
 Os seguintes cálculos básicos comparam a diferença nos modelos de rede:
 
@@ -233,7 +233,7 @@ az network vnet subnet list --resource-group
 az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com um cluster AKS implantado na sua sub-rede de rede virtual existente, pode agora utilizar o cluster normalmente. Começa com [a construção de apps que utilizam o Azure Dev Spaces,][dev-spaces] [implemente aplicações existentes usando o Helm,][use-helm]ou [crie novas aplicações usando o Helm.][develop-helm]
 

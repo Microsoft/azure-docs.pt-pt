@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 158ac92a930b53e02ee81570c62711ca27dc4ae8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200397"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223113"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal
 
@@ -72,7 +72,22 @@ Para atribuir um utilizador a um anfitrião de sessão específico, execute o se
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+Para atribuir diretamente um utilizador a um anfitrião de sessão no portal Azure:
+
+1. Inicie sessão no portal do Azure em <https://portal.azure.com>.
+2. Introduza **o Ambiente de Trabalho Virtual do Windows** na barra de pesquisa.
+3. Em **Serviços**, selecione **Windows Virtual Desktop**.
+4. Na página de Ambiente de Trabalho Virtual do Windows, vá ao menu do lado esquerdo da janela e selecione **as piscinas host**.
+5. Selecione o nome da piscina de anfitrião que pretende atualizar.
+6. Em seguida, vá ao menu do lado esquerdo da janela e selecione **grupos de aplicação**.
+7. Selecione o nome do grupo de aplicações de ambiente de trabalho que pretende editar e, em seguida, selecione **Atribuições** no menu do lado esquerdo da janela.
+8. Selecione **+ Adicionar,** em seguida, selecione os utilizadores ou grupos de utilizadores para onde pretende publicar este grupo de aplicações de ambiente de trabalho.
+9. Selecione **Atribuir VM** na barra de informação para atribuir um anfitrião de sessão a um utilizador.
+10. Selecione o anfitrião da sessão que pretende atribuir ao utilizador e, em seguida, selecione **Atribuir**.
+11. Selecione o utilizador que pretende atribuir o anfitrião da sessão à lista de utilizadores disponíveis.
+12. Quando terminar, **selecione**Select .
+
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste o tipo de atribuição de ambientes de trabalho pessoais, podes iniciar sessão num cliente virtual do Windows para o testar como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão utilizando o cliente à sua escolha:
 

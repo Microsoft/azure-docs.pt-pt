@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 03/25/2020
-ms.openlocfilehash: 065fd166fb2ce82a3338322d55ef1ee5886ac56b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1d4896a2dd2115e5654baffe394618b30a294d5b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210376"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231748"
 ---
 # <a name="azure-machine-learning-vs-machine-learning-studio-classic"></a>Azure Machine Learning vs Machine Learning Studio (clássico)
 
@@ -27,7 +27,7 @@ Recomendamos que os novos utilizadores escolham Azure Machine Learning para a ma
 
 A tabela seguinte resume algumas das principais diferenças entre Azure Machine Learning e Studio (clássico):
 
-| | Machine Learning Studio (clássico) | Azure Machine Learning |
+| Funcionalidade | Machine Learning Studio (clássico) | Azure Machine Learning |
 |---| --- | --- |
 | Interface arrastar e largar | Suportado | Suportado - [Azure Machine Learning designer (pré-visualização)](concept-designer.md) <br/>(Requer espaço de trabalho da Empresa) | 
 | Experimentação | Escalável (limite de dados de formação de 10 GB) | Escala com alvo de computação |

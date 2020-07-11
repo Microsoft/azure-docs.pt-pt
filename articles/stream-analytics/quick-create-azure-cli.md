@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/01/2020
-ms.openlocfilehash: 8406c556ecaa0cea968fc1976d709b4f3c51c78b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852533"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231272"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI
 
 Neste arranque rápido, utiliza-se o CLI Azure para definir um trabalho stream Analytics que filtra mensagens de sensor em tempo real com uma leitura de temperatura superior a 27. O seu trabalho stream Analytics irá ler dados do IoT Hub, transformar os dados e escrever os dados de volta para um recipiente no armazenamento de bolhas. Os dados de entrada utilizados neste quickstart são gerados por um simulador online Raspberry Pi.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-your-environment"></a>Preparar o ambiente
+## <a name="prepare-your-environment"></a>Preparar o seu ambiente
 
 1. Inicia sessão.
 
@@ -49,7 +49,7 @@ Neste arranque rápido, utiliza-se o CLI Azure para definir um trabalho stream A
     az extension add --name stream-analytics
     ```
 
-   Instale a [extensão para Azure IoT](/cli/azure/ext/azure-iot/azure-iot) executando o seguinte comando:
+   Instale a [extensão para Azure IoT](/cli/azure/ext/azure-iot) executando o seguinte comando:
 
     ```azurecli
     az extension add --name azure-iot
@@ -154,7 +154,7 @@ az stream-analytics job create \
 
 ## <a name="configure-input-to-the-job"></a>Configurar a entrada da tarefa
 
-Adicione uma entrada ao seu trabalho utilizando o cmdlet [de entrada az stream-analytics.](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create) Este cmdlet utiliza o nome da tarefa, o nome da entrada da tarefa, o nome do grupo de recursos e a definição de entrada da tarefa como parâmetros. A definição da entrada do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa entrada. Neste exemplo, você vai criar um Hub IoT como uma entrada.
+Adicione uma entrada ao seu trabalho utilizando o cmdlet [de entrada az stream-analytics.](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create) Este cmdlet utiliza o nome da tarefa, o nome da entrada da tarefa, o nome do grupo de recursos e a definição de entrada da tarefa como parâmetros. A definição de entrada de trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar a entrada do trabalho. Neste exemplo, você vai criar um Hub IoT como uma entrada.
 
 No computador local, crie um ficheiro denominado `datasource.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor pela `sharedAccessPolicyKey` parte da cadeia de `SharedAccessKey` ligação IoT Hub que guardou numa secção anterior.
 
@@ -196,9 +196,9 @@ az stream-analytics input create
 
 ## <a name="configure-output-to-the-job"></a>Configurar a saída da tarefa
 
-Adicione uma saída ao seu trabalho utilizando a [saída az stream-analytics criar](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da saída da tarefa, o nome do grupo de recursos e a definição de saída da tarefa como parâmetros. A definição da saída do trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar essa saída. Este exemplo utiliza o armazenamento de blobs como saída.
+Adicione uma saída ao seu trabalho utilizando a [saída az stream-analytics criar](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) cmdlet. Este cmdlet utiliza o nome da tarefa, o nome da saída da tarefa, o nome do grupo de recursos e a definição de saída da tarefa como parâmetros. A definição de saída de trabalho é um ficheiro JSON que contém as propriedades necessárias para configurar a produção do trabalho. Este exemplo utiliza o armazenamento de blobs como saída.
 
-No computador local, crie um ficheiro denominado `datasink.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor de `accountKey` pela chave de acesso da conta de armazenamento, que é o valor armazenado em $storageAccountKey.
+No computador local, crie um ficheiro denominado `datasink.json` e adicione os seguintes dados JSON ao mesmo. Certifique-se de que substitui o valor pela `accountKey` chave de acesso da sua conta de armazenamento que é o valor armazenado em $storageAccountKey valor.
 
 ```json
 {
@@ -266,7 +266,7 @@ az stream-analytics job start
     --output-start-mode JobStartTime
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar o trabalho no futuro, pode ignorar a eliminação e parar o trabalho por agora. Se não continuar a utilizar este trabalho, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 

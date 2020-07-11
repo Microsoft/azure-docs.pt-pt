@@ -3,11 +3,12 @@ title: Resolução de problemas sem dados - Application Insights para .NET
 description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 59543adaf01a8e19f0e3eefd167234f6c5d18deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1c4a741bf092ab89638fdca130a52d96318157
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485156"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221039"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -123,7 +124,7 @@ Correção:
 *Corri a minha aplicação e abri o serviço application Insights no Microsoft Azure, mas todos os gráficos mostram 'Saiba como recolher...' ou "Não configurado."* Ou, *apenas, Visualização de página e dados do utilizador, mas sem dados do servidor.*
 
 * Execute a sua aplicação em modo depuror no Visual Studio (F5). Utilize a aplicação de modo a gerar alguma telemetria. Verifique se pode ver os eventos registados na janela de saída do Estúdio Visual.  
-  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+  ![Screenshot que mostra executar a sua aplicação em modo de depuramento no Estúdio Visual.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * No portal Application Insights, abrir [a Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md). Os dados geralmente aparecem aqui primeiro.
 * Clique no botão Refresh. A lâmina refresca-se periodicamente, mas também pode fazê-lo manualmente. O intervalo de atualização é maior para intervalos de tempo maiores.
 * Verifique se as teclas de instrumentação coincidem. Na lâmina principal da sua aplicação no portal Application Insights, no **drop-down Essentials,** veja a **tecla instrumentação**. Em seguida, no seu projeto no Visual Studio, abra ApplicationInsights.config e encontre o `<instrumentationkey>` . Verifique se as duas chaves são iguais. Se não:  

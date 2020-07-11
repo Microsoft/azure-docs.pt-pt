@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ea625fbe28dad08ec2c3e2a64bada96460a04225
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415560"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231238"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory ao Data Factory versão 1
 
@@ -31,7 +31,7 @@ A tabela seguinte compara as funcionalidades do Data Factory às funcionalidades
 | Conjuntos de dados | Uma vista com o nome dos dados que fazem referência aos dados que pretende utilizar nas suas atividades como entradas e saídas. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados de Blobs do Azure especifica o contentor de blobs e a pasta no armazenamento de Blobs do Azure a partir dos quais a atividade deve ler os dados.<br/><br/>A **Disponibilidade** define o modelo de fragmentação da janela de processamento para o conjunto de dados (por exemplo, hora a hora, diária e assim sucessivamente). | Os conjuntos de dados são os mesmos na versão atual. No entanto, não terá de definir agendas de **disponibilidade** para conjuntos de dados. Pode definir um recurso de acionador que agende os pipelines a partir de um paradigma de programador de relógio. Para obter mais informações, veja [Acionadores](concepts-pipeline-execution-triggers.md#trigger-execution) e [Conjuntos de dados](concepts-datasets-linked-services.md). | 
 | Serviços ligados | Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. | Os serviços ligados são os mesmo que no Data Factory V1, mas com uma nova propriedade **connectVia** para utilizar o ambiente de computação do Integration Runtime da versão atual do Data Factory. Para obter mais informações, consulte [Runtimes de integração no Azure Data Factory](concepts-integration-runtime.md) e [Propriedades de serviço ligado para o armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipelines | Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamentos lógicos de atividades que, em conjunto, realizam uma tarefa. Vai utilizar StartTime, endTime e isPaused para agendar e executar pipelines. | Os pipelines são grupos de atividades que são executados nos dados. No entanto, o agendamento de atividades no pipeline foi separado em novos recursos de acionador. Pode considerar os pipelines na versão atual do Data Factory como "unidades de fluxo de trabalho" que agenda em separado através de acionadores. <br/><br/>Os pipelines não dispõem de "janelas" de execução de tempo na versão atual do Data Factory. Os conceitos startTime, endTime e isPaused do Data Factory V1 já não estão presentes na versão atual do Data Factory. Para obter mais informações, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md) e [Pipelines e atividades](concepts-pipelines-activities.md). |
-| Atividades | As atividades definem ações a realizar nos seus dados, dentro de um pipeline. O movimento de dados (atividade de cópia) e as atividades de transformação de dados (tais como o Hive, Pig e MapReduce) são suportadas. | Na versão atual da Data Factory, as atividades ainda são definidas ações dentro de um pipeline. A versão atual da Data Factory introduz novas atividades de fluxo de [controlo.](concepts-pipelines-activities.md#control-flow-activities) Vai utilizar estas atividades no fluxo de controlo (ciclo e ramificação). As atividades de movimento de dados e transformação de dados que eram suportadas na V1 são suportadas na versão atual. Pode definir as atividades de transformação sem utilizar os conjuntos de dados na versão atual. |
+| Atividades | As atividades definem ações a realizar nos seus dados, dentro de um pipeline. O movimento de dados (atividade de cópia) e as atividades de transformação de dados (tais como o Hive, Pig e MapReduce) são suportadas. | Na versão atual da Data Factory, as atividades ainda são definidas ações dentro de um oleoduto. A versão atual da Data Factory introduz novas [atividades de fluxo de controlo.](concepts-pipelines-activities.md#control-flow-activities) Vai utilizar estas atividades no fluxo de controlo (ciclo e ramificação). As atividades de movimento de dados e transformação de dados que eram suportadas na V1 são suportadas na versão atual. Pode definir as atividades de transformação sem utilizar os conjuntos de dados na versão atual. |
 | Movimento de dados híbridos e distribuição de atividades | Agora conhecido como Integration Runtime, o [Gateway de Gestão de Dados](v1/data-factory-data-management-gateway.md) suportava movimentar dados entre o local e a cloud.| O Gateway de Gestão de Dados agora chama-se Integration Runtime Autoalojado. Fornece a mesma capacidade que no V1. <br/><br/> O Azure-SSIS Integration Runtime na versão atual do Data Factory também suporta a implementação e execução de pacotes do SQL Server Integration Services (SSIS) na cloud. Para obter mais informações, veja [Integration runtime no Azure Data Factory](concepts-integration-runtime.md).|
 | Parâmetros | ND | Os parâmetros são pares chave-valor das definições de configuração só de leitura que estão definidas em pipelines. Pode passar os argumentos para os parâmetros quando está a executar manualmente o pipeline. Se estiver a utilizar um acionador de agendador, o acionador também pode passar valores para os parâmetros. As atividades dentro do pipeline consomem os valores dos parâmetros.  |
 | Expressões | O Data Factory V1 permite-lhe utilizar funções e variáveis de sistema em consultas de seleção de dados e propriedades de atividade/conjuntos de dados. | Na versão atual do Data Factory, pode utilizar expressões em qualquer parte de um valor de cadeia de carateres JSON. Para mais informações, veja [Expressões e funções na versão atual do Data Factory](control-flow-expression-language-functions.md).|
@@ -87,7 +87,7 @@ Vai utilizar o Azure-SSIS se quiser mover as cargas de trabalho SSIS para a clou
 
 O Integration Runtime do Azure-SSIS é um cluster totalmente gerido de VMs do Azure (nós) dedicadas à execução dos pacotes do SSIS na cloud. Depois de aprovisionar o Integration Runtime do Azure-SSIS, tem as mesmas ferramentas que tem estado a utilizar para implementar pacotes do SSIS num ambiente SSIS local. 
 
-Por exemplo, pode utilizar o SQL Server Data Tools ou o SQL Server Management Studio para implementar pacotes do SSIS neste runtime no Azure. Para obter instruções passo a passo, consulte os pacotes de serviços de [integração sql server do](tutorial-create-azure-ssis-runtime-portal.md)tutorial para o Azure . 
+Por exemplo, pode utilizar o SQL Server Data Tools ou o SQL Server Management Studio para implementar pacotes do SSIS neste runtime no Azure. Para obter instruções passo a passo, consulte os pacotes de serviços de [integração do Servidor SQL para o Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Agendamento flexível
 Na versão atual do Data Factory, não terá de definir agendas de disponibilidade para conjuntos de dados. Pode definir um recurso de acionador que agende os pipelines a partir de um paradigma de programador de relógio. Pode também passar parâmetros para os pipelines a partir de um acionador para um modelo de agendamento e execução flexível. 
@@ -130,14 +130,14 @@ Os SDKs que são atualizados na versão atual não são compatíveis com versõe
 
 ## <a name="authoring-experience"></a>Experiência de criação
 
-| &nbsp; | V2 | V1 |
+| | Versão 2 | Versão 1 |
 | ------ | -- | -- | 
-| Portal do Azure | [Sim](quickstart-create-data-factory-portal.md) | Não |
-| Azure PowerShell | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
-| SDK .NET | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
-| API REST | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| SDK Python | [Sim](quickstart-create-data-factory-python.md) | Não |
-| Modelo do Resource Manager | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Portal do Azure** | [Sim](quickstart-create-data-factory-portal.md) | Não |
+| **Azure PowerShell** | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
+| **SDK do .NET** | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
+| **API REST** | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Python SDK** | [Sim](quickstart-create-data-factory-python.md) | Não |
+| **Modelo do Resource Manager** | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 
@@ -148,4 +148,4 @@ Na versão atual, também pode monitorizar fábricas de dados ao utilizar o [Azu
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprenda a criar uma fábrica de dados seguindo instruções passo a passo nos seguintes quickstarts: [PowerShell,](quickstart-create-data-factory-powershell.md) [.NET,](quickstart-create-data-factory-dot-net.md) [Python,](quickstart-create-data-factory-python.md) [REST API](quickstart-create-data-factory-rest-api.md). 
+Saiba como criar uma fábrica de dados seguindo instruções passo a passo nos seguintes quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET,](quickstart-create-data-factory-dot-net.md) [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 

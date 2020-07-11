@@ -8,11 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85081100"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230762"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicações SaaS multitenant e Pesquisa Cognitiva Azure
 
@@ -40,14 +41,14 @@ A adição e remoção de divisórias e réplicas permitirá que a capacidade do
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limites de serviço e índice na Pesquisa Cognitiva Azure
 Existem alguns [níveis de preços diferentes](https://azure.microsoft.com/pricing/details/search/) na Pesquisa Cognitiva Azure, cada um dos níveis tem [limites e quotas diferentes.](search-limits-quotas-capacity.md) Alguns destes limites estão ao nível do serviço, alguns estão ao nível do índice, e alguns estão ao nível da partição.
 
-|  | Básica | Norma1 | Standard2 | Standard3 | Standard3 HD |
+|  | Básico | Norma1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Réplicas máximas por serviço |3 |12 |12 |12 |12 |
-| Partições máximas por serviço |1 |12 |12 |12 |3 |
-| Unidades de Pesquisa Máxima (Réplicas*Partições) por Serviço |3 |36 |36 |36 |36 (máx. 3 divisórias) |
-| Armazenamento máximo por Serviço |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| Armazenamento máximo por partição |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Índices Máximos por Serviço |5 |50 |200 |200 |3000 (máximo 1000 índices/partição) |
+| **Réplicas máximas por serviço** |3 |12 |12 |12 |12 |
+| **Partições máximas por serviço** |1 |12 |12 |12 |3 |
+| **Unidades de Pesquisa Máxima (Réplicas*Partições) por Serviço** |3 |36 |36 |36 |36 (máx. 3 divisórias) |
+| **Armazenamento máximo por Serviço** |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
+| **Armazenamento máximo por partição** |2 GB |25 GB |100 GB |200 GB |200 GB |
+| **Índices Máximos por Serviço** |5 |50 |200 |200 |3000 (máximo 1000 índices/partição) |
 
 #### <a name="s3-high-density"></a>S3 Alta Densidade'
 No nível de preços S3 da Azure Cognitive Search, existe uma opção para o modo de Alta Densidade (HD) projetado especificamente para cenários multitenntes. Em muitos casos, é necessário apoiar um grande número de inquilinos menores ao abrigo de um único serviço para alcançar os benefícios da simplicidade e da eficiência de custos.
@@ -127,7 +128,7 @@ Este método pode ser usado para obter funcionalidades de contas de utilizador s
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 A Azure Cognitive Search é uma escolha convincente para muitas aplicações. Ao avaliar os vários padrões de design para aplicações multitenantes, considere os [vários níveis de preços](https://azure.microsoft.com/pricing/details/search/) e os [respetivos limites](search-limits-quotas-capacity.md) de serviço para melhor adaptar a Azure Cognitive Search para se adaptar às cargas de trabalho de aplicações e arquiteturas de todos os tamanhos.
 
 Quaisquer questões sobre a Pesquisa Cognitiva Azure e cenários multitenantes podem ser direcionadas para azuresearch_contact@microsoft.com .

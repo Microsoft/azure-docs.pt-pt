@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
-ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 169b12ff4fbf2471270aa912d5d1f8242371036b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811409"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223742"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar um Serviços Cloud
 
@@ -47,7 +48,7 @@ Se precisar de direcionar uma versão de SO específica, pode defini-la na **Con
 
 Pode adicionar alertas ao seu serviço na nuvem. Clique **em Definições**  >  **Regras de Alerta**Adicionar  >  **alerta**.
 
-![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Screenshot da panela De Definições com a opção de regras de alerta realçada e delineada a vermelho e a opção de alerta Add delineada a vermelho.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 A partir daqui, pode configurar um alerta. Com a caixa de entrega **métrica,** pode configurar um alerta para os seguintes tipos de dados.
 
@@ -57,7 +58,7 @@ A partir daqui, pode configurar um alerta. Com a caixa de entrega **métrica,** 
 * Rede para fora
 * Percentagem de CPU
 
-![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+![Screenshot do painel de regras de alerta Adicionar com todas as opções de configuração definidas.](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configure a monitorização de um azulejo métrico
 
@@ -97,7 +98,7 @@ Poderá ser necessário reconfigurar o seu serviço de cloud através do ficheir
     ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o ficheiro .cscfg e clique **em OK**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [implementar um serviço de cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado.](cloud-services-custom-domain-name-portal.md)

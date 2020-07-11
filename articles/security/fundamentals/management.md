@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981312"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224711"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
 Os subscritores do Azure poderão gerir os respetivos ambientes de nuvem a partir de vários dispositivos, incluindo estações de trabalho de gestão, PCs de programadores e, até mesmo, dispositivos de utilizador final com privilégios que tenham permissões específicas de tarefas. Em alguns casos, as funções administrativas são efetuadas através das consolas baseadas na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Noutros casos, poderão existir ligações diretas para o Azure a partir de sistemas no local através de Redes Privadas Virtuais (VPNs), Serviços de Terminal, protocolos de aplicações cliente ou (através de programação) a API de Gestão de Serviço do Azure (SMAPI). Além disso, os pontos finais de cliente podem ser um domínio associado ou isolado e não gerido, como tablets ou smartphones.
 
 Apesar de estas diversas capacidades de gestão e acesso fornecerem um conjunto avançado de opções, esta variabilidade pode acarretar um risco significativo para uma implementação de nuvem. Pode ser difícil gerir, controlar e auditar as ações administrativas. Este variabilidade também poderá acarretar ameaças de segurança através do acesso não regulado para os pontos finais de cliente que são utilizados para gerir os Cloud Services. A utilização das estações de trabalho gerais ou pessoais para desenvolver e gerir a infraestrutura abre vetores de ameaças imprevisíveis, como navegação na Web (por exemplo, ataques de tipo “watering hole”) ou e-mail (engenharia social e phishing).
 
-![](./media/management/typical-management-network-topology.png)
+![Um diagrama que mostra as diferentes formas de uma ameaça montar um ataque.](./media/management/typical-management-network-topology.png)
 
 A possibilidade de ataques aumenta neste tipo de ambiente, porque é difícil construir políticas de segurança e mecanismos para gerir adequadamente o acesso às interfaces do Azure (por exemplo, SMAPI) a partir de pontos finais bastante diversos.
 
@@ -137,7 +138,7 @@ A aplicação de políticas que inclui os controlos de acesso restritos estabele
 ## <a name="client-configuration"></a>Configuração do cliente
 Recomendamos três configurações primárias para uma estação de trabalho protegida. Os maiores diferenciadores entre essas configurações são o custo, a utilização e a acessibilidade, embora mantendo um perfil de segurança semelhante em todas as opções. A tabela seguinte fornece uma breve análise dos benefícios e riscos de cada uma. (Tenha em atenção que “PC empresarial” refere-se a uma configuração padrão do PC de secretária que seria implementada para todos os utilizadores do domínio, independentemente das funções.)
 
-| Configuração | Benefícios | Contras |
+| Configuração | Benefícios | Desvantagens |
 | --- | --- | --- |
 | Estação de trabalho autónoma protegida |Estação de trabalho controlada de forma apertada |Custo mais elevado para os computadores dedicados |
 | - | Risco reduzido de explorações de aplicações |Esforço de gestão aumentado |
@@ -156,12 +157,12 @@ Com uma estação de trabalho autónoma protegida, os administradores têm um PC
 
 No cenário de estação de trabalho autónoma protegida (mostrado abaixo), a instância local do Firewall do Windows (ou uma firewall para cliente que não seja da Microsoft) está configurada para bloquear as ligações de entrada, tais como RDP. O administrador pode iniciar sessão na estação de trabalho protegida e iniciar uma sessão do RDP que liga ao Azure depois de estabelecer uma ligação VPN com uma Azure Virtual Network, mas não pode iniciar sessão num PC empresarial e utilizar o RDP para ligar à estação de trabalho protegida.
 
-![](./media/management/stand-alone-hardened-workstation-topology.png)
+![Um diagrama que mostra o cenário de estação de trabalho endurecido autónomo.](./media/management/stand-alone-hardened-workstation-topology.png)
 
 ### <a name="corporate-pc-as-virtual-machine"></a>PC empresarial como máquina virtual
 Nos casos em que uma estação de trabalho autónoma protegida separada tem custos proibitivos ou impraticáveis, a estação de trabalho protegida pode alojar uma máquina virtual para efetuar as tarefas não administrativas.
 
-![](./media/management/hardened-workstation-enabled-with-hyper-v.png)
+![Um diagrama que mostra a estação de trabalho endurecida que alberga uma máquina virtual para executar tarefas não administrativas.](./media/management/hardened-workstation-enabled-with-hyper-v.png)
 
 Para evitar várias riscos de segurança que podem surgir da utilização de uma estação de trabalho para gestão de sistemas e outras tarefas de trabalho diárias, pode implementar uma máquina virtual de Hyper-V do Windows para a estação de trabalho protegida. Esta máquina virtual pode ser utilizada como PC empresarial. O ambiente do PC empresarial pode permanecer isolado do Anfitrião, o que reduz a superfície de ataque e faz com que as atividades diárias do utilizador (por exemplo, o e-mail) deixem de coexistir com as tarefas administrativas sensíveis.
 
@@ -208,7 +209,7 @@ Minimizar o número de tarefas que os administradores podem realizar numa estaç
 ## <a name="summary"></a>Resumo
 Utilizar uma configuração de estação de trabalho protegida para administrar os Cloud Services, as Virtual Machines e as aplicações do Azure pode ajudar a evitar vários riscos e ameaças que podem resultar da gestão remota de uma infraestrutura de TI crítica. Tanto o Azure como o Windows fornecem mecanismos que pode utilizar para ajudar a proteger e controlar as comunicações, a autenticação e o comportamento do cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os recursos seguintes estão disponíveis para fornecer informações mais gerais acerca do Azure e dos serviços relacionados da Microsoft, para além de itens específicos referenciados neste documento:
 
 * [Proteger o Acesso Privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) – obtenha os detalhes técnicos para estruturação e criação de uma estação de trabalho administrativa segura para gestão do Azure

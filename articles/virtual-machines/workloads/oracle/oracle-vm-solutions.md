@@ -3,8 +3,8 @@ title: Soluções Oráculosas em máquinas virtuais Azure Microsoft Docs
 description: Saiba mais sobre configurações suportadas e limitações de imagens de máquinas virtuais Oracle no Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
-ms.author: borisb
-ms.openlocfilehash: b9f4fdb0cc750fdee1fe34694656f5252e16ba5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rogardle
+ms.openlocfilehash: 363d26391c8ee40fb95a0b8fd92c4d94f1082b8d
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552093"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221532"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens Oracle VM e sua implementação no Microsoft Azure
 
@@ -179,7 +179,7 @@ Para obter informações relacionadas, consulte o artigo **KB 860340.1** em <htt
    O JDK disponível nas imagens JDK 6 e 7, e as máquinas virtuais e imagens derivadas delas, só podem ser usadas dentro do Azure.
 - **JDK de 64 bits.** As imagens de máquinas virtuais do Oracle WebLogic Server e as imagens de máquina virtual Oracle JDK fornecidas pelo Azure contêm as versões de 64 bits tanto do Windows Server como do JDK.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tem agora uma visão geral das atuais soluções Oracle baseadas em imagens de máquinas virtuais no Microsoft Azure. O seu próximo passo é implantar a sua primeira base de dados oracle no Azure.
 

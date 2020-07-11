@@ -13,18 +13,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: b77756f81eb5085b9c1d386b7c59d5aae03d1fb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2904a61077c5538846fbfb7cc7d6ee1791ea890c
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669499"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231612"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Padrões de aplicação e estratégias de desenvolvimento para O SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
-
-
-
-
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -44,7 +41,7 @@ Pode desenvolver muitos tipos de aplicações n-tier separando os componentes da
 
 Uma aplicação típica *de n-tier* inclui o nível de apresentação, o nível de negócio e o nível de dados:
 
-| Escalão | Descrição |
+| Escalão de serviço | Descrição |
 | --- | --- |
 | **Apresentação** |O *nível de apresentação* (nível web, nível frontal) é a camada em que os utilizadores interagem com uma aplicação. |
 | **Empresa** |O *nível de negócio* (nível médio) é a camada que o nível de apresentação e o nível de dados usam para comunicar uns com os outros e inclui a funcionalidade central do sistema. |
@@ -277,6 +274,6 @@ A tabela seguinte fornece uma comparação do desenvolvimento web tradicional co
 
 Para obter mais informações sobre a escolha entre estes métodos de programação, consulte [Azure Web Apps, Cloud Services e VMs: Quando usar quais](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a execução do SQL Server em Máquinas Virtuais Azure, consulte [o SQL Server na Visão Geral das Máquinas Virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
 

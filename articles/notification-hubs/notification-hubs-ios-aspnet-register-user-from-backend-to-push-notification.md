@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: a36fdbb985711887baa04320bb75e1a85cab84fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0819f5196fffca25a840dc16d1df04cdd0a55029
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253873"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223317"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registe o utilizador atual para notificações push utilizando ASP.NET
 
@@ -44,11 +44,11 @@ Este tópico mostra-lhe como solicitar o registo de notificação push com os Hu
 
      Neste ponto, o seu storyboard parece o seguinte:
 
-     ![][0]
+     ![Screenshot da aplicação MainStoryboard_iPhone.storyboard com os componentes adicionados.][0]
 
 2. No editor assistente, crie tomadas para todos os controlos comutados e ligue-os, ligue os campos de texto ao Controlador de Visualização (delegado) e crie uma **Ação** para o botão **de login.**
 
-    ![][1]
+    ![Screenshot do editor assistente na aplicação MainStoryboard_iPhone.storyboard][1]
 
     O seu ficheiro BreakingNewsViewController.h deve agora conter o seguinte código:
 

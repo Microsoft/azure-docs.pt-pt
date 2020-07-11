@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc665503413d2f022b10ae043aac3315597c6ba4
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735001"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221396"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas principais de serviço nos Serviços de Domínio do Diretório Ativo Azure
 
@@ -33,13 +34,13 @@ Se um principal de serviço necessário for eliminado, a plataforma Azure não p
 
 ### <a name="check-for-missing-service-principals"></a>Verifique se faltam os principais de serviço
 
-Para verificar qual o principal de serviço que falta e precisa de ser recriado, complete os seguintes passos:
+Para verificar qual o principal de serviço que falta e deve ser recriado, complete os seguintes passos:
 
 1. No portal Azure, selecione **Azure Ative Directory** a partir do menu de navegação à esquerda.
 1. Selecione **aplicações da Enterprise**. Escolha *todas as aplicações* do menu drop-down do Tipo de **Aplicação** e, em seguida, selecione **Aplicar**.
-1. Procure por cada um dos IDs de aplicação. Se não for encontrada nenhuma aplicação existente, siga as etapas de *Resolução* para criar o principal de serviço ou re-registar o espaço de nome.
+1. Procure cada um dos seguintes IDs de aplicação. Se não for encontrada nenhuma aplicação existente, siga as etapas de *Resolução* para criar o principal de serviço ou re-registar o espaço de nome.
 
-    | ID da Aplicação | Resolução |
+    | ID da aplicação | Resolução |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um diretor de serviço desaparecido](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-registrar o espaço de nomes Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
@@ -48,9 +49,9 @@ Para verificar qual o principal de serviço que falta e precisa de ser recriado,
 
 ### <a name="recreate-a-missing-service-principal"></a>Recriar um diretor de serviço desaparecido
 
-Se faltar o ID da aplicação *2565bd9d-da50-47d4-8b85-4c97f669dc36* do seu diretório AD Azure, utilize a Azure AD PowerShell para completar os seguintes passos. Para obter mais informações, consulte [a instalação Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
+Se faltar o ID da aplicação *2565bd9d-da50-47d4-8b85-4c97f669dc36* do seu diretório AD Azure, utilize a Azure AD PowerShell para completar os seguintes passos. Para mais informações, consulte [a Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Instale o módulo Azure AD PowerShell e importe-o da seguinte forma:
+1. Se necessário, instale o módulo Azure AD PowerShell e importe-o da seguinte forma:
 
     ```powershell
     Install-Module AzureAD
@@ -88,7 +89,7 @@ O Azure AD DS sincroniza automaticamente as contas e credenciais dos utilizadore
 
 Para recriar a aplicação AD AD Azure utilizada para a sincronização de credenciais, utilize o Azure AD PowerShell para completar os seguintes passos. Para obter mais informações, consulte [a instalação Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Instale o módulo Azure AD PowerShell e importe-o da seguinte forma:
+1. Se necessário, instale o módulo Azure AD PowerShell e importe-o da seguinte forma:
 
     ```powershell
     Install-Module AzureAD
@@ -106,7 +107,7 @@ Para recriar a aplicação AD AD Azure utilizada para a sincronização de crede
 
 Depois de eliminar ambas as aplicações, a plataforma Azure recria-as automaticamente e tenta retomar a sincronização da palavra-passe. A saúde do domínio gerido atualiza-se automaticamente dentro de duas horas e remove o alerta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

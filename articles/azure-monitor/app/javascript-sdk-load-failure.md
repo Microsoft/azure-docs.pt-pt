@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: 50a7e9520730159ad2df3ec3e0b75fcfa0c5ce0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84451068"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229538"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Falha de carga SDK na resolução de problemas para aplicações web JavaScript
 
@@ -28,7 +29,7 @@ A exceção de falha de carga SDK é criada e reportada pelo snippet JavaScript 
 
 Os detalhes da pilha incluem as informações básicas com os URLs a serem usados pelo utilizador final.
 
-| Name                      | Descrição                                                                                                  |
+| Nome                      | Descrição                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;Ponto &nbsp; final do CDN&gt; | O URL que foi usado (e falhou) para descarregar o SDK.                                                      |
 | &lt;Link de ajuda &nbsp;&gt;    | Um URL que se liga à documentação de resolução de problemas (esta página).                                              |
@@ -75,11 +76,11 @@ Se confirmar que há uma paragem, pode [criar um novo bilhete de suporte](https:
 À medida que o snippet e a sua configuração são devolvidos pela sua aplicação como parte de cada página gerada, pode alterar a configuração do snippet `src` para usar um URL diferente para o SDK. Ao utilizar esta abordagem, pode contornar a questão bloqueada do CDN, uma vez que o novo URL não deve ser bloqueado.
 
 Insights de aplicação atuais JavaScript SDK CDN pontos finais
-- https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js
-- https://js.monitor.azure.com/scripts/b/ai.2.min.js
+- `https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js`
+- `https://js.monitor.azure.com/scripts/b/ai.2.min.js`
 
 > [!NOTE]
-> O https://js.monitor.azure.com/ ponto final é um pseudónimo que nos permite alternar entre fornecedores de CDN dentro de aproximadamente 5 minutos, sem a necessidade de alterar qualquer config. Isto permite-nos corrigir problemas relacionados com a CDN detetados mais rapidamente se um fornecedor de CDN estiver a ter problemas regionais ou globais sem exigir que todos ajustem as suas definições.
+> O `https://js.monitor.azure.com/` ponto final é um pseudónimo que nos permite alternar entre fornecedores de CDN dentro de aproximadamente 5 minutos, sem a necessidade de alterar qualquer config. Isto permite-nos corrigir problemas relacionados com a CDN detetados mais rapidamente se um fornecedor de CDN estiver a ter problemas regionais ou globais sem exigir que todos ajustem as suas definições.
 
 ## <a name="sdk-failed-to-initialize-after-loading-the-script"></a>SDK não iniciaisizou depois de carregar o script
 
@@ -205,6 +206,6 @@ Em vez de utilizar os pontos finais do Snippet e do CDN públicos, pode utilizar
 Tal como acontece com o snippet, também é possível que os seus próprios scripts (com ou sem utilização dos pacotes SDK NPM) possam ser afetados pelos mesmos problemas de bloqueio listados aqui, pelo que, dependendo da sua aplicação, dos seus utilizadores e da sua estrutura, poderá considerar a implementação de algo semelhante à lógica no corte para detetar e reportar estes problemas.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - [Obtenha ajuda adicional ao arquivar um problema no GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues)
 - [Monitorize o uso da página web](javascript.md)

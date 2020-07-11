@@ -1,5 +1,5 @@
 ---
-title: Copiar uma versão de imagem de outra galeria
+title: Copie uma versão de imagem de outra galeria usando o CLI
 description: Copie uma versão de imagem de outra galeria com o Azure CLI.
 author: cynthn
 ms.service: virtual-machines
@@ -9,13 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: add08d7b8ef39322f03e0faf78959b08a6ae2a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 764fe98ad20aa29506b4fba723762124e24af245
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797061"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224337"
 ---
-# <a name="copy-an-image-from-another-gallery"></a>Copiar uma imagem de outra galeria
+# <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copie uma imagem de outra galeria usando o Azure CLI
 
 Se tiver várias galerias na sua organização, também pode criar versões de imagem a partir de versões de imagem existentes armazenadas noutras galerias. Por exemplo, você pode ter uma galeria de desenvolvimento e teste para criar e testar novas imagens. Quando estiverem prontos para serem utilizados na produção, pode copiá-los numa galeria de produção utilizando este exemplo. Também pode criar uma imagem a partir de uma imagem em outra galeria usando [Azure PowerShell](image-version-another-gallery-powershell.md).
 
@@ -156,8 +157,10 @@ az sig image-version create \
 > Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `--storage-account-type  premium_lrs` , ou [Armazenamento Redundante zona,](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type  standard_zrs` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie um VM a partir de uma versão de imagem [generalizada](vm-generalized-image-version-cli.md) ou [especializada.](vm-specialized-image-version-cli.md)
 
 Além disso, experimente [o Azure Image Builder (pré-visualização)](./linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](./linux/image-builder-gallery-update-image-version.md) 
+
+Para obter informações sobre como fornecer informações sobre o plano de compra, consulte [as informações do plano de compra do Supply Azure Marketplace ao criar imagens.](marketplace-images.md)

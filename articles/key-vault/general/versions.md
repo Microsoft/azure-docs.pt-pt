@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4959d530e1f7a3c777aa3db21fe577c853fbca13
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856002"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230830"
 ---
 # <a name="key-vault-versions"></a>Versões do Key Vault
 
@@ -64,7 +64,7 @@ A Disponibilidade Geral (versão 2015-06-01) foi anunciada em 24 de junho de 201
 - Restaurar uma chave - campo de "utilização" removido.     
 - Alterou "RSA_OAEP" para "RSA-OAEP" para algoritmos RSA. Veja [mais sobre chaves, segredos e certificados.](about-keys-secrets-certificates.md)    
  
-A segunda versão de pré-visualização (versão 2015-02-01)foi anunciada a 20 de abril de 2015. Para obter mais informações, consulte o post de blog [REST API Update.](https://blogs.technet.com/b/kv/archive/2015/04/20/empty-3.aspx) Foram atualizadas as seguintes tarefas:
+A segunda versão de pré-visualização (versão 2015-02-01)foi anunciada a 20 de abril de 2015. Para obter mais informações, consulte o post de blog [REST API Update.](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) Foram atualizadas as seguintes tarefas:
  
 - Lista as chaves num cofre- apoio de paginação adicionado à operação.
 - Liste as versões de uma chave - operação adicionada para listar as versões de uma chave.  
@@ -82,7 +82,7 @@ A segunda versão de pré-visualização (versão 2015-02-01)foi anunciada a 20 
  
 A primeira versão de pré-visualização (versão 2014-12-08)foi anunciada a 8 de janeiro de 2015.  
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acerca de chaves, segredos e certificados](about-keys-secrets-certificates.md)
 - [Chaves](../keys/index.yml)

@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649140"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223861"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configure credenciais de implementação para o Azure App Service
 [O Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) suporta dois tipos de credenciais para [a implantação local](deploy-local-git.md) de Git e [implantação ftp/S](deploy-ftp.md). Estas credenciais não são as mesmas que as suas credenciais de subscrição Azure.
@@ -39,17 +40,17 @@ No portal Azure, deve ter pelo menos uma aplicação antes de poder aceder à p�
 
 1. No [portal Azure](https://portal.azure.com), a partir do menu esquerdo, selecione **App Services**  >  **\<any_app>**  >  **Deployment center**  >  **FTP**  >  **Dashboard**.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     Ou, se já configurar a implementação do Git, selecione Serviços de **Aplicações**  >  ** &lt; any_app>**  >  **Centro de Implementação**  >  **FTP/Credenciais**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services para a sua configuração de implementação do Git.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Selecione **Credenciais de Utilizador,** configure o nome de utilizador e a palavra-passe e, em seguida, selecione **Guardar Credenciais**.
 
 Uma vez definidas as suas credenciais de implementação, pode encontrar o nome de utilizador da implementação *do Git* na **página** geral da sua aplicação,
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Mostra como encontrar o nome de utilizador da implementação do Git na página geral da sua aplicação.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 Se a implementação do Git estiver configurada, a página mostra um **nome de utilizador Git/deployment**; caso contrário, um nome **de utilizador FTP/implementação**.
 
@@ -73,6 +74,6 @@ Para obter as credenciais de nível de aplicação:
 
 Para redefinir as credenciais de nível de aplicação, selecione **'Repor credenciais'** no mesmo diálogo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Descubra como usar estas credenciais para implementar a sua aplicação a partir de [Git local](deploy-local-git.md) ou usando [FTP/S](deploy-ftp.md).

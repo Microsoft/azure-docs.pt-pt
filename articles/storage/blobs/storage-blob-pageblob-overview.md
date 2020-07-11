@@ -9,11 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: f54adb54ca842ea389b0d3ea203d747df0071ee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792035"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223300"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 
@@ -122,7 +123,7 @@ Assim que um pedido de escrita para um conjunto sequencial de páginas sucede no
 
 O diagrama abaixo mostra 2 operações de escrita separadas:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![Um diagrama mostrando as duas opções de escrita separadas.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.  Uma operação de escrita a partir de offset 0 de comprimento 1024 bytes 
 2.  Uma operação de escrita a partir do offset 4096 de comprimento 1024 
@@ -150,7 +151,7 @@ Isto permite-lhe descarregar a bolha completa ou a gama de bytes a partir de qua
 
 O seguinte número mostra uma operação de Leitura com uma compensação de 256 e um tamanho de alcance de 4352. Os dados devolvidos são destacados em laranja. Zeros são devolvidos para páginas NUL.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![Um diagrama mostrando uma operação de Leitura com uma compensação de 256 e um tamanho de alcance de 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 Se tiver uma bolha pouco povoada, talvez queira apenas baixar as regiões de página válidas para evitar pagar a saída de bytes zero e reduzir a latência do download.  
 

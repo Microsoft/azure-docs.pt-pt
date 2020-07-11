@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: d265726835620c5b468c8a81570e80c7167b2997
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084346"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231595"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FaQ de hiperescala da base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,12 @@ Os níveis de serviço baseados em vCore são diferenciados com base na disponib
 | **Melhor para** |Todos|Oferece opções de cálculo e armazenamento equilibrados orientados para o orçamento.|A maioria das cargas de trabalho. Autoscaling tamanho de armazenamento até 100 TB, escala rápida vertical e horizontal do cálculo, restauração rápida da base de dados.|Aplicações OLTP com alta taxa de transação e baixa latência IO. Oferece maior resiliência a falhas e falhas rápidas usando múltiplas réplicas sincronizadas atualizadas.|
 |  **Tipo de recurso** ||SQL Database / SQL Managed Instance | Base de dados individual | SQL Database / SQL Managed Instance |
 | **Tamanho do cálculo**|Base de Dados SQL* | 1 a 80 vCores | 1 a 80 vCores* | 1 a 80 vCores |
-| |Instância Gerida do SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
+| **Tamanho do cálculo**|Instância Gerida do SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Tipo de armazenamento** | Todos |Armazenamento remoto premium (por exemplo) | Armazenamento desacopdo com cache SSD local (por exemplo) | Armazenamento SSD local super rápido (por exemplo) |
 | **Tamanho do armazenamento** | Base de Dados SQL *| 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
-| | Instância Gerida do SQL  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
+| **Tamanho do armazenamento** | Instância Gerida do SQL  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
 | **IOPS** | Base de dados individual | 500 IOPS por vCore com 7000 IOPS máximos | Hyperscale é uma arquitetura multi-camadas com caching em vários níveis. O IOPS eficaz dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximos|
-| | Instância Gerida do SQL | Depende do tamanho do ficheiro | N/D | 1375 IOPS/vCore |
+| **IOPS** | Instância Gerida do SQL | Depende do tamanho do ficheiro | N/D | 1375 IOPS/vCore |
 |**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Múltiplas réplicas, até 4 Escala de Leitura, cache local parcial | 3 réplicas, 1 Read Scale-out, zona-redundante HA, armazenamento local completo |
 |**Cópias de segurança**|Todos|RA-GRS, retenção de 7 a 35 dias (7 dias por defeito)| RA-GRS, retenção de 7 dias, recuperação constante do tempo no tempo (PITR) | RA-GRS, retenção de 7 a 35 dias (7 dias por defeito) |
 
@@ -390,6 +390,6 @@ Não. Bases de dados de hiperescala têm armazenamento compartilhado, o que sign
 
 A latência dos dados desde o momento em que uma transação é comprometida no primário até ao momento em que é visível num secundário depende da taxa de geração de registos atual. A latência típica de dados está em baixos milissegundos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o nível de serviço Hyperscale, consulte o [nível de serviço Hyperscale](service-tier-hyperscale.md).

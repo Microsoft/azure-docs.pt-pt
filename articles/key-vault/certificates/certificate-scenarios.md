@@ -9,11 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 316a6c13b55664bdabf7c0cb3e37d7bb18b8649f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765102"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224864"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados do Key Vault
 Os seguintes cenários descrevem vários dos usos primários do serviço de gestão de certificados key Vault, incluindo os passos adicionais necessários para a criação do seu primeiro certificado no seu cofre-chave.
@@ -45,7 +46,7 @@ Os certificados são compostos por três recursos interligados ligados entre si 
 **Passo 3** - Um administrador contoso, juntamente com um funcionário da Contoso (utilizador do Cofre-Chave) que detém certificados, dependendo da AC, pode obter um certificado da administração ou diretamente da conta com a AC.  
 
 - Inicie uma operação de credencial adicionada a um cofre de [chaves, definindo um recurso emitente de certificado.](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) Um emitente de certificado é uma entidade representada no Azure Key Vault (KV) como recurso CertificateIssuer. É utilizado para fornecer informações sobre a origem de um certificado KV; nome do emitente, fornecedor, credenciais e outros detalhes administrativos.
-  - Ex. MyDigiCertIssuer  
+  - Por exemplo: MyDigiCertIssuer  
     -   Fornecedor  
     -   Credenciais – Credenciais de conta CA. Cada AC tem os seus próprios dados específicos.  
 
@@ -80,6 +81,9 @@ Nota - Este processo, através do passo 3.1, é uma operação única.
       -   Estado: concluído, falhado com informações de erro ou cancelado  
       -   Devido ao atraso para criar, uma operação de cancelamento pode ser iniciada. O cancelamento pode ou não ser eficaz.  
 
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Políticas de segurança e acesso de rede associadas à AC integrada
+O serviço Key Vault envia pedidos para a AC (tráfego de saída). Portanto, é totalmente compatível com cofres-chave ativados por firewall. O Cofre-Chave não partilha políticas de acesso com a AC. A AC deve ser configurada para aceitar os pedidos de assinatura de forma independente. [Guia sobre a integração da CA fidedigna](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+
 ## <a name="import-a-certificate"></a>Importar um certificado  
  Alternativamente – um certificado pode ser importado para Key Vault – PFX ou PEM.  
 
@@ -92,7 +96,7 @@ Nota - Este processo, através do passo 3.1, é uma operação única.
 
 -   Se não houver mais operações, a primeira coisa que o Cofre-Chave faz é enviar um aviso de expiração. 
 
--   Além disso, o utilizador pode editar a política, que é funcional no momento da importação, mas que contém incumprimentos onde nenhuma informação foi especificada na importação. Ex. nenhuma informação emitente  
+-   Além disso, o utilizador pode editar a política, que é funcional no momento da importação, mas que contém incumprimentos onde nenhuma informação foi especificada na importação. Por exemplo: nenhuma informação emitente  
 
 ### <a name="formats-of-import-we-support"></a>Formatos de Importação que apoiamos
 O Azure Key Vault suporta ficheiros de certificados .pem e .pfx para importar certificados para o cofre Key.

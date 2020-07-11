@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 75ecfcca24aa801c2ec277e810f60dbc0a9167fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565282"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230779"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Loja de conhecimento em Azure Cognitive Search
 
@@ -82,7 +82,7 @@ Um único objeto de projeção contém um conjunto de `tables` `objects` , e par
 
 No entanto, é possível criar `table` - `object` - `file` vários conjuntos de projeções, e pode fazê-lo se quiser diferentes relações de dados. Dentro de um conjunto, os dados estão relacionados, assumindo que essas relações existem e podem ser detetadas. Se criar conjuntos adicionais, os documentos de cada grupo nunca estão relacionados. Um exemplo de utilização de vários grupos de projeção pode ser se você quiser os mesmos dados projetados para uso com o seu sistema on-line e ele precisa ser representado de uma forma específica, você também quer os mesmos dados projetados para uso em um pipeline de ciência de dados que é representado de forma diferente.
 
-## <a name="requirements"></a>Requirements 
+## <a name="requirements"></a>Requisitos 
 
 É necessário [o armazenamento Azure.](https://docs.microsoft.com/azure/storage/) Fornece armazenamento físico. Você pode usar armazenamento Blob, armazenamento de mesa ou ambos. O armazenamento de bolhas é utilizado para documentos enriquecidos intactos, normalmente quando a saída vai para os processos a jusante. O armazenamento de mesa destina-se a fatias de documentos enriquecidos, normalmente utilizados para análise e reporte.
 
@@ -138,11 +138,11 @@ Uma vez que os enriquecimentos existam no armazenamento, qualquer ferramenta ou 
 
 A versão REST API `2020-06-30` fornece loja de conhecimento através de definições adicionais sobre skillsets. Além da referência, consulte [Criar uma loja de conhecimento usando o Carteiro](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
 
-+ [Create Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [Atualização Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Create Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Atualização Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A loja de conhecimento oferece persistência de documentos enriquecidos, úteis na conceção de um skillset, ou a criação de novas estruturas e conteúdos para consumo por quaisquer aplicações do cliente capazes de aceder a uma conta de Armazenamento Azure.
 

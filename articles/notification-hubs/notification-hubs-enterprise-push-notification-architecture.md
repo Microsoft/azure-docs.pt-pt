@@ -16,11 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76264038"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223606"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 
@@ -36,7 +37,7 @@ Aqui está a arquitetura geral da solução (generalizada com múltiplas aplica�
 
 ## <a name="architecture"></a>Arquitetura
 
-![][1]
+![Diagrama da arquitetura empresarial mostrando o fluxo através de Eventos, Subscrições e Mensagens Push.][1]
 
 A peça-chave neste diagrama arquitetónico é a Azure Service Bus, que fornece um modelo de programação de tópicos/subscrições (mais sobre ele na [programação Service Bus Pub/Sub).] O recetor, que neste caso é o backend Mobile (normalmente [Azure Mobile Service], que inicia um push para as aplicações móveis) não recebe mensagens diretamente dos sistemas de backend, mas sim, uma camada de abstração intermédia fornecida pela [Azure Service Bus,]que permite que o backend móvel receba mensagens de um ou mais sistemas de backend. Um tópico de autocarro de serviço precisa de ser criado para cada um dos sistemas de backend, por exemplo, Conta, RH, Finanças, que é basicamente "tópicos" de interesse, que inicia mensagens a serem enviadas como notificação push. Os sistemas de backend enviam mensagens para estes tópicos. Um Backend Móvel pode subscrever um ou mais tópicos deste tipo criando uma subscrição de Service Bus. Dá direito ao backend móvel para receber uma notificação do sistema de backend correspondente. O backend móvel continua a ouvir mensagens nas suas subscrições e assim que uma mensagem chega, volta-se e envia-as como notificação para o seu centro de notificação. Os centros de notificação acabam por entregar a mensagem à aplicação móvel. Aqui está a lista de componentes-chave:
 
@@ -227,15 +228,17 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
 
     e. Para publicar esta aplicação como **WebJob,** clique na solução em Visual Studio e **selecione Publicar como WebJob**
 
-    ![][2]
+    ![Screenshot das opções de clique direito a ser exibido com Publish como Azure WebJob delineado a vermelho.][2]
 
     f. Selecione o seu perfil de publicação e crie um novo Azure WebSite se já não existir, que acolhe este WebJob e uma vez que tenha o WebSite **então Publique**.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Screenshot mostrando o fluxo de trabalho para criar um site em Azure.":::
+    Screenshot da caixa de diálogo Web Publish com a opção Microsoft Azure Websites selecionada, uma seta verde apontando para a caixa de diálogo do site Select existente com a nova opção delineada a vermelho, e uma seta verde apontando para o site Create na caixa de diálogo Microsoft Azure com o nome do Site e Criar opções delineadas a vermelho.
+    :::image-end:::
 
     exemplo, Configure o trabalho para ser "Executado continuamente" para que quando iniciar sessão no [portal Azure] veja algo como o seguinte:
 
-    ![][4]
+    ![Screenshot do Portal Azure com os trabalhos web de backend da empresa apresentados e os valores de Nome, Agenda e Logs delineados a vermelho.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -269,11 +272,11 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
 2. Gere a **EnterprisePushMobileApp,** que inicia a aplicação Windows Store.
 3. Execute a aplicação de consola **EnterprisePushBackendSystem,** que simula o backend LoB e começa a enviar mensagens e deve ver notificações de torradas aparecendo como a seguinte imagem:
 
-    ![][5]
+    ![Screenshot de uma consola que executa a aplicação Enterprise Push Backend System e a mensagem que é enviada pela aplicação.][5]
 
 4. As mensagens foram originalmente enviadas para os tópicos da Service Bus, que estavam a ser monitorizadas pelas subscrições da Service Bus no seu Trabalho Web. Uma vez recebida uma mensagem, foi criada uma notificação e enviada para a aplicação móvel. Pode ver através dos registos WebJob para confirmar o processamento quando vai ao link 'Logs' no [portal Azure] para o seu Trabalho Web:
 
-    ![][6]
+    ![Screenshot da caixa de diálogo Continuous WebJob Details com a mensagem enviada delineada a vermelho.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png

@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2d2cd98a9af75b5f3a6ca084dbfd4c144e06643d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c339893c12af74b5ecadb182b9aecb8000df65b9
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84733794"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222960"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Resolução de problemas garante problemas de conectividade LDAP a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 
@@ -38,7 +39,7 @@ Se tiver problemas em ligar-se a um domínio gerido Azure AD DS utilizando LDAP 
 * Para a conectividade externa, o grupo de segurança da rede deve incluir uma regra que permita o tráfego para a porta TCP 636 a partir da internet.
     * Se conseguir ligar-se ao domínio gerido utilizando LDAP seguro a partir de recursos diretamente ligados à rede virtual, mas não ligações externas, certifique-se de que [cria uma regra de grupo de segurança de rede para permitir o tráfego LDAP seguro][ldaps-nsg].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

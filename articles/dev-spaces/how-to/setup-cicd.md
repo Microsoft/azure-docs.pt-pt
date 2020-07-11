@@ -8,11 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Saiba como configurar a integração contínua/implementação contínua utilizando Azure DevOps com Espaços Azure Dev
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81685624"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229334"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utilizar CI/CD com o Azure Dev Spaces
 
@@ -25,7 +26,7 @@ Embora este artigo o guie com Azure DevOps, os mesmos conceitos aplicar-se-iam a
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Cluster de Serviço Azure Kubernetes (AKS) com espaços Azure Dev habilitados](../get-started-netcore.md)
 * [Azure Dev Spaces CLI instalado](upgrade-tools.md)
-* [Azure DevOps organização com um projeto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Azure DevOps organização com um projeto](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Registo do Contentor de Azure (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Detalhes da conta [do administrador do](../../container-registry/container-registry-authentication.md#admin-account) registo do contentor Azure disponíveis
 * [Autorize o seu cluster AKS para retirar do seu Registo de Contentores Azure](../../aks/cluster-container-registry-integration.md)
@@ -67,7 +68,7 @@ A opção de desativar:
 > [!Note]
 > A experiência de criação de gasodutoS Azure DevOps _New YAML_ apresenta conflitos com a criação de oleodutos de construção pré-definidos neste momento. Precisa desativá-lo por enquanto para implementar o nosso oleoduto de construção pré-definido.
 
-No _ramo azds_updates_ incluímos um simples [Azure Pipeline YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define os passos de construção necessários para *o mywebapi* e *webfrontend*.
+No _ramo azds_updates_ incluímos um simples [Azure Pipeline YAML](/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define os passos de construção necessários para *o mywebapi* e *webfrontend*.
 
 Dependendo do idioma que escolheu, o pipeline YAML foi verificado num caminho semelhante ao de:`samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
@@ -182,7 +183,7 @@ Aqui está um exemplo de estrutura de espaço de nome que suporta o desenvolvime
 >
 > Pode ser necessário eliminar todas as cápsulas no espaço de `prod` nomes depois de o fazer para que possam ser recriadas sem instrumentação de Dev Spaces.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça o desenvolvimento da equipa usando a Azure Dev Spaces](../team-development-netcore.md)

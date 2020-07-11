@@ -2,13 +2,13 @@
 title: Matriz de suporte para vMware/recuperação de desastres físicos na recuperação do local de Azure
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ff99fd1dd1710cd96f6257096b97ae1912a61dc6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/10/2020
+ms.openlocfilehash: 86aed87be2d65a78b2485d0ce71ce1f674ea9407
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131884"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224643"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -59,9 +59,6 @@ Portas | 443 usado para orquestração de canais de controlo<br/>9443 para trans
 ## <a name="replicated-machines"></a>Máquinas replicadas
 
 A Recuperação do Local suporta a replicação de qualquer carga de trabalho em execução numa máquina suportada.
-
-> [!Note]
-> A tabela que se segue lista o suporte para máquinas com arranque BIOS. Consulte a secção [de armazenamento](#storage) para obter suporte em máquinas baseadas na UEFI.
 
 **Componente** | **Detalhes**
 --- | ---
@@ -181,19 +178,20 @@ IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estã
 Rede de hóspedes/servidores múltiplos NICs | Sim.
 
 
+
 ## <a name="azure-vm-network-after-failover"></a>Rede Azure VM (após falha)
 
 **Componente** | **Suportado**
 --- | ---
-Azure ExpressRoute | Sim
-ILB | Sim
-ELB | Sim
-Traffic Manager do Azure | Sim
-Multi-NIC | Sim
-Endereço IP reservado | Sim
-IPv4 | Sim
-Reter endereço IP de origem | Sim
-Pontos finais de serviço de rede virtual Azure<br/> | Sim
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Gestor de Tráfego do Azure | Yes
+Multi-NIC | Yes
+Endereço IP reservado | Yes
+IPv4 | Yes
+Reter endereço IP de origem | Yes
+Pontos finais de serviço de rede virtual Azure<br/> | Yes
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
@@ -202,29 +200,29 @@ Redes aceleradas | Não
 Disco dinâmico | O disco de so deve ser um disco básico. <br/><br/>Os discos de dados podem ser discos dinâmicos
 Configuração do disco docker | Não
 Anfitrião NFS | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN (iSCSI/FC) | Sim
+Host SAN (iSCSI/FC) | Yes
 Anfitrião vSAN | Sim para VMware<br/><br/> N/A para servidores físicos
 Hospedeiro multipata (MPIO) | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes Virtuais de Hospedo (VVols) | Sim para VMware<br/><br/> N/A para servidores físicos
-VMDK de hóspedes/servidor | Sim
+VMDK de hóspedes/servidor | Yes
 Disco de cluster compartilhado de hóspede/servidor | Não
 Disco encriptado de hóspede/servidor | Não
 NFS de hóspedes/servidores | Não
 Hóspede/servidor iSCSI | Para a Migração - Sim<br/>Para a recuperação de desastres - Não, o iSCSI falhará como um disco anexado ao VM
 Hóspede/servidor SMB 3.0 | Não
-Hóspede/servidor RDM | Sim<br/><br/> N/A para servidores físicos
+Hóspede/servidor RDM | Yes<br/><br/> N/A para servidores físicos
 Disco de hóspedes/servidor > 1 TB | Sim, o disco deve ser maior que 1024 MB<br/><br/>Até 8.192 GB ao replicar discos geridos (versão 9.26 em diante)<br></br> Até 4.095 GB ao replicar-se em contas de armazenamento
 Disco de hóspede/servidor com tamanho lógico lógico e 4k do setor físico | Não
 Disco de hóspedes/servidor com tamanho lógico lógico de 4K e 512 bytes do setor físico | Não
-Volume de hóspede/servidor com disco listrado >4 TB | Sim
+Volume de hóspede/servidor com disco listrado >4 TB | Yes
 Gestão lógica do volume (LVM)| Provisão grossa - Sim <br></br> Provisões finas - Não
 Hóspede/servidor - Espaços de Armazenamento | Não
 Adicionar/remover o disco quente do hóspede/servidor | Não
-Guest/server - excluir o disco | Sim
+Guest/server - excluir o disco | Yes
 Multipata de hóspedes/servidores (MPIO) | Não
 Divisórias GPT de hóspedes/servidor | Cinco divisórias são suportadas a partir do [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versão 9.25 do serviço mobility) em diante. Anteriormente quatro foram apoiados.
 ReFS | O Sistema de Ficheiros Resiliente é suportado com a versão 9.23 ou superior do serviço de mobilidade
-Bota EFI/UEFI de hóspedes/servidor | - Suportado para o Windows Server 2012 ou mais tarde, SLES 12 SP4 e RHEL 8.0 com a versão 9.30 do agente de mobilidade<br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do mercado Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) com a versão 9.30 do agente de mobilidade de recuperação do local. <br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
@@ -238,15 +236,17 @@ Bota EFI/UEFI de hóspedes/servidor | - Suportado para o Windows Server 2012 ou 
 
 **Componente** | **Suportado**
 --- | ---
-Armazenamento localmente redundante | Sim
-Armazenamento georredundante | Sim
-Armazenamento georredundante com acesso de leitura | Sim
+Armazenamento localmente redundante | Yes
+Armazenamento georredundante | Yes
+Armazenamento georredundante com acesso de leitura | Yes
 Armazenamento fresco | Não
 Armazenamento quente| Não
 Blobs de blocos | Não
-Encriptação em repouso (SSE)| Sim
+Encriptação em repouso (SSE)| Yes
 Encriptação em repouso (CMK)| Sim (via módulo PowerShell Az 3.3.0 em diante)
-Armazenamento Premium | Sim
+Dupla encriptação em repouso | Sim (via módulo PowerShell Az 3.3.0 em diante). Saiba mais sobre regiões apoiadas para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux.](../virtual-machines/linux/disk-encryption.md)
+Armazenamento Premium | Yes
+Opção de transferência segura | Yes
 Serviço de importação/exportação | Não
 Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/cache-alvo (utilizada para armazenar dados de replicação).
 Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (Os custos de transação são substancialmente mais elevados para o V2 em comparação com v1)
@@ -255,10 +255,10 @@ Contas de armazenamento v2 para fins gerais (camadas quentes e frescas) | Sim (O
 
 **Funcionalidade** | **Suportado**
 --- | ---
-Conjuntos de disponibilidade | Sim
+Conjuntos de disponibilidade | Yes
 Zonas de disponibilidade | Não
-HUB | Sim
-Managed disks | Sim
+HUB | Yes
+Discos geridos | Yes
 
 ## <a name="azure-vm-requirements"></a>Requisitos da VM do Azure
 
@@ -328,7 +328,7 @@ Serviço de Mobilidade | Instalado em VMware VM ou servidores físicos que prete
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Saiba como](tutorial-prepare-azure.md) preparar o Azure para a recuperação de desastres de VMware VMs.
 
 [9.32 UR]: https://support.microsoft.com/en-in/help/4538187/update-rollup-44-for-azure-site-recovery

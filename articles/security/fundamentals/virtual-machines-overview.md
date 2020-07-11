@@ -16,11 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77657168"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229368"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança das máquinas virtuais Azure
 Este artigo fornece uma visão geral das principais funcionalidades de segurança do Azure que podem ser usadas com máquinas virtuais.
@@ -60,7 +61,7 @@ Para uma proteção ainda mais poderosa, considere utilizar a [proteção de ame
 * [Proteção da próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Proteção e resposta do ponto final](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Investigação e reparação automatizadas](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Classificação de segurança](/windows/security/threat-protection/microsoft-defender-atp/configuration-score)
+* [Classificação de segurança](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
 * [Caça avançada](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Gestão e APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Proteção Contra Ameaças da Microsoft](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -78,7 +79,7 @@ O Key Vault oferece a opção de armazenar as suas chaves em módulos de seguran
 
 Saiba mais:
 
-* [O que é o cofre de chave do Azure?](/azure/key-vault/key-vault-overview)
+* [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
 * [Blog Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Encriptação de disco de máquina virtual
@@ -98,7 +99,7 @@ O Azure Backup é uma solução escalável que ajuda a proteger os dados da sua 
 
 Saiba mais:
 
-* [O que é o Backup do Azure?](/azure/backup/backup-introduction-to-azure-backup)
+* [O que é o Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
 * [Serviço de backup Azure FAQ](/azure/backup/backup-azure-backup-faq)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -168,6 +169,6 @@ Saiba mais:
 * [Introdução da computação confidencial da Azure](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Computação confidencial do Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais [sobre as melhores práticas](iaas.md) de segurança para VMs e sistemas operativos.

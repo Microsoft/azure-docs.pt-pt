@@ -9,11 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 454ed810f950924d3dd790a2442fe29816bf940d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838472"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223521"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Pré-visualização: Criar uma imagem a partir de um VM
 
@@ -135,6 +136,8 @@ $job.State
 > Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `-StorageAccountType Premium_LRS` , ou [Armazenamento Redundante zona,](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez verificada que a nova versão da imagem está a funcionar corretamente, pode criar um VM. Crie um VM a partir de uma [versão de imagem especializada](vm-specialized-image-version-powershell.md) ou de uma versão de imagem [generalizada](vm-generalized-image-version-powershell.md).
+
+Para obter informações sobre como fornecer informações sobre o plano de compra, consulte [as informações do plano de compra do Supply Azure Marketplace ao criar imagens.](marketplace-images.md)

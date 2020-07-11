@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 970a6dfc167a6bef7984598c60e7ce89c6e4b34c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2914dfed14360c114476025c74f3dc0c03d82e25
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463727"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224898"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Ative e gere a eliminação suave para bolhas
 
@@ -39,31 +40,31 @@ Ativar a eliminação suave para bolhas na sua conta de armazenamento utilizando
 
 5. Escolha o botão **Guardar** para confirmar as definições de Proteção de Dados
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Screenshot do Portal Azure com o serviço de proteção de dados eleito.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 Para visualizar bolhas apagadas suaves, selecione a caixa de verificação **de blobs apagadas do Show.**
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Screenshot da página de serviço de blob de proteção de dados com a opção de blobs apagadas do Show realçada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 Para visualizar instantâneos apagados suaves para uma determinada bolha, selecione a bolha e, em seguida, clique em **Ver instantâneos**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Screenshot da página de serviço de blob de proteção de dados com a opção Ver instantâneos realçada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Certifique-se de que a caixa de verificação **de instantâneos apagadas do Show** está selecionada.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Screenshot da página 'Ver instantâneos' com a opção de blobs apagadas do Show realçada.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 Quando clicar numa bolha ou instantâneo apagado suave, note as novas propriedades blob. Indicam quando o objeto foi apagado e quantos dias faltam até que a bolha ou o instantâneo blob expirem permanentemente. Se o objeto apagado suave não for um instantâneo, também terá a opção de desafiá-lo.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Screenshot dos detalhes de um objeto suave apagado.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Lembre-se que desaderar uma bolha também irá desemarrá todos os instantâneos associados. Para desembolsar instantâneos suaves apagados para uma bolha ativa, clique na bolha e selecione **Undelete todos os instantâneos**.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Screenshot dos detalhes de uma bolha suave apagada.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Assim que desempacoar as fotos de uma bolha, pode clicar em **Promover** para copiar uma imagem sobre a bolha de raiz, restaurando assim a bolha para o instantâneo.
 
-![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Screenshot da página 'Ver instantâneos' com a opção 'Promover' em destaque.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -194,7 +195,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Excluir suave para armazenamento Blob](soft-delete-overview.md)
 - [Veragem blob (pré-visualização)](versioning-overview.md)

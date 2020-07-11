@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 1413676eb5f3ab6f472648335996c1e607bc8b27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb61a3360ee2514fa6fd61e125ebc345474c62f
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771024"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224626"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse via Open Hub usando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,10 +38,10 @@ Pode copiar dados do SAP Business Warehouse via Open Hub para qualquer loja de d
 
 Especificamente, este conector SAP Business Warehouse Open Hub suporta:
 
-- Versão 7.01 ou superior do SAP Business Warehouse **(num recente Pacote de Pacotes de Suporte SAP lançado após o ano de 2015)**.
+- Versão 7.01 ou superior do SAP Business Warehouse **(num recente Pacote de Pacotes de Suporte SAP lançado após o ano de 2015)**. O SAP BW4/HANA não é suportado por este conector.
 - Copiar dados através da tabela local Open Hub Destination que por baixo pode ser DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copiar dados utilizando a autenticação básica.
-- Ligação ao Servidor de Aplicações.
+- Ligação a um servidor de aplicações SAP ou servidor de mensagens SAP.
 
 ## <a name="sap-bw-open-hub-integration"></a>Integração do Hub Aberto SAP BW 
 
@@ -106,18 +107,18 @@ As seguintes propriedades são suportadas para o serviço ligado ao SAP Business
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **SapOpenHub** | Sim |
-| servidor | Nome do servidor em que reside a instância SAP BW. | Sim |
-| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Sim |
+| tipo | A propriedade tipo deve ser definida para: **SapOpenHub** | Yes |
+| servidor | Nome do servidor em que reside a instância SAP BW. | Yes |
+| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Yes |
 | mensagemServer | O nome de anfitrião do servidor de mensagens SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
 | serviço de mensagensServer | O nome de serviço ou o número da porta do servidor de mensagens.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
 | systemId | A identificação do sistema SAP onde se encontra a mesa.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
 | logonGroup | O grupo de início de são para o sistema SAP.<br/>Utilize para ligar a um servidor de mensagens SAP. | Não |
-| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Sim |
+| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Yes |
 | language | Linguagem que o sistema SAP usa. | Não (o valor predefinido é **EN)**|
-| userName | Nome do utilizador que tem acesso ao servidor SAP. | Sim |
-| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
+| userName | Nome do utilizador que tem acesso ao servidor SAP. | Yes |
+| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
 
 **Exemplo:**
 
@@ -152,8 +153,8 @@ Para copiar dados de e para SAP BW Open Hub, defina a propriedade tipo do conjun
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **SapOpenHubTable**.  | Sim |
-| openHubDestinationName | O nome do Destino Open Hub para copiar dados de. | Sim |
+| tipo | A propriedade tipo deve ser definida para **SapOpenHubTable**.  | Yes |
+| openHubDestinationName | O nome do Destino Open Hub para copiar dados de. | Yes |
 
 Se estiver a configurar `excludeLastRequest` e no conjunto de `baseRequestId` dados, ainda é suportado como está, enquanto é sugerido que utilize o novo modelo na fonte de atividade que vai para a frente.
 
@@ -186,7 +187,7 @@ Para copiar dados do SAP BW Open Hub, as seguintes propriedades são suportadas 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **SapOpenHubSource**. | Sim |
+| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **SapOpenHubSource**. | Yes |
 | excluirLastRequest | Se excluir os registos do último pedido. | Não (o padrão é **verdadeiro)** |
 | baseRequestId | A identificação do pedido de carregamento delta. Uma vez definido, apenas os dados com pedidoId **maior do que** o valor desta propriedade serão recuperados.  | Não |
 
@@ -236,7 +237,7 @@ Ao copiar dados do SAP BW Open Hub, os seguintes mapeamentos são utilizados des
 |:--- |:--- |
 | C (Corda) | String |
 | I (inteiro) | Int32 |
-| F (Flutuar) | Double |
+| F (Flutuar) | Duplo |
 | D (Data) | String |
 | T (Tempo) | String |
 | P (BCD Embalado, Moeda, Decimal, Qty) | Decimal |
@@ -253,5 +254,5 @@ Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](cont
 
 **Resolução:** Desative a opção "Execução SAP HANA" em DTP, reprocesse os dados e tente executar novamente a atividade da cópia.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 975d6842110ffa864a534e09cf35d0d33612d7d5
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 191f0468a01c98ec60b85ea7aca6333807bf4b80
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135077"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221209"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -69,7 +69,7 @@ A localização é a região onde a imagem personalizada será criada. Para a pr
 - E.U.A. Leste 2
 - E.U.A. Centro-Oeste
 - E.U.A. Oeste
-- E.U.A.Oeste 2
+- E.U.A. Oeste 2
 - Europa do Norte
 - Europa Ocidental
 
@@ -150,6 +150,9 @@ A API requer um 'SourceType' que define a fonte para a construção de imagem, a
 - PlatformImage - indicou que a imagem de origem é uma imagem do Marketplace.
 - ManagedImage - use isto quando começar a partir de uma imagem gerida regularmente.
 - SharedImagesion - isto é usado quando está a usar uma versão de imagem numa Galeria de Imagens Partilhadas como fonte.
+
+> [!NOTE]
+> Ao utilizar as imagens personalizadas do Windows existentes, pode executar o comando Sysprep até 8 vezes numa única imagem do Windows, para obter mais informações, consulte a documentação [do sysprep.](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep)
 
 ### <a name="iso-source"></a>Fonte ISO
 Estamos a depretear esta funcionalidade do construtor de imagens, uma vez que existem agora [imagens RHEL Bring Your Own Subscription](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), por favor reveja as cronologias abaixo:
@@ -468,7 +471,10 @@ O Azure Image Builder suporta três alvos de distribuição:
 - **sharedImage** - Shared Image Gallery.
 - **VHD** - VHD numa conta de armazenamento.
 
-Pode distribuir uma imagem a ambos os tipos de destino na mesma configuração, consulte [exemplos](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+Pode distribuir uma imagem a ambos os tipos de destino na mesma configuração.
+
+> [!NOTE]
+> O comando Sysprep AIB padrão não inclui "/mode:vm", no entanto, talvez necessário quando criar imagens que terão a função HyperV instalada. Se precisar de adicionar este argumento de comando, tem de anular o comando sysprep.
 
 Como pode ter mais do que um alvo para distribuir, o Image Builder mantém um estado para cada alvo de distribuição que pode ser acedido através da consulta do `runOutputName` .  É `runOutputName` um objeto que pode consultar a distribuição de posts para obter informações sobre essa distribuição. Por exemplo, pode consultar a localização do VHD, ou regiões onde a versão de imagem foi replicada, ou a versão SIG Image criada. Esta é uma propriedade de todos os alvos de distribuição. O `runOutputName` deve ser exclusivo de cada alvo de distribuição. Aqui está um exemplo, isto é consultando uma distribuição de Galeria de Imagens Partilhada:
 
@@ -603,7 +609,7 @@ az resource show \
 > [!NOTE]
 > Uma vez criado o VHD, copie-o para um local diferente, o mais rapidamente possível. O VHD é armazenado numa conta de armazenamento no grupo de recursos temporários criado quando o modelo de imagem é submetido ao serviço Azure Image Builder. Se eliminar o modelo de imagem, perderá o VHD. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Existem ficheiros de amostra .json para diferentes cenários no [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).
  

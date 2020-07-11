@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: Conceitos
   items:
+    - name: Evolução da plataforma de identidade da Microsoft
+      href: about-microsoft-identity-platform.md
     - name: Porquê atualizar para o 2.0
       href: azure-ad-endpoint-comparison.md
     - name: Tipos de aplicação

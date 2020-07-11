@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 1e4dcd8847d7d79d816d80b453a37f58c45417fd
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135734"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224116"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Máquinas de replicar com chaves geridas pelo cliente (CMK) discos ativados
 
@@ -81,3 +81,8 @@ Siga estes passos para modificar as definições de alvo padrão de recuperaçã
 * Adicionei um novo disco com ativação CMK ao item replicado. Como posso replicar este disco com a Recuperação do Local Azure?
 
     A adição de um novo disco ativado pela CMK a um item replicado existente não é suportada. Desative a replicação e volte a ativar a replicação para a máquina virtual.
+
+* Permiti que ambas as chaves da plataforma e do cliente gerissem as chaves, como posso proteger os meus discos?
+
+    Ativar a dupla encriptação com as chaves geridas pela plataforma e pelo cliente é suplicada pela Recuperação do Site. Siga as instruções deste artigo para proteger a sua máquina. É necessário criar uma encriptação dupla ativada deDes na região alvo com antecedência. No momento de permitir a replicação para tal VM, pode fornecer este DES à Recuperação do Local.
+

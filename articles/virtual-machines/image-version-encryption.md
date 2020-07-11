@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683947"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223589"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
 
@@ -174,7 +175,7 @@ az sig image-version create \
    
 ```
 
-### <a name="create-the-vm"></a>Crie a VM
+### <a name="create-the-vm"></a>Criar a VM
 
 Pode criar um VM a partir de uma galeria de imagens partilhada e utilizar chaves geridas pelo cliente para encriptar os discos. A sintaxe é o mesmo que criar um VM [generalizado](vm-generalized-image-version-cli.md) ou [especializado](vm-specialized-image-version-cli.md) a partir de uma imagem, basta adicionar o `--os-disk-encryption-set` parâmetro com o ID do conjunto de encriptação. Para os discos de dados, adicione `--data-disk-encryption-sets` com uma lista delimitada do espaço dos conjuntos de encriptação do disco para os discos de dados.
 
@@ -187,10 +188,12 @@ Quando criar a sua versão de imagem no portal, pode utilizar o **separador Encr
 2. No **tipo de encriptação,** selecione **Encriptação em repouso com uma chave gerida pelo cliente**. 
 3. Para cada disco na imagem, selecione o conjunto de **encriptação** do disco para utilizar a partir do drop-down. 
 
-### <a name="create-the-vm"></a>Crie a VM
+### <a name="create-the-vm"></a>Criar a VM
 
 Pode criar um VM a partir de uma galeria de imagens partilhada e utilizar chaves geridas pelo cliente para encriptar os discos. Quando criar o VM no portal, no separador **Discos,** selecione **Encriptação em repouso com as teclas geridas pelo cliente** para o **tipo de Encriptação**. Em seguida, pode selecionar o conjunto de encriptação a partir do drop-down.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a encriptação do disco do lado do servidor.](./windows/disk-encryption.md)
+
+Para obter informações sobre como fornecer informações sobre o plano de compra, consulte [as informações do plano de compra do Supply Azure Marketplace ao criar imagens.](marketplace-images.md)
