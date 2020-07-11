@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -17,7 +17,7 @@ ms.locfileid: "73491700"
 ---
 | **Tipo WAN virtual** | **Tipo de hub** | **Configurações disponíveis** |
 |---|---|---|
-|Básica | Básica | VPN local-a-local apenas |
+|Básico | Básico | VPN local-a-local apenas |
 | Standard | Standard | ExpressRoute<br>VPN do utilizador (P2S)<br>VPN (site-a-site)<br> Inter-hub e VNet-to-VNet em transição através do hub virtual |
 
 >[!NOTE]

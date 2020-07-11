@@ -1,5 +1,5 @@
 ---
-title: Características suportadas no ponto final da previsão V2, mas não suportadas no ponto final da previsão V3
+title: Características suportadas no ponto final de previsão V2, mas não suportadas no ponto final de previsão V3
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -16,4 +16,4 @@ ms.lasthandoff: 04/29/2020
 ms.locfileid: "73499039"
 ---
 > [!Caution]
-> Esta funcionalidade não é suportada na V3 API para pontos finais de previsão. 
+> Esta funcionalidade não é suportada na API V3 para os pontos finais de previsão. 

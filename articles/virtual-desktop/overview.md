@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/07/2020
+ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 0d6cc523a56c9235360e6476b69303c51dc4d893
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125809"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224354"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -87,47 +87,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ser:
 >[!NOTE]
 >Se precisar de uma subscrição do Azure, pode [inscrever-se para um teste gratuito de um mês.](https://azure.microsoft.com/free/) Se estiver a utilizar a versão experimental gratuita do Azure, deverá utilizar os Serviços de Domínio Azure AD para manter o seu Windows Server Ative Ative Directy em sintonia com o Azure Ative Directory.
 
-As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter acesso aos seguintes URLs:
-
-|Endereço|Porta TCP de saída|Objetivo|Etiqueta de serviço|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
-|*.core.windows.net|443|Tráfego de agentes|AzureCloud|
-|*.servicebus.windows.net|443|Tráfego de agentes|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Tráfego de agentes|AzureCloud|
-|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
-|kms.core.windows.net|1688|Ativação do Windows|Internet|
-|wvdportalstorageblob.blob.core.windows.net|443|Suporte ao portal Azure|AzureCloud|
-
->[!IMPORTANT]
->O Windows Virtual Desktop suporta agora a tag FQDN. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Ambiente de Trabalho Virtual da Janela](../firewall/protect-windows-virtual-desktop.md).
->
->Recomendamos que utilize tags FQDN ou tags de serviço em vez de URLs para evitar problemas de serviço. Os URLs e tags listados apenas correspondem a sites e recursos virtuais do Windows Virtual Desktop. Não incluem URLs para outros serviços como o Azure Ative Directory.
-
-A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Azure podem ter acesso:
-
-|Endereço|Porta TCP de saída|Objetivo|Etiqueta de serviço|
-|---|---|---|---|
-|*.microsoftonline.com|443|Autenticação para serviços online da Microsoft|Nenhum|
-|*.events.data.microsoft.com|443|Serviço de Telemetria|Nenhum|
-|www.msftconnecttest.com|443|Deteta se o SO está ligado à internet|Nenhum|
-|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
-|login.windows.net|443|Iniciar sôms nos Serviços Online da Microsoft, Microsoft 365|Nenhum|
-|*.sfx.ms|443|Atualizações para software de cliente OneDrive|Nenhum|
-|*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
-
-
->[!NOTE]
->O Windows Virtual Desktop não tem atualmente uma lista de intervalos de endereços IP que pode ser whitelist para permitir o tráfego de rede. Só apoiamos urls específicos da lista branca neste momento.
->
->Para obter uma lista de URLs relacionados com o Office, incluindo urls relacionados com o Diretório Ativo Azure, consulte [os intervalos de URLs e endereços IP do Office 365](/office365/enterprise/urls-and-ip-address-ranges).
->
->Deve utilizar o caractere wildcard (*) para URLs que envolvam tráfego de serviço. Se preferir não usar * para tráfego relacionado com agentes, eis como encontrar os URLs sem wildcards:
->
->1. Registe as suas máquinas virtuais na piscina de anfitriões virtual do Windows Desktop.
->2. Abra **o visualizador do Evento** e navegue para o Windows **logs**  >  **Application**  >  **WVD-Agent** e procure o Evento ID 3702.
->3. Whitelist os URLs que encontrar no âmbito do Evento ID 3702. Os URLs no âmbito do ID 3702 do evento são específicos da região. Terá de repetir o processo de whitelisting com os URLs relevantes para cada região em que pretende implantar as suas máquinas virtuais.
+Para obter uma lista de URLs, deverá desbloquear para que a sua implementação virtual do Windows para trabalhar como pretendido, consulte a nossa [lista de URL seguro](safe-url-list.md).
 
 O Windows Virtual Desktop compreende os desktops e aplicações do Windows que entrega aos utilizadores e a solução de gestão, que é hospedada como um serviço no Azure pela Microsoft. Os desktops e apps podem ser implantados em máquinas virtuais (VMs) em qualquer região de Azure, e a solução de gestão e dados para estes VMs vão residir nos Estados Unidos. Isto pode resultar na transferência de dados para os Estados Unidos.
 
@@ -153,20 +113,7 @@ Os seguintes clientes de ambiente de trabalho remoto suportam o Windows Virtual 
 > [!IMPORTANT]
 > O Windows Virtual Desktop não suporta atualmente o cliente remote desktop a partir da Windows Store. O suporte a este cliente será adicionado num lançamento futuro.
 
-Os clientes remote desktop devem ter acesso aos seguintes URLs:
-
-|Endereço|Porta TCP de saída|Objetivo|Clientes(s)|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
-|*.servicebus.windows.net|443|Dados de resolução de problemas|Todos|
-|go.microsoft.com|443|Microsoft FWLinks|Todos|
-|aka.ms|443|Encurtador de URL da Microsoft|Todos|
-|docs.microsoft.com|443|Documentação|Todos|
-|privacy.microsoft.com|443|Declaração de privacidade|Todos|
-|query.prod.cms.rt.microsoft.com|443|Atualizações de clientes|Ambiente de Trabalho do Windows|
-
->[!IMPORTANT]
->A abertura destes URLs é essencial para uma experiência confiável do cliente. O bloqueio do acesso a estes URLs não é suportado e irá afetar a funcionalidade do serviço. Estes URLs apenas correspondem aos sites e recursos do cliente, e não incluem URLs para outros serviços como o Azure Ative Directory.
+Para saber mais sobre URLs tem de desbloquear para utilizar os Clientes Remotos, consulte a [lista de URL seguro](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens de SISTEMA de máquinas virtuais suportadas
 
@@ -186,13 +133,13 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 |Sistema operativo|Galeria de Imagens Azure|Implantação manual de VM|Integração do modelo do Gestor de Recursos Azure|Provisão de piscinas de acolhimento no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 multi-sessão, versão 1903|Sim|Sim|Sim|Sim|
-|Windows 10 multi-sessão, versão 1809|Sim|Sim|No|Não|
+|Windows 10 multi-sessão, versão 1809|Sim|Sim|Não|Não|
 |Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|
-|Windows 10 Enterprise, versão 1809|Sim|Sim|No|Não|
-|Windows 7 Enterprise|Sim|Sim|No|Não|
-|Windows Server 2019|Sim|Sim|No|Não|
+|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|
+|Windows 7 Enterprise|Sim|Sim|Não|Não|
+|Windows Server 2019|Sim|Sim|Não|Não|
 |Windows Server 2016|Sim|Sim|Sim|Sim|
-|Windows Server 2012 R2|Sim|Sim|No|Não|
+|Windows Server 2012 R2|Sim|Sim|Não|Não|
 
 ## <a name="next-steps"></a>Próximos passos
 
