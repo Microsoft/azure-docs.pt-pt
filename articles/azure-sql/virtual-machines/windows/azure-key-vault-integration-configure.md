@@ -14,18 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 966daa52652846004d163e230fab227a78c20f7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f1a8e2768c7ea9f252a35ab58480c613d3face6
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669261"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231969"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Configurar a integração do Cofre de Chaves Azure para o SQL Server em VMs Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
-
-> [!div class="op_single_selector"]
-> * [Resource Manager](azure-key-vault-integration-configure.md)
-> * [Clássico](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 Existem várias funcionalidades de encriptação do SQL Server, tais como [encriptação transparente de dados (TDE),](https://msdn.microsoft.com/library/bb934049.aspx) [encriptação de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)e [encriptação de backup](https://msdn.microsoft.com/library/dn449489.aspx). Estas formas de encriptação requerem que você gere e armazene as chaves criptográficas que utiliza para encriptação. O serviço Azure Key Vault foi concebido para melhorar a segurança e gestão destas chaves num local seguro e altamente disponível. O [Conector do Servidor SQL](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server utilize estas chaves a partir do Cofre da Chave Azure.
 

@@ -5,11 +5,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Aprenda a criar rapidamente um cluster Kubernetes ativado para Azure Dev Spaces diretamente do seu navegador sem instalar nada.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 5e2e5cfd22eeedd3554737458caeca0b891b62fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6da9055e11b5c514d71122c3650bbc326fb8de8
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77605298"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232292"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Criar um cluster Kubernetes com espaços Azure Dev habilitados com Azure Cloud Shell
 
@@ -31,9 +32,9 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-key
 
 A criação do cluster demora alguns minutos.  Quando concluída, a saída é mostrada no formato JSON. Procure `provisioningState` e verifique se `Succeeded` é.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte [os Espaços Azure Dev](/azure/dev-spaces/) para obter links para tutoriais completos.
+Consulte [os Espaços Azure Dev](../index.yml) para obter links para tutoriais completos.
 
 > [!IMPORTANT]
 > Muitos dos quickstarts e tutoriais do Azure Dev Spaces usam o Azure Dev Spaces CLI para realizar operações. Não é possível instalar o Azure Dev Spaces CLI na Concha da Nuvem Azure.

@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 543ed51cc10cce017e0e57a1a351ce382f1ca35f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083513"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232326"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como permitir a virtualização aninhada num VM Azure
 
@@ -145,7 +145,7 @@ Siga os passos abaixo para configurar o DHCP na máquina virtual do anfitrião p
   
 3. Clique para selecionar a caixa de verificação **do Servidor DHCP,** clique em **Adicionar Funcionalidades**e, em seguida, clique em **Seguinte** até completar o assistente.
   
-4. Clique **em Instalar**.
+4. Clique em **Install** (Instalar).
 
 #### <a name="configure-a-new-dhcp-scope"></a>Configure um novo âmbito DHCP
 
@@ -181,3 +181,4 @@ Neste exemplo, utilizará um endereço na gama 192.168.0.0/24.
 Na máquina virtual do hóspede, abra o seu navegador e navegue para uma página web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
+Para obter instruções sobre como permitir uma conectividade transparente entre VMs de hóspedes e VMs Azure, consulte [este documento](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

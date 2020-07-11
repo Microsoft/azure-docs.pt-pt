@@ -14,19 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ed973b6ea5bbcd2b23e30d381e909ef2ab03b917
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f1f564a36a3f0103832bc81bbbc65d2818c03143
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921673"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232016"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Patching automatizado para servidor SQL em máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
-
-> [!div class="op_single_selector"]
-> * [Resource Manager](automated-patching.md)
-> * [Clássico](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 O Patching Automatizado estabelece uma janela de manutenção para uma máquina virtual Azure que funciona o SQL Server. As Atualizações Automáticas só podem ser instaladas durante essa janela de manutenção. No SQL Server, esta restrição assegura que as atualizações do sistema e eventuais reinícios associados ocorrem na melhor altura para a base de dados. 
 
@@ -47,11 +43,11 @@ Para utilizar patching automatizado, considere os seguintes pré-requisitos:
 
 **Versão SQL Server**:
 
-* SQL Server 2008 R2
-* SQL Server 2012
+* SQL Server 2008 R2
+* SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016
-* SQL Server 2017
+* SQL Server 2017
 
 **Azure PowerShell:**
 
@@ -129,7 +125,7 @@ Pode levar vários minutos para instalar e configurar o Agente IAAS do SQL Serve
 
 Para desativar o Patching Automatizado, execute o mesmo script sem o parâmetro **-Ativar** o **novo-AzVMSqlServerAutoPatchingConfig**. A ausência do parâmetro **-Ativar** sinaliza o comando para desativar a função.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre outras tarefas de automatização disponíveis, consulte [a extensão do agente iaaS do servidor SQL.](sql-server-iaas-agent-extension-automate-management.md)
 
 Para obter mais informações sobre a execução do SQL Server em VMs Azure, consulte [o SQL Server na visão geral das máquinas virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).

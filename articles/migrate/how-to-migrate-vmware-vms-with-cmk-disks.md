@@ -7,11 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79269487"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232173"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrar VMware VMs para VMs Azure habilitados com encriptação do lado do servidor e chaves geridas pelo cliente
 
@@ -57,7 +58,7 @@ A experiência do portal de migração do servidor simplifica a preparação da 
 
 Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE. Para replicar VMs com CMK, irá criar um conjunto de encriptação de disco e passá-lo como uma entrada para a operação de replicação.
 
-Siga o exemplo [aqui](../virtual-machines/windows/disk-encryption.md#powershell) para criar um conjunto de encriptação de disco usando Azure PowerShell. Certifique-se de que o conjunto de encriptação do disco é criado na subscrição-alvo para a qual os VMs estão a ser migrados e na região alvo de Azure para a migração.
+Siga o exemplo [aqui](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) para criar um conjunto de encriptação de disco usando Azure PowerShell. Certifique-se de que o conjunto de encriptação do disco é criado na subscrição-alvo para a qual os VMs estão a ser migrados e na região alvo de Azure para a migração.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 
@@ -267,6 +268,6 @@ DeploymentDebugLogLevel :
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorize](tutorial-migrate-vmware.md#track-and-monitor) o estado de replicação através da experiência do portal e realize migrações de teste e migração.

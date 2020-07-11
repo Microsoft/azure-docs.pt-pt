@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e93dbd085ce99b8d555d6b9bb04e7eb6f60de0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422902"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232241"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Ativar ou desativar uma regra de firewall num SO convidado da VM do Azure
 
@@ -107,7 +107,7 @@ Se o VM estiver online e puder ser acedido em outro VM na mesma rede virtual, po
     
         Em seguida, altere **Ative=FALSE** para **Ative=TRUE** na cadeia:
 
-        **v2.22/ Ação=Permitir/ Ativo=VERDADEIRO Dir=In Protocolo=6/ Perfil=Domínio / Perfil=Privado Perfil=Público LPort=3389/ App=%SystemRoot%\system32\svchost.exeSvc=termservice Nome= \@FirewallAPI.dll,-28775 / Desc= \@FirewallAPI.dll,-28756/ EmbedCtxt= \@FirewallAPI.dll,-28752/**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
     
     * Para desativar uma regra, abra o seguinte valor de registo:
     
@@ -115,7 +115,7 @@ Se o VM estiver online e puder ser acedido em outro VM na mesma rede virtual, po
 
         Em seguida, **altere Ative =TRUE** para **Ative=FALSE**:
         
-        **v2.22/ Ação=Permitir/ Ativo=FALSO/ Dir=In Protocolo=6/ Perfil=Domínio / Perfil=Privado Perfil=Público LPort=3389/ App=%SystemRoot%\system32\svchost.exeSvc=termservice Nome= \@FirewallAPI.dll,-28775 / Desc= \@FirewallAPI.dll,-28756/ EmbedCtxt= \@FirewallAPI.dll,-28752/**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 3.  Reinicie o VM para aplicar as alterações.
 
@@ -154,7 +154,7 @@ Antes de seguir estes passos, tire uma foto do disco do sistema do VM afetado co
         
         Em seguida, altere **Ative=FALSE** para **Ative=True**.
         
-        **v2.22/ Ação=Permitir/ Ativo=VERDADEIRO Dir=In Protocolo=6/ Perfil=Domínio / Perfil=Privado Perfil=Público LPort=3389/ App=%SystemRoot%\system32\svchost.exeSvc=termservice Nome= \@FirewallAPI.dll,-28775 / Desc= \@FirewallAPI.dll,-28756/ EmbedCtxt= \@FirewallAPI.dll,-28752/**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
     3.  Para desativar uma regra, abra a seguinte chave de registo:
 
@@ -162,7 +162,7 @@ Antes de seguir estes passos, tire uma foto do disco do sistema do VM afetado co
 
         Em seguida, **altere Ative=True** to **Ative=FALSE**.
         
-        **v2.22/ Ação=Permitir/ Ativo=FALSO/ Dir=In Protocolo=6/ Perfil=Domínio / Perfil=Privado Perfil=Público LPort=3389/ App=%SystemRoot%\system32\svchost.exeSvc=termservice Nome= \@FirewallAPI.dll,-28775 / Desc= \@FirewallAPI.dll,-28756/ EmbedCtxt= \@FirewallAPI.dll,-28752/**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 9.  Realce **o BROKENSYSTEM**e, em seguida, selecione A Colmeia de Descarregamento de **File**  >  **Ficheiros** a partir do menu.
 

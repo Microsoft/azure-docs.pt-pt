@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: 84754a61bfe9537e928759aefbcb5dcddce33089
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 397f2999821e97a1f12362e2aa2fa20b20e78596
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81457965"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232411"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Amostras Azure CLI para networking
 
 A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure.
 
-| | |
+| Script | Descrição |
 |-|-|
 |**Conectividade entre recursos Azure**||
 | [Criar uma rede virtual para aplicações de várias camadas](./scripts/virtual-network-cli-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Cria uma rede virtual com as sub-redes de front-end e back-end. O tráfego para a sub-rede do front-end está limitado a HTTP e SSH, enquanto o tráfego para a sub-rede de back-end está limitado a MySQL, porta 3306. |

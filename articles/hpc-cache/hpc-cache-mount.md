@@ -6,11 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f8e92138878381b5267742b8211df81e0c49d4
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515521"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232683"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montar o Azure HPC Cache
 
@@ -114,7 +115,7 @@ Para uma montagem robusta do cliente, passe estas definições e argumentos no s
 
 > montagem -o hard,proto=tcp,mountproto=tcp,retry=30 ${CACHE_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Definições recomendadas de comando de montagem | |
+| Definições recomendadas de comando de montagem | Descrição |
 --- | ---
 ``hard`` | Os suportes macios para a Cache Azure HPC estão associados a falhas de aplicação e possíveis perda de dados.
 ``proto=tcp`` | Esta opção suporta o manuseamento adequado de erros de rede NFS.
@@ -134,6 +135,6 @@ Os caminhos virtuais do espaço de nome são mostrados na página de detalhes de
 
 ![screenshot da página de detalhe de um alvo de armazenamento (cabeçalho "Atualizar alvo de armazenamento"). Há uma caixa de destaque em torno de uma entrada na coluna virtual do caminho do espaço de nome da tabela](media/hpc-cache-view-namespace-paths.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para mover os dados para os alvos de armazenamento da cache, leia [o novo armazenamento da Azure Blob](hpc-cache-ingest.md).

@@ -10,11 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 20ab78aa67fa5d59dac774559b3c43561cf75fbc
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5e8ea56de84f3d6b92bc23c0e3ab139d03bd68a9
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040712"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232258"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>O que é a Pré-visualização do Azure Time Series Insights?
 
@@ -75,7 +76,7 @@ A Azure Time Series Insights fornece um modelo de preços de pagamento escaláve
  
 Com a introdução destas principais capacidades de IoT industrial, a Time Series Insights também fornece os seguintes benefícios principais.  
 
-| | |
+| Capacidade | Vantagem |
 | ---| ---|
 | Armazenamento multicamada para dados da série de tempo à escala IoT | Com um pipeline de processamento de dados partilhado para ingerir dados, pode ingerir dados em lojas quentes e frias. Utilize uma loja quente para consultas interativas e para armazenar grandes volumes de dados. Para saber mais sobre como tirar partido de consultas baseadas em ativos de alto desempenho, consulte [consultas.](./concepts-query-overview.md) |
 | Modelo de séries de tempo para contextualizar telemetria bruta e obter insights baseados em ativos | Pode utilizar o modelo da série-tempo para criar casos, hierarquias, tipos e variáveis para os seus dados de séries de tempo. Para saber mais sobre o Modelo série de tempo, consulte [o Modelo série de tempo.](./concepts-model-overview.md)  |
@@ -84,7 +85,7 @@ Com a introdução destas principais capacidades de IoT industrial, a Time Serie
 | Extensibilidade e integração | A integração do Azure Time Series Insights Power BI Connector está disponível diretamente na experiência do utilizador do Time Series Explorer através da opção **Exportação,** permitindo aos clientes exportar as consultas de séries horárias que criam na nossa experiência de utilizador diretamente no ambiente de trabalho Power BI e ver as suas tabelas de séries de tempo ao lado de outras análises bi. Isto abre a porta a uma nova classe de cenários para empresas industriais de IoT que investiram no Power BI, fornecendo um único painel de vidro sobre a análise de várias fontes de dados, incluindo séries de tempo IoT. | 
 | Aplicações personalizadas construídas na plataforma Time Series Insights | O Time Series Insights suporta o [SDK JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controlos ricos e acesso simplificado a consultas. Use o SDK para construir aplicações IoT personalizadas em cima de Time Series Insights para atender às necessidades do seu negócio. Também pode utilizar as [APIs de Consulta](./concepts-query-overview.md) de Insights de Séries De Tempo diretamente para conduzir dados em aplicações IoT personalizadas. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com a antevisão da Série De Tempo do Azure:
 

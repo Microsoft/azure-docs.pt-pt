@@ -4,14 +4,14 @@ description: Saiba como utilizar identidades geridas no Serviço Azure Kubernete
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/10/2020
 ms.author: mlearned
-ms.openlocfilehash: 30d1290f9eb7b2750f09e5e256d4dd212c7e4607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27ae1d1a2c6309bdac2410dca4b48abf27d8ea0b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610290"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231986"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utilize identidades geridas no Serviço Azure Kubernetes
 
@@ -23,7 +23,7 @@ Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o proved
 
 Deve ter o seguinte recurso instalado:
 
-- O Azure CLI, versão 2.2.0 ou mais tarde
+- O Azure CLI, versão 2.8.0 ou mais tarde
 
 ## <a name="limitations"></a>Limitações
 
@@ -36,7 +36,7 @@ Deve ter o seguinte recurso instalado:
 
 A AKS usa várias identidades geridas para serviços incorporados e addons.
 
-| Identidade                       | Name    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
+| Identidade                       | Nome    | Caso de utilização | Permissões por defeito | Traga a sua própria identidade
 |----------------------------|-----------|----------|
 | Plano de controlo | não visível | Utilizado pela AKS para gerir recursos de networking, por exemplo, criar um equilibrador de carga para entradas, IP público, etc.| Papel contribuinte para o grupo de recursos nó | Atualmente, não é suportado
 | Kubelet | AKS Cluster Name-agentpool | Autenticação com Registo de Contentores Azure (ACR) | Função do leitor para grupo de recursos de nó | Atualmente, não é suportado
@@ -106,7 +106,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 
 O cluster será criado em poucos minutos. Em seguida, pode implementar as suas cargas de trabalho de aplicação para o novo cluster e interagir com ele, tal como fez com os clusters AKS baseados em serviços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Utilize [os modelos Azure Resource Manager (ARM)][aks-arm-template] para criar clusters ativados pela Identidade Gerida.
 
 <!-- LINKS - external -->

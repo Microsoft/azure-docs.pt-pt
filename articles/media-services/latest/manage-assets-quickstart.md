@@ -3,12 +3,12 @@ title: Use o portal para carregar, codificar e transmitir conteúdo - Azure
 description: Este quickstart mostra-lhe como usar o portal para carregar, codificar e transmitir conteúdo com a Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: b023a4ed68aa7cfa41661e986dcd4ad6819b810d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988960"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232479"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Quickstart: Carregar, codificar e transmitir conteúdo com portal
 

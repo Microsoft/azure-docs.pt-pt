@@ -9,11 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827271"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232666"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Autoescala vertical com conjuntos de escala de máquina virtual
 
@@ -38,7 +39,7 @@ Pode configurar a escala vertical para ser acionada com base em alertas métrico
 > [!NOTE]
 > Devido ao tamanho da primeira Máquina Virtual, os tamanhos a que pode ser dimensionado, podem ser limitados devido à disponibilidade dos outros tamanhos na corrente do cluster da Máquina Virtual. Nos livros de automação publicados utilizados neste artigo cuidamos deste caso e apenas escala dentro dos pares de tamanho vM abaixo. Isto significa que uma máquina virtual Standard_D1v2 não será subitamente dimensionada até Standard_G5 ou reduzida a Basic_A0. Também os tamanhos da Máquina Virtual também limitados escalam para cima/para baixo não é suportado. Pode optar por escalar entre os seguintes pares de tamanhos:
 > 
-> | Par de escalões de tamanhos VM |  |
+> | Membro de par de pares de tamanhos VM | Membro |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |
@@ -86,7 +87,7 @@ Pode configurar a escala vertical para ser acionada com base em alertas métrico
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Criar uma Conta de Automação Azure com capacidade de funcionamento
-A primeira coisa que precisa de fazer é criar uma conta Azure Automation que hospeda os runbooks usados para escalar as instâncias de escala de máquina virtual. Recentemente, a [Azure Automation](https://azure.microsoft.com/services/automation/) introduziu a funcionalidade "Executar como conta" que faz com que a criação do Diretor de Serviço para executar automaticamente os livros de execução em nome de um utilizador. Para obter mais informações, consulte:
+A primeira coisa que precisa de fazer é criar uma conta Azure Automation que hospeda os runbooks usados para escalar as instâncias de escala de máquina virtual. Recentemente, a [Azure Automation](https://azure.microsoft.com/services/automation/) introduziu a funcionalidade "Executar como conta" que faz com que a criação do Diretor de Serviço para executar automaticamente os livros de execução em nome de um utilizador. Para obter mais informações, veja:
 
 * [Autenticar Runbooks com a conta Run As do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 

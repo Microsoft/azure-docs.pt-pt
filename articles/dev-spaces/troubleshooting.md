@@ -5,11 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a resolver problemas e resolva problemas comuns ao ativar e utilizar espaços Azure Dev
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 51846c8630e4e8c60205f8d92fb7f74f92de3f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309650"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232496"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces resolução de problemas
 
@@ -131,7 +132,7 @@ Para resolver este problema:
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Timeout em "Waiting for container image build..." passo com os nódoas virtuais AKS
 
-Este tempo limite ocorre quando tenta usar Dev Spaces para executar um serviço configurado para funcionar num [nó virtual AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). A Dev Spaces não suporta atualmente serviços de construção ou depuração em nós virtuais.
+Este tempo limite ocorre quando tenta usar Dev Spaces para executar um serviço configurado para funcionar num [nó virtual AKS](../aks/virtual-nodes-portal.md). A Dev Spaces não suporta atualmente serviços de construção ou depuração em nós virtuais.
 
 Se correr `azds up` com o interruptor ou ativar o registo `--verbose` verboso no Estúdio Visual, consulte detalhes adicionais:
 
@@ -511,7 +512,7 @@ Para atualizar a função RBAC do utilizador para o controlador:
     * Para *Função*, selecione *Contribuinte* ou *Proprietário*.
     * Para *atribuir acesso a*, selecione *utilizador, grupo ou principal de serviço Azure.*
     * Para *obter o seguinte,* procure no utilizador que pretenda obter permissões.
-1. Clique em *Guardar*.
+1. Clique em *Save* (Guardar).
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Resolução de nomes DNS falha para um URL público associado a um serviço Dev Spaces
 
@@ -591,7 +592,7 @@ Depois de as suas cápsulas terem sido reiniciadas, pode começar a utilizar o s
 
 Para ativar os espaços Azure Dev num cluster AKS para o qual o tráfego de saída dos nosdes de cluster é restrito, você terá que permitir os seguintes FQDNs:
 
-| FQDN                                    | Porta      | Utilizar      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Para puxar o linux alpino e outras imagens do Azure Dev Spaces |
 | gcr.io | HTTP:443 | Para puxar imagens de leme/leme|

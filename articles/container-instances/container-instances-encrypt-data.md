@@ -5,11 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f9aff2ea88c2334ab30c9819f68fd6cbb9124c5
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79080365"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232445"
 ---
 # <a name="encrypt-deployment-data"></a>Encriptar dados de implementação
 
@@ -25,10 +26,10 @@ Pode confiar nas teclas geridas pela Microsoft para a encriptação dos dados do
 
 |    |    Chaves geridas pela Microsoft     |     Chaves geridas pelo cliente     |
 |----|----|----|
-|    Operações de encriptação/desencriptação    |    Azure    |    Azure    |
-|    Armazenamento de chaves    |    Loja de chaves da Microsoft    |    Azure Key Vault    |
-|    Responsabilidade de rotação chave    |    Microsoft    |    Cliente    |
-|    Acesso à chave    |    Apenas microsoft    |    Microsoft, Cliente    |
+|    **Operações de encriptação/desencriptação**    |    Azure    |    Azure    |
+|    **Armazenamento de chaves**    |    Loja de chaves da Microsoft    |    Azure Key Vault    |
+|    **Responsabilidade de rotação chave**    |    Peering da Microsoft    |    Customer    |
+|    **Acesso à chave**    |    Apenas microsoft    |    Microsoft, Cliente    |
 
 O resto do documento cobre os passos necessários para encriptar os seus dados de implementação do ACI com a sua chave (chave gerida pelo cliente). 
 

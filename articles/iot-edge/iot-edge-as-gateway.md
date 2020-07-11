@@ -11,11 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 916eeaa60bc054301af039164ce1c14e77ceb91a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7c924af297d9a315b61351b69d2fe6346bc1178
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733518"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232632"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>De que forma um dispositivo IoT Edge pode ser utilizado como gateway
 
@@ -23,11 +24,11 @@ Gateways em soluções IoT Edge fornecem conectividade do dispositivo e análise
 
 ## <a name="patterns"></a>Padrões
 
-Existem três padrões para a utilização de um dispositivo IoT Edge como porta de entrada: tradução transparente, protocolar e tradução de identidade:
+Existem três padrões para a utilização de um dispositivo do IoT Edge como gateway: transparente, tradução de protocolo e tradução de identidade:
 
-* **Transparente** – Os dispositivos que teoricamente poderiam ligar-se ao IoT Hub podem ligar-se a um dispositivo de gateway. Os dispositivos a jusante têm as suas próprias identidades IoT Hub e estão a utilizar qualquer um dos protocolos MQTT, AMQP ou HTTP. O gateway simplesmente transmite comunicações entre os dispositivos e o IoT Hub. Tanto os dispositivos como os utilizadores que interagem com eles através do IoT Hub desconhecem que um portal está a mediar as suas comunicações. Esta falta de consciência significa que a porta de entrada é considerada *transparente.* Consulte a [Criar uma porta de entrada transparente](how-to-create-transparent-gateway.md) para obter detalhes sobre a utilização de um dispositivo IoT Edge como porta de entrada transparente.
-* **Tradução protocolar** – Também conhecido como um padrão de gateway opaco, dispositivos que não suportam MQTT, AMQP ou HTTP podem usar um dispositivo de gateway para enviar dados para o IoT Hub em seu nome. O gateway compreende o protocolo usado pelos dispositivos a jusante, e é o único dispositivo que tem uma identidade no IoT Hub. Toda a informação parece que vem de um dispositivo, o portal. Os dispositivos a jusante devem incorporar informações adicionais de identificação nas suas mensagens se as aplicações na nuvem quiserem analisar os dados por dispositivo. Além disso, os primitivos IoT Hub como gémeos e métodos só estão disponíveis para o dispositivo gateway, e não para dispositivos a jusante.
-* **Tradução de identidade** - Os dispositivos que não conseguem ligar-se ao IoT Hub podem ligar-se a um dispositivo de gateway. O gateway fornece identidade ioT Hub e tradução de protocolo em nome dos dispositivos a jusante. O gateway é inteligente o suficiente para entender o protocolo usado pelos dispositivos a jusante, fornecer-lhes identidade, e traduzir primitivos IoT Hub. Os dispositivos a jusante aparecem no IoT Hub como dispositivos de primeira classe com gémeos e métodos. Um utilizador pode interagir com os dispositivos no IoT Hub e desconhece o dispositivo de gateway intermédio.
+* **Transparente** – Os dispositivos que teoricamente poderiam ligar-se ao IoT Hub podem ligar-se a um dispositivo de gateway. Os dispositivos a jusante têm as suas próprias identidades do Hub IoT e estão a utilizar quaisquer dos protocolos MQTT, AMQP ou HTTP. O gateway simplesmente transmite as comunicações entre os dispositivos e o Hub IoT. Tanto os dispositivos como os utilizadores que interagem com eles através do IoT Hub desconhecem que um portal está a mediar as suas comunicações. Esta falta de consciência significa que a porta de entrada é considerada *transparente.* Consulte o artigo [Create a transparent gateway](how-to-create-transparent-gateway.md) (Criar um gateway transparente) para ver especificações sobre como utilizar um dispositivo do IoT Edge como um gateway transparente.
+* **Tradução protocolar** – Também conhecido como um padrão de gateway opaco, dispositivos que não suportam MQTT, AMQP ou HTTP podem usar um dispositivo de gateway para enviar dados para o IoT Hub em seu nome. O gateway compreende o protocolo utilizado pelos dispositivos a jusante e é o único dispositivo que tem uma identidade no Hub IoT. Toda a informação parece que vem de um dispositivo, o portal. Os dispositivos a jusante devem incorporar informações de identificação adicionais nas suas mensagens se as aplicações na cloud quiserem analisar os dados por dispositivo. Adicionalmente, os primitivos do Hub IoT como duplos e métodos apenas estão disponíveis para o dispositivo do gateway e não para dispositivos a jusante.
+* **Tradução de identidade** - Os dispositivos que não conseguem ligar-se ao IoT Hub podem ligar-se a um dispositivo de gateway. O gateway fornece a identidade do Hub IoT e a tradução de protocolo em nome dos dispositivos a jusante. O gateway é suficientemente inteligente para compreender o protocolo utilizado pelos dispositivos a jusante, fornecer-lhes uma identidade e traduzir primitivos do Hub IoT. Os dispositivos a jusante aparecem no Hub IoT como dispositivos de primeira classe com duplos e métodos. Um utilizador pode interagir com os dispositivos no Hub IoT e não tem conhecimento do dispositivo do gateway intermédio.
 
 ![Diagrama - Padrões transparentes, protocolos e gateways de identidade](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
@@ -49,7 +50,7 @@ Um gateway que faz a tradução de identidade fornece os benefícios da traduç�
 
 Aqui está uma folha de batota rápida que compara primitivos IoT Hub ao usar gateways transparentes, opacos (protocolo) e proxy.
 
-| &nbsp; | Gateway transparente | Tradução do protocolo | Tradução de identidade |
+| Primitivo | Gateway transparente | Tradução do protocolo | Tradução de identidade |
 |--------|-------------|--------|--------|
 | Identidades armazenadas no registo de identidade do IoT Hub | Identidades de todos os dispositivos conectados | Apenas a identidade do dispositivo de gateway | Identidades de todos os dispositivos conectados |
 | Dispositivo duplo | Cada dispositivo conectado tem o seu próprio dispositivo gémeo | Só o portal tem um dispositivo e gémeos módulos | Cada dispositivo conectado tem o seu próprio dispositivo gémeo |
@@ -58,7 +59,7 @@ Aqui está uma folha de batota rápida que compara primitivos IoT Hub ao usar ga
 
 Ao utilizar um padrão de gateway opaco (tradução protocolar), todos os dispositivos que se conectam através desse gateway partilham a mesma fila nuvem-dispositivo, que pode conter no máximo 50 mensagens. Segue-se que o padrão de gateway opaco deve ser utilizado apenas quando poucos dispositivos estão a ligar-se através de cada porta de entrada de campo, e o seu tráfego nuvem-dispositivo é baixo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar uma porta de entrada transparente:
 

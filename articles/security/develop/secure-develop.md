@@ -13,11 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266768"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232700"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
@@ -133,7 +134,7 @@ Executar o DAST, de preferência com a ajuda de um profissional de segurança (u
 
 Nos [testes de fuzz,](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)induz a falha do programa introduzindo deliberadamente dados mal formados ou aleatórios a uma aplicação. Induzir falha no programa ajuda a revelar potenciais problemas de segurança antes da aplicação ser lançada.
 
-[Deteção de Riscos de Segurança](https://docs.microsoft.com/security-risk-detection/) é o serviço exclusivo de testes de fuzz da Microsoft para encontrar bugs críticos de segurança no software.
+[Deteção de Riscos de Segurança](https://www.microsoft.com/en-us/security-risk-detection/) é o serviço exclusivo de testes de fuzz da Microsoft para encontrar bugs críticos de segurança no software.
 
 ### <a name="conduct-attack-surface-review"></a>Realizar revisão de superfície de ataque
 
@@ -149,7 +150,7 @@ Garantir que a sua aplicação está segura é tão importante como testar qualq
 
 [Secure DevOps Kit for Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contém SVTs para múltiplos serviços da plataforma Azure. Você executou estes SVTs periodicamente para garantir que a sua subscrição Azure e os diferentes recursos que compõem a sua aplicação estão em um estado seguro. Também pode automatizar estes testes utilizando a funcionalidade de extensão de integração contínua/implementação contínua (CI/CD) da AzSK, que disponibiliza SVTs como extensão do Visual Studio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Nos seguintes artigos, recomendamos controlos de segurança e atividades que possam ajudá-lo a conceber e implementar aplicações seguras.
 
 - [Design de aplicações seguras](secure-design.md)

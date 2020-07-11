@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: a82a0644fac099b568ab86ea213b98cd8e7d5c22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 720931cf9f955f63075e3881b6b9f2e884bd3a76
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78199653"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232462"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência do Evento Ao Vivo
 
@@ -61,20 +62,20 @@ As tabelas que se seguem mostram resultados típicos de latência (quando a band
 
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|DASH em AMP|10|8s|
-|HLS no jogador nativo do iOS|14s|10|
+|**DASH em AMP**|10|8s|
+|**HLS no jogador nativo do iOS**|14s|10|
 
 ### <a name="live-encoding"></a>Live Encoding
 
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|DASH em AMP|14s|10|
-|HLS no jogador nativo do iOS|18s|13s|
+|**DASH em AMP**|14s|10|
+|**HLS no jogador nativo do iOS**|18s|13s|
 
 > [!NOTE]
 > A latência de ponta a ponta pode variar dependendo das condições da rede local ou introduzindo uma camada de caching CDN. Deve testar as configurações exatas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

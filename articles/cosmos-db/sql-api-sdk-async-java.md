@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 4bdfe1609d80a0e3198a9e428a148be2f28c72d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: adee8064a97c7757ae7a6d3c9475bc5a3044e50d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392119"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232309"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para SQL API: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -26,7 +27,7 @@ ms.locfileid: "85392119"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [DESCANSAR] (/repouso/api
-> * [Fornecedor de Recursos REST](/rest/apier/)
+> * [Fornecedor de Recursos REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
@@ -51,6 +52,6 @@ O SQL API Async Java SDK difere do SQL API Java SDK, fornecendo operações ass�
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/)
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffd73e9dff06df4b5acdd004dddcfca5ff03ede0
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512011"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232275"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemas na resolução de ficheiros Azure em Linux
 
@@ -30,12 +30,12 @@ As causas comuns para este problema são:
 
 |   | SMB 2.1 <br>(Montes em VMs na mesma região de Azure) | SMB 3.0 <br>(Montes a partir de instalações e regiões transversais) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
-| CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
-| openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| **Ubuntu Server** | 14.04+ | 16.04+ |
+| **RHEL** | 7+ | 7.5+ |
+| **CentOS** | 7+ |  7.5+ |
+| **Debian** | 8+ |   |
+| **openSUSE** | 13.2+ | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
 
 - Os utilitários CIFS (cifs-utils) não estão instalados no cliente.
 - A versão mínima SMB/CIFS, 2.1, não está instalada no cliente.
@@ -84,9 +84,9 @@ No Linux, recebe uma mensagem de erro que se assemelha ao seguinte:
 
 ### <a name="cause"></a>Causa
 
-Atingiu o limite superior das pegas abertas simultâneas que são permitidas para um ficheiro.
+Atingiu o limite superior de pegas abertas simultâneas que são permitidas para um ficheiro ou diretório.
 
-Há uma quota de 2.000 pegas abertas num único ficheiro. Quando se tem 2.000 pegas abertas, é apresentada uma mensagem de erro que diz que a quota é alcançada.
+Há uma quota de 2.000 pegas abertas num único ficheiro ou diretório. Quando se tem 2.000 pegas abertas, é apresentada uma mensagem de erro que diz que a quota é alcançada.
 
 ### <a name="solution"></a>Solução
 
