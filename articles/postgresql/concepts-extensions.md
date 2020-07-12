@@ -5,12 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201276"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242071"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões PostgreSQL na Base de Dados Azure para PostgreSQL - Servidor Único
 O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dados utilizando extensões. As extensões juntam vários objetos SQL relacionados num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Depois de serem carregadas na base de dados, as extensões funcionam como funcionalidades incorporadas.
@@ -211,7 +212,7 @@ Existe uma compensação entre a informação de execução de consultas pg_stat
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) permitem-lhe ligar de um servidor PostgreSQL a outro, ou a outra base de dados no mesmo servidor. O servidor recetor precisa de permitir ligações a partir do servidor de envio através da sua firewall. Ao utilizar estas extensões para ligar entre a Base de Dados Azure para servidores PostgreSQL, isso pode ser feito definindo "Permitir o acesso aos serviços Azure" para ON. Isto também é necessário se pretender utilizar as extensões para voltar ao mesmo servidor. A definição "Permitir o acesso aos serviços Azure" pode ser encontrada na página do portal Azure para o servidor Postgres, em "Connection Security". A viragem "Permitir o acesso aos serviços Azure" ON coloca todos os IPs Azure na lista de autorizações.
 
-Atualmente, as ligações de saída da Base de Dados Azure para PostgreSQL não são suportadas, exceto para ligações a outros servidores Azure Database para servidores PostgreSQL.
+Atualmente, as ligações de saída da Base de Dados Azure para PostgreSQL não são suportadas, exceto para ligações a outras bases de dados Azure para servidores PostgreSQL na mesma região.
 
 ## <a name="uuid"></a>uuid
 Se estiver a planear utilizar `uuid_generate_v4()` a partir da [extensão uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html), considere comparar com `gen_random_uuid()` a [extensão do pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) para benefícios de desempenho.
@@ -277,5 +278,5 @@ SELECT timescaledb_post_restore();
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se não vir uma extensão que gostaria de usar, avise-nos. Vote nos pedidos existentes ou crie novos pedidos de feedback no nosso [fórum de comentários.](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)

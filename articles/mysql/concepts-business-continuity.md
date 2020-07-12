@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b5751bdccde33fa16d5f09cfbe9a411a351518b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 74fdfb9f3a3f59f55b0f0ed4865601c0ddb7b7f2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086556"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241969"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Compreender a continuidade do negócio na Base de Dados Azure para o MySQL
 
@@ -52,7 +52,11 @@ A outra opção é utilizar a Base de Dados Azure para a funcionalidade de geo-r
 
 Você pode usar réplicas de leitura de região cruzada para melhorar o seu plano de continuidade e recuperação de desastres. As réplicas de leitura são atualizadas assíncronea usando a tecnologia binária de replicação de registos do MySQL. Saiba mais sobre réplicas lidas, regiões disponíveis e como falhar a partir do artigo de [conceitos de réplicas lidos.](concepts-read-replicas.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="faq"></a>FAQ
+### <a name="where-does-azure-database-for-mysql-store-customer-data"></a>Onde é que a Azure Database para o MySQL armazena os dados dos clientes?
+Por padrão, a Base de Dados Azure para o MySQL não move nem armazena os dados dos clientes para fora da região em que está implantado. No entanto, os clientes podem optar opcionalmente por permitir [cópias de segurança geo-redundantes](concepts-backup.md#backup-redundancy-options) ou criar [réplicas de leitura cruzada](concepts-read-replicas.md#cross-region-replication) para armazenar dados noutra região.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [cópias de segurança automáticas na Base de Dados Azure para o MySQL](concepts-backup.md).
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).

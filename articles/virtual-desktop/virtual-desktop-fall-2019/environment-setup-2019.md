@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82615334"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241680"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
 
@@ -67,5 +67,5 @@ Para aprender a configurar o seu inquilino virtual windows Desktop, consulte [Cr
 
 Para saber como ligar ao Windows Virtual Desktop, consulte um dos seguintes artigos:
 
-- [Ligar a partir do Windows 10 ou Windows 7](../connect-windows-7-and-10.md)
+- [Ligar a partir do Windows 10 ou Windows 7](connect-windows-7-10-2019.md)
 - [Ligar a partir de um browser web](connect-web-2019.md)

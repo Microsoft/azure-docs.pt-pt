@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2eafe3c16a89723d55ec52fde785e9ec69e45e0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db8ae98302ad6df7355ce03f5a33b5d21f1ea09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334030"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242105"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps suportado estilos de mapa
 O Azure Maps suporta vários estilos de mapa incorporados diferentes, como descrito abaixo.
@@ -28,6 +28,7 @@ Um **roteiro** é um mapa padrão que exibe estradas, características naturais 
 * [Azulejo do mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controlo de mapas Web SDK
 * Controlo de mapas android
+* Elemento visual do Power BI
 
 ## <a name="blank-and-blank_accessible"></a>em branco e blank_accessible
 
@@ -48,6 +49,7 @@ O estilo **satélite** é uma combinação de imagens de satélite e aéreas.
 * [Azulejo de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Controlo de mapas Web SDK
 * Controlo de mapas android
+* Elemento visual do Power BI
 
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de imagens de satélite e aéreas.
@@ -57,6 +59,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 **APIs aplicáveis:**
 * Controlo de mapas Web SDK
 * Controlo de mapas android
+* Elemento visual do Power BI
 
 ## <a name="grayscale_dark"></a>grayscale_dark
 **grayscale dark** é uma versão escura do estilo roteiro mapa.
@@ -68,6 +71,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 * [Azulejo do mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controlo de mapas Web SDK 
 * Controlo de mapas android
+* Elemento visual do Power BI
 
 
 ## <a name="grayscale_light"></a>grayscale_light
@@ -78,6 +82,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 **APIs aplicáveis:**
 * Controlo de mapas Web SDK
 * Controlo de mapas android
+* Elemento visual do Power BI
 
 
 ## <a name="night"></a>noite
@@ -88,6 +93,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 **APIs aplicáveis:**
 * Controlo de mapas Web SDK
 * Controlo de mapas android
+* Elemento visual do Power BI
 
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **road shaded relief** é um estilo principal Azure Maps completo com contornos da Terra.
@@ -98,6 +104,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 * [Azulejo do mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controlo de mapas Web SDK
 * Controlo de mapas android
+* Elemento visual do Power BI
 
 ## <a name="high_contrast_dark"></a>high_contrast_dark
 
@@ -107,6 +114,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 
 **APIs aplicáveis:**
 * Controlo de mapas Web SDK
+* Elemento visual do Power BI
 
 ## <a name="next-steps"></a>Passos seguintes
 

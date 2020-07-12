@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ac4df0b63d48e590bfdfc49f1c8b5607b4651cd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c18a09b494de7ecb639fbc5639b7162bdb02d2a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310194"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241986"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura meteorológica do Azure Maps
 
@@ -110,7 +111,7 @@ A tabela seguinte fornece informações sobre que tipo de informações meteorol
 | Chade                        | ✓               |                              |        ✓| 
 | Comoros                     | ✓               |                              |        ✓| 
 | República Democrática do Congo                 | ✓               |                              |        ✓|
-| Costa do Marfim               | ✓               |                              |        ✓| 
+| Costa do Marfim (Côte d’Ivoire)               | ✓               |                              |        ✓| 
 | Jibuti                    | ✓               |                              |        ✓| 
 | Egito                       | ✓               |                              |        ✓| 
 | Guiné Equatorial           | ✓               |                              |        ✓| 

@@ -8,11 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83648572"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242377"
 ---
 # <a name="building-an-accessible-application"></a>Construção de uma aplicação acessível
 
@@ -45,6 +46,7 @@ Existem várias maneiras diferentes em que o mapa pode ser ampliado, panned, gir
 - Com o mapa focado, use o sinal Minus, Hyphen `-` () ou Underscore `_` () para ampliar um nível.
 - Utilizando o controlo de zoom com um separador/teclas de teclado/introdução de ratos.
 - Pressione e segure `Shift` o botão e pressione o botão do rato esquerdo para baixo no mapa e arraste para desenhar uma área para ampliar o mapa.
+- Usando algumas almofadas multi-toque, arrastando dois dedos para cima para ampliar, ou para baixo para ampliar dentro
 
 **Pan o mapa**
 
@@ -151,7 +153,7 @@ Aqui ficam algumas dicas adicionais para tornar a sua aplicação de mapeamento 
 - Tente navegar na sua aplicação utilizando o teclado. Certifique-se de que o pedido de separador é lógico.
 - Se criar atalhos de teclado, tente limitá-lo a duas teclas ou menos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a acessibilidade nos módulos Web SDK.
 

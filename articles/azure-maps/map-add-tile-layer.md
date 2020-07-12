@@ -9,11 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb3cfa7266688ac8973bd3838d0d03e9efe8d50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988605"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242309"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
 
@@ -36,6 +37,7 @@ O URL de azulejos passados para uma camada de azulejos deve ser um URL http ou h
 * `{quadkey}`- Identificador de azulejos de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
 * `{bbox-epsg-3857}`- Uma cadeia de caixa de limitação com o formato `{west},{south},{east},{north}` no Sistema de Referência Espacial EPSG 3857.
 * `{subdomain}`- Um espaço reservado para os valores do subdomínio, se especificado, `subdomain` o será adicionado.
+* `{azMapsDomain}`- Um espaço reservado para alinhar o domínio e a autenticação de pedidos de azulejos com os mesmos valores utilizados pelo mapa.
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico
 
@@ -67,7 +69,7 @@ A classe de camada de azulejos tem muitas opções de estilo. Aqui está uma fer
 <iframe height='700' scrolling='no' title='Opções de camada de azulejos' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>opções de camada de azulejos da</a> pen por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

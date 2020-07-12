@@ -5,18 +5,19 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86241935"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços
 Quando os seus serviços encontram problemas, a sua capacidade de responder e corrigir incidentes e interrupções depende da sua capacidade de detetar os problemas rapidamente. Se reportar problemas e falhas ao gestor de saúde Azure Service Fabric a partir do seu código de serviço, pode utilizar ferramentas de monitorização sanitária padrão que o Service Fabric fornece para verificar o estado de saúde.
 
 Há três maneiras de relatar a saúde do serviço:
 
-* Utilize [objetos partição](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) ou [CodePackageActivationContexto.](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext)  
+* Utilize [objetos partição](/dotnet/api/system.fabric.istatefulservicepartition) ou [CodePackageActivationContexto.](/dotnet/api/system.fabric.codepackageactivationcontext)  
   Pode utilizar o `Partition` e `CodePackageActivationContext` os objetos para relatar a saúde de elementos que fazem parte do contexto atual. Por exemplo, o código que funciona como parte de uma réplica só pode reportar a saúde nessa réplica, a partição a que pertence, e a aplicação da qual faz parte.
 * Utilize`FabricClient`.   
   Pode utilizar `FabricClient` para reportar a saúde a partir do código de serviço se o cluster não estiver [seguro](service-fabric-cluster-security.md) ou se o serviço estiver a funcionar com privilégios administrativos. A maioria dos cenários do mundo real não usam aglomerados não protegidos, nem fornecem privilégios administrativos. Com `FabricClient` , você pode reportar saúde sobre qualquer entidade que faça parte do cluster. No entanto, o código de serviço apenas deve enviar relatórios relacionados com a sua própria saúde.
@@ -138,8 +139,7 @@ var activationContext = FabricRuntime.GetActivationContext();
 activationContext.ReportApplicationHealth(healthInformation);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Mergulho profundo na saúde do Tecido de Serviço](service-fabric-health-introduction.md)
-* [REST API para reportar saúde do serviço](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
-* [REST API para reportar saúde de aplicações](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
-
+* [REST API para reportar saúde do serviço](/rest/api/servicefabric/report-the-health-of-a-service)
+* [REST API para reportar saúde de aplicações](/rest/api/servicefabric/report-the-health-of-an-application)

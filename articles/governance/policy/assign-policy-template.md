@@ -4,31 +4,33 @@ description: Neste arranque rápido, você usa um modelo de Gestor de Recursos A
 ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c3a37e9086744fb45c8d1e4ebe3bd16da7a83770
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f4cb4cb1fc56d06ab1e061b2d0e9a031e0e511dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971152"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242054"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando um modelo ARM
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
-Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos. No final deste processo, vai identificar com êxito as máquinas virtuais que não estão a utilizar discos geridos. Estão em _não conformidade_ com a atribuição de política.
+Este quickstart passos através do processo de utilização de um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma atribuição de política para identificar máquinas virtuais que não estão a usar discos geridos. No final deste processo, vai identificar com êxito as máquinas virtuais que não estão a utilizar discos geridos. Estão em _não conformidade_ com a atribuição de política.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar o modelo ARM para atribuir uma Política de Azure ao Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
+## <a name="review-the-template"></a>Rever o modelo
 
 Neste arranque rápido, cria-se uma atribuição de política e atribui-se uma definição de política incorporada chamada _Audit VMs que não utilizam discos geridos_. Para obter uma lista parcial das políticas incorporadas disponíveis, consulte [as amostras da Política Azure](./samples/index.md).
 
-### <a name="review-the-template"></a>Rever o modelo
-
-O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
 :::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
@@ -36,7 +38,7 @@ O recurso definido no modelo é:
 
 - [Microsoft.Autorização/políticaAssins de assinaturas](/azure/templates/microsoft.authorization/policyassignments)
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 > [!NOTE]
 > O serviço de política Azure é gratuito. Para mais informações, consulte [a Visão Geral da Política Azure.](./overview.md)
@@ -47,7 +49,7 @@ O recurso definido no modelo é:
 
 1. Selecione ou introduza os seguintes valores:
 
-   | Name | Valor |
+   | Nome | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. Na imagem, o nome do grupo de recursos é _mypolicyquickstart \<Date in MMDD\> rg_. |
@@ -61,9 +63,9 @@ O recurso definido no modelo é:
 
 Alguns recursos adicionais:
 
-- Para encontrar mais modelos de amostras, consulte o [modelo Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
+- Para encontrar mais modelos de amostras, consulte [o modelo Azure Quickstart.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)
 - Para ver a referência do modelo, vá à [referência do modelo Azure](/azure/templates/microsoft.authorization/allversions).
-- Para aprender a desenvolver modelos de Gestor de Recursos (modelos ARM), consulte [a documentação do Gestor de Recursos](../../azure-resource-manager/management/overview.md).
+- Para aprender a desenvolver modelos ARM, consulte a [documentação do Gestor de Recursos Azure](../../azure-resource-manager/management/overview.md).
 - Para obter a implementação ao nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
@@ -76,7 +78,7 @@ Se houver recursos existentes que não estejam em conformidade com esta nova atr
 
 Para mais informações, consulte [como funciona a conformidade.](./how-to/get-compliance-data.md#how-compliance-works)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição criada, siga estes passos:
 
