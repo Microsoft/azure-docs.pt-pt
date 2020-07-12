@@ -3,19 +3,19 @@ title: Atualizar um cluster autónomo de tecido de serviço Azure
 description: Saiba como atualizar a versão ou configuração de um cluster autónomo de Tecido de Serviço Azure.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 519a9163d16fda2dd9fcf49cf22fe4ad4a272e09
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790648"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260994"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Modernização e atualização de um cluster autónomo de Tecido de Serviço
 
 Para qualquer sistema moderno, o design para a atualização é fundamental para alcançar o sucesso a longo prazo do seu produto. Um cluster autónomo de tecido de serviço Azure é um recurso que possui. Este artigo descreve o que pode ser atualizado ou atualizado.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão de tecido que funciona no seu cluster
-Certifique-se de que o seu cluster executa sempre uma [versão de Tecido de Serviço suportado](service-fabric-versions.md). Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior fica marcada para o fim do suporte após um mínimo de 60 dias a contar da data do anúncio. Novos lançamentos são anunciados [no blog da equipa de Service Fabric.](https://blogs.msdn.microsoft.com/azureservicefabric/) O novo lançamento está disponível para escolher nessa altura.
+Certifique-se de que o seu cluster executa sempre uma [versão de Tecido de Serviço suportado](service-fabric-versions.md). Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior fica marcada para o fim do suporte após um mínimo de 60 dias a contar da data do anúncio. Novos lançamentos são anunciados [no blog da equipa de Service Fabric.](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) O novo lançamento está disponível para escolher nessa altura.
 
 Pode configurar o seu cluster para receber atualizações automáticas de tecidos à medida que forem lançadas pela Microsoft ou pode selecionar manualmente uma versão de tecido suportado que pretende que o seu cluster esteja ligado. Para mais informações, leia [a versão 'Actualizar' o Tecido de Serviço que funciona no seu cluster.](service-fabric-cluster-upgrade-windows-server.md)
 

@@ -4,12 +4,12 @@ description: Saiba como montar um volume de Ficheiros Azure para persistir com i
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: 593400f67db5018f1533dd37eed88ece7fd596c6
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169583"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259481"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar uma partilha de ficheiros do Azure no Azure Container Instances
 
@@ -223,11 +223,11 @@ Tal como nos exemplos anteriores, o `dnsNameLabel` valor deve ser único na regi
 }
 ```
 
-Para implementar com o modelo de Gestor de Recursos, guarde o JSON anterior para um ficheiro `deploy-aci.json` nomeado, em seguida, execute a implementação do [grupo az criar][az-group-deployment-create] comando com o `--template-file` parâmetro:
+Para implementar com o modelo de Gestor de Recursos, guarde o JSON anterior para um ficheiro `deploy-aci.json` nomeado, em seguida, execute o [grupo de implementação az criar][az-deployment-group-create] comando com o `--template-file` parâmetro:
 
 ```azurecli
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
 
@@ -285,4 +285,4 @@ Saiba como montar outros tipos de volume em Instâncias de Contentores Azure:
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

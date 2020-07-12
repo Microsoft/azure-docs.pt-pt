@@ -5,16 +5,16 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791872"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261168"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e dimensionamento de capacidades para o tecido de serviço Azure
 
-Antes de criar qualquer cluster de tecido de serviço Azure ou recursos de computação em escala que acolhem o seu cluster, é importante planear a capacidade. Para obter mais informações sobre o planeamento da capacidade, consulte [o Planeamento da capacidade de cluster do Tecido de Serviço.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) Para obter mais orientações sobre as melhores práticas para a escalabilidade do cluster, consulte considerações de [escalabilidade do tecido de serviço](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
+Antes de criar qualquer cluster de tecido de serviço Azure ou recursos de computação em escala que acolhem o seu cluster, é importante planear a capacidade. Para obter mais informações sobre o planeamento da capacidade, consulte [o Planeamento da capacidade de cluster do Tecido de Serviço.](./service-fabric-cluster-capacity.md) Para obter mais orientações sobre as melhores práticas para a escalabilidade do cluster, consulte considerações de [escalabilidade do tecido de serviço](/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
 Além de considerar o tipo de nó e as características do cluster, deve esperar que as operações de escala levem mais de uma hora para completar para um ambiente de produção. Esta consideração é verdadeira independentemente do número de VMs que está a adicionar.
 
@@ -25,7 +25,7 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
 
 * A implementação dos modelos do Gestor de Recursos com a capacidade adequada declarada não suporta o seu caso de utilização.
      
-   Além da escala manual, pode configurar um [gasoduto de integração e entrega contínua nos Serviços Azure DevOps utilizando projetos de implementação de grupos de recursos Azure.](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts) Este gasoduto é normalmente desencadeado por uma aplicação lógica que utiliza métricas de desempenho da máquina virtual questionadas a partir da [API do Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough) O pipeline efetivamente autoescala com base em todas as métricas que você deseja, ao mesmo tempo que otimiza para modelos de Gestor de Recursos.
+   Além da escala manual, pode configurar um [gasoduto de integração e entrega contínua nos Serviços Azure DevOps utilizando projetos de implementação de grupos de recursos Azure.](../azure-resource-manager/templates/add-template-to-azure-pipelines.md) Este gasoduto é normalmente desencadeado por uma aplicação lógica que utiliza métricas de desempenho da máquina virtual questionadas a partir da [API do Monitor Azure.](../azure-monitor/platform/rest-api-walkthrough.md) O pipeline efetivamente autoescala com base em todas as métricas que você deseja, ao mesmo tempo que otimiza para modelos de Gestor de Recursos.
 * É necessário escalar horizontalmente apenas um nó de balança de máquina virtual de cada vez.
    
    Para escalar por três ou mais nós de cada vez, deverá [escalar um cluster de Tecido de Serviço adicionando um conjunto de escala de máquina virtual](virtual-machine-scale-set-scale-node-type-scale-out.md). É mais seguro escalar e escalar conjuntos de escala de máquina virtual horizontalmente, um nó de cada vez.
@@ -38,7 +38,7 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de escala vertical
 
-[A escala vertical de](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) um nó no tecido de serviço Azure requer uma série de passos e considerações. Por exemplo:
+[A escala vertical de](./virtual-machine-scale-set-scale-node-type-scale-out.md) um nó no tecido de serviço Azure requer uma série de passos e considerações. Por exemplo:
 
 * O aglomerado deve estar saudável antes de escalonar. Caso contrário, desestabilizará ainda mais o aglomerado.
 * O nível de durabilidade prateada ou superior é necessário para todos os tipos de nó de cluster de tecido de serviço que acolhem serviços estatais.
@@ -48,7 +48,7 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
 
 Escalar verticalmente um conjunto de escala de máquina virtual é uma operação destrutiva. Em vez disso, dimensione horizontalmente o seu cluster adicionando um conjunto de escala nova com o SKU desejado. Em seguida, emigre os seus serviços para o seu SKU desejado para completar uma operação de escala vertical segura. Alterar um recurso de conjunto de escala de máquina virtual SKU é uma operação destrutiva porque reimagema os seus anfitriões, que remove todo o estado persistido localmente.
 
-O seu cluster utiliza propriedades de nó de nó de tecido de serviço [e restrições de colocação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) para decidir onde hospedar os serviços da sua aplicação. Quando estiver a escalonar verticalmente o seu tipo de nó primário, declare valores de propriedade idênticos para `"nodeTypeRef"` . Pode encontrar estes valores na extensão do Tecido de Serviço para conjuntos de escala de máquina virtual. 
+O seu cluster utiliza propriedades de nó de nó de tecido de serviço [e restrições de colocação](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) para decidir onde hospedar os serviços da sua aplicação. Quando estiver a escalonar verticalmente o seu tipo de nó primário, declare valores de propriedade idênticos para `"nodeTypeRef"` . Pode encontrar estes valores na extensão do Tecido de Serviço para conjuntos de escala de máquina virtual. 
 
 O seguinte corte de um modelo de Gestor de Recursos mostra as propriedades que vai declarar. Tem o mesmo valor para os conjuntos de escala recém-a provisionados a que está a escalonar, e é suportado apenas como um serviço temporário estatal para o seu cluster.
 
@@ -68,13 +68,13 @@ Com as propriedades do nó e os constrangimentos de colocação declarados, faç
 1. Da PowerShell, corra `Disable-ServiceFabricNode` com `RemoveNode` intenção de desativar o nó que vai remover. Retire o tipo de nó que tem o número mais alto. Por exemplo, se tiver um cluster de seis nós, remova a caixa da máquina virtual "MyNodeType_5".
 2. Corra `Get-ServiceFabricNode` para se certificar de que o nó passou para desativado. Caso contrário, aguarde até que o nó esteja desativado. Isto pode levar algumas horas para cada nó. Não prossiga até que o nó tenha transitado para deficiente.
 3. Diminua o número de VMs por um nesse tipo de nó. A maior instância de VM será agora removida.
-4. Repita os passos 1 a 3 conforme necessário, mas nunca dimensione o número de casos nos tipos de nó primário inferiores ao que o nível de fiabilidade garante. Consulte [a capacidade de planeamento do cluster de tecido de serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para uma lista de instâncias recomendadas.
+4. Repita os passos 1 a 3 conforme necessário, mas nunca dimensione o número de casos nos tipos de nó primário inferiores ao que o nível de fiabilidade garante. Consulte [a capacidade de planeamento do cluster de tecido de serviço](./service-fabric-cluster-capacity.md) para uma lista de instâncias recomendadas.
 5. Uma vez que todos os VMs se foram (representados como "Down") o tecido:/System/InfrastructureService/[nome do nó] mostrará um estado de Erro. Em seguida, pode atualizar o recurso de cluster para remover o tipo de nó. Pode utilizar a implementação do modelo ARM ou editar o recurso de cluster através do [gestor de recursos Azure](https://resources.azure.com). Isto irá iniciar uma atualização de cluster que removerá o serviço de tecido:/System/InfrastructureService/[nó tipo] que está em estado de erro.
  6. Depois disso, pode eliminar opcionalmente o VMScaleSet, mas ainda verá os nós como "Down" da vista do Explorador de Tecidos de Serviço. O último passo seria limpá-los com `Remove-ServiceFabricNodeState` o comando.
 
 ## <a name="horizontal-scaling"></a>Dimensionamento horizontal
 
-Pode fazer escala horizontal [manual](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) ou [programática.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
+Pode fazer escala horizontal [manual](./service-fabric-cluster-scale-in-out.md) ou [programática.](./service-fabric-cluster-programmatic-scaling.md)
 
 > [!NOTE]
 > Se estiver a escalonar um nó que tenha durabilidade prateada ou dourada, a escala será lenta.
@@ -89,7 +89,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Para escalar manualmente, atualize a capacidade na propriedade SKU do recurso [de conjunto de escala de máquina virtual](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) pretendido.
+Para escalar manualmente, atualize a capacidade na propriedade SKU do recurso [de conjunto de escala de máquina virtual](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) pretendido.
 
 ```json
 "sku": {
@@ -111,9 +111,9 @@ Para escalar manualmente, siga estes passos:
 1. Da PowerShell, corra `Disable-ServiceFabricNode` com `RemoveNode` intenção de desativar o nó que vai remover. Retire o tipo de nó que tem o número mais alto. Por exemplo, se tiver um cluster de seis nós, remova a caixa da máquina virtual "MyNodeType_5".
 2. Corra `Get-ServiceFabricNode` para se certificar de que o nó passou para desativado. Caso contrário, aguarde até que o nó esteja desativado. Isto pode levar algumas horas para cada nó. Não prossiga até que o nó tenha transitado para deficiente.
 3. Diminua o número de VMs por um nesse tipo de nó. A maior instância de VM será agora removida.
-4. Repita os passos 1 a 3, se necessário, até fornecer a capacidade desejada. Não dimensione o número de casos nos tipos de nó primário para menos do que o nível de fiabilidade garante. Consulte [a capacidade de planeamento do cluster de tecido de serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para uma lista de instâncias recomendadas.
+4. Repita os passos 1 a 3, se necessário, até fornecer a capacidade desejada. Não dimensione o número de casos nos tipos de nó primário para menos do que o nível de fiabilidade garante. Consulte [a capacidade de planeamento do cluster de tecido de serviço](./service-fabric-cluster-capacity.md) para uma lista de instâncias recomendadas.
 
-Para escalar manualmente, atualize a capacidade na propriedade SKU do recurso [de conjunto de escala de máquina virtual](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) pretendido.
+Para escalar manualmente, atualize a capacidade na propriedade SKU do recurso [de conjunto de escala de máquina virtual](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) pretendido.
 
 ```json
 "sku": {
@@ -166,13 +166,13 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Quando escala num cluster, verá a instância nó/VM removida exibida num estado pouco saudável no Service Fabric Explorer. Para obter uma explicação deste comportamento, consulte [Comportamentos que possa observar no Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). Pode:
-> * Ligue para o [comando Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome de nó apropriado.
+> Quando escala num cluster, verá a instância nó/VM removida exibida num estado pouco saudável no Service Fabric Explorer. Para obter uma explicação deste comportamento, consulte [Comportamentos que possa observar no Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Pode:
+> * Ligue para o [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome de nó apropriado.
 > * Implemente a [aplicação de ajudante de escala automática do Tecido de Serviço](https://github.com/Azure/service-fabric-autoscale-helper/) no seu cluster. Esta aplicação garante que os nós de escala são limpos do Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Níveis de fiabilidade
 
-O [nível de fiabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) é uma propriedade do seu recurso cluster De Tecido de Serviço. Não pode ser configurado de forma diferente para os tipos individuais de nós. Controla o fator de replicação dos serviços de sistema para o cluster, e é uma definição ao nível do recurso cluster. 
+O [nível de fiabilidade](./service-fabric-cluster-capacity.md) é uma propriedade do seu recurso cluster De Tecido de Serviço. Não pode ser configurado de forma diferente para os tipos individuais de nós. Controla o fator de replicação dos serviços de sistema para o cluster, e é uma definição ao nível do recurso cluster. 
 
 O nível de fiabilidade determinará o número mínimo de nós que o seu nó primário deve ter. O nível de fiabilidade pode assumir os seguintes valores:
 
@@ -183,7 +183,7 @@ O nível de fiabilidade determinará o número mínimo de nós que o seu nó pri
 
 O nível mínimo de fiabilidade recomendado é prata.
 
-O nível de fiabilidade é definido na secção de propriedades do [recurso Microsoft.ServiceFabric/clusters,](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters)como este:
+O nível de fiabilidade é definido na secção de propriedades do [recurso Microsoft.ServiceFabric/clusters,](/azure/templates/microsoft.servicefabric/2018-02-01/clusters)como este:
 
 ```json
 "properties":{
@@ -196,9 +196,9 @@ O nível de fiabilidade é definido na secção de propriedades do [recurso Micr
 > [!WARNING]
 > Os tipos de nó que correm com durabilidade de Bronze não obtêm _privilégios_. Os trabalhos de infraestrutura que afetam as suas cargas de trabalho apátridas não serão interrompidos ou atrasados, o que poderá afetar as suas cargas de trabalho. 
 >
-> Utilize durabilidade de Bronze apenas para tipos de nó que executam cargas de trabalho apátridas. Para cargas de trabalho de produção, corra prata ou superior para garantir a consistência do estado. Escolha a fiabilidade certa com base na orientação na documentação de [planeamento de capacidade.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+> Utilize durabilidade de Bronze apenas para tipos de nó que executam cargas de trabalho apátridas. Para cargas de trabalho de produção, corra prata ou superior para garantir a consistência do estado. Escolha a fiabilidade certa com base na orientação na documentação de [planeamento de capacidade.](./service-fabric-cluster-capacity.md)
 
-O nível de durabilidade deve ser fixado em dois recursos. Um deles é o perfil de extensão do [recurso conjunto de escala de máquina virtual:](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile)
+O nível de durabilidade deve ser fixado em dois recursos. Um deles é o perfil de extensão do [recurso conjunto de escala de máquina virtual:](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile)
 
 ```json
 "extensionProfile": {
@@ -213,7 +213,7 @@ O nível de durabilidade deve ser fixado em dois recursos. Um deles é o perfil 
 }
 ```
 
-O outro recurso está no `nodeTypes` [recurso Microsoft.ServiceFabric/clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
+O outro recurso está no `nodeTypes` [recurso Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
 
 ```json
 "nodeTypes": [

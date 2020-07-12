@@ -4,12 +4,12 @@ description: Saiba como resolver problemas comuns quando implementar, executar o
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: aeb4517f5be7fff9c29487d6521f80ee697c0e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807847"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260741"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -183,7 +183,7 @@ A chave para manter os tamanhos de imagem pequenos é garantir que a sua imagem 
 
 #### <a name="image-location"></a>Localização da imagem
 
-Outra forma de reduzir o impacto da imagem puxada para o tempo de arranque do seu contentor é hospedar a imagem do contentor no [Registo de Contentores Azure](/azure/container-registry/) na mesma região onde pretende implantar casos de contentores. Isto encurta o caminho de rede que a imagem do contentor precisa de percorrer, reduzindo significativamente o tempo de descarregamento.
+Outra forma de reduzir o impacto da imagem puxada para o tempo de arranque do seu contentor é hospedar a imagem do contentor no [Registo de Contentores Azure](../container-registry/index.yml) na mesma região onde pretende implantar casos de contentores. Isto encurta o caminho de rede que a imagem do contentor precisa de percorrer, reduzindo significativamente o tempo de descarregamento.
 
 #### <a name="cached-images"></a>Imagens em cache
 
@@ -223,14 +223,14 @@ Se quiser confirmar que as instâncias do recipiente Azure podem ouvir na porta 
     az container delete --resource-group myResourceGroup --name mycontainer
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [recuperar troncos e eventos](container-instances-get-logs.md) de contentores para ajudar a depurar os seus contentores.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[azure-name-restrictions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
 [naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
-[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
+[windows-sac-overview]: /windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
 [docker-hub-windows-nano]: https://hub.docker.com/_/microsoft-windows-nanoserver

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: fab388ff223eb95020e2ba0945c76532bc54f224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c91a59e57613934c946e3cd56089b330893a51a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905978"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260334"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 Obter e apagar recursos secretos de malha.
@@ -18,8 +19,8 @@ Obter e apagar recursos secretos de malha.
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Elimina o recurso Secreto. |
-| list | Lista todos os recursos secretos. |
+| eliminação | Elimina o recurso Secreto. |
+| lista | Lista todos os recursos secretos. |
 | Mostrar | Obtém o recurso secreto com o nome próprio. |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl segredo de malha apagar
@@ -80,6 +81,6 @@ Obtém a informação sobre o recurso Secreto com o nome próprio. As informaç�
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

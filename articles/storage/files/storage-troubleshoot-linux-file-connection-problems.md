@@ -7,18 +7,18 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ffd73e9dff06df4b5acdd004dddcfca5ff03ede0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 4dddc2eab5004377afd6743c4722498dd5c6e2a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232275"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260008"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemas na resolução de ficheiros Azure em Linux
 
 Este artigo lista problemas comuns relacionados com ficheiros Azure quando se conecta com clientes Linux. Fornece igualmente possíveis causas e resoluções para estes problemas. 
 
-Além das etapas de resolução de problemas neste artigo, pode utilizar [a AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) para garantir que o cliente Linux tem pré-requisitos corretos. A AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo. Ajuda a configurar o seu ambiente para obter um desempenho ideal. Também pode encontrar esta informação no [Azure Files partilha](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)o problema. O troubleshooter fornece medidas para ajudá-lo com problemas de ligação, mapeamento e montagem de ações do Azure Files.
+Além das etapas de resolução de problemas neste artigo, pode utilizar [a AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) para garantir que o cliente Linux tem pré-requisitos corretos. A AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo. Ajuda a configurar o seu ambiente para obter um desempenho ideal. Também pode encontrar esta informação no [Azure Files partilha](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)o problema. O troubleshooter fornece medidas para ajudá-lo com problemas de ligação, mapeamento e montagem de ações do Azure Files.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Não é possível ligar ou montar uma partilha de ficheiros Azure
 

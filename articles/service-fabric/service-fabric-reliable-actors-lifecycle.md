@@ -5,12 +5,12 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db47a758d33c3ed6e861601285e7737514ab416d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847877"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260436"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida do ator, recolha automática de lixo e eliminação manual
 Um ator é ativado na primeira vez que uma chamada é feita para qualquer um dos seus métodos. Um ator é desativado (lixo recolhido pelos atores em tempo de execução) se não for utilizado por um período de tempo configurável. Um ator e o seu estado também podem ser apagados manualmente a qualquer momento.
@@ -107,12 +107,12 @@ Um ator nunca será recolhido enquanto executa um dos seus métodos, não import
 ## <a name="manually-deleting-actors-and-their-state"></a>Eliminação manual dos atores e do seu estado
 A recolha de lixo de atores desativados só limpa o objeto do ator, mas não remove dados que são armazenados no Diretor de Estado de um ator. Quando um ator é reativado, os seus dados são novamente disponibilizados através do Diretor de Estado. Nos casos em que os atores armazenam dados em Gerente de Estado e são desativados mas nunca reativados, pode ser necessário limpar os seus dados.  Por exemplo, como eliminar os atores, ler [apagar os atores e o seu estado.](service-fabric-reliable-actors-delete-actors.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Temporizadores e lembretes do ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de atores](service-fabric-reliable-actors-events.md)
 * [Reentrada de ator](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnóstico de ator e monitorização de desempenho](service-fabric-reliable-actors-diagnostics.md)
-* [Documentação de referência da API do ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Documentação de referência da API do ator](/previous-versions/azure/dn971626(v=azure.100))
 * [C# Código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de amostra de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

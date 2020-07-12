@@ -3,11 +3,12 @@ title: Endereço IP estático para grupo de contentores
 description: Crie um grupo de contentores numa rede virtual e use uma porta de entrada de aplicação Azure para expor um endereço IP estático para uma aplicação web contentorizada
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299167"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260783"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Expor um endereço IP estático para um grupo de contentores
 
@@ -102,7 +103,7 @@ ACI_IP=$(az container show \
 
 ## <a name="create-application-gateway"></a>Criar um gateway de aplicação
 
-Crie um gateway de aplicação na rede virtual, seguindo os passos no gateway de [aplicação quickstart](../application-gateway/quick-create-cli.md). O comando [de aplicação-gateway de aplicação az][az-network-application-gateway-create] seguinte cria um gateway com um endereço IP frontal público e uma rota para o grupo de contentores backend. Consulte a [documentação do Gateway](/azure/application-gateway/) de Aplicação para obter mais detalhes sobre as definições do gateway.
+Crie um gateway de aplicação na rede virtual, seguindo os passos no gateway de [aplicação quickstart](../application-gateway/quick-create-cli.md). O comando [de aplicação-gateway de aplicação az][az-network-application-gateway-create] seguinte cria um gateway com um endereço IP frontal público e uma rota para o grupo de contentores backend. Consulte a [documentação do Gateway](../application-gateway/index.yml) de Aplicação para obter mais detalhes sobre as definições do gateway.
 
 ```azurecli
 az network application-gateway create \
@@ -141,7 +142,7 @@ Para ver a aplicação web em execução quando configurada com sucesso, navegue
 
 ![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure](./media/container-instances-application-gateway/aci-app-app-gateway.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte um [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) para criar um grupo de contentores com uma instância de contentor WordPress como um servidor de backend atrás de um gateway de aplicações.
 * Também pode configurar um gateway de aplicação com um certificado de rescisão SSL. Veja a [visão geral](../application-gateway/ssl-overview.md) e o [tutorial.](../application-gateway/create-ssl-portal.md)

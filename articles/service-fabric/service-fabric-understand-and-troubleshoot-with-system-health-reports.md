@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392578"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260183"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Os componentes do Azure Service Fabric fornecem relatórios de saúde do sistema sobre todas as entidades do cluster fora da caixa. A [loja de saúde](service-fabric-health-introduction.md#health-store) cria e elimina entidades com base nos relatórios do sistema. Também os organiza numa hierarquia que capta interações de entidades.
@@ -73,17 +74,17 @@ O relatório de aviso para o estado do nó de sementes indicará todos os nós d
 * **Seguintes etapas**: Se este aviso aparecer no cluster, siga as instruções abaixo para fixá-lo: Para o cluster funcionando A versão 6.5 ou superior: Para o cluster de tecido de serviço em Azure, depois de o nó de sementes descer, o Tecido de Serviço tentará alterá-lo automaticamente para um nó de não semente. Para que isto aconteça, certifique-se de que o número de nós não-sementes no tipo de nó primário é maior ou igual ao número de nós de sementes para baixo. Se necessário, adicione mais nós ao tipo de nó primário para o conseguir.
 Dependendo do estado do cluster, pode levar algum tempo para corrigir o problema. Uma vez feito isto, o relatório de aviso é automaticamente apurado.
 
-Para o aglomerado autónomo do Tecido de Serviço, para limpar o relatório de alerta, todos os nós de sementes precisam de se tornar saudáveis. Dependendo do motivo pelo qual os nós de sementes não são saudáveis, devem ser tomadas diferentes ações: se o nó de sementes for para baixo, os utilizadores precisam de trazer esse nó de sementes para cima; se o nó de sementes for removido ou desconhecido, este nó de sementes [tem de ser removido do aglomerado](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+Para o aglomerado autónomo do Tecido de Serviço, para limpar o relatório de alerta, todos os nós de sementes precisam de se tornar saudáveis. Dependendo do motivo pelo qual os nós de sementes não são saudáveis, devem ser tomadas diferentes ações: se o nó de sementes for para baixo, os utilizadores precisam de trazer esse nó de sementes para cima; se o nó de sementes for removido ou desconhecido, este nó de sementes [tem de ser removido do aglomerado](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 O relatório de aviso é automaticamente limpo quando todos os nós de sementes ficam saudáveis.
 
 Para a versão de serviço de funcionamento do cluster com mais de 6.5: Neste caso, o relatório de aviso tem de ser limpo manualmente. **Os utilizadores devem certificar-se de que todos os nós de sementes ficam saudáveis antes de limpar o relatório**: se o nó de sementes estiver para baixo, os utilizadores têm de trazer esse nó de sementes para cima; se o nó de sementes for removido ou desconhecido, esse nó de sementes precisa de ser removido do cluster.
-Depois de todos os nós de sementes ficarem saudáveis, use o comando de Powershell para limpar o relatório de [aviso:](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport)
+Depois de todos os nós de sementes ficarem saudáveis, use o comando de Powershell para limpar o relatório de [aviso:](/powershell/module/servicefabric/send-servicefabricclusterhealthreport)
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -674,7 +675,7 @@ Outras chamadas da API que podem ficar presas estão na interface **IReplicator.
 * **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus,** dependendo da função de réplica.
 
 ### <a name="slow-naming-operations"></a>Operações de nomeação lenta
-**System.NamingService** informa a saúde na sua réplica primária quando uma operação de nomeação demora mais do que aceitável. Exemplos de operações de nomeação são [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados sob o FabricClient. Por exemplo, podem ser encontrados sob [métodos de gestão de serviços](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou [métodos de gestão de propriedades.](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient)
+**System.NamingService** informa a saúde na sua réplica primária quando uma operação de nomeação demora mais do que aceitável. Exemplos de operações de nomeação são [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados sob o FabricClient. Por exemplo, podem ser encontrados sob [métodos de gestão de serviços](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou [métodos de gestão de propriedades.](/dotnet/api/system.fabric.fabricclient.propertymanagementclient)
 
 > [!NOTE]
 > O serviço Naming resolve nomes de serviço para uma localização no cluster. Os utilizadores podem usá-lo para gerir nomes de serviços e propriedades. É um serviço de tecido de serviço persistido. Uma das divisórias representa o Proprietário da *Autoridade,* que contém metadados sobre todos os nomes e serviços do Service Fabric. Os nomes do Tecido de Serviço são mapeados para diferentes divisórias, chamadas partições *name Owner,* de modo que o serviço é extensível. Leia mais sobre o [serviço Naming](service-fabric-architecture.md).
@@ -871,7 +872,7 @@ System.Hosting informa um aviso se as capacidades do nó não estiverem definida
 * **Propriedade**: **ResourceGovernance**.
 * **Próximos passos**: A forma preferida de ultrapassar este problema é alterar o manifesto de cluster para permitir a deteção automática dos recursos disponíveis. Outra forma é atualizar o manifesto do cluster com capacidades de nó corretamente especificadas para estas métricas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Ver relatórios de saúde do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 * [Como reportar e verificar a saúde do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
@@ -879,4 +880,3 @@ System.Hosting informa um aviso se as capacidades do nó não estiverem definida
 * [Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Atualização da aplicação do Tecido de Serviço](service-fabric-application-upgrade.md)
-

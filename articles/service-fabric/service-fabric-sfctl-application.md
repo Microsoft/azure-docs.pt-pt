@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906206"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260867"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Criar, excluir e gerir aplicações e tipos de aplicações.
@@ -19,13 +20,13 @@ Criar, excluir e gerir aplicações e tipos de aplicações.
 |Comando|Descrição|
 | --- | --- |
 | criar | Cria uma aplicação de Tecido de Serviço utilizando a descrição especificada. |
-| delete | Elimina uma aplicação de Tecido de Serviço existente. |
+| eliminação | Elimina uma aplicação de Tecido de Serviço existente. |
 | implantado | Obtém a informação sobre uma aplicação implantada num nó de Tecido de Serviço. |
 | saúde implantada | Obtém a informação sobre a saúde de uma aplicação implantada num nó de Tecido de Serviço. |
 | lista implantada | Obtém a lista de aplicações implantadas num nó de Tecido de Serviço. |
 | saúde | Obtém a saúde da aplicação de tecido de serviço. |
 | informações | Obtém informações sobre uma aplicação de Tecido de Serviço. |
-| list | Obtém a lista de aplicações criadas no cluster de Tecido de Serviço que correspondem aos filtros especificados. |
+| lista | Obtém a lista de aplicações criadas no cluster de Tecido de Serviço que correspondem aos filtros especificados. |
 | carregar | Obtém informações sobre uma aplicação de Tecido de Serviço. |
 | manifest | Obtém o manifesto descrevendo um tipo de aplicação. |
 | provisão | Provisões ou registos de um tipo de aplicação De Tecido de Serviço com o cluster utilizando o pacote '.sfpkg' na loja externa ou utilizando o pacote de aplicações na loja de imagens. |
@@ -547,6 +548,6 @@ Exibir opcionalmente o progresso do upload para cada ficheiro na embalagem. O up
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI do Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

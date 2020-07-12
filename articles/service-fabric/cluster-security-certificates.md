@@ -4,12 +4,12 @@ description: Saiba mais sobre a autenticação baseada em certificados em cluste
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: 699015e322c599dea996b3a8b9dbc0a4589440ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36717f526f88af753f3929d62e84ee65be4320e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429671"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259028"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>X.509 Autenticação baseada em certificados em clusters de tecido de serviço
 
@@ -180,7 +180,7 @@ Foi mencionado anteriormente que as definições de segurança de um cluster de 
 
 Como mencionado, a validação do certificado implica sempre a construção e avaliação da cadeia do certificado. Para os certificados emitidos pela AC, esta chamada aparentemente simples da API do SO implica várias chamadas de saída para vários pontos finais do PKI emissor, caching de respostas e assim por diante. Dada a prevalência de chamadas de validação de certificados num cluster de Tecido de Serviço, quaisquer problemas nos pontos finais do PKI podem resultar numa disponibilidade reduzida do cluster, ou numa desagregação total. Embora as chamadas de saída não possam ser suprimidas (ver abaixo na secção FAQ para mais informações sobre esta matéria), as seguintes definições podem ser usadas para mascarar erros de validação causados pela falha das chamadas DE CRL.
 
-  * CrlCheckingFlag - sob a secção 'Security', corda convertida para UINT. O valor desta definição é utilizado pela Service Fabric para mascarar erros de estado da cadeia de certificados alterando o comportamento da construção em cadeia; é passado para a chamada Win32 CryptoAPI [CertGetCertificateChain](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) como o parâmetro 'dwFlags', e pode ser definido para qualquer combinação válida de bandeiras aceites pela função. Um valor de 0 obriga o tempo de execução do Tecido de Serviço a ignorar quaisquer erros de estado de confiança - tal não é recomendado, uma vez que a sua utilização constituiria uma exposição significativa à segurança. O valor predefinido é de 0x400000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag - sob a secção 'Security', corda convertida para UINT. O valor desta definição é utilizado pela Service Fabric para mascarar erros de estado da cadeia de certificados alterando o comportamento da construção em cadeia; é passado para a chamada Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) como o parâmetro 'dwFlags', e pode ser definido para qualquer combinação válida de bandeiras aceites pela função. Um valor de 0 obriga o tempo de execução do Tecido de Serviço a ignorar quaisquer erros de estado de confiança - tal não é recomendado, uma vez que a sua utilização constituiria uma exposição significativa à segurança. O valor predefinido é de 0x400000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   Quando utilizar: para testes locais, com certificados auto-assinados ou certificados de desenvolvimento que não estejam totalmente formados/não tenham uma infraestrutura chave pública adequada para suportar os certificados. Pode também utilizar como mitigação em ambientes com lacunas de ar durante a transição entre PKIs.
 
@@ -257,7 +257,7 @@ A conclusão da fase 2 marca igualmente a conversão do cluster em certificados 
 Num artigo separado abordaremos o tema da gestão e fornecimento de certificados num cluster de Tecidos de Serviço.
 
 ## <a name="troubleshooting-and-frequently-asked-questions"></a>Resolução de problemas e Perguntas Frequentes
-Embora depurar problemas relacionados com a autenticação em clusters de Tecidos de Serviço não seja fácil, esperamos que as seguintes dicas e dicas possam ajudar. A maneira mais fácil de iniciar investigações é examinar os registos de eventos do Service Fabric nos nós do cluster - não necessariamente apenas aqueles que mostram sintomas, mas também nós que estão em cima mas não são capazes de se conectar a um dos seus vizinhos. No Windows, os eventos de importância são normalmente registados nos canais 'Aplicações e Serviços\Microsoft-ServiceFabric\Admin' ou 'Operational', respectivamente. Por vezes, pode ser útil permitir a [registo do CAPI2,](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues)captar mais detalhes sobre a validação do certificado, a recuperação de CRL/CTL, etc.( Lembre-se de desativá-lo após completar a repro, pode ser bastante verboso.)
+Embora depurar problemas relacionados com a autenticação em clusters de Tecidos de Serviço não seja fácil, esperamos que as seguintes dicas e dicas possam ajudar. A maneira mais fácil de iniciar investigações é examinar os registos de eventos do Service Fabric nos nós do cluster - não necessariamente apenas aqueles que mostram sintomas, mas também nós que estão em cima mas não são capazes de se conectar a um dos seus vizinhos. No Windows, os eventos de importância são normalmente registados nos canais 'Aplicações e Serviços\Microsoft-ServiceFabric\Admin' ou 'Operational', respectivamente. Por vezes, pode ser útil permitir a [registo do CAPI2,](/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues)captar mais detalhes sobre a validação do certificado, a recuperação de CRL/CTL, etc.( Lembre-se de desativá-lo após completar a repro, pode ser bastante verboso.)
 
 Os sintomas típicos que se manifestam num aglomerado com problemas de autenticação são: 
   - nós estão para baixo/ciclismo 
@@ -300,5 +300,4 @@ Cada um dos sintomas pode ser causado por diferentes problemas, e a mesma causa 
     ```C++
     0x80090014  -2146893804 NTE_BAD_PROV_TYPE
     ```
-    Para remediar, recosta o certificado de cluster utilizando um provedor CAPI1 (por exemplo, "Microsoft Enhanced RSA e AES Cryptographic Provider"). Para obter mais detalhes sobre os fornecedores de criptomoedas, consulte a [Understanding Cryptographic Providers](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers)
-
+    Para remediar, recosta o certificado de cluster utilizando um provedor CAPI1 (por exemplo, "Microsoft Enhanced RSA e AES Cryptographic Provider"). Para obter mais detalhes sobre os fornecedores de criptomoedas, consulte a [Understanding Cryptographic Providers](/windows/win32/seccertenroll/understanding-cryptographic-providers)

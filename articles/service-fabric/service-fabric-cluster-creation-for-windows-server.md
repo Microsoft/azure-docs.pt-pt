@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba6474751913b4994ae840f77577b3c1db6c5f73
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827969"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259274"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Azure Service Fabric para criar clusters de Tecido de Serviço em quaisquer máquinas virtuais ou computadores que executem o Windows Server. Isto significa que pode implementar e executar aplicações de Tecido de Serviço em qualquer ambiente que contenha um conjunto de computadores do Windows Server interligados, seja nas instalações ou em qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de Tecido de Serviço chamado pacote autónomo do Windows Server. Os clusters de tecido de serviço tradicional em Azure estão disponíveis como um serviço gerido, enquanto clusters de tecido de serviço autónomo são self-service. Para obter mais informações sobre as diferenças, consulte os clusters de tecido de [serviço comparsando Azure e autónomos.](./service-fabric-deploy-anywhere.md)
@@ -24,10 +25,10 @@ Este artigo percorre os passos para criar um cluster autónomo de Tecido de Serv
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Obtenha suporte para o pacote de serviço para o servidor do Windows
-* Pergunte à comunidade sobre o pacote autónomo do Tecido de Serviço para o Windows Server na [página de perguntas do Microsoft Q&Uma página de perguntas para o Tecido de Serviço Azure](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
+* Pergunte à comunidade sobre o pacote autónomo do Tecido de Serviço para o Windows Server na [página de perguntas do Microsoft Q&Uma página de perguntas para o Tecido de Serviço Azure](/answers/topics/azure-service-fabric.html).
 * Abra um bilhete de [Apoio Profissional para Tecido de Serviço.](https://support.microsoft.com/oas/default.aspx?prid=16146)  Saiba mais sobre o Apoio Profissional da Microsoft [aqui.](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)
 * Também pode obter suporte para este pacote como parte do [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* Para mais detalhes, consulte [as opções de suporte do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* Para mais detalhes, consulte [as opções de suporte do Azure Service Fabric](./service-fabric-support.md).
 * Para recolher registos para fins de suporte, execute o [coletor de log autónomo de tecido](service-fabric-cluster-standalone-package-contents.md)de serviço .
 
 <a id="downloadpackage"></a>
@@ -210,12 +211,12 @@ Nenhum.
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Implementar e remover aplicações usando PowerShell](service-fabric-deploy-remove-applications.md)
 * [Definições de configuração para cluster de Windows autónomo](service-fabric-cluster-manifest.md)
 * [Adicione ou remova os nódinhos a um cluster de tecido de serviço autónomo](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Atualize uma versão autónoma do cluster do tecido de serviço](service-fabric-cluster-upgrade-windows-server.md)
-* [Crie um cluster de tecido de serviço autónomo com VMs Azure executando Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Crie um cluster de tecido de serviço autónomo com VMs Azure executando Windows](./service-fabric-cluster-creation-via-arm.md)
 * [Proteja um cluster autónomo no Windows utilizando a segurança do Windows](service-fabric-windows-cluster-windows-security.md)
 * [Garantir um cluster autónomo no Windows utilizando certificados X509](service-fabric-windows-cluster-x509-security.md)
 

@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079341"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261030"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeie e prepare a sua implantação de cluster autónomo de tecido de serviço
 
@@ -58,10 +59,10 @@ Aqui estão as especificações recomendadas para máquinas num cluster de tecid
 * Conectividade a uma rede ou redes seguras para todas as máquinas
 * Windows Server OS instalado (versões válidas: 2012 R2, 2016, 1709 ou 1803). A versão 6.4.654.9590 do Tecido de Serviço e, mais tarde, também suporta o Server 2019 e o 1809.
 * [.NET Quadro 4.5.1 ou superior](https://www.microsoft.com/download/details.aspx?id=40773), instalação completa
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* O [serviço RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve estar a funcionar em todas as máquinas
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* O [serviço RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) deve estar a funcionar em todas as máquinas
 * **Unidade de instalação de tecido de serviço deve ser sistema de arquivo NTFS**
-* **Serviços windows *Registos de desempenho & alertas* e *registo de eventos do Windows* devem ser [ativados](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))**.
+* **Serviços windows *Registos de desempenho & alertas* e *registo de eventos do Windows* devem ser [ativados](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
 
 > [!IMPORTANT]
 > O administrador de cluster que implanta e configura o cluster deve ter [privilégios](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) de administrador em cada uma das máquinas. Não pode instalar o Service Fabric num controlador de domínio.
@@ -156,9 +157,9 @@ Passed                     : True
 Atualmente este módulo de teste de configuração não valida a configuração de segurança, pelo que este tem de ser feito de forma independente.
 
 > [!NOTE]
-> Estamos continuamente a fazer melhorias para tornar este módulo mais robusto, por isso, se houver um caso defeituoso ou em falta que acredita não ter sido apanhado pela TestConfiguration, por favor, informe-nos através dos [nossos canais de suporte.](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)
+> Estamos continuamente a fazer melhorias para tornar este módulo mais robusto, por isso, se houver um caso defeituoso ou em falta que acredita não ter sido apanhado pela TestConfiguration, por favor, informe-nos através dos [nossos canais de suporte.](./service-fabric-support.md)
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Criar um cluster autónomo em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md)

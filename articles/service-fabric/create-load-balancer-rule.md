@@ -3,17 +3,18 @@ title: Criar uma regra do balançador de carga Azure para um cluster
 description: Configure um Balançador de Carga Azure para abrir portas para o seu cluster de tecido de serviço Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025389"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259049"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas de um cluster do Service Fabric
 
 O equilibrador de carga implantado com o seu cluster Azure Service Fabric direciona o tráfego para a sua aplicação em execução num nó. Se alterar a sua aplicação para utilizar uma porta diferente, tem de expor essa porta (ou encaminhar uma porta diferente) no Balançador de Carga Azure.
 
-Quando implementou o seu cluster de Tecido de Serviço para a Azure, foi automaticamente criado um equilibrador de carga para si. Se não tiver um equilibrador de carga, consulte [configurar um equilibrador de carga virado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Quando implementou o seu cluster de Tecido de Serviço para a Azure, foi automaticamente criado um equilibrador de carga para si. Se não tiver um equilibrador de carga, consulte [configurar um equilibrador de carga virado para a Internet](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -24,7 +25,7 @@ A sua aplicação Service Fabric **ServiceManifest.xml** ficheiro config define 
 
 ## <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-Uma regra do Balanceador de Carga abre uma porta virada para a Internet e encaminha o tráfego para a porta do nó interno utilizada pela sua aplicação. Se não tiver um equilibrador de carga, consulte [configurar um equilibrador de carga virado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+Uma regra do Balanceador de Carga abre uma porta virada para a Internet e encaminha o tráfego para a porta do nó interno utilizada pela sua aplicação. Se não tiver um equilibrador de carga, consulte [configurar um equilibrador de carga virado para a Internet](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 Para criar uma regra do Balanceador de Carga, é necessário recolher as seguintes informações:
 
@@ -97,6 +98,6 @@ No que diz respeito ao `New-AzLoadBalancerRuleConfig` comando, `-FrontendPort` r
 >[!NOTE]
 >Para obter mais informações sobre como criar um equilibrador de carga com PowerShell, consulte [Criar um equilibrador de carga com PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [networking em Service Fabric.](service-fabric-patterns-networking.md)

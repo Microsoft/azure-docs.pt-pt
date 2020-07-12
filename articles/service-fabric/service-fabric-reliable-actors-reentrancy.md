@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 100cf1f7bf8a0c903cfd61d93d2f923c32cabd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645536"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260946"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrada de atores fiáveis
 O tempo de execução dos Atores Fidedigdos, por padrão, permite a reentrada lógica baseada no contexto de chamadas. Isto permite que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, o ator A envia uma mensagem ao Ator B, que envia uma mensagem ao Ator C. Como parte do processamento da mensagem, se o Ator C chamar o Ator A, a mensagem é reentrante, por isso será permitida. Quaisquer outras mensagens que façam parte de um contexto de chamada diferente serão bloqueadas no Ator A até que termine o processamento.
@@ -100,5 +101,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
-* Saiba mais sobre a reentrada na documentação de referência da [API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre a reentrada na documentação de referência da [API do Ator](/previous-versions/azure/dn971626(v=azure.100))

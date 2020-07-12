@@ -4,12 +4,12 @@ description: Cenários, recursos e limitações para implantar grupos de content
 ms.topic: article
 ms.date: 04/29/2020
 ms.author: danlep
-ms.openlocfilehash: 77fbdb1720e571027f28b5bdca5c0e3c65c3ded2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584405"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259543"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
@@ -67,7 +67,7 @@ A sub-rede que utiliza para grupos de contentores pode conter apenas grupos de c
 
 Um perfil de rede é um modelo de configuração de rede para recursos Azure. Especifica certas propriedades de rede para o recurso, por exemplo, a sub-rede em que deve ser implantada. Quando utiliza pela primeira vez o [contentor az cria][az-container-create] comando para implantar um grupo de contentores numa sub-rede (e, portanto, numa rede virtual), o Azure cria um perfil de rede para si. Em seguida, pode utilizar esse perfil de rede para futuras implementações na sub-rede. 
 
-Para utilizar um modelo de Gestor de Recursos, um ficheiro YAML ou um método programático para implantar um grupo de contentores numa sub-rede, é necessário fornecer o ID completo do Gestor de Recursos de um perfil de rede. Pode utilizar um perfil previamente criado utilizando [o recipiente az criar,][az-container-create]ou criar um perfil utilizando um modelo de Gestor de Recursos (ver exemplo e [referência](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles) [do modelo).](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) Para obter o ID de um perfil previamente criado, utilize o comando [da lista de perfis de rede az.][az-network-profile-list] 
+Para utilizar um modelo de Gestor de Recursos, um ficheiro YAML ou um método programático para implantar um grupo de contentores numa sub-rede, é necessário fornecer o ID completo do Gestor de Recursos de um perfil de rede. Pode utilizar um perfil previamente criado utilizando [o recipiente az criar,][az-container-create]ou criar um perfil utilizando um modelo de Gestor de Recursos (ver exemplo e [referência](/azure/templates/microsoft.network/networkprofiles) [do modelo).](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) Para obter o ID de um perfil previamente criado, utilize o comando [da lista de perfis de rede az.][az-network-profile-list] 
 
 No diagrama seguinte, vários grupos de contentores foram destacados para uma sub-rede delegada em Instâncias de Contentores de Azure. Uma vez colocado um grupo de contentores numa sub-rede, pode colocar grupos de contentores adicionais para ele especificando o mesmo perfil de rede.
 
@@ -86,4 +86,3 @@ No diagrama seguinte, vários grupos de contentores foram destacados para uma su
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
-

@@ -3,12 +3,12 @@ title: Implementar aplicativo com uma identidade gerida atribuída ao utilizador
 description: Este artigo mostra-lhe como implementar a aplicação De Tecido de Serviço com uma identidade gerida atribuída pelo utilizador
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260093"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implementar aplicação de tecido de serviço com uma identidade gerida atribuída ao utilizador
 
@@ -23,40 +23,42 @@ Para implementar uma aplicação de Tecido de Serviço com identidade gerida, a 
 
 ## <a name="user-assigned-identity"></a>Identidade atribuída ao utilizador
 
-Para ativar a aplicação com identidade atribuída ao Utilizador, adicione primeiro a propriedade **de identidade** ao recurso de aplicação com o tipo **de utilizadorAssigned** e as identidades atribuídas pelo utilizador referenciado. Em seguida, adicione uma secção **de identificação gerida** dentro da secção de **propriedades** para o recurso de **aplicação** que contém uma lista de nome amigável para mapeamento principal para cada uma das identidades atribuídas pelo utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador consulte [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell)
+Para ativar a aplicação com identidade atribuída ao Utilizador, adicione primeiro a propriedade **de identidade** ao recurso de aplicação com o tipo **de utilizadorAssigned** e as identidades atribuídas pelo utilizador referenciado. Em seguida, adicione uma secção **de identificação gerida** dentro da secção de **propriedades** para o recurso de **aplicação** que contém uma lista de nome amigável para mapeamento principal para cada uma das identidades atribuídas pelo utilizador. Para obter mais informações sobre identidades atribuídas ao utilizador consulte [Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador.](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 
 ### <a name="application-template"></a>Modelo de aplicação
 
 Para ativar a aplicação com identidade atribuída ao utilizador, adicione primeiro a propriedade **de identidade** ao recurso de aplicação com o **utilizador tipoAssigned** e as identidades atribuídas pelo utilizador referenciado, em seguida, adicione um objeto **de identificação gerida** dentro da secção de **propriedades** que contém uma lista de nome amigável para mapeamento principal para cada uma das identidades atribuídas pelo utilizador.
 
-    {
-      "apiVersion": "2019-06-01-preview",
-      "type": "Microsoft.ServiceFabric/clusters/applications",
-      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
-        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
-      ],
-      "identity": {
-        "type" : "userAssigned",
-        "userAssignedIdentities": {
-            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
-        }
-      },
-      "properties": {
-        "typeName": "[parameters('applicationTypeName')]",
-        "typeVersion": "[parameters('applicationTypeVersion')]",
-        "parameters": {
-        },
-        "managedIdentities": [
-          {
-            "name" : "[parameters('userAssignedIdentityName')]",
-            "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
-          }
-        ]
-      }
+```json
+{
+  "apiVersion": "2019-06-01-preview",
+  "type": "Microsoft.ServiceFabric/clusters/applications",
+  "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
+    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
+  ],
+  "identity": {
+    "type" : "userAssigned",
+    "userAssignedIdentities": {
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
     }
+  },
+  "properties": {
+    "typeName": "[parameters('applicationTypeName')]",
+    "typeVersion": "[parameters('applicationTypeVersion')]",
+    "parameters": {
+    },
+    "managedIdentities": [
+      {
+        "name" : "[parameters('userAssignedIdentityName')]",
+        "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
+      }
+    ]
+  }
+}
+```
 
 No exemplo acima, o nome de recurso da identidade atribuída ao utilizador está a ser usado como o nome amigável da identidade gerida para a aplicação. Os exemplos a seguir assumem que o nome verdadeiro amigável é "AdminUser".
 

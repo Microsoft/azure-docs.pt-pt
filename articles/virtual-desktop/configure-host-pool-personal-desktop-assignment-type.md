@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bfe428b9eba1f83f3e1bb05c3941c4c56317c9bc
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223113"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260818"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal
 
@@ -91,7 +91,7 @@ Para atribuir diretamente um utilizador a um anfitrião de sessão no portal Azu
 
 Agora que configuraste o tipo de atribuição de ambientes de trabalho pessoais, podes iniciar sessão num cliente virtual do Windows para o testar como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão utilizando o cliente à sua escolha:
 
-- [Ligar ao cliente de Ambiente de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Ligar ao cliente de Ambiente de Trabalho do Windows](connect-windows-7-10.md)
 - [Ligar com o cliente web](connect-web.md)
 - [Ligar ao cliente Android](connect-android.md)
 - [Ligar ao cliente de iOS](connect-ios.md)

@@ -5,15 +5,16 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76028546"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259295"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric with Azure API Management overview(Service Fabric com descrição geral da Gestão de API do Azure)
 
-Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. Em Service Fabric, um gateway pode ser qualquer serviço apátrida, como uma [aplicação Core ASP.NET,](service-fabric-reliable-services-communication-aspnetcore.md)ou outro serviço projetado para entrada de tráfego, como [o Event Hubs,](https://docs.microsoft.com/azure/event-hubs/) [IoT Hub,](https://docs.microsoft.com/azure/iot-hub/)ou [Azure API Management.](https://docs.microsoft.com/azure/api-management/)
+Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. Em Service Fabric, um gateway pode ser qualquer serviço apátrida, como uma [aplicação Core ASP.NET,](service-fabric-reliable-services-communication-aspnetcore.md)ou outro serviço projetado para entrada de tráfego, como [o Event Hubs,](../event-hubs/index.yml) [IoT Hub,](../iot-hub/index.yml)ou [Azure API Management.](../api-management/index.yml)
 
 Este artigo é uma introdução à utilização da Azure API Management como porta de entrada para as suas aplicações de Tecido de Serviço. A API Management integra-se diretamente com o Service Fabric, permitindo-lhe publicar APIs com um rico conjunto de regras de encaminhamento para os seus serviços de Tecido de Serviço de back-end.
 
@@ -104,7 +105,7 @@ Cada instância de serviço também é dividida usando o esquema de partição I
 
 ![Tecido de serviço com topologia de gestão API Azure][sf-apim-dynamic-stateful]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Acompanhe o [tutorial](service-fabric-tutorial-deploy-api-management.md) para configurar o seu primeiro cluster de Tecidos de Serviço com API Management e pedidos de fluxo através da API Management para os seus serviços.
 

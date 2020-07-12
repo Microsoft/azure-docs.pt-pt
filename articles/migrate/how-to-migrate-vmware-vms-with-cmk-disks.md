@@ -7,12 +7,12 @@ ms.manager: carmonm
 ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
-ms.openlocfilehash: afc3132ebdd0f144d16507ef2ccda2dcaffaa34e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 01f30305529e7f142be0ca6ddffa0f5a12a235bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232173"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260011"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Migrar VMware VMs para VMs Azure habilitados com encriptação do lado do servidor e chaves geridas pelo cliente
 
@@ -59,6 +59,10 @@ A experiência do portal de migração do servidor simplifica a preparação da 
 Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE. Para replicar VMs com CMK, irá criar um conjunto de encriptação de disco e passá-lo como uma entrada para a operação de replicação.
 
 Siga o exemplo [aqui](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) para criar um conjunto de encriptação de disco usando Azure PowerShell. Certifique-se de que o conjunto de encriptação do disco é criado na subscrição-alvo para a qual os VMs estão a ser migrados e na região alvo de Azure para a migração.
+
+O conjunto de encriptação do disco pode ser configurado para encriptar discos geridos com uma chave gerida pelo cliente, ou para uma dupla encriptação com uma chave gerida pelo cliente e uma chave de plataforma. Para utilizar a dupla encriptação na opção de repouso, configuure o conjunto de encriptação do disco, tal como descrito [aqui](../virtual-machines/windows/disks-enable-double-encryption-at-rest-powershell.md).
+
+No exemplo mostrado abaixo, o conjunto de encriptação do disco está configurado para utilizar uma chave gerida pelo cliente.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 

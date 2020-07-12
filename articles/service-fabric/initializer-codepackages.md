@@ -5,12 +5,12 @@ author: shsha-msft
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
-ms.openlocfilehash: 8483e00f55d0dd49ba57db58b99b237ce0a169e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258983"
 ---
 # <a name="initializer-codepackages"></a>CodePackages do Inicializador
 
@@ -50,7 +50,7 @@ Vejamos um exemplo completo usando CodePackages inicializador.
 > [!IMPORTANT]
 > O exemplo a seguir pressupõe a familiaridade com a criação [de aplicações de contentores Windows utilizando o Service Fabric e o Docker.][containers-getting-started-link]
 >
-> Este exemplo refere-se mcr.microsoft.com/windows/nanoserver:1809. Os recipientes do Windows Server não são compatíveis em todas as versões de um sistema operativo anfitrião. Para saber mais, consulte a [compatibilidade da versão do recipiente do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> Este exemplo refere-se mcr.microsoft.com/windows/nanoserver:1809. Os recipientes do Windows Server não são compatíveis em todas as versões de um sistema operativo anfitrião. Para saber mais, consulte a [compatibilidade da versão do recipiente do Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 O seguinte ServiceManifest.xml baseia-se no snippet ServiceManifest descrito anteriormente. *InitCodePackage0*, *InitCodePackage1* e *WorkloadCodePackage* são CodePackages que representam contentores. Após a ativação, *o InitCodePackage0* é executado primeiro. Regista uma mensagem num ficheiro e sai. Em seguida, *o InitCodePackage1* é executado, que também regista uma mensagem num ficheiro e sai. Finalmente, a *WorkloadCodePackage* começa a ser executada. Também regista uma mensagem num ficheiro, coloca o conteúdo do ficheiro em **stdout** e, em seguida, pings para sempre.
 
@@ -151,4 +151,3 @@ Consulte os seguintes artigos para obter informações relacionadas.
 [application-model-link]: service-fabric-application-model.md
 [hosting-model-link]: service-fabric-hosting-model.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
-

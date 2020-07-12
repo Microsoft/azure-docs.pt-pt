@@ -6,11 +6,12 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76908166"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260149"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Mover uma aplicação de malha de tecido de serviço para outra região do Azure
 
@@ -20,14 +21,14 @@ Este artigo descreve como mover a sua aplicação de Malha de Tecido de Serviço
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Controlador ingress (como [o Application Gateway](https://docs.microsoft.com/azure/application-gateway/)) para servir de intermediário para encaminhar o tráfego entre clientes e a sua aplicação de Malha de Tecido de Serviço
+* Controlador ingress (como [o Application Gateway](../application-gateway/index.yml)) para servir de intermediário para encaminhar o tráfego entre clientes e a sua aplicação de Malha de Tecido de Serviço
 * Disponibilidade de malha de tecido de serviço (pré-visualização) na região de Azure alvo `westus` `eastus` (, ou `westeurope` )
 
 ## <a name="prepare"></a>Preparação
 
-1. Faça uma "snapshot" do estado atual da sua aplicação de malha de tecido de serviço exportando o modelo e parâmetros do Gestor de Recursos Azure da mais recente implementação. Para isso, siga os passos no [modelo de exportação após a implementação](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) utilizando o portal Azure. Também pode utilizar [Azure CLI,](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates) [Azure PowerShell,](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate).
+1. Faça uma "snapshot" do estado atual da sua aplicação de malha de tecido de serviço exportando o modelo e parâmetros do Gestor de Recursos Azure da mais recente implementação. Para isso, siga os passos no [modelo de exportação após a implementação](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) utilizando o portal Azure. Também pode utilizar [Azure CLI,](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates) [Azure PowerShell,](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
-2. Se for caso disso, [exporte outros recursos no mesmo grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-from-a-resource-group) para a reafectação na região-alvo.
+2. Se for caso disso, [exporte outros recursos no mesmo grupo de recursos](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource-group) para a reafectação na região-alvo.
 
 3. Reveja (e edite, se necessário) o modelo exportado para garantir que os valores de propriedade existentes são os que pretende utilizar na região alvo. A nova `location` (região de Azure) é um parâmetro que irá fornecer durante a reafectação.
 
@@ -35,15 +36,15 @@ Este artigo descreve como mover a sua aplicação de Malha de Tecido de Serviço
 
 1. Criar um novo grupo de recursos (ou utilizar um existente) na região alvo.
 
-2. Com o seu modelo exportado, siga os passos em [implementar recursos a partir do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) usando o portal Azure. Também pode utilizar [Azure CLI,](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli) [Azure PowerShell,](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)ou [REST API](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
+2. Com o seu modelo exportado, siga os passos em [implementar recursos a partir do modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) usando o portal Azure. Também pode utilizar [Azure CLI,](../azure-resource-manager/templates/deploy-cli.md) [Azure PowerShell,](../azure-resource-manager/templates/deploy-powershell.md)ou [REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 3. Para obter orientações sobre recursos relacionados em movimento, tais como [contas de Armazenamento Azure,](../storage/common/storage-account-move.md)consulte orientações para serviços individuais listados no âmbito do tema [Moving Azure resources across regions](../azure-resource-manager/management/move-region.md).
 
-## <a name="verify"></a>Verificar
+## <a name="verify"></a>Verificação
 
 1. Quando a implementação estiver concluída, teste o ponto final da aplicação para verificar a funcionalidade da sua aplicação.
 
-2. Também pode verificar o estado da sua aplicação verificando o estado da aplicação[(az mesh app show](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) e revendo os registos de aplicações e[(az mesh code-package-log](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) usando o CLI de malha de tecido de [serviço Azure](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container#set-up-service-fabric-mesh-cli).
+2. Também pode verificar o estado da sua aplicação verificando o estado da aplicação[(az mesh app show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) e revendo os registos de aplicações e[(az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) usando o CLI de malha de tecido de [serviço Azure](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Consolidação
 
@@ -53,10 +54,10 @@ Depois de ter confirmado a funcionalidade equivalente da sua aplicação de Malh
 
 Para completar a mudança da aplicação Rede de Malha de Tecido de Serviço, [elimine a aplicação de origem e/ou o grupo de recursos dos pais.](../azure-resource-manager/management/delete-resource-group.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Mover recursos Azure através das regiões](../azure-resource-manager/management/move-region.md)
 * [Apoio à deslocação de recursos do Azure pelas regiões](../azure-resource-manager/management/region-move-support.md)
-* [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md) (Mover recursos para um grupo de recursos ou uma subscrição nova)
+* [Mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Suporte da operação de movimentação para recursos](../azure-resource-manager/management/move-support-resources.md
 )

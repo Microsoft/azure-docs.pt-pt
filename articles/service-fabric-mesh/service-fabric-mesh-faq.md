@@ -4,11 +4,12 @@ description: Saiba mais sobre perguntas e respostas comumente feitas para a malh
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78252497"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260115"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas de malha de tecido de serviço comumente
 
@@ -120,7 +121,7 @@ No seu uso de cluster de desenvolvimento `{serviceName}.{applicationName}` local
 
 A Azure Mesh não suporta atualmente a resolução de DNS em todas as aplicações.
 
-Para outros problemas conhecidos do DNS com a execução de um cluster de desenvolvimento de tecido de serviço no Windows 10, consulte: [Recipientes Debug Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas conhecidos de DNS](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+Para outros problemas conhecidos do DNS com a execução de um cluster de desenvolvimento de tecido de serviço no Windows 10, consulte: [Recipientes Debug Windows](../service-fabric/service-fabric-how-to-debug-windows-containers.md) e [problemas conhecidos de DNS](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### <a name="networking"></a>Redes
 
@@ -166,6 +167,6 @@ No seu modelo de aplicação, utilize o ID de recursos completo para redes e vol
 
 Isto é um bug e está a ser implementada uma correção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a Malha de Tecido de Serviço, leia a [visão geral.](service-fabric-mesh-overview.md)

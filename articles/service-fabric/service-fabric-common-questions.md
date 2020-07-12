@@ -4,11 +4,12 @@ description: Perguntas frequentes sobre o Service Fabric, incluindo capacidades,
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 056ff2475e0ae8c78887e24e07a3e33f12d7df88
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78254891"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258934"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas comuns acerca do Service Fabric
 
@@ -21,9 +22,9 @@ Há muitas perguntas comumente sobre o que o Service Fabric pode fazer e como de
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Como posso reverter o meu certificado de cluster de tecido de serviço?
 
-Reverter qualquer atualização para a sua aplicação requer uma deteção de falhas de saúde antes do quórum do cluster de tecido de serviço que comete a alteração; alterações comprometidas só podem ser lançadas para a frente. O engenheiro de escalada através dos Serviços de Apoio ao Cliente, pode ser necessário para recuperar o seu cluster, se tiver sido introduzida uma alteração não monitorizada do certificado de quebra.  [A atualização de aplicações da Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parâmetros de atualização de aplicações](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)e oferece zero promessa de upgrade de tempo de inatividade.  Seguindo o modo monitorizado pela atualização da aplicação recomendada, o progresso automático através de domínios de atualização baseia-se na passagem de verificações de saúde, recuando automaticamente se a atualização de um serviço predefinido falhar.
+Reverter qualquer atualização para a sua aplicação requer uma deteção de falhas de saúde antes do quórum do cluster de tecido de serviço que comete a alteração; alterações comprometidas só podem ser lançadas para a frente. O engenheiro de escalada através dos Serviços de Apoio ao Cliente, pode ser necessário para recuperar o seu cluster, se tiver sido introduzida uma alteração não monitorizada do certificado de quebra.  [A atualização de aplicações da Service Fabric](./service-fabric-application-upgrade.md?branch=master) aplica [parâmetros de atualização de aplicações](./service-fabric-application-upgrade-parameters.md?branch=master)e oferece zero promessa de upgrade de tempo de inatividade.  Seguindo o modo monitorizado pela atualização da aplicação recomendada, o progresso automático através de domínios de atualização baseia-se na passagem de verificações de saúde, recuando automaticamente se a atualização de um serviço predefinido falhar.
  
-Se o seu cluster ainda estiver aproveitando a propriedade clássica de impressão digital de certificado no seu modelo de Gestor de Recursos, recomenda-lhe alterar [o cluster da impressão digital do certificado para o nome comum,](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)para alavancar as funcionalidades de gestão de segredos modernos.
+Se o seu cluster ainda estiver aproveitando a propriedade clássica de impressão digital de certificado no seu modelo de Gestor de Recursos, recomenda-lhe alterar [o cluster da impressão digital do certificado para o nome comum,](./service-fabric-cluster-change-cert-thumbprint-to-cn.md)para alavancar as funcionalidades de gestão de segredos modernos.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Posso criar um cluster que abrange várias regiões do Azure ou os meus próprios centros de dados?
 
@@ -40,7 +41,7 @@ Algumas coisas a considerar:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Os nós de Tecido de Serviço recebem automaticamente atualizações de SISTEMA?
 
-Pode utilizar a [atualização automática de imagem do sistema operativo automático Os,](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) geralmente disponível hoje.
+Pode utilizar a [atualização automática de imagem do sistema operativo automático Os,](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) geralmente disponível hoje.
 
 Para clusters que NÃO são executados em Azure, [fornecemos uma aplicação](service-fabric-patch-orchestration-application.md) para corrigir os sistemas operativos por baixo dos seus nós de Tecido de Serviço.
 
@@ -125,7 +126,7 @@ Não. Os VM de baixa prioridade não são suportados.
 Seguem-se os meios para a sua candidatura obter credenciais para autenticação no KeyVault:
 
 R. Durante o trabalho de construção/embalagem das suas aplicações, pode puxar um certificado para o pacote de dados da sua aplicação SF e usá-lo para autenticar para KeyVault.
-B. Para os anfitriões de escala de máquinas virtuais MSI habilitados, pode desenvolver um simples PowerShell SetupEntryPoint para a sua aplicação SF obter [um token de acesso a partir do ponto final do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), e, em seguida, [recuperar os seus segredos a partir do KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. Para os anfitriões de escala de máquinas virtuais MSI habilitados, pode desenvolver um simples PowerShell SetupEntryPoint para a sua aplicação SF obter [um token de acesso a partir do ponto final do MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), e, em seguida, [recuperar os seus segredos a partir do KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design de aplicações
 
@@ -176,10 +177,10 @@ Os contentores oferecem uma forma simples de embalar serviços e suas dependênc
 
 Dispomos de partes abertas do Service Fabric (quadro de[serviços fiáveis,](https://github.com/Azure/service-fabric-services-and-actors-dotnet) [quadro de atores fiáveis,](https://github.com/Azure/service-fabric-services-and-actors-dotnet) [bibliotecas de integração core ASP.NET,](https://github.com/Azure/service-fabric-aspnetcore) [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), e Service Fabric [CLI](https://github.com/Azure/service-fabric-cli)) no GitHub e aceitamos contribuições comunitárias para esses projetos. 
 
-Recentemente [anunciamos](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) que planeamos abrir o tempo de funcionação do Tecido de Serviço. Neste momento temos o Tecido de [Serviço a reergê-lo](https://github.com/Microsoft/service-fabric/) no GitHub com ferramentas de construção e teste linux, o que significa que você pode clonar o repo, construir tecido de serviço para Linux, executar testes básicos, questões abertas e apresentar pedidos de pull. Estamos a trabalhar arduamente para que o ambiente de construção do Windows seja migrado também, juntamente com um ambiente de CI completo.
+Recentemente [anunciamos](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) que planeamos abrir o tempo de funcionação do Tecido de Serviço. Neste momento temos o Tecido de [Serviço a reergê-lo](https://github.com/Microsoft/service-fabric/) no GitHub com ferramentas de construção e teste linux, o que significa que você pode clonar o repo, construir tecido de serviço para Linux, executar testes básicos, questões abertas e apresentar pedidos de pull. Estamos a trabalhar arduamente para que o ambiente de construção do Windows seja migrado também, juntamente com um ambiente de CI completo.
 
-Siga o [blog Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para mais detalhes à medida que forem anunciados.
+Siga o [blog Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para mais detalhes à medida que forem anunciados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça os conceitos e [as melhores práticas](service-fabric-best-practices-overview.md) [do tecido de serviço](service-fabric-technical-overview.md)

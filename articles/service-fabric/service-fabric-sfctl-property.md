@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905825"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260318"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Armazenar e consultar propriedades com nomes de Tecido de Serviço.
@@ -18,9 +19,9 @@ Armazenar e consultar propriedades com nomes de Tecido de Serviço.
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Elimina a propriedade de Tecido de Serviço especificado. |
+| eliminação | Elimina a propriedade de Tecido de Serviço especificado. |
 | get | Obtém a propriedade de Tecido de Serviço especificado. |
-| list | Obtém informações sobre todas as propriedades do Service Fabric com um nome próprio. |
+| lista | Obtém informações sobre todas as propriedades do Service Fabric com um nome próprio. |
 | colocar | Cria ou atualiza uma propriedade de Service Fabric. |
 
 ## <a name="sfctl-property-delete"></a>propriedade sfctl apagar
@@ -119,6 +120,6 @@ Cria ou atualiza a propriedade de Tecido de Serviço especificado sob um nome pr
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: dc429500081e65bf3fdf4d7f7557d2423f56ee23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b2f1a170a792e0b4d069258264407c121dab3ae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611735"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260236"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do tecido de serviço
 
-O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Pode [hospedar clusters de Tecido de Serviço](service-fabric-deploy-anywhere.md)em qualquer lugar: Azure, num datacenter no local ou em qualquer fornecedor de nuvem.  Service Fabric é o orquestrador que alimenta [a malha de tecido de serviço Azure.](/azure/service-fabric-mesh) Pode utilizar qualquer enquadramento para escrever os seus serviços e escolher onde executar a aplicação a partir de múltiplas opções ambientais. Este artigo detalha a terminologia utilizada pela Service Fabric para compreender os termos utilizados na documentação.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Pode [hospedar clusters de Tecido de Serviço](service-fabric-deploy-anywhere.md)em qualquer lugar: Azure, num datacenter no local ou em qualquer fornecedor de nuvem.  Service Fabric é o orquestrador que alimenta [a malha de tecido de serviço Azure.](../service-fabric-mesh/index.yml) Pode utilizar qualquer enquadramento para escrever os seus serviços e escolher onde executar a aplicação a partir de múltiplas opções ambientais. Este artigo detalha a terminologia utilizada pela Service Fabric para compreender os termos utilizados na documentação.
 
 ## <a name="infrastructure-concepts"></a>Conceitos de infraestrutura
 
@@ -125,13 +125,13 @@ Para implementar os seus serviços, é necessário descrever como devem funciona
 
 ### <a name="resource-model-preview"></a>Modelo de recursos (pré-visualização)
 
-Recursos de Tecido de Serviço são tudo o que pode ser implementado individualmente para o Service Fabric; incluindo aplicações, serviços, redes e volumes. Os recursos são definidos usando um ficheiro JSON, que pode ser implantado num ponto final de cluster.  Para a malha de tecido de serviço, é utilizado o esquema do Modelo de Recurso Azure. Um esquema de ficheiro YAML também pode ser usado para mais facilmente os ficheiros de definição de autor. Os recursos podem ser implantados em qualquer lugar que o Service Fabric executa. O modelo de recursos é a forma mais simples de descrever as suas aplicações de Tecido de Serviço. O seu foco principal é a simples implantação e gestão de serviços contentorizados. Para saber mais, leia [Introdução ao Modelo de Recursos de Tecido de Serviço.](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources)
+Recursos de Tecido de Serviço são tudo o que pode ser implementado individualmente para o Service Fabric; incluindo aplicações, serviços, redes e volumes. Os recursos são definidos usando um ficheiro JSON, que pode ser implantado num ponto final de cluster.  Para a malha de tecido de serviço, é utilizado o esquema do Modelo de Recurso Azure. Um esquema de ficheiro YAML também pode ser usado para mais facilmente os ficheiros de definição de autor. Os recursos podem ser implantados em qualquer lugar que o Service Fabric executa. O modelo de recursos é a forma mais simples de descrever as suas aplicações de Tecido de Serviço. O seu foco principal é a simples implantação e gestão de serviços contentorizados. Para saber mais, leia [Introdução ao Modelo de Recursos de Tecido de Serviço.](../service-fabric-mesh/service-fabric-mesh-service-fabric-resources.md)
 
 ### <a name="native-model"></a>Modelo nativo
 
 O modelo de aplicação nativa fornece às suas aplicações acesso total de baixo nível ao Service Fabric. As aplicações e serviços são definidos como tipos registados em ficheiros manifestos XML.
 
-O modelo nativo suporta os quadros de Reliable Services e Reliable Actors, que fornece acesso às APIs de execução do Tecido de Serviço e APIs de gestão de clusters em C# e Java. O modelo nativo também suporta recipientes arbitrários e executáveis. O modelo nativo não é suportado no [ambiente de malha de tecido de serviço.](/azure/service-fabric-mesh/service-fabric-mesh-overview)
+O modelo nativo suporta os quadros de Reliable Services e Reliable Actors, que fornece acesso às APIs de execução do Tecido de Serviço e APIs de gestão de clusters em C# e Java. O modelo nativo também suporta recipientes arbitrários e executáveis. O modelo nativo não é suportado no [ambiente de malha de tecido de serviço.](../service-fabric-mesh/service-fabric-mesh-overview.md)
 
 **Serviços Fiáveis**: Uma API para construir serviços apátridas e estatais. Os serviços estatais armazenam o seu estado em Coleções Fiáveis, como um dicionário ou uma fila. Também pode ligar várias pilhas de comunicações, tais como API Web e Windows Communication Foundation (WCF).
 
@@ -155,7 +155,7 @@ A Service Fabric é uma tecnologia de plataforma de código aberto em que vário
 
  - **Malha de tecido de serviço Azure**: um serviço totalmente gerido para executar aplicações de tecido de serviço no Microsoft Azure.
  - **Azure Service Fabric**: O Azure acolheu a oferta de cluster de tecido de serviço. Proporciona integração entre o Service Fabric e a infraestrutura Azure, juntamente com a gestão de upgrade e configuração dos clusters de Tecidos de Serviço.
- - **Suporte autónomo do tecido**: Um conjunto de ferramentas de instalação e configuração para [implantar clusters de tecido de serviço em qualquer lugar](/azure/service-fabric/service-fabric-deploy-anywhere) (no local ou em qualquer fornecedor de nuvem). Não gerido por Azure.
+ - **Suporte autónomo do tecido**: Um conjunto de ferramentas de instalação e configuração para [implantar clusters de tecido de serviço em qualquer lugar](./service-fabric-deploy-anywhere.md) (no local ou em qualquer fornecedor de nuvem). Não gerido por Azure.
  - **Cluster de desenvolvimento de tecidos de serviço**: Proporciona uma experiência de desenvolvimento local em Windows, Linux ou Mac para o desenvolvimento de aplicações de Tecido de Serviço.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Matriz de suporte de modelos de ambiente, enquadramento e implantação
@@ -174,7 +174,7 @@ A tabela a seguir descreve os diferentes modelos de aplicação e a ferramenta q
 | Aplicações de malha de tecido de serviço | Modelo de recursos (YAML & JSON) | VS 2017 |Não suportado |Não suportado | Suportado - Ambiente de malha apenas | Não suportado|
 |Aplicações nativas do tecido de serviço | Modelo de aplicação nativa (XML) | VS 2017 e VS 2015| Suportado|Suportado|Suportado|Suportado|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Tecido de Serviço:
 
@@ -184,4 +184,4 @@ Para saber mais sobre o Tecido de Serviço:
 
 Para saber mais sobre a Malha de Tecido de Serviço:
 
-* [Visão geral da malha de tecido de serviço](/azure/service-fabric-mesh/service-fabric-mesh-overview)
+* [Visão geral da malha de tecido de serviço](../service-fabric-mesh/service-fabric-mesh-overview.md)

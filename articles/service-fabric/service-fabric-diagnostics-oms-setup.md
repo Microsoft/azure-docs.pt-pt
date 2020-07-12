@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609932"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258653"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurar registos do Monitor Azure para um cluster
 
@@ -90,7 +91,7 @@ O Gestor de Recursos Azure deteta que este comando é uma atualização para um 
 
 ## <a name="deploy-azure-monitor-logs-with-azure-powershell"></a>Implementar registos do Monitor Azure com Azure PowerShell
 
-Também pode implementar o seu recurso de análise de registo através do PowerShell utilizando o `New-AzOperationalInsightsWorkspace` comando. Para utilizar este método, certifique-se de que instalou [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Utilize este script para criar um novo espaço de trabalho log analytics e adicione a solução de Tecido de Serviço ao mesmo: 
+Também pode implementar o seu recurso de análise de registo através do PowerShell utilizando o `New-AzOperationalInsightsWorkspace` comando. Para utilizar este método, certifique-se de que instalou [a Azure PowerShell](/powershell/azure/install-az-ps). Utilize este script para criar um novo espaço de trabalho log analytics e adicione a solução de Tecido de Serviço ao mesmo: 
 
 ```powershell
 
@@ -120,7 +121,7 @@ Quando terminar, siga os passos na secção anterior para ligar os registos do M
 
 Também pode adicionar outras soluções ou fazer outras modificações no seu espaço de trabalho Log Analytics utilizando o PowerShell. Para saber mais, consulte [os registos do Monitor Azure utilizando o PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Coloque o agente Log Analytics](service-fabric-diagnostics-oms-agent.md) nos seus nós para recolher contadores de desempenho e recolher estatísticas e registos de estivadores para os seus contentores
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../log-analytics/log-analytics-log-searches.md) de registo oferecidas como parte dos registos do Azure Monitor
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
 * [Use o View Designer para criar vistas personalizadas em registos do Monitor Azure](../azure-monitor/platform/view-designer.md)

@@ -4,14 +4,14 @@ description: Saiba como configurar o Azure Private Link para aceder a uma conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 07/10/2020
 ms.author: thweiss
-ms.openlocfilehash: 1ee468b99cddeb5f18f78a6d1298c8959bda075b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb1310d0f45f945fc150e0ae011ede0d102a5918
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259112"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
 
@@ -41,7 +41,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione um grupo de recursos.|
     | **Detalhes da instância** |  |
-    | Name | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
+    | Nome | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
     |Região| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
     |||
 1. Selecione **Seguinte: Recurso**.
@@ -63,7 +63,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | ------- | ----- |
     |**Redes**| |
     | Rede virtual| Selecione a sua rede virtual. |
-    | Subrede | Selecione a sua sub-rede. |
+    | Sub-rede | Selecione a sua sub-rede. |
     |**Integração privada de DNS**||
     |Integrar-se com a zona privada de DNS |Selecione **Sim**. <br><br/> Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais. |
     |Zona privada de DNS |Selecione **privatelink.documents.azure.com**. <br><br/> A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.|
@@ -656,8 +656,6 @@ Aplicam-se as seguintes limitações quando utiliza o Private Link com uma conta
 
 * Um administrador de rede deve ser concedido pelo menos a `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permissão no âmbito da conta Azure Cosmos para criar pontos finais privados automaticamente aprovados.
 
-* O modo direto não é suportado atualmente nas regiões chinesas de Azure.
-
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitações à integração privada da zona de DNS
 
 Os registos DNS na zona privada do DNS não são removidos automaticamente quando elimina um ponto final privado ou remove uma região da conta Azure Cosmos. Deve remover manualmente os registos DNS antes:
@@ -667,7 +665,7 @@ Os registos DNS na zona privada do DNS não são removidos automaticamente quand
 
 Se não limpar os registos do DNS, problemas inesperados de data plane podem acontecer. Estas questões incluem a interrupção de dados para as regiões adicionadas após a remoção do ponto final privado ou a remoção da região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as funcionalidades de segurança da Azure Cosmos DB, consulte os seguintes artigos:
 

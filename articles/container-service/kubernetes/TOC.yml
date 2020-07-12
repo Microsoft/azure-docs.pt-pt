@@ -8,7 +8,7 @@
 - name: Guias de procedimentos
   items:
     - name: Manter os dados com os Ficheiros do Azure
-      href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
+      href: ../../aks/azure-files-dynamic-pv.md?toc=/azure/container-service/kubernetes/toc.json
     - name: Monitorizar
     - name: Implementar aplicações Spring Boot
       items:

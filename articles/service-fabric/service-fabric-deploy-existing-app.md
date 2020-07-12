@@ -3,12 +3,12 @@ title: Implementar um tecido de serviço Azure existente
 description: Saiba como embalar uma aplicação existente como um hóspede executável, para que possa ser implantada num cluster de Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c6c6bc0369593c177b74261da1fd8c15dd73fcb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80520492"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259265"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pacote e implemente um executável existente para o tecido de serviço
 
@@ -76,7 +76,7 @@ O processo de embalagem manual de um hóspede executável baseia-se nos seguinte
 
 ### <a name="create-the-package-directory-structure"></a>Criar a estrutura do diretório de pacotes
 
-Pode começar por criar a estrutura do diretório, conforme descrito no [Package a Azure Service Fabric App](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Pode começar por criar a estrutura do diretório, conforme descrito no [Package a Azure Service Fabric App](./service-fabric-package-apps.md).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Adicione os ficheiros de código e configuração da aplicação
 

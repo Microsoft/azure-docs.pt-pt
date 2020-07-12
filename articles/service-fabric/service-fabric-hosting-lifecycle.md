@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: da395f020cf3d299211427e740975764653b487d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85802282"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258830"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Tecido de serviço Azure hospedando ciclo de vida
 Este artigo fornece uma visão geral dos eventos que acontecem quando uma aplicação é ativada em um nó e vários configs cluster usados para controlar o comportamento.
@@ -148,7 +148,7 @@ Configs com incumprimentos que impactam a ativação/decativação.
 **DesactivaçãoGraceInterval**: Padrão 60 seg. O tempo dado a um ServicePackage para acolher novamente outra Réplica uma vez que tenha hospedado qualquer Réplica em caso de modelo de Processo **Partilhado.**
 **ExclusivoModeDeactivationGraceInterval**: Padrão 1 seg. O tempo dado a um ServicePackage para acolher novamente outra Réplica uma vez que tenha hospedado qualquer Réplica em caso de modelo de Processo **Exclusivo.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Embale uma aplicação][a3] e prepare-a para ser implantada.
 
 [Implementar e remover aplicações][a4]. Este artigo descreve como usar o PowerShell para gerir instâncias de aplicação.
@@ -159,4 +159,4 @@ Configs com incumprimentos que impactam a ativação/decativação.
 [a3]: service-fabric-package-apps.md
 [a4]: service-fabric-deploy-remove-applications.md
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricservicepackagetonode
+[p1]: /powershell/module/servicefabric/copy-servicefabricservicepackagetonode

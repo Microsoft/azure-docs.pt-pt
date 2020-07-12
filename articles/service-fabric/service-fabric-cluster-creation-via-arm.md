@@ -3,12 +3,12 @@ title: Criar um cluster de tecido de serviço Azure
 description: Saiba como configurar um cluster de tecido de serviço seguro em Azure usando o Azure Resource Manager.  Pode criar um cluster usando um modelo padrão ou usando o seu próprio modelo de cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458305"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258762"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster de tecido de serviço usando O Gestor de Recursos Azure 
 > [!div class="op_single_selector"]
@@ -33,8 +33,8 @@ Neste artigo, utilize os módulos Service Fabric RM ou Azure CLI para implantar 
 * [Versão Azure CLI 2.0 e superior][azure-CLI]
 
 Pode encontrar aqui a documentação de referência dos módulos De Tecido de Serviço:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
-* [módulo CLI Az SF](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+* [Az.ServiceFabric](/powershell/module/az.servicefabric)
+* [módulo CLI Az SF](/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

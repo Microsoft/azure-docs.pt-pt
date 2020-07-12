@@ -3,12 +3,12 @@ title: Create a Service Fabric cluster in the Azure portal (Criar um cluster do 
 description: Aprenda a configurar um cluster de tecido de serviço seguro em Azure usando o portal Azure e o Cofre de Chaves Azure.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: eeadfcf24ad2448c845f3d612247686347600001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611157"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259319"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster de tecido de serviço em Azure usando o portal Azure
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Configure os seus nós de cluster. Os tipos de nó definem os tamanhos de VM, o 
 ### <a name="3-security"></a>3. Segurança
 ![Screenshot das configurações de segurança no portal Azure.][BasicSecurityConfigs]
 
-Para facilitar a criação de um cluster de teste seguro, fornecemos a opção **Básica.** Se já tem um certificado e o carregou para o cofre da [chave](/azure/key-vault/) (e ativou o cofre de chaves para implantação), use a opção **Custom**
+Para facilitar a criação de um cluster de teste seguro, fornecemos a opção **Básica.** Se já tem um certificado e o carregou para o cofre da [chave](../key-vault/index.yml) (e ativou o cofre de chaves para implantação), use a opção **Custom**
 
 #### <a name="basic-option"></a>Opção Básica
 Siga os ecrãs para adicionar ou reutilizar um cofre de chaves existente e adicione um certificado. A adição do certificado é um processo sincronizado e por isso terá de esperar pela criação do certificado.
@@ -198,11 +198,11 @@ A secção **de monitor de nó** na lâmina do painel do cluster indica o númer
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Ligação remota a uma placa de conjunto de escala de máquina virtual ou um nó de cluster
 Cada um dos NodeTypes que especifica no seu cluster resulta numa configuração de escala de máquina virtual. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste momento, tem um cluster seguro usando certificados para autenticação de gestão. Em seguida, [ligue-se ao seu cluster](service-fabric-connect-to-secure-cluster.md) e aprenda a gerir segredos de [aplicação.](service-fabric-application-secret-management.md)  Além disso, saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md).
 
 <!-- Links -->
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80422420"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259872"
 ---
 # <a name="linux-support"></a>Apoio Técnico para Linux
 
@@ -69,7 +69,7 @@ Antes de poder desenvolver um cliente Linux para o Windows Virtual Desktop, tem 
 
 Consulte a nossa documentação para os seguintes clientes:
 
-- [Cliente do Ambiente de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Cliente do Ambiente de Trabalho do Windows](connect-windows-7-10.md)
 - [Cliente Web](connect-web.md)
 - [Cliente Android](connect-android.md)
 - [Cliente macOS](connect-macos.md)

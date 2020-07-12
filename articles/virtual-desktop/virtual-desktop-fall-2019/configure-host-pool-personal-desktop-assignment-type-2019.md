@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 376f9d78f508c245bec2d066863566ace68eff0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204868"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259803"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal
 
@@ -88,9 +88,9 @@ Remove-RdsSessionHost
 
 Se precisar de adicionar o anfitrião da sessão de volta à piscina pessoal do anfitrião do ambiente de trabalho, desinstale o Ambiente de Trabalho Virtual do Windows nessa máquina e, em seguida, siga os passos na [Criar uma piscina de anfitriões com o PowerShell](create-host-pools-powershell-2019.md) para voltar a registar o anfitrião da sessão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste o tipo de atribuição de ambientes de trabalho pessoais, podes iniciar sessão num cliente virtual do Windows para o testar como parte de uma sessão de utilizador. Estes próximos dois How-tos dir-lhe-ão como se conectar a uma sessão utilizando o cliente à sua escolha:
 
-- [Ligar ao cliente de Ambiente de Trabalho do Windows](../connect-windows-7-and-10.md)
+- [Ligar ao cliente de Ambiente de Trabalho do Windows](connect-windows-7-10-2019.md)
 - [Ligar com o cliente web](connect-web-2019.md)

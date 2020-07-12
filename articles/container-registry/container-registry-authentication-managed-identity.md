@@ -3,11 +3,12 @@ title: Autenticar com a identidade gerida
 description: Fornecer acesso a imagens no seu registo de contentores privados utilizando uma identidade Azure gerida atribuída pelo utilizador ou pelo sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 9b8bed78629d3a9739ec00772ad5c8216a04c122
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3a1f0f9c9e814cabaa205fbb0abf05333fd6daf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74456490"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259087"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utilize uma identidade gerida a Azure para autenticar num registo de contentores Azure 
 
@@ -44,7 +45,7 @@ Em seguida, utilize a identidade para autenticar qualquer serviço que suporte a
 
 * [Inscreva-se no Azure CLI ou no PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) com a identidade. 
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
 Se ainda não tiver um registo de contentores Azure, crie um registo e empurre uma imagem de um recipiente de amostra para ele. Para etapas, consulte [Quickstart: Crie um registo de contentores privados utilizando o Azure CLI](container-registry-get-started-azure-cli.md).
 
@@ -229,7 +230,7 @@ Devia ver uma `Login succeeded` mensagem. Em seguida, pode executar `docker` com
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre a utilização de identidades geridas com o Registo de Contentores Azure e como:
 
@@ -238,7 +239,7 @@ Neste artigo, aprendeu sobre a utilização de identidades geridas com o Registo
 > * Conceder o acesso à identidade a um registo de contentores Azure
 > * Use a identidade gerida para aceder ao registo e puxe uma imagem de contentor
 
-* Saiba mais sobre [identidades geridas para recursos Azure.](/azure/active-directory/managed-identities-azure-resources/)
+* Saiba mais sobre [identidades geridas para recursos Azure.](../active-directory/managed-identities-azure-resources/index.yml)
 
 
 <!-- LINKS - external -->

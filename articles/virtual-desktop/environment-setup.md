@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d189d5febe54a83cde4fe6cd6aa51e728aa882e6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612372"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259903"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
 
@@ -50,7 +50,7 @@ Para publicar recursos aos utilizadores, deve atribuí-los a grupos de aplicaç�
 - Um utilizador pode ser designado para um grupo de aplicações de desktop e um grupo de aplicações RemoteApp no mesmo pool de anfitriões. No entanto, os utilizadores só podem lançar um tipo de grupo de aplicações por sessão. Os utilizadores não podem lançar os dois tipos de grupos de aplicações ao mesmo tempo numa única sessão.
 - Um utilizador pode ser designado para vários grupos de aplicações dentro da mesma piscina de anfitriões, e o seu feed será uma acumulação de ambos os grupos de aplicações.
 
-## <a name="workspaces"></a>Áreas de Trabalho
+## <a name="workspaces"></a>Áreas de trabalho
 
 Um espaço de trabalho é um agrupamento lógico de grupos de aplicações no Windows Virtual Desktop. Cada grupo de aplicações virtual do Windows Desktop deve estar associado a um espaço de trabalho para os utilizadores verem as aplicações remotas e os ambientes de trabalho que lhes são publicados.  
 
@@ -66,7 +66,7 @@ Para aprender a configurar a sua piscina de anfitriões virtual do Windows Deskt
 
 Para saber como ligar ao Windows Virtual Desktop, consulte um dos seguintes artigos:
 
-- [Ligue-se ao Windows 10 ou ao Windows 7](connect-windows-7-and-10.md)
+- [Ligue-se ao Windows 10 ou ao Windows 7](connect-windows-7-10.md)
 - [Conecte-se com um navegador web](connect-web.md)
 - [Ligar ao cliente Android](connect-android.md)
 - [Ligar ao cliente de macOS](connect-macos.md)

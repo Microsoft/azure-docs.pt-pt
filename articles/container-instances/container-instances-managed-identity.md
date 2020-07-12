@@ -3,12 +3,12 @@ title: Ativar a identidade gerida no grupo de contentores
 description: Saiba como ativar uma identidade gerida em Instâncias de Contentores Azure que possa autenticar com outros serviços Azure
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 9bc96ed29039650082bdfa8b7b2b1b48ecb6bd3f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 23f2347593137a4846c8fd22e3b90f22db39bda3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169787"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259620"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -392,6 +392,6 @@ Neste artigo, você aprendeu sobre identidades geridas em Instâncias de Content
 > * Conceder o acesso à identidade a um cofre de chaves Azure
 > * Use a identidade gerida para aceder a um cofre chave a partir de um recipiente de corrida
 
-* Saiba mais sobre [identidades geridas para recursos Azure.](/azure/active-directory/managed-identities-azure-resources/)
+* Saiba mais sobre [identidades geridas para recursos Azure.](../active-directory/managed-identities-azure-resources/index.yml)
 
 * Veja um [exemplo do Azure Go SDK](https://medium.com/@samkreter/c98911206328) de usar uma identidade gerida para aceder a um cofre chave a partir de Instâncias de Contentores Azure.

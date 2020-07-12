@@ -3,11 +3,12 @@ title: Configurar o Azure Ative Directy para a autenticação do cliente
 description: Saiba como configurar o Azure Ative Directory (Azure AD) para autenticar clientes para clusters de Tecidos de Serviço.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78193390"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258779"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Ative Directy para a autenticação do cliente
 
@@ -124,7 +125,7 @@ Para ligar o cluster de tecido de serviço, utilize o seguinte exemplo de comand
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-Para saber mais, consulte [o cmdlet Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster).
+Para saber mais, consulte [o cmdlet Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 ### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>Posso reutilizar o mesmo inquilino AD AD em vários aglomerados?
 Sim. Mas lembre-se de adicionar o URL do Service Fabric Explorer à sua aplicação cluster (web). Caso contrário, o Service Fabric Explorer não funciona.
@@ -132,7 +133,7 @@ Sim. Mas lembre-se de adicionar o URL do Service Fabric Explorer à sua aplicaç
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Porque é que ainda preciso de um certificado de servidor enquanto o Azure AD está ativado?
 FabricClient e FabricGateway realizam uma autenticação mútua. Durante a autenticação Azure AD, a integração AZure AD fornece uma identidade do cliente ao servidor, e o certificado de servidor é utilizado pelo cliente para verificar a identidade do servidor. Para obter mais informações sobre os certificados de Tecido de Serviço, consulte [os certificados X.509 e o Tecido de Serviço.][x509-certificates-and-service-fabric]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de configurar aplicações do Azure Ative Directory e definir funções para os [utilizadores, configurar e implementar um cluster](service-fabric-cluster-creation-via-arm.md).
 
 

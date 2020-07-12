@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b17befcd86cd56eb5eb385ddc5196cbfce73003c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639671"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260423"
 ---
 # <a name="actor-events"></a>Eventos de atores
 Os eventos de ator fornecem uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos atores são projetados para comunicação de actor-a-cliente e não devem ser usados para comunicação de actor-ator.
@@ -98,10 +99,10 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Reentrada de ator](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnóstico de ator e monitorização de desempenho](service-fabric-reliable-actors-diagnostics.md)
-* [Documentação de referência da API do ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Documentação de referência da API do ator](/previous-versions/azure/dn971626(v=azure.100))
 * [C# Código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Código de amostra de núcleo](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
 * [Código de amostra de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

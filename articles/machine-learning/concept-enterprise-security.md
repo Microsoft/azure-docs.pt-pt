@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392238"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259434"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -44,7 +44,7 @@ A Azure Machine Learning suporta duas formas de autenticação para serviços we
 
 |Método de autenticação|Descrição|Azure Container Instances|AKS|
 |---|---|---|---|
-|Chave|As chaves são estáticas e não precisam de ser refrescadas. As chaves podem ser regeneradas manualmente.|Desativado por padrão| Ativado por predefinição|
+|Chave|As chaves estão estáticas e não precisam de ser refrescadas. As chaves podem ser regeneradas manualmente.|Desativado por padrão| Ativado por predefinição|
 |Token|As fichas expiram após um período de tempo especificado e precisam de ser atualizadas.| Não disponível| Desativado por padrão |
 
 Para obter exemplos de código, consulte a [secção de autenticação do serviço web](how-to-setup-authentication.md#web-service-authentication).
@@ -90,12 +90,12 @@ Para obter mais informações sobre identidades geridas, consulte [identidades g
 
 | Recurso | Permissões |
 | ----- | ----- |
-| Área de trabalho | Contribuidor |
+| Área de trabalho | Contribuinte |
 | Conta de armazenamento | Colaborador de dados blob de armazenamento |
 | Key Vault | Acesso a todas as chaves, segredos, certificados |
-| Registo de Contentores do Azure | Contribuidor |
-| Grupo de recursos que contém o espaço de trabalho | Contribuidor |
-| Grupo de recursos que contém o cofre chave (se diferente daquele que contém o espaço de trabalho) | Contribuidor |
+| Registo de Contentores do Azure | Contribuinte |
+| Grupo de recursos que contém o espaço de trabalho | Contribuinte |
+| Grupo de recursos que contém o cofre chave (se diferente daquele que contém o espaço de trabalho) | Contribuinte |
 
 Não recomendamos que os administradores revoguem o acesso da identidade gerida aos recursos mencionados na tabela anterior. Pode restaurar o acesso utilizando a operação das teclas de ressínc.
 
@@ -111,15 +111,20 @@ Também pode ativar o Azure Private Link para o seu espaço de trabalho. O Priva
 
 ## <a name="data-encryption"></a>Encriptação de dados
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+> [!IMPORTANT]
+> Para encriptação de grau de produção durante __o treino,__ a Microsoft recomenda a utilização do cluster de cálculo Azure Machine Learning. Para encriptação de nível de produção durante __a inferência,__ a Microsoft recomenda a utilização do Serviço Azure Kubernetes.
+>
+> A exemplo de computação de aprendizagem automática Azure é um ambiente dev/teste. Ao usá-lo, recomendamos que guarde os seus ficheiros, como cadernos e scripts, numa partilha de ficheiros. Os seus dados devem ser armazenados numa data-loja.
+
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 > [!IMPORTANT]
 > Se o seu espaço de trabalho contiver dados sensíveis, recomendamos que se estabeleça a [bandeira hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria o seu espaço de trabalho. 
 
-A `hbi_workspace` bandeira controla a quantidade de dados que a Microsoft recolhe para fins de diagnóstico e permite encriptação adicional em ambientes geridos pela Microsoft. Além disso, permite o seguinte:
+A `hbi_workspace` bandeira controla a quantidade de dados que a Microsoft recolhe para fins de diagnóstico e permite encriptação adicional em ambientes geridos pela Microsoft. Além disso, permite as seguintes ações:
 
-* Começa a encriptar o disco de risco local no seu cluster Amlcompute desde que não tenha criado nenhum cluster anterior nessa subscrição. Caso contrário, você precisa levantar um bilhete de apoio para permitir a encriptação do disco de risco dos seus clusters de computação 
-* Limpa o disco de risco local entre as corridas
+* Começa a encriptar o disco de risco local no seu cluster de cálculo Azure Machine Learning desde que não tenha criado nenhum cluster anterior nessa subscrição. Caso contrário, você precisa levantar um bilhete de apoio para permitir a encriptação do disco de risco dos seus clusters de computação 
+* Limpa o disco local de armazenamento temporário entre as execuções
 * Passa credenciais de segurança para a sua conta de armazenamento, registo de contentores e conta SSH da camada de execução para os seus clusters de computação usando o seu cofre-chave
 * Permite a filtragem IP para garantir que os lotes subjacentes não podem ser chamados por outros serviços externos que não o AzureMachineLearningService
 
@@ -228,7 +233,7 @@ Azure Databricks pode ser usado em gasodutos Azure Machine Learning. Por predefi
 
 A Azure Machine Learning utiliza o TLS para garantir a comunicação interna entre vários microserviços de aprendizagem automática Azure. Todo o acesso a Azure Storage também ocorre sobre um canal seguro.
 
-Para garantir chamadas externas para o ponto final de pontuação, o Azure Machine Learning utiliza O TLS. Para obter mais informações, consulte [o Use TLS para garantir um serviço web através do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Para garantir chamadas externas feitas para o ponto final de pontuação, o Azure Machine Learning utiliza O TLS. Para obter mais informações, consulte [o Use TLS para garantir um serviço web através do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Usando o cofre da chave Azure
 
@@ -322,7 +327,7 @@ Associados a um espaço de trabalho Azure Machine Learning estão diretórios (e
 
 [![Fluxo de trabalho de instantâneo de código](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
 
-### <a name="training"></a>Formação
+### <a name="training"></a>Training (Em preparação)
 
 O diagrama seguinte mostra o fluxo de trabalho de treino.
 
@@ -364,7 +369,7 @@ Aqui estão os detalhes:
 
 [![Fluxo de trabalho de inferência](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Serviços web secure Azure Machine Learning com TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)

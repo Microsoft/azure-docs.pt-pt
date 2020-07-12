@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 368440976558730bd7bb9600a0bf45c56d1ee300
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147389"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259182"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca do encaminhamento do hub virtual
 
@@ -63,6 +63,9 @@ Uma **tabela de rotas Zero** também está disponível para cada hub virtual. A 
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configurar rotas estáticas numa ligação de rede virtual
 
 Configurar as rotas estáticas fornece um mecanismo para orientar o tráfego através de um próximo IP de lúpulo, que poderia ser de um Aparelho Virtual de Rede (NVA) a provisionado num VNet Spoke ligado a um hub virtual. A rota estática é composta por um nome de rota, lista de prefixos de destino e um próximo IP de lúpulo.
+
+## <a name="reset-hub"></a><a name="route"></a>Centro de Reset
+Disponível apenas no portal Azure, esta opção fornece ao utilizador um meio para trazer de volta quaisquer recursos falhados, tais como tabelas de rotas, router de hub ou o próprio recurso do hub virtual. Esta é uma opção adicional a considerar antes de contactar a Microsoft para suporte. Esta operação não repõe nenhum dos gateways num centro virtual. 
 
 ## <a name="route-tables-in-basic-and-standard-virtual-wans-prior-to-the-feature-set-of-association-and-propagation"></a><a name="route"></a>Tabelas de rotas em WANs virtuais básicas e padrão antes do conjunto de funcionalidades de Associação e Propagação
 

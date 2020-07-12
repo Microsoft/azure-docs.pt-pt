@@ -3,11 +3,12 @@ title: Envie alertas de saúde do serviço Azure com o ServiceNow
 description: Receba notificações personalizadas sobre eventos de saúde de serviço para o seu caso ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654108"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260210"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envie alertas de saúde do serviço Azure com o ServiceNow usando webhooks
 
@@ -139,9 +140,10 @@ Este artigo mostra-lhe como integrar alertas de saúde do serviço Azure com o S
      ![O "Caminho base da API" no ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
 1.  O seu URL de integração completo parece:
-        
-         https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
+    ```http
+    https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
+    ```
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Criar um alerta usando o ServiceNow no portal Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
@@ -190,7 +192,7 @@ Este artigo mostra-lhe como integrar alertas de saúde do serviço Azure com o S
 
 1. Vá ao [ServiceNow](https://www.servicenow.com/) confirmar que a sua integração foi configurada com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
 - Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre [as notificações de saúde do serviço.](../azure-monitor/platform/service-notifications.md)

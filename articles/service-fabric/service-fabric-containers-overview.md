@@ -3,11 +3,12 @@ title: Visão geral do Tecido de Serviço e dos contentores
 description: Uma visão geral do Tecido de Serviço e a utilização de contentores para implantar aplicações de microserviços. Este artigo fornece uma visão geral de como os recipientes podem ser usados e as capacidades disponíveis no Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 8/8/2018
-ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458217"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259224"
 ---
 # <a name="service-fabric-and-containers"></a>Tecido de serviço e contentores
 
@@ -64,7 +65,7 @@ O número a seguir mostra os diferentes tipos de níveis de virtualização e is
 
 Aqui estão exemplos típicos onde um recipiente é uma boa escolha:
 
-* **Elevação e mudança do IIS**: Pode colocar uma aplicação [MVC ASP.NET](https://www.asp.net/mvc) existente num recipiente em vez de a migrar para ASP.NET Core. Estas ASP.NET aplicações MVC dependem de Serviços de Informação da Internet (IIS). Pode embalar estas aplicações em imagens de contentores a partir da imagem IIS pré-crita e implantá-las com o Tecido de Serviço. Consulte [as imagens do contentor no Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre os recipientes do Windows.
+* **Elevação e mudança do IIS**: Pode colocar uma aplicação [MVC ASP.NET](https://www.asp.net/mvc) existente num recipiente em vez de a migrar para ASP.NET Core. Estas ASP.NET aplicações MVC dependem de Serviços de Informação da Internet (IIS). Pode embalar estas aplicações em imagens de contentores a partir da imagem IIS pré-crita e implantá-las com o Tecido de Serviço. Consulte [as imagens do contentor no Windows Server](/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre os recipientes do Windows.
 
 * **Misturar recipientes e microserviços de tecido de serviço**: Utilize uma imagem de recipiente existente para uma parte da sua aplicação. Por exemplo, pode utilizar o [recipiente NGINX](https://hub.docker.com/_/nginx/) para a parte frontal da sua aplicação e serviços estatais para a computação traseira mais intensiva.
 
@@ -89,14 +90,14 @@ O Service Fabric fornece várias capacidades de contentores que o ajudam a const
 * Capacidade de definir credenciais de segurança no contentor.
 * Uma escolha de diferentes modos de rede para recipientes.
 
-Para uma visão geral abrangente do suporte de contentores em Azure, como como criar um cluster Kubernetes com o Serviço Azure Kubernetes, como criar um registo privado de Docker no Registo de Contentores Azure, e muito mais, ver [Azure for Containers](https://docs.microsoft.com/azure/containers/).
+Para uma visão geral abrangente do suporte de contentores em Azure, como como criar um cluster Kubernetes com o Serviço Azure Kubernetes, como criar um registo privado de Docker no Registo de Contentores Azure, e muito mais, ver [Azure for Containers](../containers/index.yml).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre o suporte que o Service Fabric fornece para o funcionamento de contentores. Em seguida, vamos analisar exemplos de cada uma das funcionalidades para mostrar-lhe como usá-las.
 
 [Criar a sua primeira aplicação de contentor do Service Fabric no Linux](service-fabric-get-started-containers-linux.md)  
 [Criar a sua primeira aplicação de contentor do Service Fabric no Windows](service-fabric-get-started-containers.md)  
-[Saiba mais sobre os Contentores do Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
+[Saiba mais sobre os Contentores do Windows](/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

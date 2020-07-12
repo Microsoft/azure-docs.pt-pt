@@ -3,11 +3,12 @@ title: Conceder um acesso de aplicação a outros recursos da Azure
 description: Este artigo explica como conceder à sua aplicação de Tecido de Serviço ativada por identidade gerida acesso a outros recursos Azure que suportam a autenticação baseada no Diretório Azure Ative.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 638176ca2665146a64fb7a6bd83253eba3434a7f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614798"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258960"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concessão de um acesso de identidade gerido por uma aplicação de Service Fabric aos recursos Azure (pré-visualização)
 
@@ -101,8 +102,8 @@ E para identidades geridas pelo sistema:
     }
 ```
 
-Para mais detalhes, consulte [Vaults - Update Access Policy](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
+Para mais detalhes, consulte [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída ao sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída pelo utilizador](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

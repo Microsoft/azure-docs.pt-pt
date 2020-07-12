@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: 2f00d7b0b1c0bdf78a4908e945dd0f8a890ded1b
-  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+  ms.openlocfilehash: 596d115d02d246afc037bd6f453f2eec2f9ca2d1
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/30/2020
-  ms.locfileid: "82611522"
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86259843"
 landingContent:
 - title: Acerca do Windows Virtual Desktop
   linkLists:
@@ -53,7 +53,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Cliente do Ambiente de Trabalho do Windows
-      url: connect-windows-7-and-10.md
+      url: connect-windows-7-10.md
     - text: Cliente Web
       url: connect-web.md
     - text: Cliente Android

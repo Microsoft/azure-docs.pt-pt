@@ -3,11 +3,12 @@ title: Embale uma aplicação Azure Service Fabric
 description: Saiba mais sobre a embalagem de uma aplicação Azure Service Fabric e como se preparar para a implementação de um cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701052"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260963"
 ---
 # <a name="package-an-application"></a>Criar pacote de uma aplicação
 
@@ -210,7 +211,7 @@ Com esta opção, o pacote de aplicações não tem de ser copiado para a loja d
 O `sfpkg` ficheiro é um zip que contém o pacote inicial de aplicação e tem a extensão ".sfpkg".
 Dentro do fecho, a embalagem de aplicação pode ser comprimida ou descomprimida. A compressão do pacote de aplicações no interior do fecho é feita a níveis de código, config e pacote de dados, como [mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
 
-Para criar uma `sfpkg` pasta que contenha o pacote de aplicações original, comprimido ou não. Em seguida, utilize qualquer utilidade para fechar a pasta com a extensão ".sfpkg". Por exemplo, utilize [ZipFile.CreateFromDirect .](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx)
+Para criar uma `sfpkg` pasta que contenha o pacote de aplicações original, comprimido ou não. Em seguida, utilize qualquer utilidade para fechar a pasta com a extensão ".sfpkg". Por exemplo, utilize [ZipFile.CreateFromDirect .](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_)
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
@@ -223,7 +224,7 @@ Para o fornecimento do pacote, utilize a disposição externa, que requer a info
 >[!NOTE]
 > O provisionamento baseado no caminho relativo da loja de imagens não suporta `sfpkg` ficheiros atualmente. Portanto, o `sfpkg` não deve ser copiado para a loja de imagens.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implementar e remover aplicações][10] descreve como usar o PowerShell para gerir instâncias de aplicação
 

@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214286"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260773"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
@@ -75,7 +76,7 @@ Aqui está como recolocar o modelo do Gestor de Recursos Azure para expandir uma
 
 Siga as instruções em [Criar uma piscina de anfitriões utilizando o Azure Marketplace](create-host-pools-azure-marketplace-2019.md) até chegar ao Run the [Azure Marketplace oferecendo uma nova piscina de anfitriões.](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool) Quando chegar a esse ponto, terá de introduzir as seguintes informações para cada separador:
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Informações básicas
 
 Todos os valores nesta secção devem corresponder ao que forneceu quando criou os VMs de anfitrião e de anfitrião de sessão, com exceção *dos utilizadores de ambientes de trabalho predefinidos:*
 
@@ -125,11 +126,11 @@ Todos os valores de parâmetros nesta secção devem corresponder ao que fornece
 
 Siga as instruções em [Executar o modelo Azure Resource Manager para o fornecimento de uma nova piscina de anfitriões](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, com exceção do *Número de Ocorrências do Rdsh*. Introduza o número de VMs do anfitrião de sessão que deseja na piscina de anfitrião depois de executar o modelo. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, insira **8**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão num cliente do Windows Virtual Desktop para testá-los como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
 
-- [Ligar ao cliente de Ambiente de Trabalho do Windows](../connect-windows-7-and-10.md)
+- [Ligar ao cliente de Ambiente de Trabalho do Windows](connect-windows-7-10-2019.md)
 - [Ligar com o cliente web](connect-web-2019.md)
 - [Ligar ao cliente Android](connect-android-2019.md)
 - [Ligar ao cliente de macOS](connect-macos-2019.md)

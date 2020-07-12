@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefactos de um registo
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: c80f10e8795c63b84bb46fc21fd3406a195b772e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186933"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259449"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -36,7 +36,7 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 * **Contas de armazenamento** - Crie contas de armazenamento de origem e alvo numa subscrição e localização à sua escolha. Para efeitos de teste, pode utilizar a mesma subscrição ou subscrições que os registos de origem e alvo. Para cenários de nuvem cruzada, normalmente cria-se uma conta de armazenamento separada em cada nuvem. Se necessário, crie as contas de armazenamento com o [CLI Azure](../storage/common/storage-account-create.md?tabs=azure-cli) ou outras ferramentas. 
 
   Crie um recipiente blob para transferência de artefactos em cada conta. Por exemplo, criar um contentor denominado *transferência*. Dois ou mais oleodutos de transferência podem partilhar a mesma conta de armazenamento, mas devem utilizar diferentes âmbitos de contentores de armazenamento.
-* **Cofres-chave** - Os cofres-chave são necessários para armazenar segredos simbólicos SAS usados para aceder a contas de armazenamento de fontes e alvos. Crie os cofres-chave de origem e alvo na mesma subscrição ou subscrições do Azure que os registos de origem e alvo. Se necessário, crie cofres-chave com o [CLI Azure](../key-vault/quick-create-cli.md) ou outras ferramentas.
+* **Cofres-chave** - Os cofres-chave são necessários para armazenar segredos simbólicos SAS usados para aceder a contas de armazenamento de fontes e alvos. Crie os cofres-chave de origem e alvo na mesma subscrição ou subscrições do Azure que os registos de origem e alvo. Se necessário, crie cofres-chave com o [CLI Azure](../key-vault/secrets/quick-create-cli.md) ou outras ferramentas.
 * **Variáveis ambientais** - Por exemplo, os comandos neste artigo, definir as seguintes variáveis ambientais para os ambientes de origem e alvo. Todos os exemplos são formatados para a casca bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -257,7 +257,7 @@ az storage blob list \
 
 Utilize a ferramenta AzCopy ou outros métodos para [transferir dados blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) da conta de armazenamento de origem para a conta de armazenamento alvo.
 
-Por exemplo, o seguinte [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) comando copia o myblob do contentor de *transferência* na conta de origem para o contentor *de transferência* na conta-alvo. Se a bolha existe na conta alvo, está substituída. A autenticação utiliza fichas SAS com permissões apropriadas para os recipientes de origem e alvo. (Não são mostradas etapas para criar fichas.)
+Por exemplo, o seguinte [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) comando copia o myblob do contentor de *transferência* na conta de origem para o contentor *de transferência* na conta-alvo. Se a bolha existe na conta alvo, está substituída. A autenticação utiliza fichas SAS com permissões apropriadas para os recipientes de origem e alvo. (Não são mostradas etapas para criar fichas.)
 
 ```console
 azcopy copy \
@@ -366,6 +366,3 @@ Para importar imagens de um único contentor para um registo de contentores Azur
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

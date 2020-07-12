@@ -4,12 +4,12 @@ description: Conheça os cenários de segurança para um cluster de tecidos de s
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080683"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261067"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster de tecido de serviço
 
@@ -27,7 +27,7 @@ A segurança nó-a-nó ajuda a garantir a comunicação entre os VMs ou os compu
 
 ![Diagrama de comunicação nó-a-nó][Node-to-Node]
 
-Os clusters em execução em Azure e clusters autónomos em execução no Windows podem utilizar a [segurança](https://msdn.microsoft.com/library/ff649801.aspx) do certificado ou [a segurança do Windows](https://msdn.microsoft.com/library/ff649396.aspx) para computadores Windows Server.
+Os clusters em execução em Azure e clusters autónomos em execução no Windows podem utilizar a [segurança](/previous-versions/msp-n-p/ff649801(v=pandp.10)) do certificado ou [a segurança do Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)) para computadores Windows Server.
 
 ### <a name="node-to-node-certificate-security"></a>Segurança do certificado nó-a-nó
 
@@ -54,7 +54,7 @@ A segurança entre clientes e nó autentica os clientes e ajuda a garantir a com
 
 ![Diagrama de comunicação cliente-a-nó][Client-to-Node]
 
-Os clusters em execução em Azure e clusters autónomos em execução no Windows podem utilizar a segurança do [certificado](https://msdn.microsoft.com/library/ff649801.aspx) ou a segurança do [Windows](https://msdn.microsoft.com/library/ff649396.aspx), embora a recomendação seja utilizar a autenticação do certificado X.509 sempre que possível.
+Os clusters em execução em Azure e clusters autónomos em execução no Windows podem utilizar a segurança do [certificado](/previous-versions/msp-n-p/ff649801(v=pandp.10)) ou a segurança do [Windows](/previous-versions/msp-n-p/ff649396(v=pandp.10)), embora a recomendação seja utilizar a autenticação do certificado X.509 sempre que possível.
 
 ### <a name="client-to-node-certificate-security"></a>Garantia do certificado cliente-nó
 
@@ -95,7 +95,7 @@ Desa estação as funções de administrador e cliente do utilizador quando cria
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 e Tecido de Serviço
 
-Os certificados digitais X.509 são normalmente utilizados para autenticar clientes e servidores. Também são usados para encriptar e assinar digitalmente mensagens. O Service Fabric utiliza certificados X.509 para garantir um cluster e fornecer funcionalidades de segurança da aplicação. Para obter mais informações sobre os certificados digitais X.509, consulte [Trabalhar com certificados.](https://msdn.microsoft.com/library/ms731899.aspx) Você usa [o Key Vault](../key-vault/general/overview.md) para gerir certificados para clusters de tecido de serviço em Azure.
+Os certificados digitais X.509 são normalmente utilizados para autenticar clientes e servidores. Também são usados para encriptar e assinar digitalmente mensagens. O Service Fabric utiliza certificados X.509 para garantir um cluster e fornecer funcionalidades de segurança da aplicação. Para obter mais informações sobre os certificados digitais X.509, consulte [Trabalhar com certificados.](/dotnet/framework/wcf/feature-details/working-with-certificates) Você usa [o Key Vault](../key-vault/general/overview.md) para gerir certificados para clusters de tecido de serviço em Azure.
 
 Algumas coisas importantes a considerar:
 
@@ -141,7 +141,7 @@ Por predefinição, o certificado de cluster tem privilégios de administração
 > [!NOTE]
 > Todas as operações de gestão num cluster de Tecido de Serviço requerem certificados de servidor. Os certificados de cliente não podem ser usados para gestão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie um cluster em Azure usando um modelo de Gestor de Recursos](service-fabric-cluster-creation-via-arm.md)
 * [Utilizar o portal do Azure para criar um cluster](service-fabric-cluster-creation-via-portal.md)

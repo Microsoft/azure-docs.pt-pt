@@ -3,12 +3,12 @@ title: Atualize a versão Azure Service Fabric de um cluster
 description: Atualize o código e/ou configuração do Tecido de Serviço que executa um cluster de Tecido de Serviço, incluindo a definição do modo de atualização do cluster, a atualização de certificados, a adição de portas de aplicação, a realização de patches de SISTEMA, e assim por diante. O que se pode esperar quando as atualizações são realizadas?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82789605"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261050"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Atualizar a versão do Service Fabric de um cluster
 
@@ -19,7 +19,7 @@ Pode configurar o seu cluster para receber atualizações automáticas de tecido
 Fá-lo definindo a configuração do cluster "upgradeMode" no portal ou utilizando o Gestor de Recursos no momento da criação ou mais tarde num cluster ao vivo 
 
 > [!NOTE]
-> Certifique-se de que mantém o seu cluster a executar sempre uma versão de tecido suportado. À medida que anunciamos o lançamento de uma nova versão do tecido de serviço, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias a partir dessa data. Os novos lançamentos são anunciados [no blog da equipa de tecidos de serviço.](https://blogs.msdn.microsoft.com/azureservicefabric/) O novo lançamento está disponível para escolher então. 
+> Certifique-se de que mantém o seu cluster a executar sempre uma versão de tecido suportado. À medida que anunciamos o lançamento de uma nova versão do tecido de serviço, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias a partir dessa data. Os novos lançamentos são anunciados [no blog da equipa de tecidos de serviço.](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) O novo lançamento está disponível para escolher então. 
 > 
 > 
 

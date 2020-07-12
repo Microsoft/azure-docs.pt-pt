@@ -22,15 +22,15 @@ sections:
         className: cardsFTitle
         items:
           - title: Introdução aos clusters do Kubernetes
-            href: /azure/container-service/kubernetes
+            href: ./kubernetes/index.yml
             image:
               src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
+              href: ./kubernetes/index.yml
           - title: Introdução aos clusters DC/OS e Docker Swarm
-            href: /azure/container-service/dcos-swarm
+            href: ./dcos-swarm/index.yml
             image:
               src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+              href: ./dcos-swarm/index.yml
   - title: Desenvolva as suas competências com o Microsoft Learn
     items:
       - type: list

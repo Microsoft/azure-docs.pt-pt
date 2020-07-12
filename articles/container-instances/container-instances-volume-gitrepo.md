@@ -3,11 +3,12 @@ title: Monte gitRepo volume para grupo de contentores
 description: Aprenda a montar um volume gitRepo para clonar um repositório git em suas instâncias de contentores
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f361b0bbd4a02f754e47c8321a664af05036601
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78252088"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260713"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monte um volume gitRepo em Instâncias de Contentores Azure
 
@@ -100,7 +101,7 @@ GitHub: [Criar um símbolo de acesso pessoal para a linha de comando][pat-github
 
 Azure Repos: [Criar fichas de acesso pessoal para autenticar o acesso][pat-repos]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como montar outros tipos de volume em Instâncias de Contentores Azure:
 
@@ -111,7 +112,7 @@ Saiba como montar outros tipos de volume em Instâncias de Contentores Azure:
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-repos]: https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: /azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

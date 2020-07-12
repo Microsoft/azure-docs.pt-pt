@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 1cb6dc56a5d4fa975f68c1dea08920a7c7db3904
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 70b5387e5e58bd30aa61feefc1bf4e5e98af9b1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119502"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259357"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Quickstart: Criar um cluster de tecido de serviço usando o modelo ARM
 
@@ -36,7 +36,7 @@ Para completar este arranque rápido, terá de:
 
 * Instale o [módulo SDK e PowerShell do tecido de serviço](service-fabric-get-started.md).
 
-* Instalar [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Instalar [a Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="download-the-sample-template-and-certificate-helper-script"></a>Descarregue o modelo de amostra e o script do ajudante de certificado
 
@@ -170,7 +170,7 @@ Também pode encontrar o ponto final do Service Fabric Explorer a partir da sua 
 
 ![Lâmina de recurso de tecido de serviço mostrando ponto final do Explorador de tecido de serviço](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 
@@ -180,7 +180,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre a criação de um modelo de cluster de tecido de serviço Azure personalizado, consulte:
 

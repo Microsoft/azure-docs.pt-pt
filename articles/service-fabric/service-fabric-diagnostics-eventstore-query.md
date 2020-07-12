@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 48350caef6bdaafda9aff7ac776d67b314aeaf8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d66248797d577d6894d1125188735ecf71029b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614405"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258898"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consultas EventStore APIs para eventos de cluster
 
@@ -109,7 +110,7 @@ Aqui podemos ver que entre `2018-04-03T18:00:00Z` `2018-04-04T18:00:00Z` e, este
 
 ## <a name="query-the-eventstore-programmatically"></a>Consultar o programa EventStore
 
-Também pode consultar o Programa EventStore, através da biblioteca de [clientes Service Fabric.](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)
+Também pode consultar o Programa EventStore, através da biblioteca de [clientes Service Fabric.](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)
 
 Assim que tiver o seu Cliente de Tecido de Serviço configurado, pode consultar eventos acedendo ao EventStore desta forma:`sfhttpClient.EventStore.<request>`
 
@@ -199,4 +200,3 @@ Para ver todos os movimentos de partição que aconteceram no seu agrupamento, c
 *Serviço caos:*
 
 Há um evento para quando o serviço Caos é iniciado ou parado que é exposto ao nível do cluster. Para ver a sua utilização recente do serviço Caos, utilize a seguinte consulta:`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
-

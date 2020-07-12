@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: ba8f4591782a4e34fbde26d9669ef01f24450486
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: de2579868ad72bdf4cf78c552e9553f289ecabd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82146419"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259058"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensões postgreSQL em Azure Database for PostgreSQL – Hyperscale (Citus)
 
@@ -144,6 +144,6 @@ A definição `pg_stat_statements.track` controla as declarações contadas pela
 Há uma troca entre a informação de execução de consulta pg_stat_statements fornece e o efeito no desempenho do servidor à medida que regista cada declaração SQL. Se não estiver a utilizar ativamente a extensão pg_stat_statements, recomendamos que se desemalte `pg_stat_statements.track` `none` . Alguns serviços de monitorização de terceiros podem contar com pg_stat_statements para fornecer insights de desempenho de consulta, por isso confirme se este é o caso para si ou não.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
-Pode utilizar o dblink e postgres_fdw para ligar de um servidor PostgreSQL a outro, ou a outra base de dados no mesmo servidor. O servidor recetor precisa de permitir ligações a partir do servidor de envio através da sua firewall. Para utilizar estas extensões para ligar entre a Base de Dados Azure para servidores PostgreSQL, **desconfiem do acesso aos serviços Azure** à ON. Também precisa de ligar esta definição se pretender utilizar as extensões para voltar ao mesmo servidor. O acesso à definição **de serviços Azure** pode ser encontrado na página do portal Azure para o servidor Postgres em **"Connection Security".** Girar **Permitir o acesso aos serviços Azure** ON whitelists todos os IPs Azure.
 
-Atualmente, as ligações de saída da Base de Dados Azure para PostgreSQL não são suportadas, exceto para ligações a outros servidores Azure Database para servidores PostgreSQL.
+Pode utilizar dblink e postgres \_ fdw para ligar de um servidor PostgreSQL a outro, ou a outra base de dados no mesmo servidor.  O servidor recetor precisa de permitir ligações a partir do servidor de envio através da sua firewall.  Para utilizar estas extensões para ligar entre a Base de Dados Azure para servidores PostgreSQL ou grupos de servidores de Hiperescala (Citus), deteta **os serviços e recursos do Azure para aceder a este grupo de servidores (ou servidor)** a ON.  Também precisa de ligar esta definição se pretender utilizar as extensões para voltar ao mesmo servidor.
+Os **serviços e recursos do Allow Azure para aceder a esta** definição de grupo de servidor podem ser encontrados na página do portal Azure para o grupo servidor Hyperscale (Citus) em **rede**.  Atualmente, as ligações de saída da Base de Dados Azure para servidor single postgreSQL e hiperescala (Citus) não são suportadas, exceto para ligações a outros grupos de servidores Azure Database para servidores PostgreSQL e grupos de servidores de Hiperescala (Citus).

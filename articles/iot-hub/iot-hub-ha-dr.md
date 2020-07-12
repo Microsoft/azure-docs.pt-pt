@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267635"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260163"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Elevada disponibilidade e recuperação após desastre do Hub IoT
 
@@ -75,6 +76,8 @@ Se os objetivos de uptime do seu negócio não forem satisfeitos pelo RTO que a 
 
 A opção de failover manual está sempre disponível para utilização, independentemente de a região primária estar ou não a passar por tempo de inatividade. Por conseguinte, esta opção poderia potencialmente ser utilizada para executar falhas planeadas. Um exemplo de utilização de falhas planeadas é a realização de exercícios periódicos de failover. Uma palavra de precaução, porém, é que uma operação de failover planeada resulta numa paragem para o centro para o período definido pelo RTO para esta opção, e também resulta numa perda de dados tal como definida pelo quadro de RPO acima. Você poderia considerar a criação de um teste ioT hub instância para exercer periodicamente a opção de failover planeada para ganhar confiança na sua capacidade de colocar as suas soluções de ponta a ponta em funcionamento quando um verdadeiro desastre acontece.
 
+O failover manual está disponível sem custos adicionais para os hubs IoT criados após 18 de maio de 2017
+
 Para obter instruções passo a passo, consulte [Tutorial: Execute o failover manual para um hub IoT](tutorial-manual-failover.md)
 
 ### <a name="running-test-drills"></a>Exercícios de teste de execução
@@ -129,11 +132,11 @@ Aqui está um resumo das opções HA/DR apresentadas neste artigo que pode ser u
 
 | Opção HA/DR | RTO | RPO | Requer intervenção manual? | Complexidade de implementação | Impacto adicional dos custos|
 | --- | --- | --- | --- | --- | --- |
-| Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhuma|Nenhuma|
-| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhuma|
-| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução ha personalizada|Não|Alta|> 1x o custo de 1 hub IoT|
+| Falha iniciada pela Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhum|Nenhum|
+| Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Yes|Muito baixo. Só precisas de ativar esta operação a partir do portal.|Nenhum|
+| Região transversal HA |< 1 min|Depende da frequência de replicação da sua solução ha personalizada|Não|Alto|> 1x o custo de 1 hub IoT|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o IoT Hub do Azure?](about-iot-hub.md)
 * [Começa com o IoT Hubs (Quickstart)](quickstart-send-telemetry-dotnet.md)

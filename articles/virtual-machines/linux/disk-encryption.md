@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c78fa51150ba09e5b72eeb0587679f779c947acf
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2d4fc47247c9fe2ed1af0eee59500db7e894fdd0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231056"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260133"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
@@ -80,9 +80,8 @@ Clientes sensíveis de alta segurança que estejam preocupados com o risco assoc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar a encriptação no anfitrião](disks-enable-host-based-encryption-cli.md)
-- [Azure CLI - Habilitar a dupla encriptação em repouso - discos geridos](disks-enable-double-encryption-at-rest-cli.md)
+- [Ativar encriptação de ponta a ponta utilizando encriptação no anfitrião - CLI](disks-enable-host-based-encryption-cli.md)
+- [Ativar a dupla encriptação em repouso para discos geridos - CLI](disks-enable-double-encryption-at-rest-cli.md)
 - [Ativar chaves geridas pelo cliente para discos geridos - CLI](disks-enable-customer-managed-keys-cli.md)
 - [Ativar chaves geridas pelo cliente para discos geridos - portal](disks-enable-customer-managed-keys-portal.md)
-- [Ativar as chaves geridas pelo cliente para o seu disco gerido - PowerShell](../windows/disks-enable-customer-managed-keys-powershell.md)
 - [O que é o Azure Key Vault?](../../key-vault/general/overview.md)

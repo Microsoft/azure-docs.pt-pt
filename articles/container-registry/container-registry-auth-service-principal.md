@@ -3,11 +3,12 @@ title: Autenticar com o principal de serviço
 description: Fornecer acesso a imagens no seu registo de contentores privados utilizando um diretor de serviço do Azure Ative Directory.
 ms.topic: article
 ms.date: 10/04/2019
-ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74455402"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259141"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registo de Contentores Azure com principais serviços
 
@@ -29,7 +30,7 @@ Por exemplo, configurar a sua aplicação web para usar um principal de serviço
 
 Deve utilizar um principal de serviço para fornecer acesso ao registo em **cenários sem cabeça**. Ou seja, qualquer aplicação, serviço ou script que deve empurrar ou puxar imagens de contentores de forma automatizada ou de outra forma sem supervisão. Por exemplo:
 
-  * *Pull*: Desloque os recipientes de um registo para sistemas de orquestração, incluindo Kubernetes, DC/OS e Docker Swarm. Também pode retirar dos registos de contentores para serviços Azure relacionados, tais como [Azure Kubernetes Service (AKS),](../aks/cluster-container-registry-integration.md) [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch,](../batch/index.yml) [Service Fabric,](/azure/service-fabric/)entre outros.
+  * *Pull*: Desloque os recipientes de um registo para sistemas de orquestração, incluindo Kubernetes, DC/OS e Docker Swarm. Também pode retirar dos registos de contentores para serviços Azure relacionados, tais como [Azure Kubernetes Service (AKS),](../aks/cluster-container-registry-integration.md) [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch,](../batch/index.yml) [Service Fabric,](../service-fabric/index.yml)entre outros.
 
   * *Push*: Construa imagens de contentores e empurre-as para um registo utilizando soluções de integração e implantação contínuas como a Azure Pipelines ou Jenkins.
 
@@ -94,7 +95,7 @@ az acr login --name myregistry
 
 O CLI utiliza o token criado quando correu `az login` para autenticar a sua sessão com o registo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a [visão geral](container-registry-authentication.md) da autenticação para outros cenários a autenticar com um registo de contentores Azure.
 

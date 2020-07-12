@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8d4231de13da3f8b2960bd4852136f803a97a546
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1d118fa1fb65663f37e33f739bf4a72a14e1c52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614439"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258709"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorize recipientes com registos do Monitor Azure
  
@@ -44,8 +45,8 @@ O agente permite a recolha de vários registos específicos do contentor que pod
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a solução de registos de registos Azure Monitor Containers](../azure-monitor/insights/containers.md).
 * Leia mais sobre orquestração de contentores em Tecido de Serviço - [Tecido de Serviço e contentores](service-fabric-containers-overview.md)
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../log-analytics/log-analytics-log-searches.md) de registo oferecidas como parte dos registos do Azure Monitor
-* Configurar registos do Azure Monitor para criar regras [de alerta automatizadas](../log-analytics/log-analytics-alerts.md) para ajudar na deteção e diagnóstico
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
+* Configurar registos do Azure Monitor para criar regras [de alerta automatizadas](../azure-monitor/platform/alerts-overview.md) para ajudar na deteção e diagnóstico

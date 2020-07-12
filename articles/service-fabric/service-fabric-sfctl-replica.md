@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: f6ad0b4c08ac8d710340fe654a068d0a3804e58f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ed1ecca686471e052f07e945738ad1a49e68464
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905816"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260307"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Gerir as réplicas que pertencem a divisórias de serviço.
@@ -22,7 +23,7 @@ Gerir as réplicas que pertencem a divisórias de serviço.
 | lista implantada | Obtém a lista de réplicas implantadas num nó de Tecido de Serviço. |
 | saúde | Obtém a saúde de uma réplica de serviço stateful Fabric ou de serviço apátrida. |
 | informações | Obtém a informação sobre uma réplica de uma divisória de Tecido de Serviço. |
-| list | Obtém a informação sobre réplicas de uma divisória de serviço de tecido de serviço. |
+| lista | Obtém a informação sobre réplicas de uma divisória de serviço de tecido de serviço. |
 | remover | Remove uma réplica de serviço em execução num nó. |
 | relatório-saúde | Envia um relatório de saúde sobre a réplica do Tecido de Serviço. |
 | restart | Reinicia uma réplica de serviço de um serviço persistido que funciona num nó. |
@@ -228,6 +229,6 @@ Reinicia uma réplica de serviço de um serviço persistido que funciona num nó
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI do Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

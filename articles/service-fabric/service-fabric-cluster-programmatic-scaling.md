@@ -5,12 +5,12 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82787146"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261116"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalar um cluster de tecido de serviço programáticamente 
 
@@ -20,7 +20,7 @@ Os clusters de tecido de serviço em execução em Azure são construídos em ci
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gerir credenciais
-Um dos desafios de escrever um serviço para lidar com o dimensionamento é que o serviço deve ser capaz de aceder a recursos de escala de máquina virtual definidos sem um login interativo. O acesso ao cluster de Tecido de Serviço é fácil se o serviço de escala está a modificar a sua própria aplicação de Tecido de Serviço, mas são necessárias credenciais para aceder ao conjunto de escalas. Para iniciar seduca, pode utilizar um [principal de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criado com o [Azure CLI](https://github.com/azure/azure-cli).
+Um dos desafios de escrever um serviço para lidar com o dimensionamento é que o serviço deve ser capaz de aceder a recursos de escala de máquina virtual definidos sem um login interativo. O acesso ao cluster de Tecido de Serviço é fácil se o serviço de escala está a modificar a sua própria aplicação de Tecido de Serviço, mas são necessárias credenciais para aceder ao conjunto de escalas. Para iniciar seduca, pode utilizar um [principal de serviço](/cli/azure/create-an-azure-service-principal-azure-cli) criado com o [Azure CLI](https://github.com/azure/azure-cli).
 
 Um principiante de serviço pode ser criado com os seguintes passos:
 
@@ -59,7 +59,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Alternativamente, o tamanho da balança de máquina virtual também pode ser gerido com cmdlets PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)pode recuperar o objeto de escala de máquina virtual. A capacidade atual está disponível através da `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, a escala de máquina virtual definida em Azure pode ser atualizada com o [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) comando.
+Alternativamente, o tamanho da balança de máquina virtual também pode ser gerido com cmdlets PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)pode recuperar o objeto de escala de máquina virtual. A capacidade atual está disponível através da `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, a escala de máquina virtual definida em Azure pode ser atualizada com o [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) comando.
 
 Como ao adicionar um nó manualmente, adicionar uma instância definida em escala deve ser tudo o que é necessário para iniciar um novo nó de Tecido de Serviço, uma vez que o modelo de conjunto de escala inclui extensões para juntar automaticamente novas instâncias ao cluster de Tecido de Serviço. 
 
@@ -121,4 +121,4 @@ Para começar a implementar a sua própria lógica de auto-escala, familiarize-s
 
 - [Dimensionamento manual ou com regras de escala automática](./service-fabric-cluster-scale-in-out.md)
 - [Fluent Azure Management Libraries for .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com os conjuntos de escala de máquinas virtuais subjacentes de um cluster de tecido de serviço)
-- [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster de tecido de serviço e seus nós)
+- [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster de tecido de serviço e seus nós)

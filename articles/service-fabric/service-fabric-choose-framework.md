@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 11e32c9d1290227e638a314ed8417b1bed906842
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e1c96d0b04140f8c1121cfb74b43969b49cfdda
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75749528"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260527"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Descrição geral do modelo de programação do Service Fabric
 
@@ -25,7 +26,7 @@ Inicie com os executáveis de hóspedes implementando a sua primeira [aplicaçã
 
 Por predefinição, o Service Fabric implementa e ativa os serviços como processos. O Tecido de Serviço também pode implantar serviços em [contentores.](service-fabric-containers-overview.md) O Service Fabric suporta a colocação de contentores Linux e de Windows no Windows Server 2016 e posteriormente. As imagens do contentor podem ser retiradas de qualquer repositório de contentores e colocadas na máquina. Você pode implementar aplicações existentes como executáveis de hóspedes, serviços apátridas ou stateful Reliable ou atores fiáveis em contentores, e você pode misturar serviços em processos e serviços em recipientes na mesma aplicação.
 
-[Saiba mais sobre a contentorização dos seus serviços no Windows ou Linux](service-fabric-deploy-container.md)
+[Saiba mais sobre a contentorização dos seus serviços no Windows ou Linux](./service-fabric-get-started-containers.md)
 
 ## <a name="reliable-services"></a>Reliable Services
 
@@ -53,7 +54,7 @@ Como o Reliable Actors é um quadro de aplicações construído em Serviços Fid
 
 [Construa um serviço frontal utilizando ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral do tecido de serviço e dos recipientes](service-fabric-containers-overview.md)
 

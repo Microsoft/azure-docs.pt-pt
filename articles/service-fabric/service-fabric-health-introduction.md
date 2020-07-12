@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4a6e8b2baa400e1221ac1e8271e04cdaa912aff6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224150"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258864"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 A Azure Service Fabric introduz um modelo de saúde que proporciona uma avaliação e reporte de saúde rica, flexível e extensível. O modelo permite um acompanhamento quase em tempo real do estado do cluster e dos serviços que nele se insem. Você pode facilmente obter informações de saúde e corrigir potenciais problemas antes que eles em cascata e causar falhas massivas. No modelo típico, os serviços enviam relatórios com base nas suas opiniões locais, e essa informação é agregada para fornecer uma visão global ao nível do cluster.
@@ -60,7 +60,7 @@ Planeia investir em como reportar e responder à saúde durante o desenho de um 
 ## <a name="health-states"></a>Estados de saúde
 A Service Fabric utiliza três estados de saúde para descrever se uma entidade é saudável ou não: OK, aviso e erro. Qualquer relatório enviado à loja de saúde deve especificar um destes estados. O resultado da avaliação da saúde é um desses estados.
 
-Os possíveis [estados de saúde](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) são:
+Os possíveis [estados de saúde](/dotnet/api/system.fabric.health.healthstate) são:
 
 * **Ok, tudo bem.** A entidade é saudável. Não existem questões conhecidas sobre o mesmo ou sobre os seus filhos (quando aplicável).
 * **Atenção.** A entidade tem alguns problemas, mas ainda pode funcionar corretamente. Por exemplo, há atrasos, mas ainda não causam problemas funcionais. Em alguns casos, a condição de aviso pode fixar-se sem intervenção externa. Nestes casos, os relatórios de saúde sensibilizam e dão visibilidade ao que se passa. Noutros casos, a condição de aviso pode degradar-se num problema grave sem a intervenção do utilizador.
@@ -78,13 +78,13 @@ A loja de saúde aplica políticas de saúde para determinar se uma entidade é 
 Por defeito, o Service Fabric aplica regras estritas (tudo deve ser saudável) para a relação hierárquica pai-filho. Se mesmo uma das crianças tem um evento pouco saudável, o progenitor é considerado insalubre.
 
 ### <a name="cluster-health-policy"></a>Política de saúde do cluster
-A [política de saúde do cluster](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) é usada para avaliar o estado de saúde do cluster e os estados de saúde do nó. A política pode ser definida no manifesto do cluster. Se não estiver presente, utiliza-se a política por defeito (zero falhas toleradas).
+A [política de saúde do cluster](/dotnet/api/system.fabric.health.clusterhealthpolicy) é usada para avaliar o estado de saúde do cluster e os estados de saúde do nó. A política pode ser definida no manifesto do cluster. Se não estiver presente, utiliza-se a política por defeito (zero falhas toleradas).
 A política de saúde do cluster contém:
 
-* [Considere AWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde de advertência como erros durante a avaliação de saúde. Predefinição: false.
-* [MaxPercentUnhealthyApplicações](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Especifica a percentagem máxima tolerada de aplicações que podem não ser saudáveis antes do cluster ser considerado errado.
-* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Especifica a percentagem máxima tolerada de nós que podem não ser saudáveis antes do cluster ser considerado errado. Em grandes aglomerados, alguns nós estão sempre em baixo ou fora para reparações, por isso esta percentagem deve ser configurada para tolerar isso.
-* [AplicaçãoTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). O mapa da política de saúde do tipo de aplicação pode ser usado durante a avaliação da saúde do cluster para descrever tipos especiais de aplicação. Por padrão, todas as aplicações são colocadas numa piscina e avaliadas com MaxPercentUnhealthyApplications. Se alguns tipos de aplicação devem ser tratados de forma diferente, podem ser retirados da piscina global. Em vez disso, são avaliados em comparação com as percentagens associadas ao seu nome de tipo de aplicação no mapa. Por exemplo, num cluster existem milhares de aplicações de diferentes tipos, e algumas instâncias de aplicação de controlo de um tipo especial de aplicação. As aplicações de controlo nunca devem estar erradas. Pode especificar maxpercentUnhealthyApplicações globais a 20% para tolerar algumas falhas, mas para o tipo de aplicação "ControlApplicationType" definiu as Aplicações MaxPercentUnhealthy para 0. Desta forma, se algumas das muitas aplicações não forem saudáveis, mas abaixo da percentagem global de insalubres, o cluster seria avaliado para Aviso. Um estado de saúde de aviso não afeta a atualização do cluster ou outra monitorização desencadeada pelo estado de saúde error. Mas mesmo uma aplicação de controlo em erro tornaria o cluster insalubre, o que desencadeia o recuo ou pausa na atualização do cluster, dependendo da configuração de upgrade.
+* [Considere AWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde de advertência como erros durante a avaliação de saúde. Predefinição: false.
+* [MaxPercentUnhealthyApplicações](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Especifica a percentagem máxima tolerada de aplicações que podem não ser saudáveis antes do cluster ser considerado errado.
+* [MaxPercentUnhealthyNodes](/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Especifica a percentagem máxima tolerada de nós que podem não ser saudáveis antes do cluster ser considerado errado. Em grandes aglomerados, alguns nós estão sempre em baixo ou fora para reparações, por isso esta percentagem deve ser configurada para tolerar isso.
+* [AplicaçãoTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). O mapa da política de saúde do tipo de aplicação pode ser usado durante a avaliação da saúde do cluster para descrever tipos especiais de aplicação. Por padrão, todas as aplicações são colocadas numa piscina e avaliadas com MaxPercentUnhealthyApplications. Se alguns tipos de aplicação devem ser tratados de forma diferente, podem ser retirados da piscina global. Em vez disso, são avaliados em comparação com as percentagens associadas ao seu nome de tipo de aplicação no mapa. Por exemplo, num cluster existem milhares de aplicações de diferentes tipos, e algumas instâncias de aplicação de controlo de um tipo especial de aplicação. As aplicações de controlo nunca devem estar erradas. Pode especificar maxpercentUnhealthyApplicações globais a 20% para tolerar algumas falhas, mas para o tipo de aplicação "ControlApplicationType" definiu as Aplicações MaxPercentUnhealthy para 0. Desta forma, se algumas das muitas aplicações não forem saudáveis, mas abaixo da percentagem global de insalubres, o cluster seria avaliado para Aviso. Um estado de saúde de aviso não afeta a atualização do cluster ou outra monitorização desencadeada pelo estado de saúde error. Mas mesmo uma aplicação de controlo em erro tornaria o cluster insalubre, o que desencadeia o recuo ou pausa na atualização do cluster, dependendo da configuração de upgrade.
   Para os tipos de aplicação definidos no mapa, todas as instâncias de aplicação são retiradas do conjunto global de aplicações. São avaliados com base no número total de aplicações do tipo de aplicação, utilizando as aplicações maxpercentunhealthy específicas do mapa. Todas as restantes aplicações permanecem no pool global e são avaliadas com MaxPercentUnhealthyApplications.
 
 O exemplo a seguir é um excerto de um manifesto de agrupamento. Para definir as entradas no mapa do tipo de aplicação, prefixe o nome do parâmetro com "ApplicationTypeMaxPercentUnhealthyApplications-", seguido do nome do tipo de aplicação.
@@ -101,20 +101,20 @@ O exemplo a seguir é um excerto de um manifesto de agrupamento. Para definir as
 ```
 
 ### <a name="application-health-policy"></a>Política de saúde de aplicação
-A [política de saúde](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) da aplicação descreve como a avaliação dos eventos e da agregação dos estados-crianças é feita para aplicações e seus filhos. Pode ser definido no manifesto de candidatura, **ApplicationManifest.xml, **no pacote de candidaturas. Se não forem especificadas políticas, a Service Fabric assume que a entidade não é saudável se tiver um relatório de saúde ou uma criança no estado de saúde de aviso ou erro.
+A [política de saúde](/dotnet/api/system.fabric.health.applicationhealthpolicy) da aplicação descreve como a avaliação dos eventos e da agregação dos estados-crianças é feita para aplicações e seus filhos. Pode ser definido no manifesto de candidatura, **ApplicationManifest.xml, **no pacote de candidaturas. Se não forem especificadas políticas, a Service Fabric assume que a entidade não é saudável se tiver um relatório de saúde ou uma criança no estado de saúde de aviso ou erro.
 As políticas configuráveis são:
 
-* [Considere AWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde de advertência como erros durante a avaliação de saúde. Predefinição: false.
-* [MaxPercentUnhealthyDeployedApplicações](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Especifica a percentagem máxima tolerada de aplicações implementadas que podem não ser saudáveis antes de a aplicação ser considerada por engano. Esta percentagem é calculada dividindo o número de aplicações não saudáveis implementadas sobre o número de nós em que as aplicações são atualmente implantadas no cluster. A computação arredonda para tolerar uma falha em um pequeno número de nós. Percentagem de predefinição: zero.
-* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Especifica a política de saúde do tipo de serviço predefinido, que substitui a política de saúde predefinido para todos os tipos de serviços na aplicação.
-* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Fornece um mapa das políticas de saúde de serviço por tipo de serviço. Estas políticas substituem as políticas de saúde do tipo de serviço predefinido para cada tipo de serviço especificado. Por exemplo, se uma aplicação tiver um tipo de serviço de gateway apátrida e um tipo de serviço de motor imponente, pode configurar as políticas de saúde para a sua avaliação de forma diferente. Quando especificar a política por tipo de serviço, pode ganhar mais controlo granular da saúde do serviço.
+* [Considere AWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Especifica se deve tratar os relatórios de saúde de advertência como erros durante a avaliação de saúde. Predefinição: false.
+* [MaxPercentUnhealthyDeployedApplicações](/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Especifica a percentagem máxima tolerada de aplicações implementadas que podem não ser saudáveis antes de a aplicação ser considerada por engano. Esta percentagem é calculada dividindo o número de aplicações não saudáveis implementadas sobre o número de nós em que as aplicações são atualmente implantadas no cluster. A computação arredonda para tolerar uma falha em um pequeno número de nós. Percentagem de predefinição: zero.
+* [DefaultServiceTypeHealthPolicy](/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Especifica a política de saúde do tipo de serviço predefinido, que substitui a política de saúde predefinido para todos os tipos de serviços na aplicação.
+* [ServiceTypeHealthPolicyMap](/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Fornece um mapa das políticas de saúde de serviço por tipo de serviço. Estas políticas substituem as políticas de saúde do tipo de serviço predefinido para cada tipo de serviço especificado. Por exemplo, se uma aplicação tiver um tipo de serviço de gateway apátrida e um tipo de serviço de motor imponente, pode configurar as políticas de saúde para a sua avaliação de forma diferente. Quando especificar a política por tipo de serviço, pode ganhar mais controlo granular da saúde do serviço.
 
 ### <a name="service-type-health-policy"></a>Política de saúde tipo de serviço
-A [política de saúde do tipo de serviço](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) especifica como avaliar e agregar os serviços e as crianças dos serviços. A política contém:
+A [política de saúde do tipo de serviço](/dotnet/api/system.fabric.health.servicetypehealthpolicy) especifica como avaliar e agregar os serviços e as crianças dos serviços. A política contém:
 
-* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Especifica a percentagem máxima tolerada de divisórias não saudáveis antes de um serviço ser considerado insalubre. Percentagem de predefinição: zero.
-* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Especifica a percentagem máxima tolerada de réplicas não saudáveis antes de uma partição ser considerada insalubre. Percentagem de predefinição: zero.
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Especifica a percentagem máxima tolerada de serviços não saudáveis antes de o pedido ser considerado insalubre. Percentagem de predefinição: zero.
+* [MaxPercentUnhealthyPartitionsPerService](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Especifica a percentagem máxima tolerada de divisórias não saudáveis antes de um serviço ser considerado insalubre. Percentagem de predefinição: zero.
+* [MaxPercentUnhealthyReplicasPerPartition](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Especifica a percentagem máxima tolerada de réplicas não saudáveis antes de uma partição ser considerada insalubre. Percentagem de predefinição: zero.
+* [MaxPercentUnhealthyServices](/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Especifica a percentagem máxima tolerada de serviços não saudáveis antes de o pedido ser considerado insalubre. Percentagem de predefinição: zero.
 
 Segue-se um excerto de um manifesto de aplicação:
 
@@ -179,10 +179,10 @@ Depois de a loja de saúde ter avaliado todas as crianças, agrega os seus estad
 ## <a name="health-reporting"></a>Relatórios de saúde
 Componentes do sistema, aplicações de Tecidos de Sistema e cães de guarda internos/externos podem reportar contra entidades do Service Fabric. Os repórteres fazem determinações *locais* sobre a saúde das entidades monitorizadas, com base nas condições que estão a monitorizar. Não precisam de olhar para nenhum estado global ou dados agregados. O comportamento desejado é ter repórteres simples, e não organismos complexos que precisam olhar para muitas coisas para inferir que informação enviar.
 
-Para enviar dados de saúde para a loja de saúde, um repórter precisa identificar a entidade afetada e criar um relatório de saúde. Para enviar o relatório, utilize o [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, reporte APIs de saúde expostos nos `Partition` `CodePackageActivationContext` cmdlets ou objetos, cmdlets PowerShell ou REST.
+Para enviar dados de saúde para a loja de saúde, um repórter precisa identificar a entidade afetada e criar um relatório de saúde. Para enviar o relatório, utilize o [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, reporte APIs de saúde expostos nos `Partition` `CodePackageActivationContext` cmdlets ou objetos, cmdlets PowerShell ou REST.
 
 ### <a name="health-reports"></a>Relatórios de saúde
-Os [relatórios de saúde](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) de cada uma das entidades do agrupamento contêm as seguintes informações:
+Os [relatórios de saúde](/dotnet/api/system.fabric.health.healthreport) de cada uma das entidades do agrupamento contêm as seguintes informações:
 
 * **SourceId**. Uma corda que identifica exclusivamente o repórter do evento de saúde.
 * **Identificador de entidades.** Identifica a entidade onde o relatório é aplicado. Difere com base no [tipo de entidade:](service-fabric-health-introduction.md#health-entities-and-hierarchy)
@@ -205,7 +205,7 @@ Os [relatórios de saúde](https://docs.microsoft.com/dotnet/api/system.fabric.h
 Estas quatro peças de informação-- SourceId, identificador de entidades, Propriedade e Estado da Saúde -- são necessárias para cada relatório de saúde. A cadeia SourceId não está autorizada a começar com o prefixo "**System.**", que é reservado para relatórios do sistema. Para a mesma entidade, existe apenas um relatório para a mesma fonte e propriedade. Vários relatórios para a mesma fonte e propriedade sobrepõem-se mutuamente, seja no lado do cliente de saúde (se forem em lotados) ou no lado da loja de saúde. A substituição baseia-se em números de sequência; relatórios mais recentes (com números de sequência mais elevados) substituem relatórios mais antigos.
 
 ### <a name="health-events"></a>Eventos de saúde
-Internamente, a loja de saúde mantém eventos de [saúde](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), que contêm toda a informação dos relatórios, e metadados adicionais. Os metadados incluem o tempo que o relatório foi dado ao cliente de saúde e o tempo que foi modificado no lado do servidor. Os eventos de saúde são devolvidos por [consultas de saúde.](service-fabric-view-entities-aggregated-health.md#health-queries)
+Internamente, a loja de saúde mantém eventos de [saúde](/dotnet/api/system.fabric.health.healthevent), que contêm toda a informação dos relatórios, e metadados adicionais. Os metadados incluem o tempo que o relatório foi dado ao cliente de saúde e o tempo que foi modificado no lado do servidor. Os eventos de saúde são devolvidos por [consultas de saúde.](service-fabric-view-entities-aggregated-health.md#health-queries)
 
 Os metadados adicionados contêm:
 
@@ -306,4 +306,3 @@ O modelo de saúde é fortemente utilizado para monitorização e diagnóstico, 
 [Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização da aplicação do Tecido de Serviço](service-fabric-application-upgrade.md)
-

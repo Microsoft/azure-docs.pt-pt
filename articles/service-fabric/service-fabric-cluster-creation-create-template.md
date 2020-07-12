@@ -3,11 +3,12 @@ title: Crie um modelo de cluster de tecido de serviço Azure
 description: Saiba como criar um modelo de Gestor de Recursos para um cluster de Tecido de Serviço. Configure segurança, Azure Key Vault e Azure Ative Directory (Azure AD) para a autenticação do cliente.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 6cf0f9c3b8b54db7bd27ec8dd9c9d59d849c74cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b028b5c1f32733146c071e50b24202e5bad945c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985376"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260487"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Crie um modelo de gestor de recursos de cluster de tecido de serviço
 
@@ -246,7 +247,7 @@ O diagrama que se segue ilustra onde o cofre da chave e a configuração AD do A
 
 ![Mapa de dependência do gestor de recursos][cluster-security-arm-dependency-map]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que tem um modelo para o seu cluster, aprenda a [implantar o cluster para Azure.](service-fabric-cluster-creation-via-arm.md)  Se ainda não o fez, leia a [lista de verificação de prontidão](service-fabric-production-readiness-checklist.md) de produção antes de implantar um cluster de produção.
 
 Para conhecer a sintaxe JSON e as propriedades para os recursos implantados neste artigo, consulte:
@@ -261,7 +262,7 @@ Para conhecer a sintaxe JSON e as propriedades para os recursos implantados nest
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
-[resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
+[resource-group-template-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-create-template/cluster-security-arm-dependency-map.png

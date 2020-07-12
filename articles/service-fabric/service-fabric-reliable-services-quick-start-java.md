@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7855b92c90a9ccd208a25080c260437e6808d1b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4cab376318bec471fa59614e5bcc716a31dc333
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184151"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260940"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Começar com serviços fiáveis em Java
 > [!div class="op_single_selector"]
@@ -190,7 +190,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) é uma implementação de dicionário que pode usar para armazenar de forma fiável o estado no serviço. Com o Service Fabric e o Reliable HashMaps, pode armazenar dados diretamente no seu serviço sem a necessidade de uma loja externa persistente. HashMaps fidedignas tornam os seus dados altamente disponíveis. O Service Fabric realiza-o criando e gerindo *múltiplas réplicas* do seu serviço para si. Também fornece uma API que retira as complexidades da gestão dessas réplicas e as suas transições estatais.
+[ReliableHashMap](/java/api/microsoft.servicefabric.data.collections.reliablehashmap) é uma implementação de dicionário que pode usar para armazenar de forma fiável o estado no serviço. Com o Service Fabric e o Reliable HashMaps, pode armazenar dados diretamente no seu serviço sem a necessidade de uma loja externa persistente. HashMaps fidedignas tornam os seus dados altamente disponíveis. O Service Fabric realiza-o criando e gerindo *múltiplas réplicas* do seu serviço para si. Também fornece uma API que retira as complexidades da gestão dessas réplicas e as suas transições estatais.
 
 As Coleções Fiáveis podem armazenar qualquer tipo de Java, incluindo os seus tipos personalizados, com algumas ressalvas:
 

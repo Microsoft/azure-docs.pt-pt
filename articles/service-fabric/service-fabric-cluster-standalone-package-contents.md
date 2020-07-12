@@ -5,11 +5,12 @@ author: maburlik
 ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb9a52510788a275bdeea67cd5c1fdd2e894738d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451850"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261027"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote autónomo de tecido de serviço para windows server
 No pacote De Serviço Is Autónomo de Serviço [descarregado,](https://go.microsoft.com/fwlink/?LinkId=730690) encontrará os seguintes ficheiros:
@@ -36,11 +37,11 @@ No pacote De Serviço Is Autónomo de Serviço [descarregado,](https://go.micros
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.jsem |Um ficheiro de amostra de configuração de cluster que contém as definições para um cluster de desenvolvimento de tipo não seguro, de três nós, de uma máquina única (ou de uma máquina virtual), incluindo as informações para cada nó no cluster. |
 | ClusterConfig.Unsecure.MultiMachine.jsem |Um ficheiro de amostra de configuração de cluster que contém as definições de um cluster não seguro, multi-máquina (ou máquina virtual), incluindo as informações para cada máquina no cluster. |
-| ClusterConfig.Windows.DevCluster.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster de desenvolvimento seguro, de três nós, de uma máquina única (ou de uma máquina virtual), incluindo as informações para cada nó que está no cluster. O cluster é protegido utilizando [identidades do Windows.](https://msdn.microsoft.com/library/ff649396.aspx) |
-| ClusterConfig.Windows.MultiMachine.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster seguro, multi-máquina (ou máquina virtual) utilizando a segurança do Windows, incluindo as informações para cada máquina que está no cluster seguro. O cluster é protegido utilizando [identidades do Windows.](https://msdn.microsoft.com/library/ff649396.aspx) |
+| ClusterConfig.Windows.DevCluster.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster de desenvolvimento seguro, de três nós, de uma máquina única (ou de uma máquina virtual), incluindo as informações para cada nó que está no cluster. O cluster é protegido utilizando [identidades do Windows.](/previous-versions/msp-n-p/ff649396(v=pandp.10)) |
+| ClusterConfig.Windows.MultiMachine.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster seguro, multi-máquina (ou máquina virtual) utilizando a segurança do Windows, incluindo as informações para cada máquina que está no cluster seguro. O cluster é protegido utilizando [identidades do Windows.](/previous-versions/msp-n-p/ff649396(v=pandp.10)) |
 | ClusterConfig.x509.DevCluster.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para um cluster de desenvolvimento seguro, de três nós, de uma máquina única (ou de uma máquina virtual), incluindo as informações para cada nó no cluster. O cluster é seguro usando certificados x509. |
 | ClusterConfig.x509.MultiMachine.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para o cluster seguro, multi-máquina (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster é seguro usando certificados x509. |
-| ClusterConfig.gMSA.Windows.MultiMachine.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para o cluster seguro, multi-máquina (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster é protegido através de [contas de serviço geridas pelo grupo.](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx) |
+| ClusterConfig.gMSA.Windows.MultiMachine.jsem |Um ficheiro de amostra de configuração de cluster que contém todas as definições para o cluster seguro, multi-máquina (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster é protegido através de [contas de serviço geridas pelo grupo.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)) |
 
 ## <a name="cluster-configuration-samples"></a>Amostras de configuração do cluster
 As versões mais recentes dos modelos de configuração do cluster podem ser encontradas na página GitHub: [Amostras de configuração de cluster autónoma](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

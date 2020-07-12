@@ -3,12 +3,12 @@ title: Dimensione um nó de nó de tecido de serviço Azure
 description: Aprenda a escalar um cluster de tecido de serviço adicionando um conjunto de balança de máquina virtual.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 2d700367049e0bf9bf710aad110c850a78c26220
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a42e33fa87b6cf7966368481ef6d3920511919e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610698"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260460"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentar verticalmente um nó do tipo primário do cluster do Service Fabric
 Este artigo descreve como escalar um tipo de nó primário de cluster de tecido de serviço, aumentando os recursos da máquina virtual. Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamada de nó. Os conjuntos de escala de máquinas virtuais são um recurso computacional Azure que utiliza para implementar e gerir uma coleção de máquinas virtuais como conjunto. Todos os tipos de nó definidos num cluster Azure [são configurado como um conjunto de escala separada](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode então ser gerido separadamente. Depois de criar um cluster de Tecido de Serviço, pode escalar um nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operativo dos VMs do tipo nó.  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a funcionar no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
@@ -49,7 +49,7 @@ Em seguida, inscreva-se na sua conta Azure.
 Login-AzAccount -SubscriptionId "<your subscription ID>"
 ```
 
-Este tutorial percorre o cenário de criação de um certificado auto-assinado. Para utilizar um certificado existente a partir do Cofre da Chave Azure, salte o degrau abaixo e, em vez disso, espelhe os passos [na utilização de um certificado existente para implantar o cluster](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
+Este tutorial percorre o cenário de criação de um certificado auto-assinado. Para utilizar um certificado existente a partir do Cofre da Chave Azure, salte o degrau abaixo e, em vez disso, espelhe os passos [na utilização de um certificado existente para implantar o cluster](./upgrade-managed-disks.md#use-an-existing-certificate-to-deploy-the-cluster).
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Gere um certificado auto-assinado e implantar o cluster
 
@@ -245,10 +245,9 @@ foreach($name in $nodeNames){
 
 O tipo de nó primário do cluster foi agora atualizado. Verifique se as aplicações implementadas funcionam corretamente e que a saúde do cluster está bem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [adicionar um nó ao aglomerado](virtual-machine-scale-set-scale-node-type-scale-out.md)
 * Saiba mais sobre [a escalabilidade da aplicação.](service-fabric-concepts-scalability.md)
 * [Escalar um aglomerado Azure dentro ou fora](service-fabric-tutorial-scale-cluster.md).
 * [Dimensione um cluster Azure programáticamente](service-fabric-cluster-programmatic-scaling.md) usando o fluente Azure compute SDK.
 * [Escalar um aglomerado autónomo para dentro ou para fora](service-fabric-cluster-windows-server-add-remove-nodes.md).
-

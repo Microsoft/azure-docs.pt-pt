@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609966"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86259198"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação e recolha de eventos usando Diagnósticos Linux Azure
 > [!div class="op_single_selector"]
@@ -20,7 +21,7 @@ ms.locfileid: "75609966"
 
 Quando você está executando um cluster de tecido de serviço Azure, é uma boa ideia recolher os registos de todos os nós em um local central. Ter os registos numa localização central ajuda-o a analisar e resolver problemas no seu cluster, ou problemas nas aplicações e serviços que estão a decorrer nesse cluster.
 
-Uma forma de carregar e recolher registos é utilizar a extensão Linux Azure Diagnostics (LAD), que faz o upload de registos para o Azure Storage, e também tem a opção de enviar registos para Azure Application Insights ou Event Hubs. Também pode utilizar um processo externo para ler os eventos a partir do armazenamento e colocá-los num produto da plataforma de análise, como [registos Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de registo.
+Uma forma de carregar e recolher registos é utilizar a extensão Linux Azure Diagnostics (LAD), que faz o upload de registos para o Azure Storage, e também tem a opção de enviar registos para Azure Application Insights ou Event Hubs. Também pode utilizar um processo externo para ler os eventos a partir do armazenamento e colocá-los num produto da plataforma de análise, como [registos Azure Monitor](./service-fabric-diagnostics-oms-setup.md) ou outra solução de registo.
 
 ## <a name="log-and-event-sources"></a>Fontes de registo e evento
 
@@ -40,7 +41,7 @@ Para implementar a extensão de Diagnóstico aos VMs no cluster como parte da cr
 Isto configura o agente LAD para monitorizar ficheiros de registo especificados. Sempre que uma nova linha é anexada ao ficheiro, cria uma entrada de syslog que é enviada para o armazenamento (tabela) que especificou.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-1. Para compreender mais detalhadamente quais os eventos que deve examinar enquanto resolver problemas, consulte a [documentação LTTng](https://lttng.org/docs) e [a utilização do LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+1. Para compreender mais detalhadamente quais os eventos que deve examinar enquanto resolver problemas, consulte a [documentação LTTng](https://lttng.org/docs) e [a utilização do LAD](../virtual-machines/extensions/diagnostics-linux.md).
 2. [Configurar o agente Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a recolher métricas, monitorizar os contentores implantados no seu cluster e visualizar os seus registos 

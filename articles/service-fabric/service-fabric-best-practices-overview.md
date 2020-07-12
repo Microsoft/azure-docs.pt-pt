@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a02fd489ca0eec61b798db7136f963277f6c82
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551782"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261085"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Aplicação de tecido de serviço Azure e boas práticas de cluster
 
@@ -26,7 +27,7 @@ Este artigo fornece links para as melhores práticas para a gestão de aplicaç�
 ## <a name="compute-planning-and-scaling"></a>Planeamento e dimensionamento de computação
 
 * [Melhores práticas para a escala de computação](service-fabric-best-practices-capacity-scaling.md)
-* [Planeamento da capacidade de computação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [Planeamento da capacidade de computação](./service-fabric-cluster-capacity.md)
 
 ## <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -43,9 +44,9 @@ Este artigo fornece links para as melhores práticas para a gestão de aplicaç�
 ## <a name="checklist"></a>Lista de Verificação
 
 Depois de implementar as práticas sugeridas nas secções anteriores, certifique-se de que integrou todas as melhores práticas na lista de verificação de prontidão de produção:
-* [Lista de verificação de prontidão de produção de tecido de serviço Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+* [Lista de verificação de prontidão de produção de tecido de serviço Azure](./service-fabric-production-readiness-checklist.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação de cluster de tecido de serviço para windows server](service-fabric-cluster-creation-for-windows-server.md)
 * Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster Linux](service-fabric-cluster-creation-via-portal.md)

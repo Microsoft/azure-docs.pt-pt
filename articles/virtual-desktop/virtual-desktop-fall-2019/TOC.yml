@@ -24,6 +24,8 @@
   items:
     - name: Ligar a recursos do Windows Virtual Desktop
       items:
+        - name: Ligar ao cliente de Ambiente de Trabalho do Windows
+          href: connect-windows-7-10-2019.md
         - name: Ligar com o cliente web
           href: connect-web-2019.md
         - name: Ligar ao cliente Android

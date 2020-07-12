@@ -4,12 +4,12 @@ description: Saiba como começar rapidamente com a Azure API Management e encami
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40f8c53394292a85f6fd032e445d79ed82e2d4e9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80292148"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260258"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a Gestão da API com tecido de serviço em Azure
 
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como configurar [a Azure API Management](../api-managemen
 Antes de começar:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
+* Instale [Azure Powershell](/powershell/azure/install-az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Crie um [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro num grupo de segurança de rede.
 * Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2019](https://www.visualstudio.com) e o desenvolvimento do **Azure,** **ASP.NET e desenvolvimento web,** e cargas **de desenvolvimento de plataformas cruzadas .NET Core.**  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 
@@ -151,9 +151,9 @@ Para adicionar uma operação de API de front-end, preencha os valores:
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
-[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) cria uma política de back-end, que vincula todos os elementos. É aqui que vai configurar o serviço de back-end do Service Fabric para o qual os pedidos são encaminhados. Pode aplicar esta política a todas as operações de API.  Para obter mais informações, veja [Policies overview](/azure/api-management/api-management-howto-policies) (Descrição Geral das Políticas).
+[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) cria uma política de back-end, que vincula todos os elementos. É aqui que vai configurar o serviço de back-end do Service Fabric para o qual os pedidos são encaminhados. Pode aplicar esta política a todas as operações de API.  Para obter mais informações, veja [Policies overview](../api-management/api-management-howto-policies.md) (Descrição Geral das Políticas).
 
-A [configuração do back-end do Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) disponibiliza os controlos de encaminhamento de pedidos seguintes:
+A [configuração do back-end do Service Fabric](../api-management/api-management-transformation-policies.md#SetBackendService) disponibiliza os controlos de encaminhamento de pedidos seguintes:
 
 * Seleção de instâncias do serviço, mediante a especificação do nome de uma instância do serviço Service Fabric, seja hard-coded (por exemplo, `"fabric:/myapp/myservice"`) ou gerado a partir do pedido HTTP (por exemplo, `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
 * Resolução de partições mediante a geração de uma chave de partição através de qualquer esquema de partições do Service Fabric.
@@ -180,7 +180,7 @@ A [configuração do back-end do Service Fabric](/azure/api-management/api-manag
 </policies>
 ```
 
-Para obter um conjunto completo dos atributos de políticas de back-ends do Service Fabric, veja a [documentação sobre o back-end da Gestão de API](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
+Para obter um conjunto completo dos atributos de políticas de back-ends do Service Fabric, veja a [documentação sobre o back-end da Gestão de API](../api-management/api-management-transformation-policies.md#SetBackendService)
 
 ## <a name="set-parameters-and-deploy-api-management"></a>Definir parâmetros e implementar a Gestão de API
 
@@ -273,7 +273,7 @@ Agora, pode experimentar enviar um pedido para o serviço de back-end do Service
     ["value1", "value2"]
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Um cluster é constituído por outros recursos do Azure, além do próprio recurso do cluster. A forma mais simples de eliminar o cluster e todos os recursos que consome é eliminando o grupo de recursos.
 
@@ -291,9 +291,9 @@ az group delete --name $ResourceGroupName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a utilização [da API Management.](/azure/api-management/import-and-publish)
+Saiba mais sobre a utilização [da API Management.](../api-management/import-and-publish.md)
 
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
 [apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json

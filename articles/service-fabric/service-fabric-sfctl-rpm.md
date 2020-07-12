@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76904940"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86260294"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço de gerente de reparação.
@@ -19,8 +20,8 @@ Consultar e enviar comandos para o serviço de gerente de reparação.
 |Comando|Descrição|
 | --- | --- |
 | aprovar força | Força a aprovação da tarefa de reparação dada. |
-| delete | Elimina uma tarefa de reparação completa. |
-| list | Obtém uma lista de tarefas de reparação correspondentes aos filtros dados. |
+| eliminação | Elimina uma tarefa de reparação completa. |
+| lista | Obtém uma lista de tarefas de reparação correspondentes aos filtros dados. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm aprovar força
 Força a aprovação da tarefa de reparação dada.
@@ -90,6 +91,6 @@ Esta API suporta a plataforma Service Fabric; não se destina a ser usado direta
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI do Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

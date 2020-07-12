@@ -295,7 +295,7 @@
         - name: Amostras
           items:
             - name: Táxi de Nova Iorque
-              href: load-data-from-azure-blob-storage-using-polybase.md
+              href: load-data-from-azure-blob-storage-using-copy.md
             - name: Contoso
               href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
             - name: Wide World Importers

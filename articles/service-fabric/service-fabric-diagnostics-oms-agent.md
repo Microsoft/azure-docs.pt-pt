@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79366750"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258694"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitorização de desempenho com registos do Monitor Azure
 
@@ -22,7 +23,7 @@ Este artigo cobre os passos para adicionar o agente Log Analytics como uma exten
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Adicione a extensão do agente via Azure CLI
 
-A melhor forma de adicionar o agente Log Analytics ao seu cluster é através do conjunto de APIs de escala de máquina virtual disponível com o Azure CLI. Se ainda não tiver o Azure CLI configurado, dirija-se ao portal Azure e abra uma instância [cloud Shell](../cloud-shell/overview.md) ou [instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+A melhor forma de adicionar o agente Log Analytics ao seu cluster é através do conjunto de APIs de escala de máquina virtual disponível com o Azure CLI. Se ainda não tiver o Azure CLI configurado, dirija-se ao portal Azure e abra uma instância [cloud Shell](../cloud-shell/overview.md) ou [instale o Azure CLI](/cli/azure/install-azure-cli).
 
 1. Uma vez solicitada a sua Cloud Shell, certifique-se de que está a trabalhar na mesma subscrição que o seu recurso. Verifique isto `az account show` com e certifique-se de que o valor do "nome" corresponde ao da subscrição do seu cluster.
 
@@ -72,7 +73,7 @@ Agora que adicionou o agente Log Analytics, dirija-se ao portal Log Analytics pa
 
 3. Clique **em Definições Avançadas**.
 
-4. Clique em **Dados**e, em seguida, clique em **Contadores de Desempenho Windows ou Linux**. Há uma lista de contadores predefinidos que pode escolher para ativar e também pode definir o intervalo para recolha. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx)
+4. Clique em **Dados**e, em seguida, clique em **Contadores de Desempenho Windows ou Linux**. Há uma lista de contadores predefinidos que pode escolher para ativar e também pode definir o intervalo para recolha. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](/windows/win32/perfctrs/specifying-a-counter-path)
 
 5. Clique **em Guardar**e, em seguida, clique em **OK**.
 
@@ -88,8 +89,8 @@ Agora que adicionou o agente Log Analytics, dirija-se ao portal Log Analytics pa
 
 ![Log Analytics perf consulta de contador](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Recolha [os contadores de desempenho relevantes.](service-fabric-diagnostics-event-generation-perf.md) Para configurar o agente Log Analytics para recolher contadores de desempenho específicos, [reveja as fontes de dados configuradas](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurar registos do Azure Monitor para criar [alertas automatizados](../log-analytics/log-analytics-alerts.md) para ajudar na deteção e diagnóstico
+* Configurar registos do Azure Monitor para criar [alertas automatizados](../azure-monitor/platform/alerts-overview.md) para ajudar na deteção e diagnóstico
 * Como alternativa, pode recolher contadores de desempenho através da [extensão Azure Diagnostics e enviá-los para Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)
