@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6415214e5d6b71d174e5117c1cf1e41af381334c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbd461072a137bf32874805e5c6171d1102ef0c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84013594"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245352"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -396,7 +397,7 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no po
      |------------|----------------------|------------------------|
      | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Sim |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Yes |
 
       > [!NOTE]
      > Se nenhuma informação de versão for especificada no URL, a aplicação utiliza o Workday Web Services (WWS) v21.1 e não são necessárias alterações nas expressões API padrão enviadas com a aplicação. Para utilizar uma versão API da WWS específica, especifique o número da versão no URL <br>
@@ -532,7 +533,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Guardar**.
+2. Clique em **Save** (Guardar).
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no arrendatário do Workday. 
 
@@ -683,12 +684,7 @@ Substitua as variáveis [proxy-server] e [proxy-port] pelo nome do seu servidor 
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Como posso assegurar que o Agente de Provisionamento seja capaz de comunicar com o inquilino Azure AD e que não haja firewalls a bloquear portas exigidas pelo agente?
 
-Também pode verificar se tem todas as portas necessárias abertas abrindo a Ferramenta de Teste de Portas do [Conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) a partir da sua rede de instalações. Mais marcas verdes significam maior resiliência.
-
-Para se certificar de que a ferramenta lhe dá os resultados certos, certifique-se de:
-
-* Abra a ferramenta num browser a partir do servidor onde instalou o Agente de Provisionamento.
-* Certifique-se de que quaisquer proxies ou firewalls aplicáveis ao seu Agente de Provisionamento também são aplicados nesta página. Isto pode ser feito no Internet Explorer indo para **Configurações -> Opções de Internet -> Conexões -> lan configurações**. Nesta página, vê o campo "Use um Servidor Proxy para o seu LAN". Selecione esta caixa e coloque o endereço de procuração no campo "Endereço".
+Também pode verificar se todas as portas necessárias estão [abertas.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports)
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Um agente de provisionamento pode ser configurado para a disponibilização de vários domínios de AD?
 
@@ -1161,7 +1157,7 @@ O serviço de fornecimento de Azure AD enquadra-se na categoria de processador d
 
 No que diz respeito à retenção de dados, o serviço de fornecimento de Ad Azure não gera relatórios, realiza análises ou fornece insights para além de 30 dias. Por isso, o serviço de fornecimento AZURE AD não armazena, processa ou retém quaisquer dados para além de 30 dias. Este design está em conformidade com os regulamentos do RGPD, os regulamentos de conformidade com a privacidade da Microsoft e as políticas de retenção de dados AZure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)

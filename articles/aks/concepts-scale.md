@@ -4,12 +4,12 @@ description: Saiba mais sobre o dimensionamento no Serviço Azure Kubernetes (AK
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 7c9c3cf159d67d2f4acaaab943ecf9d99263ae55
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223844"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244519"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -26,7 +26,7 @@ Este artigo introduz os conceitos fundamentais que o ajudam a escalar aplicaçõ
 
 Pode escalar manualmente réplicas (cápsulas) e nós para testar como a sua aplicação responde a uma mudança nos recursos disponíveis e no estado. Os recursos de dimensionamento manual também permitem definir uma quantidade definida de recursos para usar para manter um custo fixo, como o número de nós. Para escalar manualmente, define-se a réplica ou a contagem de nós. A API de Kubernetes programa então a criação de cápsulas adicionais ou nóleiros de drenagem com base nessa réplica ou contagem de nós.
 
-Ao escalonar os nós, a API de Kubernetes chama a API AZURE Compute relevante ligada ao tipo de computação utilizado pelo seu cluster. Por exemplo, para os clusters construídos na escala VM define a lógica para a seleção dos nós a remover é determinada pela API dos Conjuntos de Escala VM. Para saber mais sobre como os nós são selecionados para remoção em escala baixa, consulte as [FAQ VMSS](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
+Ao escalonar os nós, a API de Kubernetes chama a API AZURE Compute relevante ligada ao tipo de computação utilizado pelo seu cluster. Por exemplo, para os clusters construídos na escala VM define a lógica para a seleção dos nós a remover é determinada pela API dos Conjuntos de Escala VM. Para saber mais sobre como os nós são selecionados para remoção em escala baixa, consulte as [FAQ VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
 Para começar com cápsulas de escala manual e nós ver [aplicações de escala em AKS][aks-scale].
 
@@ -111,7 +111,7 @@ Para obter mais informações sobre os conceitos core Kubernetes e AKS, consulte
 [aks-scale]: tutorial-kubernetes-scale.md
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
 [aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-storage]: concepts-storage.md

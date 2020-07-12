@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690036"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243159"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência do modelo de modelo de gestão da Azure API
 Este tópico descreve a entidade e as representações do tipo para itens comuns utilizados nos modelos de dados para os modelos de portais de desenvolvimento na Gestão API da Azure.  
   
- Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -66,7 +67,7 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`serviceUrl`|string|URL absoluto do serviço backend implementando esta API.|  
 |`path`|string|URL relativo identificando exclusivamente esta API e todos os seus caminhos de recursos dentro da instância do serviço de Gestão API. É anexado ao URL de base de ponto final da API especificado durante a criação da instância de serviço para formar um URL público para esta API.|  
 |`protocols`|matriz de número|Descreve quais os protocolos que as operações desta API podem ser invocadas. Valores permitidos são `1 - http` `2 - https` e, ou ambos.|  
-|`authenticationSettings`|[Definições de autenticação do servidor de autorização](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Recolha de configurações de autenticação incluídas nesta API.|  
+|`authenticationSettings`|[Definições de autenticação do servidor de autorização](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Recolha de configurações de autenticação incluídas nesta API.|  
 |`subscriptionKeyParameterNames`|objeto|Propriedade opcional que pode ser usada para especificar nomes personalizados para consulta e/ou parâmetros de cabeçalho contendo a chave de subscrição. Quando esta propriedade estiver presente, deve conter pelo menos uma das duas propriedades seguintes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="api-summary"></a><a name="APISummary"></a>Resumo da API  
@@ -360,5 +361,5 @@ Este tópico descreve a entidade e as representações do tipo para itens comuns
 |`NameIdentifier`|string|Valor utilizado pelo controlo [de](api-management-page-controls.md#sign-up)inscrição.|  
 |`ProviderName`|string|Nome do fornecedor de autenticação.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

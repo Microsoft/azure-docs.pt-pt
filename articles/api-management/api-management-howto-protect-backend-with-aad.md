@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445513"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243414"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protect an API by using OAuth 2.0 with Azure Active Directory and API Management (Proteger uma API com o OAuth 2.0 com o Azure Active Directory e a Gestão de API)
 
@@ -145,7 +146,7 @@ Neste exemplo, a Consola de Desenvolvimento é a aplicação cliente. Os seguint
 
 1. Se utilizar pontos finais **v1,** adicione um parâmetro do corpo denominado **recurso**. Para o valor deste parâmetro, utilize o ID da **aplicação** da aplicação back-end. 
 
-1. Se utilizar pontos finais **V2,** utilize o âmbito que criou para a aplicação backend no campo **de âmbito Padrão.** Além disso, certifique-se de definir o valor do [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) imóvel para `2` o seu manifesto [de aplicação.](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+1. Se utilizar pontos finais **V2,** utilize o âmbito que criou para a aplicação backend no campo **de âmbito Padrão.** Além disso, certifique-se de definir o valor do [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) imóvel para `2` o seu manifesto [de aplicação.](../active-directory/develop/reference-app-manifest.md)
 
 1. Em seguida, especifique as credenciais do cliente. Estas são as credenciais para a aplicação do cliente.
 
@@ -202,7 +203,7 @@ Neste momento, quando um utilizador tenta fazer uma chamada a partir da Consola 
 
 No entanto, e se alguém ligar para a sua API sem um símbolo ou com um token inválido? Por exemplo, tente ligar para a API sem o `Authorization` cabeçalho, a chamada ainda vai passar. A razão é que a API Management não valida o token de acesso neste momento. Simplesmente passa o `Authorization` cabeçalho para a API de fundo.
 
-Utilize a política [validada do JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) para pré-autorizar pedidos na Gestão da API, validando os tokens de acesso de cada pedido de entrada. Se um pedido não tiver um token válido, a API Management bloqueia-o. Por exemplo, adicione a seguinte política à `<inbound>` secção política do `Echo API` . Verifica a reclamação do público num token de acesso e devolve uma mensagem de erro se o sinal não for válido. Para obter informações sobre como configurar políticas, consulte [políticas definidas ou editar](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Utilize a política [validada do JWT](./api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar pedidos na Gestão da API, validando os tokens de acesso de cada pedido de entrada. Se um pedido não tiver um token válido, a API Management bloqueia-o. Por exemplo, adicione a seguinte política à `<inbound>` secção política do `Echo API` . Verifica a reclamação do público num token de acesso e devolve uma mensagem de erro se o sinal não for válido. Para obter informações sobre como configurar políticas, consulte [políticas definidas ou editar](./set-edit-policies.md).
 
 
 ```xml
@@ -225,9 +226,9 @@ Utilize a política [validada do JWT](https://docs.microsoft.com/azure/api-manag
 
 Neste guia, utilizou a Consola de Desenvolvimento em Gestão API como a aplicação do cliente da amostra para ligar para o `Echo API` protegido pela OAuth 2.0. Para saber mais sobre como construir uma aplicação e implementar o OAuth 2.0, consulte [as amostras de código do Azure Ative Directory](../active-directory/develop/sample-v2-code.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
+- Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre a API Management.
 - Para obter outras formas de garantir o seu serviço back-end, consulte a [autenticação do Certificado Mútuo.](./api-management-howto-mutual-certificates.md)
 - [Criar uma instância de serviço de Gestão API.](./get-started-create-service-instance.md)

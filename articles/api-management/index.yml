@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: e0a6ed07aa8805b8506533fa455aab178bba799d
-  ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+  ms.openlocfilehash: a1c16e8dd2a9b00e726dd527137bde4c059edae2
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/21/2020
-  ms.locfileid: "85125205"
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86243023"
 landingContent:
 - title: Acerca da Gestão de API
   linkLists:
@@ -70,4 +70,4 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Integração enterprise básica
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+      url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration

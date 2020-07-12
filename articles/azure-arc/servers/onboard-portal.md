@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/18/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 459360e72c2d35cafedb0291642bf081bfcad96c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 077dc0e8048da39253729d56f1e812cccc69500c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103998"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242921"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -32,7 +32,7 @@ O script para automatizar o download e instalação, e para estabelecer a ligaç
 
 1. A partir do seu navegador, aceda ao [portal Azure.](https://aka.ms/hybridmachineportal)
 
-1. Na página **Machines - Azure Arc,** selecione **adicione,** na parte superior esquerda, ou a opção **Create - Azure Arc** na parte inferior do painel médio. 
+1. Na página **Machines - Azure Arc,** selecione **adicione,** na parte superior esquerda, ou a opção **Create - Azure Arc** na parte inferior do painel médio.
 
 1. Na página **de método Selecione uma** página de método, selecione as **máquinas Add utilizando azulejos de script interativos** e, em seguida, selecione **Gerar script**.
 
@@ -49,8 +49,8 @@ O script para automatizar o download e instalação, e para estabelecer a ligaç
 
 1. Na página **de script 'Gerar',** na lista de down-down **do sistema Operativo,** selecione o sistema operativo em que o script estará em execução.
 
-1. Se a máquina estiver a comunicar através de um servidor proxy para se ligar à internet, selecione **Seguinte: Proxy Server**. 
-1. No **separador servidor Proxy,** especifique o endereço IP do servidor proxy ou o nome e número de porta que a máquina utilizará para comunicar com o servidor proxy. Introduza o valor no `http://<proxyURL>:<proxyport>` formato. 
+1. Se a máquina estiver a comunicar através de um servidor proxy para se ligar à internet, selecione **Seguinte: Proxy Server**.
+1. No **separador servidor Proxy,** especifique o endereço IP do servidor proxy ou o nome e número de porta que a máquina utilizará para comunicar com o servidor proxy. Introduza o valor no `http://<proxyURL>:<proxyport>` formato.
 1. Selecione **Review + gerar**.
 
 1. No **separador 'Rever +' gerar,** rever as informações de resumo e, em seguida, selecione **Download**. Se ainda precisar de fazer alterações, selecione **Anterior**.
@@ -59,17 +59,17 @@ O script para automatizar o download e instalação, e para estabelecer a ligaç
 
 ### <a name="install-manually"></a>Instalar manualmente
 
-Pode instalar manualmente o agente 'Máquina Conectada' executando o pacote do Instalador do Windows *AzureConnectedMachineAgent.msi*. Pode descarregar a versão mais recente do [pacote Windows Agent Windows Installer](https://aka.ms/AzureConnectedMachineAgent) a partir do Microsoft Download Center. 
+Pode instalar manualmente o agente 'Máquina Conectada' executando o pacote do Instalador do Windows *AzureConnectedMachineAgent.msi*. Pode descarregar a versão mais recente do [pacote Windows Agent Windows Installer](https://aka.ms/AzureConnectedMachineAgent) a partir do Microsoft Download Center.
 
-> [!NOTE]
-> * Para instalar ou desinstalar o agente, tem de ter permissões *de Administrador.*
-> * Primeiro, tem de descarregar e copiar o pacote Installer para uma pasta no servidor alvo ou a partir de uma pasta de rede partilhada. Se executar o pacote Installer sem quaisquer opções, inicia um assistente de configuração que pode seguir para instalar o agente interativamente.
+>[!NOTE]
+>* Para instalar ou desinstalar o agente, tem de ter permissões *de Administrador.*
+>* Primeiro, tem de descarregar e copiar o pacote Installer para uma pasta no servidor alvo ou a partir de uma pasta de rede partilhada. Se executar o pacote Installer sem quaisquer opções, inicia um assistente de configuração que pode seguir para instalar o agente interativamente.
 
 Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, é necessário executar um comando que é descrito mais tarde no artigo. Isto define a variável do ambiente do sistema de servidor de procuração `https_proxy` .
 
 Se não estiver familiarizado com as opções de linha de comando para pacotes do Windows Installer, reveja [as opções padrão da linha de comando msiexec](/windows/win32/msi/standard-installer-command-line-options) e [as opções de linha de comando Msiexec](/windows/win32/msi/command-line-options).
 
-Por exemplo, executar o programa de instalação com o `/?` parâmetro para rever a ajuda e a opção de referência rápida. 
+Por exemplo, executar o programa de instalação com o `/?` parâmetro para rever a ajuda e a opção de referência rápida.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
@@ -113,7 +113,7 @@ Restart-Service -Name himds
 
 Depois de instalar o agente, é necessário configurar o agente para comunicar com o serviço Azure Arc executando o seguinte comando:
 
-`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Instale e valide o agente no Linux
 
@@ -124,7 +124,7 @@ O agente da Máquina Conectada para o Linux é fornecido no formato de pacote pr
 
 Opcionalmente, pode configurar o agente com as suas informações de procuração, incluindo o `--proxy "{proxy-url}:{proxy-port}"` parâmetro.
 
-O script também contém lógica para identificar as distribuições suportadas e não suportadas, e verifica as permissões que são necessárias para realizar a instalação. 
+O script também contém lógica para identificar as distribuições suportadas e não suportadas, e verifica as permissões que são necessárias para realizar a instalação.
 
 O exemplo a seguir descarrega o agente e instala-o:
 
@@ -132,7 +132,7 @@ O exemplo a seguir descarrega o agente e instala-o:
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
+# Install the connected machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
@@ -150,7 +150,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 Depois de instalar o agente, configuure-o para comunicar com o serviço Azure Arc executando o seguinte comando:
 
-`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verifique a ligação com a Azure Arc
 
@@ -158,7 +158,7 @@ Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servido
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
 

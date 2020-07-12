@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac5f6b4d2d197bbd4f4aff9236837eab062b4a63
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77190002"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243312"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilização de serviços externos do serviço de Gestão API da Azure
 As políticas disponíveis no serviço de Gestão API da Azure podem fazer uma vasta gama de trabalho útil baseado apenas no pedido de entrada, na resposta de saída e na informação básica de configuração. No entanto, poder interagir com serviços externos a partir de políticas de gestão da API abre muitas mais oportunidades.
@@ -26,7 +27,7 @@ As políticas disponíveis no serviço de Gestão API da Azure podem fazer uma v
 Já viu como interagir com o [serviço Azure Event Hub para registo, monitorização e análise](api-management-log-to-eventhub-sample.md). Este artigo demonstra políticas que lhe permitem interagir com qualquer serviço externo baseado em HTTP. Estas políticas podem ser usadas para desencadear eventos remotos ou para recuperar informações que são usadas para manipular o pedido e resposta originais de alguma forma.
 
 ## <a name="send-one-way-request"></a>Envio-Pedido único
-Possivelmente a interação externa mais simples é o estilo de pedido de fogo e esquecimento que permite que um serviço externo seja notificado de algum tipo de evento importante. A política de fluxo de controlo `choose` pode ser usada para detetar qualquer tipo de condição que lhe interesse.  Se a condição estiver satisfeita, pode fazer um pedido http externo utilizando a política [de pedido de envio-ida.](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) Isto pode ser um pedido para um sistema de mensagens como Hipchat ou Slack, ou uma API de correio como SendGrid ou MailChimp, ou para incidentes críticos de suporte algo como PagerDuty. Todos estes sistemas de mensagens têm APIs http simples que podem ser invocados.
+Possivelmente a interação externa mais simples é o estilo de pedido de fogo e esquecimento que permite que um serviço externo seja notificado de algum tipo de evento importante. A política de fluxo de controlo `choose` pode ser usada para detetar qualquer tipo de condição que lhe interesse.  Se a condição estiver satisfeita, pode fazer um pedido http externo utilizando a política [de pedido de envio-ida.](./api-management-advanced-policies.md#SendOneWayRequest) Isto pode ser um pedido para um sistema de mensagens como Hipchat ou Slack, ou uma API de correio como SendGrid ou MailChimp, ou para incidentes críticos de suporte algo como PagerDuty. Todos estes sistemas de mensagens têm APIs http simples que podem ser invocados.
 
 ### <a name="alerting-with-slack"></a>Alertando com Slack
 O exemplo a seguir demonstra como enviar uma mensagem para uma sala de chat Slack se o código de estado de resposta HTTP for superior ou igual a 500. Um erro de alcance de 500 indica um problema com a API backend que o cliente da API não consegue resolver sozinho. Geralmente requer algum tipo de intervenção na parte de Gestão da API.  
@@ -61,7 +62,7 @@ Slack tem a noção de ganchos de entrada na web. Ao configurar um gancho web de
 ![Gancho de teia slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>O fogo e esquecer é bom o suficiente?
-Há certas trocas quando se usa um estilo de pedido de fogo e esquecimento. Se, por alguma razão, o pedido falhar, então a falha não será reportada. Nesta situação específica, não se justifica a complexidade de ter um sistema de notificação de falhas secundárias e o custo adicional de desempenho da espera da resposta. Para cenários em que é essencial verificar a resposta, então a política [de pedido de envio](/azure/api-management/api-management-advanced-policies#SendRequest) é uma opção melhor.
+Há certas trocas quando se usa um estilo de pedido de fogo e esquecimento. Se, por alguma razão, o pedido falhar, então a falha não será reportada. Nesta situação específica, não se justifica a complexidade de ter um sistema de notificação de falhas secundárias e o custo adicional de desempenho da espera da resposta. Para cenários em que é essencial verificar a resposta, então a política [de pedido de envio](./api-management-advanced-policies.md#SendRequest) é uma opção melhor.
 
 ## <a name="send-request"></a>Envio-Pedido
 A `send-request` política permite utilizar um serviço externo para executar funções de processamento complexas e devolver dados ao serviço de gestão da API que pode ser usado para um processamento de políticas adicionais.
@@ -212,7 +213,7 @@ Assim que tiver esta informação, pode fazer pedidos a todos os sistemas de bac
 Estes pedidos executam em sequência, o que não é o ideal. 
 
 ### <a name="responding"></a>Respondendo
-Para construir a resposta composta, pode utilizar a política [de resposta ao retorno.](/azure/api-management/api-management-advanced-policies#ReturnResponse) O `set-body` elemento pode usar uma expressão para construir um novo com todas as `JObject` representações componentes incorporadas como propriedades.
+Para construir a resposta composta, pode utilizar a política [de resposta ao retorno.](./api-management-advanced-policies.md#ReturnResponse) O `set-body` elemento pode usar uma expressão para construir um novo com todas as `JObject` representações componentes incorporadas como propriedades.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -286,4 +287,3 @@ Na configuração da operação do espaço reservado, pode configurar o recurso 
 
 ## <a name="summary"></a>Resumo
 O serviço de Gestão API da Azure oferece políticas flexíveis que podem ser aplicadas seletivamente ao tráfego HTTP e permitem a composição dos serviços de backend. Quer pretenda melhorar o seu gateway API com funções de alerta, verificação, capacidades de validação ou criar novos recursos compósitos baseados em múltiplos serviços de backend, as `send-request` políticas e políticas conexas abrem um mundo de possibilidades.
-

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 426220f38e6ddfaaf8b24bf4f7d34473d881ae56
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906232"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245607"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Criar, eliminar e gerir serviços, tipos de serviço e pacotes de serviço.
@@ -21,14 +22,14 @@ Criar, eliminar e gerir serviços, tipos de serviço e pacotes de serviço.
 | nome de aplicativo | Obtém o nome do pedido de Serviço Fabric para um serviço. |
 | lista de pacotes de código | Obtém a lista de pacotes de código implantados num nó de Tecido de Serviço. |
 | criar | Cria o serviço de tecido de serviço especificado. |
-| delete | Elimina um serviço de tecido de serviço existente. |
+| eliminação | Elimina um serviço de tecido de serviço existente. |
 | implantado tipo | Obtém a informação sobre um tipo de serviço especificado da aplicação implantada num nó num cluster de Tecido de Serviço. |
 | implantada lista de tipos | Obtém a lista que contém as informações sobre tipos de serviço das aplicações implantadas num nó num cluster de Tecido de Serviço. |
 | descrição | Obtém a descrição de um serviço de tecido de serviço existente. |
 | obter-contentores-logs | Obtém os registos dos contentores para o contentor colocados num nó de tecido de serviço. |
 | saúde | Obtém a saúde do serviço de tecido de serviço especificado. |
 | informações | Obtém a informação sobre o serviço específico pertencente à aplicação Service Fabric. |
-| list | Obtém a informação sobre todos os serviços pertencentes à aplicação especificada pelo ID da aplicação. |
+| lista | Obtém a informação sobre todos os serviços pertencentes à aplicação especificada pelo ID da aplicação. |
 | manifest | Obtém o manifesto descrevendo um tipo de serviço. |
 | implantação em pacotes | Descarrega pacotes associados a manifesto de serviço especificado para a cache de imagem no nó especificado. |
 | saúde em pacote | Obtém a informação sobre a saúde de um pacote de serviço para uma aplicação específica implantada para um nó e aplicação de Tecido de Serviço. |
@@ -585,6 +586,6 @@ Atualiza o serviço especificado utilizando a descrição dada da atualização.
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc19c5ea7a45f78110818bc6c8cea8fbe25981c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70072311"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243448"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas na Gestão de API do Azure
 
@@ -58,7 +58,7 @@ A configuração é dividida em `inbound` `backend` , , e `outbound` `on-error` 
 </policies> 
 ```
 
-Se houver um erro durante o processamento de um pedido, quaisquer `inbound` `backend` passos restantes na secção , ou `outbound` secções são ignoradas e a execução salta para as declarações na `on-error` secção. Ao colocar declarações de política na `on-error` secção, pode rever o erro utilizando a `context.LastError` propriedade, inspecionar e personalizar a resposta de erro utilizando a `set-body` apólice e configurar o que acontece se ocorrer um erro. Existem códigos de erro para etapas incorporadas e para erros que podem ocorrer durante o processamento de declarações políticas. Para obter mais informações, consulte [o tratamento de erros nas políticas de Gestão da API](/azure/api-management/api-management-error-handling-policies).
+Se houver um erro durante o processamento de um pedido, quaisquer `inbound` `backend` passos restantes na secção , ou `outbound` secções são ignoradas e a execução salta para as declarações na `on-error` secção. Ao colocar declarações de política na `on-error` secção, pode rever o erro utilizando a `context.LastError` propriedade, inspecionar e personalizar a resposta de erro utilizando a `set-body` apólice e configurar o que acontece se ocorrer um erro. Existem códigos de erro para etapas incorporadas e para erros que podem ocorrer durante o processamento de declarações políticas. Para obter mais informações, consulte [o tratamento de erros nas políticas de Gestão da API](./api-management-error-handling-policies.md).
 
 ## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Como configurar políticas
 
@@ -66,7 +66,7 @@ Para obter informações sobre como configurar políticas, consulte [políticas 
 
 ## <a name="policy-reference"></a>Referência política
 
-Consulte a [referência Política](api-management-policy-reference.md) para obter uma lista completa de declarações políticas e suas definições.
+Consulte a [referência Política](./api-management-policies.md) para obter uma lista completa de declarações políticas e suas definições.
 
 ## <a name="policy-samples"></a>Amostras de política
 
@@ -118,17 +118,17 @@ Para limitar os pedidos de entrada e aceitar apenas os de um endereço IP de 1.2
 Para obter mais informações sobre as políticas, consulte:
 
 + [Transformar APIs](transform-api.md)
-+ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
++ [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
 + [Amostras de política](policy-samples.md)   
 
-[Policy Reference]: api-management-policy-reference.md
+[Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md
-[Operation]: api-management-howto-add-operations.md
+[Operation]: ./mock-api-responses.md
 
-[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
-[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
-[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
-[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[Advanced policies]: ./api-management-advanced-policies.md
+[Control flow]: ./api-management-advanced-policies.md#choose
+[Set variable]: ./api-management-advanced-policies.md#set-variable
+[Policy expressions]: ./api-management-policy-expressions.md
 
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png

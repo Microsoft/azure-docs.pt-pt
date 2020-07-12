@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba9edba97ce89cede54287076e50eb587af10f3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791576"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242479"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos de pacote do desenho
 
@@ -31,7 +32,7 @@ Glossário de termos utilizados neste documento.
 | Termo  | Definição |
 |:-------|:------------|
 | Camada | Uma camada AutoCAD DWG.|
-| Nível | Uma área de um edifício a uma elevação definida. Por exemplo, o chão de um prédio. |
+| Level | Uma área de um edifício a uma elevação definida. Por exemplo, o chão de um prédio. |
 | Xref  |Um ficheiro em formato de ficheiro AutoCAD DWG (.dwg) anexado ao desenho primário como referência externa.  |
 | Funcionalidade | Um objeto que combina uma geometria com informações adicionais de metadados. |
 | Aulas de Recurso | Uma planta comum para características. Por exemplo, uma Unidade é uma classe de recurso, e um escritório é uma característica. |
@@ -401,7 +402,7 @@ Abaixo está um ficheiro manifesto de amostra para o pacote de desenho da amostr
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que o seu pacote De desenho satisfaça os requisitos, poderá utilizar o [serviço de Conversão Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote num conjunto de dados do mapa. Em seguida, pode utilizar o conjunto de dados para gerar um mapa interior utilizando o módulo De Mapas Interiores. Saiba mais sobre a utilização do módulo Mapas Interiores lendo os seguintes artigos:
 

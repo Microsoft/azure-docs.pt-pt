@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 985fb505aae96f4ebd1ba8aeb61679081f303243
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905957"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245777"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Obter e apagar recursos de valor secreto de malha.
@@ -18,8 +19,8 @@ Obter e apagar recursos de valor secreto de malha.
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Elimina o valor especificado do recurso secreto nomeado. |
-| list | Lista os nomes de todos os valores do recurso secreto especificado. |
+| eliminação | Elimina o valor especificado do recurso secreto nomeado. |
+| lista | Lista os nomes de todos os valores do recurso secreto especificado. |
 | Mostrar | Lista o valor especificado do recurso secreto. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
@@ -87,6 +88,6 @@ Lista o valor especificado do recurso secreto.
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

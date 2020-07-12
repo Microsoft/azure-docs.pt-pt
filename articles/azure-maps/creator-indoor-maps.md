@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d55a0726000a6ed55f049ac4a4146f66421a7085
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83677807"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242581"
 ---
 # <a name="creator-for-indoor-maps"></a>Criador para mapas interiores
 
@@ -48,7 +49,7 @@ Utilize o serviço Dataset para criar um conjunto de dados a partir de dados de 
 Utilize o serviço Tileset para criar uma representação baseada em vetores de um conjunto de dados. As aplicações podem usar um teesto para apresentar uma visão baseada em azulejos visuais do conjunto de dados.
 * [Serviço estado de recurso](https://docs.microsoft.com/rest/api/maps/featurestate). Utilize o serviço Estado recurso para suportar o estilo dinâmico do mapa. O estilo dinâmico do mapa permite que as aplicações reflitam eventos em tempo real em espaços fornecidos pelo sistema IoT.
 
-### <a name="datasets"></a>Conjuntos de Dados
+### <a name="datasets"></a>Conjuntos de dados
 
 Um conjunto de dados é uma coleção de recursos do mapa interior. As características do mapa interior representam instalações definidas num pacote de desenho convertido. Depois de criar um conjunto de dados com o [serviço Dataset,](https://docs.microsoft.com/rest/api/maps/dataset/createpreview)pode criar qualquer número de [azulejos](#tilesets) ou [estados de recurso](#feature-statesets).
 
@@ -125,7 +126,7 @@ O exemplo a seguir mostra como atualizar um conjunto de dados, criar um novo tee
 
 4. Atualize o identificador de azulejos na sua aplicação para permitir a visualização do conjunto de dados do campus atualizado. Se o teesto antigo já não estiver a ser utilizado, pode eliminá-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Criar um mapa interior do Criador](tutorial-creator-indoor-maps.md)

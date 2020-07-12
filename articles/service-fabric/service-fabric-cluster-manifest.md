@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458371"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246576"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster de Windows autónomo
 Este artigo descreve as definições de configuração de um cluster autónomo de tecido de serviço Azure que pode ser definido no *ClusterConfig.jsno* ficheiro. Utilizará este ficheiro para especificar informações sobre os nós do cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha e de upgrade.  Depois de alterar ou adicionar configurações de configuração, pode [criar um cluster autónomo](service-fabric-cluster-creation-for-windows-server.md) ou atualizar a [configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -88,7 +89,7 @@ Na secção de loja de diagnóstico, pode configurar parâmetros para permitir d
 }
 ```
 
-Os metadados são uma descrição dos seus diagnósticos de cluster e podem ser definidos de acordo com a sua configuração. Estas variáveis ajudam na recolha de registos de vestígios etw e depósitos de colisão, bem como contadores de desempenho. Para obter mais informações sobre os registos de vestígios da ETW, consulte [o rastreio de Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [ETW](https://msdn.microsoft.com/library/ms751538.aspx). Todos os registos, incluindo [depósitos de falhas](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contadores de desempenho,](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)podem ser direcionados para a pasta de ligaçãoStragem na sua máquina. Também pode utilizar o AzureStorage para armazenar diagnósticos. Consulte o seguinte corte de amostra:
+Os metadados são uma descrição dos seus diagnósticos de cluster e podem ser definidos de acordo com a sua configuração. Estas variáveis ajudam na recolha de registos de vestígios etw e depósitos de colisão, bem como contadores de desempenho. Para obter mais informações sobre os registos de vestígios da ETW, consulte [o rastreio de Tracelog](/windows-hardware/drivers/devtest/tracelog) e [ETW](/dotnet/framework/wcf/samples/etw-tracing). Todos os registos, incluindo [depósitos de falhas](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) e [contadores de desempenho,](/windows/win32/perfctrs/performance-counters-portal)podem ser direcionados para a pasta de ligaçãoStragem na sua máquina. Também pode utilizar o AzureStorage para armazenar diagnósticos. Consulte o seguinte corte de amostra:
 
 ```json
 "diagnosticsStore": {
@@ -192,15 +193,14 @@ Para configurar as funcionalidades adicionais, configurar a apiVersão como 04-2
     ]
 }
 ```
-Todas as funcionalidades adicionais disponíveis podem ser vistas na [Referência API do Tecido de Serviço.](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures)
+Todas as funcionalidades adicionais disponíveis podem ser vistas na [Referência API do Tecido de Serviço.](/rest/api/servicefabric/sfrp-model-addonfeatures)
 
 ### <a name="container-support"></a>Suporte de contentor
 Para permitir o suporte de contentores tanto para recipientes windows server como para recipientes Hiper-V para aglomerados autónomos, a função de complemento dnsService deve ser ativada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter umaClusterConfig.jscompleta *no* ficheiro configurada de acordo com a configuração do seu cluster autónomo, pode implantar o seu cluster. Siga os passos em [Criar um cluster de tecido de serviço autónomo.](service-fabric-cluster-creation-for-windows-server.md) 
 
 Se tiver um cluster autónomo implantado, também pode [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Saiba como [visualizar o seu cluster com o Service Fabric Explorer.](service-fabric-visualizing-your-cluster.md)
-

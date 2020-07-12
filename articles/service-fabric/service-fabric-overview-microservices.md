@@ -4,11 +4,12 @@ description: Uma visão geral do porquê de construir aplicações em nuvem com 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792873"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246025"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Porquê usar uma abordagem de microserviços para a construção de aplicações
 
@@ -130,7 +131,7 @@ A saúde é diferente dos diagnósticos. A saúde tem a ver com o microserviço 
 
 ## <a name="guidance-for-designing-microservices-on-azure"></a>Orientação para a conceção de microserviços em Azure
 
-Visite o Centro de Arquitetura Azure para orientar a [conceção e construção de microserviços em Azure.](https://docs.microsoft.com/azure/architecture/microservices/)
+Visite o Centro de Arquitetura Azure para orientar a [conceção e construção de microserviços em Azure.](/azure/architecture/microservices/)
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Tecido de serviço como plataforma de microserviços
 
@@ -162,7 +163,7 @@ Lembre-se, pode *começar e parar em qualquer uma destas fases.* Não tens de pr
 
 Vejamos os exemplos de cada uma destas fases.
 
-**Migrar**  
+**Migrate**  
 Por duas razões, muitas empresas estão a migrar aplicações monolíticas existentes em contentores:
 
 * Redução de custos, quer devido à consolidação e remoção de hardware existente, quer devido a aplicações de execução com maior densidade.
@@ -187,10 +188,10 @@ Talvez sim. Na Microsoft, à medida que mais equipas começaram a construir para
 
 O objetivo da Service Fabric é reduzir as complexidades de construir aplicações de microserviços para que não tenha de passar por tantas remodelações dispendiosas. Comece pequeno, em escala quando necessário, depreca serviços, adicione novos e evolua com o uso do cliente. Sabemos também que há muitos outros problemas ainda por resolver para tornar os microserviços mais acessíveis para a maioria dos desenvolvedores. Os contentores e o modelo de programação do ator são exemplos de pequenos passos nesse sentido. Estamos certos de que surgirão mais inovações para facilitar a abordagem dos microserviços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Microserviços: Uma revolução de aplicações alimentada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Centro de Arquitetura Azure: Construção de microserviços em Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Centro de Arquitetura Azure: Construção de microserviços em Azure](/azure/architecture/microservices/)
 * [Aplicação de tecido de serviço Azure e boas práticas de cluster](service-fabric-best-practices-overview.md)
 * [Visão geral da terminologia do tecido de serviço](service-fabric-technical-overview.md)
 

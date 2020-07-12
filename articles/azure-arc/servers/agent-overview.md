@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 38c487928f15e953a1c660c5007398bc5c2b3f7d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ed95b902c2c0768f50a0c6dadbfc617292932c2b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206625"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242955"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Visão geral do Azure Arc para agente de servidores
 
@@ -62,7 +62,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
     |Pasta |Descrição |
     |-------|------------|
-    |C:\Ficheiros do programa\AzureConnectedMachineagent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
+    |%ProgramFiles%\AzureConnectedMachineagent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |%ProgramaData%\AzureConnectedMachineagent |Contém os ficheiros de configuração do agente.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contém os tokens adquiridos.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contém o ficheiro de configuração do agente `agentconfig.json` que regista as suas informações de registo com o serviço.|
@@ -99,7 +99,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Durante a desinstalação do agente, os seguintes artefactos não são removidos.
 
-    * C:\Ficheiros do programa\AzureConnectedMachineAgent\Logs
+    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent e subdiretórios
     * %ProgramData%\GuestConfig
 
@@ -170,9 +170,9 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 
 ### <a name="required-permissions"></a>Permissões obrigatórias
 
-- Para máquinas a bordo, você é membro da **função de azure connected machine onboarding.**
+* Para máquinas a bordo, você é membro da **função de azure connected machine onboarding.**
 
-- Para ler, modificar, voltar a bordo e eliminar uma máquina, é membro da função de Administrador de **Recursos da Máquina Azure.** 
+* Para ler, modificar, voltar a bordo e eliminar uma máquina, é membro da função de Administrador de **Recursos da Máquina Azure.** 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de subscrição e serviço azure
 
@@ -195,8 +195,8 @@ Se a conectividade de saída for restringida pela sua firewall ou servidor proxy
 
 Etiquetas de serviço:
 
-- AzureActiveDirectory
-- AzureTrafficManager
+* AzureActiveDirectory
+* AzureTrafficManager
 
 URLs:
 
@@ -218,8 +218,8 @@ Os URLs na tabela anterior são necessários para além das informações do int
 
 O Azure Arc para servidores (pré-visualização) depende dos seguintes fornecedores de recursos Azure na sua subscrição para utilizar este serviço:
 
-- **Microsoft.HybridCompute**
-- **Microsoft.GuestConfiguration**
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
 
 Se não estiverem registados, pode registá-los utilizando os seguintes comandos:
 

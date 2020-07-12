@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420905"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244043"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Endurecimento de segurança para o número de agente da AKS anfitrião OS
 
-O Azure Kubernetes Service (AKS) é um serviço seguro que está em conformidade com os padrões SOC, ISO, PCI DSS e HIPAA. Este artigo cobre o endurecimento de segurança aplicado aos anfitriões de máquinas virtuais AKS. Para obter mais informações sobre a segurança da AKS, consulte [conceitos de segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
+O Azure Kubernetes Service (AKS) é um serviço seguro que está em conformidade com os padrões SOC, ISO, PCI DSS e HIPAA. Este artigo cobre o endurecimento de segurança aplicado aos anfitriões de máquinas virtuais AKS. Para obter mais informações sobre a segurança da AKS, consulte [conceitos de segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)](./concepts-security.md).
 
 > [!Note]
 > Este documento é apenas para agentes Linux em AKS.
@@ -32,7 +32,7 @@ O objetivo do hospedeiro de segurança endurecido é reduzir a área de superfí
 
 * AKS fornece um sistema operativo de anfitrião otimizado por padrão. Não existe opção de selecionar um sistema operativo alternativo.
 
-* O Azure aplica patches diários (incluindo patches de segurança) aos anfitriões de máquinas virtuais AKS. Alguns destes patches exigirão um reboot, enquanto outros não. Você é responsável por agendar reboots de anfitrião AKS VM conforme necessário. Para obter orientações sobre como automatizar o patching AKS, consulte [os nós AKS remendados](https://docs.microsoft.com/azure/aks/node-updates-kured).
+* O Azure aplica patches diários (incluindo patches de segurança) aos anfitriões de máquinas virtuais AKS. Alguns destes patches exigirão um reboot, enquanto outros não. Você é responsável por agendar reboots de anfitrião AKS VM conforme necessário. Para obter orientações sobre como automatizar o patching AKS, consulte [os nós AKS remendados](./node-updates-kured.md).
 
 ## <a name="what-is-configured"></a>O que está configurado
 
@@ -85,8 +85,8 @@ O objetivo do hospedeiro de segurança endurecido é reduzir a área de superfí
 
 Consulte os seguintes artigos para obter mais informações sobre a segurança da AKS: 
 
-[Serviço de Kubernetes do Azure (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+[Serviço de Kubernetes do Azure (AKS)](./intro-kubernetes.md)
 
-[Considerações de segurança da AKS](https://docs.microsoft.com/azure/aks/concepts-security)
+[Considerações de segurança da AKS](./concepts-security.md)
 
-[Melhores práticas da AKS](https://docs.microsoft.com/azure/aks/best-practices)
+[Melhores práticas da AKS](./best-practices.md)

@@ -5,15 +5,16 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692687"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246831"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestão do Estado com Tecido de Serviço
 
-O Service Fabric suporta muitas opções diferentes para armazenamento do estado. Para uma visão geral conceptual dos padrões de gestão do Estado e do Tecido de Serviço, consulte [Conceitos de Tecido de Serviço: Estado](/azure/service-fabric/service-fabric-concepts-state). Todos estes mesmos conceitos aplicam-se quer os seus serviços sejam executados dentro ou fora da Rede de Tecido de Serviço. 
+O Service Fabric suporta muitas opções diferentes para armazenamento do estado. Para uma visão geral conceptual dos padrões de gestão do Estado e do Tecido de Serviço, consulte [Conceitos de Tecido de Serviço: Estado](../service-fabric/service-fabric-concepts-state.md). Todos estes mesmos conceitos aplicam-se quer os seus serviços sejam executados dentro ou fora da Rede de Tecido de Serviço. 
 
 Com a Malha de Tecido de Serviço, pode facilmente implementar uma nova aplicação e conectá-la a uma loja de dados existente hospedada no Azure. Além de utilizar qualquer base de dados remota, existem várias opções para armazenar dados, dependendo se o serviço deseja armazenamento local ou remoto. 
 
@@ -31,7 +32,7 @@ Tecido de serviço Volume fiável é um controlador de volume Docker usado para 
 
 O Volume de Ficheiros Azure é um controlador de volume Docker usado para montar uma partilha de Ficheiros Azure num contentor. O armazenamento do Azure Files utiliza o armazenamento da rede, pelo que as leituras e as gravações ocorrem ao longo da rede. Em comparação com o volume fiável do tecido de serviço, o armazenamento de Ficheiros Azure é menos performante, mas fornece uma opção de dados mais barata e totalmente fiável. Por exemplo, consulte [Como implementar uma aplicação com volume de ficheiros Azure](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre o modelo de aplicação, consulte [os recursos do Service Fabric](service-fabric-mesh-service-fabric-resources.md)
 

@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2b2c444bb492fa6c6b945a82090e91963fb1a8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905989"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245865"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Obter e apagar recursos de rede de malha.
@@ -18,8 +19,8 @@ Obter e apagar recursos de rede de malha.
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Elimina o recurso Rede. |
-| list | Lista todos os recursos da rede. |
+| eliminação | Elimina o recurso Rede. |
+| lista | Lista todos os recursos da rede. |
 | Mostrar | Obtém o recurso rede com o nome próprio. |
 
 ## <a name="sfctl-mesh-network-delete"></a>rede de malha sfctl eliminar
@@ -80,6 +81,6 @@ Obtém a informação sobre o recurso Network com o nome próprio. As informaç�
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

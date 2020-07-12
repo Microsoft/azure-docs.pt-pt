@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649212"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243482"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como utilizar valores nomeados nas políticas de gestão da API da Azure
 
@@ -33,9 +34,9 @@ Cada instância de serviço de Gestão API tem uma coleção de pares chave/valo
 
 ![Valores com nome](./media/api-management-howto-properties/named-values.png)
 
-Os valores nomeados podem conter cordas literais e [expressões políticas.](/azure/api-management/api-management-policy-expressions) Por exemplo, o valor de `Expression` uma expressão política que devolve uma cadeia contendo a data e hora atuais. O valor nomeado `Credential` é marcado como um segredo, pelo que o seu valor não é apresentado por padrão.
+Os valores nomeados podem conter cordas literais e [expressões políticas.](./api-management-policy-expressions.md) Por exemplo, o valor de `Expression` uma expressão política que devolve uma cadeia contendo a data e hora atuais. O valor nomeado `Credential` é marcado como um segredo, pelo que o seu valor não é apresentado por padrão.
 
-| Name       | Valor                      | Segredo | Etiquetas          |
+| Nome       | Valor                      | Segredo | Etiquetas          |
 | ---------- | -------------------------- | ------ | ------------- |
 | Valor      | 42                         | Falso  | números vitais |
 | Credencial | ••••••••••••••••••••••     | Verdadeiro   | security      |
@@ -105,12 +106,12 @@ Se olharmos para o rastreio do Inspetor da [API](api-management-howto-api-inspec
 
 Embora os valores nomeados possam conter expressões políticas, não podem conter outros valores nomeados. Se o texto que contém uma referência de valor nomeado for utilizado para um valor, tal `Text: {{MyProperty}}` como, essa referência não será resolvida e substituída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 -   Saiba mais sobre trabalhar com políticas
     -   [Políticas em Gestão de API](api-management-howto-policies.md)
-    -   [Referência de políticas](/azure/api-management/api-management-policies)
-    -   [Expressões de política](/azure/api-management/api-management-policy-expressions)
+    -   [Referência de políticas](./api-management-policies.md)
+    -   [Expressões de política](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 962d0d6dd51bb30f5df9ca0b609acf932777ebcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 074e3db3234794aa891d5452b0c19060193c6d0c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887525"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243975"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executando apache spark empregos em AKS
 
@@ -29,7 +29,7 @@ Para completar os passos dentro deste artigo, você precisa do seguinte.
 * SBT ([Scala Build Tool)][sbt-install]instalado no seu sistema.
 * Ferramentas de linha de comando Git instaladas no seu sistema.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
 
 A faísca é usada para o processamento de dados em larga escala e requer que os nós Kubernetes sejam dimensionados para satisfazer os requisitos de recursos spark. Recomendamos um tamanho mínimo `Standard_D3_v2` para os seus nós do Serviço Azure Kubernetes (AKS).
 
@@ -330,7 +330,7 @@ Ao executar o trabalho, em vez de indicar um URL de frasco remoto, o `local://` 
 > [!WARNING]
 > Da [documentação][spark-docs]Spark : "O programador kubernetes é atualmente experimental. Em futuras versões, pode haver alterações comportamentais em torno da configuração, imagens de contentores e pontos de entrada".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte a documentação da Spark para mais detalhes.
 
@@ -350,7 +350,7 @@ Consulte a documentação da Spark para mais detalhes.
 
 <!-- LINKS - internal -->
 [acr-aks]: cluster-container-registry-integration.md
-[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/azure/aks/
-[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli
+[acr-create]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./index.yml
+[azure-cli]: /cli/azure/?view=azure-cli-latest
+[storage-account]: ../storage/blobs/storage-quickstart-blobs-cli.md

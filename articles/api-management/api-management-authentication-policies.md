@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 70f1e4414888ceb8fb04fd92dc954d1a7c06dcb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557987"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243720"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação da Gestão de API
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
@@ -48,19 +48,19 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Necessário|
+|Nome|Descrição|Necessário|
 |----------|-----------------|--------------|
-|autenticação-básico|Elemento de raiz.|Sim|
+|autenticação-básico|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|o nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Sim|N/D|
-|palavra-passe|Especifica a palavra-passe da credencial Básica.|Sim|N/D|
+|nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Yes|N/D|
+|palavra-passe|Especifica a palavra-passe da credencial Básica.|Yes|N/D|
 
 ### <a name="usage"></a>Utilização
- Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+ Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada
 
@@ -97,13 +97,13 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
 
 ### <a name="elements"></a>Elementos  
   
-|Name|Descrição|Necessário|  
+|Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|certificado de autenticação|Elemento de raiz.|Sim|  
+|certificado de autenticação|Elemento de raiz.|Yes|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |impressão digital|A impressão digital do certificado do cliente.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
 |certificado id|O nome do recurso do certificado.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
@@ -111,7 +111,7 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
 |palavra-passe|Senha para o certificado do cliente.|Usado se o certificado especificado é `body` protegido por palavra-passe.|N/D|
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)  
+ Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)  
   
 -   **Secções políticas:** entrada  
   
@@ -174,30 +174,30 @@ Tanto a identidade atribuída ao sistema como qualquer uma das identidades atrib
 
 ### <a name="elements"></a>Elementos  
   
-|Name|Descrição|Necessário|  
+|Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|identidade gerida por autenticação |Elemento de raiz.|Sim|  
+|identidade gerida por autenticação |Elemento de raiz.|Yes|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Sim|N/D|
+|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Yes|N/D|
 |id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|Não|identidade atribuída ao sistema|
 |nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |Não|N/D|  
 |ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|Não|false|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)  
+ Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)  
   
 -   **Secções políticas:** entrada  
   
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre as políticas, consulte:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
-+ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
++ [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
 + [Amostras de política](policy-samples.md)

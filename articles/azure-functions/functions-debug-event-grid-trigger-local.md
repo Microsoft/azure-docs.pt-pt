@@ -2,14 +2,15 @@
 title: Azure Functions Event Grid depuração local
 description: Aprenda a depurar localmente as funções Azure desencadeadas por um evento de Grade de Eventos
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340873"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242751"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Grelha de evento de função Azure desencadeia depuração local
 
@@ -100,11 +101,11 @@ Uma vez que a Grelha de Eventos reconheça que um novo ficheiro é enviado para 
 
 ![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-breakpoint.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados neste artigo, elimine o recipiente **de teste** na sua conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Automatizar o redimensionamento de imagens carregadas com o Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Gatilho da grelha de evento para funções Azure](./functions-bindings-event-grid.md)

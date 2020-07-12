@@ -5,11 +5,12 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c093958b9a8c5a21cb6996db891705ec8c3d21ab
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451675"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246287"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java Client APIs
 
@@ -123,6 +124,5 @@ Para cada API encontrará quatro sobrecargas de implementação. Se houver parâ
  4. **> observáveis \<ServiceResponse\<Void> públicos removemReplicaWithServiceResponseAsync (Nó de corda, partição UUIDId, replicação de cordas)**
     * Esta variante da chamada API pode ser usada se quiser usar programação assíncrona reativa e lidar com a resposta ao repouso RAW
 
-## <a name="next-steps"></a>Próximos passos
-* Saiba mais sobre [as APIs de repouso de tecido de serviço](https://docs.microsoft.com/rest/api/servicefabric/)
-
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre [as APIs de repouso de tecido de serviço](/rest/api/servicefabric/)

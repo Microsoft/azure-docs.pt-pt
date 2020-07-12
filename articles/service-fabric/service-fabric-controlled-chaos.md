@@ -5,16 +5,17 @@ author: motanv
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33ad837195c747a4e7f9a4609d745659be69dc9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463164"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246185"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o caos controlado nos clusters de tecido de serviço
 Sistemas distribuídos em larga escala, como infraestruturas em nuvem, são inerentemente pouco fiáveis. O Azure Service Fabric permite que os desenvolvedores escrevam serviços distribuídos fiáveis em cima de uma infraestrutura pouco fiável. Para escrever serviços robustos distribuídos em cima de uma infraestrutura pouco fiável, os desenvolvedores precisam de ser capazes de testar a estabilidade dos seus serviços enquanto a infraestrutura subjacente não confiável está a passar por transições complicadas do Estado devido a falhas.
 
-O [Serviço de Injeção de Falhas e Análise de Cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-testability-overview) (também conhecido como Serviço de Análise de Falhas) dá aos desenvolvedores a capacidade de induzir falhas para testar os seus serviços. Estas falhas simuladas direcionadas, como [reiniciar uma partição,](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps)podem ajudar a exercer as transições estatais mais comuns. No entanto, falhas simuladas direcionadas são tendenciosas por definição e, portanto, podem falhar bugs que aparecem apenas em seqüência difícil de prever, longa e complicada das transições do estado. Para um teste imparcial, pode usar o Caos.
+O [Serviço de Injeção de Falhas e Análise de Cluster](./service-fabric-testability-overview.md) (também conhecido como Serviço de Análise de Falhas) dá aos desenvolvedores a capacidade de induzir falhas para testar os seus serviços. Estas falhas simuladas direcionadas, como [reiniciar uma partição,](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps)podem ajudar a exercer as transições estatais mais comuns. No entanto, falhas simuladas direcionadas são tendenciosas por definição e, portanto, podem falhar bugs que aparecem apenas em seqüência difícil de prever, longa e complicada das transições do estado. Para um teste imparcial, pode usar o Caos.
 
 O caos simula falhas periódicas e intercaladas (graciosas e ingracidas) durante longos períodos de tempo. Uma falha graciosa consiste num conjunto de chamadas API de Tecido de Serviço, por exemplo, reiniciar a falha da réplica é uma falha graciosa porque esta é uma falha próxima seguida de uma abertura numa réplica. Remover réplica, mover réplica primária e mover réplica secundária são as outras falhas graciosas exercidas pelo Caos. Falhas ingraças são saídas de processo, como reiniciar o nó e reiniciar o pacote de código. 
 
@@ -24,7 +25,7 @@ Uma vez configurado o Caos com a taxa e o tipo de falhas, pode iniciar o Caos at
 > Na sua forma atual, o Caos induz apenas falhas seguras, o que implica que na ausência de falhas externas uma perda de quórum, ou perda de dados nunca ocorre.
 >
 
-Enquanto o Caos está a decorrer, produz diferentes eventos que captam o estado da corrida no momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas que o Caos decidiu executar nessa iteração. Um ValidaationFailedEvent contém os detalhes de uma falha de validação (problemas de saúde ou estabilidade) que foi encontrada durante a validação do cluster. Pode invocar a API GetChaosReport (C#, Powershell ou REST) para obter o relatório do Caos. Estes eventos persistem num [dicionário fiável,](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)que tem uma política de truncação ditada por duas configurações: **MaxStoredChaosEventCount** (valor padrão é 25000) e **StoredActionCleanupIntervalInSeconds** (o valor padrão é de 3600). Todos os *controlos de caos da StoredActionCleanupIntervalInSeconds* e todos, menos os mais recentes eventos *MaxStoredChaosEventCount,* são purgados do dicionário fiável.
+Enquanto o Caos está a decorrer, produz diferentes eventos que captam o estado da corrida no momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas que o Caos decidiu executar nessa iteração. Um ValidaationFailedEvent contém os detalhes de uma falha de validação (problemas de saúde ou estabilidade) que foi encontrada durante a validação do cluster. Pode invocar a API GetChaosReport (C#, Powershell ou REST) para obter o relatório do Caos. Estes eventos persistem num [dicionário fiável,](./service-fabric-reliable-services-reliable-collections.md)que tem uma política de truncação ditada por duas configurações: **MaxStoredChaosEventCount** (valor padrão é 25000) e **StoredActionCleanupIntervalInSeconds** (o valor padrão é de 3600). Todos os *controlos de caos da StoredActionCleanupIntervalInSeconds* e todos, menos os mais recentes eventos *MaxStoredChaosEventCount,* são purgados do dicionário fiável.
 
 ## <a name="faults-induced-in-chaos"></a>Falhas induzidas no Caos
 O caos gera falhas em todo o cluster de Tecido de Serviço e comprime falhas que são vistas em meses ou anos em poucas horas. A combinação de falhas intercaladas com a alta taxa de avaria encontra casos de canto que podem ser perdidos de outra forma. Este exercício do Caos conduz a uma melhoria significativa na qualidade do código do serviço.

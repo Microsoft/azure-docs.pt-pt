@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: d98261629f9e1612966bf74084ae0e0fa70d3605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829262"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244451"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota definida pelo utilizador
 
@@ -73,11 +73,11 @@ Para ilustrar a aplicação de um cluster com tipo de saída utilizando uma rota
 > A tabela de rotas já tem um padrão 0.0.0.0/0 para a Internet, sem um IP público para sNAT apenas adicionando esta rota não lhe fornecerá saída. A AKS validará que não cria uma rota 0.0.0.0/0 que aponta para a Internet, mas sim para NVA ou gateway, etc.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte [a visão geral da UDR em rede Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+Consulte [a visão geral da UDR em rede Azure](../virtual-network/virtual-networks-udr-overview.md).
 
-Ver [como criar, alterar ou apagar uma tabela de rotas](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+Ver [como criar, alterar ou apagar uma tabela de rotas](../virtual-network/manage-route-table.md).
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

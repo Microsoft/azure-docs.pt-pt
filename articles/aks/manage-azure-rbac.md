@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 84800f978790a114b80c415a5e5e3dad77eaf8da
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc0464c226b8edc2dae01f8ea54c3e5b2e11f2d6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122367"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244265"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Use Azure RBAC para autorização kubernetes (pré-visualização)
+# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
 Hoje já pode alavancar [a autenticação integrada entre o Azure Ative Directory (Azure AD) e a AKS](managed-aad.md). Quando ativado, esta integração permite que os clientes utilizem utilizadores, grupos ou principais de serviço da Azure como temas em Kubernetes RBAC, consulte mais [aqui.](azure-ad-rbac.md)
 Esta funcionalidade permite-lhe gerir separadamente as identidades e credenciais dos utilizadores para o Kubernetes. No entanto, ainda tem de configurar e gerir o RBAC de Azure e o RBAC de Kubernetes separadamente. Para mais detalhes sobre a autenticação, autorização e RBAC na AKS consulte [aqui.](concepts-identity.md)
@@ -122,7 +122,7 @@ Uma criação bem sucedida de um cluster com integração AD AZure e Azure RBAC 
 A AKS fornece as seguintes quatro funções incorporadas:
 
 
-| Função                                | Descrição  |
+| Função                                | Description  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |
@@ -215,7 +215,7 @@ az aks get-credentials -g MyResourceGroup -n MyManagedCluster
 ```
 
 > [!IMPORTANT]
-> Você precisará do cluster [de serviço Azure Kubernetes função](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) incorporada para executar o passo acima.
+> Você precisará do cluster [de serviço Azure Kubernetes função](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) incorporada para executar o passo acima.
 
 Agora, você pode usar kubectl para, por exemplo, listar os nós no cluster. A primeira vez que o executar terá de iniciar sedência, e os comandos subsequentes usarão o respetivo token de acesso.
 
@@ -279,7 +279,7 @@ az role definition delete -n "AKS Deployment Viewer"
 az group delete -n MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre AKS Autenticação, Autorização e RBAC [aqui.](concepts-identity.md)
 - Leia mais sobre a Azure RBAC [aqui.](../role-based-access-control/overview.md)

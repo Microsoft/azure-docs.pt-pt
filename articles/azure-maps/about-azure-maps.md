@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2b6c61c5c144923ece80fddf8a1412d68f35ad52
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191756"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242883"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
-O Azure Maps é uma coleção de serviços geoespaciais que utilizam dados de mapeamento frescos para fornecer contexto geográfico a aplicações web e móveis. O Azure Maps fornece:
+O Azure Maps é uma coleção de serviços geoespaciais que utiliza dados de mapeamento recentes para fornecer contexto geográfico a aplicações Web e móveis. O Azure Maps fornece:
 
 * REST APIs para renderizar mapas em vários estilos e em imagens de satélite.''
 * Serviços de pesquisa para localizar endereços, locais e pontos de interesse em todo o mundo.
@@ -165,17 +165,25 @@ O Azure Maps é construído para mobilidade e pode ajudá-lo a desenvolver aplic
 
 Além disso, o Azure Maps oferece um [conveniente controlo de mapas JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) com um modelo de programação simples. O desenvolvimento é rápido e fácil tanto para aplicações web como móveis.
 
+## <a name="power-bi-visual"></a>Elemento visual do Power BI
+
+O Azure Maps visual para Power BI fornece um rico conjunto de visualizações de dados para dados espaciais em cima de um mapa. Estima-se que mais de 80% dos dados empresariais tenham um contexto de localização. O visual Azure Maps oferece uma solução sem código para obter informações sobre como este contexto de localização se relaciona e influencia os dados do seu negócio.
+
+![Power BI desktop com o Azure Maps visualizando dados de negócio](media/power-bi-visual/azure-maps-visual-hero.png)
+
+Para mais informações, consulte a Obtenção começou com a documentação [visual do Azure Maps Power BI.](power-bi-visual-getting-started.md)
+
 ## <a name="usage"></a>Utilização
 
 Aceder aos serviços do Azure Maps é uma questão de ir ao [portal Azure](https://portal.azure.com) e criar uma conta Azure Maps.
 
 O Azure Maps utiliza um esquema de autenticação baseado em chave. A sua conta vem com duas teclas já geradas para si, use ambas as chaves. Comece a integrar estas capacidades de localização na sua aplicação e faça pedidos aos serviços do Azure Maps.
 
-Nota - A Azure Maps partilha consultas de endereço/localização fornecidas pelo cliente ("Consultas") com o TomTom de terceiros para fins de funcionalidade de mapeamento. As consultas não estão ligadas a nenhum cliente ou utilizador final quando partilhadas com o TomTom e não podem ser usadas para identificar indivíduos. A Microsoft está neste momento em processo de adicionar o TomTom à Lista de Subcontratados de Serviços Online. Note que os Serviços de Mobilidade e Meteorologia que incluem integração com a Moovit e a AccuWeather estão atualmente em [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Nota - A Azure Maps partilha consultas de endereço/localização fornecidas pelo cliente ("Consultas") com o TomTom de terceiros para fins de funcionalidade de mapeamento. As consultas não estão ligadas a nenhum cliente ou utilizador final quando partilhadas com o TomTom e não podem ser usadas para identificar indivíduos. A Microsoft está neste momento em processo de adicionar o TomTom à Lista de Subcontratados de Serviços Online. Note que os Serviços de Mobilidade e Meteorologia, que incluem integração com a Moovit e a AccuWeather estão atualmente em [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-As APIs Azure Maps estão atualmente disponíveis em todos os países e regiões, exceto estes:
+As APIs Azure Maps estão atualmente disponíveis em todos os países e regiões, com exceção das seguintes:
 
 * China
 * Coreia do Sul

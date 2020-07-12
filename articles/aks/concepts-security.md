@@ -6,20 +6,20 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: a0fe0803b0961b3aaa89627823b4867fac0d5d61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206304"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244536"
 ---
-# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)
+# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
 Para proteger os dados dos seus clientes à medida que executa cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS), a segurança do seu cluster é uma consideração fundamental. Kubernetes inclui componentes de segurança como *políticas de rede* e *segredos.* O Azure adiciona então componentes como grupos de segurança de rede e atualizações de clusters orquestradas. Estes componentes de segurança são combinados para manter o seu cluster AKS a executar as últimas atualizações de segurança do SO e lançamentos de Kubernetes, e com tráfego de pod seguro e acesso a credenciais sensíveis.
 
 Este artigo introduz os conceitos fundamentais que asseguram as suas aplicações em AKS:
 
-- [Conceitos de segurança para aplicações e clusters no Serviço Azure Kubernetes (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+- [Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
   - [Segurança principal](#master-security)
   - [Segurança do nó](#node-security)
     - [Isolamento computacional](#compute-isolation)
@@ -112,12 +112,12 @@ Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, co
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
-[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+[encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

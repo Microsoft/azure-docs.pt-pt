@@ -4,11 +4,12 @@ description: Saiba mais sobre a gestão de certificados num cluster de Tecido de
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6be9cbe77ef5e64659e56447d0a5b6be30b05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324747"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246712"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestão de certificados em clusters de tecidos de serviço
 
@@ -75,8 +76,8 @@ Estes passos são ilustrados abaixo; Note-se as diferenças no provisionamento e
 ![Certificados de provisionamento declarados pelo nome comum sujeito][Image2]
 
 ### <a name="certificate-enrollment"></a>Inscrição de certificados
-Este tópico é abordado em detalhe na [documentação](../key-vault/create-certificate.md)do Cofre-Chave; estamos incluindo uma sinopse aqui para continuidade e referência mais fácil. Continuando com o Azure como contexto, e utilizando o Azure Key Vault como serviço de gestão secreta, um solicitador de certificado autorizado deve ter pelo menos permissões de gestão de certificados no cofre, concedidas pelo proprietário do cofre; O solicitador inscrever-se-ia então num certificado da seguinte forma:
-    - Cria uma política de certificados no Azure Key Vault (AKV), que especifica o domínio/objeto do certificado, o emitente pretendido, o tipo e comprimento da chave pretendidos e muito mais; consulte [certificados no Cofre da Chave Azure](../key-vault/certificate-scenarios.md) para mais detalhes. 
+Este tópico é abordado em detalhe na [documentação](../key-vault/certificates/create-certificate.md)do Cofre-Chave; estamos incluindo uma sinopse aqui para continuidade e referência mais fácil. Continuando com o Azure como contexto, e utilizando o Azure Key Vault como serviço de gestão secreta, um solicitador de certificado autorizado deve ter pelo menos permissões de gestão de certificados no cofre, concedidas pelo proprietário do cofre; O solicitador inscrever-se-ia então num certificado da seguinte forma:
+    - Cria uma política de certificados no Azure Key Vault (AKV), que especifica o domínio/objeto do certificado, o emitente pretendido, o tipo e comprimento da chave pretendidos e muito mais; consulte [certificados no Cofre da Chave Azure](../key-vault/certificates/certificate-scenarios.md) para mais detalhes. 
     - Cria um certificado no mesmo cofre com a política acima especificada; isto, por sua vez, gera um par chave como objetos de abóbada, um pedido de assinatura de certificado assinado com a chave privada, e que é então encaminhado para o emitente designado para a assinatura
     - Uma vez que o emitente (Autoridade de Certificados) responda ao certificado assinado, o resultado é fundido no cofre, estando o certificado disponível para as seguintes operações:
       - em {vaultUri}/certificados/{name}: o certificado que inclui a chave pública e metadados
@@ -209,7 +210,7 @@ Como mencionado anteriormente, um certificado apresentado como um conjunto de es
 
 Todos os excertos subsequentes devem ser implantados concomitantemente - são listados individualmente para análises e explicações play-by-play.
 
-Primeiro, defina uma identidade atribuída ao utilizador (os valores padrão estão incluídos como exemplos) - consulte a [documentação oficial](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity) para informações atualizadas:
+Primeiro, defina uma identidade atribuída ao utilizador (os valores padrão estão incluídos como exemplos) - consulte a [documentação oficial](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity) para informações atualizadas:
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -240,7 +241,7 @@ Primeiro, defina uma identidade atribuída ao utilizador (os valores padrão est
   ]}
 ```
 
-Em seguida, conceda a esta identidade acesso aos segredos do cofre - consulte a [documentação oficial](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy) para informações atuais:
+Em seguida, conceda a esta identidade acesso aos segredos do cofre - consulte a [documentação oficial](/rest/api/keyvault/vaults/updateaccesspolicy) para informações atuais:
 ```json
   "resources":
   [{
@@ -265,7 +266,7 @@ Em seguida, conceda a esta identidade acesso aos segredos do cofre - consulte a 
 No próximo passo, nós:
   - atribuir a identidade atribuída ao utilizador para o conjunto de escala de máquina virtual
   - declarar a dependência da escala de máquina virtual sobre a criação da identidade gerida, e sobre o resultado de conceder-lhe acesso ao cofre
-  - declarar a extensão KeyVault VM, exigindo que recupere certificados observados no arranque[(documentação oficial)](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)
+  - declarar a extensão KeyVault VM, exigindo que recupere certificados observados no arranque[(documentação oficial)](../virtual-machines/extensions/key-vault-windows.md)
   - atualizar a definição da extensão VM do tecido de serviço para depender da extensão KVVM, e converter o cert do cluster em nome comum (estamos a fazer estas alterações num único passo, uma vez que se enquadram no âmbito do mesmo recurso.)
 
 ```json
@@ -419,12 +420,12 @@ A extensão KVVM, como agente de provisionamento, funciona continuamente numa fr
 #### <a name="certificate-linking-explained"></a>Ligação de certificado, explicado
 Deve ter reparado na bandeira 'linkOnRenewal' da extensão KVVM e no facto de estar definida como falsa. Estamos a abordar em profundidade o comportamento controlado por esta bandeira e as suas implicações no funcionamento de um aglomerado. Note que este comportamento é específico do Windows.
 
-De acordo com a sua [definição:](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows#extension-schema)
+De acordo com a sua [definição:](../virtual-machines/extensions/key-vault-windows.md#extension-schema)
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
 
-Os certificados utilizados para estabelecer uma ligação TLS são normalmente [adquiridos como um cabo](https://docs.microsoft.com/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) através do Fornecedor de Suporte de Segurança do canal S – ou seja, o cliente não acede diretamente à chave privada do próprio certificado. [CERT_RENEWAL_PROP_ID](https://docs.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)Se esta propriedade estiver definida, o seu valor representa a impressão digital do certificado de "renovação", pelo que o canal S tentará, em vez disso, carregar o certificado ligado. Na verdade, vai atravessar esta lista ligada (e esperemos que aciclica) até que termine com o certificado 'final' – um sem marca de renovação. Esta funcionalidade, quando utilizada de forma criteriosa, é uma grande mitigação contra a perda de disponibilidade causada por certificados caducados (por exemplo). Noutros casos, pode ser a causa de interrupções que são difíceis de diagnosticar e mitigar. O canal S executa incondicionalmente a transversalização dos certificados sobre as suas propriedades de renovação - independentemente do assunto, emitentes ou quaisquer outros atributos específicos que participem na validação do certificado resultante pelo cliente. Com efeito, é possível que o certificado resultante não tenha uma chave privada associada, ou que a chave não tenha sido ACLed para o seu potencial consumidor. 
+Os certificados utilizados para estabelecer uma ligação TLS são normalmente [adquiridos como um cabo](/windows/win32/api/sspi/nf-sspi-acquirecredentialshandlea) através do Fornecedor de Suporte de Segurança do canal S – ou seja, o cliente não acede diretamente à chave privada do próprio certificado. [CERT_RENEWAL_PROP_ID](/windows/win32/api/wincrypt/nf-wincrypt-certsetcertificatecontextproperty#cert_renewal_prop_id)Se esta propriedade estiver definida, o seu valor representa a impressão digital do certificado de "renovação", pelo que o canal S tentará, em vez disso, carregar o certificado ligado. Na verdade, vai atravessar esta lista ligada (e esperemos que aciclica) até que termine com o certificado 'final' – um sem marca de renovação. Esta funcionalidade, quando utilizada de forma criteriosa, é uma grande mitigação contra a perda de disponibilidade causada por certificados caducados (por exemplo). Noutros casos, pode ser a causa de interrupções que são difíceis de diagnosticar e mitigar. O canal S executa incondicionalmente a transversalização dos certificados sobre as suas propriedades de renovação - independentemente do assunto, emitentes ou quaisquer outros atributos específicos que participem na validação do certificado resultante pelo cliente. Com efeito, é possível que o certificado resultante não tenha uma chave privada associada, ou que a chave não tenha sido ACLed para o seu potencial consumidor. 
  
 Se a ligação estiver ativa, a extensão KeyVault VM, ao recuperar um certificado observado do cofre, tentará encontrar certificados correspondentes e existentes para os ligar através da propriedade de extensão de renovação. A correspondência é (exclusivamente) baseada no Nome Alternativo do Sujeito (SAN), e funciona como exemplificada abaixo.
 Assuma dois certificados existentes, da seguinte forma: A: CN = "Alice's accessories", SAN = {"alice.universalexports.com"}, renovação = '' B: CN = "Bob's bits", SAN = {"bob.universalexports.com", "bob.universalexports.net"}, renovação = ''
@@ -491,4 +492,3 @@ Para pKIs internos da Microsoft, consulte a documentação interna sobre os pont
 
 [Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
-

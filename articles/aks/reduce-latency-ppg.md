@@ -5,11 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444272"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244077"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de colocação de proximidade (Pré-visualização)
 
@@ -73,7 +74,7 @@ O primeiro recurso que implementa com um grupo de colocação de proximidade lig
 
 O exemplo a seguir utiliza o [comando de criação do grupo AZ][az-group-create] para criar um grupo de recursos chamado *myResourceGroup* na região *central.* Um cluster AKS chamado *myAKSCluster* é então criado usando o comando [az aks create.][az-aks-create] 
 
-A ligação acelerada em rede melhora consideravelmente o desempenho em rede das máquinas virtuais. Idealmente, utilize grupos de colocação de proximidade em conjunto com a rede acelerada. Por padrão, a AKS utiliza redes aceleradas em [casos de máquinas virtuais suportadas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), que incluem a maioria da máquina virtual Azure com dois ou mais vCPUs.
+A ligação acelerada em rede melhora consideravelmente o desempenho em rede das máquinas virtuais. Idealmente, utilize grupos de colocação de proximidade em conjunto com a rede acelerada. Por padrão, a AKS utiliza redes aceleradas em [casos de máquinas virtuais suportadas](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), que incluem a maioria da máquina virtual Azure com dois ou mais vCPUs.
 
 Criar um novo cluster AKS com um grupo de colocação de proximidade:
 
@@ -142,7 +143,7 @@ Para eliminar o cluster, utilize o [`az group delete`][az-group-delete] comando 
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [grupos de colocação de proximidade.][proximity-placement-groups]
 
@@ -163,4 +164,3 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

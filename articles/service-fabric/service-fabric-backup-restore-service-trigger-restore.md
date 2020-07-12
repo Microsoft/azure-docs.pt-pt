@@ -5,11 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75377910"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246695"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar a cópia de segurança no Tecido de Serviço Azure
 
@@ -51,7 +52,7 @@ Um restauro pode ser desencadeado para qualquer um dos seguintes cenários:
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Recuperação de dados em caso de recuperação de desastres
 
-Se um cluster de tecido de serviço inteiro for perdido, você pode recuperar os dados para as divisórias do serviço Reliable Stateful e de Reliable Actors. A cópia de segurança desejada pode ser selecionada na lista quando utilizar o [GetBackupAPI com detalhes de armazenamento de cópias de segurança.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation) A enumeração de backup pode ser para uma aplicação, serviço ou partição.
+Se um cluster de tecido de serviço inteiro for perdido, você pode recuperar os dados para as divisórias do serviço Reliable Stateful e de Reliable Actors. A cópia de segurança desejada pode ser selecionada na lista quando utilizar o [GetBackupAPI com detalhes de armazenamento de cópias de segurança.](/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation) A enumeração de backup pode ser para uma aplicação, serviço ou partição.
 
 Para o exemplo seguinte, assuma que o cluster perdido é o mesmo cluster que é referido em [Habilitar backup periódico para serviços fiáveis stateful e atores fiáveis](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Neste caso, `SampleApp` é implementado com a política de backup ativada, e as cópias de segurança são configuradas para o Azure Storage.
 
@@ -165,7 +166,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 #### <a name="rest-call-using-powershell"></a>Chamada de descanso usando Powershell
 
-Solicita a restauração contra a partição do cluster de backup utilizando a seguinte [API de Restauro:](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
+Solicita a restauração contra a partição do cluster de backup utilizando a seguinte [API de Restauro:](/rest/api/servicefabric/sfclient-api-restorepartition)
 
 ```powershell
 
@@ -305,7 +306,7 @@ O pedido de restauro progride na seguinte ordem:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Tempo limite**: Um estado de restauro _do timeout_ indica que o pedido tem tempo limite. Crie um novo pedido de restauro com maior [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). O tempo limite de tempo é de 10 minutos. Certifique-se de que a partição não está num estado de perda de dados antes de pedir restauro novamente.
+    - **Tempo limite**: Um estado de restauro _do timeout_ indica que o pedido tem tempo limite. Crie um novo pedido de restauro com maior [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). O tempo limite de tempo é de 10 minutos. Certifique-se de que a partição não está num estado de perda de dados antes de pedir restauro novamente.
      
         ```
         RestoreState  : Timeout
@@ -316,15 +317,15 @@ O pedido de restauro progride na seguinte ordem:
 
 ## <a name="automatic-restore"></a>Restauro automático
 
-Pode configurar o serviço Reliable Stateful e as divisórias Reliable Actors no cluster de tecido de serviço para _restauro automático._ Na política de backup definida `AutoRestore` como _verdadeira_. Permitir a _restauração automática_ restaura automaticamente os dados da cópia de segurança mais recente da partição quando a perda de dados é reportada. Para obter mais informações, consulte:
+Pode configurar o serviço Reliable Stateful e as divisórias Reliable Actors no cluster de tecido de serviço para _restauro automático._ Na política de backup definida `AutoRestore` como _verdadeira_. Permitir a _restauração automática_ restaura automaticamente os dados da cópia de segurança mais recente da partição quando a perda de dados é reportada. Para obter mais informações, veja:
 
 - [Ativação de restauro automático na política de backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [Referência da API do RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [Referência API GetPartitionRestoreProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [Referência da API do RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)
+- [Referência API GetPartitionRestoreProgress](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Compreender a configuração da cópia de segurança periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Backup restaurar referência API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Backup restaurar referência API REST](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
 [3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

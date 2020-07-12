@@ -8,14 +8,17 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: d017472715e8fe924a11080fc837ac837f5bd48f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 598a8383350cae98d61b8ab74f7687161d3d33e8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982157"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245299"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidade AML num oleoduto de enriquecimento de pesquisa cognitiva Azure
+
+> [!IMPORTANT] 
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente não existe suporte .NET SDK.
 
 A habilidade **AML** permite-lhe estender o enriquecimento de IA com um modelo personalizado [de Aprendizagem automática Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AML). Uma vez treinado [e implantado](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workflow)um modelo AML, uma habilidade **AML** integra-o no enriquecimento de IA.
 
@@ -165,7 +168,7 @@ Além de o seu AML estar indisponível ou enviar códigos de estado não bem suc
 
 Para casos em que o serviço AML não esteja disponível ou devolva um erro HTTP, será adicionado um erro amigável com quaisquer detalhes disponíveis sobre o erro HTTP ao histórico de execução do indexante.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Resolução de problemas do serviço AML](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment)

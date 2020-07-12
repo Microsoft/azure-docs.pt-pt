@@ -4,11 +4,12 @@ description: Saiba mais sobre networking no Serviço Azure Kubernetes (AKS), inc
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ae1c2b95a948f2344119af234539b6fab4edaaac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0e2c193e626b2d82fc57ef0699a2558ec3a9629
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84789502"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244655"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -17,7 +18,7 @@ Numa abordagem de microserviços à base de contentores para o desenvolvimento d
 Este artigo introduz os conceitos fundamentais que fornecem networking às suas aplicações em AKS:
 
 - [Serviços](#services)
-- [Redes virtuais Azure](#azure-virtual-networks)
+- [Redes virtuais do Azure](#azure-virtual-networks)
 - [Controladores ingress](#ingress-controllers)
 - [Políticas de rede](#network-policies)
 
@@ -93,7 +94,7 @@ Tanto o Kubenet como o Azure CNI fornecem conectividade de rede para os seus clu
 
 Existem as seguintes diferenças de comportamento entre kubenet e Azure CNI:
 
-| Funcionalidade                                                                                   | Kubenet   | Azure CNI |
+| Capacidade                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Implementar cluster na rede virtual existente ou nova                                            | Suportado - UDRs aplicados manualmente | Suportado |
 | Conectividade pod-pod                                                                         | Suportado | Suportado |
@@ -146,7 +147,7 @@ A política de rede é uma funcionalidade kubernetes disponível em AKS que perm
 
 Para obter mais informações, consulte [o tráfego seguro entre cápsulas utilizando as políticas de rede no Serviço Azure Kubernetes (AKS)][use-network-policies].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a rede AKS, crie e configuure um cluster AKS com as suas próprias gamas de endereços IP utilizando [kubenet][aks-configure-kubenet-networking] ou [Azure CNI][aks-configure-advanced-networking].
 
@@ -173,7 +174,7 @@ Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, co
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress.md
+[aks-ingress-tls]: ./ingress-tls.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

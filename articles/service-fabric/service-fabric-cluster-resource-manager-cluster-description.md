@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259478"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246559"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descreva um cluster de tecido de serviço utilizando o Cluster Resource Manager
 A funcionalidade Cluster Resource Manager da Azure Service Fabric fornece vários mecanismos para descrever um cluster:
@@ -35,7 +36,7 @@ No ambiente Azure, o Service Fabric utiliza as informações de domínio de avar
 > [!WARNING]
 > É importante que as informações de domínio de avaria fornecidas ao Service Fabric sejam precisas. Por exemplo, digamos que os nós do seu cluster de tecido de serviço estão a funcionar dentro de 10 máquinas virtuais, funcionando em 5 anfitriões físicos. Neste caso, apesar de existirem 10 máquinas virtuais, existem apenas 5 domínios de avarias diferentes (de nível superior). A partilha do mesmo hospedeiro físico faz com que os VM partilhem o mesmo domínio de falha de raiz, porque os VM sofrem uma falha coordenada se o seu hospedeiro físico falhar.  
 >
-> O Service Fabric espera que o domínio da falha de um nó não se altere. Outros mecanismos para garantir uma elevada disponibilidade dos VMs, como os [HA-VMs,](https://technet.microsoft.com/library/cc967323.aspx)podem causar conflitos com o Tecido de Serviço. Estes mecanismos utilizam a migração transparente de VMs de um hospedeiro para outro. Não reconfiguram ou notificam o código de funcionamento dentro do VM. Como tal, não são *suportados* como ambientes para gerir clusters de tecidos de serviço. 
+> O Service Fabric espera que o domínio da falha de um nó não se altere. Outros mecanismos para garantir uma elevada disponibilidade dos VMs, como os [HA-VMs,](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10))podem causar conflitos com o Tecido de Serviço. Estes mecanismos utilizam a migração transparente de VMs de um hospedeiro para outro. Não reconfiguram ou notificam o código de funcionamento dentro do VM. Como tal, não são *suportados* como ambientes para gerir clusters de tecidos de serviço. 
 >
 > O Tecido de Serviço deve ser a única tecnologia de alta disponibilidade utilizada. Não são necessários mecanismos como a migração de VM e as SANs vivas. Se estes mecanismos forem utilizados em conjunto com o Service Fabric, _reduzem_ a disponibilidade e a fiabilidade da aplicação. A razão é que introduzem complexidade adicional, adicionam fontes centralizadas de insucesso, e utilizam estratégias de fiabilidade e disponibilidade que entram em conflito com as do Tecido de Serviço. 
 >
@@ -614,7 +615,7 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para obter informações sobre a arquitetura e o fluxo de informação dentro do Cluster Resource Manager, consulte a [visão geral do Cluster Resource Manager](service-fabric-cluster-resource-manager-architecture.md).
 * Definir métricas de desfragmentação é uma forma de consolidar a carga nos nós em vez de espalhá-la. Para aprender a configurar a desfragmentação, consulte [a desfragmentação das métricas e a carga em Tecido de Serviço.](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Comece do início e [obtenha uma introdução ao Service Fabric Cluster Resource Manager.](service-fabric-cluster-resource-manager-introduction.md)

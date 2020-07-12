@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 467d9cee74567fc0d19031773415675ae7c51818
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc36211eeb58f18546e4eae24ad003c6b2ae761b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71066758"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243176"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de pedidos avançada com a Gestão de API do Azure
 Ser capaz de acelerar os pedidos de entrada é um papel fundamental da Azure API Management. Quer controlando a taxa de pedidos ou o total de pedidos/dados transferidos, a API Management permite que os fornecedores de API protejam as suas APIs de abusos e criem valor para diferentes níveis de produtos API.
@@ -32,7 +32,7 @@ Até à data, as capacidades de aceleração da taxa limitaram-se a ser definida
 > [!NOTE]
 > As `rate-limit-by-key` políticas e as políticas não `quota-by-key` estão disponíveis quando estão no nível de Consumo da Azure API Management. 
 
-As novas políticas [de limite de taxas por chave](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) e [quotas-a-chave](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) proporcionam uma solução mais flexível para o controlo do tráfego. Estas novas políticas permitem definir expressões para identificar as chaves que são usadas para rastrear o uso do tráfego. A forma como isto funciona é mais fácil ilustrada com um exemplo. 
+As novas políticas [de limite de taxas por chave](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [quotas-a-chave](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) proporcionam uma solução mais flexível para o controlo do tráfego. Estas novas políticas permitem definir expressões para identificar as chaves que são usadas para rastrear o uso do tráfego. A forma como isto funciona é mais fácil ilustrada com um exemplo. 
 
 ## <a name="ip-address-throttling"></a>Estrangulamento do endereço IP
 As seguintes políticas restringem um único endereço IP do cliente a apenas 10 chamadas por minuto, com um total de 1.000.000 chamadas e 10.000 quilobytes de largura de banda por mês. 
@@ -62,10 +62,10 @@ Se um utilizador final for autenticado, então uma chave de estrangulamento pode
 Este exemplo mostra como extrair o cabeçalho de autorização, convertê-lo em `JWT` objeto e usar o objeto do token para identificar o utilizador e usá-lo como a chave limite de taxa. Se a identidade do utilizador for armazenada como `JWT` uma das outras reclamações, esse valor poderá ser utilizado no seu lugar.
 
 ## <a name="combined-policies"></a>Políticas combinadas
-Embora as novas políticas de estrangulamento proporcionem mais controlo do que as políticas de estrangulamento existentes, ainda há valor combinando ambas as capacidades. O estrangulamento por chave de subscrição de produto[(Taxa de chamada limite por subscrição](/azure/api-management/api-management-access-restriction-policies#LimitCallRate) e [quota de utilização definida por subscrição](/azure/api-management/api-management-access-restriction-policies#SetUsageQuota)) é uma ótima maneira de permitir a rentabilização de uma API cobrando com base nos níveis de utilização. O controlo mais fino de ser capaz de acelerar pelo utilizador é complementar e impede que o comportamento de um utilizador degrade a experiência de outro. 
+Embora as novas políticas de estrangulamento proporcionem mais controlo do que as políticas de estrangulamento existentes, ainda há valor combinando ambas as capacidades. O estrangulamento por chave de subscrição de produto[(Taxa de chamada limite por subscrição](./api-management-access-restriction-policies.md#LimitCallRate) e [quota de utilização definida por subscrição](./api-management-access-restriction-policies.md#SetUsageQuota)) é uma ótima maneira de permitir a rentabilização de uma API cobrando com base nos níveis de utilização. O controlo mais fino de ser capaz de acelerar pelo utilizador é complementar e impede que o comportamento de um utilizador degrade a experiência de outro. 
 
 ## <a name="client-driven-throttling"></a>Estrangulamento conduzido pelo cliente
-Quando a chave de estrangulamento é definida usando uma [expressão de política](/azure/api-management/api-management-policy-expressions), então é o provedor da API que está escolhendo como o estrangulamento é definido. No entanto, um desenvolvedor pode querer controlar a forma como classificam limitar os seus próprios clientes. Isto poderia ser ativado pelo provedor da API introduzindo um cabeçalho personalizado para permitir que a aplicação do cliente do desenvolvedor comunicasse a chave à API.
+Quando a chave de estrangulamento é definida usando uma [expressão de política](./api-management-policy-expressions.md), então é o provedor da API que está escolhendo como o estrangulamento é definido. No entanto, um desenvolvedor pode querer controlar a forma como classificam limitar os seus próprios clientes. Isto poderia ser ativado pelo provedor da API introduzindo um cabeçalho personalizado para permitir que a aplicação do cliente do desenvolvedor comunicasse a chave à API.
 
 ```xml
 <rate-limit-by-key calls="100"
@@ -80,4 +80,3 @@ A Azure API Management fornece taxa e cotação para proteger e acrescentar valo
 
 ## <a name="next-steps"></a>Passos seguintes
 Por favor, dê-nos o seu feedback como uma questão do GitHub para este tópico. Seria ótimo ouvir sobre outros potenciais valores-chave que têm sido uma escolha lógica nos seus cenários.
-

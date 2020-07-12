@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: adb11f29460bd6dee7171fa97a6ebfc958cfad12
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169919"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242768"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -17,6 +17,9 @@ As configurações da aplicação numa aplicação de função contêm opções 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Existem outras opções de configuração global no [host.jsno](functions-host-json.md) ficheiro e no [local.settings.jsno](functions-run-local.md#local-settings-file) ficheiro.
+
+> [!NOTE]  
+> Pode utilizar as definições de aplicação para substituir host.jsna definição de valores sem ter de alterar a host.jsno próprio ficheiro. Isto é útil para cenários em que você precisa configurar ou modificar host.jsespecíficos em configurações para um ambiente específico. Isto também permite alterar host.jsnas definições sem ter de reeditar o seu projeto. Para saber mais, consulte a [host.jsno artigo de referência.](functions-host-json.md#override-hostjson-values)  
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 0bc4792b44ccff23a141460c3521d684801c4567
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674266"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243550"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Erro ao processar as políticas de Gestão de API
 
@@ -50,7 +51,7 @@ Durante o processamento de um pedido, são executadas etapas incorporadas juntam
 A `on-error` secção de política pode ser utilizada em qualquer âmbito. Os editores da API podem configurar comportamentos personalizados, tais como registar o erro nos centros de eventos ou criar uma nova resposta para o retorno ao chamador.
 
 > [!NOTE]
-> A `on-error` secção não está presente nas políticas por defeito. Para adicionar a `on-error` secção a uma política, consulte a política desejada no editor de política e adicione-a. Para obter mais informações sobre políticas de configuração, consulte [Políticas em Gestão de API.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/)
+> A `on-error` secção não está presente nas políticas por defeito. Para adicionar a `on-error` secção a uma política, consulte a política desejada no editor de política e adicione-a. Para obter mais informações sobre políticas de configuração, consulte [Políticas em Gestão de API.](./api-management-howto-policies.md)
 >
 > Se não houver `on-error` secção, os chamadores receberão 400 ou 500 mensagens de resposta HTTP se ocorrer uma condição de erro.
 
@@ -79,11 +80,11 @@ As seguintes políticas podem ser utilizadas na `on-error` secção política.
 
 Quando ocorre um erro e o controlo salta para a `on-error` secção de política, o erro é armazenado em [contexto. Propriedade LastError,](api-management-policy-expressions.md#ContextVariables) que pode ser acedida por políticas na `on-error` secção. A LastError tem as seguintes propriedades.
 
-| Name       | Tipo   | Descrição                                                                                               | Necessário |
+| Nome       | Tipo   | Descrição                                                                                               | Necessário |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | Nomeia o elemento onde ocorreu o erro. Pode ser política ou um nome de passo de gasoduto embutido.      | Sim      |
+| `Source`   | string | Nomeia o elemento onde ocorreu o erro. Pode ser política ou um nome de passo de gasoduto embutido.      | Yes      |
 | `Reason`   | string | Código de erro amigável à máquina, que pode ser utilizado no manuseamento de erros.                                       | Não       |
-| `Message`  | string | Descrição de erros legíveis pelo homem.                                                                         | Sim      |
+| `Message`  | string | Descrição de erros legíveis pelo homem.                                                                         | Yes      |
 | `Scope`    | string | Nome do âmbito onde ocorreu o erro e pode ser de "global", "produto", "api" ou "operação" | Não       |
 | `Section`  | string | Nome da secção onde ocorreu erro. Valores possíveis: "entrada", "backend", "outbound" ou "on-error".      | Não       |
 | `Path`     | string | Especifica a política aninhada, por exemplo "escolher[3]/quando[2]".                                                 | Não       |
@@ -182,11 +183,11 @@ e o envio de um pedido não autorizado resultará na seguinte resposta:
 
 ![Resposta de erro não autorizada](media/api-management-error-handling-policies/error-response.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as políticas, consulte:
 
 -   [Políticas em Gestão de API](api-management-howto-policies.md)
 -   [Transformar APIs](transform-api.md)
--   [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
+-   [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
 -   [Amostras de política](policy-samples.md)

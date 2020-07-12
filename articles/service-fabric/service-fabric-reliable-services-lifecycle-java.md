@@ -5,11 +5,12 @@ author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86f68126825f146a50ed21edf2acbda2b5181cf
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639603"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245182"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida dos Reliable Services
 > [!div class="op_single_selector"]
@@ -114,7 +115,7 @@ Os serviços que não lidam com o cancelamento de forma limpa podem experimentar
 
 Como os serviços são imponentes, também é provável que os serviços utilizem [Coleções Fiáveis.](service-fabric-reliable-services-reliable-collections.md) No Tecido de Serviço, quando uma primária é despromovada, uma das primeiras coisas que acontece é que escrever acesso ao estado subjacente é revogado. Isto leva a um segundo conjunto de problemas que podem afetar o ciclo de vida do serviço. As coleções devolvem exceções com base no tempo e se a réplica está a ser movida ou desligada. É importante lidar com estas exceções corretamente. 
 
-As exceções lançadas pela Service Fabric são permanentes [ `FabricException` ()](https://docs.microsoft.com/java/api/system.fabric.exception) ou [transitórias ( `FabricTransientException` )](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). As exceções permanentes devem ser registadas e lançadas. As exceções transitórias podem ser novamente julgadas com base na lógica de retíria.
+As exceções lançadas pela Service Fabric são permanentes [ `FabricException` ()](/java/api/system.fabric.exception) ou [transitórias ( `FabricTransientException` )](/java/api/system.fabric.exception.fabrictransientexception). As exceções permanentes devem ser registadas e lançadas. As exceções transitórias podem ser novamente julgadas com base na lógica de retíria.
 
 Uma parte importante do teste e validação de Serviços Fiáveis é lidar com as exceções que vêm da utilização em conjunto com eventos de ciclo de vida de `ReliableCollections` serviço. Recomendamos que utilize sempre o seu serviço com carga. Também deve realizar upgrades e [testes de caos](service-fabric-controlled-chaos.md) antes de ser implantado na produção. Estes passos básicos ajudam a garantir que o seu serviço é implementado corretamente e que lida corretamente com os eventos do ciclo de vida.
 
@@ -126,7 +127,6 @@ Uma parte importante do teste e validação de Serviços Fiáveis é lidar com a
 * Falhas no `onCloseAsync()` caminho resultam em `onAbort()` ser chamado. Esta chamada é uma última oportunidade, a melhor oportunidade de esforço para o serviço limpar e libertar todos os recursos que eles reivindicaram. Isto é geralmente chamado quando uma falha permanente é detetada no nó, ou quando o Tecido de Serviço não consegue gerir de forma fiável o ciclo de vida da instância de serviço devido a falhas internas.
 * `OnChangeRoleAsync()`é chamada quando a réplica de serviço imponente está mudando de papel, por exemplo para primária ou secundária. Réplicas primárias recebem o estado de escrita (são permitidas a criar e escrever para Coleções Fiáveis). As réplicas secundárias recebem o estado de leitura (só podem ler-se das coleções fiáveis existentes). A maioria dos trabalhos num serviço estatal é realizada na réplica primária. Réplicas secundárias podem realizar validação apenas de leitura, geração de relatórios, mineração de dados ou outros trabalhos apenas de leitura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução a Serviços Fiáveis](service-fabric-reliable-services-introduction.md)
 * [Arranque rápido de serviços fiáveis](service-fabric-reliable-services-quick-start-java.md)
-

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6512edd26b59dac11f046e82940db4877728943c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690324"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86243597"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
@@ -52,12 +53,12 @@ Utilize a `cross-domain` política para tornar a API acessível a clientes basea
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Necessário|
+|Nome|Descrição|Necessário|
 |----------|-----------------|--------------|
-|domínio transversal|Elemento de raiz. Os elementos infantis devem estar em conformidade com a [especificação de ficheiro de política de domínio cruzado da Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
+|domínio transversal|Elemento de raiz. Os elementos infantis devem estar em conformidade com a [especificação de ficheiro de política de domínio cruzado da Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Yes|
 
 ### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 - **Secções políticas:** entrada
 - **Âmbitos de política:** todos os âmbitos
@@ -121,11 +122,11 @@ Este exemplo demonstra como apoiar pedidos de pré-voo, tais como aqueles com ca
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|cors|Elemento de raiz.|Sim|N/D|
-|de origem permitida|Contém `origin` elementos que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins`pode conter um único `origin` elemento que especifica para permitir qualquer `*` origem, ou um ou mais `origin` elementos que contenham um URI.|Sim|N/D|
-|origem|O valor pode ser `*` para permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Sim|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
+|cors|Elemento de raiz.|Yes|N/D|
+|de origem permitida|Contém `origin` elementos que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins`pode conter um único `origin` elemento que especifica para permitir qualquer `*` origem, ou um ou mais `origin` elementos que contenham um URI.|Yes|N/D|
+|origem|O valor pode ser `*` para permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Yes|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
 |métodos permitidos|Este elemento é necessário se forem permitidos métodos diferentes do GET ou DOM. Contém `method` elementos que especificam os verbos HTTP suportados. O valor `*` indica todos os métodos.|Não|Se esta secção não estiver presente, GET e POST são suportados.|
 |método|Especifica um verbo HTTP.|É necessário pelo menos um `method` elemento se a secção estiver `allowed-methods` presente.|N/D|
 |cabeçalhos permitidos|Este elemento contém `header` elementos que especificam nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/D|
@@ -134,13 +135,13 @@ Este exemplo demonstra como apoiar pedidos de pré-voo, tais como aqueles com ca
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |permitir credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do cliente de apresentar credenciais em pedidos de domínio cruzado.|Não|false|
 |pré-voo-resultado-má-idade|O `Access-Control-Max-Age` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do agente utilizador de cache resposta antes do voo.|Não|0|
 
 ### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 - **Secções políticas:** entrada
 - **Âmbitos de política:** todos os âmbitos
@@ -166,27 +167,27 @@ Se adicionar o parâmetro de `?cb=XXX` retorno, retornará um resultado JSONP, e
 
 ### <a name="elements"></a>Elementos
 
-|Name|Descrição|Necessário|
+|Nome|Descrição|Necessário|
 |----------|-----------------|--------------|
-|jsonp|Elemento de raiz.|Sim|
+|jsonp|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Necessário|Predefinição|
+|Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|callback-parâmetro-nome|A chamada de função JavaScript de domínio cruzado pré-fixado com o nome de domínio totalmente qualificado onde reside a função.|Sim|N/D|
+|callback-parâmetro-nome|A chamada de função JavaScript de domínio cruzado pré-fixado com o nome de domínio totalmente qualificado onde reside a função.|Yes|N/D|
 
 ### <a name="usage"></a>Utilização
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 - **Secções políticas:** saída
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as políticas, consulte:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
-+ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
++ [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
 + [Amostras de política](policy-samples.md)

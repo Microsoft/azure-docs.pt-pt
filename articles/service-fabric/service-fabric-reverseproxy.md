@@ -5,11 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 326075b947ea61384681fb2353c27d3e1450156d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d9ebf77862f7b9b019507613e269126501abfd8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735341"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86244927"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Procuração inversa no tecido de serviço Azure
 O proxy invertido incorporado no Azure Service Fabric ajuda os microserviços a funcionar num cluster de Tecidos de Serviço a descobrir e comunicar com outros serviços que tenham pontos finais http.
@@ -116,7 +117,7 @@ O Service Fabric reverte as tentativas de proxy para resolver novamente um ender
 
 No entanto, réplicas ou instâncias de serviço podem partilhar um processo de anfitrião e também podem partilhar uma porta quando hospedado por um servidor web baseado em http.sys, incluindo:
 
-* [System.net.httpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
+* [System.net.httpListener](/dotnet/api/system.net.httplistener?view=netcore-3.1)
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Rio Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
@@ -148,13 +149,13 @@ Para o aglomerado local, `Fabric_NodeIPOrFQDN` está definido para "localhost" p
 
 Os serviços de tecido de serviço que funcionam dentro de recipientes Docker Compose requerem uma secção especial de estiva-compose.yml *Ports* http: ou https: configuração. Para mais informações, consulte [o suporte de implementação do Docker Compose no Azure Service Fabric](service-fabric-docker-compose.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Configurar e configurar](service-fabric-reverseproxy-setup.md)o proxy inverso num cluster .
 * [Configurar o encaminhamento para garantir o serviço HTTP com o proxy invertido](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnosticar eventos de proxy inverso](service-fabric-reverse-proxy-diagnostics.md)
 * Veja um exemplo de comunicação HTTP entre serviços num [projeto de amostra no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Chamadas de procedimento remoto com serviços fiáveis de remoing](service-fabric-reliable-services-communication-remoting.md)
-* [API web que usa OWIN em Serviços Fiáveis](service-fabric-reliable-services-communication-webapi.md)
+* [API web que usa OWIN em Serviços Fiáveis](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Comunicação WCF utilizando serviços fiáveis](service-fabric-reliable-services-communication-wcf.md)
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png

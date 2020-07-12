@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 1516c9005a7c4dd0adcb279e9954e5f882c575c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e462cc5fa82b8692304f58ef6cf0ea0e2db8725
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645604"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245981"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Enumerar Tecidos de Serviço Reliable Atores
 O serviço Reliable Actors permite que um cliente eumente metadados sobre os atores que o serviço está hospedado. Como o serviço de ator é um serviço estatal dividido, a enumeração é realizada por partição. Como cada partição pode conter muitos atores, a enumeração é devolvida como um conjunto de resultados paged. As páginas são enroladas até que todas as páginas sejam lidas. O exemplo a seguir mostra como criar uma lista de todos os atores ativos numa partição de um serviço de ator:
@@ -57,10 +58,10 @@ while (continuationToken != null);
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Gestão do estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleção de lixo](service-fabric-reliable-actors-lifecycle.md)
-* [Documentação de referência da API dos atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Documentação de referência da API dos atores](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de amostra de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

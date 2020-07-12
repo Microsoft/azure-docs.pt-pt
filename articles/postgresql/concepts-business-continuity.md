@@ -6,11 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981918"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245311"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade do negócio com base de dados Azure para PostgreSQL - Servidor Único
 
@@ -52,7 +53,12 @@ A função de geo-restauro restaura o servidor utilizando cópias de segurança 
 ## <a name="cross-region-read-replicas"></a>Réplicas de leitura transversal
 Você pode usar réplicas de leitura de região cruzada para melhorar o seu plano de continuidade e recuperação de desastres. As réplicas de leitura são atualizadas assíncronea usando a tecnologia de replicação física da PostgreSQL. Saiba mais sobre réplicas lidas, regiões disponíveis e como falhar a partir do artigo de [conceitos de réplicas lidos.](concepts-read-replicas.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="faq"></a>FAQ
+### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Onde é que a Azure Database para os dados dos clientes da pós-SQL armazena?
+Por padrão, a Base de Dados Azure para PostgreSQL não move ou armazena os dados dos clientes para fora da região em que está implantado. No entanto, os clientes podem optar opcionalmente por permitir [cópias de segurança geo-redundantes](concepts-backup.md#backup-redundancy-options) ou criar [réplicas de leitura cruzada](concepts-read-replicas.md#cross-region-replication) para armazenar dados noutra região.
+
+
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre as [cópias de segurança automatizadas na Base de Dados Azure para PostgreSQL](concepts-backup.md). 
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).
 - Saiba mais sobre [réplicas de leitura na Base de Dados Azure para PostgreSQL](concepts-read-replicas.md).

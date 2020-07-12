@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: ac604ec0a854964746ef34627b054e853662265f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbfdba30663e2aa531ab1db955b0e035a0588709
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905948"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245726"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Obtenha detalhes de réplica e liste réplicas de um determinado serviço num recurso de aplicação.
@@ -18,7 +19,7 @@ Obtenha detalhes de réplica e liste réplicas de um determinado serviço num re
 
 |Comando|Descrição|
 | --- | --- |
-| list | Lista todas as réplicas de um serviço. |
+| lista | Lista todas as réplicas de um serviço. |
 | Mostrar | Obtém a réplica dada do serviço de uma aplicação. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl rede serviço-replica lista
@@ -67,6 +68,6 @@ Obtém a informação sobre a réplica de serviço com o nome próprio. As infor
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

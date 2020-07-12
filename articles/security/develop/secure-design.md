@@ -13,22 +13,23 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857168"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246814"
 ---
 # <a name="design-secure-applications-on-azure"></a>Design aplicações seguras em Azure
 Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenha aplicações para a nuvem. São abrangidos os recursos de formação, juntamente com questões de segurança e conceitos a ter em conta durante as fases de requisitos e de conceção do Ciclo de Vida para o Desenvolvimento de Segurança da Microsoft [(SDL).](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenhar uma aplicação mais segura.
 
 Neste artigo, são abrangidas as seguintes fases SDL:
 
-- Formação
-- Requirements
-- Design
+- Training (Em preparação)
+- Requisitos
+- Conceção
 
-## <a name="training"></a>Formação
+## <a name="training"></a>Training (Em preparação)
 Antes de começar a desenvolver a sua aplicação em nuvem, tenha tempo para entender a segurança e privacidade no Azure. Ao dar este passo, pode reduzir o número e a gravidade das vulnerabilidades exploráveis na sua aplicação. Estará mais preparado para reagir adequadamente à paisagem de ameaças em constante mudança.
 
 Utilize os seguintes recursos durante a fase de formação para se familiarizar com os serviços Azure que estão disponíveis para os desenvolvedores e com as melhores práticas de segurança em Azure:
@@ -48,7 +49,7 @@ Utilize os seguintes recursos durante a fase de formação para se familiarizar 
 
   - [As melhores práticas de segurança para soluções Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) fornecem uma coleção de boas práticas de segurança para usar à medida que projeta, implementa e gere as suas soluções em nuvem utilizando o Azure.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 A fase de definição de requisitos é um passo crucial na definição do que é a sua aplicação e do que fará quando for lançada. A fase de requisitos é também um momento para pensar nos controlos de segurança que irás construir na tua aplicação. Durante esta fase, também inicia os passos que irá tomar ao longo do SDL para garantir que liberta e implementa uma aplicação segura.
 
 ### <a name="consider-security-and-privacy-issues"></a>Considere questões de segurança e privacidade
@@ -96,7 +97,7 @@ No entanto, também pretende assumir que irá ocorrer [uma violação.](https://
 
   - Como vou recuperar do ataque como fugas de dados ou adulteração?
 
-## <a name="design"></a>Design
+## <a name="design"></a>Conceção
 
 A fase de conceção é fundamental para o estabelecimento de boas práticas para design e especificações funcionais. Também é fundamental para a realização de análises de risco que ajudam a mitigar questões de segurança e privacidade ao longo de um projeto.
 
@@ -154,10 +155,10 @@ Modelar o design da aplicação e enumerar ameaças [de STRIDE](https://docs.goo
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Spoofing               | Autenticação        | [Requerem ligações HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Adulteração              | Integridade             | Validar certificados SSL/TLS. As aplicações que utilizam o SSL/TLS devem verificar plenamente os certificados X.509 das entidades a que se ligam. Utilize certificados Azure Key Vault para [gerir os seus certificados x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Repúdio            | Não-repúdio       | Ativar [a monitorização e diagnósticos do](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)Azure .|
-| Divulgação de informação | Confidencialidade       | Criptografe dados sensíveis [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito.](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) |
+| Rejeição            | Não rejeição       | Ativar [a monitorização e diagnósticos do](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)Azure .|
+| Divulgação de Informações | Confidencialidade       | Criptografe dados sensíveis [em repouso](../fundamentals/encryption-atrest.md) e [em trânsito.](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) |
 | Negação de Serviço      | Disponibilidade          | Monitorize as métricas de desempenho para potenciais condições de negação de serviço. Implementar filtros de ligação. [A proteção Azure DDoS,](../../virtual-network/ddos-protection-overview.md#next-steps)combinada com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|
-| Elevação do Privilégio | Autorização         | Utilizar a Azure <span class="underline"> </span> Ative Directory [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Elevação de Privilégios | Autorização         | Utilizar a Azure <span class="underline"> </span> Ative Directory [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Reduza a sua superfície de ataque
 
@@ -208,7 +209,7 @@ Utilize a autenticação de dois fatores. A autenticação de dois fatores é a 
 
 Utilize mecanismos de autenticação e autorização fornecidos pela plataforma em vez de código personalizado. Isto porque o desenvolvimento de código de autenticação personalizado pode ser propenso a erros. O código comercial (por exemplo, da Microsoft) é frequentemente revisto por segurança. [O Azure Ative Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) é a solução Azure para a gestão de identidade e acesso. Estas ferramentas e serviços AD AZure ajudam no desenvolvimento seguro:
 
-- [A plataforma de identidade AD AD (Azure AD para desenvolvedores)](../../active-directory/develop/about-microsoft-identity-platform.md) é um serviço de identidade em nuvem que os desenvolvedores usam para construir aplicações que assinam de forma segura nos utilizadores. A Azure AD ajuda os desenvolvedores que estão construindo aplicações de inquilino único, linha de negócios (LOB) e desenvolvedores que estão procurando desenvolver aplicações multi-inquilinos. Além do sign-in básico, as aplicações que são construídas utilizando o Azure AD podem ligar para APIs da Microsoft e APIs personalizados que são construídos na plataforma AD Azure. A plataforma de identidade Azure AD suporta protocolos padrão da indústria como OAuth 2.0 e OpenID Connect.
+- [A plataforma de identidade da Microsoft](/azure/active-directory/develop/) é um conjunto de componentes que os desenvolvedores usam para construir aplicações que assinam de forma segura nos utilizadores. A plataforma ajuda os desenvolvedores que estão a construir aplicações de inquilinos individuais, linha de negócios (LOB) e desenvolvedores que procuram desenvolver aplicações multi-arrendatários. Além do teste básico de sismo, as aplicações construídas através da plataforma de identidade da Microsoft podem ligar para apis da Microsoft e APIs personalizados. A plataforma de identidade da Microsoft suporta protocolos padrão da indústria como OAuth 2.0 e OpenID Connect.
 
 - [O Azure Ative Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) é um serviço de gestão de identidade que pode utilizar para personalizar e controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis quando utilizam as suas aplicações. Isto inclui aplicações que são desenvolvidas para iOS, Android e .NET, entre outras. O Azure AD B2C permite estas ações ao mesmo tempo que protege as identidades dos clientes.
 
@@ -315,7 +316,7 @@ Verifique se não regista quaisquer dados sensíveis que um utilizador submeta a
 
 Certifique-se de que a aplicação monitoriza eventos de gestão de utilizadores, tais como logins de utilizador bem sucedidos e falhados, resets de palavra-passe, alterações de passwords, bloqueio de conta e registo do utilizador. Registar estes eventos ajuda a detetar e a reagir a comportamentos potencialmente suspeitos. Também permite recolher dados de operações, como quem está a aceder à aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Nos seguintes artigos, recomendamos controlos de segurança e atividades que possam ajudá-lo a desenvolver e implementar aplicações seguras.
 
 - [Desenvolver aplicações seguras](secure-develop.md)

@@ -3,11 +3,12 @@ title: Tecido de serviço Azure - Utilização da aplicação de tecido de servi
 description: Este artigo explica como usar o suporte de teclado keyVaultReference de tecido de serviço para segredos de aplicação.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76545488"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246168"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte keyVaultReference para aplicações de Tecido de Serviço (pré-visualização)
 
@@ -155,6 +156,6 @@ KeyVaultReference é um tipo suportado para repositórios de contentores, abaixo
 
 - O keyvault precisa de estar na mesma subscrição que o seu cluster de tecido de serviço. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Documentação Azure KeyVault](https://docs.microsoft.com/azure/key-vault/)
+* [Documentação Azure KeyVault](../key-vault/index.yml)

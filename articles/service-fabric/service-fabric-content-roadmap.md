@@ -3,12 +3,12 @@ title: Saiba mais sobre o Azure Service Fabric
 description: Conheça os conceitos centrais e as principais áreas do Azure Service Fabric. Fornece uma visão geral alargada do Tecido de Serviço e como criar microserviços.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d578d6b3e0232d0733097d68bac22af566b2083
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791855"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246265"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Quer aprender sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  O Tecido de Serviço tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse de Tecido de Serviço e descreve os conceitos fundamentais, modelos de programação, ciclo de vida da aplicação, testes, clusters e monitorização de saúde. Leia a [Visão Geral](service-fabric-overview.md) e [O que são microserviços?](service-fabric-overview-microservices.md) Este artigo não contém uma lista completa de conteúdos, mas liga-se a uma visão geral e a receber artigos para todas as áreas do Service Fabric. 
@@ -75,7 +75,7 @@ Por predefinição, o Service Fabric implementa e ativa os serviços como proces
 ### <a name="reliable-actors"></a>Reliable Actors
 Construído em cima de Serviços Confiáveis, o quadro [de Ator Fiável](service-fabric-reliable-actors-introduction.md) é uma estrutura de aplicação que implementa o padrão de Ator Virtual, baseado no padrão de design do ator. O quadro de Ator Fiável usa unidades independentes de computação e estado com execução de linha única chamadas atores. O quadro de Ator Fiável fornece uma comunicação construída para os atores e configurações de persistência e escala pré-definidas.
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>Núcleo de ASP.NET
 O Service Fabric integra-se com [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) como um modelo de programação de primeira classe para a construção de aplicações web e API.  ASP.NET Core pode ser usado de duas maneiras diferentes no Tecido de Serviço:
 
 - Hospedado como um hóspede executável. Isto é usado principalmente para executar aplicações core ASP.NET existentes no Tecido de Serviço sem alterações de código.
@@ -87,7 +87,7 @@ Um [hóspede executável](service-fabric-guest-executables-introduction.md) é u
 ## <a name="application-lifecycle"></a>Ciclo de vida da aplicação
 Tal como acontece com outras plataformas, uma aplicação no Service Fabric passa normalmente pelas seguintes fases: design, desenvolvimento, testes, implementação, upgrade, manutenção e remoção. A Service Fabric fornece suporte de primeira classe para o ciclo de vida completo da aplicação de aplicações em nuvem, desde o desenvolvimento até à implantação, gestão diária e manutenção até ao eventual desmantelamento. O modelo de serviço permite que várias funções diferentes participem de forma independente no ciclo de vida da aplicação. O ciclo de vida da [aplicação service Fabric](service-fabric-application-lifecycle.md) fornece uma visão geral das APIs e como são usadas pelas diferentes funções ao longo das fases do ciclo de vida da aplicação Service Fabric. 
 
-Todo o ciclo de vida da aplicação pode ser gerido usando [cmdlets PowerShell,](/powershell/module/ServiceFabric/) [comandos CLI](service-fabric-sfctl.md), [C# APIs,](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) [Java APIs,](/java/api/overview/azure/servicefabric)e [REST APIs](/rest/api/servicefabric/). Também pode configurar gasodutos de integração/implantação contínua contínuos utilizando ferramentas como [Azure Pipelines](service-fabric-set-up-continuous-integration.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Todo o ciclo de vida da aplicação pode ser gerido usando [cmdlets PowerShell,](/powershell/module/ServiceFabric/) [comandos CLI](service-fabric-sfctl.md), [C# APIs,](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) [Java APIs,](/java/api/overview/azure/servicefabric)e [REST APIs](/rest/api/servicefabric/). Também pode configurar gasodutos de integração/implantação contínua contínuos utilizando ferramentas como [Azure Pipelines](./service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 ## <a name="test-applications-and-services"></a>Testar aplicações e serviços
 Para criar serviços verdadeiramente em nuvem, é fundamental verificar se as suas aplicações e serviços podem resistir a falhas no mundo real. O Serviço de Análise de Falhas foi concebido para serviços de testes construídos em Tecido de Serviço. Com o [Serviço de Análise de Falhas,](service-fabric-testability-overview.md)pode induzir falhas significativas e executar cenários completos de teste contra as suas aplicações. Estas falhas e cenários exercitam e validam os inúmeros estados e transições que um serviço irá experimentar ao longo da sua vida, tudo de forma controlada, segura e consistente.
@@ -112,7 +112,7 @@ Os clusters de tecido de serviço podem ser criados em máquinas virtuais ou fí
 ### <a name="clusters-on-azure"></a>Clusters no Azure
 Os clusters de tecido de serviço de execução em Azure proporcionam integração com outras funcionalidades e serviços Azure, o que torna as operações e gestão do cluster mais fáceis e fiáveis. Um cluster é um recurso Azure Resource Manager, para que possa modelar clusters como qualquer outro recurso em Azure. O Gestor de Recursos também fornece uma gestão fácil de todos os recursos utilizados pelo cluster como uma única unidade. Os clusters em Azure são integrados com diagnósticos Azure e registos Azure Monitor. Os tipos de nó de cluster são [conjuntos de escala de máquina virtual,](/azure/virtual-machine-scale-sets/index)por isso a funcionalidade de autoescalagem é incorporada.
 
-Pode criar um cluster no Azure através do [portal Azure,](service-fabric-cluster-creation-via-portal.md)a partir de um [modelo](service-fabric-cluster-creation-via-arm.md), ou do [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
+Pode criar um cluster no Azure através do [portal Azure,](service-fabric-cluster-creation-via-portal.md)a partir de um [modelo](service-fabric-cluster-creation-via-arm.md), ou do [Visual Studio](./service-fabric-cluster-creation-via-arm.md).
 
 O Service Fabric no Linux permite-lhe construir, implementar e gerir aplicações altamente disponíveis e altamente escaláveis no Linux, tal como faria no Windows. Os quadros do Tecido de Serviço (Reliable Services e Reliable Actors) estão disponíveis em Java no Linux, além de C# (.NET Core). Também pode construir [serviços executáveis de hóspedes](service-fabric-guest-executables-introduction.md) com qualquer idioma ou enquadramento. Orquestrar contentores Docker também é suportado. Os contentores docker podem executar executáveis de hóspedes ou serviços nativos de Tecido de Serviço, que utilizam as estruturas do Tecido de Serviço. Para mais informações, leia sobre [o Tecido de Serviço no Linux.](service-fabric-deploy-anywhere.md)
 
@@ -191,7 +191,7 @@ Vários produtos estão disponíveis que cobrem estas três áreas, e você é l
 * Aprenda a [gerir e orquestrar recursos de cluster.](service-fabric-cluster-resource-manager-introduction.md)
 * Veja as [amostras de Tecido de Serviço.](https://aka.ms/servicefabricsamples)
 * Saiba mais sobre [as opções de suporte do Tecido de Serviço.](service-fabric-support.md)
-* Leia o blog da [equipa](https://blogs.msdn.microsoft.com/azureservicefabric/) para artigos e anúncios.
+* Leia o blog da [equipa](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para artigos e anúncios.
 
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png

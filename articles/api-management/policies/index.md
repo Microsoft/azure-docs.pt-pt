@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: b8f97bb27b3eb45c731b20ad51e35fde9b6a394a
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126905"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86242972"
 ---
 # <a name="api-management-policy-samples"></a>Exemplos de políticas de Gestão de API
 
@@ -34,7 +34,7 @@ As [políticas](../api-management-howto-policies.md) são uma funcionalidade pod
 | [Autorizar pedidos com um autorizador externo](./authorize-request-using-external-authorizer.md)                                                   | Mostra como utilizar um autorizador externo para proteger o acesso à API.                                                                                                                                                               |
 | [Autorizar o acesso com o token de OAuth do Google](./use-google-as-oauth-token-provider.md)                                            | Mostra como autorizar o acesso aos pontos finais ao utilizar o Google como um fornecedor de tokens de OAuth.                                                                                                                                    |
 | [Filtrar Endereços IP ao utilizar um Gateway de Aplicação](./filter-ip-addresses-when-using-appgw.md) | Mostra como filtrar IPs em políticas quando a instância da Gestão de API é acedida através de um Gateway de Aplicação
-| [Gerar a Assinatura de Acesso Partilhado e reencaminhar o pedido para o armazenamento do Azure](./generate-shared-access-signature.md)                  | Mostra como gerar a [Assinatura de Acesso Partilhado](../../storage/storage-dotnet-shared-access-signature-part-1.md) através de expressões e reencaminhar o pedido para o armazenamento do Azure com a política rewrite-uri. |
+| [Gerar a Assinatura de Acesso Partilhado e reencaminhar o pedido para o armazenamento do Azure](./generate-shared-access-signature.md)                  | Mostra como gerar a [Assinatura de Acesso Partilhado](../../storage/common/storage-sas-overview.md) através de expressões e reencaminhar o pedido para o armazenamento do Azure com a política rewrite-uri. |
 | [Obter o token de acesso de OAuth2 do AAD e reencaminhá-lo para o back-end](./use-oauth2-for-authorization.md)                             | Fornece um exemplo de como utilizar o OAuth2 para autorização entre o gateway e um back-end. Mostra como obter um token de acesso do AAD e reencaminhá-lo para o back-end.                                                    |
 | [Obter o token X-CSRF do gateway SAP através da política de envio de pedidos](./get-x-csrf-token-from-sap-gateway.md)                           | Mostra como implementar o padrão X-CSRF utilizado por muitas APIs. Este exemplo é específico do Gateway SAP.                                                                                                                           |
 | [Encaminhar o pedido com base no tamanho do respetivo corpo](./route-requests-based-on-size.md)                                            | Demonstra como encaminhar pedidos com base no tamanho dos respetivos corpos.                                                                                                                                                       |

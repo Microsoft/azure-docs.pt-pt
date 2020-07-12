@@ -5,14 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692568"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86245930"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para remoting de serviços fiáveis
-O tempo de execução Reliable ServiceRemoting emite [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estes fornecem informações sobre como o ServiceRemoting está a funcionar e ajudam na resolução de problemas e na monitorização do desempenho.
+O tempo de execução Reliable ServiceRemoting emite [contadores de desempenho](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1). Estes fornecem informações sobre como o ServiceRemoting está a funcionar e ajudam na resolução de problemas e na monitorização do desempenho.
 
 
 ## <a name="performance-counters"></a>Contadores de desempenho
@@ -25,7 +26,7 @@ O tempo de execução Reliable ServiceRemoting define as seguintes categorias de
 
 Cada uma das categorias anteriores tem um ou mais contadores.
 
-A aplicação [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) que está disponível por padrão no sistema operativo Windows pode ser usada para recolher e visualizar dados de contador de desempenho. [O Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para recolher dados de contador de desempenho e enviá-lo para as tabelas Azure.
+A aplicação [Windows Performance Monitor](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) que está disponível por padrão no sistema operativo Windows pode ser usada para recolher e visualizar dados de contador de desempenho. [O Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) é outra opção para recolher dados de contador de desempenho e enviá-lo para as tabelas Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nomes de contra-instância de desempenho
 Um cluster que tem um grande número de serviços de ServiceRemoting ou divisórias tem um grande número de contra-casos de desempenho. Os nomes do contador de desempenho podem ajudar a identificar o método específico de partição e serviço (se aplicável) a que a instância do contador de desempenho está associada.
@@ -35,7 +36,7 @@ Para a `Service Fabric Service` categoria, os nomes de contraexemplo estão no s
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia da réplica de tecido de serviço/ID de instância a que a instância do contador de desempenho está associada.
 
@@ -56,7 +57,7 @@ Para a `Service Fabric Service Method` categoria, os nomes de contraexemplo est�
 
 *ServiceRuntimeMethodId* é a representação de uma corda de um inteiro de 32 bits que é gerado pelo tempo de execução do Serviço de Tecido para o seu uso interno. Isto está incluído no nome do contraexemplo de desempenho para garantir a sua singularidade e evitar conflitos com outros nomes de contra-instância de desempenho. Os utilizadores não devem tentar interpretar esta parte do nome do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia do ID de partição do Tecido de Serviço a que o contador de desempenho está associado. O ID de partição é um GUID, e a sua representação de cordas é gerada através do método com o [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia da réplica de tecido de serviço/ID de instância a que a instância do contador de desempenho está associada.
 
@@ -89,6 +90,6 @@ Quando um cliente invoca um método através de um objeto de procuração de ser
 | Serviço de Tecido de Serviço |Milissegundos médios para pedido de deserialização |Tempo demorado (em milissegundos) para deserializar a mensagem de pedido de serviço quando é recebida no serviço |
 | Serviço de Tecido de Serviço |Milissegundos médios para serialização de resposta |Tempo demorado (em milissegundos) para serializar a mensagem de resposta de serviço no serviço antes de a resposta ser enviada ao cliente |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Código de exemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
-* [Fornecedores de EventSource em PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [Fornecedores de EventSource em PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)
