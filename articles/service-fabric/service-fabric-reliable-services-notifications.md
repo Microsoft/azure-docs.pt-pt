@@ -5,11 +5,12 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16dcfd23ec00a144b17244e811e91a92db9e6995
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639569"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253053"
 ---
 # <a name="reliable-services-notifications"></a>Notificações de Serviços Fiáveis
 As notificações permitem que os clientes rastreiem as alterações que estão a ser feitas a um objeto em que estão interessados. Dois tipos de objetos suportam notificações: *Gestor de Estado fiável* e Dicionário *Fiável*.
@@ -205,9 +206,8 @@ Eis algumas coisas a ter em mente:
 * Para transações que contenham múltiplas operações, as operações são aplicadas na ordem em que foram recebidas na réplica primária do utilizador.
 * Como parte do processamento de falsos progressos, algumas operações podem ser desfeitas. As notificações são levantadas para tais operações de desfazer, revirando o estado da réplica para um ponto estável. Uma diferença importante das notificações de desfazer é que os eventos que têm chaves duplicadas são agregados. Por exemplo, se a transação T1 estiver a ser desfeita, verá uma única notificação para Apagar(X).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Início rápido dos Serviços Fiáveis](service-fabric-reliable-services-quick-start.md)
 * [Backup e restauro dos Serviços Fiáveis (recuperação de desastres)](service-fabric-reliable-services-backup-restore.md)
-* [Referência do programador para Coleções Fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

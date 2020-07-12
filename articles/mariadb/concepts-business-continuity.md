@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: c1f4945cda9db0f99799ea072737d4524f04e481
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076577"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252271"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Compreender a continuidade do negócio na Base de Dados Azure para a MariaDB
 
@@ -52,7 +52,11 @@ A outra opção é utilizar a Base de Dados Azure para a funcionalidade de geo-r
 
 Você pode usar réplicas de leitura de região cruzada para melhorar o seu plano de continuidade e recuperação de desastres. As réplicas de leitura são atualizadas assíncronea usando a tecnologia binária de replicação de registos da MariaDB. Saiba mais sobre réplicas lidas, regiões disponíveis e como falhar a partir do artigo de [conceitos de réplicas lidos.](concepts-read-replicas.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="faq"></a>FAQ
+### <a name="where-does-azure-database-for-mariadb-store-customer-data"></a>Onde é que a Azure Database para a MariaDB armazena os dados dos clientes?
+Por padrão, a Base de Dados Azure para MariaDB não move ou armazena os dados dos clientes para fora da região em que está implantado. No entanto, os clientes podem optar opcionalmente por permitir [cópias de segurança geo-redundantes](concepts-backup.md#backup-redundancy-options) ou criar [réplicas de leitura cruzada](concepts-read-replicas.md#cross-region-replication) para armazenar dados noutra região.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [cópias de segurança automáticas na Base de Dados Azure para MariaDB](concepts-backup.md).
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).

@@ -4,11 +4,12 @@ description: Aprenda a utilizar o autoescalador de cluster para escalar automati
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84730021"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252033"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensione automaticamente um cluster para satisfazer as exigências da aplicação no Serviço Azure Kubernetes (AKS)
 
@@ -212,7 +213,7 @@ A AKS gere o autoescala de cluster em seu nome e executa-o no plano de controlo 
 
 Para configurar os registos a serem empurrados do autoescalador do cluster para o Log Analytics, siga estes passos.
 
-1. Crie uma regra para os registos de recursos para empurrar os registos de escala de cluster-autoscaler para Log Analytics. [As instruções são detalhadas aqui,](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs)certifique-se de que verifica a caixa para `cluster-autoscaler` quando selecionar opções para "Logs".
+1. Crie uma regra para os registos de recursos para empurrar os registos de escala de cluster-autoscaler para Log Analytics. [As instruções são detalhadas aqui,](./view-master-logs.md#enable-resource-logs)certifique-se de que verifica a caixa para `cluster-autoscaler` quando selecionar opções para "Logs".
 1. Clique na secção "Logs" no seu cluster através do portal Azure.
 1. Insira a seguinte consulta de exemplo no Log Analytics:
 
@@ -261,7 +262,7 @@ az aks nodepool update \
 
 Se desejar voltar a ativar o autoescalador de cluster num cluster existente, pode voltar a capacitá-lo utilizando o comando [de atualização de nodepool az aks,][az-aks-nodepool-update] especificando os parâmetros *de autoescalo de cluster-activar*, *--contagem de min-* e *--contagem máxima.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como escalar automaticamente o número de nós AKS. Também pode utilizar o autoescalador horizontal para ajustar automaticamente o número de cápsulas que executam a sua aplicação. Para passos na utilização do autoescalador horizontal, consulte [as aplicações scale em AKS][aks-scale-apps].
 

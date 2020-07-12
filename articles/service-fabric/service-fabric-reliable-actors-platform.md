@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 621e325d0b549d2970180a5a40eb09260c1f2ee0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79282305"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253478"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os atores fiáveis usam a plataforma de tecido de serviço
 Este artigo explica como os Atores Fiáveis funcionam na plataforma Azure Service Fabric. Os Atores Fiáveis funcionam num quadro que é hospedado numa implementação de um serviço de confiança estatal chamado serviço de *ator.* O serviço de ator contém todos os componentes necessários para gerir o ciclo de vida e o envio de mensagens para os seus atores:
@@ -86,10 +87,10 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 Quando se usa GUIDs/UUIDs e cordas, os valores são hashed para um Int64. No entanto, quando você está fornecendo explicitamente um Int64 para um `ActorId` , o Int64 irá mapear diretamente para uma partição sem mais haxixe. Pode usar esta técnica para controlar em que partição os atores são colocados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Gestão do estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleção de lixo](service-fabric-reliable-actors-lifecycle.md)
-* [Documentação de referência da API dos atores](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)
+* [Documentação de referência da API dos atores](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)
 * [.NET código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de amostra de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

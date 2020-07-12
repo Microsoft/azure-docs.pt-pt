@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 55fd27d473bd47fd3321bdb2e730e4ef2d35352f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106183"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251727"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -83,7 +83,7 @@ A partir do interior do cluster Kubernetes, a Autenticação Token Webhook é us
 
 Como mostrado no gráfico acima, o servidor API chama o servidor webhook AKS e executa os seguintes passos:
 
-1. A aplicação do cliente Azure AD é utilizada pela kubectl para assinar em utilizadores com o fluxo de autorização do [dispositivo OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+1. A aplicação do cliente Azure AD é utilizada pela kubectl para assinar em utilizadores com o fluxo de autorização do [dispositivo OAuth 2.0](../active-directory/develop/v2-oauth2-device-code.md).
 2. A AZure AD fornece um access_token, id_token e um refresh_token.
 3. O utilizador faz um pedido para kubectl com um access_token da kubeconfig.
 4. A Kubectl envia o access_token para a APIServer.
@@ -138,7 +138,7 @@ Esta funcionalidade permitirá, por exemplo, não só dar aos utilizadores permi
 
 A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [papéis incorporados de Kubernetes,](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) mas com algumas diferenças como apoiar CRDs. Para a lista completa de ações permitidas por cada um deles construído em funções, consulte [aqui.](../role-based-access-control/built-in-roles.md)
 
-| Função                                | Descrição  |
+| Função                                | Description  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso a `ServiceAccount` credenciais no espaço de nomes, o que permitiria o acesso da API como qualquer outro `ServiceAccount` no espaço de nome (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |
@@ -147,7 +147,7 @@ A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [pa
 
 **Veja como aproveitar a autorização do Azure RBAC para a autorização de Kubernetes [aqui.](manage-azure-rbac.md)**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com Azure AD e Kubernetes RBAC, consulte [Integrate Azure Ative Directory com AKS][aks-aad].
 - Para as melhores práticas associadas, consulte [as melhores práticas de autenticação e autorização em AKS][operator-best-practices-identity].

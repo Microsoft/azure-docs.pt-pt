@@ -5,11 +5,12 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: ac6bb14517b67a4b308460583e8c9fb99a2df9f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf004b913c032d8a121bf4d508adf4cf9be1c7f9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75922781"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253325"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Backup e restaurar Serviços Fiáveis e Atores Fiáveis
 A Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós para manter esta alta disponibilidade.  Assim, mesmo que um nó no cluster falhe, os serviços continuam disponíveis. Embora este despedimento incorporado fornecido pela plataforma possa ser suficiente para alguns, em certos casos é desejável que o serviço suporte dados (para uma loja externa).
@@ -148,7 +149,7 @@ Por exemplo, se contiver a cópia de segurança completa, a primeira incremental
 > 
 
 ## <a name="deleted-or-lost-service"></a>Serviço apagado ou perdido
-Se um serviço for removido, deve primeiro recriar o serviço antes de os dados poderem ser restaurados.  É importante criar o serviço com a mesma configuração, por exemplo, o esquema de partição, para que os dados possam ser restaurados sem problemas.  Uma vez que o serviço esteja em cima, a API para restaurar os dados `OnDataLossAsync` (acima) tem de ser invocada em cada partição deste serviço. Uma forma de o conseguir é utilizando [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) em cada divisória.  
+Se um serviço for removido, deve primeiro recriar o serviço antes de os dados poderem ser restaurados.  É importante criar o serviço com a mesma configuração, por exemplo, o esquema de partição, para que os dados possam ser restaurados sem problemas.  Uma vez que o serviço esteja em cima, a API para restaurar os dados `OnDataLossAsync` (acima) tem de ser invocada em cada partição deste serviço. Uma forma de o conseguir é utilizando [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) em cada divisória.  
 
 A partir deste ponto, a implementação é a mesma que o cenário acima referido. Cada divisória precisa restaurar o mais recente backup relevante da loja externa. Uma ressalva é que o ID da partição pode ter mudado agora, uma vez que o tempo de execução cria IDs de partição dinamicamente. Assim, o serviço precisa de armazenar as informações e o nome de serviço apropriados para identificar a cópia de segurança mais recente correta para restaurar para cada partição.
 
@@ -236,7 +237,7 @@ Ao restaurar a partir de uma cadeia de backup, semelhante a Reliable Services, o
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Sob o capot: mais detalhes sobre backup e restauro
 Aqui estão mais alguns detalhes sobre o backup e restauro.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 O Gestor de Estado Fiável fornece a capacidade de criar backups consistentes sem bloquear quaisquer operações de leitura ou escrita. Para tal, utiliza um mecanismo de persistência de pontos de controlo e registo.  O Gestor de Estado Fiável toma pontos de verificação felpudos (leves) em determinados pontos para aliviar a pressão do diário transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gestor de Estado Fiável instrui todos os objetos fiáveis para copiarem os seus ficheiros de verificação mais recentes para uma pasta de backup local.  Em seguida, o Gestor de Estado Fiável copia todos os registos de registo, a partir do "ponto de partida" para o registo de registo mais recente na pasta de backup.  Uma vez que todos os registos de registo até ao registo mais recente estão incluídos na cópia de segurança e o Gestor de Estado Fiável preserva a marcação de registo sonoro, o Gestor de Estado Fiável garante que todas as transações que são cometidas `CommitAsync` (devolvidas com sucesso) estão incluídas na cópia de segurança.
 
 Qualquer transação que se comprometa depois `BackupAsync` foi chamada pode ou não estar na cópia de segurança.  Uma vez que a pasta de backup local tenha sido povoada pela plataforma (isto é, a cópia de segurança local é completada pelo tempo de funcionamento), o backback de backup do serviço é invocado.  Esta chamada é responsável por mover a pasta de reserva para um local externo, como o Azure Storage.
@@ -252,11 +253,10 @@ Até que um serviço complete esta API com sucesso (devolvendo verdadeiro ou fal
 
 `RestoreAsync`primeiro deixa cair todo o estado existente na réplica primária que foi chamado. Em seguida, o Gestor de Estado Fiável cria todos os objetos fiáveis que existem na pasta de reserva. Em seguida, os objetos Fidedignas são instruídos a restaurar a partir dos seus pontos de verificação na pasta de reserva. Finalmente, o Gestor de Estado Fiável recupera o seu próprio estado a partir dos registos de registos na pasta de backup e realiza a recuperação. Como parte do processo de recuperação, as operações a partir do "ponto de partida" que cometeram registos de registos na pasta de backup são reproduzidas nos objetos Fidedignas. Este passo garante que o estado recuperado é consistente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Arranque rápido de serviços fiáveis](service-fabric-reliable-services-quick-start.md)
   - [Notificações de Serviços Fiáveis](service-fabric-reliable-services-notifications.md)
   - [Configuração de Serviços Fiáveis](service-fabric-reliable-services-configuration.md)
-  - [Referência do programador para Coleções Fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Referência do programador para Coleções Fiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   - [Cópia de segurança e restauro periódicos no Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
-

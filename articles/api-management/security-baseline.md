@@ -7,23 +7,24 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ceaa44429d105c2a6a1d0883ab29ed11b63ad497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5640a42c0fdcb0bd958011db28c19854b16a547
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83736080"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252764"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para a Gestão da API
 
 A Linha de Base de Segurança Azure para a Gestão da API contém recomendações que o ajudarão a melhorar a postura de segurança da sua implementação.
 
-A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](https://docs.microsoft.com/azure/security/benchmarks/overview)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com a nossa orientação de boas práticas.
+A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](../security/benchmarks/overview.md)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com a nossa orientação de boas práticas.
 
-Para obter mais informações, consulte a visão geral das [linhas de base de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para obter mais informações, consulte a visão geral das [linhas de base de segurança Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Segurança da rede
 
-*Para obter mais informações, consulte [o controlo de segurança: segurança da rede.](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)*
+*Para obter mais informações, consulte [o controlo de segurança: segurança da rede.](../security/benchmarks/security-control-network-security.md)*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos utilizando grupos de segurança de rede ou firewall Azure na sua Rede Virtual
 
@@ -33,11 +34,11 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 O tráfego de entrada e saída na sub-rede em que a API Management é implantada pode ser controlado através do Grupo de Segurança da Rede.
 
-* [Como utilizar a Gestão de API do Azure com redes virtuais](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
+* [Como utilizar a Gestão de API do Azure com redes virtuais](./api-management-using-with-vnet.md)
 
-* [Utilizar o serviço Gestão de API do Azure com uma rede virtual interna](https://docs.microsoft.com/azure/api-management/api-management-using-with-internal-vnet)
+* [Utilizar o serviço Gestão de API do Azure com uma rede virtual interna](./api-management-using-with-internal-vnet.md)
 
-* [Integrar a Gestão da API num VNET interno com Gateway de Aplicação](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+* [Integrar a Gestão da API num VNET interno com Gateway de Aplicação](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -49,11 +50,11 @@ O tráfego de entrada e saída na sub-rede em que a API Management é implantada
 
 Atenção: Ao configurar um NSG na sub-rede API Management, há um conjunto de portas que devem estar abertas. Se alguma destas portas não estiver disponível, a API Management pode não funcionar corretamente e pode tornar-se inacessível.
 
-* [Compreender as configurações do NSG para a Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+* [Compreender as configurações do NSG para a Azure API Management](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
-* [Como ativar registos de fluxo NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como ativar registos de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Como Ativar e utilizar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Como Ativar e utilizar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -70,9 +71,9 @@ Combinar a Gestão da API a provisionada num Vnet interno com o frontend Do Gate
 
 Nota: Esta funcionalidade está disponível nos níveis Premium e Developer da API Management.
 
-* [Como integrar a Gestão da API num VNET interno com Gateway de Aplicação](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+* [Como integrar a Gestão da API num VNET interno com Gateway de Aplicação](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
-* [Compreender gateway de aplicação Azure](https://docs.microsoft.com/azure/application-gateway/)
+* [Compreender gateway de aplicação Azure](../application-gateway/index.yml)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -93,13 +94,13 @@ Ativar a Norma de Proteção DDoS do Azure na Vnet associada à sua implementaç
 
 Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
-* [Como integrar a Gestão da API num VNET interno com Gateway de Aplicação](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+* [Como integrar a Gestão da API num VNET interno com Gateway de Aplicação](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
-* [Compreender gateway de aplicação Azure](https://docs.microsoft.com/azure/application-gateway/)
+* [Compreender gateway de aplicação Azure](../application-gateway/index.yml)
 
-* [Como configurar a Norma de Proteção DDoS do Azure](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Como configurar a Norma de Proteção DDoS do Azure](../virtual-network/manage-ddos-protection.md)
 
-* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/threat-protection.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -111,11 +112,11 @@ Use a Azure Security Center Integrated Threat Intelligence para negar comunicaç
 
 Atenção: Ao configurar um NSG na sub-rede API Management, há um conjunto de portas que devem estar abertas. Se alguma destas portas não estiver disponível, a API Management pode não funcionar corretamente e pode tornar-se inacessível.
 
-* [Compreender as configurações do NSG para a Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+* [Compreender as configurações do NSG para a Azure API Management](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
-* [Como ativar registos de fluxo NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Como ativar registos de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Como Ativar e utilizar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Como Ativar e utilizar a Análise de Tráfego](../network-watcher/traffic-analytics.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -134,9 +135,9 @@ Combinar a Gestão da API a provisionada num Vnet interno com o frontend Do Gate
 
 Nota: Esta funcionalidade está disponível nos níveis Premium e Developer da API Management.
 
-* [Como integrar a Gestão da API num VNET interno com Gateway de Aplicação](https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
+* [Como integrar a Gestão da API num VNET interno com Gateway de Aplicação](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
-* [Compreender Azure Application Gateway WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)
+* [Compreender Azure Application Gateway WAF](../web-application-firewall/ag/ag-overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -155,13 +156,13 @@ Combinar a Gestão da API a provisionada num Vnet interno com o frontend Do Gate
 
 Nota: Esta funcionalidade está disponível nos níveis Premium e Developer da API Management.
 
-* [Como expor as APIs privadas a consumidores externos](https://docs.microsoft.com/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
+* [Como expor as APIs privadas a consumidores externos](/azure/architecture/example-scenario/apps/publish-internal-apis-externally)
 
-* [Como utilizar a Gestão da API dentro de um Vnet](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
+* [Como utilizar a Gestão da API dentro de um Vnet](./api-management-using-with-vnet.md)
 
-* [Firewall de aplicação web Azure no Gateway de aplicações Azure](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview)
+* [Firewall de aplicação web Azure no Gateway de aplicações Azure](../web-application-firewall/ag/ag-overview.md)
 
-* [Compreender gateway de aplicação Azure](https://docs.microsoft.com/azure/application-gateway/overview)
+* [Compreender gateway de aplicação Azure](../application-gateway/overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -173,9 +174,9 @@ Nota: Esta funcionalidade está disponível nos níveis Premium e Developer da A
 
 Atenção: Ao configurar um NSG na sub-rede API Management, há um conjunto de portas que devem estar abertas. Se alguma destas portas não estiver disponível, a API Management pode não funcionar corretamente e pode tornar-se inacessível.
 
-* [Compreensão e utilização de etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Compreensão e utilização de etiquetas de serviço](../virtual-network/service-tags-overview.md)
 
-* [Portos necessários para a Gestão da API](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+* [Portos necessários para a Gestão da API](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -188,9 +189,9 @@ Atenção: Ao configurar um NSG na sub-rede API Management, há um conjunto de p
 
 Também pode utilizar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlo de acesso baseado em funções (RBAC) e políticas numa única definição de planta. Pode aplicar facilmente o projeto a novas subscrições, ambientes e controlo e gestão de afinação através da versão.
 
-* [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como criar uma Planta Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -200,11 +201,11 @@ Também pode utilizar plantas Azure para simplificar as implementações de Azur
 
 **Orientação**: Utilize etiquetas para grupos de segurança de rede (NSGs) e outros recursos relacionados com a segurança da rede e o fluxo de tráfego. Para regras NSG individuais, pode utilizar o campo "Descrição" para especificar a necessidade do negócio e/ou a duração (etc.) para quaisquer regras que permitam o tráfego de/para uma rede.
 
-* [Como criar e usar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
-* [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
-* [Como criar um NSG com um Config de Segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Como criar um NSG com um Config de Segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -214,9 +215,9 @@ Também pode utilizar plantas Azure para simplificar as implementações de Azur
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede associados às suas implementações de Gestão API Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -224,7 +225,7 @@ Também pode utilizar plantas Azure para simplificar as implementações de Azur
 
 ## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
 
-*Para obter mais informações, consulte [o controlo de segurança: Registar e monitorizar](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para obter mais informações, consulte [o controlo de segurança: Registar e monitorizar](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Utilizar fontes de sincronização de tempo aprovadas
 
@@ -242,15 +243,15 @@ Além do Azure Monitor, a Azure API Management pode ser integrada com um ou vár
 
 Opcionalmente, ativar e a bordo dados para Azure Sentinel ou um terceiro Security Incident and Event Management (SIEM).
 
-* [Como configurar definições de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-in-azure-portal)
+* [Como configurar definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md#create-in-azure-portal)
 
-* [Como embarcar Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 * [Como começar com o Azure Monitor e a integração do SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-* [Como criar o pipeline de registo e análise personalizado](https://docs.microsoft.com/azure/api-management/api-management-howto-log-event-hubs)
+* [Como criar o pipeline de registo e análise personalizado](./api-management-howto-log-event-hubs.md)
 
-* [Como integrar-se com a Azure Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights)
+* [Como integrar-se com a Azure Application Insights](./api-management-howto-app-insights.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -262,9 +263,9 @@ Opcionalmente, ativar e a bordo dados para Azure Sentinel ou um terceiro Securit
 
 Para a verificação de dados, os registos de diagnóstico fornecem informações ricas sobre operações e erros que são importantes para a auditoria, bem como para efeitos de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso.
 
-* [Como ativar definições de diagnóstico para registo de atividades azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
 
-* [Como ativar definições de diagnóstico para gestão de API Azure](https://docs.microsoft.com/Azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs)
+* [Como ativar definições de diagnóstico para gestão de API Azure](./api-management-howto-use-azure-monitor.md#activity-logs)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -282,9 +283,9 @@ Para a verificação de dados, os registos de diagnóstico fornecem informaçõe
 
 **Orientação**: Dentro do Azure Monitor, desa um ponto final no período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize as contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-* [Como definir parâmetros de retenção de registos para log analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Como arquivar registos numa conta de Armazenamento Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage)
+* [Como arquivar registos numa conta de Armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -296,13 +297,13 @@ Para a verificação de dados, os registos de diagnóstico fornecem informaçõe
 
 Opcionalmente, integrar a Gestão da API com a Azure Application Insights e usá-la como ferramenta de monitorização, rastreio, reporte e alerta primário ou secundário.
 
-* [Como monitorizar e rever registos para a Azure API Management](https://docs.microsoft.com/Azure/api-management/api-management-howto-use-azure-monitor)
+* [Como monitorizar e rever registos para a Azure API Management](./api-management-howto-use-azure-monitor.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
-* [Compreender log analytics workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Compreender log analytics workspace](../azure-monitor/log-query/get-started-portal.md)
 
-* [Como integrar-se com a Azure Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights)
+* [Como integrar-se com a Azure Application Insights](./api-management-howto-app-insights.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -318,17 +319,17 @@ Opcionalmente, integrar a Gestão da API com a Azure Application Insights e usá
 
 Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-* [Como ativar as definições de diagnóstico para registo de atividades Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
 
-* [Como permitir configurações de diagnóstico para a Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs)
+* [Como permitir configurações de diagnóstico para a Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
-* [Como configurar uma regra de alerta para pedido não autorizado](https://docs.microsoft.com/Azure/api-management/api-management-howto-use-azure-monitor#set-up-an-alert-rule-for-unauthorized-request)
+* [Como configurar uma regra de alerta para pedido não autorizado](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
 
-* [Como visualizar métricas de capacidade de uma instância de gestão da API Azure](https://docs.microsoft.com/azure/api-management/api-management-capacity)
+* [Como visualizar métricas de capacidade de uma instância de gestão da API Azure](./api-management-capacity.md)
 
-* [Como integrar-se com a Azure Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights)
+* [Como integrar-se com a Azure Application Insights](./api-management-howto-app-insights.md)
 
-* [Como embarcar Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -360,7 +361,7 @@ Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de ter
 
 ## <a name="identity-and-access-control"></a>Identidade e controlo de acesso
 
-*Para obter mais informações, consulte [controlo de segurança: Identidade e controlo de acesso.](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)*
+*Para obter mais informações, consulte [controlo de segurança: Identidade e controlo de acesso.](../security/benchmarks/security-control-identity-access-control.md)*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
@@ -372,15 +373,15 @@ Adicionalmente, a API Management contém um grupo de Administradores incorporado
 
 Siga as recomendações do Centro de Segurança Azure para a gestão e manutenção de contas administrativas.
 
-* [Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control)
+* [Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure](./api-management-role-based-access-control.md)
 
-* [Como obter uma lista de utilizadores ao abrigo de uma Instância de Gestão da API da Azure](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Como obter uma lista de utilizadores ao abrigo de uma Instância de Gestão da API da Azure](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
 
-* [Como obter uma lista de utilizadores atribuídos a um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
+* [Como obter uma lista de utilizadores atribuídos a um papel de diretório em Azure AD com PowerShell](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
 
-* [Como obter uma definição de papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
+* [Como obter uma definição de papel de diretório em Azure AD com PowerShell](/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
 
-* [Compreender recomendações de identidade e acesso do Azure Security Center](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-identity)
+* [Compreender recomendações de identidade e acesso do Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -392,7 +393,7 @@ Siga as recomendações do Centro de Segurança Azure para a gestão e manutenç
 
 As subscrições da API Management, que são um meio de garantir o acesso às APIs, vêm no entanto com um par de chaves de subscrição geradas. Os clientes podem regenerar estas chaves de subscrição a qualquer momento.
 
-* [Compreensão das assinaturas de gestão da API da AZure](https://docs.microsoft.com/azure/api-management/api-management-subscriptions)
+* [Compreensão das assinaturas de gestão da API da AZure](./api-management-subscriptions.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -407,9 +408,9 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 - Contas pregridadas com permissões do proprietário devem ser removidas da sua subscrição
 - As contas externas com permissões do proprietário devem ser removidas da sua subscrição
 
-* [Como utilizar o Centro de Segurança Azure para monitorizar a identidade e o acesso (Pré-visualização)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como utilizar o Centro de Segurança Azure para monitorizar a identidade e o acesso (Pré-visualização)](../security-center/security-center-identity-access.md)
 
-* [Como usar a Política Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como usar a Política Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -419,11 +420,11 @@ Além disso, para ajudá-lo a acompanhar contas administrativas dedicadas, poder
 
 **Orientação**: A Azure API Management pode ser configurada para alavancar o Azure Ative Directory como fornecedor de identidade para autenticar utilizadores no Portal do Desenvolvedor, de modo a beneficiar das capacidades SSO oferecidas pela Azure AD. Uma vez configurado, os novos utilizadores do Portal do Desenvolvimento podem optar por seguir o processo de inscrição fora da caixa, autenticando primeiro através do Azure AD e, em seguida, completando o processo de inscrição no portal uma vez autenticado.
 
-* [Autorizar as contas de programador ao utilizar o Azure Active Directory na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-aad)
+* [Autorizar as contas de programador ao utilizar o Azure Active Directory na Gestão de API do Azure](./api-management-howto-aad.md)
 
 Em alternativa, o processo de inscrição/inscrição pode ser ainda mais personalizado através da delegação. A delegação permite-lhe utilizar o seu website existente para lidar com o sinal de desenvolvimento/inscrição e subscrição de produtos, em oposição à utilização da funcionalidade incorporada no portal do desenvolvedor. Permite que o seu website possua os dados do utilizador e realize a validação destes passos de forma personalizada.
 
-* [Como delegar o registo do utilizador e a subscrição do produto](https://docs.microsoft.com/azure/api-management/api-management-howto-setup-delegation)
+* [Como delegar o registo do utilizador e a subscrição do produto](./api-management-howto-setup-delegation.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -433,9 +434,9 @@ Em alternativa, o processo de inscrição/inscrição pode ser ainda mais person
 
 **Orientação**: Ativar o Azure Ative Directory (AD) Autenticação multi-factor (MFA) e seguir as recomendações do Azure Security Center Identity and Access Management.
 
-* [Como permitir o MFA em Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -445,9 +446,9 @@ Em alternativa, o processo de inscrição/inscrição pode ser ainda mais person
 
 **Orientação**: Utilize estações de trabalho de acesso privilegiada (PAW) com autenticação multi-factor (MFA) configuradas para iniciar sessão e configurar recursos Azure.
 
-* [Saiba mais sobre estações de trabalho de acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre estações de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Como permitir o MFA em Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Como permitir o MFA em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -459,9 +460,9 @@ Em alternativa, o processo de inscrição/inscrição pode ser ainda mais person
 
 Além disso, utilize deteções de risco Azure AD para visualizar alertas e relatórios sobre o comportamento do utilizador de risco.
 
-* [Como implementar gestão de identidade privilegiada (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Como implementar gestão de identidade privilegiada (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Compreender deteções de risco Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Compreender deteções de risco Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -471,7 +472,7 @@ Além disso, utilize deteções de risco Azure AD para visualizar alertas e rela
 
 **Orientação**: Utilize locais nomeados de acesso condicional para permitir o acesso ao portal Azure a partir de agrupamentos lógicos específicos de intervalos de endereços IP ou países/regiões.
 
-* [Como configurar localizações nomeadas em Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Como configurar localizações nomeadas em Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -485,11 +486,11 @@ Configure o seu Portal de Desenvolvimento de Gestão API da Azure para autentica
 
 Configure a sua instância de Gestão API Azure para proteger as suas APIs utilizando o protocolo OAuth 2.0 com o Azure Ative Directory (AD).
 
-* [Como autorizar contas de programadores utilizando o Azure Ative Directory in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-aad)
+* [Como autorizar contas de programadores utilizando o Azure Ative Directory in Azure API Management](./api-management-howto-aad.md)
 
-* [Como proteger uma API utilizando o OAuth 2.0 com o Azure Ative Directory e a API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad)
+* [Como proteger uma API utilizando o OAuth 2.0 com o Azure Ative Directory e a API Management](./api-management-howto-protect-backend-with-aad.md)
 
-* [Como criar e configurar um caso AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Como criar e configurar um caso AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -503,13 +504,13 @@ Os clientes podem manter o inventário das contas de utilizador da API Managemen
 
 Os administradores podem criar grupos personalizados ou alavancar grupos externos em inquilinos associados do Azure Ative Directory. É possível utilizar grupos personalizados e externos em conjunto com grupos de sistema para dar aos programadores acesso e visibilidade a produtos de API.
 
-* [Como gerir contas de utilizador na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-create-or-invite-developers)
+* [Como gerir contas de utilizador na Gestão de API do Azure](./api-management-howto-create-or-invite-developers.md)
 
-* [Como obter a lista de utilizadores da API Management](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [Como obter a lista de utilizadores da API Management](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
 
-* [Como criar e utilizar grupos para gerir contas de programador na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups)
+* [Como criar e utilizar grupos para gerir contas de programador na Gestão de API do Azure](./api-management-howto-create-groups.md)
 
-* [Como utilizar comentários sobre acesso à identidade do Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -527,17 +528,17 @@ Crie definições de diagnóstico para contas de utilizadores AZure E envie os r
 
 Configure uma monitorização avançada com a API Management utilizando a `log-to-eventhub` política, capture todas as informações de contexto adicionais necessárias para análise de segurança e envie para o Azure Sentinel ou para o SIEM de terceiros.
 
-* [Como autorizar contas de programadores utilizando o Azure Ative Directory in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-aad)
+* [Como autorizar contas de programadores utilizando o Azure Ative Directory in Azure API Management](./api-management-howto-aad.md)
 
-* [Como proteger uma API utilizando o OAuth 2.0 com o Azure Ative Directory e a API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad)
+* [Como proteger uma API utilizando o OAuth 2.0 com o Azure Ative Directory e a API Management](./api-management-howto-protect-backend-with-aad.md)
 
-* [Políticas de restrição de acesso à Gestão de API](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies)
+* [Políticas de restrição de acesso à Gestão de API](./api-management-access-restriction-policies.md)
 
-* [Como integrar os registos AD do Azure no Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Como integrar os registos AD do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Como embarcar Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Monitorização avançada das APIs](https://docs.microsoft.com/azure/api-management/api-management-log-to-eventhub-sample)
+* [Monitorização avançada das APIs](./api-management-log-to-eventhub-sample.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -547,11 +548,11 @@ Configure uma monitorização avançada com a API Management utilizando a `log-t
 
 **Orientação**: Para desvio de comportamento de login de conta no plano de controlo (portal Azure), utilize o Azure Ative Directory (AD) Proteção de Identidade e funcionalidades de deteção de riscos para configurar respostas automatizadas a ações suspeitas detetadas relacionadas com identidades do utilizador. Você também pode ingerir dados em Azure Sentinel para mais investigação.
 
-* [Como ver a Azure AD a entrar em risco](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Como configurar e permitir políticas de risco de proteção de identidade](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Como embarcar Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -561,7 +562,7 @@ Configure uma monitorização avançada com a API Management utilizando a `log-t
 
 **Orientação**: Não disponível atualmente; O Lockbox do cliente não é atualmente suportado para a Azure API Management.
 
-* [Lista de serviços suportados pelo Cliente Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Lista de serviços suportados pelo Cliente Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -569,13 +570,13 @@ Configure uma monitorização avançada com a API Management utilizando a `log-t
 
 ## <a name="data-protection"></a>Proteção de dados
 
-*Para obter mais informações, consulte [o controlo de segurança: proteção de dados](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para obter mais informações, consulte [o controlo de segurança: proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informação sensível
 
 **Orientação**: Utilize etiquetas para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis.
 
-* [Como criar e usar tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -585,13 +586,13 @@ Configure uma monitorização avançada com a API Management utilizando a `log-t
 
 **Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. As instâncias de gestão da API Azure devem ser separadas por rede virtual (VNet)/sub-rede e marcadas adequadamente.
 
-* [Como criar subscrições adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gestão](../governance/management-groups/create.md)
 
-* [Como criar e usar tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-* [Como utilizar a Gestão de API do Azure com redes virtuais](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
+* [Como utilizar a Gestão de API do Azure com redes virtuais](./api-management-using-with-vnet.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -603,7 +604,7 @@ Configure uma monitorização avançada com a API Management utilizando a `log-t
 
 A Microsoft gere a infraestrutura subjacente à Azure API Management e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-* [Compreender a proteção de dados do cliente em Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -613,13 +614,13 @@ A Microsoft gere a infraestrutura subjacente à Azure API Management e implement
 
 **Orientação**: As chamadas de avião de gestão são feitas através do Azure Resource Manager sobre o TLS. É necessário um token web JSON válido (JWT). As chamadas de plano de dados podem ser asseguradas com TLS e um dos mecanismos de autenticação suportados (por exemplo, certificado de cliente ou JWT).
 
-* [Compreender a proteção de dados na Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-security-controls#data-protection)
+* [Compreender a proteção de dados na Azure API Management](./api-management-security-controls.md#data-protection)
 
-* [Gerir as definições de TLS na Gestão API da Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-manage-protocols-ciphers)
+* [Gerir as definições de TLS na Gestão API da Azure](./api-management-howto-manage-protocols-ciphers.md)
 
-* [Proteja as APIs na Gestão API da Azure com diretório ativo Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad)
+* [Proteja as APIs na Gestão API da Azure com diretório ativo Azure](./api-management-howto-protect-backend-with-aad.md)
 
-* [Proteger APIs na Gestão API da Azure com Diretório Ativo Azure B2C](https://docs.microsoft.com/azure/api-management/howto-protect-backend-frontend-azure-ad-b2c)
+* [Proteger APIs na Gestão API da Azure com Diretório Ativo Azure B2C](./howto-protect-backend-frontend-azure-ad-b2c.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -631,7 +632,7 @@ A Microsoft gere a infraestrutura subjacente à Azure API Management e implement
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-* [Compreender a proteção de dados do cliente em Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -641,7 +642,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize o controlo de acesso baseado em funções para controlar o acesso à Azure API Management. A Azure API Management conta com o Azure Role-Based Access Control (RBAC) para permitir uma gestão de acessos finos para serviços e entidades de Gestão de API (por exemplo, APIs e políticas).
 
-* [Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control)
+* [Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure](./api-management-role-based-access-control.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -653,7 +654,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 A Microsoft gere a infraestrutura subjacente à Azure API Management e implementou rigorosos controlos para evitar a perda ou exposição dos dados dos clientes.
 
-* [Compreender a proteção de dados do cliente em Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -663,7 +664,7 @@ A Microsoft gere a infraestrutura subjacente à Azure API Management e implement
 
 **Orientação**: Os dados sensíveis, tais como certificados, chaves e valores secretos nomeados são encriptados com chaves geridas pelo serviço, por instância de serviço. Todas as chaves de encriptação são por instância de serviço e são geridas pelo serviço.
 
-* [Compreender a proteção de dados/encriptação em repouso com a Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-security-controls#data-protection)
+* [Compreender a proteção de dados/encriptação em repouso com a Azure API Management](./api-management-security-controls.md#data-protection)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -673,9 +674,9 @@ A Microsoft gere a infraestrutura subjacente à Azure API Management e implement
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações na produção de aplicações Azure Functions, bem como outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Como utilizar o Monitor Azure e o Registo de Atividades Azure na Gestão API da Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor)
+* [Como utilizar o Monitor Azure e o Registo de Atividades Azure na Gestão API da Azure](./api-management-howto-use-azure-monitor.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -683,7 +684,7 @@ A Microsoft gere a infraestrutura subjacente à Azure API Management e implement
 
 ## <a name="vulnerability-management"></a>Gestão de vulnerabilidades
 
-*Para obter mais informações, consulte [o controlo de segurança: Gestão de vulnerabilidades.](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)*
+*Para obter mais informações, consulte [o controlo de segurança: Gestão de vulnerabilidades.](../security/benchmarks/security-control-vulnerability-management.md)*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas automatizadas de digitalização de vulnerabilidades
 
@@ -691,7 +692,7 @@ A Microsoft gere a infraestrutura subjacente à Azure API Management e implement
 
 Plataforma subjacente digitalizada e corrigida pela Microsoft. Reveja os controlos de segurança disponíveis para reduzir as vulnerabilidades relacionadas com a configuração do serviço.
 
-* [Compreender os controlos de segurança disponíveis para a Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-security-controls)
+* [Compreender os controlos de segurança disponíveis para a Azure API Management](./api-management-security-controls.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -727,7 +728,7 @@ Plataforma subjacente digitalizada e corrigida pela Microsoft. Reveja os control
 
 Plataforma subjacente digitalizada e corrigida pela Microsoft. Cliente para rever os controlos de segurança disponíveis para reduzir as vulnerabilidades relacionadas com a configuração do serviço.
 
-* [Compreender os controlos de segurança disponíveis para a Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-security-controls)
+* [Compreender os controlos de segurança disponíveis para a Azure API Management](./api-management-security-controls.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -735,7 +736,7 @@ Plataforma subjacente digitalizada e corrigida pela Microsoft. Cliente para reve
 
 ## <a name="inventory-and-asset-management"></a>Gestão de recursos e inventário
 
-*Para obter mais informações, consulte [controlo de segurança: Inventário e gestão de ativos.](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)*
+*Para obter mais informações, consulte [controlo de segurança: Inventário e gestão de ativos.](../security/benchmarks/security-control-inventory-asset-management.md)*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Use a Azure Asset Discovery
 
@@ -743,11 +744,11 @@ Plataforma subjacente digitalizada e corrigida pela Microsoft. Cliente para reve
 
 Embora os recursos clássicos do Azure possam ser descobertos através do Gráfico de Recursos, é altamente recomendado criar e utilizar recursos do Azure Resource Manager.
 
-* [Como criar consultas com gráfico de recursos Azure](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-* [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -757,7 +758,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 **Orientação**: Aplicar etiquetas aos recursos Azure, dando metadados para organizar logicamente numa taxonomia.
 
-* [Como criar e utilizar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e utilizar Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -771,11 +772,11 @@ Além disso, utilize a política da Azure para impor restrições ao tipo de rec
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como criar subscrições adicionais do Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Como criar Grupos de Gestão](../governance/management-groups/create.md)
 
-* [Como criar e usar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -797,9 +798,9 @@ Além disso, utilize a política da Azure para impor restrições ao tipo de rec
 
 Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-* [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como criar consultas com Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Como criar consultas com Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -835,9 +836,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 - Tipos de recursos não permitidos
 - Tipos de recursos permitidos
 
-* [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo específico de recurso com a Política Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -855,9 +856,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Configurar acesso condicionado Azure para limitar a capacidade dos utilizadores de interagir com o Azure Resource Manager, configurando "Block access" para a app "Microsoft Azure Management".
 
-* [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
-* [Controlo de acesso baseado em funções na Gestão API da Azure](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control)
+* [Controlo de acesso baseado em funções na Gestão API da Azure](./api-management-role-based-access-control.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -881,15 +882,15 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 ## <a name="secure-configuration"></a>Configuração segura
 
-*Para obter mais informações, consulte [o controlo de segurança: Configuração segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obter mais informações, consulte [o controlo de segurança: Configuração segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos da Azure
 
 **Orientação**: Defina e implemente configurações de segurança padrão para o seu serviço de Gestão API Azure com a Política Azure. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração dos seus serviços de Gestão API Azure.
 
-* [Como ver pseudónimos disponíveis da Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -907,9 +908,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Defina e implemente configurações de segurança padrão para os seus serviços de Gestão API Azure com Azure Policy. Use pseudónimos da Azure Policy no espaço de nomes "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração de instâncias de Gestão API da Azure. Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Compreender efeitos da política do Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -927,11 +928,11 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Se utilizar definições de política Azure personalizadas, utilize Azure DevOps ou Azure Repos para armazenar e gerir de forma segura a configuração do serviço de Gestão API Azure.
 
-* [Como armazenar ficheiros em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar ficheiros em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Documentação de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Documentação de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
-* [Compreenda o Kit de Recursos de Gestão de DevOps da Azure](https://docs.microsoft.com/azure/api-management/api-management-security-controls#configuration-management)
+* [Compreenda o Kit de Recursos de Gestão de DevOps da Azure](./api-management-security-controls.md#configuration-management)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -949,9 +950,9 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Defina e implemente configurações de segurança padrão para os seus serviços de Gestão API Azure com Azure Policy. Use pseudónimos da Azure Policy no espaço de nomes "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração de instâncias de Gestão API da Azure. Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Compreender efeitos da política do Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -971,11 +972,11 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 Além disso, defina e implemente configurações de segurança padrão para os seus serviços de Gestão API Azure com Azure Policy. Use pseudónimos da Azure Policy no espaço de nomes "Microsoft.ApiManagement" para criar políticas personalizadas para auditar ou impor a configuração de instâncias de Gestão API da Azure. Use a política Azure [negar] e [implementar se não existir] para impor configurações seguras em todos os seus recursos Azure.
 
-* [Compreenda o Kit de Recursos de Gestão de DevOps da Azure](https://docs.microsoft.com/azure/api-management/api-management-security-controls#configuration-management)
+* [Compreenda o Kit de Recursos de Gestão de DevOps da Azure](./api-management-security-controls.md#configuration-management)
 
-* [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Compreender efeitos da política do Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -993,7 +994,7 @@ Além disso, defina e implemente configurações de segurança padrão para os s
 
 **Orientação**: Utilize o Cofre-Chave para gerir certificados e coloque-os para a autorotate. Se utilizar o Cofre de Chaves Azure para gerir o certificado SSL de domínio personalizado, certifique-se de que o certificado é inserido no Cofre de Chaves como certificado, não como segredo.
 
-* [Como definir nomes de domínio personalizados com orientação para a rotação da chave do cofre](https://docs.microsoft.com/azure/api-management/configure-custom-domain)
+* [Como definir nomes de domínio personalizados com orientação para a rotação da chave do cofre](./configure-custom-domain.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1003,9 +1004,9 @@ Além disso, defina e implemente configurações de segurança padrão para os s
 
 **Orientação**: Utilize identidade de serviço gerido gerada pelo Azure Ative Directory (AD) para permitir que a sua instância de Gestão API aceda de forma fácil e segura a outros recursos protegidos por Azure, como o Azure Key Vault.
 
-* [Como criar uma identidade gerida para um caso de Gestão de API](https://docs.microsoft.com/azure/api-management/api-management-howto-use-managed-service-identity)
+* [Como criar uma identidade gerida para um caso de Gestão de API](./api-management-howto-use-managed-service-identity.md)
 
-* [Política de autenticação com identidade gerida](https://docs.microsoft.com/azure/api-management/api-management-authentication-policies#ManagedIdentity)
+* [Política de autenticação com identidade gerida](./api-management-authentication-policies.md#ManagedIdentity)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1023,7 +1024,7 @@ Além disso, defina e implemente configurações de segurança padrão para os s
 
 ## <a name="malware-defense"></a>Defesa contra malware
 
-*Para mais informações, consulte [o controlo de segurança: defesa contra malware.](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)*
+*Para mais informações, consulte [o controlo de segurança: defesa contra malware.](../security/benchmarks/security-control-malware-defense.md)*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Utilize software anti-malware gerido centralmente
 
@@ -1057,7 +1058,7 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 ## <a name="data-recovery"></a>Recuperação de dados
 
-*Para obter mais informações, consulte [o controlo de segurança: recuperação de dados.](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)*
+*Para obter mais informações, consulte [o controlo de segurança: recuperação de dados.](../security/benchmarks/security-control-data-recovery.md)*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir back ups automáticos regulares
 
@@ -1065,9 +1066,9 @@ O anti-malware da Microsoft é ativado no anfitrião subjacente que suporta os s
 
 As funcionalidades de backup e restauro do serviço da API Management fornecem os blocos de construção necessários para a implementação de uma estratégia de recuperação de desastres. As operações de backup e restauro podem ser realizadas manualmente ou automatizadas.
 
-* [Como implantar o plano de dados da API Management para várias regiões](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region)
+* [Como implantar o plano de dados da API Management para várias regiões](./api-management-howto-deploy-multi-region.md)
 
-* [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+* [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
 * [Como chamar a operação de backup da API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
@@ -1083,9 +1084,9 @@ As funcionalidades de backup e restauro do serviço da API Management fornecem o
 
 Identidades geridas podem ser usadas para obter certificados do Azure Key Vault para nomes de domínio personalizados da API Management. Cópia de segurança de quaisquer certificados armazenados dentro do Cofre da Chave Azure.
 
-* [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+* [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [Como apoiar os certificados Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Como apoiar os certificados Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1095,9 +1096,9 @@ Identidades geridas podem ser usadas para obter certificados do Azure Key Vault 
 
 **Orientação**: Validar cópias de segurança através da efetuação de um teste de restauro do serviço e certificados de cópias de segurança.
 
-* [Como chamar a operação de restauro da API Management](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
+* [Como chamar a operação de restauro da API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
-* [Como restaurar os certificados Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [Como restaurar os certificados Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1107,13 +1108,13 @@ Identidades geridas podem ser usadas para obter certificados do Azure Key Vault 
 
 **Orientação**: A Azure API Management escreve backups para contas de Armazenamento Azure detidas pelo cliente. Siga as recomendações de segurança do Azure Storage para proteger a sua cópia de segurança.
 
-* [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+* [Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [Recomendação de segurança para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+* [Recomendação de segurança para armazenamento de bolhas](../storage/blobs/security-recommendations.md)
 
 Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-* [Como permitir o Soft-Delete no Cofre da Chave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Como permitir o Soft-Delete no Cofre da Chave](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1121,7 +1122,7 @@ Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a 
 
 ## <a name="incident-response"></a>Resposta a incidentes
 
-*Para obter mais informações, consulte [controlo de segurança: Resposta a incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para obter mais informações, consulte [controlo de segurança: Resposta a incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
@@ -1143,9 +1144,9 @@ Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a 
 
 Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
 
-* [Alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-* [Use etiquetas para organizar os seus recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Utilizar etiquetas para organizar os seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1165,7 +1166,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Orientação**: As informações de contacto com incidentes de segurança serão utilizadas pela Microsoft para o contactar se o Microsoft Security Response Center (MSRC) descobrir que os seus dados foram acedidos por uma parte ilegal ou não autorizada. Reveja os incidentes após o facto de garantir que as questões sejam resolvidas.
 
-* [Como definir o Contacto de Segurança do Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1175,9 +1176,9 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a funcionalidade de Exportação Contínua para ajudar a identificar riscos para os recursos da Azure. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Azure Security Center para transmitir os alertas ao Azure Sentinel.
 
-* [Como configurar a exportação contínua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
-* [Como transmitir alertas para o Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1187,7 +1188,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Orientação**: Utilize a função de automatização do fluxo de trabalho no Centro de Segurança Azure para desencadear automaticamente respostas através de "Logic Apps" em alertas e recomendações de segurança.
 
-* [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1195,7 +1196,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de penetração e exercícios da Red Team
 
-*Para obter mais informações, consulte [o controlo de segurança: Testes de penetração e exercícios de equipa vermelha](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obter mais informações, consulte [o controlo de segurança: Testes de penetração e exercícios de equipa vermelha](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-to-remediate-all-critical-security-findings-within-60-days"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir que remedia todas as conclusões críticas de segurança no prazo de 60 dias
 
@@ -1207,7 +1208,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
+- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

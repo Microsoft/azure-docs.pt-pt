@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: b8215cd852d54283bfc6bd47e77d7d63ee4e2582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79475498"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254950"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar as contas de programador ao utilizar o Azure Active Directory B2C na Gestão de API do Azure
 
@@ -63,7 +64,7 @@ O Azure Ative Directory B2C é uma solução de gestão de identidade em nuvem p
 
     ![Afirmações da aplicação](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 
-1. Clique no botão **Criar**. Quando a aplicação é criada, aparece na lâmina **aplicações.** Clique no nome da aplicação para ver os seus detalhes.
+1. Clique no botão **Criar.** Quando a aplicação é criada, aparece na lâmina **aplicações.** Clique no nome da aplicação para ver os seus detalhes.
 
    ![Registar uma nova aplicação 4][api-management-howto-aad-b2c-app-created]
 
@@ -123,7 +124,7 @@ O **formulário de inscrição: OAuth** widget representa um formulário usado p
 
     ![Inscrição completa][api-management-registration-complete]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 *  [Visão geral do Azure Ative Directory B2C]
 *  [Azure Ative Directory B2C: Quadro de política extensível]
@@ -181,25 +182,25 @@ O **formulário de inscrição: OAuth** widget representa um formulário usado p
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Visão geral do Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-[Como autorizar contas de programadores utilizando o Azure Ative Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Ative Directory B2C: Quadro de política extensível]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
-[Utilize uma conta Microsoft como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
-[Utilize uma conta google como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
-[Utilize uma conta do Facebook como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
-[Utilize uma conta LinkedIn como fornecedor de identidade no Azure Ative Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
+[Visão geral do Azure Ative Directory B2C]: ../active-directory-b2c/overview.md
+[Como autorizar contas de programadores utilizando o Azure Ative Directory]: ./api-management-howto-aad.md
+[Azure Ative Directory B2C: Quadro de política extensível]: ../active-directory-b2c/user-flow-overview.md
+[Utilize uma conta Microsoft como fornecedor de identidade no Azure Ative Directory B2C]: ../active-directory-b2c/identity-provider-microsoft-account.md
+[Utilize uma conta google como fornecedor de identidade no Azure Ative Directory B2C]: ../active-directory-b2c/identity-provider-google.md
+[Utilize uma conta do Facebook como fornecedor de identidade no Azure Ative Directory B2C]: ../active-directory-b2c/identity-provider-facebook.md
+[Utilize uma conta LinkedIn como fornecedor de identidade no Azure Ative Directory B2C]: ../active-directory-b2c/identity-provider-linkedin.md
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1

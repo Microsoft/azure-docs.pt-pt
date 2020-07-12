@@ -2,13 +2,14 @@
 title: Referência do desenvolvedor JavaScript para Funções Azure
 description: Entenda como desenvolver funções usando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 51d8c951958dc5fb4b26e92337f96e7a5c758999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d71301ef73cd94c13b12e17c923ec73abb8e4aae
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996606"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252732"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -490,7 +491,7 @@ Ao correr localmente, as definições de aplicações são lidas a partir do [lo
 
 As `function.json` propriedades e podem ser `scriptFile` `entryPoint` usadas para configurar a localização e o nome da sua função exportada. Estas propriedades podem ser importantes quando o seu JavaScript é transposto.
 
-### <a name="using-scriptfile"></a>Utilizar `scriptFile`
+### <a name="using-scriptfile"></a>Ao utilizar `scriptFile`
 
 Por predefinição, uma função JavaScript é executada a partir de `index.js` , um ficheiro que partilha o mesmo directório-mãe que o correspondente `function.json` .
 
@@ -519,7 +520,7 @@ O `function.json` for deve incluir uma propriedade que indique o ficheiro com a 
 }
 ```
 
-### <a name="using-entrypoint"></a>Utilizar `entryPoint`
+### <a name="using-entrypoint"></a>Ao utilizar `entryPoint`
 
 Em `scriptFile` (ou `index.js` ), uma função deve ser exportada usando `module.exports` para ser encontrada e executada. Por predefinição, a função que executa quando desencadeada é a única exportação desse ficheiro, a exportação denominada `run` , ou a exportação denominada `index` .
 
@@ -584,7 +585,7 @@ Quando pressiona **f5** para executar a aplicação localmente, a transpilação
 
 Quando implementa a sua aplicação de função para Azure utilizando o botão **Implementar para funcionar...** botão, a extensão Azure Functions gera primeiro uma construção pronta a produção de ficheiros JavaScript a partir dos ficheiros de origem TypeScript.
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Existem várias formas de um projeto TypeScript diferir de um projeto JavaScript ao utilizar as Ferramentas Principais.
 
@@ -691,9 +692,9 @@ module.exports = async function (context) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 + [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 + [Referência para programadores das Funções do Azure](functions-reference.md)

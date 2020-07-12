@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202881"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253699"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteja o backend SPA com AAuth 2.0, Azure Ative Directory B2C e Azure API Management
 
@@ -40,7 +40,7 @@ Para seguir os passos deste artigo, você deve ter:
 
 Embora, na prática, se utilize recursos na mesma região em cargas de trabalho de produção, para este artigo como-artigo a região de implantação não é importante.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Aqui está uma ilustração dos componentes em uso e o fluxo entre eles uma vez que este processo esteja concluído.
 ![Componentes em uso e fluxo](../api-management/media/howto-protect-backend-frontend-azure-ad-b2c/image-arch.png "Componentes em uso e fluxo")
 
@@ -458,7 +458,7 @@ Terá de adicionar blocos de endereços formatados ciDR ao painel de restriçõe
 Os passos acima podem ser adaptados e editados para permitir muitas utilizações diferentes do Azure AD B2C com a API Management.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
+* Saiba mais sobre [o Azure Ative Directory e o OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre a API Management.
 * Para obter outras formas de garantir o seu serviço back-end, consulte a [autenticação do Certificado Mútuo.](api-management-howto-mutual-certificates.md)
 * [Criar uma instância de serviço de Gestão API.](get-started-create-service-instance.md)

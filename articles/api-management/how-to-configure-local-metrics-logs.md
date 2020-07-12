@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: dd49680da6f52e32ddb52dbdb23ad5e8f627a91e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205069"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254508"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configure as métricas e registos locais para a Azure API Management porta de entrada auto-hospedada
 
@@ -149,7 +149,7 @@ sputnik-metrics-statsd       NodePort       10.0.41.179   <none>          8125:3
 
 Agora que tanto o StatsD como o Prometheus foram implementados, podemos atualizar as configurações da porta de entrada auto-hospedada para começar a emitir métricas através do StatsD. A funcionalidade pode ser ativada ou desativada utilizando a `telemetry.metrics.local` chave no ConfigMap da implementação de gateway auto-hospedada com opções adicionais. Abaixo está uma repartição das opções disponíveis:
 
-| Campo  | Predefinição | Description |
+| Campo  | Predefinição | Descrição |
 | ------------- | ------------- | ------------- |
 | telemetria.metrics.local  | `none` | Permite o registo através de StatsD. O valor pode `none` `statsd` ser, . . |
 | telemetria.metrics.local.statsd.endpoint  | n/a | Especifica o ponto final statsd. |
@@ -189,7 +189,7 @@ Agora temos tudo implantado e configurado, o portal auto-hospedado deve reportar
 
 Faça algumas chamadas API através do gateway auto-hospedado, se tudo estiver configurado corretamente, você deve ser capaz de ver abaixo métricas:
 
-| Metric  | Descrição |
+| Métrica  | Descrição |
 | ------------- | ------------- |
 | Pedidos  | Número de pedidos de API no período |
 | DuraçãoInms | Número de milissegundos a partir do momento em que o gateway recebeu o pedido até ao momento em que a resposta é enviada integralmente |
@@ -204,11 +204,11 @@ As saídas de gateway auto-hospedadas entram em `stdout` e `stderr` por defeito.
 kubectl logs <pod-name>
 ```
 
-Se o seu gateway auto-hospedado estiver implantado no Serviço Azure Kubernetes, pode ativar [o Azure Monitor para que os contentores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) recolham `stdout` e a partir das suas `stderr` cargas de trabalho e vejam os registos no Log Analytics. 
+Se o seu gateway auto-hospedado estiver implantado no Serviço Azure Kubernetes, pode ativar [o Azure Monitor para que os contentores](../azure-monitor/insights/container-insights-overview.md) recolham `stdout` e a partir das suas `stderr` cargas de trabalho e vejam os registos no Log Analytics. 
 
 O gateway auto-hospedado também suporta uma série de protocolos, incluindo `localsyslog` `rfc5424` , e `journal` . A tabela abaixo resume todas as opções suportadas. 
 
-| Campo  | Predefinição | Description |
+| Campo  | Predefinição | Descrição |
 | ------------- | ------------- | ------------- |
 | telemetria.logs.std  | `text` | Permite fazer login em fluxos padrão. O valor pode `none` `text` ser,`json` |
 | telemetria.logs.local  | `none` | Permite a exploração madeireira local. O valor pode `none` ser, `auto` , `localsyslog` `rfc5424` ,`journal`  |
@@ -236,4 +236,3 @@ Aqui está uma configuração de amostra de registo local:
 
 * Para saber mais sobre a porta de entrada auto-hospedada, consulte [a Azure API Management auto-hospedada gateway overview](self-hosted-gateway-overview.md)
 * Saiba [como configurar e persistir registos na nuvem](how-to-configure-local-metrics-logs.md)
-

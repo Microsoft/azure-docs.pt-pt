@@ -1,16 +1,16 @@
 ---
-title: Quickstart - Implante Hello World para malha de tecido de serviço azure
+title: Quickstart - Implementar Hello World para Azure Service Fabric Mesh
 description: Este início rápido mostra como implementar uma aplicação do Service Fabric Mesh no Azure Service Fabric Mesh.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5373cbf76b55b86e4851e1d7c6b53222871faa4c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75458971"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254338"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implementar o Hello World no Service Fabric Mesh
 
@@ -47,9 +47,9 @@ Crie a aplicação no grupo de recursos com o comando `az mesh deployment create
 az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-O comando anterior implementa uma aplicação Linux utilizando o [modelo linux.json](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). Se pretender implementar uma aplicação Windows, utilize o [modelo windows.json](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json). As imagens de contentor do Windows são maiores do que as imagens de contentor do Linux e podem demorar mais tempo a implementar.
+O comando anterior implementa uma aplicação Linux utilizando [linux.jsno modelo](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). Se pretender implementar uma aplicação do Windows, utilize [windows.jsno modelo](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json). As imagens de contentor do Windows são maiores do que as imagens de contentor do Linux e podem demorar mais tempo a implementar.
 
-Este comando produzirá um corte JSON que é mostrado abaixo. Sob ```outputs``` a secção da saída JSON, copie a ```publicIPAddress``` propriedade.
+Este comando produzirá um corte JSON que é mostrado abaixo. Sob a ```outputs``` secção da saída JSON, copie a ```publicIPAddress``` propriedade.
 
 ```json
 "outputs": {
@@ -60,7 +60,7 @@ Este comando produzirá um corte JSON que é mostrado abaixo. Sob ```outputs``` 
 }
 ```
 
-Esta informação ```outputs``` vem da secção do modelo ARM. Como mostrado abaixo, esta secção faz referência ao recurso Gateway para obter o endereço IP público. 
+Esta informação provém da ```outputs``` secção do modelo ARM. Como mostrado abaixo, esta secção refere-se ao recurso Gateway para obter o endereço IP público. 
 
 ```json
   "outputs": {
@@ -91,7 +91,7 @@ Examine os registos da aplicação implementada com o comando `az mesh code-pack
 az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando estiver pronto para eliminar a aplicação, execute o comando [az group delete][az-group-delete] para remover o grupo de recursos, a aplicação e os recursos de rede que contém.
 
@@ -110,4 +110,4 @@ Para saber mais sobre como criar e implementar aplicações do Service Fabric Me
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 64eaa3fd38a9f3de7e2032ef7ff7a18924353a1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318441"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250860"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
 
@@ -37,7 +37,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS que suporta
 * Todas as piscinas de nódis devem residir na mesma rede virtual.
 * Ao criar várias piscinas de nó no cluster criar tempo, todas as versões Kubernetes utilizadas por piscinas de nó devem corresponder ao conjunto de versão definida para o plano de controlo. Isto pode ser atualizado depois de o cluster ter sido a provisionado utilizando operações de piscina por nó.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
 
 > [!Important]
 > Se executar uma única piscina de nó de sistema para o seu cluster AKS em ambiente de produção, recomendamos que use pelo menos três nós para a piscina de nós.
@@ -783,7 +783,7 @@ Pode localizar os IPs públicos para os seus nóns de várias formas:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, criou um cluster AKS que inclui nós baseados em GPU. Para reduzir custos desnecessários, pode querer eliminar o *gpunodepool*, ou todo o cluster AKS.
 
@@ -805,7 +805,7 @@ Também pode eliminar o cluster adicional que criou para o cenário de piscinas 
 az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [piscinas de nó de sistema.][use-system-pool]
 
@@ -844,7 +844,7 @@ Utilize [grupos de colocação de proximidade][reduce-latency-ppg] para reduzir 
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [quotas-skus-regions]: quotas-skus-regions.md
 [supported-versions]: supported-kubernetes-versions.md
-[tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
+[tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md

@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: masnider
 ms.custom: sfrev
-ms.openlocfilehash: 58259b0d19d68c468779a579bd9c86e77106c18d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66fc58941de206d0bff086f44852d0f2a31587f1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083513"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253087"
 ---
 # <a name="reliable-services-overview"></a>Descrição geral do Reliable Services
 
@@ -36,7 +37,7 @@ O Reliable Services oferece-lhe um modelo de programação simples, poderoso e d
   * Use as [Coleções Fiáveis](service-fabric-reliable-services-reliable-collections.md)
   * Aceda a muitas outras capacidades, todas a partir de um modelo de programação de primeira classe em várias linguagens de programação.
 * Um modelo simples para executar o seu próprio código que se parece com outros modelos de programação familiares. O seu código tem um ponto de entrada bem definido e um ciclo de vida facilmente gerido.
-* Um modelo de comunicação pluggable. Utilize o transporte à sua escolha, como HTTP com [Web API,](service-fabric-reliable-services-communication-webapi.md)WebSockets, protocolos TCP personalizados, ou qualquer outra coisa. Os Serviços Fiáveis fornecem algumas ótimas opções fora da caixa que você pode usar, ou você pode fornecer o seu próprio.
+* Um modelo de comunicação pluggable. Utilize o transporte à sua escolha, como HTTP com [Web API,](./service-fabric-reliable-services-communication-aspnetcore.md)WebSockets, protocolos TCP personalizados, ou qualquer outra coisa. Os Serviços Fiáveis fornecem algumas ótimas opções fora da caixa que você pode usar, ou você pode fornecer o seu próprio.
 * Para serviços estatais, o modelo de programação Reliable Services permite-lhe armazenar de forma consistente e fiável o seu estado dentro do seu serviço utilizando [Coleções Fiáveis.](service-fabric-reliable-services-reliable-collections.md) As Coleções Fiáveis são um conjunto simples de classes de coleção altamente disponíveis e fiáveis que serão familiares a qualquer pessoa que tenha usado coleções C#. Tradicionalmente, os serviços precisavam de sistemas externos para uma gestão fiável do Estado. Com as Coleções Fidedignas, pode armazenar o seu estado junto ao seu cálculo com a mesma elevada disponibilidade e fiabilidade que espera de lojas externas altamente disponíveis. Este modelo também melhora a latência porque está a co-localizar o cálculo e a indicar que precisa de funcionar.
 
 ## <a name="what-makes-reliable-services-different"></a>O que torna os Serviços Fiáveis diferentes
@@ -52,7 +53,7 @@ Os Serviços Fiáveis são diferentes dos serviços que já escreveu antes, porq
 
 Quer o seu serviço seja imponente ou apátrida, a Reliable Services fornece um ciclo de vida simples que lhe permite ligar rapidamente o seu código e começar.  Obter um novo serviço em funcionamento requer que implemente dois métodos:
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - Este método é onde o serviço define a(s) pilha de comunicação que pretende utilizar. A pilha de comunicação, como [a Web API,](service-fabric-reliable-services-communication-webapi.md)é o que define o ponto final de audição ou pontos finais para o serviço (como os clientes chegam ao serviço). Também define como as mensagens que aparecem interagem com o resto do código de serviço.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - Este método é onde o serviço define a(s) pilha de comunicação que pretende utilizar. A pilha de comunicação, como [a Web API,](./service-fabric-reliable-services-communication-aspnetcore.md)é o que define o ponto final de audição ou pontos finais para o serviço (como os clientes chegam ao serviço). Também define como as mensagens que aparecem interagem com o resto do código de serviço.
 * **RunAsync** - Este método é onde o seu serviço executa a sua lógica de negócio, e onde iniciaria quaisquer tarefas de fundo que deveriam funcionar durante toda a vida do serviço. O sinal de cancelamento fornecido é um sinal para quando esse trabalho deve parar. Por exemplo, se o serviço precisar de retirar mensagens de uma fila fiável e processá-las, é aqui que esse trabalho acontece.
 
 Se está a aprender sobre serviços de confiança pela primeira vez, leia! Se procura uma passagem detalhada do ciclo de vida de serviços fiáveis, consulte a visão geral do ciclo de vida dos [Serviços Fidedigdos](service-fabric-reliable-services-lifecycle.md).
@@ -67,7 +68,7 @@ Um *serviço apátrida* é aquele em que não há estado mantido dentro do servi
 
 Por exemplo, considere uma calculadora que não tem memória e que recebe todos os termos e operações para executar de uma só vez.
 
-Neste caso, o `RunAsync()` (C#) ou `runAsync()` (Java) do serviço pode estar vazio, uma vez que não existe um processamento de tarefas de fundo que o serviço precisa de fazer. Quando o serviço de calculadora é criado, devolve um `ICommunicationListener` (C#) ou `CommunicationListener` (Java) (por [exemplo, Web API](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto final de audição em alguma porta. Este ponto final de audição liga-se aos diferentes métodos de cálculo (exemplo: "Add(n1, n2)") que definem a API pública da calculadora.
+Neste caso, o `RunAsync()` (C#) ou `runAsync()` (Java) do serviço pode estar vazio, uma vez que não existe um processamento de tarefas de fundo que o serviço precisa de fazer. Quando o serviço de calculadora é criado, devolve um `ICommunicationListener` (C#) ou `CommunicationListener` (Java) (por [exemplo, Web API](./service-fabric-reliable-services-communication-aspnetcore.md)) que abre um ponto final de audição em alguma porta. Este ponto final de audição liga-se aos diferentes métodos de cálculo (exemplo: "Add(n1, n2)") que definem a API pública da calculadora.
 
 Quando uma chamada é feita a partir de um cliente, o método apropriado é invocado, e o serviço de calculadora executa as operações nos dados fornecidos e devolve o resultado. Não armazena nenhum estado.
 
@@ -103,7 +104,7 @@ Considere apis de serviços fiáveis se:
 * A sua aplicação precisa de manter a história da mudança para as suas unidades de estado.
 * Pretende desenvolver ou consumir fornecedores estatais personalizados e desenvolvidos por terceiros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arranque rápido de serviços fiáveis](service-fabric-reliable-services-quick-start.md)
 * [Coleções fiáveis](service-fabric-reliable-services-reliable-collections.md)

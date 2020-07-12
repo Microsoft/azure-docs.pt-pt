@@ -12,11 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 981d3134e957e1f19b9cd88ee13a72fc45d79277
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83004750"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252900"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -70,8 +71,8 @@ Para executar os passos descritos neste artigo, deve ter:
     > Os nomes de domínio wildcard, por exemplo, `*.contoso.com` são suportados em todos os níveis, exceto no nível de Consumo.
 
     > [!TIP]
-    > Recomendamos a utilização [do Cofre de Chaves Azure para gerir certificados](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e defini-los para a auto-autorização.
-    > Se utilizar o Cofre da Chave Azure para gerir o certificado TLS/SSL de domínio personalizado, certifique-se de que o certificado é inserido no Cofre-Chave [como _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), não um _segredo_.
+    > Recomendamos a utilização [do Cofre de Chaves Azure para gerir certificados](../key-vault/certificates/about-certificates.md) e defini-los para a auto-autorização.
+    > Se utilizar o Cofre da Chave Azure para gerir o certificado TLS/SSL de domínio personalizado, certifique-se de que o certificado é inserido no Cofre-Chave [como _certificado_](/rest/api/keyvault/createcertificate/createcertificate), não um _segredo_.
     >
     > Para obter um certificado TLS/SSL, a API Management deve ter a lista e obter permissões secretas no Cofre chave Azure contendo o certificado. Ao utilizar o portal Azure, todos os passos de configuração necessários serão concluídos automaticamente. Ao utilizar ferramentas de linha de comando ou a API de gestão, estas permissões devem ser concedidas manualmente. Isto é feito em dois passos. Em primeiro lugar, utilize a página de identidades geridas na sua instância de Gestão da API para se certificar de que a Identidade Gerida está ativada e tomar nota do id principal mostrado nessa página. Segundo, dê uma lista de permissões e obtenha permissões secretas para este id principal no Cofre da Chave Azure contendo o certificado.
     >
@@ -94,6 +95,6 @@ Ao configurar o DNS para o seu nome de domínio personalizado, tem duas opções
 > [!NOTE]
 > Embora o endereço IP de caso de managamento da API seja estático, pode mudar em alguns cenários. Por isso é recomendado usar CNAME ao configurar o domínio personalizado. Tenha isso em consideração ao escolher o método de configuração dns. Leia mais no [artigo de documentação IP](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) e na FAQ de Gestão da [API.](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Atualizar e escalar o seu serviço](upgrade-and-scale.md)

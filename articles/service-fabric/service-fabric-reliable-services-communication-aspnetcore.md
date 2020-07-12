@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 0d432bd19d0689ef508fca0bf24eed4406929f82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8866714ca1736b3ba785b560cb5a7aea451fdf1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639637"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253342"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core em Serviço Azure Fabric Reliable Services
 
@@ -19,7 +20,7 @@ Este artigo é um guia aprofundado para hospedar ASP.NET serviços Core em Servi
 
 Para um tutorial introdutório sobre ASP.NET Core in Service Fabric e instruções para configurar o seu ambiente de desenvolvimento, consulte [Tutorial: Crie e implemente uma aplicação com um serviço frontal ASP.NET Core Web E um serviço de back-end stateful](service-fabric-tutorial-create-dotnet-app.md).
 
-O resto deste artigo assume que já está familiarizado com ASP.NET Core. Caso contrário, por favor leia os fundamentos do [núcleo ASP.NET.](https://docs.microsoft.com/aspnet/core/fundamentals/index)
+O resto deste artigo assume que já está familiarizado com ASP.NET Core. Caso contrário, por favor leia os fundamentos do [núcleo ASP.NET.](/aspnet/core/fundamentals/index)
 
 ## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core no ambiente do tecido de serviço
 
@@ -93,7 +94,7 @@ Assim, tanto as implementações da Kestrel como HTTP.sys `ICommunicationListene
 ## <a name="httpsys-in-reliable-services"></a>HTTP.sys em Serviços Fiáveis
 Pode utilizar HTTP.sys em Serviços Fiáveis importando o pacote **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet. Este pacote `HttpSysCommunicationListener` contém, uma implementação de `ICommunicationListener` . `HttpSysCommunicationListener`permite-lhe criar um Core WebHost ASP.NET dentro de um serviço confiável, utilizando HTTP.sys como servidor web.
 
-HTTP.sys é construído na [API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)do Servidor HTTP do Windows HTTP . Esta API utiliza o **HTTP.sys** controlador de núcleo para processar pedidos HTTP e encaminhá-los para processos que executam aplicações web. Isto permite que vários processos na mesma máquina física ou virtual aloquem aplicações web na mesma porta, desambiguadas por um caminho URL único ou nome de hospedeiro. Estas funcionalidades são úteis no Service Fabric para hospedar vários websites no mesmo cluster.
+HTTP.sys é construído na [API](/windows/win32/http/http-api-start-page)do Servidor HTTP do Windows HTTP . Esta API utiliza o **HTTP.sys** controlador de núcleo para processar pedidos HTTP e encaminhá-los para processos que executam aplicações web. Isto permite que vários processos na mesma máquina física ou virtual aloquem aplicações web na mesma porta, desambiguadas por um caminho URL único ou nome de hospedeiro. Estas funcionalidades são úteis no Service Fabric para hospedar vários websites no mesmo cluster.
 
 >[!NOTE]
 >HTTP.sys implementação funciona apenas na plataforma Windows.
@@ -132,9 +133,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="endpoint-configuration"></a>Configuração do ponto final
 
-`Endpoint`É necessária uma configuração para servidores web que utilizem a API do Servidor HTTP do Windows, incluindo HTTP.sys. Os servidores web que utilizam a API do Servidor HTTP do Windows devem primeiro reservar o seu URL com HTTP.sys (isto é normalmente realizado com a ferramenta [netsh).](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) 
+`Endpoint`É necessária uma configuração para servidores web que utilizem a API do Servidor HTTP do Windows, incluindo HTTP.sys. Os servidores web que utilizam a API do Servidor HTTP do Windows devem primeiro reservar o seu URL com HTTP.sys (isto é normalmente realizado com a ferramenta [netsh).](/windows/win32/http/netsh-commands-for-http) 
 
-Esta ação requer privilégios elevados que os seus serviços não têm por defeito. As opções "http" ou "https" para a `Protocol` propriedade da `Endpoint` configuração em ServiceManifest.xml são usadas especificamente para instruir o tempo de execução do Tecido de Serviço para registar um URL com HTTP.sys em seu nome. Fá-lo utilizando o prefixo URL [*wildcard forte.*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx)
+Esta ação requer privilégios elevados que os seus serviços não têm por defeito. As opções "http" ou "https" para a `Protocol` propriedade da `Endpoint` configuração em ServiceManifest.xml são usadas especificamente para instruir o tempo de execução do Tecido de Serviço para registar um URL com HTTP.sys em seu nome. Fá-lo utilizando o prefixo URL [*wildcard forte.*](/windows/win32/http/urlprefix-strings)
 
 Por exemplo, para reservar `http://+:80` para um serviço, utilize a seguinte configuração em ServiceManifest.xml:
 
@@ -190,7 +191,7 @@ Uma porta dinâmica atribuída por uma `Endpoint` configuração fornece apenas 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel em Serviços Fiáveis
 Pode utilizar o Kestrel em Serviços Fiáveis importando o pacote **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet. Este pacote `KestrelCommunicationListener` contém, uma implementação de `ICommunicationListener` . `KestrelCommunicationListener`permite-lhe criar um Core WebHost ASP.NET dentro de um serviço confiável, utilizando o Kestrel como servidor web.
 
-Kestrel é um servidor web de plataforma cruzada para ASP.NET Core. Ao contrário HTTP.sys, o Kestrel não usa um gestor centralizado de pontos finais. Também ao contrário HTTP.sys, Kestrel não suporta a partilha de portas entre vários processos. Cada instância de Kestrel deve usar uma porta única. Para mais informações sobre kestrel, consulte os Detalhes de [Implementação.](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2)
+Kestrel é um servidor web de plataforma cruzada para ASP.NET Core. Ao contrário HTTP.sys, o Kestrel não usa um gestor centralizado de pontos finais. Também ao contrário HTTP.sys, Kestrel não suporta a partilha de portas entre vários processos. Cada instância de Kestrel deve usar uma porta única. Para mais informações sobre kestrel, consulte os Detalhes de [Implementação.](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2)
 
 ![Diagrama de Kestrel][4]
 
@@ -334,7 +335,7 @@ Para HTTPS, deve ter o Ponto final configurado com o protocolo HTTPS sem uma por
 
 
 ## <a name="service-fabric-configuration-provider"></a>Fornecedor de configuração de tecido de serviço
-A configuração da aplicação em ASP.NET Core baseia-se em pares de valor-chave estabelecidos pelo fornecedor de configuração. Leia [a configuração no núcleo ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) para saber mais sobre o suporte de configuração geral ASP.NET Core.
+A configuração da aplicação em ASP.NET Core baseia-se em pares de valor-chave estabelecidos pelo fornecedor de configuração. Leia [a configuração no núcleo ASP.NET](/aspnet/core/fundamentals/configuration/) para saber mais sobre o suporte de configuração geral ASP.NET Core.
 
 Esta secção descreve como o fornecedor de configuração de Tecido de Serviço se integra com ASP.NET configuração Core importando o `Microsoft.ServiceFabric.AspNetCore.Configuration` pacote NuGet.
 
@@ -447,7 +448,7 @@ public Startup()
 ```
 
 ### <a name="configuration-updates"></a>Atualizações de configuração
-O fornecedor de configuração do Tecido de Serviço também suporta atualizações de configuração. Pode utilizar ASP.NET Core `IOptionsMonitor` para receber notificações de alteração e, em seguida, utilizar `IOptionsSnapshot` para recarregar dados de configuração. Para obter mais informações, consulte [ASP.NET opções Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+O fornecedor de configuração do Tecido de Serviço também suporta atualizações de configuração. Pode utilizar ASP.NET Core `IOptionsMonitor` para receber notificações de alteração e, em seguida, utilizar `IOptionsSnapshot` para recarregar dados de configuração. Para obter mais informações, consulte [ASP.NET opções Core](/aspnet/core/fundamentals/configuration/options).
 
 Estas opções são suportadas por padrão. Não é necessário codificar mais para permitir atualizações de configuração.
 
@@ -473,7 +474,7 @@ Quando exposto à internet, um serviço apátrida deve usar um ponto final bem c
 | --- | --- | --- |
 | Servidor Web | Rio Kestrel | Kestrel é o servidor web preferido, já que é suportado através do Windows e Linux. |
 | Configuração da porta | static | Uma porta estática bem conhecida deve ser configurada na `Endpoints` configuração de ServiceManifest.xml, tais como 80 para HTTP ou 443 para HTTPS. |
-| Opções de Integração de ServiçosFabric | Nenhuma | Utilize a `ServiceFabricIntegrationOptions.None` opção ao configurar o middleware de integração do Tecido de Serviço, para que o serviço não tente validar pedidos de entrada para um identificador único. Os utilizadores externos da sua aplicação não saberão a informação de identificação única que o middleware utiliza. |
+| Opções de Integração de ServiçosFabric | Nenhum | Utilize a `ServiceFabricIntegrationOptions.None` opção ao configurar o middleware de integração do Tecido de Serviço, para que o serviço não tente validar pedidos de entrada para um identificador único. Os utilizadores externos da sua aplicação não saberão a informação de identificação única que o middleware utiliza. |
 | Contagem de Instâncias | -1 | Nos casos de utilização típica, a definição da contagem de casos deve ser definida *como -1*. Isto é feito para que esteja disponível um caso em todos os nós que recebem tráfego de um equilibrador de carga. |
 
 Se vários serviços expostos externamente partilharem o mesmo conjunto de nós, pode utilizar HTTP.sys com um caminho URL único mas estável. Pode fazê-lo modificando o URL fornecido ao configurar o IWebHost. Note que isto se aplica apenas a HTTP.sys.
@@ -510,7 +511,7 @@ Os serviços estatais que são chamados apenas de dentro do cluster devem utiliz
 | Configuração da porta | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
 | Opções de Integração de ServiçosFabric | UseUniqueServiceUrl | Com uma atribuição dinâmica da porta, esta definição impede o problema de identidade errado descrito anteriormente. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Depurar a sua aplicação do Service Fabric com o Visual Studio](service-fabric-debugging-your-application.md)
 
 

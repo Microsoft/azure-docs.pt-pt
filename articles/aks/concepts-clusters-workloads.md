@@ -4,11 +4,12 @@ description: Aprenda os componentes básicos de cluster e carga de trabalho de K
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336627"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251863"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
 
@@ -37,7 +38,7 @@ Um cluster Kubernetes é dividido em dois componentes:
 
 ## <a name="control-plane"></a>Plano de controlo
 
-Quando se cria um cluster AKS, um plano de controlo é automaticamente criado e configurado. Este plano de controlo é fornecido como um recurso Azure gerido abstraído do utilizador. Não há custo para o avião de controlo, apenas os nós que fazem parte do aglomerado AKS.
+Quando se cria um cluster AKS, um plano de controlo é automaticamente criado e configurado. Este plano de controlo é fornecido como um recurso Azure gerido abstraído do utilizador. Não há custo para o avião de controlo, apenas os nós que fazem parte do aglomerado AKS. O plano de controlo e os seus recursos residem apenas na região onde criou o aglomerado.
 
 O plano de controlo inclui os seguintes componentes de Kubernetes:
 
@@ -48,7 +49,7 @@ O plano de controlo inclui os seguintes componentes de Kubernetes:
 
 AKS fornece um plano de controlo de um único inquilino, com um servidor API dedicado, Agendador, etc. Você define o número e o tamanho dos nós, e a plataforma Azure configura a comunicação segura entre o plano de controlo e os nós. A interação com o plano de controlo ocorre através de APIs de Kubernetes, tais como `kubectl` ou o painel kubernetes.
 
-Este avião de controlo gerido significa que você não precisa configurar componentes como uma loja *de etcd* altamente disponível, mas também significa que você não pode aceder diretamente ao avião de controlo. As atualizações para Kubernetes são orquestradas através do portal Azure CLI ou Azure, que atualiza o plano de controlo e, em seguida, os nós. Para resolver eventuais problemas, pode rever os registos dos aviões de controlo através dos registos do Azure Monitor.
+Este avião de controlo gerido significa que não precisa de configurar componentes como uma loja *de etcd* altamente disponível, mas também significa que não pode aceder diretamente ao avião de controlo. As atualizações para Kubernetes são orquestradas através do portal Azure CLI ou Azure, que atualiza o plano de controlo e, em seguida, os nós. Para resolver eventuais problemas, pode rever os registos dos aviões de controlo através dos registos do Azure Monitor.
 
 Se precisar de configurar o avião de controlo de uma forma particular ou precisar de acesso direto ao mesmo, pode implantar o seu próprio cluster Kubernetes utilizando [o motor aks][aks-engine].
 
@@ -72,9 +73,9 @@ Se precisar de utilizar um sistema operativo de hospedeiro diferente, tempo de e
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
-Os recursos do nó são utilizados pela AKS para fazer com que o nó funcione como parte do seu cluster. Isto pode criar uma discrepância entre os recursos totais do seu nó e os recursos alocáveis quando usados em AKS. Isto é importante notar ao definir pedidos e limites para as cápsulas implantadas pelo utilizador.
+Os recursos do nó são utilizados pela AKS para fazer com que o nó funcione como parte do seu cluster. Esta utilização pode criar uma discrepância entre os recursos totais do seu nó e os recursos alocáveis quando utilizados em AKS. Estas informações são importantes para notar ao definir pedidos e limites para as cápsulas implementadas pelo utilizador.
 
-Para encontrar os recursos alocáveis de um nó:
+Para encontrar os recursos alocáveis de um nó, corra:
 ```kubectl
 kubectl describe node [NODE_NAME]
 
@@ -85,7 +86,7 @@ Para manter o desempenho e funcionalidade do nó, os recursos são reservados em
 >[!NOTE]
 > A utilização de complementos AKS, como o Container Insights (OMS) consumirá recursos adicionais de nó.
 
-- **CPU** - CPU reservado depende do tipo de nó e da configuração do cluster que pode causar CPU menos alocável devido à execução de funcionalidades adicionais
+- **CPU** - CPU reservado depende do tipo de nó e configuração do cluster, o que pode causar CPU menos alocável devido à execução de funcionalidades adicionais
 
 | Núcleos de CPU no anfitrião | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
@@ -93,7 +94,7 @@ Para manter o desempenho e funcionalidade do nó, os recursos são reservados em
 
 - **Memória** - a memória utilizada pela AKS inclui a soma de dois valores.
 
-1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve sempre ter pelo menos 750 Mi atribuível em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de funcionamento para libertar a memória na máquina hospedeira e protegê-la-á. Esta é uma ação reativa uma vez que a memória disponível diminui para além do limiar de 750Mi.
+1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve sempre ter pelo menos 750 Mi atribuível em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de funcionamento para libertar a memória na máquina hospedeira e protegê-la-á. Esta ação é desencadeada uma vez que a memória disponível diminui para além do limiar de 750Mi.
 
 2. O segundo valor é uma taxa regressiva de reservas de memória para o daemon kubelet funcionar corretamente (kube-reserved).
     - 25% dos primeiros 4 GB de memória
@@ -102,7 +103,7 @@ Para manter o desempenho e funcionalidade do nó, os recursos são reservados em
     - 6% dos próximos 112 GB de memória (até 128 GB)
     - 2% de qualquer memória acima de 128 GB
 
-As regras acima referidas para a alocação de memória e CPU são usadas para manter os nós de agente saudáveis, incluindo algumas cápsulas de sistema de hospedagem que são fundamentais para a saúde do agrupamento. Estas regras de atribuição também fazem com que o nó reporte menos memória alocável e CPU do que faria se não fizesse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
+As regras acima referidas para a alocação de memória e CPU são usadas para manter os nós de agente saudáveis, incluindo algumas cápsulas de sistema de hospedagem que são fundamentais para a saúde do agrupamento. Estas regras de atribuição também fazem com que o nó reporte menos memória alocável e CPU do que normalmente faria se não fizesse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
 Por exemplo, se um nó oferecer 7 GB, reportará 34% da memória não alocável, incluindo o limiar de despejo rígido de 750Mi.
 
@@ -152,7 +153,7 @@ Quando cria uma cápsula, pode definir *pedidos* de recursos para solicitar uma 
 
 Para obter mais informações, consulte [as cápsulas Kubernetes][kubernetes-pods] e [o ciclo de vida do casulo Kubernetes.][kubernetes-pod-lifecycle]
 
-Uma cápsula é um recurso lógico, mas os contentores(s) são onde as cargas de trabalho da aplicação são executadas. Os pods são tipicamente efémeros, recursos descartáveis, e as cápsulas programadas individualmente perdem algumas das funcionalidades de alta disponibilidade e redundância que kubernetes fornece. Em vez disso, as cápsulas são normalmente implantadas e geridas por *Controladores*Kubernetes , como o Controlador de Implementação.
+Uma cápsula é um recurso lógico, mas os contentores(s) são onde as cargas de trabalho da aplicação são executadas. Os pods são tipicamente efémeros, recursos descartáveis, e as cápsulas programadas individualmente perdem algumas das funcionalidades de alta disponibilidade e redundância que kubernetes fornece. Em vez disso, as cápsulas são implantadas e geridas por *controladores*Kubernetes , como o Controlador de Implementação.
 
 ## <a name="deployments-and-yaml-manifests"></a>Implementações e manifestos YAML
 
@@ -162,9 +163,9 @@ Pode atualizar as implementações para alterar a configuração de cápsulas, i
 
 A maioria das aplicações apátridas em AKS deve usar o modelo de implementação em vez de agendar cápsulas individuais. Kubernetes pode monitorizar a saúde e o estado das implementações para garantir que o número necessário de réplicas é executado dentro do cluster. Quando se apenas programam cápsulas individuais, as cápsulas não são reiniciadas se encontrarem um problema, e não são reagendadas em nós saudáveis se o seu nó atual encontrar um problema.
 
-Se uma aplicação requer que um quórum de instâncias esteja sempre disponível para que as decisões de gestão sejam tomadas, você não quer que um processo de atualização perturbe essa capacidade. *Os Orçamentos de Interrupção do Pod* podem ser utilizados para definir quantas réplicas numa implementação podem ser retiradas durante uma atualização ou atualização de nós. Por exemplo, se tiver *5* réplicas na sua implementação, pode definir uma rutura de pod de *4* para permitir apenas que uma réplica seja eliminada/reagendada de cada vez. Tal como acontece com os limites de recursos do pod, a melhor prática é definir orçamentos de disrupção do pod em aplicações que requerem um número mínimo de réplicas para estar sempre presente.
+Se uma aplicação requer que um quórum de instâncias esteja sempre disponível para que as decisões de gestão sejam tomadas, você não quer que um processo de atualização perturbe essa capacidade. *Os Orçamentos de Interrupção do Pod* podem ser utilizados para definir quantas réplicas numa implementação podem ser retiradas durante uma atualização ou atualização de nós. Por exemplo, se tiver *cinco (5)* réplicas na sua implantação, pode definir uma rutura de pod de *4* para permitir apenas que uma réplica seja eliminada/reagendada de cada vez. Tal como acontece com os limites de recursos do pod, a melhor prática é definir orçamentos de disrupção do pod em aplicações que requerem um número mínimo de réplicas para estar sempre presente.
 
-As implementações são tipicamente criadas e geridas com `kubectl create` ou `kubectl apply` . Para criar uma implementação, define um ficheiro manifesto no formato YAML (YAML Ain't Markup Language). O exemplo a seguir cria uma implementação básica do servidor web NGINX. A implantação especifica *3* réplicas a serem criadas e a porta *80* está aberta no recipiente. Os pedidos e limites de recursos também estão definidos para CPU e memória.
+As implementações são tipicamente criadas e geridas com `kubectl create` ou `kubectl apply` . Para criar uma implementação, define um ficheiro manifesto no formato YAML (YAML Ain't Markup Language). O exemplo a seguir cria uma implementação básica do servidor web NGINX. A implantação especifica *três (3)* réplicas a serem criadas e requer que a porta *80* seja aberta no contentor. Os pedidos e limites de recursos também estão definidos para CPU e memória.
 
 ```yaml
 apiVersion: apps/v1
@@ -251,9 +252,9 @@ Quando cria um cluster AKS, os seguintes espaços de nome estão disponíveis:
 
 Para mais informações, consulte [os espaços de nomes de Kubernetes.][kubernetes-namespaces]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo cobre alguns dos componentes de Kubernetes e como se aplicam aos clusters AKS. Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
+Este artigo cobre alguns dos componentes de Kubernetes e como se aplicam aos clusters AKS. Para obter mais informações sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
 
 - [Acesso e identidade kubernetes / AKS][aks-concepts-identity]
 - [Segurança Kubernetes / AKS][aks-concepts-security]

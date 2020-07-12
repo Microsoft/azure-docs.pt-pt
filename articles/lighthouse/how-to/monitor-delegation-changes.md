@@ -1,14 +1,14 @@
 ---
 title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: b30cbc025f97ab76be55f0f83e15603b40092ce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 63b19f56538f060a158fd665a9bef3bf43a9d087
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105171"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252288"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -91,7 +91,7 @@ Ao consultar estes dados, tenha em mente:
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-# Azure Lighthouse: Query Tenant Activity Log for registered/unregistered delegations for the past 1 day
+# Azure Lighthouse: Query Tenant Activity Log for registered/unregistered delegations for the last 1 day
 
 $GetDate = (Get-Date).AddDays((-1))
 
@@ -106,57 +106,61 @@ $profileClient = [Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClien
 $token = $profileClient.AcquireAccessToken($currentContext.Tenant.Id)
 
 $listOperations = @{
-    Uri = "https://management.azure.com/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&`$filter=eventTimestamp ge '$($dateFormatForQuery)'"
+    Uri     = "https://management.azure.com/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&`$filter=eventTimestamp ge '$($dateFormatForQuery)'"
     Headers = @{
-        Authorization = "Bearer $($token.AccessToken)"
+        Authorization  = "Bearer $($token.AccessToken)"
         'Content-Type' = 'application/json'
     }
-    Method = 'GET'
+    Method  = 'GET'
 }
 $list = Invoke-RestMethod @listOperations
-$showOperations = $list.value
 
-if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/register/action")
-{
-    $registerOutputs  = $showOperations | Where-Object -FilterScript {$_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/register/action"}
-    foreach ($registerOutput in $registerOutputs)
-    {
+# First link can be empty - and point to a next link (or potentially multiple pages)
+# While you get more data - continue fetching and add result
+while($list.nextLink){
+    $list2 = Invoke-RestMethod $list.nextLink -Headers $listOperations.Headers -Method Get
+    $data+=$list2.value;
+    $list.nextLink = $list2.nextlink;
+}
+
+$showOperations = $data;
+
+if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/register/action") {
+    $registerOutputs = $showOperations | Where-Object -FilterScript { $_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/register/action" }
+    foreach ($registerOutput in $registerOutputs) {
+        $eventDescription = $registerOutput.description | ConvertFrom-Json;
     $registerOutputdata = [pscustomobject]@{
-        Event = "An Azure customer has delegated resources to your tenant";
-        DelegatedResourceId = $registerOutput.description |%{$_.split('"')[11]};
-        CustomerTenantId = $registerOutput.description |%{$_.split('"')[7]};
-        CustomerSubscriptionId = $registerOutput.subscriptionId;
+        Event                    = "An Azure customer has registered delegated resources to your Azure tenant";
+        DelegatedResourceId      = $eventDescription.delegationResourceId; 
+        CustomerTenantId         = $eventDescription.subscriptionTenantId;
+        CustomerSubscriptionId   = $eventDescription.subscriptionId;
         CustomerDelegationStatus = $registerOutput.status.value;
-        EventTimeStamp = $registerOutput.eventTimestamp;
+        EventTimeStamp           = $registerOutput.eventTimestamp;
         }
         $registerOutputdata | Format-List
     }
 }
-if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/unregister/action") 
-{
-    $unregisterOutputs  = $showOperations | Where-Object -FilterScript {$_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/unregister/action"}
-    foreach ($unregisterOutput in $unregisterOutputs)
-    {
+if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/unregister/action") {
+    $unregisterOutputs = $showOperations | Where-Object -FilterScript { $_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/unregister/action" }
+    foreach ($unregisterOutput in $unregisterOutputs) {
+        $eventDescription = $registerOutput.description | ConvertFrom-Json;
     $unregisterOutputdata = [pscustomobject]@{
-        Event = "An Azure customer has removed delegated resources from your tenant";
-        DelegatedResourceId = $unregisterOutput.description |%{$_.split('"')[11]};
-        CustomerTenantId = $unregisterOutput.description |%{$_.split('"')[7]};
-        CustomerSubscriptionId = $unregisterOutput.subscriptionId;
+        Event                    = "An Azure customer has unregistered delegated resources from your Azure tenant";
+        DelegatedResourceId      = $eventDescription.delegationResourceId;
+        CustomerTenantId         = $eventDescription.subscriptionTenantId;
+        CustomerSubscriptionId   = $eventDescription.subscriptionId;
         CustomerDelegationStatus = $unregisterOutput.status.value;
-        EventTimeStamp = $unregisterOutput.eventTimestamp;
+        EventTimeStamp           = $unregisterOutput.eventTimestamp;
         }
         $unregisterOutputdata | Format-List
     }
 }
-else 
-{
-    Write-Output "No new delegation changes."
-}   
-
-
+else {
+    Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
+}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como embarcar clientes no [Farol Azure.](../concepts/azure-delegated-resource-management.md)
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).

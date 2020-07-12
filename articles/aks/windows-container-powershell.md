@@ -4,12 +4,12 @@ description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma 
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 735869da1432c241927597789f00a0bd2aea63f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207962"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250877"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o PowerShell
 
@@ -47,7 +47,7 @@ As seguintes limitações adicionais aplicam-se aos conjuntos de nó de nó do W
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um [grupo de recursos Azure](/azure/azure-resource-manager/resource-group-overview) é um grupo lógico no qual os recursos da Azure são implantados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o cmdlet [New-AzResourceGroup.][new-azresourcegroup]
+Um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) é um grupo lógico no qual os recursos da Azure são implantados e geridos. Quando cria um grupo de recursos, é-lhe pedido que especifique uma localização. Esta localização é onde os metadados do grupo de recursos são armazenados, é também onde os seus recursos funcionam em Azure se você não especificar outra região durante a criação de recursos. Criar um grupo de recursos utilizando o cmdlet [New-AzResourceGroup.][new-azresourcegroup]
 
 O exemplo seguinte cria um grupo de recursos com o nome **myResourceGroup** na localização **eastus**.
 
@@ -68,9 +68,9 @@ Tags              :
 ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup
 ```
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
 
-Utilize o `ssh-keygen` utilitário de linha de comando para gerar um par de chaves SSH. Para obter mais detalhes, consulte [passos rápidos: Crie e utilize um par de chaves SSH público-privado para Os VMs Linux em Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+Utilize o `ssh-keygen` utilitário de linha de comando para gerar um par de chaves SSH. Para obter mais detalhes, consulte [passos rápidos: Crie e utilize um par de chaves SSH público-privado para Os VMs Linux em Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 Para executar um cluster AKS que suporta piscinas de nós para recipientes do Windows Server, o seu cluster precisa de utilizar uma política de rede que utilize plugin de rede [Azure CNI][azure-cni-about] (avançado). Para obter informações mais pormenorizadas para ajudar a planear as gamas de sub-redes necessárias e considerações de rede, consulte [a configuração da rede CNI Azure][use-advanced-networking]. Utilize o cmdlet [New-AzAks][new-azaks] abaixo para criar um cluster AKS chamado **myAKSCluster**. O exemplo a seguir cria os recursos de rede necessários se não existirem.
 
@@ -234,7 +234,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma `ASP.NET` aplicação de amostra num contentor do Windows Server. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que criou.
 

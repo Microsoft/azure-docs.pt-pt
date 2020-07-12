@@ -5,11 +5,12 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbcf552cee8a96636920f04472843b1fea5c845
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75433869"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253240"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicações baseada em WCF para serviços fiáveis
 O quadro de Serviços Fiáveis permite que os autores de serviços escolham a pilha de comunicação que querem usar para o seu serviço. Podem ligar a pilha de comunicação à sua escolha através dos **métodos ICommunicationListener** devolvidos dos métodos [CreateServiceReplicaListeners ou CreateServiceInstanceListeners.](service-fabric-reliable-services-communication.md) O quadro fornece uma implementação da pilha de comunicação com base na Windows Communication Foundation (WCF) para autores de serviços que queiram utilizar comunicações baseadas em WCF.
@@ -113,8 +114,7 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Chamada de procedimento remoto com remoting de Serviços Fiáveis](service-fabric-reliable-services-communication-remoting.md)
-* [Web API com OWIN em Serviços Fiáveis](service-fabric-reliable-services-communication-webapi.md)
+* [Web API com OWIN em Serviços Fiáveis](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Assegurar a comunicação para serviços fiáveis](service-fabric-reliable-services-secure-communication-wcf.md)
-

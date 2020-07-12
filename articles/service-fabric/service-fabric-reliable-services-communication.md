@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0899e33e875fea4a1708e593876b7ef771004677
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462950"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253189"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar as APIs de comunicação de Serviços Fiáveis
 A Azure Service Fabric como plataforma é completamente agnóstica sobre a comunicação entre serviços. Todos os protocolos e pilhas são aceitáveis, da UDP ao HTTP. Cabe ao promotor de serviços escolher como os serviços devem comunicar. A estrutura de aplicação reliable Services fornece pilhas de comunicação incorporadas, bem como APIs que você pode usar para construir seus componentes de comunicação personalizados.
@@ -187,7 +188,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 A Service Fabric fornece APIs que permitem que os clientes e outros serviços peçam este endereço pelo nome de serviço. Isto é importante porque o endereço de serviço não é estático. Os serviços são deslocados no cluster para fins de equilíbrio de recursos e disponibilidade. Este é o mecanismo que permite aos clientes resolver o endereço de escuta de um serviço.
 
 > [!NOTE]
-> Para obter um walk-through completo de como escrever um ouvinte de comunicação, consulte [os serviços de API web de tecido de serviço com o OWIN auto-hospedagem](service-fabric-reliable-services-communication-webapi.md) para C#, enquanto para Java você pode escrever a sua própria implementação do servidor HTTP, consulte o exemplo da aplicação EchoServer em https://github.com/Azure-Samples/service-fabric-java-getting-started .
+> Para obter um walk-through completo de como escrever um ouvinte de comunicação, consulte [os serviços de API web de tecido de serviço com o OWIN auto-hospedagem](./service-fabric-reliable-services-communication-aspnetcore.md) para C#, enquanto para Java você pode escrever a sua própria implementação do servidor HTTP, consulte o exemplo da aplicação EchoServer em https://github.com/Azure-Samples/service-fabric-java-getting-started .
 >
 >
 
@@ -420,7 +421,7 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [ASP.NET Core com serviços fiáveis](service-fabric-reliable-services-communication-aspnetcore.md)
 * [Chamadas de procedimento remoto com serviços fiáveis de remoing](service-fabric-reliable-services-communication-remoting.md)
 * [Comunicação WCF utilizando serviços fiáveis](service-fabric-reliable-services-communication-wcf.md)

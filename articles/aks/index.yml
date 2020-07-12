@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 03/25/2020
-  ms.openlocfilehash: 44ef4686cd2213230479711060e3f0558981bc18
-  ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+  ms.openlocfilehash: c3a5651df8ad1f07f3b9800abfe4b48e829ff27b
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/17/2020
-  ms.locfileid: "84976477"
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86251659"
 landingContent:
 - title: Acerca do Azure Kubernetes Service (AKS)
   linkLists:
@@ -79,8 +79,8 @@ landingContent:
   - linkListType: learn
     links:
     - text: Introdução ao Serviço Kubernetes do Azure
-      url: https://docs.microsoft.com/learn/modules/intro-to-azure-kubernetes-service/
+      url: /learn/modules/intro-to-azure-kubernetes-service/
     - text: Introdução aos contentores no Azure
-      url: https://docs.microsoft.com/learn/modules/intro-to-containers/
+      url: /learn/modules/intro-to-containers/
     - text: Compilar e armazenar imagens de contentor com o Azure Container Registry
-      url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/
+      url: /learn/modules/build-and-store-container-images/

@@ -12,11 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91094285aa50641f62527326bab121adcf026a9a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308631"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252067"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvimento de plataforma de identidade da Microsoft
 
@@ -116,7 +117,7 @@ Consulte [a referência simbólica da plataforma de identidade da Microsoft][AAD
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidades da Microsoft
 
-A plataforma de identidades da Microsoft é a evolução da plataforma para programadores e do serviço de identidades do Azure Active Directory (Azure AD). Permite que os programadores compilem aplicações que iniciam sessão em todas as identidades da Microsoft, obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs compiladas pelos programadores. É uma plataforma completa que consiste num serviço de autenticação, bibliotecas, registo de aplicações e configuração, documentação completa do desenvolvedor, amostras de código e outros conteúdos do desenvolvedor. A plataforma de identidades da Microsoft suporta protocolos norma da indústria, tais como OAuth 2.0 e o OpenID Connect. Consulte [a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md) para obter mais detalhes.
+A plataforma de identidades da Microsoft é a evolução da plataforma para programadores e do serviço de identidades do Azure Active Directory (Azure AD). Permite que os programadores compilem aplicações que iniciam sessão em todas as identidades da Microsoft, obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs compiladas pelos programadores. É uma plataforma completa que consiste num serviço de autenticação, bibliotecas, registo de aplicações e configuração, documentação completa do desenvolvedor, amostras de código e outros conteúdos do desenvolvedor. A plataforma de identidades da Microsoft suporta protocolos norma da indústria, tais como OAuth 2.0 e o OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>aplicação multi-inquilino
 
@@ -219,7 +220,7 @@ Semelhante à forma como um objeto principal de serviço é usado para represent
 
 Um tipo de [aplicação](#client-application) de cliente que executa todo o código num servidor web e é capaz de funcionar como um cliente "confidencial", armazenando de forma segura as suas credenciais no servidor. Para obter mais informações, consulte [os tipos e perfis de clientes da OAuth2.][OAuth2-Client-Types]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O [Guia do Desenvolvedor da plataforma de identidade da Microsoft][AAD-Dev-Guide] é a página de aterragem para todos os tópicos relacionados com o desenvolvimento da plataforma de identidade da Microsoft, incluindo uma visão geral da integração de [aplicações][AAD-How-To-Integrate] e os fundamentos da autenticação da plataforma de identidade da Microsoft e cenários de [autenticação suportados.][AAD-Auth-Scenarios] Também pode encontrar amostras de código & tutoriais sobre como se levantar e correr rapidamente no [GitHub.](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)
 

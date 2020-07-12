@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador básico de entrada N
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: 049df92fcbc6126516fef5cf463b1485b1d19b0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb136b216b3d86a5aa3a7e7e609cb16b7d95db4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945550"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251795"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no Serviço Azure Kubernetes (AKS)
 
@@ -225,7 +225,7 @@ Adicione agora o caminho */olá-mundo-dois* ao endereço IP, como *EXTERNAL_IP/o
 
 ![Segunda aplicação a correr atrás do controlador de entrada](media/ingress-basic/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou o Helm para instalar os componentes de entrada e as aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
@@ -275,7 +275,7 @@ Finalmente, pode apagar o espaço de nome em si. Utilize o `kubectl delete` coma
 kubectl delete namespace ingress-basic
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 
@@ -291,7 +291,7 @@ Também pode:
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 
 <!-- LINKS - internal -->

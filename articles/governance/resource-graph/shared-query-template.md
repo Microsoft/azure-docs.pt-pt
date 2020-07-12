@@ -4,30 +4,32 @@ description: Neste arranque rápido, utiliza-se um modelo de Gestor de Recursos 
 ms.date: 07/06/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 3cdcff4898a8644008193943a243be4a2ef9e8c4
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a05be04064df81373f856ea0e8ca59664078695f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969811"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252373"
 ---
-# <a name="quickstart-create-a-shared-query-by-using-an-azure-resource-manager-template"></a>Quickstart: Crie uma consulta partilhada utilizando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Quickstart: Crie uma consulta partilhada utilizando um modelo ARM
 
 As consultas de gráfico de recurso podem ser guardadas como uma _consulta privada_ ou uma _consulta partilhada._ Uma consulta privada é guardada para o perfil do portal dos indivíduos e não é visível para os outros. Uma consulta partilhada é um objeto do Gestor de Recursos que pode ser partilhado com outros através de permissões e acesso baseado em funções. Uma consulta partilhada proporciona uma execução comum e consistente da descoberta de recursos. Este quickstart usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma consulta partilhada.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Implemente o modelo ARM para criar uma consulta partilhada ao Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-a-shared-query"></a>Criar uma consulta partilhada
+## <a name="review-the-template"></a>Rever o modelo
 
 Neste quickstart, você cria uma consulta partilhada chamada _Conde VMs by OS_. Para experimentar esta consulta em SDK ou em portal com o Resource Graph Explorer, consulte [Samples - Conte máquinas virtuais por tipo OS](./samples/starter.md#count-os).
 
-### <a name="review-the-template"></a>Rever o modelo
-
-O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
 :::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json" highlight="28-37":::
 
@@ -35,7 +37,7 @@ O recurso definido no modelo é:
 
 - [Microsoft.ResourceGraph/consultas](/azure/templates/microsoft.resourcegraph/queries)
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 > [!NOTE]
 > O serviço Azure Resource Graph é gratuito. Para mais informações, consulte [a visão geral do Gráfico de Recursos Azure.](./overview.md)
@@ -46,7 +48,7 @@ O recurso definido no modelo é:
 
 1. Selecione ou introduza os seguintes valores:
 
-   | Name | Valor |
+   | Nome | Valor |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. |
@@ -60,7 +62,7 @@ O recurso definido no modelo é:
 
 Alguns recursos adicionais:
 
-- Para encontrar mais modelos de amostras, consulte o [modelo Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
+- Para encontrar mais modelos de amostras, consulte [o modelo Azure Quickstart.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular)
 - Para ver a referência do modelo, vá à [referência do modelo Azure](/azure/templates/microsoft.resourcegraph/allversions).
 - Para aprender a desenvolver modelos ARM, consulte a [documentação do Gestor de Recursos Azure](../../azure-resource-manager/management/overview.md).
 - Para obter a implementação ao nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição](../../azure-resource-manager/templates/deploy-to-subscription.md).
@@ -83,7 +85,7 @@ Em alternativa, a consulta partilhada pode ser aberta a partir do Explorador de 
 
 1. Uma vez carregada a consulta, selecione o botão **de consulta 'Executar'.** Os resultados são apresentados no separador **Resultados** abaixo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a consulta partilhada criada, siga estes passos:
 

@@ -2,14 +2,15 @@
 title: Gatilhos e encadernações em Funções Azure
 description: Aprenda a usar gatilhos e encadernações para ligar a sua Função Azure a eventos online e serviços baseados na nuvem.
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687655"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86252696"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos dos acionadores e dos enlaces das Funções do Azure
 
@@ -27,10 +28,10 @@ Considere os seguintes exemplos de como poderia implementar diferentes funções
 
 | Cenário de exemplo | Acionador | Encadernação de entrada | Ligação de saída |
 |-------------|---------|---------------|----------------|
-| Chega uma nova mensagem de fila que executa uma função para escrever para outra fila. | Fila<sup>*</sup> | *Nenhum* | Fila<sup>*</sup> |
-|Um trabalho programado lê o conteúdo do Blob Storage e cria um novo documento de Cosmos DB. | Temporizador | Armazenamento de Blobs | BD do Cosmos |
+| Chega uma nova mensagem de fila que executa uma função para escrever para outra fila. | Fila<sup>*</sup> | *Nenhuma* | Fila<sup>*</sup> |
+|Um trabalho programado lê o conteúdo do Blob Storage e cria um novo documento de Cosmos DB. | Temporizador | Armazenamento de Blobs | Cosmos DB |
 |A Grade de Eventos é usada para ler uma imagem do Blob Storage e um documento da Cosmos DB para enviar um e-mail. | Event Grid | Blob Storage e Cosmos DB | SendGrid |
-| Um webhook que usa o Microsoft Graph para atualizar uma folha de Excel. | HTTP | *Nenhum* | Microsoft Graph |
+| Um webhook que usa o Microsoft Graph para atualizar uma folha de Excel. | HTTP | *Nenhuma* | Microsoft Graph |
 
 <sup>\*</sup>Representa diferentes filas
 
@@ -87,6 +88,6 @@ Para obter informações sobre quais as ligações que estão em pré-visualiza�
   - [Executar manualmente uma função não acionada por HTTP](functions-manually-run-non-http.md)
 - [Manipulação de erros de ligação](./functions-bindings-errors.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Registar extensões de ligação funções Azure Funções](./functions-bindings-register.md)

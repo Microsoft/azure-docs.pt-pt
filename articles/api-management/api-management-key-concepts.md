@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84690205"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254661"
 ---
 # <a name="about-api-management"></a>Acerca da Gestão de API
 
@@ -38,15 +38,15 @@ Para utilizar a API Management, os administradores criam APIs. Cada API é const
 
 O sistema é constituído pelos seguintes componentes:
 
-* O **gateway da API** é o ponto final que:
+* O **portal da API** é o ponto final que:
   
   * Aceita as chamadas à API e as encaminha para os seus back-ends.
   * Verifica as chaves de API, os tokens JWT, os certificados e outras credenciais.
   * Impõe quotas de utilização e limites de velocidade.
-  * Transforma imediatamente a sua API sem modificações do código.
-  * Coloca em cache as respostas de back-end, quando estão configuradas.
+  * Transforma a sua API imediatamente e sem modificações de código.
+  * Armazena respostas de back-end em cache quando existir configuração para tal.
   * Regista metadados de chamadas para fins de análise.
-* O **portal do Azure** é a interface administrativa onde configura o seu programa de API. Utilize-o para:
+* O **portal Azure** é a interface administrativa onde configura o seu programa API. Utilize-o para:
   
   * Definir ou importar o esquema de API.
   * Integrar APIs em produtos.
@@ -56,8 +56,8 @@ O sistema é constituído pelos seguintes componentes:
 * O **Portal do programador** serve como a principal presença na Web para os programadores, onde podem:
   
   * Ler a documentação da API.
-  * Experimentar uma API através da consola interativa.
-  * Criar uma conta e subscrever para obter chaves de API.
+  * Experimente uma API através da consola interativa.
+  * Crie uma conta e subscreva para obter as chaves de API.
   * Aceder a análises sobre a sua própria utilização.
 
 Para obter mais informações, consulte o documento técnico em PDF [API Management baseada na nuvem: tirar partido do poder das APIs](https://j.mp/ms-apim-whitepaper). Este documento técnico introdutório sobre a API Management da CITO Research abrange: 
@@ -69,7 +69,7 @@ Para obter mais informações, consulte o documento técnico em PDF [API Managem
  * Análise e métricas
  * Obtenção de controlo e conhecimentos aprofundados com uma plataforma de API Management
  * Utilização de soluções em nuvem versus no local
- * API Management do Azure
+ * Gestão de API do Azure
  
 ## <a name="apis-and-operations"></a><a name="apis"> </a>APIs e operações
 As APIs são a base de uma instância de serviço de API Management. Cada API representa um conjunto de operações disponíveis para os programadores. Cada API contém uma referência ao serviço de back-end que implementa a API e as respetivas operações efetuam o mapeamento para as operações implementadas pelo serviço de back-end. As operações da API Management são altamente configuráveis, com controlo sobre o mapeamento de URL, parâmetros de caminho e consulta, conteúdo do pedido e da resposta e colocação em cache das respostas de operações. Também é possível implementar políticas de limite de taxa, quotas e restrição de IP ao nível da API ou da operação individual.
@@ -102,7 +102,7 @@ Para obter mais informações, consulte [Como criar ou convidar programadores][H
 ## <a name="policies"></a><a name="policies"> </a> Políticas
 As políticas são uma funcionalidade poderosa da Gestão de API que permite ao portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. As instruções populares incluem a conversão do formato de XML para JSON e a limitação de taxa de chamadas para restringir o número de chamadas recebidas de um programador, bem como várias outras políticas disponíveis.
 
-As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](/azure/api-management/api-management-advanced-policies#choose) e [Definir variável](/azure/api-management/api-management-advanced-policies#set-variable), baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) e [Expressões de política](/azure/api-management/api-management-policy-expressions).
+As expressões de política podem ser utilizadas como valores de atributo ou valores de texto em qualquer uma das políticas de API Management, a menos que a política especifique o contrário. Algumas políticas, como [Fluxo de controlo](./api-management-advanced-policies.md#choose) e [Definir variável](./api-management-advanced-policies.md#set-variable), baseiam-se em expressões de política. Para obter mais informações, veja [Políticas avançadas](./api-management-advanced-policies.md#AdvancedPolicies) e [Expressões de política](./api-management-policy-expressions.md).
 
 
 Para obter uma lista completa das políticas de Gestão de API, consulte [Referência de política][Policy reference]. Para obter mais informações sobre como utilizar e configurar as políticas, consulte [Políticas de API Management][API Management policies]. Para consultar um tutorial sobre a criação de um produto com políticas de limite de taxa e quota, consulte [Como criar e configurar definições de produto avançadas][How create and configure advanced product settings].
@@ -135,17 +135,13 @@ Conclua o guia de início rápido seguinte e comece a utilizar a Gestão de API 
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: api-management-howto-create-apis.md
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create APIs]: ./import-and-publish.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
-[Policy reference]: api-management-policy-reference.md
+[Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-
-
-
-

@@ -4,11 +4,12 @@ description: Saiba como atualizar um cluster Azure Kubernetes Service (AKS) para
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: ea9f0154c221fe99d683cc58d5f6dccfce8d948c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 603a27f0ecffb762a18f58847110c4dd3de68425
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800499"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250996"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
@@ -21,7 +22,7 @@ Para clusters AKS que usam vários nós de nó ou nós do Windows Server (atualm
 Este artigo requer que esteja a executar a versão Azure CLI 2.0.65 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 > [!WARNING]
-> Um upgrade de cluster AKS aciona um cordão e drenagem dos seus nós. Se tiver uma quota de cálculo baixa disponível, a atualização poderá falhar. Consulte [as quotas de aumento](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para mais informações.
+> Um upgrade de cluster AKS aciona um cordão e drenagem dos seus nós. Se tiver uma quota de cálculo baixa disponível, a atualização poderá falhar. Consulte [as quotas de aumento](../azure-portal/supportability/resource-manager-core-quotas-request.md) para mais informações.
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verifique se estão disponíveis atualizações de clusterS AKS
 
@@ -132,7 +133,7 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como atualizar um cluster AKS existente. Para saber mais sobre a implementação e gestão de clusters AKS, consulte o conjunto de tutoriais.
 

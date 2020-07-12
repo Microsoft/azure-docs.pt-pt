@@ -3,12 +3,12 @@ title: Utilizar identidade gerida com uma aplicação
 description: Como utilizar identidades geridas no código de aplicação do Azure Service Fabric para aceder aos Serviços Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461570"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253648"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como alavancar a identidade gerida de uma aplicação de Service Fabric para aceder aos serviços da Azure
 
@@ -48,7 +48,7 @@ GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-0
 ```
 em que:
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que pretende obter dados do ponto final. Neste caso, um token de acesso OAuth. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | O ponto final de identidade gerido para aplicações de Tecido de Serviço, fornecido através da variável ambiente IDENTITY_ENDPOINT. |
@@ -70,7 +70,7 @@ Content-Type: application/json
 ```
 em que:
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `token_type` | O tipo de símbolo; neste caso, um token de acesso "Portador", o que significa que o apresentador ('portador') deste símbolo é o tema pretendido do símbolo. |
 | `access_token` | O sinal de acesso solicitado. Ao chamar uma API REST segura, o token está incorporado no campo do cabeçalho de `Authorization` pedido como um símbolo "portador", permitindo à API autenticar o chamador. | 
@@ -332,7 +332,7 @@ O campo 'código de estado' do cabeçalho de resposta HTTP indica o estado de su
 
 Se ocorrer um erro, o respetivo organismo de resposta HTTP contém um objeto JSON com os detalhes de erro:
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | code | Código de erro. |
 | correlationId | Um ID de correlação que pode ser usado para depurar. |
@@ -371,7 +371,7 @@ Recomenda-se que os pedidos falhados devido ao estrangulamento sejam novamente j
 | 5 | Espere 16 segundos e redaça |
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recursos para serviços Azure
-Consulte [os serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md) para uma lista de recursos que suportam a Azure AD e os respetivos IDs de recursos.
+Consulte [os serviços Azure que suportam a autenticação Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para uma lista de recursos que suportam a Azure AD e os respetivos IDs de recursos.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Implementar uma aplicação Azure Service Fabric com uma identidade gerida atribuída ao sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)

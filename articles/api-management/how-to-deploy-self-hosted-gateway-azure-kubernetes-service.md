@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: abf7e6d7032e7e5dc35b2f4397a5630d45d762de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82205121"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254389"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Implementar no Azure Kubernetes Service
 
@@ -36,7 +36,7 @@ Este artigo fornece os passos para a implementação do componente de gateway au
 5. Certifique-se de que **kubernetes** é selecionado sob **scripts de implementação**.
 6. Selecione **<link de ficheiro>.yml** com o nome de gateway ao lado do **Deployment** para descarregar o ficheiro.
 7. Ajuste os mapeamentos da porta e o nome do recipiente no ficheiro yml, conforme necessário.
-8. Dependendo do seu cenário, poderá ter de alterar o [tipo de serviço](https://docs.microsoft.com/azure/aks/concepts-network#services). O valor predefinido é `NodePort`.
+8. Dependendo do seu cenário, poderá ter de alterar o [tipo de serviço](../aks/concepts-network.md#services). O valor predefinido é `NodePort`.
 9. Selecione o ícone de **cópia** localizado na extremidade direita da caixa de texto **Implementar** para guardar o `kubectl` comando para a área de transferência.
 10. Cole o comando até à janela do terminal (ou comando). Note que o comando espera que o ficheiro ambiente descarregado esteja presente no diretório atual.
 ```console
@@ -63,10 +63,6 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a porta de entrada auto-hospedada, consulte [a Azure API Management auto-hospedada gateway overview](self-hosted-gateway-overview.md)
-* Saiba mais sobre [o Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+* Saiba mais sobre [o Serviço Azure Kubernetes](../aks/intro-kubernetes.md)
 * Aprenda [a configurar e persistir registos na nuvem](how-to-configure-cloud-metrics-logs.md)
 * * Aprenda [a configurar e persistir registos localmente](how-to-configure-local-metrics-logs.md)
-
-
-
-

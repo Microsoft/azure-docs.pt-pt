@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
 author: palma21
-ms.openlocfilehash: 6aed6c84439e65646c15367cdad3bf13c5573256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831738"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251319"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -46,7 +46,7 @@ As seguintes regras de rede e FQDN/aplicação são necessárias para um cluster
 
 As regras de rede exigidas e as dependências de endereços IP são:
 
-| Ponto final de destino                                                             | Protocolo | Porta    | Utilizar  |
+| Ponto final de destino                                                             | Protocolo | Porta    | Utilização  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | **`*:1194`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Ou* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura entre os nós e o avião de controlo. |
 | **`*:9000`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Ou* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura entre os nós e o avião de controlo. |
@@ -58,7 +58,7 @@ As regras de rede exigidas e as dependências de endereços IP são:
 
 São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
-| Destino FQDN                 | Porta            | Utilizar      |
+| Destino FQDN                 | Porta            | Utilização      |
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Obrigado a aceder a imagens no Microsoft Container Registry (MCR). Este registo contém imagens/gráficos de primeira parte (por exemplo, coreDNS, etc.). Estas imagens são necessárias para a correta criação e funcionamento do cluster, incluindo operações de escala e upgrade.  |
@@ -73,7 +73,7 @@ São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
 As regras de rede exigidas e as dependências de endereços IP são:
 
-| Ponto final de destino                                                             | Protocolo | Porta    | Utilizar  |
+| Ponto final de destino                                                             | Protocolo | Porta    | Utilização  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | **`*:1194`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Ou* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura entre os nós e o avião de controlo. |
 | **`*:9000`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Ou* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura entre os nós e o avião de controlo. |
@@ -86,7 +86,7 @@ As regras de rede exigidas e as dependências de endereços IP são:
 
 São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
-| Destino FQDN                               | Porta            | Utilizar      |
+| Destino FQDN                               | Porta            | Utilização      |
 |------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado. |
@@ -102,7 +102,7 @@ São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
 As regras de rede exigidas e as dependências de endereços IP são:
 
-| Ponto final de destino                                                             | Protocolo | Porta    | Utilizar  |
+| Ponto final de destino                                                             | Protocolo | Porta    | Utilização  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | **`*:1194`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Ou* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura entre os nós e o avião de controlo. |
 | **`*:9000`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Ou* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura entre os nós e o avião de controlo. |
@@ -114,7 +114,7 @@ As regras de rede exigidas e as dependências de endereços IP são:
 
 São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
-| Destino FQDN                                        | Porta            | Utilizar      |
+| Destino FQDN                                        | Porta            | Utilização      |
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Obrigado a aceder a imagens no Microsoft Container Registry (MCR). Este registo contém imagens/gráficos de primeira parte (por exemplo, coreDNS, etc.). Estas imagens são necessárias para a correta criação e funcionamento do cluster, incluindo operações de escala e upgrade. |
@@ -129,7 +129,7 @@ São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
 As seguintes regras de FQDN/aplicação são opcionais, mas recomendadas para clusters AKS:
 
-| Destino FQDN                                                               | Porta          | Utilizar      |
+| Destino FQDN                                                               | Porta          | Utilização      |
 |--------------------------------------------------------------------------------|---------------|----------|
 | **`security.ubuntu.com`, `azure.archive.ubuntu.com`, `changelogs.ubuntu.com`** | **`HTTP:80`** | Este endereço permite que os nós do cluster Linux descarreguem os patches e atualizações de segurança necessários. |
 
@@ -141,7 +141,7 @@ Se optar por bloquear/não permitir estes FQDNs, os nós só receberão atualiza
 
 São necessárias as seguintes regras de FQDN/aplicação para clusters AKS que tenham GPU habilitado:
 
-| Destino FQDN                        | Porta      | Utilizar      |
+| Destino FQDN                        | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | **`nvidia.github.io`**                  | **`HTTPS:443`** | Este endereço é utilizado para a correta instalação e operação do condutor nos nós baseados em GPU. |
 | **`us.download.nvidia.com`**            | **`HTTPS:443`** | Este endereço é utilizado para a correta instalação e operação do condutor nos nós baseados em GPU. |
@@ -153,7 +153,7 @@ São necessárias as seguintes regras de FQDN/aplicação para clusters AKS que 
 
 São necessárias as seguintes regras de FQDN / aplicação para a utilização de conjuntos de nó baseados no Windows Server:
 
-| Destino FQDN                                                           | Porta      | Utilizar      |
+| Destino FQDN                                                           | Porta      | Utilização      |
 |----------------------------------------------------------------------------|-----------|----------|
 | **`onegetcdn.azureedge.net, go.microsoft.com`**                            | **`HTTPS:443`** | Para instalar binários relacionados com janelas |
 | **`*.mp.microsoft.com, www.msftconnecttest.com, ctldl.windowsupdate.com`** | **`HTTP:80`**   | Para instalar binários relacionados com janelas |
@@ -168,7 +168,7 @@ Existem duas opções para fornecer acesso ao Azure Monitor para contentores, po
 
 São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
-| Ponto final de destino                                                             | Protocolo | Porta    | Utilizar  |
+| Ponto final de destino                                                             | Protocolo | Porta    | Utilização  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureMonitor:443`**  | TCP           | 443      | Este ponto final é utilizado para enviar dados de métricas e registos para Azure Monitor e Log Analytics. |
 
@@ -176,7 +176,7 @@ São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 
 São necessárias as seguintes regras de FQDN/aplicação para os clusters AKS que tenham o Monitor Azure para contentores habilitados:
 
-| FQDN                                    | Porta      | Utilizar      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | dc.services.visualstudio.com | **`HTTPS:443`**    | Este ponto final é utilizado para métricas e telemetria de monitorização utilizando o Monitor Azure. |
 | *.ods.opinsights.azure.com    | **`HTTPS:443`**    | Este ponto final é utilizado pelo Azure Monitor para ingerir dados de análise de registo. |
@@ -189,7 +189,7 @@ Atualize a sua configuração de firewall ou segurança para permitir o tráfego
 
 #### <a name="required-network-rules"></a>Regras de rede exigidas
 
-| Ponto final de destino                                                             | Protocolo | Porta    | Utilizar  |
+| Ponto final de destino                                                             | Protocolo | Porta    | Utilização  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureDevSpaces`**  | TCP           | 443      | Este ponto final é utilizado para enviar dados de métricas e registos para Azure Monitor e Log Analytics. |
 
@@ -197,7 +197,7 @@ Atualize a sua configuração de firewall ou segurança para permitir o tráfego
 
 São necessárias as seguintes regras de FQDN/aplicação para clusters AKS que tenham os Espaços Azure Dev habilitados:
 
-| FQDN                                    | Porta      | Utilizar      |
+| FQDN                                    | Porta      | Utilização      |
 |-----------------------------------------|-----------|----------|
 | `cloudflare.docker.com` | **`HTTPS:443`** | Este endereço é usado para puxar o linux alpino e outras imagens do Azure Dev Spaces |
 | `gcr.io` | **`HTTPS:443`** | Este endereço é usado para puxar imagens de leme/leme |
@@ -213,7 +213,7 @@ São necessárias as seguintes regras de FQDN/aplicação para clusters AKS que 
 
 São necessárias as seguintes regras de FQDN/aplicação para clusters AKS que tenham a Política Azure ativada.
 
-| FQDN                                          | Porta      | Utilizar      |
+| FQDN                                          | Porta      | Utilização      |
 |-----------------------------------------------|-----------|----------|
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Este endereço é utilizado para o correto funcionamento da Política Azure. (atualmente em pré-visualização em AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Este endereço é utilizado para retirar as políticas incorporadas do GitHub para garantir o correto funcionamento da Política Azure. (atualmente em pré-visualização em AKS) |
@@ -239,7 +239,7 @@ Abaixo está um exemplo de arquitetura da implantação:
   * Os pedidos dos nós de agente da AKS seguem um UDR que foi colocado na sub-rede em que o cluster AKS foi implantado.
   * Azure Firewall sai da rede virtual a partir de um frontend IP público
   * O acesso à internet pública ou a outros serviços Azure flui de e para o endereço IP frontal de firewall
-  * Opcionalmente, o acesso ao plano de controlo AKS está protegido por [gamas IP autorizadas](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)do servidor API , que inclui o endereço IP frontal do firewall público.
+  * Opcionalmente, o acesso ao plano de controlo AKS está protegido por [gamas IP autorizadas](./api-server-authorized-ip-ranges.md)do servidor API , que inclui o endereço IP frontal do firewall público.
 * Tráfego Interno
   * Opcionalmente, em vez disso ou além de um [Balanceador de Carga Pública,](load-balancer-standard.md) pode utilizar um [Balançador de Carga Interna](internal-lb.md) para tráfego interno, que também pode isolar na sua própria sub-rede.
 
@@ -353,7 +353,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 ```
 
 > [!NOTE]
-> Se utilizar acesso seguro ao servidor AKS API com [intervalos de endereço IP autorizados,](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges)tem de adicionar o IP público de firewall ao intervalo IP autorizado.
+> Se utilizar acesso seguro ao servidor AKS API com [intervalos de endereço IP autorizados,](./api-server-authorized-ip-ranges.md)tem de adicionar o IP público de firewall ao intervalo IP autorizado.
 
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Criar um UDR com um salto para Azure Firewall
 
@@ -389,7 +389,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-Consulte a [documentação do Azure Firewall](https://docs.microsoft.com/azure/firewall/overview) para saber mais sobre o serviço Azure Firewall.
+Consulte a [documentação do Azure Firewall](../firewall/overview.md) para saber mais sobre o serviço Azure Firewall.
 
 ### <a name="associate-the-route-table-to-aks"></a>Associe a tabela de rotas à AKS
 
@@ -722,7 +722,7 @@ kubectl apply -f example.yaml
 ### <a name="add-a-dnat-rule-to-azure-firewall"></a>Adicione uma regra de DNAT ao Azure Firewall
 
 > [!IMPORTANT]
-> Quando utilizar o Azure Firewall para restringir o tráfego de saídas e criar uma rota definida pelo utilizador (UDR) para forçar todo o tráfego de saídas, certifique-se de que cria uma regra de ADN apropriada na Firewall para permitir corretamente o tráfego de entrada. A utilização do Azure Firewall com um UDR quebra a configuração de entrada devido ao encaminhamento assimétrico. (O problema ocorre se a sub-rede AKS tiver uma rota padrão que vai para o endereço IP privado da firewall, mas está a utilizar um equilibrador de carga público - ingress ou serviço kubernetes do tipo: LoadBalancer). Neste caso, o tráfego do balançador de carga de entrada é recebido através do seu endereço IP público, mas a trajetória de retorno passa pelo endereço IP privado da firewall. Como a firewall é imponente, deixa cair o pacote de retorno porque a firewall não está ciente de uma sessão estabelecida. Para aprender a integrar o Azure Firewall com o seu equilibrador de carga de entrada ou serviço, consulte [Integrate Azure Firewall com o Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> Quando utilizar o Azure Firewall para restringir o tráfego de saídas e criar uma rota definida pelo utilizador (UDR) para forçar todo o tráfego de saídas, certifique-se de que cria uma regra de ADN apropriada na Firewall para permitir corretamente o tráfego de entrada. A utilização do Azure Firewall com um UDR quebra a configuração de entrada devido ao encaminhamento assimétrico. (O problema ocorre se a sub-rede AKS tiver uma rota padrão que vai para o endereço IP privado da firewall, mas está a utilizar um equilibrador de carga público - ingress ou serviço kubernetes do tipo: LoadBalancer). Neste caso, o tráfego do balançador de carga de entrada é recebido através do seu endereço IP público, mas a trajetória de retorno passa pelo endereço IP privado da firewall. Como a firewall é imponente, deixa cair o pacote de retorno porque a firewall não está ciente de uma sessão estabelecida. Para aprender a integrar o Azure Firewall com o seu equilibrador de carga de entrada ou serviço, consulte [Integrate Azure Firewall com o Azure Standard Load Balancer](../firewall/integrate-lb.md).
 
 
 Para configurar a conectividade de entrada, uma regra de DNAT deve ser escrita para a Firewall Azure. Para testar a conectividade com o seu cluster, é definida uma regra para o endereço IP público frontend de firewall para encaminhar para o IP interno exposto pelo serviço interno.
@@ -765,7 +765,7 @@ Devia ver a aplicação de voto AKS. Neste exemplo, o IP público firewall foi `
 ![aks-vote](media/limit-egress-traffic/aks-vote.png)
 
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 
@@ -773,7 +773,7 @@ Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 az group delete -g $RG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu quais portas e moradas para permitir se quiser restringir o tráfego de saídas para o cluster. Também viu como proteger o tráfego de saída usando a Azure Firewall. 
 

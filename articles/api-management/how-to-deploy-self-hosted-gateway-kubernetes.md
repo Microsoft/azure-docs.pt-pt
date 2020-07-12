@@ -9,11 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 38cfab8a3b73eeef28249f53bd2f5c56e26b21a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82854106"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86254287"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementar um gateway autoalojado no Kubernetes
 
@@ -64,7 +65,7 @@ Este artigo descreve os passos para a implantação do componente de gateway aut
 ### <a name="access-token"></a>Ficha de acesso
 Sem um token de acesso válido, um gateway auto-hospedado não pode aceder e descarregar dados de configuração a partir do ponto final do serviço de Gestão API associado. O token de acesso pode ser válido por um máximo de 30 dias. Deve ser regenerado e o cluster configurado com um token fresco, manualmente ou através da automatização antes de expirar. 
 
-Quando estiver a automatizar a atualização de fichas, use [esta operação de API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway/generatetoken) de gestão para gerar um novo token. Para obter informações sobre a gestão dos segredos de Kubernetes, consulte o [site da Kubernetes.](https://kubernetes.io/docs/concepts/configuration/secret)
+Quando estiver a automatizar a atualização de fichas, use [esta operação de API](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) de gestão para gerar um novo token. Para obter informações sobre a gestão dos segredos de Kubernetes, consulte o [site da Kubernetes.](https://kubernetes.io/docs/concepts/configuration/secret)
 
 ### <a name="namespace"></a>Espaço de Nomes
 Os espaços [de nomes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) de Kubernetes ajudam a dividir um único cluster entre várias equipas, projetos ou aplicações. Os espaços de nome fornecem uma margem para recursos e nomes. Podem ser associados a uma quota de recursos e a políticas de controlo de acessos.
@@ -117,6 +118,6 @@ O gateway auto-hospedado envia telemetria para [Azure Monitor](api-management-ho
 Quando [a conectividade com Azure](self-hosted-gateway-overview.md#connectivity-to-azure) é temporariamente perdida, o fluxo de telemetria para Azure é interrompido e os dados são perdidos durante a interrupção.
 Considere [a criação de monitorização local](how-to-configure-local-metrics-logs.md) para garantir a capacidade de observar o tráfego da API e evitar a perda de telemetria durante as interrupções de conectividade Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a porta de entrada auto-hospedada, consulte [a visão geral do gateway auto-hospedado.](self-hosted-gateway-overview.md)

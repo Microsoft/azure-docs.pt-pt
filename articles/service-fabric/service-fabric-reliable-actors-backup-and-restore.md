@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 632cd7b09462ae8ad1fd142c2946833781b53dd1
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75370464"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253529"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauro de atores fiáveis
 
@@ -111,7 +112,7 @@ myActorServiceProxy.backupActorsAsync();
 Para obter mais informações sobre atores fiáveis, leia os seguintes artigos:
 * [Gestão do estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleção de lixo](service-fabric-reliable-actors-lifecycle.md)
-* [Documentação de referência da API dos atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Documentação de referência da API dos atores](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de amostra de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

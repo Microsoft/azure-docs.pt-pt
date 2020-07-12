@@ -5,11 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551833"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86253682"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -43,7 +44,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Recursos de tecido de serviço Azure
 
-Pode implementar aplicações e serviços no seu cluster de Tecidos de Serviço através do Azure Resource Manager. Consulte [as aplicações e serviços de Gestão como Recursos Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) para obter mais detalhes. Seguem-se recursos específicos de aplicação de tecido de serviço de boas práticas para incluir nos recursos do modelo do Gestor de Recursos.
+Pode implementar aplicações e serviços no seu cluster de Tecidos de Serviço através do Azure Resource Manager. Consulte [as aplicações e serviços de Gestão como Recursos Azure Resource Manager](./service-fabric-application-arm-resource.md) para obter mais detalhes. Seguem-se recursos específicos de aplicação de tecido de serviço de boas práticas para incluir nos recursos do modelo do Gestor de Recursos.
 
 ```json
 {
@@ -72,7 +73,7 @@ Pode implementar aplicações e serviços no seu cluster de Tecidos de Serviço 
 }
 ```
 
-Para implementar a sua aplicação utilizando o Azure Resource Manager, primeiro tem de criar um pacote de aplicação de tecido de serviço [sfpkg.](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) O seguinte script python é um exemplo de como criar um sfpkg:
+Para implementar a sua aplicação utilizando o Azure Resource Manager, primeiro tem de criar um pacote de aplicação de tecido de serviço [sfpkg.](./service-fabric-package-apps.md#create-an-sfpkg) O seguinte script python é um exemplo de como criar um sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -90,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração automática de upgrade do sistema operativo da máquina virtual Azure 
-A atualização das suas máquinas virtuais é uma operação iniciada pelo utilizador, e recomenda-se que utilize [a atualização do Sistema Operativo Automático conjunto de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para a gestão de patchs de anfitrião de clusters de tecidos de serviço Azure; Patch Orchestration Application é uma solução alternativa que se destina a quando hospedado fora de Azure, embora o POA possa ser usado em Azure, com a sobrecarga de hospedagem de POA em Azure sendo uma razão comum para preferir o Sistema Operativo Virtual Funcionamento Automático do Sistema Operativo em vez de POA. Seguem-se as propriedades do modelo do Gestor de Recursos do Conjunto de Máquinas Virtuais compute para permitir a atualização do Auto OS:
+A atualização das suas máquinas virtuais é uma operação iniciada pelo utilizador, e recomenda-se que utilize [a atualização do Sistema Operativo Automático conjunto de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para a gestão de patchs de anfitrião de clusters de tecidos de serviço Azure; Patch Orchestration Application é uma solução alternativa que se destina a quando hospedado fora de Azure, embora o POA possa ser usado em Azure, com a sobrecarga de hospedagem de POA em Azure sendo uma razão comum para preferir o Sistema Operativo Virtual Funcionamento Automático do Sistema Operativo em vez de POA. Seguem-se as propriedades do modelo do Gestor de Recursos do Conjunto de Máquinas Virtuais compute para permitir a atualização do Auto OS:
 
 ```json
 "upgradePolicy": {
@@ -130,7 +131,7 @@ Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
 Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação de cluster de tecido de serviço para windows server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)

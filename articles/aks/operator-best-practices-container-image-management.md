@@ -4,11 +4,12 @@ description: Aprenda as melhores práticas do operador do cluster para gerir e p
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: efe72157f598c336248e407c57bce92fe87da23a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018dc1802d4f0b4b498d3993b8753990598a16ba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77594752"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86251149"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para gestão de imagem de contentores e segurança no Serviço Azure Kubernetes (AKS)
 
@@ -44,7 +45,7 @@ As tarefas de registo de contentores Azure também podem atualizar automaticamen
 
 Para obter mais informações sobre atualizações de imagens base, consulte [a imagem do Automatismo na atualização da imagem base com as Tarefas de Registo de Contentores Azure][acr-base-image-update].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se em como proteger os seus recipientes. Para implementar algumas destas áreas, consulte os seguintes artigos:
 
@@ -59,5 +60,5 @@ Este artigo focou-se em como proteger os seus recipientes. Para implementar algu
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
-[security-center-containers]: /azure/security-center/container-security
-[security-center-acr]: /azure/security-center/azure-container-registry-integration
+[security-center-containers]: ../security-center/container-security.md
+[security-center-acr]: ../security-center/azure-container-registry-integration.md
