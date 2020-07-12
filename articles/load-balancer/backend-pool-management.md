@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 51b00119a5cb7e49a04f02978613678a5144f8b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113977"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273766"
 ---
 # <a name="backend-pool-management"></a>Gestão de piscinas de backend
 A piscina de backend é um componente crítico do equilibrador de carga. O pool backend define o grupo de recursos que servirá o tráfego para uma determinada regra de equilíbrio de carga.
@@ -22,9 +22,9 @@ Há duas formas de configurar uma piscina de backend:
 * Cartão de interface de rede (NIC)
 * Endereço IP combinado e ID de Recursos da Rede Virtual (VNET)
 
-Configure a sua piscina de backend por NIC ao utilizar máquinas virtuais e conjuntos de balanças de máquinas virtuais. Este método constrói a ligação mais direta entre o seu recurso e o pool backend. 
+Configure o seu pool de backend por NIC ao utilizar máquinas virtuais existentes e conjuntos de balanças de máquinas virtuais. Este método constrói a ligação mais direta entre o seu recurso e o pool backend. 
 
-Em cenários em que um NIC não está disponível, como contentores ou Kubernetes Pods, configuure o seu pool de backend por endereço IP e combinação VNET ID.
+Ao pré-afinar o seu pool de backend com uma gama de endereços IP que planeia criar mais tarde máquinas virtuais e conjuntos de balanças de máquinas virtuais, configuure o seu pool de backend por endereço IP e combinação VNET ID.
 
 As secções de configuração deste artigo centrar-se-ão em:
 
@@ -249,7 +249,7 @@ Corpo de pedido JSON:
 Siga este [modelo quickstart Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implementar um equilibrador de carga e máquinas virtuais e adicione as máquinas virtuais ao pool de backend através da interface de rede.
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>Configure o pool de backend por endereço IP e rede virtual
-Em cenários com contentores ou uma piscina de backend pré-povoada com IPs, utilize IP e rede virtual.
+Em cenários com piscinas de backend pré-povoadas, utilize IP e rede virtual.
 
 Toda a gestão da piscina de backend é feita diretamente no objeto da piscina backend, como realçado nos exemplos abaixo.
 
@@ -840,7 +840,7 @@ Crie uma máquina virtual e interface de rede anexada. Desaponuse o endereço IP
   ]
 }
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, você aprendeu sobre a gestão do pool backend balancer Azure Load balancer e como configurar um pool de backend por endereço IP e rede virtual.
 
 Saiba mais sobre [o Azure Load Balancer](load-balancer-overview.md).

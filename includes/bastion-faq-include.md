@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8d30e7fe3138a26d9b64ec35d18260933df7999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82780317"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276124"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Que regiões estão disponíveis?
 
@@ -48,6 +48,10 @@ Neste momento, apenas é suportada a cópia/pasta de texto. Funcionalidades como
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Quais os navegadores suportados?
 
 Utilize o navegador Microsoft Edge ou o Google Chrome no Windows. Para o Apple Mac, utilize o navegador Google Chrome. O Microsoft Edge Chromium também é suportado tanto no Windows como no Mac, respectivamente.
+
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Onde é que a Azure Bastion armazena os dados dos clientes?
+
+AZure Bastion não move nem armazena os dados dos clientes para fora da região em que está implantado.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>São necessárias funções para aceder a uma máquina virtual?
 

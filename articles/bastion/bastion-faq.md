@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 07/10/2020
 ms.author: charwen
-ms.openlocfilehash: fb1583b7c7bb288b6b2865f4b54d2db65cefeddc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a37ca4b9977a1d2bd51a6153f4da1b65c1c916be
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82780318"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276125"
 ---
 # <a name="azure-bastion-faq"></a>FAQ do Azure Bastion
 

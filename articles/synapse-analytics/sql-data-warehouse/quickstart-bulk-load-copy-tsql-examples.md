@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
-ms.date: 05/06/2020
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94f9aca38ebe6fef50b555fa0d5b09050d996366
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: f9aa0214712704c1a80f73ae3fd05929f7245eb3
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230626"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274152"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar de forma segura dados usando O SQL de Sinapse
 
@@ -93,6 +93,11 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
    > [!NOTE]
    > Só os membros com privilégio proprietário podem realizar este passo. Para várias funções incorporadas para recursos Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
    
+    > [!IMPORTANT]
+    > Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
+
+    ![Concessão de permissão do RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+
 4. Pode agora executar a declaração COPY especificando "Identidade Gerida":
 
     ```sql
@@ -104,14 +109,15 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
     )
     ```
 
-> [!IMPORTANT]
->
-> - Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
-
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticação do Diretório Ativo Azure (AAD)
 #### <a name="steps"></a>Passos
 
 1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel **de Proprietário, Colaborador ou Leitor** de Dados de Armazenamento ao utilizador AAD. 
+
+    > [!IMPORTANT]
+    > Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor.
+
+    ![Concessão de permissão do RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configure a autenticação AD através da [seguinte documentação](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
@@ -125,9 +131,6 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
     )
     ```
 
-> [!IMPORTANT]
->
-> - Especifique a função de Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor RBAC. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
 
 ## <a name="e-service-principal-authentication"></a>E. Autenticação do Principal de Serviço
 #### <a name="steps"></a>Passos

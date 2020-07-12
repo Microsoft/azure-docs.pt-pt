@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd83cd164415f45929049541a8731f80a4ba146d
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774053"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273511"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Instalações, instalações e segurança física
 Este artigo descreve o que a Microsoft faz para proteger a infraestrutura Azure.
@@ -29,7 +30,7 @@ O Azure é composto por uma infraestrutura de [datacenter distribuída globalmen
 
 A infraestrutura destina-se a aproximar as aplicações dos utilizadores em todo o mundo, preservando a residência de dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. O Azure tem 58 regiões em todo o mundo e está disponível em 140 países/regiões.
 
-Uma região é um conjunto de datacenters que está interligado através de uma rede maciça e resiliente. A rede inclui distribuição de conteúdo, equilíbrio de carga, redundância e encriptação por padrão. Com regiões mais globais do que qualquer outro fornecedor de nuvem, o Azure dá-lhe a flexibilidade para implementar aplicações onde precisa.
+Uma região é um conjunto de datacenters que está interligado através de uma rede maciça e resiliente. A rede inclui distribuição de conteúdos, equilíbrio de carga, redundância e [encriptação da camada de ligação de dados por padrão](encryption-overview.md#encryption-of-data-in-transit) para todo o tráfego Azure dentro de uma região ou viajar entre regiões. Com regiões mais globais do que qualquer outro fornecedor de nuvem, o Azure dá-lhe a flexibilidade para implementar aplicações onde precisa.
 
 As regiões de Azure estão organizadas em geografias. Uma geografia azul garante que os requisitos de residência, soberania, conformidade e resiliência sejam respeitados dentro dos limites geográficos.
 
@@ -74,7 +75,7 @@ Concebemos e gerimos a infraestrutura Azure para cumprir um vasto conjunto de no
 
 Para obter uma lista completa de normas de conformidade a que a Azure adere, consulte as [ofertas de Conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura Azure, consulte:
 
 - [Disponibilidade de infraestrutura Azure](infrastructure-availability.md)

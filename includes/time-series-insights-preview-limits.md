@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1171c07a754b056fb9df2cee73ddf224427037cc
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77123160"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86277854"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Disponibilidade geral e comparação de pré-visualização
 
@@ -22,16 +22,16 @@ A tabela seguinte resume várias diferenças-chave entre a disponibilidade geral
 
 | | GA | Pré-visualizar |
 | --- | --- | ---|
-| Cidadão de primeira classe | Centrado em eventos | Centrada em séries de tempo |
-| Raciocínio semântico | Baixo nível (dados de referência) | Modelos de alto nível |
-| Contextualização de dados | Nível não-dispositivo | Nível de dispositivo e não dispositivo |
-| Armazenamento de lógica computacional | Não | Armazenadas em variáveis tipo parte do modelo |
-| Controlo de armazenamento e acessos | Não | Habilidoso via modelo |
-| Agregações/Amostragem | Não | Evento ponderado e ponderado pelo tempo |
-| Reconstrução do sinal | Não | Interpolação |
-| Produção de séries de tempo derivadas | Não | Sim, funde-se e junta-se |
-| Flexibilidade linguística | Não compor | Composível |
-| Expressão de idioma | Cadeia predicado | Expressões de séries crono prazos (cadeias, valores, expressões e funções predicados) |
+| **Cidadão de primeira classe** | Centrado em eventos | Centrada em séries de tempo |
+| **Raciocínio semântico** | Baixo nível (dados de referência) | Modelos de alto nível |
+| **Contextualização de dados** | Nível não-dispositivo | Nível de dispositivo e não dispositivo |
+| **Armazenamento de lógica computacional** | Não | Armazenadas em variáveis tipo parte do modelo |
+| **Controlo de armazenamento e acessos** | Não | Habilidoso via modelo |
+| **Agregações/Amostragem** | Não | Evento ponderado e ponderado pelo tempo |
+| **Reconstrução do sinal** | Não | Interpolação |
+| **Produção de séries de tempo derivadas** | Não | Sim, funde-se e junta-se |
+| **Flexibilidade linguística** | Não compor | Composível |
+| **Linguagem de expressão** | Cadeia predicado | Expressões de séries crono prazos (cadeias, valores, expressões e funções predicados) |
 
 ### <a name="property-limits"></a>Limites de propriedade
 

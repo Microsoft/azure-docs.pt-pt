@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d9c46368b42cac1d06f7d78d5e0d03ad2de0bada
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d240ed426bb270ac4cf09f3806bd36a6a52d3633
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478404"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86275398"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -177,7 +177,7 @@ Há certos conjuntos de afirmações que definem como e quando são usadas em fi
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| o nome de utilizador |
+| nome de utilizador |
 | uti |
 | ver |
 | verified_primary_email |
@@ -320,10 +320,10 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 | Utilizador | extensãotribuição15 | Atributo de extensão 15 |
 | Utilizador | outromail | Outros Correios |
 | Utilizador | país | País/Região |
-| Utilizador | city | Localidade |
+| Utilizador | city | City |
 | Utilizador | state | Estado |
 | Utilizador | cargo | Cargo |
-| Utilizador | empregado | ID de Empregado |
+| Utilizador | empregado | ID de colaborador |
 | Utilizador | facsimiletelephonenumber | Número de telefone facsímia |
 | Utilizador | entidades designadas | lista de funções da App atribuídas ao utilizador|
 | aplicação, recurso, audiência | nome de exibição | Nome a Apresentar |
@@ -362,7 +362,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 |TransformaçãoMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
 |Associar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:" foo@bar.com " " " " " string2:"sandbox", separador:"." resulta em outputClaim:" foo@bar.com.sandbox|
-|ExtratoMailPrefixo|correio|outputClaim|Extrai a parte local de um endereço de e-mail. Por exemplo: mail:" foo@bar.com " resulta em saídaClaim:"foo". Se não \@ houver sinal, a cadeia de entrada original é devolvida como está.|
+|ExtratoMailPrefixo|e-mail ou UPN|UPN|ExtensãoTribu 1-15 ou quaisquer outras extensões de Esquema que estejam a armazenar um valor de endereço DE UPN ou e-mail para o utilizador, por johndoe@contoso.com exemplo. Extrai a parte local de um endereço de e-mail. Por exemplo: mail:" foo@bar.com " resulta em saídaClaim:"foo". Se não \@ houver sinal, a cadeia de entrada original é devolvida como está.|
 
 **InputClaims:** Utilize um elemento InputClaims para passar os dados de uma entrada de esquema de reclamação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
@@ -390,7 +390,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 | Utilizador | correio|Endereço de E-mail|
 | Utilizador | nome do utilizadorprincipal|Nome Principal de Utilizador|
 | Utilizador | nome onpremisessamaccountname|No Nome da Conta Sam das Instalações|
-| Utilizador | empregado|ID de Empregado|
+| Utilizador | empregado|ID de colaborador|
 | Utilizador | extensãotribuição1 | Atributo de extensão 1 |
 | Utilizador | extensãotribuiu2 | Atributo de extensão 2 |
 | Utilizador | extensãotribuité3 | Atributo de extensão 3 |
@@ -411,7 +411,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 | TransformaçãoMethod | Restrições |
 | ----- | ----- |
-| ExtratoMailPrefixo | Nenhuma |
+| ExtratoMailPrefixo | Nenhum |
 | Associar | O sufixo que está a ser associado deve ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
@@ -525,6 +525,6 @@ Neste exemplo, cria-se uma política que emite uma reivindicação personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Para saber como personalizar as reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reclamações emitidas no token SAML para aplicações empresariais](active-directory-saml-claims-customization.md)

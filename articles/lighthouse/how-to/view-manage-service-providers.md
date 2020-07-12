@@ -1,14 +1,14 @@
 ---
 title: Ver e gerir fornecedores de serviços
 description: Os clientes podem utilizar a página de prestadores de serviços no portal Azure para visualizar informações sobre prestadores de serviços, ofertas de prestadores de serviços e recursos delegados.
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 56ba5b8c88cd4653c9d41f7f3fcc6219cc376256
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111631"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273783"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
@@ -19,7 +19,7 @@ Para aceder à página **dos prestadores de serviços** no portal Azure, o clien
 > [!NOTE]
 > Para visualizar a página dos prestadores de **serviços,** um utilizador no arrendatário do cliente deve ter a [função de Leitor incorporada](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Reader).
 >
-> Para adicionar ofertas, delegar recursos e remover ofertas, o utilizador deve ter o [Proprietário papel incorporado](../../role-based-access-control/built-in-roles.md#owner) para a subscrição.
+> Para adicionar ou atualizar ofertas, delegar recursos e remover ofertas, o utilizador deve ter o [proprietário papel incorporado](../../role-based-access-control/built-in-roles.md#owner) para a subscrição.
 
 Tenha em mente que a página **dos prestadores de serviços apenas** mostra informações sobre os prestadores de serviços que têm acesso às subscrições ou grupos de recursos do cliente através do Farol de Azure. Se um cliente trabalhar com fornecedores de serviços adicionais que não usam o Farol Azure para aceder aos recursos do cliente, a informação sobre esses prestadores de serviços não é mostrada aqui.
 
@@ -77,7 +77,7 @@ Fornecemos uma [definição de política incorporada da Azure](../../governance/
 
 Para obter mais informações sobre como atribuir uma política e ver os resultados do estado de conformidade, consulte [Quickstart: Criar uma atribuição de política](../../governance/policy/assign-policy-portal.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Farol Azure.](../overview.md)
 - Saiba como os prestadores de serviços podem [ver e gerir clientes](view-manage-customers.md) na página **dos meus clientes** no portal Azure.

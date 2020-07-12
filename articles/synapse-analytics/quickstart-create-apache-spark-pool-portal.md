@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar uma piscina Apache Spark (pré-visualização) utilizando o portal Azure
+title: 'Quickstart: Criar uma piscina Apache Spark (pré-visualização) utilizando o portal Azure'
 description: Crie uma nova piscina Apache Spark utilizando o portal Azure seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2b199848e6c84370bd9d8711eed25dbf6c3f4dfa
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194937"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274361"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark (pré-visualização) utilizando o portal Azure
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inscreva-se no [portal Azure](https://portal.azure.com/)
+Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Navegue até ao espaço de trabalho da Sinapse 
 1. Navegue até ao espaço de trabalho da Sinaapse, onde a piscina Apache Spark será criada digitando o nome de serviço (ou nome do recurso diretamente) na barra de pesquisa.
@@ -80,7 +80,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/)
 
 9. Neste momento, não há recursos em execução, nem encargos para a Spark, criaste metadados sobre as instâncias Spark que queres criar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar a piscina Apache Spark do espaço de trabalho.
 > [!WARNING]

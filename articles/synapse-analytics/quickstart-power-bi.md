@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Ligação de um espaço de trabalho Power BI a um espaço de trabalho synapse
+title: 'Quickstart: Ligando um espaço de trabalho power BI a um espaço de trabalho synapse'
 description: Ligue um espaço de trabalho Power BI a um espaço de trabalho Azure Synapse Analytics seguindo os passos deste guia.
 services: synapse-analytics
 author: jocaplan
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3317410408754519bcd8b52e78dee4a81b3ab070
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: f9ae7b74c17bb330c2c7aa99903c62d4701f0a52
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609493"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274191"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Quickstart: Ligando um espaço de trabalho power BI a um espaço de trabalho synapse
 
@@ -68,6 +68,6 @@ Podem ser criados novos relatórios clicando **+** no topo do separador **Desenv
 ![Ver e editar relatório Power BI.](media/quickstart-link-powerbi/powerbi-report.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a criação do relatório Power BI sobre ficheiros armazenados no Azure Storage](sql/tutorial-connect-power-bi-desktop.md).

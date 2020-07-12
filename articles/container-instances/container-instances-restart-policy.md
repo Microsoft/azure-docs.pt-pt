@@ -3,12 +3,12 @@ title: Reiniciar a política para tarefas de execução
 description: Saiba como utilizar as Instâncias do Contentor Azure para executar tarefas que vão até à sua conclusão, tais como trabalhos de construção, teste ou de renderização de imagens.
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80131500"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261338"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contentores com políticas de reinício
 
@@ -22,7 +22,7 @@ Os exemplos apresentados neste artigo utilizam o Azure CLI. Tem de ter a versão
 
 Quando criar um [grupo de contentores](container-instances-container-groups.md) em Instâncias de Contentores Azure, pode especificar uma das três definições de política de reinício.
 
-| Política de reinício   | Description |
+| Política de reinício   | Descrição |
 | ---------------- | :---------- |
 | `Always` | Os contentores no grupo de contentores são sempre reiniciados. Esta é a **predefinição** aplicada quando nenhuma política de reinício é especificada durante a criação do contentor. |
 | `Never` | Os contentores no grupo de contentores nunca são reiniciados. Os contentores são executados, no máximo, uma vez. |
@@ -90,13 +90,13 @@ Saída:
  ('HAMLET', 386)]
 ```
 
-Este exemplo mostra a saída que o script enviou para STDOUT. No entanto, as suas tarefas contentorizadas podem, em vez disso, escrever a sua saída para armazenamento persistente para posterior recuperação. Por exemplo, para uma [partilha de ficheiros Azure](container-instances-mounting-azure-files-volume.md).
+Este exemplo mostra a saída que o script enviou para STDOUT. No entanto, as suas tarefas contentorizadas podem, em vez disso, escrever a sua saída para armazenamento persistente para posterior recuperação. Por exemplo, para uma [partilha de ficheiros Azure](./container-instances-volume-azure-files.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Cenários baseados em tarefas, como o processamento de um grande conjunto de dados com vários contentores, podem tirar partido de [variáveis ambientais personalizadas](container-instances-environment-variables.md) ou [linhas](container-instances-start-command.md) de comando em tempo de execução.
 
-Para obter mais informações sobre como persistir a saída dos seus recipientes que vão até à sua conclusão, consulte [a montagem de uma partilha de ficheiros Azure com as Instâncias do Contentor Azure](container-instances-mounting-azure-files-volume.md).
+Para obter mais informações sobre como persistir a saída dos seus recipientes que vão até à sua conclusão, consulte [a montagem de uma partilha de ficheiros Azure com as Instâncias do Contentor Azure](./container-instances-volume-azure-files.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

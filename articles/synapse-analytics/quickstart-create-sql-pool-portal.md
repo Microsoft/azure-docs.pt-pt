@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar uma piscina SQL Synapse (pré-visualização) utilizando o portal Azure
+title: 'Quickstart: Criar uma piscina SQL Synapse (pré-visualização) utilizando o portal Azure'
 description: Crie uma nova piscina Synapse SQL utilizando o portal Azure seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 966ca099c44ba8b0f2d3241c391f4d7a101afb26
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 768b559ddaf7364726cb26a34d12f357d4126426
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955102"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274259"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Quickstart: Criar uma piscina SQL Synapse (pré-visualização) utilizando o portal Azure
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inscreva-se no [portal Azure](https://portal.azure.com/)
+Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Navegue até ao espaço de trabalho da Sinapse
 
@@ -73,7 +73,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/)
 
 Após a criação da piscina SQL, estará disponível no espaço de trabalho para carregamento de dados, fluxos de processamento, leitura do lago, etc.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar a piscina SQL do espaço de trabalho.
 > [!WARNING]

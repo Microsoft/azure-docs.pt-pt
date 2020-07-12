@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/09/2020
-ms.openlocfilehash: 8e148a3dac8435a08c0f1735cd35d06c700e1e84
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ca4d3d2d52e79dbcaaa15eba5794a4d2d28366a
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274548"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerir réplicas de leitura na Base de Dados Azure para PostgreSQL - Servidor Único a partir do portal Azure
 
@@ -78,15 +78,15 @@ Para criar uma réplica de leitura, siga estes passos:
 
 6. Selecione **OK** para confirmar a criação da réplica.
 
-Uma réplica é criada utilizando as mesmas definições de computação e armazenamento que o mestre. Após a criação de uma réplica, várias configurações podem ser alteradas independentemente do servidor principal: geração de cálculo, vCores, armazenamento e período de retenção de back-up. O nível de preços também pode ser alterado de forma independente, exceto de ou para o nível básico.
-
-> [!IMPORTANT]
-> Antes de uma definição de servidor principal ser atualizada para um novo valor, atualize a definição de réplica para um valor igual ou maior. Esta ação ajuda a réplica a acompanhar quaisquer alterações feitas ao mestre.
-
 Após a criação da réplica de leitura, pode ser visualizada a partir da janela de **replicação:**
 
 ![Ver a nova réplica na janela de replicação](./media/howto-read-replicas-portal/list-replica.png)
  
+
+> [!IMPORTANT]
+> Reveja a [secção de considerações da visão geral da Réplica de Leitura.](concepts-read-replicas.md#considerations)
+>
+> Antes de uma definição de servidor principal ser atualizada para um novo valor, atualize a definição de réplica para um valor igual ou maior. Esta ação ajuda a réplica a acompanhar quaisquer alterações feitas ao mestre.
 
 ## <a name="stop-replication"></a>Parar replicação
 Pode parar a replicação entre um servidor principal e uma réplica de leitura.
@@ -184,6 +184,6 @@ A métrica **Replica Lag** mostra o tempo desde a última transação reproduzid
  
 3. Para a sua **agregação,** selecione **Max**. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [as réplicas lidas na Base de Dados Azure para PostgreSQL](concepts-read-replicas.md).
 * Saiba como [criar e gerir réplicas de leitura na ALI Azure e NA API REST.](howto-read-replicas-cli.md)

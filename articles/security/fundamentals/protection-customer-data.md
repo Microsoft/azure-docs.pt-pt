@@ -15,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d723e60afe543808c88b1ae040e2979412ff324c
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811425"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273477"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados do cliente Azure   
-O acesso aos dados dos clientes pelas operações da Microsoft e o pessoal de suporte é negado por padrão. Quando o acesso aos dados dos clientes é concedido, a aprovação da liderança é necessária e, em seguida, o acesso é cuidadosamente gerido e registado. Os requisitos de controlo de acesso são estabelecidos pela seguinte Política de Segurança Azure:
+O acesso aos dados dos clientes pelas operações da Microsoft e o pessoal de suporte é negado por padrão. Quando o acesso a dados relacionados com um caso de apoio é concedido, só é concedido usando um modelo just-in-time (JIT) usando políticas que são auditadas e verificadas contra as nossas políticas de conformidade e privacidade.  Os requisitos de controlo de acesso são estabelecidos pela seguinte Política de Segurança Azure:
 
 - Sem acesso aos dados dos clientes, por padrão.
 - Nenhuma conta de utilizador ou administrador em máquinas virtuais do cliente (VMs).
@@ -37,14 +38,11 @@ O Azure proporciona aos clientes uma forte segurança de dados, tanto por padrã
 
 **Segregação de dados**: O Azure é um serviço multi-inquilino, o que significa que várias implementações de clientes e VMs são armazenados no mesmo hardware físico. O Azure usa o isolamento lógico para segregar os dados de cada cliente a partir dos dados de outros. A segregação proporciona a escala e os benefícios económicos dos serviços multi-inquilinos, impedindo rigorosamente os clientes de acederem aos dados uns dos outros.
 
-**Proteção de dados em repouso**: Os clientes são responsáveis por garantir que os dados armazenados no Azure são encriptados de acordo com os seus padrões. O Azure oferece uma vasta gama de capacidades de encriptação, dando aos clientes a flexibilidade para escolherem a solução que melhor satisfaça as suas necessidades. O Azure Key Vault ajuda os clientes a manter facilmente o controlo das chaves que são usadas por aplicações e serviços na nuvem para encriptar dados. A encriptação do disco Azure permite que os clientes criptografem VMs. A encriptação do serviço de armazenamento Azure permite encriptar todos os dados que são colocados na conta de armazenamento de um cliente.
+**Proteção de dados em repouso**: Os clientes são responsáveis por garantir que os dados armazenados no Azure são encriptados de acordo com os seus padrões. O Azure oferece uma vasta gama de capacidades de encriptação, dando aos clientes a flexibilidade para escolherem a solução que melhor satisfaça as suas necessidades. O Azure Key Vault ajuda os clientes a manter facilmente o controlo das chaves que são usadas por aplicações e serviços na nuvem para encriptar dados. A encriptação do disco Azure permite que os clientes criptografem VMs. A encriptação do serviço de armazenamento Azure permite encriptar todos os dados colocados na conta de armazenamento de um cliente.
 
-**Proteção de dados em trânsito**: Os clientes podem permitir encriptação para tráfego entre os seus próprios VMs e utilizadores finais. O Azure protege os dados em trânsito de ou para componentes externos e dados em trânsito internamente, tais como entre duas redes virtuais. O Azure utiliza o protocolo 1.2 ou posterior da segurança da camada de transporte (TLS) 1.2 ou posterior com chaves de encriptação RSA/SHA256 de 2.048 bits, conforme recomendado pelo CESG/NCSC, para encriptar as comunicações entre:
+**Proteção de dados em trânsito**: A Microsoft fornece uma série de opções que podem ser utilizadas pelos clientes para garantir dados em trânsito internamente dentro da rede Azure e externamente através da Internet para o utilizador final.  Estes incluem comunicação através de Redes Privadas Virtuais (utilizando encriptação IPsec/IKE), Segurança da Camada de Transporte (TLS) 1.2 ou posterior (através de componentes Azure, como O Gateway de Aplicação ou Porta Frontal Azure), protocolos diretamente nas máquinas virtuais Azure (como Windows IPsec ou SMB), e muito mais. 
 
-- O cliente e a nuvem.
-- Internamente entre sistemas Azure e datacenters.
-
-**Encriptação**: A encriptação de dados em armazenamento e em trânsito pode ser implementada pelos clientes como uma melhor prática para garantir a confidencialidade e integridade dos dados. É simples para os clientes configurar os seus serviços em nuvem Azure para usar OTS para proteger as comunicações da internet e até mesmo entre os seus VMs hospedados no Azure.
+Além disso, a "encriptação por padrão" utilizando o MACsec (uma norma IEEE na camada de ligação de dados) é ativada para todo o tráfego Azure que viaja entre centros de dados Azure para garantir a confidencialidade e integridade dos dados do cliente. 
 
 **Redundância de dados**: A Microsoft ajuda a garantir que os dados são protegidos se houver um ciberataque ou danos físicos num datacenter. Os clientes podem optar por:
 
@@ -72,7 +70,7 @@ O Azure permite que os clientes exportem dados e relatórios de auditoria do pro
 ## <a name="electronic-discovery-e-discovery"></a>Descoberta electrónica (e-discovery)
 Os clientes da Azure são responsáveis pelo cumprimento dos requisitos de e-discovery na sua utilização dos serviços Azure. Se os clientes da Azure tiverem de preservar os seus dados de clientes, podem exportar e guardar os dados localmente. Além disso, os clientes podem solicitar exportações dos seus dados do departamento de Apoio ao Cliente da Azure. Além de permitir que os clientes exportem os seus dados, a Azure realiza uma extensa exploração e monitorização interna.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para garantir a infraestrutura Azure, consulte:
 
 - [Instalações, instalações e segurança física](physical-security.md)

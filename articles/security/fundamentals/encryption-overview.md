@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005932f4a4be9e4a7bae85a6b380c934de5e9874
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84012981"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276537"
 ---
-# <a name="azure-encryption-overview"></a>Visão geral da encriptação Azure
+# <a name="azure-encryption-overview"></a>Descrição geral da encriptação do Azure
 
 Este artigo fornece uma visão geral de como a encriptação é usada no Microsoft Azure. Cobre as principais áreas de encriptação, incluindo encriptação em repouso, encriptação em voo, e gestão chave com Azure Key Vault. Cada secção inclui links para informações mais detalhadas.
 
@@ -116,9 +117,13 @@ Três tipos de chaves são usadas na encriptação e desencriptação de dados: 
 
 O Azure oferece muitos mecanismos para manter os dados privados à medida que se move de um local para outro.
 
-### <a name="tlsssl-encryption-in-azure"></a>Encriptação TLS/SSL em Azure
+### <a name="data-link-layer-encryption-in-azure"></a>Encriptação de camada de ligação de dados em Azure
 
-A Microsoft utiliza o protocolo [De Segurança da Camada de Transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) para proteger os dados quando viaja entre os serviços na nuvem e os clientes. Os datacenters da Microsoft negoceiam uma ligação TLS com sistemas de clientes que se ligam aos serviços Azure. O TLS proporciona uma autenticação forte, privacidade e integridade da mensagem (permitindo a deteção de adulteração de mensagens, interceção e falsificação), interoperabilidade, flexibilidade de algoritmos e facilidade de implantação e utilização.
+Sempre que o tráfego do cliente Azure se move entre datacenters-- fora dos limites físicos não controlados pela Microsoft (ou em nome da Microsoft)-- um método de encriptação da camada de ligação de dados utilizando as Normas de [Segurança MAC IEEE 802.1AE](https://1.ieee802.org/security/802-1ae/) (também conhecidas como MACsec) é aplicado de ponto a ponto em todo o hardware de rede subjacente.  Os pacotes são encriptados e desencriptados nos dispositivos antes de serem enviados, evitando ataques físicos "homem-no-meio" ou ataques de espionagem/escutas telefónicas.  Como esta tecnologia está integrada no próprio hardware de rede, fornece encriptação de taxa de linha no hardware da rede sem aumento de latência de ligação mensurável.  Esta encriptação do MACsec está em padrão para todo o tráfego Azure que viaja dentro de uma região ou entre regiões, e não é necessária nenhuma ação por parte dos clientes para permitir. 
+
+### <a name="tls-encryption-in-azure"></a>Encriptação TLS em Azure
+
+A Microsoft dá aos clientes a capacidade de usar o protocolo [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) para proteger os dados quando este viaja entre os serviços na nuvem e os clientes. Os datacenters da Microsoft negoceiam uma ligação TLS com sistemas de clientes que se ligam aos serviços Azure. O TLS proporciona uma autenticação forte, privacidade e integridade da mensagem (permitindo a deteção de adulteração de mensagens, interceção e falsificação), interoperabilidade, flexibilidade de algoritmos e facilidade de implantação e utilização.
 
 [O Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protege as ligações entre os sistemas de clientes dos clientes e os serviços de cloud da Microsoft através de chaves únicas. As ligações também usam comprimentos de encriptação baseados em RSA de 2.048 bits. Esta combinação dificulta a interceção e acesso de dados que estão em trânsito.
 
@@ -140,7 +145,7 @@ Por padrão, após a encriptação SMB ser ligada para uma partilha ou servidor,
 
 ## <a name="in-transit-encryption-in-vms"></a>Encriptação em trânsito em VMs
 
-Os dados em trânsito para, a partir e entre VMs que estão a executar o Windows, são encriptados de várias maneiras, dependendo da natureza da ligação.
+Os dados em trânsito para, a partir e entre VMs que estão a executar o Windows, podem ser encriptados de várias maneiras, dependendo da natureza da ligação.
 
 ### <a name="rdp-sessions"></a>Sessões RDP
 
@@ -180,7 +185,7 @@ Pode utilizar uma ligação de gateway VPN local para ligar a sua rede de entrad
 
 Pode configurar uma ligação VPN site-to-site a uma rede virtual utilizando o portal Azure, PowerShell ou Azure CLI.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 [Criar uma ligação site-a-local no portal Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
@@ -200,7 +205,7 @@ Sem proteção e gestão adequadas das chaves, a encriptação torna-se inútil.
 
 Key Vault alivia as organizações da necessidade de configurar, corrigir e manter módulos de segurança de hardware (HSMs) e software de gestão de chaves. Quando se usa o Cofre de Chaves, mantém-se o controlo. A Microsoft nunca vê as suas chaves e as aplicações não têm acesso direto às mesmos. Também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança da rede Azure](network-overview.md)

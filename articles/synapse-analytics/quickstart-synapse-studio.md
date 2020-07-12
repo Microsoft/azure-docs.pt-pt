@@ -1,6 +1,6 @@
 ---
-title: Use o Estúdio Synapse (pré-visualização)
-description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando o Estúdio Synapse.
+title: 'Quickstart: Use o Estúdio Synapse'
+description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando o Synapse Studio.
 services: synapse-analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658548"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276061"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Quickstart: Use Synapse Studio (pré-visualização)
 
-Neste arranque rápido, aprenderás a consultar ficheiros usando o Estúdio Synapse.
+Neste arranque rápido, aprenderás a consultar ficheiros usando o Synapse Studio.
 
-Se não tiver uma subscrição Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -28,43 +28,43 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um espaço de trabalho Azure Synapse e uma conta de armazenamento associada.](quickstart-create-workspace.md)
+[Crie um espaço de trabalho Azure Synapse e conta de armazenamento associada.](quickstart-create-workspace.md)
 
-## <a name="launch-synapse-studio"></a>Lançar Estúdio Synapse
+## <a name="launch-synapse-studio"></a>Iniciar o Synapse Studio
 
 No seu espaço de trabalho Azure Synapse no portal Azure, clique em **Launch Synapse Studio**.
 
-![Lançar Estúdio Synapse](./media/quickstart-synapse-studio/launch-synapse-workspace.png)
+![Iniciar o Synapse Studio](./media/quickstart-synapse-studio/launch-synapse-workspace.png)
 
-Em alternativa, pode lançar o Estúdio Synapse clicando no [Azure Synapse Analytics](https://web.azuresynapse.net) e fornecendo os valores adequados de inquilino, subscrição e espaço de trabalho.
+Em alternativa, pode lançar o Synapse Studio clicando no [Azure Synapse Analytics](https://web.azuresynapse.net) e fornecendo os valores adequados de inquilino, subscrição e espaço de trabalho.
 
-## <a name="browse-storage-accounts"></a>Navegue nas contas de armazenamento
+## <a name="browse-storage-accounts"></a>Procurar contas de armazenamento
 
-Assim que abrir o Estúdio Synapse, navegue para **Data** e, em seguida, expanda **as contas** de Armazenamento para ver a conta de armazenamento no espaço de trabalho.
+Assim que abrir o Synapse Studio, navegue pelos **Dados** e expanda as **contas de Armazenamento** para ver a conta de armazenamento no espaço de trabalho.
 
 ![Navegue ficheiros no armazenamento](./media/quickstart-synapse-studio/browse-files-on-storage.png)
 
 Pode criar novas pastas e carregar ficheiros utilizando os links na barra de ferramentas para organizar os seus ficheiros.
 
-## <a name="query-files-on-storage-account"></a>Arquivos de consulta na conta de armazenamento
+## <a name="query-files-on-storage-account"></a>Ficheiros de consulta na conta de armazenamento
 
 > [!IMPORTANT]
-> Você precisa ser um membro do papel no armazenamento subjacente para ser capaz de `Storage Blob Reader` consultar os ficheiros. Saiba como atribuir permissões rBAC do Leitor de [Dados **blob de armazenamento** ou do contribuinte de armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
+> É necessário ser membro do `Storage Blob Reader` papel no armazenamento subjacente para poder consultar os ficheiros. Saiba como atribuir permissões de [Armazenamento **Blob Data Reader** ou Storage **Blob Data Contributor** RBAC no Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
 
 1. Faça upload de `PARQUET` alguns ficheiros.
-2. Selecione um ou mais ficheiros e, em seguida, crie um novo script SQL ou um notebook Spark para ver o conteúdo dos ficheiros. Se quiser criar um caderno, terá de criar uma piscina Apache Spark em espaços de [trabalho Synapse.](quickstart-create-apache-spark-pool-studio.md)
+2. Selecione um ou mais ficheiros e, em seguida, crie um novo script SQL ou um portátil Spark para ver o conteúdo dos ficheiros. Se quiser criar um caderno, terá de criar uma [piscina Apache Spark em espaços de trabalho da Synapse.](quickstart-create-apache-spark-pool-studio.md)
 
-   ![Arquivos de consulta no armazenamento](./media/quickstart-synapse-studio/query-files-on-storage.png)
+   ![Ficheiros de consulta no armazenamento](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-3. Execute a consulta ou o caderno gerados para ver o conteúdo do ficheiro.
+3. Executar a consulta gerada ou o caderno para ver o conteúdo do ficheiro.
 
    ![Ver o conteúdo do ficheiro](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
-4. Pode alterar a consulta para filtrar e classificar os resultados. Encontre funcionalidades linguísticas disponíveis no SQL on-demand em [recursos SQL visão geral](sql/overview-features.md).
+4. Pode alterar a consulta para filtrar e classificar resultados. Encontre funcionalidades linguísticas disponíveis em SQL on demand em [SQL features overview](sql/overview-features.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Ativar os utilizadores de Anúncios Azure para consultar ficheiros [atribuindo permissões rBAC do Leitor de **Dados Blob de Armazenamento** ou do Contribuinte de Armazenamento **Blob** no Armazenamento Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
-- [Arquivos de consulta sobre armazenamento Azure usando SQL On-Demand](sql/on-demand-workspace-overview.md)
+- Permitir que os utilizadores de Azure AD questionem ficheiros [atribuindo permissões de **Armazenamento Blob Data Reader** ou De Armazenamento **Blob Data Contributor** RBAC no Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- [Ficheiros de consulta sobre o armazenamento do Azure utilizando o SQL On-Demand](sql/on-demand-workspace-overview.md)
 - [Criar um conjunto do Apache Spark com o portal do Azure](quickstart-create-apache-spark-pool-portal.md)
-- [Criar relatório Power BI sobre ficheiros armazenados no Armazenamento Azure](sql/tutorial-connect-power-bi-desktop.md)
+- [Criar relatório power BI sobre ficheiros armazenados no Azure Storage](sql/tutorial-connect-power-bi-desktop.md)

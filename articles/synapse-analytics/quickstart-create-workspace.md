@@ -1,5 +1,5 @@
 ---
-title: Quickstart - crie um espaço de trabalho synapse
+title: 'Quickstart: criar um espaço de trabalho Synapse'
 description: Crie um espaço de trabalho sinapse seguindo os passos deste guia.
 services: synapse-analytics
 author: pimorano
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e5896d1eabaf43afcbab7513d7abb0b1de4efe51
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: a069ee40c2db99b05e9620cf83c06c49cc9e29fc
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656702"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274242"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inscreva-se no [portal Azure](https://portal.azure.com/)
+Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Criar um espaço de trabalho Azure Synapse utilizando o portal Azure
 
@@ -63,7 +63,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com/)
 6. O **separador Resumo** executará as validações necessárias para garantir que o espaço de trabalho possa ser criado com sucesso. Uma vez que a validação tenha sucesso, prima **Crie** ![ Workspace provisioning flow - separador de confirmação.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
 7. Uma vez concluído o processo de fornecimento de recursos com sucesso, verá uma entrada para o espaço de trabalho criado na lista de espaços de trabalho da Synapse. ![Listagem de espaços de trabalho da Sinaapse mostrando o espaço de trabalho recentemente atado.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar o espaço de trabalho Azure Synapse.
 > [!WARNING]
@@ -80,6 +80,6 @@ Se pretender eliminar o espaço de trabalho Azure Synapse, complete os seguintes
  ![Azure Synapse workspace overview - elimine o diálogo de confirmação do espaço de trabalho.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
 1. Quando o processo estiver concluído com sucesso, o espaço de trabalho Azure Synapse deixará de constar na lista de espaços de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, você pode [criar piscinas SQL](quickstart-create-sql-pool-studio.md) ou [criar piscinas Apache Spark](quickstart-create-apache-spark-pool-studio.md) para começar a analisar e explorar seus dados.

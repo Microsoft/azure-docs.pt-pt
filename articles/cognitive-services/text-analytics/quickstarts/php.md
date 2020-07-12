@@ -8,13 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/06/2020
+ms.date: 07/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0402ed6177ca7f9d10cbb7d2a81352af0108b828
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 4627cc83de70f596ae4917d0449f785a33bf720f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027955"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86261360"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o PHP para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
@@ -29,14 +30,14 @@ Este artigo mostra-lhe como detetar a [linguagem,](#Detect) [analisar sentimento
 
 <a name="Detect"></a>
 
-## <a name="detect-language"></a>Detetar idioma
+## <a name="detect-language"></a>Detetar Idioma
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código.
-1. Execute o programa.
+1. Executar o programa.
 
 ```php
 <?php
@@ -137,7 +138,7 @@ A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos 
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código.
-1. Execute o programa.
+1. Executar o programa.
 
 ```php
 <?php
@@ -255,13 +256,13 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair expressões-chave
+## <a name="extract-key-phrases"></a>Extrair Expressões-Chave
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código.
-1. Execute o programa.
+1. Executar o programa.
 
 ```php
 <?php
@@ -365,7 +366,7 @@ A API de Entidades identifica entidades conhecidas num documento de texto atrav�
 1. Crie um novo projeto PHP no seu IDE favorito.
 1. Adicione o código indicado abaixo.
 1. Copie a sua chave de Análise de Texto e ponto final no código. 
-1. Execute o programa.
+1. Executar o programa.
 
 ```php
 <?php
@@ -382,7 +383,7 @@ $path = '/text/analytics/v3.0/entities/recognition/general';
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
-        "Content-Length: " . Length($data) . "\r\n" .
+        "Content-Length: " . strlen($data) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n";
     $data = json_encode ($data);
 
@@ -454,5 +455,5 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 ## <a name="see-also"></a>Ver também 
 
- [Descrição Geral da Análise de Texto](../overview.md)  
+ [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

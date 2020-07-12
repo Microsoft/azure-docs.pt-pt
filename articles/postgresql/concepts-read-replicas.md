@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/24/2020
-ms.openlocfilehash: 0d678d900ec31b00d27eba19617d533c5010c1dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368005"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86276656"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -161,12 +161,14 @@ O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Int
 Uma réplica de leitura é criada como uma nova Base de Dados Azure para servidor PostgreSQL. Um servidor existente não pode ser transformado numa réplica. Não se pode criar uma réplica de outra réplica lida.
 
 ### <a name="replica-configuration"></a>Configuração de réplica
-Uma réplica é criada utilizando as mesmas definições de computação e armazenamento que o mestre. Após a criação de uma réplica, várias configurações podem ser alteradas independentemente do servidor principal: geração de cálculo, vCores, armazenamento e período de retenção de backup. O nível de preços também pode ser alterado de forma independente, exceto de ou para o nível básico.
+Uma réplica é criada utilizando as mesmas definições de computação e armazenamento que o mestre. Após a criação de uma réplica, várias configurações podem ser alteradas, incluindo o período de armazenamento e retenção de backup.
+
+vCores e o nível de preços também podem ser alterados na réplica nas seguintes condições:
+* PostgreSQL exige que o valor do `max_connections` parâmetro na réplica de leitura seja maior ou igual ao valor principal; caso contrário, a réplica não arranca. Na Base de Dados Azure para PostgreSQL, o valor do `max_connections` parâmetro baseia-se no SKU (vCores e nível de preços). Para obter mais informações, consulte [limites na Base de Dados Azure para PostgreSQL](concepts-limits.md). 
+* A escala de ou para o nível de preços básicos não é suportada
 
 > [!IMPORTANT]
 > Antes de uma definição principal ser atualizada para um novo valor, atualize a configuração da réplica para um valor igual ou maior. Esta ação garante que a réplica pode acompanhar quaisquer alterações feitas no mestre.
-
-PostgreSQL exige que o valor do `max_connections` parâmetro na réplica de leitura seja maior ou igual ao valor principal; caso contrário, a réplica não arranca. Na Base de Dados Azure para PostgreSQL, o valor do `max_connections` parâmetro baseia-se no SKU. Para obter mais informações, consulte [limites na Base de Dados Azure para PostgreSQL](concepts-limits.md). 
 
 Se tentar atualizar os valores do servidor acima descritos, mas não aderir aos limites, receberá um erro.
 
@@ -184,6 +186,6 @@ Se parar a replicação entre um servidor principal e uma réplica de leitura, a
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autónomos apagados
 Quando um servidor principal é eliminado, todas as suas réplicas de leitura tornam-se servidores autónomos. As réplicas são reiniciadas para refletir esta mudança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [criar e gerir réplicas de leitura no portal Azure.](howto-read-replicas-portal.md)
 * Saiba como [criar e gerir réplicas de leitura na ALI Azure e NA API REST.](howto-read-replicas-cli.md)

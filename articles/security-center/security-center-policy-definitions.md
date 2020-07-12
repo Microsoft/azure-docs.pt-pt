@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/10/2020
 ms.author: memildin
-ms.openlocfilehash: 96399867acfa910b2c24a761708d0b4710594155
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d88e9677cd070803befb4c13ba023d2674f64e0
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321179"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86273893"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança Azure monitorizadas pelo Centro de Segurança
 
@@ -31,7 +31,7 @@ Para conhecer as iniciativas incorporadas que são monitorizadas pelo Centro de 
 
 [!INCLUDE [azure-policy-samples-policyset-security-center](../../includes/policy/samples/bycat/policysets-security-center.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre as definições de política de segurança da Azure Policy no Centro de Segurança. Para saber mais, consulte os seguintes artigos.
 

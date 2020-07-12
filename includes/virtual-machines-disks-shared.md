@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/10/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83868064"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86277693"
 ---
 Os discos partilhados Azure (pré-visualização) são uma nova funcionalidade para discos geridos aZure que permitem anexar um disco gerido a várias máquinas virtuais (VMs) simultaneamente. A anexação de um disco gerido a vários VMs permite-lhe implementar novas ou migrar aplicações agrupadas existentes para o Azure.
 
@@ -41,7 +41,7 @@ A maioria do clustering baseado no Windows baseia-se no WSFC, que trata de todas
 
 Algumas aplicações populares em execução no WSFC incluem:
 
-- Instâncias de Cluster de Ativação Pós-falha (FCI) do SQL Server
+- [Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - Servidor de Ficheiros de Escalamento Horizontal (SoFS)
 - Servidor de Ficheiros para Utilização Geral (carga de trabalho IW)
 - Disco de Perfil do Utilizador do Servidor de Ambiente de Trabalho Remoto (RDS UPD)
@@ -87,7 +87,12 @@ Os discos ultra oferecem um acelerador adicional, para um total de dois acelerad
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Uma imagem de uma tabela que retrata o acesso ReadOnly ou Read/Write para Titular de Reserva, Registrado e Outros.":::
 
-## <a name="ultra-disk-performance-throttles"></a>Aceleradores de desempenho ultra disco
+## <a name="performance-throttles"></a>Aceleradores de desempenho
+
+### <a name="premium-ssd-performance-throttles"></a>Aceleradores de desempenho premium ssd
+Com ssd premium, o disco IOPS e a produção são fixados, por exemplo, IOPS de um P30 é de 5000. Este valor permanece se o disco é partilhado em 2 VMs ou 5 VMs. Os limites do disco podem ser atingidos a partir de um único VM ou divididos em dois ou mais VMs. 
+
+### <a name="ultra-disk-performance-throttles"></a>Aceleradores de desempenho ultra disco
 
 Os discos ultra têm a capacidade única de permitir definir o seu desempenho expondo atributos modificáveis e permitindo-lhe modificá-los. Por padrão, existem apenas dois atributos modificáveis mas os discos ultra partilhados têm dois atributos adicionais.
 
@@ -111,23 +116,23 @@ As seguintes fórmulas explicam como os atributos de desempenho podem ser defini
     - O limite de produção de um único disco é de 256 KiB/s para cada IOPS provisionado, até um máximo de 2000 MBps por disco
     - A produção mínima garantida por disco é de 4KiB/s para cada IOPS provisível, com um mínimo de base global de 1 MBps
 
-### <a name="examples"></a>Exemplos
+#### <a name="examples"></a>Exemplos
 
 Os exemplos que se seguem retratam alguns cenários que mostram como o estrangulamento pode funcionar com discos ultra partilhados, especificamente.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Dois aglomerados de nó usando volumes compartilhados de cluster
+##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Dois aglomerados de nó usando volumes compartilhados de cluster
 
 Segue-se um exemplo de um WSFC de 2 nós utilizando volumes partilhados agrupados. Com esta configuração, ambos os VMs têm acesso simultâneo ao disco, o que resulta na divisão do acelerador ReadWrite entre os dois VMs e o acelerador ReadOnly não ser utilizado.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV dois exemplo ultra nó":::
 
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Dois aglomerados de nó sem volumes de partilha de cluster
+##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Dois aglomerados de nó sem volumes de partilha de cluster
 
 Segue-se um exemplo de um WSFC de 2 nós que não está a utilizar volumes partilhados agrupados. Com esta configuração, apenas um VM tem acesso por escrito ao disco. Isto resulta em que o acelerador ReadWrite seja utilizado exclusivamente para o VM primário e o acelerador ReadOnly apenas sendo utilizado pelo secundário.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV dois nóns sem exemplo de disco ultra csv":::
 
-#### <a name="four-node-linux-cluster"></a>Aglomerado de linux de quatro nó
+##### <a name="four-node-linux-cluster"></a>Aglomerado de linux de quatro nó
 
 Segue-se um exemplo de um aglomerado linux de 4 nós com um único escritor e três leitores de escala. Com esta configuração, apenas um VM tem acesso por escrito ao disco. Isto resulta na utilização exclusiva do acelerador ReadWrite para o VM primário e para o acelerador ReadOnly ser dividido pelos VM secundários.
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar uma piscina Apache Spark (pré-visualização) usando o Synapse Studio
+title: 'Quickstart: Criar uma piscina Apache Spark (pré-visualização) usando o Synapse Studio'
 description: Crie uma nova piscina Apache Spark utilizando o Synapse Studio seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c945e56aa0b6f851f54cf7679276558190b4bc10
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 87fcbef5a3cedab3142fe9ad47c68752515fdd2e
+ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194975"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86274344"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Quickstart: Criar uma piscina Apache Spark (pré-visualização) usando o Synapse Studio
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inscreva-se no [portal Azure](https://portal.azure.com/)
+Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 ## <a name="navigate-to-the-synapse-workspace"></a>Navegue até ao espaço de trabalho da Sinapse
 
