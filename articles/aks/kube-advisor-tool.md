@@ -7,11 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b0078f1aff3ef81ee270f67de0fffddec3abab9
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773791"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255256"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar a existência de melhores práticas do Kubernetes no seu cluster
 
@@ -28,7 +29,7 @@ A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites 
 
 ## <a name="running-kube-advisor"></a>Corrida kube-advisor
 
-Para executar a ferramenta num cluster configurado para [controlo de acesso baseado em funções (RBAC),](azure-ad-integration.md)utilizando os seguintes comandos. O primeiro comando cria uma conta de serviço Kubernetes. O segundo comando executa a ferramenta numa cápsula utilizando essa conta de serviço e configura a cápsula para eliminação após a sua saída. 
+Para executar a ferramenta num cluster configurado para [controlo de acesso baseado em funções (RBAC),](./azure-ad-integration-cli.md)utilizando os seguintes comandos. O primeiro comando cria uma conta de serviço Kubernetes. O segundo comando executa a ferramenta numa cápsula utilizando essa conta de serviço e configura a cápsula para eliminação após a sua saída. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -66,7 +67,7 @@ kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa
 
 Se estiver a executar a ferramenta contra um cluster que não esteja ativado pelo RBAC, não é necessária uma limpeza.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Problemas de resolução de problemas com o Serviço Azure Kubernetes](troubleshooting.md)
 

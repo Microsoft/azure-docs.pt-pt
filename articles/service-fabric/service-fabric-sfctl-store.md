@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af5399be44d2946775622598c5c1db3d8355f7cd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905619"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257075"
 ---
 # <a name="sfctl-store"></a>sfctl store
 Efetue operações básicas de nível de ficheiro na loja de imagens de cluster.
@@ -18,7 +19,7 @@ Efetue operações básicas de nível de ficheiro na loja de imagens de cluster.
 
 |Comando|Descrição|
 | --- | --- |
-| delete | Elimina o conteúdo da loja de imagens existente. |
+| eliminação | Elimina o conteúdo da loja de imagens existente. |
 | raiz-info | Obtém a informação de conteúdo na raiz da loja de imagens. |
 | estatística | Obtém a informação de conteúdo da loja de imagens. |
 
@@ -88,6 +89,6 @@ Devolve as informações sobre o conteúdo da loja de imagens no conteúdo espec
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI do Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

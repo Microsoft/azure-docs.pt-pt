@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 56efa15a7de3414f9c535e66bd80c94594cd5038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906218"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257058"
 ---
 # <a name="sfctl"></a>sfctl
 Comandos para gerir clusters e entidades de Tecidos de Serviço. Esta versão é compatível com o tempo de execução do Service Fabric 7.0.
@@ -37,6 +38,6 @@ Os comandos seguem o padrão substantivo do verbo. Consulte os subgrupos para ob
 | [definições](service-fabric-sfctl-settings.md) | Configurar as definições locais para este caso de sfctl. |
 | [loja](service-fabric-sfctl-store.md) | Efetue operações básicas de nível de ficheiro na loja de imagens de cluster. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

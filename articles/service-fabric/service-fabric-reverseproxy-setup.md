@@ -4,12 +4,12 @@ description: Compreenda como configurar e configurar o serviço de procuração 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80476682"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256337"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurar e configurar procuração inversa no Tecido de Serviço Azure
 O Reverse Proxy é um serviço opcional Azure Service Fabric que ajuda microserviços a funcionar num cluster de Tecidos de Serviço a descobrir e comunicar com outros serviços que têm pontos finais http. Para saber mais, consulte [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra-lhe como configurar e configurar o proxy inverso no seu cluster. 
@@ -37,7 +37,7 @@ Para um novo cluster, pode [criar um modelo personalizado de Gestor de Recursos]
 
 Pode encontrar modelos de gestor de recursos de amostra que podem ajudá-lo a configurar um proxy seguro para um cluster Azure nos [modelos de amostra de procuração de proxy de reverso seguro](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) no GitHub. Consulte o [Configure HTTPS Reverse Proxy num cluster seguro](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) no ficheiro README para obter instruções e os modelos a utilizar para configurar um representante de reverso seguro com um certificado e para lidar com a capotagem do certificado.
 
-Para um cluster existente, pode exportar o modelo de Gestor de Recursos para o grupo de recursos do cluster utilizando o [portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell,](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)ou o [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
+Para um cluster existente, pode exportar o modelo de Gestor de Recursos para o grupo de recursos do cluster utilizando o [portal Azure](../azure-resource-manager/templates/export-template-portal.md), [PowerShell,](../azure-resource-manager/management/manage-resources-powershell.md)ou o [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md).
 
 Depois de ter um modelo de Gestor de Recursos, pode ativar o representante inverso com os seguintes passos:
 
@@ -52,7 +52,7 @@ Depois de ter um modelo de Gestor de Recursos, pode ativar o representante inver
         }
     },
     ```
-2. Especificar a porta para cada um dos objetos de nótype na secção tipo [de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
+2. Especificar a porta para cada um dos objetos de nótype na secção tipo [de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) .
 
     A porta é identificada pelo nome do parâmetro, reverseProxyEndpointPort.
 
@@ -74,7 +74,7 @@ Depois de ter um modelo de Gestor de Recursos, pode ativar o representante inver
         ...
     }
     ```
-3. Para configurar os certificados TLS/SSL na porta para o representante inverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na secção tipo [de recurso](../resource-group-authoring-templates.md) **Microsoft.ServiceFabric/clusters** .
+3. Para configurar os certificados TLS/SSL na porta para o representante inverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na secção tipo [de recurso](../azure-resource-manager/templates/template-syntax.md) **Microsoft.ServiceFabric/clusters** .
 
     ```json
     {
@@ -98,7 +98,7 @@ Depois de ter um modelo de Gestor de Recursos, pode ativar o representante inver
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Suportando um certificado de procuração inversa que é diferente do certificado de cluster
- Se o certificado de procuração inversa for diferente do certificado que assegura o cluster, então o certificado previamente especificado deve ser instalado na máquina virtual e adicionado à lista de controlo de acesso (ACL) para que o Service Fabric possa aceder ao mesmo. Isto pode ser feito na secção tipo [de recurso](../resource-group-authoring-templates.md) [**Microsoft.Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) . Para instalação, adicione o certificado ao sistema operativo os. A secção de extensão do modelo pode atualizar o certificado na ACL.
+ Se o certificado de procuração inversa for diferente do certificado que assegura o cluster, então o certificado previamente especificado deve ser instalado na máquina virtual e adicionado à lista de controlo de acesso (ACL) para que o Service Fabric possa aceder ao mesmo. Isto pode ser feito na secção tipo [de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets) . Para instalação, adicione o certificado ao sistema operativo os. A secção de extensão do modelo pode atualizar o certificado na ACL.
 
   ```json
   {
@@ -252,50 +252,50 @@ Se quiser expor publicamente o proxy invertido para um cluster autónomo, a form
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Expor o proxy invertido através de modelos de Gestor de Recursos
 
-O JSON seguinte refere o mesmo modelo que é usado em [Enable reverse proxy via Azure Resource Manager modelos](#enable-reverse-proxy-via-azure-resource-manager-templates). Consulte essa secção do documento para obter informações sobre como criar um modelo de Gestor de Recursos ou exportar um modelo para um cluster existente.  As alterações são efetuadas na secção tipo [de recurso](../resource-group-authoring-templates.md) [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) .
+O JSON seguinte refere o mesmo modelo que é usado em [Enable reverse proxy via Azure Resource Manager modelos](#enable-reverse-proxy-via-azure-resource-manager-templates). Consulte essa secção do documento para obter informações sobre como criar um modelo de Gestor de Recursos ou exportar um modelo para um cluster existente.  As alterações são efetuadas na secção tipo [de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers) .
 
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
+```json
+{
+    "apiVersion": "[variables('lbApiVersion')]",
+    "type": "Microsoft.Network/loadBalancers",
+    ...
+    ...
+    "loadBalancingRules": [
         ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
+        {
+            "name": "LBSFReverseProxyRule",
+            "properties": {
+                "backendAddressPool": {
+                    "id": "[variables('lbPoolID0')]"
+                },
+                "backendPort": "[parameters('SFReverseProxyPort')]",
+                "enableFloatingIP": "false",
+                "frontendIPConfiguration": {
+                    "id": "[variables('lbIPConfig0')]"
+                },
+                "frontendPort": "[parameters('SFReverseProxyPort')]",
+                "idleTimeoutInMinutes": "5",
+                "probe": {
+                    "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                },
+                "protocol": "tcp"
             }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
+        }
+    ],
+    "probes": [
+        ...
+        {
+            "name": "SFReverseProxyProbe",
+            "properties": {
+                "intervalInSeconds": 5,
+                "numberOfProbes": 2,
+                "port":     "[parameters('SFReverseProxyPort')]",
+                "protocol": "tcp"
+            }
+        }  
+    ]
+}
+```
 
 
 ## <a name="customize-reverse-proxy-behavior-using-fabric-settings"></a>Personalize o comportamento de procuração inversa usando configurações de tecido

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 248725c7281c8c63e4ca5c0c70428b4fc997d350
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142403"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258207"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -21,11 +21,27 @@ Numa solução Azure Digital Twins, as entidades do seu ambiente são representa
 > [!TIP]
 > "Azure Digital Twins" refere-se a este serviço Azure como um todo. "Digital twin(s)" ou apenas "twin(s)" refere-se a nódoas gémeas individuais dentro do seu caso do serviço.
 
-## <a name="creating-digital-twins"></a>Criação de gémeos digitais
+## <a name="digital-twins"></a>Gémeos digitais
 
 Antes de criar um gémeo digital na sua instância Azure Digital Twins, precisa de ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relacionamentos que um gémeo em particular pode ter, entre outras coisas. Para os tipos de informação que são definidos num modelo, consulte [Conceitos: Modelos personalizados.](concepts-models.md)
 
 Depois de criar e carregar um modelo, a sua aplicação de clientes pode criar uma instância do tipo; este é um gémeo digital. Por exemplo, depois de criar um modelo de *Floor,* pode criar um ou vários gémeos digitais que usam este tipo (como um twin tipo *chão*chamado *GroundFloor*, outro chamado *Floor2*, etc.). 
+
+## <a name="relationships-a-graph-of-digital-twins"></a>Relacionamentos: um gráfico de gémeos digitais
+
+Os gémeos estão ligados a um gráfico gémeo pelas suas relações. As relações que um gémeo pode ter são definidas como parte do seu modelo.  
+
+Por exemplo, o modelo *Floor* pode definir uma relação *de contenção* que visa gémeos de *tipo quarto*. Com esta definição, a Azure Digital Twins permitirá criar relações *de* qualquer *nó* gémeo do Chão a *qualquer* quarto gémeo (incluindo gémeos que são de subtipos *de Quarto).* 
+
+O resultado deste processo é um conjunto de nós (os gémeos digitais) ligados através de bordas (suas relações) num gráfico.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## <a name="create-with-the-apis"></a>Criar com as APIs
+
+Esta secção mostra o que parece criar gémeos digitais e relacionamentos a partir de uma aplicação de cliente. Contém exemplos de código .NET que utilizam as [APIs DigitalTwins,](how-to-use-apis-sdks.md)para fornecer contexto adicional sobre o que se passa dentro de cada um destes conceitos.
+
+### <a name="create-digital-twins"></a>Criar gémeos digitais
 
 Abaixo está um corte de código de cliente que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para instantaneaizar um twin de *tipo Room*.
 
@@ -59,11 +75,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## <a name="relationships-creating-a-graph-of-digital-twins"></a>Relacionamentos: Criar um gráfico de gémeos digitais
-
-Os gémeos estão ligados a um gráfico gémeo pelas suas relações. As relações que um gémeo pode ter são definidas como parte do seu modelo.  
-
-Por exemplo, o modelo *Floor* pode definir uma relação *de contenção* que visa gémeos de *tipo quarto*. Com esta definição, a Azure Digital Twins permitirá criar relações *de* qualquer *nó* gémeo do Chão a *qualquer* quarto gémeo (incluindo gémeos que são de subtipos *de Quarto).* 
+### <a name="create-relationships"></a>Criar relacionamentos
 
 Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para construir uma relação entre um twin digital tipo *Floor*chamado *GroundFloor* e um twin digital *tipo Quarto*chamado *Café.*
 
@@ -84,8 +96,6 @@ try
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
 }
 ```
-
-O resultado deste processo é um conjunto de nós (os gémeos digitais) ligados através de bordas (suas relações) num gráfico.
 
 ## <a name="json-representations-of-graph-elements"></a>Representações de JSON de elementos gráficos
 

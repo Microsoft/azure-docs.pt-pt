@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c534ba54ccea78759628f554707271934ddc9a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645570"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258476"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introdução a atores fiáveis de tecido de serviço
 Reliable Actors é uma estrutura de aplicação de tecido de serviço baseada no padrão [de ator virtual.](https://research.microsoft.com/en-us/projects/orleans/) A API de API de Atores Fidedignos fornece um modelo de programação de fio único baseado nas garantias de escalabilidade e fiabilidade fornecidas pela Service Fabric.
@@ -133,10 +134,10 @@ O tempo de execução dos atores permite a reentrada por defeito. Isto significa
 ### <a name="scope-of-concurrency-guarantees"></a>Âmbito de garantias de conuncy
 O tempo de execução dos atores fornece estas garantias de concordância em situações em que controla a invocação destes métodos. Por exemplo, fornece estas garantias para as invocações do método que são feitas em resposta a um pedido do cliente, bem como para chamadas de temporizador e lembrete. No entanto, se o código do ator invocar diretamente estes métodos fora dos mecanismos fornecidos pelos atores, então o tempo de execução não pode fornecer quaisquer garantias de concordância. Por exemplo, se o método for invocado no contexto de alguma tarefa que não esteja associada à tarefa devolvida pelos métodos do ator, então o tempo de execução não pode fornecer garantias de concordância. Se o método for invocado a partir de um fio que o ator cria por si só, então o tempo de execução também não pode fornecer garantias de concordância. Portanto, para realizar operações de fundo, os atores devem usar [temporizadores de ator e lembretes de ator](service-fabric-reliable-actors-timers-reminders.md) que respeitem a concordância baseada em turnos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Começa por construir o teu primeiro serviço de Atores Fidedignso:
    * [Começando com atores fiáveis em .NET](service-fabric-reliable-actors-get-started.md)
-   * [Começar com atores fiáveis em Java](service-fabric-reliable-actors-get-started-java.md)
+   * [Começar com atores fiáveis em Java](./service-fabric-create-your-first-linux-application-with-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

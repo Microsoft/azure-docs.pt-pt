@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: 33df6b5c8c5c16a6eb896944de05068affc2b407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82bcc61d06ac519447307c1e92784f33794d5817
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062206"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258019"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar e-mail usando SendGrid com Azure
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Este guia demonstra como executar tarefas de programação comuns com o serviço de e-mail SendGrid em Azure. As amostras são escritas em C \# e suportam .NET Standard 1.3. Os cenários abrangidos incluem a construção de e-mails, envio de e-mail, adição de anexos e ativação de várias configurações de correio e rastreamento. Para obter mais informações sobre SendGrid e enviar e-mail, consulte a secção [etapas seguintes.][Next steps]
 
 ## <a name="what-is-the-sendgrid-email-service"></a>O que é o Serviço de E-mail SendGrid?
@@ -68,30 +68,34 @@ A biblioteca da classe SendGrid .NET chama-se **SendGrid**. Contém os seguintes
 
 Adicione as seguintes declarações de espaço de nome de código ao topo de qualquer ficheiro C# no qual pretende aceder programáticamente ao serviço de e-mail SendGrid.
 
-    using SendGrid;
-    using SendGrid.Helpers.Mail;
+```csharp
+using SendGrid;
+using SendGrid.Helpers.Mail;
+```
 
 ## <a name="how-to-create-an-email"></a>Como: Criar um email
 Utilize o objeto **SendGridMessage** para criar uma mensagem de correio eletrónico. Uma vez criado o objeto de mensagem, pode definir propriedades e métodos, incluindo o remetente de e-mail, o destinatário do e-mail, e o sujeito e corpo do e-mail.
 
 O exemplo a seguir demonstra como criar um objeto de e-mail totalmente povoado:
 
-    var msg = new SendGridMessage();
+```csharp
+var msg = new SendGridMessage();
 
-    msg.SetFrom(new EmailAddress("dx@example.com", "SendGrid DX Team"));
+msg.SetFrom(new EmailAddress("dx@example.com", "SendGrid DX Team"));
 
-    var recipients = new List<EmailAddress>
-    {
-        new EmailAddress("jeff@example.com", "Jeff Smith"),
-        new EmailAddress("anna@example.com", "Anna Lidman"),
-        new EmailAddress("peter@example.com", "Peter Saddow")
-    };
-    msg.AddTos(recipients);
+var recipients = new List<EmailAddress>
+{
+    new EmailAddress("jeff@example.com", "Jeff Smith"),
+    new EmailAddress("anna@example.com", "Anna Lidman"),
+    new EmailAddress("peter@example.com", "Peter Saddow")
+};
+msg.AddTos(recipients);
 
-    msg.SetSubject("Testing the SendGrid C# Library");
+msg.SetSubject("Testing the SendGrid C# Library");
 
-    msg.AddContent(MimeType.Text, "Hello World plain text!");
-    msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
+msg.AddContent(MimeType.Text, "Hello World plain text!");
+msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
+```
 
 Para obter mais informações sobre todas as propriedades e métodos suportados pelo tipo **SendGrid,** consulte [sendgrid-csharp][sendgrid-csharp] no GitHub.
 
@@ -104,44 +108,48 @@ Pode armazenar estas credenciais através do seu portal Azure clicando nas defin
 
  ![Definições de aplicativos Azure][azure_app_settings]
 
- Em seguida, pode acessá-los da seguinte forma:
+Em seguida, pode acessá-los da seguinte forma:
 
-    var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
-    var client = new SendGridClient(apiKey);
+```csharp
+var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+var client = new SendGridClient(apiKey);
+```
 
 Os exemplos a seguir mostram como enviar uma mensagem de e-mail usando a API da Web SendGrid com uma aplicação de consola.
 
-    using System;
-    using System.Threading.Tasks;
-    using SendGrid;
-    using SendGrid.Helpers.Mail;
+```csharp
+using System;
+using System.Threading.Tasks;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
-    namespace Example
+namespace Example
+{
+    internal class Example
     {
-        internal class Example
+        private static void Main()
         {
-            private static void Main()
-            {
-                Execute().Wait();
-            }
+            Execute().Wait();
+        }
 
-            static async Task Execute()
+        static async Task Execute()
+        {
+            var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+            var client = new SendGridClient(apiKey);
+            var msg = new SendGridMessage()
             {
-                var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
-                var client = new SendGridClient(apiKey);
-                var msg = new SendGridMessage()
-                {
-                    From = new EmailAddress("test@example.com", "DX Team"),
-                    Subject = "Hello World from the SendGrid CSharp SDK!",
-                    PlainTextContent = "Hello, Email!",
-                    HtmlContent = "<strong>Hello, Email!</strong>"
-                };
-                msg.AddTo(new EmailAddress("test@example.com", "Test User"));
-                var response = await client.SendEmailAsync(msg);
-            }
+                From = new EmailAddress("test@example.com", "DX Team"),
+                Subject = "Hello World from the SendGrid CSharp SDK!",
+                PlainTextContent = "Hello, Email!",
+                HtmlContent = "<strong>Hello, Email!</strong>"
+            };
+            msg.AddTo(new EmailAddress("test@example.com", "Test User"));
+            var response = await client.SendEmailAsync(msg);
         }
     }
-    
+}
+```
+
 ## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Como: Enviar e-mail da ASP .NET Core API usando a classe MailHelper
 
 O exemplo abaixo pode ser usado para enviar um único e-mail para várias pessoas da ASP .NET Core API usando a `MailHelper` classe de espaço de `SendGrid.Helpers.Mail` nome. Para este exemplo, estamos a utilizar ASP .NET Core 1.0. 
@@ -150,86 +158,94 @@ Neste exemplo, a tecla API foi armazenada no `appsettings.json` ficheiro que pod
 
 O conteúdo do `appsettings.json` ficheiro deve ser semelhante a:
 
-    {
-       "Logging": {
-       "IncludeScopes": false,
-       "LogLevel": {
-       "Default": "Debug",
-       "System": "Information",
-       "Microsoft": "Information"
-         }
-       },
-     "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
+```csharp
+{
+   "Logging": {
+   "IncludeScopes": false,
+   "LogLevel": {
+   "Default": "Debug",
+   "System": "Information",
+   "Microsoft": "Information"
+     }
+   },
+ "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+}
+```
 
 Em primeiro lugar, precisamos adicionar o código abaixo no `Startup.cs` ficheiro do projeto API .NET Core. Isto é necessário para que possamos aceder ao `SENDGRID_API_KEY` ficheiro utilizando a injeção de dependência no controlador `appsettings.json` API. A `IConfiguration` interface pode ser injetada no construtor do controlador depois de a adicionar no método `ConfigureServices` abaixo. O conteúdo do `Startup.cs` ficheiro parece o seguinte após a adição do código necessário:
 
-        public IConfigurationRoot Configuration { get; }
+```csharp
+    public IConfigurationRoot Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // Add mvc here
-            services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
-        }
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Add mvc here
+        services.AddMvc();
+        services.AddSingleton<IConfiguration>(Configuration);
+    }
+```
 
 No controlador, depois de injetar a `IConfiguration` interface, podemos usar o `CreateSingleEmailToMultipleRecipients` método da classe para enviar um único `MailHelper` e-mail para vários destinatários. O método aceita um parâmetro booleano adicional chamado `showAllRecipients` . Este parâmetro pode ser usado para controlar se os destinatários de e-mail serão capazes de ver o endereço de e-mail uns dos outros na secção To do cabeçalho de e-mail. O código de amostra para controlador deve ser como abaixo 
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
-    using SendGrid;
-    using SendGrid.Helpers.Mail;
-    using Microsoft.Extensions.Configuration;
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+using Microsoft.Extensions.Configuration;
 
-    namespace SendgridMailApp.Controllers
+namespace SendgridMailApp.Controllers
+{
+    [Route("api/[controller]")]
+    public class NotificationController : Controller
     {
-        [Route("api/[controller]")]
-        public class NotificationController : Controller
-        {
-           private readonly IConfiguration _configuration;
+       private readonly IConfiguration _configuration;
 
-           public NotificationController(IConfiguration configuration)
-           {
-             _configuration = configuration;
-           }      
-        
-           [Route("SendNotification")]
-           public async Task PostMessage()
-           {
-              var apiKey = _configuration.GetSection("SENDGRID_API_KEY").Value;
-              var client = new SendGridClient(apiKey);
-              var from = new EmailAddress("test1@example.com", "Example User 1");
-              List<EmailAddress> tos = new List<EmailAddress>
-              {
-                  new EmailAddress("test2@example.com", "Example User 2"),
-                  new EmailAddress("test3@example.com", "Example User 3"),
-                  new EmailAddress("test4@example.com","Example User 4")
-              };
-            
-              var subject = "Hello world email from Sendgrid ";
-              var htmlContent = "<strong>Hello world with HTML content</strong>";
-              var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
-              var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, tos, subject, "", htmlContent, false);
-              var response = await client.SendEmailAsync(msg);
-          }
-       }
-    }
+       public NotificationController(IConfiguration configuration)
+       {
+         _configuration = configuration;
+       }      
     
+       [Route("SendNotification")]
+       public async Task PostMessage()
+       {
+          var apiKey = _configuration.GetSection("SENDGRID_API_KEY").Value;
+          var client = new SendGridClient(apiKey);
+          var from = new EmailAddress("test1@example.com", "Example User 1");
+          List<EmailAddress> tos = new List<EmailAddress>
+          {
+              new EmailAddress("test2@example.com", "Example User 2"),
+              new EmailAddress("test3@example.com", "Example User 3"),
+              new EmailAddress("test4@example.com","Example User 4")
+          };
+        
+          var subject = "Hello world email from Sendgrid ";
+          var htmlContent = "<strong>Hello world with HTML content</strong>";
+          var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
+          var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, tos, subject, "", htmlContent, false);
+          var response = await client.SendEmailAsync(msg);
+      }
+   }
+}
+```
+
 ## <a name="how-to-add-an-attachment"></a>Como: Adicionar um anexo
 Os anexos podem ser adicionados a uma mensagem chamando o método **AddAttachment** e especificando minimamente o nome do ficheiro e o conteúdo codificado Base64 que pretende anexar. Pode incluir vários anexos ligando para este método uma vez para cada ficheiro que deseja anexar ou utilizando o método **AddAttachments.** O exemplo a seguir demonstra a adição de um anexo a uma mensagem:
 
-    var banner2 = new Attachment()
-    {
-        Content = Convert.ToBase64String(raw_content),
-        Type = "image/png",
-        Filename = "banner2.png",
-        Disposition = "inline",
-        ContentId = "Banner 2"
-    };
-    msg.AddAttachment(banner2);
+```csharp
+var banner2 = new Attachment()
+{
+    Content = Convert.ToBase64String(raw_content),
+    Type = "image/png",
+    Filename = "banner2.png",
+    Disposition = "inline",
+    ContentId = "Banner 2"
+};
+msg.AddAttachment(banner2);
+```
 
 ## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Como: Utilizar as definições de correio para permitir rodapés, rastreios e análises
 A SendGrid fornece uma funcionalidade adicional de e-mail através da utilização de definições de correio e definições de rastreio. Estas definições podem ser adicionadas a uma mensagem de e-mail para permitir funcionalidades específicas, tais como rastreio de cliques, análise do Google, rastreio de subscrição, e assim por diante. Para obter uma lista completa de aplicações, consulte a [Documentação de Definições.][settings-documentation]
@@ -239,13 +255,19 @@ As aplicações podem ser aplicadas a mensagens de correio **enviargrid** usando
 Os seguintes exemplos demonstram o rodapé e clicam nos filtros de rastreio:
 
 ### <a name="footer-settings"></a>Configurações do rodapé
-    msg.SetFooterSetting(
-                         true,
-                         "Some Footer HTML",
-                         "<strong>Some Footer Text</strong>");
+
+```csharp
+msg.SetFooterSetting(
+                     true,
+                     "Some Footer HTML",
+                     "<strong>Some Footer Text</strong>");
+```
 
 ### <a name="click-tracking"></a>Clique no rastreio
-    msg.SetClickTracking(true);
+
+```csharp
+msg.SetClickTracking(true);
+```
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>Como: Utilizar serviços adicionais de SendGrid
 A SendGrid oferece várias APIs e webhooks que pode utilizar para alavancar funcionalidades adicionais dentro da sua aplicação Azure. Para mais detalhes, consulte a Referência API da [SendGrid][SendGrid API documentation].

@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 4688664fea29cc07f5895e33ebfff541d61070d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f20c5180b078bc49fcf1eb35893325fa3a7fa50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392748"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256157"
 ---
 # <a name="view-service-fabric-health-reports"></a>Ver relatórios de saúde do Service Fabric
 A Azure Service Fabric introduz um [modelo de saúde](service-fabric-health-introduction.md) com entidades de saúde sobre as quais componentes do sistema e cães de guarda podem reportar as condições locais que estão a monitorizar. A [loja de saúde](service-fabric-health-introduction.md#health-store) agrega todos os dados de saúde para determinar se as entidades são saudáveis.
@@ -54,10 +55,10 @@ Vista do cluster com Explorador de Tecido de Serviço:
 >
 
 ## <a name="health-queries"></a>Consultas de saúde
-A Service Fabric expõe consultas de saúde para cada um dos tipos de [entidades](service-fabric-health-introduction.md#health-entities-and-hierarchy)suportadas. Podem ser acedidos através da API, utilizando métodos em [FabricClient.HealthManager,](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet)PowerShell cmdlets e REST. Estas consultas devolvem informações completas sobre a saúde sobre a entidade: o estado de saúde agregado, os eventos de saúde das entidades, os estados de saúde infantil (quando aplicável), as avaliações pouco saudáveis (quando a entidade não é saudável) e as estatísticas de saúde das crianças (quando aplicável).
+A Service Fabric expõe consultas de saúde para cada um dos tipos de [entidades](service-fabric-health-introduction.md#health-entities-and-hierarchy)suportadas. Podem ser acedidos através da API, utilizando métodos em [FabricClient.HealthManager,](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet)PowerShell cmdlets e REST. Estas consultas devolvem informações completas sobre a saúde sobre a entidade: o estado de saúde agregado, os eventos de saúde das entidades, os estados de saúde infantil (quando aplicável), as avaliações pouco saudáveis (quando a entidade não é saudável) e as estatísticas de saúde das crianças (quando aplicável).
 
 > [!NOTE]
-> Uma entidade de saúde é devolvida quando está totalmente povoada na loja de saúde. A entidade deve estar ativa (não eliminada) e ter um relatório do sistema. As suas entidades-mãe na cadeia hierarquia também devem ter relatórios do sistema. Se alguma destas condições não estiver satisfeita, as consultas de saúde devolvem uma [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) com [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` que mostra porque é que a entidade não é devolvida.
+> Uma entidade de saúde é devolvida quando está totalmente povoada na loja de saúde. A entidade deve estar ativa (não eliminada) e ter um relatório do sistema. As suas entidades-mãe na cadeia hierarquia também devem ter relatórios do sistema. Se alguma destas condições não estiver satisfeita, as consultas de saúde devolvem uma [FabricException](/dotnet/api/system.fabric.fabricexception) com [FabricErrorCode](/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` que mostra porque é que a entidade não é devolvida.
 >
 >
 
@@ -86,7 +87,7 @@ Devolve a saúde da entidade do cluster e contém os estados de saúde das aplic
 * [Opcional] Filtro para incluir estatísticas de saúde do tecido:/Estatísticas de saúde do sistema nas estatísticas de saúde. Só é aplicável quando as estatísticas de saúde não forem excluídas. Por padrão, as estatísticas de saúde incluem apenas estatísticas para aplicações de utilizadores e não a aplicação do Sistema.
 
 ### <a name="api"></a>API
-Para obter saúde do cluster, crie um `FabricClient` e chame o método [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) no seu **HealthManager**.
+Para obter saúde do cluster, crie um `FabricClient` e chame o método [GetClusterHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) no seu **HealthManager**.
 
 A seguinte chamada recebe a saúde do cluster:
 
@@ -94,7 +95,7 @@ A seguinte chamada recebe a saúde do cluster:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-O seguinte código obtém a saúde do cluster utilizando uma política de saúde personalizada do cluster e filtros para nós e aplicações. Especifica que as estatísticas de saúde incluem as estatísticas do tecido:/Sistema. Cria [clusterHealthQueryDescription,](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription)que contém a informação de entrada.
+O seguinte código obtém a saúde do cluster utilizando uma política de saúde personalizada do cluster e filtros para nós e aplicações. Especifica que as estatísticas de saúde incluem as estatísticas do tecido:/Sistema. Cria [clusterHealthQueryDescription,](/dotnet/api/system.fabric.description.clusterhealthquerydescription)que contém a informação de entrada.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -126,7 +127,7 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter a saúde do cluster é [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+O cmdlet para obter a saúde do cluster é [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
 
 O estado do cluster é de cinco nós, a aplicação do sistema e o tecido:/WordCount configurado como descrito.
 
@@ -224,7 +225,7 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter saúde do cluster com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
+Você pode obter saúde do cluster com um [pedido GET](/rest/api/servicefabric/get-the-health-of-a-cluster) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
 
 ## <a name="get-node-health"></a>Obter saúde de nó
 Devolve a saúde de uma entidade nólad unida e contém os eventos de saúde relatados no nó. Entrada:
@@ -234,7 +235,7 @@ Devolve a saúde de uma entidade nólad unida e contém os eventos de saúde rel
 * [Opcional] Filtros para eventos que especifiquem quais as entradas que são de interesse e devem ser devolvidos no resultado (por exemplo, apenas erros, ou ambos avisos e erros). Todos os eventos são usados para avaliar a saúde agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter a saúde do nó através da API, crie um `FabricClient` e chame o método [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) no seu HealthManager.
+Para obter a saúde do nó através da API, crie um `FabricClient` e chame o método [GetNodeHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) no seu HealthManager.
 
 O seguinte código obtém a saúde do nó para o nome do nó especificado:
 
@@ -242,7 +243,7 @@ O seguinte código obtém a saúde do nó para o nome do nó especificado:
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-O seguinte código obtém a saúde do nó para o nome do nó especificado e passa em filtragem de eventos e política personalizada através do [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+O seguinte código obtém a saúde do nó para o nome do nó especificado e passa em filtragem de eventos e política personalizada através do [NodeHealthQueryDescription](/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -255,7 +256,7 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter a saúde do nó é [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+O cmdlet para obter a saúde do nó é [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
 O cmdlet seguinte obtém a saúde do nó utilizando políticas de saúde predefinidos:
 
 ```powershell
@@ -293,7 +294,7 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter saúde do nó com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
+Você pode obter saúde do nó com um [pedido GET](/rest/api/servicefabric/get-the-health-of-a-node) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
 
 ## <a name="get-application-health"></a>Obtenha saúde de aplicação
 Devolve a saúde de uma entidade de aplicação. Contém os estados de saúde das crianças de aplicação e serviço implantados. Entrada:
@@ -304,7 +305,7 @@ Devolve a saúde de uma entidade de aplicação. Contém os estados de saúde da
 * [Opcional] Filtrar para excluir as estatísticas de saúde. Se não forem especificadas, as estatísticas de saúde incluem a contagem de erros ok, aviso e erro para todas as crianças de aplicação: serviços, divisórias, réplicas, aplicações implementadas e pacotes de serviço implantados.
 
 ### <a name="api"></a>API
-Para obter saúde da aplicação, crie `FabricClient` um e ligue para o método [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) no seu HealthManager.
+Para obter saúde da aplicação, crie `FabricClient` um e ligue para o método [GetApplicationHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) no seu HealthManager.
 
 O seguinte código obtém a saúde da aplicação para o nome de aplicação especificado (URI):
 
@@ -312,7 +313,7 @@ O seguinte código obtém a saúde da aplicação para o nome de aplicação esp
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-O código seguinte obtém a saúde da aplicação para o nome de aplicação especificado (URI), com filtros e políticas personalizadas especificadas através da [AplicaçãoHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+O código seguinte obtém a saúde da aplicação para o nome de aplicação especificado (URI), com filtros e políticas personalizadas especificadas através da [AplicaçãoHealthQueryDescription](/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -439,7 +440,7 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter saúde de aplicação com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) QUE inclua políticas de saúde descritas no organismo.
+Você pode obter saúde de aplicação com um [pedido GET](/rest/api/servicefabric/get-the-health-of-an-application) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) QUE inclua políticas de saúde descritas no organismo.
 
 ## <a name="get-service-health"></a>Obter saúde de serviço
 Devolve a saúde de uma entidade de serviço. Contém os estados de saúde da partição. Entrada:
@@ -450,7 +451,7 @@ Devolve a saúde de uma entidade de serviço. Contém os estados de saúde da pa
 * [Opcional] Filtrar para excluir estatísticas de saúde. Se não for especificado, as estatísticas de saúde mostram a contagem de erros e ok para todas as divisórias e réplicas do serviço.
 
 ### <a name="api"></a>API
-Para obter a saúde do serviço através da API, crie um `FabricClient` e ligue para o método [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) no seu HealthManager.
+Para obter a saúde do serviço através da API, crie um `FabricClient` e ligue para o método [GetServiceHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) no seu HealthManager.
 
 O exemplo a seguir obtém a saúde de um serviço com nome de serviço especificado (URI):
 
@@ -458,7 +459,7 @@ O exemplo a seguir obtém a saúde de um serviço com nome de serviço especific
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-O seguinte código obtém a saúde do serviço para o nome de serviço especificado (URI), especificando filtros e política personalizada através do [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+O seguinte código obtém a saúde do serviço para o nome de serviço especificado (URI), especificando filtros e política personalizada através do [ServiceHealthQueryDescription](/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -471,7 +472,7 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter a saúde do serviço é [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+O cmdlet para obter a saúde do serviço é [Get-ServiceFabricServiceHealth](/powershell/module/servicefabric/get-servicefabricservicehealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
 
 O seguinte cmdlet obtém a saúde do serviço utilizando políticas de saúde predefinidos:
 
@@ -511,7 +512,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter saúde de serviço com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
+Você pode obter saúde de serviço com um [pedido GET](/rest/api/servicefabric/get-the-health-of-a-service) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
 
 ## <a name="get-partition-health"></a>Obtenha saúde de partição
 Devolve a saúde de uma entidade de partição. Contém os estados de saúde réplica. Entrada:
@@ -522,14 +523,14 @@ Devolve a saúde de uma entidade de partição. Contém os estados de saúde ré
 * [Opcional] Filtrar para excluir estatísticas de saúde. Se não for especificado, as estatísticas de saúde mostram quantas réplicas estão em estados ok, alerta e erro.
 
 ### <a name="api"></a>API
-Para obter a saúde da partição através da API, crie um `FabricClient` e chame o método [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) no seu HealthManager. Para especificar parâmetros opcionais, crie [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Para obter a saúde da partição através da API, crie um `FabricClient` e chame o método [GetPartitionHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) no seu HealthManager. Para especificar parâmetros opcionais, crie [PartitionHealthQueryDescription](/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter a saúde da partição é [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+O cmdlet para obter a saúde da partição é [Get-ServiceFabricPartitionHealth](/powershell/module/servicefabric/get-servicefabricpartitionhealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
 
 O cmdlet seguinte obtém a saúde para todas as divisórias do **tecido:/Serviço WordCount/WordCountService** e filtra estados de saúde réplicas:
 
@@ -603,7 +604,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter saúde de partição com um [pedido GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
+Você pode obter saúde de partição com um [pedido GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
 
 ## <a name="get-replica-health"></a>Obtenha a saúde da réplica
 Devolve a saúde de uma réplica de serviço estatal ou de uma instância de serviço apátrida. Entrada:
@@ -613,14 +614,14 @@ Devolve a saúde de uma réplica de serviço estatal ou de uma instância de ser
 * [Opcional] Filtros para eventos que especifiquem quais as entradas que são de interesse e devem ser devolvidos no resultado (por exemplo, apenas erros, ou ambos avisos e erros). Todos os eventos são usados para avaliar a saúde agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter a saúde réplica através da API, crie um `FabricClient` e chame o método [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) no seu HealthManager. Para especificar parâmetros avançados, utilize [replicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+Para obter a saúde réplica através da API, crie um `FabricClient` e chame o método [GetReplicaHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) no seu HealthManager. Para especificar parâmetros avançados, utilize [replicaHealthQueryDescription](/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter a saúde da réplica é [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+O cmdlet para obter a saúde da réplica é [Get-ServiceFabricReplicaHealth](/powershell/module/servicefabric/get-servicefabricreplicahealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
 
 O seguinte cmdlet obtém a saúde da réplica primária para todas as divisórias do serviço:
 
@@ -646,7 +647,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter saúde réplica com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
+Você pode obter saúde réplica com um [pedido GET](/rest/api/servicefabric/get-the-health-of-a-replica) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
 
 ## <a name="get-deployed-application-health"></a>Obtenha a saúde da aplicação implementada
 Devolve a saúde de uma aplicação implantada numa entidade nód particular. Contém os estados de saúde do pacote de serviços implantados. Entrada:
@@ -657,7 +658,7 @@ Devolve a saúde de uma aplicação implantada numa entidade nód particular. Co
 * [Opcional] Filtrar para excluir estatísticas de saúde. Se não forem especificados, as estatísticas de saúde mostram o número de pacotes de serviços implantados em estados de saúde ok, alerta e erro.
 
 ### <a name="api"></a>API
-Para obter a saúde de uma aplicação implantada num nó através da API, crie um `FabricClient` e chame o método [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) no seu HealthManager. Para especificar parâmetros opcionais, utilize [ImplementaçãoApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+Para obter a saúde de uma aplicação implantada num nó através da API, crie um `FabricClient` e chame o método [GetDeployedApplicationHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) no seu HealthManager. Para especificar parâmetros opcionais, utilize [ImplementaçãoApplicationHealthQueryDescription](/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -705,7 +706,7 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter saúde de aplicação implantada com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) QUE inclua políticas de saúde descritas no organismo.
+Pode obter saúde de aplicação implantada com um [pedido GET](/rest/api/servicefabric/get-the-health-of-a-deployed-application) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) QUE inclua políticas de saúde descritas no organismo.
 
 ## <a name="get-deployed-service-package-health"></a>Obter saúde de pacote de serviço implantado
 Devolve a saúde de uma entidade de pacote de serviços implantado. Entrada:
@@ -715,7 +716,7 @@ Devolve a saúde de uma entidade de pacote de serviços implantado. Entrada:
 * [Opcional] Filtros para eventos que especifiquem quais as entradas que são de interesse e devem ser devolvidos no resultado (por exemplo, apenas erros, ou ambos avisos e erros). Todos os eventos são usados para avaliar a saúde agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter a saúde de um pacote de serviço implantado através da API, crie um `FabricClient` e ligue para o método [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) no seu HealthManager. Para especificar parâmetros opcionais, utilize [o Serviço de Serviços DistribuídosHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+Para obter a saúde de um pacote de serviço implantado através da API, crie um `FabricClient` e ligue para o método [GetDeployedServicePackageHealthAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) no seu HealthManager. Para especificar parâmetros opcionais, utilize [o Serviço de Serviços DistribuídosHealthQueryDescription](/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -723,7 +724,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter a saúde do pacote de serviço implantado é [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Para ver onde uma aplicação é implementada, executar [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e olhar para as aplicações implementadas. Para ver quais os pacotes de serviços que estão numa aplicação, consulte o pacote de serviços implantado para crianças na produção [Get-ServiceFabricDeployedApplicationHealth.](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)
+O cmdlet para obter a saúde do pacote de serviço implantado é [Get-ServiceFabricDeployedServicePackageHealth](/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Para ver onde uma aplicação é implementada, executar [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e olhar para as aplicações implementadas. Para ver quais os pacotes de serviços que estão numa aplicação, consulte o pacote de serviços implantado para crianças na produção [Get-ServiceFabricDeployedApplicationHealth.](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps)
 
 O cmdlet seguinte obtém a saúde do pacote de serviço **WordCountServicePkg** do **tecido:/Aplicação WordCount** implantada no **_Node_2**. A entidade tem relatórios **system.hosting** para ativação bem sucedida de pacote de serviço e ponto de entrada, e registo de tipo de serviço bem sucedido.
 
@@ -775,7 +776,7 @@ HealthEvents               :
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter saúde de pacote de serviço implantado com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
+Você pode obter saúde de pacote de serviço implantado com um [pedido GET](/rest/api/servicefabric/get-the-health-of-a-service-package) ou um [pedido DE](/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) QUE inclua políticas de saúde descritas no corpo.
 
 ## <a name="health-chunk-queries"></a>Consultas de pedaços de saúde
 As consultas de pedaços de saúde podem devolver crianças de cluster de vários níveis (recursivamente), por filtros de entrada. Suporta filtros avançados que permitem muita flexibilidade na escolha das crianças para serem devolvidas. Os filtros podem especificar as crianças pelo identificador único ou por outros identificadores de grupo e/ou estados de saúde. Por defeito, nenhuma criança está incluída, ao contrário dos comandos de saúde que incluem sempre crianças de primeiro nível.
@@ -803,14 +804,14 @@ Devolve a saúde da entidade do cluster e contém os pedaços hierárquicos do e
 * [Opcional] A política de saúde do cluster usada para avaliar os nós e os eventos de cluster.
 * [Opcional] O mapa da política de saúde da aplicação, com as políticas de saúde usadas para anular as políticas de manifesto de aplicação.
 * [Opcional] Filtros para nós e aplicações que especificam quais as entradas que são de interesse e devem ser devolvidos no resultado. Os filtros são específicos de uma entidade/grupo de entidades ou são aplicáveis a todas as entidades a esse nível. A lista de filtros pode conter um filtro geral e/ou filtros para identificadores específicos a entidades de grãos finos devolvidos pela consulta. Se vazias, as crianças não são devolvidas por defeito.
-  Leia mais sobre os filtros no [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) e [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). Os filtros de aplicação podem especificar novamente filtros avançados para crianças.
+  Leia mais sobre os filtros no [NodeHealthStateFilter](/dotnet/api/system.fabric.health.nodehealthstatefilter) e [NodeHealthStateFilter](/dotnet/api/system.fabric.health.applicationhealthstatefilter). Os filtros de aplicação podem especificar novamente filtros avançados para crianças.
 
 O resultado do pedaço inclui as crianças que respeitam os filtros.
 
 Atualmente, a consulta de pedaços não devolve avaliações pouco saudáveis ou eventos de entidades. Essa informação extra pode ser obtida usando a consulta de saúde do cluster existente.
 
 ### <a name="api"></a>API
-Para obter o pedaço de saúde do cluster, crie `FabricClient` um e chame o método [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) no seu **HealthManager**. Pode passar no [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) para descrever políticas de saúde e filtros avançados.
+Para obter o pedaço de saúde do cluster, crie `FabricClient` um e chame o método [GetClusterHealthChunkAsync](/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) no seu **HealthManager**. Pode passar no [ClusterHealthQueryDescription](/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) para descrever políticas de saúde e filtros avançados.
 
 O seguinte código recebe o pedaço de saúde do cluster com filtros avançados.
 
@@ -856,7 +857,7 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter a saúde do cluster é [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
+O cmdlet para obter a saúde do cluster é [Get-ServiceFabricClusterChunkHealth](/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Em primeiro lugar, ligue-se ao cluster utilizando o cmdlet [Connect-ServiceFabricCluster.](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)
 
 O seguinte código só recebe nós se estiverem em Erro, exceto num nó específico, que deve ser sempre devolvido.
 
@@ -1006,7 +1007,7 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-Você pode obter pedaço de saúde do cluster com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) ou um [pedido DE](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) QUE inclua políticas de saúde e filtros avançados descritos no corpo.
+Você pode obter pedaço de saúde do cluster com um [pedido GET](/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) ou um [pedido DE](/rest/api/servicefabric/health-of-cluster) QUE inclua políticas de saúde e filtros avançados descritos no corpo.
 
 ## <a name="general-queries"></a>Consultas gerais
 Consultas gerais devolvem uma lista de entidades de Tecido de Serviço de um tipo especificado. São expostos através da API (através dos métodos **fabricClient.QueryManager),** Comandantes PowerShell e REST. Estas consultas agregam subqueries de vários componentes. Um deles é a loja de [saúde,](service-fabric-health-introduction.md#health-store)que povoa o estado de saúde agregado para cada resultado de consulta.  
@@ -1021,29 +1022,29 @@ Se as consultas gerais devolverem um estado de saúde desconhecido para uma enti
 As consultas que contêm **O Estado de Saúde** para entidades são:
 
 * Lista de nó: Devolve os nós da lista no cluster (paged).
-  * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
+  * API: [FabricClient.QueryClient.GetNodeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
 * Lista de candidaturas: Devolve a lista de candidaturas no cluster (paged).
-  * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
 * Lista de serviços: Devolve a lista de serviços numa aplicação (paged).
-  * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
+  * API: [FabricClient.QueryClient.GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
 * Lista de partições: Devolve a lista de divisórias num serviço (paged).
-  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
+  * API: [FabricClient.QueryClient.GetPartitionListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
 * Lista de réplicas: Devolve a lista de réplicas numa partição (paged).
-  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
+  * API: [FabricClient.QueryClient.GetReplicaListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
 * Lista de candidaturas implantadas: Devolve a lista de aplicações implantadas num nó.
-  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
+  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 * Lista de pacotes de serviço implantado: Devolve a lista de pacotes de serviço numa aplicação implantada.
-  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
+  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Algumas das consultas devolvem os resultados da página. O retorno destas consultas é uma lista derivada do [PagedList \<T> ](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não encaixarem numa mensagem, apenas uma página é devolvida e uma ContinuationToken que rastreia onde a enumeração parou. Continue a chamar a mesma consulta e passe na ficha de continuação da consulta anterior para obter os próximos resultados.
+> Algumas das consultas devolvem os resultados da página. O retorno destas consultas é uma lista derivada do [PagedList \<T> ](/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não encaixarem numa mensagem, apenas uma página é devolvida e uma ContinuationToken que rastreia onde a enumeração parou. Continue a chamar a mesma consulta e passe na ficha de continuação da consulta anterior para obter os próximos resultados.
 
 ### <a name="examples"></a>Exemplos
 O seguinte código obtém as aplicações pouco saudáveis no cluster:
@@ -1226,7 +1227,7 @@ HealthEvents          :
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Use system health reports to troubleshoot (Utilizar relatórios de estado de funcionamento do sistema para resolver problemas)](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Adicionar relatórios de saúde personalizados do Service Fabric](service-fabric-report-health.md)

@@ -3,12 +3,12 @@ title: Trabalhar com as Reliable Collections
 description: Aprenda as melhores práticas para trabalhar com Coleções Fiáveis dentro de uma aplicação de Tecido de Serviço Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374700"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255800"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 A Service Fabric oferece um modelo de programação imponente disponível para os desenvolvedores .NET através de Coleções Fiáveis. Especificamente, o Service Fabric fornece aulas de fila fiáveis e de fiáveis. Quando utiliza estas classes, o seu estado é dividido (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma divisória (para semântica ACID). Vamos olhar para um uso típico de um objeto dicionário fiável e ver o que ele está realmente a fazer.
@@ -218,11 +218,11 @@ Além disso, o código de serviço é atualizado um domínio de atualização de
 
 Em alternativa, pode executar o que normalmente é referido como uma atualização de dois. Com uma atualização em duas fases, atualiza o seu serviço de V1 para V2: O V2 contém o código que sabe lidar com a nova alteração de esquema, mas este código não executa. Quando o código V2 lê os dados V1, opera neles e escreve dados V1. Em seguida, depois de a atualização estar completa em todos os domínios de upgrade, pode de alguma forma sinalizar para as instâncias V2 em execução que a atualização está completa. (Uma maneira de sinalizar isto é lançar uma atualização de configuração; isto é o que faz com que isto seja uma atualização em duas fases.) Agora, as instâncias V2 podem ler dados V1, convertê-lo em dados V2, operar neles, e escrevê-lo como dados V2. Quando outros casos lêem dados V2, não precisam de os converter, apenas operam neles e escrevem dados V2.
 
-## <a name="next-steps"></a>Próximos passos
-Para conhecer a criação de contratos de dados compatíveis a prazo, consulte [Contratos de Dados Compatíveis a Prazo](https://msdn.microsoft.com/library/ms731083.aspx)
+## <a name="next-steps"></a>Passos seguintes
+Para conhecer a criação de contratos de dados compatíveis a prazo, consulte [Contratos de Dados Compatíveis a Prazo](/dotnet/framework/wcf/feature-details/forward-compatible-data-contracts)
 
-Para conhecer as melhores práticas sobre a versão dos contratos de dados, consulte [a versão do contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx)
+Para conhecer as melhores práticas sobre a versão dos contratos de dados, consulte [a versão do contrato de dados](/dotnet/framework/wcf/feature-details/data-contract-versioning)
 
-Para aprender a implementar contratos de dados tolerantes de versão, consulte [as callbacks de serialização tolerantes à versão](https://msdn.microsoft.com/library/ms733734.aspx)
+Para aprender a implementar contratos de dados tolerantes de versão, consulte [as callbacks de serialização tolerantes à versão](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Para aprender a fornecer uma estrutura de dados que possa interoperar em várias versões, consulte [iExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+Para aprender a fornecer uma estrutura de dados que possa interoperar em várias versões, consulte [iExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)

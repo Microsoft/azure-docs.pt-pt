@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfdf1263ccee78b57ccf79c63efcc01d95dd13c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392255"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258103"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -20,6 +21,8 @@ O coração de Azure Digital Twins é o [gráfico gémeo](concepts-twins-graph.m
 Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance.md) em funcionamento e tenha configurado a [autenticação](how-to-authenticate-client.md) para a sua aplicação de clientes, pode utilizar as [**APIs DigitalTwins**](how-to-use-apis-sdks.md) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
 Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [Como-a- Gerir gémeos digitais.](how-to-manage-twin.md)
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Criar relacionamentos
 
@@ -300,7 +303,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 
 As gémeas e as suas relações também podem ser geridas usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a consulta de um gráfico gémeo Azure Digital Twins:
 * [Conceitos: Linguagem de consulta](concepts-query-language.md)

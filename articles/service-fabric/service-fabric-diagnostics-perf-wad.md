@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2114f5392da788bb440589e69e704a148731e02
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75609915"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258613"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorização de desempenho com a extensão de Diagnóstico do Windows Azure
 
@@ -190,7 +191,7 @@ Aqui está um exemplo de uma configuração com o contador para o *tempo total* 
 
 1. Uma vez terminada a atualização (demora entre 15 a 45 minutos, dependendo se é a primeira implantação e o tamanho do seu grupo de recursos), o WAD deve estar a recolher os contadores de desempenho e a enviá-los para a tabela chamada WADPerformanceCountersTable na conta de armazenamento associada ao seu cluster. Consulte os seus contadores de desempenho em Application Insights [adicionando o lavatório de IA ao modelo de Gestor de Recursos.](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Recolha mais contadores de desempenho para o seu cluster. Consulte [as métricas](service-fabric-diagnostics-event-generation-perf.md) de desempenho para obter uma lista de contadores que deve recolher.
-* [Utilize monitores e diagnósticos com modelos de Windows VM e Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para efec se modificarem `WadCfg` mais, incluindo configurar contas de armazenamento adicionais para enviar dados de diagnóstico para.
+* [Utilize monitores e diagnósticos com modelos de Windows VM e Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md) para efec se modificarem `WadCfg` mais, incluindo configurar contas de armazenamento adicionais para enviar dados de diagnóstico para.
 * Visite o [construtor WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) para construir um modelo de raiz e certifique-se de que a sintaxe está correta. (para https://azure.github.io/azure-diagnostics-tools/config-builder/) construir um modelo de raiz e certificar-se de que a sintaxe está correta.

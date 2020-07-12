@@ -5,11 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 167ca76d0b6977a87352f8219d807949a0e4a301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392646"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256310"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de saúde personalizados do Service Fabric
 A Azure Service Fabric introduz um [modelo de saúde](service-fabric-health-introduction.md) projetado para sinalizar condições de cluster e aplicação pouco saudáveis em entidades específicas. O modelo de saúde utiliza **repórteres de saúde** (componentes do sistema e cães de guarda). O objetivo é um diagnóstico e reparação fáceis e rápidos. Os escritores de serviços precisam pensar frontalmente sobre a saúde. Qualquer condição que possa ter impacto na saúde deve ser reportada, especialmente se puder ajudar a sinalizar problemas próximos da raiz. A informação de saúde pode economizar tempo e esforço na depuragem e investigação. A utilidade é especialmente clara uma vez que o serviço está em funcionamento em escala na nuvem (privada ou Azure).
@@ -37,7 +38,7 @@ Como mencionado, a comunicação pode ser feita a partir de:
 > 
 > 
 
-Uma vez que o design de relatórios de saúde é claro, relatórios de saúde podem ser enviados facilmente. Pode utilizar [o FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) para reportar saúde se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o cliente de tecido tiver privilégios administrativos. A reporte pode ser feita através da API utilizando [FabricClient.HealthManager.ReportHealth,](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth)através da PowerShell, ou através do REST. Os relatórios do lote dos botões de configuração para melhorar o desempenho.
+Uma vez que o design de relatórios de saúde é claro, relatórios de saúde podem ser enviados facilmente. Pode utilizar [o FabricClient](/dotnet/api/system.fabric.fabricclient) para reportar saúde se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o cliente de tecido tiver privilégios administrativos. A reporte pode ser feita através da API utilizando [FabricClient.HealthManager.ReportHealth,](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth)através da PowerShell, ou através do REST. Os relatórios do lote dos botões de configuração para melhorar o desempenho.
 
 > [!NOTE]
 > A saúde do relatório é sincronizada, e representa apenas o trabalho de validação do lado do cliente. O facto de o relatório ser aceite pelo cliente de saúde ou pelos `Partition` `CodePackageActivationContext` ou objetos não significa que seja aplicado na loja. É enviado assíncronosamente e possivelmente em lotado com outros relatórios. O processamento no servidor pode ainda falhar: o número da sequência pode estar estragado, a entidade na qual o relatório deve ser aplicado foi eliminada, etc.
@@ -57,7 +58,7 @@ Os relatórios de saúde são enviados ao gestor de saúde através de um client
 > 
 
 O tampão sobre o cliente leva em consideração a singularidade dos relatórios. Por exemplo, se um repórter em particular estiver a reportar 100 relatórios por segundo sobre a mesma propriedade da mesma entidade, os relatórios são substituídos pela última versão. No máximo, um desses relatórios existe na fila dos clientes. Se o lote estiver configurado, o número de relatórios enviados ao health manager é apenas um por intervalo de envio. Este relatório é o último relatório adicional, que reflete o estado mais atual da entidade.
-Especifique os parâmetros de configuração quando `FabricClient` é criado através da passagem de [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para entradas relacionadas com a saúde.
+Especifique os parâmetros de configuração quando `FabricClient` é criado através da passagem de [FabricClientSettings](/dotnet/api/system.fabric.fabricclientsettings) com os valores desejados para entradas relacionadas com a saúde.
 
 O exemplo a seguir cria um cliente de tecido e especifica que os relatórios devem ser enviados quando são adicionados. Nos intervalos e erros que podem ser novamente julgados, as retrações acontecem a cada 40 segundos.
 
@@ -71,7 +72,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-Recomendamos manter as definições padrão do cliente do tecido, que se `HealthReportSendInterval` ajustem para 30 segundos. Esta definição garante um ótimo desempenho devido ao loteamento. Para relatórios críticos que devem ser enviados o mais rapidamente possível, utilize `HealthReportSendOptions` imediatamente `true` em [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Os relatórios imediatos contornam o intervalo de loteamento. Use esta bandeira com cuidado; queremos aproveitar o lote de clientes de saúde sempre que possível. O envio imediato também é útil quando o cliente de tecido está a fechar (por exemplo, o processo determinou o estado inválido e precisa de ser desligado para evitar efeitos secundários). Garante o melhor envio dos relatórios acumulados. Quando um relatório é adicionado com bandeira imediata, o cliente de saúde lota todos os relatórios acumulados desde o último envio.
+Recomendamos manter as definições padrão do cliente do tecido, que se `HealthReportSendInterval` ajustem para 30 segundos. Esta definição garante um ótimo desempenho devido ao loteamento. Para relatórios críticos que devem ser enviados o mais rapidamente possível, utilize `HealthReportSendOptions` imediatamente `true` em [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Os relatórios imediatos contornam o intervalo de loteamento. Use esta bandeira com cuidado; queremos aproveitar o lote de clientes de saúde sempre que possível. O envio imediato também é útil quando o cliente de tecido está a fechar (por exemplo, o processo determinou o estado inválido e precisa de ser desligado para evitar efeitos secundários). Garante o melhor envio dos relatórios acumulados. Quando um relatório é adicionado com bandeira imediata, o cliente de saúde lota todos os relatórios acumulados desde o último envio.
 
 Os mesmos parâmetros podem ser especificados quando uma ligação a um cluster é criada através do PowerShell. O exemplo a seguir inicia uma ligação a um cluster local:
 
@@ -113,12 +114,12 @@ Para rest, os relatórios são enviados para o gateway de Tecido de Serviço, qu
 ## <a name="report-from-within-low-privilege-services"></a>Relatório de serviços de baixo privilégio
 Se os serviços de Service Fabric não tiverem acesso administrativo ao cluster, pode reportar saúde a entidades a partir do contexto atual através `Partition` ou `CodePackageActivationContext` .
 
-* Para serviços apátridas, utilize [iStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para reportar sobre a instância de serviço atual.
-* Para serviços estatais, utilize [iStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para reportar sobre a réplica atual.
-* Use [iServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para reportar sobre a entidade de partição atual.
-* Utilize [codePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para reportar sobre a aplicação atual.
-* Utilize [codePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para reportar sobre a aplicação atual implementada no nó atual.
-* Utilize [codepackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para reportar um pacote de serviço para a aplicação implantada no nó atual.
+* Para serviços apátridas, utilize [iStatelessServicePartition.ReportInstanceHealth](/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) para reportar sobre a instância de serviço atual.
+* Para serviços estatais, utilize [iStatefulServicePartition.ReportReplicaHealth](/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) para reportar sobre a réplica atual.
+* Use [iServicePartition.ReportPartitionHealth](/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) para reportar sobre a entidade de partição atual.
+* Utilize [codePackageActivationContext.ReportApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) para reportar sobre a aplicação atual.
+* Utilize [codePackageActivationContext.ReportDeployedApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) para reportar sobre a aplicação atual implementada no nó atual.
+* Utilize [codepackageActivationContext.ReportDeployedServicePackageHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) para reportar um pacote de serviço para a aplicação implantada no nó atual.
 
 > [!NOTE]
 > Internamente, o `Partition` e o `CodePackageActivationContext` porão um cliente de saúde configurado com definições padrão. Como explicado para o [cliente de saúde,](service-fabric-report-health.md#health-client)os relatórios são lotados e enviados em temporizador. Os objetos devem ser mantidos vivos para poderem enviar o relatório.
@@ -289,9 +290,9 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Envie relatórios de saúde usando REST com pedidos POST que vão para a entidade desejada e têm no organismo a descrição do relatório de saúde. Por exemplo, ver como enviar relatórios de [saúde](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) do cluster REST ou [relatórios de saúde do serviço](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Todas as entidades são apoiadas.
+Envie relatórios de saúde usando REST com pedidos POST que vão para a entidade desejada e têm no organismo a descrição do relatório de saúde. Por exemplo, ver como enviar relatórios de [saúde](/rest/api/servicefabric/report-the-health-of-a-cluster) do cluster REST ou [relatórios de saúde do serviço](/rest/api/servicefabric/report-the-health-of-a-service). Todas as entidades são apoiadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Com base nos dados de saúde, os escritores de serviços e os administradores de cluster/aplicação podem pensar em formas de consumir a informação. Por exemplo, podem estabelecer alertas baseados no estado de saúde para apanhar problemas graves antes de provocarem interrupções. Os administradores também podem configurar sistemas de reparação para corrigir problemas automaticamente.
 
 [Introdução à monitorização da saúde do tecido de serviço](service-fabric-health-introduction.md)
@@ -305,4 +306,3 @@ Com base nos dados de saúde, os escritores de serviços e os administradores de
 [Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização da aplicação do Tecido de Serviço](service-fabric-application-upgrade.md)
-

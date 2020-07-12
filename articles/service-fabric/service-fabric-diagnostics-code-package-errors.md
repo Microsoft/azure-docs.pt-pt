@@ -5,11 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463108"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256497"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros comuns do pacote de código usando o Tecido de Serviço
 
@@ -53,9 +54,9 @@ Código de saída | Valor hexadecimal | Breve descrição | Causa raiz | Correç
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Este erro, por vezes, significa que a máquina esgotou o espaço do monte de ambiente de trabalho. Esta causa é especialmente provável se tiver inúmeros processos que pertencem à sua aplicação em execução no nó. | Se o seu programa não foi construído para responder aos sinais Ctrl+C, pode ativar a definição **EnableActivateNoWindow** no manifesto Cluster. Ativar esta definição significa que o seu pacote de código funcionará sem uma janela GUI e não receberá sinais Ctrl+C. Esta ação também reduz a quantidade de espaço de pilha de ambiente de trabalho que cada processo consome. Se o seu pacote de código precisar de receber sinais Ctrl+C, pode aumentar o tamanho da pilha de ambiente de trabalho do seu nó.
 3762504530 | 0xe0434352 | N/D | Este valor representa o código de erro para uma exceção não manipulada do código gerido (isto é, .NET). | Este código de saída indica que a sua aplicação levantou uma exceção que permanece desacomprugada e que terminou o processo. Como primeiro passo para determinar o que desencadeou este erro, depurar os registos da sua aplicação e desi depositar ficheiros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o diagnóstico de outros cenários comuns.](service-fabric-diagnostics-common-scenarios.md)
-* Obtenha uma visão geral mais detalhada dos registos do Azure Monitor e do que oferecem lendo [a visão geral do Azure Monitor](../operations-management-suite/operations-management-suite-overview.md).
-* Saiba mais sobre os registos do Azure Monitor [alertando](../log-analytics/log-analytics-alerts.md) para ajuda na deteção e diagnóstico.
-* Familiarize-se com as funcionalidades de pesquisa e consulta de [registos](../log-analytics/log-analytics-log-searches.md) oferecidas como parte dos registos do Azure Monitor.
+* Obtenha uma visão geral mais detalhada dos registos do Azure Monitor e do que oferecem lendo [a visão geral do Azure Monitor](../azure-monitor/overview.md).
+* Saiba mais sobre os registos do Azure Monitor [alertando](../azure-monitor/platform/alerts-overview.md) para ajuda na deteção e diagnóstico.
+* Familiarize-se com as funcionalidades de pesquisa e consulta de [registos](../azure-monitor/log-query/log-query-overview.md) oferecidas como parte dos registos do Azure Monitor.

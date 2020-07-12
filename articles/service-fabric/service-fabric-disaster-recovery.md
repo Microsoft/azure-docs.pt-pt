@@ -5,11 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b29985d40ae3a1bf582099e998e000fed83460f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371652"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257514"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastres no Tecido de Serviço Azure
 Uma parte crítica da prestação de alta disponibilidade é garantir que os serviços possam sobreviver a todos os tipos de falhas. Isto é especialmente importante para falhas que não são planeadas e fora do seu controlo. 
@@ -171,7 +172,7 @@ As seguintes ações podem resultar em perda de dados. Verifique antes de segui-
 >
 
 - Use a `Repair-ServiceFabricPartition -PartitionId` API ou `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API. Esta API permite especificar o ID da partição para sair da perda de quórum e para a perda de dados potenciais.
-- Se o seu cluster encontrar falhas frequentes que fazem com que os serviços entrem num estado de perda de quórum e a perda de dados potenciais _for aceitável,_ especificando um valor [qurumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) apropriado pode ajudar o seu serviço a recuperar automaticamente. O Tecido de Serviço aguardará o valor fornecido `QuorumLossWaitDuration` (o padrão é infinito) antes de realizar a recuperação. *Não* recomendamos este método porque pode causar perdas inesperadas de dados.
+- Se o seu cluster encontrar falhas frequentes que fazem com que os serviços entrem num estado de perda de quórum e a perda de dados potenciais _for aceitável,_ especificando um valor [qurumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) apropriado pode ajudar o seu serviço a recuperar automaticamente. O Tecido de Serviço aguardará o valor fornecido `QuorumLossWaitDuration` (o padrão é infinito) antes de realizar a recuperação. *Não* recomendamos este método porque pode causar perdas inesperadas de dados.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Disponibilidade do cluster de tecido de serviço
 Em geral, o cluster De Tecido de Serviço é um ambiente altamente distribuído sem pontos únicos de falha. Uma falha de um nó não causará problemas de disponibilidade ou fiabilidade para o cluster, principalmente porque os serviços do sistema Service Fabric seguem as mesmas orientações fornecidas anteriormente. Ou seja, funcionam sempre com três ou mais réplicas por defeito, e os serviços de sistema que são apátridas funcionam em todos os nós. 
@@ -203,21 +204,21 @@ Em Azure, o Service Fabric Resource Provider gere as configurações do cluster 
 
 Tanto em clusters de tecido de serviço autónomo como em Azure, o tipo de nó primário é o que executa as sementes. Ao definir um tipo de nó primário, o Service Fabric tirará automaticamente partido do número de nós fornecidos através da criação de até nove nós de sementes e sete réplicas de cada serviço do sistema. Se um conjunto de falhas aleatórias eliminar a maioria dessas réplicas simultaneamente, os serviços do sistema entrarão em perda de quórum. Se a maioria dos nós de sementes forem perdidos, o aglomerado desligar-se-á logo depois.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como simular várias falhas utilizando a [estrutura de testabilidade.](service-fabric-testability-overview.md)
 - Leia outros recursos de recuperação de desastres e alta disponibilidade. A Microsoft publicou uma grande quantidade de orientação sobre estes tópicos. Embora alguns destes recursos se refiram a técnicas específicas de utilização noutros produtos, contêm muitas boas práticas gerais que pode aplicar no contexto do Tecido de Serviço:
   - [Lista de verificação de disponibilidade](/azure/architecture/checklist/resiliency-per-service)
-  - [Realizando um exercício de recuperação de desastres](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Realizando um exercício de recuperação de desastres](../azure-sql/database/disaster-recovery-drills.md)
   - [Recuperação após desastre e elevada disponibilidade para aplicações do Azure][dr-ha-guide]
 - Saiba mais sobre [as opções de suporte do Tecido de Serviço.](service-fabric-support.md)
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[repair-partition-ps]: /windows/win32/perfctrs/specifying-a-counter-path
 [azure-status-dashboard]:https://azure.microsoft.com/status/
 [azure-regions]: https://azure.microsoft.com/regions/
-[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+[dr-ha-guide]: /previous-versions/azure/dn251004(v=azure.100)
 
 
 <!-- Images -->

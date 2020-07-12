@@ -5,11 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX com
 services: container-service
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: f10bed46f93af3579f07e04d9940fc98eef67826
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a59bd1cfcc03b0a6c9af218cb7108a0ba094377d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920308"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255290"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
 
@@ -368,7 +369,7 @@ Adicione agora o caminho */olá-mundo-dois* ao FQDN, tal como *`https://demo-aks
 
 ![Exemplo de aplicação dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 
@@ -427,13 +428,13 @@ Por fim, remova o endereço IP público estático criado para o controlador de e
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo incluiu alguns componentes externos para a AKS. Para saber mais sobre estes componentes, consulte as seguintes páginas do projeto:
 
 - [Helm CLI][helm-cli]
 - [Controlador de entrada NGINX][nginx-ingress]
-- [Gestor de certificados][cert-manager]
+- [cert-manager][cert-manager]
 
 Também pode:
 
@@ -444,7 +445,7 @@ Também pode:
 - [Criar um controlador de entrada com um IP público dinâmico e configurar Let's Encrypt para gerar automaticamente certificados TLS][aks-ingress-tls]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
 [cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html

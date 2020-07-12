@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fc44ca18f237fecd1c694e96f9ebc2d5b541757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564454"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255664"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -32,7 +32,7 @@ Com a otimização dos meios de comunicação para as Equipas microsoft, o clien
 Antes de poder utilizar as Equipas microsoft no Windows Virtual Desktop, terá de fazer estas coisas:
 
 - [Prepare a sua rede](/microsoftteams/prepare-network/) para as Equipas microsoft.
-- Instale o [cliente Windows Desktop](connect-windows-7-and-10.md) num dispositivo Do Windows 10 ou Windows 10 IoT Enterprise que satisfaça os [requisitos de hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)das Equipas microsoft teams para equipas num PC Windows .
+- Instale o [cliente Windows Desktop](connect-windows-7-10.md) num dispositivo Do Windows 10 ou Windows 10 IoT Enterprise que satisfaça os [requisitos de hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)das Equipas microsoft teams para equipas num PC Windows .
 - Ligue-se a uma máquina virtual do Windows 10 ou do Windows 10 Enterprise (VM).
 - Instale a aplicação de ambiente de trabalho Teams no anfitrião utilizando a instalação por máquina. A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
 
@@ -47,7 +47,7 @@ Para permitir a otimização dos meios de comunicação para as equipas, desa es
 1. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
 2. Criar o seguinte valor para a tecla Equipas:
 
-| Name             | Tipo   | Dados/Valor  |
+| Nome             | Tipo   | Dados/Valor  |
 |------------------|--------|-------------|
 | Ambiente IsWVD | DWORD  | 1           |
 

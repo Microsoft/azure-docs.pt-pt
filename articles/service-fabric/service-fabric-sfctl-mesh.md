@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 40d0f70b0dabdc02434fa662663a2fd105431f0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4682eee93b5ff9f01e65611e8d5e0920930776a5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905887"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257234"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Eliminar e gerir aplicações de malha de tecido de serviço.
@@ -29,6 +30,6 @@ Eliminar e gerir aplicações de malha de tecido de serviço.
 | [volume](service-fabric-sfctl-mesh-volume.md) | Obter e apagar recursos de volume. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

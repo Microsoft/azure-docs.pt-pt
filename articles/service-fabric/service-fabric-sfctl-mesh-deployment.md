@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb2adafab88eb1d3855cdec8268601fb4e15dcbb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906039"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257280"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Criar recursos de malha de tecido de serviço.
@@ -60,6 +61,6 @@ sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_
 {'value' : 'my_value'} }"   
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

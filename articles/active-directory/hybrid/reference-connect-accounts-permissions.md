@@ -17,11 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681744"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255783"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
@@ -37,7 +38,7 @@ O Azure AD Connect utiliza 3 contas para sincronizar informações de instalaç�
 
 - **Conta Azure AD Connector**: usado para escrever informações para Azure AD
 
-Além destas três contas utilizadas para executar o Azure AD Connect, também necessitará das seguintes contas adicionais para instalar o Azure AD Connect.  Nomeadamente:
+Além destas três contas utilizadas para executar o Azure AD Connect, também necessitará das seguintes contas adicionais para instalar o Azure AD Connect.  Esses avisos são:
 
 - **Conta administrador local**: O administrador que está a instalar o Azure AD Connect e que tem permissões de administrador local na máquina.
 
@@ -201,7 +202,6 @@ Legenda:
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizar | SQL remoto</br>Personalizar |
 | --- | --- | --- | --- |
-| **máquina autónoma/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
 | **máquina unida ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA,gMSA | **gMSA**</br>Conta do domínio |
 | **Controlador de domínio** | **Conta do domínio** | *gMSA*</br>**Conta do domínio**</br>sMSA| *gMSA*</br>**Conta do domínio**|
 
@@ -267,5 +267,5 @@ Se não leu a documentação sobre [a integração das suas identidades no local
 |Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md)|
 |Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7df4d917ce25d644003a60b34bc0683ea75299f3
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204885"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255715"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -55,7 +55,7 @@ Pode obter um token SAS navegando para o **portal Azure -> Storage Account -> As
 
 É necessário criar credenciais de âmbito de base de dados ou de âmbito de servidor para permitir o acesso através do token SAS.
 
-### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
+### <a name="managed-identity"></a>[Identidade gerida](#tab/managed-identity)
 
 **A Identidade Gerida** também é conhecida como MSI. É uma característica do Azure Ative Directory (Azure AD) que fornece serviços Azure para SQL on-demand. Além disso, implementa uma identidade gerida automaticamente no Azure AD. Esta identidade pode ser utilizada para autorizar o pedido de acesso aos dados no Azure Storage.
 
@@ -71,11 +71,11 @@ Pode aceder a ficheiros publicamente disponíveis colocados em contas de armazen
 
 Na tabela abaixo pode encontrar os tipos de autorização disponíveis:
 
-| Tipo de autorização                    | *Utilizador de SQL*    | *Utilizador Azure AD*     |
+| Tipo de autorização                    | *Utilizador de SQL*    | *Utilizador do Azure Active Directory*     |
 | ------------------------------------- | ------------- | -----------    |
 | [Identidade do Utilizador](?tabs=user-identity#supported-storage-authorization-types)       | Não suportado | Suportado      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Suportado     | Suportado      |
-| [Identidade Gerida](?tabs=managed-identity#supported-storage-authorization-types) | Não suportado | Suportado      |
+| [Identidade gerida](?tabs=managed-identity#supported-storage-authorization-types) | Não suportado | Suportado      |
 
 ### <a name="supported-storages-and-authorization-types"></a>Armazenamentos e tipos de autorização apoiados
 
@@ -145,18 +145,18 @@ O seguinte script cria uma credencial de nível de servidor que pode ser usada p
 Troque <*mystorageaccountname*> com o seu nome de conta de armazenamento real, e <*mystorageaccountcontainername*> com o nome real do recipiente:
 
 ```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
 
-### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
+### <a name="managed-identity"></a>[Identidade gerida](#tab/managed-identity)
 
 O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando identidade gerida pelo espaço de trabalho.
 
 ```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
 
@@ -189,7 +189,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 GO
 ```
 
-### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
+### <a name="managed-identity"></a>[Identidade gerida](#tab/managed-identity)
 
 O seguinte script cria uma credencial de âmbito de base de dados que pode ser usada para personificar o atual utilizador Azure AD como Identidade Gerida de Serviço. 
 
@@ -211,7 +211,7 @@ As credenciais de rastreio da base de dados são utilizadas em fontes de dados e
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
-WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
           CREDENTIAL = <name of database scoped credential> 
 )
 ```
@@ -227,7 +227,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
        WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
-WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<public_container>/<path>' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
@@ -270,7 +270,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
 GO
 
 CREATE EXTERNAL DATA SOURCE mysample
-WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 

@@ -15,11 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad8990512cb09f6048b169c1d0c0a259a62b61b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83827153"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256684"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Diretório Ativo Azure Conecta FAQ
 
@@ -256,6 +257,16 @@ Em casos raros, o serviço Azure AD Connect não começa depois de realizar a at
 
 **P: Não sei quais são os riscos quando faço upgrade para uma versão mais recente do Azure AD Connect. Pode ligar-me para me ajudar com a atualização?**  
 Se precisar de ajuda para atualizar para uma versão mais recente do Azure AD Connect, abra um bilhete de apoio na [Create um pedido de serviço para contactar o suporte do Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+
+## <a name="operational-best-practice"></a>Melhores práticas operacionais    
+Abaixo estão algumas das melhores práticas que deve implementar ao sincronizar entre o Windows Server Ative Directory e o Azure Ative Directory.
+
+**Aplicar autenticação multi-factor para todas as contas sincronizadas** A autenticação multi-factor Azure ajuda a salvaguardar o acesso a dados e aplicações, mantendo a simplicidade para os utilizadores. Proporciona segurança adicional exigindo uma segunda forma de autenticação e proporciona uma autenticação forte através de uma gama de métodos de autenticação fáceis de usar. Os utilizadores podem ou não ser desafiados para mFA com base nas decisões de configuração que um administrador toma. Pode ler mais sobre mFA aqui:https://www.microsoft.com/security/business/identity/mfa?rtc=1
+
+**Siga as diretrizes de segurança do servidor Azure AD Connect** O servidor Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente tier 0, conforme documentado no [modelo de nível administrativo](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)do Diretório Ativo . Consulte também [as nossas diretrizes para assegurar o seu servidor AADConnect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+
+**Ativar o PHS para deteção de credenciais vazadas** O Password Hash Sync também permite [a deteção de credenciais vazadas](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) para as suas contas híbridas. A Microsoft trabalha ao lado de pesquisadores web escuros e agências de aplicação da lei para encontrar pares de nome de utilizador/palavra-passe disponíveis ao público. Se algum destes pares corresponder aos dos seus utilizadores, a conta associada é transferida para um risco elevado. 
+
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 **P: Como posso obter ajuda com a Azure AD Connect?**

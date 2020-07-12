@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 1d86749a4e6071213ba5e229765bb6391affb199
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84737126"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258003"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **A Azure Digital Twins** é uma plataforma IoT que permite a criação de modelos digitais abrangentes de ambientes inteiros. Estes ambientes poderiam ser edifícios, fábricas, fazendas, redes de energia, caminhos de ferro, estádios e muito mais - até cidades inteiras. Estes modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências inovadoras do cliente.
 
@@ -46,6 +43,12 @@ O DTDL é utilizado para modelos de dados em outros serviços Azure IoT, incluin
 ### <a name="live-execution-environment"></a>Ambiente de execução ao vivo
 
 Os modelos digitais em Azure Digital Twins são representações ao vivo e atualizadas do mundo real. Utilizando as relações nos seus modelos DTDL personalizados, irá ligar gémeos a um **gráfico ao vivo** que representa o seu ambiente.
+
+Pode ver uma visualização do seu gráfico Azure Digital Twins através da ajuda de uma aplicação de amostra, [**explorador de Gémeos Digitais Azure.**](https://github.com/Azure-Samples/digital-twins-explorer)
+
+Aqui está uma visão de como a visualização da amostra parece:
+
+:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Screenshot da aplicação de amostra de explorador de Azure Digital Twins, mostrando um gráfico de nóles representando gémeos digitais" lightbox="media/includes/azure-digital-twins-explorer.png":::
 
 A Azure Digital Twins fornece um sistema de **eventos** rico para manter esse gráfico atual com processamento de dados e lógica de negócio. Pode ligar recursos de computação externos, como [as Funções Azure,](../azure-functions/functions-overview.md)para impulsionar este processamento de dados de forma flexível e personalizada.
 

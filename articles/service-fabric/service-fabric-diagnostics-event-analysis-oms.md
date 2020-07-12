@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464732"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257660"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análise e visualização de eventos com registos do Azure Monitor
  Os registos do Azure Monitor recolhem e analisam a telemetria a partir de aplicações e serviços alojados na nuvem e fornecem ferramentas de análise para o ajudar a maximizar a sua disponibilidade e desempenho. Este artigo descreve como executar consultas nos registos do Azure Monitor para obter insights e resolver problemas do que está a acontecer no seu cluster. As seguintes questões comuns são abordadas:
@@ -99,10 +100,10 @@ A linguagem de consulta kusto é poderosa. Outra consulta valiosa que pode fazer
 
 ![Eventos de Consulta por Nó](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para permitir a monitorização da infraestrutura, ou seja, contadores de desempenho, dirija-se à [adição do agente Log Analytics](service-fabric-diagnostics-oms-agent.md). O agente recolhe contadores de desempenho e adiciona-os ao seu espaço de trabalho existente.
 * Para clusters no local, os registos do Azure Monitor oferecem um Gateway (HTTP Forward Proxy) que pode ser usado para enviar dados para registos do Monitor Azure. Leia mais sobre isso em [computadores de ligação sem acesso à Internet aos registos do Monitor Azure utilizando o gateway Log Analytics](../azure-monitor/platform/gateway.md).
-* Configure [o alerta automatizado](../log-analytics/log-analytics-alerts.md) para ajudar na deteção e diagnóstico.
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../log-analytics/log-analytics-log-searches.md) de registo oferecidas como parte dos registos do Azure Monitor.
-* Obtenha uma visão geral mais detalhada dos registos do Azure Monitor e o que oferece, leia [O que são registos do Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md)
+* Configure [o alerta automatizado](../azure-monitor/platform/alerts-overview.md) para ajudar na deteção e diagnóstico.
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor.
+* Obtenha uma visão geral mais detalhada dos registos do Azure Monitor e o que oferece, leia [O que são registos do Azure Monitor?](../azure-monitor/overview.md)

@@ -3,11 +3,12 @@ title: Implementar e atualizar com o Azure Resource Manager
 description: Saiba como implementar aplicações e serviços num cluster de Tecidos de Serviço utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75610255"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256514"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Gestor de Recursos Azure
 
@@ -260,13 +261,12 @@ Simplesmente remover Microsoft.ServiceFabric/clusters/aplicação do seu modelo 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gerir uma aplicação existente através do Gestor de Recursos
 
-Se o seu cluster já está em funcionamento e algumas aplicações que gostaria de gerir como recursos do Gestor de Recursos já estão implantadas no mesmo, em vez de remover as aplicações e reimplantá-las, pode utilizar uma chamada PUT usando as mesmas APIs para que as aplicações sejam reconhecidas como recursos do Gestor de Recursos. Para obter informações adicionais, consulte [o modelo de recurso de aplicação do Tecido de Serviço?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+Se o seu cluster já está em funcionamento e algumas aplicações que gostaria de gerir como recursos do Gestor de Recursos já estão implantadas no mesmo, em vez de remover as aplicações e reimplantá-las, pode utilizar uma chamada PUT usando as mesmas APIs para que as aplicações sejam reconhecidas como recursos do Gestor de Recursos. Para obter informações adicionais, consulte [o modelo de recurso de aplicação do Tecido de Serviço?](./service-fabric-concept-resource-model.md)
 
 > [!NOTE]
-> Para permitir que uma atualização de cluster ignore aplicações não saudáveis, o cliente pode especificar "maxPercentUnhealthyApplications: 100" na secção "upgradeDescription/healthPolicy"; descrições detalhadas para todas as configurações estão na [documentação da Política de Upgrade do Cluster API dos Tecidos](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)de Serviço .
+> Para permitir que uma atualização de cluster ignore aplicações não saudáveis, o cliente pode especificar "maxPercentUnhealthyApplications: 100" na secção "upgradeDescription/healthPolicy"; descrições detalhadas para todas as configurações estão na [documentação da Política de Upgrade do Cluster API dos Tecidos](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)de Serviço .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize o [Tecido de Serviço CLI](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) para implementar outras aplicações no seu cluster. 
 * [Atualize o seu cluster de tecido de serviço](service-fabric-cluster-upgrade.md)
-

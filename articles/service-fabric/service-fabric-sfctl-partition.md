@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: c038ef3266a727bf6984a5bd88ca540a589380db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff569c586548d84ed55018764363ad7f05e526d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905852"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257092"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consultar e gerir divisórias para qualquer serviço.
@@ -22,7 +23,7 @@ Consultar e gerir divisórias para qualquer serviço.
 | estado de perda de dados | Obtém-se o progresso de uma operação de perda de dados de partição iniciada usando a API StartDataLoss. |
 | saúde | Obtém a saúde da partição de tecido de serviço especificado. |
 | informações | Obtém a informação sobre uma divisória de Tecido de Serviço. |
-| list | Obtém a lista de divisórias de um serviço de Tecido de Serviço. |
+| lista | Obtém a lista de divisórias de um serviço de Tecido de Serviço. |
 | carregar | Obtém a informação de carga da partição de tecido de serviço especificado. |
 | reset de carga | Reinicia a carga atual de uma divisória de tecido de serviço. |
 | quórum-perda | Induz a perda de quórum para uma determinada divisão de serviço. |
@@ -397,6 +398,6 @@ Obtém o nome do serviço para a partição especificada. Um erro de 404 é devo
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI do Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

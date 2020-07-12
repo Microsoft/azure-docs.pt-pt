@@ -5,11 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a873a32aa8c12b535c06711ea7dc7a4aa920a27f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458237"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257771"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conecte-se e comunique-se com serviços em Tecido de Serviço
 Em Service Fabric, um serviço funciona em algum lugar em um cluster de Tecido de Serviço, normalmente distribuído por vários VMs. Pode ser movido de um lugar para outro, seja pelo proprietário do serviço, ou automaticamente pela Service Fabric. Os serviços não estão estáticos ligados a uma determinada máquina ou endereço.
@@ -162,14 +163,14 @@ Por exemplo, para aceitar o tráfego externo no porto **80,** as seguintes coisa
 Os navios-quadro dos Serviços Fiáveis com várias opções de comunicação pré-construídas. A decisão sobre qual deles funcionará melhor para si depende da escolha do modelo de programação, do quadro de comunicação e da linguagem de programação em que os seus serviços estão escritos.
 
 * **Sem protocolo específico:**  Se você não tem uma escolha particular de enquadramento de comunicação, mas você quer obter algo em funcionamento e funcionando rapidamente, então a opção ideal para você é [remoting de serviço](service-fabric-reliable-services-communication-remoting.md), que permite chamadas de procedimento remoto fortemente dactilografado para Serviços Fiáveis e Atores Confiáveis. Esta é a maneira mais fácil e rápida de começar com a comunicação de serviço. O remoing de serviço trata da resolução de endereços de serviço, ligação, revarramento e manuseamento de erros. Isto está disponível para aplicações C# e Java.
-* **HTTP**: Para comunicação idioma-agnóstica, HTTP fornece uma escolha padrão da indústria com ferramentas e servidores HTTP disponíveis em muitos idiomas diferentes, todos suportados pelo Service Fabric. Os serviços podem utilizar qualquer stack HTTP disponível, incluindo [ASP.NET Web API](service-fabric-reliable-services-communication-webapi.md) para aplicações C#. Os clientes escritos em C# podem alavancar as `ICommunicationClient` classes e `ServicePartitionClient` as classes, enquanto para Java, utilizar as `CommunicationClient` e as `FabricServicePartitionClient` classes, para [resolução de serviços, ligações HTTP e loops de rejulinha](service-fabric-reliable-services-communication.md).
+* **HTTP**: Para comunicação idioma-agnóstica, HTTP fornece uma escolha padrão da indústria com ferramentas e servidores HTTP disponíveis em muitos idiomas diferentes, todos suportados pelo Service Fabric. Os serviços podem utilizar qualquer stack HTTP disponível, incluindo [ASP.NET Web API](./service-fabric-reliable-services-communication-aspnetcore.md) para aplicações C#. Os clientes escritos em C# podem alavancar as `ICommunicationClient` classes e `ServicePartitionClient` as classes, enquanto para Java, utilizar as `CommunicationClient` e as `FabricServicePartitionClient` classes, para [resolução de serviços, ligações HTTP e loops de rejulinha](service-fabric-reliable-services-communication.md).
 * **WCF**: Se tiver código existente que utilize o WCF como estrutura de comunicação, então pode utilizar o `WcfCommunicationListener` para o lado do servidor e e classes para o `WcfCommunicationClient` `ServicePartitionClient` cliente. No entanto, isto só está disponível para aplicações C# em clusters baseados no Windows. Para mais detalhes, consulte este artigo sobre [a implementação da pilha de comunicações baseada no WCF.](service-fabric-reliable-services-communication-wcf.md)
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Utilização de protocolos personalizados e outros quadros de comunicação
 Os serviços podem usar qualquer protocolo ou enquadramento para comunicação, seja um protocolo binário habitual sobre tomadas TCP, ou eventos de streaming através de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) ou [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). O Service Fabric fornece APIs de comunicação onde pode ligar a sua pilha de comunicação, enquanto todo o trabalho para descobrir e conectar é resumido de si. Consulte este artigo sobre o [modelo de comunicação Do Serviço Fiável](service-fabric-reliable-services-communication.md) para mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
-Saiba mais sobre os conceitos e APIs disponíveis no [modelo de comunicação reliable Services,](service-fabric-reliable-services-communication.md)em seguida, começar rapidamente com [o remoing](service-fabric-reliable-services-communication-remoting.md) de serviço ou ir em profundidade para aprender a escrever um ouvinte de comunicação usando [API Web com auto-anfitrião OWIN](service-fabric-reliable-services-communication-webapi.md).
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre os conceitos e APIs disponíveis no [modelo de comunicação reliable Services,](service-fabric-reliable-services-communication.md)em seguida, começar rapidamente com [o remoing](service-fabric-reliable-services-communication-remoting.md) de serviço ou ir em profundidade para aprender a escrever um ouvinte de comunicação usando [API Web com auto-anfitrião OWIN](./service-fabric-reliable-services-communication-aspnetcore.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
 [2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png

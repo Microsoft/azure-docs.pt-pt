@@ -6,11 +6,12 @@ author: azooinmyluggage
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4f8a41df64c3bcbbd85438e4d340d44d5f16351
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77595370"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255222"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions para implantação no serviço Kubernetes
 
@@ -23,14 +24,14 @@ Para um fluxo de trabalho direcionado para a AKS, o ficheiro tem três secções
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | Iniciar sessão num registo privado de contentores (ACR) |
-|**Compilação** | Construa & empurre a imagem do recipiente  |
+|**Compilar** | Construa & empurre a imagem do recipiente  |
 |**Implementar** | 1. Definir o cluster AKS alvo |
 | |2. Criar um segredo genérico/estivador-registo no cluster Kubernetes  |
 ||3. Implantar no cluster Kubernetes|
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Pode criar um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) utilizando o comando [ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) no [Azure CLI](https://docs.microsoft.com/cli/azure/). Pode executar este comando utilizando [a Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Tentar.**
+Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) utilizando o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) no [Azure CLI](/cli/azure/). Pode executar este comando utilizando [a Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Tentar.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -128,7 +129,7 @@ jobs:
           demo-k8s-secret
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode encontrar o nosso conjunto de ações em diferentes repositórios no GitHub, cada um contendo documentação e exemplos para ajudá-lo a usar GitHub para CI/CD e implementar suas aplicações para Azure.
 

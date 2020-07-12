@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6e5012d64f7370c4d81c24324522824bc88584d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690341"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255120"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso à Gestão de API
 
@@ -59,23 +60,23 @@ Utilize a `check-header` política para impor que um pedido tem um cabeçalho HT
 
 ### <a name="elements"></a>Elementos
 
-| Name         | Descrição                                                                                                                                   | Necessário |
+| Nome         | Descrição                                                                                                                                   | Necessário |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| cabeçalho de verificação | Elemento de raiz.                                                                                                                                 | Sim      |
+| cabeçalho de verificação | Elemento de raiz.                                                                                                                                 | Yes      |
 | valor        | Valor do cabeçalho HTTP permitido. Quando vários elementos de valor são especificados, a verificação é considerada um sucesso se algum dos valores for compatível. | Não       |
 
 ### <a name="attributes"></a>Atributos
 
-| Name                       | Descrição                                                                                                                                                            | Necessário | Predefinição |
+| Nome                       | Descrição                                                                                                                                                            | Necessário | Predefinição |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| falha na verificação de erro-mensagem | Error message to return in the HTTP response body if the header don't exist or has a invalid value. Esta mensagem deve ter quaisquer caracteres especiais devidamente escapados. | Sim      | N/D     |
-| falha no cheque-httpcode      | HTTP Código de estado para devolver se o cabeçalho não existir ou tiver um valor inválido.                                                                                        | Sim      | N/D     |
-| cabeçalho-nome                | O nome do cabeçalho HTTP para verificar.                                                                                                                                  | Sim      | N/D     |
-| ignorar caso                | Pode ser definido como Verdadeiro ou Falso. Se definido para o caso Verdadeiro é ignorado quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.                                    | Sim      | N/D     |
+| falha na verificação de erro-mensagem | Error message to return in the HTTP response body if the header don't exist or has a invalid value. Esta mensagem deve ter quaisquer caracteres especiais devidamente escapados. | Yes      | N/D     |
+| falha no cheque-httpcode      | HTTP Código de estado para devolver se o cabeçalho não existir ou tiver um valor inválido.                                                                                        | Yes      | N/D     |
+| cabeçalho-nome                | O nome do cabeçalho HTTP para verificar.                                                                                                                                  | Yes      | N/D     |
+| ignorar caso                | Pode ser definido como Verdadeiro ou Falso. Se definido para o caso Verdadeiro é ignorado quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.                                    | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada, saída
 
@@ -119,23 +120,23 @@ A `rate-limit` política impede picos de utilização da API por subscrição, l
 
 ### <a name="elements"></a>Elementos
 
-| Name       | Descrição                                                                                                                                                                                                                                                                                              | Necessário |
+| Nome       | Descrição                                                                                                                                                                                                                                                                                              | Necessário |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| limite de taxa | Elemento de raiz.                                                                                                                                                                                                                                                                                            | Sim      |
+| limite de taxa | Elemento de raiz.                                                                                                                                                                                                                                                                                            | Yes      |
 | api        | Adicione um ou mais destes elementos para impor um limite de taxa de chamada às APIs dentro do produto. Os limites de taxa de chamada de produto e API são aplicados de forma independente. A API pode ser referenciada através `name` ou `id` . . Se ambos os atributos forem fornecidos, `id` serão utilizados e `name` serão ignorados.                    | Não       |
 | operação  | Adicione um ou mais destes elementos para impor um limite de taxa de chamada às operações dentro de uma API. Os limites de taxa de chamada de produto, API e operação são aplicados de forma independente. A operação pode ser referenciada através `name` ou `id` . . Se ambos os atributos forem fornecidos, `id` serão utilizados e `name` serão ignorados. | Não       |
 
 ### <a name="attributes"></a>Atributos
 
-| Name           | Descrição                                                                                           | Necessário | Predefinição |
+| Nome           | Descrição                                                                                           | Necessário | Predefinição |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| name           | O nome da API para a aplicação do limite de taxa.                                                | Sim      | N/D     |
-| chama          | O número máximo total de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period` . | Sim      | N/D     |
-| período de renovação | O período de tempo em segundos após o qual a quota se repõe.                                              | Sim      | N/D     |
+| name           | O nome da API para a aplicação do limite de taxa.                                                | Yes      | N/D     |
+| chama          | O número máximo total de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period` . | Yes      | N/D     |
+| período de renovação | O período de tempo em segundos após o qual a quota se repõe.                                              | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada
 
@@ -148,7 +149,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 A `rate-limit-by-key` política impede picos de utilização da API numa base-chave, limitando a taxa de chamada a um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia arbitrária e é normalmente fornecida usando uma expressão política. A condição de incremento opcional pode ser adicionada para especificar quais os pedidos que devem ser contados para o limite. Quando esta política é desencadeada, o chamador recebe um `429 Too Many Requests` código de estado de resposta.
 
-Para obter mais informações e exemplos desta política, consulte [o pedido avançado de estrangulamento com a Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Para obter mais informações e exemplos desta política, consulte [o pedido avançado de estrangulamento com a Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Devido à natureza distribuída da arquitetura de estrangulamento, a limitação das taxas nunca é completamente precisa. A diferença entre configurado e o número real de pedidos permitidos varia em função do volume e taxa de pedido, da latência de backend e de outros fatores.
@@ -184,22 +185,22 @@ No exemplo seguinte, o limite de taxa é fixado pelo endereço IP do autor da ch
 
 ### <a name="elements"></a>Elementos
 
-| Name              | Descrição   | Necessário |
+| Nome              | Descrição   | Necessário |
 | ----------------- | ------------- | -------- |
-| taxa-limite-por-chave | Elemento de raiz. | Sim      |
+| taxa-limite-por-chave | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
-| Name                | Descrição                                                                                           | Necessário | Predefinição |
+| Nome                | Descrição                                                                                           | Necessário | Predefinição |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| chama               | O número máximo total de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period` . | Sim      | N/D     |
-| contra-chave         | A chave a utilizar para a política de limite de taxas.                                                             | Sim      | N/D     |
+| chama               | O número máximo total de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period` . | Yes      | N/D     |
+| contra-chave         | A chave a utilizar para a política de limite de taxas.                                                             | Yes      | N/D     |
 | incremento condição | A expressão booleana especificando se o pedido deve ser contado para a quota `true` ().        | Não       | N/D     |
-| período de renovação      | O período de tempo em segundos após o qual a quota se repõe.                                              | Sim      | N/D     |
+| período de renovação      | O período de tempo em segundos após o qual a quota se repõe.                                              | Yes      | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada
 
@@ -231,22 +232,22 @@ No exemplo seguinte, a política apenas permite pedidos provenientes do único e
 
 ### <a name="elements"></a>Elementos
 
-| Name                                      | Descrição                                         | Necessário                                                       |
+| Nome                                      | Descrição                                         | Necessário                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
-| ip-filtro                                 | Elemento de raiz.                                       | Sim                                                            |
+| ip-filtro                                 | Elemento de raiz.                                       | Yes                                                            |
 | address                                   | Especifica um único endereço IP para filtrar.   | Pelo menos um `address` ou `address-range` elemento é necessário. |
 | endereço-gama de="endereço" para ="endereço" | Especifica uma gama de endereços IP para filtrar. | Pelo menos um `address` ou `address-range` elemento é necessário. |
 
 ### <a name="attributes"></a>Atributos
 
-| Name                                      | Descrição                                                                                 | Necessário                                           | Predefinição |
+| Nome                                      | Descrição                                                                                 | Necessário                                           | Predefinição |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | endereço-gama de="endereço" para ="endereço" | Uma gama de endereços IP para permitir ou negar acesso.                                        | Requerido quando o `address-range` elemento é utilizado. | N/D     |
-| ip-filter action="permitir &#124; proibir"    | Especifica se as chamadas devem ser permitidas ou não para os endereços e intervalos IP especificados. | Sim                                                | N/D     |
+| ip-filter action="permitir &#124; proibir"    | Especifica se as chamadas devem ser permitidas ou não para os endereços e intervalos IP especificados. | Yes                                                | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada
 -   **Âmbitos de política:** todos os âmbitos
@@ -286,24 +287,24 @@ A `quota` política aplica um volume de chamadas renováveis ou vitalícios e/ou
 
 ### <a name="elements"></a>Elementos
 
-| Name      | Descrição                                                                                                                                                                                                                                                                                  | Necessário |
+| Nome      | Descrição                                                                                                                                                                                                                                                                                  | Necessário |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| quota     | Elemento de raiz.                                                                                                                                                                                                                                                                                | Sim      |
+| quota     | Elemento de raiz.                                                                                                                                                                                                                                                                                | Yes      |
 | api       | Adicione um ou mais destes elementos para impor quotas de chamada em APIs dentro do produto. As quotas de chamadas de produtos e API são aplicadas de forma independente. A API pode ser referenciada através `name` ou `id` . . Se ambos os atributos forem fornecidos, `id` serão utilizados e `name` serão ignorados.                    | Não       |
 | operação | Adicione um ou mais destes elementos para impor quota de chamada em operações dentro de uma API. As quotas de chamadas de produtos, API e operação são aplicadas de forma independente. A operação pode ser referenciada através `name` ou `id` . . Se ambos os atributos forem fornecidos, `id` serão utilizados e `name` serão ignorados. | Não       |
 
 ### <a name="attributes"></a>Atributos
 
-| Name           | Descrição                                                                                               | Necessário                                                         | Predefinição |
+| Nome           | Descrição                                                                                               | Necessário                                                         | Predefinição |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| name           | O nome da API ou da operação para a qual o contingente se aplica.                                             | Sim                                                              | N/D     |
+| name           | O nome da API ou da operação para a qual o contingente se aplica.                                             | Yes                                                              | N/D     |
 | largura de banda      | O número total máximo de quilobytes permitido durante o intervalo de tempo especificado no `renewal-period` . | Ou `calls` , ou ambos `bandwidth` juntos devem ser especificados. | N/D     |
 | chama          | O número máximo total de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period` .     | Ou `calls` , ou ambos `bandwidth` juntos devem ser especificados. | N/D     |
-| período de renovação | O período de tempo em segundos após o qual a quota se repõe.                                                  | Sim                                                              | N/D     |
+| período de renovação | O período de tempo em segundos após o qual a quota se repõe.                                                  | Yes                                                              | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada
 -   **Âmbitos de política:** produto
@@ -315,7 +316,7 @@ Esta política pode ser utilizada nas [seguintes secções](https://azure.micros
 
 A `quota-by-key` política aplica, por título, um volume de chamadas renováveis ou vitalícios e/ou uma quota de largura de banda. A chave pode ter um valor de cadeia arbitrária e é normalmente fornecida usando uma expressão política. A condição de incremento opcional pode ser adicionada para especificar quais os pedidos que devem ser contabilizados para o contingente. Se várias políticas incrementar o mesmo valor-chave, é incrementada apenas uma vez por pedido. Quando o limite de chamada é atingido, o chamador recebe um `403 Forbidden` código de estado de resposta.
 
-Para obter mais informações e exemplos desta política, consulte [o pedido avançado de estrangulamento com a Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+Para obter mais informações e exemplos desta política, consulte [o pedido avançado de estrangulamento com a Azure API Management](./api-management-sample-flexible-throttling.md).
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -348,23 +349,23 @@ No exemplo seguinte, a quota é chaveda pelo endereço IP do autor da chamada.
 
 ### <a name="elements"></a>Elementos
 
-| Name  | Descrição   | Necessário |
+| Nome  | Descrição   | Necessário |
 | ----- | ------------- | -------- |
-| quota | Elemento de raiz. | Sim      |
+| quota | Elemento de raiz. | Yes      |
 
 ### <a name="attributes"></a>Atributos
 
-| Name                | Descrição                                                                                               | Necessário                                                         | Predefinição |
+| Nome                | Descrição                                                                                               | Necessário                                                         | Predefinição |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | largura de banda           | O número total máximo de quilobytes permitido durante o intervalo de tempo especificado no `renewal-period` . | Ou `calls` , ou ambos `bandwidth` juntos devem ser especificados. | N/D     |
 | chama               | O número máximo total de chamadas permitidas durante o intervalo de tempo especificado no `renewal-period` .     | Ou `calls` , ou ambos `bandwidth` juntos devem ser especificados. | N/D     |
-| contra-chave         | A chave a utilizar para a política de quotas.                                                                      | Sim                                                              | N/D     |
+| contra-chave         | A chave a utilizar para a política de quotas.                                                                      | Yes                                                              | N/D     |
 | incremento condição | A expressão booleana especificando se o pedido deve ser contado para a quota `true` ()             | Não                                                               | N/D     |
-| período de renovação      | O período de tempo em segundos após o qual a quota se repõe.                                                  | Sim                                                              | N/D     |
+| período de renovação      | O período de tempo em segundos após o qual a quota se repõe.                                                  | Yes                                                              | N/D     |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada
 -   **Âmbitos de política:** todos os âmbitos
@@ -504,7 +505,7 @@ Este exemplo mostra como utilizar a política [validada do JWT](api-management-a
 
 | Elemento             | Descrição                                                                                                                                                                                                                                                                                                                                           | Necessário |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validar-jwt        | Elemento de raiz.                                                                                                                                                                                                                                                                                                                                         | Sim      |
+| validar-jwt        | Elemento de raiz.                                                                                                                                                                                                                                                                                                                                         | Yes      |
 | públicos           | Contém uma lista de reclamações aceitáveis de audiência que podem estar presentes no token. Se estiverem presentes vários valores de audiência, cada valor é tentado até que todos estejam esgotados (caso em que a validação falha) ou até que um tenha sucesso. Pelo menos uma audiência deve ser especificada.                                                                     | Não       |
 | emitentes-assinatura-chaves | Uma lista de chaves de segurança codificadas pela Base64 usadas para validar fichas assinadas. Se estiverem presentes várias teclas de segurança, cada tecla é tentada até que todas estejam esgotadas (caso em que a validação falha) ou até que uma delas tenha sucesso (útil para o capotamento do token). Os elementos-chave têm um atributo opcional `id` usado para corresponder à `kid` reclamação.               | Não       |
 | desencriptação-chaves     | Uma lista de chaves codificadas da Base64 usadas para desencriptar os tokens. Se estiverem presentes várias teclas de segurança, cada tecla é experimenta até que todas as teclas estejam esgotadas (caso em que a validação falha) ou até que uma chave tenha sucesso. Os elementos-chave têm um atributo opcional `id` usado para corresponder à `kid` reclamação.                                                 | Não       |
@@ -514,7 +515,7 @@ Este exemplo mostra como utilizar a política [validada do JWT](api-management-a
 
 ### <a name="attributes"></a>Atributos
 
-| Name                            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                            | Necessário                                                                         | Predefinição                                                                           |
+| Nome                            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                            | Necessário                                                                         | Predefinição                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | relógio-distorcer                      | Tempo. Utilize para especificar a diferença de tempo máxima esperada entre os relógios do sistema do emitente simbólico e a instância de Gestão da API.                                                                                                                                                                                                                                                                                                               | Não                                                                               | 0 segundos                                                                         |
 | falha-validação-erro-mensagem | Error message to return in the HTTP response body if the JWT does passes validation. Esta mensagem deve ter quaisquer caracteres especiais devidamente escapados.                                                                                                                                                                                                                                                                                                 | Não                                                                               | A mensagem de erro por defeito depende de problema de validação, por exemplo "JWT não está presente". |
@@ -528,21 +529,21 @@ Este exemplo mostra como utilizar a política [validada do JWT](api-management-a
 | exigir esquema                  | O nome do esquema simbólico, por exemplo, "Portador". Quando este atributo for definido, a política garantirá que o regime especificado esteja presente no valor do cabeçalho de autorização.                                                                                                                                                                                                                                                                                    | Não                                                                               | N/D                                                                               |
 | exigir fichas assinadas           | O Boolean. Especifica se um símbolo é necessário para ser assinado.                                                                                                                                                                                                                                                                                                                                                                                           | Não                                                                               | true                                                                              |
 | separador                       | Cadeia. Especifica um separador (por exemplo, "") a utilizar para extrair um conjunto de valores de uma reivindicação multivalores.                                                                                                                                                                                                                                                                                                                                          | Não                                                                               | N/D                                                                               |
-| url                             | Open ID configuração URL de onde podem ser obtidos metadados de configuração de ID aberto. A resposta deve ser de acordo com as especificações definidas na URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata` . Para o Azure Ative Directory utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do seu inquilino de diretório, por `contoso.onmicrosoft.com` exemplo. | Sim                                                                              | N/D                                                                               |
+| url                             | Open ID configuração URL de onde podem ser obtidos metadados de configuração de ID aberto. A resposta deve ser de acordo com as especificações definidas na URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata` . Para o Azure Ative Directory utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do seu inquilino de diretório, por `contoso.onmicrosoft.com` exemplo. | Yes                                                                              | N/D                                                                               |
 | nome variável-ficha de saída      | Cadeia. Nome da variável de contexto que receberá valor simbólico como objeto de tipo [`Jwt`](api-management-policy-expressions.md) após validação de símbolos bem sucedido                                                                                                                                                                                                                                                                                     | Não                                                                               | N/D                                                                               |
 
 ### <a name="usage"></a>Utilização
 
-Esta política pode ser utilizada nas [seguintes secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos políticos.](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)
+Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
 
 -   **Secções políticas:** entrada
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as políticas, consulte:
 
 -   [Políticas em Gestão de API](api-management-howto-policies.md)
 -   [Transformar APIs](transform-api.md)
--   [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
+-   [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
 -   [Amostras de política](policy-samples.md)

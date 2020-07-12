@@ -5,11 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 360bba2ffc344175214c44e2c9c1d3c0859ac3e5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76774450"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255970"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autónomo no Windows utilizando a segurança do Windows
 Para evitar o acesso não autorizado a um cluster de tecido de serviço, deve proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança nó-a-nó e o cliente-a-nó, utilizando a segurança do Windows no ficheiro *ONClusterConfig.JS.*  O processo corresponde ao passo de segurança de configuração de [Criar um cluster autónomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md). Para obter mais informações sobre como o Service Fabric utiliza a segurança do Windows, consulte [os cenários de segurança do Cluster.](service-fabric-cluster-security.md)
@@ -20,7 +21,7 @@ Para evitar o acesso não autorizado a um cluster de tecido de serviço, deve pr
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Configure a segurança do Windows utilizando o gMSA  
-A amostraClusterConfig.gMSA.Windows.MultiMachine.JSficheiro de configuração *ON* descarregado com o [Microsoft.Azure.ServiceFabric.WindowsServer. \<version> pacote](https://go.microsoft.com/fwlink/?LinkId=730690) de cluster autónomo zip contém um modelo para configurar a segurança do Windows utilizando [a conta de serviço gerido do grupo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+A amostraClusterConfig.gMSA.Windows.MultiMachine.JSficheiro de configuração *ON* descarregado com o [Microsoft.Azure.ServiceFabric.WindowsServer. \<version> pacote](https://go.microsoft.com/fwlink/?LinkId=730690) de cluster autónomo zip contém um modelo para configurar a segurança do Windows utilizando [a conta de serviço gerido do grupo (gMSA)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)):  
 
 ```
 "security": {
@@ -53,8 +54,8 @@ A amostraClusterConfig.gMSA.Windows.MultiMachine.JSficheiro de configuração *O
 > [!NOTE]
 > O valor da clustergMSAIdentity deve estar em formato mysfgmsa@mydomain " "
 
-[A segurança do nó para o nó](service-fabric-cluster-security.md#node-to-node-security) é configurada definindo **clustergMSAIdentity** quando o tecido de serviço precisa ser executado sob gMSA. Para construir relações de confiança entre nós, devem ser sensibilizados uns para os outros. Isto pode ser realizado de duas maneiras diferentes: Especifique a Conta de Serviço Gerida do Grupo que inclui todos os nós no cluster ou especifique o grupo de máquinas de domínio que inclui todos os nós no cluster. Recomendamos vivamente a utilização da abordagem da Conta de Serviço Gerida do [Grupo (gMSA),](https://technet.microsoft.com/library/hh831782.aspx) especialmente para clusters maiores (mais de 10 nós) ou para clusters que são suscetíveis de crescer ou encolher.  
-Esta abordagem não exige a criação de um grupo de domínio para o qual os administradores de agrupamentos tenham direitos de acesso para adicionar e remover membros. Estas contas também são úteis para a gestão automática de senhas. Para obter mais informações, consulte [Começar com contas de serviço geridas pelo grupo.](https://technet.microsoft.com/library/jj128431.aspx)  
+[A segurança do nó para o nó](service-fabric-cluster-security.md#node-to-node-security) é configurada definindo **clustergMSAIdentity** quando o tecido de serviço precisa ser executado sob gMSA. Para construir relações de confiança entre nós, devem ser sensibilizados uns para os outros. Isto pode ser realizado de duas maneiras diferentes: Especifique a Conta de Serviço Gerida do Grupo que inclui todos os nós no cluster ou especifique o grupo de máquinas de domínio que inclui todos os nós no cluster. Recomendamos vivamente a utilização da abordagem da Conta de Serviço Gerida do [Grupo (gMSA),](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) especialmente para clusters maiores (mais de 10 nós) ou para clusters que são suscetíveis de crescer ou encolher.  
+Esta abordagem não exige a criação de um grupo de domínio para o qual os administradores de agrupamentos tenham direitos de acesso para adicionar e remover membros. Estas contas também são úteis para a gestão automática de senhas. Para obter mais informações, consulte [Começar com contas de serviço geridas pelo grupo.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11))  
  
 [A segurança do cliente para nó](service-fabric-cluster-security.md#client-to-node-security) é configurada usando **ClienteSIdentidades**. Para estabelecer a confiança entre um cliente e o cluster, deve configurar o cluster para saber em que identidades do cliente pode confiar. Isto pode ser feito de duas maneiras diferentes: Especifique os utilizadores do grupo de domínio que podem ligar ou especificar os utilizadores de nó de domínio que podem ligar. O Service Fabric suporta dois tipos diferentes de controlo de acesso para clientes que estão ligados a um cluster de Tecido de Serviço: administrador e utilizador. O controlo de acessos proporciona a capacidade de o administrador do cluster limitar o acesso a certos tipos de operações de cluster para diferentes grupos de utilizadores, tornando o cluster mais seguro.  Os administradores têm acesso total às capacidades de gestão (incluindo capacidades de leitura/escrita). Os utilizadores, por padrão, apenas leram o acesso às capacidades de gestão (por exemplo, capacidades de consulta) e a capacidade de resolver aplicações e serviços. Para obter mais informações sobre os controlos de acesso, consulte [o controlo de acesso baseado em funções para clientes do Service Fabric](service-fabric-cluster-security-roles.md).  
  
@@ -102,7 +103,7 @@ Este modelo está a ser depreciado. A recomendação é utilizar o gMSA como des
 | Identidade |Adicione o utilizador de domínio, nome de utilizador domínio\username, para a identidade do cliente. |  
 | IsAdmin |Definido como verdadeiro para especificar que o utilizador de domínio tem acesso ao cliente administrador ou falso para acesso ao cliente do utilizador. |  
 
-[A segurança do nó para nó](service-fabric-cluster-security.md#node-to-node-security) é configurada através da configuração do **ClusterId se** pretender utilizar um grupo de máquinas dentro de um domínio de diretório ativo. Para obter mais informações, consulte [Criar um Grupo de Máquinas no Diretório Ativo](https://msdn.microsoft.com/library/aa545347(v=cs.70).aspx).
+[A segurança do nó para nó](service-fabric-cluster-security.md#node-to-node-security) é configurada através da configuração do **ClusterId se** pretender utilizar um grupo de máquinas dentro de um domínio de diretório ativo. Para obter mais informações, consulte [Criar um Grupo de Máquinas no Diretório Ativo](/previous-versions/commerce-server/aa545347(v=cs.70)).
 
 [A segurança entre clientes](service-fabric-cluster-security.md#client-to-node-security) e nó é configurada utilizando **as identificações do Cliente.** Para estabelecer a confiança entre um cliente e o cluster, deve configurar o cluster para conhecer as identidades do cliente em que o cluster pode confiar. Pode estabelecer confiança de duas maneiras diferentes:
 
@@ -132,7 +133,7 @@ A secção de **segurança** que se segue configura a segurança do Windows, esp
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de configurar a segurança do Windows no ficheiro *ONClusterConfig.JS,* retomar o processo de criação de clusters em [Criar um cluster autónomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md).
 
 Para obter mais informações sobre como a segurança do nó-a-nó, a segurança do cliente-a-nó e o controlo de acesso baseado em funções, consulte [cenários](service-fabric-cluster-security.md)de segurança do Cluster .

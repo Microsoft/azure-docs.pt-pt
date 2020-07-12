@@ -7,11 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1bb07ee900622b138a556a33469641e4e8310af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392306"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258283"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -196,11 +197,16 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 ## <a name="validating-models"></a>Modelos de validação
 
-Existe uma amostra disponível para validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca de parser DTDL e é agnóstico linguístico. Encontre-o aqui: [Amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+> [!TIP]
+> É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins.
 
-Ou, para obter mais informações sobre a biblioteca de parser, incluindo um exemplo de como usá-la diretamente, consulte [Como-a-fazer: Parse e valide modelos](how-to-use-parser.md).
+Existe uma amostra agnóstica linguística disponível para validar documentos de modelo para garantir que o DTDL está correto. Está localizado aqui: [**Amostra de Validador DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
-## <a name="next-steps"></a>Próximos passos
+A amostra validador DTDL é construída numa biblioteca de parser DTDL .NET, que está disponível no NuGet como biblioteca do lado do cliente: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Também pode usar a biblioteca diretamente para desenhar a sua própria solução de validação. Ao utilizar a biblioteca parser, certifique-se de que utiliza uma versão compatível com a versão que o Azure Digital Twins está a executar. Durante a pré-visualização, esta é a versão *3.7.0*.
+
+Pode saber mais sobre a biblioteca de parser, incluindo exemplos de utilização, em [Como-a-: Parse e validar modelos](how-to-use-parser.md).
+
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir os modelos com as APIs digitalTwinsModels:
 * [Como fazer: Gerir modelos personalizados](how-to-manage-model.md)

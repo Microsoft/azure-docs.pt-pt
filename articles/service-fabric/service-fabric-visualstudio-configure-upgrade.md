@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db6cea0af229664b07e88463e279b2a64d7e267
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464076"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256055"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configure a atualização de uma aplicação de Tecido de Serviço no Estúdio Visual
 As ferramentas visual Studio para Azure Service Fabric fornecem suporte de upgrade para publicação em clusters locais ou remotos. Existem três cenários em que pretende atualizar a sua aplicação para uma versão mais recente em vez de substituir a aplicação durante os testes e depurações:
@@ -56,7 +57,7 @@ Se estiver a utilizar as ferramentas Visual Studio Service Fabric para atualizar
 3. Se selecionar o modo de atualização UnmonitoredManual, tem de iniciar manualmente uma consola PowerShell para continuar e terminar o processo de atualização. Consulte a [atualização da aplicação do Service Fabric: tópicos avançados](service-fabric-application-upgrade-advanced.md) para saber como funciona a atualização manual.
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>Atualize uma aplicação utilizando o PowerShell
-Pode utilizar cmdlets PowerShell para atualizar uma aplicação de Tecido de Serviço. Consulte [o tutorial de atualização de aplicações](service-fabric-application-upgrade-tutorial.md) de Tecido de Serviço e [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) para obter informações detalhadas.
+Pode utilizar cmdlets PowerShell para atualizar uma aplicação de Tecido de Serviço. Consulte [o tutorial de atualização de aplicações](service-fabric-application-upgrade-tutorial.md) de Tecido de Serviço e [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) para obter informações detalhadas.
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Especificar uma política de verificação de saúde no ficheiro manifesto de aplicação
 Cada serviço numa aplicação de Tecido de Serviço pode ter os seus próprios parâmetros de política de saúde que sobrepõem os valores padrão. Pode fornecer estes valores de parâmetro no ficheiro manifesto de aplicação.
@@ -76,5 +77,5 @@ O exemplo a seguir mostra como aplicar uma política única de verificação de 
     </HealthPolicy>
 </Policies>
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a atualização de uma aplicação, consulte [atualizar uma aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md).

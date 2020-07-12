@@ -5,11 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79258190"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256259"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
 
@@ -131,8 +132,8 @@ São possíveis as seguintes operações:
 * Detona e rastreie a cópia de segurança de uma partição.
 * Gatilho e pista Restaurar para uma divisória.
 
-Para obter mais informações sobre o serviço de backup e restauro, consulte a [referência REST API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
-## <a name="next-steps"></a>Próximos passos
+Para obter mais informações sobre o serviço de backup e restauro, consulte a [referência REST API](/rest/api/servicefabric/sfclient-index-backuprestore).
+## <a name="next-steps"></a>Passos seguintes
 * [Gerir as suas aplicações de Tecido de Serviço em Estúdio Visual](service-fabric-manage-application-in-visual-studio.md)
 * [Implementação de aplicação de tecido de serviço usando PowerShell](service-fabric-deploy-remove-applications.md)
 

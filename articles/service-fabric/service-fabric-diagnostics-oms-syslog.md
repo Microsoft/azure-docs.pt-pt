@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645757"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258637"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster de tecido de serviço Linux em Syslog
 
@@ -110,8 +111,8 @@ Pode ler estes eventos Syslog numa ferramenta de monitorização, como registos 
 
 O exemplo acima é de um evento NodeDown. Pode ver a lista completa de eventos [aqui.](service-fabric-diagnostics-event-generation-operational.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Coloque o agente Log Analytics](service-fabric-diagnostics-oms-agent.md) nos seus nós para recolher contadores de desempenho e recolher estatísticas e registos de estivadores para os seus contentores
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../log-analytics/log-analytics-log-searches.md) de registo oferecidas como parte dos registos do Azure Monitor
-* [Use o View Designer para criar vistas personalizadas em registos do Monitor Azure](../log-analytics/log-analytics-view-designer.md)
-* Referência para como a [Azure Monitor regista a integração com o Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
+* [Use o View Designer para criar vistas personalizadas em registos do Monitor Azure](../azure-monitor/platform/view-designer.md)
+* Referência para como a [Azure Monitor regista a integração com o Syslog](../azure-monitor/platform/data-sources-syslog.md).

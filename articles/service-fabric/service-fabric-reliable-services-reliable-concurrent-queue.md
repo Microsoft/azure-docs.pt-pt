@@ -3,14 +3,15 @@ title: ReliableConcurrentQueue em Tecido de Serviço Azure
 description: ReliableConcurrentQueue é uma fila de alta produção que permite enquezas e deques paralelos.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 423ef3d1898176d7c25c596ad186a9c000108aa4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462738"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257453"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução à ReliableConcurrentQueue em Tecido de Serviço Azure
-A Fila Simultânea fiável é uma fila assíncronea, transacional e replicada que apresenta alta concordância para operações de enquecidismo e deques. É projetado para fornecer alta produção e baixa latência, relaxando a rigorosa encomenda FIFO fornecida pela [Fila Fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, proporciona uma encomenda de melhor esforço.
+A Fila Simultânea fiável é uma fila assíncronea, transacional e replicada que apresenta alta concordância para operações de enquecidismo e deques. É projetado para fornecer alta produção e baixa latência, relaxando a rigorosa encomenda FIFO fornecida pela [Fila Fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) e, em vez disso, proporciona uma encomenda de melhor esforço.
 
 ## <a name="apis"></a>APIs
 
@@ -20,11 +21,11 @@ A Fila Simultânea fiável é uma fila assíncronea, transacional e replicada qu
 | bool TryDequeue (resultado T out)  | < de tarefas Condicionais < T > > TryDequeueAsync (ITransaction tx)  |
 | int Conde()                    | Contagem longa()                                                     |
 
-## <a name="comparison-with-reliable-queue"></a>Comparação com [fila fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx)
+## <a name="comparison-with-reliable-queue"></a>Comparação com [fila fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)
 
-A Fila Simultânea fiável é oferecida como uma alternativa à [Fila Fiável.](https://msdn.microsoft.com/library/azure/dn971527.aspx) Deve ser utilizado nos casos em que não seja necessária uma encomenda rigorosa do FIFO, uma vez que a garantia da FIFO requer uma compensação com concordância.  [A Fila Fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) utiliza fechaduras para impor a encomenda do FIFO, com, no máximo, uma transação permitida a encadear e, no máximo, uma transação permitida a dequear de cada vez. Em comparação, a Fila Simultânea fiável relaxa a restrição de encomenda e permite que qualquer número de transações simultâneas interligem as suas operações de enquecimento e deques. A encomenda de melhor esforço é fornecida, no entanto, a encomenda relativa de dois valores numa Fila Simultânea Fiável nunca pode ser garantida.
+A Fila Simultânea fiável é oferecida como uma alternativa à [Fila Fiável.](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) Deve ser utilizado nos casos em que não seja necessária uma encomenda rigorosa do FIFO, uma vez que a garantia da FIFO requer uma compensação com concordância.  [A Fila Fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) utiliza fechaduras para impor a encomenda do FIFO, com, no máximo, uma transação permitida a encadear e, no máximo, uma transação permitida a dequear de cada vez. Em comparação, a Fila Simultânea fiável relaxa a restrição de encomenda e permite que qualquer número de transações simultâneas interligem as suas operações de enquecimento e deques. A encomenda de melhor esforço é fornecida, no entanto, a encomenda relativa de dois valores numa Fila Simultânea Fiável nunca pode ser garantida.
 
-A Fila Simultânea fiável proporciona maior produção e menor latência do que [a Fila Fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) sempre que existem várias transações simultâneas que realizam enques e/ou deques.
+A Fila Simultânea fiável proporciona maior produção e menor latência do que [a Fila Fiável](/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1) sempre que existem várias transações simultâneas que realizam enques e/ou deques.
 
 Um caso de utilização de amostras para o ReliableConcurrentQueue é o cenário [de Fila de Mensagens.](https://en.wikipedia.org/wiki/Message_queue) Neste cenário, um ou mais produtores de mensagens criam e adicionam itens à fila, e uma ou mais mensagens que os consumidores retiram mensagens da fila e processam-nas. Vários produtores e consumidores podem trabalhar de forma independente, utilizando transações simultâneas para processar a fila.
 
@@ -337,6 +338,6 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Notificações de Serviços Fiáveis](service-fabric-reliable-services-notifications.md)
 * [Backup e Restauro de Serviços Fiáveis (Recuperação de Desastres)](service-fabric-reliable-services-backup-restore.md)
 * [Configuração fiável do gestor de estado](service-fabric-reliable-services-configuration.md)
-* [Começar com serviços de API Web fabric fabric](service-fabric-reliable-services-communication-webapi.md)
-* [Utilização avançada do modelo de programação de serviços fiáveis](service-fabric-reliable-services-advanced-usage.md)
-* [Referência do desenvolvedor para coleções fiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Começar com serviços de API Web fabric fabric](./service-fabric-reliable-services-communication-aspnetcore.md)
+* [Utilização avançada do modelo de programação de serviços fiáveis](./service-fabric-reliable-services-lifecycle.md)
+* [Referência do desenvolvedor para coleções fiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

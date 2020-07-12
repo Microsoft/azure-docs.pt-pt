@@ -5,11 +5,12 @@ author: cawaMS
 ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
-ms.openlocfilehash: 11f76153726d3fc92118fb46cc61b4627ab6a1b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464088"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256098"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configure ligações seguras a um cluster de tecido de serviço do Visual Studio
 Aprenda a usar o Visual Studio para aceder de forma segura a um cluster de tecido de serviço Azure com políticas de controlo de acesso configuradas.
@@ -34,9 +35,9 @@ A caixa de diálogo **de aplicação de tecido de serviço** de publicação val
 3. Escolha o comando **Publicar...** no menu de atalho do projeto para abrir a caixa de diálogo **de aplicação Publicar Azure** e, em seguida, selecione o cluster alvo. A ferramenta resolve automaticamente a ligação e guarda os parâmetros de ligação seguros no perfil de publicação.
 4. Opcional: Pode editar o perfil de publicação para especificar uma ligação de cluster segura.
    
-   Uma vez que está a editar manualmente o ficheiro Publish Profile XML para especificar as informações do certificado, certifique-se de que regista o nome da loja de certificados, a localização da loja e a impressão digital do certificado. Você precisará fornecer estes valores para o nome da loja do certificado e localização da loja. Ver [Como: Recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para mais informações.
+   Uma vez que está a editar manualmente o ficheiro Publish Profile XML para especificar as informações do certificado, certifique-se de que regista o nome da loja de certificados, a localização da loja e a impressão digital do certificado. Você precisará fornecer estes valores para o nome da loja do certificado e localização da loja. Ver [Como: Recuperar a impressão digital de um certificado](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) para mais informações.
    
-   Pode utilizar os parâmetros *ClusterConnectionParameters* para especificar os parâmetros PowerShell a utilizar ao ligar-se ao cluster de Tecido de Serviço. Os parâmetros válidos são os que são aceites pelo cmdlet Connect-ServiceFabricCluster. Consulte [o Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) para obter uma lista de parâmetros disponíveis.
+   Pode utilizar os parâmetros *ClusterConnectionParameters* para especificar os parâmetros PowerShell a utilizar ao ligar-se ao cluster de Tecido de Serviço. Os parâmetros válidos são os que são aceites pelo cmdlet Connect-ServiceFabricCluster. Consulte [o Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para obter uma lista de parâmetros disponíveis.
    
    Se estiver a publicar num cluster remoto, tem de especificar os parâmetros apropriados para esse cluster específico. Segue-se um exemplo de ligação a um cluster não seguro:
    
@@ -56,7 +57,7 @@ A caixa de diálogo **de aplicação de tecido de serviço** de publicação val
    ```
 5. Editar quaisquer outras definições necessárias, tais como parâmetros de atualização e localização do ficheiro Application Parameter, e publicar a sua aplicação a partir da caixa de diálogo **de aplicação de tecido de serviço de publicação** no Estúdio Visual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o acesso a clusters de Tecidos de Serviço, consulte [visualizar o seu cluster utilizando o Service Fabric Explorer.](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->

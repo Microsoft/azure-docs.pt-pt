@@ -4,12 +4,12 @@ description: Saiba como rodar os seus certificados num cluster Azure Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 715771c7a1704e0d39f790d018980c4b39ba351b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e48a05a36fdbd56fb78cd1394c512485b521e50
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817452"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255358"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotate certificados no Serviço Azure Kubernetes (AKS)
 
@@ -84,7 +84,7 @@ kubectl get no
 > [!NOTE]
 > Se tiver algum serviço que esteja em cima da AKS, como [a Azure Dev Spaces,][dev-spaces]poderá também necessitar de [atualizar certificados relacionados com esses serviços.][dev-spaces-rotate]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como rodar automaticamente os certificados do seu cluster, CAs e SAs. Você pode ver [as melhores práticas para segurança de cluster e upgrades no Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] para mais informações sobre as melhores práticas de segurança da AKS.
 
@@ -94,5 +94,5 @@ Este artigo mostrou-lhe como rodar automaticamente os certificados do seu cluste
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
-[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

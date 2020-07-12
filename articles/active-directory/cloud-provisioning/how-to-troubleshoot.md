@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 009e762b69d4f3512158d69ef3c67089096c9da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360797"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256871"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Resolução de problemas de provisão de nuvens
 
@@ -22,7 +22,7 @@ O fornecimento de nuvens toca muitas coisas diferentes e tem muitas dependência
 
 ## <a name="common-troubleshooting-areas"></a>Áreas comuns de resolução de problemas
 
-|Name|Descrição|
+|Nome|Descrição|
 |-----|-----|
 |[Problemas com o agente](#agent-problems)|Verifique se o agente foi instalado corretamente e que comunica com o Azure Ative Directory (Azure AD).|
 |[Problemas de sincronização de objetos](#object-synchronization-problems)|Utilize registos de provisionamento para resolver problemas de sincronização de objetos.|
@@ -43,7 +43,7 @@ Estes itens podem ser verificados no portal Azure e no servidor local que está 
 
 Para verificar se o agente é visto pela Azure e está saudável, siga estes passos.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 1. À esquerda, selecione **Azure Ative Directory**  >  **Azure AD Connect**. No centro, **selecione Gerir o provisionamento (pré-visualização)**.
 1. No ecrã **Azure AD Provisioning (pré-visualização),** selecione **Reveja todos os agentes**.
 
@@ -55,9 +55,7 @@ Para verificar se o agente é visto pela Azure e está saudável, siga estes pas
 
 ### <a name="verify-the-port"></a>Verifique a porta
 
-Para verificar se o Azure está a ouvir na porta 443 e que o seu agente pode comunicar com ele, utilize a seguinte ferramenta:
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Verifique se o Azure está a ouvir na porta 443 e que o seu agente pode comunicar com ele. 
 
 Este teste verifica se os seus agentes podem comunicar com a Azure sobre a porta 443. Abra um browser e vá para o URL anterior a partir do servidor onde o agente está instalado.
 
@@ -206,7 +204,7 @@ Ao selecionar o estado, pode ver informações adicionais sobre a quarentena. Ta
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)

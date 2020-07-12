@@ -5,24 +5,24 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5f6d3502662d48cf6ff750c9a695fadfeac97c2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645587"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256239"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurar configurações fabricTransport para atores fiáveis
 
 Aqui estão as definições que pode configurar:
-- C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
-- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- C#: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- Java: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 Pode modificar a configuração padrão do FabricTransport de forma a seguir.
 
 ## <a name="assembly-attribute"></a>Atributo de montagem
 
-O atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) tem de ser aplicado nas assembleias de atendimento do cliente e do ator.
+O atributo [FabricTransportActorRemotingProvider](/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute) tem de ser aplicado nas assembleias de atendimento do cliente e do ator.
 
 O exemplo a seguir mostra como alterar o valor predefinido das definições fabricTransport OperationTimeout:
 

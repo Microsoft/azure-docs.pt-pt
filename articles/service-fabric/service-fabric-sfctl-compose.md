@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1e40ca4e3c5ec8b7566646aa7ef723bd4c9e45a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e84b35ff3dfa7be0c848a4d7b906c622d9b88914
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76906127"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257344"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Criar, excluir e gerir aplicações Docker Compose.
@@ -19,7 +20,7 @@ Criar, excluir e gerir aplicações Docker Compose.
 |Comando|Descrição|
 | --- | --- |
 | criar | Cria uma implantação de composição de tecido de serviço. |
-| list | Obtém a lista de implementações de composição criadas no cluster de Tecido de Serviço. |
+| lista | Obtém a lista de implementações de composição criadas no cluster de Tecido de Serviço. |
 | remover | Elimina uma implantação de composição de tecido de serviço existente do cluster. |
 | status | Obtém informações sobre uma implantação de composição de tecido de serviço. |
 | atualizar | Inicia a atualização de uma implantação de composição no cluster de Tecido de Serviço. |
@@ -202,6 +203,6 @@ Devolve as informações sobre o estado da atualização da implantação de com
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI de Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

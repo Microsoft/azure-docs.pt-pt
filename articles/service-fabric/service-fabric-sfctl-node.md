@@ -5,11 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2cf1011db37892f71bdd06f409cec1a76463507
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76905870"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257150"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Gerir os nós que formam um aglomerado.
@@ -24,7 +25,7 @@ Gerir os nós que formam um aglomerado.
 | obter-configuração-overrides | Obtém a lista de substituições de configuração no nó especificado. |
 | saúde | Obtém a saúde de um nó de tecido de serviço. |
 | informações | Obtém a informação sobre um nó específico no cluster de Tecido de Serviço. |
-| list | Obtém a lista de nós no cluster de Tecido de Serviço. |
+| lista | Obtém a lista de nós no cluster de Tecido de Serviço. |
 | carregar | Obtém a informação de carga de um nó de tecido de serviço. |
 | remover substituições de configuração | Remove as substituições de configuração no nó especificado. |
 | remover estado | Notifica o Tecido de Serviço de que o estado persistido num nó foi permanentemente removido ou perdido. |
@@ -363,6 +364,6 @@ Inicia-se o progresso de uma operação com o StartNodeTransition utilizando a O
 | -verbose | Aumentar a verbosidade do registo. Use -depurg para registos completos de depurg. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Configurar](service-fabric-cli.md) o CLI do Tecido de Serviço.
-- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](/azure/service-fabric/scripts/sfctl-upgrade-application)da amostra .
+- Saiba como utilizar o CLI do tecido de serviço utilizando os [scripts](./scripts/sfctl-upgrade-application.md)da amostra .

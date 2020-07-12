@@ -13,12 +13,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f84e479c4780437b09ab463781edbb52d8dfdfaa
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367432"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255630"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrar aplicações para a Microsoft Authentication Library (MSAL)
 
@@ -49,7 +49,7 @@ Os seguintes artigos podem ajudá-lo a migrar para o MSAL:
 - [Migrar para MSAL Python](migrate-python-adal-msal.md)
 - [Migrar aplicações Xamarin com mediadores para o MSAL.NET](msal-net-migration-ios-broker.md)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 __P: A ADAL está a ser depreciada?__  
 R: Sim. A partir de 30 de junho de 2020, deixaremos de adicionar novas funcionalidades à ADAL. Continuaremos a adicionar correções críticas de segurança à ADAL até 30 de junho de 2022.
@@ -72,8 +72,8 @@ R: MSAL.NET apoia certos cenários para autenticar contra a AD FS 2019. Se a sua
 __P: Como consigo ajuda a migrar a minha candidatura?__  
 R: Consulte a secção de orientação para a [migração](#migration-guidance) deste artigo. Se, depois de ler o guia para a plataforma da sua aplicação, tiver perguntas adicionais, pode publicar no Stack Overflow com a etiqueta `[adal-deprecation]` ou abrir um problema no repositório GitHub da biblioteca. Consulte a secção [de Línguas e Quadros](msal-overview.md#languages-and-frameworks) do artigo de visão geral do MSAL para obter links para o repo de cada biblioteca.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualize as suas aplicações para utilizar a Microsoft Authentication Library e a Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
-- [Saiba mais sobre a plataforma de identidade da Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
-- [Reveja as nossas amostras de código MSAL](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code)
+- [Visão geral da plataforma de identidade da Microsoft](v2-overview.md)
+- [Reveja as nossas amostras de código MSAL](sample-v2-code.md)

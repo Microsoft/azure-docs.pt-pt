@@ -3,12 +3,12 @@ title: Atualizar os nosdes de cluster para usar discos geridos a Azure
 description: Eis como atualizar um cluster de Tecido de Serviço existente para utilizar discos geridos Azure com pouco ou nenhum tempo de inatividade do seu cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 46dec6ae29fdd8f2a418f695c31900e6df4483e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611633"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255902"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar os nosdes de cluster para usar discos geridos a Azure
 
@@ -16,7 +16,7 @@ ms.locfileid: "85611633"
 
 A estratégia geral para atualizar um nó de cluster de tecido de serviço para utilizar discos geridos é:
 
-1. Desloque um conjunto de escala de máquina virtual de outra forma duplicado desse tipo de nó, mas com o objeto [geridoDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) adicionado à `osDisk` secção do modelo de implantação da balança de máquina virtual. O conjunto de nova escala deve ligar-se ao mesmo balanceador de carga/IP que o original, para que os seus clientes não experimentem uma paragem de serviço durante a migração.
+1. Desloque um conjunto de escala de máquina virtual de outra forma duplicado desse tipo de nó, mas com o objeto [geridoDisk](/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) adicionado à `osDisk` secção do modelo de implantação da balança de máquina virtual. O conjunto de nova escala deve ligar-se ao mesmo balanceador de carga/IP que o original, para que os seus clientes não experimentem uma paragem de serviço durante a migração.
 
 2. Uma vez que os conjuntos de escala original e atualizados estejam a funcionar lado a lado, desative os casos originais do nó um de cada vez para que os serviços do sistema (ou réplicas de serviços estatais) migram para o conjunto de escala nova.
 
@@ -25,7 +25,7 @@ A estratégia geral para atualizar um nó de cluster de tecido de serviço para 
 Este artigo irá acompanhá-lo através dos passos de atualização do tipo de nó primário de um conjunto de exemplo para utilizar discos geridos, evitando ao mesmo tempo qualquer tempo de inatividade do cluster (ver nota abaixo). O estado inicial do agrupamento de ensaios de exemplo consiste num tipo de nó de [durabilidade](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)prateada, apoiado por um conjunto de escala única com cinco nós.
 
 > [!CAUTION]
-> Só irá experimentar uma paragem com este procedimento se tiver dependências do cluster DNS (como ao aceder ao [Service Fabric Explorer).](service-fabric-visualizing-your-cluster.md) As [melhores práticas arquitetónicas para serviços front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) é ter algum tipo de [equilibrador](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) de carga na frente dos seus tipos de nó para tornar possível a troca de nó sem uma paragem.
+> Só irá experimentar uma paragem com este procedimento se tiver dependências do cluster DNS (como ao aceder ao [Service Fabric Explorer).](service-fabric-visualizing-your-cluster.md) As [melhores práticas arquitetónicas para serviços front-end](/azure/architecture/microservices/design/gateway) é ter algum tipo de [equilibrador](/azure/architecture/guide/technology-choices/load-balancing-overview) de carga na frente dos seus tipos de nó para tornar possível a troca de nó sem uma paragem.
 
 Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para O Gestor de Recursos Azure que usaremos para completar o cenário de upgrade. As alterações do modelo serão explicadas na [Implementação de uma escala atualizada definida para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type) abaixo.
 
@@ -258,7 +258,7 @@ Depois de implementar todas as alterações nos ficheiros do seu modelo e parâm
 
 ### <a name="obtain-your-key-vault-references"></a>Obtenha as suas referências key Vault
 
-Para implementar a configuração atualizada, primeiro obterá várias referências ao seu certificado de cluster armazenado no seu Cofre de Chaves. A maneira mais fácil de encontrar estes valores é através do portal Azure. Precisa de:
+Para implementar a configuração atualizada, primeiro obterá várias referências ao seu certificado de cluster armazenado no seu Cofre de Chaves. A maneira mais fácil de encontrar estes valores é através do portal Azure. Precisará:
 
 * **O URL do Cofre chave do seu certificado de cluster.** A partir do seu Cofre chave no portal Azure, selecione **Certificados**  >  *O seu certificado*  >  **identificador secreto**pretendido:
 
@@ -356,7 +356,7 @@ foreach($name in $nodeNames){
 
 ![Explorador de tecido de serviço com nódoas para baixo no estado de erro removido](./media/upgrade-managed-disks/service-fabric-explorer-healthy-cluster.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta passagem, aprendeu a atualizar os conjuntos de escala de máquina virtual de um cluster de Tecido de Serviço para utilizar discos geridos, evitando falhas de serviço durante o processo. Para obter mais informações sobre temas relacionados, confira os seguintes recursos.
 

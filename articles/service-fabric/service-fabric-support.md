@@ -5,11 +5,12 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: f2da9fbb04f9d1fa696250967db404864a3cce82
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: ae49a59c2629d9f9461d298ada555d314c0c9f22
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921822"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256973"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte ao tecido de serviço Azure
 
@@ -25,9 +26,9 @@ Saiba mais sobre:
 - [Suporte premier da Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Os agrupamentos que funcionam num nível de fiabilidade de bronze ou num único aglomerado de nó permitir-lhe-ão executar apenas cargas de trabalho de teste. Se sentir problemas com um cluster a correr na fiabilidade do bronze ou no Single Node Cluster, a equipa de suporte da Microsoft irá ajudá-lo a mitigar o problema, mas não realizará uma Análise de Causas De Raiz. Consulte [as características de fiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) para mais detalhes.
+> Os agrupamentos que funcionam num nível de fiabilidade de bronze ou num único aglomerado de nó permitir-lhe-ão executar apenas cargas de trabalho de teste. Se sentir problemas com um cluster a correr na fiabilidade do bronze ou no Single Node Cluster, a equipa de suporte da Microsoft irá ajudá-lo a mitigar o problema, mas não realizará uma Análise de Causas De Raiz. Consulte [as características de fiabilidade do cluster](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) para mais detalhes.
 >
-> Para obter mais informações sobre o que é necessário para um cluster pronto para a produção, consulte a [lista de verificação de prontidão de produção](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Para obter mais informações sobre o que é necessário para um cluster pronto para a produção, consulte a [lista de verificação de prontidão de produção](./service-fabric-production-readiness-checklist.md).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -44,7 +45,7 @@ Saiba mais sobre:
 
 Criámos um repo GitHub para reportar problemas de Tecido de Serviço.  Estamos também a monitorizar ativamente os seguintes fóruns.
 
-### <a name="github-repo"></a>GitHub repo 
+### <a name="github-repo"></a>Repositório do GitHub 
 
 Reportar problemas de tecido de serviço Azure sobre [questões de tecido de serviço git repo](https://github.com/Azure/service-fabric-issues). Este repo destina-se a reportar e rastrear problemas com a Azure Service Fabric e a fazer pequenos pedidos de funcionalidades. **Não o utilize para reportar problemas no local.**
 
@@ -58,15 +59,15 @@ O [Azure Feedback Forum for Service Fabric][uservoice-forum] é o melhor local p
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões de pré-visualização do tecido de serviço - não suportado para uso de produção
 
-De tempos a tempos, lançamos versões que têm funcionalidades significativas sobre as quais queremos feedback, que são lançados como pré-visualizações. Estas versões de pré-visualização só devem ser utilizadas para efeitos de teste. O seu cluster de produção deve estar sempre a executar uma versão suportada, estável, de Tecido de Serviço. Uma versão de pré-visualização começa sempre com um número de versão maior e menor de 255. Por exemplo, se vir uma versão 255.255.5703.949, esta versão de lançamento só deve ser utilizada em clusters de teste e está em pré-visualização. Estes lançamentos de pré-visualização também são anunciados no blog da equipa do [Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e terão detalhes sobre as funcionalidades incluídas.
-Não existe nenhuma opção de suporte pago para estes lançamentos de pré-visualização. Utilize uma das opções listadas nos [problemas do Report Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para fazer perguntas ou fornecer feedback.
+De tempos a tempos, lançamos versões que têm funcionalidades significativas sobre as quais queremos feedback, que são lançados como pré-visualizações. Estas versões de pré-visualização só devem ser utilizadas para efeitos de teste. O seu cluster de produção deve estar sempre a executar uma versão suportada, estável, de Tecido de Serviço. Uma versão de pré-visualização começa sempre com um número de versão maior e menor de 255. Por exemplo, se vir uma versão 255.255.5703.949, esta versão de lançamento só deve ser utilizada em clusters de teste e está em pré-visualização. Estes lançamentos de pré-visualização também são anunciados no blog da equipa do [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) e terão detalhes sobre as funcionalidades incluídas.
+Não existe nenhuma opção de suporte pago para estes lançamentos de pré-visualização. Utilize uma das opções listadas nos [problemas do Report Azure Service Fabric](#report-azure-service-fabric-issues) para fazer perguntas ou fornecer feedback.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Versões de tecido de serviço suportado](service-fabric-versions.md)
 
 <!--references-->
-[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
+[Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

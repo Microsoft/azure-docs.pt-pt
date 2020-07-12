@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a8dfb35ed1944a17e0d374405bfd1feafe38fd02
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 522aed07d850dfdb2782ee8263f33bd3f42eb8c2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206434"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86258033"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -27,8 +27,8 @@ A versão API do plano de controlo mais atual para pré-visualização pública 
 Para utilizar as APIs do plano de controlo:
 * Pode ligar diretamente para as APIs, referindo-se à mais recente [pasta Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Este repo também inclui uma pasta de exemplos que mostram o uso.
 * Atualmente você pode aceder ADKs para controlar APIs em...
-  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) [(fonte)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([fonte)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)[(referência)](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview)
+  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) [(fonte)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)[(referência [auto-gerada]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([fonte)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)[(referência [auto-gerada]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) [(fonte)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins)
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([fonte)](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins)
   - [Ir - fonte](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)

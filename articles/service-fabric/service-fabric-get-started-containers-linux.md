@@ -4,18 +4,19 @@ description: Crie a sua primeira aplicação de contentor do Linux no Azure Serv
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 07e3682ec1787ceb350ac72c8b80d86eed80b339
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 783f6a06d57a447998710e2c8ff349b23ef751c5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560649"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86256401"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Para executar uma aplicação existente num contentor do Linux num cluster do Service Fabric, não precisa de fazer quaisquer alterações à sua aplicação. Este artigo orienta-o ao longo da criação de uma imagem do Docker que contém uma aplicação Web [Flask](http://flask.pocoo.org/) de Python e da implementação da mesma num cluster do Service Fabric. Também vai partilhar a sua aplicação contentorizada através do [Azure Container Registry](/azure/container-registry/). Este artigo pressupõe uma compreensão básica do Docker. Para saber mais sobre o Docker, leia a [Descrição Geral do Docker](https://docs.docker.com/engine/understanding-docker/).
+Para executar uma aplicação existente num contentor do Linux num cluster do Service Fabric, não precisa de fazer quaisquer alterações à sua aplicação. Este artigo orienta-o ao longo da criação de uma imagem do Docker que contém uma aplicação Web [Flask](http://flask.pocoo.org/) de Python e da implementação da mesma num cluster do Service Fabric. Também vai partilhar a sua aplicação contentorizada através do [Azure Container Registry](../container-registry/index.yml). Este artigo pressupõe uma compreensão básica do Docker. Para saber mais sobre o Docker, leia a [Descrição Geral do Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > Este artigo aplica-se a um ambiente de desenvolvimento linux.  O tempo de funcionamento do cluster de tecido de serviço e o tempo de funcionamento do Docker devem estar a funcionar no mesmo SISTEMA.  Não é possível executar recipientes Linux num cluster Windows.
@@ -465,7 +466,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) (Implementar uma aplicação .NET num contentor).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

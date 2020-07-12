@@ -3,11 +3,12 @@ title: Modelo para criar alertas de saúde de recursos
 description: Crie alertas programáticamente que o notifiquem quando os seus recursos Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18a3b2df2d159d2903c69debd79cccfc6d0af63e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759010"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86255885"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de estado de funcionamento dos recursos com os modelos do Resource Manager
 
@@ -30,45 +31,55 @@ Para seguir as instruções desta página, terá de configurar algumas coisas co
 ## <a name="instructions"></a>Instruções
 1. Utilizando o PowerShell, faça login no Azure usando a sua conta e selecione a subscrição com a quais pretende interagir
 
-        Login-AzAccount
-        Select-AzSubscription -Subscription <subscriptionId>
+    ```azurepowershell
+    Login-AzAccount
+    Select-AzSubscription -Subscription <subscriptionId>
+    ```
 
     > Pode utilizar `Get-AzSubscription` para listar as subscrições a que tem acesso.
 
 2. Encontre e guarde o ID completo do Gestor de Recursos Azure para o seu Grupo de Ação
 
-        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+    ```azurepowershell
+    (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+    ```
 
 3. Crie e guarde um modelo de Gestor de Recursos para alertas de saúde de recursos como `resourcehealthalert.json` [(ver detalhes abaixo](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Crie uma nova implementação do Gestor de Recursos Azure usando este modelo
 
-        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+    ```azurepowershell
+    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+    ```
 
 5. Será solicitado para escrever o ID do Grupo de Alerta e O Grupo de Ação que copiou anteriormente:
 
-        Supply values for the following parameters:
-        (Type !? for Help.)
-        activityLogAlertName: <Alert Name>
-        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+    ```azurepowershell
+    Supply values for the following parameters:
+    (Type !? for Help.)
+    activityLogAlertName: <Alert Name>
+    actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+    ```
 
 6. Se tudo funcionou com sucesso, terás uma confirmação no PowerShell.
 
-        DeploymentName          : ExampleDeployment
-        ResourceGroupName       : <resourceGroup>
-        ProvisioningState       : Succeeded
-        Timestamp               : 11/8/2017 2:32:00 AM
-        Mode                    : Incremental
-        TemplateLink            :
-        Parameters              :
-                                Name                     Type       Value
-                                ===============          =========  ==========
-                                activityLogAlertName     String     <Alert Name>
-                                activityLogAlertEnabled  Bool       True
-                                actionGroupResourceId    String     /...
-        
-        Outputs                 :
-        DeploymentDebugLogLevel :
+    ```output
+    DeploymentName          : ExampleDeployment
+    ResourceGroupName       : <resourceGroup>
+    ProvisioningState       : Succeeded
+    Timestamp               : 11/8/2017 2:32:00 AM
+    Mode                    : Incremental
+    TemplateLink            :
+    Parameters              :
+                            Name                     Type       Value
+                            ===============          =========  ==========
+                            activityLogAlertName     String     <Alert Name>
+                            activityLogAlertEnabled  Bool       True
+                            actionGroupResourceId    String     /...
+
+    Outputs                 :
+    DeploymentDebugLogLevel :
+    ```
 
 Note que se estiver a planear automatizar totalmente este processo, basta editar o modelo de Gestor de Recursos para não solicitar os valores no Passo 5.
 
@@ -435,7 +446,7 @@ Utilizando os diferentes ajustes descritos na secção anterior, aqui está um m
 
 No entanto, saberá melhor quais as configurações que são eficazes para si, por isso use as ferramentas que lhe são ensinadas nesta documentação para fazer a sua própria personalização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Saúde dos Recursos:
 -  [Visão geral da Saúde dos Recursos Azure](Resource-health-overview.md)

@@ -4,12 +4,12 @@ description: Aqui está como permitir o suporte de identidades geridas em um clu
 ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
-ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 722c507300cc5766d162f336f77f60293c5c90dc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415680"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86257618"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configurar suporte de identidade gerido num cluster de tecido de serviço existente
 
@@ -40,7 +40,7 @@ Para ativar o Serviço de Token de Identidade Gerida num cluster existente, ter�
 ]
 ```
 
-Para que as alterações entrem em vigor, também terá de alterar a política de atualização para especificar um reinício vigoroso do tempo de funcionamento do Tecido de Serviço em cada nó à medida que a atualização progride através do cluster. Este reinício garante que o serviço de sistema recentemente ativado seja iniciado e em funcionamento em cada nó. No corte abaixo, `forceRestart` é a definição essencial para permitir o reinício. Para os parâmetros restantes, utilize valores descritos abaixo ou utilize valores personalizados já especificados para o recurso cluster. As definições personalizadas para a Política de Atualização do Tecido ('upgradeDscription') podem ser vistas a partir do Portal Azure selecionando a opção 'Fabric Upgrades' no recurso 'Fabric Fabric' ou resources.azure.com. As opções predefinidos para a política de atualização ('upgradeDscription') não são visualizais a partir de powershell ou resources.azure.com. Consulte [clusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) para obter informações adicionais.  
+Para que as alterações entrem em vigor, também terá de alterar a política de atualização para especificar um reinício vigoroso do tempo de funcionamento do Tecido de Serviço em cada nó à medida que a atualização progride através do cluster. Este reinício garante que o serviço de sistema recentemente ativado seja iniciado e em funcionamento em cada nó. No corte abaixo, `forceRestart` é a definição essencial para permitir o reinício. Para os parâmetros restantes, utilize valores descritos abaixo ou utilize valores personalizados já especificados para o recurso cluster. As definições personalizadas para a Política de Atualização do Tecido ('upgradeDscription') podem ser vistas a partir do Portal Azure selecionando a opção 'Fabric Upgrades' no recurso 'Fabric Fabric' ou resources.azure.com. As opções predefinidos para a política de atualização ('upgradeDscription') não são visualizais a partir de powershell ou resources.azure.com. Consulte [clusterUpgradePolicy](/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) para obter informações adicionais.  
 
 ```json
 "upgradeDescription": {
