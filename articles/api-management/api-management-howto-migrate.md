@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 39803ab88e5b252ef119d22a697e135c83f87780
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0eed2328aca78402c5f4691bb9b3d07d4f36472e
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205643"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250231"
 ---
 # <a name="how-to-migrate-azure-api-management-across-regions"></a>Como migrar a Azure API Management através das regiões
 Para migrar instâncias de Gestão da API de uma região Azure para outra, pode utilizar a [funcionalidade de backup e restauro.](api-management-howto-disaster-recovery-backup-restore.md) Deve escolher o mesmo nível de preços da API Management nas regiões de origem e alvo. 
 
 > [!NOTE]
-> A cópia de segurança e a restauração não funcionarão enquanto migram entre diferentes tipos de nuvens. Para isso, terá de exportar o recurso [como modelo.](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal#export-resource-groups-to-templates) Em seguida, adapte o modelo exportado para a região de Azure alvo e re-crie o recurso. 
+> A cópia de segurança e a restauração não funcionarão enquanto migram entre diferentes tipos de nuvens. Para isso, terá de exportar o recurso [como modelo.](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates) Em seguida, adapte o modelo exportado para a região de Azure alvo e re-crie o recurso. 
 
 ## <a name="option-1-use-a-different-api-management-instance-name"></a>Opção 1: Utilize um nome diferente de instância de gestão de API
 
@@ -47,4 +47,4 @@ Para migrar instâncias de Gestão da API de uma região Azure para outra, pode 
 ## <a name="next-steps"></a><a name="next-steps"> </a>Passos seguintes
 * Para obter mais informações sobre a funcionalidade de backup e restauro, consulte [como implementar a recuperação de desastres.](api-management-howto-disaster-recovery-backup-restore.md)
 * Para obter informações sobre os recursos migratórios Azure, consulte [a orientação para a migração transnações de Azure.](https://github.com/Azure/Azure-Migration-Guidance)
-* [Otimize e poupe nos gastos na nuvem.](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Otimize e poupe nos gastos na nuvem.](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 40ea26a2394b7ca093f1bba2456ebf5ef116cd0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1713f2ca8fda0c768727ea12e682b373d644bcba
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695815"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249823"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões políticas de gestão da API
 Este artigo discute a sintaxe das expressões políticas em C# 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) implicitamente fornecida e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de quadros .NET.
@@ -26,7 +27,7 @@ Para obter mais informações:
 
 - Veja como fornecer informações de contexto ao seu serviço de backend. Utilize o parâmetro de [cadeia de consulta de conjunto](api-management-transformation-policies.md#SetQueryStringParameter) e [desempenhe](api-management-transformation-policies.md#SetHTTPheader) as políticas do cabeçalho HTTP para fornecer estas informações.
 - Veja como utilizar a política [validada do JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações com base em reclamações simbólicas.
-- Veja como utilizar um [rastreador de inspetor da API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) para ver como as políticas são avaliadas e os resultados dessas avaliações.
+- Veja como utilizar um [rastreador de inspetor da API](./api-management-howto-api-inspector.md) para ver como as políticas são avaliadas e os resultados dessas avaliações.
 - Veja como usar expressões com o [Get from cache](api-management-caching-policies.md#GetFromCache) e Store para [cache](api-management-caching-policies.md#StoreToCache) políticas para configurar a resposta da API Management. Desace uma duração que corresponda ao caching de resposta do serviço de backend, conforme especificado pela diretiva do serviço `Cache-Control` apoiado.
 - Veja como executar a filtragem de conteúdos. Remova os elementos de dados da resposta recebida do backend utilizando as políticas do [corpo do controle](api-management-advanced-policies.md#choose) e [do conjunto.](api-management-transformation-policies.md#SetBody)
 - Para descarregar as declarações de política, consulte as [amostras/políticas de gestão da API](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub.
@@ -155,7 +156,7 @@ A tabela que se segue lista os tipos de quadros .NET e os seus membros que são 
 |System.Security.Cryptography.SymmetricAlgorithm|Todos|
 |System.Security.Cryptography.X509Certificates.PublicKey|Todos|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Todos|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nome|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Todos|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Todos|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Todos|
@@ -209,7 +210,7 @@ Uma variável nomeada `context` está implicitamente disponível em todas as [ex
 
 |Variável de contexto|Métodos, propriedades e valores de parâmetros permitidos|
 |----------------------|-------------------------------------------------------|
-|contexto|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor do timestamp e o tempo atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Produto](#ref-context-product)<br /><br /> [Pedir](#ref-context-request)<br /><br /> RequestId: Guid - identificador de pedido único<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Subscrição](#ref-context-subscription)<br /><br /> Timetamp: DateTime - ponto no tempo em que o pedido foi recebido<br /><br /> Rastreio: bool - indica se o rastreio está ligado ou desligado <br /><br /> [Utilizador](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): IReadOnlyDictionary<string, object><br /><br /> vestígios vazios (mensagem: cadeia)|
+|contexto|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementação](#ref-context-deployment)<br /><br /> Decorrido: TimeSpan - intervalo de tempo entre o valor do timestamp e o tempo atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Produto](#ref-context-product)<br /><br /> [Pedir](#ref-context-request)<br /><br /> RequestId: Guid - identificador de pedido único<br /><br /> [Response](#ref-context-response)<br /><br /> [Subscrição](#ref-context-subscription)<br /><br /> Timetamp: DateTime - ponto no tempo em que o pedido foi recebido<br /><br /> Rastreio: bool - indica se o rastreio está ligado ou desligado <br /><br /> [Utilizador](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): IReadOnlyDictionary<string, object><br /><br /> vestígios vazios (mensagem: cadeia)|
 |<a id="ref-context-api"></a>contexto. Api|Id: corda<br /><br /> IsCurrentRevision: bool<br /><br />  Nome: cadeia<br /><br /> Caminho: corda<br /><br /> Revisão: cadeia<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Versão: corda |
 |<a id="ref-context-deployment"></a>contexto. Implantação|Região: corda<br /><br /> Nome de serviço: cadeia<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>contexto. LastError|Fonte: cadeia<br /><br /> Razão: corda<br /><br /> Mensagem: cadeia<br /><br /> Âmbito: cadeia<br /><br /> Secção: cadeia<br /><br /> Caminho: corda<br /><br /> PolicyId: string<br /><br /> Para mais informações sobre o contexto. LastError, consulte [o tratamento de erros](api-management-error-handling-policies.md).|
@@ -245,11 +246,11 @@ Uma variável nomeada `context` está implicitamente disponível em todas as [ex
 |bool CheckNoRevocation (entrada: este sistema.Security.Cryptography.X509Certificates.X509Certificate2)|Executa uma validação em cadeia X.509 sem verificar o estado de revogação do certificado.<br /><br />entrada - objeto de certificado<br /><br />Devoluções `true` se a validação for bem sucedida; `false` se a validação falhar.|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as políticas, consulte:
 
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
-+ [Referência política](api-management-policy-reference.md) para uma lista completa de declarações políticas e suas definições
++ [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
 + [Amostras de política](policy-samples.md)

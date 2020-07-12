@@ -3,11 +3,12 @@ title: Descrevendo aplicativos e serviços de tecido de serviço Azure
 description: Descreve como os manifestos são usados para descrever aplicações e serviços do Service Fabric.
 ms.topic: conceptual
 ms.date: 8/12/2019
-ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349967"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248225"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Aplicação de tecido de serviço e manifestos de serviço
 Este artigo descreve como as aplicações e serviços do Service Fabric são definidos e ver versão usando os ficheiros ApplicationManifest.xml e ServiceManifest.xml.  Para exemplos mais detalhados, consulte [exemplos de manifestos de aplicação e serviço.](service-fabric-manifest-examples.md)  O esquema XML para estes ficheiros manifestos está documentado na [documentação do esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -156,7 +157,7 @@ Tal como os manifestos de serviço, os atributos **de versão** são cordas não
 
 **Os certificados** (não definidos no exemplo anterior) declaram os certificados utilizados para [configurar pontos finais HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) ou [encriptar segredos no manifesto de aplicação](service-fabric-application-secret-management.md).
 
-**Restrições de colocação** são as declarações que definem onde os serviços devem ser executados. Estas declarações estão anexadas a serviços individuais que seleciona para uma ou mais propriedades de nó. Para obter mais informações, consulte [restrições de colocação e sintaxe de propriedade de nó](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+**Restrições de colocação** são as declarações que definem onde os serviços devem ser executados. Estas declarações estão anexadas a serviços individuais que seleciona para uma ou mais propriedades de nó. Para obter mais informações, consulte [restrições de colocação e sintaxe de propriedade de nó](./service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-property-syntax)
 
 **As políticas** (não definidas no exemplo anterior) descrevem a recolha de registos, as políticas de acesso por [defeito,](service-fabric-application-runas-security.md) [saúde](service-fabric-health-introduction.md#health-policies)e acesso à [segurança](service-fabric-application-runas-security.md) a definir ao nível da aplicação, incluindo se os serviços(s) têm acesso ao tempo de funcionamento do Tecido de Serviço.
 
@@ -179,7 +180,7 @@ For more information about other features supported by application manifests, re
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Embale uma aplicação](service-fabric-package-apps.md) e prepare-a para ser implantada.
 - [Implementar e remover aplicações](service-fabric-deploy-remove-applications.md).
 - [Configure parâmetros e variáveis ambientais para diferentes instâncias de aplicação](service-fabric-manage-multiple-environment-app-configuration.md).
@@ -191,6 +192,3 @@ For more information about other features supported by application manifests, re
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-
-
-

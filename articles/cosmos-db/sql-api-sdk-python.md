@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
 ms.custom: tracking-python
-ms.openlocfilehash: e70d7d1f2ca7aa0eeec08d69720e37c5be34f8ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bd880806a4b067139c1f22a0e4d4e6df5c88451
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391915"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247069"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
 
@@ -28,7 +28,7 @@ ms.locfileid: "85391915"
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
+> * [DESCANSE](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
@@ -134,7 +134,7 @@ ms.locfileid: "85391915"
 
 * Todas as operações que tomem `request_options` ou `feed_options` parâmetros, estas foram movidas apenas para parâmetros de palavras-chave. Além disso, embora estes dicionários de opções ainda sejam suportados, cada uma das opções individuais dentro do dicionário são agora suportadas como argumentos de palavra-chave explícitos.
 
-* A hierarquia do erro é agora herdada `azure.core.AzureError` de, em vez de, que foi removida.
+* A hierarquia do erro é agora herdada `azure.core.AzureError` de:
 
   * `HTTPFailure` mudou de nome para `CosmosHttpResponseError`
   * `JSONParseFailure`foi removido e substituído por`azure.core.DecodeError`
@@ -342,6 +342,6 @@ Qualquer pedido à Azure Cosmos DB utilizando um SDK reformado é rejeitado pelo
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 

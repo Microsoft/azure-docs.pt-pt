@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: d23c8114bf10ef3225775accef6910c0ba539e15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645740"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247647"
 ---
 # <a name="eventstore-overview"></a>Visão geral da loja de eventos
 
@@ -45,7 +46,7 @@ O serviço EventStore pode ser consultado para eventos que estejam disponíveis 
 * Réplicas de partição: eventos de todas as réplicas/instâncias dentro de uma partição específica identificada por`partitionId`
 * Réplica de partição: eventos a partir de uma réplica/instância específica identificada por `replicaId` e`partitionId`
 
-Para saber mais sobre a API consulte a referência API da [EventStore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Para saber mais sobre a API consulte a referência API da [EventStore](/rest/api/servicefabric/sfclient-index-eventsstore).
 
 O serviço EventStore também tem a capacidade de correlacionar eventos no seu cluster. Olhando para eventos que foram escritos ao mesmo tempo de diferentes entidades que podem ter impactado entre si, o serviço EventStore é capaz de associar estes eventos para ajudar a identificar causas para atividades no seu cluster. Por exemplo, se uma das suas aplicações se tornar insalubre sem alterações induzidas, o EventStore também analisará outros eventos expostos pela plataforma e poderá correlacionar isso com um `Error` ou `Warning` evento. Isto ajuda na deteção rápida de falhas e na análise de causas de raiz.
 
@@ -121,9 +122,9 @@ Se estiver a utilizar a versão 6.4, pode editar o seu modelo de Gestor de Recur
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Começar com a API da Loja de Eventos - [Utilização das APIs da EventStore em clusters de tecido de serviço Azure](service-fabric-diagnostics-eventstore-query.md)
 * Saiba mais sobre a lista de eventos oferecidos pela EventStore - [Eventos de Tecido de Serviço](service-fabric-diagnostics-event-generation-operational.md)
 * Visão geral da monitorização e diagnósticos em Tecido de Serviço - [Monitorização e Diagnóstico de Tecido de Serviço](service-fabric-diagnostics-overview.md)
-* Ver a lista completa de chamadas API - [Referência API da Loja de Eventos](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)
+* Ver a lista completa de chamadas API - [Referência API da Loja de Eventos](/rest/api/servicefabric/sfclient-index-eventsstore)
 * Saiba mais sobre a monitorização do seu cluster - [Monitorização do cluster e da plataforma.](service-fabric-diagnostics-event-generation-infra.md)

@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa6d4fc27373e524f4c492635cffbf8b735add8
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75614371"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247222"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adicionar registos à sua aplicação do Service Fabric
 
@@ -95,7 +96,7 @@ A utilização de um híbrido de instrumentação estruturada e genérica també
 
 O ASP.NET core logging[(Microsoft.Extensions.Logging NuGet )](https://www.nuget.org/packages/Microsoft.Extensions.Logging)é uma estrutura de registo que fornece uma API de registo padrão para a sua aplicação. O suporte para outros backends de registo pode ser ligado ASP.NET registo do Núcleo. Isto dá-lhe uma grande variedade de suporte para iniciar sessão na sua aplicação é processado, sem ter que alterar muito código.
 
-1. Adicione o pacote **Microsoft.Extensions.Logging** NuGet ao projeto que pretende instrumentar. Além disso, adicione quaisquer pacotes de fornecedor. Para obter mais informações, consulte [iniciar sessão no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+1. Adicione o pacote **Microsoft.Extensions.Logging** NuGet ao projeto que pretende instrumentar. Além disso, adicione quaisquer pacotes de fornecedor. Para obter mais informações, consulte [iniciar sessão no ASP.NET Core](/aspnet/core/fundamentals/logging).
 2. Adicione uma diretiva **de utilização** para **Microsoft.Extensions.Logging** no seu ficheiro de serviço.
 3. Defina uma variável privada dentro da sua classe de serviço.
 
@@ -162,17 +163,7 @@ Alguns fornecedores de terceiros utilizam a abordagem descrita na secção anter
    >[!NOTE]
    >Recomendamos que *não* utilize a estática `Log.Logger` com o exemplo anterior. O Tecido de Serviço pode acolher várias instâncias do mesmo tipo de serviço dentro de um único processo. Se utilizar a `Log.Logger` estática, o último autor dos enriquecedores de imóveis mostrará valores para todos os casos que estão em execução. Esta é uma das razões pelas quais a variável _logger é uma variável de membro privado da classe de serviço. Além disso, deve disponibilizar o `_logger` código comum, que poderá ser utilizado em todos os serviços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais informações sobre [a monitorização de aplicações no Tecido de Serviço.](service-fabric-diagnostics-event-generation-app.md)
 - Leia sobre o registo com [o EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [o Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
-
-
-
-
-
-
-
-
-
-

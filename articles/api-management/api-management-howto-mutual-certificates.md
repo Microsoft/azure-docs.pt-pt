@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: b0ddf6dda99ee666e3052b5a70e51c7e4208a374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e02a47cd6ae6e4883b5113b07d4049cd723232d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80347095"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250197"
 ---
-# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end com a autenticação de certificado de cliente na Gestão de API do Azure
+# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end com a autenticação de certificados de cliente na Gestão de API do Azure
 
 A API Management permite-lhe garantir o acesso ao serviço back-end de uma API utilizando certificados de cliente. Este guia mostra como gerir certificados na instância de serviço da Azure API Management no portal Azure. Também explica como configurar uma API para usar um certificado para aceder a um serviço de back-end.
 
@@ -75,7 +75,7 @@ Se o certificado for utilizado por uma API, é apresentado um ecrã de aviso. Pa
 3. Altere as **credenciais Gateway** para **o Certificado do Cliente** e selecione o seu certificado a partir do dropdown.
     ![Ativar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Clique em **Guardar**.
+4. Clique em **Save** (Guardar).
 
 > [!WARNING]
 > Esta alteração é eficaz imediatamente, e as chamadas para operações dessa API usarão o certificado para autenticar no servidor back-end.
@@ -86,24 +86,24 @@ Se o certificado for utilizado por uma API, é apresentado um ecrã de aviso. Pa
 
 ## <a name="self-signed-certificates"></a>Certificados auto-assinados
 
-Se estiver a utilizar certificados auto-assinados, terá de desativar a validação da cadeia de certificados para que a API Management comunique com o sistema de backend. Caso contrário, devolverá um código de erro de 500. Para configurar isto, pode utilizar os [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdletes PowerShell (para a parte de trás) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (para a parte traseira existente) e definir o `-SkipCertificateChainValidation` parâmetro para `True` .
+Se estiver a utilizar certificados auto-assinados, terá de desativar a validação da cadeia de certificados para que a API Management comunique com o sistema de backend. Caso contrário, devolverá um código de erro de 500. Para configurar isto, pode utilizar os [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdletes PowerShell (para a parte de trás) ou [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (para a parte traseira existente) e definir o `-SkipCertificateChainValidation` parâmetro para `True` .
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[Azure API Management REST API Certificate entity]: https://msdn.microsoft.com/library/azure/dn783483.aspx
+[Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 

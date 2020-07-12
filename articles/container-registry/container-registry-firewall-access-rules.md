@@ -3,11 +3,12 @@ title: Regras de acesso a firewall
 description: Configure as regras de acesso a um registo de contentores Azure por trás de uma firewall, permitindo o acesso à API ("whitelisting") API e nomes de domínio de ponto final de dados ou intervalos de endereço IP específicos de serviço.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849995"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86246984"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure regras para aceder a um registo de contentores Azure atrás de uma firewall
 
@@ -178,11 +179,11 @@ Depois de configurar pontos finais de dados dedicados para o seu registo, pode a
 
 Se precisar de aceder ao Microsoft Container Registry (MCR) por detrás de uma firewall, consulte as orientações para configurar as regras de [firewall do cliente MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR é o registo primário de todas as imagens de estivadores publicadas pela Microsoft, como imagens do Windows Server.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça as [melhores práticas do Azure para a segurança da rede](../security/fundamentals/network-best-practices.md)
 
-* Saiba mais sobre [grupos de segurança](/azure/virtual-network/security-overview) numa rede virtual Azure
+* Saiba mais sobre [grupos de segurança](../virtual-network/security-overview.md) numa rede virtual Azure
 
 * Saiba mais sobre a criação [do Private Link](container-registry-private-link.md) para um registo de contentores
 
@@ -198,4 +199,3 @@ Se precisar de aceder ao Microsoft Container Registry (MCR) por detrás de uma f
 
 [az-acr-update]: /cli/azure/acr#az-acr-update
 [az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
-

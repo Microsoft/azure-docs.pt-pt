@@ -3,15 +3,15 @@ title: Referência do programador Azure Functions F#
 description: Entenda como desenvolver funções Azure usando o script F#.
 author: sylvanc
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 005cb0044cb4d225c8b94602fb907fee09fb00b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846734"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249194"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência do programador Azure Functions F#
 
@@ -284,8 +284,8 @@ Os caminhos que fornecem a `#load` diretiva são relativos à localização do s
 
 A `#load` diretiva só funciona com `.fsx` ficheiros (script F#) e não com `.fs` ficheiros.
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais informações, consulte os seguintes recursos:
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações, veja os seguintes recursos:
 
 * [Guia F#](/dotnet/articles/fsharp/index)
 * [Boas Práticas para Funções Azure](functions-best-practices.md)

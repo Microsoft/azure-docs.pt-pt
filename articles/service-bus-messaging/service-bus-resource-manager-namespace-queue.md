@@ -8,30 +8,30 @@ ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e382d39e10e1907c9892f03a3da64945f3049fee
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: cb87b33ee3f88e17f7d9b7557040849745b2d95f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337022"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248463"
 ---
-# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Quickstart: Crie um espaço de nome de ônibus de serviço e uma fila usando um modelo de gestor de recursos Azure
+# <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>Quickstart: Crie um espaço de nome de ônibus de serviço e uma fila usando um modelo ARM
 
-Este artigo mostra como usar um modelo de Gestor de Recursos Azure que cria um espaço de nome de Service Bus e uma fila dentro desse espaço de nome. O artigo explica como especificar quais os recursos que são implantados e como definir parâmetros especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
+Este artigo mostra como usar um modelo de Gestor de Recursos Azure (modelo ARM) que cria um espaço de nome de Service Bus e uma fila dentro desse espaço de nome. O artigo explica como especificar quais os recursos que são implantados e como definir parâmetros especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Nenhuma
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="create-a-service-bus-namespace-and-a-queue"></a>Crie um espaço de nomes de ônibus de serviço e uma fila
+## <a name="review-the-template"></a>Rever o modelo
 
-### <a name="review-the-template"></a>Rever o modelo
-
-O modelo utilizado neste início rápido pertence aos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
+O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
 
 :::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json" range="1-75" highlight="31-63":::
 
@@ -41,16 +41,16 @@ Os recursos definidos no modelo incluem:
 - [**Microsoft.ServiceBus/namespaces/filas**](/azure/templates/microsoft.servicebus/namespaces/queues)
 
 > [!NOTE]
-> Os seguintes modelos do Gestor de Recursos Azure estão disponíveis para download e implementação.
+> Os seguintes modelos ARM estão disponíveis para download e implementação.
 >
 > * [Criar um espaço de nome de ônibus de serviço com regra de fila e autorização](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Criar um espaço de nomes de ônibus de serviço com tópico e subscrição](service-bus-resource-manager-namespace-topic.md)
 > * [Criar um espaço de nomes do Service Bus](service-bus-resource-manager-namespace.md)
 > * [Criar um espaço de nomes de Service Bus com tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-Você pode encontrar mais modelo de [modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)
+Você pode encontrar mais modelo de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 Com este modelo, você implementa um espaço de nome de Service Bus com uma fila.
 
@@ -58,9 +58,9 @@ Com este modelo, você implementa um espaço de nome de Service Bus com uma fila
 
 Para executar a implementação automaticamente, clique no seguinte botão: Crie um novo grupo de recursos para a implementação para que possa ser facilmente limpada mais tarde.
 
-[![Implementar no Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
-## <a name="verify-the-deployment"></a>Verificar a implementação
+## <a name="validate-the-deployment"></a>Validar a implementação
 
 1. Selecione **Notificações** no topo para ver o estado da implementação. Espere até que o destacamento tenha sucesso. Em seguida, selecione **Ir ao grupo de recursos** na mensagem de notificação para navegar na página para o grupo de recursos que contém o espaço de nomes do Service Bus. 
 
@@ -70,7 +70,7 @@ Para executar a implementação automaticamente, clique no seguinte botão: Crie
     ![Grupo de recursos - espaço de nome](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
 3. Selecione o espaço de nomes da lista para ver a página **Service Bus Namespace.** 
 
-## <a name="cleanup-resources"></a>Recursos de limpeza
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. No portal Azure, navegue na página do **grupo De recursos** para o seu grupo de recursos.
 2. Selecione **Eliminar grupo de recursos**, na barra de ferramentas. 
@@ -82,7 +82,7 @@ Para executar a implementação automaticamente, clique no seguinte botão: Crie
 
 Veja o seguinte tópico que mostra como criar uma regra de autorização para o espaço/fila de nomes:
 
-[Crie uma regra de autorização de ônibus de serviço para espaço de nome e fila usando um modelo de Gestor de Recursos Azure](service-bus-resource-manager-namespace-auth-rule.md)
+[Crie uma regra de autorização de ônibus de serviço para espaço de nome e fila usando um modelo ARM](service-bus-resource-manager-namespace-auth-rule.md)
 
 Saiba como gerir estes recursos visualizando estes artigos:
 

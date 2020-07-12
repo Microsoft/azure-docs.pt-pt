@@ -3,11 +3,12 @@ title: Atualizar um cluster para usar o nome comum do certificado
 description: Saiba como mudar um cluster de Tecido de Serviço de usar impressões digitais de certificado para usar o nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 1926b0501766eb0a5fe086ceada0c9bf45e3dcf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a90290430616302dbbe9ab9cf717510070936529
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81272632"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247919"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster do thumbprint do certificado para o nome comum
 Nenhum certificado pode ter a mesma impressão digital, o que dificulta a capotamento ou gestão do certificado de cluster. Vários certificados, no entanto, podem ter o mesmo nome comum ou sujeito.  Mudar um cluster implantado de usar impressões digitais de certificado para usar nomes comuns de certificado torna a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster de tecido de serviço em execução para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -19,7 +20,7 @@ Nenhum certificado pode ter a mesma impressão digital, o que dificulta a capota
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obtenha um certificado
-Em primeiro lugar, obtenha um certificado de uma [autoridade de certificados (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado que possui, e comprado a partir de um registrador de domínio. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são funcionários da Microsoft não podem providenciar certificados para domínios MS, por isso não pode utilizar os nomes DNS do seu LB ou Traffic Manager como nomes comuns para o seu certificado, e terá de providenciar uma [Zona DE DNS Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se o seu domínio personalizado for resolúvel em Azure. Também irá querer declarar o seu domínio personalizado que possui como "managementEndpoint" do seu cluster se quiser que o portal reflita o pseudónimo de domínio personalizado para o seu cluster.
+Em primeiro lugar, obtenha um certificado de uma [autoridade de certificados (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado que possui, e comprado a partir de um registrador de domínio. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são funcionários da Microsoft não podem providenciar certificados para domínios MS, por isso não pode utilizar os nomes DNS do seu LB ou Traffic Manager como nomes comuns para o seu certificado, e terá de providenciar uma [Zona DE DNS Azure](../dns/dns-delegate-domain-azure-dns.md) se o seu domínio personalizado for resolúvel em Azure. Também irá querer declarar o seu domínio personalizado que possui como "managementEndpoint" do seu cluster se quiser que o portal reflita o pseudónimo de domínio personalizado para o seu cluster.
 
 Para efeitos de teste, pode obter um certificado assinado pela AC de uma autoridade de certificados gratuito ou aberto.
 
@@ -178,7 +179,7 @@ Em seguida, abra o ficheiro de modelo num editor de texto e faça três atualiza
         ...
     ```
 
-Para obter informações adicionais consulte [implementar um cluster de tecido de serviço que usa o nome comum do certificado em vez de impressão digital.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Para obter informações adicionais consulte [implementar um cluster de tecido de serviço que usa o nome comum do certificado em vez de impressão digital.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
 Reimplante o modelo atualizado após efetuar as alterações.
@@ -190,7 +191,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Conheça a [segurança do cluster.](service-fabric-cluster-security.md)
 * Saiba como [capotar um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Atualizar e Gerir certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)

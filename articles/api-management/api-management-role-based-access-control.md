@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: ed0cd51fc686735f2d9c110ce46d5904107cafc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8be8ffa1b569c365c8fa9b985d2b8319b7c0731b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430621"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249840"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure
 
-A Azure API Management conta com o Azure Role-Based Access Control (RBAC) para permitir uma gestão de acessos finos para serviços e entidades de Gestão de API (por exemplo, APIs e políticas). Este artigo dá-lhe uma visão geral das funções integradas e personalizadas na Gestão da API. Para obter mais informações sobre a gestão de acessos no portal Azure, consulte [Começar com a gestão de acessos no portal Azure.](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)
+A Azure API Management conta com o Azure Role-Based Access Control (RBAC) para permitir uma gestão de acessos finos para serviços e entidades de Gestão de API (por exemplo, APIs e políticas). Este artigo dá-lhe uma visão geral das funções integradas e personalizadas na Gestão da API. Para obter mais informações sobre a gestão de acessos no portal Azure, consulte [Começar com a gestão de acessos no portal Azure.](../role-based-access-control/overview.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +30,7 @@ A Azure API Management conta com o Azure Role-Based Access Control (RBAC) para p
 
 A API Management oferece atualmente três funções integradas e irá adicionar mais duas funções num futuro próximo. Estas funções podem ser atribuídas em diferentes âmbitos, incluindo subscrição, grupo de recursos e instância individual de Gestão de API. Por exemplo, se atribuir a função "API Management Service Reader" a um utilizador ao nível do grupo de recursos, então o utilizador leu o acesso a todas as instâncias de Gestão de API dentro do grupo de recursos. 
 
-A tabela a seguir apresenta breves descrições das funções incorporadas. Pode atribuir estas funções utilizando o portal Azure ou outras ferramentas, incluindo Azure [PowerShell,](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)e [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Para obter detalhes sobre como atribuir funções incorporadas, consulte utilizar atribuições de [funções para gerir o acesso aos seus recursos de subscrição Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+A tabela a seguir apresenta breves descrições das funções incorporadas. Pode atribuir estas funções utilizando o portal Azure ou outras ferramentas, incluindo Azure [PowerShell,](../role-based-access-control/role-assignments-powershell.md) [Azure CLI](../role-based-access-control/role-assignments-cli.md)e [REST API](../role-based-access-control/role-assignments-rest.md). Para obter detalhes sobre como atribuir funções incorporadas, consulte utilizar atribuições de [funções para gerir o acesso aos seus recursos de subscrição Azure](../role-based-access-control/role-assignments-portal.md).
 
 | Função          | Ler acesso<sup>[1]</sup> | Escrever acesso<sup>[2]</sup> | Criação de serviço, eliminação, escala, VPN e configuração de domínio personalizado | Acesso ao portal da editora | Descrição
 | ------------- | ---- | ---- | ---- | ---- | ---- 
@@ -47,7 +48,7 @@ A tabela a seguir apresenta breves descrições das funções incorporadas. Pode
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Se nenhuma das funções incorporadas atender às suas necessidades específicas, podem ser criadas funções personalizadas para fornecer uma maior gestão de acesso granular às entidades de Gestão de API. Por exemplo, pode criar uma função personalizada que tenha acesso apenas de leitura a um serviço de Gestão API, mas que apenas tenha acesso a uma API específica. Para saber mais sobre papéis personalizados, consulte [os papéis personalizados no Azure RBAC.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) 
+Se nenhuma das funções incorporadas atender às suas necessidades específicas, podem ser criadas funções personalizadas para fornecer uma maior gestão de acesso granular às entidades de Gestão de API. Por exemplo, pode criar uma função personalizada que tenha acesso apenas de leitura a um serviço de Gestão API, mas que apenas tenha acesso a uma API específica. Para saber mais sobre papéis personalizados, consulte [os papéis personalizados no Azure RBAC.](../role-based-access-control/custom-roles.md) 
 
 > [!NOTE]
 > Para poder ver uma instância de Gestão da API no portal Azure, um papel personalizado deve incluir a ```Microsoft.ApiManagement/service/read``` ação.
@@ -76,10 +77,10 @@ O artigo de operações do [fornecedor de recursos Azure Resource Manager](../ro
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Controlo de Acesso Baseado em Função em Azure, consulte os seguintes artigos:
   * [Get started with access management in the Azure portal (Introdução à gestão do acesso no portal do Azure)](../role-based-access-control/overview.md)
   * [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../role-based-access-control/role-assignments-portal.md)
   * [Papéis personalizados em Azure RBAC](../role-based-access-control/custom-roles.md)
-  * [Operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)
+  * [Operações do fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

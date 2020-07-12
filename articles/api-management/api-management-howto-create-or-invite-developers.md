@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 672f145b638fa6b85f7139f2edb4fc41bb2855d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8f7d7f7707add22d700421b229f6dbe725db465
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81260977"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250463"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na Gestão de API do Azure
 
-Na Gestão da API, os desenvolvedores são os utilizadores das APIs que expõe usando a API Management. Este guia mostra como criar e convidar os desenvolvedores a utilizarem as APIs e os produtos que lhes disponibiliza com a sua instância de Gestão da API. Para obter informações sobre a gestão das contas dos utilizadores programáticamente, consulte a documentação da [entidade utilizadora](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user) na referência [API Management REST.](/rest/api/apimanagement/)
+Na Gestão da API, os desenvolvedores são os utilizadores das APIs que expõe usando a API Management. Este guia mostra como criar e convidar os desenvolvedores a utilizarem as APIs e os produtos que lhes disponibiliza com a sua instância de Gestão da API. Para obter informações sobre a gestão das contas dos utilizadores programáticamente, consulte a documentação da [entidade utilizadora](/rest/api/apimanagement/2019-12-01/user) na referência [API Management REST.](/rest/api/apimanagement/)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -67,9 +68,9 @@ Para bloquear um utilizador, siga os seguintes passos.
 
 ## <a name="reset-a-user-password"></a>Repor a palavra-passe de um utilizador
 
-Para trabalhar programáticamente com contas de utilizador, consulte a documentação da entidade utilizadora na referência [API Management REST API.](/rest/api/apimanagement/) Para redefinir uma palavra-passe da conta de utilizador para um valor específico, pode utilizar a [atualização de uma](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação de utilizador e especificar a palavra-passe desejada.
+Para trabalhar programáticamente com contas de utilizador, consulte a documentação da entidade utilizadora na referência [API Management REST API.](/rest/api/apimanagement/) Para redefinir uma palavra-passe da conta de utilizador para um valor específico, pode utilizar a [atualização de uma](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação de utilizador e especificar a palavra-passe desejada.
 
-## <a name="next-steps"></a><a name="next-steps"> </a>Próximos passos
+## <a name="next-steps"></a><a name="next-steps"> </a>Passos seguintes
 Uma vez criada uma conta de programador, pode associá-la a funções e subscrevê-la em produtos e APIs. Para obter mais informações, consulte [Como criar e utilizar grupos.][How to create and use groups]
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png

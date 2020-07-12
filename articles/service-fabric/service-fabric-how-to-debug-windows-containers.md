@@ -4,11 +4,12 @@ description: Saiba como depurar recipientes Windows em Azure Service Fabric util
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701154"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247256"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Como: Debug Recipientes Windows em Tecido de Serviço Azure usando Visual Studio 2019
 
@@ -16,9 +17,9 @@ Com o Visual Studio 2019, pode depurar aplicações .NET em contentores como ser
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* No Windows 10, siga este quickstart para [configurar o Windows 10 para executar recipientes Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* No Windows Server 2016, siga este quickstart para [configurar o Windows 2016 para executar contentores Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Configurar o seu ambiente de Tecido de Serviço local, seguindo [o seu ambiente de desenvolvimento no Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* No Windows 10, siga este quickstart para [configurar o Windows 10 para executar recipientes Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* No Windows Server 2016, siga este quickstart para [configurar o Windows 2016 para executar contentores Windows](/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Configurar o seu ambiente de Tecido de Serviço local, seguindo [o seu ambiente de desenvolvimento no Windows](./service-fabric-get-started.md)
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>Configure o seu ambiente de desenvolvimento para depurar contentores
 
@@ -37,7 +38,7 @@ Com o Visual Studio 2019, pode depurar aplicações .NET em contentores como ser
       > Pode utilizar `-CreateOneNodeCluster` o para configurar um agrupamento de um nó. O padrão criará um aglomerado local de cinco nós.
       >
 
-      Para saber mais sobre o Serviço DNS em Tecido de Serviço, consulte o [Serviço DNS em Azure Service Fabric.](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice) Para saber mais sobre a utilização de proxy reverso do Service Fabric a partir de serviços em execução num contentor, consulte [o tratamento especial de procuração inversa para serviços em funcionamento em contentores.](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)
+      Para saber mais sobre o Serviço DNS em Tecido de Serviço, consulte o [Serviço DNS em Azure Service Fabric.](./service-fabric-dnsservice.md) Para saber mais sobre a utilização de proxy reverso do Service Fabric a partir de serviços em execução num contentor, consulte [o tratamento especial de procuração inversa para serviços em funcionamento em contentores.](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitações conhecidas ao depurar contentores em tecido de serviço
 
@@ -70,5 +71,5 @@ Abaixo está uma lista de limitações conhecidas com depurações de contentore
 
     O Visual Studio suporta os tipos de consolas e ASP.NET de projetos para .NET e .NET Core.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre as capacidades do Tecido de Serviço e dos recipientes, consulte a [visão geral dos recipientes de Tecido de Serviço.](service-fabric-containers-overview.md)

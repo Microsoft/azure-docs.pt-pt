@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: e36f98a20d1fc6392aef1aebf5fc86e18085cc10
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85204903"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247052"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizar a Faísca Apache para as definições de tabela externa Azure Synapse em SQL on-demand (pré-visualização)
 
@@ -34,7 +34,10 @@ Para consultas de tabela externa Spark, executar uma consulta que visa um [spark
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-## <a name="spark-data-types-to-sql-data-types-mapping"></a>Tipos de dados de faísca para mapeamento de tipos de dados SQL
+> [!NOTE]
+> Adicione, deixe cair ou altere a coluna de tabela externa Spark não será refletida em tabela externa em SQL on-demand.
+
+## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Tipos de dados Apache Spark para mapeamento de tipos de dados SQL
 
 | Tipo de dados de faísca | Tipo de dados SQL               |
 | --------------- | --------------------------- |

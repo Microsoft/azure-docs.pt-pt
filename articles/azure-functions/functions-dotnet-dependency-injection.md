@@ -2,16 +2,16 @@
 title: Utilizar a injeção de dependências nas Funções do Azure do .NET
 description: Saiba como utilizar a injeção de dependência para registar e utilizar serviços em funções .NET
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a994111d2f7e938ecdd71236858e4cb8773b00f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb9783b38185940f0e75e888c3bc69a1edcc6cbb
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832870"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249262"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utilizar a injeção de dependências nas Funções do Azure do .NET
 
@@ -255,9 +255,9 @@ Consulte o [padrão de Opções em ASP.NET Core](https://docs.microsoft.com/aspn
 > [!WARNING]
 > Evite tentar ler valores de ficheiros como *local.settings.js* ou *appseting.{ ambiente}.json* no plano de consumo. Os valores lidos a partir destes ficheiros relacionados com as ligações de gatilho não estão disponíveis como escalas de aplicação porque a infraestrutura de hospedagem não tem acesso à informação de configuração, uma vez que o controlador de escala cria novas instâncias da app.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 - [Como monitorizar a sua aplicação de função](functions-monitoring.md)
 - [Melhores práticas para funções](functions-best-practices.md)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 774b114a47958b173f891ed13d423f9b051ee37c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2af8dcb2460e4e95d29bd81e6994d145ac61a48
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610545"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247783"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento da capacidade do cluster de tecidos de serviço
 
@@ -26,7 +26,7 @@ Este artigo irá acompanhá-lo através dos pontos de decisão significativos pa
 
 ## <a name="initial-number-and-properties-of-cluster-node-types"></a>Número inicial e propriedades dos tipos de nó de cluster
 
-Um *tipo de nó* define o tamanho, número e propriedades para um conjunto de nós (máquinas virtuais) no cluster. Cada tipo de nó que é definido num conjunto de clusters de tecido de serviço para um [conjunto de escala de máquina virtual](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+Um *tipo de nó* define o tamanho, número e propriedades para um conjunto de nós (máquinas virtuais) no cluster. Cada tipo de nó que é definido num conjunto de clusters de tecido de serviço para um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/overview.md).
 
 Como cada tipo de nó é um conjunto de escala distinta, pode ser dimensionado para cima ou para baixo independentemente, ter diferentes conjuntos de portas abertas, e ter métricas de capacidade diferentes. Para obter mais informações sobre a relação entre os tipos de nós e os conjuntos de balanças de máquinas virtuais, consulte [os tipos de nó de aglomerado de tecido de serviço](service-fabric-cluster-nodetypes.md).
 
@@ -34,7 +34,7 @@ Cada cluster requer um **tipo de nó primário,** que executa serviços crítico
 
 **Os tipos de nó não primários** podem ser usados para definir funções de aplicação (como serviços *frontais* e *back-end)* e para isolar fisicamente os serviços dentro de um cluster. Os aglomerados de tecido de serviço podem ter zero ou mais tipos de nó não primários.
 
-O tipo de nó primário é configurado utilizando o `isPrimary` atributo sob a definição do tipo nó no modelo de implementação do Gestor de Recursos Azure. Consulte o [objeto NodeTypeDescription](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obter a lista completa das propriedades do tipo nó. Por exemplo, use, abra qualquer *AzureDeploy.jsem* ficheiros em [amostras de cluster de Tecido de Serviço](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e encontre na *página* a procura do `nodetTypes` objeto.
+O tipo de nó primário é configurado utilizando o `isPrimary` atributo sob a definição do tipo nó no modelo de implementação do Gestor de Recursos Azure. Consulte o [objeto NodeTypeDescription](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) para obter a lista completa das propriedades do tipo nó. Por exemplo, use, abra qualquer *AzureDeploy.jsem* ficheiros em [amostras de cluster de Tecido de Serviço](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) e encontre na *página* a procura do `nodetTypes` objeto.
 
 ### <a name="node-type-planning-considerations"></a>Considerações de planeamento do tipo nó
 
@@ -79,7 +79,7 @@ A tabela abaixo lista os níveis de durabilidade do Tecido de Serviço, os seus 
 > Com a durabilidade do Bronze, a atualização automática de imagem de SO não está disponível. Embora [a Aplicação de Orquestração patch](service-fabric-patch-orchestration-application.md) (destinada apenas a clusters hospedados não-Azure) não seja *recomendada* para níveis de prata ou maior durabilidade, é a sua única opção para automatizar atualizações do Windows no que diz respeito aos domínios de upgrade do Service Fabric.
 
 > [!IMPORTANT]
-> Independentemente do nível de durabilidade, executar uma operação [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) num conjunto de escala de máquina virtual destruirá o cluster.
+> Independentemente do nível de durabilidade, executar uma operação [Deallocation](/rest/api/compute/virtualmachinescalesets/deallocate) num conjunto de escala de máquina virtual destruirá o cluster.
 
 ### <a name="bronze"></a>Bronze
 
@@ -182,7 +182,7 @@ Para cargas de trabalho de produção imponentes utilizando coleções fiáveis 
 
 Para as cargas de trabalho de produção apátridas, o tamanho mínimo suportado do nó não primário é três para manter o quórum, no entanto é recomendado um tamanho do tipo nó de cinco.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Antes de configurar o seu cluster, reveja as `Not Allowed` [políticas de atualização](service-fabric-cluster-fabric-settings.md) do cluster para atenuar ter de recriar o seu cluster mais tarde devido a definições de configuração do sistema imutáveis.
 

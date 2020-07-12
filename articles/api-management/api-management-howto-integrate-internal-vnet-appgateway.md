@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08e718739971283418d151bef9ad75333e313d85
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811167"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250435"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a Gestão da API num VNET interno com Gateway de Aplicação
 
@@ -329,7 +330,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### <a name="step-11"></a>Passo 11
 
-Configure o número de casos e tamanho para o Gateway de aplicação. Neste exemplo, estamos a usar o [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) para aumentar a segurança do recurso de Gestão da API.
+Configure o número de casos e tamanho para o Gateway de aplicação. Neste exemplo, estamos a usar o [WAF SKU](../web-application-firewall/ag/ag-overview.md) para aumentar a segurança do recurso de Gestão da API.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -367,9 +368,9 @@ A Azure API Management configurada num VNET fornece uma interface de gateway ún
 
 ## <a name="next-steps"></a><a name="next-steps"> </a> Próximos passos
 * Saiba mais sobre o Azure Application Gateway
-  * [Visão geral do Gateway de Aplicação](../application-gateway/application-gateway-introduction.md)
-  * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
-  * [Gateway de aplicação usando encaminhamento baseado em caminho](../application-gateway/application-gateway-create-url-route-arm-ps.md)
+  * [Visão geral do Gateway de Aplicação](../application-gateway/overview.md)
+  * [Application Gateway Web Application Firewall](../web-application-firewall/ag/ag-overview.md)
+  * [Gateway de aplicação usando encaminhamento baseado em caminho](../application-gateway/tutorial-url-route-powershell.md)
 * Saiba mais sobre API Management e VNETs
   * [Utilização da Gestão da API disponível apenas no VNET](api-management-using-with-internal-vnet.md)
   * [Utilização da Gestão da API em VNET](api-management-using-with-vnet.md)

@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: ef77810adfab213845c7824740effc3416d85407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b4e454532dec31cbcc92269d63c8be1ff92a9f6
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712229"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247528"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnósticos para O Tecido de Serviço Azure
 
@@ -82,7 +83,7 @@ Embora as duas soluções que recomendamos, os registos do [Azure Monitor](servi
 
 Os pontos-chave para qualquer plataforma que escolher devem incluir o quão confortável você está com a interface do utilizador, as capacidades de consulta, as visualizações personalizadas e dashboards disponíveis, e as ferramentas adicionais que eles fornecem para melhorar a sua experiência de monitorização. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para começar a instrumentar as suas aplicações, consulte [o evento de nível de aplicação e a geração de registos.](service-fabric-diagnostics-event-generation-app.md)
 * Percora as etapas para configurar o Application Insights para a sua aplicação com [o Monitor e diagnosticar uma aplicação core ASP.NET no Tecido de Serviço.](service-fabric-tutorial-monitoring-aspnet.md)
@@ -91,4 +92,4 @@ Os pontos-chave para qualquer plataforma que escolher devem incluir o quão conf
 * Saiba como configurar registos do Azure Monitor para monitorizar contentores - [Monitorização e Diagnóstico de Recipientes windows em tecido de serviço Azure](service-fabric-tutorial-monitoring-wincontainers.md).
 * Veja exemplo de problemas e soluções de diagnóstico com Tecido de Serviço no [diagnóstico de cenários comuns](service-fabric-diagnostics-common-scenarios.md)
 * Confira outros produtos de diagnóstico que se integram com o Service Fabric in [Service Fabric parceiros de diagnóstico](service-fabric-diagnostics-partners.md)
-* Conheça as recomendações gerais de monitorização dos recursos Azure - [Boas Práticas - Monitorização e diagnósticos.](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) 
+* Conheça as recomendações gerais de monitorização dos recursos Azure - [Boas Práticas - Monitorização e diagnósticos.](/azure/architecture/best-practices/monitoring) 

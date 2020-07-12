@@ -1,15 +1,16 @@
 ---
 title: Georreplicação de um registo
-description: Começa a criar e gerir um registo geo-replicado de contentores Azure, que permite ao registo servir várias regiões com réplicas regionais multi-master. A geo-replicação é uma característica do nível de sevice Premium.
+description: Começa a criar e gerir um registo geo-replicado de contentores Azure, que permite ao registo servir várias regiões com réplicas regionais multi-master. A geo-replicação é uma característica do nível de serviço Premium.
 author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: 35525906135db02c453c55d8798e1405396c8598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84508799"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247137"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo do Contentor de Azure
 
@@ -20,14 +21,14 @@ Um registo com georreplicação proporciona as seguintes vantagens:
 * Nomes de registo/imagem/etiqueta únicos podem ser utilizados em várias regiões
 * Acesso de registo perto da rede a partir de implementações regionais
 * Nenhum honorário de saída adicional, pois as imagens são obtidas a partir de um registo local replicado na mesma região que o anfitrião do contentor
-* Gestão única de um registo por várias regiões
+* Gestão única de um registo em múltiplas regiões
 
 > [!NOTE]
 > Se necessitar de manter cópias de imagens de contentores em mais de um registo de contentores Azure, o Registo de Contentores Azure também suporta [a importação de imagens](container-registry-import-images.md). Por exemplo, num fluxo de trabalho de DevOps, você pode importar uma imagem de um registo de desenvolvimento para um registo de produção, sem precisar de usar comandos Docker.
 >
 
 ## <a name="example-use-case"></a>Caso de uso de exemplo
-A Contoso gere um site de presença pública localizado nos EUA, Canadá e Europa. Para servir estes mercados com conteúdo local e de proximidade de rede, a Contoso gere clusters [Azure Kubernetes Service](/azure/aks/) (AKS) nos EUA Ocidentais, Leste dos EUA, Canadá Central e Europa Ocidental. A aplicação do site, implantada como uma imagem do Docker, utiliza o mesmo código e imagem em todas as regiões. O conteúdo, local daquela região, é recuperado de uma base de dados, que é a provisionada de forma única em cada região. Cada implantação regional tem a sua configuração única para recursos como a base de dados local.
+A Contoso gere um site de presença pública localizado nos EUA, Canadá e Europa. Para servir estes mercados com conteúdo local e de proximidade de rede, a Contoso gere clusters [Azure Kubernetes Service](../aks/index.yml) (AKS) nos EUA Ocidentais, Leste dos EUA, Canadá Central e Europa Ocidental. A aplicação do site, implantada como uma imagem do Docker, utiliza o mesmo código e imagem em todas as regiões. O conteúdo, local daquela região, é recuperado de uma base de dados, que é a provisionada de forma única em cada região. Cada implantação regional tem a sua configuração única para recursos como a base de dados local.
 
 A equipa de desenvolvimento está localizada em Seattle WA, utilizando o centro de dados dos EUA.
 
@@ -94,7 +95,7 @@ O ACR começa a sincronizar imagens através das réplicas configuradas. Uma vez
 * Ao empurrar ou retirar imagens de um registo geo-replicado, o Azure Traffic Manager em segundo plano envia o pedido para o registo localizado na região que lhe é mais próximo em termos de latência da rede.
 * Depois de empurrar uma atualização de imagem ou etiqueta para a região mais próxima, leva algum tempo para o Registo do Contentor de Azure replicar os manifestos e camadas para as restantes regiões em que optou. Imagens maiores demoram mais tempo a replicar-se do que as mais pequenas. As imagens e tags são sincronizadas nas regiões de replicação com um modelo de consistência eventual.
 * Para gerir fluxos de trabalho que dependem de atualizações push para um registo geo-replicado, recomendamos que configures [webhooks](container-registry-webhook.md) para responder aos eventos push. Você pode configurar webhooks regionais dentro de um registro geo-replicado para rastrear eventos push à medida que eles completam em todas as regiões geo-replicadas.
-* Para servir bolhas que representam camadas de conteúdo, a Azure Container Registy utiliza pontos finais de dados. Pode ativar [pontos finais de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para o seu registo em cada uma das regiões geo-replicadas do seu registo. Estes pontos finais permitem a configuração de regras de acesso a firewall rigorosamente rigorosamente ateadas.
+* Para servir bolhas que representam camadas de conteúdo, o Registo do Contentor Azure utiliza pontos finais de dados. Pode ativar [pontos finais de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para o seu registo em cada uma das regiões geo-replicadas do seu registo. Estes pontos finais permitem a configuração de regras de acesso a firewall rigorosamente rigorosamente ateadas.
 * Se configurar um [link privado](container-registry-private-link.md) para o seu registo utilizando pontos finais privados numa rede virtual, os pontos finais de dados dedicados em cada uma das regiões geo-replicadas são ativados por padrão. 
 
 ## <a name="delete-a-replica"></a>Eliminar réplicas
@@ -126,7 +127,7 @@ Se este problema ocorrer, uma solução é aplicar uma cache DNS do lado do clie
 
 Para otimizar a resolução de DNS à réplica mais próxima ao empurrar imagens, configurar um registo geo-replicado nas mesmas regiões do Azure como a fonte das operações push, ou a região mais próxima quando trabalha fora de Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Confira a série tutorial em três partes, [geo-replicação no Registo de Contentores Azure.](container-registry-tutorial-prepare-registry.md) Caminhe através da criação de um registo geo-replicado, construindo um contentor e, em seguida, implantando-o com um único `docker push` comando para várias aplicações web regionais para instâncias de contentores.
 

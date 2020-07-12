@@ -3,30 +3,31 @@ title: Controlador de volume de ficheiros Azure para tecido de serviço
 description: O Service Fabric suporta a utilização de Ficheiros Azure para fazer cópias de segurança do seu contentor.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750039"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247698"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Controlador de volume de ficheiros Azure para tecido de serviço
 
-O controlador de volume Azure Files é um [plugin de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece volumes baseados em [Ficheiros Azure](/azure/storage/files/storage-files-introduction) para recipientes Docker. É embalado como uma aplicação de Tecido de Serviço que pode ser implantada num cluster de Tecido de Serviço para fornecer volumes para outras aplicações de recipientes de tecido de serviço dentro do cluster.
+O controlador de volume Azure Files é um [plugin de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece volumes baseados em [Ficheiros Azure](../storage/files/storage-files-introduction.md) para recipientes Docker. É embalado como uma aplicação de Tecido de Serviço que pode ser implantada num cluster de Tecido de Serviço para fornecer volumes para outras aplicações de recipientes de tecido de serviço dentro do cluster.
 
 > [!NOTE]
 > A versão 6.5.661.9590 do plugin de volume Azure Files foi lançada para disponibilidade geral.
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* A versão Windows do plugin de volume Azure Files funciona apenas na [versão 1709](/windows-server/get-started/whats-new-in-windows-server-1709)do Windows Server , [versão 1709 do Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) ou apenas nos sistemas operativos posteriores.
+* A versão Windows do plugin de volume Azure Files funciona apenas na [versão 1709](/windows-server/get-started/whats-new-in-windows-server-1709)do Windows Server , [versão 1709 do Windows 10](/windows/whats-new/whats-new-windows-10-version-1709) ou apenas nos sistemas operativos posteriores.
 
 * A versão Linux do plugin de volume Azure Files funciona em todas as versões do sistema operativo suportadas pelo Service Fabric.
 
 * O plugin de volume Azure Files funciona apenas na versão 6.2 do Service Fabric e mais recente.
 
-* Siga as instruções na documentação do [Azure Files](/azure/storage/files/storage-how-to-create-file-share) para criar uma partilha de ficheiros para a aplicação do recipiente de tecido de serviço para utilizar como volume.
+* Siga as instruções na documentação do [Azure Files](../storage/files/storage-how-to-create-file-share.md) para criar uma partilha de ficheiros para a aplicação do recipiente de tecido de serviço para utilizar como volume.
 
-* Necessitará do [Powershell com o módulo de Tecido de Serviço](/azure/service-fabric/service-fabric-get-started) ou [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) instalado.
+* Necessitará do [Powershell com o módulo de Tecido de Serviço](./service-fabric-get-started.md) ou [SFCTL](./service-fabric-cli.md) instalado.
 
 * Se estiver a utilizar recipientes Hyper-V, é necessário adicionar os seguintes cortes na secção ClusterManifest (cluster local) ou fabricSettings no seu modelo de Gestor de Recursos Azure (cluster Azure) ou ClusterConfig.js(cluster autónomo).
 
@@ -71,7 +72,7 @@ Comando de implementação do Gestor de Recursos Azure para o Linux:
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
 ```
 
-Uma vez executado com sucesso o script, pode saltar para a [secção de configuração da sua aplicação.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+Uma vez executado com sucesso o script, pode saltar para a [secção de configuração da sua aplicação.](#configure-your-applications-to-use-the-volume)
 
 
 ### <a name="manual-deployment-for-standalone-clusters"></a>Implantação manual para clusters autónomos
@@ -124,7 +125,7 @@ A aplicação Service Fabric que fornece os volumes dos seus contentores pode se
 > O Datacenter 2016 do Windows Server não suporta mapeamento de suportes SMB para contentores ([Que só é suportado na versão 1709 do Windows Server](/virtualization/windowscontainers/manage-containers/container-storage)). Esta restrição impede o mapeamento do volume de rede e os controladores de volume Azure Files em versões com mais de 1709.
 
 #### <a name="deploy-the-application-on-a-local-development-cluster"></a>Implementar a aplicação num cluster de desenvolvimento local
-Siga os passos 1-3 a partir do [acima.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+Siga os passos 1-3 a partir do [acima.](#manual-deployment-for-standalone-clusters)
 
  A contagem de exemplos de serviço predefinidos para a aplicação de plugin de volume Azure Files é -1, o que significa que há uma instância do serviço implantado em cada nó no cluster. No entanto, ao implementar a aplicação de plugin de volume Azure Files num cluster de desenvolvimento local, a contagem de instâncias de serviço deve ser especificada como 1. Isto pode ser feito através do parâmetro de aplicação **InstanceCount.** Portanto, o comando para a criação da aplicação de plugin de volume Azure Files num cluster de desenvolvimento local é:
 
@@ -197,7 +198,7 @@ Tal como mostrado nos elementos **DriverOption** no corte acima, o plugin de vol
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>Usando o seu próprio volume ou controlador de registo
-O Service Fabric também permite o uso do seu próprio [volume](https://docs.docker.com/engine/extend/plugins_volume/) personalizado ou condutores [de registo.](https://docs.docker.com/engine/admin/logging/overview/) Se o controlador de volume/registo do Docker não estiver instalado no cluster, pode instalá-lo manualmente utilizando os protocolos RDP/SSH. Pode realizar a instalação com estes protocolos através de um script de arranque de [escala de máquina virtual](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou de um script [SetupEntryPoint](/azure/service-fabric/service-fabric-application-model).
+O Service Fabric também permite o uso do seu próprio [volume](https://docs.docker.com/engine/extend/plugins_volume/) personalizado ou condutores [de registo.](https://docs.docker.com/engine/admin/logging/overview/) Se o controlador de volume/registo do Docker não estiver instalado no cluster, pode instalá-lo manualmente utilizando os protocolos RDP/SSH. Pode realizar a instalação com estes protocolos através de um script de arranque de [escala de máquina virtual](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou de um script [SetupEntryPoint](./service-fabric-application-model.md).
 
 Um exemplo do script para instalar o controlador de [volume Docker para Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) é o seguinte:
 
@@ -238,6 +239,6 @@ Os parâmetros de aplicação são suportados para volumes como mostrado no cort
 
 Se for especificado um controlador de registo Docker, tem de colocar agentes (ou contentores) para manusear os registos do cluster. A etiqueta **DriverOption** pode ser utilizada para especificar opções para o controlador de registo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para ver amostras de recipientes, incluindo o controlador de volume, visite as [amostras](https://github.com/Azure-Samples/service-fabric-containers) do recipiente de tecido de serviço
-* Para implantar contentores num cluster de tecido de serviço, consulte o artigo [Desdobre um recipiente no Tecido de Serviço](service-fabric-deploy-container.md)
+* Para implantar contentores num cluster de tecido de serviço, consulte o artigo [Desdobre um recipiente no Tecido de Serviço](./service-fabric-get-started-containers.md)

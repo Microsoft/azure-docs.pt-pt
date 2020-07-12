@@ -6,11 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e078f81db75dd6b89a65ff2d00bb2805ea912d0d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81676418"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249143"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos de computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacional.
@@ -75,7 +76,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 |----------------|-----------------|  
 | **globalQuotaInMB** | A quantidade máxima de espaço em disco local que pode ser consumida pelos vários tipos de dados de diagnóstico recolhidos pela Azure Diagnostics. A definição predefinida é de 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics para utilizar as definições do servidor proxy como definido nas definições de IE.|
-|**pias** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico para todos os elementos infantis que suportam pias. O exemplo da pia é Application Insights ou Event Hubs.|  
+|**pias** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico para todos os elementos infantis que suportam pias. O exemplo da pia é Application Insights ou Event Hubs. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos. |  
 
 
 <br /> <br />
@@ -188,7 +189,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Permite-lhe gerar uma tabela de contadores de desempenho que é otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas, além da tabela 'Contador de Desempenho'.  
 
- O atributo **resourceId** é necessário.  O ID de recursos da Máquina Virtual ou do Conjunto de Escala de Máquina Virtual para o que está a implementar Azure Diagnostics. Obtenha os **recursosID** do [portal Azure.](https://portal.azure.com) **Selecione**  ->  **Grupos de Recursos de**  ->  ** Navegação<Nome \> **. Clique no azulejo **propriedades** e copie o valor do campo **ID.**  
+ O atributo **resourceId** é necessário.  O ID de recursos da Máquina Virtual ou do Conjunto de Escala de Máquina Virtual para o que está a implementar Azure Diagnostics. Obtenha os **recursosID** do [portal Azure.](https://portal.azure.com) **Selecione**  ->  **Grupos de Recursos de**  ->  ** Navegação<Nome \> **. Clique no azulejo **propriedades** e copie o valor do campo **ID.**  Esta propriedade de recursosID é usada tanto para o envio de métricas personalizadas como para adicionar uma propriedade de RECURSOSID aos dados enviados para Os Centros de Eventos. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.
 
 |Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
@@ -208,7 +209,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 |Elemento infantil|Descrição|  
 |-------------------|-----------------|  
 |**Realização de DesempenhoConiguration**|São necessários os seguintes atributos:<br /><br /> - **contraSpecificador** - O nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu anfitrião, faça o comando `typeperf` .<br /><br /> - **sampleRate** - Com que frequência o contador deve ser amostrado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - A unidade de medida do balcão. Os valores estão disponíveis na [Classe UnitType](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
-|**pias** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Azure Monitor ou Centros de Eventos.|    
+|**pias** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Azure Monitor ou Centros de Eventos. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.|    
 
 
 
@@ -236,9 +237,9 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**Não assinadoInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de ficheiros disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**ProgramadoTransferLogLevelFilter**|**string**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico**.|  
+|**ProgramadoTransferLogLevelFilter**|**cadeia**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico**.|  
 |**programadoTransferPeriod**|**duração**|Opcional. Especifica o intervalo entre transferências programadas de dados, arredondadas até ao minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**pias** |**string**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Event Hubs.|  
+|**pias** |**cadeia**| Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Event Hubs. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: Raiz - Confirmação de Diagnóstico - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -272,7 +273,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Utilizado apenas no envio de dados para Insights de Aplicação. Contiver a Chave de Instrumentação para uma conta de Insights de Aplicação ativa a que tenha acesso.|  
-|**Canais**|string|Um para cada filtragem adicional que o fluxo que você|  
+|**Channels** (Canais)|string|Um para cada filtragem adicional que o fluxo que você|  
 
 ## <a name="channels-element"></a>Elemento canais  
  *Árvore: Raiz - DiagnósticosConfiguration - PublicConfig - WadCFG - SinksConfig - SinksConfig - Sink - Canais*
@@ -294,8 +295,8 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 |Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
-|**logLevel**|**string**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico**.|  
-|**nome**|**string**|Um nome único do canal a que se refere|  
+|**logLevel**|**cadeia**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro**e **Crítico**.|  
+|**nome**|**cadeia**|Um nome único do canal a que se refere|  
 
 
 ## <a name="privateconfig-element"></a>ElementoConfig Privado
@@ -326,7 +327,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 O *PublicConfig* e *o PrivateConfig* são separados porque na maioria dos casos de utilização do JSON, são passados como variáveis diferentes. Estes casos incluem modelos de Gestor de Recursos, PowerShell e Visual Studio.
 
 > [!NOTE]
-> A definição de pia do Azure Monitor tem duas propriedades, *recursosId* e *região.* Estes são apenas necessários para vMs clássicos e serviços Classic Cloud. Estas propriedades não devem ser utilizadas para outros recursos.
+> A definição de pia do Azure Monitor tem duas propriedades, *recursosId* e *região.* Estes são apenas necessários para vMs clássicos e serviços Classic Cloud. A propriedade *da região* não deve ser usada para outros recursos, a propriedade *de recursosId* é usada em VMs ARM para povoar o campo de RECURSOSID em registos enviados para Centros de Eventos.
 
 ```json
 "PublicConfig" {

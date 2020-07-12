@@ -3,11 +3,12 @@ title: Atualização da aplicação do Tecido de Serviço
 description: Este artigo fornece uma introdução à atualização de uma aplicação de Tecido de Serviço, incluindo a escolha de modos de atualização e realização de verificações de saúde.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710325"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248004"
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização da aplicação do Tecido de Serviço
 Uma aplicação Azure Service Fabric é uma coleção de serviços. Durante uma atualização, o Service Fabric compara o novo manifesto de [aplicação](service-fabric-application-and-service-manifests.md) com a versão anterior e determina quais os serviços na aplicação que requerem atualizações. O Service Fabric compara os números de versão do serviço com os números da versão na versão anterior. Se um serviço não tiver sido alterado, esse serviço não será atualizado.
@@ -36,7 +37,7 @@ O modo que recomendamos para a atualização da aplicação é o modo monitoriza
 O modo manual não monitorizado necessita de uma intervenção manual após cada atualização num domínio de atualização, para iniciar a atualização no domínio da atualização seguinte. Não são efetuados controlos de saúde do Service Fabric. O administrador executa as verificações de saúde ou estado antes de iniciar a atualização no domínio da atualização seguinte.
 
 ## <a name="upgrade-default-services"></a>Atualizar serviços predefinidos
-Alguns parâmetros de serviço predefinidos definidos no manifesto de [aplicação](service-fabric-application-and-service-manifests.md) também podem ser atualizados como parte de uma atualização de aplicação. Apenas os parâmetros de serviço que suportam a ser alterados através [do Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) podem ser alterados como parte de uma atualização. O comportamento da alteração dos serviços predefinidos durante a atualização da aplicação é o seguinte:
+Alguns parâmetros de serviço predefinidos definidos no manifesto de [aplicação](service-fabric-application-and-service-manifests.md) também podem ser atualizados como parte de uma atualização de aplicação. Apenas os parâmetros de serviço que suportam a ser alterados através [do Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) podem ser alterados como parte de uma atualização. O comportamento da alteração dos serviços predefinidos durante a atualização da aplicação é o seguinte:
 
 1. São criados os serviços predefinidos na nova aplicação que já não existem no cluster.
 2. Os serviços predefinidos que existem nos manifestos de aplicação anteriores e novos são atualizados. Os parâmetros do serviço predefinido na nova aplicação manifestam-se sobrepor os parâmetros do serviço existente. A atualização da aplicação será reversão automaticamente se a atualização de um serviço predefinido falhar.
@@ -59,7 +60,7 @@ O fluxograma que segue este parágrafo pode ajudá-lo a entender o processo de u
 
 ![O processo de upgrade para uma Aplicação de Tecido de Serviço][image]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [A atualização da sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) acompanha-o através de uma atualização de aplicações utilizando o Visual Studio.
 
 [Atualizar a sua aplicação Utilizando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) acompanha-o através de uma atualização de aplicações utilizando o PowerShell.

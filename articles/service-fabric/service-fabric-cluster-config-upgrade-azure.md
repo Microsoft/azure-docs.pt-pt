@@ -5,18 +5,19 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 010f2b5d6dee3a5985c421e468bcd28b18148e5a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793079"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247732"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Atualizar a configuração de um cluster em Azure 
 
 Este artigo descreve como personalizar as várias definições de tecido para o seu cluster de Tecido de Serviço. Para os clusters alojados no Azure, pode personalizar as definições através do [portal Azure](https://portal.azure.com) ou utilizando um modelo de Gestor de Recursos Azure.
 
 > [!NOTE]
-> Nem todas as definições estão disponíveis no portal, e é uma [boa prática personalizá-la usando um modelo de Gestor de Recursos Azure;](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code) Portal é apenas para o cenário de Dev\Test de Tecido de Serviço.
+> Nem todas as definições estão disponíveis no portal, e é uma [boa prática personalizá-la usando um modelo de Gestor de Recursos Azure;](./service-fabric-best-practices-infrastructure-as-code.md) Portal é apenas para o cenário de Dev\Test de Tecido de Serviço.
 > 
 
 
@@ -44,12 +45,12 @@ Os clusters Azure podem ser configurados através do modelo JSON Resource Manage
 
 Também pode personalizar as definições do cluster de uma das seguintes formas com o Azure Resource Manager:
 
-- Utilize o [portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) para exportar e atualizar o modelo de Manger de Recursos.
-- Utilize [o PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) para exportar e atualizar o modelo de Gestor de Recursos.
-- Utilize o [CLI Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) para exportar e atualizar o modelo de Gestor de Recursos.
-- Utilize os comandos Azure PowerShell [Set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) e [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) para modificar a definição diretamente.
-- Utilize os comandos de definição de cluster Azure CLI [az sf](https://docs.microsoft.com/cli/azure/sf/cluster/setting) para modificar a definição diretamente.
+- Utilize o [portal Azure](../azure-resource-manager/templates/export-template-portal.md) para exportar e atualizar o modelo de Manger de Recursos.
+- Utilize [o PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) para exportar e atualizar o modelo de Gestor de Recursos.
+- Utilize o [CLI Azure](../azure-resource-manager/management/manage-resources-cli.md) para exportar e atualizar o modelo de Gestor de Recursos.
+- Utilize os comandos Azure PowerShell [Set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) e [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) para modificar a definição diretamente.
+- Utilize os comandos de definição de cluster Azure CLI [az sf](/cli/azure/sf/cluster/setting) para modificar a definição diretamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre as [definições](service-fabric-cluster-fabric-settings.md)do cluster de tecido de serviço .
 * Aprenda a [escalar o seu cluster para dentro e para fora](service-fabric-cluster-scale-in-out.md).

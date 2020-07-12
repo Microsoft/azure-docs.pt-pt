@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7be1e90d10a84465d6416f2c13a6e4b6855077b
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76713144"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250078"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs com a autenticação de certificado de cliente na Gestão de API
 
 A API Management fornece a capacidade de garantir o acesso às APIs (ou seja, cliente da API Management) utilizando certificados de cliente. Pode validar o certificado de entrada e verificar as propriedades dos certificados com os valores pretendidos utilizando expressões de política.
 
-Para obter informações sobre a garantia do acesso ao serviço back-end de uma API utilizando certificados de cliente (isto é, API Management to backend), consulte [Como garantir serviços de back-end utilizando a autenticação de certificados de cliente](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+Para obter informações sobre a garantia do acesso ao serviço back-end de uma API utilizando certificados de cliente (isto é, API Management to backend), consulte [Como garantir serviços de back-end utilizando a autenticação de certificados de cliente](./api-management-howto-mutual-certificates.md)
 
 > [!IMPORTANT]
 > Para receber e verificar os certificados de cliente sobre HTTP/2 nos níveis de Desenvolvedor, Básico, Standard ou Premium, deve ligar a definição de "Certificado de cliente negociar" na lâmina "domínios personalizados", conforme mostrado abaixo.
@@ -96,7 +97,7 @@ O exemplo a seguir mostra como verificar a impressão digital de um certificado 
 
 ![Negociar certificado de cliente](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
--   [Como garantir serviços de back-end usando a autenticação de certificado de cliente](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [Como carregar certificados](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [Como garantir serviços de back-end usando a autenticação de certificado de cliente](./api-management-howto-mutual-certificates.md)
+-   [Como carregar certificados](./api-management-howto-mutual-certificates.md)

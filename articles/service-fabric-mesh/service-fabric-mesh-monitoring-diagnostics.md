@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e940f0cf0d1547b317cd9e7bd15ac5486d5e70b2
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75498156"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248412"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes. A monitorização e diagnóstico da malha de tecido de serviço é categorizada em três tipos principais de dados de diagnóstico:
@@ -42,7 +43,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 O ambiente de malha expõe um punhado de métricas indicando como os seus recipientes estão a funcionar. As seguintes métricas estão disponíveis através do portal Azure e do monitor Azure CLI:
 
-| Metric | Descrição | Unidades|
+| Métrica | Descrição | Unidades|
 |----|----|----|
 | CpuUtilização | ActualCpu/AlocadoCpu em percentagem | % |
 | Utilização da memória | ActualMem/AlocadoMem em percentagem | % |
@@ -57,7 +58,7 @@ O ambiente de malha expõe um punhado de métricas indicando como os seus recipi
 | RestartCount | Número de contentores reinicia | N/D |
 
 > [!NOTE]
-> Os valores de ServiceStatus e ServiceReplicaStatus são os mesmos que o [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> Os valores de ServiceStatus e ServiceReplicaStatus são os mesmos que o [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
 
 Cada métrica está disponível em diferentes dimensões para que possa ver agregados em diferentes níveis. A lista atual de dimensões é a seguinte:
 
@@ -73,7 +74,7 @@ Cada dimensão corresponde a diferentes componentes do modelo de [Aplicação de
 
 ### <a name="azure-monitor-cli"></a>Azure Monitor CLI
 
-Uma lista completa de comandos está disponível nos [docs CLI do Monitor Azure,](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) mas incluímos alguns exemplos úteis abaixo 
+Uma lista completa de comandos está disponível nos [docs CLI do Monitor Azure,](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) mas incluímos alguns exemplos úteis abaixo 
 
 Em cada exemplo, o ID de recurso segue este padrão
 
@@ -115,6 +116,6 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 ![Container Insights](./media/service-fabric-mesh-monitoring-diagnostics/containerinsights.png)
 -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para saber mais sobre o Service Fabric Mesh, consulte [Descrição geral do Service Fabric Mesh](service-fabric-mesh-overview.md).
-* Para saber mais sobre os comandos de métricas do Azure Monitor, consulte os [docs CLI do Monitor Azure](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Para saber mais sobre os comandos de métricas do Azure Monitor, consulte os [docs CLI do Monitor Azure](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).

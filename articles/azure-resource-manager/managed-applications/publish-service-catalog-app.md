@@ -3,32 +3,33 @@ title: Publicar app gerida por catálogo de serviços
 description: Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização.
 author: tfitzmac
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609362"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249041"
 ---
-# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Quickstart: Criar e publicar uma definição de aplicação gerida
+# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Quickstart: Criar e publicar uma definição da aplicação gerida
 
-Este quickstart fornece uma introdução ao trabalho com [aplicações geridas azure](overview.md). Pode criar e publicar uma aplicação gerida que se destina a membros da sua organização.
+Este quickstart fornece uma introdução ao trabalho com [aplicações geridas Azure](overview.md). Pode criar e publicar uma aplicação gerida destinada aos membros da sua organização.
 
 Para publicar uma aplicação gerida no seu catálogo de serviços, deve:
 
 * Criar um modelo que define os recursos a implementar com a aplicação gerida.
 * Defina os elementos de interface de utilizador para o portal quando implementar a aplicação gerida.
-* Crie um pacote .zip que contém os ficheiros de modelo que são precisos.
+* Crie um pacote _.zip_ que contenha os ficheiros de modelos necessários.
 * Decida que utilizador, grupo ou aplicação precisa de aceder ao grupo de recursos na subscrição do utilizador.
-* Crie a definição de aplicação gerida que aponta para o pacote .zip e pedidos de acesso para a identidade.
+* Crie a definição de aplicação gerida que aponta para o pacote _.zip_ e solicita acesso à identidade.
 
-## <a name="create-the-arm-template"></a>Criar o modelo ARM
+## <a name="create-the-arm-template"></a>Crie o modelo ARM
 
-Cada definição de aplicação gerida inclui um ficheiro denominado **mainTemplate.json**. Nele, defina os recursos do Azure a implementar. O modelo não é diferente de um modelo normal do Gestor de Recursos Azure (ARM).
+Cada definição de aplicação gerida inclui um ficheiro denominado _mainTemplate.json_. Nele, defina os recursos do Azure a implementar. O modelo não é diferente de um modelo ARM regular.
 
-Crie um ficheiro denominado **mainTemplate.json**. O nome é sensível a maiúsculas e minúsculas.
+Crie um ficheiro denominado _mainTemplate.json_. O nome é sensível a maiúsculas e minúsculas.
 
 Adicione o seguinte JSON ao ficheiro. Define os parâmetros para criar uma conta de armazenamento e especifica as propriedades da conta de armazenamento.
 
@@ -73,15 +74,15 @@ Adicione o seguinte JSON ao ficheiro. Define os parâmetros para criar uma conta
 }
 ```
 
-Guarde o ficheiro mainTemplate.json.
+Guarde o _mainTemplate.jsarquivado._
 
 ## <a name="define-your-create-experience"></a>Defina a sua experiência de criação
 
-Como editora, define a experiência do portal para criar a aplicação gerida. O ficheiro **createUiDefinition.json** gera a interface do portal. Define como os utilizadores fornecem entrada para cada parâmetro utilizando elementos de [controlo,](create-uidefinition-elements.md) incluindo drop-downs, caixas de texto e caixas de palavra-passe.
+Como editor, define a experiência do portal para criar a aplicação gerida. O _createUiDefinition.jsno_ ficheiro gera a interface do portal. Define como os utilizadores fornecem entrada para cada parâmetro usando elementos de [controlo,](create-uidefinition-elements.md) incluindo drop-downs, caixas de texto e caixas de palavra-passe.
 
-Crie um ficheiro chamado **createUiDefinition.json** (este nome é sensível a casos)
+Criar um ficheiro nomeado _createUiDefinition.js(Este_ nome é sensível a casos)
 
-Adicione o seguinte starter JSON ao ficheiro e guarde-o.
+Adicione o seguinte arranque JSON ao ficheiro e guarde-o.
 
 ```json
 {
@@ -132,11 +133,11 @@ Adicione o seguinte starter JSON ao ficheiro e guarde-o.
 }
 ```
 
-Para saber mais, consulte [Começar com createUiDefinition](create-uidefinition-overview.md).
+Para saber mais, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 
 ## <a name="package-the-files"></a>Empacote os ficheiros
 
-Adicione os dois ficheiros num ficheiro .zip com o nome app.zip. Os dois ficheiros têm de estar ao nível da raiz do ficheiro .zip. Se os colocar numa pasta, receberá um erro ao criar a definição da aplicação gerida que indica que os ficheiros necessários não estão presentes.
+Adicione os dois ficheiros a um ficheiro _.zip_ denominado _app.zip_. Os dois ficheiros devem estar ao nível da raiz do ficheiro _.zip._ Se os colocar numa pasta, receberá um erro ao criar a definição da aplicação gerida que indica que os ficheiros necessários não estão presentes.
 
 Carregue o pacote para uma localização acessível a partir de onde pode ser utilizada. Você precisará fornecer um nome único para a conta de armazenamento.
 
@@ -288,36 +289,36 @@ Após a conclusão do comando, terá uma definição de aplicação gerida no se
 
 Alguns dos parâmetros utilizados no exemplo anterior são:
 
-* **grupo de recursos**: O nome do grupo de recursos onde é criada a definição de aplicação gerida.
+* **grupo**de recursos : O nome do grupo de recursos onde é criada a definição de aplicação gerida.
 * **nível de bloqueio**: O tipo de bloqueio colocado no grupo de recursos geridos. Impede o cliente de realizar operações não desejadas neste grupo. Atualmente, o único nível de bloqueio suportado é ReadOnly. Quando é especificado ReadOnly, o cliente só consegue ler os recursos presentes no grupo de recursos gerido. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
-* **authorizations**: descreve o ID de principal e o ID da definição da função utilizados para conceder permissões ao grupo de recursos gerido. É especificado com formato `<principalId>:<roleDefinitionId>`. Se for necessário mais do que um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Os valores são separados por uma vírposta.
-* **ficheiro de pacote URI**: A localização de um pacote .zip que contém os ficheiros necessários.
+* **authorizations**: descreve o ID de principal e o ID da definição da função utilizados para conceder permissões ao grupo de recursos gerido. É especificado com formato `<principalId>:<roleDefinitionId>`. Se for necessário mais do que um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Os valores são separados por uma vírgula.
+* **ficheiro de pacote URI**: A localização de um pacote _.zip_ que contém os ficheiros necessários.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga o seu próprio armazenamento para a definição de aplicação gerida
 
 Pode optar por armazenar a definição de aplicação gerida dentro de uma conta de armazenamento fornecida por si durante a criação para que a sua localização e acesso possam ser totalmente geridos por si para as suas necessidades regulamentares.
 
 > [!NOTE]
-> Traga o seu próprio armazenamento apenas com modelo ARM ou implementações de API REST da definição de aplicação gerida.
+> O armazenamento do seu próprio armazenamento só é suportado com o modelo ARM ou as implementações de API rest da definição de aplicação gerida.
 
-### <a name="select-your-storage-account"></a>Selecione a sua conta de armazenamento
+### <a name="select-your-storage-account"></a>Selecionar a conta de armazenamento
 
-Tem de [criar uma conta](../../storage/common/storage-account-create.md) de armazenamento para conter a definição de aplicação gerida para utilização com o Catálogo de Serviços.
+Tem de [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para conter a definição de aplicação gerida para utilização com o Catálogo de Serviços.
 
-Copie a identificação de recursos da conta de armazenamento. Será utilizado mais tarde ao implementar a definição.
+Copie o ID de recursos da conta de armazenamento. Será usado mais tarde ao implementar a definição.
 
-### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Delineie a atribuição de funções para "Fornecedor de Recursos de Eletrodomésticos" na sua conta de armazenamento
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Desaprote a atribuição de funções para "Fornecedor de Recursos de Aparelhos" na sua conta de armazenamento
 
-Antes de a definição de aplicação gerida poder ser implementada na sua conta de armazenamento, deve dar permissões aos contribuintes para a função de Fornecedor de Recursos de **Aparelhos,** de modo a poder escrever os ficheiros de definição no recipiente da sua conta de armazenamento.
+Antes de a definição de aplicação gerida poder ser implantada na sua conta de armazenamento, tem de dar permissões ao **fornecedor de recursos** do aparelho para que possa escrever os ficheiros de definição no recipiente da sua conta de armazenamento.
 
 1. No [portal Azure,](https://portal.azure.com)navegue para a sua conta de armazenamento.
-1. Selecione **o controlo de acesso (IAM)** para visualizar as definições de controlo de acesso para a conta de armazenamento. Selecione o separador de **atribuições de funções** para ver a lista de atribuições de papéis.
-1. Na janela de atribuição de **funções Adicionar,** selecione a função **Contributiva.** 
-1. A partir do **acesso atribuído ao** campo, selecione Utilizador, grupo ou diretor de serviço **Azure AD**.
-1. Em **Select,** procure a função de Fornecedor de Recursos de **Aparelhos** e selecione-a.
-1. Salve a atribuição do papel.
+1. Selecione **o controlo de acesso (IAM)** para exibir as definições de controlo de acesso para a conta de armazenamento. Selecione o **separador funções** para ver a lista de atribuições de funções.
+1. Na janela **de atribuição de funções Adicionar,** selecione a **função Contribuinte.** 
+1. A partir do **acesso do Access a** Campo, selecione **utilizador, grupo ou principal de serviço Azure.**
+1. Em **Seleção,** procure a função **de Fornecedor de Recursos de Aparelho** e selecione-a.
+1. Guarde a tarefa de função.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implementar a definição de aplicação gerida com um modelo ARM 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implementar a definição de aplicação gerida com um modelo ARM
 
 Utilize o seguinte modelo ARM para implementar a sua aplicação gerida embalada como uma nova definição de aplicação gerida no Catálogo de Serviços cujos ficheiros de definição são armazenados e mantidos na sua própria conta de armazenamento:
    
@@ -391,12 +392,12 @@ Utilize o seguinte modelo ARM para implementar a sua aplicação gerida embalada
 }
 ```
 
-Adicionámos uma nova propriedade chamada **storageAccountId** às propriedades da sua aplicaçãoDefinição e fornecemos ID da conta de armazenamento que pretende armazenar a sua definição como seu valor:
+Adicionámos um novo imóvel nomeado `storageAccountId` às suas propriedades e `applicationDefinitions` fornecemos iD de conta de armazenamento que deseja armazenar a sua definição no seu valor:
 
-Pode verificar se os ficheiros de definição de aplicação são guardados na sua conta de armazenamento fornecida num recipiente intitulado definições de **aplicações**.
+Pode verificar se os ficheiros de definição de aplicação são guardados na sua conta de armazenamento fornecida num recipiente intitulado `applicationDefinitions` .
 
 > [!NOTE]
-> Para maior segurança, pode criar uma definição de aplicações geridas armazená-lo numa conta de armazenamento Azure onde a [encriptação está ativada](../../storage/common/storage-service-encryption.md). Os conteúdos de definição são encriptados através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões para o ficheiro podem ver a definição no Catálogo de Serviços.
+> Para uma maior segurança, pode criar uma definição de aplicações geridas armazená-la numa [bolha de conta de armazenamento Azure onde a encriptação está ativada](../../storage/common/storage-service-encryption.md). Os conteúdos de definição são encriptados através das opções de encriptação da conta de armazenamento. Apenas os utilizadores com permissões para o ficheiro podem ver a definição no Catálogo de Serviços.
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Confirmar que os utilizadores podem ver a definição
 

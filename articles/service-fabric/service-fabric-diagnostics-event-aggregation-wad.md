@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846669"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247834"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e recolha de eventos usando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -21,7 +21,7 @@ ms.locfileid: "85846669"
 
 Quando você está executando um cluster de tecido de serviço Azure, é uma boa ideia recolher os registos de todos os nós em um local central. Ter os registos numa localização central ajuda-o a analisar e resolver problemas no seu cluster, ou problemas nas aplicações e serviços que estão a decorrer nesse cluster.
 
-Uma forma de carregar e recolher registos é utilizar a extensão do Windows Azure Diagnostics (WAD), que faz o upload de registos para o Azure Storage, e também tem a opção de enviar registos para Azure Application Insights ou Event Hubs. Também pode utilizar um processo externo para ler os eventos a partir do armazenamento e colocá-los num produto da plataforma de análise, como [registos Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de registo.
+Uma forma de carregar e recolher registos é utilizar a extensão do Windows Azure Diagnostics (WAD), que faz o upload de registos para o Azure Storage, e também tem a opção de enviar registos para Azure Application Insights ou Event Hubs. Também pode utilizar um processo externo para ler os eventos a partir do armazenamento e colocá-los num produto da plataforma de análise, como [registos Azure Monitor](./service-fabric-diagnostics-oms-setup.md) ou outra solução de registo.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -31,7 +31,7 @@ As seguintes ferramentas são utilizadas neste artigo:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Modelo Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Modelo de gestor de recursos Azure](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos da plataforma de tecido de serviço
 O Service Fabric configura-o com alguns [canais de registo fora da caixa,](service-fabric-diagnostics-event-generation-infra.md)dos quais os seguintes canais são pré-configurados com a extensão para enviar dados de monitorização e diagnóstico para uma mesa de armazenamento ou em qualquer outro lugar:
@@ -202,12 +202,12 @@ Uma vez que as tabelas povoadas pela extensão crescem até que a quota seja ati
 ## <a name="log-collection-configurations"></a>Configurações de recolha de registos
 Registos de canais adicionais também estão disponíveis para recolha, aqui estão algumas das configurações mais comuns que você pode fazer no modelo para clusters em execução em Azure.
 
-* Canal Operacional - Base: Habilitado por defeito, operações de alto nível realizadas pela Service Fabric e pelo cluster, incluindo eventos para um nó que está a chegar, uma nova aplicação a ser implementada, ou um rollback de upgrade, etc. Para obter uma lista de eventos, consulte os [Eventos do Canal Operacional](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal Operacional - Base: Habilitado por defeito, operações de alto nível realizadas pela Service Fabric e pelo cluster, incluindo eventos para um nó que está a chegar, uma nova aplicação a ser implementada, ou um rollback de upgrade, etc. Para obter uma lista de eventos, consulte os [Eventos do Canal Operacional](./service-fabric-diagnostics-event-generation-operational.md).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal Operacional - Detalhado: Isto inclui relatórios de saúde e decisões de equilíbrio de carga, além de tudo no canal operacional base. Estes eventos são gerados pelo sistema ou pelo seu código utilizando as APIs de saúde ou de relatório de carga, tais como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para visualizar estes eventos no Visualizador de Eventos de Diagnóstico do Estúdio Visual adicione "Microsoft-ServiceFabric:4:0x4000000000000000000000" à lista de fornecedores da ETW.
+* Canal Operacional - Detalhado: Isto inclui relatórios de saúde e decisões de equilíbrio de carga, além de tudo no canal operacional base. Estes eventos são gerados pelo sistema ou pelo seu código utilizando as APIs de saúde ou de relatório de carga, tais como [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) ou [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Para visualizar estes eventos no Visualizador de Eventos de Diagnóstico do Estúdio Visual adicione "Microsoft-ServiceFabric:4:0x4000000000000000000000" à lista de fornecedores da ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
@@ -296,7 +296,7 @@ Por exemplo, se a sua fonte de eventos for chamada My-Eventsource, adicione o se
         }
 ```
 
-Para recolher contadores de desempenho ou registos de eventos, modifique o modelo de Gestor de Recursos utilizando os exemplos fornecidos na [Create a virtual machine Windows com monitorização e diagnóstico utilizando um modelo de Gestor de Recursos Azure](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Em seguida, reeditar o modelo de Gestor de Recursos.
+Para recolher contadores de desempenho ou registos de eventos, modifique o modelo de Gestor de Recursos utilizando os exemplos fornecidos na [Create a virtual machine Windows com monitorização e diagnóstico utilizando um modelo de Gestor de Recursos Azure](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json). Em seguida, reeditar o modelo de Gestor de Recursos.
 
 ## <a name="collect-performance-counters"></a>Recolha contadores de desempenho
 
@@ -351,14 +351,14 @@ Atualmente, os registos do cluster aparecem como vestígios no visualizador de *
 >[!NOTE]
 >Se utilizar uma Chave de Insights de Aplicação incorreta no portal ou no seu modelo de Gestor de Recursos, terá de alterar manualmente a tecla e atualizar o cluster /recolocar o cluster/recolocar o cluster/recolocar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurados corretamente os diagnósticos Azure, verá dados nas suas tabelas de Armazenamento a partir dos registos ETW e EventSource. Se optar por utilizar registos do Azure Monitor, Kibana ou qualquer outra plataforma de análise e visualização de dados que não esteja configurada diretamente no modelo de Gestor de Recursos, certifique-se de configurar a plataforma da sua escolha para ler nos dados destas tabelas de armazenamento. Fazê-lo para registos do Azure Monitor é relativamente trivial, e é explicado na [análise de Evento e registo](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights é um caso um pouco especial neste sentido, uma vez que pode ser configurado como parte da configuração da extensão de Diagnóstico, por isso consulte o [artigo apropriado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por utilizar AI.
 
 >[!NOTE]
 >Atualmente, não existe forma de filtrar ou preparar os eventos que são enviados para a mesa. Se não implementar um processo para remover eventos da mesa, a mesa continuará a crescer. Atualmente, existe um exemplo de um serviço de preparação de dados em execução na [amostra watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendado que escreva um para si também, a menos que exista uma boa razão para armazenar registos para além de um prazo de 30 ou 90 dias.
 
-* [Saiba como recolher contadores de desempenho ou registos utilizando a extensão de Diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Saiba como recolher contadores de desempenho ou registos utilizando a extensão de Diagnóstico](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 * [Análise e Visualização de Eventos com Insights de Aplicações](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análise e Visualização de Eventos com registos do Monitor Azure](service-fabric-diagnostics-event-analysis-oms.md)
 * [Análise e Visualização de Eventos com Insights de Aplicações](service-fabric-diagnostics-event-analysis-appinsights.md)

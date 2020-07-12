@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 963f728db55f587f7ae72aec702a099882cf401a
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170499"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249381"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Quickstart: Tráfego web direto com Gateway de aplicação Azure - modelo de gestor de recursos
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Quickstart: Tráfego web direto com Gateway de aplicação Azure - modelo ARM
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos para criar um Gateway de aplicação Azure. Em seguida, teste o portal de aplicação para se certificar de que funciona corretamente.
+Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar um Gateway de aplicação Azure. Em seguida, teste o portal de aplicação para se certificar de que funciona corretamente.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,17 +26,19 @@ Também pode completar este quickstart utilizando o [portal Azure](quick-create-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
+## <a name="review-the-template"></a>Rever o modelo
 
 Por uma questão de simplicidade, este modelo cria uma configuração simples com um IP frontal público, um ouvinte básico para hospedar um único site no gateway de aplicação, uma regra de encaminhamento de pedido básico, e duas máquinas virtuais na piscina de backend.
 
-### <a name="review-the-template"></a>Reveja o modelo
-
-O modelo usado neste quickstart é de [modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-qs/azuredeploy.json)
+O modelo usado neste quickstart é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-qs/)
 
 :::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json" range="001-343" highlight="197-297":::
 
@@ -50,10 +52,9 @@ Os recursos Azure múltiplos são definidos no modelo:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : dois para as máquinas virtuais
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : para configurar o IIS e as páginas web
 
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-### <a name="deploy-the-template"></a>Implementar o modelo
-
-Implementar o modelo do Gestor de Recursos para Azure:
+Implemente o modelo ARM para Azure:
 
 1. **Selecione Implementar para Azure** para iniciar súm na Azure e abrir o modelo. O modelo cria um gateway de aplicação, a infraestrutura de rede e duas máquinas virtuais na piscina de backend que executa o IIS.
 
@@ -76,7 +77,7 @@ Embora o IIS não seja necessário para criar o gateway de aplicações, está i
 
    Refresque o navegador várias vezes e deverá ver ligações tanto para o myVM1 como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Isto remove o gateway de aplicação e todos os recursos relacionados.
 
@@ -86,7 +87,7 @@ Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Gerir o tráfego da Web com um gateway de aplicação com a CLI do Azure](./tutorial-manage-web-traffic-cli.md)

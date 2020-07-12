@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e82c7809f5a6c79b61dc0c6731a696c672f6aa97
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888092"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247341"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 
@@ -42,7 +42,7 @@ As seguintes versões do sistema operativo são suportadas para desenvolvimento:
 
 ## <a name="install-the-sdk-and-tools"></a>Instalar o SDK e as ferramentas
 
-O Instalador de Plataforma Web (WebPI) é a forma recomendada de instalar o SDK e as ferramentas. Se receber erros de tempo de execução utilizando o WebPI, também pode encontrar ligações diretas com os instaladores nas notas de lançamento para uma versão específica do Tecido de Serviço. As notas de lançamento podem ser encontradas nos vários anúncios de lançamento no blog da equipa de [Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+O Instalador de Plataforma Web (WebPI) é a forma recomendada de instalar o SDK e as ferramentas. Se receber erros de tempo de execução utilizando o WebPI, também pode encontrar ligações diretas com os instaladores nas notas de lançamento para uma versão específica do Tecido de Serviço. As notas de lançamento podem ser encontradas nos vários anúncios de lançamento no blog da equipa de [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
 > [!NOTE]
 > As atualizações do cluster de desenvolvimento do tecido de serviço local não são suportadas.
@@ -88,7 +88,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [Service Fabric é um orquestrador de contentores](service-fabric-containers-overview.md) para implantar microserviços através de um conjunto de máquinas. Para executar aplicações de contentores do Windows no seu cluster de desenvolvimento local, tem primeiro de instalar o Docker para o Windows. Obtenha [Docker CE para windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que o ambiente de desenvolvimento está configurado, pode começar a criar e executar aplicações.
 

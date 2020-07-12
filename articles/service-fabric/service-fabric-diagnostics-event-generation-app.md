@@ -5,11 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75464718"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247664"
 ---
 # <a name="application-logging"></a>Registo de aplicação
 
@@ -21,16 +22,16 @@ Por exemplo, sobre como utilizar estas sugestões, consulte [adicionar registo n
 
 ## <a name="application-insights-sdk"></a>Insights de Aplicação SDK
 
-A Application Insights tem uma rica integração com o Tecido de Serviço fora da caixa. Os utilizadores podem adicionar os pacotes nuget do Tecido de Serviço da IA e receber dados e registos criados e recolhidos visualizados no portal Azure. Além disso, os utilizadores são encorajados a adicionar a sua própria telemetria para diagnosticar e depurar as suas aplicações e rastrear quais os serviços e partes da sua aplicação que são mais utilizados. A aula [de TelemetriaClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) no SDK fornece muitas formas de rastrear a telemetria nas suas aplicações. Confira um exemplo de como instrumentar e adicionar insights de aplicação à sua aplicação no nosso tutorial para [monitorização e diagnóstico de uma aplicação .NET](service-fabric-tutorial-monitoring-aspnet.md)
+A Application Insights tem uma rica integração com o Tecido de Serviço fora da caixa. Os utilizadores podem adicionar os pacotes nuget do Tecido de Serviço da IA e receber dados e registos criados e recolhidos visualizados no portal Azure. Além disso, os utilizadores são encorajados a adicionar a sua própria telemetria para diagnosticar e depurar as suas aplicações e rastrear quais os serviços e partes da sua aplicação que são mais utilizados. A aula [de TelemetriaClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) no SDK fornece muitas formas de rastrear a telemetria nas suas aplicações. Confira um exemplo de como instrumentar e adicionar insights de aplicação à sua aplicação no nosso tutorial para [monitorização e diagnóstico de uma aplicação .NET](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="eventsource"></a>Fonte de Eventos
 
-Quando cria uma solução de Tecido de Serviço a partir de um modelo no Visual Studio, é gerada uma classe derivada do **EventSource****(ServiceEventSource** ou **ActorEventSource).** É criado um modelo, no qual pode adicionar eventos para a sua aplicação ou serviço. O nome **EventSource** **deve** ser único e deve ser renomeado a partir do projeto de solução mycompany- solução de corda padrão &lt; &gt; - &lt; &gt; . Ter várias definições **de EventSource** que usam o mesmo nome causa um problema no tempo de execução. Cada evento definido deve ter um identificador único. Se um identificador não for único, ocorre uma falha de tempo de execução. Algumas organizações pré-assinaram gamas de valores para identificadores para evitar conflitos entre equipas de desenvolvimento separadas. Para mais informações, consulte o [blog do Vance](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) ou a documentação da [MSDN.](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx)
+Quando cria uma solução de Tecido de Serviço a partir de um modelo no Visual Studio, é gerada uma classe derivada do **EventSource****(ServiceEventSource** ou **ActorEventSource).** É criado um modelo, no qual pode adicionar eventos para a sua aplicação ou serviço. O nome **EventSource** **deve** ser único e deve ser renomeado a partir do projeto de solução mycompany- solução de corda padrão &lt; &gt; - &lt; &gt; . Ter várias definições **de EventSource** que usam o mesmo nome causa um problema no tempo de execução. Cada evento definido deve ter um identificador único. Se um identificador não for único, ocorre uma falha de tempo de execução. Algumas organizações pré-assinaram gamas de valores para identificadores para evitar conflitos entre equipas de desenvolvimento separadas. Para mais informações, consulte o [blog do Vance](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) ou a documentação da [MSDN.](/previous-versions/msp-n-p/dn774985(v=pandp.20))
 
 ## <a name="aspnet-core-logging"></a>Registo do núcleo de ASP.NET
 
 É importante planear cuidadosamente como vai instrumentar o seu código. O plano de instrumentação certo pode ajudá-lo a evitar potencialmente desestabilizar a sua base de código e, em seguida, precisar de reinstruir o código. Para reduzir o risco, pode escolher uma biblioteca de instrumentação como [microsoft.extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), que faz parte do Microsoft ASP.NET Core. ASP.NET Core tem uma interface [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) que pode utilizar com o fornecedor à sua escolha, ao mesmo tempo que minimiza o efeito no código existente. Pode utilizar o código em ASP.NET Core no Windows e Linux, e em quadros .NET completos, para que o seu código de instrumentação seja normalizado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez que tenha escolhido o seu fornecedor de registo para instrumentar as suas aplicações e serviços, os seus registos e eventos precisam de ser agregados antes de poderem ser enviados para qualquer plataforma de análise. Leia sobre [Insights de Aplicações](service-fabric-diagnostics-event-analysis-appinsights.md) e [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) para entender melhor algumas das opções recomendadas pelo Azure Monitor.

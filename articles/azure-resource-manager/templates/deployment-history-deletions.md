@@ -2,13 +2,13 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: 70730ce814ebc689d9672952bad7c3dd39b5a7f1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/10/2020
+ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981661"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248991"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
@@ -23,16 +23,18 @@ O Azure Resource Manager em breve começará a eliminar automaticamente as imple
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implementações são eliminadas
 
-As implementações são eliminadas do seu histórico de implantação quando atinge 790 implementações. O Azure Resource Manager elimina um pequeno conjunto das implementações mais antigas para abrir espaço para futuras implementações. A maior parte da sua história permanece inalterada. As implementações mais antigas são sempre eliminadas primeiro.
+As implementações são eliminadas do seu histórico quando atinge 775 ou mais implementações. O Gestor de Recursos Azure elimina as implementações até que o histórico seja reduzido a 750. As implementações mais antigas são sempre eliminadas primeiro.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Supressões da história da implantação":::
+
+> [!NOTE]
+> O número inicial (775) e o número final (750) estão sujeitos a alterações.
+>
+> Se o seu grupo de recursos já estiver no limite de 800, a sua próxima implementação falha com um erro. O processo de eliminação automática começa imediatamente. Pode tentar o seu destacamento novamente depois de uma curta espera.
 
 Além das implementações, também desencadeia supressões quando executa o [e-se operação](template-deploy-what-if.md) ou valida uma implementação.
 
 Quando se dá a uma implantação o mesmo nome que um na história, repõe-se o seu lugar na história. A implantação muda-se para o lugar mais recente da história. Também reinicia o lugar de uma implantação quando [retroceda para essa implantação](rollback-on-error.md) após um erro.
-
-> [!NOTE]
-> Se o seu grupo de recursos já estiver no limite de 800, a sua próxima implementação falha com um erro. O processo de eliminação automática começa imediatamente. Pode tentar o seu destacamento novamente depois de uma curta espera.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Opte por excluir as supressões automáticas
 
@@ -76,7 +78,7 @@ Para reencontrar as supressões automáticas, utilize [o registo de recurso az](
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-# <a name="rest"></a>[REST](#tab/rest)
+# <a name="rest"></a>[DESCANSE](#tab/rest)
 
 Para REST API, utilize [funcionalidades - Registar.](/rest/api/resources/features/register)
 
@@ -98,6 +100,6 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a visualização do histórico de implementação, consulte [o histórico de implementação da Azure Resource Manager](deployment-history.md).

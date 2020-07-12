@@ -2,13 +2,13 @@
 title: Melhores práticas de modelos
 description: Descreve abordagens recomendadas para a autoria de modelos do Gestor de Recursos Azure. Oferece sugestões para evitar problemas comuns ao usar modelos.
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: a85e9afd64c416628c35bd36d16086f28d0732d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/10/2020
+ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058066"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248922"
 ---
 # <a name="arm-template-best-practices"></a>As melhores práticas do modelo ARM
 
@@ -160,7 +160,7 @@ As seguintes informações podem ser úteis quando se trabalha com [variáveis:]
 
 Ao decidir quais [as dependências](define-resource-dependency.md) a definir, utilize as seguintes orientações:
 
-* Use a função **de referência** e passe no nome do recurso para definir uma dependência implícita entre recursos que precisam de partilhar um imóvel. Não adicione um elemento explícito `dependsOn` quando já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias.
+* Use a função **de referência** e passe no nome do recurso para definir uma dependência implícita entre recursos que precisam de partilhar um imóvel. Não adicione um elemento explícito `dependsOn` quando já definiu uma dependência implícita. Esta abordagem reduz o risco de ter dependências desnecessárias. Para um exemplo de definição de uma dependência implícita, consulte [a dependência implícita](define-resource-dependency.md#reference-and-list-functions).
 
 * Desaprote um recurso para crianças como dependente do seu recurso principal.
 
@@ -278,7 +278,7 @@ O kit de ferramentas de teste do modelo ARM é um script que verifica se o seu m
 
 Depois de ter concluído o seu modelo, execute o kit de ferramentas de teste para ver se existem formas de melhorar a sua implementação. Para obter mais informações, consulte [o kit de ferramentas de teste do modelo ARM](test-toolkit.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a estrutura do ficheiro do modelo, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 * Para recomendações sobre como construir modelos que funcionam em todos os ambientes de nuvem Azure, consulte [modelos de DESENVOLVIMENTO ARM para a consistência da nuvem.](templates-cloud-consistency.md)

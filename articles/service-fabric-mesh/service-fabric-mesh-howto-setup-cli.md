@@ -5,11 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ce2dbcefa63cc55a66e712664d1436ca24d3a1d
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707979"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248548"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurar a CLI do Service Fabric mesh
 A Interface de Linha de Rede de Malha de Tecido de Serviço (CLI) é necessária para implantar e gerir recursos localmente e na Malha de Tecido de Serviço Azure. Eis como preparar isto.
@@ -43,7 +44,7 @@ Para a pré-visualização, a CLI do Azure Service Fabric Mesh é escrita como u
 
 ## <a name="install-the-service-fabric-cli-sfctl"></a>Instale o CLI de Tecido de Serviço (sfctl) 
 
-Siga as instruções sobre [configurar o Tecido de Serviço CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). O módulo **sfctl** pode ser utilizado para a implementação de aplicações com base no modelo de recursos contra clusters de Tecido de Serviço na sua máquina local. 
+Siga as instruções sobre [configurar o Tecido de Serviço CLI](../service-fabric/service-fabric-cli.md). O módulo **sfctl** pode ser utilizado para a implementação de aplicações com base no modelo de recursos contra clusters de Tecido de Serviço na sua máquina local. 
 
 ## <a name="install-the-maven-cli"></a>Instale o Maven CLI 
 
@@ -81,7 +82,7 @@ Para utilizar o plugin Maven na sua aplicação Maven Java, adicione o seguinte 
 
 Leia a secção [de referência do Maven CLI](service-fabric-mesh-reference-maven.md) para saber mais sobre o uso detalhado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode também configurar o seu [ambiente de desenvolvimento no Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 

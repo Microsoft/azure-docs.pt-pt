@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690188"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86250028"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlos de página da AZure API
 A Azure API Management fornece os seguintes controlos para utilização nos modelos do portal do desenvolvedor.  
@@ -29,7 +30,7 @@ Para utilizar um controlo, coloque-o na localização desejada no modelo do port
   
 Os valores para os parâmetros são passados como parte do modelo de dados para o modelo. Na maioria dos casos, pode simplesmente colar no exemplo fornecido para que cada controlo funcione corretamente. Para obter mais informações sobre os valores dos parâmetros, pode consultar a secção do modelo de dados para cada modelo em que pode ser utilizado um controlo.  
 
-Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -213,5 +214,5 @@ Para obter mais informações sobre o trabalho com modelos, consulte [como perso
   
 -   [Produto](api-management-product-templates.md#Product)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

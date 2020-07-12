@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79243929"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249908"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelos de produto na Gestão API da Azure
 
@@ -30,7 +31,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
 -   [Produto](#Product)  
   
 > [!NOTE]
->  Os modelos predefinidos da amostra estão incluídos na seguinte documentação, mas estão sujeitos a alterações devido a melhorias contínuas. Pode ver os modelos de predefinição ao vivo no portal do desenvolvedor navegando para os modelos individuais pretendidos. Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Os modelos predefinidos da amostra estão incluídos na seguinte documentação, mas estão sujeitos a alterações devido a melhorias contínuas. Pode ver os modelos de predefinição ao vivo no portal do desenvolvedor navegando para os modelos individuais pretendidos. Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](./api-management-developer-portal-templates.md).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -209,7 +210,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
 |IsDeveloperSubscrito|boolean|Se o utilizador atual é subscrito a este produto.|  
 |Estado de Subscrição|número|O estado da assinatura. Os estados possíveis são:<br /><br /> -   `0 - suspended`– a subscrição está bloqueada e o assinante não pode chamar APIs do produto.<br />-   `1 - active`– a subscrição está ativa.<br />-   `2 - expired`– a subscrição atingiu a data de validade e foi desativada.<br />-   `3 - submitted`– o pedido de subscrição foi feito pelo desenvolvedor, mas ainda não foi aprovado ou rejeitado.<br />-   `4 - rejected`– o pedido de subscrição foi negado por um administrador.<br />-   `5 - cancelled`– a subscrição foi cancelada pelo desenvolvedor ou administrador.|  
 |Limites|array|Esta propriedade é depreciada e não deve ser usada.|  
-|DelegadoSubscriçãoEnabled|boolean|Se [a delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta subscrição.|  
+|DelegadoSubscriçãoEnabled|boolean|Se [a delegação](./api-management-howto-setup-delegation.md) está habilitada para esta subscrição.|  
 |DelegadoSubscriçãoUrl|string|Se a delegação estiver ativa, o URL de subscrição delegado.|  
 |Isa concordou|boolean|Se o produto tiver termos, se o utilizador atual concordou com os termos.|  
 |Subscrições|Recolha de entidades [sumárias](api-management-template-data-model-reference.md#SubscriptionSummary) de assinatura.|As assinaturas do produto.|  
@@ -261,5 +262,5 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
 }  
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

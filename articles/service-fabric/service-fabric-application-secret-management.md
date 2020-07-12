@@ -3,12 +3,12 @@ title: Gerir segredos de aplicação de tecido de serviço Azure
 description: Saiba como garantir valores secretos numa aplicação de Tecido de Serviço (plataforma-agnóstico).
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af82a55d41c48eebcbcbd1581ec5096a89c49bea
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583231"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86248123"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerir segredos encriptados em aplicações de Tecido de Serviço
 Este guia acompanha-o através dos passos de gestão de segredos numa aplicação de Tecido de Serviço. Os segredos podem ser qualquer informação sensível, como cadeias de ligação de armazenamento, palavras-passe ou outros valores que não devem ser tratados em texto simples.
@@ -99,7 +99,7 @@ Para anular os valores em Settings.xml, declare um parâmetro de sobreposição 
 
 Agora o valor pode ser especificado como um parâmetro de *aplicação* ao criar uma instância da aplicação. A criação de uma instância de aplicação pode ser escrita usando o PowerShell, ou escrito em C#, para facilitar a integração num processo de construção.
 
-Utilizando o PowerShell, o parâmetro é fornecido ao `New-ServiceFabricApplication` comando como uma tabela de [haxixe:](https://technet.microsoft.com/library/ee692803.aspx)
+Utilizando o PowerShell, o parâmetro é fornecido ao `New-ServiceFabricApplication` comando como uma tabela de [haxixe:](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10))
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}

@@ -3,11 +3,12 @@ title: Embale um tecido de serviço Azure existente
 description: Aprenda sobre a embalagem de uma aplicação existente como um hóspede executável, para que possa ser implantado em um cluster de Tecido de Serviço.
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3d7aab28a32effa2caf7b04b830d72e5e3dfda56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b808d092001196a4d2150e44d508e031db95554
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457826"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247392"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementar um executável existente para o tecido de serviço
 Pode executar qualquer tipo de código, como Node.js, Java ou C++ em Azure Service Fabric como um serviço. O Service Fabric refere-se a este tipo de serviços como executáveis de hóspedes.
@@ -61,11 +62,10 @@ O ApplicationPackageRoot contém o ficheiro ApplicationManifest.xml que define a
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos para obter informações e tarefas relacionadas.
 * [Implementar um executável convidado](service-fabric-deploy-existing-app.md)
-* [Implementar vários executáveis convidados](service-fabric-deploy-multiple-apps.md)
+* [Implementar vários executáveis convidados](./service-fabric-deploy-existing-app.md)
 * [Crie a sua primeira aplicação executável de hóspedes utilizando o Visual Studio](quickstart-guest-app.md)
 * [Amostra para embalagem e implantação de um hóspede executável,](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)incluindo um link para o pré-relançamento da ferramenta de embalagem
 * [Amostra de dois executáveis de hóspedes (C# e nodejs) comunicando através do serviço Naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)
-

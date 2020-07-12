@@ -4,11 +4,12 @@ description: Crie a sua primeira aplicação de contentor do Windows no Azure Se
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: tracking-python
-ms.openlocfilehash: d7076226b63fa3b45eaae82c2964997d3065ed88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0baad5d2596de04b629c4cf9eb86c51b37b8cdc
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560667"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247409"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 
@@ -16,7 +17,7 @@ ms.locfileid: "84560667"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Para executar uma aplicação existente num contentor do Windows num cluster do Service Fabric, não precisa de fazer quaisquer alterações à sua aplicação. Este artigo acompanha-o através da criação de uma imagem Docker contendo uma aplicação web Python [Flask](http://flask.pocoo.org/) e implantando-a num cluster de tecido de serviço Azure. Também vai partilhar a sua aplicação contentorizada através do [Azure Container Registry](/azure/container-registry/). Este artigo pressupõe uma compreensão básica do Docker. Para saber mais sobre o Docker, leia a [Descrição Geral do Docker](https://docs.docker.com/engine/understanding-docker/).
+Para executar uma aplicação existente num contentor do Windows num cluster do Service Fabric, não precisa de fazer quaisquer alterações à sua aplicação. Este artigo acompanha-o através da criação de uma imagem Docker contendo uma aplicação web Python [Flask](http://flask.pocoo.org/) e implantando-a num cluster de tecido de serviço Azure. Também vai partilhar a sua aplicação contentorizada através do [Azure Container Registry](../container-registry/index.yml). Este artigo pressupõe uma compreensão básica do Docker. Para saber mais sobre o Docker, leia a [Descrição Geral do Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > Este artigo aplica-se a um ambiente de desenvolvimento do Windows.  O tempo de funcionamento do cluster de tecido de serviço e o tempo de funcionamento do Docker devem estar a funcionar no mesmo SISTEMA.  Não é possível executar recipientes Windows num cluster Linux.
@@ -332,7 +333,7 @@ Abra um browser e navegue para `http://containercluster.westus2.cloudapp.azure.c
 
 ## <a name="clean-up"></a>Limpeza
 
-Continua a incorrer em custos enquanto o cluster está em execução, pelo que deve considerar [eliminar o seu cluster](service-fabric-cluster-delete.md).
+Continua a incorrer em custos enquanto o cluster está em execução, pelo que deve considerar [eliminar o seu cluster](./service-fabric-tutorial-delete-cluster.md).
 
 Depois de enviar a imagem para o registo de contentor, pode eliminar a imagem local do seu computador de programação:
 
@@ -349,7 +350,7 @@ Os recipientes do Windows Server não são compatíveis em todas as versões de 
 - Os contentores do Windows Server construídos utilizando o Windows Server 2016 funcionam apenas no modo de isolamento Hyper-V apenas num anfitrião que executa a versão 1709 do Windows Server. 
 - Com os contentores do Windows Server construídos utilizando o Windows Server 2016, pode ser necessário garantir que a revisão do sistema operativo e do sistema operativo hospedeiro são os mesmos quando funcionamos no modo de isolamento de processos num anfitrião que executa o Windows Server 2016.
  
-Para saber mais, consulte a [compatibilidade da versão do recipiente do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Para saber mais, consulte a [compatibilidade da versão do recipiente do Windows](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Considere a compatibilidade do hospedeiro e do seu sistema operativo de contentores ao construir e implantar contentores no seu cluster de Tecido de Serviço. Por exemplo:
 
@@ -595,7 +596,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) (Implementar uma aplicação .NET num contentor).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

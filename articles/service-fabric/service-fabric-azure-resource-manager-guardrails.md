@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: f8d8d5ae677ea438de4baed7d6636c2087277427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602708"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86247829"
 ---
 # <a name="service-fabric-guardrails"></a>Guarda-costas de tecido de serviço 
 Ao implementar um cluster de tecido de serviço, são colocados guarda-costas, o que falhará na implementação de um Gestor de Recursos Azure no caso de uma configuração de cluster inválida. As secções seguintes fornecem uma visão geral das questões comuns de configuração do cluster e dos passos necessários para mitigar estas questões. 
@@ -68,7 +68,7 @@ Para corrigir uma incompatibilidade de durabilidade, que é indicada por qualque
 
 ## <a name="seed-node-deletion"></a>Supressão do nó de sementes 
 ### <a name="overview"></a>Descrição geral
-Um cluster de tecido de serviço tem uma propriedade [de nível de fiabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) que é usada para determinar o número de réplicas de serviços de sistema que funcionam no tipo de nó primário do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nós no tipo de nó primário for inferior ao mínimo exigido para o nível de fiabilidade, o cluster tornar-se-á instável.  
+Um cluster de tecido de serviço tem uma propriedade [de nível de fiabilidade](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) que é usada para determinar o número de réplicas de serviços de sistema que funcionam no tipo de nó primário do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nós no tipo de nó primário for inferior ao mínimo exigido para o nível de fiabilidade, o cluster tornar-se-á instável.  
 
 ### <a name="error-messages"></a>Mensagens de erro 
 A operação de remoção do nó de sementes foi detetada e será rejeitada. 
@@ -79,9 +79,9 @@ A operação de remoção do nó de sementes foi detetada e será rejeitada.
 Certifique-se de que o seu tipo de nó primário tem máquinas virtuais suficientes para a fiabilidade especificada no seu cluster. Não será possível remover uma Máquina Virtual se colocar o Conjunto de Balanças de Máquina Virtual abaixo do número mínimo de nós para o nível de fiabilidade dado.
 * Se o nível de fiabilidade estiver corretamente especificado, certifique-se de que tem nós suficientes no tipo de nó primário, conforme necessário para o nível de fiabilidade. 
 * Se o nível de fiabilidade estiver incorreto, inicie uma alteração no recurso 'Tecido de Serviço' para baixar primeiro o nível de fiabilidade antes de iniciar quaisquer operações de Conjunto de Escala de Máquina Virtual e aguarde que esteja concluído.
-* Se o nível de fiabilidade for bronze, siga estes [passos](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para escalar graciosamente no seu agrupamento.
+* Se o nível de fiabilidade for bronze, siga estes [passos](./service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para escalar graciosamente no seu agrupamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Criar um cluster em VMs ou computadores que executam o Windows Server: [Criação de cluster de tecido de serviço para windows server](service-fabric-cluster-creation-for-windows-server.md)
 * Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster Linux](service-fabric-cluster-creation-via-portal.md)
 * Tecido de serviço de resolução [de problemas: guias de resolução de problemas](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

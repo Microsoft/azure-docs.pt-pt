@@ -13,11 +13,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 76107a3713a7570bc3bbca15aa1b47e76560bf66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
+ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674283"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86249466"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -102,7 +103,7 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
 * **Configuração personalizada do servidor DNS**: O serviço de Gestão API depende de vários serviços Azure. Quando a API Management é hospedada num VNET com um servidor DNS personalizado, precisa de resolver os nomes de anfitrião desses serviços Azure. Por favor, siga [esta](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) orientação sobre a configuração personalizada do DNS. Consulte a tabela das portas abaixo e outros requisitos de rede para referência.
 
 > [!IMPORTANT]
-> Se planeia utilizar um(s) Server(s) DNS personalizado para o VNET, deverá alterá-lo **antes** de implantar um serviço de Gestão API no mesmo. Caso contrário, é necessário atualizar o serviço de Gestão API sempre que alterar o(s) Servidor DNS,s, executando a [Operação de Configuração de Rede Aplicada](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Se planeia utilizar um(s) Server(s) DNS personalizado para o VNET, deverá alterá-lo **antes** de implantar um serviço de Gestão API no mesmo. Caso contrário, é necessário atualizar o serviço de Gestão API sempre que alterar o(s) Servidor DNS,s, executando a [Operação de Configuração de Rede Aplicada](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
 * **Os portos necessários para a Gestão da API**: Tráfego de entrada e saída na Sub-rede em que a Gestão da API é implantada pode ser controlado utilizando [o Grupo de Segurança da Rede][Network Security Group]. Se alguma destas portas não estiver disponível, a API Management pode não funcionar corretamente e pode tornar-se inacessível. Ter uma ou mais destas portas bloqueadas é outra questão comum de má configuração quando se utiliza a API Management com um VNET.
 
@@ -173,7 +174,7 @@ Segue-se uma lista de problemas comuns de configuração errada que podem ocorre
   > [!IMPORTANT]
   > Depois de validar a conectividade, certifique-se de remover todos os recursos implantados na sub-rede, antes de colocar a API Management na sub-rede.
 
-* **Atualizações Incrementais**: Ao escruissar a sua rede, consulte a [NetworkStatus API,](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus)para verificar se o serviço de Gestão API não perdeu o acesso a nenhum dos recursos críticos, dos quais depende. O estado de conectividade deve ser atualizado a cada 15 minutos.
+* **Atualizações Incrementais**: Ao escruissar a sua rede, consulte a [NetworkStatus API,](/rest/api/apimanagement/2019-12-01/networkstatus)para verificar se o serviço de Gestão API não perdeu o acesso a nenhum dos recursos críticos, dos quais depende. O estado de conectividade deve ser atualizado a cada 15 minutos.
 
 * **Links de navegação de recursos**: Ao implantar na sub-rede vnet do estilo Resource Manager, a API Management reserva a sub-rede, criando uma ligação de navegação de recursos. Se a sub-rede já contiver um recurso de um fornecedor diferente, a implementação **falhará**. Da mesma forma, quando mover um serviço de Gestão API para uma sub-rede diferente ou eliminá-lo, removeremos essa ligação de navegação de recursos.
 
@@ -220,18 +221,18 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 | Azure Público| Leste do Canadá| 52.139.80.117|
 | Azure Público| Uae Norte| 20.46.144.85|
 | Azure Público| Sul do Brasil| 191.233.24.179|
-| Azure Público| Ásia Sudeste| 40.90.185.46|
+| Azure Público| Sudeste Asiático| 40.90.185.46|
 | Azure Público| África do Sul Norte| 102.133.130.197|
 | Azure Público| Canadá Central| 52.139.20.34|
 | Azure Público| Sul da Coreia do Sul| 40.80.232.185|
 | Azure Público| Índia Central| 13.71.49.1|
 | Azure Público| E.U.A. Oeste| 13.64.39.16|
-| Azure Público| Austrália Sudeste| 20.40.160.107|
+| Azure Público| Sudeste da Austrália| 20.40.160.107|
 | Azure Público| Austrália Central| 20.37.52.67|
 | Azure Público| Sul da Índia| 20.44.33.246|
 | Azure Público| E.U.A. Central| 13.86.102.66|
 | Azure Público| Leste da Austrália| 20.40.125.155|
-| Azure Público| E.U.A.Oeste 2| 51.143.127.203|
+| Azure Público| E.U.A. Oeste 2| 51.143.127.203|
 | Azure Público| Leste DOS EUA 2| 52.253.229.253|
 | Azure Público| EUA Central EUAP| 52.253.159.160|
 | Azure Público| E.U.A. Centro-Sul| 20.188.77.119|
