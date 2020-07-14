@@ -14,30 +14,52 @@
               href: data-box-quickstart-portal.md
         - name: Tutoriais
           items:
-            - name: 1 - Encomendar
-              href: data-box-deploy-ordered.md
-            - name: 2 - Configurar
-              href: data-box-deploy-set-up.md
-            - name: 3 - Ligar e copiar
+            - name: Importar dados para o Azure
               items:
-                - name: Via SMB
-                  href: data-box-deploy-copy-data.md
-                - name: Via NFS
-                  href: data-box-deploy-copy-data-via-nfs.md
-                - name: Via REST
-                  href: data-box-deploy-copy-data-via-rest.md
-                - name: Através do serviço de cópia de dados
-                  href: data-box-deploy-copy-data-via-copy-service.md
-                - name: Para discos geridos
-                  href: data-box-deploy-copy-data-from-vhds.md
-            - name: '4 - Devolver, carregar, verificar'
-              href: data-box-deploy-picked-up.md
+                - name: 1 - Encomendar
+                  href: data-box-deploy-ordered.md
+                - name: 2 - Configurar
+                  href: data-box-deploy-set-up.md
+                - name: 3 - Ligar e copiar
+                  items:
+                    - name: Via SMB
+                      href: data-box-deploy-copy-data.md
+                    - name: Via NFS
+                      href: data-box-deploy-copy-data-via-nfs.md
+                    - name: Via REST
+                      href: data-box-deploy-copy-data-via-rest.md
+                    - name: Através do serviço de cópia de dados
+                      href: data-box-deploy-copy-data-via-copy-service.md
+                    - name: Para discos geridos
+                      href: data-box-deploy-copy-data-from-vhds.md
+                - name: '4 - Devolver, carregar, verificar'
+                  href: data-box-deploy-picked-up.md
+            - name: Exportar dados do Azure
+              items:
+                - name: 1 - Encomendar
+                  href: data-box-deploy-export-ordered.md
+                - name: 2 - Configurar
+                  href: data-box-deploy-set-up.md
+                - name: 3 - Ligar e copiar
+                  items:
+                    - name: Via SMB
+                      href: data-box-deploy-export-copy-data.md
+                    - name: Via NFS
+                      href: data-box-deploy-export-copy-data-via-nfs.md
+                - name: 4 - Devolver
+                  href: data-box-deploy-export-picked-up.md
         - name: Conceitos
           items:
             - name: Leia as diretrizes de segurança
               href: data-box-safety.md
             - name: Rever controlo e registo
-              href: data-box-logs.md
+              items:
+                - name: Para encomendas de importação
+                  href: data-box-logs.md
+                - name: Para encomendas de exportação
+                  href: data-box-export-logs.md
+            - name: Ver registos de auditoria
+              href: data-box-audit-logs.md
             - name: Rever requisitos
               items:
                 - name: Para o Data Box
@@ -64,6 +86,8 @@
               href: data-box-portal-customer-managed-shipping.md
             - name: Ativar chave gerida pelo cliente
               href: data-box-customer-managed-encryption-key-portal.md
+            - name: Utilizar o Sistema de Proteção de Dados do Cliente
+              href: data-box-customer-lockbox.md
             - name: Mover dados para um escalão de blobs
               href: data-box-how-to-set-data-tier.md
             - name: Ligar o dispositivo

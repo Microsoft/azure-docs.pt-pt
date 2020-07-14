@@ -1,5 +1,5 @@
 ---
-title: Atribuir funções de diretório aos utilizadores - Azure Ative Directory Microsoft Docs
+title: Atribuir funções Azure AD aos utilizadores - Azure Ative Directory / Microsoft Docs
 description: Instruções sobre como atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory.
 services: active-directory
 author: msaburnley
@@ -8,35 +8,40 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 06/15/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87b063a4d51d5d5d1e3d7949be3754ccbe74acca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5dc42d8308b8e20a647f5f64867fd78a1a09c96
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604119"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224033"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos utilizadores com o Azure Ative Directory
-Se um utilizador da sua organização precisar de permissão para gerir os recursos do Azure Ative Directory (Azure AD), deve atribuir ao utilizador um papel adequado no Azure AD, com base nas ações que o utilizador necessita de permissão para realizar.
 
-Para obter mais informações sobre as funções disponíveis, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](../users-groups-roles/directory-assign-admin-roles.md). Para obter mais informações sobre a adição de utilizadores, consulte [adicionar novos utilizadores ao Azure Ative Directory](add-users-azure-active-directory.md).
+No Azure Ative Directory (Azure AD), se um dos seus utilizadores precisar de permissão para gerir os recursos Azure AD, deve atribuí-los a uma função que forneça as permissões de que necessitam. Para obter informações sobre quais as funções que gerem os recursos da Azure e quais as funções que gerem os recursos da AD Azure, consulte [as funções de administrador de subscrição clássica, funções de Azure e Ad AD.](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+
+Para obter mais informações sobre as funções de Ad Azure disponíveis, consulte [as funções de administrador de atribuição no Diretório Ativo Azure](../users-groups-roles/directory-assign-admin-roles.md). Para adicionar utilizadores, consulte [Adicionar novos utilizadores ao Azure Ative Directory](add-users-azure-active-directory.md).
 
 ## <a name="assign-roles"></a>Atribuir funções
-Uma forma comum de atribuir funções Azure AD a um utilizador está na página **de função** do Diretório para um utilizador.
 
-Também pode atribuir funções utilizando Gestão de Identidade Privilegiada (PIM). Para obter informações mais detalhadas sobre como utilizar a PIM, consulte [Gestão de Identidade Privilegiada.](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)
+Uma forma comum de atribuir funções Azure AD a um utilizador está na página **de funções atribuídas** para um utilizador. Também pode ser elevada a tempo para uma função utilizando a Gestão de Identidade Privilegiada (PIM). Para obter mais informações sobre como utilizar a PIM, consulte [Gestão de Identidade Privilegiada.](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)
 
-### <a name="to-assign-a-role-to-a-user"></a>Atribuir uma função a um utilizador
-1. Vá ao [portal Azure](https://portal.azure.com/) e faça login usando uma conta de administrador global para o diretório. 
+> [!Note]
+> Se tiver um plano de licença Azure AD Premium P2 e já utilizar o PIM, todas as tarefas de gestão de funções são desempenhadas na [experiência de Gestão de Identidade Privilegiada.](../users-groups-roles/directory-manage-roles-portal.md)
+>
+> ![Funções AD AD geridas em PIM para utilizadores que já usam PIM e têm uma licença Premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
+
+## <a name="assign-a-role-to-a-user"></a>Atribuir uma função a um utilizador
+
+1. Vá ao [portal Azure](https://portal.azure.com/) e inscreva-se usando uma conta de administrador global para o diretório.
 
 2. Procure e selecione **Azure Active Directory**.
 
       ![Pesquisa no portal Azure para O Diretório Ativo Azure](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
-
 
 3. Selecione **Utilizadores**.
 
@@ -46,16 +51,17 @@ Também pode atribuir funções utilizando Gestão de Identidade Privilegiada (P
 
 5. Na página **Alain Charon - Profile,** selecione **Funções atribuídas**.
 
-    Aparece a página **de papel do Alain Charon - Diretório.**
+    Aparece a página **Alain Charon - Funções Administrativas.**
 
-6. **Selecione Adicionar a atribuição,** selecione a função a atribuir a Alain (por exemplo, _administrador de aplicação),_ e, em seguida, escolha **Selecione**.
+6. Selecione **atribuir atribuições,** selecione a função a atribuir a Alain (por exemplo, _administrador de aplicação)_ e, em seguida, escolha **Selecione**.
 
     ![Página de funções atribuídas - mostrando o papel selecionado](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
-    A função de administrador de aplicação é atribuída a Alain Charon e aparece na página de **função do Alain Charon - Diretório.**
+    A função de administrador de aplicação é atribuída a Alain Charon e aparece na página **Alain Charon - Funções Administrativas.**
 
 ## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
-Se precisar de remover a atribuição de funções de um utilizador, também pode fazê-lo a partir da página de **função Alain Charon - Diretório.**
+
+Se precisar de remover a atribuição de funções de um utilizador, também pode fazê-lo a partir da página **Alain Charon - Funções Administrativas.**
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>Para remover uma atribuição de função de um utilizador
 
@@ -65,15 +71,14 @@ Se precisar de remover a atribuição de funções de um utilizador, também pod
 
     ![Página de funções atribuídas, mostrando o papel selecionado e a opção de remoção](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
-    A função de administrador de aplicação é removida de Alain Charon e já não aparece na página de **função do Alain Charon - Diretório.**
+    A função de administrador de aplicação é removida de Alain Charon e já não aparece na página **Alain Charon - Funções Administrativas.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
 - [Adicionar utilizadores convidados a partir de outro diretório](../b2b/what-is-b2b.md)
 
-Ou pode executar outras tarefas de gestão de utilizadores, como atribuir delegados, usar políticas e partilhar contas de utilizador. Para obter mais informações sobre outras ações disponíveis, consulte [a documentação de gestão de utilizadores do Azure Ative Directory](../users-groups-roles/index.yml).
-
-
+Outras tarefas de gestão do utilizador que pode consultar estão disponíveis na documentação de [gestão de utilizadores do Azure Ative Directory.](../users-groups-roles/index.yml)

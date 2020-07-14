@@ -10,12 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 52a99763e345096dcf379d2e4fd00fa4687ebcd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 7a17e9b0de3e77b2f6b8bf3c6eb55503d34c359c
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727114"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223725"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados em Azure Data Lake Storage Gen2 usando Azure Data Factory
 
@@ -63,7 +64,7 @@ As secções seguintes fornecem informações sobre propriedades que são usadas
 O conector Azure Data Lake Storage Gen2 suporta os seguintes tipos de autenticação. Consulte as secções correspondentes para mais detalhes:
 
 - [Autenticação chave de conta](#account-key-authentication)
-- [Autenticação do principal de serviço](#service-principal-authentication)
+- [Autenticação principal do serviço](#service-principal-authentication)
 - [Identidades geridas para autenticação de recursos Azure](#managed-identity)
 
 >[!NOTE]
@@ -73,7 +74,7 @@ O conector Azure Data Lake Storage Gen2 suporta os seguintes tipos de autentica�
 
 Para utilizar a autenticação da chave de armazenamento, suportam-se as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **AzureBlobFS**. |Sim |
 | url | Ponto final para data lake storage Gen2 com o padrão de `https://<accountname>.dfs.core.windows.net` . | Sim |
@@ -125,7 +126,7 @@ Para utilizar a autenticação principal do serviço, siga estes passos.
 
 Estas propriedades são suportadas para o serviço ligado:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **AzureBlobFS**. |Sim |
 | url | Ponto final para data lake storage Gen2 com o padrão de `https://<accountname>.dfs.core.windows.net` . | Sim |
@@ -179,7 +180,7 @@ Para utilizar identidades geridas para a autenticação de recursos Azure, siga 
 
 Estas propriedades são suportadas para o serviço ligado:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para **AzureBlobFS**. |Sim |
 | url | Ponto final para data lake storage Gen2 com o padrão de `https://<accountname>.dfs.core.windows.net` . | Sim |
@@ -211,7 +212,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para data lake storage gen2 em `location` configurações no conjunto de dados baseado em formato:
 
-| Propriedade   | Descrição                                                  | Necessário |
+| Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | tipo       | A propriedade tipo em baixo `location` no conjunto de dados deve ser definida para **AzureBlobFSLocation**. | Sim      |
 | sistema de ficheiros | O nome do sistema de ficheiros Data Lake Storage Gen2.                              | Não       |
@@ -261,7 +262,7 @@ Tem várias opções para copiar dados da ADLS Gen2:
 
 As seguintes propriedades são suportadas para data lake storage gen2 sob `storeSettings` configurações na fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário                                      |
+| Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | tipo                     | A propriedade tipo em baixo `storeSettings` deve ser definida para **AzureBlobFSReadSettings**. | Sim                                           |
 | ***Localize os ficheiros para copiar:*** |  |  |
@@ -323,7 +324,7 @@ As seguintes propriedades são suportadas para data lake storage gen2 sob `store
 
 As seguintes propriedades são suportadas para data lake storage gen2 em `storeSettings` configurações em pia de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário |
+| Propriedade                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | tipo                     | A propriedade tipo em baixo `storeSettings` deve ser definida para **AzureBlobFSWriteSettings**. | Sim      |
 | copyOportundo             | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- Preservar AHierarquia (predefinição)</b>: Preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro-alvo para a pasta alvo.<br/><b>- FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível da pasta alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | Não       |
@@ -414,11 +415,13 @@ Ao copiar ficheiros da Azure Data Lake Storage Gen1/Gen2 para a Gen2, pode optar
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
 Quando estiver a transformar dados em fluxos de dados de mapeamento, pode ler e escrever ficheiros da Azure Data Lake Storage Gen2 nos seguintes formatos:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
-* [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet.](format-parquet.md#mapping-data-flow-properties)
 * [Modelo de dados comum (pré-visualização)](format-common-data-model.md#mapping-data-flow-properties)
+* [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
+* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 As definições específicas do formato estão localizadas na documentação para este formato. Para obter mais informações, consulte [a transformação de Fonte no fluxo de dados de mapeamento](data-flow-source.md) e [transformação de sumidouro no fluxo de dados de mapeamento.](data-flow-sink.md)
 
@@ -517,7 +520,7 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Eliminar](d
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para **AzureBlobFSFile**. |Sim |
 | folderPath | Caminho para a pasta em Data Lake Storage Gen2. Se não for especificado, aponta para a raiz. <br/><br/>O filtro Wildcard é suportado. Os wildcards permitidos são `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou single character). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou se este char de fuga estiver dentro. <br/><br/>Exemplos: sistema de ficheiros/pasta/. Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). |Não |
@@ -562,7 +565,7 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Eliminar](d
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem de origem de atividade de cópia de legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **AzureBlobFSSource**. |Sim |
 | recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Quando a recursiva é definida como verdadeira e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia.<br/>Os valores permitidos são **verdadeiros** (padrão) e **falsos.** | Não |
@@ -602,7 +605,7 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Eliminar](d
 
 ### <a name="legacy-copy-activity-sink-model"></a>Modelo de pia de atividade de cópia legacy
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **AzureBlobFSSink**. |Sim |
 | copyOportundo | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- Preservar AHierarquia (predefinição)</b>: Preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro-alvo para a pasta alvo.<br/><b>- FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível da pasta alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | Não |
@@ -640,6 +643,6 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Eliminar](d
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

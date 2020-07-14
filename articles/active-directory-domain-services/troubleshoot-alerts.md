@@ -9,13 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d3300151dc5fdfde0b34aa3f76c3ed9494d34fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734066"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86222977"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas e resoluções comuns nos Serviços de Domínio do Diretório Ativo do Azure
 
@@ -33,7 +34,7 @@ Este artigo fornece informações sobre resolução de problemas para alertas co
 
 Este erro é geralmente causado quando uma subscrição do Azure é transferida para um novo diretório AD Azure e o antigo diretório AD Ad Azure que está associado ao Azure AD DS é eliminado.
 
-Este erro é irrecuperável. Para resolver o alerta, [elimine o domínio gerido Azure AD DS](delete-aadds.md) existente e recrie-o no seu novo diretório. Se tiver problemas em eliminar o domínio gerido, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
+Este erro é irrecuperável. Para resolver o alerta, [elimine o seu domínio gerido e](delete-aadds.md) recrie-o no seu novo diretório. Se tiver problemas em eliminar o domínio gerido, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C está a correr neste diretório
 
@@ -66,7 +67,7 @@ Antes de começar, certifique-se de que compreende [os espaços de endereços IP
 Dentro de uma rede virtual, os VMs podem fazer pedidos aos recursos Azure na mesma gama de endereços IP configuradas para a sub-rede. Se configurar um intervalo de endereços IP público para uma sub-rede, os pedidos encaminhados para dentro de uma rede virtual podem não atingir os recursos web pretendidos. Esta configuração pode levar a erros imprevisíveis com Azure AD DS.
 
 > [!NOTE]
-> Se possuir a gama de endereços IP na internet configurada na sua rede virtual, este alerta pode ser ignorado. No entanto, os Serviços de Domínio AD Azure não podem comprometer-se com o [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)com esta configuração, uma vez que pode levar a erros imprevisíveis.
+> Se possuir a gama de endereços IP na internet configurada na sua rede virtual, este alerta pode ser ignorado. No entanto, os Serviços de Domínio AD AZure não podem comprometer-se com o [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) com esta configuração, uma vez que pode levar a erros imprevisíveis.
 
 Para resolver este alerta, elimine o seu domínio gerido existente e recrie-o numa rede virtual com uma gama de endereços IP privada. Este processo é disruptivo, uma vez que o domínio gerido não está disponível e quaisquer recursos personalizados que tenha criado como OUs ou contas de serviço perdem-se.
 
@@ -147,7 +148,7 @@ Este alerta é gerado quando um destes recursos necessários é eliminado. Se o 
 
 ### <a name="resolution"></a>Resolução
 
-A sub-rede de rede virtual para Azure AD DS necessita de endereços IP suficientes para os recursos automaticamente criados. Este espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implemente recursos adicionais, como os seus próprios VMs, na mesma sub-rede de rede virtual que o Azure AD DS.
+A sub-rede de rede virtual para Azure AD DS necessita de endereços IP suficientes para os recursos automaticamente criados. Este espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implemente recursos adicionais, como os seus próprios VMs, na mesma sub-rede de rede virtual que o domínio gerido.
 
 Este erro é irrecuperável. Para resolver o alerta, [elimine o seu domínio gerido e](delete-aadds.md) recrie-o. Se tiver problemas em eliminar o domínio gerido, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 
@@ -172,14 +173,14 @@ Alguns principais de serviço gerados automaticamente são usados para gerir e c
 
 ### <a name="resolution"></a>Resolução
 
-A sub-rede de rede virtual para Azure AD DS necessita de endereços IP suficientes para os recursos criados automaticamente. Este espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implemente recursos adicionais, como os seus próprios VMs, na mesma sub-rede de rede virtual que o Azure AD DS.
+A sub-rede de rede virtual para Azure AD DS necessita de endereços IP suficientes para os recursos criados automaticamente. Este espaço de endereço IP inclui a necessidade de criar recursos de substituição se houver um evento de manutenção. Para minimizar o risco de ficar sem endereços IP disponíveis, não implemente recursos adicionais, como os seus próprios VMs, na mesma sub-rede de rede virtual que o domínio gerido.
 
 Para resolver este alerta, elimine o seu domínio gerido existente e reu crie-o numa rede virtual com uma gama de endereços IP suficientemente grande. Este processo é disruptivo, uma vez que o domínio gerido não está disponível e quaisquer recursos personalizados que tenha criado como OUs ou contas de serviço perdem-se.
 
 1. [Elimine o domínio gerido](delete-aadds.md) do seu diretório.
-1. Para atualizar o intervalo de endereços IP de rede virtual, procure e selecione *a rede Virtual* no portal Azure. Selecione a rede virtual para Azure AD DS que tem a pequena gama de endereços IP.
+1. Para atualizar o intervalo de endereços IP de rede virtual, procure e selecione *a rede Virtual* no portal Azure. Selecione a rede virtual para o domínio gerido que tem a pequena gama de endereços IP.
 1. Em **Definições**, selecione *Espaço de Endereço*.
-1. Atualize o intervalo de endereços escolhendo o intervalo de endereços existente e editando-o, ou adicionando um intervalo de endereços adicional. Certifique-se de que a nova gama de endereços IP é suficientemente grande para a gama de sub-redes Azure AD DS. Quando estiver pronto, **guarde** as alterações.
+1. Atualize o intervalo de endereços escolhendo o intervalo de endereços existente e editando-o, ou adicionando um intervalo de endereços adicional. Certifique-se de que a nova gama de endereços IP é suficientemente grande para a gama de sub-redes do domínio gerido. Quando estiver pronto, **guarde** as alterações.
 1. Selecione **sub-redes** na navegação à esquerda.
 1. Escolha a sub-rede que pretende editar ou crie uma sub-rede adicional.
 1. Atualize ou especifique um intervalo de endereço IP suficientemente grande e, em **seguida, guarde** as suas alterações.
@@ -219,7 +220,7 @@ Os bloqueios de recursos podem ser aplicados aos recursos da Azure para evitar a
 
 Para verificar se há bloqueios de recursos nos componentes AZURE AD DS e removê-los, complete os seguintes passos:
 
-1. Para cada um dos componentes da rede Azure AD DS no seu grupo de recursos, tais como rede virtual, interface de rede ou endereço IP público, verifique os registos de funcionamento no portal Azure. Estes registos de operação devem indicar por que uma operação está a falhar e onde é aplicada uma fechadura de recursos.
+1. Para cada um dos componentes de rede do domínio gerido no seu grupo de recursos, como rede virtual, interface de rede ou endereço IP público, verifique os registos de funcionamento no portal Azure. Estes registos de operação devem indicar por que uma operação está a falhar e onde é aplicada uma fechadura de recursos.
 1. Selecione o recurso onde é aplicada uma fechadura e, em seguida, em **Fechaduras,** selecione e retire o(s) de bloqueio).
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: Os recursos são inutilizáveis
@@ -234,7 +235,7 @@ As políticas são aplicadas aos recursos da Azure e aos grupos de recursos que 
 
 Para verificar as políticas aplicadas nos componentes AZURE AD DS e atualizá-los, complete os seguintes passos:
 
-1. Para cada um dos componentes da rede Azure AD DS no seu grupo de recursos, como rede virtual, NIC ou endereço IP público, verifique os registos de funcionamento no portal Azure. Estes registos de operação devem indicar por que razão uma operação está a falhar e onde é aplicada uma política restritiva.
+1. Para cada um dos componentes de rede do domínio gerido no seu grupo de recursos, como rede virtual, NIC ou endereço IP público, verifique os registos de operação no portal Azure. Estes registos de operação devem indicar por que razão uma operação está a falhar e onde é aplicada uma política restritiva.
 1. Selecione o recurso onde uma política é aplicada, em seguida, em **Políticas,** selecione e edite a política para que seja menos restritiva.
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: A sincronização não está concluída há algum tempo
@@ -247,9 +248,9 @@ Para verificar as políticas aplicadas nos componentes AZURE AD DS e atualizá-l
 
 [Verifique se a saúde do Azure AD DS](check-health.md) é necessário obter quaisquer alertas que indiquem problemas na configuração do domínio gerido. Os problemas com a configuração da rede podem bloquear a sincronização a partir do Azure AD. Se conseguir resolver alertas que indiquem um problema de configuração, aguarde duas horas e volte para ver se a sincronização foi concluída com sucesso.
 
-As seguintes razões comuns fazem com que a sincronização pare em domínios geridos:
+As seguintes razões comuns fazem com que a sincronização pare num domínio gerido:
 
-* A conectividade de rede necessária está bloqueada. Para saber mais sobre como verificar a rede virtual Azure para encontrar problemas e o que é necessário, consulte grupos de segurança de [rede de resolução de problemas](alert-nsg.md) e os requisitos de [rede para serviços de domínio Ad AD Azure](network-considerations.md).
+* A conectividade de rede necessária está bloqueada. Para saber mais sobre como verificar a rede virtual Azure para encontrar problemas e o que é necessário, consulte os grupos de segurança da rede de [resolução de problemas](alert-nsg.md) e os requisitos de [rede para Azure AD DS](network-considerations.md).
 *  A sincronização de palavras-passe não foi configurada ou concluída com sucesso quando o domínio gerido foi implementado. Pode configurar a sincronização [de palavras-passe para utilizadores apenas na nuvem](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) ou [utilizadores híbridos a partir de pré-pré-m.](tutorial-configure-password-hash-sync.md)
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Uma cópia de segurança não é tomada há algum tempo
@@ -293,7 +294,7 @@ Quando o domínio gerido é novamente ativado, a saúde do domínio gerido atual
 
 [Verifique se a saúde do Azure AD DS](check-health.md) é responsável por alertas que indiquem problemas na configuração do domínio gerido. Se conseguir resolver alertas que indiquem um problema de configuração, aguarde duas horas e volte para ver se a sincronização está concluída. Quando estiver pronto, abra um pedido de [suporte Azure][azure-support] para ree capacitar o domínio gerido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda tiver problemas, abra um pedido de [apoio ao Azure][azure-support] para assistência adicional à resolução de problemas.
 

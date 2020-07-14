@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/30/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 94a2f77326487aa4bb180dd62ec05f4e23ca6218
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 35938ca3b9d8f3aedd0892740a3dbfa0fb5b036a
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057811"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186865"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante treino & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Também pode [ativar o Azure Private Link](how-to-configure-private-link.md) par
 > [!TIP]
 > Pode combinar rede virtual e Private Link em conjunto para proteger a comunicação entre o seu espaço de trabalho e outros recursos Azure. No entanto, algumas combinações requerem um espaço de trabalho de edição da Enterprise. Use a seguinte tabela para entender que cenários requerem edição enterprise:
 >
-> | Scenario | Enterprise</br>edição | Básica</br>edição |
+> | Cenário | Enterprise</br>edição | Básico</br>edição |
 > | ----- |:-----:|:-----:| 
 > | Sem rede virtual ou Link Privado | ✔ | ✔ |
 > | Espaço de trabalho sem Ligação Privada. Outros recursos (exceto registo de contentores Azure) numa rede virtual | ✔ | ✔ |
@@ -67,6 +67,9 @@ Também pode [ativar o Azure Private Link](how-to-configure-private-link.md) par
 
 Se os seus dados forem armazenados numa rede virtual, deve utilizar uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) por um espaço de trabalho para permitir ao estúdio o acesso aos seus dados.
 
+> [!IMPORTANT]
+> Enquanto a maioria do estúdio trabalha com dados armazenados numa rede virtual, os cadernos integrados __não.__ Os cadernos integrados não suportam o armazenamento que se encontra numa rede virtual. Em vez disso, pode usar os Cadernos Jupyter de uma instância computacional. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.](#access-data-in-a-compute-instance-notebook)
+
 Se não conceder acesso ao estúdio, receberá este erro `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` e desativará as seguintes operações:
 
 * Pré-visualizar dados no estúdio.
@@ -85,7 +88,7 @@ O estúdio suporta dados de leitura dos seguintes tipos de datastore numa rede v
 
 Adicione o seu espaço de trabalho e conta de armazenamento à mesma rede virtual para que possam aceder uns aos outros.
 
-1. Para ligar o seu espaço de trabalho à rede virtual, [ative o Azure Private Link](how-to-configure-private-link.md).
+1. Para ligar o seu espaço de trabalho à rede virtual, [ative o Azure Private Link](how-to-configure-private-link.md). Esta capacidade está atualmente em pré-visualização, e está disponível nas regiões norte-americanas do Leste, EUA West 2, Centro Sul dos EUA.
 
 1. Para ligar a sua conta de armazenamento à rede virtual, [configufique as definições de Firewalls e redes virtuais](#use-a-storage-account-for-your-workspace).
 
@@ -795,7 +798,7 @@ Para utilizar uma máquina virtual ou cluster Azure HDInsight numa rede virtual 
 1. Fixe o cluster VM ou HDInsight ao seu espaço de trabalho de aprendizagem de máquinas Azure. Para obter mais informações, consulte [Configurar metas de computação para a formação de modelos.](how-to-set-up-training-targets.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar ambientes de preparação](how-to-set-up-training-targets.md)
 * [Configurar pontos finais privados](how-to-configure-private-link.md)

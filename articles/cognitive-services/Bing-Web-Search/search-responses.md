@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7933d5e5cf7d82de013e18b221f3a0c3ce6b5229
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800533"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86202250"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API estrutura de resposta e tipos de resposta  
 
@@ -290,13 +290,13 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Uma expressão matemática pode conter os seguintes símbolos:
 
-|Símbolo|Description|
+|Símbolo|Descrição|
 |------------|-----------------|
 |+|Adição|
 |-|Subtração|
 |/|Divisão|
 |*|Multiplicação|
-|^|Power|
+|^|Potência|
 |!|Fatorial|
 |.|Decimal|
 |()|Agrupamento de precedência|
@@ -304,7 +304,7 @@ Uma expressão matemática pode conter os seguintes símbolos:
 
 Uma expressão matemática pode conter as seguintes constantes:
 
-|Símbolo|Description|
+|Símbolo|Descrição|
 |------------|-----------------|
 |Pi|3.14159...|
 |Grau|Grau|
@@ -314,7 +314,7 @@ Uma expressão matemática pode conter as seguintes constantes:
 
 Uma expressão matemática pode conter as seguintes funções:
 
-|Símbolo|Description|
+|Símbolo|Descrição|
 |------------|-----------------|
 |Ordenar|Raiz quadrada|
 |Pecado[x], Cos[x], Tan[x]<br />CSC[x], Sec[x], Berço[x]|Funções trigonométricas (com argumentos em radians)|
@@ -435,7 +435,7 @@ Se Bing determinar que o utilizador pode ter pretendido procurar algo diferente,
 
 As respostas da API de Pesquisa Web de Bing podem conter os seguintes cabeçalhos:
 
-|||
+| Cabeçalho | Descrição |
 |-|-|
 |`X-MSEdge-ClientID`|O ID único que Bing atribuiu ao utilizador|
 |`BingAPIs-Market`|O mercado que foi usado para satisfazer o pedido|

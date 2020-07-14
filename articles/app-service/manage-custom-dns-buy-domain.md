@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535711"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220725"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Buy a custom domain name for Azure App Service (Comprar um nome de domínio personalizado para o Serviço de Aplicações do Azure)
 
@@ -78,11 +78,11 @@ Abra ao [portal do Azure](https://portal.azure.com/) e inicie sessão com a sua 
 ### <a name="launch-buy-domains"></a>Lançar domínios de compra
 No separador Serviços de **Aplicações,** clique no nome da sua aplicação, selecione **Definições**e, em seguida, selecione **domínios personalizados**
    
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Screenshot que mostra domínios personalizados em destaque.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Na página **de domínios personalizados,** clique em **Comprar Domínio.**
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+![Screenshot que mostra Buy Domain em destaque.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 > [!NOTE]
 > Se não conseguir ver a secção Domínios do Serviço de **Aplicações,** tem de remover o limite de gastos na sua conta Azure (ver [Pré-Requisitos).](#prerequisites)
@@ -93,7 +93,7 @@ Na página **de domínios personalizados,** clique em **Comprar Domínio.**
 
 Na página **'Domínio do Serviço de Aplicações',** na caixa **de pesquisa de domínio,** digite o nome de domínio que pretende comprar e escreva `Enter` . Os domínios disponíveis sugeridos são mostrados logo abaixo da caixa de texto. Selecione um ou mais domínios que pretende comprar.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+![Screenshot que mostra a caixa de pesquisa de domínio.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
 > Os [seguintes domínios de nível superior](https://wikipedia.org/wiki/Top-level_domain) são suportados por domínios de Serviço de Aplicação: _com,_ _net_, _co.uk_, _org_, _nl_, _in,_ _biz_, _org.uk_, e _co.in_.
@@ -106,7 +106,7 @@ Clique na **Informação de Contacto** e preencha o formulário de informação 
 
 Em seguida, selecione as opções desejadas para o seu domínio. Consulte a tabela seguinte para obter explicações:
 
-| Definição | Valor sugerido | Description |
+| Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Proteção de privacidade | Ativar | Opte pela "Proteção da Privacidade", que está incluída no preço de compra _gratuitamente._ Alguns domínios de alto nível são geridos por registradores que não suportam a proteção da privacidade, e estão listados na página **de proteção de privacidade.** |
 | Atribuir nomes de anfitriões predefinidos | **www.****\@** | Selecione as ligações de nome de anfitrião desejadas, se desejar. Quando a operação de compra de domínio estiver concluída, a sua aplicação pode ser acedida nos anfitriões selecionados. Se a aplicação estiver por trás [do Azure Traffic Manager,](https://azure.microsoft.com/services/traffic-manager/)não vê a opção de atribuir o domínio raiz (@), porque o Traffic Manager não suporta registos A. Pode efetuar alterações nas atribuições do nome anfitrião após a conclusão da compra de domínio. |
@@ -122,19 +122,19 @@ Clique **em Termos Legais** para rever os termos e encargos e, em seguida, cliqu
 
 De volta à página de Domínio do Serviço de **Aplicações,** clique **em OK**. Enquanto a operação está em curso, vê as seguintes notificações:
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
+![Screenshot que mostra a validação em curso mensagem.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-validate.png)
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
+![Screenshot que mostra a notificação de que a compra foi bem sucedida.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-purchase-success.png)
 
 ### <a name="test-the-hostnames"></a>Teste os hostnames
 
 Se atribuiu nomes de anfitriões predefinidos à sua aplicação, também vê uma notificação de sucesso para cada nome de anfitrião selecionado.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Screenshot que mostra a notificação de sucesso para cada nome de anfitrião selecionado.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 Também vê os hostnames selecionados na página **de domínios personalizados,** na secção **Hostnames personalizados.**
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+![Screenshot que mostra os hostnames selecionados na secção Hostnames personalizados da página de domínios personalizados.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
 > Uma etiqueta **Não Segura** para o seu domínio personalizado significa que ainda não está vinculado a um certificado TLS/SSL, e qualquer pedido HTTPS de um navegador para o seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a ligação TLS, consulte [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
@@ -154,11 +154,11 @@ Também pode atribuir osamames de anfitriões no Domínio do Serviço de Aplica�
 ### <a name="launch-add-hostname"></a>Lançamento adicionar nome de anfitrião
 Na página Serviços de **Aplicações,** selecione o nome da sua aplicação para a a que pretende atribuir nomes de anfitriões, selecione **Definições**e, em seguida, selecione **domínios personalizados**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Screenshot que mostra domínios personalizados em destaque.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Certifique-se de que o seu domínio adquirido está listado na secção **Domínios do Serviço de Aplicações,** mas não o selecione. 
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Screenshot que mostra o seu domínio adquirido na secção Domínios do Serviço de Aplicações.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
 > Todos os domínios de serviço de aplicações na mesma subscrição são mostrados na página de **domínios personalizados** da aplicação. Se o seu domínio estiver na subscrição da aplicação, mas não conseguir vê-lo na página de **domínios personalizados** da aplicação, tente reabrir a página **de domínios personalizados** ou refrescar a página web. Além disso, consulte o sino de notificação no topo do portal Azure para obter falhas de progresso ou criação.
@@ -180,14 +180,14 @@ Selecione **Adicionar nome de anfitrião**.
 
 Quando a operação estiver concluída, vê uma notificação de sucesso para o nome de anfitrião atribuído.  
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
+![Screenshot que mostra a notificação de sucesso para o nome de anfitrião atribuído.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### <a name="close-add-hostname"></a>Adicionar nome de anfitrião
 Na página **'Adicionar nome de anfitrião',** atribua qualquer outro nome de anfitrião à sua aplicação, conforme pretendido. Quando terminar, feche a página **de nome de anfitrião.**
 
 Deverá agora ver o novo nome de anfitrião na página de **domínios personalizados** da sua aplicação.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
+![Screenshot que mostra os novos nomeados anfitriões na página de domínios personalizados da sua aplicação.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
 ### <a name="test-the-hostnames"></a>Teste os hostnames
 
@@ -201,15 +201,15 @@ Se pretender desligar a renovação automática ou se pretender renovar manualme
 
 No separador Serviços de **Aplicação,** clique no nome da sua aplicação, selecione **Definições**e, em seguida, selecione **domínios personalizados**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+![Screenshot que mostra domínios personalizados em destaque.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 Na secção **Domínios de Serviço de Aplicações,** selecione o domínio que pretende configurar.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+![Screenshot que mostra o seu domínio adquirido na secção Domínios do Serviço de Aplicações.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 A partir da navegação à esquerda do domínio, selecione **a renovação do domínio**. Para parar de renovar o seu domínio automaticamente, selecione **Off**e, em seguida, **Guarde**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+![Screenshot que mostra a opção de renovar automaticamente o seu domínio.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
 Para renovar manualmente o seu domínio, selecione **Renovar o domínio**. No entanto, este botão só está ativo [90 dias antes da expiração do domínio](#when-domain-expires).
 
@@ -237,7 +237,7 @@ Em Azure, os registos DNS para um Domínio de Serviço de Aplicações são geri
 
 No portal Azure, a partir do menu esquerdo, selecione **Todos os**  >  **serviços De Serviço de Aplicação Domínios**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Screenshot que mostra onde aceder domínios de serviço de aplicações.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Selecione o domínio para gerir. 
 
@@ -245,7 +245,7 @@ Selecione o domínio para gerir.
 
 No menu esquerdo do domínio, selecione **a zona DNS**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
+![Screenshot que mostra onde selecionar a zona DE DNS.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-dns-zone.png)
 
 Esta ação abre a página da [zona DNS](../dns/dns-zones-records.md) do seu Domínio de Serviço de Aplicações em DNS Azure. Para obter informações sobre como editar registos DNS, consulte [Como gerir as Zonas DNS no portal Azure](../dns/dns-operations-dnszones-portal.md).
 
@@ -257,7 +257,7 @@ Depois de adquirir o Domínio do Serviço de Aplicações, tem cinco dias para c
 
 No portal Azure, a partir do menu esquerdo, selecione **Todos os**  >  **serviços De Serviço de Aplicação Domínios**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
+![Screenshot que mostra onde aceder domínios de serviço de aplicações.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
 Selecione o domínio para que pretenda cancelar ou apagar. 
 
@@ -265,13 +265,13 @@ Selecione o domínio para que pretenda cancelar ou apagar.
 
 No menu esquerdo do domínio, selecione **as ligações hostname**. As ligações de nome anfitrião de todos os serviços da Azure estão listadas aqui.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
+![Screenshot que mostra a página de encadernações do nome anfitrião.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostname-bindings.png)
 
 Não é possível eliminar o Domínio do Serviço de Aplicações até que todas as ligações do nome anfitrião sejam eliminadas.
 
 Elimine cada ligação de nome de anfitrião selecionando **...**  >  **Eliminar**. Depois de todas as ligações serem eliminadas, **selecione Save**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
+![Screenshot que mostra onde apagar as ligações do nome anfitrião.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
 ### <a name="cancel-or-delete"></a>Cancelar ou apagar
 
@@ -279,7 +279,7 @@ No menu esquerdo do domínio, selecione **Overview**.
 
 Se o período de cancelamento do domínio adquirido não tiver decorrido, selecione **Cancelar a compra**. Caso contrário, vê-se um botão **Eliminar.** Para eliminar o domínio sem reembolso, selecione **Delete**.
 
-![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
+![Screenshot que mostra onde apagar ou cancelar um domínio adquirido.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
 Para confirmar a operação, selecione **Sim**.
 

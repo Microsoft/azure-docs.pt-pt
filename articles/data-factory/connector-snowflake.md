@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
-ms.openlocfilehash: 347f37fb999656a1c4951f01a75a392887b5b882
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/09/2020
+ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045676"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220308"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para Snowflake utilizando a Azure Data Factory
 
@@ -46,7 +46,7 @@ As secções seguintes fornecem detalhes sobre propriedades que definem entidade
 
 As seguintes propriedades são suportadas para um serviço ligado a Floco de Neve.
 
-| Propriedade         | Descrição                                                  | Necessário |
+| Propriedade         | Descrição                                                  | Obrigatório |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Sim      |
 | conexãoStragem | Configure o [nome da conta completa](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (incluindo segmentos adicionais que identificam a região e plataforma em nuvem), nome de utilizador, senha, base de dados e armazém. Especifique a cadeia de ligação JDBC para ligar à instância snowflake. Também pode colocar senha no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela, bem como as credenciais da Loja no artigo [Azure Key Vault,](store-credentials-in-key-vault.md) para obter mais detalhes.| Sim      |
@@ -60,7 +60,7 @@ As seguintes propriedades são suportadas para um serviço ligado a Floco de Nev
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>(optional)"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ As seguintes propriedades são suportadas para um serviço ligado a Floco de Nev
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>(optional)",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -102,11 +102,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para o conjunto de dados snowflake.
 
-| Propriedade  | Descrição                                                  | Necessário                    |
+| Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Sim                         |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia.  |
-| table | Nome da mesa/vista. |Não para a fonte, sim para a pia.  |
+| tabela | Nome da mesa/vista. |Não para a fonte, sim para a pia.  |
 
 **Exemplo:**
 
@@ -140,7 +140,7 @@ Se a loja de dados e o formato da pia forem suportados de forma nativa pelo coma
 
 Para copiar dados de Snowflake, as seguintes propriedades são suportadas na secção **de origem da** atividade copy.
 
-| Propriedade                     | Descrição                                                  | Necessário |
+| Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **SnowflakeSource**. | Sim      |
 | consulta          | Especifica a consulta SQL para ler dados de Snowflake.<br>A execução do procedimento armazenado não é suportada. | Não       |
@@ -156,15 +156,20 @@ Se a sua loja de dados e formato de lavatório satisfaçam os critérios descrit
 
 - O **serviço ligado à pia** é o armazenamento [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.**
 
-- O **formato de dados** da pia é de **Parquet** ou **texto delimitado,** com as seguintes configurações:
+- O formato de **dados** da pia é de **Parquet,** **texto delimitado,** ou **JSON** com as seguintes configurações:
 
-   - Para o formato **Parquet,** o codec de compressão é **Nenhum,** **Snappy,** ou **Lzo.**
-   - Para formato **de texto delimitado:**
-     - `rowDelimiter`é **\r\n**, ou qualquer personagem único.
-     - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
-     - `encodingName`é deixado como padrão ou definido para **utf-8**.
-     - `quoteChar`é **citação dupla,** **citação única,** ou **corda vazia** (sem carvão de citação).
-- Na fonte de atividade copy, `additionalColumns` não é especificado.
+    - Para o formato **Parquet,** o codec de compressão é **Nenhum,** **Snappy,** ou **Lzo.**
+    - Para formato **de texto delimitado:**
+        - `rowDelimiter`é **\r\n**, ou qualquer personagem único.
+        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName`é deixado como padrão ou definido para **utf-8**.
+        - `quoteChar`é **citação dupla,** **citação única** ou **corda vazia** (sem carvão de citação).
+    - Para o formato **JSON,** a cópia direta suporta apenas o caso de que a tabela ou resultado da consulta de snowflake de origem tem apenas uma coluna e o tipo de dados desta coluna é **VARIANT**, **OBJECT**, ou **ARRAY**.
+        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName`é deixado como padrão ou definido para **utf-8**.
+        - `filePattern`na pia de atividade de cópia é deixada como padrão ou definida para **definirOfObjects**.
+
+- Na fonte de atividade de cópia, `additionalColumns` não é especificado.
 - O mapeamento da coluna não é especificado.
 
 **Exemplo:**
@@ -266,7 +271,7 @@ Se a loja de dados de origem e o formato forem suportados de forma nativa pelo c
 
 Para copiar dados para Snowflake, as seguintes propriedades são suportadas na secção de **lavatório** de atividades Copy.
 
-| Propriedade          | Descrição                                                  | Necessário                                      |
+| Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | tipo              | A propriedade tipo da pia de atividade copy, definida para **SnowflakeSink**. | Sim                                           |
 | preCopyScript     | Especifique uma consulta SQL para a atividade copy para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
@@ -282,15 +287,19 @@ Se a sua loja de dados de origem e formato satisfaçam os critérios descritos n
 
 - O **serviço ligado à fonte** é o armazenamento [**Azure Blob**](connector-azure-blob-storage.md) com autenticação de assinatura de acesso **partilhado.**
 
-- O **formato de dados de origem** é **Parquet** ou **Texto Delimitado,** com as seguintes configurações:
+- O **formato de dados de origem** é **Parquet,** **Texto Delimitado,** ou **JSON** com as seguintes configurações:
 
-   - Para o formato **Parquet,** o codec de compressão é **Nenhum** ou **Snappy**.
+    - Para o formato **Parquet,** o codec de compressão é **Nenhum,** ou **Snappy**.
 
-   - Para formato **de texto delimitado:**
-     - `rowDelimiter`é **\r\n**, ou qualquer personagem único. Se o delimiter de linha não for "\r\n", `firstRowAsHeader` tem de ser **falso,** e `skipLineCount` não está especificado.
-     - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
-     - `encodingName`é deixado como padrão ou definido para "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859"-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-     - `quoteChar`é **citação dupla,** **citação única,** ou **corda vazia** (sem carvão de citação).
+    - Para formato **de texto delimitado:**
+        - `rowDelimiter`é **\r\n**, ou qualquer personagem único. Se o delimiter de linha não for "\r\n", `firstRowAsHeader` tem de ser **falso,** e `skipLineCount` não está especificado.
+        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName`é deixado como padrão ou definido para "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859"-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar`é **citação dupla,** **citação única** ou **corda vazia** (sem carvão de citação).
+    - Para o formato **JSON,** a cópia direta suporta apenas o caso de afundar a tabela Snowflake apenas tem uma única coluna e o tipo de dados desta coluna é **VARIANT**, **OBJECT**, ou **ARRAY**.
+        - `compression`não pode ser **compressões,** **gzip,** **bzip2,** ou **esvaziar**.
+        - `encodingName`é deixado como padrão ou definido para **utf-8**.
+        - O mapeamento da coluna não é especificado.
 
 - Na fonte de atividade copy: 
 
@@ -392,6 +401,6 @@ Para utilizar esta funcionalidade, crie um [serviço ligado ao armazenamento Azu
 
 Para obter mais informações sobre as propriedades, consulte [a atividade da Lookup.](control-flow-lookup-activity.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma lista de lojas de dados suportadas como fontes e pias por copy atividade na Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

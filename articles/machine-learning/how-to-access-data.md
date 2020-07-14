@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 03/24/2020
+ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: cb52935b731a507d2408d174a5aa571fb2bfc973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609270"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146720"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Para entender onde as datas-tores se encaixam no fluxo de trabalho global de ace
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de:
+Precisará:
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Uma conta de armazenamento Azure com um [recipiente de blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) ou [uma partilha de ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
@@ -52,16 +52,16 @@ Precisa de:
 
 As datas-lojas suportam atualmente o armazenamento de informações de ligação aos serviços de armazenamento listados na seguinte matriz.
 
-| Tipo de armazenamento &nbsp; | Tipo de autenticação &nbsp; | [Estúdio Azure &nbsp; Machine &nbsp; Learning](https://ml.azure.com/) | [Azure &nbsp; Máquina &nbsp; aprendendo Python &nbsp; SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure &nbsp; Machine &nbsp; Learning CLI](reference-azure-machine-learning-cli.md) | [Azure &nbsp; Machine &nbsp; Learning &nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/)
----|---|---|---|---|---
-[Armazenamento Azure &nbsp; Blob &nbsp;](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Chave de conta <br> Ficha SAS | ✓ | ✓ | ✓ |✓
-[Azure &nbsp; File &nbsp; Share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Chave de conta <br> Ficha SAS | ✓ | ✓ | ✓ |✓
-[Azure &nbsp; Data Lake Storage Gen &nbsp; &nbsp; 1](https://docs.microsoft.com/azure/data-lake-store/)| Service principal (Principal de serviço)| ✓ | ✓ | ✓ |✓
-[Azure &nbsp; Data Lake Storage Gen &nbsp; &nbsp; 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Service principal (Principal de serviço)| ✓ | ✓ | ✓ |✓
-[&nbsp;Base de Dados Azure SQL &nbsp;](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Autenticação do SQL <br>Service principal (Principal de serviço)| ✓ | ✓ | ✓ |✓
-[Azure &nbsp; PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Autenticação do SQL| ✓ | ✓ | ✓ |✓
-[Base de Dados Azure &nbsp; &nbsp; para &nbsp; MySQL](https://docs.microsoft.com/azure/mysql/overview) | Autenticação do SQL|  | ✓* | ✓* |✓*
-[Sistema de Ficheiros databricks &nbsp; &nbsp;](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Sem autenticação | | ✓** | ✓ ** |✓** 
+| Tipo de armazenamento &nbsp; | Tipo de autenticação &nbsp; | [Estúdio Azure &nbsp; Machine &nbsp; Learning](https://ml.azure.com/) | [Azure &nbsp; Máquina &nbsp; aprendendo Python &nbsp; SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure &nbsp; Machine &nbsp; Learning CLI](reference-azure-machine-learning-cli.md) | [Azure &nbsp; Machine &nbsp; Learning &nbsp; Rest API](https://docs.microsoft.com/rest/api/azureml/) | Código VS
+---|---|---|---|---|---|---
+[Armazenamento Azure &nbsp; Blob &nbsp;](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Chave da conta <br> Token de SAS | ✓ | ✓ | ✓ |✓ |✓
+[Azure &nbsp; File &nbsp; Share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Chave da conta <br> Token de SAS | ✓ | ✓ | ✓ |✓|✓
+[Azure &nbsp; Data Lake Storage Gen &nbsp; &nbsp; 1](https://docs.microsoft.com/azure/data-lake-store/)| Service principal (Principal de serviço)| ✓ | ✓ | ✓ |✓|
+[Azure &nbsp; Data Lake Storage Gen &nbsp; &nbsp; 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Service principal (Principal de serviço)| ✓ | ✓ | ✓ |✓|
+[&nbsp;Base de Dados Azure SQL &nbsp;](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Autenticação do SQL <br>Service principal (Principal de serviço)| ✓ | ✓ | ✓ |✓|
+[Azure &nbsp; PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Autenticação do SQL| ✓ | ✓ | ✓ |✓|
+[Base de Dados Azure &nbsp; &nbsp; para &nbsp; MySQL](https://docs.microsoft.com/azure/mysql/overview) | Autenticação do SQL|  | ✓* | ✓* |✓*|
+[Sistema de Ficheiros databricks &nbsp; &nbsp;](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Sem autenticação | | ✓** | ✓ ** |✓** |
 
 *MySQL só é suportado para o pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br>
 **Databricks é suportado apenas para pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
@@ -205,6 +205,9 @@ O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azu
     
 ![Formulário para uma nova datastore](media/how-to-access-data/new-datastore-form.png)
 
+### <a name="vs-code"></a>Código VS
+
+Pode criar e gerir as datas-tores utilizando a extensão do Código VS de Aprendizagem de Máquinas Azure. Visite o [guia de gestão de recursos do Código VS para](how-to-manage-resources-vscode.md#datastores) saber mais.
 
 <a name="get"></a>
 
@@ -295,7 +298,7 @@ A Azure Machine Learning fornece várias formas de usar os seus modelos para pon
 | Método | Acesso à loja de dados | Descrição |
 | ----- | :-----: | ----- |
 | [Predição de lote](how-to-use-parallel-run-step.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
-| [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
+| [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
 | [Módulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos para dispositivos IoT Edge. |
 
 Para situações em que o SDK não fornece acesso às datastores, poderá ser capaz de criar código personalizado utilizando o Azure SDK relevante para aceder aos dados. Por exemplo, o [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de clientes que pode utilizar para aceder a dados armazenados em bolhas ou ficheiros.
@@ -313,7 +316,7 @@ A Azure Machine Learning suporta o acesso a dados a partir do armazenamento de A
 
 A Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores pré-construídos sem custos adicionais. Estes conectores incluem serviços de dados Azure, fontes de dados no local, Amazon S3 e Redshift, e Google BigQuery.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Preparar um modelo](how-to-train-ml-models.md)

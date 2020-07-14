@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8328750849f5466c8754499694a41615776ff3da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036cb15cf16b5f90dc17ccdce378a073a398d403
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201706"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86181340"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Orientação de design para usar mesas replicadas na piscina Sinaapse SQL
 
@@ -149,9 +149,9 @@ Ao carregar dados em tabelas replicadas, tente minimizar as reconstruções, emg
 
 Por exemplo, este padrão de carga carrega dados de quatro fontes e invoca quatro reconstruções.
 
-        Load from source 1.
+- Carga da fonte 1.
 - Selecione os gatilhos de declaração reconstruem 1.
-        Carga da fonte 2.
+- Carga da fonte 2.
 - Selecione os gatilhos de declaração para reconstruir 2.
 - Carga da fonte 3.
 - Selecione os gatilhos de declaração reconstruem 3.
@@ -189,7 +189,7 @@ Para desencadear uma reconstrução, execute a seguinte declaração em cada mes
 SELECT TOP 1 * FROM [ReplicatedTable]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para criar uma tabela replicada, utilize uma destas declarações:
 

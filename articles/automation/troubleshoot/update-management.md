@@ -5,11 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 95e3fc12a77124c32e220d700a112f52cbad08fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74250a54d7b835ceb37614450de07e9e3baefd83
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801891"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86183159"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -52,7 +53,7 @@ Este erro pode ocorrer pelas seguintes razões:
 
 ### <a name="issue"></a>Problema
 
-As atualizações antigas estão a aparecer para uma conta de Automação como desaparecida, apesar de terem sido substituídos. Uma atualização supereduada é uma que não precisa de instalar porque uma atualização posterior que corrige a mesma vulnerabilidade está disponível. A Atualização A Gestão ignora a atualização superediou e torna-a aplicável a favor da atualização de substituição. Para obter informações sobre um problema relacionado, consulte [Update is supersed .](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+As atualizações antigas estão a aparecer para uma conta de Automação como desaparecida, apesar de terem sido substituídos. Uma atualização supereduada é uma que não precisa de instalar porque uma atualização posterior que corrige a mesma vulnerabilidade está disponível. A Atualização A Gestão ignora a atualização superediou e torna-a aplicável a favor da atualização de substituição. Para obter informações sobre um problema relacionado, consulte [Update is supersed .](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
 
 ### <a name="cause"></a>Causa
 
@@ -155,7 +156,7 @@ Para registar o fornecedor de recursos Automation, siga estes passos no portal A
 
 4. A partir da lista de fornecedores de recursos, verifique se o fornecedor de recursos Microsoft.Automation está registado.
 
-5. Se não estiver listado, registe o fornecedor Microsoft.Automation seguindo os passos na [Resolve erros para o registo do fornecedor de recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Se não estiver listado, registe o fornecedor Microsoft.Automation seguindo os passos na [Resolve erros para o registo do fornecedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Cenário: Atualização programada com um calendário dinâmico perdeu algumas máquinas
 
@@ -177,7 +178,7 @@ Esta questão pode ter uma das seguintes causas:
 
 Se a sua subscrição não estiver configurada para o fornecedor de recursos Automation, não pode consultar ou obter informações sobre máquinas nessa subscrição. Utilize as seguintes etapas para verificar o registo da subscrição.
 
-1. No [portal Azure,](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)aceda à lista de serviços Azure.
+1. No [portal Azure,](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)aceda à lista de serviços Azure.
 
 2. Selecione **Todos os serviços**e, em seguida, selecione **Subscrições** no grupo de serviço Geral. 
 
@@ -187,7 +188,7 @@ Se a sua subscrição não estiver configurada para o fornecedor de recursos Aut
 
 5. Verifique se o fornecedor de recursos Microsoft.Automation está registado.
 
-6. Se não estiver listado, registe o fornecedor Microsoft.Automation seguindo os passos na [Resolve erros para o registo do fornecedor de recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+6. Se não estiver listado, registe o fornecedor Microsoft.Automation seguindo os passos na [Resolve erros para o registo do fornecedor de recursos](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Máquinas não disponíveis ou não marcadas corretamente quando o horário executado
 
@@ -195,9 +196,9 @@ Utilize o seguinte procedimento se a sua subscrição estiver configurada para o
 
 1. No portal Azure, abra a conta Automation e selecione **Gestão de Atualização.**
 
-2. Verifique o [histórico de Gestão de Atualização](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) para determinar a hora exata em que a implementação da atualização foi executada. 
+2. Verifique o [histórico de Gestão de Atualização](../manage-update-multi.md#view-results-of-an-update-deployment) para determinar a hora exata em que a implementação da atualização foi executada. 
 
-3. Para máquinas que suspeite ter sido perdidas pela Update Management, utilize o Azure Resource Graph (ARG) para [localizar as alterações da máquina](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details). 
+3. Para máquinas que suspeite ter sido perdidas pela Update Management, utilize o Azure Resource Graph (ARG) para [localizar as alterações da máquina](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details). 
 
 4. Procure alterações durante um período considerável, como um dia, antes da implementação da atualização ser executada.
 
@@ -225,13 +226,13 @@ Aqui estão as possíveis causas para esta questão:
 
 #### <a name="incorrect-access-on-selected-scopes"></a>Acesso incorreto em âmbitos selecionados
 
-O portal Azure apenas exibe máquinas para as quais tenha acesso de escrita num determinado âmbito. Se não tiver o acesso correto para um âmbito, consulte [Tutorial: Conceda a um utilizador acesso aos recursos Azure utilizando o RBAC e o portal Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+O portal Azure apenas exibe máquinas para as quais tenha acesso de escrita num determinado âmbito. Se não tiver o acesso correto para um âmbito, consulte [Tutorial: Conceda a um utilizador acesso aos recursos Azure utilizando o RBAC e o portal Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### <a name="arg-query-doesnt-return-expected-machines"></a>Consulta da ARG não devolve máquinas esperadas
 
 Siga os passos abaixo para saber se as suas consultas estão a funcionar corretamente.
 
-1. Executar uma consulta ARG formatada como mostrado abaixo na lâmina do explorador de gráfico de recurso no portal Azure. Esta consulta imita os filtros selecionados quando criou o grupo dinâmico em Gestão de Atualização. Consulte [grupos dinâmicos de utilização com Gestão de Atualização](https://docs.microsoft.com/azure/automation/automation-update-management-groups). 
+1. Executar uma consulta ARG formatada como mostrado abaixo na lâmina do explorador de gráfico de recurso no portal Azure. Esta consulta imita os filtros selecionados quando criou o grupo dinâmico em Gestão de Atualização. Consulte [grupos dinâmicos de utilização com Gestão de Atualização](../automation-update-management-groups.md). 
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -266,7 +267,7 @@ As máquinas aparecem nos resultados da consulta ARG, mas ainda não aparecem na
 
 4. Valide que o trabalhador híbrido está presente para esta máquina.
 
-5. Se a máquina não estiver configurada como um trabalhador híbrido, faça ajustes utilizando instruções [no seu datacenter ou nuvem utilizando o Trabalhador de Runbook Híbrido](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker).
+5. Se a máquina não estiver configurada como um trabalhador híbrido, faça ajustes utilizando instruções [no seu datacenter ou nuvem utilizando o Trabalhador de Runbook Híbrido](../automation-hybrid-runbook-worker.md).
 
 6. Junte-se à máquina ao grupo híbrido Runbook Worker.
 
@@ -342,7 +343,7 @@ Este erro ocorre quando cria uma implementação de atualização que tem VMs Az
 
 ### <a name="resolution"></a>Resolução
 
-Utilize a seguinte solução para agendar estes itens. Pode utilizar o [cmdlet New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) com o `ForUpdateConfiguration` parâmetro para criar um horário. Em seguida, use o [Cmdlet New-AzAutomationSoftwareConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passe as máquinas do outro inquilino para o `NonAzureComputer` parâmetro. O exemplo a seguir mostra como fazê-lo:
+Utilize a seguinte solução para agendar estes itens. Pode utilizar o [cmdlet New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) com o `ForUpdateConfiguration` parâmetro para criar um horário. Em seguida, use o [Cmdlet New-AzAutomationSoftwareConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passe as máquinas do outro inquilino para o `NonAzureComputer` parâmetro. O exemplo a seguir mostra como fazê-lo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -420,7 +421,7 @@ A `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` chav
 
 Para os clientes de Gestão de Atualização, recomendamos definir esta chave para 3: `auto download but do not auto install` .
 
-Para obter mais informações, consulte [configurar atualizações automáticas](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+Para obter mais informações, consulte [configurar atualizações automáticas](/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
 ## <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Cenário: A máquina já está registada numa conta diferente
 
@@ -574,9 +575,9 @@ Se não conseguir resolver um problema de correção, faça uma cópia do fichei
 
 ### <a name="machines-dont-install-updates"></a>As máquinas não instalam atualizações
 
-Experimente executar as atualizações diretamente na máquina. Se a máquina não conseguir aplicar as atualizações, consulte a [lista de potenciais erros no guia de resolução de problemas](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+Experimente executar as atualizações diretamente na máquina. Se a máquina não conseguir aplicar as atualizações, consulte a [lista de potenciais erros no guia de resolução de problemas](#hresult).
 
-Se as atualizações forem executadas localmente, tente remover e reinstalar o agente na máquina seguindo as orientações no [Remove a VM da Update Management](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources).
+Se as atualizações forem executadas localmente, tente remover e reinstalar o agente na máquina seguindo as orientações no [Remove a VM da Update Management](../automation-remove-vms-from-update-management.md).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sei que as atualizações estão disponíveis, mas não mostram como estão disponíveis nas minhas máquinas.
 
@@ -592,17 +593,17 @@ Se as atualizações não forem aprovadas na WSUS, não estão instaladas. Pode 
 
 ### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>As atualizações aparecem como tendo sido instaladas, mas não as encontro na minha máquina
 
-Muitas vezes, as atualizações são substituídas por outras. Para obter mais informações, consulte Update é substituído no guia de resolução de [problemas](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) do Windows Update.
+Muitas vezes, as atualizações são substituídas por outras. Para obter mais informações, consulte Update é substituído no guia de resolução de [problemas](/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer) do Windows Update.
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Instalar atualizações por classificação no Linux
 
-A implementação de atualizações no Linux por classificação ("atualizações críticas e de segurança") tem limitações importantes, sobretudo para o CentOS. Estas limitações estão documentadas na [página de visão geral da Gestão](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)de Atualização .
+A implementação de atualizações no Linux por classificação ("atualizações críticas e de segurança") tem limitações importantes, sobretudo para o CentOS. Estas limitações estão documentadas na [página de visão geral da Gestão](../automation-update-management.md#linux)de Atualização .
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602 está constantemente desaparecido
 
 KB2267602 é a [atualização de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions). É atualizado diariamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional.
 

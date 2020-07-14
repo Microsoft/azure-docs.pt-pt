@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 12ad18edbb434bdfaec2ae817ea079a843661ef6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111354"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224065"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall de aplicação web Azure e Política Azure
 
@@ -38,10 +38,12 @@ Existem várias políticas de Azure incorporadas para gerir os recursos da WAF. 
 
 2.  No serviço de política Azure, em **Autoria,** selecione **Atribuições**.
 
+[!div class="mx-imgBorder"]
 ![Firewall de aplicação web Azure](../media/waf-azure-policy/policy-home.png)
 
 3.  Na página Atribuições, selecione o ícone **de política de atribuir** no topo.
 
+[!div class="mx-imgBorder"]
 ![Firewall de aplicação web Azure](../media/waf-azure-policy/assign-policy.png)
 
 4.  No separador básicos da página 'Atribuir', atualize os seguintes campos:
@@ -49,6 +51,7 @@ Existem várias políticas de Azure incorporadas para gerir os recursos da WAF. 
     2.  **Exclusões**: Selecione quaisquer recursos do âmbito de aplicação para excluir da política 
     3.  **Definição de Política**: Selecione a Política Azure para aplicar ao âmbito com exclusões. Digite "Firewall de aplicação web" na barra de pesquisa para escolher a política de Azure de Firewall de Aplicação Web relevante.
 
+[!div class="mx-imgBorder"]
 ![Firewall de aplicação web Azure](../media/waf-azure-policy/policy-listing.png)
 
 

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: 6796906ca24eb69a52a3b822ee6a000038a445c5
-  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+  ms.openlocfilehash: 08b54d7ae3217f9b9f7715ba2ccb3fe1a290cc05
+  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "82024596"
+  ms.lasthandoff: 07/08/2020
+  ms.locfileid: "86147113"
 highlightedContent:
   items:
   - title: O que é o IoT do Azure?
@@ -24,6 +24,9 @@ highlightedContent:
   - title: Instalar as ferramentas de VS Code para o Azure IoT
     itemType: download
     url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+  - title: Começar a criar com a CLI do Azure para a IoT do Azure
+    itemType: reference
+    url: https://docs.microsoft.com/en-us/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
   - title: Procurar exemplos de código do Azure IoT
     itemType: overview
     url: https://docs.microsoft.com/samples/browse/?term=iot

@@ -8,20 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 8/2/2019
+ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 0023bcc4a7c31a0e337683fa3d3080a45445fc49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117917"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187256"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime numa agenda
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo descreve como agendar o início e paragem do Tempo de Execução da Integração Azure-SSIS (IR) utilizando a Azure Data Factory (ADF). Azure-SSIS IR é um recurso computacional da ADF dedicado à execução de pacotes SQL Server Integration Services (SSIS). Executar A Azure-SSIS IR tem um custo associado a ele. Por isso, normalmente, só pretende executar o seu IR quando precisa de executar pacotes SSIS em Azure e parar o seu IR quando já não precisa dele. Pode utilizar a Interface do Utilizador ADF (UI)/app ou a Azure PowerShell para [iniciar ou parar manualmente o seu IR](manage-azure-ssis-integration-runtime.md)).
 
@@ -116,7 +117,7 @@ Se criar um terceiro gatilho que esteja programado para funcionar diariamente à
     1. Para **função**, **selecione Contribuinte**. 
     2. Para **atribuir acesso a**, selecione **utilizador, grupo ou principal de serviço Azure.** 
     3. Para **Selecione,** procure o seu nome ADF e selecione-o. 
-    4. Clique em **Guardar**.
+    4. Clique em **Save** (Guardar).
     
    ![Atribuição de função de identidade gerida pela ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -382,7 +383,7 @@ Na secção anterior, criou o seu runbook Azure Automation que pode iniciar ou p
     
 6. Depois de fazer os testes, desative os seus horários editando-os. Selecione **Horários** no menu esquerdo, **selecione Iniciar IR diariamente/Parar IR diariamente**, e selecione **Nº** para **Ativado**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte a seguinte publicação de blog:
 -   [Modernizar e alargar os seus fluxos de trabalho ETL/ELT com atividades SSIS em gasodutos ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
 

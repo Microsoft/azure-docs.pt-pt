@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74073857"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186831"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
 
@@ -133,36 +134,36 @@ Consulte a documentação no repo do [Agente Azure Linux no GitHub](https://gith
 ## <a name="configuration"></a>Configuração
 Um ficheiro de configuração (/etc/waagent.conf) controla as ações do waagent. O seguinte mostra um ficheiro de configuração da amostra:
 
-    ```
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.AllowResetSysUser=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
-    AutoUpdate.Enabled=y
-    ```
+```config
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.AllowResetSysUser=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+AutoUpdate.Enabled=y
+```
 
 São descritas as seguintes opções de configuração. As opções de configuração são de três tipos; Boolean, String ou Inteiro. As opções de configuração booleanas podem ser especificadas como "y" ou "n". A palavra-chave especial "Nenhuma" pode ser utilizada para algumas entradas de configuração do tipo de corda como os seguintes detalhes:
 
 **Provisioning.Habilitado:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -174,14 +175,14 @@ Isto permite ao utilizador ativar ou desativar a funcionalidade de provisionamen
 > 
 
 **Provisioning.DeleteRootPassword:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Se for definida, a palavra-passe de raiz no ficheiro /etc/sombra é apagada durante o processo de provisionamento.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
@@ -190,42 +191,42 @@ Se estiver definido, todos os pares de chaves de anfitrião SSH (ecdsa, dsa e rs
 O tipo de encriptação para o par de chaves frescos é configurável pela entrada Provisioning.SshHostKeyPairType. Algumas distribuições recriam os pares de chaves SSH para quaisquer tipos de encriptação em falta quando o daemon SSH é reiniciado (por exemplo, após um reboot).
 
 **Provisioning.SshHostKeyPairType:**  
-```
+```txt
 Type: String  
 Default: rsa
 ```
 Isto pode ser definido para um tipo de algoritmo de encriptação que é suportado pelo daemon SSH na máquina virtual. Os valores tipicamente suportados são "rsa", "dsa" e "ecdsa". "putty.exe" no Windows não suporta "ecdsa". Por isso, se pretender utilizar putty.exe no Windows para se ligar a uma implementação Linux, utilize "rsa" ou "dsa".
 
 **Provisioning.MonitorHostName:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Se estiver definido, o waagent monitoriza a máquina virtual Linux para alterações no nome hospedeiro (como devolvido pelo comando "nome de anfitrião") e atualiza automaticamente a configuração de rede na imagem para refletir a alteração. Para empurrar a alteração de nome para os servidores DNS, a rede é reiniciada na máquina virtual. Isto resulta numa breve perda de conectividade na Internet.
 
 **Provisioning.DecodeCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Se definido, waagent descodifica CustomData da Base64.
 
 **Provisioning.ExebonitoCustomData**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Se definido, waagent executa CustomData após provisão.
 
 **Provisioning.AllowResetSysUser**
-```
+```txt
 Type: Boolean
 Default: n
 ```
 Esta opção permite que a palavra-passe para o utilizador sys seja reposta; o padrão é desativado.
 
 **Provisioning.PasswordCryptId**  
-```
+```txt
 Type: String  
 Default: 6
 ```
@@ -236,91 +237,91 @@ Algoritmo usado pela cript ao gerar haxixe de senha.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-```
+```txt
 Type: String  
 Default: 10
 ```
 Comprimento do sal aleatório utilizado ao gerar haxixe de senha.
 
 **ResourceDisk.Formato:**  
-```
+```txt
 Type: Boolean  
 Default: y
 ```
 Se for definido, o disco de recursos fornecido pela plataforma é formatado e montado por waagent se o tipo de sistema de ficheiros solicitado pelo utilizador em "ResourceDisk.Filesystem" for outra coisa que não "ntfs". Uma única partição do tipo Linux (83) é disponibilizada no disco. Esta partição não é formatada se puder ser montada com sucesso.
 
 **ResourceDisk.Filesystem:**  
-```
+```txt
 Type: String  
 Default: ext4
 ```
 Isto especifica o tipo de sistema de ficheiros para o disco de recursos. Os valores suportados variam consoante a distribuição do Linux. Se a corda é X, então mkfs. X deve estar presente na imagem linux. As imagens SLES 11 devem normalmente utilizar 'ext3'. As imagens FreeBSD devem utilizar 'ufs2' aqui.
 
 **ResourceDisk.MountPoint:**  
-```
+```txt
 Type: String  
 Default: /mnt/resource 
 ```
 Isto especifica o caminho em que o disco de recursos é montado. O disco de recursos é um disco *temporário* e pode ser esvaziado quando o VM é desprovisionado.
 
 **RecursosDisk.MountOptions**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Especifica as opções de montagem do disco a passar para o comando montagem -o. Esta é uma lista de valores separada por vírgula, ex. "nódev, nosuid". Consulte o suporte(8) para mais detalhes.
 
 **ResourceDisk.EnableSwap:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Se for definido, é criado um ficheiro swap (/swapfile) no disco de recursos e adicionado ao espaço de troca do sistema.
 
 **ResourceDisk.SwapSizeMB:**  
-```
+```txt
 Type: Integer  
 Default: 0
 ```
 O tamanho do ficheiro de troca em megabytes.
 
 **Logs.Verbose:**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Se estiver definido, a verbosidade do log é reforçada. Os registos Waagent para /var/log/waagent.log e utilizam a funcionalidade logrotate do sistema para rodar registos.
 
 **OS. Ativar oRDMA**  
-```
+```txt
 Type: Boolean  
 Default: n
 ```
 Se estiver definido, o agente tenta instalar e, em seguida, carregar um controlador de kernel RDMA que corresponda à versão do firmware no hardware subjacente.
 
 **OS. RootDeviceSiTimeout:**  
-```
+```txt
 Type: Integer  
 Default: 300
 ```
 Esta definição configura o intervalo de tempo SCSI em segundos no disco de so e unidades de dados. Se não estiver definido, os predefinidos do sistema são utilizados.
 
 **OS. OpensslPath:**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Esta definição pode ser usada para especificar um caminho alternativo para o binário openssl para usar para operações criptográficas.
 
 **HttpProxy.Host, HttpProxy.Port**  
-```
+```txt
 Type: String  
 Default: None
 ```
 Se for definido, o agente utiliza este servidor proxy para aceder à internet. 
 
 **AutoUpdate.Habilidoso**
-```
+```txt
 Type: Boolean
 Default: y
 ```

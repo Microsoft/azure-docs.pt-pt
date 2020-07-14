@@ -9,11 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 23e4d104697b5b688330c6ab3a93beebf62f3c6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 839347ce0a04cc1ca1bf16c68e0ccc36fcf0f7fc
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83799955"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86200800"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
@@ -28,15 +29,15 @@ As métricas são valores numéricos que descrevem alguns aspetos de um sistema 
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>O que se pode fazer com as Métricas do Monitor Azure?
 A tabela que se segue lista as diferentes formas de utilizar dados métricos no Azure Monitor.
 
-|  |  |
+|  | Descrição |
 |:---|:---|
-| Analisar | Use [o explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
-| Visualizar | Pin um gráfico de explorador de métricas para um [painel Azure](../learn/tutorial-app-dashboards.md).<br>Crie um [livro para](../platform/workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados. |
-| Alerta | Configure uma [regra de alerta métrico](alerts-metric.md) que envia uma notificação ou toma [medidas automatizadas](action-groups.md) quando o valor métrico cruza um limiar. |
-| Automatizar |  Utilize [a Autoescala](autoscale-overview.md) para aumentar ou diminuir os recursos com base num valor métrico que cruza um limiar. |
-| Exportar | [Rota métricas para Logs](resource-logs-collect-storage.md) para analisar dados em Azure Monitor Metrics juntamente com dados em Registos monitores Azure e para armazenar valores métricos por mais de 93 dias.<br>Stream Metrics para um [Centro de Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-los para sistemas externos. |
-| Recuperar | Aceder a valores métricos de uma linha de comando utilizando [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Aceder a valores métricos de aplicação personalizada utilizando [API REST.](rest-api-walkthrough.md)<br>Aceder a valores métricos de uma linha de comando utilizando [OCLI](/cli/azure/monitor/metrics). |
-| Arquivo | [Archive](..//learn/tutorial-archive-data.md) o desempenho ou histórico de saúde do seu recurso para fins de conformidade, auditoria ou reporte offline. |
+| **Analisar** | Use [o explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
+| **Visualizar** | Pin um gráfico de explorador de métricas para um [painel Azure](../learn/tutorial-app-dashboards.md).<br>Crie um [livro para](../platform/workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados. |
+| **Alerta** | Configure uma [regra de alerta métrico](alerts-metric.md) que envia uma notificação ou toma [medidas automatizadas](action-groups.md) quando o valor métrico cruza um limiar. |
+| **Automatizar** |  Utilize [a Autoescala](autoscale-overview.md) para aumentar ou diminuir os recursos com base num valor métrico que cruza um limiar. |
+| **Exportar** | [Rota métricas para Logs](resource-logs-collect-storage.md) para analisar dados em Azure Monitor Metrics juntamente com dados em Registos monitores Azure e para armazenar valores métricos por mais de 93 dias.<br>Stream Metrics para um [Centro de Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-los para sistemas externos. |
+| **Recuperar** | Aceder a valores métricos de uma linha de comando utilizando [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Aceder a valores métricos de aplicação personalizada utilizando [API REST.](rest-api-walkthrough.md)<br>Aceder a valores métricos de uma linha de comando utilizando [OCLI](/cli/azure/monitor/metrics). |
+| **Arquivo** | [Archive](..//learn/tutorial-archive-data.md) o desempenho ou histórico de saúde do seu recurso para fins de conformidade, auditoria ou reporte offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Como são estruturados os dados em Azure Monitor Metrics?
 Os dados recolhidos pela Azure Monitor Metrics são armazenados numa base de dados de séries temporais que é otimizada para analisar dados com carimbo temporal. Cada conjunto de valores métricos é uma série de tempo com as seguintes propriedades:
@@ -55,7 +56,7 @@ O exemplo abaixo ilustra dois conjuntos de dados para uma métrica hipotética c
 
 ### <a name="network-throughput"></a>Produção de Rede
 
-| Carimbo de data/hora     | Valor métrico |
+| Timestamp     | Valor métrico |
 | ------------- |:-------------|
 | 8/9/2017 8:14 | 1.331,8 Kbps |
 | 8/9/2017 8:15 | 1.141,4 Kbps |
@@ -65,7 +66,7 @@ Esta métrica não dimensional só pode responder a uma pergunta básica como "q
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Produção de rede + duas dimensões ("IP" e "Direção")
 
-| Carimbo de data/hora     | Dimensão "IP"   | Dimensão "Direção" | Valor métrico|
+| Timestamp     | Dimensão "IP"   | Dimensão "Direção" | Valor métrico|
 | ------------- |:-----------------|:------------------- |:-----------|
 | 8/9/2017 8:14 | IP="192.168.5.2" | Direção="Enviar"    | 646,5 Kbps |
 | 8/9/2017 8:14 | IP="192.168.5.2" | Direção="Receber" | 420.1 Kbps |
@@ -113,7 +114,7 @@ Para a maioria dos recursos em Azure, as métricas são armazenadas durante 93 d
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [plataforma de dados do Azure Monitor.](data-platform.md)
 - Saiba mais [sobre os dados de registo no Azure Monitor](data-platform-logs.md).

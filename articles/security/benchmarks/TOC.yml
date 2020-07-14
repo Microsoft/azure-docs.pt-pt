@@ -39,12 +39,34 @@
       href: ../../application-gateway/security-baseline.md
     - name: Linha de base de segurança da Automatização
       href: ../../automation/security-baseline.md
+    - name: Linha de base de segurança do Azure Backup
+      href: ../../backup/security-baseline.md
     - name: Linha de base de segurança da Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Linha de base de segurança do Azure Data Box
+      href: ../../databox/security-baseline.md
+    - name: Linha de base de segurança do Azure Data Explorer
+      href: /azure/data-explorer/security-baseline
+    - name: Linha de base de segurança do Azure Data Factory
+      href: ../../data-factory/security-baseline.md
+    - name: Linha de base de segurança da Base de Dados do Azure para MySQL
+      href: ../../mysql/security-baseline.md
+    - name: Linha de base de segurança do Azure Database for MariaDB
+      href: ../../mariadb/security-baseline.md
+    - name: Linha de base de segurança da Base de Dados do Azure para PostgreSQL
+      href: ../../postgresql/security-baseline.md
+    - name: Linha de base de segurança do Azure Databricks
+      href: ../../azure-databricks/security-baseline.md
+    - name: Linha de base de segurança das Funções do Azure
+      href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do Azure Policy
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
-    - name: Linha de base de segurança do Backup
-      href: ../../backup/security-baseline.md
+    - name: Linha de base de segurança do Azure Resource Graph
+      href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+    - name: Linha de base de segurança da Base de Dados SQL do Azure
+      href: ../../sql-database/security-baseline.md
+    - name: Linha de base de segurança do Armazenamento do Azure
+      href: ../../storage/common/security-baseline.md
     - name: Linha de base de segurança do Batch
       href: ../../batch/security-baseline.md
     - name: Linha de base de segurança dos Serviços Cognitivos
@@ -57,39 +79,19 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Linha de base de segurança do Sistema de Proteção de Dados do Cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
-    - name: Linha de base de segurança do Data Box
-      href: ../../databox/security-baseline.md
-    - name: Linha de base de segurança do Data Explorer
-      href: /azure/data-explorer/security-baseline
-    - name: Linha de base de segurança do Data Factory
-      href: ../../data-factory/security-baseline.md
-    - name: Linha de base de segurança do Databricks
-      href: ../../azure-databricks/security-baseline.md
     - name: Linha de base de segurança dos Hubs de Eventos
       href: ../../event-hubs/security-baseline.md
     - name: Linha de base de segurança do ExpressRoute
       href: ../../expressroute/security-baseline.md
-    - name: Linha de base de segurança das Funções
-      href: ../../azure-functions/security-baseline.md
     - name: Linha de base de segurança do HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Linha de base de segurança do Key Vault
       href: ../../key-vault/security-baseline.md
     - name: Linha de base de segurança do Logic Apps
       href: ../../logic-apps/security-baseline.md
-    - name: Linha de base de segurança do MariaDB
-      href: ../../mariadb/security-baseline.md
-    - name: Linha de base de segurança do MySQL
-      href: ../../mysql/security-baseline.md
     - name: Linha de base de segurança do Observador de Rede
       href: ../../network-watcher/security-baseline.md
-    - name: Linha de base de segurança do PostgreSQL
-      href: ../../postgresql/security-baseline.md
-    - name: Linha de base de segurança da Base de Dados SQL
-      href: ../../sql-database/security-baseline.md
     - name: Linha de base de segurança do Stream Analytics
       href: ../../stream-analytics/security-baseline.md
-    - name: Linha de base de segurança do Armazenamento
-      href: ../../storage/common/security-baseline.md
     - name: Linha de base de segurança do Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md

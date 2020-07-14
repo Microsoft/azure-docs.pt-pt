@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Encaminhar eventos para um ponto final personalizado
       href: howto-app-configuration-event.md
+    - name: Fazer a cópia de segurança do arquivo de configurações automaticamente
+      href: howto-backup-config-store.md
     - name: Melhores práticas
       href: howto-best-practices.md
 - name: Referência

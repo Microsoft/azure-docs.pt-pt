@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 07/07/2020
-  ms.openlocfilehash: f36190edbdbfe4840f9f03d612d6fe2353ad5f5b
-  ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+  ms.openlocfilehash: 0cf2dbdf69ec2cd7af7cf23816db5fb03dacd76e
+  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86134076"
+  ms.locfileid: "86143720"
 conceptualContent:
   title: Ofertas de conformidade
   items:
@@ -375,13 +375,15 @@ additionalContent:
     - title: Guias de privacidade e conformidade de País/Região
       links:
       - text: Requisitos de segurança e privacidade da Austrália
-        url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-australian-security-and-privacy-requirements/
       - text: Requisitos de segurança e privacidade de Singapura
-        url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-ced8dbf9
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-singapore/
+      - text: Requisitos de segurança e privacidade do Japão
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-the-japan-security-and-privacy-requirements/
       - text: Requisitos de segurança e privacidade da Malásia
         url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-8b936d6a
       - text: Requisitos de segurança e privacidade da Nova Zelândia
-        url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-f19e44c2
+        url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
       - text: Navegar até à cloud na Europa
         url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
       - text: Navegar até à cloud na Ásia

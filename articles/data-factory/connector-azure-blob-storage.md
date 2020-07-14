@@ -9,12 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 2edf2b61f46e3638af3c2291932a6ab1c1cf23e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 8862de0ba36d0731fff0e47ab51f828ff69af201
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85100903"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86220427"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Azure Blob utilizando a Azure Data Factory
 
@@ -62,7 +63,7 @@ Este conector de armazenamento Blob suporta os seguintes tipos de autenticação
 
 - [Autenticação chave de conta](#account-key-authentication)
 - [Autenticação de assinatura de acesso partilhado](#shared-access-signature-authentication)
-- [Autenticação do principal de serviço](#service-principal-authentication)
+- [Autenticação principal do serviço](#service-principal-authentication)
 - [Identidades geridas para autenticação de recursos Azure](#managed-identity)
 
 >[!NOTE]
@@ -75,7 +76,7 @@ Este conector de armazenamento Blob suporta os seguintes tipos de autenticação
 
 A Data Factory suporta as seguintes propriedades para autenticação da chave de conta de armazenamento:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** deve ser definida como **AzureBlobStorage** (sugerida) ou **AzureStorage** (ver as seguintes notas). |Sim |
 | conexãoStragem | Especifique as informações necessárias para ligar ao Armazenamento para a **propriedade connectionString.** <br/> Também pode colocar a chave de conta no Cofre da Chave Azure e retirar a `accountKey` configuração da cadeia de ligação. Para mais informações, consulte as seguintes amostras e as credenciais da Loja no artigo [do Azure Key Vault.](store-credentials-in-key-vault.md) |Sim |
@@ -145,7 +146,7 @@ Para obter mais informações sobre assinaturas de acesso partilhado, consulte [
 
 A Data Factory suporta as seguintes propriedades para a utilização da autenticação de assinatura de acesso partilhado:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** deve ser definida para **AzureBlobStorage** (sugerido) ou **AzureStorage** (ver a seguinte nota). |Sim |
 | SasUri | Especifique a assinatura de acesso partilhado URI aos recursos de Armazenamento, tais como bolha ou recipiente. <br/>Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory. Também pode colocar o token SAS no Cofre da Chave Azure para utilizar a rotação automática e remover a porção de token. Para mais informações, consulte as seguintes amostras e [guarde as credenciais no Cofre da Chave Azure.](store-credentials-in-key-vault.md) |Sim |
@@ -229,7 +230,7 @@ Para utilizar a autenticação principal do serviço, siga estes passos:
 
 Estas propriedades são suportadas para um serviço ligado ao armazenamento Azure Blob:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **AzureBlobStorage**. |Sim |
 | serviceEndpoint | Especifique o ponto final do serviço de armazenamento Azure Blob com o padrão de `https://<accountName>.blob.core.windows.net/` . |Sim |
@@ -283,7 +284,7 @@ Para obter informações gerais sobre a autenticação do Armazenamento Azure, c
 
 Estas propriedades são suportadas para um serviço ligado ao armazenamento Azure Blob:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **AzureBlobStorage**. |Sim |
 | serviceEndpoint | Especifique o ponto final do serviço de armazenamento Azure Blob com o padrão de `https://<accountName>.blob.core.windows.net/` . |Sim |
@@ -318,7 +319,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para armazenamento Azure Blob `location` em configurações num conjunto de dados baseado em formato:
 
-| Propriedade   | Descrição                                                  | Necessário |
+| Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | tipo       | A **type** propriedade tipo da localização no conjunto de dados deve ser definida para **AzureBlobStorageLocation**. | Sim      |
 | contentor  | O recipiente da bolha.                                          | Sim      |
@@ -362,7 +363,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para o armazenamento Azure Blob `storeSettings` em configurações numa fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário                                      |
+| Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **AzureBlobStorageReadSettings**. | Sim                                           |
 | ***Localize os ficheiros para copiar:*** |  |  |
@@ -428,7 +429,7 @@ As seguintes propriedades são suportadas para o armazenamento Azure Blob `store
 
 As seguintes propriedades são suportadas para o armazenamento Azure Blob `storeSettings` em configurações num lavatório de cópia baseado em formato:
 
-| Propriedade                 | Descrição                                                  | Necessário |
+| Propriedade                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **AzureBlobStorageWriteSettings**. | Sim      |
 | copyOportundo             | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- Preservar AHierarquia (predefinição)</b>: Preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro-alvo para a pasta alvo.<br/><b>- FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível da pasta alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro ou do blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | Não       |
@@ -511,10 +512,12 @@ Ao copiar ficheiros do armazenamento amazon S3, Azure Blob ou Azure Data Lake St
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
 Quando estiver a transformar dados em fluxos de dados de mapeamento, pode ler e escrever ficheiros a partir do armazenamento do Azure Blob nos seguintes formatos:
-* [JSON](format-json.md#mapping-data-flow-properties)
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
-* [Parquet.](format-parquet.md#mapping-data-flow-properties)
+* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Excel](format-excel.md#mapping-data-flow-properties)
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 As definições específicas do formato estão localizadas na documentação para este formato. Para obter mais informações, consulte [a transformação de Fonte no fluxo de dados de mapeamento](data-flow-source.md) e [transformação de sumidouro no fluxo de dados de mapeamento.](data-flow-sink.md)
 
@@ -613,7 +616,7 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados legado
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureBlob**. |Sim |
 | folderPath | Caminho para o recipiente e pasta no armazenamento blob. <br/><br/>Um filtro wildcard é suportado para o caminho, excluindo o nome do recipiente. Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br/><br/>Um exemplo é: myblobcontainer/myblobfolder/. Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). |Sim para a atividade Copy ou Lookup, não para a atividade GetMetadata |
@@ -658,7 +661,7 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>Modelo de origem legado para a atividade copy
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** da fonte de atividade copy deve ser definida como **BlobSource**. |Sim |
 | recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia.<br/>Os valores permitidos são **verdadeiros** (padrão) e **falsos.** | Não |
@@ -698,7 +701,7 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 
 ### <a name="legacy-sink-model-for-the-copy-activity"></a>Modelo de pia legado para a atividade copy
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** do lavatório de atividade copy deve ser definida para **BlobSink**. |Sim |
 | copyOportundo | Define o comportamento da cópia quando a fonte é ficheiros de uma loja de dados baseada em ficheiros.<br/><br/>Os valores permitidos são:<br/><b>- Preservar AHierarquia (predefinição)</b>: Preserva a hierarquia do ficheiro na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro alvo para a pasta alvo.<br/><b>- FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível da pasta alvo. Os ficheiros-alvo têm nomes autogerados. <br/><b>- MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro ou do blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro autogerado. | Não |
@@ -736,6 +739,6 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de lojas de dados que a atividade Copy na Data Factory suporta como fontes e sumidouros, consulte [lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

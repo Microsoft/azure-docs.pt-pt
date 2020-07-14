@@ -1,5 +1,5 @@
 ---
-title: Componentes de gateway de aplicação
+title: Componentes do Gateway de Aplicação
 description: Este artigo fornece informações sobre os vários componentes em um gateway de aplicação
 services: application-gateway
 author: abshamsft
@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 46ef67e5ede1ea41469a8dcc78244e74c0bffc45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254332"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86186763"
 ---
-# <a name="application-gateway-components"></a>Componentes de gateway de aplicação
+# <a name="application-gateway-components"></a>Componentes do Gateway de Aplicação
 
  Um gateway de aplicação serve como único ponto de contacto para os clientes. Distribui o tráfego de aplicações de entrada em vários pools de backend, que incluem VMs Azure, conjuntos de escala de máquinas virtuais, Serviço de Aplicações Azure e servidores externos no local. Para distribuir tráfego, um gateway de aplicações utiliza vários componentes descritos neste artigo.
 
@@ -67,7 +67,7 @@ Para obter mais informações, consulte [as páginas de erro personalizadas para
 
 Há dois tipos de ouvintes:
 
-- **Básico.** Este tipo de ouvinte ouve um único site de domínio, onde tem um único mapeamento dns para o endereço IP do gateway de aplicações. Esta configuração do ouvinte é necessária quando hospeda um único site atrás de um gateway de aplicações.
+- **Básico**. Este tipo de ouvinte ouve um único site de domínio, onde tem um único mapeamento dns para o endereço IP do gateway de aplicações. Esta configuração do ouvinte é necessária quando hospeda um único site atrás de um gateway de aplicações.
 
 - **Multi-site**. Esta configuração do ouvinte é necessária quando configurar mais de uma aplicação web na mesma instância de gateway de aplicações. Permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três subdomínios, abc.contoso.com, xyz.contoso.com e pqr.contoso.com, apontam para o endereço IP do gateway de aplicações. Criaria três ouvintes multi-locais e configuraria cada ouvinte para a respetiva definição de porta e protocolo.
 
@@ -85,7 +85,7 @@ Quando um ouvinte aceita um pedido, a regra de encaminhamento de pedido remete o
 
 Existem dois tipos de regras de encaminhamento de pedidos:
 
-- **Básico.** Todos os pedidos no ouvinte associado (por exemplo, blog.contoso.com/*) são reencaminhados para o pool de backend associado utilizando a definição HTTP associada.
+- **Básico**. Todos os pedidos no ouvinte associado (por exemplo, blog.contoso.com/*) são reencaminhados para o pool de backend associado utilizando a definição HTTP associada.
 
 - **Baseado em caminhos.** Esta regra de encaminhamento permite-lhe encaminhar os pedidos no ouvinte associado para um pool de backend específico, com base no URL no pedido. Se o caminho do URL num pedido corresponder ao padrão do caminho numa regra baseada em caminhos, a regra encaminha esse pedido. Aplica o padrão do caminho apenas ao caminho url, não aos seus parâmetros de consulta. Se o caminho URL de um pedido de ouvinte não corresponder a nenhuma das regras baseadas no caminho, ele encaminha o pedido para as definições de backend e HTTP predefinidos.
 
@@ -144,14 +144,14 @@ Você pode criar diferentes piscinas de backend para diferentes tipos de pedidos
 
 Por padrão, uma porta de aplicação monitoriza a saúde de todos os recursos na sua piscina de backend e remove automaticamente os pouco saudáveis. Em seguida, monitoriza casos insalubres e adiciona-os de volta à piscina saudável quando ficam disponíveis e respondem a sondas de saúde.
 
-Além de utilizar a monitorização da sonda de saúde padrão, também pode personalizar a sonda de saúde de acordo com os requisitos da sua aplicação. As sondas personalizadas permitem um maior controlo granular sobre a monitorização da saúde. Ao utilizar sondas personalizadas, pode configurar o intervalo da sonda, o URL e o caminho a testar, e quantas respostas falhadas a aceitar antes da instância da piscina de backend ser marcada como pouco saudável. Recomendamos que configuure sondas personalizadas para monitorizar a saúde de cada piscina de backend.
+Além de utilizar a monitorização da sonda de saúde padrão, também pode personalizar a sonda de saúde de acordo com os requisitos da sua aplicação. As sondas personalizadas permitem um maior controlo granular sobre a monitorização da saúde. Ao utilizar sondas personalizadas, pode configurar um nome de anfitrião personalizado, caminho URL, intervalo de sonda, e quantas respostas falhadas a aceitar antes de marcar a instância da piscina de back-end como insalubre, códigos de estado personalizados e correspondência corporal de resposta, etc. Recomendamos que configuure sondas personalizadas para monitorizar a saúde de cada piscina de backend.
 
 Para mais informações, consulte [Monitorar a saúde do seu gateway de aplicação.](../application-gateway/application-gateway-probe-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criar um gateway de aplicações:
 
-* [No portal Azure](quick-create-portal.md)
+* [No portal do Azure](quick-create-portal.md)
 * [Usando a Azure PowerShell](quick-create-powershell.md)
 * [Usando o CLI Azure](quick-create-cli.md)

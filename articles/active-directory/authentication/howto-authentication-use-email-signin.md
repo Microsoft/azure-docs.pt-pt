@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: 0a7048e79ddd4a86d7e14e573cf5b8556f462f03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550331"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223028"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
 
@@ -40,7 +40,7 @@ Para as organizações onde a UPN no local é o e-mail de inscrição preferido 
 
 No entanto, em algumas organizações, a UPN não é usada como um nome de inscrição. Nos ambientes no local, configuraria o DS AD local para permitir o login com um ID de login alternativo. Definir o Azure AD UPN para o mesmo valor que a UPN no local não é uma opção, uma vez que a Azure AD exigiria que os utilizadores inscrevam-se com esse valor.
 
-A solução típica para este problema foi definir o Azure AD UPN para o endereço de e-mail com o que o utilizador espera iniciar súm. Esta abordagem funciona, embora resulte em DIFERENTES UPNs entre o AD no local e em Azure AD, e esta configuração não é compatível com todas as cargas de trabalho da Microsoft 365.
+A solução típica para este problema foi definir o Azure AD UPN para o endereço de e-mail com o que o utilizador espera iniciar súm. Esta abordagem funciona, embora resulte em diferentes UPNs entre o AD no local e em Azure AD, e esta configuração não é compatível com todas as cargas de trabalho da Microsoft 365.
 
 Uma abordagem diferente é sincronizar o AZure AD e as UPNs no local pelo mesmo valor e, em seguida, configurar a Azure AD para permitir que os utilizadores inscrevam-se no AD Azure com um e-mail verificado. Para fornecer esta capacidade, define um ou mais endereços de e-mail nos *ProxyAddresses* do utilizador atribuídos no diretório no local. *Os ProxyAddresses* são então sincronizados para Azure AD automaticamente usando O AZURE AD Connect.
 
@@ -175,7 +175,7 @@ Se os utilizadores tiverem problemas com eventos de inscrição utilizando o seu
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a identidade híbrida, como a Azure AD App Proxy ou a Azure AD Domain Services, consulte [a identidade híbrida AD AD Azure para acesso e gestão de cargas de trabalho on-prem][hybrid-overview].
 

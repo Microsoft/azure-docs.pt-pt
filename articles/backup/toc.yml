@@ -369,8 +369,10 @@
           href: backup-azure-security-feature.md
         - name: Pontos Finais Privados
           href: private-endpoints.md
-        - name: Encriptação
+        - name: Encriptação no Azure Backup
           href: backup-encryption.md
+        - name: Encriptação com chaves geridas pelo cliente
+          href: encryption-at-rest-with-cmk.md
         - name: Controlos de segurança incorporados
           href: backup-security-controls.md
         - name: Linha de base de segurança

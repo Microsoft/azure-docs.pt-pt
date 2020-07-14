@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: 6a71cc080c28cfa6e54de5b942ad1d8ce5b496d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3fe5257b3db2057e805d2f2cd0c6e2a2973e211
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513954"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223062"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -60,7 +61,7 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 Estas propriedades são suportadas para um serviço de base de dados Azure SQL ligado:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **AzureSqlDatabase**. | Sim |
 | conexãoStragem | Especifique as informações necessárias para ligar à instância de Base de Dados Azure SQL para a **propriedade connectionString.** <br/>Também pode colocar uma senha ou chave principal de serviço no Cofre da Chave Azure. Se for a autenticação SQL, retire a `password` configuração da cadeia de ligação. Para obter mais informações, consulte o exemplo JSON seguindo as credenciais da tabela e [da loja no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
@@ -88,7 +89,7 @@ Para diferentes tipos de autenticação, consulte as seguintes secções sobre p
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -106,7 +107,7 @@ Para diferentes tipos de autenticação, consulte as seguintes secções sobre p
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": {
@@ -158,7 +159,7 @@ Para utilizar uma autenticação simbólica de aplicação Azure AD baseada em s
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30",
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -204,7 +205,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos.
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -220,11 +221,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para o conjunto de dados da Base de Dados Azure SQL:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlTable**. | Sim |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
-| table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
+| tabela | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 | tableName | Nome da tabela/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não para a fonte, sim para a pia |
 
 ### <a name="dataset-properties-example"></a>Exemplo de propriedades de dataset
@@ -256,7 +257,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Base de Dados Azure SQL, as seguintes propriedades são suportadas na secção **fonte de origem** da atividade da cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **AzureSqlSource**. O tipo "SqlSource" ainda é suportado para retrocompatibilidade. | Sim |
 | sqlReaderQuery | Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não |
@@ -363,7 +364,7 @@ GO
 
 Para copiar dados para a Base de Dados Azure SQL, as seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **AzureSqlSink**. O tipo "SqlSink" ainda é suportado para retrocompatibilidade. | Sim |
 | preCopyScript | Especifique uma consulta SQL para a atividade da cópia a executar antes de escrever dados na Base de Dados Azure SQL. É invocado apenas uma vez por cópia. Utilize esta propriedade para limpar os dados pré-carregados. | Não |
@@ -613,13 +614,13 @@ Quando os dados são copiados de ou para Azure SQL Database, os seguintes mapeam
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| date |DateTime |
+| data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinário(máx)) |Byte[] |
-| Float |Double |
+| Float |Double (Duplo) |
 | image |Byte[] |
 | int |Int32 |
 | dinheiro |Decimal |
@@ -682,6 +683,6 @@ Mais especificamente:
 
 4. Crie conjunto de dados e copie a atividade com o tipo ODBC em conformidade. Saiba mais a partir do artigo do [conector ODBC.](connector-odbc.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

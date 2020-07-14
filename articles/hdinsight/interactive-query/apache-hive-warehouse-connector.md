@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 3efccc44255067b7e47c468c9a35853def2fce69
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c2590a2c745969313ae73521dbcd110fbf3b7551
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085859"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221022"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integre a Faísca Apache e a Colmeia Apache com o Conector do Armazém da Colmeia em Azure HDInsight
 
@@ -37,6 +37,9 @@ Algumas das operações apoiadas pelo Conector do Armazém da Colmeia são:
 * Escrever um dataframe ou fluxo de faísca para colmeia usando HiveStreaming
 
 ## <a name="hive-warehouse-connector-setup"></a>Configuração do conector do armazém da colmeia
+
+> [!IMPORTANT]
+> A instância Interativa HiveServer2 instalada nos clusters spark 2.4 Enterprise Security Package não é suportada para utilização com o Conector do Armazém da Colmeia. Em vez disso, deve configurar um cluster interativo HiveServer2 para acolher as suas cargas de trabalho Interativas HiveServer2. Não é suportada uma configuração do Conector do Armazém de Colmeia que utilize um único cluster Spark 2.4.
 
 O Conector do Armazém da Colmeia necessita de aglomerados separados para cargas de trabalho de faísca e consulta interativa. Siga estes passos para configurar estes clusters em Azure HDInsight.
 
@@ -221,7 +224,7 @@ kinit USERNAME
 
     ![mesa de demonstração depois de aplicar a política ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Operações do HWC e do Apache Spark](./apache-hive-warehouse-connector-operations.md)
 * [Utilizar uma Consulta Interativa com o HDInsight](./apache-interactive-query-get-started.md).

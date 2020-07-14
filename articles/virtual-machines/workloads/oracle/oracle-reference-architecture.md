@@ -2,22 +2,22 @@
 title: Arquiteturas de referência para bases de dados da Oracle em Azure Microsoft Docs
 description: Referências arquiteturas para executar bases de dados Da Oracle Database Enterprise Edition em Microsoft Azure Virtual Machines.
 services: virtual-machines-linux
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: ''
 tags: ''
 ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: borisb
+ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: bbb6665299ce9b6521eeb8801d8621dfbdc17f4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9125d8d2177b9bc40bb280f414cdfb2797ccf8fe
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81683494"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86221617"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
 
@@ -41,7 +41,7 @@ Finalmente, ao migrar ou criar aplicações para a nuvem, é importante ajustar 
 
 ### <a name="oracle-rac-in-the-cloud"></a>Oráculo RAC na nuvem
 
-O Oracle Real Application Cluster (RAC) é uma solução da Oracle para ajudar os clientes a alcançar altos resultados, tendo muitas instâncias a aceder a um armazenamento de base de dados (padrão de arquitetura partilhado). Embora o Oracle RAC também possa ser usado para alta disponibilidade no local, o Oracle RAC por si só não pode ser usado para alta disponibilidade na nuvem, uma vez que apenas protege contra falhas de nível de instância e não contra falhas de nível de rack ou de nível de dados. Por esta razão, a Oracle recomenda a utilização da Oracle Data Guard com a sua base de dados (seja uma instância única ou RAC) para uma elevada disponibilidade. Os clientes geralmente exigem um SLA elevado para executar as suas aplicações críticas de missão. A Oracle RAC não é atualmente certificada ou apoiada pela Oracle em Azure. No entanto, o Azure oferece funcionalidades como a Azure oferece Zonas de Disponibilidade e janelas de manutenção planeadas para ajudar a proteger contra falhas de nível de exemplo. Além disso, os clientes podem utilizar tecnologias como a Oracle Data Guard, Oracle GoldenGate e Oracle Sharding para alto desempenho e resiliancy, protegendo as suas bases de dados de falhas ao nível do rack, bem como falhas de nível de datacenter e geopolítica.
+O Oracle Real Application Cluster (RAC) é uma solução da Oracle para ajudar os clientes a alcançar altos resultados, tendo muitas instâncias a aceder a um armazenamento de base de dados (padrão de arquitetura partilhado). Embora o Oracle RAC também possa ser usado para alta disponibilidade no local, o Oracle RAC por si só não pode ser usado para alta disponibilidade na nuvem, uma vez que apenas protege contra falhas de nível de instância e não contra falhas de nível de rack ou de nível de dados. Por esta razão, a Oracle recomenda a utilização da Oracle Data Guard com a sua base de dados (seja uma instância única ou RAC) para uma elevada disponibilidade. Os clientes geralmente exigem um SLA elevado para executar as suas aplicações críticas de missão. A Oracle RAC não é atualmente certificada ou apoiada pela Oracle em Azure. No entanto, o Azure oferece funcionalidades como a Azure oferece Zonas de Disponibilidade e janelas de manutenção planeadas para ajudar a proteger contra falhas de nível de exemplo. Além disso, os clientes podem usar tecnologias como Oracle Data Guard, Oracle GoldenGate e Oracle Sharding para alto desempenho e resiliência, protegendo as suas bases de dados de falhas ao nível do rack, bem como falhas de nível de datacenter e geopolítica.
 
 Ao executar as Bases de Dados da Oracle em [várias zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview) em conjunto com a Oracle Data Guard ou GoldenGate, os clientes são capazes de obter um SLA de 99,99%. Nas regiões de Azure onde as zonas de disponibilidade ainda não estão presentes, os clientes podem utilizar [Conjuntos de Disponibilidade](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e alcançar um SLA de 99,95%.
 

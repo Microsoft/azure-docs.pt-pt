@@ -1,5 +1,5 @@
 ---
-title: Avaliar e mitigar questões de equidade em modelos de aprendizagem automática
+title: Avaliar e mitigar problemas de equidade em modelos de aprendizagem automática (pré-visualização)
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre a equidade nos modelos de machine learning e como o pacote Fairlearn Python pode ajudá-lo a construir modelos mais justos.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/30/2020
-ms.openlocfilehash: c4e9b8386c8341d076a69e2e81b5e92f296153ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/09/2020
+ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611786"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207297"
 ---
-# <a name="build-fairer-machine-learning-models"></a>Construa modelos de aprendizagem automática mais justos
+# <a name="build-fairer-machine-learning-models-preview"></a>Construa modelos de aprendizagem automática mais justos (pré-visualização)
 
 Saiba mais sobre a equidade na aprendizagem automática e como o pacote De pitão de código aberto [fairlearn](https://fairlearn.github.io/) pode ajudá-lo a construir modelos que sejam mais justos. Se não está a fazer um esforço para compreender as questões de equidade e avaliar a equidade na construção de modelos de aprendizagem automática, pode construir modelos que produzam resultados injustos. 
 
@@ -106,7 +106,7 @@ O pacote fairlearn open-source fornece algoritmos de mitigação pós-processame
 | `GridSearch` | Abordagem black-box que implementa uma variante de pesquisa de grelha de Regressão Justa com o algoritmo para perda de grupo delimitada descrita em [Regressão Justa: Definições Quantitativas e Algoritmos baseados na Redução](https://arxiv.org/abs/1905.12843) | Regressão | Binário | [Perda de grupo limitada](#parity-constraints) | Redução |
 | `ThresholdOptimizer` | Algoritmo pós-processamento baseado no artigo [Igualdade de Oportunidades em Aprendizagem Supervisionada.](https://arxiv.org/abs/1610.02413) Esta técnica toma como entrada um classificador existente e a característica sensível, e deriva uma transformação monotone da previsão do classificador para impor as restrições de paridade especificadas. | Classificação binária | Categórico | [Paridade demográfica,](#parity-constraints) [odds iguais](#parity-constraints) | Pós-processamento |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como utilizar os diferentes componentes verificando o [GitHub](https://github.com/fairlearn/fairlearn/)do Fairlearn, o guia do [utilizador,](https://fairlearn.github.io/user_guide/index.html) [exemplos](https://fairlearn.github.io/auto_examples/notebooks/index.html)e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks)
 - Saiba como permitir [a](how-to-machine-learning-fairness-aml.md) avaliação da equidade dos modelos de aprendizagem automática em Azure Machine Learning.

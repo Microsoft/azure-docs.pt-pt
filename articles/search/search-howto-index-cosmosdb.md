@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: 13c55f2a7470a0d33e12e9e6f0da9df3421242fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f4ed9940c70ed479c3108f3637aa55f2a42811
+ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556241"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86146891"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados do Cosmos DB com um indexador na Pesquisa Cognitiva do Azure 
 
@@ -154,6 +154,8 @@ Uma **fonte de dados** especifica os dados para indexar, credenciais e política
 
 Para criar uma fonte de dados, formular um pedido DEM:
 
+```http
+
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -170,6 +172,7 @@ Para criar uma fonte de dados, formular um pedido DEM:
             "highWaterMarkColumnName": "_ts"
         }
     }
+```
 
 O corpo do pedido contém a definição de fonte de dados, que deve incluir os seguintes campos:
 
@@ -190,6 +193,7 @@ Pode especificar uma consulta SQL para aplainar propriedades ou matrizes aninhad
 
 Documento de exemplo:
 
+```http
     {
         "userId": 10001,
         "contact": {
@@ -199,30 +203,37 @@ Documento de exemplo:
         "company": "microsoft",
         "tags": ["azure", "cosmosdb", "search"]
     }
+```
 
 Consulta de filtro:
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```sql
+SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Consulta de achatamento:
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-    
-    
+```sql
+SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
+
 Consulta de projeção:
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Consulta de achatamento de matriz:
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 ### <a name="3---create-a-target-search-index"></a>3 - Criar um índice de pesquisa de alvo 
 
 [Crie um índice de pesquisa cognitiva Azure](/rest/api/searchservice/create-index) se ainda não tiver um. O exemplo a seguir cria um índice com um campo de ID e descrição:
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -243,6 +254,7 @@ Consulta de achatamento de matriz:
          "suggestions": true
        }]
      }
+```
 
 Certifique-se de que o esquema do seu índice-alvo é compatível com o esquema dos documentos JSON de origem ou com a saída da sua projeção de consulta personalizada.
 
@@ -257,7 +269,7 @@ Certifique-se de que o esquema do seu índice-alvo é compatível com o esquema 
 | Booleano |Edm.Boolean, Edm.String |
 | Números que se parecem com inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que parecem pontos flutuantes |Edm.Double, Edm.String |
-| String |Edm.String |
+| Cadeia |Edm.String |
 | Matrizes de tipos primitivos, por exemplo ["a", "b", "c"] |Coleção (Edm.String) |
 | Cordas que parecem datas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por exemplo { "tipo": "Point", "coordenadas": [longo, lat] } |Edm.GeographyPoint |
@@ -267,6 +279,7 @@ Certifique-se de que o esquema do seu índice-alvo é compatível com o esquema 
 
 Uma vez criado o índice e a fonte de dados, está pronto para criar o indexador:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -277,6 +290,7 @@ Uma vez criado o índice e a fonte de dados, está pronto para criar o indexador
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 Este indexante funciona de duas em duas horas (o intervalo de horário é definido para "PT2H"). Para executar um indexante a cada 30 minutos, desajuste o intervalo para "PT30M". O intervalo suportado mais curto é de 5 minutos. O horário é opcional - se omitido, um indexante funciona apenas uma vez quando é criado. No entanto, pode executar um indexante a qualquer momento.   
 
@@ -299,10 +313,12 @@ O SDK .NET geralmente disponível tem paridade total com a API REST geralmente d
 
 A finalidade de uma política de deteção de alterações de dados é identificar de forma eficiente os itens de dados alterados. Atualmente, a única política suportada é a [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) utilização da `_ts` propriedade (timetamp) fornecida pela Azure Cosmos DB, que é especificada da seguinte forma:
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
+```
 
 A utilização desta política é altamente recomendada para garantir um bom desempenho do indexante. 
 
@@ -318,11 +334,13 @@ Para permitir o progresso incremental ao utilizar uma consulta personalizada, ce
 
 Em alguns casos, mesmo que a sua consulta contenha uma `ORDER BY [collection alias]._ts` cláusula, a Azure Cognitive Search pode não inferir que a consulta é ordenada pelo `_ts` . Pode dizer ao Azure Cognitive Search que os resultados são encomendados utilizando a `assumeOrderByHighWaterMarkColumn` propriedade de configuração. Para especificar esta sugestão, crie ou atualize o seu indexante da seguinte forma: 
 
+```http
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
     } 
+```
 
 <a name="DataDeletionDetectionPolicy"></a>
 
@@ -330,16 +348,19 @@ Em alguns casos, mesmo que a sua consulta contenha uma `ORDER BY [collection ali
 
 Quando as linhas são eliminadas da coleção, normalmente também pretende eliminar essas linhas do índice de pesquisa. O objetivo de uma política de deteção de eliminação de dados é identificar de forma eficiente os itens de dados eliminados. Atualmente, a única política apoiada é a `Soft Delete` política (a supressão é marcada com uma bandeira de algum tipo), que é especificada da seguinte forma:
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
         "softDeleteColumnName" : "the property that specifies whether a document was deleted",
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
+```
 
 Se estiver a utilizar uma consulta personalizada, certifique-se de que a propriedade referenciada `softDeleteColumnName` é projetada pela consulta.
 
 O exemplo a seguir cria uma fonte de dados com uma política de eliminação suave:
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -361,8 +382,9 @@ O exemplo a seguir cria uma fonte de dados com uma política de eliminação sua
             "softDeleteMarkerValue": "true"
         }
     }
+```
 
-## <a name="next-steps"></a><a name="NextSteps"></a>Próximos passos
+## <a name="next-steps"></a><a name="NextSteps"></a>Passos seguintes
 
 Parabéns! Aprendeu a integrar a Azure Cosmos DB com a Azure Cognitive Search usando um indexante.
 

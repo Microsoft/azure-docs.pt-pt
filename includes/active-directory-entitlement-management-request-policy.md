@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
+ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655956"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86156564"
 ---
 ## <a name="for-users-in-your-directory"></a>Para utilizadores no seu diretório
 
@@ -194,7 +194,7 @@ Por exemplo, se listasses Alice e Bob como os Primeiros Approvers, listasse Caro
 
 1. No **Forward para os aprovadores alternativos após quantos dias** de caixa, colocar no número de dias os aprovadores têm de aprovar ou negar um pedido. Se nenhum aprovador tiver aprovado ou negado o pedido antes da duração do pedido, o pedido expira (prazo) e o utilizador terá de apresentar outro pedido para o pacote de acesso. 
 
-    Os pedidos só podem ser reencaminhados para aprovadores alternativos um dia após a duração do pedido atingir a meia-vida. Neste exemplo, a duração do pedido é de 14 dias. Assim, a duração do pedido atinge a meia-vida no dia 7. Portanto, o pedido não pode ser reencaminhado mais cedo do dia 8. Além disso, os pedidos não podem ser reencaminhados no último dia da duração do pedido. Assim, no exemplo, o último pedido pode ser reencaminhado é o dia 13.
+    Os pedidos só podem ser reencaminhados para aprovadores alternativos um dia após a duração do pedido chegar à meia-vida, e a decisão do(s) principal aprovação tem de ser adiada ao fim de pelo menos 4 dias. Se o prazo de 100 pedido for inferior ou igual a 3, não há tempo suficiente para encaminhar o pedido para os aprovadores alternativos. Neste exemplo, a duração do pedido é de 14 dias. Assim, a duração do pedido atinge a meia-vida no dia 7. Portanto, o pedido não pode ser reencaminhado mais cedo do dia 8. Além disso, os pedidos não podem ser reencaminhados no último dia da duração do pedido. Assim, no exemplo, o último pedido pode ser reencaminhado é o dia 13.
 
 ## <a name="enable-requests"></a>Ativar pedidos
 

@@ -9,11 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
+ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744985"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86187358"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerir horários na Azure Automation
 
@@ -31,13 +32,13 @@ Os cmdlets na tabela seguinte criam e gerem horários de Automação com o Power
 
 | Cmdlets | Descrição |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera um horário. |
-| [Get-AzAutomationScheduldRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera livros de corridas programados. |
-| [Nova AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Cria um novo horário. |
-| [Registro-AzAutomationScheduldRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associa um livro com um horário. |
-| [Remover-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Remove um horário. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Define as propriedades para um horário existente. |
-| [Não registro-azautomationScheduldRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocia um livro de bordo de um horário. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera um horário. |
+| [Get-AzAutomationScheduldRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera livros de corridas programados. |
+| [Nova AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Cria um novo horário. |
+| [Registro-AzAutomationScheduldRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associa um livro com um horário. |
+| [Remover-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Remove um horário. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Define as propriedades para um horário existente. |
+| [Não registro-azautomationScheduldRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissocia um livro de bordo de um horário. |
 
 ## <a name="create-a-schedule"></a>Criar um horário
 
@@ -64,7 +65,7 @@ Pode criar um novo horário para os seus runbooks no portal Azure ou com o Power
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Criar um novo horário com a PowerShell
 
-Utilize o [cmdlet New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para criar horários. Especifica a hora de início do horário e a frequência que deve ser executada. Os exemplos a seguir mostram como criar muitos cenários de agenda diferentes.
+Utilize o [cmdlet New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) para criar horários. Especifica a hora de início do horário e a frequência que deve ser executada. Os exemplos a seguir mostram como criar muitos cenários de agenda diferentes.
 
 #### <a name="create-a-one-time-schedule"></a>Criar um horário único
 
@@ -127,7 +128,7 @@ Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbo
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Ligue um horário a um livro com o PowerShell
 
-Utilize o [cmdlet Register-AzAutomationScheduldRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para ligar um horário. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros . Para obter mais informações sobre como especificar valores de parâmetros, consulte [Iniciar um Runbook na Azure Automation](../automation-starting-a-runbook.md).
+Utilize o [cmdlet Register-AzAutomationScheduldRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) para ligar um horário. Pode especificar os valores dos parâmetros do runbook através do parâmetro Parâmetros . Para obter mais informações sobre como especificar valores de parâmetros, consulte [Iniciar um Runbook na Azure Automation](../start-runbooks.md).
 O exemplo a seguir mostra como ligar um horário a um runbook utilizando um cmdlet Azure Resource Manager com parâmetros.
 
 ```azurepowershell-interactive
@@ -163,7 +164,7 @@ Quando desativa um horário, qualquer livro de recortes ligado a ele já não fu
 
 ### <a name="disable-a-schedule-with-powershell"></a>Desative um horário com o PowerShell
 
-Utilize o [cmdlet Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um horário existente. Para desativar o horário, especifique Falso para o `IsEnabled` parâmetro.
+Utilize o [cmdlet Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) para alterar as propriedades de um horário existente. Para desativar o horário, especifique Falso para o `IsEnabled` parâmetro.
 
 O exemplo a seguir mostra como desativar um horário de um livro de corridas utilizando um cmdlet Azure Resource Manager.
 
@@ -195,7 +196,7 @@ Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 -Name $scheduleName -ResourceGroupName "ResourceGroup01"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os cmdlets utilizados para aceder a horários, consulte [Gerir módulos na Azure Automation.](modules.md)
 * Para obter informações gerais sobre os runbooks, consulte [a execução do Runbook na Azure Automation](../automation-runbook-execution.md).

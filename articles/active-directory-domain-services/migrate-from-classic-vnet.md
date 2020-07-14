@@ -7,13 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 35f92afea9f9e8da3cf1eeefa81cac0cb712843a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2802445bbb80a4412787362a3ee9aaee4adcd40
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734627"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86223504"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar serviços de domínio do diretório ativo do Azure do modelo de rede virtual clássico para o Gestor de Recursos
 
@@ -97,13 +98,15 @@ As etapas de alto nível envolvidas neste cenário de migração de exemplo incl
 
 O controlador de domínio endereços IP para uma mudança de domínio gerida após a migração. Esta alteração inclui o endereço IP público para o ponto final LDAP seguro. Os novos endereços IP estão dentro da gama de endereços para a nova sub-rede na rede virtual Do Gestor de Recursos.
 
-Em caso de reversão, os endereços IP podem ser alterados após o reversão.
+Se precisar de reverter, os endereços IP podem ser alterados após o reversão.
 
 O Azure AD DS normalmente utiliza os dois primeiros endereços IP disponíveis na gama de endereços, mas isso não está garantido. Não é possível especificar os endereços IP para utilizar após a migração.
 
 ### <a name="downtime"></a>Tempo de inatividade
 
-O processo de migração envolve que os controladores de domínio estão offline por um período de tempo. Os controladores de domínio são inacessíveis enquanto o Azure AD DS é migrado para o modelo de implementação do Gestor de Recursos e rede virtual. Em média, o tempo de inatividade é de cerca de 1 a 3 horas. Este período de tempo é de quando os controladores de domínio são desligados até ao momento em que o primeiro controlador de domínio volta a estar online. Esta média não inclui o tempo que o segundo controlador de domínio leva para replicar, ou o tempo que pode levar para migrar recursos adicionais para o modelo de implementação do Gestor de Recursos.
+O processo de migração envolve que os controladores de domínio estão offline por um período de tempo. Os controladores de domínio são inacessíveis enquanto o Azure AD DS é migrado para o modelo de implementação do Gestor de Recursos e rede virtual.
+
+Em média, o tempo de inatividade é de cerca de 1 a 3 horas. Este período de tempo é de quando os controladores de domínio são desligados até ao momento em que o primeiro controlador de domínio volta a estar online. Esta média não inclui o tempo que o segundo controlador de domínio leva para replicar, ou o tempo que pode levar para migrar recursos adicionais para o modelo de implementação do Gestor de Recursos.
 
 ### <a name="account-lockout"></a>Bloqueio de conta
 
@@ -206,7 +209,7 @@ Para preparar o domínio gerido para a migração, complete os seguintes passos:
 
 ## <a name="migrate-the-managed-domain"></a>Migrar o domínio gerido
 
-Com o domínio gerido preparado e apoiado, o domínio pode ser migrado. Este passo recria os VM do controlador de domínio Azure AD Domain Services utilizando o modelo de implementação do Gestor de Recursos. Este passo pode levar 1 a 3 horas para ser concluído.
+Com o domínio gerido preparado e apoiado, o domínio pode ser migrado. Este passo recria os VM do controlador de domínio Azure AD DS utilizando o modelo de implementação do Gestor de Recursos. Este passo pode levar 1 a 3 horas para ser concluído.
 
 Executar o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Cometer.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido preparado na secção anterior, como *aaddscontoso.com:*
 
@@ -247,10 +250,12 @@ Com o modelo de implementação do Gestor de Recursos, os recursos de rede para 
 
 Quando estiver disponível pelo menos um controlador de domínio, complete os seguintes passos de configuração para a conectividade da rede com VMs:
 
-* **Atualizar as definições do servidor DNS** Para permitir que outros recursos na rede virtual do Gestor de Recursos resolvam e utilizem o domínio gerido, atualize as definições de DNS com os endereços IP dos novos controladores de domínio. O portal Azure pode configurar automaticamente estas definições para si. Para saber mais sobre como configurar a rede virtual do Gestor de Recursos, consulte as [definições de DNS de atualização para a rede virtual Azure][update-dns].
+* **Atualizar as definições do servidor DNS** Para permitir que outros recursos na rede virtual do Gestor de Recursos resolvam e utilizem o domínio gerido, atualize as definições de DNS com os endereços IP dos novos controladores de domínio. O portal Azure pode configurar automaticamente estas definições para si.
+
+    Para saber mais sobre como configurar a rede virtual do Gestor de Recursos, consulte as [definições de DNS de atualização para a rede virtual Azure][update-dns].
 * **Reiniciar VMs unidos ao domínio** - À medida que os endereços IP do servidor DNS para os controladores de domínio AZure AD DS mudam, reinicie quaisquer VMs unidos pelo domínio para que utilizem as novas definições do servidor DNS. Se as aplicações ou VMs tiverem configurações de DNS configuradas manualmente, actualifique-as manualmente com os novos endereços IP do servidor DNS dos controladores de domínio que são mostrados no portal Azure.
 
-Agora teste a ligação virtual da rede e a resolução de nomes. Num VM que esteja ligado à rede virtual do Gestor de Recursos, ou que tenha espreitado, experimente os seguintes testes de comunicação de rede:
+Agora teste a ligação virtual da rede e a resolução de nomes. Num VM ligado à rede virtual do Gestor de Recursos, ou que lhe espreitam, experimente os seguintes testes de comunicação de rede:
 
 1. Verifique se pode verificar o endereço IP de um dos controladores de domínio, tais como`ping 10.1.0.4`
     * Os endereços IP dos controladores de domínio são mostrados na página **Propriedades** para o domínio gerido no portal Azure.
@@ -269,7 +274,7 @@ A Azure AD DS expõe registos de auditoria para ajudar a resolver problemas e ve
 
 Pode utilizar modelos para monitorizar informações importantes expostas nos registos. Por exemplo, o modelo de livro de registo de auditoria pode monitorizar possíveis bloqueios de conta no domínio gerido.
 
-### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configure Azure AD Domain Services notificações de e-mail
+### <a name="configure-email-notifications"></a>Configurar as notificações por e-mail
 
 Para ser notificado quando um problema for detetado no domínio gerido, atualize as definições de notificação de e-mail no portal Azure. Para obter mais informações, consulte [as definições de notificação de configuração][notifications].
 
@@ -296,7 +301,7 @@ Até um certo ponto do processo de migração, pode optar por retrocedar ou rest
 
 ### <a name="roll-back"></a>Recua
 
-Se houver um erro quando executar o cmdlet PowerShell para se preparar para a migração no passo 2 ou para a migração em si no passo 3, o domínio gerido pode voltar para a configuração original. Este roll back requer a rede virtual original Classic. Note que os endereços IP ainda podem ser alterados após a reversão.
+Se houver um erro quando executar o cmdlet PowerShell para se preparar para a migração no passo 2 ou para a migração em si no passo 3, o domínio gerido pode voltar para a configuração original. Este roll back requer a rede virtual original Classic. Os endereços IP ainda podem ser alterados após a reversão.
 
 Executar o `Migrate-Aadds` cmdlet utilizando o parâmetro *-Abortar.* Forneça o *-ManagedDomainFqdn* para o seu próprio domínio gerido preparado numa secção anterior, como *aaddscontoso.com,* e o nome clássico da rede virtual, como *myClassicVnet*:
 
@@ -323,7 +328,7 @@ Se tiver problemas após a migração para o modelo de implementação do Gestor
 * [Problemas de inscrição na conta de resolução de problemas][troubleshoot-sign-in]
 * [Resolução de problemas garante problemas de conectividade LDAP][tshoot-ldaps]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com o seu domínio gerido migrado para o modelo de implementação do Gestor de Recursos, [crie e junte o domínio a um VM do Windows][join-windows] e, em seguida, [instale ferramentas de gestão][tutorial-create-management-vm].
 

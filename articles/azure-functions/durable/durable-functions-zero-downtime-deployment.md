@@ -5,11 +5,13 @@ author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
+ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74231262"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86165707"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementação de tempo de inatividade zero para funções duradouras
 
@@ -19,12 +21,9 @@ Para evitar que estas falhas aconteçam, tem duas opções:
 - Atrase a sua colocação até que todas as instâncias de orquestração em execução tenham terminado.
 - Certifique-se de que quaisquer instâncias de orquestração em execução utilizam as versões existentes das suas funções. 
 
-> [!NOTE]
-> Este artigo fornece orientação para aplicações de funções que visam funções duráveis 1.x. Não foi atualizado para ter em conta as alterações introduzidas nas Funções Duráveis 2.x. Para obter mais informações sobre as diferenças entre as versões de extensão, consulte [as versões Funções Duradouras](durable-functions-versions.md).
-
 O gráfico a seguir compara as três principais estratégias para alcançar uma implementação de tempo de inatividade zero para funções duradouras: 
 
-| Estratégia |  Quando utilizar | Vantagens | Contras |
+| Estratégia |  Quando utilizar | Vantagens | Desvantagens |
 | -------- | ------------ | ---- | ---- |
 | [Controlo de versões](#versioning) |  Aplicações que não experimentam [mudanças frequentes de quebra.](durable-functions-versioning.md) | Simples de implementar. |  Aumento do tamanho da aplicação da função na memória e número de funções.<br/>Duplicação de códigos. |
 | [Verificação de estado com ranhura](#status-check-with-slot) | Um sistema que não tem orquestrações de longa duração que duram mais de 24 horas ou frequentemente sobrepostas orquestrações. | Base de código simples.<br/>Não requer gestão adicional de aplicativos de função. | Requer uma conta de armazenamento adicional ou gestão de centros de tarefas.<br/>Requer períodos de tempo em que não há orquestrações. |
@@ -96,7 +95,7 @@ Configure o seu pipeline CI/CD para ser implantado apenas quando a sua aplicaç�
 [FunctionName("StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient client,
+    [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
     var runtimeStatus = new List<OrchestrationRuntimeStatus>();
@@ -104,8 +103,8 @@ public static async Task<IActionResult> StatusCheck(
     runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
     runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
 
-    var status = await client.GetStatusAsync(new DateTime(2015,10,10), null, runtimeStatus);
-    return (ActionResult) new OkObjectResult(new Status() {HasRunning = (status.Count != 0)});
+    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
+    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
 }
 ```
 
@@ -169,7 +168,7 @@ Para obter mais informações, consulte [Gerir casos em Funções Duradouras em 
 
 ![Definições de loja de rastreio](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Versão Funções Duradouras](durable-functions-versioning.md)
