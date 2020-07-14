@@ -5,6 +5,8 @@
   items:
     - name: O que são os Serviços Cognitivos?
       href: Welcome.md
+    - name: Quais são as novidades dos documentos dos Serviços Cognitivos?
+      href: whats-new-docs.md
     - name: Serviços Cognitivos e Machine Learning
       href: cognitive-services-and-machine-learning.md
     - name: Subdomínios personalizados para os Serviços Cognitivos
@@ -64,6 +66,24 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Serviço de Kubernetes do Azure (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
+- name: Macrodados
+  items:
+    - name: Serviços Cognitivos para Macrodados
+      href: ./big-data/cognitive-services-for-big-data.md
+    - name: Introdução
+      href: ./big-data/getting-started.md
+    - name: Amostras
+      items:
+        - name: Python
+          href: ./big-data/samples-python.md
+        - name: Scala
+          href: ./big-data/samples-scala.md
+    - name: Receitas
+      items:
+        - name: 'Receita: Detetor de Anomalias'
+          href: ./big-data/recipes/anomaly-detection.md
+        - name: 'Receita: Explorador de Arte'
+          href: ./big-data/recipes/art-explorer.md
 - name: Recursos
   items:
     - name: Mapa do Azure

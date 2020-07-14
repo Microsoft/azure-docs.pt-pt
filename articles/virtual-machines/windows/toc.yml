@@ -434,6 +434,8 @@
                   items:
                     - name: A partir de uma VM
                       href: ../image-version-vm-powershell.md
+                    - name: A partir de um VHD ou instantâneo
+                      href: ../image-version-snapshot-powershell.md
                     - name: Migrar de uma imagem gerida
                       href: ../image-version-managed-image-powershell.md
                     - name: Copiar de outra galeria
@@ -454,6 +456,8 @@
                   items:
                     - name: A partir de uma VM
                       href: ../image-version-vm-cli.md
+                    - name: A partir de um VHD ou instantâneo
+                      href: ../image-version-snapshot-cli.md
                     - name: Migrar de uma imagem gerida
                       href: ../image-version-managed-image-cli.md
                     - name: Copiar de outra galeria
@@ -508,6 +512,8 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Localizar e utilizar imagens
           href: cli-ps-findimage.md
+        - name: Informações do plano de compra
+          href: ../marketplace-images.md
         - name: Preparar a VM para carregamento
           href: prepare-for-upload-vhd-image.md
         - name: Captura de VM para imagem
@@ -853,10 +859,18 @@
           href: disks-incremental-snapshots-portal.md
         - name: Fazer cópia de segurança de discos não geridos
           href: incremental-snapshots.md
+        - name: Encriptação
+          items:
+            - name: Ativar a encriptação baseada no anfitrião - PowerShell
+              href: disks-enable-host-based-encryption-powershell.md
+            - name: Ativar chaves geridas pelo cliente - PowerShell
+              href: disks-enable-customer-managed-keys-powershell.md
+            - name: Ativar chaves geridas pelo cliente - Portal
+              href: disks-enable-customer-managed-keys-portal.md
+            - name: Ativar a encriptação dupla inativa
+              href: disks-enable-double-encryption-at-rest-powershell.md
         - name: Migração e conversão
           items:
-            - name: Converter em encriptação do lado do servidor
-              href: disks-ade-sse-conversion-powershell.md
             - name: Converter o disco entre Standard e Premium
               href: convert-disk-storage.md
             - name: Migrar para o armazenamento Premium com o Azure Site Recovery
