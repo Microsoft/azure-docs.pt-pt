@@ -16,19 +16,19 @@ ms.locfileid: "80671682"
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso azure speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Criar um recurso de discurso azul](~/articles/cognitive-services/speech-service/get-started.md)
 > * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * Crie um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
   > [!NOTE]
-  > Consulte [a lista de regiões apoiadas para assistentes](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) de voz e certifique-se de que os seus recursos são implantados numa dessas regiões.
+  > Por favor, consulte [a lista de regiões apoiadas para assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e certifique-se de que os seus recursos são utilizados numa dessas regiões.
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-Além disso, para permitir a exploração madeireira, atualize o ficheiro _pom.xml_ para incluir a seguinte dependência:
+Além disso, para permitir a exploração madeireira, atualizar o ficheiro _pom.xml_ para incluir a seguinte dependência:
 
 ```xml
  <dependency>
@@ -40,13 +40,13 @@ Além disso, para permitir a exploração madeireira, atualize o ficheiro _pom.x
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File** > **New** > **Class**.
+1. Para adicionar uma nova classe vazia ao seu projeto Java, selecione **File**  >  **New**  >  **Class**.
 
-1. Na janela da **Classe New Java,** insira _speechsdk.quickstart_ no campo **Pacote** e _Main_ no campo **Name.**
+1. Na janela **New Java Class,** _insira speechsdk.quickstart_ no campo **Pacote** e _Principal_ no campo **Nome.**
 
    ![Captura de ecrã da janela Nova Classe Java](~/articles/cognitive-services/speech-service/media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Abra a `Main` classe recém-criada e `Main.java` substitua o conteúdo do ficheiro pelo seguinte código de partida:
+1. Abra a classe recém-criada `Main` e substitua o conteúdo do `Main.java` ficheiro pelo seguinte código inicial:
 
    ```java
    package speechsdk.quickstart;
@@ -113,13 +113,13 @@ Além disso, para permitir a exploração madeireira, atualize o ficheiro _pom.x
    }
    ```
 
-1. No `main` método, configura-se `DialogServiceConfig` primeiro o seu `DialogServiceConnector` e usa-o para criar uma instância. Esta instância liga-se ao canal Direct Line Speech para interagir com o seu bot. Uma `AudioConfig` instância também é usada para especificar a fonte para a entrada de áudio. Neste exemplo, o microfone predefinido é utilizado com `AudioConfig.fromDefaultMicrophoneInput()`.
+1. No `main` método, configura-se primeiro `DialogServiceConfig` e utiliza-se para criar um `DialogServiceConnector` exemplo. Este caso liga-se ao canal Direct Line Speech para interagir com o seu bot. Um `AudioConfig` caso também é usado para especificar a fonte para a entrada de áudio. Neste exemplo, o microfone predefinido é utilizado com `AudioConfig.fromDefaultMicrophoneInput()` .
 
-   - Substitua `YourSubscriptionKey` a cadeia pela sua chave de subscrição, que pode obter a partir [deste website](~/articles/cognitive-services/speech-service/get-started.md).
-   - Substitua `YourServiceRegion` a cadeia pela [região](~/articles/cognitive-services/speech-service/regions.md) associada à sua subscrição.
+   - Substitua a cadeia `YourSubscriptionKey` pela chave de subscrição, que pode obter [deste website.](~/articles/cognitive-services/speech-service/get-started.md)
+   - Substitua a cadeia `YourServiceRegion` pela [região](~/articles/cognitive-services/speech-service/regions.md) associada à sua subscrição.
 
    > [!NOTE]
-   > Consulte [a lista de regiões apoiadas para assistentes](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) de voz e certifique-se de que os seus recursos são implantados numa dessas regiões.
+   > Por favor, consulte [a lista de regiões apoiadas para assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e certifique-se de que os seus recursos são utilizados numa dessas regiões.
 
    ```java
    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
@@ -133,7 +133,7 @@ Além disso, para permitir a exploração madeireira, atualize o ficheiro _pom.x
    final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
    ```
 
-1. O conector `DialogServiceConnector` conta com vários eventos para comunicar as suas atividades bot, resultados de reconhecimento de fala e outras informações. Adicione estes ouvintes do evento a seguir.
+1. O conector `DialogServiceConnector` conta com vários eventos para comunicar as suas atividades bot, resultados de reconhecimento de voz e outras informações. Adicione estes ouvintes do evento a seguir.
 
    ```java
    // Recognizing will provide the intermediate recognized text while an audio stream is being processed.
@@ -172,7 +172,7 @@ Além disso, para permitir a exploração madeireira, atualize o ficheiro _pom.x
        });
    ```
 
-1. Ligue-se `DialogServiceConnector` ao Discurso da `connectAsync()` Linha Direta invocando o método. Para testar o seu bot, pode invocar o `listenOnceAsync` método para enviar a entrada de áudio do microfone. Além disso, também `sendActivityAsync` pode usar o método para enviar uma atividade personalizada como uma cadeia serializada. Estas atividades personalizadas podem fornecer dados adicionais que o seu bot utiliza na conversação.
+1. `DialogServiceConnector`Ligue-se ao Discurso da Linha Direta invocando o `connectAsync()` método. Para testar o seu bot, pode invocar o `listenOnceAsync` método para enviar a entrada de áudio do seu microfone. Além disso, também pode usar o `sendActivityAsync` método para enviar uma atividade personalizada como uma cadeia serializada. Estas atividades personalizadas podem fornecer dados adicionais que o seu bot utiliza na conversação.
 
    ```java
    connector.connectAsync();
@@ -183,13 +183,13 @@ Além disso, para permitir a exploração madeireira, atualize o ficheiro _pom.x
    // connector.sendActivityAsync(...)
    ```
 
-1. Guarde as `Main` alterações no ficheiro.
+1. Guarde as alterações no `Main` ficheiro.
 
-1. Para suportar a reprodução da resposta, adicione uma classe adicional que transforme o objeto PullAudioOutputStream devolvido da API getAudio() a um Java InputStream para facilitar o manuseamento. Esta `ActivityAudioStream` é uma classe especializada que lida com a resposta áudio do canal Direct Line Speech. Fornece aos acessórios para obter informações de formato áudio que são necessárias para lidar com a reprodução. Para isso, selecione **File** > **New** > **Class**.
+1. Para suportar a reprodução de resposta, adicione uma classe adicional que transforma o objeto PullAudioOutputStream devolvido do getAudio() API a um Java InputStream para facilitar o manuseamento. Esta `ActivityAudioStream` é uma classe especializada que lida com a resposta áudio do canal Direct Line Speech. Fornece acessórios para obter informações de formato sonoro necessárias para lidar com a reprodução. Para isso, selecione **File**  >  **New**  >  **Class**.
 
-1. Na janela **new java class,** insira _speechsdk.quickstart_ no campo **Pacote** e _ActivityAudioStream_ no campo **Nome.**
+1. Na janela **New Java Class,** _insira speechsdk.quickstart_ no campo **Pacote** e _ActivityAudioStream_ no campo **Nome.**
 
-1. Abra a `ActivityAudioStream` classe recém-criada e substitua-a pelo seguinte código:
+1. Abra a classe recém-criada `ActivityAudioStream` e substitua-a pelo seguinte código:
 
    ```java
    package com.speechsdk.quickstart;
@@ -430,13 +430,13 @@ Além disso, para permitir a exploração madeireira, atualize o ficheiro _pom.x
 
    ```
 
-1. Guarde as `ActivityAudioStream` alterações no ficheiro.
+1. Guarde as alterações no `ActivityAudioStream` ficheiro.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
-Selecione F11 ou selecione **Executar** > **Debug**.
+Selecione F11 ou selecione **Run**  >  **Debug**.
 A consola exibe a mensagem "Diga alguma coisa".
-Neste ponto, diga uma frase ou frase em inglês que o seu bot possa entender. O seu discurso é transmitido ao seu bot através do canal Direct Line Speech, onde é reconhecido e processado pelo seu bot. A resposta é devolvida como uma atividade. Se o seu bot devolver o discurso como resposta, o áudio é reproduzido utilizando a `AudioPlayer` classe.
+Neste ponto, diga uma frase ou frase em inglês que o seu bot possa entender. O seu discurso é transmitido ao seu bot através do canal Direct Line Speech, onde é reconhecido e processado pelo seu bot. A resposta é devolvida como uma atividade. Se o seu bot retornar o discurso como resposta, o áudio é reproduzido utilizando a `AudioPlayer` classe.
 
 ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-08-console-output.png)
 

@@ -16,11 +16,11 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241144"
 ---
-Neste arranque rápido, utilizará o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para criar uma aplicação personalizada de assistente de voz que se conecta a um bot que já autorizou e configurado. Se precisar de criar um bot, consulte [o tutorial relacionado](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) para um guia mais abrangente.
+Neste arranque rápido, você usará o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para criar uma aplicação de assistente de voz personalizada que se conecta a um bot que você já autorizou e configurado. Se precisar de criar um bot, consulte [o tutorial relacionado](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) para um guia mais abrangente.
 
 Depois de satisfazer alguns pré-requisitos, ligar o seu assistente de voz personalizado dá apenas alguns passos:
 > [!div class="checklist"]
-> * Crie `BotFrameworkConfig` um objeto a partir da sua chave de subscrição e região.
-> * Crie `DialogServiceConnector` um `BotFrameworkConfig` objeto utilizando o objeto de cima.
-> * Utilizando `DialogServiceConnector` o objeto, inicie o processo de escuta para uma única expressão.
-> * Inspecione `ActivityReceivedEventArgs` os devolvidos.
+> * Crie um `BotFrameworkConfig` objeto a partir da sua chave de subscrição e região.
+> * Crie um `DialogServiceConnector` objeto utilizando o objeto de `BotFrameworkConfig` cima.
+> * Utilizando o `DialogServiceConnector` objeto, inicie o processo de audição para uma única expressão.
+> * Inspecione o `ActivityReceivedEventArgs` devolvido.

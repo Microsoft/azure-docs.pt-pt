@@ -17,7 +17,7 @@ ms.locfileid: "83006238"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copiar as credenciais do Portal do Azure
 
-Quando o pedido de amostrafaz um pedido ao Armazenamento Azure, deve ser autorizado. Para autorizar um pedido, adicione as credenciais da sua conta de armazenamento ao pedido como uma cadeia de ligação. Veja as credenciais da conta de armazenamento através dos seguintes passos:
+Quando o pedido de amostra fizer um pedido ao Azure Storage, deve ser autorizado. Para autorizar um pedido, adicione as credenciais da sua conta de armazenamento à aplicação como uma cadeia de ligação. Veja as credenciais da conta de armazenamento através dos seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Localize a sua conta de armazenamento.
@@ -28,7 +28,7 @@ Quando o pedido de amostrafaz um pedido ao Armazenamento Azure, deve ser autoriz
 
 ### <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 
-Depois de ter copiado a sua cadeia de ligação, coloque-a numa variável de nível de classe no seu ficheiro *MainPage.xaml.cs.* Abra *MainPaage.xaml.cs* e `storageConnectionString` encontre a variável. Substitua-a `<yourconnectionstring>` com a sua corda de ligação real.
+Depois de copiar a sua cadeia de ligação, coloque-a numa variável de nível de classe no seu ficheiro *MainPage.xaml.cs.* Abra *MainPaage.xaml.cs* e encontre a `storageConnectionString` variável. `<yourconnectionstring>`Substitua-a pela sua verdadeira cadeia de ligação.
 
 Aqui está o código:
 

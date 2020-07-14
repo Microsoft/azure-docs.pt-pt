@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Reconheça o discurso de um microfone, Java - Serviço de fala'
+title: 'Quickstart: Reconhecer a fala a partir de um microfone, Java - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -18,4 +18,4 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241179"
 ---
 > [!div class="nextstepaction"]
-> [Explore as amostras de Java no GitHub](https://aka.ms/speech/github-java)
+> [Explore amostras de Java no GitHub](https://aka.ms/speech/github-java)

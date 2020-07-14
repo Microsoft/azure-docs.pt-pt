@@ -11,4 +11,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 05/22/2020
 ms.locfileid: "83806504"
 ---
-Se preferir saltar para dentro, ver ou baixar todas as [amostras do Speech SDK Go](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples) no GitHub. Caso contrário, vamos começar.
+Se preferir entrar, ver ou baixar todas as [Amostras de Go Do Discurso no](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples) GitHub. Caso contrário, vamos começar.

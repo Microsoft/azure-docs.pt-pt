@@ -11,19 +11,19 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81422370"
 ---
-## <a name="additional-language-and-platform-support"></a>Suporte adicional de linguagem e plataforma
+## <a name="additional-language-and-platform-support"></a>Suporte adicional de idiomas e plataformas
 
-Se clicou neste separador, provavelmente não viu um início rápido na sua linguagem de programação favorita. Não se preocupe, temos materiais de arranque rápido adicionais e amostras de código disponíveis no GitHub. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação e combinação plataforma/OS.
+Se clicou neste separador, provavelmente não viu um arranque rápido na sua linguagem de programação favorita. Não se preocupe, temos materiais de arranque rápido adicionais e amostras de código disponíveis no GitHub. Utilize a tabela para encontrar a amostra certa para a sua linguagem de programação e combinação plataforma/SISTEMA.
 
 | Idioma    | Exemplos de código                                                                                   |
 |-------------|------------------------------------------------------------------------------------------------|
-| C#          | [.NET Framework][dotnet], [.NET Core,][netcore] [UWP,][uwp] [Unidade,][unity] [Xamarin][xamarin] |
-| C++         | [Windows,][cpp-windows] [Linux,][cpp-linux] [macOS][cpp-mac]                                   |
+| C#          | [.Net Framework][dotnet], [.NET Core][netcore], [UWP,][uwp] [Unidade,][unity] [Xamarin][xamarin] |
+| C++         | [Windows][cpp-windows], [Linux,][cpp-linux] [macOS][cpp-mac]                                   |
 | Java        | [Android][java-android], [JRE][java-jre]                                                       |
 | JavaScript  | [Browser, Node.js][js-code]                                                                    |
-| Objective-C | [iOS,][obj-iOS] [macOS][obj-macOS]                                                             |
+| Objective-C | [iOS][obj-iOS], [macOS][obj-macOS]                                                             |
 | Python      | [Windows, Linux, macOS][python]                                                                |
-| Swift       | [iOS,][swift-iOS] [macOS][swift-macOS]                                                         |
+| Swift       | [iOS][swift-iOS], [macOS][swift-macOS]                                                         |
 
 [dotnet]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet
 [netcore]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore

@@ -16,9 +16,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241158"
 ---
-**Escolha o seu ambiente alvo**
+**Escolha o seu ambiente-alvo**
 
-# <a name="java-runtime"></a>[Tempo de execução de Java](#tab/jre)
+# <a name="java-runtime"></a>[Java Runtime](#tab/jre)
 
 [!INCLUDE [JRE](./jre.md)]
 

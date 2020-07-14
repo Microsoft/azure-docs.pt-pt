@@ -18,6 +18,7 @@ ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ef2faf2a1d1a131dc5f2a01d3fa46cc61a06fb6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85078807"
@@ -34,7 +35,7 @@ A forma como especifica quem pode solicitar um pacote de acesso é com uma apól
 
 ![Múltiplas políticas num pacote de acesso](./media/entitlement-management-access-package-request-policy/access-package-policy.png)
 
-| Scenario | Número de políticas |
+| Cenário | Número de políticas |
 | --- | --- |
 | Quero que todos os utilizadores do meu diretório tenham as mesmas definições de pedido e aprovação para um pacote de acesso | Um |
 | Quero que todos os utilizadores de certas organizações conectadas possam solicitar um pacote de acesso | Um |
@@ -93,7 +94,7 @@ Se tiver um conjunto de utilizadores que deverão ter diferentes configurações
 
 Se estiver a editar uma política clique em **Update**. Se estiver a adicionar uma nova política, clique em **Criar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Alterar as definições do ciclo de vida para um pacote de acesso](entitlement-management-access-package-lifecycle-policy.md)
 - [Ver pedidos de um pacote de acesso](entitlement-management-access-package-requests.md)

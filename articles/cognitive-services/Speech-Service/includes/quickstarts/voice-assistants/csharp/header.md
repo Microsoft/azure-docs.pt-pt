@@ -16,4 +16,4 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241186"
 ---
-Se preferir saltar para dentro, ver ou baixar todas as [amostras do Speech SDK C#](https://aka.ms/speech/github-csharp) no GitHub. Caso contrário, vamos começar.
+Se preferir entrar, visualizar ou baixar todas as [amostras do Speech SDK C#](https://aka.ms/speech/github-csharp) no GitHub. Caso contrário, vamos começar.

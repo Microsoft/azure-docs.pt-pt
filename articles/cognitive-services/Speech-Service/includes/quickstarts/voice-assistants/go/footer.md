@@ -12,4 +12,4 @@ ms.lasthandoff: 05/22/2020
 ms.locfileid: "83806509"
 ---
 > [!div class="nextstepaction"]
-> [Explore as amostras go no GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples)
+> [Explore amostras go no GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples)

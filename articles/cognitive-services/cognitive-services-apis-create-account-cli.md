@@ -32,7 +32,7 @@ Neste arranque rápido, você aprenderá a se inscrever para a Azure Cognitive S
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Instale o CLI Azure e inscreva-se 
 
-Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para iniciar sessão na instalação local do CLI, execute o comando [de login az:](https://docs.microsoft.com/cli/azure/reference-index#az-login)
+Instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para iniciar sessão na instalação local do CLI, execute o comando [de login az:](https://docs.microsoft.com/cli/azure/reference-index#az-login)
 
 ```azurecli-interactive
 az login
@@ -95,7 +95,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Pesquisa
 
 | Serviço            | Tipo                  |
 |--------------------|-----------------------|
@@ -103,7 +103,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
 | Pesquisa de Entidades do Bing | `Bing.EntitySearch`   |
 | Pesquisa do Bing        | `Bing.Search.v7`      |
-| Verificação Ortográfica do Bing   | `Bing.SpellCheck.v7`  |
+| Verificação de Ortografia do Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Voz
 
@@ -112,7 +112,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Serviços de Voz    | `SpeechServices`     |
 | Reconhecimento de Voz | `SpeakerRecognition` |
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 
 | Serviço            | Tipo                |
 |--------------------|---------------------|
@@ -188,7 +188,7 @@ az cognitiveservices account list-usage \
     --subscription subscription-name
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover um recurso de Serviços Cognitivos, pode eliminá-lo ou ao grupo de recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos contidos no grupo.
 

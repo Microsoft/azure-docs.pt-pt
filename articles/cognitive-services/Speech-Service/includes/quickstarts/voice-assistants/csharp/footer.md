@@ -17,4 +17,4 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241151"
 ---
 > [!div class="nextstepaction"]
-> [Explore as amostras de C# no GitHub](https://aka.ms/speech/github-csharp)
+> [Explore as amostras C# no GitHub](https://aka.ms/speech/github-csharp)
