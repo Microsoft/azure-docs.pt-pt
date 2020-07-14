@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 37df5ae8e88bf7832fbbeae37555d60943fca446
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: eea4de106fe566b55ae30330d4c9d101f7126bbf
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187307"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229623"
 ---
 # <a name="use-source-control-integration"></a>Utilizar a integração do controlo de código fonte
 
@@ -202,7 +202,7 @@ Se várias pessoas estiverem a editar livros no seu repositório de controlo de 
 Atualmente, não é possível utilizar o portal Azure para atualizar o PAT no controlo de origem. Quando o seu PAT expirar ou ser revogado, pode atualizar o controlo de origem com um novo token de acesso de uma destas formas:
 
 * Utilize a [API REST](/rest/api/automation/sourcecontrol/update).
-* Utilize o [cmdlet Update-AzAutomationSourceControl.](//powershell/module/az.automation/update-azautomationsourcecontrol)
+* Utilize o [cmdlet Update-AzAutomationSourceControl.](/powershell/module/az.automation/update-azautomationsourcecontrol)
 
 ## <a name="next-steps"></a>Passos seguintes
 

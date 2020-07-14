@@ -10,25 +10,25 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fbfc6bf9c50257c2683522913503bf9b29450d94
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671178"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86226394"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso azure speech](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Criar um recurso de discurso azul](~/articles/cognitive-services/speech-service/get-started.md)
 > * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Crie um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Criar um bot ligado ao [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
   > [!NOTE]
-  > Consulte [a lista de regiões apoiadas para assistentes](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) de voz e certifique-se de que os seus recursos são implantados numa dessas regiões.
+  > Por favor, consulte [a lista de regiões apoiadas para assistentes de voz](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) e certifique-se de que os seus recursos são utilizados numa dessas regiões.
 
 ## <a name="create-and-configure-a-project"></a>Criar e configurar um projeto
 
@@ -36,9 +36,9 @@ Antes de começar, certifique-se de:
 
 ## <a name="create-user-interface"></a>Criar a interface de utilizador
 
-Nesta secção, criaremos uma interface básica de utilizador (UI) para a aplicação. Vamos começar por abrir a `activity_main.xml`atividade principal: . O modelo básico inclui uma barra de título `TextView` com o nome da aplicação, e um com a mensagem "Olá mundo!".
+Nesta secção, vamos criar uma interface básica de utilizador (UI) para a aplicação. Vamos começar por abrir a atividade principal: `activity_main.xml` . O modelo básico inclui uma barra de título com o nome da aplicação, e uma `TextView` com a mensagem "Olá mundo!".
 
-Em seguida, substitua `activity_main.xml` o conteúdo do seguinte código:
+Em seguida, substitua o conteúdo do `activity_main.xml` seguinte código:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -87,19 +87,19 @@ Em seguida, substitua `activity_main.xml` o conteúdo do seguinte código:
    </LinearLayout>
    ```
 
-Este XML define um Simples UI para interagir com o seu bot.
+Este XML define uma UI simples para interagir com o seu bot.
 
-- O `button` elemento inicia uma interação `onBotButtonClicked` e invoca o método quando clicado.
-- O `recoText` elemento apresentará os resultados do discurso ao texto enquanto fala com o seu bot.
-- O `activityText` elemento apresentará a carga útil JSON para a mais recente atividade bot Framework do seu bot.
+- O `button` elemento inicia uma interação e invoca o método quando `onBotButtonClicked` clicado.
+- O `recoText` elemento apresentará os resultados do discurso-a-texto enquanto fala com o seu bot.
+- O `activityText` elemento apresentará a carga útil do JSON para a mais recente atividade do Bot Framework a partir do seu bot.
 
 O texto e a representação gráfica da sua UI devem agora ser assim:
 
-![](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
+![Screenshot de como o seu Talk to your bot UI deve parecer.](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra, `MainActivity.java`e substitua o conteúdo pelo seguinte código:
+1. Abra `MainActivity.java` , e substitua o conteúdo pelo seguinte código:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -243,29 +243,29 @@ O texto e a representação gráfica da sua UI devem agora ser assim:
 
    * O `onCreate` método inclui código que solicita permissões de microfone e internet.
 
-   * O método `onBotButtonClicked` é, como observado anteriormente, o processador do clique do botão. Uma pressão de botão desencadeia uma única interação ("turn") com o seu bot.
+   * O método `onBotButtonClicked` é, como observado anteriormente, o processador do clique do botão. Uma pressão de botão aciona uma única interação ("turn") com o seu bot.
 
-   * O `registerEventListeners` método demonstra os acontecimentos utilizados pelo tratamento `DialogServiceConnector` básico das atividades de entrada.
+   * O `registerEventListeners` método demonstra os acontecimentos utilizados pelo tratamento básico das `DialogServiceConnector` atividades de entrada.
 
-1. No mesmo ficheiro, substitua as cordas de configuração para combinar com os seus recursos:
+1. No mesmo ficheiro, substitua as cadeias de configuração para corresponder aos seus recursos:
 
     * Substitua `YourSpeechSubscriptionKey` pela sua chave de subscrição.
 
-    * Substitua-a `YourServiceRegion` pela [região](~/articles/cognitive-services/speech-service/regions.md) associada à sua subscrição Apenas um subconjunto de regiões de serviço da Fala são atualmente apoiados com o Discurso da Linha Direta. Para mais informações, consulte [as regiões.](~/articles/cognitive-services/speech-service/regions.md#voice-assistants)
+    * `YourServiceRegion`Substitua-se pela [região](~/articles/cognitive-services/speech-service/regions.md) associada à sua subscrição Apenas um subconjunto de regiões de serviço de fala são atualmente suportados com Discurso de Linha Direta. Para mais informações, consulte [as regiões.](~/articles/cognitive-services/speech-service/regions.md#voice-assistants)
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 1. Ligue o seu dispositivo Android ao PC de desenvolvimento. Certifique-se de que ativou o [modo de desenvolvimento e depuração USB](https://developer.android.com/studio/debug/dev-options) no dispositivo.
 
-1. Para construir a aplicação, prima Ctrl+F9 ou escolha **Build** > **Make Project** a partir da barra de menus.
+1. Para construir a aplicação, prima Ctrl+F9 ou escolha **Build**  >  **Make Project** a partir da barra de menu.
 
-1. Para lançar a aplicação, prima Shift+F10 ou escolha > **'App'** **Run**Run .
+1. Para lançar a aplicação, prima Shift+F10 ou escolha **a**  >  **'app'** Run Run.
 
 1. Na janela de destino de implementação que aparece, selecione o seu dispositivo Android.
 
    ![Captura de ecrã da janela de seleção de destino de implementação](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
 
-Assim que a aplicação e a sua atividade tiverem sido lançadas, clique no botão para começar a falar com o seu bot. O texto transcrito aparecerá enquanto fala e a mais recente atividade que recebeu do seu bot aparecerá quando for recebido. Se o seu bot estiver configurado para fornecer respostas faladas, o texto-a-texto será reprodução automaticamente.
+Assim que a aplicação e a sua atividade tiverem sido lançadas, clique no botão para começar a falar com o seu bot. O texto transcrito aparecerá enquanto fala e a mais recente atividade que recebeu do seu bot aparecerá quando for recebida. Se o seu bot estiver configurado para fornecer respostas faladas, o discurso-texto será reproduzido automaticamente.
 
 ![Captura de ecrã da aplicação Android](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-completed-turn.png)
 

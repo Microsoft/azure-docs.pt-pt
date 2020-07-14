@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846716"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231304"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
 
@@ -34,7 +34,7 @@ Os números de unidade são impressos no espaço entre as unidades. No Azure FXT
 
 ![foto de um compartimento de disco rígido no chassis FXT, mostrando números de unidade e etiquetas de capacidade](media/fxt-drives-photo.png)
 
-| Números de unidade    |  Utilizar   |  Especificações |
+| Números de unidade    |  Utilização   |  Especificações |
 |------------------|--------|-----------------|
 | 0, 1             | SO     | 480 GB SATA SSD |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600: 3.2 TB NVMe SSD <br> FXT 6400: 1.6 TB NVMe SSD |
@@ -46,9 +46,9 @@ O Azure FXT Edge Filer foi concebido para caber num suporte de equipamento stand
 
 <!-- 10x2.5 inches version -->
 
-| Dimensões do filer           |                          |
+| Dimensões do filer            | Valor                    |
 |-----------------------------|--------------------------|
-| Altura                      | 42,8 mm (1,68 polegadas)    |
+| Height                      | 42,8 mm (1,68 polegadas)    |
 | Largura (incluindo orelhas de cremalheira) | 482,0 mm (18,97 polegadas)  |
 | Largura - recinto principal      | 434,0 mm (17,08 polegadas) |
 | Profundidade - orelhas de cremalheira para trás do recinto principal                   | 733,82 mm (29,61 polegadas) |
@@ -56,7 +56,7 @@ O Azure FXT Edge Filer foi concebido para caber num suporte de equipamento stand
 | Profundidade - orelhas de cremalheira para a saliência frontal mais distante, sem moldura | 22,0 mm (0,87 polegadas)  |
 | Profundidade - orelhas de cremalheira para a saliência frontal mais distante, com moldura    | 35,84 mm (1,41 polegadas) |
 
-| Peso | |
+| Peso | Valor |
 |-----------------|----------------------|
 | Peso do nó (sem embalagem, sem acessórios) | 40 libras (18,1 kg) |
 | Peso líquido (sem embalagem, incluindo acessórios) | 51 libras (23,1 kg)|
@@ -66,8 +66,8 @@ O Azure FXT Edge Filer foi concebido para caber num suporte de equipamento stand
 
 | Dimensão do pacote | Milímetros | Centímetros |
 |-------------------|-------------|--------|
-| Altura            | 311.2       | 12.25" |
-| Largura             | 642.8       | 25.31" |
+| Height            | 311.2       | 12.25" |
+| Width             | 642.8       | 25.31" |
 | Comprimento            | 1,051.1     | 41.38" |
 
 ## <a name="power-and-thermal-specifications"></a>Especificações de energia e térmica

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/10/2020
 ms.author: victorh
-ms.openlocfilehash: 27cdff24672f70407e8f8f89c6c49a8c2de87d0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3174576201f0068191c2918b47fbd99eaa1ec182
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078430"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232088"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -121,7 +121,7 @@ Sim, pode utilizar o Azure Firewall numa rede virtual do hub para encaminhar e f
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou redes virtuais?
 
-Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
+Yes. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>A Azure Firewall sai do SNAT entre redes privadas?
 
@@ -137,7 +137,7 @@ Se a sua configuração necessitar de um túnel forçado para uma rede no local 
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
-Sim. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
+Yes. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
 
 ## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de Internet de entrada, também preciso de configurar uma regra de rede correspondente para permitir esse tráfego?
 
@@ -160,7 +160,7 @@ Para qualquer manutenção planeada, a lógica de drenagem de ligação atualiza
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de caracteres para um nome de firewall?
 
-Sim. Há um limite de 50 caracteres para um nome de firewall.
+Yes. Há um limite de 50 caracteres para um nome de firewall.
 
 ## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Porque é que o Azure Firewall precisa de uma sub-rede /26?
 
@@ -210,7 +210,7 @@ Um ping TCP não está realmente ligado ao FQDN alvo. Isto acontece porque o rep
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
 
-Sim. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+Yes. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Posso mover um Grupo IP para outro grupo de recursos?
 
@@ -223,3 +223,7 @@ Um comportamento padrão de uma firewall de rede é garantir que as ligações T
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>Posso implantar o Azure Firewall sem um endereço IP público?
 
 Não, atualmente tem de implantar o Azure Firewall com um endereço IP público.
+
+## <a name="where-does-azure-firewall-store-customer-data"></a>Onde é que a Azure Firewall armazena os dados dos clientes?
+
+O Azure Firewall não move nem armazena os dados dos clientes para fora da região em que está implantado.

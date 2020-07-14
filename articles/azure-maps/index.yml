@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: 83a51c7dff6d616297c7f558b20e7d1934c668d6
-  ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+  ms.openlocfilehash: a48aa9c3c18784205f6780bf20d9790f24e56c90
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/25/2020
-  ms.locfileid: "83829891"
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86242394"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -176,7 +176,7 @@ landingContent:
     links:
     - text: Integração do Event Grid do Azure Maps
       url: azure-maps-event-grid-integration.md
-  - linkListType: tutorial
+  - linkListType: how-to-guide
     links:
     - text: Configurar um perímetro geográfico com o Azure Maps
       url: tutorial-geofence.md
@@ -188,6 +188,16 @@ landingContent:
       url: https://docs.microsoft.com/rest/api/maps/data
     - text: Serviço Espacial
       url: https://docs.microsoft.com/rest/api/maps/spatial
+- title: Análise espacial com o Power BI
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Introdução
+      url: power-bi-visual-getting-started.md
+    - text: Compreender as camadas
+      url: power-bi-visual-understanding-layers.md
+    - text: Gerir o acesso
+      url: power-bi-visual-manage-access.md
 - title: Programar com Serviços de Mobilidade
   linkLists:
   - linkListType: concept

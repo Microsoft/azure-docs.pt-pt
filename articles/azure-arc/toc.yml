@@ -56,3 +56,7 @@
               href: ./servers/manage-vm-extensions.md
             - name: Gerir o agente
               href: ./servers/manage-agent.md
+        - name: Resolução de problemas
+          items:
+            - name: Problemas de ligação do agente
+              href: ./servers/troubleshoot-agent-onboard.md

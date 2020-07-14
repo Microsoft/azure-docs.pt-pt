@@ -8,11 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf669eb813240505cba8faef41e166785cc5b18
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564649"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232071"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
 
@@ -65,7 +66,7 @@ Em seguida, implemente o Time Series Insights como um recurso adicional na sua s
     | Sku |**S1** |
     | Capacidade | **1** |
 
-    ![Criar insights de séries temporências](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
+    ![Criar o Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
 1. Clique em **Criar**. Pode levar um momento para que o ambiente seja criado.
 
@@ -88,7 +89,7 @@ Crie uma nova fonte de eventos para ligar ao seu hub IoT. Certifique-se de que u
     | Definição | Valor |
     | ------- | ----- |
     | Nome da origem de evento | A imagem que se segue utiliza o nome **contosorm-iot-hub**. Use o seu próprio nome único quando completar este passo. |
-    | Origem | **Hub IoT** |
+    | Fonte | **Hub IoT** |
     | Opção de Importar | **Use o IoT Hub a partir de subscrições disponíveis** |
     | ID da subscrição | Selecione a sua subscrição do Azure na lista pendente. |
     | Nome do hub IoT | **contosorma57a6**. Utilize o nome do seu hub IoT a partir da sua solução de Monitorização Remota. |
@@ -243,7 +244,7 @@ Configure o ambiente de `basic` implantação para os microserviços atualizados
 
 Configure o ambiente de `standard` implantação para os micro serviços atualizados acima
 
-1. Na linha de comando, `kubectl proxy` corra. Para mais informações, consulte [o acesso à API de Kubernetes.](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server)
+1. Na linha de comando, `kubectl proxy` corra. Para mais informações, consulte [o acesso à API de Kubernetes.](https://kubernetes.io/docs/reference/access-authn-authz/)
 
 1. Abra a consola de gestão Kubernetes.
 
@@ -295,7 +296,7 @@ Configure o ambiente de `standard` implantação para os micro serviços atualiz
             key: telemetry.storage.type
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como explorar os seus dados e diagnosticar um alerta no explorador de Insights da Série Tempo, consulte o nosso tutorial sobre [a realização de uma análise de causa raiz.](iot-accelerators-remote-monitoring-root-cause-analysis.md)
 

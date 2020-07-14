@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: f169cf45702d4a5051f9f6908b77c645c7a0018f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042395"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230847"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente (Preview)
 
@@ -189,7 +189,7 @@ As identidades geridas não são atualizadas quando uma subscrição é transfer
 
 1. Reveja a [lista de serviços Azure que suportam identidades geridas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) para notar onde pode estar a usar identidades geridas.
 
-1. Utilize [a lista de anúncios ad sp](/azure/ad/sp#az-ad-sp-list) para listar as identidades geridas atribuídas pelo sistema e atribuídas ao utilizador.
+1. Utilize [a lista de anúncios ad sp](/cli/azure/identity?view=azure-cli-latest#az-identity-list) para listar as identidades geridas atribuídas pelo sistema e atribuídas ao utilizador.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -373,7 +373,7 @@ Se a sua intenção é remover o acesso dos utilizadores no diretório de origem
 
 1. Para os recursos que utilizam certificados, atualize o certificado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Transferir a propriedade de faturação de uma subscrição do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transferir subscrições do Azure entre subscritores e CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)

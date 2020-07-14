@@ -23,7 +23,7 @@
     - name: Ligar a recursos do Windows Virtual Desktop
       items:
         - name: Ligar ao cliente de Ambiente de Trabalho do Windows
-          href: connect-windows-7-and-10.md
+          href: connect-windows-7-10.md
         - name: Ligar com o cliente web
           href: connect-web.md
         - name: Ligar ao cliente Android
@@ -38,6 +38,8 @@
       items:
         - name: PowerShell
           href: create-host-pools-powershell.md
+        - name: Implementar uma máquina virtual do Windows 7
+          href: deploy-windows-7-virtual-machine.md
         - name: Implementar um anfitrião de sessões baseado em GPU
           href: configure-vm-gpu.md
         - name: Expandir um conjunto de anfitriões existente
@@ -90,6 +92,8 @@
       href: language-packs.md
 - name: Conceitos
   items:
+    - name: Lista de URLs seguros
+      href: safe-url-list.md
     - name: Ambiente do Windows Virtual Desktop
       href: environment-setup.md
     - name: Determinar a latência da ligação do utilizador

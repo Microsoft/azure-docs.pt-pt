@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 716e46b25b2f51ef7f6217de1ba75a5316e9e1ae
-  ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+  ms.openlocfilehash: 16b17dcebf305059b9a0710798e1ea0a9b6f51a6
+  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/06/2020
-  ms.locfileid: "84462877"
+  ms.lasthandoff: 07/11/2020
+  ms.locfileid: "86249160"
 landingContent:
 - title: Acerca do Azure Monitor
   linkLists:
@@ -75,12 +75,12 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Métricas, Dimensionamento automático, Definições de diagnóstico, Alertas
-      url: /cli/azure/monitor?view=azure-cli-latest
+    - text: Grupos de Ações, Registos de Atividades, Dimensionamento Automático, Definições de Diagnóstico, Métricas, Âmbito do Private Link
+      url: /cli/azure/azure-cli-reference-for-monitor
     - text: Log Analytics
-      url: /cli/azure/ext/log-analytics/monitor?view=azure-cli-latest
+      url: /cli/azure/ext/log-analytics/monitor
     - text: Application Insights
-      url: /cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
+      url: /cli/azure/ext/application-insights/monitor/app-insights
 - title: Referência – PowerShell
   linkLists:
   - linkListType: reference

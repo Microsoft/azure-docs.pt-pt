@@ -249,7 +249,7 @@ az stream-analytics transformation create
 
 2. Substitua o espaço reservado na Linha 15 por toda a cadeia de ligação Azure IoT Hub Device que guardou numa secção anterior.
 
-3. Clique **em Executar**. A saída deve mostrar os dados do sensor e as mensagens que estão a ser enviadas para o seu Hub IoT.
+3. Clique em **Run** (Executar). A saída deve mostrar os dados do sensor e as mensagens que estão a ser enviadas para o seu Hub IoT.
 
     ![Simulador Online do Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

@@ -232,6 +232,24 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Mostrar dados de tráfego
           href: how-to-show-traffic-android.md
+    - name: Utilizar o Azure Maps no Power BI
+      items:
+        - name: Introdução
+          href: power-bi-visual-getting-started.md
+        - name: Compreender as camadas
+          href: power-bi-visual-understanding-layers.md
+        - name: Adicionar uma camada de bolha
+          href: power-bi-visual-add-bubble-layer.md
+        - name: Adicionar uma camada de gráfico de barras
+          href: power-bi-visual-add-bar-chart-layer.md
+        - name: Adicionar uma camada de referência
+          href: power-bi-visual-add-reference-layer.md
+        - name: Adicionar uma camada de mosaico
+          href: power-bi-visual-add-tile-layer.md
+        - name: Mostrar tráfego em tempo real
+          href: power-bi-visual-show-real-time-traffic.md
+        - name: Gerir o acesso
+          href: power-bi-visual-manage-access.md
     - name: Fornecer comentários sobre dados
       href: how-to-use-feedback-tool.md
 - name: Referência

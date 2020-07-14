@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: a9dab2ca844feb1c24dfffc48b4f29cd1a311314
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7967b58819523173fd66d45eeabeaddc8605a21d
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76153196"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86229470"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT for Azure?
 
@@ -19,13 +19,13 @@ O Avere vFXT for Azure é uma solução de colocação na cache do sistema de fi
 
 O Avere vFXT suporta os seguintes cenários de computação comuns:
 
-* Arquitetura híbrida em nuvem - Avere vFXT para Azure pode trabalhar com um sistema de armazenamento de hardware, que fornece o benefício da computação em nuvem sem ter que mover ficheiros.
+* Arquitetura de nuvem híbrida - Avere vFXT para Azure pode trabalhar com um sistema de armazenamento de hardware, que proporciona o benefício da computação em nuvem sem ter que mover ficheiros.
 
-* Cloud bursting - Avere vFXT para Azure pode ajudá-lo a mover os seus dados para a nuvem para um único projeto, ou "levantar e deslocar" todo o fluxo de trabalho permanentemente.
+* Cloud bursting - Avere vFXT for Azure pode ajudá-lo a mover os seus dados para a nuvem para um único projeto, ou "levantar e deslocar" todo o fluxo de trabalho permanentemente.
 
 ![Diagrama que mostra os detalhes do sistema Avere vFXT numa subscrição do Azure ligada ao armazenamento de Blobs e a um datacenter no local](media/avere-vfxt-hybrid.png)
 
-Avere vFXT para Azure é mais adequada para estas situações:
+Avere vFXT para Azure é o mais adequado para estas situações:
 
 * Operações de leitura intensiva para cargas de trabalho HPC
 * Aplicações que utilizam o protocolo NFS comum
@@ -44,9 +44,9 @@ Em multimédia e entretenimento, o cluster do Avere vFXT pode acelerar o acesso 
 
 ### <a name="life-sciences"></a>Ciências da vida
 
-Avere vFXT permite que os investigadores executem fluxos de trabalho de análise secundária na Azure Compute, e acedam a dados genômicos independentemente da sua localização.
+Avere vFXT permite que os investigadores executem fluxos de trabalho de análise secundária em Azure Compute, e acedam a dados genômicos independentemente da sua localização.
 
-Na pesquisa farmacêutica, os clusters Avere vFXT podem acelerar a descoberta de fármacos ajudando os investigadores a prever as interações com alvos de fármacos e a analisar dados de investigação.
+Na investigação farmacêutica, os clusters Avere vFXT podem acelerar a descoberta de fármacos, ajudando os investigadores a prever interações de alvos de drogas e a analisar dados de investigação.
 
 ### <a name="financial-services-analytics"></a>Análise de serviços financeiros
 
@@ -66,12 +66,12 @@ O cluster do Avere vFXT coloca os ficheiros na cache à medida que são pedidos.
 
 Avere vFXT para Azure utiliza os seguintes recursos Azure:
 
-|Componente do Azure|   |
+|Componente do Azure| Recurso |
 |----------|-----------|
 |Máquinas virtuais|3 ou mais E32s_v3|
 |Armazenamento SSD Premium|200 GB de espaço para SO e 1 a 4 TB de espaço na cache por nó |
 |Conta de armazenamento (opcional) |v2|
-|Armazenamento de back-end de dados de dados (opcional) | Um contentor de Blobs LRS vazio |
+|Armazenamento de back-end de dados (opcional) | Um contentor de Blobs LRS vazio |
 
 ## <a name="next-steps"></a>Passos seguintes
 

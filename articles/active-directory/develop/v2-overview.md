@@ -1,6 +1,6 @@
 ---
-title: Visão geral da plataforma de identidade da Microsoft (v2.0) - Azure
-description: Conheça a plataforma e plataforma de fim da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da plataforma da microsoft (v2.0).
+title: Visão geral da plataforma de identidade da Microsoft - Azure
+description: Conheça os componentes da plataforma de identidade da Microsoft e como podem ajudá-lo a construir suporte à gestão de identidade e acesso (IAM) nas suas aplicações.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,75 +8,78 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2e5bbbd311d71f2925e86ae756b36de7194aa9fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: identityplatformtop40
+ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80886250"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86231680"
 ---
-# <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma de identidade da Microsoft (v2.0)
+# <a name="microsoft-identity-platform-overview"></a>Visão geral da plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Permite que os desenvolvedores construam aplicações que assinam todas as identidades da Microsoft e que liguem para as APIs da Microsoft, como o Microsoft Graph, ou APIs que os desenvolvedores construíram. A plataforma de identidade da Microsoft consiste em:
+A plataforma de identidade da Microsoft ajuda-o a construir aplicações que os seus utilizadores e clientes podem iniciar sação para utilizar as suas identidades ou contas sociais da Microsoft, e fornecer acesso autorizado às suas próprias APIs ou APIs da Microsoft como o Microsoft Graph.
 
-- **OAuth 2.0 e OpenID Connect serviço de autenticação padrão** que permite aos desenvolvedores autenticar qualquer identidade da Microsoft, incluindo:
-  - Trabalho ou contas escolares (provisionados através da AD Azure)
-  - Contas pessoais da Microsoft (como Skype, Xbox e Outlook.com)
-  - Contas sociais ou locais (via Azure AD B2C)
-- **Bibliotecas de código aberto**: Bibliotecas de Autenticação da Microsoft (MSAL) e suporte a outras bibliotecas compatíveis com padrões
-- Portal de gestão de **aplicações**: Uma experiência de registo e configuração construída no portal Azure, juntamente com todas as suas outras capacidades de gestão Azure.
-- **Configuração de aplicação API e PowerShell**: que permite a configuração programática das suas aplicações através do Microsoft Graph API e PowerShell, para que possa automatizar as suas tarefas DevOps.
-- **Conteúdo do desenvolvedor**: documentação conceptual e de referência, amostras de arranque rápido, amostras de código, tutoriais e guias de como fazer.
+Existem vários componentes que compõem a plataforma de identidade da Microsoft:
 
-Para os desenvolvedores, a plataforma de identidade da Microsoft oferece uma integração perfeita em inovações no espaço de identidade e segurança, tais como autenticação sem palavras-passe, autenticação step-up e Acesso Condicional.  Não é preciso implementar essa funcionalidade por si mesmo: aplicações integradas na plataforma de identidade da Microsoft aproveitam-se de tais inovações.
+- **OAuth 2.0 e OpenID Connect Serviço de autenticação padrão que** permite aos desenvolvedores autenticar vários tipos de identidade, incluindo:
+  - Contas de trabalho ou escola, a provisionadas através da Azure AD
+  - Conta pessoal da Microsoft, como Skype, Xbox e Outlook.com
+  - Contas sociais ou locais, utilizando o Azure AD B2C
+- **Bibliotecas de código aberto**: Bibliotecas de autenticação da Microsoft (MSAL) e suporte para outras bibliotecas compatíveis com padrões
+- **Portal de gestão de aplicações**: Uma experiência de registo e configuração no portal Azure, juntamente com as outras capacidades de gestão do Azure.
+- **Configuração de aplicação API e PowerShell**: Configuração programática das suas aplicações através da Microsoft Graph API e PowerShell para que possa automatizar as suas tarefas DevOps.
+- **Conteúdo do programador**: Documentação técnica incluindo quickstarts, tutoriais, guias e amostras de código.
 
-Com a plataforma de identidade da Microsoft, pode escrever código uma vez e contactar qualquer utilizador. Pode construir uma aplicação uma vez e fazê-la funcionar em muitas plataformas, ou construir uma app que funcione como cliente, bem como uma aplicação de recursos (API).
+Para os desenvolvedores, a plataforma de identidade da Microsoft oferece a integração de inovações modernas no espaço de identidade e segurança, como autenticação sem palavras-passe, autenticação intensificada e Acesso Condicional. Não precisa de implementar essa funcionalidade por si mesmo: as aplicações integradas na plataforma de identidade da Microsoft aproveitam-se de forma nativa dessas inovações.
+
+Com a plataforma de identidade da Microsoft, pode escrever código uma vez e chegar a qualquer utilizador. Pode construir uma aplicação uma vez e fazê-la funcionar em muitas plataformas, ou construir uma app que funcione como cliente, bem como uma aplicação de recursos (API).
 
 ## <a name="getting-started"></a>Introdução
 
-Trabalhar com a identidade não tem de ser tão difícil. 
+Escolha o cenário de [candidatura](authentication-flows-app-scenarios.md) que gostaria de construir. Cada um destes caminhos de cenário começa com uma visão geral e liga-se a um arranque rápido para ajudá-lo a levantar-se e a correr:
 
-Veja um vídeo da [plataforma de identidade da Microsoft](identity-videos.md) para saber o básico. 
+- [Aplicativo de uma só página (SPA)](scenario-spa-overview.md)
+- [Aplicação web que inicia a sessão de utilizadores](scenario-web-app-sign-user-overview.md)
+- [Aplicação Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
+- [API web protegida](scenario-protected-web-api-overview.md)
+- [API Web que chama APIs Web](scenario-web-api-call-api-overview.md)
+- [Aplicação de ambiente de trabalho](scenario-desktop-overview.md)
+- [Aplicações daemon](scenario-daemon-overview.md)
+- [Aplicativo móvel](scenario-mobile-overview.md)
 
-Escolha um [cenário](authentication-flows-app-scenarios.md) que se aplique a si: cada caminho de cenário tem um início rápido e uma página de visão geral para fazê-lo funcionar em minutos:
+À medida que trabalha com a plataforma de identidade da Microsoft para integrar a autenticação e autorização nas suas apps, pode consultar esta imagem que descreve os cenários de aplicações mais comuns e os seus componentes de identidade. Selecione a imagem para vê-la em tamanho real.
 
-- [Criar uma aplicação de página única](scenario-spa-overview.md)
-- [Criar uma aplicação Web que inicia a sessão dos utilizadores](scenario-web-app-sign-user-overview.md)
-- [Criar uma aplicação Web que chama APIs Web](scenario-web-app-call-api-overview.md)
-- [Criar uma API Web protegida](scenario-protected-web-api-overview.md)
-- [Construa uma API web que chama APIs web](scenario-web-api-call-api-overview.md)
-- [Construa uma aplicação para desktop](scenario-desktop-overview.md)
-- [Construa uma app daemon](scenario-daemon-overview.md)
-- [Criar uma aplicação móvel](scenario-mobile-overview.md)
+[![Mapa do metrô mostrando vários cenários de aplicação na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-O gráfico seguinte descreve cenários comuns de aplicações de autenticação – use-a como referência ao integrar a plataforma de identidade da Microsoft com a sua aplicação.
+## <a name="learn-authentication-concepts"></a>Aprenda conceitos de autenticação
 
-[![Cenários de aplicação na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+Saiba como a autenticação central e os conceitos AD do Azure se aplicam à plataforma de identidade da Microsoft neste conjunto recomendado de artigos:
+
+- [Noções básicas sobre autenticação](authentication-scenarios.md)
+- [Diretores de aplicação e serviços](app-objects-and-service-principals.md)
+- [Audiências](v2-supported-account-types.md)
+- [Permissões e consentimento](v2-permissions-and-consent.md)
+- [Tokens de ID](id-tokens.md)
+- [Tokens de acesso](access-tokens.md)
+- [Fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)
+
+## <a name="more-identity-and-access-management-options"></a>Mais opções de gestão de identidade e acesso
+
+[Azure AD B2C](../../active-directory-b2c/overview.md) - Construa aplicações voltadas para o cliente que os seus utilizadores podem iniciar súb9 para usar as suas contas sociais como facebook ou Google, ou usando um endereço de e-mail e senha.
+
+[Azure AD B2B](../b2b/what-is-b2b.md) - Convide os utilizadores externos para o seu inquilino Azure AD como utilizadores "convidados" e atribua permissões de autorização enquanto utilizam as suas credenciais existentes para autenticação.
+
+> [!TIP]
+> Procura documentação da *plataforma de desenvolvimento do Azure Ative Directory (v1.0)* ? Consulte o [Diretório Ativo Azure para programadores (v1.0) visão geral](../azuread-dev/v1-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se quiser saber mais sobre conceitos de autenticação core, recomendamos que comece com estes tópicos:
+Se você tem uma conta Azure você já tem acesso a um inquilino do Azure Ative Directory, mas a maioria dos desenvolvedores de plataformas de identidade da Microsoft precisam do seu próprio inquilino AZure AD para uso enquanto desenvolve aplicações, um "dev inquilino".
 
-- [Fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)
-- [Noções básicas sobre autenticação](authentication-scenarios.md)
-- [Diretores de aplicação e serviço](app-objects-and-service-principals.md)
-- [Público](v2-supported-account-types.md)
-- [Permissões e consentimento](v2-permissions-and-consent.md)
-- [Fichas de identificação](id-tokens.md) e [fichas](access-tokens.md) de acesso
+Saiba como criar o seu próprio inquilino para uso enquanto constrói as suas aplicações:
 
-Construa uma aplicação rica em dados que chama [Microsoft Graph](https://docs.microsoft.com/graph/overview).
-
-Quando estiver pronto para lançar a sua app num ambiente de **produção,** reveja estas boas práticas:
-
-- [Ative](msal-logging.md) o registo na sua aplicação.
-- Ativar a telemetria na sua aplicação.
-- Ative [proxies e personalize clientes HTTP.](msal-net-provide-httpclient.md)
-- Teste a sua integração seguindo a lista de verificação de [integração](identity-platform-integration-checklist.md)da plataforma de identidade da Microsoft .
-
-## <a name="learn-more"></a>Saiba mais
-
-Se está a planear construir uma aplicação virada para o cliente que assina em identidades sociais e locais, consulte a visão geral do [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+[Quickstart: Crie um inquilino AZure AD](quickstart-create-new-tenant.md)

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d4b36f00bad8c06c2f62794fa03a85120af79965
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3957884a8c559194c436487050f0dbc09acf0441
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557389"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86232513"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimento incremental e caching em Pesquisa Cognitiva Azure
 
@@ -109,7 +109,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 O objetivo da cache é evitar o processamento desnecessário, mas suponha que faça uma alteração para uma habilidade que o indexante não deteta (por exemplo, alterando algo em código externo, como uma habilidade personalizada).
 
-Neste caso, pode utilizar as [Capacidades de Reset](https://docs.microsoft.com/rest/api/searchservice/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades a jusante que tenham uma dependência da produção dessa habilidade. Esta API aceita um pedido de POST com uma lista de competências que devem ser invalidadas e marcadas para reprocessamento. Depois de redefinir competências, execute o indexante para invocar o pipeline.
+Neste caso, pode utilizar as [Capacidades de Reset](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades a jusante que tenham uma dependência da produção dessa habilidade. Esta API aceita um pedido de POST com uma lista de competências que devem ser invalidadas e marcadas para reprocessamento. Depois de redefinir competências, execute o indexante para invocar o pipeline.
 
 ## <a name="change-detection"></a>Deteção de alterações
 
@@ -152,19 +152,19 @@ O processamento incremental avalia a definição de skillset e determina quais a
 
 A versão REST API `2020-06-30-Preview` proporciona enriquecimento incremental através de propriedades adicionais em indexadores. Skillsets e fontes de dados podem usar a versão geralmente disponível. Para além da documentação de referência, consulte o [caching Configure para enriquecimento incremental](search-howto-incremental-index.md) para mais detalhes sobre como chamar as APIs.
 
-+ [Criar Indexer (versão api=2020-06-30-Pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Criar Indexer (versão api=2020-06-30-Pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
 
-+ [Índice de Atualização (versão api=2020-06-30-Pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Índice de Atualização (versão api=2020-06-30-Pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 
 
 + [Atualização Skillset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (Novo parâmetro URI no pedido)
 
-+ [Competências de Reset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/reset-skills)
++ [Competências de Reset (versão api=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills)
 
 + Indexantes de base de dados (Azure SQL, Cosmos DB). Alguns indexantes recuperam dados através de consultas. Para consultas que recuperem dados, [a Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) suporta um novo parâmetro sobre um pedido **ignoreResetRequirement**, que deve ser definido para quando a `true` sua ação de atualização não deve invalidar a cache. 
 
   Use **ignoreResetRequirement** com moderação, pois pode levar a uma inconsistência não intencional nos seus dados que não será facilmente detetada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O enriquecimento incremental é uma característica poderosa que alarga o rastreio de mudanças às habilidades e ao enriquecimento de IA. O enriquecimento aincremental permite a reutilização de conteúdos processados existentes à medida que itera sobre o design skillset.
 

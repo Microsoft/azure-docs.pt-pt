@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf5e161b46b9ec6e39702ddd8435a7c7672111f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
+ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550128"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86230388"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -47,6 +47,22 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >Se tiver ativado o Azure AD Connect para sincronização, em breve começará automaticamente a receber notificações de Saúde que o avisam sobre as próximas depreciações quando estiver a executar uma das versões mais antigas.
 >
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
+
+## <a name="15420"></a>1.5.42.0
+
+### <a name="release-status"></a>Estado de lançamento
+07/10/2020: Lançamento para download
+
+### <a name="functional-changes"></a>Alterações funcionais
+Esta versão inclui uma pré-visualização pública da funcionalidade para exportar a configuração de um servidor AZure AD Connect existente para um . Ficheiro JSON que pode ser utilizado ao instalar um novo servidor Azure AD Connect para criar uma cópia do servidor original.
+
+Uma descrição detalhada desta nova característica pode ser encontrada [neste artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+- Corrigi um bug onde haveria um aviso falso sobre o tamanho do DB local nas construções localizadas durante a atualização.
+- Corrigiu um bug onde haveria um erro falso nos eventos da aplicação para a troca de nome de conta/nome de domínio.
+- Corrigiu um erro em que o Azure AD Connect não conseguiria instalar-se num DC, dando um erro de "membro não encontrado".
+
 
 ## <a name="15300"></a>1.5.30.0
 
@@ -569,7 +585,7 @@ Bloquear o acesso à conta DS da AD implementando as seguintes alterações de p
 *   Remova todos os ACEs no objeto específico, exceto ACEs específicos de SELF. Queremos manter as permissões por defeito intactas quando se trata de SELF.
 *   Atribua estas permissões específicas:
 
-Tipo     | Name                          | Access               | Aplica-se A
+Tipo     | Nome                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
 Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |
@@ -921,7 +937,7 @@ CBool(
   * CertPublicKeyParametersOid
   * CertVersion
   * CertSignatureAlgorithmOid
-  * Selecionar
+  * Selecione
   * CertKeyAlgorithmParams
   * CertHashString
   * Onde
@@ -1441,5 +1457,5 @@ Lançado: setembro 2014
 
 **Lançamento inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

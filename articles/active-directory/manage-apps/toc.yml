@@ -5,6 +5,8 @@
   items:
     - name: O que é a gestão de aplicações?
       href: what-is-application-management.md
+    - name: O que é o Início de Sessão Único (SSO)?
+      href: what-is-single-sign-on.md
 - name: Guias de Início Rápido
   items:
     - name: Ver as suas aplicações
@@ -19,6 +21,8 @@
       href: delete-application-portal.md
 - name: Tutoriais
   items:
+    - name: Adicionar uma aplicação não listada na galeria
+      href: add-non-gallery-app.md
     - name: 'Aplicações de galeria integradas (por exemplo, ServiceNow, Salesforce, Dropbox)'
       href: /azure/active-directory/saas-apps/
     - name: Adicionar uma aplicação no local com o Proxy de Aplicações
@@ -46,8 +50,6 @@
               href: developer-guidance-for-integrating-applications.md
         - name: Início de sessão único
           items:
-            - name: O que é o início de Sessão único
-              href: what-is-single-sign-on.md
             - name: Ativar o SSO para a sua aplicação multi-inquilino
               href: isv-sso-content.md
             - name: Criar um inquilino do Azure para a aplicação multi-inquilino
@@ -103,10 +105,6 @@
   items:
     - name: Aplicações da cloud e início de sessão único
       items:
-        - name: Adicionar uma aplicação da cloud
-          items:
-            - name: Adicionar uma aplicação que não seja de galeria
-              href: add-non-gallery-app.md
         - name: Configurar o início de sessão único
           items:
             - name: Configurar o início de sessão único baseado em SAML
@@ -143,6 +141,8 @@
               href: configure-admin-consent-workflow.md
             - name: Atribuir um utilizador ou grupo a uma aplicação
               href: assign-user-or-group-access-portal.md
+            - name: Rever as permissões concedidas às aplicações
+              href: manage-application-permissions.md
             - name: Criar coleções em As Minhas Aplicações
               href: access-panel-collections.md
             - name: Utilizar o acesso personalizado às aplicações

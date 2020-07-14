@@ -3,12 +3,12 @@ title: Retenção e armazenamento de dados no Azure Application Insights / Micro
 description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 848285accd7e05607bac418b6b4ae39055a5772f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
+ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601365"
+ms.lasthandoff: 07/10/2020
+ms.locfileid: "86224490"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
 
@@ -62,7 +62,7 @@ As principais categorias são:
 ## <a name="how-can-i-verify-whats-being-collected"></a>Como posso verificar o que está a ser recolhido?
 Se estiver a desenvolver a aplicação utilizando o Visual Studio, execute a aplicação no modo depuror (F5). A telemetria aparece na janela de saída. A partir daí, pode copiá-lo e enucaê-lo como JSON para uma inspeção fácil. 
 
-![](./media/data-retention-privacy/06-vs.png)
+![Screenshot que mostra executar a aplicação em modo depurrão em Estúdio Visual.](./media/data-retention-privacy/06-vs.png)
 
 Há também uma vista mais legível na janela de Diagnóstico.
 
@@ -249,7 +249,7 @@ Os SDKs variam entre plataformas, e existem vários componentes que pode instala
 | --- | --- |
 | [Adicionar Insights de Aplicação SDK a um projeto web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>utilizadores |
 | [Instalar o Monitor de Estado no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar App Insights SDK a uma aplicação web java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>utilizadores |
+| [Adicionar App Insights SDK a uma aplicação web java][java] |ServerContext<br/>Inferido<br/>Pedido<br/>Sessão<br/>utilizadores |
 | [Adicione JavaScript SDK à página web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientePerf<br/>Ajax |
 | [Definir propriedades predefinidos][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamada TrackMetric][api] |Valores numéricos<br/>**Propriedades** |

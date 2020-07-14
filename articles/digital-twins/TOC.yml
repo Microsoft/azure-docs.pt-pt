@@ -78,16 +78,22 @@
       href: reference-service-limits.md
     - name: APIs e SDKs
       items:
+        - name: Referência da API REST
+          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
         - name: Plano de controlo
           items:
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
             - name: SDK de .NET (C#) - NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+            - name: SDK de .NET (C#) - referência
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
             - name: SDK de .NET (C#) - origem
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: SDK Java
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+            - name: SDK de Java - referência
+              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
             - name: SDK de Java - origem
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: SDK JavaScript
@@ -102,14 +108,12 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
         - name: Plano de dados
           items:
-            - name: Referência da API REST
-              href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins'
-            - name: SDK de .NET (C#) - referência
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: SDK de .NET (C#) - NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
+            - name: SDK de .NET (C#) - referência
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: SDK de .NET (C#) - origem
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
     - name: CLI do Digital Twins
@@ -126,10 +130,20 @@
           href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl'
         - name: Biblioteca de analisador DTDL - NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
-        - name: Exemplo de validador DTDL
-          href: 'https://github.com/Azure-Samples/dtdl-validator'
+        - name: Validador DTDL (exemplo)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: Especificação DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: Ferramentas e projetos de exemplo
+      items:
+        - name: Serviço de simulador de dispositivo
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Exemplos do Azure Digital Twins
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+        - name: Explorador do Azure Digital Twins (exemplo)
+          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+        - name: Validador DTDL (exemplo)
+          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Ferramentas do Azure
       items:
         - name: Azure Cloud Shell
