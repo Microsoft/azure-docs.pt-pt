@@ -6,18 +6,18 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 76aa21aea647e5096ba47fb691622ea5146d9901
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84702606"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86207205"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure
 
-Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja as [Funções incorporadas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Para gerir a sua conta de faturação para um Contrato de Cliente da Microsoft, utilize as funções descritas nas secções a seguir. Estas funções acrescem às funções incorporadas do Azure para controlar o acesso aos recursos. Para obter mais informações, veja [Funções incorporadas para recursos do Azure](../../role-based-access-control/built-in-roles.md).
 
-Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
+Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. Verifique se tem acesso a um Contrato de Cliente da Microsoft.
 
 ## <a name="billing-role-definitions"></a>Definições de função de faturação
 
@@ -34,7 +34,7 @@ A tabela a seguir descreve as funções de faturação que utiliza para gerir a 
 |Gestor de faturas|Visualiza e paga faturas para o perfil de faturação|
 |Proprietário da secção de fatura|Gere tudo na secção de fatura|
 |Contribuidor da secção de fatura|Gere tudo exceto permissões na secção de fatura|
-|Leitor da secção de fatura|Vista só de leitura de tudo na secção da fatura|
+|Leitor da secção de fatura|Vista só de leitura de tudo na secção de fatura|
 |Criador de subscrições do Azure|Cria subscrições do Azure|
 
 ## <a name="billing-account-roles-and-tasks"></a>Funções e tarefas da conta de faturação
@@ -141,12 +141,12 @@ As tabelas a seguir mostram qual a função necessária para realizar tarefas no
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Gerir permissões e propriedades da secção de fatura
 
-|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação | |
-|---|---|---|---|---|---|---|---|---|
-|Ver todas as permissões na secção de fatura|✔|✔|✔|✔|✔|✔|✔| |
-|Conceder permissões a outras pessoas para verem e gerirem a secção de fatura|✔|✘|✘|✘|✘|✘|✘| |
-|Ver propriedades da secção de fatura|✔|✔|✔|✔|✔|✔|✔| |
-|Atualizar propriedades da secção de fatura|✔|✔|✘|✘|✘|✘|✘|✘|
+|Tarefas|Proprietário da secção de fatura|Contribuidor da secção de fatura|Leitor da secção de fatura|Criador de subscrições do Azure|Proprietário da conta de faturação|Contribuidor da conta de faturação|Leitor da conta de faturação |
+|---|---|---|---|---|---|---|---|
+|Ver todas as permissões na secção de fatura|✔|✔|✔|✔|✔|✔|✔|
+|Conceder permissões a outras pessoas para verem e gerirem a secção de fatura|✔|✘|✘|✘|✘|✘|✘|
+|Ver propriedades da secção de fatura|✔|✔|✔|✔|✔|✔|✔|
+|Atualizar propriedades da secção de fatura|✔|✔|✘|✘|✘|✘|✘|
 
 ### <a name="manage-products-for-invoice-section"></a>Gerir produtos para a secção de fatura
 
@@ -176,7 +176,7 @@ A tabela a seguir mostra qual a função necessária para realizar tarefas no co
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Gerir funções de faturação no portal do Azure
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 
