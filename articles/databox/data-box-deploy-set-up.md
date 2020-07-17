@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 850144e4835b43e219fa059bbc1c92bb3ef412f4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c74b5ba5101dae9165898aeb4f265d449988ecab
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200506"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86205232"
 ---
 ::: zone target="docs"
 
@@ -42,20 +42,22 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, certifique-se de que:
 
-1. Concluiu o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md).
-2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. 
+1. Fez o pedido para o Azure Data Box.
+    - Para um pedido de importação, veja o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md).
+    - Para um pedido de exportação, veja o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-export-ordered.md)
+1. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. 
     - Existe uma etiqueta de envio na bolsa transparente afixada ao dispositivo sob a etiqueta atual. Mantenha esta etiqueta segura, uma vez que a vai utilizar para o envio de devolução.
     - Algumas regiões da Europa podem receber o dispositivo embalado numa caixa. Retire o dispositivo da embalagem e guarde a caixa de envio para devolução.
-3. Reviu as [diretrizes de segurança do Data Box](data-box-safety.md).
-4. Recebeu um cabo de alimentação ligado à terra para utilizar com o seu dispositivo de armazenamento de 100 TB.
-5. Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
+1. Reviu as [diretrizes de segurança do Data Box](data-box-safety.md).
+1. Recebeu um cabo de alimentação ligado à terra para utilizar com o seu dispositivo de armazenamento de 100 TB.
+1. Tem um computador anfitrião que é utilizado para copiar dados para (pedido de importação) ou copiar dados de (pedido de exportação) do Data Box. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
     - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, poderá ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
-6. Tem acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
-7. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
+1. Tem acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
+1. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
     - Um ou mais cabos de fibra de ótica SFP+ ou de cobre Twinax SFP+ de 10 GbE (utilize com as interfaces de rede DATA1, DATA2). O Data Box possui Adaptadores 10GBASE-T com Duas Portas Mellanox ConnectX®-3 Pro EN com interface de rede PCI Express 3.0, para que os cabos compatíveis com esta interface funcionem. Por exemplo, foi utilizado um cabo CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP + 3M para os testes internos. Para obter mais informações, veja a [lista de cabos e comutadores suportados da Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
-    - Um cabo de rede RJ-45 CAT 6A OU um RJ-45 CAT 6 (utilizar com a interface de rede DATA 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
+    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
 ## <a name="cable-your-device"></a>Instalação dos cabos do dispositivo
 
@@ -91,7 +93,7 @@ Depois de receber o dispositivo, tem de instalar os cabos e ligar-se ao disposit
     - Cabo de alimentação com terra (incluído), com a classificação 10 A ou superior, com um conector IEC60320 C-13 numa extremidade para ligar ao dispositivo.
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Dois cabos de cobre SFP + Twinax de 10 GbE (utilizar com interfaces de rede DADOS 1, DADOS 2 de 10 Gbps)
-    - Um cabo de rede RJ-45 CAT 6A OU um RJ-45 CAT 6 (utilizar com a interface de rede DATA 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
+    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
 3. Remova e coloque o dispositivo numa superfície plana. 
     
@@ -135,7 +137,7 @@ Execute os passos seguintes para configurar o dispositivo com a IU da Web local 
 
 Assim que as interfaces de rede de dados estiverem configuradas, também pode utilizar o endereço IP de qualquer uma das interfaces de DADOS 1 - DADOS 3, para aceder à IU da Web local em `https://<IP address of a data network interface>`. 
 
-Quando a configuração do dispositivo estiver concluída, pode ligar às partilhas do dispositivo e copiar os dados do seu computador para o dispositivo. 
+Quando a configuração do dispositivo estiver concluída, pode ligar às partilhas do dispositivo e copiar os dados. 
 
 ::: zone-end
 
@@ -161,10 +163,15 @@ Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 > * Instalar os cabos do Data Box
 > * Ligar ao Data Box
 
-Avance para o próximo tutorial para saber como copiar dados no Data Box.
+Avance para o próximo tutorial para saber como copiar dados.
 
 > [!div class="nextstepaction"]
-> [Copiar dados para o Azure Data Box](./data-box-deploy-copy-data.md)
+> [Copiar dados para o Azure Data Box para um pedido de importação](./data-box-deploy-copy-data.md)
+
+Ou
+
+> [!div class="nextstepaction"]
+> [Copiar dados do Azure Data Box para um pedido de exportação](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

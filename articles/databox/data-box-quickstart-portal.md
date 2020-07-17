@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd429dadcbe67f0ac91da19d6606626b39f34ef5
+ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313778"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86201081"
 ---
-# <a name="get-started-with-azure-data-box"></a>Introdução ao Azure Data Box 
+# <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Introdução ao Azure Data Box para importar dados para o Azure
 
 ::: zone target="docs"
 
-Este início rápido descreve como implementar o Azure Data Box com o portal do Azure. Os passos incluem como instalar os cabos, configurar e copiar os dados para o Data Box, para que este os carregue para o Azure. O início rápido é efetuado no portal do Azure e na IU da Web local do dispositivo.
+Este início rápido descreve como implementar o Azure Data Box com o portal do Azure para um pedido de importação. Os passos incluem como instalar os cabos, configurar e copiar os dados para o Data Box, para que este os carregue para o Azure. Os passos de início rápido são efetuados no portal do Azure e na IU da Web local do dispositivo.
 
 Para uma implementação passo a passo detalhada e instruções de controlo, aceda ao [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md)
 
@@ -28,7 +28,7 @@ Para uma implementação passo a passo detalhada e instruções de controlo, ace
 
 ::: zone target="chromeless"
 
-Este guia descreve como implementar o Azure Data Box com o portal do Azure. Os passos incluem examinar os pré-requisitos, instalar os cabos e ligar o dispositivo e copiar dados para o dispositivo para que estes sejam carregados para o Azure.
+Este guia descreve como implementar o Azure Data Box para importação com o portal do Azure. Os passos incluem examinar os pré-requisitos, instalar os cabos e ligar o dispositivo e copiar dados para o dispositivo para que estes sejam carregados para o Azure.
 
 ::: zone-end
 
