@@ -3,12 +3,12 @@ title: Envie alertas de saúde do serviço Azure com o ServiceNow
 description: Receba notificações personalizadas sobre eventos de saúde de serviço para o seu caso ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5cd17af080714fdf2e9e5b168e72f975c8d3a3f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 96c181991fc962b08e777a55d891b881fc1bdba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260210"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519081"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envie alertas de saúde do serviço Azure com o ServiceNow usando webhooks
 
@@ -147,7 +147,7 @@ Este artigo mostra-lhe como integrar alertas de saúde do serviço Azure com o S
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Criar um alerta usando o ServiceNow no portal Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga os passos 1 a 8 [neste artigo](../azure-monitor/platform/alerts-activity-log-service-notifications.md) para criar um alerta com um novo grupo de ação.
+1. Siga os passos 1 a 8 [neste artigo](./alerts-activity-log-service-notifications-portal.md) para criar um alerta com um novo grupo de ação.
 
 1. Definir na lista de **ações:**
 
@@ -192,8 +192,8 @@ Este artigo mostra-lhe como integrar alertas de saúde do serviço Azure com o S
 
 1. Vá ao [ServiceNow](https://www.servicenow.com/) confirmar que a sua integração foi configurada com sucesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
 - Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre [as notificações de saúde do serviço.](../azure-monitor/platform/service-notifications.md)
+- Saiba mais sobre [as notificações de saúde do serviço.](./service-notifications.md)
 - Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)

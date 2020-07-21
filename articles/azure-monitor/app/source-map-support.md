@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60653a43046276592878b3af91242e7e1b4ecd71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249742"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516707"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Suporte de mapa de origem para aplicações JavaScript
 
@@ -81,13 +82,13 @@ Qualquer utilizador no Portal que utilize esta função deve ser, pelo menos, de
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Tarefa de cópia de arquivo Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Tarefa de cópia de arquivo Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 
 
 <!-- Remote URLs -->
-[create storage account]: https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
-[create blob container]: https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal
-[storage blob data reader]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader
+[create storage account]: ../../storage/common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal
+[create blob container]: ../../storage/blobs/storage-quickstart-blobs-portal.md
+[storage blob data reader]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-reader
 [ApplicationInsights-JS]: https://github.com/microsoft/applicationinsights-js
 [ApplicationInsights-Node.js]: https://github.com/microsoft/applicationinsights-node.js
 [azure file copy]: https://aka.ms/azurefilecopyreadme

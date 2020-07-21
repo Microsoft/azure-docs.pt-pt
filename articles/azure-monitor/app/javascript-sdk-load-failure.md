@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
-ms.openlocfilehash: dae6b40e7ec8a2bb6f635a6ffca4886ed09c1364
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a76ed65ebc1c56232d4fa42c6df20f619fe14ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229538"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517064"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Falha de carga SDK na resolução de problemas para aplicações web JavaScript
 
@@ -63,7 +63,7 @@ O mesmo acontece quando se utiliza a solução de pacotes SDK através de pacote
 
 Também pode tentar utilizar [pacotes NPM](#use-npm-packages-to-embed-the-application-insight-sdk) para incorporar o SDK Application Insights.
 
-Para minimizar a falha intermitente de conectividade da rede, implementámos cabeçalhos Cache-Control em todos os ficheiros CDN para que, uma vez que o navegador do utilizador final tenha descarregado a versão atual do SDK, não precisará de descarregar novamente e o navegador reutilizará a cópia previamente obtida (ver [como funciona o cache).](https://docs.microsoft.com/azure/cdn/cdn-how-caching-works) Se a verificação de caching falhar ou tiver havido uma nova versão, então o navegador do utilizador final terá de descarregar a versão atualizada. Assim, pode ver um nível de fundo de _"ruído"_ no cenário de falha de verificação ou um pico temporário quando ocorre uma nova versão e é geralmente disponibilizado (implantado na CDN).
+Para minimizar a falha intermitente de conectividade da rede, implementámos cabeçalhos Cache-Control em todos os ficheiros CDN para que, uma vez que o navegador do utilizador final tenha descarregado a versão atual do SDK, não precisará de descarregar novamente e o navegador reutilizará a cópia previamente obtida (ver [como funciona o cache).](../../cdn/cdn-how-caching-works.md) Se a verificação de caching falhar ou tiver havido uma nova versão, então o navegador do utilizador final terá de descarregar a versão atualizada. Assim, pode ver um nível de fundo de _"ruído"_ no cenário de falha de verificação ou um pico temporário quando ocorre uma nova versão e é geralmente disponibilizado (implantado na CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Falha do CDN de Insights de Aplicação
 
@@ -206,6 +206,6 @@ Em vez de utilizar os pontos finais do Snippet e do CDN públicos, pode utilizar
 Tal como acontece com o snippet, também é possível que os seus próprios scripts (com ou sem utilização dos pacotes SDK NPM) possam ser afetados pelos mesmos problemas de bloqueio listados aqui, pelo que, dependendo da sua aplicação, dos seus utilizadores e da sua estrutura, poderá considerar a implementação de algo semelhante à lógica no corte para detetar e reportar estes problemas.
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 - [Obtenha ajuda adicional ao arquivar um problema no GitHub](https://github.com/Microsoft/ApplicationInsights-JS/issues)
 - [Monitorize o uso da página web](javascript.md)

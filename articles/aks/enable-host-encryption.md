@@ -4,12 +4,12 @@ description: Saiba como configurar uma encriptação baseada no anfitrião num c
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7b9d930d62d0acea30af9b5e7e12e43fa8fcd5da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244315"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517727"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Encriptação baseada no anfitrião no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -27,18 +27,18 @@ Esta funcionalidade só pode ser definida no tempo de criação de cluster ou de
 
 - Certifique-se de que tem a `aks-preview` extensão CLI v0.4.55 ou superior instalada
 - Certifique-se de que tem a `EncryptionAtHost` bandeira de recurso `Microsoft.Compute` ativada.
-- Certifique-se de que tem a `EncryptionAtHost` bandeira de recurso `Microsoft.ContainerService` ativada.
+- Certifique-se de que tem a `EnableEncryptionAtHostPreview` bandeira de recurso `Microsoft.ContainerService` ativada.
 
 ### <a name="register-encryptionathost--preview-features"></a>Registar `EncryptionAtHost` funcionalidades de pré-visualização
 
-Para criar um cluster AKS que utilize encriptação baseada no anfitrião, tem de ativar a bandeira de `EncryptionAtHost` funcionalidade na sua subscrição.
+Para criar um cluster AKS que utilize encriptação baseada no anfitrião, tem de ativar as `EnableEncryptionAtHostPreview` bandeiras e `EncryptionAtHost` apresentar bandeiras na sua subscrição.
 
 Registe a bandeira de `EncryptionAtHost` características utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 
-az feature register --namespace "Microsoft.ContainerService"  --name "EncryptionAtHost"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Demora alguns minutos para que o estado seja *apresentado.* Pode verificar o estado de registo utilizando o comando [da lista de recursos az:][az-feature-list]
@@ -46,7 +46,7 @@ Demora alguns minutos para que o estado seja *apresentado.* Pode verificar o est
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EncryptionAtHost')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando estiver pronto, reaprovi o registo dos `Microsoft.ContainerService` fornecedores e `Microsoft.Compute` dos recursos utilizando o comando de registo do fornecedor [az:][az-provider-register]
@@ -58,12 +58,12 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 > [!IMPORTANT]
-> As funcionalidades de pré-visualização AKS são opt-in de autosserviço. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos contratos de nível de serviço e garantia limitada. As pré-visualizações AKS são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam ao uso da produção. Para obter informações adicionais, consulte os seguintes artigos de apoio:
+> As funcionalidades de pré-visualização AKS são opt-in de autosserviço. As pré-visualizações são fornecidas "as-is" e "conforme disponível" e estão excluídas dos contratos de nível de serviço e garantia limitada. As pré-visualizações AKS são parcialmente cobertas pelo apoio ao cliente na melhor base de esforço. Como tal, estas características não se destinam ao uso da produção. Para mais informações, consulte os seguintes artigos de apoio:
 >
 > - [Políticas de apoio da AKS](support-policies.md)
 > - [FAQ de suporte Azure](faq.md)
 
-### <a name="install-aks-preview-cli-extension"></a>Instale extensão CLI de pré-visualização aks
+### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
 Para criar um cluster AKS que tenha encriptação baseada no anfitrião, precisa da mais recente extensão CLI *de pré-visualização de aks.* Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] ou verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
@@ -101,7 +101,7 @@ az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-gr
 
 Se pretender criar novos grupos de nó sem a função de encriptação baseada no anfitrião, pode fazê-lo omitindo o `--aks-custom-headers` parâmetro personalizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Rever [as melhores práticas para a segurança do cluster AKS][best-practices-security] Leia mais sobre [encriptação baseada no anfitrião.](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 

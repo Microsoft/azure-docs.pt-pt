@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868831"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518279"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registo de aplicativos
 
@@ -28,15 +29,15 @@ Para que os passos comuns registe uma aplicação, consulte [Quickstart: Registe
 
 O ponto final da plataforma de identidade da Microsoft pode emitir tokens v1.0 e tokens v2.0. Para obter mais informações sobre estes tokens, consulte [os tokens de acesso.](access-tokens.md)
 
-A versão token aceite depende do valor dos **tipos de conta suportado** que escolher quando criar a sua aplicação.
+A versão simbólica que a API pode aceitar depende da seleção **dos tipos de conta suportados** quando criar o registo de aplicação da API na Web no portal Azure.
 
-- Se o valor dos tipos de **conta suportado** for Contas em **qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão token aceite é v2.0.
-- Caso contrário, a versão simbólica aceite é v1.0.
+- Se o valor dos tipos de **conta suportado** for Contas em **qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão token aceite deve ser v2.0.
+- Caso contrário, a versão simbólica aceite pode ser v1.0.
 
 Depois de criar a aplicação, pode determinar ou alterar a versão simbólica aceita seguindo estes passos:
 
 1. No portal Azure, selecione a sua aplicação e, em seguida, selecione **Manifesto**.
-1. Encontre o acesso à **propriedadeTokenAcceptedVersion** no manifesto. O valor padrão da propriedade é 2.
+1. Encontre o acesso à **propriedadeTokenAcceptedVersion** no manifesto.
 1. O valor especifica para Azure Ative Directory (Azure AD) que token versão que a API web aceita.
     - Se o valor for 2, a API web aceita tokens v2.0.
     - Se o valor for **nulo,** a API web aceita fichas v1.0.
@@ -51,7 +52,7 @@ As APIs web não precisam de registar um URI de redirecionamento porque nenhum u
 
 ## <a name="exposed-api"></a>API exposta
 
-Outras configurações específicas para as APIs web são a API exposta e os âmbitos expostos.
+Outras configurações específicas para APIs web são a API exposta e os âmbitos expostos ou funções de aplicação.
 
 ### <a name="application-id-uri-and-scopes"></a>ID URI de aplicação e âmbitos
 
@@ -63,7 +64,7 @@ Durante o registo da aplicação, é necessário definir estes parâmetros:
 - Um ou mais âmbitos
 - Um ou mais papéis de aplicativo
 
-Por predefinição, o portal de registo de aplicações recomenda que utilize o recurso URI `api://{clientId}` . Este URI é único, mas não legível pelo homem. Se alterar o URI, certifique-se de que o novo valor é único.
+Por predefinição, o portal de registo de aplicações recomenda que utilize o recurso URI `api://{clientId}` . Este URI é único, mas não legível pelo homem. Se alterar o URI, certifique-se de que o novo valor é único. O portal de registo de aplicações garantirá que utiliza um [domínio de editor configurado](howto-configure-publisher-domain.md)
 
 Para as aplicações do cliente, os âmbitos aparecem como *permissões delegadas* e as funções de aplicação aparecem como permissões de *aplicação* para a sua API web.
 
@@ -71,6 +72,8 @@ Os âmbitos também aparecem na janela de consentimento que é apresentada aos u
 
 - Como visto por um utilizador.
 - Como visto por um administrador inquilino, que pode conceder o consentimento administrativo.
+
+As funções da aplicação não podem ser consentidas por um utilizador (uma vez que são utilizadas por uma aplicação que liga para a API web em nome de si mesma). Um administrador de inquilino terá de consentir com as aplicações do cliente da sua API web expondo funções de aplicações. Consulte [o consentimento do Administrador](v2-admin-consent.md) para mais detalhes
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Expor permissões delegadas (âmbitos)
 

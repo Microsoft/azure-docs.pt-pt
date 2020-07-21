@@ -3,11 +3,12 @@ title: Criar um novo recurso Azure Application Insights / Microsoft Docs
 description: Configurar manualmente a monitorização do Application Insights para uma nova aplicação ao vivo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb47453140c7659ca2f5e6da2e40d9d78405f8e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200667"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517098"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -31,7 +32,7 @@ Inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Applica
    | **Modo de Recurso** | `Classic` ou `Workspace-based` | Os recursos baseados no espaço de trabalho estão atualmente em pré-visualização pública e permitem-lhe enviar a sua telemetria Application Insights para um espaço de trabalho comum do Log Analytics. Para mais informações, consulte o [artigo sobre recursos baseados no espaço de trabalho.](create-workspace-resource.md)
 
 > [!NOTE]
-> Embora possa usar o mesmo nome de recurso em diferentes grupos de recursos, pode ser benéfico usar um nome globalmente único. Isto pode ser útil se planeia [realizar consultas de recursos cruzados,](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) uma vez que simplifica a sintaxe necessária.
+> Embora possa usar o mesmo nome de recurso em diferentes grupos de recursos, pode ser benéfico usar um nome globalmente único. Isto pode ser útil se planeia [realizar consultas de recursos cruzados,](../log-query/cross-workspace-query.md#identifying-an-application) uma vez que simplifica a sintaxe necessária.
 
 Introduza os valores adequados nos campos necessários e, em seguida, selecione **Review + create**.
 
@@ -69,7 +70,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
 ```
-#### <a name="results"></a>Resultados
+#### <a name="results"></a>Results
 
 ```powershell
 Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
@@ -92,7 +93,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Para obter a documentação completa da PowerShell para este cmdlet, e para aprender a recuperar a chave de instrumentação consulte a [documentação Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Para obter a documentação completa da PowerShell para este cmdlet, e para aprender a recuperar a chave de instrumentação consulte a [documentação Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
 ### <a name="azure-cli-preview"></a>Azure CLI (pré-visualização)
 
@@ -121,7 +122,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
 ```
 
-#### <a name="results"></a>Resultados
+#### <a name="results"></a>Results
 
 ```azurecli
 az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
@@ -149,12 +150,12 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Para obter a documentação completa do Azure CLI para este comando, e para aprender a recuperar a chave de instrumentação consulte a documentação do [Azure CLI](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Para obter a documentação completa do Azure CLI para este comando, e para aprender a recuperar a chave de instrumentação consulte a documentação do [Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Próximos passos
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)
+* [Escrever consultas da Análise](../log-query/log-query-overview.md)
 
 <!--Link references-->
 

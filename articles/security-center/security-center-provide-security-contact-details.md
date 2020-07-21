@@ -11,61 +11,50 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2019
+ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 08ad761e81909e6ab23c7c07f5ce05865136bc47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204105"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519291"
 ---
-# <a name="provide-security-contact-details-in-azure-security-center"></a>Forneça detalhes de contato de segurança no Centro de Segurança Azure
-O Centro de Segurança do Azure recomendará que forneça os detalhes de contacto de segurança para a subscrição do Azure, caso ainda não o tenha feito. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. O MSRC realiza uma monitorização de segurança selecionada da rede e da infraestrutura do Azure e recebe informações sobre ameaças e reclamações de abuso de terceiros.
+# <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações de email para alertas de segurança 
 
-É enviada uma notificação por e-mail na primeira ocorrência diária de um alerta e apenas relativamente a alertas de gravidade elevada. As preferências de e-mail só podem ser configuradas para as políticas de subscrição. Os grupos de recursos numa subscrição herdarão estas definições. Os alertas só estão disponíveis no nível padrão do Centro de Segurança Azure.
+Para garantir que as pessoas certas na sua organização são notificadas sobre alertas de segurança no seu ambiente, insira os seus endereços de e-mail na página **de definições de notificações de email.**
 
-As notificações de e-mail de alerta são enviadas:
-- Para um único destinatário de e-mail por tipo de alerta por dia  
-- Não são enviadas mais de 3 mensagens de correio-e-mail a um único destinatário num só dia
-- Cada mensagem de e-mail contém um único alerta, não uma agregação de alertas
-- Apenas para alertas de gravidade elevada
+Ao configurar as suas notificações, pode configurar os e-mails a enviar a indivíduos específicos ou a qualquer pessoa com um papel RBAC específico para uma subscrição. 
 
-> [!TIP]
-> Para alertas com outros níveis de gravidade, crie uma [automatização de fluxo de trabalho](workflow-automation.md) para utilizar uma App Lógica que enviará e-mails para o pessoal relevante.
- 
-Por exemplo, se uma mensagem de e-mail já tiver sido enviada para o alertar sobre um ataque RDP, não receberá outra mensagem de e-mail sobre um ataque RDP no mesmo dia, mesmo que seja acionado outro alerta. 
+Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensagens de saída. Para cada subscrição, o Centro de Segurança envia:
 
-> [!IMPORTANT]
-> Este documento apresenta o serviço ao utilizar um exemplo de implementação.  Não se trata de um guia passo-a-passo.
+- um máximo de **quatro** e-mails por dia para alertas **de alta gravidade**
+- um máximo de **dois** e-mails por dia para alertas **de gravidade média**
+- um máximo de **um** e-mail por dia para alertas **de baixa gravidade**
+
+## <a name="availability"></a>Disponibilidade
+
+- Estado de libertação: **Geralmente disponível**
+- Funções necessárias: **Administrador de Segurança** ou Proprietário de **Subscrição** 
+- Nuvens: ✔ Nuvens comerciais ✔ Governo dos EUA (parcial) ✘ Nacional/Soberano (China Gov, Outro Gov)
+
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações de email para alertas<a name="email"></a>
 
-1. Como utilizador com a função Security Admin ou Proprietário de Subscrição, abra a página **de notificações de email:**
+Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores com funções específicas de RBAC.
 
-    - Para alertas, abra **as definições de preços &,** selecione a subscrição relevante e selecione **notificações por e-mail**.
+1. A partir da área de **definições** de & de preços do Security Center, a subscrição relevante e as **notificações de e-mail selecionadas**.
 
-    - Se estiver a implementar uma recomendação, então, de acordo com **recomendações,** **selecione Fornecer dados de contacto de segurança,** selecione a assinatura Azure para fornecer informações de contacto. Isto abre **notificações por e-mail.**
+1. Defina os destinatários para as suas notificações:
 
-   ![Disponibilizar detalhes de contacto de segurança][2]
-
-1. Insira o endereço de e-mail de contacto de segurança ou endereços separados por vírgulas. Não há limite para o número de endereços de e-mail que pode introduzir.
-
-1. Para receber e-mails sobre alertas de alta gravidade, ligue a opção **Enviar por emails sobre alertas.** Para outros níveis de gravidade, utilize uma App Lógica como explicada na [automatização do fluxo de trabalho.](workflow-automation.md)
-
-1. Pode enviar notificações por e-mail aos proprietários de subscrições (administrador de serviço clássico e Coadministradores, além da função de Proprietário do RBAC no âmbito de subscrição).
+    - Na lista de abandono, selecione entre as funções disponíveis.
+    - E/ou insira endereços de e-mail específicos separados por vírgulas. Não há limite para o número de endereços de e-mail que pode introduzir.
 
 1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar**.
 
-## <a name="see-also"></a>Ver também
-Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
-* [Gerir recomendações de segurança no Azure Security Center--](security-center-recommendations.md) Saiba como as recomendações o ajudam a proteger os seus recursos Azure.
-* [Monitorização de saúde de segurança no Centro de Segurança Azure.](security-center-monitoring.md)
-* [Gerir e responder aos alertas de segurança no Azure Security Center--](security-center-managing-and-responding-alerts.md) Aprender a gerir e responder aos alertas de segurança.
-* [Monitorização de soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
+## <a name="see-also"></a>Veja também
+Para saber mais sobre alertas de segurança, consulte o seguinte:
 
-<!--Image references-->
-[1]: ./media/security-center-provide-security-contacts/provide-contacts.png
-[2]:./media/security-center-provide-security-contacts/provide-contact-details.png
+* [Alertas de segurança - um guia de referência](alerts-reference.md) -- Conheça os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure
+* [Gerir e responder a alertas de segurança no Centro de Segurança Azure](security-center-managing-and-responding-alerts.md) -- Aprender a gerir e responder a alertas de segurança

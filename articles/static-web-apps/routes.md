@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bde0db179216426c4279e5b03b416a04176430bb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056791"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518780"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas em Azure Static Web Apps Preview
 
@@ -37,9 +37,9 @@ A tabela que se segue lista a localização adequada para colocar o seu _routes.
 |Quadro / biblioteca | Localização  |
 |---------|----------|
 | Angular | _ativos_   |
-| React   | _público_  |
-| Svelte  | _público_   |
-| Vue     | _público_ |
+| React   | _public_  |
+| Svelte  | _public_   |
+| Vue     | _public_ |
 
 ## <a name="defining-routes"></a>Definição de rotas
 
@@ -295,7 +295,7 @@ Os exemplos a seguir descrevem o que acontece quando um pedido corresponde a uma
 | _/pasta desconhecida_ | O ficheiro _/custom-404.html_ é servido. |
 | Ficheiros com a `.custom` extensão | São servidos com o `text/html` tipo MIME |
 
-- Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
+Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor de `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'` .
 
 <sup>1</sup> As regras de rota para as funções de API [apenas suportam redirecionamentos](#redirects) e [asseguram rotas com funções.](#securing-routes-with-roles)
 

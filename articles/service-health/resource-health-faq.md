@@ -3,11 +3,12 @@ title: FAQ de Saúde de Recursos Azure
 description: Visão geral da Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 7459a29dca01dc186d75b4545f89068569975607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 345724a28441e5a6b20863da8d2fd47be0a8d6f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985036"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518950"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ de Saúde de Recursos Azure
 Aprenda as respostas a perguntas comuns sobre a Azure Resource Health.
@@ -45,7 +46,7 @@ Sim, quando um recurso não está disponível, a Resource Health identifica a ca
 No portal, as ações iniciadas pelo utilizador são mostradas usando um ícone de notificação azul, enquanto eventos planeados e não planeados são mostrados usando um ícone de aviso vermelho. Mais detalhes são fornecidos na visão geral da [Saúde dos Recursos.](Resource-health-overview.md)  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Posso integrar a Resource Health com as minhas ferramentas de monitorização?
-A saúde dos recursos tem [suporte de pré-visualização](resource-health-alert-arm-template-guide.md) para alertas baseados em Registos de Atividade. Os alertas de Registo de Atividade utilizam [grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para notificar os utilizadores de que foi desencadeado um alerta. Os grupos de ação suportam uma variedade de canais de notificação, tais como ações de e-mail, SMS, webhook e ITSM.
+A saúde dos recursos tem [suporte de pré-visualização](resource-health-alert-arm-template-guide.md) para alertas baseados em Registos de Atividade. Os alertas de Registo de Atividade utilizam [grupos de ação](../azure-monitor/platform/action-groups.md) para notificar os utilizadores de que foi desencadeado um alerta. Os grupos de ação suportam uma variedade de canais de notificação, tais como ações de e-mail, SMS, webhook e ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Onde encontro a Saúde dos Recursos?
 Depois de iniciar sessão no portal Azure, existem várias formas de aceder à Saúde dos Recursos:
@@ -78,7 +79,7 @@ Não, a informação de saúde está disponível para todos os tipos de recursos
 Não.  A Azure Resource Health é acessível dentro do portal Azure sem quaisquer requisitos de configuração.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>A Saúde dos Recursos está disponível gratuitamente?
-Sim.  A Azure Resource Health é gratuita.
+Yes.  A Azure Resource Health é gratuita.
 
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Quais são as recomendações que a Resource Health fornece?
 Com base no estado de saúde, a Resource Health fornece-lhe recomendações com o objetivo de reduzir o tempo que passou a resolver problemas. Para os recursos disponíveis, as recomendações focam-se em como resolver os problemas mais comuns que os clientes encontram. Se o recurso não estiver disponível devido a um evento não planeado do Azure, o foco será ajudá-lo durante e após o processo de recuperação. 

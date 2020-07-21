@@ -4,12 +4,12 @@ description: Seja notificado via SMS, webhook, SMS, e-mail e muito mais, quando 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 1a932aba55ec9bd5d92c60338a3c1fc4bb481c1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516129"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no registo de atividades
 
@@ -25,11 +25,11 @@ Normalmente, cria alertas de registo de atividade para receber notificações qu
 * Operações específicas ocorrem em recursos na sua subscrição Azure, muitas vezes telescópios para determinados grupos de recursos ou recursos. Por exemplo, é melhor ser notificado quando qualquer máquina virtual no myProductionResourceGroup for eliminada. Ou, pode querer ser notificado se alguma nova função for atribuída a um utilizador na sua subscrição.
 * Ocorre um evento de saúde de serviço. Os eventos de saúde do serviço incluem notificação de incidentes e eventos de manutenção que se aplicam aos recursos na sua subscrição.
 
-Uma simples analogia para compreender as condições em que as regras de alerta podem ser criadas no registo de atividades, é explorar ou filtrar eventos através do [log activity in Azure portal](activity-log-view.md#azure-portal). No Azure Monitor - Registo de atividade, pode-se filtrar ou encontrar o evento necessário e, em seguida, criar um alerta utilizando o botão **de alerta de registo de atividade Add.**
+Uma simples analogia para compreender as condições em que as regras de alerta podem ser criadas no registo de atividades, é explorar ou filtrar eventos através do [log activity in Azure portal](./activity-log.md#view-the-activity-log). No Azure Monitor - Registo de atividade, pode-se filtrar ou encontrar o evento necessário e, em seguida, criar um alerta utilizando o botão **de alerta de registo de atividade Add.**
 
 Em qualquer dos casos, um alerta de registo de atividade apenas monitoriza para eventos na subscrição em que o alerta é criado.
 
-Pode configurar um alerta de registo de atividade com base em qualquer propriedade de nível superior no objeto JSON para um evento de registo de atividade. Para obter mais informações, consulte [categorias no Registo de Atividades.](activity-log-view.md#categories-in-the-activity-log) Para saber mais sobre os eventos de saúde do serviço, consulte [receber alertas de registo de atividades nas notificações do serviço.](alerts-activity-log-service-notifications.md) 
+Pode configurar um alerta de registo de atividade com base em qualquer propriedade de nível superior no objeto JSON para um evento de registo de atividade. Para obter mais informações, consulte [categorias no Registo de Atividades.](./activity-log.md#view-the-activity-log) Para saber mais sobre os eventos de saúde do serviço, consulte [receber alertas de registo de atividades nas notificações do serviço.](../../service-health/alerts-activity-log-service-notifications-portal.md) 
 
 Os alertas de registo de atividade têm algumas opções comuns:
 
@@ -56,9 +56,9 @@ Quando um alerta de registo de atividade é ativado, utiliza um grupo de ação 
 Para saber mais sobre grupos de ação, consulte [Criar e gerir grupos de ação no portal Azure.](action-groups.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Obtenha uma [visão geral dos alertas.](alerts-overview.md)
 - Saiba como [criar e modificar os alertas de registo de atividades.](alerts-activity-log.md)
 - Reveja o [esquema de alerta de registo de atividade webhook](activity-log-alerts-webhook.md).
-- Saiba mais sobre [as notificações de saúde do serviço.](service-notifications.md)
+- Saiba mais sobre [as notificações de saúde do serviço.](../../service-health/service-notifications.md)

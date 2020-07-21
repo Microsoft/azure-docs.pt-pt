@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8c854a503e3c949be0165d9dda046e0169686c67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434151"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517302"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementar estilo dinâmico para mapas interiores do Criador
 
@@ -20,7 +21,7 @@ O [serviço Azure](https://docs.microsoft.com/rest/api/maps/featurestate) Maps C
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Criar uma conta do Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Criar uma conta do Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 3. [Criar um recurso Criador](how-to-manage-creator.md)
 4. Descarregue o [pacote de desenho de amostras.](https://github.com/Azure-Samples/am-creator-indoor-data-examples)
@@ -65,7 +66,7 @@ Na próxima secção, vamos definir o *estado* de ocupação para `UNIT26` `true
 
  Vamos agora atualizar o estado dos dois escritórios, `UNIT26` `UNIT27` e:
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique **em Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Utilize a [API dos Estados de Atualização de Funcionalidades](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a identificação do estado, e `UNIT26` para uma das duas unidades. Apecir a sua chave de subscrição Azure Maps. Aqui está a URL de um pedido **de POST** para atualizar o estado:
 

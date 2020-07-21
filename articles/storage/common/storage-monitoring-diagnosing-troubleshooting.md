@@ -9,16 +9,17 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513379"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518594"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Diagnosticar e resolver problemas numa aplicação distribuída hospedada num ambiente em nuvem pode ser mais complexo do que em ambientes tradicionais. As aplicações podem ser implantadas numa infraestrutura PaaS ou IaaS, nas instalações, num dispositivo móvel ou em alguma combinação destes ambientes. Normalmente, o tráfego de rede da sua aplicação pode atravessar redes públicas e privadas e a sua aplicação pode utilizar várias tecnologias de armazenamento, tais como Tabelas de Armazenamento do Microsoft Azure, Blobs, Filas ou Ficheiros, além de outras lojas de dados, como bases de dados relacionais e documentos.
 
 Para gerir estas aplicações com sucesso, deve monitorizá-las proativamente e entender como diagnosticar e resolver problemas de todos os aspetos das mesmos e das suas tecnologias dependentes. Como utilizador dos serviços de Armazenamento Azure, deve monitorizar continuamente os serviços de Armazenamento que a sua aplicação utiliza para quaisquer alterações inesperadas de comportamento (por exemplo, mais lentas do que os tempos de resposta habituais), e utilizar o registo para recolher dados mais detalhados e analisar um problema em profundidade. As informações de diagnóstico que obtém tanto da monitorização como do registo registado irão ajudá-lo a determinar a causa principal do problema que a sua aplicação encontrou. Em seguida, pode resolver o problema e determinar os passos adequados que pode tomar para remediar o problema. O Azure Storage é um serviço Azure core, e constitui uma parte importante da maioria das soluções que os clientes implementam para a infraestrutura Azure. O Azure Storage inclui capacidades para simplificar problemas de monitorização, diagnóstico e resolução de problemas nas suas aplicações baseadas na nuvem.
@@ -78,7 +79,7 @@ Para obter um guia prático para a resolução de problemas de ponta a ponta nas
 ## <a name="introduction"></a><a name="introduction"></a>Introdução
 Este guia mostra-lhe como utilizar funcionalidades como a Azure Storage Analytics, o registo do lado do cliente na Biblioteca do Cliente de Armazenamento Azure e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas relacionados com o Armazenamento Azure.
 
-![][1]
+![Diagrama que mostra o fluxo de informação entre aplicações de clientes e serviços de armazenamento Azure.][1]
 
 Este guia destina-se a ser lido principalmente por desenvolvedores de serviços online que utilizam os Serviços de Armazenamento Azure e OS PROFISSIONAis de TI responsáveis pela gestão desses serviços online. Os objetivos deste guia são:
 
@@ -117,7 +118,7 @@ Deve monitorizar continuamente as suas aplicações Azure para garantir que est�
 
 Os gráficos na imagem a seguir ilustram como a média que ocorre para métricas de hora a hora pode esconder picos na atividade. As métricas horárias parecem mostrar uma taxa constante de pedidos, enquanto as métricas minúsculas revelam as flutuações que estão realmente acontecendo.
 
-![][3]
+![Gráficos que mostram como a média que ocorre para métricas de hora a hora pode esconder picos na atividade.][3]
 
 O restante desta secção descreve quais as métricas que deve monitorizar e porquê.
 
@@ -199,7 +200,7 @@ Os utilizadores da sua aplicação podem notificá-lo de erros reportados pela a
 Os recursos seguintes são úteis para compreender os códigos de estado e erro relacionados com o armazenamento:
 
 * [Códigos de erro comuns da API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Códigos de Erro do Serviço de Blobs](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Códigos de erro de serviço blob](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Códigos de erro de serviço de fila](https://msdn.microsoft.com/library/azure/dd179446.aspx)
 * [Códigos de erro de serviço de tabela](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Códigos de erro do serviço de ficheiros](https://msdn.microsoft.com/library/azure/dn690119.aspx)
@@ -347,7 +348,7 @@ O seu problema diz respeito à disponibilidade de um dos serviços de armazename
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>As métricas apresentam uma AverageE2ELatency alta e uma AverageServerLatency baixa
 A ilustração abaixo da ferramenta de monitorização do [portal Azure](https://portal.azure.com) mostra um exemplo em que a **média de E2ELatency** é significativamente superior à **MédiaServerLatency**.
 
-![][4]
+![Ilustração do portal Azure que mostra um exemplo onde a Média E2ELatency é significativamente maior do que a AverageServerLatency.][4]
 
 O serviço de armazenamento apenas calcula a métrica **AverageE2ELatency** para pedidos bem sucedidos e, ao contrário da **AverageServerLatency,** inclui o tempo que o cliente demora a enviar os dados e receber o reconhecimento do serviço de armazenamento. Portanto, uma diferença entre **AverageE2ELatency** e **AverageServerLatency** pode ser devido à lentidão da aplicação do cliente para responder, ou devido às condições da rede.
 
@@ -497,7 +498,7 @@ Se a aplicação cliente receber uma mensagem de HTTP 404 (Não encontrado) do s
 * [O código JavaScript do lado do cliente não tem permissão para aceder ao objeto]
 * [Falha de rede]
 
-#### <a name="the-client-or-another-process-previously-deleted-the-object"></a><a name="client-previously-deleted-the-object"></a>O cliente ou outro processo eliminou anteriormente o objeto
+#### <a name="the-client-or-another-process-previously-deleted-the-object"></a><a name="client-previously-deleted-the-object"></a>O cliente ou outro processo anteriormente eliminado o objeto
 Em cenários em que o cliente está a tentar ler, atualizar ou apagar dados num serviço de armazenamento, é geralmente fácil identificar nos registos do lado do servidor uma operação anterior que apagou o objeto em questão do serviço de armazenamento. Frequentemente, os dados de registo mostram que outro utilizador ou processo apagou o objeto. No registo de registo de armazenamento do lado do servidor, as colunas de chave de objetos de funcionamento e objetos solicitados mostram quando um cliente apagou um objeto.
 
 No cenário em que um cliente está a tentar inserir um objeto, pode não ser imediatamente óbvio por que isso resulta numa resposta HTTP 404 (Não encontrada) dado que o cliente está a criar um novo objeto. No entanto, se o cliente estiver a criar uma bolha, deve ser capaz de encontrar o recipiente blob, se o cliente estiver a criar uma mensagem deve ser capaz de encontrar uma fila, e se o cliente está adicionando uma linha deve ser capaz de encontrar a mesa.
@@ -506,7 +507,7 @@ Pode utilizar o registo do lado do cliente da Biblioteca do Cliente de Armazenam
 
 O seguinte registo do lado do cliente gerado pela biblioteca do Cliente de Armazenamento ilustra o problema quando o cliente não consegue encontrar o recipiente para a bolha que está a criar. Este registo inclui detalhes das seguintes operações de armazenamento:
 
-| ID do pedido | Operação |
+| ID do Pedido | Operação |
 | --- | --- |
 | 07b26a5d-... |**EliminarIfExists** método para eliminar o recipiente blob. Note que esta operação inclui um pedido **de CABEÇA** para verificar a existência do recipiente. |
 | e2d06d78... |Crie o método **CreateIfNotExists** para criar o recipiente blob. Note que esta operação inclui um pedido **de HEAD** que verifica a existência do recipiente. O **HEAD** devolve uma mensagem 404, mas continua. |
@@ -514,7 +515,7 @@ O seguinte registo do lado do cliente gerado pela biblioteca do Cliente de Armaz
 
 Entradas de registo:
 
-| ID do pedido | Texto de operação |
+| ID do Pedido | Texto de operação |
 | --- | --- |
 | 07b26a5d-... |Iniciando pedido sincronizado para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = CABEÇA.................. x-ms-cliente-pedido-id:07b26a5d-.... x-ms-date:Tue, 03 jun 2014 10:33:11 GMT.x-ms-versão:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
@@ -557,7 +558,7 @@ Entradas de registo:
 
 Neste exemplo, o registo mostra que o cliente está a intercalar pedidos a partir do método **CreateIfNotExists** (solicitar ID e2d06d78...) com os pedidos do método **UploadFromStream** (de8b1c3c-...). Esta interleaving acontece porque a aplicação do cliente está invocando estes métodos assíncronos. Modifique o código assíncrona no cliente para garantir que cria o recipiente antes de tentar enviar quaisquer dados para uma bolha nesse recipiente. Idealmente, deve criar todos os seus recipientes com antecedência.
 
-#### <a name="a-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>Um problema de autorização da Assinatura de Acesso Partilhado (SAS)
+#### <a name="a-shared-access-signature-sas-authorization-issue"></a><a name="SAS-authorization-issue"></a>Um problema de autorização de assinatura de acesso partilhado (SAS)
 Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as permissões necessárias para a operação, o serviço de armazenamento devolve ao cliente uma mensagem HTTP 404 (Não encontrada). Ao mesmo tempo, também verá um valor não nulo para **SASAuthorizationError** nas métricas.
 
 A tabela a seguir mostra uma mensagem de registo do lado do servidor da amostra a partir do ficheiro de registo de registo de registo de registo de registo de registo de registo de armazenamento:
@@ -569,7 +570,7 @@ A tabela a seguir mostra uma mensagem de registo do lado do servidor da amostra 
 | Estado do pedido     | SASAuthorizationError        |
 | Código de estado de HTTP   | 404                            |
 | Tipo de autenticação| Rio Sas                          |
-| Tipo de serviço       | Blobs                         |
+| Tipo de serviço       | Blob                         |
 | URL do Pedido         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX &; api-version=2014-02-14 |
 | Cabeçalho de ID do pedido  | a1f348d5-8032-4912-93ef-b393e5252a3b |
@@ -627,7 +628,7 @@ Se este problema ocorrer com frequência, deverá investigar por que razão o cl
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>O cliente está a receber mensagens de HTTP 409 (Conflito)
 A tabela a seguir mostra um extrato do registo do lado do servidor para duas operações do cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de recipiente blob. Cada operação do cliente resulta em dois pedidos enviados para o servidor, primeiro um pedido **getContainerProperties** para verificar se o recipiente existe, seguido do pedido **DeleteContainer** ou **CreateContainer.**
 
-| Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido de cliente |
+| Timestamp | Operação | Resultado | Nome do contentor | ID de pedido de cliente |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
@@ -726,7 +727,7 @@ Depois de ter lançado o Fiddler, começará a capturar o tráfego HTTP e HTTPS 
 
 Para limitar a quantidade de tráfego que o Fiddler capta, pode utilizar filtros que configura no **separador Filtros.** A imagem que se segue mostra um filtro que captura apenas o tráfego enviado para o ponto final de armazenamento **contosoemaildist.table.core.windows.net:**
 
-![][5]
+![Screenshot que mostra um filtro que captura apenas o tráfego enviado para o ponto final de armazenamento contosoemaildist.table.core.windows.net.][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>Apêndice 2: Utilização de arame para capturar tráfego de rede
 [O Wireshark](https://www.wireshark.org/) é um analisador de protocolos de rede que permite visualizar informações detalhadas do pacote para uma vasta gama de protocolos de rede.
@@ -738,18 +739,18 @@ O procedimento a seguir mostra-lhe como capturar informações detalhadas do pac
 3. Clique em **Opções de Captura**.
 4. Adicione um filtro à caixa de texto **do filtro de captura.** Por exemplo, **o host contosoemaildist.table.core.windows.net** configurará a Wireshark para capturar apenas pacotes enviados para ou a partir do ponto final do serviço de mesa na conta de armazenamento **contosomaildista.** Confira a [lista completa de filtros de captura.](https://wiki.wireshark.org/CaptureFilters)
 
-   ![][6]
+   ![Screenshot que mostra como adicionar um filtro à caixa de texto do filtro de captura.][6]
 5. Clique em **Iniciar**. A Wireshark irá agora capturar todos os pacotes enviados para ou a partir do ponto final do serviço de mesa, uma vez que utiliza a aplicação do seu cliente na sua máquina local.
 6. Quando terminar, no menu principal clique em **Captura** e depois **Pare**.
 7. Para guardar os dados capturados num Ficheiro de Captura de Arame, no menu principal clique em **Ficheiro** e, em seguida, **Guarde**.
 
 O WireShark irá destacar quaisquer erros que existam na janela da **lista de pacotes.** Também pode utilizar a janela **Expert Info** (clique em **Analisar,** em **seguida, Expert Info**) para ver um resumo de erros e avisos.
 
-![][7]
+![Screenshot que mostra a janela Expert Info onde pode ver um resumo de erros e avisos.][7]
 
 Também pode optar por visualizar os dados da TCP à medida que a camada de aplicação os vê clicando corretamente nos dados da TCP e selecionando **o Follow TCP Stream**. Isto é útil se capturar a sua lixeira sem um filtro de captura. Para obter mais informações, consulte [as correntes de TCP seguintes.](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)
 
-![][8]
+![Screenshot que mostra como ver os dados da TCP à medida que a camada de aplicação o vê.][8]
 
 > [!NOTE]
 > Para obter mais informações sobre a utilização do Wireshark, consulte o [Guia de Utilizadores de Arame.](https://www.wireshark.org/docs/wsug_html_chunked)
@@ -782,11 +783,11 @@ Além de utilizar o traço de **procuração web** do Microsoft Message Analyzer
 
 A imagem que se segue mostra um exemplo de traço **de camada de ligação local** com algumas mensagens **informativas** na coluna **DiagnosticsTypes.** Clicar num ícone na coluna **DiagnosticsTypes** mostra os detalhes da mensagem. Neste exemplo, a mensagem retransmitida do servidor #305 porque não recebeu um aviso do cliente:
 
-![][9]
+![Screenshot que mostra um exemplo traço de camada de ligação local com algumas mensagens informativas na coluna DeTypes de Diagnóstico][9]
 
 Quando criar a sessão de rastreio no Microsoft Message Analyzer, pode especificar filtros para reduzir a quantidade de ruído no vestígio. Na página **Captura / Trace** onde define o traço, clique na ligação **Configure** ao lado **do Microsoft-Windows-NDIS-PacketCapture**. A imagem que se segue mostra uma configuração que filtra o tráfego TCP para os endereços IP de três serviços de armazenamento:
 
-![][10]
+![Screenshot que mostra uma configuração que filtra o tráfego TCP para os endereços IP de três serviços de armazenamento.][10]
 
 Para obter mais informações sobre o rastreio da camada de link local do Analisador de Mensagens da Microsoft, consulte [o Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 

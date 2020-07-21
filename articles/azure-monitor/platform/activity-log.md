@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 77946694253ff0c1c6953d0b20836d3cb6733801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082306"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516146"
 ---
 # <a name="azure-activity-log"></a>Log de atividades Azure
 O registo de Atividades é um [registo de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Para obter funcionalidades adicionais, deverá criar uma definição de diagnóstico para enviar o registo de Atividade para [Registos do Monitor Azure,](data-platform-logs.md)para Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar. Este artigo fornece detalhes sobre a visualização do registo de atividade e o envio para diferentes destinos.
@@ -43,9 +43,9 @@ Se houver alguma alteração associada ao evento, verá uma lista de alteraçõe
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Outros métodos para recuperar eventos de registo de atividade
 Também pode aceder a eventos de registo de atividades utilizando os seguintes métodos.
 
-- Utilize o [cmdlet Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) para recuperar o Registo de Atividade da PowerShell. Consulte [as amostras powerShell do Monitor Azure](../samples/powershell-samples.md#retrieve-activity-log).
-- Utilize [log de atividade do monitor az](https://docs.microsoft.com/cli/azure/monitor/activity-log) para recuperar o Registo de Atividade do CLI.  Consulte [as amostras do CLI do Monitor Azure](../samples/cli-samples.md#view-activity-log).
-- Utilize a [API REST Monitor Azure](https://docs.microsoft.com/rest/api/monitor/) para recuperar o Registo de Atividades de um cliente REST. 
+- Utilize o [cmdlet Get-AzLog](/powershell/module/az.monitor/get-azlog) para recuperar o Registo de Atividade da PowerShell. Consulte [as amostras powerShell do Monitor Azure](../samples/powershell-samples.md#retrieve-activity-log).
+- Utilize [log de atividade do monitor az](/cli/azure/monitor/activity-log) para recuperar o Registo de Atividade do CLI.  Consulte [as amostras do CLI do Monitor Azure](../samples/cli-samples.md#view-activity-log).
+- Utilize a [API REST Monitor Azure](/rest/api/monitor/) para recuperar o Registo de Atividades de um cliente REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para a área de trabalho do Log Analytics
@@ -58,9 +58,9 @@ Também pode aceder a eventos de registo de atividades utilizando os seguintes m
 - Armazenar entradas de registo de atividade por mais de 90 dias.
 - Nenhuma taxa de ingestão de dados ou taxa de retenção de dados para os dados de registo de atividade armazenados num espaço de trabalho do Log Analytics.
 
-[Crie uma definição de diagnóstico](diagnostic-settings.md) para enviar o registo de Atividade para um espaço de trabalho Log Analytics. Pode enviar o registo de Atividade de qualquer subscrição para até cinco espaços de trabalho. Recolher troncos através dos inquilinos requer [farol Azure.](/azure/lighthouse)
+[Crie uma definição de diagnóstico](diagnostic-settings.md) para enviar o registo de Atividade para um espaço de trabalho Log Analytics. Pode enviar o registo de Atividade de qualquer subscrição para até cinco espaços de trabalho. Recolher troncos através dos inquilinos requer [farol Azure.](../../lighthouse/index.yml)
 
-Os dados de registo de atividade num espaço de trabalho do Log Analytics são armazenados numa tabela chamada *AzureActivity* que pode obter com uma [consulta de log](../log-query/log-query-overview.md) em Log [Analytics](../log-query/get-started-portal.md). A estrutura deste quadro varia consoante a [categoria da entrada de registo](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a referência de dados do [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
+Os dados de registo de atividade num espaço de trabalho do Log Analytics são armazenados numa tabela chamada *AzureActivity* que pode obter com uma [consulta de log](../log-query/log-query-overview.md) em Log [Analytics](../log-query/get-started-portal.md). A estrutura deste quadro varia consoante a [categoria da entrada de registo](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a referência de dados do [Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Por exemplo, para visualizar uma contagem de registos de atividade para cada categoria, utilize a seguinte consulta.
 
@@ -201,7 +201,7 @@ Se já existe um perfil de registo, primeiro tem de remover o perfil de registo 
 
     | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
-    | Name |Sim |O nome do seu perfil de registo. |
+    | Nome |Sim |O nome do seu perfil de registo. |
     | ArmazenamentoAccountId |Não |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
     | serviçoBusRuleId |Não |Service Bus Rule ID para o espaço de nomes do Service Bus que você gostaria de ter centros de eventos criados. Esta é uma corda com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista de regiões separadas por vírgulas para as quais gostaria de recolher eventos de Registo de Atividade. |
@@ -246,8 +246,8 @@ Se já existe um perfil de registo, primeiro tem de remover o perfil de registo 
     | --- | --- | --- |
     | name |Sim |O nome do seu perfil de registo. |
     | armazenamento-id conta |Sim |Identificação de recursos da Conta de Armazenamento para a qual devem ser guardados registos de atividade. |
-    | localizações |Sim |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividade. Pode ver uma lista de todas as regiões para a sua subscrição utilizando `az account list-locations --query [].name` . |
-    | dias |Sim |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
+    | Locais |Sim |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividade. Pode ver uma lista de todas as regiões para a sua subscrição utilizando `az account list-locations --query [].name` . |
+    | Dias |Sim |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
     |ativado | Sim |Verdadeiro ou Falso.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
     | categories |Sim |Lista separada do espaço das categorias de eventos que devem ser recolhidas. Os valores possíveis são escrever, eliminar e agir. |
 
@@ -281,7 +281,7 @@ As colunas da tabela seguinte foram depreciadas no esquema atualizado. Ainda exi
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> Em alguns casos, os valores nestas colunas podem estar em todas as maiúsculas. Se tiver uma consulta que inclua estas colunas, deve utilizar o [operador =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) para fazer uma comparação insensível a casos.
+> Em alguns casos, os valores nestas colunas podem estar em todas as maiúsculas. Se tiver uma consulta que inclua estas colunas, deve utilizar o [operador =~](/azure/kusto/query/datatypes-string-operators) para fazer uma comparação insensível a casos.
 
 A seguinte coluna foi adicionada à *AzureActivity* no esquema atualizado:
 

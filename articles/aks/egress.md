@@ -5,20 +5,22 @@ description: Saiba como criar e utilizar um endereço IP público estático para
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f7ea25c3348b96ec6d8818e8e1db4660b308dabc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205784"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517778"
 ---
-# <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para tráfego de saídas no Serviço Azure Kubernetes (AKS)
+# <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para tráfego de saída com um balanceador de carga *SKU básico* no Serviço Azure Kubernetes (AKS)
 
-Por predefinição, o endereço IP de saída de um cluster Azure Kubernetes Service (AKS) é atribuído aleatoriamente. Esta configuração não é ideal quando precisa de identificar um endereço IP para acesso a serviços externos, por exemplo. Em vez disso, poderá ter de atribuir um endereço IP estático que pode ser whitelist para acesso ao serviço.
+Por predefinição, o endereço IP de saída de um cluster Azure Kubernetes Service (AKS) é atribuído aleatoriamente. Esta configuração não é ideal quando precisa de identificar um endereço IP para acesso a serviços externos, por exemplo. Em vez disso, poderá ter de atribuir um endereço IP estático para ser adicionado a uma lista de permitis de acesso ao serviço.
 
 Este artigo mostra-lhe como criar e usar um endereço IP público estático para uso com tráfego de saída num cluster AKS.
 
 ## <a name="before-you-begin"></a>Before you begin
+
+Este artigo pressupõe que está a utilizar o Balançador de Carga Básica Azure.  Recomendamos a utilização do [Balançador de Carga Padrão Azure,](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)e pode utilizar funcionalidades mais avançadas para [controlar o tráfego de saídas AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -105,7 +107,7 @@ Para verificar se o endereço IP público estático está a ser utilizado, pode 
 Iniciar e anexar a uma cápsula *de debian* básica:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 Para aceder a um web site a partir do recipiente, utilize `apt-get` para instalar `curl` no recipiente.
@@ -122,7 +124,7 @@ $ curl -s checkip.dyndns.org
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para evitar a manutenção de vários endereços IP públicos no Balançador de Carga Azure, pode utilizar um controlador de entrada. Os controladores ingress fornecem benefícios adicionais, tais como a rescisão SSL/TLS, suporte para reescritas URI e encriptação SSL/TLS a montante. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][ingress-aks-cluster].
 

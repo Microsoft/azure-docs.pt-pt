@@ -3,15 +3,17 @@ title: Monitorar um cluster do Serviço Azure Kubernetes (AKS) implantado Micros
 description: Saiba como permitir a monitorização de um cluster Azure Kubernetes Service (AKS) com o Azure Monitor para contentores já implantados na sua subscrição.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 2dabbe7a5c0e183363fe05bc4e75da0b6a346e6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-terraform
+ms.openlocfilehash: 438e9cfeebc561815c5c0cdbc70123fab718fed1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337977"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516656"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
 
-Este artigo descreve como configurar o Azure Monitor para contentores para monitorizar o cluster gerido kubernetes hospedado no [Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/) que já foram implantados na sua subscrição.
+Este artigo descreve como configurar o Azure Monitor para contentores para monitorizar o cluster gerido kubernetes hospedado no [Serviço Azure Kubernetes](../../aks/index.yml) que já foram implantados na sua subscrição.
 
 Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando um dos métodos suportados:
 
@@ -166,7 +168,7 @@ Se não estiver familiarizado com o conceito de implantação de recursos utiliz
 
 * [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.59 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.59 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Criar e executar um modelo
 

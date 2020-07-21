@@ -47,8 +47,6 @@
       href: controls.md
     - name: Migrações de políticas clássicas
       href: policy-migration.md
-    - name: Políticas de proteção de linha de base
-      href: concept-baseline-protection.md
 - name: Guias de procedimentos
   expanded: true
   items:

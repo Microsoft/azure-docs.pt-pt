@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e95d25e4f26abc48f2a734cf8456739e6ef55b84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a67981e2919854b80479ccc1c27ecf97469eebce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807702"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518691"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Use o PowerShell para atribuir uma função RBAC para acesso a dados de bolhas e filas
 
@@ -107,7 +107,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-### <a name="resource-group-scope"></a>Âmbito do grupo de recursos
+### <a name="resource-group-scope"></a>Âmbito de grupo de recursos
 
 Para atribuir uma função ao grupo de recursos, especifique o nome do grupo de recursos ou o ID para o `--resource-group` parâmetro. O exemplo a seguir atribui o papel **de Leitor de Dados de Fila de Armazenamento** a um utilizador ao nível do grupo de recursos. Certifique-se de que substitui os valores da amostra e dos lugares nos parênteses pelos seus próprios valores: 
 

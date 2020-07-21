@@ -4,11 +4,12 @@ description: Receba um resumo periódico para as suas recomendações ativas
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502467"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518084"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configure resumo periódico para recomendações
 
@@ -20,7 +21,7 @@ As **digestão de recomendação** do conselho proporcionam uma forma fácil e p
 A experiência de criação **de recomendação digerida** ajuda-o a configurar o resumo. Pode selecionar parâmetros abaixo para configurações:
 1. Categoria: Temos categorias de recomendações como custo, alta disponibilidade, desempenho e excelência operacional. A capacidade ainda não está disponível para recomendações de segurança.
 2. Frequência de digestão: A frequência para as notificações resumida pode ser semanal, bi-semanal e mensal.
-3. Grupo de ação: Pode selecionar um grupo de ação existente ou criar um novo grupo de ação. Para saber mais sobre grupos de ação, consulte [criar e gerir grupos de ação.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+3. Grupo de ação: Pode selecionar um grupo de ação existente ou criar um novo grupo de ação. Para saber mais sobre grupos de ação, consulte [criar e gerir grupos de ação.](../azure-monitor/platform/action-groups.md)
 4. Linguagem para a digestão
 5. Recomendação digestão nome: Pode utilizar uma corda fácil de utilizar para acompanhar melhor e monitorizar as digestão.
 
@@ -43,7 +44,7 @@ Aqui estão os passos para criar **a digestão da recomendação:**
 
    ![Fornecer condições de entrada de digestão de recomendação](./media/digest-2.png)
 
-* **Passo 5:** Na secção **de grupo de ação,** selecione o **grupo de ação** para a digestão. Pode aprender mais aqui - [Criar e gerir grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Passo 5:** Na secção **de grupo de ação,** selecione o **grupo de ação** para a digestão. Pode aprender mais aqui - [Criar e gerir grupos de ação](../azure-monitor/platform/action-groups.md)
 
    ![Fornecer grupo de ação de entrada de digestão de recomendação](./media/digest-3.png)
 
@@ -59,4 +60,4 @@ Para obter mais informações sobre recomendações do Advisor, consulte:
 * [Recomendações de Desempenho do Conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de Segurança do Conselheiro](advisor-security-recommendations.md)
 * [Recomendações de Excelência Operacional Do Consultor](advisor-operational-excellence-recommendations.md)
-* [Conselheiro REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Conselheiro REST API](/rest/api/advisor/)

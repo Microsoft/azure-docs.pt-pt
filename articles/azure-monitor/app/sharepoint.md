@@ -3,15 +3,19 @@ title: Monitorize um site do SharePoint com o Application Insights
 description: Comece a monitorizar uma nova aplicação com uma nova chave de instrumentação
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.openlocfilehash: b9b31a715b19d6c06cbddb91c0bd9279088c4447
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a545a24b5a9af883200f25cc83486e3c5621bd78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221056"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516894"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorize um site do SharePoint com o Application Insights
+
 O Azure Application Insights monitoriza a disponibilidade, o desempenho e a utilização das suas aplicações. Aqui, irá aprender a configurá-lo para um site do SharePoint.
+
+> [!NOTE]
+> Devido a questões de segurança, não é possível adicionar diretamente o script descrito neste artigo às suas páginas web no UX moderno do SharePoint. Como alternativa, pode utilizar [o SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) para construir uma extensão personalizada que pode utilizar para instalar Insights de Aplicação nos seus sites SharePoint. Para saber mais, consulte [Como criar uma solução de extensão SPFx com AppInsights instalados de raiz](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) ou ver a [amostra](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample). 
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 No [Portal do Azure](https://portal.azure.com), crie um recurso do Application Insights novo. Escolha ASP.NET como o tipo de aplicação.
@@ -137,5 +141,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) para outros tipos de aplicação.
 
 <!--Link references-->
-
-

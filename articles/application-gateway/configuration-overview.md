@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 1e3ef1133628f0470ee92237abf20d3bb0a9e21a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0245a23e46770840295904685c913826950c0642
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254672"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517859"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de Aplicação
 
@@ -146,7 +146,7 @@ Quando cria um novo ouvinte, escolhe-se entre [ *o básico* e *o multi-site*](ht
 
 - Se quiser que todos os seus pedidos (para qualquer domínio) sejam aceites e reencaminhados para piscinas de backend, escolha o básico. Saiba [como criar uma porta de aplicação com um ouvinte básico.](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 
-- Se pretender encaminhar pedidos para diferentes piscinas de backend com base no cabeçalho do *anfitrião* ou nome de anfitrião, escolha o ouvinte de vários locais, onde também deve especificar um nome de anfitrião que corresponda ao pedido de entrada. Isto porque o Application Gateway conta com cabeçalhos de anfitrião HTTP 1.1 para hospedar mais de um website no mesmo endereço IP público e porta.
+- Se pretender encaminhar pedidos para diferentes piscinas de backend com base no cabeçalho do *anfitrião* ou nomes de anfitrião, escolha o ouvinte de vários locais, onde também deve especificar um nome de anfitrião que corresponda ao pedido de entrada. Isto porque o Application Gateway conta com cabeçalhos de anfitrião HTTP 1.1 para hospedar mais de um website no mesmo endereço IP público e porta. Para saber mais, consulte [a hospedagem de vários sites utilizando o Application Gateway](multiple-site-overview.md).
 
 #### <a name="order-of-processing-listeners"></a>Ordem de processamento dos ouvintes
 
@@ -279,12 +279,16 @@ Para obter mais informações sobre a reorientação, consulte:
 - [Redirecione o tráfego para um site externo utilizando o PowerShell](redirect-external-site-powershell.md)
 - [Redirecione o tráfego para um site externo utilizando o CLI](redirect-external-site-cli.md)
 
-#### <a name="rewrite-the-http-header-setting"></a>Reescreva a definição do cabeçalho HTTP
+### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
 
-Esta definição adiciona, remove ou atualiza os cabeçalhos de pedido e resposta HTTP enquanto os pacotes de pedido e resposta se movem entre o cliente e as piscinas traseiras. Para obter mais informações, consulte:
+Ao utilizar regras de reescrita, pode adicionar, remover ou atualizar os cabeçalhos de pedido e resposta HTTP(S), bem como os parâmetros de trajetória e de consulta de URL, à medida que os pacotes de pedido e resposta se movem entre o cliente e as piscinas de backend através do gateway de aplicação.
 
- - [Reescrever visão geral dos cabeçalhos HTTP](rewrite-http-headers.md)
+Os cabeçalhos e parâmetros URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis do servidor. Isto ajuda com casos importantes de utilização, tais como a extração de endereços IP do cliente, a remoção de informações sensíveis sobre o backend, adicionando mais segurança, e assim por diante.
+Para obter mais informações, veja:
+
+ - [Reescrever visão geral dos cabeçalhos HTTP](rewrite-http-headers-url.md)
  - [Configure HTTP reescrita cabeçalho HTTP](rewrite-http-headers-portal.md)
+ - [Configure URL reescrever](rewrite-url-portal.md)
 
 ## <a name="http-settings"></a>Definições de HTTP
 
@@ -357,7 +361,7 @@ Esta definição associa uma [sonda personalizada](application-gateway-probe-ove
 > [!NOTE]
 > A sonda personalizada não monitoriza a saúde da piscina traseira a menos que a definição HTTP correspondente esteja explicitamente associada a um ouvinte.
 
-### <a name="pick-host-name-from-back-end-address"></a><a id="pick"/></a>Escolha o nome do anfitrião a partir do endereço back-end
+### <a name="pick-host-name-from-back-end-address"></a><a name="pick"></a>Escolha o nome do anfitrião a partir do endereço back-end
 
 Esta capacidade define dinamicamente o cabeçalho do *anfitrião* no pedido para o nome de anfitrião da piscina de back-end. Utiliza um endereço IP ou FQDN.
 

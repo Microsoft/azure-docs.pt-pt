@@ -4,12 +4,12 @@ description: Envie notificações personalizadas sobre eventos de saúde de serv
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
-ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05b0572c89a29fddc881f9977ee437d1319e6254
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062845"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518933"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Utilize um webhook para configurar notificações de saúde para sistemas de gestão de problemas
 
@@ -96,7 +96,7 @@ Este exemplo mostra problemas para:
 
 ## <a name="test-your-webhook-integration-via-an-http-post-request"></a>Teste a sua integração webhook através de um pedido HTTP POST
 
-Siga estes passos.
+Siga estes passos:
 
 1. Crie a carga útil de saúde de serviço que pretende enviar. Consulte um serviço de exemplo webhook payload na [Webhooks para alertas de registo de atividades Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
@@ -113,7 +113,7 @@ Siga estes passos.
 
 1. Vá ao [PagerDuty](https://www.pagerduty.com/) confirmar que a sua integração foi configurada com sucesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre [as notificações de saúde do serviço.](../azure-monitor/platform/service-notifications.md)
+- Saiba mais sobre [as notificações de saúde do serviço.](./service-notifications.md)
 - Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)

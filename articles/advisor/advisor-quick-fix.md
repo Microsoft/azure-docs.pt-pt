@@ -4,11 +4,12 @@ description: Executar remediação a granel usando Quick Fix no Advisor
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: 3c3ac27f04aa516fbef1bfff30e3392659b58919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518067"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Remediação de Correção Rápida para Assessor
 **O Quick Fix** permite uma forma mais rápida e fácil de remediar para recomendação sobre múltiplos recursos. Fornece capacidade para remediações a granel para recursos e ajuda-o a otimizar as suas subscrições mais rapidamente com a remediação em escala para os seus recursos.
@@ -49,4 +50,4 @@ Para obter mais informações sobre recomendações do Advisor, consulte:
 * [Recomendações de Desempenho do Conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de Segurança do Conselheiro](advisor-security-recommendations.md)
 * [Recomendações de Excelência Operacional Do Consultor](advisor-operational-excellence-recommendations.md)
-* [Conselheiro REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Conselheiro REST API](/rest/api/advisor/)

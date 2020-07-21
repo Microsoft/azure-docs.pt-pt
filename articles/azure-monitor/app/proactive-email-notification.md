@@ -6,11 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41298be1b0288f429647d8b38a1cc75dd2c40b0a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516758"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração da notificação de e-mail de deteção inteligente
 
@@ -18,7 +19,7 @@ Com base no feedback do cliente, no dia 1 de abril de 2019, estamos a alterar as
 
 ## <a name="what-is-changing"></a>O que está a mudar?
 
-Atualmente, as notificações de email de Deteção Inteligente são enviadas por defeito para as funções _de Proprietário de Assinatura,_ _Colaborador de Assinatura_e Leitor _de Assinaturas._ Estas funções incluem frequentemente utilizadores que não estão ativamente envolvidos na monitorização, o que faz com que muitos destes utilizadores recebam notificações desnecessariamente. Para melhorar esta experiência, estamos a fazer uma alteração para que as notificações por e-mail apenas vão para as funções [de Monitore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) por padrão.
+Atualmente, as notificações de email de Deteção Inteligente são enviadas por defeito para as funções _de Proprietário de Assinatura,_ _Colaborador de Assinatura_e Leitor _de Assinaturas._ Estas funções incluem frequentemente utilizadores que não estão ativamente envolvidos na monitorização, o que faz com que muitos destes utilizadores recebam notificações desnecessariamente. Para melhorar esta experiência, estamos a fazer uma alteração para que as notificações por e-mail apenas vão para as funções [de Monitore](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) por padrão.
 
 ## <a name="scope-of-this-change"></a>Âmbito desta mudança
 
@@ -26,13 +27,13 @@ Esta alteração afetará todas as regras de Deteção Inteligente, excluindo as
 
 * Regras de Deteção Inteligente marcadas como pré-visualização. Estas regras de Deteção Inteligente não suportam notificações por e-mail hoje em dia.
 
-* As anomalias de falha reinam. Esta regra começará a direcionar as novas funções predefinidas uma vez que é migrada de um alerta clássico para a plataforma de alertas unificados (mais informações estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).)
+* As anomalias de falha reinam. Esta regra começará a direcionar as novas funções predefinidas uma vez que é migrada de um alerta clássico para a plataforma de alertas unificados (mais informações estão disponíveis [aqui](../platform/monitoring-classic-retirement.md).)
 
 ## <a name="how-to-prepare-for-this-change"></a>Como se preparar para esta mudança?
 
-Para garantir que as notificações por e-mail de Smart Detection são enviadas para utilizadores relevantes, esses utilizadores devem ser atribuídos às funções de [Monitor ou](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) da subscrição.
+Para garantir que as notificações por e-mail de Smart Detection são enviadas para utilizadores relevantes, esses utilizadores devem ser atribuídos às funções de [Monitor ou](../../role-based-access-control/built-in-roles.md#monitoring-reader) [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) da subscrição.
 
-Para atribuir os utilizadores às funções de Monitoring Reader ou Monitoring Contributor através do portal Azure, siga os passos descritos no artigo de atribuição de [funções Add.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) Certifique-se de selecionar o _Leitor de Monitorização_ ou _o Colaborador de Monitorização_ como a função a que os utilizadores estão atribuídos.
+Para atribuir os utilizadores às funções de Monitoring Reader ou Monitoring Contributor através do portal Azure, siga os passos descritos no artigo de atribuição de [funções Add.](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) Certifique-se de selecionar o _Leitor de Monitorização_ ou _o Colaborador de Monitorização_ como a função a que os utilizadores estão atribuídos.
 
 > [!NOTE]
 > Os destinatários específicos das notificações de Deteção Inteligente, configurados utilizando a opção adicional de destinatários de _e-mail_ nas definições de regras, não serão afetados por esta alteração. Estes destinatários continuarão a receber as notificações por e-mail.

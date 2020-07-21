@@ -8,11 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889705"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517880"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para Application Gateway
 
@@ -61,7 +62,7 @@ Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupNa
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
 ```
 
-### <a name="results"></a>Resultados
+### <a name="results"></a>Results
 
 O seguinte corte mostra um exemplo da resposta:
 
@@ -155,7 +156,9 @@ O Azure gera o registo de atividade por predefinição. Os registos são preserv
 
 ### <a name="access-log"></a>Registo de acesso
 
-O registo de acesso só é gerado se o tiver ativado em cada instância do Gateway de Aplicação, conforme detalhado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou a sessão. Cada acesso do Gateway de Aplicações é registado no formato JSON, como mostra o seguinte exemplo para v1:
+O registo de acesso só é gerado se o tiver ativado em cada instância do Gateway de Aplicação, conforme detalhado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou a sessão. Cada acesso do Application Gateway é registado no formato JSON como mostrado abaixo. 
+
+#### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>Para o Padrão de Gateway de Aplicação e WAF SKU (v1)
 
 |Valor  |Descrição  |
 |---------|---------|
@@ -199,7 +202,7 @@ O registo de acesso só é gerado se o tiver ativado em cada instância do Gatew
     }
 }
 ```
-Para o Gateway de Aplicações e WAF v2, os registos mostram um pouco mais de informação:
+#### <a name="for-application-gateway-and-waf-v2-sku"></a>Para o Gateway de Aplicações e WAF v2 SKU
 
 |Valor  |Descrição  |
 |---------|---------|
@@ -220,7 +223,10 @@ Para o Gateway de Aplicações e WAF v2, os registos mostram um pouco mais de in
 |serverrouted| O servidor backend que o gateway de aplicação encaminha o pedido para.|
 |serverStatus| Código de estado HTTP do servidor backend.|
 |servidorReseLatency| Latência da resposta do servidor de backend.|
-|anfitrião| Endereço listado no cabeçalho anfitrião do pedido.|
+|anfitrião| Endereço listado no cabeçalho anfitrião do pedido. Se reescrito, este campo contém o nome de anfitrião atualizado|
+|originalRequestUriWithArgs| Este campo contém o URL de pedido original |
+|requestUri| Este campo contém o URL após a operação de reescrita no Gateway de Aplicação |
+|originalHost| Este campo contém o nome de anfitrião de pedido original
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -261,7 +267,7 @@ O registo de desempenho só é gerado se o tiver ativado em cada instância do G
 |saudávelHostCount     | Número de anfitriões saudáveis na piscina de fundo.        |
 |unHealthyHostCount     | Número de anfitriões insalubres na piscina de trás.        |
 |pedidosoconselho     | Número de pedidos servidos.        |
-|latência | Latência média (em milissegundos) de pedidos da instância até ao fim que serve os pedidos. |
+|Latência | Latência média (em milissegundos) de pedidos da instância até ao fim que serve os pedidos. |
 |Recatado falhou RequestCount| Número de pedidos falhados.|
 |de transferência de dados| Produção média desde o último log, medido em bytes por segundo.|
 
@@ -302,7 +308,7 @@ O registo de firewall só é gerado se o tiver ativado para cada porta de entrad
 |regrasPartever     | Versão definida por regras utilizada. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID de regra do evento de desencadeamento.        |
 |message     | Mensagem fácil de utilizar para o evento de desencadeamento. Mais detalhes são fornecidos na secção de detalhes.        |
-|action     |  Medidas tomadas no pedido. Os valores disponíveis são combinados e bloqueados.      |
+|ação     |  Medidas tomadas no pedido. Os valores disponíveis são combinados e bloqueados.      |
 |site     | Local para o qual o registo foi gerado. Atualmente, apenas a Global está listada porque as regras são globais.|
 |detalhes     | Detalhes do evento de desencadeamento.        |
 |detalhes.mensagem     | Descrição da regra.        |

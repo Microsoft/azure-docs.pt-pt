@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: cf0e5267885df1ace51271c53bb2d68ee5002f00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d8c7ce62f7c592c396fa1ea7a7f5e7dc7df2dc1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335436"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517591"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Procure uma localização utilizando os serviços de pesquisa do Azure Maps
 
@@ -29,7 +29,7 @@ Neste artigo você vai aprender, como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos deste artigo, você precisa primeiro criar uma conta Azure Maps e obter a chave de subscrição de conta de mapas. Siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma subscrição de conta Azure Maps e seguir os passos na chave [principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
+Para completar os passos deste artigo, você precisa primeiro criar uma conta Azure Maps e obter a chave de subscrição de conta de mapas. Siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma subscrição de conta Azure Maps e seguir os passos na chave [principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
 
 Este artigo utiliza a [aplicação Do Carteiro](https://www.getpostman.com/apps) para construir chamadas REST. Você pode usar qualquer ambiente de desenvolvimento da API que você preferir.
 
@@ -57,7 +57,7 @@ Se tiver um conjunto de endereços para geocódigo, pode utilizar a API do [Lote
 
 | Chave | Valor | 
 |------------------|-------------------------| 
-| api-version | 1.0 | 
+| api-version | 1,0 | 
 | chave de assinatura | \<your Azure Maps key\> | 
 | consulta | 400 Broad St, Seattle, WA 98109 | 
 
@@ -107,7 +107,7 @@ A maioria das consultas de pesquisa padrão `maxFuzzyLevel=1` para obter desempe
 
     | Chave | Valor |
     |------------------|-------------------------|
-    | api-version | 1.0 |
+    | api-version | 1,0 |
     | chave de assinatura | \<your Azure Maps key\> |
     | consulta | pizza |
 
@@ -161,7 +161,7 @@ Se tiver um conjunto de localizações de coordenadas para reverter o geocódigo
   
     | Chave | Valor |
     |------------------|-------------------------|
-    | api-version | 1.0 |
+    | api-version | 1,0 |
     | chave de assinatura | \<your Azure Maps key\> |
     | consulta | 47.591180,-122.332700 |
   
@@ -219,13 +219,13 @@ Se tiver um conjunto de localizações de coordenadas para reverter o geocódigo
   
     | Chave | Valor |
     |------------------|-------------------------|
-    | api-version | 1.0 |
+    | api-version | 1,0 |
     | chave de assinatura | \<your Azure Maps key\> |
     | consulta | 47.591180,-122.332700 |
   
 4. Clique **em Enviar** e rever o corpo de resposta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Explore a documentação do [Serviço de Pesquisa AZure Maps REST API](https://docs.microsoft.com/rest/api/maps/search).
 - Saiba mais sobre as [melhores práticas do Azure Maps Search Service](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) e como otimizar as suas consultas.

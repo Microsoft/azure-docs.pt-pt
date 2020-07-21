@@ -3,12 +3,12 @@ title: Use a Powershell para definir alertas em Insights de Aplicação Microsof
 description: Automatizar a configuração do Application Insights para obter e-mails sobre alterações métricas.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: ea33ecfbc02bfed75a66e751ce1788474a6d0e8f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3a3d614ec57242a2ea4b29a86d6365a2efe56f94
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111308"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516962"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 
@@ -122,7 +122,7 @@ A mesma regra pode ser usada para a métrica relatada utilizando o parâmetro de
 | `remoteDependencyFailed.durationMetric.count` |Falhas de dependência |Contagem de chamadas falhadas feitas pela aplicação do servidor a recursos externos. |
 | `request.duration` |Tempo de resposta do servidor |Tempo entre receber um pedido HTTP e terminar o envio da resposta. |
 | `request.rate` |Taxa de pedido |Taxa de todos os pedidos para o pedido por segundo. |
-| `requestFailed.count` |Pedidos falhados |Contagem de pedidos HTTP que resultaram num código de resposta >= 400 |
+| `requestFailed.count` |Pedidos com falhas |Contagem de pedidos HTTP que resultaram num código de resposta >= 400 |
 | `view.count` |Vistas da página |Contagem de pedidos de utilizador do cliente para uma página web. O tráfego sintético é filtrado. |
 | {o seu nome métrico personalizado} |{O seu nome métrico} |O seu valor métrico reportado pela [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) ou no [parâmetro de medição de uma chamada de rastreio](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
@@ -139,7 +139,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 Pode [automatizar a sua resposta a um alerta.](../../azure-monitor/platform/alerts-webhooks.md) O Azure irá ligar para um endereço web à sua escolha quando um alerta for levantado.
 
 ## <a name="see-also"></a>Veja também
-* [Script para configurar insights de aplicações](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [Script para configurar insights de aplicações](./create-new-resource.md#creating-a-resource-automatically)
 * [Criar Insights de Aplicação e recursos de teste web a partir de modelos](powershell.md)
 * [Automatizar o acoplamento do Microsoft Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)
 * [Automatize a sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md)

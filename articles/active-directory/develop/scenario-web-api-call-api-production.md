@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 078ed3e5f3a19bfa4350f9edea858b717c69e3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aea3a173fd07b66021d35142a84499ae9c66c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518203"
 ---
 # <a name="a-web-api-that-calls-web-apis-move-to-production"></a>Uma API web que chama APIs web: Mover para a produção
 
@@ -23,10 +24,10 @@ Depois de adquirir um token para chamar APIs web, pode mover a sua app para a pr
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 Agora que conhece os fundamentos de como chamar APIs web da sua própria API web, pode estar interessado no seguinte tutorial, que descreve o código que é usado para construir uma API web protegida que chama APIs web.
 
 | Sample | Plataforma | Descrição |
 |--------|----------|-------------|
-| [active-directório-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2.2 web API, Desktop (WPF) | ASP.NET Core 2.2 web API chama o Microsoft Graph, que você chama a partir de uma aplicação WPF usando a plataforma de identidade Microsoft (v2.0). |
+| [active-directório-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) capítulo 1 | ASP.NET Core web API, Desktop (WPF) | ASP.NET Core web API chama o Microsoft Graph, que você chama a partir de uma aplicação WPF usando a plataforma de identidade Microsoft (v2.0). |

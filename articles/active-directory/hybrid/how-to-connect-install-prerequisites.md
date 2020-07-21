@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bd19093034b4427d9e1b637a653a90e0568cddf
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 11d5c1bb133f0aea241fbc55f96ab5f8818e5ed6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223929"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518118"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este tópico descreve os requisitos prévios e os requisitos de hardware para Azure AD Connect.
@@ -34,7 +34,7 @@ Antes de instalar o Azure AD Connect, há algumas coisas que precisa.
   * O [portal Azure.](https://portal.azure.com)
   * O [portal do Escritório.](https://portal.office.com)  
 * [Adicione e verifique o domínio](../active-directory-domains-add-azure-portal.md) que pretende utilizar no Azure AD. Por exemplo, se planeia utilizar contoso.com para os seus utilizadores, certifique-se de que este domínio foi verificado e não está apenas a utilizar o domínio contoso.onmicrosoft.com predefinido.
-* Um inquilino AZURE AD permite por defeito 50k objetos. Quando verifica o seu domínio, o limite é aumentado para 300 mil objetos. Se precisa de ainda mais objetos em Azure AD, então precisa abrir um caso de suporte para aumentar ainda mais o limite. Se precisa de mais de 500 mil objetos, então precisa de uma licença, como Office 365, Azure AD Basic, Azure AD Premium ou Enterprise Mobility and Security.
+* Um inquilino AZURE AD permite por defeito 50k objetos. Quando verifica o seu domínio, o limite é aumentado para 300 mil objetos. Se precisa de ainda mais objetos em Azure AD, então precisa abrir um caso de suporte para aumentar ainda mais o limite. Se precisa de mais de 500 mil objetos, então precisa de uma licença, como o Office 365, Azure AD Premium ou Enterprise Mobility and Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Prepare os seus dados no local
 * Utilize [o IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) para identificar erros como duplicados e problemas de formatação no seu diretório antes de sincronizar com a AD E o Office 365.
@@ -56,7 +56,7 @@ Para ler mais sobre a segurança do seu ambiente de Diretório Ativo, consulte [
 
 #### <a name="installation-prerequisites"></a>Pré-requisitos de instalação 
 
-- O Azure AD Connect deve ser instalado num domínio ligado ao Windows Server 2012 ou posteriormente. Recomenda-se vivamente que este servidor seja um controlador de domínio. 
+- O Azure AD Connect deve ser instalado num domínio ligado ao Windows Server 2012 ou posteriormente. 
 - O Azure AD Connect não pode ser instalado no Small Business Server ou no Windows Server Essentials antes de 2019 (o Windows Server Essentials 2019 é suportado). O servidor deve estar a utilizar o padrão do Windows Server ou melhor.  
 - O servidor Azure AD Connect deve ter um GUI completo instalado. Não é suportado para instalar O AZure AD Connect no Windows Server Core. 
 - O servidor Azure AD Connect não deve ter a Política do Grupo de Transcrição powerShell ativada se estiver a utilizar o assistente AZure AD Connect para gerir a configuração ADFS. Pode ativar a transcrição powerShell se estiver a utilizar o assistente Azure AD Connect para gerir a configuração de sincronização. 
@@ -130,7 +130,7 @@ A Microsoft recomenda endurecer o seu servidor Azure AD Connect para diminuir a 
 Para obter mais informações, consulte a MSDN sobre o [elemento de procuração predefinido](https://msdn.microsoft.com/library/kd3cf2ex.aspx).  
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 * Opcional: Uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes

@@ -1,34 +1,34 @@
 ---
 title: Impedir que o público anónimo leia o acesso a contentores e bolhas
 titleSuffix: Azure Storage
-description: ''
+description: Saiba como analisar pedidos anónimos contra uma conta de armazenamento e como impedir o acesso anónimo a toda a conta de armazenamento ou a um recipiente individual.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 90d7cd65bbc07524391f34fe0efce2b044664cef
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 24d726f7600c3ba80833640be8036bf0daa2c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209935"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518729"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir que o público anónimo leia o acesso a contentores e bolhas
 
-O público anónimo lê o acesso a contentores e bolhas no Azure Storage é uma forma conveniente de partilhar dados, mas também pode apresentar um risco de segurança. É importante permitir o acesso anónimo criteriosamente e entender como avaliar o acesso anónimo aos seus dados. A complexidade operacional, o erro humano ou o ataque malicioso contra dados acessíveis ao público podem resultar em dispendiosas violações de dados. A Microsoft recomenda que permita o acesso anónimo apenas quando necessário para o seu cenário de aplicação.
+O público anónimo lê o acesso a contentores e bolhas no Azure Storage é uma forma conveniente de partilhar dados, mas também pode apresentar um risco de segurança. É importante gerir o acesso anónimo criteriosamente e entender como avaliar o acesso anónimo aos seus dados. A complexidade operacional, o erro humano ou o ataque malicioso contra dados acessíveis ao público podem resultar em dispendiosas violações de dados. A Microsoft recomenda que permita o acesso anónimo apenas quando necessário para o seu cenário de aplicação.
 
-Por predefinição, uma conta de armazenamento permite ao utilizador, com permissões adequadas, configurar o acesso do público a contentores e bolhas. Pode desativar esta funcionalidade ao nível da conta de armazenamento, para que os contentores e bolhas na conta não possam ser configurados para acesso público.
+Por predefinição, um utilizador com permissões adequadas pode configurar o acesso do público a contentores e bolhas. Pode impedir todo o acesso público ao nível da conta de armazenamento. Quando não permite o acesso público à conta de armazenamento, os contentores na conta não podem ser configurados para acesso público. Quaisquer contentores que já tenham sido configurados para acesso público deixarão de aceitar pedidos anónimos. Para mais informações, consulte o público [anónimo Configure acesso para contentores e bolhas.](anonymous-read-access-configure.md)
 
 Este artigo descreve como analisar pedidos anónimos contra uma conta de armazenamento e como impedir o acesso anónimo para toda a conta de armazenamento ou para um recipiente individual.
 
 ## <a name="detect-anonymous-requests-from-client-applications"></a>Detetar pedidos anónimos de aplicações de clientes
 
-Quando desativa o acesso ao público para uma conta de armazenamento, arrisca-se a rejeitar pedidos a contentores e bolhas que estão atualmente configurados para acesso público. A desativação do acesso público a uma conta de armazenamento sobrepõe-se às definições de acesso público a todos os contentores dessa conta de armazenamento. Quando o acesso público é desativado para a conta de armazenamento, quaisquer futuros pedidos anónimos a essa conta falharão.
+Quando não permite o acesso do público a uma conta de armazenamento, arrisca-se a rejeitar pedidos a contentores e bolhas que estão atualmente configurados para acesso público. A não permitir o acesso do público a uma conta de armazenamento sobrepõe-se às definições de acesso público a todos os contentores dessa conta de armazenamento. Quando o acesso público for proibido para a conta de armazenamento, quaisquer futuros pedidos anónimos a essa conta falharão.
 
-Para entender como o desativação do acesso público pode afetar as aplicações dos clientes, a Microsoft recomenda que você ative o registo e métricas para essa conta e analise padrões de pedidos anónimos durante um intervalo de tempo. Utilize métricas para determinar o número de pedidos anónimos na conta de armazenamento e utilize registos para determinar quais os recipientes que estão a ser acedidos anonimamente.
+Para entender como a não concessão do acesso público pode afetar as aplicações dos clientes, a Microsoft recomenda que você ative o registo e métricas para essa conta e analise padrões de pedidos anónimos durante um intervalo de tempo. Utilize métricas para determinar o número de pedidos anónimos na conta de armazenamento e utilize registos para determinar quais os recipientes que estão a ser acedidos anonimamente.
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Monitorize pedidos anónimos com o Metrics Explorer
 
@@ -92,7 +92,7 @@ Para obter uma referência dos campos disponíveis nos registos de armazenamento
 
 Os registos de armazenamento Azure no Azure Monitor incluem o tipo de autorização que foi usada para fazer um pedido a uma conta de armazenamento. Na sua consulta de registo, filtre na propriedade **AuthenticationType** para visualizar pedidos anónimos.
 
-Para recuperar registos nos últimos 7 dias para pedidos anónimos contra o armazenamento blob, abra o seu espaço de trabalho Log Analytics. Em seguida, cole a seguinte consulta em uma nova consulta de log e executá-la. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
+Para recuperar registos nos últimos 7 dias para pedidos anónimos contra o armazenamento blob, abra o seu espaço de trabalho Log Analytics. Em seguida, cole a seguinte consulta em uma nova consulta de log e executá-la:
 
 ```kusto
 StorageBlobLogs
@@ -106,13 +106,13 @@ Também pode configurar uma regra de alerta com base nesta consulta para notific
 
 Depois de ter avaliado pedidos anónimos a contentores e bolhas na sua conta de armazenamento, pode tomar medidas para limitar ou impedir o acesso do público. Se alguns contentores na sua conta de armazenamento precisarem de estar disponíveis para acesso público, então pode configurar a definição de acesso público para cada recipiente na sua conta de armazenamento. Esta opção proporciona o maior controlo granular sobre o acesso público. Para obter mais informações, consulte [definir o nível de acesso público para um recipiente.](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container)
 
-Para uma maior segurança, pode desativar o acesso público a uma conta de armazenamento inteira. A definição de acesso público a uma conta de armazenamento sobrepõe-se às configurações individuais dos contentores nessa conta. Quando desativa o acesso público a uma conta de armazenamento, os contentores configurados para permitir o acesso público deixaram de ser acessíveis de forma anónima. Para obter mais informações, consulte [Ativar ou desativar o acesso ao público para uma conta de armazenamento.](anonymous-read-access-configure.md#enable-or-disable-public-read-access-for-a-storage-account)
+Para uma maior segurança, pode proibir o acesso público a toda a conta de armazenamento. A definição de acesso público a uma conta de armazenamento sobrepõe-se às configurações individuais dos contentores nessa conta. Quando não permite o acesso público a uma conta de armazenamento, quaisquer contentores configurados para permitir o acesso público deixaram de ser acessíveis de forma anónima. Para mais informações, consulte [Permitir ou proibir o acesso do público a uma conta de armazenamento.](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account)
 
-Se o seu cenário exigir que certos contentores estejam disponíveis para acesso público, pode ser aconselhável mover esses contentores e as suas bolhas para contas de armazenamento que são reservadas para acesso público. Em seguida, pode desativar o acesso público a quaisquer outras contas de armazenamento.
+Se o seu cenário exigir que certos contentores tenham de estar disponíveis para acesso público, pode ser aconselhável transferir esses contentores e as suas bolhas para contas de armazenamento reservadas para acesso público. Em seguida, pode proibir o acesso do público a quaisquer outras contas de armazenamento.
 
 ### <a name="verify-that-public-access-to-a-blob-is-not-permitted"></a>Verifique se o acesso público a uma bolha não é permitido
 
-Para verificar se o acesso do público a uma bolha específica é negado, pode tentar descarregar a bolha através do seu URL. Se o download for bem sucedido, então a bolha ainda está disponível ao público. Se a bolha não for acessível ao público porque o acesso público foi desativado para a conta de armazenamento, então verá uma mensagem de erro indicando que o acesso público não é permitido nesta conta de armazenamento.
+Para verificar se o acesso do público a uma bolha específica é proibido, pode tentar descarregar a bolha através do seu URL. Se o download for bem sucedido, então a bolha ainda está disponível ao público. Se a bolha não for acessível ao público porque o acesso público foi proibido para a conta de armazenamento, então verá uma mensagem de erro indicando que o acesso público não é permitido nesta conta de armazenamento.
 
 O exemplo a seguir mostra como usar o PowerShell para tentar descarregar uma bolha através do seu URL. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
@@ -124,7 +124,7 @@ Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
 
 ### <a name="verify-that-modifying-the-containers-public-access-setting-is-not-permitted"></a>Verifique se não é permitida a modificação da configuração de acesso público do contentor
 
-Para verificar se a definição de acesso público de um contentor não pode ser modificada após o acesso público ser desativado para a conta de armazenamento, pode tentar modificar a configuração. A alteração da configuração de acesso público do contentor falhará se o acesso público for desativado para a conta de armazenamento.
+Para verificar se a definição de acesso público de um contentor não pode ser modificada após o acesso público à conta de armazenamento, pode tentar modificar a configuração. A alteração da configuração de acesso público do contentor falhará se o acesso público for proibido para a conta de armazenamento.
 
 O exemplo a seguir mostra como utilizar o PowerShell para tentar alterar a configuração de acesso público de um contentor. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
@@ -141,10 +141,10 @@ Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Bl
 
 ### <a name="verify-that-creating-a-container-with-public-access-enabled-is-not-permitted"></a>Verifique se não é permitida a criação de um contentor com acesso público
 
-Se o acesso público for desativado para a conta de armazenamento, então não poderá criar um novo recipiente com acesso público habilitado. Para verificar, pode tentar criar um recipiente com acesso público ativado.
+Se o acesso público for proibido para a conta de armazenamento, então não será possível criar um novo recipiente com acesso público habilitado. Para verificar, pode tentar criar um recipiente com acesso público ativado.
 
 O exemplo a seguir mostra como utilizar o PowerShell para tentar criar um recipiente com acesso público ativado. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
- 
+
 ```powershell
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
@@ -156,7 +156,7 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar o público anónimo ler acesso a contentores e bolhas](anonymous-read-access-configure.md)
 - [Aceda a contentores públicos e bolhas de forma anónima com .NET](anonymous-read-access-client.md)

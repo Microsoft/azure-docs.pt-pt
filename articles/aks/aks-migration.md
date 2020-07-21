@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: c864a9cc5dd5658bcb3205ce2cbe4f6142cf45a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70ffe0bb98e89babe2f5998ee66666dd5368f7f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255494"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518050"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o Serviço Azure Kubernetes (AKS)
 
@@ -51,7 +51,7 @@ AKS é um serviço gerido que oferece capacidades únicas com menor carga de ges
 
 Recomendamos a utilização de clusters AKS apoiados por [conjuntos de balanças de máquinas virtuais](../virtual-machine-scale-sets/index.yml) e o [Balanceador de Carga Padrão Azure](./load-balancer-standard.md) para garantir que obtém funcionalidades como [múltiplas piscinas de nós,](./use-multiple-node-pools.md) [Zonas de Disponibilidade,](../availability-zones/az-overview.md) [Intervalos IP autorizados,](./api-server-authorized-ip-ranges.md) [Cluster Autoscaler,](./cluster-autoscaler.md) [Política de Azure para AKS,](../governance/policy/concepts/policy-for-kubernetes.md)e outras novidades à medida que são lançadas.
 
-Os clusters AKS apoiados por [Conjuntos de Disponibilidade de Máquinas Virtuais](../virtual-machine-scale-sets/availability.md#availability-sets) carecem de suporte para muitas destas funcionalidades.
+Os clusters AKS apoiados por [Conjuntos de Disponibilidade de Máquinas Virtuais](../virtual-machines/availability.md#availability-sets) carecem de suporte para muitas destas funcionalidades.
 
 O exemplo a seguir cria um cluster AKS com um único conjunto de nós apoiado por um conjunto de balança de máquina virtual. Usa um equilibrador de carga padrão. Também permite o autoescalador de cluster na piscina de nó para o cluster e define um mínimo de *1* e máximo de *3* nóns:
 

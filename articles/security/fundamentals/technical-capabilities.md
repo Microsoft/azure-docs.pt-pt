@@ -2,24 +2,20 @@
 title: Capacidades técnicas de segurança em Azure - Microsoft Azure
 description: Introdução aos serviços de segurança em Azure que o ajudam a proteger dados, recursos e aplicações na nuvem.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
-ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: terrylan
+ms.openlocfilehash: 29e6aa96ea1c435e4d734e80824e1cedcfe9a761
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845355"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519325"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -169,77 +165,11 @@ Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a qu
 Uma das chaves para a proteção de dados na nuvem é a contabilização dos possíveis estados em que os seus dados podem ocorrer e quais os controlos disponíveis para esse estado. Para a segurança de dados Azure e as melhores práticas de encriptação, as recomendações estão em torno dos seguintes estados de dados.
 
 - Repouso: Isto inclui todos os objetos de armazenamento de informação, recipientes e tipos que existem estáticamente em meios físicos, seja em disco magnético ou ótico.
-
 - Em trânsito: Quando os dados são transferidos entre componentes, locais ou programas, como através da rede, através de um autocarro de serviço (de instalações para nuvem e vice-versa, incluindo ligações híbridas como o ExpressRoute), ou durante um processo de entrada/saída, é considerado como estando em movimento.
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
-Para obter a encriptação em repouso, faça cada uma das seguintes:
-
-Suporte pelo menos um dos modelos de encriptação recomendados detalhados na tabela seguinte para encriptar dados.
-
-| Modelos de encriptação |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Encriptação do servidor | Encriptação do servidor | Encriptação do servidor | Encriptação do Cliente
-| Encriptação do lado do servidor utilizando chaves geridas por serviço | Encriptação do lado do servidor usando chaves geridas pelo cliente no cofre de chaves Azure | Encriptação do lado do servidor usando nas instalações chaves geridas pelo cliente |
-| • Os Fornecedores de Recursos Azure realizam as operações de encriptação e desencriptação <br> • A Microsoft gere as chaves <br>• Funcionalidade total da nuvem | • Os Fornecedores de Recursos Azure realizam as operações de encriptação e desencriptação<br>• O cliente controla as chaves através do Cofre da Chave Azure<br>• Funcionalidade total da nuvem | • Os Fornecedores de Recursos Azure realizam as operações de encriptação e desencriptação <br>• O cliente controla as chaves no local <br> • Funcionalidade total da nuvem| • Os serviços da Azure não podem ver dados desencriptados <br>• Os clientes mantêm as chaves no local (ou noutras lojas seguras). As chaves não estão disponíveis para os serviços da Azure <br>• Funcionalidade reduzida na nuvem|
-
-### <a name="enabling-encryption-at-rest"></a>Habilitação da encriptação em repouso
-
-**Identificar todos os locais que os seus dados de lojas**
-
-O objetivo da encriptação em repouso é encriptar todos os dados. Ao fazê-lo, elimina a possibilidade de falta de dados importantes ou de todos os locais persistidos. Enumerar todos os dados armazenados pela sua aplicação.
-
-> [!Note]
-> Não apenas "dados de aplicação" ou "PII", mas quaisquer dados relativos à aplicação, incluindo metadados de conta (mapeamentos de assinatura, informações contratuais, PII).
-
-Considere quais as lojas que está a usar para armazenar dados. Por exemplo:
-
-- Armazenamento externo (por exemplo, SQL Azure, Documento DB, HDInsights, Data Lake, etc.)
-
-- Armazenamento temporário (qualquer cache local que inclua dados do inquilino)
-
-- Cache de memória (pode ser colocado no ficheiro de página.)
-
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Aproveite a encriptação existente no suporte de repouso em Azure
-
-Para cada loja que utilizar, aproveite a encriptação existente no suporte de repouso.
-
-- Armazenamento Azure: Consulte [encriptação do serviço de armazenamento Azure para obter dados em repouso,](../../storage/common/storage-service-encryption.md)
-
-- SQL Azure: Ver [Encriptação de Dados Transparente (TDE), SQL Sempre Encriptado](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- VM & Armazenamento de disco local[(Encriptação do Disco Azure)](../azure-security-disk-encryption-overview.md)
-
-Para armazenamento de discos VM e Local, utilize encriptação do disco Azure sempre que suportado:
-
-#### <a name="iaas"></a>IaaS
-
-Os serviços com IaaS VMs (Windows ou Linux) devem utilizar [encriptação do disco Azure](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) para encriptar volumes que contenham dados do cliente.
-
-#### <a name="paas-v2"></a>PaaS v2
-
-Os serviços em execução no PaaS v2 usando o Service Fabric podem usar encriptação de disco Azure para conjunto de escala de máquina virtual [VMSS] para encriptar os seus VMs PaaS v2.
-
-#### <a name="paas-v1"></a>PaaS v1
-
-A encriptação do disco Azure não é suportada atualmente no PaaS v1. Portanto, deve utilizar encriptação de nível de aplicação para encriptar dados percíveis em repouso.  Isto inclui, mas não se limita a, dados de aplicações, ficheiros temporários, registos e depósitos de acidentes.
-
-A maioria dos serviços deve tentar alavancar a encriptação de um fornecedor de recursos de armazenamento. Alguns serviços têm de fazer encriptação explícita, por exemplo, qualquer material de chave persistido (Certificados, chaves raiz/chaves principais) deve ser armazenado no Cofre de Chaves.
-
-Se você apoiar encriptação do lado do serviço com chaves geridas pelo cliente, tem de haver uma maneira de o cliente obter a chave para nós. A forma suportada e recomendada de o fazer integrando-se com a Azure Key Vault (AKV). Neste caso, os clientes podem adicionar e gerir as suas chaves no Cofre da Chave Azure. Um cliente pode aprender a usar aKV através [de "Getting Started with Key Vault".](https://go.microsoft.com/fwlink/?linkid=521402)
-
-Para se integrar com o Azure Key Vault, adicionaria código para solicitar uma chave da AKV quando necessário para desencriptação.
-
-- Ver [Azure Key Vault – Passo a passo](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) para obter informações sobre como integrar-se com a AKV.
-
-Se suporta as teclas geridas pelo cliente, tem de fornecer um UX para que o cliente especifique qual o Cofre de Chaves (ou Key Vault URI) a utilizar.
-
-Como a Encriptação em Repouso envolve a encriptação de dados de hospedeiro, infraestrutura e inquilinos, a perda das chaves devido a falha do sistema ou atividade maliciosa pode significar que todos os dados encriptados são perdidos. Por isso, é fundamental que a sua solução De encriptação em Repouso tenha uma história abrangente de recuperação de desastres resiliente a falhas do sistema e atividades maliciosas.
-
-Os serviços que implementam a Encriptação em Repouso são geralmente ainda suscetíveis às chaves de encriptação ou dados que não são encriptados na unidade do anfitrião (por exemplo, no ficheiro de página do hospedeiro OS.) Por isso, os serviços devem garantir que o volume de anfitrião dos seus serviços seja encriptado. Para facilitar esta equipa de Computação permitiu a implementação da Encriptação do Anfitrião, que utiliza [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP e extensões ao serviço e agente DCM para encriptar o volume do anfitrião.
-
-A maioria dos serviços são implementados em VMs Azure standard. Estes serviços devem obter [a Encriptação do Anfitrião](../azure-security-disk-encryption-overview.md) automaticamente quando o Compute o ativar. Para os serviços em execução em clusters geridos em Compute, a encriptação do anfitrião é ativada automaticamente à medida que o Windows Server 2016 é lançado.
+A encriptação em repouso é discutida em detalhe na [Encriptação de Dados Azure-at-Rest](encryption-atrest.md).
 
 ### <a name="encryption-in-transit"></a>Encriptação em trânsito
 
@@ -280,7 +210,7 @@ As organizações que são fracas na classificação de [dados](https://download
 ## <a name="secure-your-application"></a>Proteja a sua aplicação
 Embora a Azure seja responsável por garantir a infraestrutura e plataforma em que a sua aplicação funciona, é da sua responsabilidade garantir a sua própria aplicação. Por outras palavras, precisa de desenvolver, implementar e gerir o código de aplicação e o conteúdo de forma segura. Sem isso, o código de aplicação ou conteúdo ainda pode ser vulnerável a ameaças.
 
-### <a name="web-application-firewall"></a>Firewall de aplicação Web
+### <a name="web-application-firewall"></a>Firewall de aplicações Web
 [A firewall de aplicações web (WAF)](../../application-gateway/waf-overview.md) é uma funcionalidade do [Application Gateway](../../application-gateway/overview.md) que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns.
 
 A firewall de aplicações Web baseia-se nas regras dos [conjuntos de regras de núcleo OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em várias camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.

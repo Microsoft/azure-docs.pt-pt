@@ -3,12 +3,12 @@ title: Monitorização contínua do seu oleoduto de libertação de DevOps com A
 description: Fornece instruções para configurar rapidamente a monitorização contínua com insights de aplicação
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652757"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517132"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicione monitorização contínua ao seu oleoduto de libertação
 
@@ -99,6 +99,6 @@ Pode ver o comportamento do portão de implantação e outros passos de desbloqu
    
    ![Ver registos de lançamento](media/continuous-monitoring/006.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre os Gasodutos Azure, consulte a documentação da [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Para obter mais informações sobre os Gasodutos Azure, consulte a documentação da [Azure Pipelines](/azure/devops/pipelines).

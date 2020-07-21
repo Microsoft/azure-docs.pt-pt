@@ -13,12 +13,12 @@ ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 453efd7735c6843ccdaf8dfd86b18d0b2ef8b06d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604629"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518302"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -47,7 +47,7 @@ Um diretor de serviço é a representação local, ou instância de aplicação,
 
 Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. Também pode criar o objeto principal de serviço num inquilino utilizando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph,](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http)o [portal Azure][AZURE-Portal]e outras ferramentas.  Ao utilizar o portal, é criado automaticamente um resmounte de serviço quando regista uma aplicação.
 
-A lâmina **de aplicações da Enterprise** no portal é usada para listar e gerir os principais serviços num inquilino. Pode ver as permissões do principal do serviço, permissões consentidas pelo utilizador, que os utilizadores fizeram esse consentimento, assinar informações e muito mais.
+A lâmina **de aplicações da Enterprise** no portal é usada para listar e gerir os principais serviços num inquilino. Pode ver as permissões do titular do serviço, permissões consentidas pelo utilizador, que os utilizadores fizeram esse consentimento, assinar informações e muito mais.
 
 A entidade Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto principal de serviço.
 

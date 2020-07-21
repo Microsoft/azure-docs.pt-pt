@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 36c3515bbdd0f08063ecad2ba26fc7b92a5f0e19
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 19a6764b68a7a06f9777bac94c9f34aaf09aec0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970693"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519596"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -126,7 +126,7 @@ As novas capacidades desta versão de pré-visualização pública incluem:
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>Avaliação da vulnerabilidade da máquina virtual (pré-visualização)
 
-As aplicações que são instaladas em máquinas virtuais podem muitas vezes ter vulnerabilidades que podem levar a uma violação da máquina virtual. Estamos anunciando que o nível Standard do Centro de Segurança inclui avaliação de vulnerabilidade incorporada para máquinas virtuais sem qualquer taxa adicional. A avaliação de vulnerabilidade, alimentada pela Qualys na pré-visualização pública, permitirá analisar continuamente todas as aplicações instaladas numa máquina virtual para encontrar aplicações vulneráveis e apresentar as conclusões na experiência do portal do Security Center. O Security Center cuida de todas as operações de implantação para que não seja necessário trabalho extra do utilizador. Para o futuro, estamos a planear fornecer opções de avaliação de vulnerabilidades para apoiar as necessidades de negócio únicas dos nossos clientes.
+As aplicações que são instaladas em máquinas virtuais podem muitas vezes ter vulnerabilidades que podem levar a uma violação da máquina virtual. Estamos anunciando que o nível padrão do Centro de Segurança inclui avaliação de vulnerabilidade incorporada para máquinas virtuais sem qualquer taxa adicional. A avaliação de vulnerabilidade, alimentada pela Qualys na pré-visualização pública, permitirá analisar continuamente todas as aplicações instaladas numa máquina virtual para encontrar aplicações vulneráveis e apresentar as conclusões na experiência do portal do Security Center. O Security Center cuida de todas as operações de implantação para que não seja necessário trabalho extra do utilizador. Para o futuro, estamos a planear fornecer opções de avaliação de vulnerabilidades para apoiar as necessidades de negócio únicas dos nossos clientes.
 
 [Saiba mais sobre avaliações de vulnerabilidade para as suas Máquinas Virtuais Azure.](security-center-vulnerability-assessment-recommendations.md)
 
@@ -135,7 +135,7 @@ As aplicações que são instaladas em máquinas virtuais podem muitas vezes ter
 
 O apoio do Azure Security Center à proteção de ameaças e avaliação de vulnerabilidade para DBs SQL em execução em IaaS VMs está agora em pré-visualização.
 
-[A avaliação de vulnerabilidades](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) é um serviço fácil de configurar que pode descobrir, rastrear e ajudar a corrigir potenciais vulnerabilidades de base de dados. Ele fornece visibilidade na sua postura de segurança como parte da pontuação segura do Azure e inclui os passos para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
+A [Avaliação da vulnerabilidade](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) é um serviço fácil de configurar que pode detetar, controlar e ajudar a corrigir potenciais vulnerabilidades da base de dados. Ele fornece visibilidade na sua postura de segurança como parte da pontuação segura do Azure e inclui os passos para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
 
 [A proteção avançada de ameaças](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar o seu servidor SQL. Monitoriza continuamente a sua base de dados para atividades suspeitas e fornece alertas de segurança orientados para a ação em padrões de acesso a bases de dados anómalas. Estes alertas fornecem detalhes de atividades suspeitas e ações recomendadas para investigar e mitigar a ameaça.
 

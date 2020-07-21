@@ -3,12 +3,12 @@ title: Como conceber a sua implementação de Application Insights - Um vs muito
 description: Telemetria direta a diferentes recursos para desenvolvimento, teste e carimbos de produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 53fe54d1e674a9d15cab5a3fac0c85f415e40260
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff301887aebf64d26d0fb391a8a16adefc8a3860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107432"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516724"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Insights de Aplicação devo implementar
 
@@ -35,7 +35,7 @@ Cada recurso De Insights de Aplicação vem com métricas que estão disponívei
 
 ### <a name="other-things-to-keep-in-mind"></a>Outras coisas a ter em mente
 
--   Pode ser necessário adicionar código personalizado para garantir que valores significativos são definidos no [atributo Cloud_RoleName.](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) Sem valores significativos definidos para este atributo, *NENHUMA* das experiências do portal funcionará.
+-   Pode ser necessário adicionar código personalizado para garantir que valores significativos são definidos no [atributo Cloud_RoleName.](./app-map.md?tabs=net#set-cloud-role-name) Sem valores significativos definidos para este atributo, *NENHUMA* das experiências do portal funcionará.
 - Para aplicações de Tecido de Serviço e serviços clássicos de nuvem, o SDK lê automaticamente do Azure Role Environment e define-as. Para todos os outros tipos de aplicações, provavelmente terá de definir isto explicitamente.
 -   A experiência Live Metrics não suporta a divisão pelo nome de papel.
 
@@ -76,7 +76,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="create-additional-application-insights-resources"></a>Criar recursos adicionais de Insights de Aplicação
 
-Para criar um recurso Applications Insights siga o [guia de criação de recursos.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)
+Para criar um recurso Applications Insights siga o [guia de criação de recursos.](./create-new-resource.md)
 
 ### <a name="getting-the-instrumentation-key"></a>Obtenção da chave de instrumentação
 A chave de instrumentação identifica o recurso que criou.

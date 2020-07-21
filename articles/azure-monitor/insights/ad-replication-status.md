@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 30b0c7c87f6d55586b931be1445b175ce58565d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055904"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516792"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitor Ative Directory replication status with Azure Monitor
 
@@ -64,7 +64,7 @@ A tabela seguinte mostra métodos de recolha de dados e outros detalhes sobre co
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-O azulejo do Estado de Replicação AD mostra quantos erros de replicação tem atualmente. **Erros de replicação crítica** são erros que estão em 75% ou acima da [vida útil](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) da lápide para a sua floresta ative directy.
+O azulejo do Estado de Replicação AD mostra quantos erros de replicação tem atualmente. **Erros de replicação crítica** são erros que estão em 75% ou acima da [vida útil](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10)) da lápide para a sua floresta ative directy.
 
 ![Azulejo do estado de replicação da AD](./media/ad-replication-status/oms-ad-replication-tile.png)
 
@@ -156,5 +156,5 @@ Se precisar de assistência para ligar um dos seus controladores de domínio, po
 
 Se não pretender ligar nenhum dos seus controladores de domínio diretamente ao Azure Monitor ou ao Gestor de Operações do Centro de Sistema, consulte [Ativar o controlador de não domínio](#enable-non-domain-controller).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Utilize [consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para ver dados detalhados do estado de replicação do diretório ativo.

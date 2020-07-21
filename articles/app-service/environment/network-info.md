@@ -4,15 +4,15 @@ description: Conheça o tráfego da rede ASE e como definir grupos de segurança
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/29/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10cb1149880c70d991dd5ab49acceab3283372a7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80477682"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517858"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente de Serviço de Aplicações #
 
@@ -53,7 +53,7 @@ Quando escala ou desce, novas funções do tamanho apropriado são adicionadas e
 
 Apenas para que a ASE funcione, a ASE exige que as seguintes portas estejam abertas:
 
-| Utilizar | De | Para |
+| Utilização | De | Para |
 |-----|------|----|
 | Gestão | Endereços de gestão do Serviço de Aplicações | Sub-rede ASE: 454.455 |
 |  Comunicação interna ase | Sub-rede ASE: Todas as portas | Sub-rede ASE: Todas as portas
@@ -69,7 +69,7 @@ Para a comunicação entre o equilibrador de carga Azure e a sub-rede ASE, as po
 
 As outras portas com as qual precisa de se preocupar são as portas de aplicação:
 
-| Utilizar | Portas |
+| Utilização | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -153,20 +153,22 @@ Os NSGs podem ser configurados através do portal Azure ou através do PowerShel
 As entradas necessárias num NSG, para que um ASE funcione, são para permitir o tráfego:
 
 **Entrada**
-* a partir da tag de serviço IP AppServiceManagement nas portas 454.455
-* do balançador de carga na porta 16001
+* TCP da tag de serviço IP AppServiceManagement nas portas 454.455
+* TCP do balançador de carga na porta 16001
 * da sub-rede ASE para a sub-rede ASE em todas as portas
 
 **Saída**
-* para todos os IPs no porto 123
-* a todos os IPs nos portos 80.443
-* à tag de serviço IP AzureSQL nas portas 1433
-* a todos os IPs no porto 12000
+* UDP a todos os IPs no porto 123
+* TCP para todos os IPs nos portos 80.443
+* TCP para a marca de serviço IP AzureSQL nas portas 1433
+* TCP para todos os IPs no porto 12000
 * para a sub-rede ASE em todas as portas
 
-A porta DNS não precisa de ser adicionada, uma vez que o tráfego para DNS não é afetado pelas regras do NSG. Estas portas não incluem as portas que as suas aplicações necessitam para uma utilização bem sucedida. As portas normais de acesso a aplicações são:
+Estas portas não incluem as portas que as suas aplicações necessitam para uma utilização bem sucedida. Como exemplo, a sua aplicação poderá ter de chamar um servidor MySQL na porta 3306 A porta DNS, porta 53, não precisa de ser adicionada, uma vez que o tráfego para DNS não é afetado pelas regras NSG. O Protocolo de Tempo de Rede (NTP) na porta 123 é o protocolo de sincronização de tempo utilizado pelo sistema operativo. Os pontos finais ntP não são específicos dos Serviços de Aplicação, podem variar com o sistema operativo, e não estão numa lista bem definida de endereços. Para evitar problemas de sincronização de tempo, é necessário permitir o tráfego da UDP a todos os endereços no porto 123. O tráfego TCP de saída para o porto 12000 destina-se ao apoio e análise do sistema. Os pontos finais são dinâmicos e não estão num conjunto bem definido de endereços.
 
-| Utilizar | Portas |
+As portas normais de acesso a aplicações são:
+
+| Utilização | Portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |

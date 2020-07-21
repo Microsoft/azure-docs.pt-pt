@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar a visão em tempo real dos tro
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9d60836af350e9af99355db9a7cc140a949d1492
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337942"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516469"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -19,7 +19,7 @@ Esta funcionalidade suporta os seguintes métodos para controlar o acesso aos re
 
 - AKS sem autorização DECC RBAC de Kubernetes habilitada
 - AKS habilitado com autorização do RBAC da Kubernetes
-    - AKS configurado com o cluster de ligação de funções de ** [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS configurado com o cluster de ligação de funções de ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AKS ativado com Azure Ative Directory (AD) com base em saml
 
 Estas instruções requerem tanto acesso administrativo ao seu cluster Kubernetes, como se configurar a utilização do Azure Ative Directory (AD) para autenticação do utilizador, acesso administrativo ao Azure AD.
@@ -108,7 +108,7 @@ O registo do cliente Azure AD deve ser reformulado para permitir que o portal Az
 Para obter mais informações sobre a configuração avançada de segurança em Kubernetes, reveja a [documentação de Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Se estiver a criar um novo cluster ativado pelo RBAC, consulte [o Integrate Azure Ative Directory com o Serviço Azure Kubernetes](../../aks/azure-ad-integration.md) e siga os passos para configurar a autenticação Azure AD. Durante os passos para criar a aplicação do cliente, uma nota nessa secção realça os dois URLs de redirecionamento que precisa de criar para o Azure Monitor para recipientes que correspondam aos especificados no Passo 3 abaixo.
+>Se estiver a criar um novo cluster ativado pelo RBAC, consulte [o Integrate Azure Ative Directory com o Serviço Azure Kubernetes](../../aks/azure-ad-integration-cli.md) e siga os passos para configurar a autenticação Azure AD. Durante os passos para criar a aplicação do cliente, uma nota nessa secção realça os dois URLs de redirecionamento que precisa de criar para o Azure Monitor para recipientes que correspondam aos especificados no Passo 3 abaixo.
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguração do registo do cliente
 

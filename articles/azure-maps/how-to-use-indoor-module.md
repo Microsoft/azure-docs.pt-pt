@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c0b043bdb20cad508950a11853403958340acadf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434210"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517472"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utilize o módulo Azure Maps Indoor Maps
 
@@ -20,7 +21,7 @@ O Azure Maps Web SDK inclui o módulo *Interior Azure Maps.* O módulo *Azure Ma
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Criar um recurso Criador](how-to-manage-creator.md)
 3. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 4. Obtenha um `tilesetId` e um `statesetId` completando o tutorial para a [criação de mapas interiores.](tutorial-creator-indoor-maps.md)

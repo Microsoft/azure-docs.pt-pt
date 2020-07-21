@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82024885"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519359"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -32,7 +33,7 @@ O Azure Security Center faz as suas recomendações de segurança com base nas s
 
 O Centro de Segurança oferece as seguintes opções para trabalhar com políticas de segurança:
 
-* **Ver e editar a política de incumprimento incorporada** - Quando ativar o Security Center, uma iniciativa incorporada chamada "ASC default" é automaticamente atribuída a todas as subscrições registadas do Security Center (níveis gratuitos ou standard). Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md) para entender as opções disponíveis fora da caixa.
+* **Ver e editar a política de incumprimento incorporada** - Quando ativar o Security Center, uma iniciativa incorporada chamada "DEFAULT ASC" é automaticamente atribuída a todas as subscrições registadas do Security Center (níveis de preços gratuitos ou padrão). Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md) para entender as opções disponíveis fora da caixa.
 
 * **Adicione as suas próprias políticas personalizadas** - Se quiser personalizar as iniciativas de segurança aplicadas à sua subscrição, pode fazê-lo dentro do Security Center. Em seguida, receberá recomendações se as suas máquinas não seguirem as políticas que cria. Para obter instruções sobre a construção e atribuição de políticas personalizadas, consulte [utilizando políticas de segurança personalizadas](custom-security-policies.md).
 
@@ -85,14 +86,18 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 
 Pode editar políticas de segurança através do portal Azure Policy, através da REST API ou utilizando o Windows PowerShell.
 
-O Centro de Segurança utiliza o Controlo de Acesso Baseado em Funções (RBAC), que fornece funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços no Azure. Quando os utilizadores abrem o Security Center, vêem apenas informações relacionadas com recursos a que têm acesso. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte*ou *leitor* à subscrição do recurso. Além destes papéis, existem duas funções específicas do Centro de Segurança:
+O Security Center utiliza o Controlo de Acesso Baseado em Funções (RBAC), que fornece funções incorporadas que pode atribuir a utilizadores, grupos e serviços do Azure. Quando os utilizadores abrem o Centro de Segurança, vêem apenas informações relacionadas com os recursos a que podem aceder. O que significa que os utilizadores são atribuídos ao papel de *proprietário,* *contribuinte*ou *leitor* à subscrição do recurso. Há também duas funções específicas do Centro de Segurança:
 
-- **Leitor de segurança**: Tenha direitos de visão para o Centro de Segurança, que inclui recomendações, alertas, política e saúde, mas não podem fazer alterações.
-- **Administração de segurança**: Tenha os mesmos direitos de visão que o *leitor de segurança,* e também podem atualizar a política de segurança e rejeitar recomendações e alertas.
+- **Leitor de segurança**: Tem direito a visualizar itens do Centro de Segurança, tais como recomendações, alertas, política e saúde. Não posso fazer mudanças.
+- **Administrador de segurança**: Tem os mesmos direitos de visão que *o leitor de segurança.* Também pode atualizar a política de segurança e dispensar alertas.
 
 
-## <a name="disable-security-policies"></a>Políticas de segurança para desativar
-Se a política de segurança predefinitiva estiver a gerar uma recomendação que não seja relevante para o seu ambiente, pode impedi-la desativando a definição de política que envia a recomendação.
+## <a name="disable-security-policies-and-disable-recommendations"></a>Desativar as políticas de segurança e desativar recomendações
+
+Quando a sua iniciativa de segurança desencadear uma recomendação que é irrelevante para o seu ambiente, pode impedir que essa recomendação volte a aparecer. Para desativar uma recomendação, desative a política específica que gera a recomendação.
+
+A recomendação que pretende desativar continuará a aparecer se for necessária para um padrão regulamentar que tenha aplicado com as ferramentas de conformidade regulamentar do Centro de Segurança. Mesmo que tenha desativado uma política na iniciativa incorporada, uma política por iniciativa do padrão regulamentar ainda irá desencadear a recomendação se for necessária para o cumprimento. Não se pode desativar as políticas de iniciativas normais regulamentares.
+
 Para obter mais informações sobre recomendações, consulte [recomendações de segurança de gestão.](security-center-recommendations.md)
 
 1. No Centro de Segurança, a partir da secção **de Conformidade & Política,** selecione **a política de Segurança**.
@@ -124,7 +129,7 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 
 
 ## <a name="next-steps"></a>Próximos passos
-Neste artigo, aprendeu sobre políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
+Este artigo explicava as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 
 * Para obter instruções sobre como definir políticas usando o PowerShell, consulte [Quickstart: Criar uma atribuição de política para identificar recursos não conformes utilizando o módulo Azure PowerShell](../governance/policy/assign-policy-powershell.md)
 

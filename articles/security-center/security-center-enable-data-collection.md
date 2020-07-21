@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7aca2820e599c4f3dad364f1ea14eadc634a548
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855940"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519719"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos utilizando o agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos windows), processos de execução, nome da máquina, endereços IP e registados no utilizador.
@@ -70,7 +70,7 @@ Para selecionar um espaço de trabalho criado pelo Security Center:
 1. Na **configuração do espaço de trabalho predefinido,** selecione Use workspace(s) criado pelo Centro de Segurança.
    ![Selecione o nível de preços][10] 
 
-1. Clique em **Guardar**.<br>
+1. Clique em **Save** (Guardar).<br>
     O Security Center cria um novo grupo de recursos e espaço de trabalho predefinido nessa geolocalização, e liga o agente a esse espaço de trabalho. A convenção de nomeação para o espaço de trabalho e grupo de recursos é:<br>
    **Espaço de trabalho: DefaultWorkspace-[subscrição-ID]-[geo] <br> Grupo de Recursos: DefaultResourceGroup-[geo]**
 
@@ -78,7 +78,7 @@ Para selecionar um espaço de trabalho criado pelo Security Center:
 1. O Security Center permitirá automaticamente uma solução do Centro de Segurança no espaço de trabalho por nível de preços definido para a subscrição. 
 
 > [!NOTE]
-> O nível de preços do Log Analytics dos espaços de trabalho criados pelo Security Center não afeta a faturação do Security Center. A faturação do Centro de Segurança baseia-se sempre na sua política de segurança do Centro de Segurança e nas soluções instaladas numa área de trabalho. Para o escalão Gratuito, o Centro de Segurança ativa a solução *SecurityCenterFree* na área de trabalho predefinida. Para o escalão Standard, o Centro de Segurança ativa a solução *Security* na área de trabalho predefinida.
+> O nível de preços do Log Analytics dos espaços de trabalho criados pelo Security Center não afeta a faturação do Security Center. A faturação do Centro de Segurança baseia-se sempre na sua política de segurança do Centro de Segurança e nas soluções instaladas numa área de trabalho. Para o escalão Gratuito, o Centro de Segurança ativa a solução *SecurityCenterFree* na área de trabalho predefinida. Para o nível padrão, o Centro de Segurança permite a solução *de Segurança* no espaço de trabalho predefinido.
 > Armazenar dados no Log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para obter mais informações sobre as contas de análise de registo existentes, consulte [os clientes de análise de registo existentes](./faq-azure-monitor-logs.md).
@@ -150,7 +150,7 @@ A seleção de um escalão de recolha de dados no Centro de Segurança do Azure 
 
 
 > [!NOTE]
-> Estes conjuntos de eventos de segurança estão disponíveis apenas no nível Standard do Security Center. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+> Estes conjuntos de eventos de segurança estão disponíveis apenas no nível padrão do Centro de Segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
 Estes conjuntos foram concebidos para abordar cenários típicos. Certifique-se de avaliar quais as suas necessidades antes de implementá-la.
 >
 >
@@ -164,7 +164,7 @@ Eventos com volume muito baixo foram incluídos no conjunto Comum como a princip
 
 Aqui está uma desagregação completa dos IDs de eventos de Segurança e App Locker para cada conjunto:
 
-| Camada física de dados | Indicadores de eventos recolhidos |
+| Camada de dados | Indicadores de eventos recolhidos |
 | --- | --- |
 | Mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |

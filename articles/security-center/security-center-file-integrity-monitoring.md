@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628298"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519342"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
 Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Azure Security Center utilizando esta passagem.
@@ -45,7 +46,7 @@ O Monitor de Integridade de Ficheiros do Security Center valida a integridade do
 O Security Center recomenda às entidades que monitorizem, o que pode facilmente permitir o FIM. Também pode definir as suas próprias políticas ou entidades FIM para monitorizar. Este walkthrough mostra-lhe como.
 
 > [!NOTE]
-> A funcionalidade De Monitorização da Integridade do Ficheiro (FIM) funciona para computadores Windows e Linux e VMs e está disponível no nível padrão do Centro de Segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. O FIM envia dados para o espaço de trabalho do Log Analytics. Os encargos de dados aplicam-se, com base na quantidade de dados que envia. Consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+> A funcionalidade de Monitorização da Integridade do Ficheiro (FIM) funciona para computadores Windows e Linux e VMs e está disponível no nível padrão do Security Center. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. O FIM envia dados para o espaço de trabalho do Log Analytics. Os encargos de dados aplicam-se, com base na quantidade de dados que envia. Consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 
 A FIM utiliza a solução Azure Change Tracking para rastrear e identificar alterações no seu ambiente. Quando a Monitorização da Integridade do Ficheiro estiver ativada, tem um recurso de rastreio de **alteração** da **solução**tipo . Para obter detalhes sobre a frequência de recolha de dados, veja [Detalhes da recolha de dados do Controlo de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) do Controlo de Alterações do Azure.
 
@@ -107,7 +108,7 @@ São fornecidas as seguintes informações para cada espaço de trabalho:
 Podem também ser mostrados os seguintes botões para um espaço de trabalho:
 
 - ![Ativar o ícone][3] Indica que o FIM não está ativado para o espaço de trabalho. A seleção do espaço de trabalho permite ativar o FIM em todas as máquinas sob o espaço de trabalho.
-- ![O ícone do plano ][4] de atualização indica que o espaço de trabalho ou subscrição não está a funcionar sob o nível padrão do Security Center. Para utilizar a funcionalidade FIM, a sua subscrição deve estar a executar o Standard.  A seleção do espaço de trabalho permite-lhe fazer upgrade para Standard. Para saber mais sobre o nível Standard e como fazer o upgrade, consulte [o nível Standard do Security Center para uma maior segurança](security-center-pricing.md).
+- ![O ícone do plano ][4] de atualização indica que o espaço de trabalho ou a subscrição não estão a funcionar sob o nível padrão do Centro de Segurança. Para utilizar a funcionalidade FIM, a sua subscrição deve estar a executar o Standard.  A seleção do espaço de trabalho permite-lhe fazer upgrade para Standard. Para saber mais sobre o nível padrão e como fazer o upgrade, consulte [o nível padrão do Security Center para uma maior segurança](security-center-pricing.md).
 - Um branco (não há botão) significa que o FIM já está ativado no espaço de trabalho.
 
 No **âmbito da Monitorização da Integridade do Ficheiro,** pode selecionar um espaço de trabalho para permitir o FIM para esse espaço de trabalho, ver o painel de monitorização da integridade do ficheiro para esse espaço de trabalho ou [atualizar](security-center-pricing.md) o espaço de trabalho para Standard.

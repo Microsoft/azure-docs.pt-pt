@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5350e728ad9c30a6e9258ce9c7615baf020473a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995127"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518424"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acesso Condicional: Bloquear acesso por localização
 
@@ -42,17 +43,15 @@ Mais informações sobre a condição de localização em Acesso Condicional pod
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores**.
-   1. Selecione **Done** (Concluído).
-1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione todas as **aplicações em nuvem**e selecione **'Feito'.**
+1. Em **aplicativos ou ações cloud**  >  **Inclua**, e selecione **todas as aplicações em nuvem**.
 1. Em Localização **de Condições**  >  **Location**.
    1. Definir **Configurar** para **Sim**
-   1. **Incluir** **locais selecionados selecionados**
+   1. Em **Incluir**, selecione **locais selecionados**
    1. Selecione o local bloqueado que criou para a sua organização.
-   1. Clique **em**  >  **'Select**  >  **Done'.**
-1. Em **Condições**  >  **As aplicações do Cliente (Pré-visualização)**, **configurar configurar** para **Sim**, e selecione **Feito**.
-1. No **âmbito do Access controla**o  >  **Bloco**e selecione **Select**.
+   1. Clique em **Selecionar**.
+1. Nos **controlos de acesso** > selecione o Acesso ao **Bloco**e selecione **Select**.
 1. Confirme as suas definições e defina **Ativar** a política para **on**.
-1. Selecione **Criar** para criar para ativar a sua política.
+1. Selecione **Criar** para criar a Política de Acesso Condicional.
 
 ## <a name="next-steps"></a>Próximos passos
 

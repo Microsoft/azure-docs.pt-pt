@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223300"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518712"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 
@@ -33,6 +33,10 @@ Os serviços da Microsoft, como o Azure Site Recovery, o Azure Backup, bem como 
 * Gestão incremental de snapshots direcionados para aplicações: As aplicações podem alavancar as imagens blob de página e ASPIS de REST para guardar os pontos de verificação da aplicação sem incorrer em duplicação dispendiosa de dados. O Azure Storage suporta instantâneos locais para bolhas de página, que não requerem copiar toda a bolha. Estas APIs de instantâneo público também permitem o acesso e a cópia de deltas entre instantâneos.
 * Migração ao vivo de aplicações e dados de nas instalações para nuvem: Copie os dados nas instalações e utilize ASPis de REST para escrever diretamente para uma bolha de página Azure enquanto o VM nas instalações continua a funcionar. Uma vez que o alvo tenha sido apanhado, pode rapidamente falhar para a Azure VM usando esses dados. Desta forma, pode migrar os seus VMs e discos virtuais de instalações para cloud com o mínimo de tempo de paragem, uma vez que a migração de dados ocorre em segundo plano enquanto continua a utilizar o VM e o tempo de inatividade necessário para a falha será curto (em minutos).
 * Acesso partilhado [baseado em SAS,](../common/storage-sas-overview.md) que permite cenários como múltiplos leitores e um único escritor com suporte para o controlo da conuncy.
+
+## <a name="pricing"></a>Preços
+
+Ambos os tipos de armazenamento oferecidos com bolhas de página têm o seu próprio modelo de preços. As bolhas de página premium seguem o modelo de preços dos discos geridos, enquanto as bolhas de página padrão são faturadas no tamanho usado e em cada transação. Para obter mais informações, consulte a página de preços da [Azure Page Blobs](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 ## <a name="page-blob-features"></a>Funcionalidades de blob de página
 

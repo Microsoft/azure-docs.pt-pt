@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b22c653d25dc23bbcb249344affaf83a07f190af
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 77eb3ddfdbf2525aa031c462a38df5dcb8d31217
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024905"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518763"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utilize o portal Azure para atribuir uma função RBAC para acesso a dados de bolhas e filas
 
@@ -66,7 +66,7 @@ O procedimento aqui indicado atribui uma função a um contentor, mas pode segui
 
     ![Screenshot mostrando como atribuir um papel RBAC](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. Clique em **Guardar**. A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a seguinte imagem mostra que o utilizador adicionado agora leu permissões aos dados no contentor denominado *amostra-contentor*.
+1. Clique em **Save** (Guardar). A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a seguinte imagem mostra que o utilizador adicionado agora leu permissões aos dados no contentor denominado *amostra-contentor*.
 
     ![Screenshot mostrando lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
@@ -83,7 +83,7 @@ Se os seus utilizadores precisarem de ter acesso a blobs no portal Azure, atribu
 
 Siga estes passos para atribuir a função **Reader** para que um utilizador possa aceder a bolhas a partir do portal Azure. Neste exemplo, a atribuição é traçada na conta de armazenamento:
 
-1. No [portal Azure,](https://portal.azure.com)navegue para a sua conta de armazenamento.
+1. No [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento.
 1. Selecione **o controlo de acesso (IAM)** para exibir as definições de controlo de acesso para a conta de armazenamento. Selecione o **separador funções** para ver a lista de atribuições de funções.
 1. Na janela **de atribuição de funções Adicionar,** selecione a função **Reader.** 
 1. A partir do **acesso do Access a** Campo, selecione **utilizador, grupo ou principal de serviço Azure.**

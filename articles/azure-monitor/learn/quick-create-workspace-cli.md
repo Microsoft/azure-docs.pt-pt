@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 11fb2b7785540f24b0a8318428da01a4edd5cb5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7c3613a0ddce217e9d07c3fc2eba55b78c53a1b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83860635"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516554"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar um espaço de trabalho Log Analytics com Azure CLI 2.0
 
@@ -31,10 +32,10 @@ Se não tiver uma subscrição do Azure, crie [uma conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
-Criar um espaço de trabalho com [a criação de grupo az.](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) O exemplo a seguir cria um espaço de trabalho na localização *leste* usando um modelo de Gestor de Recursos a partir da sua máquina local. O modelo JSON é configurado apenas para o solicitar o nome do espaço de trabalho, e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com os modelos, consulte [recursos de implementação com modelos de Gestor de Recursos e CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
+Criar um espaço de trabalho com [a criação de grupo az.](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) O exemplo a seguir cria um espaço de trabalho na localização *leste* usando um modelo de Gestor de Recursos a partir da sua máquina local. O modelo JSON é configurado apenas para o solicitar o nome do espaço de trabalho, e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão no seu ambiente. Ou pode armazenar o modelo numa conta de armazenamento Azure para acesso partilhado na sua organização. Para mais informações sobre o trabalho com os modelos, consulte [recursos de implementação com modelos de Gestor de Recursos e CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Para obter informações sobre as regiões suportadas, consulte [as regiões Log Analytics](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor a partir da pesquisa de um campo de **produtos.**
 
@@ -105,7 +106,7 @@ Os seguintes parâmetros definem um valor predefinido:
     }
     ```
 
-2. Edite o modelo para satisfazer os seus requisitos. Reveja a referência [do modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais as propriedades e valores suportados.
+2. Edite o modelo para satisfazer os seus requisitos. Reveja a referência [do modelo Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais as propriedades e valores suportados.
 3. Guarde este ficheiro à medida **quedeploylaworkspacetemplate.jsnuma** pasta local.   
 4. Está pronto para implementar este modelo. Utilize os seguintes comandos da pasta que contém o gabarito. Quando você é solicitado para um nome de espaço de trabalho, forneça um nome que é globalmente único em todas as subscrições do Azure.
 
@@ -118,17 +119,17 @@ A implementação pode demorar alguns minutos a concluir. Quando termina, vê um
 ![Exemplo resultado quando a implementação está completa](media/quick-create-workspace-cli/template-output-01.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
+Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](../platform/delete-workspace.md#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
 1. Se fornecer o mesmo nome do espaço de trabalho, grupo de recursos, subscrição e região como no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
 2. Se utilizar o mesmo nome do espaço de trabalho, mas diferente grupo de recursos, subscrição ou região, obterá um erro *O nome do espaço de trabalho 'workspace-name' não é único*, ou *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:
-   * [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho
-   * [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho
+   * [Recupere](../platform/delete-workspace.md#recover-workspace) o seu espaço de trabalho
+   * [Elimine permanentemente](../platform/delete-workspace.md#permanent-workspace-delete) o seu espaço de trabalho
    * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho
 
 ## <a name="next-steps"></a>Próximos passos
 Agora que tem um espaço de trabalho disponível, pode configurar a recolha de telemetria de monitorização, executar pesquisas de registo para analisar esses dados e adicionar uma solução de gestão para fornecer dados adicionais e insights analíticos.  
 
-* Para permitir a recolha de dados a partir de recursos Azure com Azure Diagnostics ou armazenamento Azure, consulte [registos e métricas de serviço Da Recolha Azure para utilização no Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* Para permitir a recolha de dados a partir de recursos Azure com Azure Diagnostics ou armazenamento Azure, consulte [registos e métricas de serviço Da Recolha Azure para utilização no Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
 * Adicione [o Gestor de Operações do System Center como uma fonte de dados](../platform/om-agents.md) para recolher dados de agentes que reportam o seu grupo de gestão de Gestor de Operações e armazene-os no seu espaço de trabalho Log Analytics.  
 * Ligue [o Gestor de Configuração](../platform/collect-sccm.md) à importação de computadores que sejam membros de coleções na hierarquia.  
 * Reveja as [soluções de monitorização](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução do seu espaço de trabalho.

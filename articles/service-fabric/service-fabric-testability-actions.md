@@ -5,11 +5,12 @@ author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14b2b5bd2577a10ad77a715fb5d20e10da84cf1d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518984"
 ---
 # <a name="testability-actions"></a>Ações de testability
 De forma a simular uma infraestrutura pouco fiável, a Azure Service Fabric fornece-lhe, o desenvolvedor, formas de simular várias falhas no mundo real e transições estatais. Estas são expostas como ações de testabilidade. As ações são as APIs de baixo nível que causam uma injeção específica de falhas, transição do estado ou validação. Ao combinar estas ações, pode escrever cenários de teste abrangentes para os seus serviços.
@@ -78,7 +79,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 A imagem que se segue mostra o comando de testability **Restart-ServiceFabricNode** em ação.
 
-![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
+![Screenshot de executar o comando Restart-ServiceFabricNode em PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
 A saída do primeiro **Get-ServiceFabricNode** (um cmdlet do módulo PowerShell do tecido de serviço) mostra que o cluster local tem cinco nós: Nó.1 a Nó.5. Após a ação de teste (cmdlet) **Restart-ServiceFabricNode** é executado no nó, denominado Nó.4, vemos que o tempo de uptime do nó foi reiniciado.
 

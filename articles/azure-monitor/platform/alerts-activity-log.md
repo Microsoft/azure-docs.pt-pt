@@ -4,23 +4,23 @@ description: Crie alertas de registo de atividade utilizando o portal Azure, um 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 242192118d59f972cebe2837d74c34310cac74aa
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5019c3111a6e04dd9b7ba6ecbb9f62c7969075ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056264"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516061"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os alertas de registo de atividade são os alertas que são ativados quando ocorre um novo evento de registo de atividade que corresponde às condições especificadas no alerta.
 
 Estes alertas são para recursos Azure e podem ser criados usando um modelo de Gestor de Recursos Azure. Também podem ser criados, atualizados ou eliminados no portal Azure. Normalmente, cria alertas de registo de atividade para receber notificações quando ocorrem alterações específicas aos recursos na sua subscrição do Azure. Os alertas são muitas vezes alargados a determinados grupos de recursos ou recursos. Por exemplo, é melhor ser notificado quando qualquer máquina virtual do grupo de recursos de amostra **myProductionResourceGroup** for eliminada. Ou, pode querer ser notificado se alguma nova função for atribuída a um utilizador na sua subscrição.
 
 > [!IMPORTANT]
-> Os alertas sobre a notificação de saúde do serviço não podem ser criados através da interface para a criação de alerta de registo de atividade. Para saber mais sobre como criar e utilizar notificações de saúde do serviço, consulte [receber alertas de registo de atividades nas notificações de saúde do serviço.](alerts-activity-log-service-notifications.md)
+> Os alertas sobre a notificação de saúde do serviço não podem ser criados através da interface para a criação de alerta de registo de atividade. Para saber mais sobre como criar e utilizar notificações de saúde do serviço, consulte [receber alertas de registo de atividades nas notificações de saúde do serviço.](../../service-health/alerts-activity-log-service-notifications-portal.md)
 
 Quando criar regras de alerta, certifique-se de que:
 
@@ -28,6 +28,7 @@ Quando criar regras de alerta, certifique-se de que:
 - Os critérios devem ser o nível, estado, chamador, grupo de recursos, ID de recurso ou categoria de evento tipo de recurso em que o alerta está configurado.
 - Não existe condição "qualquer Of" ou condições aninhadas na configuração de alerta JSON. Basicamente, apenas uma condição "allOf" é permitida sem mais condições "allOf" ou "anyOf".
 - Quando a categoria for "administrativa", deve especificar pelo menos um dos critérios anteriores no seu alerta. Não pode criar um alerta que seja ativado sempre que um evento é criado nos registos de atividade.
+- Não podem ser criados alertas para eventos na categoria de alerta de registo de atividade.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -101,7 +102,7 @@ Utilize o seguinte procedimento.
     Pode ativar, desativar, editar ou eliminar uma regra. Saiba mais sobre como gerir as regras de registo de atividades.
 
 
-Uma simples analogia para compreender as condições em que as regras de alerta podem ser criadas num registo de atividades é explorar ou filtrar eventos através do registo de [atividades no portal Azure](activity-log-view.md#azure-portal). No **Monitor Azure -** Ecrã de registo de atividade, pode filtrar ou encontrar o evento necessário e, em seguida, criar um alerta utilizando o botão **de alerta de registo de atividade Add.** Em seguida, siga os passos 4 a 7 como anteriormente mostrado.
+Uma simples analogia para compreender as condições em que as regras de alerta podem ser criadas num registo de atividades é explorar ou filtrar eventos através do registo de [atividades no portal Azure](./activity-log.md#view-the-activity-log). No **Monitor Azure -** Ecrã de registo de atividade, pode filtrar ou encontrar o evento necessário e, em seguida, criar um alerta utilizando o botão **de alerta de registo de atividade Add.** Em seguida, siga os passos 4 a 7 como anteriormente mostrado.
     
  ![Adicionar alerta do registo de atividade](media/alerts-activity-log/add-activity-log.png)
     
@@ -243,7 +244,7 @@ Mais detalhes sobre os campos de registo de atividade que pode encontrar [aqui.]
 > Pode levar até 5 minutos para que a nova regra de alerta de registo de atividade se torne ativa.
 
 ## <a name="rest-api"></a>API REST 
-O [Azure Monitor Activity Alerts API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) é uma API REST. É totalmente compatível com a API do Gestor de Recursos Azure. Pode ser utilizado através do PowerShell utilizando o cmdlet do Gestor de Recursos ou o CLI Azure.
+O [Azure Monitor Activity Alerts API](/rest/api/monitor/activitylogalerts) é uma API REST. É totalmente compatível com a API do Gestor de Recursos Azure. Pode ser utilizado através do PowerShell utilizando o cmdlet do Gestor de Recursos ou o CLI Azure.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -262,29 +263,29 @@ onde o sampleActivityLogAlert.parameters.jscontém os valores previstos para os 
 
 Os alertas de registo de atividade têm cmdlets dedicados powerShell disponíveis:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): Cria um novo alerta de registo de atividade ou atualiza um alerta de registo de atividade existente.
-- [Get-AzActivityLogAlert:](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert)Obtém um ou mais recursos de alerta de registo de atividade.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): Ativa um alerta de registo de atividade existente e define as suas etiquetas.
-- [Desativar O AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): Desativa um alerta de registo de atividade existente e define as suas etiquetas.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): Remove um alerta de registo de atividade.
+- [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert): Cria um novo alerta de registo de atividade ou atualiza um alerta de registo de atividade existente.
+- [Get-AzActivityLogAlert:](/powershell/module/az.monitor/get-azactivitylogalert)Obtém um ou mais recursos de alerta de registo de atividade.
+- [Enable-AzActivityLogAlert](/powershell/module/az.monitor/enable-azactivitylogalert): Ativa um alerta de registo de atividade existente e define as suas etiquetas.
+- [Desativar O AzActivityLogAlert](/powershell/module/az.monitor/disable-azactivitylogalert): Desativa um alerta de registo de atividade existente e define as suas etiquetas.
+- [Remove-AzActivityLogAlert](/powershell/module/az.monitor/remove-azactivitylogalert): Remove um alerta de registo de atividade.
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Os comandos dedicados do CLI Azure ao abrigo do [alerta de registo de atividade do monitor definido az](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) estão disponíveis para gerir as regras de alerta de registo de atividade.
+Os comandos dedicados do CLI Azure ao abrigo do [alerta de registo de atividade do monitor definido az](/cli/azure/monitor/activity-log/alert) estão disponíveis para gerir as regras de alerta de registo de atividade.
 
 Para criar uma nova regra de alerta de registo de atividade, utilize os seguintes comandos nesta ordem:
 
-1. [az monitor de alerta de registo de atividade criar:](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create)Criar um novo recurso de regra de alerta de registo de atividade.
-1. [az monitor monitor de alerta de registo de atividade](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Adicione o âmbito para a regra de alerta de registo de atividade criada.
-1. [az monitorar o grupo de ação de alerta de registo de atividades](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Adicione um grupo de ação à regra de alerta de registo de atividade.
+1. [az monitor de alerta de registo de atividade criar:](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create)Criar um novo recurso de regra de alerta de registo de atividade.
+1. [az monitor monitor de alerta de registo de atividade](/cli/azure/monitor/activity-log/alert/scope): Adicione o âmbito para a regra de alerta de registo de atividade criada.
+1. [az monitorar o grupo de ação de alerta de registo de atividades](/cli/azure/monitor/activity-log/alert/action-group): Adicione um grupo de ação à regra de alerta de registo de atividade.
 
-Para recuperar um recurso de regra de alerta de registo de atividade, utilize o [programa de alerta de registo de atividade do monitor Azure](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-)CLI monitor . Para visualizar todos os recursos de regra de alerta de registo de atividade em um grupo de recursos, utilize [a lista de alerta de registo de atividade do monitor az](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Os recursos de regra de alerta de registo de atividade podem ser removidos utilizando o [aviso de registo de atividade do monitor](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete)Azure CLI .
+Para recuperar um recurso de regra de alerta de registo de atividade, utilize o [programa de alerta de registo de atividade do monitor Azure](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+)CLI monitor . Para visualizar todos os recursos de regra de alerta de registo de atividade em um grupo de recursos, utilize [a lista de alerta de registo de atividade do monitor az](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Os recursos de regra de alerta de registo de atividade podem ser removidos utilizando o [aviso de registo de atividade do monitor](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete)Azure CLI .
 
 ## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o esquema webhook para registos de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).
 - Leia uma [visão geral dos registos de atividades.](../../azure-monitor/platform/activity-log-alerts.md)
 - Saiba mais sobre [grupos de ação.](../../azure-monitor/platform/action-groups.md)  
-- Saiba mais sobre [as notificações de saúde do serviço.](../../azure-monitor/platform/service-notifications.md)
+- Saiba mais sobre [as notificações de saúde do serviço.](../../service-health/service-notifications.md)

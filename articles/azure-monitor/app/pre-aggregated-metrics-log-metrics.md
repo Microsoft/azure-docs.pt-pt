@@ -6,11 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30487eebed361e5b010df023a9b1a44f96590b14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9aba1e5b469e04c6c6d047f78cd202a073e5a769
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81271085"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86516945"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas no registo e pré-agregadas no Application Insights
 
@@ -22,14 +23,14 @@ Até recentemente, o modelo de dados de telemetria de monitorização da aplica�
 
 Usar registos para reter um conjunto completo de eventos pode trazer um grande valor analítico e de diagnóstico. Por exemplo, você pode obter uma contagem exata de pedidos para um URL particular com o número de utilizadores distintos que fizeram estas chamadas. Ou pode obter vestígios de diagnóstico detalhados, incluindo exceções e pedidos de dependência para qualquer sessão de utilizador. Ter este tipo de informação pode melhorar significativamente a visibilidade na saúde e utilização da aplicação, permitindo reduzir o tempo necessário para diagnosticar problemas com uma app.
 
-Ao mesmo tempo, recolher um conjunto completo de eventos pode ser impraticável (ou mesmo impossível) para aplicações que gerem um grande volume de telemetria. Para situações em que o volume de eventos é demasiado elevado, a Application Insights implementa várias técnicas de redução do volume de telemetria, tais como [amostragem](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) e filtragem que [reduzem](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) o número de eventos recolhidos e armazenados. Infelizmente, a redução do número de eventos armazenados também diminui a precisão das métricas que, nos bastidores, devem realizar agregações de tempo de consulta dos eventos armazenados em troncos.
+Ao mesmo tempo, recolher um conjunto completo de eventos pode ser impraticável (ou mesmo impossível) para aplicações que gerem um grande volume de telemetria. Para situações em que o volume de eventos é demasiado elevado, a Application Insights implementa várias técnicas de redução do volume de telemetria, tais como [amostragem](./sampling.md) e filtragem que [reduzem](./api-filtering-sampling.md) o número de eventos recolhidos e armazenados. Infelizmente, a redução do número de eventos armazenados também diminui a precisão das métricas que, nos bastidores, devem realizar agregações de tempo de consulta dos eventos armazenados em troncos.
 
 > [!NOTE]
 > Em Application Insights, as métricas que se baseiam na agregação de tempo de consulta de eventos e medições armazenadas em registos são chamadas métricas baseadas em log. Estas métricas normalmente têm muitas dimensões das propriedades do evento, o que as torna superiores para análise, mas a precisão destas métricas é negativamente afetada pela amostragem e filtragem.
 
 ## <a name="pre-aggregated-metrics"></a>Métricas pré-agregadas
 
-Além das métricas baseadas em registos, no final de 2018, a equipa da Application Insights enviou uma pré-visualização pública de métricas que são armazenadas num repositório especializado que está otimizado para séries temporais. As novas métricas já não são mantidas como eventos individuais com muitas propriedades. Em vez disso, são armazenados como séries temporâmia pré-agregadas, e apenas com dimensões-chave. Isto torna as novas métricas superiores no tempo de consulta: recuperar dados acontece muito mais rápido e requer menos poder de computação. Isto permite, consequentemente, novos cenários, como [o alerta quase em tempo real sobre as dimensões das métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), dashboards mais [responsivos](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)e muito mais.
+Além das métricas baseadas em registos, no final de 2018, a equipa da Application Insights enviou uma pré-visualização pública de métricas que são armazenadas num repositório especializado que está otimizado para séries temporais. As novas métricas já não são mantidas como eventos individuais com muitas propriedades. Em vez disso, são armazenados como séries temporâmia pré-agregadas, e apenas com dimensões-chave. Isto torna as novas métricas superiores no tempo de consulta: recuperar dados acontece muito mais rápido e requer menos poder de computação. Isto permite, consequentemente, novos cenários, como [o alerta quase em tempo real sobre as dimensões das métricas](../platform/alerts-metric-near-real-time.md), dashboards mais [responsivos](./overview-dashboard.md)e muito mais.
 
 > [!IMPORTANT]
 > Ambas as métricas baseadas em log e pré-agregadas coexistem em Insights de Aplicação. Para diferenciar os dois, no Application Insights UX as métricas pré-agregadas são agora chamadas de "métricas padrão (pré-visualização)", enquanto as métricas tradicionais dos eventos foram renomeadas para "métricas baseadas em log".
@@ -38,17 +39,17 @@ Os novos SDKs[(Application Insights 2.7](https://www.nuget.org/packages/Microsof
 
 Para os SDKs que não implementam pré-agregação (isto é, versões mais antigas de SDKs application insights ou para instrumentação de navegador) o backend Application Insights ainda povoa as novas métricas agregando os eventos recebidos pelo ponto final de recolha de eventos Application Insights. Isto significa que, embora não beneficie do volume reduzido de dados transmitidos através do fio, ainda pode usar as métricas pré-agregadas e experimentar um melhor desempenho e suporte do alerta dimensional próximo em tempo real com SDKs que não pré-agregam métricas durante a recolha.
 
-Vale a pena referir que o ponto final de recolha pré-agrega eventos antes da amostragem de ingestão, o que significa que a amostragem de [ingestão](https://docs.microsoft.com/azure/application-insights/app-insights-sampling) nunca terá impacto na precisão das métricas pré-agregadas, independentemente da versão SDK que utiliza com a sua aplicação.  
+Vale a pena referir que o ponto final de recolha pré-agrega eventos antes da amostragem de ingestão, o que significa que a amostragem de [ingestão](./sampling.md) nunca terá impacto na precisão das métricas pré-agregadas, independentemente da versão SDK que utiliza com a sua aplicação.  
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Utilização de pré-agregação com métricas personalizadas do Application Insights
 
 Pode utilizar pré-agregação com métricas personalizadas. Os dois principais benefícios são a capacidade de configurar e alertar sobre uma dimensão de uma métrica personalizada e reduzir o volume de dados enviados do SDK para o ponto final de recolha de Insights de Aplicação.
 
-Existem várias [formas de enviar métricas personalizadas do Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Se a sua versão do SDK oferece os métodos [GetMetric e TrackValue,](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) esta é a forma preferida de enviar métricas personalizadas, uma vez que neste caso a pré-agregação acontece dentro do SDK, não só reduzindo o volume de dados armazenados em Azure, mas também o volume de dados transmitidos do SDK para a Application Insights. Caso contrário, utilize o método [trackMetric,](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) que irá pré-agregar eventos métricos durante a ingestão de dados.
+Existem várias [formas de enviar métricas personalizadas do Application Insights SDK](./api-custom-events-metrics.md). Se a sua versão do SDK oferece os métodos [GetMetric e TrackValue,](./api-custom-events-metrics.md#getmetric) esta é a forma preferida de enviar métricas personalizadas, uma vez que neste caso a pré-agregação acontece dentro do SDK, não só reduzindo o volume de dados armazenados em Azure, mas também o volume de dados transmitidos do SDK para a Application Insights. Caso contrário, utilize o método [trackMetric,](./api-custom-events-metrics.md#trackmetric) que irá pré-agregar eventos métricos durante a ingestão de dados.
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>Dimensões de métricas personalizadas e pré-agregação
 
-Todas as métricas que envia usando as chamadas [API de trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) ou [GetMetric e TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) são automaticamente armazenadas em lojas de registos e métricas. No entanto, embora a versão baseada em log da sua métrica personalizada mantenha sempre todas as dimensões, a versão pré-agregada da métrica é armazenada por padrão sem dimensões. Pode ativar a recolha de dimensões de métricas personalizadas no separador [de custos e estimado,](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) verificando "Ativar as dimensões métricas personalizadas": 
+Todas as métricas que envia usando as chamadas [API de trackMetric](./api-custom-events-metrics.md#trackmetric) ou [GetMetric e TrackValue](./api-custom-events-metrics.md#getmetric) são automaticamente armazenadas em lojas de registos e métricas. No entanto, embora a versão baseada em log da sua métrica personalizada mantenha sempre todas as dimensões, a versão pré-agregada da métrica é armazenada por padrão sem dimensões. Pode ativar a recolha de dimensões de métricas personalizadas no separador [de custos e estimado,](./pricing.md) verificando "Ativar as dimensões métricas personalizadas": 
 
 ![Utilização e custo estimado](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
@@ -64,11 +65,11 @@ Use [o Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) p
 
 ## <a name="pricing-models-for-application-insights-metrics"></a>Modelos de preços para métricas de Insights de Aplicações
 
-Ingerir métricas em Application Insights, quer baseadas em registos ou pré-agregadas, gerará custos com base no tamanho dos dados ingeridos, como descrito [aqui.](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) As suas métricas personalizadas, incluindo todas as suas dimensões, estão sempre armazenadas na loja de registos Application Insights; além disso, uma versão pré-agregada das suas métricas personalizadas (sem dimensões) é reencaminhada para a loja de métricas por padrão.
+Ingerir métricas em Application Insights, quer baseadas em registos ou pré-agregadas, gerará custos com base no tamanho dos dados ingeridos, como descrito [aqui.](./pricing.md#pricing-model) As suas métricas personalizadas, incluindo todas as suas dimensões, estão sempre armazenadas na loja de registos Application Insights; além disso, uma versão pré-agregada das suas métricas personalizadas (sem dimensões) é reencaminhada para a loja de métricas por padrão.
 
 Selecionar o Enable alerting sobre a opção [de dimensões métricas personalizadas](#custom-metrics-dimensions-and-pre-aggregation) para armazenar todas as dimensões das métricas pré-agregadas na loja métrica, pode gerar custos **adicionais** com base nos [preços das Métricas Personalizadas](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Alerta em tempo real](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)
-* [GetMetric e TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric)
+* [Alerta em tempo real](../platform/alerts-metric-near-real-time.md)
+* [GetMetric e TrackValue](./api-custom-events-metrics.md#getmetric)

@@ -5,12 +5,12 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8765e86ffeae86b9f4e2b693c0dbf92478632dbf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 640ee925a0a91c4f8424546e7ae734dfbeaed21d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253172"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518967"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configure serviços fidedigcos estatais
 Existem dois conjuntos de configurações para serviços fiáveis. Um conjunto é global para todos os serviços fiáveis no cluster, enquanto o outro conjunto é específico de um serviço de confiança particular.
@@ -19,7 +19,7 @@ Existem dois conjuntos de configurações para serviços fiáveis. Um conjunto �
 A configuração global de serviço fiável é especificada no manifesto de cluster para o cluster sob a secção KtlLogger. Permite a configuração da localização e tamanho do registo partilhado, além dos limites globais de memória utilizados pelo madeirão. O manifesto de cluster é um único ficheiro XML que contém configurações e configurações que se aplicam a todos os nós e serviços do cluster. O ficheiro é normalmente chamado ClusterManifest.xml. Pode ver o manifesto de cluster para o seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor predefinido | Observações |
+| Name | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB para alocar no modo kernel para o logger escrever piscina de memória tampão. Este conjunto de memórias é utilizado para cache informações do estado antes de escrever no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobytes |Sem Limite |Tamanho máximo ao qual o madeireiro escreve piscina de memória tampão pode crescer. |
@@ -29,13 +29,15 @@ A configuração global de serviço fiável é especificada no manifesto de clus
 
 No modelo JSON da Azure ARM ou no local, o exemplo abaixo mostra como alterar o registo de transações partilhado que é criado para apoiar quaisquer cobranças fiáveis para serviços estatais.
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### <a name="sample-local-developer-cluster-manifest-section"></a>Corte de projeto local de desenvolvimento local secção
 Se quiser alterar isto no seu ambiente de desenvolvimento local, tem de editar o ficheiro local clustermanifest.xml.
@@ -100,7 +102,7 @@ ReplicadorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor predefinido | Observações |
+| Name | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | BatchAckAckNownowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta um aviso para o primário. Quaisquer outros avisos a serem enviados para operações processadas dentro deste intervalo são enviados como uma resposta. |
 | Ponto de réplica |N/D |Sem parâmetro padrão-necessário |Endereço IP e porta que o replicador primário/secundário utilizará para comunicar com outros replicadores no conjunto de réplicas. Isto deve fazer referência a um ponto final de recurso TCP no manifesto de serviço. Consulte os [recursos manifestos do Serviço](service-fabric-service-manifest-resources.md) para ler mais sobre a definição de recursos de ponto final num manifesto de serviço. |
@@ -182,6 +184,6 @@ A definição MaxRecordSizeInKB define o tamanho máximo de um registo que pode 
 
 As definições SharedLogId e SharedLogPath são sempre usadas em conjunto para fazer com que um serviço utilize um registo partilhado separado do registo partilhado padrão para o nó. Para melhor eficiência, o maior número possível de serviços deve especificar o mesmo registo partilhado. Os ficheiros de registo partilhados devem ser colocados em discos que são utilizados exclusivamente para o ficheiro de registo partilhado para reduzir a contenção do movimento da cabeça. Esperamos que este valor tenha de ser alterado apenas em casos raros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Depurar a sua aplicação de Tecido de Serviço no Estúdio Visual](service-fabric-debugging-your-application.md)
 * [Referência do programador para serviços fiáveis](/previous-versions/azure/dn706529(v=azure.100))

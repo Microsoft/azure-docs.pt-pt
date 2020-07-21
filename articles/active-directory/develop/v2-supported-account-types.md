@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50a0859b58e2db0d3f644db01cfcde8c533b6871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583097"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518135"
 ---
 # <a name="supported-account-types"></a>Tipos de conta suportados
 
@@ -45,13 +45,12 @@ Alguns tipos de conta não podem ser usados com certos fluxos de autenticação.
 - As aplicações Daemon só podem ser usadas com organizações AZure AD. Não faz sentido tentar usar aplicações daEmon para manipular contas pessoais da Microsoft. O consentimento da administração nunca será concedido.
 - Pode utilizar o fluxo integrado de autenticação do Windows apenas com contas de trabalho ou escola (na sua organização ou em qualquer organização). A autenticação integrada do Windows funciona com contas de domínio, e requer que as máquinas sejam unidas ao domínio ou a AD AZure. Este fluxo não faz sentido para contas pessoais da Microsoft.
 - A [concessão de credenciais de palavra-passe do proprietário de recursos](./v2-oauth-ropc.md) (nome de utilizador/palavra-passe) não pode ser utilizada com contas pessoais da Microsoft. As contas pessoais da Microsoft exigem que o utilizador consinta em aceder a recursos pessoais em cada sessão de início de sessão. É por isso que este comportamento não é compatível com fluxos não interativos.
-- O fluxo de código do dispositivo não funciona com contas pessoais da Microsoft.
 
 ## <a name="account-types-in-national-clouds"></a>Tipos de conta em nuvens nacionais
 
 As aplicações também podem assinar nos utilizadores em [nuvens nacionais.](authentication-national-cloud.md) No entanto, as contas pessoais da Microsoft não são suportadas nestas nuvens. É por isso que os tipos de conta suportados são reduzidos, para estas nuvens, para a sua organização (inquilino único) ou qualquer organização (aplicações multitenantes).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o arrendamento no Azure Ative Directory](./single-and-multi-tenant-apps.md).
 - Saiba mais sobre [as nuvens nacionais.](./authentication-national-cloud.md)
