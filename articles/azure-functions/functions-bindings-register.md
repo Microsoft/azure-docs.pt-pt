@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697345"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506490"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar extensões de ligação funções Azure Funções
 
@@ -48,7 +49,7 @@ Para utilizar pacotes de extensão, atualize o *host.jsno* ficheiro para incluir
 
 ## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>Biblioteca de classe C \# com Estúdio Visual
 
-No **Visual Studio,** pode instalar pacotes a partir da consola Package Manager utilizando o comando [Install-Package,](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) como mostra o seguinte exemplo:
+No **Visual Studio,** pode instalar pacotes a partir da consola Package Manager utilizando o comando [Install-Package,](/nuget/tools/ps-ref-install-package) como mostra o seguinte exemplo:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -62,7 +63,7 @@ Se utilizar `Install-Package` para fazer referência a uma ligação, não preci
 
 ## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Biblioteca de classe C# com Código de Estúdio Visual
 
-No **Código do Estúdio Visual,** instale pacotes para um projeto de biblioteca de classe C# a partir do pedido de comando utilizando o comando do pacote de adicionar [dotnet](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) no .NET Core CLI. O exemplo a seguir demonstra como se adiciona uma ligação:
+No **Código do Estúdio Visual,** instale pacotes para um projeto de biblioteca de classe C# a partir do pedido de comando utilizando o comando do pacote de adicionar [dotnet](/dotnet/core/tools/dotnet-add-package) no .NET Core CLI. O exemplo a seguir demonstra como se adiciona uma ligação:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>

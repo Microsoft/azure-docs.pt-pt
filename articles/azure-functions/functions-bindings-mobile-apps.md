@@ -5,19 +5,19 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6810ba76379e78d3cde4f3cd341d501be3725257
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506337"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Ligações de Aplicativos Móveis para Funções Azure 
 
 > [!NOTE]
 > As ligações Azure Mobile Apps só estão disponíveis para as Funções Azure 1.x. Não são suportados nas Funções Azure 2.x ou superior.
 
-Este artigo explica como trabalhar com as ligações [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) em Funções Azure. A Azure Functions suporta entradas e encadernações de saída para aplicações móveis.
+Este artigo explica como trabalhar com as ligações [Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) em Funções Azure. A Azure Functions suporta entradas e encadernações de saída para aplicações móveis.
 
 As ligações para aplicações móveis permitem ler e atualizar tabelas de dados em aplicações móveis.
 
@@ -134,7 +134,7 @@ Para obter informações sobre propriedades de atributos que possa configurar, c
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `MobileTable` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo**| n/a | Deve ser definido para "mobileTable"|
 | **direção**| n/a |Deve ser definido para "in"|
@@ -292,7 +292,7 @@ Para um exemplo completo, consulte [o exemplo de Saída - C#](#output---c-exampl
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `MobileTable` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo**| n/a | Deve ser definido para "mobileTable"|
 | **direção**| n/a |Deve ser definido para "out"|
@@ -316,7 +316,7 @@ Nas funções de script C# utilize um parâmetro de saída nomeado `out object` 
 
 Em Node.js funções, utilize `context.bindings.<name>` para aceder ao registo de saída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

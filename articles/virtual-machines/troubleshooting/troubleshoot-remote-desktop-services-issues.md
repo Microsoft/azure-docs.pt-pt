@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: f41f3bd38013cb0ebd2cad55168551c303c1d231
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0b00785fed7708986885e9da9102e8f1b4fd4539
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084333"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508887"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Remote Desktop Services não está a começar num Azure VM
 
@@ -218,7 +218,7 @@ Para resolver este problema, utilize a Consola em Série. Ou [então, reparar o 
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Ligue o disco de SO a um VM de recuperação
 
-1. [Fixe o disco DE A uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Fixe o disco DE A uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie uma ligação de ambiente de trabalho remoto ao VM de recuperação. Certifique-se de que o disco anexo está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco de so em anexo.
 3. Abra uma instância de ordem elevada **(Executar como administrador**). Em seguida, executar o seguinte script. Assumimos que a letra de unidade que é atribuída ao disco de SO anexado é **F**. Substitua-o pelo valor adequado no seu VM. 
 
@@ -234,7 +234,7 @@ Para resolver este problema, utilize a Consola em Série. Ou [então, reparar o 
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Retire o disco de SO e recrie o VM](../windows/troubleshoot-recovery-disks-portal.md). Então verifique se a questão está resolvida.
+4. [Retire o disco de SO e recrie o VM](./troubleshoot-recovery-disks-portal-windows.md). Então verifique se a questão está resolvida.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

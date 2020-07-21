@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Implementar um cluster de serviço Azure Kubernetes'
+title: 'Quickstart: Implementar um cluster AKS utilizando o Azure CLI'
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação e monitorizar o desempenho no Serviço Azure Kubernetes (AKS) utilizando o CLI Azure.
 services: container-service
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: c55e93e4fe8baf04504f1cff6e762dfcb5c46c18
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2e6feb7c1d406a26c5a668d36d60ea0dbbae160c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251483"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507119"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes utilizando o Azure CLI
 
@@ -109,7 +109,7 @@ Um ficheiro manifesto kubernetes define um estado desejado para o cluster, como 
 > [!TIP]
 > Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em mais cenários do mundo real, pode utilizar o [Azure Dev Spaces][azure-dev-spaces] para iterar e depurar o seu código rápida e diretamente no cluster do AKS. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
 
-Crie um ficheiro nomeado `azure-vote.yaml` e copie na seguinte definição YAML. Se utilizar o Azure Cloud Shell, este ficheiro pode ser criado utilizando `vi` ou `nano` funcionando num sistema virtual ou físico:
+Crie um ficheiro nomeado `azure-vote.yaml` e copie na seguinte definição YAML. Se utilizar o Azure Cloud Shell, este ficheiro pode ser criado utilizando `code` , ou como se `vi` `nano` funcionasse num sistema virtual ou físico:
 
 ```yaml
 apiVersion: apps/v1
@@ -257,7 +257,7 @@ Neste início rápido, imagens de contentores pré-criadas foram usadas para cri
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo. Também pode [aceder ao painel web kubernetes][kubernetes-dashboard] para o seu cluster AKS.
 

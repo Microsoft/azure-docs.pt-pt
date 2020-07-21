@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 8806390fe772491b629276b21734947a149d67e4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d1cfbe1db33661dd712dfbc53670fb8f0525a481
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250690"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507034"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
 
@@ -271,7 +271,7 @@ O pod é atribuído um endereço IP interno da sub-rede virtual Azure delegada p
 Para testar o pod em execução no nó virtual, navegue para a aplicação de demonstração com um cliente web. À medida que a cápsula é atribuída a um endereço IP interno, pode testar rapidamente esta conectividade a partir de outra cápsula no cluster AKS. Crie uma cápsula de teste e anexe-lhe uma sessão terminal:
 
 ```console
-kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
+kubectl run -it --rm testvk --image=debian
 ```
 
 Instale `curl` na cápsula `apt-get` utilizando:
@@ -338,7 +338,7 @@ az network profile delete --id $NETWORK_PROFILE_ID -y
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 

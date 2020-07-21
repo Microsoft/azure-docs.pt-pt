@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a60200bd35d142b8b55a40d6912f946f9421f52e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a97bd1327ab3cc2a35f94553259fb6095217fe7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207654"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508224"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Windows no Azure
 
@@ -28,7 +28,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 | [Computação de elevado desempenho](../sizes-hpc.md) | HB, HBv2, HC, H | As nossas máquinas virtuais mais rápidas e poderosas do CPU com interfaces de rede de alta produção opcional (RDMA). |
 
 - Para obter informações sobre preços dos vários tamanhos, consulte [o Preço das Máquinas Virtuais.](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
-- Para ver os limites gerais dos VMs Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](../../azure-subscription-service-limits.md)
+- Para ver os limites gerais dos VMs Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Os custos de armazenamento são calculados em separado com base nas páginas utilizadas na conta de armazenamento. Para mais detalhes, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 - Saiba mais sobre como [as unidades de computação Azure (ACU)](../acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
 
@@ -36,9 +36,9 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 
 Para obter informações sobre a utilização da API REST para consultar os tamanhos de VM, consulte o seguinte:
 
-- [Lista de tamanhos de máquinas virtuais disponíveis para redimensionamento](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Lista tamanhos de máquinas virtuais disponíveis para uma subscrição](https://docs.microsoft.com/rest/api/compute/resourceskus/list)
-- [Lista tamanhos de máquinas virtuais disponíveis em um conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Lista de tamanhos de máquinas virtuais disponíveis para redimensionamento](/rest/api/compute/virtualmachines/listavailablesizes)
+- [Lista tamanhos de máquinas virtuais disponíveis para uma subscrição](/rest/api/compute/resourceskus/list)
+- [Lista tamanhos de máquinas virtuais disponíveis em um conjunto de disponibilidade](/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 
@@ -52,7 +52,7 @@ Saiba mais sobre o desempenho do cálculo dos VMs do Windows utilizando as [pont
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: b7566260786b6fcfa639f244e2eff0cc8304ed9e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d489ed9dbf9b8075951258e0841675877e11be38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506796"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
 
@@ -42,7 +42,7 @@ Crie uma aplicação web core ASP.NET no Estúdio Visual seguindo estes passos:
 
    ![Configure o seu projeto de aplicação web](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. Você pode implementar qualquer tipo de ASP.NET web app Core para Azure, mas para este arranque rápido, escolha o modelo **de Aplicação Web.** Certifique-se de que a **autenticação** está definida para **Não Autenticação**e que não está selecionada nenhuma outra opção. Em seguida, **selecione Criar**.
+1. Você pode implementar qualquer tipo de ASP.NET web app Core para Azure, mas para este arranque rápido, escolha o modelo **de Aplicação Web.** Certifique-se de que a **autenticação** está definida para **Não Autenticação**e que não está selecionada nenhuma outra opção. Em seguida, selecione **Criar**.
 
    ![Criar uma nova aplicação web core ASP.NET](./media/app-service-web-get-started-dotnet/create-aspnet-core-web-app.png) 
    
@@ -77,9 +77,9 @@ Siga estes passos para criar o seu Serviço de Aplicações e publique a sua apl
 
 1. No **Plano de Hospedagem: Criar novo** diálogo, introduzir os valores especificados no quadro seguinte:
 
-   | Definição  | Valor sugerido | Description |
+   | Definição  | Valor sugerido | Descrição |
    | -------- | --------------- | ----------- |
-   | **Plano de Hospedagem**  | *myFirstAzureWebAppPlan* | Nome do plano de serviço de aplicações. |
+   | **Plano de Alojamento**  | *myFirstAzureWebAppPlan* | Nome do plano de serviço de aplicações. |
    | **Localização**      | *Europa Ocidental* | O centro de dados onde o a aplicação Web está alojada. |
    | **Tamanho**          | *Gratuito* | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
    
@@ -142,7 +142,7 @@ A página **'Vista Geral'** para a sua aplicação web contém opções para ges
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você usou o Visual Studio para criar e implementar uma aplicação web core ASP.NET para o Azure App Service.
 
@@ -153,3 +153,8 @@ Avance para o próximo artigo para aprender a criar uma aplicação .NET Core e 
 
 > [!div class="nextstepaction"]
 > [Configurar ASP.NET aplicação Core](configure-language-dotnetcore.md)
+
+Quer otimizar e economizar nos gastos na nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

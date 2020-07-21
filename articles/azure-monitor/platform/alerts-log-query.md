@@ -6,11 +6,12 @@ ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be2d49a824066b8926ae455978facb34c0b44310
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77667793"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505470"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alerta de registo no Monitor Azure
 [As regras de alerta baseadas nos registos do Azure Monitor](alerts-unified-log.md) são executadas em intervalos regulares, pelo que deve certificar-se de que são escritas para minimizar a sobrecarga e a latência. Este artigo fornece recomendações sobre a escrita de consultas eficientes para alertas de registo e um processo de conversão de consultas existentes. 
@@ -49,7 +50,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->[A consulta de recursos cruzados](../log-query/cross-workspace-query.md) nos alertas de registo é suportada na nova [API agendada deQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza a [api de alerta de log analytics para](api-alerts.md) criar novas regras de alerta de registo a partir do portal Azure, a menos que mude de [API de alertas](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)de registo legados . Após a troca, a nova API torna-se o padrão para novas regras de alerta no portal Azure e permite criar regras de alerta de registo de consulta de recursos cruzados. Pode criar regras de alerta de registo [de consulta de recursos transversais](../log-query/cross-workspace-query.md) sem fazer o switch utilizando o modelo ARM para a API agendada para a [API de Regras Descomulosas agendadas](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas esta regra de alerta é controlável embora [agendada API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não a partir do portal Azure.
+>[A consulta de recursos cruzados](../log-query/cross-workspace-query.md) nos alertas de registo é suportada na nova [API agendada deQueryRules](/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza a [api de alerta de log analytics para](api-alerts.md) criar novas regras de alerta de registo a partir do portal Azure, a menos que mude de [API de alertas](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)de registo legados . Após a troca, a nova API torna-se o padrão para novas regras de alerta no portal Azure e permite criar regras de alerta de registo de consulta de recursos cruzados. Pode criar regras de alerta de registo [de consulta de recursos transversais](../log-query/cross-workspace-query.md) sem fazer o switch utilizando o modelo ARM para a API agendada para a [API de Regras Descomulosas agendadas](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas esta regra de alerta é controlável embora [agendada API](/rest/api/monitor/scheduledqueryrules) e não a partir do portal Azure.
 
 ## <a name="examples"></a>Exemplos
 Os exemplos seguintes incluem consultas de registo que usam `search` e `union` fornecem passos que você pode usar para modificar estas consultas para uso com regras de alerta.
@@ -216,4 +217,3 @@ on Hour
 ## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [os alertas de registo](alerts-log.md) no Azure Monitor.
 - Saiba mais [sobre consultas de registo.](../log-query/log-query-overview.md)
-

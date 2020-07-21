@@ -3,18 +3,18 @@ title: Gerir ligações em Funções Azure
 description: Saiba como evitar problemas de desempenho em Funções Azure utilizando clientes de ligação estática.
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ab59d82ad4b11e4ac5179ef727392a83bb263e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846762"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505997"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações em Funções Azure
 
 As funções numa aplicação de função partilham recursos. Entre esses recursos partilhados encontram-se ligações: conexões HTTP, ligações de base de dados e ligações a serviços como o Azure Storage. Quando muitas funções estão a funcionar simultaneamente, é possível ficar sem ligações disponíveis. Este artigo explica como codificar as suas funções para evitar a utilização de mais ligações do que as necessárias.
 
-## <a name="connection-limit"></a>Limite de ligação
+## <a name="connection-limit"></a>Limite de ligações
 
 O número de ligações disponíveis é limitado em parte porque uma aplicação de função funciona num [ambiente de caixa de areia.](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) Uma das restrições que a caixa de areia impõe no seu código é um limite para o número de ligações de saída, que atualmente é de 600 ligações ativas (1.200 no total) por exemplo. Quando se atinge este limite, o tempo de execução das funções escreve a seguinte mensagem para os registos: `Host thresholds exceeded: Connections` . Para mais informações, consulte os limites de [serviço funções.](functions-scale.md#service-limits)
 
@@ -24,8 +24,7 @@ Ao resolver problemas, certifique-se de que ativou o Application Insights para a
 
 ## <a name="static-clients"></a>Clientes estáticos
 
-Para evitar mais ligações do que o necessário, reutilizar as instâncias do cliente em vez de criar novas com cada invocação de função. Recomendamos a reutilização das ligações do cliente para qualquer idioma em que possa escrever a sua função. Por exemplo, clientes .NET como os clientes [HttpClient,](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-)e Azure Storage podem gerir ligações se utilizar um único cliente estático.
+Para evitar mais ligações do que o necessário, reutilizar as instâncias do cliente em vez de criar novas com cada invocação de função. Recomendamos a reutilização das ligações do cliente para qualquer idioma em que possa escrever a sua função. Por exemplo, clientes .NET como os clientes [HttpClient,](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient)e Azure Storage podem gerir ligações se utilizar um único cliente estático.
 
 Aqui estão algumas diretrizes a seguir quando estiver a utilizar um cliente específico de serviço numa aplicação Azure Functions:
 
@@ -39,7 +38,7 @@ Esta secção demonstra as melhores práticas para criar e utilizar clientes a p
 
 ### <a name="httpclient-example-c"></a>Exemplo httpClient (C#)
 
-Aqui está um exemplo do código de função C# que cria uma instância estática [httpClient:](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
+Aqui está um exemplo do código de função C# que cria uma instância estática [httpClient:](/dotnet/api/system.net.http.httpclient?view=netcore-3.1)
 
 ```cs
 // Create a single, static HttpClient
@@ -52,7 +51,7 @@ public static async Task Run(string input)
 }
 ```
 
-Uma pergunta comum sobre [httpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) em .NET é "Devo dispor do meu cliente?" Em geral, deita-se fora os objetos que implementam `IDisposable` quando termina a sua utilização. Mas não se descarta um cliente estático porque não se acaba de usá-lo quando a função termina. Quer que o cliente estático viva durante a sua inscrição.
+Uma pergunta comum sobre [httpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) em .NET é "Devo dispor do meu cliente?" Em geral, deita-se fora os objetos que implementam `IDisposable` quando termina a sua utilização. Mas não se descarta um cliente estático porque não se acaba de usá-lo quando a função termina. Quer que o cliente estático viva durante a sua inscrição.
 
 ### <a name="http-agent-examples-javascript"></a>Exemplos de agentes HTTP (JavaScript)
 
@@ -76,8 +75,7 @@ http.request(options, onResponseCallback);
 
 ### <a name="documentclient-code-example-c"></a>Exemplo de código documentclient (C#)
 
-[DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) conecta-se a uma instância DB Azure Cosmos. A documentação da Azure Cosmos DB recomenda que [utilize um cliente singleton Azure Cosmos DB para o tempo de vida da sua aplicação.](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage) O exemplo a seguir mostra um padrão para fazer isso numa função:
+[DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) conecta-se a uma instância DB Azure Cosmos. A documentação da Azure Cosmos DB recomenda que [utilize um cliente singleton Azure Cosmos DB para o tempo de vida da sua aplicação.](../cosmos-db/performance-tips.md#sdk-usage) O exemplo a seguir mostra um padrão para fazer isso numa função:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -126,14 +124,13 @@ module.exports = async function (context) {
 
 ## <a name="sqlclient-connections"></a>Ligações SqlClient
 
-O seu código de função pode utilizar o Fornecedor de Dados De Quadro .NET para o SQL Server[(SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)para fazer ligações a uma base de dados relacional SQL. Este é também o fornecedor subjacente aos quadros de dados que dependem de ADO.NET, como [o Quadro de Entidades.](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx) Ao contrário das ligações [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) e [DocumentClient,](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) ADO.NET implementa a ligação por padrão. Mas como ainda pode ficar sem ligações, deve otimizar as ligações à base de dados. Para obter mais informações, consulte [o SqL Server Connection Pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
+O seu código de função pode utilizar o Fornecedor de Dados De Quadro .NET para o SQL Server[(SqlClient)](/dotnet/api/system.data.sqlclient?view=dotnet-plat-ext-3.1)para fazer ligações a uma base de dados relacional SQL. Este é também o fornecedor subjacente aos quadros de dados que dependem de ADO.NET, como [o Quadro de Entidades.](/ef/ef6/) Ao contrário das ligações [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1) e [DocumentClient,](/dotnet/api/microsoft.azure.documents.client.documentclient) ADO.NET implementa a ligação por padrão. Mas como ainda pode ficar sem ligações, deve otimizar as ligações à base de dados. Para obter mais informações, consulte [o SqL Server Connection Pooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Alguns quadros de dados, tais como o Entity Framework, obtêm tipicamente cadeias de ligação a partir da secção **ConnectionStrings** de um ficheiro de configuração. Neste caso, deve adicionar explicitamente as cadeias de ligação à base de dados SQL à recolha de **cordas de ligação** das definições da aplicação de funções e [nolocal.settings.jsem ficheiro](functions-run-local.md#local-settings-file) no seu projeto local. Se estiver a criar uma instância de [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) no seu código de função, deverá armazenar o valor da cadeia de ligação nas **definições de Aplicação** com as suas outras ligações.
+> Alguns quadros de dados, tais como o Entity Framework, obtêm tipicamente cadeias de ligação a partir da secção **ConnectionStrings** de um ficheiro de configuração. Neste caso, deve adicionar explicitamente as cadeias de ligação à base de dados SQL à recolha de **cordas de ligação** das definições da aplicação de funções e [nolocal.settings.jsem ficheiro](functions-run-local.md#local-settings-file) no seu projeto local. Se estiver a criar uma instância de [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection?view=dotnet-plat-ext-3.1) no seu código de função, deverá armazenar o valor da cadeia de ligação nas **definições de Aplicação** com as suas outras ligações.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o porquê de recomendarmos clientes estáticos, consulte [anti-artigo de instantâneo impróprio.](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+Para obter mais informações sobre o porquê de recomendarmos clientes estáticos, consulte [anti-artigo de instantâneo impróprio.](/azure/architecture/antipatterns/improper-instantiation/)
 
 Para obter mais dicas de desempenho do Azure Functions, consulte [Otimizar o desempenho e a fiabilidade das Funções Azure](functions-best-practices.md).

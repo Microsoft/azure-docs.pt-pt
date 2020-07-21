@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: e65b2c94b5042f857a6ea5fc61136c572b780764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678516"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510043"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Tratamento de notificações de manutenção planeadas
 
@@ -24,7 +25,7 @@ O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o des
 
 A manutenção planeada que requer um reboot está programada em ondas. Cada onda tem âmbito diferente (regiões).
 
-- Uma onda começa com uma notificação aos clientes. Por predefinição, a notificação é enviada ao Administrador de Serviço e Aos Coadministradores. Pode adicionar mais destinatários e opções de mensagens como e-mail, SMS e webhooks, utilizando [Alertas de Registo de Atividades](../service-health/alerts-activity-log-service-notifications.md).  
+- Uma onda começa com uma notificação aos clientes. Por predefinição, a notificação é enviada ao Administrador de Serviço e Aos Coadministradores. Pode adicionar mais destinatários e opções de mensagens como e-mail, SMS e webhooks, utilizando [Alertas de Registo de Atividades](../service-health/alerts-activity-log-service-notifications-portal.md).  
 - Uma vez que uma notificação é feita, uma *janela de autosserviço* é disponibilizada. Durante esta janela, pode consultar quais das suas máquinas virtuais estão afetadas e iniciar a manutenção com base nas suas próprias necessidades de agendamento. A janela de autosserviço é normalmente de cerca de 35 dias.
 - Após a janela de autosserviço, começa uma *janela de manutenção programada.* Em algum momento durante esta janela, a Azure programa e aplica a manutenção necessária à sua máquina virtual. 
 
@@ -75,13 +76,13 @@ A manutenção de autosserviço não é recomendada para implementações utiliz
 
 **A:** As máquinas virtuais implantadas num conjunto de disponibilidade ou conjuntos de escala de máquinas virtuais têm a noção de Domínios de Atualização (UD). Ao realizar a manutenção, o Azure honra a restrição de UD e não reiniciará máquinas virtuais de diferentes UD (dentro do mesmo conjunto de disponibilidade).  O Azure também espera pelo menos 30 minutos antes de se mudar para o próximo grupo de máquinas virtuais. 
 
-Para obter mais informações sobre a elevada disponibilidade, consulte [Disponibilidade para máquinas virtuais em Azure.](./linux/availability.md)
+Para obter mais informações sobre a elevada disponibilidade, consulte [Disponibilidade para máquinas virtuais em Azure.](availability.md)
 
 **P: Como sou notificado sobre a manutenção planeada?**
 
 **A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões de Azure. Logo a seguir, é enviada uma notificação por e-mail para os Administradores de subscrição (um e-mail por subscrição). Canais e destinatários adicionais para esta notificação podem ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já esteja programada, não receberá a notificação, mas precisará verificar o estado de manutenção do VM.
 
-**P: Não vejo qualquer indicação de manutenção planeada no portal, Powershell ou CLI. O que se passa?**
+**P: Não vejo qualquer indicação de manutenção planeada no portal, PowerShell ou CLI. O que se passa?**
 
 **A:** A informação relacionada com a manutenção planeada está disponível durante uma onda de manutenção planeada apenas para os VMs que vão ser impactados por ela. Por outras palavras, se não vir dados, pode ser que a onda de manutenção já tenha concluído (ou não iniciada) ou que a sua máquina virtual já esteja hospedada num servidor atualizado.
 
@@ -121,4 +122,3 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Disponi
 ## <a name="next-steps"></a>Próximos passos
 
 Pode manusear a manutenção planeada utilizando o [Azure CLI,](maintenance-notifications-cli.md) [Azure PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
-

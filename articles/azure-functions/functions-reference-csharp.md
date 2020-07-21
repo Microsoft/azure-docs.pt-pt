@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: a8041f2514f59ac2511fcd64eeb0283565a0e07a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 177e9fcd872c594fbfb5f29077235113c6342860
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249245"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506152"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador Azure Functions C# (.csx)
 
@@ -238,7 +238,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## <a name="logging"></a>Registo
 
-Para iniciar a sua saída nos seus registos de streaming em C#, inclua um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que lhe dê um `log` nome. Evite utilizar `Console.Write` em Funções Azure.
+Para iniciar a sua saída nos seus registos de streaming em C#, inclua um argumento do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que lhe dê um `log` nome. Evite utilizar `Console.Write` em Funções Azure.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -252,7 +252,7 @@ public static void Run(string myBlob, ILogger log)
 
 ## <a name="async"></a>Async
 
-Para fazer uma função [assíncrona,](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)use a `async` palavra-chave e devolva um `Task` objeto.
+Para fazer uma função [assíncrona,](/dotnet/csharp/programming-guide/concepts/async/)use a `async` palavra-chave e devolva um `Task` objeto.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -518,7 +518,7 @@ A tabela que se segue lista os atributos .NET para cada tipo de encadernação e
 > | Mesa de armazenamento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)

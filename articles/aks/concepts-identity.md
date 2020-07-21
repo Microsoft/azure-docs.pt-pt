@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7739320fa23bf4469548f61486da1a5ee6110da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251727"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507165"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -73,7 +73,7 @@ A segurança dos clusters AKS pode ser reforçada com a integração do Azure At
 
 Com clusters AKS integrados em Azure, pode conceder aos utilizadores ou grupos acesso aos recursos de Kubernetes dentro de um espaço de nome ou em todo o cluster. Para obter um `kubectl` contexto de configuração, um utilizador pode executar o comando [az aks get-credentials.][az-aks-get-credentials] Quando um utilizador interage com o cluster AKS, `kubectl` é-lhes solicitado que assinem com as suas credenciais AD AZure. Esta abordagem fornece uma única fonte para a gestão da conta de utilizador e credenciais de senha. O utilizador só pode aceder aos recursos definidos pelo administrador do cluster.
 
-A autenticação AZure AD é fornecida aos clusters AKS com OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a documentação [Open ID connect documentation][open-id-connect]. A partir do interior do cluster Kubernetes, [a Autenticação Token Webhook][webhook-token-docs] é usada para verificar fichas de autenticação. A autenticação de ficha webhook é configurada e gerida como parte do cluster AKS.
+A autenticação AZure AD é fornecida aos clusters AKS com OpenID Connect. OpenID Connect é uma camada de identidade construída em cima do protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação de ligação Open ID][openid-connect]. A partir do interior do cluster Kubernetes, [a Autenticação Token Webhook][webhook-token-docs] é usada para verificar fichas de autenticação. A autenticação de ficha webhook é configurada e gerida como parte do cluster AKS.
 
 A partir do interior do cluster Kubernetes, a Autenticação Token Webhook é usada para verificar fichas de autenticação. A autenticação de ficha webhook é configurada e gerida como parte do cluster AKS.
 
@@ -109,7 +109,7 @@ Para mais informações, veja [o que é Azure RBAC?][azure-rbac]
 
 Existem dois níveis de acesso necessários para operar plenamente um cluster AKS: 
 1. [Aceda ao recurso AKS na sua subscrição Azure.](#azure-rbac-to-authorize-access-to-the-aks-resource) Este processo permite-lhe controlar as coisas que escalam ou melhoram o seu cluster utilizando as APIs AKS, bem como puxar o seu kubeconfig.
-2. Acesso à API de Kubernetes. Este acesso é controlado quer pela [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (tradicionalmente) quer pela [integração do Azure RBAC com a AKS para autorização de kubernetes](#azure-rbac-for-kubernetes-authorization-preview)
+2. Acesso à API de Kubernetes. Este acesso é controlado quer pela [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (tradicionalmente) quer pela [integração do Azure RBAC com a AKS para a autorização kubernetes](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC para autorizar o acesso ao recurso AKS
 
@@ -138,7 +138,7 @@ Esta funcionalidade permitirá, por exemplo, não só dar aos utilizadores permi
 
 A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [papéis incorporados de Kubernetes,](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) mas com algumas diferenças como apoiar CRDs. Para a lista completa de ações permitidas por cada um deles construído em funções, consulte [aqui.](../role-based-access-control/built-in-roles.md)
 
-| Função                                | Description  |
+| Função                                | Descrição  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso a `ServiceAccount` credenciais no espaço de nomes, o que permitiria o acesso da API como qualquer outro `ServiceAccount` no espaço de nome (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |
@@ -147,7 +147,7 @@ A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [pa
 
 **Veja como aproveitar a autorização do Azure RBAC para a autorização de Kubernetes [aqui.](manage-azure-rbac.md)**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para começar com Azure AD e Kubernetes RBAC, consulte [Integrate Azure Ative Directory com AKS][aks-aad].
 - Para as melhores práticas associadas, consulte [as melhores práticas de autenticação e autorização em AKS][operator-best-practices-identity].

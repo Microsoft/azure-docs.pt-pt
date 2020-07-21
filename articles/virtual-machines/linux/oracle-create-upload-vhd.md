@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: guybo
-ms.openlocfilehash: 5e144f63358275292ec224a63ed3ca61f809297a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 187362dcbb30c94425edc76724c042a0e4bc5045
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135306"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510315"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Prepare uma máquina virtual Oracle Linux para o Azure
 
-Este artigo pressupõe que já instalou um sistema operativo Oracle Linux num disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd, por exemplo uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [instalar a função Hiper-V e configurar uma máquina virtual.](https://technet.microsoft.com/library/hh846766.aspx)
+Este artigo pressupõe que já instalou um sistema operativo Oracle Linux num disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd, por exemplo uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [instalar a função Hiper-V e configurar uma máquina virtual.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))
 
 ## <a name="oracle-linux-installation-notes"></a>Notas de instalação do Oracle Linux
 * Consulte também [as notas de instalação do General Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre a preparação do Linux para o Azure.
@@ -238,4 +238,3 @@ Preparar uma máquina virtual Oracle Linux 7 para Azure é muito semelhante ao O
 
 ## <a name="next-steps"></a>Próximos passos
 Está agora pronto para usar o seu Oracle Linux .vhd para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
-

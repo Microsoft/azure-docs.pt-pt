@@ -9,14 +9,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 568f4189c55b49aa6f3e2d4e86582165a4a89cdd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: eef0304248c7cc9a1bf63e06247f86d607afce46
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510111"
 ---
-# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Windows no Azure
+# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Sizes for Linux virtual machines in Azure
 
 Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtuais Azure que pode usar para executar as suas aplicações e cargas de trabalho Linux. Também fornece considerações de implantação para estar ciente de quando você está planejando usar estes recursos. Este artigo também está disponível para [máquinas virtuais do Windows.](../windows/sizes.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json)
 
@@ -31,16 +31,16 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 
 - Para obter informações sobre preços dos vários tamanhos, consulte [o Preço das Máquinas Virtuais.](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) 
 - Para disponibilidade de tamanhos VM nas regiões de Azure, consulte [os produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
-- Para ver os limites gerais dos VMs Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](../../azure-subscription-service-limits.md)
+- Para ver os limites gerais dos VMs Azure, consulte [os limites de subscrição e serviços da Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Saiba mais sobre como [as unidades de computação Azure (ACU)](../acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
 
 ## <a name="rest-api"></a>API REST
 
 Para obter informações sobre a utilização da API REST para consultar os tamanhos de VM, consulte o seguinte:
 
-- [Lista de tamanhos de máquinas virtuais disponíveis para redimensionamento](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Lista tamanhos de máquinas virtuais disponíveis para uma subscrição](https://docs.microsoft.com/rest/api/compute/resourceskus/list)
-- [Lista tamanhos de máquinas virtuais disponíveis em um conjunto de disponibilidade](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Lista de tamanhos de máquinas virtuais disponíveis para redimensionamento](/rest/api/compute/virtualmachines/listavailablesizes)
+- [Lista tamanhos de máquinas virtuais disponíveis para uma subscrição](/rest/api/compute/resourceskus/list)
+- [Lista tamanhos de máquinas virtuais disponíveis em um conjunto de disponibilidade](/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 
@@ -54,7 +54,7 @@ Saiba mais sobre o desempenho do cálculo para Os VMs do Linux utilizando as [po
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os diferentes tamanhos VM que estão disponíveis:
 

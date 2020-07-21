@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f4846947b18adb1d3f33f1d46482b5c02ee831e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309837"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509159"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir proativamente que você tem acesso a GRUB e sysrq poderia economizar muito tempo de insudor
 
@@ -36,11 +37,11 @@ As razões para realizar uma recuperação de VM são muitas e podem ser atribu�
    - Ficheiros de configurações de sshd mutilados
    - Configurações de rede
 
- Muitos outros cenários como detalhado [aqui](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)
+ Muitos outros cenários como detalhado [aqui](./serial-console-linux.md#common-scenarios-for-accessing-the-serial-console)
 
 Verifique se pode aceder ao GRUB e à consola Serial nos seus VMs implantados em Azure. 
 
-Se for novo na Consola em Série, consulte [este link](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux/).
+Se for novo na Consola em Série, consulte [este link](./serial-console-linux.md).
 
 > [!TIP]
 > Certifique-se de que aceita cópias de segurança de ficheiros antes de fazer alterações
@@ -345,7 +346,7 @@ O menu GRUB deve aparecer no ecrã para o tempo limite configurado=15 sem a nece
 ## <a name="suse"></a>Rio Suse
 
 ## <a name="sles-12-sp1"></a>SLES 12 sp1
-Ou usa o bootloader YaST de acordo com os [documentos](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles) oficiais
+Ou usa o bootloader YaST de acordo com os [documentos](./serial-console-grub-single-user-mode.md#grub-access-in-suse-sles) oficiais
 
 Ou adicionar/alterar para /etc/predefinição/grub os seguintes parâmetros:
 
@@ -429,7 +430,7 @@ Reiniciar o VM com
 Em alternativa, poderá ter de aceder ao VM em modo único de utilizador ou de emergência. Selecione o núcleo que pretende iniciar ou interromper utilizando teclas de seta.
 Introduza o modo pretendido colocando a palavra-chave **single** ou **1** na linha de arranque do núcleo. Nos sistemas RHEL, também pode anexar **rd.break**.
 
-Para obter mais informações sobre como aceder ao modo de utilizador único, consulte [este doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) 
+Para obter mais informações sobre como aceder ao modo de utilizador único, consulte [este doc](./serial-console-grub-single-user-mode.md#general-single-user-mode-access) 
 
 
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)

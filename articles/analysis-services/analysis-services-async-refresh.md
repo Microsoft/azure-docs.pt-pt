@@ -7,11 +7,13 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8381e391afa0f8866f511d3d85e02467c6d9ba5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 0a5a7ac7d830cb03b1370c31d7e854f3b2a5a2fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413387"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507187"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -96,7 +98,7 @@ O corpo pode assemelhar-se ao seguinte:
 
 Não é necessário especificar parâmetros. O padrão é aplicado.
 
-| Name             | Tipo  | Descrição  |Predefinição  |
+| Nome             | Tipo  | Descrição  |Predefinição  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enumeração  | O tipo de processamento a realizar. Os tipos estão alinhados com os tipos de [comando de atualização](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) TMSL: full, clearValues, calcular, dataOnly, automático e desfragment. O tipo de adicionar não é suportado.      |   automático      |
 | `CommitMode`     | Enumeração  | Determina se os objetos serão cometidos em lotes ou apenas quando estiverem completos. Os modos incluem: predefinitivo, transacional, parcialbatch.  |  transacional       |

@@ -4,11 +4,12 @@ description: Compreenda como desenvolver funções utilizando o PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697277"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506133"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -18,7 +19,7 @@ Uma função PowerShell Azure (função) é representada como um script PowerShe
 
 À semelhança de outros tipos de funções, as funções de script PowerShell assumem parâmetros que correspondem aos nomes de todas as ligações de entrada definidas no `function.json` ficheiro. `TriggerMetadata`Também é passado um parâmetro que contém informações adicionais sobre o gatilho que iniciou a função.
 
-Este artigo pressupõe que já leu a referência do [programador Azure Functions](functions-reference.md). Também deve ter concluído o arranque rápido de [Funções para PowerShell](functions-create-first-function-powershell.md) para criar a sua primeira função PowerShell.
+Este artigo pressupõe que já leu a referência do [programador Azure Functions](functions-reference.md). Também deve ter concluído o arranque rápido de [Funções para PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar a sua primeira função PowerShell.
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 
@@ -124,9 +125,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
-| Name | Tipo | Posição | Descrição |
+| Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
+| **`-Name`** | Cadeia | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | ParâmetroOpcional | Nomeado | (Opcional) Quando especificado, força o valor a ser definido para uma ligação de saída especificada. | 
 
@@ -600,7 +601,7 @@ O teu guião é executado em todas as invocações. Evite usar `Install-Module` 
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 * [Referência para programadores das Funções do Azure](functions-reference.md)

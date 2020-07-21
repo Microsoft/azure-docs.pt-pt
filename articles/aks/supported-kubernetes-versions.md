@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 886e6cf237df94c056ec7c592e0b535327339871
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 019ae80020dafb54f2c06dd504797f21069914ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243801"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507068"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -131,7 +131,7 @@ Para a história do lançamento passado, veja [aqui.](https://en.wikipedia.org/w
 | 1.17  | Dez-09-19  | 19 de janeiro   | 20 jul  | 1.20 GA | 
 | 1.18  | Mar-23-20  | 20 de maio   | 20 de agosto  | 1.21 GA | 
 | 1.19  | Ago-04-20  | 20 de agosto   | 20 nov  | 1.22 GA | 
-| 1.20  | *Nov 20    | *Dez 21   | *Jan 21  | 1.23 GA | 
+| 1,20  | *Nov 20    | *Dez 20   | *Jan 21  | 1.23 GA | 
 
 \*Pendente confirmação da data de lançamento a montante.
 
@@ -170,7 +170,7 @@ Não, seguindo as boas práticas de Kubernetes, a AKS só permite upgrades para 
 
 Para se manter dentro do suporte, deve evitar ficar atrás de várias versões da lista atualmente suportada, mas se estiver nesta situação, a AKS permitirá sempre a atualização para a versão suportada mínima.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre como atualizar o seu cluster, consulte [upgrade de um cluster Azure Kubernetes Service (AKS).][aks-upgrade]
 
@@ -181,4 +181,4 @@ Para obter informações sobre como atualizar o seu cluster, consulte [upgrade d
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

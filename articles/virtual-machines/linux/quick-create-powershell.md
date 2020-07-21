@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Crie um VM Linux com A PowerShell Azure
+title: Quickstart - Criar um Linux VM com Azure PowerShell
 description: Neste início rápido, vai aprender a utilizar o Azure PowerShell para criar uma máquina virtual do Linux
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 397fac7609d9527165a1a0a35215a2e2bac23c6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759214"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510332"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guia de Início Rápido: Criar uma máquina virtual do Linux no Azure com o PowerShell
 
 O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) do Linux no Azure. Este início rápido utiliza a imagem do marketplace de Ubuntu 16.04 LTS do Canonical. Para ver a VM em ação, irá estabelecer o SSH para a VM e instalar o servidor Web NGINX.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -39,11 +39,11 @@ ssh-keygen -t rsa -b 2048
 
 Para obter informações mais detalhadas sobre como criar pares de chaves SSH, incluindo a utilização do PuTTy, veja [Como utilizar chaves SSH com o Windows](ssh-from-windows.md).
 
-Se criar o par de chaves SSH com o Cloud Shell, este será armazenado numa imagem de contentor numa [conta de armazenamento criada automaticamente pelo Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Não elimine a conta de armazenamento ou as partilhas de ficheiros no mesmo, até ter obtido as chaves ou perderá o acesso à VM. 
+Se criar o par de chaves SSH com o Cloud Shell, este será armazenado numa imagem de contentor numa [conta de armazenamento criada automaticamente pelo Cloud Shell](../../cloud-shell/persisting-shell-storage.md). Não elimine a conta de armazenamento ou as partilhas de ficheiros no mesmo, até ter obtido as chaves ou perderá o acesso à VM. 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos Azure com [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos:
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -111,7 +111,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Crie um cartão de interface de rede virtual (NIC) com [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). A NIC virtual liga a VM a uma sub-rede, a um Grupo de Segurança de Rede e a um endereço IP público.
+Crie um cartão de interface de rede virtual (NIC) com [o New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). A NIC virtual liga a VM a uma sub-rede, a um Grupo de Segurança de Rede e a um endereço IP público.
 
 ```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
@@ -160,7 +160,7 @@ Add-AzVMSshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Agora, combine as definições de configuração anteriores para criar com [New-AzVM:](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)
+Agora, combine as definições de configuração anteriores para criar com [o New-AzVM:](/powershell/module/az.compute/new-azvm)
 
 ```azurepowershell-interactive
 New-AzVM `
@@ -172,7 +172,7 @@ Irá demorar alguns minutos até a VM ser implementada. Quando a implementação
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
-Crie uma ligação SSH com a VM com o endereço IP público. Para ver o endereço IP público do VM, utilize o cmdlet [Get-AzPublicIpAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)
+Crie uma ligação SSH com a VM com o endereço IP público. Para ver o endereço IP público do VM, utilize o cmdlet [Get-AzPublicIpAddress:](/powershell/module/az.network/get-azpublicipaddress)
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -207,13 +207,13 @@ Utilize um browser à sua escolha para ver a página predefinida de boas-vindas 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM, e todos os recursos relacionados:
+Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou uma máquina virtual simples, criou um Grupo de Segurança de Rede e uma regra e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue para o tutorial das VMs do Linux.
 

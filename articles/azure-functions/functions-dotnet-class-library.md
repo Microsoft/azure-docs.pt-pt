@@ -3,12 +3,12 @@ title: Referência do programador Azure Functions C#
 description: Entenda como desenvolver funções Azure usando C#.
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.openlocfilehash: 038c1db2d4bb4d8bd80801d36cf5feec1905bbc1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9ecc2dad8d1d520b44972022d47c312f495d5c38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254372"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506521"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do programador Azure Functions C#
 
@@ -202,6 +202,28 @@ Se instalar as Ferramentas Core utilizando npm, isso não afeta a versão Core T
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
 ```
 
+## <a name="readytorun"></a>ReadyToRun
+
+Pode compilar a sua aplicação de função como [binários ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun é uma forma de compilação antecipada que pode melhorar o desempenho do arranque para ajudar a reduzir o impacto do [arranque a frio](functions-scale.md#cold-start) ao executar um plano de [consumo.](functions-scale.md#consumption-plan)
+
+O ReadyToRun está disponível em .NET 3.0 e requer [a versão 3.0 do tempo de funcionamento das Funções Azure](functions-versions.md).
+
+Para compilar o seu projeto como ReadyToRun, atualize o seu ficheiro de projeto adicionando os `<PublishReadyToRun>` elementos e `<RuntimeIdentifier>` elementos. Segue-se a configuração para publicação numa aplicação de função Windows 32 bit.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <PublishReadyToRun>true</PublishReadyToRun>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+</PropertyGroup>
+```
+
+> [!IMPORTANT]
+> O ReadyToRun não suporta atualmente a compilação cruzada. Tem de construir a sua aplicação na mesma plataforma que o alvo de implementação. Além disso, preste atenção à "mordida" que está configurada na sua aplicação de função. Por exemplo, se a sua aplicação de função no Azure for o Windows 64-bit, tem de compilar a sua aplicação no Windows `win-x64` com o identificador de [tempo de execução](/dotnet/core/rid-catalog).
+
+Também pode construir a sua aplicação com ReadyToRun a partir da linha de comando. Para mais informações, consulte a `-p:PublishReadyToRun=true` opção em [`dotnet publish`](/dotnet/core/tools/dotnet-publish) .
+
 ## <a name="supported-types-for-bindings"></a>Tipos suportados para encadernações
 
 Cada encadernação tem os seus próprios tipos suportados; por exemplo, um atributo de gatilho blob pode ser aplicado a um parâmetro de corda, um parâmetro POCO, um `CloudBlockBlob` parâmetro, ou qualquer um de vários outros tipos suportados. O [artigo de referência vinculativo para encadernações blob](functions-bindings-storage-blob-trigger.md#usage) lista todos os tipos de parâmetros suportados. Para obter mais informações, consulte [Gatilhos e encadernações](functions-triggers-bindings.md) e os [documentos de referência vinculativos para cada tipo de encadernação](functions-triggers-bindings.md#next-steps).
@@ -238,7 +260,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Registo
 
-Para iniciar a sua saída nos seus registos de streaming em C#, inclua um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que lhe dê um `log` nome, como no seguinte exemplo:  
+Para iniciar a sua saída nos seus registos de streaming em C#, inclua um argumento do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que lhe dê um `log` nome, como no seguinte exemplo:  
 
 ```csharp
 public static class SimpleExample
@@ -257,7 +279,7 @@ Evite utilizar `Console.Write` em Funções Azure. Para obter mais informações
 
 ## <a name="async"></a>Async
 
-Para fazer uma função [assíncrona,](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)use a `async` palavra-chave e devolva um `Task` objeto.
+Para fazer uma função [assíncrona,](/dotnet/csharp/programming-guide/concepts/async/)use a `async` palavra-chave e devolva um `Task` objeto.
 
 ```csharp
 public static class AsyncExample
@@ -330,7 +352,7 @@ public static class EnvironmentVariablesExample
 
 As definições de aplicativos podem ser lidas a partir de variáveis ambientais, tanto quando se desenvolve localmente como quando está a correr em Azure. Ao desenvolver-se localmente, as configurações das aplicações provêm da `Values` coleção nolocal.settings.js*em* arquivo. Em ambos os ambientes, local e Azure, `GetEnvironmentVariable("<app setting name>")` recupera o valor da configuração da aplicação nomeada. Por exemplo, quando estiver a correr localmente, o "Meu Nome do Site" seria devolvido se o seu *local.settings.jsno* ficheiro contiver `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }` .
 
-A [propriedadeSystem.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter valores de definição de aplicativos, mas recomendamos que use `GetEnvironmentVariable` como mostrado aqui.
+A [propriedadeSystem.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter valores de definição de aplicativos, mas recomendamos que use `GetEnvironmentVariable` como mostrado aqui.
 
 ## <a name="binding-at-runtime"></a>Encadernação no tempo de execução
 
@@ -407,7 +429,7 @@ public static class IBinderExampleMultipleAttributes
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)

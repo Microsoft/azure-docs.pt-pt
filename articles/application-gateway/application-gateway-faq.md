@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982004"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506575"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -99,7 +99,7 @@ Consulte [considerações de tamanho da sub-rede do Gateway de aplicação](http
 
 ### <a name="can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Posso implantar mais de um recurso Application Gateway numa única sub-rede?
 
-Sim. Além de múltiplas instâncias de uma determinada implementação do Gateway de Aplicação, pode providenciar outro recurso exclusivo do Application Gateway para uma sub-rede existente que contenha um recurso de Gateway de aplicação diferente.
+Yes. Além de múltiplas instâncias de uma determinada implementação do Gateway de Aplicação, pode providenciar outro recurso exclusivo do Application Gateway para uma sub-rede existente que contenha um recurso de Gateway de aplicação diferente.
 
 Uma única sub-rede não suporta tanto os SKUs de gateway de aplicação v2 como v1.
 
@@ -109,7 +109,7 @@ Sim, mas apenas cenários específicos. Para obter mais informações, consulte 
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>O Application Gateway suporta cabeçalhos x-forward-for?
 
-Sim. Ver [Alterações a um pedido](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
+Yes. Ver [Alterações a um pedido](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-will-my-application-gateway-work-while-its-being-updated"></a>Quanto tempo demora a implantar um portal de aplicação? O meu portal de aplicações funcionará enquanto está a ser atualizado?
 
@@ -123,11 +123,11 @@ Não. Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e PO
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe orientação disponível para migrar do V1 SKU para o V2 SKU?
 
-Sim. Para mais detalhes, [migrate Azure Application Gateway e Web Application Firewall de v1 a v2](migrate-v1-v2.md).
+Yes. Para mais detalhes, [migrate Azure Application Gateway e Web Application Firewall de v1 a v2](migrate-v1-v2.md).
 
 ### <a name="will-the-application-gateway-v1-sku-continue-to-be-supported"></a>O Gateway de Aplicação v1 SKU continuará a ser suportado?
 
-Sim. O Gateway de Aplicação v1 SKU continuará a ser suportado. No entanto, é fortemente recomendado que mude para v2 para aproveitar as atualizações de funcionalidades nesse SKU. Para obter mais informações, consulte [Autoscaling e Zone-redundante Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
+Yes. O Gateway de Aplicação v1 SKU continuará a ser suportado. No entanto, é fortemente recomendado que mude para v2 para aproveitar as atualizações de funcionalidades nesse SKU. Para obter mais informações, consulte [Autoscaling e Zone-redundante Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>O Application Gateway V2 suporta pedidos de procuração com autenticação NTLM?
 
@@ -160,17 +160,17 @@ Não. As instâncias são distribuídas por domínios de atualização e domíni
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Application Gateway suporta a drenagem da ligação?
 
-Sim. Pode configurar a drenagem de ligação para alterar os membros dentro de uma piscina de backend sem interrupções. Para obter mais informações, consulte [a secção de drenagem de ligação do Gateway de Aplicação](features.md#connection-draining).
+Yes. Pode configurar a drenagem de ligação para alterar os membros dentro de uma piscina de backend sem interrupções. Para obter mais informações, consulte [a secção de drenagem de ligação do Gateway de Aplicação](features.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Posso mudar o tamanho da instância de médio para grande sem perturbações?
 
-Sim.
+Yes.
 
 ## <a name="configuration"></a>Configuração
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>O Application Gateway está sempre implantado numa rede virtual?
 
-Sim. O Gateway de Aplicação é sempre implantado numa sub-rede de rede virtual. Esta sub-rede pode conter apenas portais de aplicação. Para obter mais informações, consulte [os requisitos de rede virtual e sub-rede.](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet)
+Yes. O Gateway de Aplicação é sempre implantado numa sub-rede de rede virtual. Esta sub-rede pode conter apenas portais de aplicação. Para obter mais informações, consulte [os requisitos de rede virtual e sub-rede.](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet)
 
 ### <a name="can-application-gateway-communicate-with-instances-outside-of-its-virtual-network-or-outside-of-its-subscription"></a>A Application Gateway pode comunicar com casos fora da sua rede virtual ou fora da sua subscrição?
 
@@ -194,11 +194,11 @@ Ver [limites de Gateway de Aplicação](../azure-resource-manager/management/azu
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>Posso utilizar simultaneamente o Gateway de Aplicação para tráfego externo e interno?
 
-Sim. O Gateway de Aplicação suporta um IP interno e um IP externo por gateway de aplicação.
+Yes. O Gateway de Aplicação suporta um IP interno e um IP externo por gateway de aplicação.
 
 ### <a name="does-application-gateway-support-virtual-network-peering"></a>O Application Gateway suporta o espreitamento da rede virtual?
 
-Sim. O espreitamento de rede virtual ajuda o tráfego de equilíbrio de carga em outras redes virtuais.
+Yes. O espreitamento de rede virtual ajuda o tráfego de equilíbrio de carga em outras redes virtuais.
 
 ### <a name="can-i-talk-to-on-premises-servers-when-theyre-connected-by-expressroute-or-vpn-tunnels"></a>Posso falar com servidores no local quando estiverem ligados por túneis ExpressRoute ou VPN?
 
@@ -222,7 +222,7 @@ O campo Host especifica o nome para enviar a sonda para quando tiver configurado
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Posso permitir o acesso do Application Gateway a apenas alguns endereços IP de origem?
 
-Sim. Consulte [o acesso restrito a IPs de origem específica](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Yes. Consulte [o acesso restrito a IPs de origem específica](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Posso usar o mesmo porto para ouvintes virados para o público e para os privados?
 
@@ -298,15 +298,15 @@ Para obter informações sobre como personalizar as opções TLS, consulte [vers
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>O Application Gateway suporta a reencriptação do tráfego para o backend?
 
-Sim. O Application Gateway suporta o descarregamento TLS e o TLS de ponta a ponta, que reencriptam o tráfego para o backend.
+Yes. O Application Gateway suporta o descarregamento TLS e o TLS de ponta a ponta, que reencriptam o tráfego para o backend.
 
 ### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Posso configurar a política TLS para controlar as versões do protocolo TLS?
 
-Sim. Pode configurar o Gateway de aplicações para negar TLS1.0, TLS1.1 e TLS1.2. Por padrão, os SSL 2.0 e 3.0 já estão desativadas e não são configuráveis.
+Yes. Pode configurar o Gateway de aplicações para negar TLS1.0, TLS1.1 e TLS1.2. Por padrão, os SSL 2.0 e 3.0 já estão desativadas e não são configuráveis.
 
 ### <a name="can-i-configure-cipher-suites-and-policy-order"></a>Posso configurar suítes de cifra e ordem política?
 
-Sim. No Application Gateway, pode [configurar suítes cifras](application-gateway-ssl-policy-overview.md). Para definir uma política personalizada, ative pelo menos uma das seguintes suítes cifra. 
+Yes. No Application Gateway, pode [configurar suítes cifras](application-gateway-ssl-policy-overview.md). Para definir uma política personalizada, ative pelo menos uma das seguintes suítes cifra. 
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
@@ -336,6 +336,58 @@ Para o encaminhamento de vários domínios (baseado em anfitriões), pode criar 
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Posso usar caracteres especiais na minha senha de ficheiro .pfx?
 
 Não, utilize apenas caracteres alfanuméricos na sua senha de ficheiro .pfx.
+
+### <a name="my-ev-certificate-is-issued-by-digicert-and-my-intermediate-certificate-has-been-revoked-how-do-i-renew-my-certificate-on-application-gateway"></a>O meu certificado EV é emitido pela DigiCert e o meu certificado intermédio foi revogado. Como renovo o meu certificado no Application Gateway?
+
+Os membros do Navegador Certificate Authority (CA) publicaram recentemente relatórios que detalham vários certificados emitidos por fornecedores de CA que são utilizados pelos nossos clientes, Microsoft, e pela maior comunidade tecnológica que estavam fora do cumprimento dos padrões da indústria para CAs de confiança pública.Os relatórios relativos aos AC não conformes podem ser consultados aqui:  
+
+* [Inseto 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Inseto 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+De acordo com os requisitos de conformidade da indústria, os fornecedores de CA começaram a revogar os AA não conformes e a emitir CAs conformes, o que exige que os clientes tenham os seus certificados reemitidos.A Microsoft está em estreita parceria com estes fornecedores para minimizar o impacto potencial para os Serviços Azure, **no entanto os seus certificados ou certificados auto-emitidos utilizados em cenários "Bring Your Own Certificate" (BYOC) ainda estão em risco de serem revogados inesperadamente.**
+
+Para verificar se os certificados utilizados pelo seu pedido foram revogados referência [o Anúncio da DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) e o [Rastreador de Revogação](https://misissued.com/#revoked)de Certificados . Se os seus certificados tiverem sido revogados ou forem revogados, terá de solicitar novos certificados ao fornecedor ca utilizado nas suas aplicações. Para evitar que a disponibilidade da sua aplicação seja interrompida devido à revogação inesperada de certificados ou à atualização de um certificado que tenha sido revogado, consulte o nosso post de atualizações do Azure para obter links de remediação de vários serviços da Azure que suportem o BYOC:https://azure.microsoft.com/updates/certificateauthorityrevocation/
+
+Para obter informações específicas do Gateway de Aplicações, consulte abaixo -
+
+Se estiver a utilizar um certificado emitido por uma das ICAs revogadas, a disponibilidade da sua aplicação poderá ser interrompida e, dependendo da sua aplicação, poderá receber uma variedade de mensagens de erro, incluindo, mas não se limitando a: 
+
+1.  Certificado inválido/certificado revogado
+2.  Ligação cronometrada
+3.  HTTP 502
+
+Para evitar qualquer interrupção da sua aplicação devido a este problema, ou para reemitir uma AC que tenha sido revogada, tem de tomar as seguintes medidas: 
+
+1.  Contacte o seu fornecedor de certificados sobre como reemitir os seus certificados
+2.  Uma vez reeditado, atualize os seus certificados no Gateway/WAF da Aplicação Azure com a cadeia completa [de confiança](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (folha, intermediário, certificado de raiz). Com base no local onde está a utilizar o seu certificado, quer no ouvinte, quer nas definições HTTP do Gateway de Aplicação, siga os passos abaixo para atualizar os certificados e verificar os links de documentação mencionados para obter mais informações.
+3.  Atualize os servidores de aplicações backend para utilizar o certificado reemitido. Dependendo do servidor de backend que está a utilizar, os passos de atualização do certificado podem variar. Por favor, verifique a documentação do seu fornecedor.
+
+Para atualizar o certificado no seu ouvinte:
+
+1.  No [portal Azure,](https://portal.azure.com/)abra o seu recurso Application Gateway
+2.  Abra as definições do ouvinte que está associada ao seu certificado
+3.  Clique em "Renovar ou editar certificado selecionado"
+4.  Faça upload do seu novo certificado PFX com a senha e clique em Guardar
+5.  Aceda ao site e verifique se o site está funcionando como esperado Para mais informações, consulte a documentação [aqui.](https://docs.microsoft.com/azure/application-gateway/renew-certificates)
+
+Se estiver a fazer referência aos certificados do Azure KeyVault no seu ouvinte Application Gateway, recomendamos os seguintes passos para uma mudança rápida –
+
+1.  No [portal Azure,](https://portal.azure.com/)navegue para as definições Azure KeyVault que tenha sido associada ao Gateway de Aplicações
+2.  Adicione/importe o certificado reeditado na sua loja. Consulte [aqui](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) a documentação para obter mais informações sobre como fazer.
+3.  Uma vez importado o certificado, navegue para as definições do seu ouvinte application Gateway e em "Escolha um certificado do Cofre de Chaves", clique na queda do "Certificado" e escolha o certificado recentemente adicionado
+4.  Clique em Guardar para mais informações sobre a rescisão do TLS no Gateway de Aplicações com certificados Key Vault, consulte a documentação [aqui](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+
+Para atualizar o certificado nas definições HTTP:
+
+Se estiver a utilizar o V1 SKU do serviço Application Gateway/WAF, então terá de carregar o novo certificado como certificado de autenticação de backend.
+1.  No [portal Azure,](https://portal.azure.com/)abra o seu recurso Application Gateway
+2.  Abra as definições HTTP associadas ao seu certificado
+3.  Clique em "Adicionar certificado" e faça upload do certificado reeditado e clique em guardar
+4.  Pode remover o certificado antigo mais tarde clicando no "..." botão de opções ao lado do certificado antigo e selecione eliminar e clicar em guardar.
+Para mais informações, consulte a documentação [aqui.](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers)
+
+Se estiver a utilizar o V2 SKU do serviço Application Gateway/WAF, não tem de carregar o novo certificado nas definições HTTP, uma vez que o V2 SKU utiliza "certificados de raiz fidedignos" e não é necessário tomar aqui qualquer ação.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuração - controlador de entrada para AKS
 
@@ -396,7 +448,7 @@ No portal, na lâmina do menu de um gateway de aplicações, selecione **Registo
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Posso definir alertas com o Application Gateway?
 
-Sim. No Gateway de Aplicação, os alertas são configurados em métricas. Para mais informações, consulte [as métricas do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) e [receba notificações de alerta.](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+Yes. No Gateway de Aplicação, os alertas são configurados em métricas. Para mais informações, consulte [as métricas do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) e [receba notificações de alerta.](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Como analiso as estatísticas de tráfego do Application Gateway?
 
@@ -410,7 +462,7 @@ Normalmente, vê-se um estado desconhecido quando o acesso ao backend é bloquea
 
 ### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Há algum caso em que os registos de fluxo nSG não mostrem tráfego permitido?
 
-Sim. Se a sua configuração corresponder ao seguinte cenário, não verá tráfego permitido nos seus registos de fluxo NSG:
+Yes. Se a sua configuração corresponder ao seguinte cenário, não verá tráfego permitido nos seus registos de fluxo NSG:
 - Você implantou o Application Gateway v2
 - Você tem um NSG na sub-rede de gateway de aplicação
 - Você ativou registos de fluxo NSG em que NSG

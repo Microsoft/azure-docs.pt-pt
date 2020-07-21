@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: rogardle
-ms.openlocfilehash: e9a61c631e8a74bbbd58bb991848fcf60f81ff6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 6a516fc75880e3b6a5bc5b5907e8d968dce2ae31
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224439"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507867"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
 
@@ -55,13 +55,13 @@ Executar aplicações empresariais em Azure em imagens suportadas oracle Linux. 
 
 * Utilize [a Recuperação do Site Azure](../../../site-recovery/site-recovery-overview.md) para orquestrar e gerir a recuperação de desastres para os seus VMs Oracle Linux em Azure e seus servidores físicos. 
 
-* Ativar os Clusters de Aplicações Reais da Oracle (RAC) em Azure utilizando [a Solução VMware Azure](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) ou [o FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Ativar os Clusters de Aplicações Reais da Oracle (RAC) em Azure utilizando [a Solução VMware Azure](../../../vmware-cloudsimple/oracle-real-application-clusters.md) ou [o FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="backup-oracle-workloads"></a>Cargas de trabalho do Oráculo de Reserva
 
-* Faça backup dos seus VMs Oráculos utilizando [o Backup Azure](https://docs.microsoft.com/azure/backup/backup-overview)
+* Faça backup dos seus VMs Oráculos utilizando [o Backup Azure](../../../backup/backup-overview.md)
 
-* Faça backup da sua Oracle Database utilizando o Oracle RMAN e utilize opcionalmente [o Azure Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) para montar uma [conta de armazenamento Azure Blob altamente redundante](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e escreva as suas cópias de segurança RMAN para obter uma maior resiliência.
+* Faça backup da sua Oracle Database utilizando o Oracle RMAN e utilize opcionalmente [o Azure Blob Fuse](../../../storage/blobs/storage-how-to-mount-container-linux.md) para montar uma [conta de armazenamento Azure Blob altamente redundante](../../../storage/common/storage-redundancy.md) e escreva as suas cópias de segurança RMAN para obter uma maior resiliência.
 
 ## <a name="integration-of-azure-with-oci"></a>Integração do Azure com OCI
 
@@ -93,7 +93,7 @@ Utilize os Serviços de Nuvem oracle Database (Base de Dados Autónoma, RAC, Exa
 
 A implementação de aplicações oracle em Azure baseia-se num modelo de "traga a sua própria licença". Presume-se que está devidamente licenciado para usar o software Oracle e que tem um acordo de apoio atual em vigor com a Oracle. A Oracle garantiu a mobilidade de licenças de instalações para Azure. Consulte a [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle-Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [aplicações Azure do WebLogic Server](oracle-weblogic.md) e as integrações de serviços Azure que suportam.
 

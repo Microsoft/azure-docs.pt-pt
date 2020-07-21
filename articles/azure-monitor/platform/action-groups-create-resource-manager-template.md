@@ -7,20 +7,21 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a97fd56f1dc3409666ad86e81a7ac74fee076fa1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669085"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505691"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Crie um grupo de ação com um modelo de Gestor de Recursos
-Este artigo mostra-lhe como usar um [modelo de Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de ação. Ao utilizar modelos, pode configurar automaticamente grupos de ação que podem ser reutilizados em certos tipos de alertas. Estes grupos de ação asseguram que todas as partes corretas sejam notificadas quando um alerta é desencadeado.
+Este artigo mostra-lhe como usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar grupos de ação. Ao utilizar modelos, pode configurar automaticamente grupos de ação que podem ser reutilizados em certos tipos de alertas. Estes grupos de ação asseguram que todas as partes corretas sejam notificadas quando um alerta é desencadeado.
 
 Os passos básicos são:
 
 1. Crie um modelo como um ficheiro JSON que descreva como criar o grupo de ação.
 
-2. Implemente o modelo utilizando [qualquer método de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Implemente o modelo utilizando [qualquer método de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
 
 Em primeiro lugar, descrevemos como criar um modelo de Gestor de Recursos para um grupo de ação onde as definições de ação são codificadas no modelo. Em segundo lugar, descrevemos como criar um modelo que leva a informação de configuração webhook como parâmetros de entrada quando o modelo é implementado.
 
@@ -165,4 +166,3 @@ Para criar um grupo de ação utilizando um modelo de Gestor de Recursos, cria-s
 * Saiba mais sobre [grupos de ação.](../../azure-monitor/platform/action-groups.md)
 * Saiba mais sobre [alertas.](alerts-overview.md)
 * Aprenda a adicionar [alertas utilizando um modelo de Gestor de Recursos.](../../azure-monitor/platform/alerts-activity-log.md)
-

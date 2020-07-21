@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar um VM Windows com A PowerShell Azure
+title: Quickstart - Criar um Windows VM com Azure PowerShell
 description: Neste guia de início rápido, irá aprender a utilizar o Azure PowerShell para criar uma máquina virtual do Windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,29 +8,29 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 45160e8bc406318f3b3924142899e33640ee6b73
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e9ea550b9d9579438e18a3ee1d93ab9e9e22cc65
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097953"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508479"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Início Rápido: Criar uma máquina virtual do Windows no Azure com o PowerShell
 
-O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia de início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) no Azure que executa o Windows Server 2016. Também será RDP para o VM e instalará o servidor web IIS, para mostrar o VM em ação.
+O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia de início rápido mostra como utilizar o módulo do Azure PowerShell para implementar uma máquina virtual (VM) no Azure que executa o Windows Server 2016. Também irá rdp para o VM e instalará o servidor web IIS, para mostrar o VM em ação.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos Azure com [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -38,9 +38,9 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie um VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Forneça nomes para cada `New-AzVM` um dos recursos e o cmdlet cria se eles já não existirem.
+Criar um VM com [New-AzVM](/powershell/module/az.compute/new-azvm). Forneça nomes para cada um dos recursos e o `New-AzVM` cmdlet cria se eles já não existirem.
 
-Quando solicitado, forneça um nome de utilizador e uma senha para serem utilizados como credenciais de entrada para o VM:
+Quando solicitado, forneça um nome de utilizador e uma palavra-passe para serem usados como credenciais de entrada para o VM:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -58,7 +58,7 @@ New-AzVm `
 
 Após a conclusão da implementação, estabeleça o RDP para a VM. Para ver a VM em ação, o servidor Web do IIS é instalado.
 
-Para ver o endereço IP público do VM, utilize o cmdlet [Get-AzPublicIpAddress:](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)
+Para ver o endereço IP público do VM, utilize o cmdlet [Get-AzPublicIpAddress:](/powershell/module/az.network/get-azpublicipaddress)
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -70,9 +70,9 @@ Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remoto
 mstsc /v:publicIpAddress
 ```
 
-Na janela **Segurança do Windows**, selecione **Mais escolhas** e, em seguida, selecione **Utilizar uma conta diferente**. Digite o nome de utilizador como nome de*utilizador* **local,**\\introduza a palavra-passe que criou para a máquina virtual e, em seguida, clique em **OK**.
+Na janela **Segurança do Windows**, selecione **Mais opções** e, em seguida, selecione **Utilizar uma conta diferente**. Digite o nome de utilizador como nome **de** \\ *utilizador*local, introduza a palavra-passe que criou para a máquina virtual e, em seguida, clique em **OK**.
 
-Poderá receber um aviso de certificado durante o processo de início de sessão. Clique **em Sim** ou **Continue** a criar a ligação
+Poderá receber um aviso de certificado durante o processo de início de sessão. Clique **em Sim** ou Continue **a** criar a ligação
 
 ## <a name="install-web-server"></a>Instalar o servidor Web
 
@@ -92,13 +92,13 @@ Com o IIS instalado e a porta 80 aberta na VM a partir da Internet, utilize um b
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM, e todos os recursos relacionados:
+Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, VM e todos os recursos relacionados:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 

@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 354cd8d291f8ad5c842d33b5ac63b0deb58b7d41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3c37d42cc6cda644063b098cb53f05079455339
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870048"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508530"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerir a disponibilidade das máquinas virtuais do Windows no Azure 
 
@@ -25,5 +26,5 @@ Para saber mais sobre a carga equilibrando as suas máquinas virtuais, consulte 
 
 Ver Arquiteturas de Referência para executar aplicações n-tier no SQL Server em IaaS
 
-* [Aplicação de nível N do Windows no Azure com o SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Executar uma aplicação de nível N em várias regiões do Azure para alta disponibilidade](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Aplicação de nível N do Windows no Azure com o SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Executar uma aplicação de nível N em várias regiões do Azure para alta disponibilidade](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

@@ -4,22 +4,21 @@ description: Saiba como controlar as admissões de pod usando PodSecurityPolicy 
 services: container-service
 ms.topic: article
 ms.date: 06/30/2020
-ms.openlocfilehash: eb2e7fca3a808a1e2c4f7d1f81b8dc1d64deeee7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dd526b7825279d886c60fbb1820222a75abab03e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077631"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507085"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando as políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
 
-<!--
 > [!WARNING]
-> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
-> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
-
-**This document and feature are set for deprecation.**
--->
+> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 15 de outubro de 2020 a** favor da [Política Azure para a AKS.](use-pod-security-on-azure-policy.md)
+>
+> Após a deprecação da política de segurança do pod (pré-visualização), tem de desativar a funcionalidade em quaisquer clusters existentes utilizando a funcionalidade prevadida para realizar futuras atualizações de clusters e permanecer dentro do suporte do Azure.
+>
+> É altamente recomendado começar a testar cenários com a Azure Policy for AKS, que oferece políticas incorporadas para garantir pods e iniciativas incorporadas que mapeiam as políticas de segurança do pod. Clique aqui para saber sobre [migração para a Política Azure a partir da política de segurança do pod (pré-visualização)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 Para melhorar a segurança do seu cluster AKS, pode limitar quais as cápsulas que podem ser programadas. Os pods que solicitam recursos que não permite não podem funcionar no cluster AKS. Você define este acesso usando políticas de segurança de pod. Este artigo mostra-lhe como usar as políticas de segurança do pod para limitar a implementação de cápsulas em AKS.
 
@@ -35,7 +34,7 @@ Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um
 
 Precisa da versão 2.0.61 do Azure CLI ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
 
-### <a name="install-aks-preview-cli-extension"></a>Instale extensão CLI de pré-visualização aks
+### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
 Para utilizar as políticas de segurança do pod, precisa da versão de extensão CLI *de pré-visualização aks* 0.4.1 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
@@ -48,6 +47,8 @@ az extension update --name aks-preview
 ```
 
 ### <a name="register-pod-security-policy-feature-provider"></a>Registar fornecedor de recursos de política de segurança do pod
+
+**Este documento e recurso estão definidos para depreciação no dia 15 de outubro de 2020.**
 
 Para criar ou atualizar um cluster AKS para utilizar as políticas de segurança do pod, primeiro ative uma bandeira de funcionalidade na sua subscrição. Para registar a bandeira de funcionalidade *PodSecurityPolicyPreview,* utilize o comando [de registo de funcionalidades az,][az-feature-register] como mostra o seguinte exemplo:
 
@@ -75,7 +76,7 @@ Num cluster Kubernetes, um controlador de admissão é usado para intercetar ped
 
 Quando ativa a política de segurança do pod num cluster AKS, algumas políticas predefinidos são aplicadas. Estas políticas predefinidas proporcionam uma experiência fora da caixa para definir quais as cápsulas que podem ser programadas. No entanto, os utilizadores de cluster podem ter problemas em implementar cápsulas até definir as suas próprias políticas. A abordagem recomendada é:
 
-* Criar um cluster do AKS (Create an AKS cluster)
+* Criar um cluster do AKS
 * Defina as suas próprias políticas de segurança de vagem
 * Ativar a função de política de segurança do pod
 

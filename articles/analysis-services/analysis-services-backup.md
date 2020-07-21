@@ -4,16 +4,18 @@ description: Este artigo descreve como fazer backup e restaurar metadados e dado
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871295"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507000"
 ---
-# <a name="backup-and-restore"></a>Cópia de segurança e restauro
+# <a name="analysis-services-database-backup-and-restore"></a>Backup e restauro da base de dados de serviços de análise
 
 O backup das bases de dados de modelos tabulares nos Serviços de Análise Azure é praticamente o mesmo que para os Serviços de Análise no local. A principal diferença é onde guarda os seus ficheiros de reserva. Os ficheiros de cópia de segurança devem ser guardados num contentor numa [conta de armazenamento Azure](../storage/common/storage-create-storage-account.md). Pode utilizar uma conta de armazenamento e um recipiente que já tenha, ou podem ser criados ao configurar as definições de armazenamento para o seu servidor.
 

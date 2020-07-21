@@ -10,11 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76289803"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507884"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehosagem de mainframe em máquinas virtuais Azure
 
@@ -69,11 +70,11 @@ Para começar:
 
 O ambiente IBM DB2 pureScale fornece um cluster de base de dados para o Azure. Não é idêntico ao ambiente original, mas oferece disponibilidade e escala semelhantes à IBM DB2 para z/SO em execução numa configuração Paralela Sysplex.
 
-Para começar, consulte [a IBM DB2 pureScale em Azure.](/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+Para começar, consulte [a IBM DB2 pureScale em Azure.](../../linux/ibm-db2-purescale-azure.md)
 
 ## <a name="considerations"></a>Considerações
 
-Ao migrar cargas de trabalho do mainframe para a infraestrutura Azure como um serviço (IaaS), pode escolher entre vários tipos de recursos de computação a pedido e escaláveis, incluindo VMs Azure. A Azure oferece uma gama de [VMs Linux](/azure/virtual-machines/linux/overview) e [Windows.](/azure/virtual-machines/windows/overview)
+Ao migrar cargas de trabalho do mainframe para a infraestrutura Azure como um serviço (IaaS), pode escolher entre vários tipos de recursos de computação a pedido e escaláveis, incluindo VMs Azure. A Azure oferece uma gama de [VMs Linux](../../linux/overview.md) e [Windows.](../../windows/overview.md)
 
 ### <a name="compute"></a>Computação
 
@@ -85,21 +86,21 @@ Saiba como mover o [computador principal para Azure.](./concepts/mainframe-compu
 
 A Azure oferece acordos de nível de serviço baseados em compromissos (SLAs). A disponibilidade de múltiplos noves é o padrão, e as SLAs podem ser otimizadas com a replicação local ou geo-baseada de serviços. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
 
-Com o Azure IaaS, como um VM, as funções específicas do sistema fornecem suporte de failover — por exemplo, instâncias de agrupamento de falhas e conjuntos de disponibilidade. Quando utiliza a plataforma Azure como um recurso de serviço (PaaS), a plataforma lida com falhas automaticamente. Exemplos incluem [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) e [Azure Cosmos DB](/azure/cosmos-db/introduction).
+Com o Azure IaaS, como um VM, as funções específicas do sistema fornecem suporte de failover — por exemplo, instâncias de agrupamento de falhas e conjuntos de disponibilidade. Quando utiliza a plataforma Azure como um recurso de serviço (PaaS), a plataforma lida com falhas automaticamente. Exemplos incluem [Azure SQL Database](../../../azure-sql/database/sql-database-paas-overview.md) e [Azure Cosmos DB](../../../cosmos-db/introduction.md).
 
 ### <a name="scalability"></a>Escalabilidade
 
-Os mainframes normalmente escalam, enquanto os ambientes em nuvem escalam. O Azure oferece uma gama de tamanhos [Linux](/azure/virtual-machines/linux/sizes) e [Windows](/azure/virtual-machines/windows/sizes) para atender às suas necessidades. A nuvem também escala para cima ou para baixo para corresponder às especificações exatas do utilizador. A [escala](/azure/architecture/best-practices/auto-scaling) de potência, armazenamento e serviços de cálculo a pedido sob um modelo de faturação baseado no uso.
+Os mainframes normalmente escalam, enquanto os ambientes em nuvem escalam. O Azure oferece uma gama de tamanhos [Linux](../../linux/sizes.md) e [Windows](../../windows/sizes.md) para atender às suas necessidades. A nuvem também escala para cima ou para baixo para corresponder às especificações exatas do utilizador. A [escala](/azure/architecture/best-practices/auto-scaling) de potência, armazenamento e serviços de cálculo a pedido sob um modelo de faturação baseado no uso.
 
 ### <a name="storage"></a>Armazenamento
 
-Na nuvem, você tem uma gama de opções de armazenamento flexível e escalável, e você paga apenas pelo que você precisa. [O Azure Storage](/azure/storage/common/storage-introduction) oferece uma loja de objetos massivamente escalável para objetos de dados, um serviço de sistema de ficheiros para a nuvem, uma loja de mensagens confiável e uma loja NoSQL. Para os VMs, os discos geridos e não geridos proporcionam um armazenamento de disco persistente e seguro.
+Na nuvem, você tem uma gama de opções de armazenamento flexível e escalável, e você paga apenas pelo que você precisa. [O Azure Storage](../../../storage/common/storage-introduction.md) oferece uma loja de objetos massivamente escalável para objetos de dados, um serviço de sistema de ficheiros para a nuvem, uma loja de mensagens confiável e uma loja NoSQL. Para os VMs, os discos geridos e não geridos proporcionam um armazenamento de disco persistente e seguro.
 
 Saiba como mover o [armazenamento do computador principal para Azure.](./concepts/mainframe-storage-azure.md)
 
 ### <a name="backup-and-recovery"></a>Cópia de segurança e recuperação
 
-Manter o seu próprio local de recuperação de desastres pode ser uma proposta cara. O Azure tem opções fáceis de implementar e rentáveis para [o backup,](/azure/backup/backup-introduction-to-azure-backup) [recuperação](/azure/site-recovery/site-recovery-overview)e [redundância](/azure/storage/common/storage-redundancy) a nível local ou regional, ou através de geo-redundância.
+Manter o seu próprio local de recuperação de desastres pode ser uma proposta cara. O Azure tem opções fáceis de implementar e rentáveis para [o backup,](../../../backup/backup-overview.md) [recuperação](../../../site-recovery/site-recovery-overview.md)e [redundância](../../../storage/common/storage-redundancy.md) a nível local ou regional, ou através de geo-redundância.
 
 ## <a name="azure-government-for-mainframe-migrations"></a>Governo de Azure para as migrações no mainframe
 
@@ -117,7 +118,7 @@ Veja também:
 
 - [Livros brancos sobre temas do mainframe](mainframe-white-papers.md)
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Resolução de problemas](/azure/virtual-machines/troubleshooting/)
+- [Resolução de problemas](../../troubleshooting/index.yml)
 - [Desmistificar o mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

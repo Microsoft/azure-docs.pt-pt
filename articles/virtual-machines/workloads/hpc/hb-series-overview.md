@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
-ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5606da84d8311785752cc8319b7a3c642c1f5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707763"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508037"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Visão geral das máquinas virtuais da série HB
 
@@ -60,11 +60,11 @@ O diagrama seguinte mostra a segregação de núcleos reservados para O Hipervis
 | Quadros Adicionais       | Comunicação Unificada X, libfabric, PGAS |
 | Suporte de armazenamento Azure       | Std + Premium (máx. 4 discos) |
 | Apoio ao SO para SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Suporte Azure CycleCloud    | Yes                         |
+| Suporte Azure CycleCloud    | Sim                         |
 | Suporte a lote de Azure         | Sim                         |
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre os tamanhos HPC VM para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) em Azure.
+* Saiba mais sobre os tamanhos HPC VM para [Linux](../../sizes-hpc.md) e [Windows](../../sizes-hpc.md) em Azure.
 
-* Saiba mais sobre [o HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) em Azure.
+* Saiba mais sobre [o HPC](/azure/architecture/topics/high-performance-computing/) em Azure.

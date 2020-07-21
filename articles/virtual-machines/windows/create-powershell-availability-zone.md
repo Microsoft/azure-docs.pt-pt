@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 60ce5b868b2a8f955b32e372201613ba66d49eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58f77eaba7cd0c29899a81352f5550becb0e4128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208980"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508598"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Criar uma máquina virtual do Windows numa zona de disponibilidade com o PowerShell
 
@@ -34,7 +34,7 @@ Connect-AzAccount
 ## <a name="check-vm-sku-availability"></a>Verificar a disponibilidade de SKU de VM
 A disponibilidade de tamanhos de VM ou SKUs poderá variar consoante a região e zona. Para ajudar a planear a utilização das Zonas de Disponibilidade, pode listar os SKUs de VM disponíveis por região e zona do Azure. Esta capacidade garante que escolhe um tamanho de VM adequado e obtém a resiliência pretendida nas zonas. Para obter mais informações sobre os diferentes tipos e tamanhos de VM, veja [Descrição geral de Tamanhos de VM](sizes.md).
 
-Pode ver os SKUs VM disponíveis com o comando [Get-AzComputeResourceSku.](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) O exemplo seguinte lista os SKUs de VM disponíveis na região *eualeste2*:
+Pode ver os SKUs VM disponíveis com o comando [Get-AzComputeResourceSku.](/powershell/module/az.compute/get-azcomputeresourcesku) O exemplo seguinte lista os SKUs de VM disponíveis na região *eualeste2*:
 
 ```powershell
 Get-AzComputeResourceSku | where {$_.Locations.Contains("eastus2")};
@@ -61,7 +61,7 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Criar um grupo de recursos Azure com [o New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus2*. 
+Criar um grupo de recursos Azure com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus2*. 
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS2
@@ -105,7 +105,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location e
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Criar uma placa de rede para a máquina virtual 
-Crie um cartão de rede com [o New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) para a máquina virtual. A placa de rede liga a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
+Crie um cartão de rede com [o New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) para a máquina virtual. A placa de rede liga a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -128,7 +128,7 @@ $vmConfig = New-AzVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
     -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Crie a máquina virtual com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Crie a máquina virtual com [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```powershell
 New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
@@ -136,7 +136,7 @@ New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 
 ## <a name="confirm-zone-for-managed-disk"></a>Confirmar a zona do disco gerido
 
-Criou o recurso de endereço IP da VM na mesma zona de disponibilidade que a VM. O recurso de disco gerido para a VM é criado na mesma zona de disponibilidade. Pode verificar isto com [o Get-AzDisk:](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)
+Criou o recurso de endereço IP da VM na mesma zona de disponibilidade que a VM. O recurso de disco gerido para a VM é criado na mesma zona de disponibilidade. Pode verificar isto com [o Get-AzDisk:](/powershell/module/az.compute/get-azdisk)
 
 ```powershell
 Get-AzDisk -ResourceGroupName myResourceGroup
@@ -168,6 +168,6 @@ Tags               : {}
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre [a disponibilidade](availability.md) para VMs Azure.

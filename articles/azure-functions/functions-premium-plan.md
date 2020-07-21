@@ -5,12 +5,13 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: d59335c5c4ebd2688097539594f11ea349939eff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298519"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506201"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
 
@@ -112,7 +113,7 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |Austrália Central| 20 | Não Disponível |
 |Austrália Central 2| 20 | Não Disponível |
 |Leste da Austrália| 100 | 20 |
-|Austrália Sudeste | 100 | 20 |
+|Sudeste da Austrália | 100 | 20 |
 |Sul do Brasil| 60 | 20 |
 |Canadá Central| 100 | 20 |
 |E.U.A. Central| 100 | 20 |
@@ -129,14 +130,14 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |Leste da Noruega| 20 | 20 |
 |E.U.A. Centro-Sul| 100 | 20 |
 |Sul da Índia | 100 | Não Disponível |
-|Ásia Sudeste| 100 | 20 |
+|Sudeste Asiático| 100 | 20 |
 |Sul do Reino Unido| 100 | 20 |
 |Oeste do Reino Unido| 100 | 20 |
 |Europa Ocidental| 100 | 20 |
 |Oeste da Índia| 100 | 20 |
 |E.U.A. Centro-Oeste| 20 | 20 |
 |E.U.A. Oeste| 100 | 20 |
-|E.U.A.Oeste 2| 100 | 20 |
+|E.U.A. Oeste 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Próximos passos
 

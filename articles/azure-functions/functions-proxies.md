@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d66c690c3a0ba638a92150c9aa1dbb0dc2a41268
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82562071"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506167"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com proxies de funções Azure
 
@@ -30,7 +30,7 @@ Esta secção mostra-lhe como criar um proxy no portal Funções.
 3. Forneça um nome para o seu representante.
 4. Configure o ponto final que está exposto nesta aplicação de função especificando o modelo de **rota** e os **métodos HTTP**. Estes parâmetros comportam-se de acordo com as regras dos [gatilhos HTTP].
 5. Desaponte o **URL de backend** para outro ponto final. Este ponto final pode ser uma função em outra aplicação de função, ou pode ser qualquer outra API. O valor não precisa de ser estático, podendo referenciar [as definições] e parâmetros da aplicação [a partir do pedido original do cliente.]
-6. Clique em **Criar**.
+6. Clique em **Create** (Criar).
 
 O seu representante existe agora como um novo ponto final na sua aplicação de função. Do ponto de vista do cliente, é equivalente a um HttpTrigger em Funções Azure. Pode experimentar o seu novo representante copiando o URL proxy e testando-o com o seu cliente HTTP favorito.
 
@@ -89,7 +89,7 @@ Os parâmetros de resposta podem ser usados como parte da modificação da respo
 
 ### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Definições de pedidos de referência
 
-Também pode referenciar [as definições de aplicação definidas para a aplicação de função,](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) rodeando o nome de definição com sinais por cento (%).
+Também pode referenciar [as definições de aplicação definidas para a aplicação de função,](./functions-how-to-use-azure-function-app-settings.md) rodeando o nome de definição com sinais por cento (%).
 
 Por exemplo, um URL back-end *https://%ORDER_PROCESSING_HOST%/api/orders* teria "%ORDER_PROCESSING_HOST%" substituído pelo valor da definição ORDER_PROCESSING_HOST.
 
@@ -110,7 +110,7 @@ Desative completamente os vestígios adicionando `"debug":false` a qualquer proc
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
-Os proxies que configura são armazenados num *proxies.jsem* ficheiro, que está localizado na raiz de um diretório de aplicações de funções. Pode editar manualmente este ficheiro e implantá-lo como parte da sua aplicação quando utilizar qualquer um dos métodos de [implementação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que o Functions suporta. 
+Os proxies que configura são armazenados num *proxies.jsem* ficheiro, que está localizado na raiz de um diretório de aplicações de funções. Pode editar manualmente este ficheiro e implantá-lo como parte da sua aplicação quando utilizar qualquer um dos métodos de [implementação](./functions-continuous-deployment.md) que o Functions suporta. 
 
 > [!TIP] 
 > Se não tiver configurado um dos métodos de implantação, também pode trabalhar com o *proxies.jsficheiro no* portal. Aceda à sua aplicação de função, selecione **funcionalidades da Plataforma**e, em seguida, selecione **App Service Editor**. Ao fazê-lo, pode visualizar toda a estrutura de ficheiros da sua aplicação de função e, em seguida, fazer alterações.
@@ -244,7 +244,7 @@ Uma configuração de exemplo pode parecer o seguinte:
 > Neste exemplo, o corpo de resposta é definido diretamente, pelo que não `backendUri` é necessária nenhuma propriedade. O exemplo mostra como pode usar Proxies de Funções Azure para ridicularizar APIs.
 
 [Portal do Azure]: https://portal.azure.com
-[Disparadores HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
+[Disparadores HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [Definir um objeto de pedidoOverrides]: #requestOverrides

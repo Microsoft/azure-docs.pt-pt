@@ -15,11 +15,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 5e920f165232ec79dcced1de632d90f463ff58d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf2b4ac189e0e1eff77c2aae98a1fb53268821ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791474"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509327"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizados de memória
 
@@ -33,9 +34,9 @@ Os tamanhos de VM otimizados pela memória oferecem uma relação memória-CPU a
 
 - O processador [Intel](ev3-esv3-series.md) &reg; Xeon &reg; 8171M 2.1 GHz (Skylake) ou o processador Intel &reg; Xeon &reg; E5-2673 v4 2.3 GHz (Broadwell) numa configuração hiper-roscada, proporcionando uma melhor proposta de valor para a maioria das cargas de trabalho para fins gerais, e colocando o Ev3 em alinhamento com o propósito geral VMs da maioria das outras nuvens. A memória foi expandida (de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de disco e rede foram ajustados numa base por núcleo para alinhar com a mudança para o hiper-rosco. O Ev3 é o seguimento dos tamanhos VM de alta memória das famílias D/Dv2.
 
-- A [série Ev4 e Esv4](ev4-esv4-series.md) é executado em processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) de 2ª Geração numa configuração hiper roscada, são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504 GiB de RAM. Conta com a [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e Intel Advanced Vetor [ &reg; Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- A [série Ev4 e Esv4](ev4-esv4-series.md) é executado em processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) de 2ª Geração numa configuração hiper roscada, são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504 GiB de RAM. Conta com a [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e Intel Advanced Vetor [ &reg; Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). As séries Ev4 e Esv4 não incluem um disco temporário local. Para obter mais informações, consulte os [tamanhos Azure VM sem disco temporário local.](azure-vms-no-temp-disk.md)
 
-- A [série Edv4 e Edsv4](edv4-edsv4-series.md) funciona em processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) de 2ª Geração, ideais para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de VCPU e grandes quantidades de memória. Possui uma velocidade do relógio Turbo de 3,4 GHz sustentada e conta com a [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e Intel Advanced Vetor [ &reg; Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- A [série Edv4 e Edsv4](edv4-edsv4-series.md) funciona em processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) de 2ª Geração, ideais para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de VCPU e grandes quantidades de memória. Além disso, estes tamanhos VM incluem armazenamento SSD local rápido e maior para aplicações que beneficiam de baixa latência, armazenamento local de alta velocidade. Apresenta uma velocidade do relógio Turbo de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e Intel Advanced Vetor [ &reg; Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - A [série M](m-series.md) oferece uma alta contagem de VCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de vCPU e grandes quantidades de memória.
 
@@ -48,7 +49,7 @@ O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um ti
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 

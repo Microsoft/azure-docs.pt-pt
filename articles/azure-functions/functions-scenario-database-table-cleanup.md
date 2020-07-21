@@ -4,16 +4,16 @@ description: Utilize funções Azure para agendar uma tarefa que se conecta à B
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 974d9da9bb5782672603f1ae8c58742941899a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254281"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506082"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utilize funções Azure para ligar a uma Base de Dados Azure SQL
 
-Este artigo mostra-lhe como usar funções Azure para criar um trabalho programado que se conecta a uma Base de Dados Azure SQL ou Azure SQL Managed Instance. O código de função limpa as linhas numa tabela na base de dados. A nova função C# é criada com base num modelo de gatilho de temporizador pré-definido no Visual Studio 2019. Para suportar este cenário, também deve definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Para Azure SQL Managed Instance, é necessário [permitir que o ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) possa ligar-se a partir de Funções Azure. Este cenário usa uma operação a granel contra a base de dados. 
+Este artigo mostra-lhe como usar funções Azure para criar um trabalho programado que se conecta a uma Base de Dados Azure SQL ou Azure SQL Managed Instance. O código de função limpa as linhas numa tabela na base de dados. A nova função C# é criada com base num modelo de gatilho de temporizador pré-definido no Visual Studio 2019. Para suportar este cenário, também deve definir uma cadeia de ligação de base de dados como uma definição de aplicação na aplicação de função. Para Azure SQL Managed Instance, é necessário [permitir que o ponto final público](../azure-sql/managed-instance/public-endpoint-configure.md) possa ligar-se a partir de Funções Azure. Este cenário usa uma operação a granel contra a base de dados. 
 
 Se esta for a sua primeira experiência a trabalhar com funções C# deve ler a referência do [programador Azure Functions C#](functions-dotnet-class-library.md).
 
@@ -23,7 +23,7 @@ Se esta for a sua primeira experiência a trabalhar com funções C# deve ler a 
 
 + Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza a granel na tabela **SalesOrderHeader** na base de dados de amostras AdventureWorksLT. Para criar a base de dados de amostras AdventureWorksLT, preencha os passos no artigo [Crie uma base de dados na Base de Dados Azure SQL utilizando o portal Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-+ Tem de adicionar uma [regra de firewall ao nível](../sql-database/sql-database-get-started-portal-firewall.md) do servidor para o endereço IP público do computador que utiliza para este arranque rápido. Esta regra é necessária para poder aceder à placa sql database a partir do seu computador local.  
++ Tem de adicionar uma [regra de firewall ao nível](../azure-sql/database/firewall-create-server-level-portal-quickstart.md) do servidor para o endereço IP público do computador que utiliza para este arranque rápido. Esta regra é necessária para poder aceder à placa sql database a partir do seu computador local.  
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 

@@ -3,14 +3,14 @@ title: Orquestrações eternas em Funções Duradouras - Azure
 description: Aprenda a implementar orquestrações eternas utilizando a extensão de Funções Duradouras para Funções Azure.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34c70f4305ebb2c45757d982ab558aea6450003f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478812"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506371"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternas em Funções Duradouras (Funções Azure)
 
@@ -22,7 +22,7 @@ Como explicado no tema da história da [orquestração,](durable-functions-orche
 
 ## <a name="resetting-and-restarting"></a>Reposição e reinício
 
-Em vez de utilizar laços infinitos, as funções do orquestrador reiniciam o seu estado chamando o `ContinueAsNew` método (.NET) ou `continueAsNew` (JavaScript) da [ligação](durable-functions-bindings.md#orchestration-trigger)do gatilho de orquestração . Este método requer um único parâmetro json-serializável, que se torna a nova entrada para a próxima geração de funções orquestradoras.
+Em vez de utilizar laços infinitos, as funções do orquestrador reiniciam o seu estado chamando o `ContinueAsNew` `continueAsNew` método (.NET), (JavaScript) ou `continue_as_new` (Python) da [ligação](durable-functions-bindings.md#orchestration-trigger)do gatilho de orquestração . Este método requer um único parâmetro json-serializável, que se torna a nova entrada para a próxima geração de funções orquestradoras.
 
 Quando `ContinueAsNew` é chamado, o caso encova uma mensagem para si mesmo antes de sair. A mensagem reinicia a instância com o novo valor de entrada. O mesmo caso de identificação é mantido, mas a história da função do orquestrador é efetivamente truncada.
 
@@ -70,13 +70,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("DoCleanup")
+
+    # sleep for one hour between cleanups
+    next_cleanup = context.current_utc_datetime + timedelta(hours = 1)
+    yield context.create_timer(next_cleanup)
+
+    context.continue_as_new(None)
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 A diferença entre este exemplo e uma função desencadeada pelo temporizador é que os tempos de disparo de limpeza aqui não são baseados num horário. Por exemplo, um cron que executa uma função a cada hora irá executá-la às 1:00, 2:00, 3:00 etc. e pode potencialmente encontrar problemas de sobreposição. Neste exemplo, no entanto, se a limpeza demorar 30 minutos, então será agendado para 1:00, 2:30, 4:00, etc. e não há possibilidade de sobreposição.
 
 ## <a name="starting-an-eternal-orchestration"></a>Iniciar uma orquestração eterna
 
-Utilize o `StartNewAsync` método (.NET) ou o `startNew` método (JavaScript) para iniciar uma orquestração eterna, tal como faria com qualquer outra função de orquestração.  
+Utilize o `StartNewAsync` método (.NET), o `startNew` método (JavaScript), `start_new` (Python) para iniciar uma orquestração eterna, tal como faria com qualquer outra função de orquestração.  
 
 > [!NOTE]
 > Se precisa garantir que uma orquestração eterna singleton está a decorrer, é importante manter o mesmo caso `id` ao iniciar a orquestração. Para mais informações, consulte [Gestão de Exemplos.](durable-functions-instance-management.md)
@@ -115,6 +134,19 @@ module.exports = async function (context, req) {
     return client.createCheckStatusResponse(context.bindingData.req, instanceId);
 };
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = 'StaticId'
+
+    await client.start_new('Periodic_Cleanup_Loop', instance_id, None)
+
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+    return client.create_check_status_response(req, instance_id)
+
+```
 
 ---
 
@@ -122,9 +154,9 @@ module.exports = async function (context, req) {
 
 Se uma função de orquestrador tiver eventualmente de ser completada, então tudo o que precisa fazer é *não* ligar `ContinueAsNew` e deixar a função sair.
 
-Se uma função orquestradora estiver num loop infinito e precisar de ser interrompida, utilize o `TerminateAsync` método (.NET) ou `terminate` (JavaScript) da [ligação](durable-functions-bindings.md#orchestration-client) do cliente de orquestração para o impedir. Para mais informações, consulte [Gestão de Exemplos.](durable-functions-instance-management.md)
+Se uma função orquestradora estiver num loop infinito e precisar de ser interrompida, utilize o `TerminateAsync` método (.NET), `terminate` (JavaScript) ou `terminate` (Python) da ligação do cliente da [orquestração](durable-functions-bindings.md#orchestration-client) para o impedir. Para mais informações, consulte [Gestão de Exemplos.](durable-functions-instance-management.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar orquestrações singleton](durable-functions-singletons.md)

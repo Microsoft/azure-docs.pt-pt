@@ -6,24 +6,25 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 85aaefa12f0cef21e3a367700d1a4899a75e8a90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57cc3624a38fbec1e5bef7bb281363d34acef2b1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298474"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505606"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Azure Monitor
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo mostra-lhe como criar e gerir alertas de registo usando a interface de alertas dentro do portal Azure. As regras de alerta são definidas por três componentes:
 - Alvo: Um recurso Azure específico para monitorizar
 - Critérios: Condição ou lógica para avaliar a verdade. Se for verdade, o alerta dispara.  
 - Ação: Chamada específica enviada a um recetor de uma notificação - e-mail, SMS, webhook etc.
 
-O termo **Alerta de Registo** descreve alertas onde é avaliada uma consulta de registo no espaço de trabalho do Log [Analytics](../learn/tutorial-viewdata.md) ou no [Application Insights](../app/analytics.md) e um alerta disparado se o resultado for verdadeiro. Saiba mais sobre funcionalidades, terminologia e tipos de alertas de [Log - Visão geral](alerts-unified-log.md).
+O termo **Alerta de Registo** descreve alertas onde é avaliada uma consulta de registo no espaço de trabalho do Log [Analytics](../log-query/get-started-portal.md) ou no [Application Insights](../log-query/log-query-overview.md) e um alerta disparado se o resultado for verdadeiro. Saiba mais sobre funcionalidades, terminologia e tipos de alertas de [Log - Visão geral](alerts-unified-log.md).
 
 > [!NOTE]
-> Os dados de registo de um espaço de [trabalho log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) também podem ser encaminhados para a base de dados de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar.   Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
+> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/get-started-portal.md) também podem ser encaminhados para a base de dados de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar.   Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Criar uma regra de alerta de registo com o portal Azure
 
@@ -63,7 +64,7 @@ O termo **Alerta de Registo** descreve alertas onde é avaliada uma consulta de 
 
    A visualização de dados históricos só é mostrada se os resultados da consulta tiverem detalhes de tempo. Se a sua consulta resultar em dados resumidos ou valores específicos da coluna, o visor mostra um único enredo.
   
-   Para medições métricas utilizando Insights de Aplicação ou [a API do Log Analytics,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)pode especificar qual a variável específica para agrupar os dados utilizando o **Agregado na** opção; como mostrado aqui: 
+   Para medições métricas utilizando Insights de Aplicação ou [a API do Log Analytics,](/rest/api/monitor/scheduledqueryrules)pode especificar qual a variável específica para agrupar os dados utilizando o **Agregado na** opção; como mostrado aqui: 
   
    ![agregado na opção](media/alerts-log/aggregate-on.png)
 
@@ -110,7 +111,7 @@ O termo **Alerta de Registo** descreve alertas onde é avaliada uma consulta de 
 
      Em poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
 
-Os utilizadores também podem finalizar a sua consulta de análise em [análise de registo](../log-query/portals.md) e, em seguida, pressioná-lo para criar um alerta através do botão 'set Alert' - seguindo depois as instruções do Passo 6 no tutorial acima.
+Os utilizadores também podem finalizar a sua consulta de análise em [análise de registo](../log-query/log-query-overview.md) e, em seguida, pressioná-lo para criar um alerta através do botão 'set Alert' - seguindo depois as instruções do Passo 6 no tutorial acima.
 
  ![Log Analytics - Alerta de conjunto](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -127,15 +128,15 @@ Os utilizadores também podem finalizar a sua consulta de análise em [análise 
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gestão de alertas de registo usando o modelo de recursos Azure
 
-Os alertas de registo no Azure Monitor estão associados ao tipo de recurso `Microsoft.Insights/scheduledQueryRules/` . Para obter mais informações sobre este tipo de recurso, consulte [o Azure Monitor - Referência API das Regras de Consulta Agendadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Os alertas de registo para Insights de Aplicações ou Análise de Registo, podem ser criados usando [API de Regras de Consulta Agendadas.](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)
+Os alertas de registo no Azure Monitor estão associados ao tipo de recurso `Microsoft.Insights/scheduledQueryRules/` . Para obter mais informações sobre este tipo de recurso, consulte [o Azure Monitor - Referência API das Regras de Consulta Agendadas](/rest/api/monitor/scheduledqueryrules/). Os alertas de registo para Insights de Aplicações ou Análise de Registo, podem ser criados usando [API de Regras de Consulta Agendadas.](/rest/api/monitor/scheduledqueryrules/)
 
 > [!NOTE]
-> Os alertas de registo para o Log Analytics também podem ser geridos usando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics também guardados pesquisas e alertas.](../insights/solutions-resources-searches-alerts.md) Para obter mais informações sobre a utilização da nova API de Placas Agendadas detalhadas aqui por padrão, consulte [a Switch para a nova API para Alertas de Análise de Registos](alerts-log-api-switch.md).
+> Os alertas de registo para o Log Analytics também podem ser geridos usando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics também guardados pesquisas e alertas.](../insights/solutions.md) Para obter mais informações sobre a utilização da nova API de Placas Agendadas detalhadas aqui por padrão, consulte [a Switch para a nova API para Alertas de Análise de Registos](alerts-log-api-switch.md).
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Criação de alerta de registo de amostra usando modelo de recurso Azure
 
-Segue-se a estrutura do modelo [de criação de regras de consulta programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) utilizando a consulta padrão de pesquisa de registo de [registo do número de resultados,](alerts-unified-log.md#number-of-results-alert-rules)com o conjunto de dados da amostra como variáveis.
+Segue-se a estrutura do modelo [de criação de regras de consulta programadas](/rest/api/monitor/scheduledqueryrules/createorupdate) utilizando a consulta padrão de pesquisa de registo de [registo do número de resultados,](alerts-unified-log.md#number-of-results-alert-rules)com o conjunto de dados da amostra como variáveis.
 
 ```json
 {
@@ -211,7 +212,7 @@ A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.j
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerta de registo com consulta de recursos cruzados usando modelo de recursos Azure
 
-Segue-se a estrutura do modelo [de criação de regras](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta programadas utilizando [consulta de pesquisa de registo de registo de recursos cruzados](../../azure-monitor/log-query/cross-workspace-query.md) do alerta de [registo do tipo de medição métrica,](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)com o conjunto de dados da amostra como variáveis.
+Segue-se a estrutura do modelo [de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta programadas utilizando [consulta de pesquisa de registo de registo de recursos cruzados](../../azure-monitor/log-query/cross-workspace-query.md) do alerta de [registo do tipo de medição métrica,](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)com o conjunto de dados da amostra como variáveis.
 
 ```json
 
@@ -301,7 +302,7 @@ Segue-se a estrutura do modelo [de criação de regras](https://docs.microsoft.c
 ```
 
 > [!IMPORTANT]
-> Ao utilizar consulta de recursos cruzados em alerta de registo, o uso de [recursos autorizados](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) é obrigatório e o utilizador deve ter acesso à lista de recursos indicados
+> Ao utilizar consulta de recursos cruzados em alerta de registo, o uso de [recursos autorizados](/rest/api/monitor/scheduledqueryrules/createorupdate#source) é obrigatório e o utilizador deve ter acesso à lista de recursos indicados
 
 A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.jspara o propósito desta caminhada e pode ser implantada usando [O Gestor de Recursos Azure no portal Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -309,22 +310,22 @@ A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.j
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor - [Regras de Consulta ProgramadaS A API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) é uma API REST e totalmente compatível com AZure Resource Manager REST API. E os cmdlets PowerShell listados abaixo estão disponíveis para alavancar as [Regras de Consulta Agendadas API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+Azure Monitor - [Regras de Consulta ProgramadaS A API](/rest/api/monitor/scheduledqueryrules/) é uma API REST e totalmente compatível com AZure Resource Manager REST API. E os cmdlets PowerShell listados abaixo estão disponíveis para alavancar as [Regras de Consulta Agendadas API](/rest/api/monitor/scheduledqueryrules/).
 
-- [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell cmdlet para criar uma nova regra de alerta de registo.
-- [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell cmdlet para atualizar uma regra de alerta de registo existente.
-- [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource) : PowerShell cmdlet para criar ou atualizar objetos que especificam parâmetros de origem para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-- [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule): PowerShell cmdlet para criar ou atualizar o objeto especificando os parâmetros do calendário para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-- [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
-- [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell cmdlet para criar ou atualizar objetos especificando parâmetros de grupos de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-- [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell cmdlet para criar ou atualizar o objeto especificando os parâmetros da condição do gatilho para o alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction) cmdlet.
-- [Novo-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de condição de gatilho métrico para [o alerta de registo do tipo de medição métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Usado como entrada por [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
-- [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell cmdlet para listar as regras de alerta de registo existentes ou uma regra específica de alerta de registo
-- [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell cmdlet para ativar ou desativar a regra de alerta de registo
-- [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet para eliminar uma regra de alerta de registo existente
+- [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell cmdlet para criar uma nova regra de alerta de registo.
+- [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell cmdlet para atualizar uma regra de alerta de registo existente.
+- [New-AzScheduledQueryRuleSource](/powershell/module/az.monitor/new-azscheduledqueryrulesource) : PowerShell cmdlet para criar ou atualizar objetos que especificam parâmetros de origem para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+- [New-AzScheduledQueryRuleSchedule](/powershell/module/az.monitor/new-azscheduledqueryruleschedule): PowerShell cmdlet para criar ou atualizar o objeto especificando os parâmetros do calendário para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+- [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
+- [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell cmdlet para criar ou atualizar objetos especificando parâmetros de grupos de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
+- [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell cmdlet para criar ou atualizar o objeto especificando os parâmetros da condição do gatilho para o alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
+- [Novo-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de condição de gatilho métrico para [o alerta de registo do tipo de medição métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Usado como entrada por [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+- [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell cmdlet para listar as regras de alerta de registo existentes ou uma regra específica de alerta de registo
+- [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell cmdlet para ativar ou desativar a regra de alerta de registo
+- [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet para eliminar uma regra de alerta de registo existente
 
 > [!NOTE]
-> Os cmdlets De Configurações De Configurações Agendadas só podem gerir as regras criadas pelo próprio CMDLET ou utilizando o Azure Monitor - [Regras de Consulta Programadas API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). As regras de alerta de registo criadas utilizando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Registo Analytics guardam pesquisas e alertas](../insights/solutions-resources-searches-alerts.md) podem ser geridos usando os cmdlets PowerShell agendados do Dinheiro Só depois de o utilizador [mudar a preferência da API para alertas de analítica de registos.](alerts-log-api-switch.md)
+> Os cmdlets De Configurações De Configurações Agendadas só podem gerir as regras criadas pelo próprio CMDLET ou utilizando o Azure Monitor - [Regras de Consulta Programadas API](/rest/api/monitor/scheduledqueryrules/). As regras de alerta de registo criadas utilizando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Registo Analytics guardam pesquisas e alertas](../insights/solutions.md) podem ser geridos usando os cmdlets PowerShell agendados do Dinheiro Só depois de o utilizador [mudar a preferência da API para alertas de analítica de registos.](alerts-log-api-switch.md)
 
 Ilustrados em seguida estão os passos para a criação de uma regra de alerta de registo de amostra usando os cmdlets PowerShell programados.
 
@@ -346,11 +347,11 @@ New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name f
 
 ## <a name="managing-log-alerts-using-cli-or-api"></a>Gerir alertas de registos utilizando CLI ou API
 
-Azure Monitor - [Regras de Consulta ProgramadaS A API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) é uma API REST e totalmente compatível com AZure Resource Manager REST API. Assim, pode ser usado através de Powershell usando comandos de Gestor de Recursos para Azure CLI.
+Azure Monitor - [Regras de Consulta ProgramadaS A API](/rest/api/monitor/scheduledqueryrules/) é uma API REST e totalmente compatível com AZure Resource Manager REST API. Assim, pode ser usado através de Powershell usando comandos de Gestor de Recursos para Azure CLI.
 
 
 > [!NOTE]
-> Os alertas de registo para o Log Analytics também podem ser geridos usando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics também guardados pesquisas e alertas.](../insights/solutions-resources-searches-alerts.md) Para obter mais informações sobre a utilização da nova API de Placas Agendadas detalhadas aqui por padrão, consulte [a Switch para a nova API para Alertas de Análise de Registos](alerts-log-api-switch.md).
+> Os alertas de registo para o Log Analytics também podem ser geridos usando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics também guardados pesquisas e alertas.](../insights/solutions.md) Para obter mais informações sobre a utilização da nova API de Placas Agendadas detalhadas aqui por padrão, consulte [a Switch para a nova API para Alertas de Análise de Registos](alerts-log-api-switch.md).
 
 Os alertas de registo atualmente não têm comandos CLI dedicados atualmente; mas como ilustrado abaixo pode ser usado através do comando CLI do Gestor de Recursos Azure para o modelo de recursos da amostra mostrado anteriormente (sampleScheduledQueryRule.js) na secção modelo de recursos:
 
@@ -364,5 +365,5 @@ Em funcionamento bem sucedido, 201 será devolvido ao estado de nova criação d
 
 * Saiba mais [sobre alertas de registo em alertas de Azure](../../azure-monitor/platform/alerts-unified-log.md)
 * Compreenda [as ações do Webhook para alertas de registo](../../azure-monitor/platform/alerts-log-webhook.md)
-* Saiba mais sobre [a Aplicação Insights](../../azure-monitor/app/analytics.md)
+* Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md)
 * Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)

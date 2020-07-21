@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b3ad8fdce873b31c8ea6b1c8176ed41587b4b298
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244536"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507102"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -54,9 +54,9 @@ Os ambientes de Kubernetes, em AKS ou em qualquer outro lugar, atualmente não s
 
 ### <a name="compute-isolation"></a>Isolamento computacional
 
- Determinadas cargas de trabalho podem exigir um elevado grau de isolamento das cargas de trabalho de outros clientes devido à conformidade ou aos requisitos regulamentares. Para estas cargas de trabalho, a Azure fornece [máquinas virtuais isoladas,](../virtual-machines/linux/isolation.md)que podem ser usadas como nós de agente num cluster AKS. Estas máquinas virtuais isoladas são isoladas a um tipo de hardware específico e dedicadas a um único cliente. 
+ Determinadas cargas de trabalho podem exigir um elevado grau de isolamento das cargas de trabalho de outros clientes devido à conformidade ou aos requisitos regulamentares. Para estas cargas de trabalho, a Azure fornece [máquinas virtuais isoladas,](../virtual-machines/isolation.md)que podem ser usadas como nós de agente num cluster AKS. Estas máquinas virtuais isoladas são isoladas a um tipo de hardware específico e dedicadas a um único cliente. 
 
- Para utilizar estas máquinas virtuais isoladas com um cluster AKS, selecione um dos tamanhos de máquinas virtuais isoladas listados [aqui](../virtual-machines/linux/isolation.md) como o tamanho do **nó** ao criar um cluster AKS ou adicionar uma piscina de nó.
+ Para utilizar estas máquinas virtuais isoladas com um cluster AKS, selecione um dos tamanhos de máquinas virtuais isoladas listados [aqui](../virtual-machines/isolation.md) como o tamanho do **nó** ao criar um cluster AKS ou adicionar uma piscina de nó.
 
 
 ## <a name="cluster-upgrades"></a>Atualizações de cluster
@@ -82,6 +82,8 @@ Para conectividade e segurança com redes no local, pode implantar o seu cluster
 
 Para filtrar o fluxo de tráfego em redes virtuais, a Azure utiliza regras de grupo de segurança de rede. Estas regras definem as gamas IP de origem e destino, portas e protocolos que são permitidos ou impedidos de aceder aos recursos. As regras predefinidoras são criadas para permitir o tráfego de TLS para o servidor API de Kubernetes. À medida que cria serviços com equilibradores de carga, mapeamentos portuários ou rotas de entrada, a AKS modifica automaticamente o grupo de segurança da rede para que o tráfego flua adequadamente.
 
+Nos casos em que forneça a sua própria sub-rede para o seu cluster AKS e pretenda modificar o fluxo de tráfego, não modifique o grupo de segurança de rede de nível sub-rede gerido pela AKS. Pode criar grupos adicionais de segurança de rede de nível de sub-rede para modificar o fluxo de tráfego, desde que não interfiram com o tráfego necessário para a gestão do cluster, tais como o acesso ao balançador de carga, a comunicação com o plano de controlo e [a saída][aks-limit-egress-traffic].
+
 ### <a name="kubernetes-network-policy"></a>Política de rede kubernetes
 
 Para limitar o tráfego de rede entre cápsulas no seu cluster, a AKS oferece suporte para [as políticas de rede Kubernetes.][network-policy] Com as políticas de rede, pode optar por permitir ou negar caminhos de rede específicos dentro do cluster com base em espaços de nome e seletores de etiquetas.
@@ -94,7 +96,7 @@ O uso de Segredos reduz a informação sensível que é definida no manifesto YA
 
 Os segredos de Kubernetes estão armazenados em etcd, uma loja de valor-chave distribuída. A loja Etcd é totalmente gerida pela AKS e [os dados são encriptados em repouso dentro da plataforma Azure][encryption-atrest]. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a assegurar os seus clusters AKS, consulte [upgrade de um cluster AKS][aks-upgrade-cluster].
 
@@ -123,6 +125,7 @@ Para obter informações adicionais sobre os conceitos core Kubernetes e AKS, co
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

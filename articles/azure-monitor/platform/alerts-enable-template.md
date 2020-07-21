@@ -6,11 +6,12 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5a868167f80aaa735e4fbeab32fd1d308dd6da1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114434"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505453"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Resource Manager
 > [!WARNING]
@@ -175,7 +176,7 @@ Para criar um alerta utilizando um modelo de Gestor de Recursos, cria um recurso
 }
 ```
 
-Uma explicação do esquema e propriedades para uma regra de alerta [está disponível aqui.](https://msdn.microsoft.com/library/azure/dn933805.aspx)
+Uma explicação do esquema e propriedades para uma regra de alerta [está disponível aqui.](/rest/api/monitor/alertrules)
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modelo de gestor de recursos para um recurso com um alerta métrico clássico
 Um alerta num modelo de Gestor de Recursos é mais frequentemente útil ao criar um alerta enquanto cria um recurso. Por exemplo, é melhor garantir que é criada uma regra "CPU % > 80" sempre que implementar uma Máquina Virtual. Para isso, adicione a regra de alerta como um recurso na matriz de recursos para o seu modelo VM e adicione uma dependência usando a `dependsOn` propriedade para o ID de recursos VM. Aqui está um exemplo completo que cria um VM do Windows e adiciona um alerta que notifica os administradores de subscrição quando a utilização do CPU ultrapassa os 80%.
@@ -401,4 +402,3 @@ Um alerta num modelo de Gestor de Recursos é mais frequentemente útil ao criar
 * [Ler mais sobre Alertas](alerts-overview.md)
 * [Adicione definições de diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) ao seu modelo de Gestor de Recursos
 * Para a sintaxe e propriedades JSON, consulte a referência do modelo [Microsoft.Insights/alertrules.](/azure/templates/microsoft.insights/alertrules)
-

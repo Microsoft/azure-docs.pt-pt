@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: 6fb9f691afc8874b19ca4575408027357f07cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505776"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Atualizar as visualizações do Painel de Registos
 
@@ -25,7 +25,7 @@ Esta nova tecnologia de visualização está a preparar o caminho para novas e m
 
 Os painéis Azure são uma forma de visualizar o estado de toda a sua área de superfície Azure. Eles são projetados para fornecer um único painel de vidro para o seu estado de propriedade Azure e permitir uma variedade de atalhos para ações comuns. 
 
-Para mais informações, consulte [os dashboards Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+Para mais informações, consulte [os dashboards Azure](../../azure-portal/azure-portal-dashboards.md)
 
 
 ## <a name="upgrading-log-analytics-dashboard-parts"></a>Atualizar peças do painel de instrumentos do Log Analytics
@@ -68,7 +68,7 @@ As visualizações do Log Analytics fixadas a um dashboard têm algum comportame
 
 ### <a name="query-time-scope---30-day-limit"></a>Âmbito de tempo de consulta - limite de 30 dias
 
-Como os dashboards podem conter múltiplas visualizações de múltiplas consultas, o tempo para uma única consulta fixa é limitado a 30 dias. Uma única consulta só pode ser executada num intervalo de tempo menor ou igual a 30 dias. Esta limitação é para garantir um tempo razoável de carga do painel de instrumentos.
+Como os dashboards podem conter várias visualizações de várias consultas, o âmbito de tempo para uma única consulta afixada está limitado a 30 dias. Uma única consulta só pode ser executada num intervalo de tempo menor ou igual a 30 dias. Esta limitação é para garantir um tempo razoável de carga do painel de instrumentos.
 
 ### <a name="query-data-values---25-values-and-other-grouping"></a>Valores de dados de consulta - 25 valores e outros agrupamentos
 

@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dda2df64dc116a950498aaf581ec39a86db72bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631786"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505742"
 ---
-# <a name="azure-monitor-log-queries"></a>Consultas de log do Monitor Azure
+# <a name="azure-monitor-log-queries"></a>Consultas de registo do Azure Monitor
 
 Os registos do Azure Monitor são construídos no Azure Data Explorer, e as consultas de registo do Azure Monitor utilizam uma versão da mesma língua de consulta Kusto. A documentação linguística de [consulta de Kusto](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o seu principal recurso para escrever consultas de log do Azure Monitor. Esta página fornece links para outros recursos para aprender a escrever consultas e sobre diferenças com a implementação do Azure Monitor da língua.
 
@@ -27,7 +27,7 @@ Os registos do Azure Monitor são construídos no Azure Data Explorer, e as cons
 ## <a name="concepts"></a>Conceitos
 
 - [Analisar os dados de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) dá uma breve visão geral das consultas de registo e descreve como os dados de registo do Azure Monitor são estruturados.
-- [Visualizar e analisar dados de registo no Azure Monitor](../../azure-monitor/log-query/portals.md) explica os portais onde cria e executa consultas de registo.
+- [Visualizar e analisar dados de registo no Azure Monitor](./log-query-overview.md) explica os portais onde cria e executa consultas de registo.
 
 ## <a name="reference"></a>Referência
 
@@ -55,6 +55,6 @@ Os registos do Azure Monitor são construídos no Azure Data Explorer, e as cons
 - [A consulta de registo sql-Azure Monitor](sql-cheatsheet.md) ajuda os utilizadores que já estão familiarizados com o SQL.
 - [A consulta de registo splunk para Azure Monitor](splunk-cheatsheet.md) ajuda os utilizadores que já estão familiarizados com o Splunk.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aceda à documentação completa [de referência para o idioma de consulta kusto.](/azure/kusto/query/)

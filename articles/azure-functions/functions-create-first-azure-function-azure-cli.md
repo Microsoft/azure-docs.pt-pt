@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 671404b952156ff6ad20eaf082d7af33058923a3
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100020"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506354"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -40,7 +40,7 @@ Há também uma [versão baseada em Código visual](functions-create-first-funct
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Se a Maven não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para desenvolvedores de Java usando [Gradle,](/azure/azure-functions/functions-create-first-java-gradle) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se a Maven não é a sua ferramenta de desenvolvimento preferencial, confira os nossos tutoriais semelhantes para desenvolvedores de Java usando [Gradle,](./functions-create-first-java-gradle.md) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -101,7 +101,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 A Maven pede-lhe valores necessários para terminar a geração do projeto na implantação.   
 Fornecer os seguintes valores quando solicitado:
 
-| Mensagem | Valor | Description |
+| Prompt | Valor | Descrição |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Um valor que identifica exclusivamente o seu projeto em todos os projetos, seguindo as [regras de nomeação](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de pacotes para a Java. |
 | **artefactoId** | `fabrikam-functions` | Um valor que é o nome do jarro, sem um número de versão. |
@@ -139,7 +139,7 @@ Se desejar, pode saltar para [Executar a função localmente](#run-the-function-
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-O objeto de retorno é um [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) que devolve uma mensagem de resposta como um [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) ou um [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp).
+O objeto de retorno é um [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) que devolve uma mensagem de resposta como um [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) ou um [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=csharp).
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -169,7 +169,7 @@ O arquétipo também gera um teste de unidade para a sua função. Quando altera
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. `req`é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.js,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. `req`é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.js,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -179,7 +179,7 @@ Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal c
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js*em*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
@@ -419,7 +419,7 @@ az group delete --name java-functions-group
 Para sair do ambiente virtual, `deactivate` corra.
 ::: zone-end
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ligue-se a uma fila de armazenamento Azure](functions-add-output-binding-storage-queue-cli.md)

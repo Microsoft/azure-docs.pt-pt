@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80411078"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508054"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar Micro Focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 em Azure
 
@@ -270,10 +270,10 @@ A última coisa que precisa fazer é configurar uma sessão de 3270 usando Rumba
 
 Parabéns! Está agora a executar uma aplicação CICS em Azure utilizando o Micro Focus Enterprise Server.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Executar servidor de empresa em contentores Docker em Azure](run-enterprise-server-container.md)
-- [Migração do Computador Central - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
-- [Máquinas Virtuais](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [Resolução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Migração do Computador Central - Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
+- [Máquinas Virtuais](../../../linux/overview.md)
+- [Resolução de problemas](../../../troubleshooting/index.yml)
 - [Desmistificar o mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

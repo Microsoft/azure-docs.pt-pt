@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: bbd81730ea822381f1d0f0e15011fb4ed0c29e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efb26260d0e1f59e78c8328de298c3d4d92c19d3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735919"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509322"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU otimizado tamanhos de máquinas virtuais
 
@@ -30,13 +31,13 @@ Os tamanhos de VM otimizados da GPU são máquinas virtuais especializadas dispo
 
 Para tirar partido das capacidades da GPU dos condutores da série Azure N VMs, NVIDIA ou AMD GPU devem ser instalados.
 
-- Para os VMs apoiados pela NVIDIA GPUs, a [Extensão do Condutor GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala controladores adequados NVIDIA CUDA ou GRID. Instale ou gerencie a extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação da [extensão do condutor do GPU da NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para sistemas operativos suportados e etapas de implantação. Para obter informações gerais sobre extensões de VM, consulte [extensões e funcionalidades de máquinas virtuais Azure](/azure/virtual-machines/extensions/overview).
+- Para os VMs apoiados pela NVIDIA GPUs, a [Extensão do Condutor GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) instala controladores adequados NVIDIA CUDA ou GRID. Instale ou gerencie a extensão utilizando o portal Azure ou ferramentas como os modelos Azure PowerShell ou Azure Resource Manager. Consulte a documentação da [extensão do condutor do GPU da NVIDIA](./extensions/hpccompute-gpu-windows.md) para sistemas operativos suportados e etapas de implantação. Para obter informações gerais sobre extensões de VM, consulte [extensões e funcionalidades de máquinas virtuais Azure](./extensions/overview.md).
 
-   Em alternativa, pode instalar manualmente os controladores da NVIDIA GPU. Consulte [os controladores GPU da NVIDIA em VMs da série N que executam o Windows](/azure/virtual-machines/windows/n-series-driver-setup) ou [instale os controladores GU NVIDIA em VMs da série N que executam o Linux](/azure/virtual-machines/linux/n-series-driver-setup) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
+   Em alternativa, pode instalar manualmente os controladores da NVIDIA GPU. Consulte [os controladores GPU da NVIDIA em VMs da série N que executam o Windows](./windows/n-series-driver-setup.md) ou [instale os controladores GU NVIDIA em VMs da série N que executam o Linux](./linux/n-series-driver-setup.md) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
 
-- Para VMs apoiados por GPUs AMD, consulte [os controladores DE GPU da AMD em VMs da série N que executam o Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
+- Para VMs apoiados por GPUs AMD, consulte [os controladores DE GPU da AMD em VMs da série N que executam o Windows](./windows/n-series-amd-driver-setup.md) para sistemas operativos suportados, controladores, instalações e etapas de verificação.
 
-## <a name="deployment-considerations"></a>Considerações sobre implementação
+## <a name="deployment-considerations"></a>Considerações sobre a implementação
 
 - Para obter disponibilidade de VMs da série N, consulte [produtos disponíveis por região.](https://azure.microsoft.com/regions/services/)
 

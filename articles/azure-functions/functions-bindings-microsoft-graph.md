@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef746186717f3eb6bb93263c7f86c26606f65ea9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290765b17cf34417176930dc9116309bdfd754c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322520"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506541"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Ligações do Microsoft Graph para Funções Azure
 
@@ -58,7 +59,7 @@ Se estiver a utilizar o Visual Studio, poderá obter as extensões instalando [o
 
 ### <a name="configuring-authentication--authorization"></a>Configuração de Autenticação/ Autorização
 
-As encadernações descritas neste artigo exigem a utilização de uma identidade. Isto permite ao Microsoft Graph impor permissões e interações de auditoria. A identidade pode ser um utilizador a aceder à sua aplicação ou à própria aplicação. Para configurar esta identidade, crie [a Autenticação/Autorização do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) com o Diretório Ativo Azure. Também terá de solicitar quaisquer permissões de recursos que as suas funções exijam.
+As encadernações descritas neste artigo exigem a utilização de uma identidade. Isto permite ao Microsoft Graph impor permissões e interações de auditoria. A identidade pode ser um utilizador a aceder à sua aplicação ou à própria aplicação. Para configurar esta identidade, crie [a Autenticação/Autorização do Serviço de Aplicações](../app-service/overview-authentication-authorization.md) com o Diretório Ativo Azure. Também terá de solicitar quaisquer permissões de recursos que as suas funções exijam.
 
 > [!Note] 
 > A extensão do Microsoft Graph suporta apenas a autenticação Azure AD. Os utilizadores precisam de fazer login com uma conta de trabalho ou escola.
@@ -982,7 +983,7 @@ Os webhooks permitem-lhe reagir a eventos no Gráfico microsoft. Para suportar w
 - Uma [ligação de entrada de subscrição webhook do Microsoft Graph](#webhook-input) permite-lhe listar as subscrições existentes e a atualizá-las opcionalmente.
 - Uma [ligação de saída de subscrição webhook do Microsoft Graph](#webhook-output) permite-lhe criar ou eliminar subscrições webhook.
 
-As próprias ligações não requerem permissões AD Azure, mas precisa de solicitar permissões relevantes para o tipo de recurso a que pretende reagir. Para obter uma lista das permissões necessárias para cada tipo de recurso, consulte [permissões de subscrição](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
+As próprias ligações não requerem permissões AD Azure, mas precisa de solicitar permissões relevantes para o tipo de recurso a que pretende reagir. Para obter uma lista das permissões necessárias para cada tipo de recurso, consulte [permissões de subscrição](/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Para obter mais informações sobre webhooks, consulte [Working with webhooks no Microsoft Graph].
 

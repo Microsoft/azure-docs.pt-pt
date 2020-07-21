@@ -5,12 +5,12 @@ description: Conheça as limitações conhecidas quando executar piscinas de nó
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a86d6f0fe942a72a96c504a61d5030624f161cd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339887"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507017"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para piscinas de nó de nó do Windows Server e cargas de trabalho de aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -44,11 +44,15 @@ Os nós principais (o plano de controlo) num cluster AKS são hospedados pela AK
 
 ## <a name="what-network-plug-ins-are-supported"></a>Que plug-ins de rede são suportados?
 
-Os clusters AKS com piscinas de nó Windows devem utilizar o modelo de rede Azure CNI (avançado). A rede Kubenet (básica) não é suportada. Para obter mais informações sobre as diferenças nos modelos de rede, consulte [conceitos de Rede para aplicações em AKS][azure-network-models]. - O modelo de rede Azure CNI requer planeamento e considerações adicionais para a gestão de endereços IP. Para obter mais informações sobre como planear e implementar a Azure CNI, consulte [a rede Configure Azure CNI em AKS][configure-azure-cni].
+Os clusters AKS com piscinas de nó Windows devem utilizar o modelo de rede Azure CNI (avançado). A rede Kubenet (básica) não é suportada. Para obter mais informações sobre as diferenças nos modelos de rede, consulte [conceitos de Rede para aplicações em AKS][azure-network-models]. O modelo de rede Azure CNI requer planeamento adicional e considerações para a gestão de endereços IP. Para obter mais informações sobre como planear e implementar a Azure CNI, consulte [a rede Configure Azure CNI em AKS][configure-azure-cni].
+
+## <a name="is-preserving-the-client-source-ip-supported"></a>A preservação da IP de fonte de cliente está suportada?
+
+Neste momento, [a preservação ip fonte do cliente][client-source-ip] não é suportada com nós Windows.
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso mudar o máximo. De cápsulas por nó?
 
-Sim. Para as implicações e opções disponíveis, consulte [o número máximo de cápsulas.][maximum-number-of-pods]
+Yes. Para as implicações e opções disponíveis, consulte [o número máximo de cápsulas.][maximum-number-of-pods]
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Como remendar os meus nós windows?
 
@@ -103,6 +107,14 @@ O suporte de contas de serviço gerido pelo grupo (gMSA) não está atualmente d
 
 Sim, pode, no entanto, o Azure Monitor está em pré-visualização pública para recolha de registos (stdout, stderr) e métricas de recipientes Windows. Também pode anexar ao fluxo de registos de estase de stdout de um recipiente Windows.
 
+## <a name="are-there-any-limitations-on-the-number-of-services-on-a-cluster-with-windows-nodes"></a>Existem limitações no número de serviços num cluster com nós Windows?
+
+Um cluster com nós Windows pode ter aproximadamente 500 serviços antes de encontrar exaustão portuária.
+
+## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Posso usar o Painel Web Kubernetes com recipientes Windows?
+
+Sim, pode utilizar o [Painel Web Kubernetes][kubernetes-dashboard] para aceder a informações sobre recipientes Windows, mas neste momento não é possível encaminhar *o executivo de kubectl* para um contentor do Windows em funcionamento diretamente do Painel Web kubernetes. Para obter mais detalhes sobre a ligação ao seu recipiente Windows em funcionamento consulte [Ligar-se com RDP ao Azure Kubernetes Service (AKS) cluster os nós windows server para manutenção ou resolução de problemas][windows-rdp].
+
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>E se eu precisar de uma funcionalidade que não seja suportada?
 
 Trabalhamos arduamente para trazer todas as funcionalidades que precisa para windows em AKS, mas se encontrar lacunas, o projeto de [motor aks de][aks-engine] código aberto e a montante fornece uma maneira fácil e totalmente personalizável de executar Kubernetes em Azure, incluindo suporte ao Windows. Por favor, certifique-se de verificar o nosso roteiro de funcionalidades que estão a chegar [ao roteiro da AKS.][aks-roadmap]
@@ -132,3 +144,6 @@ Para começar com os recipientes do Windows Server em AKS, [crie uma piscina de 
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[client-source-ip]: concepts-network.md#ingress-controllers
+[kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-rdp]: rdp.md

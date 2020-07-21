@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b73b8418b202563ca7c4a73181b1b1b404db6ee2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: e56c76583f601c2e13ab4a35c1fef2996d2e3e67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170399"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506235"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de funções em Funções Azure
 
@@ -28,8 +28,8 @@ Uma implantação de funções Azure consiste tipicamente nestes recursos:
 
 | Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Um aplicativo de função                                                                     | Obrigatório    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |
+| Um aplicativo de função                                                                     | Necessário    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Uma conta [de armazenamento Azure](../storage/index.yml)                                   | Necessário    | [Microsoft.Storage/storageAcontas](/azure/templates/microsoft.storage/storageaccounts) |
 | Um componente [de Insights de Aplicação](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/componentes](/azure/templates/microsoft.insights/components)         |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -112,7 +112,7 @@ Além disso, a chave de instrumentação deve ser fornecida à aplicação de fu
 A definição do plano de hospedagem varia e pode ser uma das seguintes:
 * [Plano de consumo](#consumption) (padrão)
 * [Plano Premium](#premium)
-* [Plano do Serviço de Aplicações](#app-service-plan)
+* [Plano de Serviço de Aplicações](#app-service-plan)
 
 ### <a name="function-app"></a>Aplicação de funções
 
@@ -309,7 +309,7 @@ O plano Premium oferece a mesma escala que o plano de Consumo, mas inclui recurs
 
 ### <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-Um plano Premium é um tipo especial de recurso "serverfarm". Pode especiá-lo utilizando qualquer `EP1` um, `EP2` ou para o valor da propriedade no objeto de `EP3` `Name` `sku` [descrição.](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)
+Um plano Premium é um tipo especial de recurso "serverfarm". Pode especiá-lo utilizando qualquer `EP1` um, `EP2` ou para o valor da propriedade no objeto de `EP3` `Name` `sku` [descrição.](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)
 
 ```json
 {
@@ -516,7 +516,7 @@ As aplicações Linux também devem incluir uma `linuxFxVersion` propriedade em 
 }
 ```
 
-Se estiver [a implementar uma imagem personalizada do recipiente,](./functions-create-function-linux-custom-image.md)tem de especirá-la e incluir uma `linuxFxVersion` configuração que permita puxar a sua imagem, como na [Web App para Contentores.](/azure/app-service/containers) Além disso, definido `WEBSITES_ENABLE_APP_SERVICE_STORAGE` para , uma vez que o seu conteúdo da `false` aplicação é fornecido no próprio recipiente:
+Se estiver [a implementar uma imagem personalizada do recipiente,](./functions-create-function-linux-custom-image.md)tem de especirá-la e incluir uma `linuxFxVersion` configuração que permita puxar a sua imagem, como na [Web App para Contentores.](../app-service/containers/index.yml) Além disso, definido `WEBSITES_ENABLE_APP_SERVICE_STORAGE` para , uma vez que o seu conteúdo da `false` aplicação é fornecido no próprio recipiente:
 
 ```json
 {
@@ -689,7 +689,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile
 
 Para testar esta implementação, pode utilizar um [modelo como este](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) que cria uma aplicação de função no Windows num plano de Consumo. `<function-app-name>`Substitua-o por um nome único para a sua aplicação de função.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como desenvolver e configurar funções Azure.
 

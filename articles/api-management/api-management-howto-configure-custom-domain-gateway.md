@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203189"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506813"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -49,7 +49,7 @@ Para executar os passos descritos neste artigo, deve ter:
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Use o portal Azure para definir um nome de domínio personalizado para o seu gateway auto-hospedado
 
-1. Selecione os **Gateways** a partir de **Definições**.
+1. Selecione os **Gateways** a partir de **implementação e infraestrutura**.
 2. Selecione o gateway auto-hospedado para configurar o nome de domínio para.
 3. Selecione **os hostnames** em **Definições**.
 4. Selecione **+ Adicionar**
@@ -61,6 +61,6 @@ Para executar os passos descritos neste artigo, deve ter:
     > Esta definição é partilhada por todos os nomes de domínio configurados para o gateway.
 9. **Selecione Adicionar** para atribuir o nome de domínio personalizado ao gateway auto-hospedado selecionado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Atualizar e escalar o seu serviço](upgrade-and-scale.md)

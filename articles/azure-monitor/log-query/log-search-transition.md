@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670139"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505810"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição da pesquisa de log Analytics para registos do Monitor Azure
 A pesquisa de registo no Log Analytics foi recentemente substituída por uma nova experiência para analisar registos do Azure Monitor. A página de pesquisa do Log ainda está acessível através do item do menu **Logs (clássico)** na página **de espaços de trabalho Do Log Analytics** no portal Azure, mas será removido a 15 de fevereiro de 2019. Este artigo descreve diferenças entre as duas experiências para ajudá-lo a transitar da pesquisa de registo. 
@@ -57,7 +58,7 @@ Nos registos do Azure Monitor, tem de modificar a consulta para devolver estes r
 ![Perfuração de registos do Monitor Azure](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>Tomar medidas
-Na Pesquisa de Registo, pode [iniciar um livro de execução](take-action.md) a partir de um resultado de pesquisa selecionando **Ação**.
+Na Pesquisa de Registo, pode [iniciar um livro de execução](../platform/action-groups.md) a partir de um resultado de pesquisa selecionando **Ação**.
 
 ![Tomar medidas](media/log-search-transition/take-action-log-search.png)
 

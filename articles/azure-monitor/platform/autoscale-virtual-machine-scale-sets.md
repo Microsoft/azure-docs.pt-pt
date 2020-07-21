@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c003d66f59f932d818740bdd378280049bbeb7d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373884"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505541"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM
 Pode escalar e escalar em conjuntos de escala de máquina virtual com base em limiares de métrica de desempenho, por um horário recorrente ou por uma data específica. Também pode configurar notificações de email e webhook para ações de escala. Este walkthrough mostra um exemplo de configuração de todos estes objetos usando um modelo de Gestor de Recursos num Conjunto de Escala VM.
 
 > [!NOTE]
-> Embora este walkthrough explique os passos para conjuntos de escala VM, a mesma informação aplica-se a [serviços](https://azure.microsoft.com/services/cloud-services/)de cloud autoescaling , Serviço de [Aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de gestão de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Para uma definição de escala simples dentro/fora de uma escala VM definida com base numa métrica de desempenho simples, como CPU, consulte os documentos [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) e [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
+> Embora este walkthrough explique os passos para conjuntos de escala VM, a mesma informação aplica-se a [serviços](https://azure.microsoft.com/services/cloud-services/)de cloud autoescaling , Serviço de [Aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de gestão de API](../../api-management/api-management-key-concepts.md) Para uma definição de escala simples dentro/fora de uma escala VM definida com base numa métrica de desempenho simples, como CPU, consulte os documentos [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) e [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 
@@ -195,7 +195,7 @@ Nesta passagem de walkthrough, utilizamos [o Azure Resource Explorer](https://re
             }
           }
     ```
-    Para campos suportados e seus valores, consulte [a documentação autoscale REST API](https://msdn.microsoft.com/library/azure/dn931928.aspx). Agora, a sua definição de autoescala contém os três perfis explicados anteriormente.
+    Para campos suportados e seus valores, consulte [a documentação autoscale REST API](/rest/api/monitor/autoscalesettings). Agora, a sua definição de autoescala contém os três perfis explicados anteriormente.
 
 7. Por último, veja a secção de **notificação** auto-escala. As notificações de escala automática permitem-lhe fazer três coisas quando uma escala ou em ação é desencadeada com sucesso.
    - Notifique os administradores e coadministradores da sua subscrição
@@ -243,9 +243,9 @@ Use estes links para saber mais sobre autoscaling.
 
 [Boas Práticas para Azure Autoscale](autoscale-best-practices.md)
 
-[Gerir autoescala usando PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Gerir autoescala usando PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gerir autoescala usando CLI](cli-samples.md#autoscale)
+[Gerir autoescala usando CLI](../samples/cli-samples.md#autoscale)
 
 [Configurar Webhook & notificações de e-mail para autoescala](autoscale-webhook-email.md)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: f1ffd26a243d15f7ee6e06d6c52406a16327b4a0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d424cccc0a50198f3ca8c6c040afb87f44282d47
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086777"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508904"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é pDR a um VM porque as botas VM entram em Modo Seguro
 
@@ -79,7 +79,7 @@ Para resolver este problema, utilize o controlo de série para configurar o VM p
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Ligue o disco de SO a um VM de recuperação
 
-1. [Fixe o disco DE A uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Fixe o disco DE A uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie uma ligação de ambiente de trabalho remoto ao VM de recuperação.
 3. Certifique-se de que o disco está sinalizado como **Online** na consola de Gestão de Discos. Note a letra de unidade que é atribuída ao disco de sos anexado.
 
@@ -143,4 +143,4 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
     bcdedit /store F:\boot\bcd /enum
     ```
 
-5. [Retire o disco de SO e recrie o VM](../windows/troubleshoot-recovery-disks-portal.md). Então verifique se a questão está resolvida.
+5. [Retire o disco de SO e recrie o VM](./troubleshoot-recovery-disks-portal-windows.md). Então verifique se a questão está resolvida.

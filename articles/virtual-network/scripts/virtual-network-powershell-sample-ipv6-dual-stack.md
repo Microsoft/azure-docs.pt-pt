@@ -12,13 +12,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dfc6da8dcf33f49ceb203b32e81033fd81fa329
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77201377"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507493"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar pontos finais IPv6 na amostra de script de rede virtual (pré-visualização)
+# <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Configurar pontos finais IPv6 em rede virtual com amostra de script Azure PowerShell (pré-visualização)
 
 Este artigo mostra como implementar uma aplicação dual stack (IPv4 + IPv6) em Azure que inclui uma rede virtual de dupla pilha com uma sub-rede de pilha dupla, um equilibrista de carga com configurações frontais duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração IP dupla, regras de grupo de segurança de rede dupla e IPs públicos duplos.
 

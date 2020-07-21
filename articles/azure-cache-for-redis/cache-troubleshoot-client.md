@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 9317999f8862cd9930870fecaf5be44d291c07a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829674"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506439"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Resolver problemas do lado do cliente da Cache do Azure para Redis
 
@@ -84,12 +84,14 @@ Um grande pedido/resposta pode causar intervalos de tempo. Como exemplo, suponha
 
 No exemplo seguinte, o pedido 'A' e 'B' são enviados rapidamente para o servidor. O servidor começa a enviar as respostas 'A' e 'B' rapidamente. Devido aos tempos de transferência de dados, a resposta 'B' deve aguardar a resposta 'A' vezes fora, mesmo que o servidor tenha respondido rapidamente.
 
-    |-------- 1 Second Timeout (A)----------|
-    |-Request A-|
-         |-------- 1 Second Timeout (B) ----------|
-         |-Request B-|
-                |- Read Response A --------|
-                                           |- Read Response B-| (**TIMEOUT**)
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
 
 Este pedido/resposta é difícil de medir. Pode instrumentar o seu código de cliente para rastrear grandes pedidos e respostas.
 

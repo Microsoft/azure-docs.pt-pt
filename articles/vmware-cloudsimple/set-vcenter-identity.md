@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564028"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507578"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Criar fontes de identidade vCenter para utilizar o Ative Directory
 
@@ -60,7 +61,7 @@ Utilize as informações na tabela seguinte ao configurar o seu domínio Ative D
 | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato  `ldap://hostname:port`   ou  `ldaps://hostname:port` . A porta é tipicamente 389 para ligações LDAP e 636 para ligações LDAPS. Para as implementações do controlador multi-domínio do Ative Directory, a porta é tipicamente 3268 para LDAP e 3269 para LDAPS.<br><br>É necessário um certificado que estabeleça confiança para o ponto final LDAPS do servidor Ative Directory quando utilizar  `ldaps://`   no URL LDAP primário ou secundário. |
 | **URL do servidor secundário** | Endereço de um servidor LDAP controlador de domínio secundário que é utilizado para falha. |
 | **Escolha o certificado** | Se pretender utilizar LDAPS com o seu Servidor LDAP do Diretório Ativo ou fonte de identidade do Servidor OpenLDAP, um botão de certificado Escolha aparece depois de escrever  `ldaps://`   na caixa de texto URL. Não é necessária uma URL secundária. |
-| **Nome de utilizador** | ID de um utilizador no domínio que tem um mínimo de acesso apenas de leitura à Base DN para utilizadores e grupos. |
+| **Nome de Utilizador** | ID de um utilizador no domínio que tem um mínimo de acesso apenas de leitura à Base DN para utilizadores e grupos. |
 | **Palavra-passe** | Palavra-passe do utilizador que é especificado pelo Nome de Utilizador. |
 
 Quando tiver as informações na tabela anterior, pode adicionar o seu Diretório Ativo no local como uma única fonte de identificação sign-on no vCenter.
@@ -79,7 +80,7 @@ Para configurar uma nova floresta e domínio do Ative Directory, você precisa:
 * Uma ou mais máquinas virtuais que executam o Microsoft Windows Server para usar como controladores de domínio para a nova floresta e domínio do Ative Directory.
 * Uma ou mais máquinas virtuais que executam o serviço DNS para resolução de nomes.
 
-Consulte [a Instalação de um Novo Windows Server 2012 Ative Directory Forest](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) para obter etapas detalhadas.
+Consulte [a Instalação de um Novo Windows Server 2012 Ative Directory Forest](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) para obter etapas detalhadas.
 
 > [!TIP]
 > Para uma elevada disponibilidade de serviços, recomendamos a criação de vários controladores de domínio e servidores DNS.
@@ -93,7 +94,7 @@ Para configurar um novo domínio ative directory numa floresta de Diretório Ati
 * Ligação VPN site-to-site à sua localização florestal do Diretório Ativo.
 * DNS Server para resolver o nome da sua floresta ative de diretório existente.
 
-Consulte [a Instalação de um novo windows Server 2012 Ative Directory child ou domínio de árvores](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) para obter etapas detalhadas.
+Consulte [a Instalação de um novo windows Server 2012 Ative Directory child ou domínio de árvores](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) para obter etapas detalhadas.
 
 Depois de configurar o domínio Ative Directory, pode [adicionar uma fonte de identidade no vCenter](#add-an-identity-source-on-vcenter) para o seu novo Ative Directory.
 

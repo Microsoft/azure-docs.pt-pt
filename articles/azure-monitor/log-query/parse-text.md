@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: d7a37d51c411488231205fd036f9a287f5206ce5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76cf939959d198d2c28181295a695a65ae46af9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672451"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505708"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parse os dados de texto nos registos do Azure Monitor
-Alguns dados de registo recolhidos pelo Azure Monitor incluirão várias informações numa única propriedade. Analisar estes dados em múltiplas propriedades facilita a sua utilização em consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que recolhe uma entrada de registo inteira com vários valores numa única propriedade. Ao criar propriedades separadas para os diferentes valores, pode pesquisar e agregar em cada um.
+Alguns dados de registo recolhidos pelo Azure Monitor incluirão várias informações numa única propriedade. Analisar estes dados em múltiplas propriedades facilita a sua utilização em consultas. Um exemplo comum é um [log personalizado](../platform/data-sources-custom-logs.md) que recolhe uma entrada de registo inteira com vários valores numa única propriedade. Ao criar propriedades separadas para os diferentes valores, pode pesquisar e agregar em cada um.
 
 Este artigo descreve diferentes opções para analisar dados de registo no Azure Monitor quando os dados são ingeridos e quando são recuperados numa consulta, comparando as vantagens relativas para cada um.
 
@@ -22,7 +23,7 @@ Este artigo descreve diferentes opções para analisar dados de registo no Azure
 Pode analisar dados no momento da ingestão quando os dados são recolhidos ou no momento da consulta ao analisar os dados com uma consulta. Cada estratégia tem vantagens únicas, como descrito abaixo.
 
 ### <a name="parse-data-at-collection-time"></a>Dados de parse no momento da recolha
-Ao analisar dados no momento da recolha, configura campos [personalizados](../../log-analytics/log-analytics-custom-fields.md) que criam novas propriedades na tabela. As consultas não têm de incluir qualquer lógica de análise e simplesmente usar estas propriedades como qualquer outro campo na tabela.
+Ao analisar dados no momento da recolha, configura campos [personalizados](../platform/custom-fields.md) que criam novas propriedades na tabela. As consultas não têm de incluir qualquer lógica de análise e simplesmente usar estas propriedades como qualquer outro campo na tabela.
 
 As vantagens deste método incluem:
 

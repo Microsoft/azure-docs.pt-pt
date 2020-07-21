@@ -1,15 +1,15 @@
 ---
-title: Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS)
+title: Crie um recipiente do Windows Server num cluster AKS utilizando o PowerShell
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação num contentor do Windows Server no Serviço Azure Kubernetes (AKS) utilizando o PowerShell.
 services: container-service
 ms.topic: article
 ms.date: 05/26/2020
-ms.openlocfilehash: 036c97d406e37e038474287daf39182ddce194a1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf195c439a1a53d8a720505edae3c9b6d379d157
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250877"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507051"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o PowerShell
 
@@ -234,7 +234,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma `ASP.NET` aplicação de amostra num contentor do Windows Server. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que criou.
 

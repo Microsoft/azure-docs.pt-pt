@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250235"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506558"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicações
 
@@ -62,7 +62,7 @@ Um gateway de aplicação insere quatro cabeçalhos adicionais a todos os pedido
 
 Os valores válidos para x-forward-proto são HTTP ou HTTPS. A porta x-reencaminhada especifica a porta onde o pedido chegou ao gateway de aplicação. O cabeçalho do anfitrião x-original contém o cabeçalho original do anfitrião com o qual o pedido chegou. Este cabeçalho é útil na integração do site Azure, onde o cabeçalho do anfitrião de entrada é modificado antes que o tráfego seja encaminhado para o backend. Se a afinidade da sessão é ativada como uma opção, então adiciona um cookie de afinidade gerido por gateway.
 
-Pode configurar o gateway de aplicações para modificar os cabeçalhos utilizando [cabeçalhos HTTP de reescrita](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou modificar o caminho URI utilizando uma definição de sobreposição de caminhos. No entanto, a menos que configurado para fazê-lo, todos os pedidos de entrada são proxiemente para o backend.
+Pode configurar o gateway de aplicações para modificar os cabeçalhos de pedido e resposta e URL utilizando [cabeçalhos e URL HTTP de reescrita](rewrite-http-headers-url.md) ou modificar o caminho URI utilizando uma definição de sobreposição de caminhos. No entanto, a menos que configurado para fazê-lo, todos os pedidos de entrada são proxiemente para o backend.
 
 ## <a name="next-steps"></a>Próximos passos
 

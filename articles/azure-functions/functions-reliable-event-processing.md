@@ -5,11 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: fe5efd2bf4c235688aad90ae37b54268d290540c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676136"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506031"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions processamento fiável de eventos
 
@@ -69,7 +70,7 @@ A introdução de bibliotecas de manuseamento de falhas nas suas funções permi
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) é um exemplo de uma biblioteca de resiliência e tratamento de falhas transitórias para aplicações C#.
 
-Ao trabalhar com bibliotecas de classe C# [pré-cumpridas, os filtros](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) de exceção permitem-lhe executar código sempre que ocorre uma exceção não manipulada.
+Ao trabalhar com bibliotecas de classe C# [pré-cumpridas, os filtros](/dotnet/csharp/language-reference/keywords/try-catch) de exceção permitem-lhe executar código sempre que ocorre uma exceção não manipulada.
 
 As amostras que demonstram como usar filtros de exceção estão disponíveis no repo [Azure WebJobs SDK.](https://github.com/Azure/azure-webjobs-sdk/wiki)
 
@@ -126,8 +127,8 @@ Utilizando esta abordagem, não se perdem mensagens, todas as mensagens são pro
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações, consulte os seguintes recursos:
+Para obter mais informações, veja os seguintes recursos:
 
 - [Tratamento de erros de funções Azure](./functions-bindings-error-pages.md)
 - [Automatizar o redimensionamento de imagens carregadas com o Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
-- [Criar uma função que se integra no Azure Logic Apps](./functions-twitter-email.md)
+- [Create a function that integrates with Azure Logic Apps](./functions-twitter-email.md) (Criar uma função que se integra no Azure Logic Apps)

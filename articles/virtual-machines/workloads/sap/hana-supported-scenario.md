@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019f462d4264d19bcc4806d91223029a95f9d819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617170"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507952"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários apoiados para HANA Grandes Instâncias
 Este artigo descreve os cenários apoiados e detalhes da arquitetura para HANA Large Instances (HLI).
@@ -38,7 +39,7 @@ Vamos entender os termos e definições que são usados neste artigo:
 - **Multi-SID**: Um sistema com múltiplas instâncias configuradas; também chamado de ambiente MCOS
 - **HSR**: Replicação do sistema SAP HANA
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 HANA Large Instances suporta uma variedade de arquiteturas para ajudá-lo a cumprir os seus requisitos de negócio. As secções seguintes cobrem os cenários arquitetónicos e os seus detalhes de configuração. 
 
 O design de arquitetura derivada é puramente do ponto de vista da infraestrutura, e você deve consultar SAP ou seus parceiros de implementação para a implementação HANA. Se os seus cenários não estiverem listados neste artigo, contacte a equipa de conta da Microsoft para rever a arquitetura e obter uma solução para si.
@@ -194,7 +195,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](./hana-overview-architecture.md)
 
 ## <a name="single-node-with-dr-using-storage-replication"></a>Nó único com DR usando replicação de armazenamento
  
@@ -231,9 +232,9 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](./hana-overview-architecture.md)
 - No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "Necessários para a instalação HANA") para a instalação de exemplo HANA de produção na unidade DR HLI. 
-- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
+- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](./hana-overview-high-availability-disaster-recovery.md)
 - O volume de arranque da *classe SKU Tipo I* é replicado no nó DR.
 
 
@@ -280,9 +281,9 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](./hana-overview-architecture.md)
 - No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "Necessários para a instalação HANA") para a instalação de exemplo HANA de produção na unidade DR HLI. 
-- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 
+- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](./hana-overview-high-availability-disaster-recovery.md) 
 - No site DR: Os dados, cópias de segurança, registos e volumes partilhados para QA (marcado como "instalação de instância QA") estão configurados para a instalação de instância QA.
 - O volume de arranque da *classe SKU Tipo I* é replicado no nó DR.
 
@@ -332,7 +333,7 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](./hana-overview-architecture.md)
 - STONITH: Um SBD está configurado para a configuração STONITH. No entanto, a utilização de STONITH é opcional.
 
 
@@ -386,11 +387,11 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](./hana-overview-architecture.md)
 - STONITH: Um SBD está configurado para a configuração STONITH. No entanto, a utilização de STONITH é opcional.
 - No local dr: *São necessários dois conjuntos de volumes de armazenamento* para a replicação do nó primário e secundário.
 - No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "Necessários para a instalação HANA") para a instalação de exemplo HANA de produção na unidade DR HLI. 
-- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 
+- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](./hana-overview-high-availability-disaster-recovery.md) 
 - No site DR: Os dados, cópias de segurança, registos e volumes partilhados para QA (marcado como "instalação de instância QA") estão configurados para a instalação de instância QA.
 - O volume de arranque da *classe SKU Tipo I* é replicado no nó DR.
 
@@ -554,7 +555,7 @@ Os seguintes pontos de montagem são pré-configurados:
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
 -  No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "Necessários para a instalação HANA") para a instalação de exemplo HANA de produção na unidade DR HLI. 
-- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 
+- No site DR: Os dados, cópias de segurança e volumes partilhados (marcados como "Replicação de Armazenamento") são replicados através de instantâneos do local de produção. Estes volumes são montados apenas durante o failover. Para obter mais informações, consulte [o procedimento de falha de recuperação de desastres.](./hana-overview-high-availability-disaster-recovery.md) 
 - O volume de arranque da *classe SKU Tipo I* é replicado no nó DR.
 
 
@@ -593,9 +594,9 @@ Os seguintes pontos de montagem são pré-configurados nas unidades HLI (Primár
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](./hana-overview-architecture.md)
 - O nó primário sincroniza-se com o nó DR utilizando a replicação do sistema HANA. 
-- [O Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
+- [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
 
 
 
@@ -643,11 +644,11 @@ Os seguintes pontos de montagem são pré-configurados:
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
-- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- Para MCOS: A distribuição do tamanho do volume baseia-se no tamanho da base de dados na memória. Para saber que tamanhos de base de dados na memória são suportados num ambiente multi-SID, consulte [a Visão Geral e a arquitetura.](./hana-overview-architecture.md)
 - No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "PROD Instance at DR site") para a instalação de exemplo hana de produção na unidade DR HLI. 
 - No site DR: Os dados, cópias de segurança, registos e volumes partilhados para QA (marcado como "instalação de instância QA") estão configurados para a instalação de instância QA.
 - O nó primário sincroniza-se com o nó DR utilizando a replicação do sistema HANA. 
-- [O Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
+- [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr"></a>Alta disponibilidade e recuperação de desastres com HSR 
  
@@ -692,7 +693,7 @@ Os seguintes pontos de montagem são pré-configurados:
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
 - No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "prod DR instance") para a instalação de instância HANA de produção na unidade DR HLI. 
 - O nó do local primário sincroniza-se com o nó DR utilizando a replicação do sistema HANA. 
-- [O Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
+- [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
 
 ## <a name="high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>Alta disponibilidade e recuperação de desastres com HSR (otimizado em custos)
  
@@ -741,7 +742,7 @@ Os seguintes pontos de montagem são pré-configurados:
 - No local de DR: Os volumes e os pontos de montagem estão configurados (marcados como "prod DR instance") para a instalação de instância HANA de produção na unidade DR HLI. 
 - No site DR: Os dados, cópias de segurança, registos e volumes partilhados para QA (marcado como "instalação de instância QA") estão configurados para a instalação de instância QA.
 - O nó do local primário sincroniza-se com o nó DR utilizando a replicação do sistema HANA. 
-- [O Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
+- [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
 
 ## <a name="scale-out-with-dr-using-hsr"></a>Escala com DR usando HSR
  
@@ -788,9 +789,9 @@ Os seguintes pontos de montagem são pré-configurados:
 - /usr/seiva/SID é uma ligação simbólica a /hana/shared/SID.
 - No local dr: Os volumes e os pontos de montagem estão configurados para a instalação de instância HANA de produção na unidade DR HLI. 
 - O nó do local primário sincroniza-se com o nó DR utilizando a replicação do sistema HANA. 
-- [O Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
+- [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
 
 
 ## <a name="next-steps"></a>Próximos passos
-- [Infraestrutura e conectividade](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) para HANA Grandes Instâncias
-- [Alta disponibilidade e recuperação de desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para HANA Grandes Instâncias
+- [Infraestrutura e conectividade](./hana-overview-infrastructure-connectivity.md) para HANA Grandes Instâncias
+- [Alta disponibilidade e recuperação de desastres](./hana-overview-high-availability-disaster-recovery.md) para HANA Grandes Instâncias

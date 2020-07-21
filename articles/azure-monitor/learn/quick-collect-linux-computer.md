@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Recolher dados de um computador linux híbrido com monitor Azure'
-description: Neste arranque rápido, você aprenderá a implementar o agente Log Analytics para computadores Linux que executam fora do Azure e permitir á recolha de dados com Registos do Monitor Azure.
+description: Neste arranque rápido, você vai aprender a implementar o agente Log Analytics para computadores Linux que executam fora de Azure e ativar a recolha de dados com registos do Monitor Azure.
 services: azure-monitor
 documentationcenter: azure-monitor
 author: bwren
@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d99af6965e4d2e73ed302530d76126e0e6e8a3ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850067"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505929"
 ---
-# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Quickstart: Recolher dados de um computador Linux em um ambiente híbrido com o Monitor Azure
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Quickstart: Recolher dados de um computador Linux em ambiente híbrido com Azure Monitor
 
-O [Azure Monitor](../overview.md) pode recolher dados diretamente dos seus computadores Linux físicos ou virtuais no seu ambiente para um espaço de trabalho de Log Analytics para análise detalhada e correlação. A instalação do [agente Log Analytics](../platform/log-analytics-agent.md) permite ao Monitor Azure recolher dados de um datacenter ou de outro ambiente na nuvem. Este quickstart mostra-lhe como configurar e recolher dados do seu servidor Linux com alguns passos fáceis. Para obter informações sobre Os VMs Azure Linux, consulte [Recolher dados sobre máquinas virtuais Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+[O Azure Monitor](../overview.md) pode recolher dados diretamente dos seus computadores Linux físicos ou virtuais no seu ambiente num espaço de trabalho do Log Analytics para análise e correlação detalhadas. A instalação do [agente Log Analytics](../platform/log-analytics-agent.md) permite ao Azure Monitor recolher dados de um datacenter ou de outro ambiente em nuvem. Este quickstart mostra-lhe como configurar e recolher dados do seu servidor Linux com alguns passos fáceis. Para obter informações sobre os VMs Azure Linux, consulte [recolher dados sobre máquinas virtuais Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-Para compreender a configuração suportada, consulte [sistemas operativos Suportados Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) e [configuração](../../azure-monitor/platform/log-analytics-agent.md#network-requirements)de firewall da rede .
+Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) e [configuração de firewall de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
  
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -34,9 +34,9 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-1. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
+1. No portal Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log analytics espaços de trabalho**.
 
-    ![Encontrar espaço de trabalho log Analytics no portal Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Encontrar log analytics espaço de trabalho no portal Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Selecione **Criar**e, em seguida, selecione escolhas para os seguintes itens:
 
@@ -46,21 +46,21 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
    * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).
    * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar uma área de trabalho para uma subscrição já existente criada antes de 2 de abril ou para uma subscrição que estava associada a uma inscrição EA já existente, selecione o seu escalão de preço preferido.  Para obter informações adicionais sobre os escalões específicos, veja [Detalhes de Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Criação de um espaço de trabalho log Analytics no portal Azure](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
+        ![Criação de um espaço de trabalho Log Analytics no portal Azure](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
-3. Depois de fornecer as informações necessárias no painel de espaço de **trabalho Log Analytics,** selecione **OK**.  
+3. Depois de fornecer as informações necessárias no painel **de espaço de trabalho Log Analytics,** selecione **OK**.  
 
 Enquanto as informações são confirmadas e a área de trabalho criada, pode acompanhar o progresso em **Notificações**, no menu. 
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
 
-Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave da área de trabalho do Log Analytics. Esta informação é exigida pelo script de invólucro do agente para configurar corretamente o agente e garantir que pode comunicar com sucesso com o Monitor Azure.
+Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave da área de trabalho do Log Analytics. Estas informações são necessárias pelo script de invólucro do agente para configurar corretamente o agente e garantir que pode comunicar com sucesso com o Azure Monitor.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. No canto superior esquerdo do portal Azure, selecione **Todos os serviços.** Na caixa de pesquisa, introduza **o Log Analytics**. À medida que escreve, a lista filtra com base na sua entrada. Selecione espaços de **trabalho Log Analytics**.
+1. No canto superior esquerdo do portal Azure, selecione **Todos os serviços**. Na caixa de pesquisa, **insira Log Analytics**. À medida que escreve, a lista filtra-se com base na sua entrada. Selecione **log analytics espaços de trabalho**.
 
-2. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que criou anteriormente. (Pode ter-lhe chamado **DefaultLAWorkspace**.)
+2. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que criou anteriormente. (Pode ter-lhe dado o nome **de DefaultLAWorkspace**.)
 
 3. Selecione **definições avançadas:**
 
@@ -81,25 +81,25 @@ Se o seu computador Linux precisar de comunicar através de um servidor Proxy co
 
 Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
-1. Para configurar o computador Linux para se ligar a um espaço de trabalho do Log Analytics, execute o seguinte comando fornecendo o ID do espaço de trabalho e a chave primária copiada anteriormente. Este comando transfere o agente, valida a respetiva soma de verificação e instala-o. 
+1. Para configurar o computador Linux para ligar a um espaço de trabalho Log Analytics, executar o seguinte comando fornecendo o ID do espaço de trabalho e a chave primária copiada anteriormente. Este comando transfere o agente, valida a respetiva soma de verificação e instala-o. 
     
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    O seguinte comando inclui o parâmetro proxy e a `-p` sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
+    O seguinte comando inclui o `-p` parâmetro proxy e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-2. Para configurar o computador Linux para ligar ao espaço de trabalho log Analytics na nuvem do Governo de Azure, executar o seguinte comando fornecendo o ID do espaço de trabalho e chave primária copiado anteriormente. Este comando transfere o agente, valida a respetiva soma de verificação e instala-o. 
+2. Para configurar o computador Linux para ligar ao espaço de trabalho do Log Analytics na nuvem do Governo Azure, executar o seguinte comando fornecendo o ID do espaço de trabalho e a chave primária copiada anteriormente. Este comando transfere o agente, valida a respetiva soma de verificação e instala-o. 
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    O seguinte comando inclui o parâmetro proxy e a `-p` sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
+    O seguinte comando inclui o `-p` parâmetro proxy e a sintaxe de exemplo quando a autenticação é exigida pelo seu servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
@@ -113,37 +113,37 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 ## <a name="collect-event-and-performance-data"></a>Recolher dados de eventos e de desempenho
 
-O Azure Monitor pode recolher eventos a partir dos contadores linux Syslog e performance que especifica para análise e reportagem a longo prazo. Também pode tomar medidas quando detetar uma determinada condição. Siga estes passos para configurar a recolha de eventos a partir do Linux Syslog e vários contadores de desempenho comuns para começar.  
+O Azure Monitor pode recolher eventos a partir do Syslog Linux e dos balcões de desempenho que especifica para análise e reporte a longo prazo. Também pode tomar medidas quando deteta uma determinada condição. Siga estes passos para configurar a recolha de eventos a partir do Linux Syslog e vários contadores de desempenho comuns para começar.  
 
-1. No portal Azure, selecione **Todos os serviços.** Na lista de recursos, escreva Log Analytics. À medida que escreve, a lista filtra com base na sua entrada. Selecione espaços de **trabalho de Log Analytics** e na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que procura e selecione **configurações avançadas** do espaço de trabalho **Log Analytics.**
+1. No portal Azure, selecione **Todos os serviços**. Na lista de recursos, escreva Log Analytics. À medida que escreve, a lista filtra-se com base na sua entrada. Selecione **log Analytics espaços de trabalho** e na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que procura e selecione **definições Avançadas** do espaço de trabalho **Log Analytics.**
 
-2. Selecione **Dados,** e, em seguida, selecione **Syslog**.  
+2. Selecione **Dados**e, em seguida, selecione **Syslog**.  
 
-3. Adicione syslog digitando em nome do diário. Introduza **o Syslog** e, em seguida, selecione o sinal de mais **+** .  
+3. Adicione syslog digitando o nome do tronco. Introduza **o Syslog** e, em seguida, selecione o sinal de mais **+** .  
 
 4. Na tabela, desmarque as gravidades **Informações**, **Aviso** e **Depurar**. 
 
-5. Selecione **Guardar** na parte superior da página para guardar a configuração.
+5. **Selecione Guardar** no topo da página para guardar a configuração.
 
 6. Selecione **Dados de Desempenho do Linux** para ativar a recolha de contadores de desempenho num computador Linux. 
 
 7. Quando configurar os contadores de desempenho do Linux pela primeira vez para uma nova área de trabalho do Log Analytics, é-lhe dada a opção de criar rapidamente vários contadores comuns. São listados com uma caixa de verificação junto a cada um.
 
-    ![Contadores de desempenho do Linux predefinidos selecionados no Monitor Azure](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Contadores de desempenho padrão do Linux selecionados no Azure Monitor](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
-    Selecione **Aplicar abaixo a configuração para as minhas máquinas** e, em seguida, selecione Adicionar os contadores de **desempenho selecionados**. Estes são adicionados e predefinidos com um intervalo de amostra de recolha de dez segundo.  
+    Selecione **Aplicar abaixo a configuração para as minhas máquinas** e, em seguida, **selecionar Adicionar os contadores de desempenho selecionados**. Estes são adicionados e predefinidos com um intervalo de amostra de recolha de dez segundo.  
 
-8. Selecione **Guardar** na parte superior da página para guardar a configuração.
+8. **Selecione Guardar** no topo da página para guardar a configuração.
 
 ## <a name="view-data-collected"></a>Ver os dados recolhidos
 
 Agora que ativou a recolha de dados, vamos executar um exemplo de pesquisa de registo simples para ver alguns dados a partir do computador de destino.  
 
-1. No espaço de trabalho selecionado, a partir do painel da esquerda, selecione **Logs**.
+1. No espaço de trabalho selecionado, a partir do painel esquerdo, selecione **Logs**.
 
-2. Na página de consulta de Registos, `Perf` digite no editor de consulta e selecione **Executar**.
+2. Na página de consulta de Logs, `Perf` digite o editor de consulta e selecione **Executar**.
  
-    ![Pesquisa de registo de Log Analytics](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
+    ![Registar pesquisa de registos de Analíticos](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 
     Por exemplo, a consulta na imagem seguinte devolveu 10.000 registos de desempenho. Os resultados serão significativamente menos.
 
@@ -157,15 +157,15 @@ Para remover o agente, execute o seguinte comando no computador Linux. O argumen
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-Para eliminar o espaço de trabalho, selecione o espaço de trabalho do Log Analytics que criou anteriormente e na página de recursos selecione **Delete**.
+Para eliminar o espaço de trabalho, selecione o espaço de trabalho Log Analytics que criou anteriormente e na página de recursos **selecione Delete**.
 
 ![Eliminar recurso do Log Analytics](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que está a recolher dados operacionais e de desempenho do computador com Linux no local, pode começar facilmente a explorar, analisar e efetuar ações nos dados recolhidos *gratuitamente*.  
 
 Para saber como ver e analisar os dados, avance para o tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Ver ou analisar dados no Log Analytics](../log-query/get-started-portal.md)

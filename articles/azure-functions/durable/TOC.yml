@@ -135,7 +135,7 @@
     - name: Vídeos
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-functions.html'
+      href: /answers/topics/azure-functions.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-functions'
     - name: Twitter

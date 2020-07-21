@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a028d597c3eb2a1c66df0e40266c2822e5cd7aab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b4083bdc896ce2f78484fe4ab083b234c4c5d12
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726966"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86508581"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Create a VM from a managed image (Criar uma VM a partir de uma imagem personalizada)
 
@@ -34,11 +35,11 @@ Uma imagem gerida suporta até 20 implementações simultâneas. A tentativa de 
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
 
-Pode utilizar o PowerShell para criar um VM a partir de uma imagem utilizando o parâmetro simplificado definido para o cmdlet [New-AzVm.](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) A imagem precisa de estar no mesmo grupo de recursos onde vai criar o VM.
+Pode utilizar o PowerShell para criar um VM a partir de uma imagem utilizando o parâmetro simplificado definido para o cmdlet [New-AzVm.](/powershell/module/az.compute/new-azvm) A imagem precisa de estar no mesmo grupo de recursos onde vai criar o VM.
 
  
 
-O parâmetro simplificado definido para [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) apenas requer que forneça um nome, grupo de recursos e nome de imagem para criar um VM a partir de uma imagem. A New-AzVm utilizará o valor do parâmetro **-Nome** como nome de todos os recursos que cria automaticamente. Neste exemplo, fornecemos nomes mais detalhados para cada um dos recursos, mas deixamos o cmdlet criá-los automaticamente. Também pode criar recursos previamente, como a rede virtual, e passar o nome do recurso para o cmdlet. A New-AzVm utilizará os recursos existentes se os encontrar pelo nome.
+O parâmetro simplificado definido para [New-AzVm](/powershell/module/az.compute/new-azvm) apenas requer que forneça um nome, grupo de recursos e nome de imagem para criar um VM a partir de uma imagem. A New-AzVm utilizará o valor do parâmetro **-Nome** como nome de todos os recursos que cria automaticamente. Neste exemplo, fornecemos nomes mais detalhados para cada um dos recursos, mas deixamos o cmdlet criá-los automaticamente. Também pode criar recursos previamente, como a rede virtual, e passar o nome do recurso para o cmdlet. A New-AzVm utilizará os recursos existentes se os encontrar pelo nome.
 
 O exemplo a seguir cria um VM chamado *myVMFromImage,* no grupo de recursos *myResourceGroup,* a partir da imagem chamada *myImage*. 
 
@@ -60,4 +61,3 @@ New-AzVm `
 
 ## <a name="next-steps"></a>Próximos passos
 [Criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

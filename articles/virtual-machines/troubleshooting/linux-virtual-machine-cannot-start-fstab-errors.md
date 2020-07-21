@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: daf3e3aaa95734c79e513c16e5d41aeb0bf894dc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135258"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509057"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Resolução de problemas Linux VM problemas de início devido a erros de fstab
 
-Não é possível ligar-se a uma Máquina Virtual Azure Linux (VM) utilizando uma ligação Secure Shell (SSH). Quando executar a função ['Diagnóstico de Arranque'](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) no [portal Azure,](https://portal.azure.com/)vê entradas de registo que se assemelham aos seguintes exemplos:
+Não é possível ligar-se a uma Máquina Virtual Azure Linux (VM) utilizando uma ligação Secure Shell (SSH). Quando executar a função ['Diagnóstico de Arranque'](./boot-diagnostics.md) no [portal Azure,](https://portal.azure.com/)vê entradas de registo que se assemelham aos seguintes exemplos:
 
 ## <a name="examples"></a>Exemplos
 
@@ -106,8 +106,8 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
 
 ### <a name="using-single-user-mode"></a>Usando o modo de utilizador único
 
-1. Ligue-se [à consola em série.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
-2. Utilize a consola em série para tomar o [modo único de utilizador no modo único de utilizador](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+1. Ligue-se [à consola em série.](./serial-console-linux.md)
+2. Utilize a consola em série para tomar o [modo único de utilizador no modo único de utilizador](../linux/serial-console-grub-single-user-mode.md)
 3. Uma vez iniciado o vm no modo de utilizador único. Use o seu editor de texto favorito para abrir o ficheiro fstab. 
 
    ```
@@ -140,7 +140,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
 
 ### <a name="using-root-password"></a>Usando senha de raiz
 
-1. Ligue-se [à consola em série.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+1. Ligue-se [à consola em série.](./serial-console-linux.md)
 2. Iniciar sôs-in no sistema utilizando um utilizador local e uma palavra-passe.
 
    > [!Note]
@@ -188,7 +188,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
 
 ## <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
-1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer LM Linux em funcionamento). Para isso, pode utilizar [comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatizar a configuração do VM de recuperação utilizando os [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer LM Linux em funcionamento). Para isso, pode utilizar [comandos CLI](./troubleshoot-recovery-disks-linux.md) ou automatizar a configuração do VM de recuperação utilizando os [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Depois de montar o disco do sistema como um disco de dados no VM de recuperação, faça o back up do ficheiro fstab antes de escoar as alterações e, em seguida, siga os próximos passos para corrigir o ficheiro fstab.
 
@@ -217,7 +217,7 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
    > * Os campos em cada linha são separados por separadores ou espaços. As linhas em branco são ignoradas. Linhas que têm um sinal numer (#) como o primeiro personagem são comentários. As linhas comentadas podem permanecer no ficheiro fstab, mas não serão processadas. Recomendamos que comente linhas fstab sobre as quais não tem a certeza em vez de remover as linhas.
    > * Para que o VM recupere e inicie, as divisórias do sistema de ficheiros devem ser as únicas divisórias necessárias. O VM pode experimentar erros de aplicação sobre divisórias comentadas adicionais. No entanto, o VM deve começar sem as divisórias adicionais. Mais tarde, pode descoduir quaisquer linhas comentadas.
    > * Recomendamos que monte discos de dados em VMs Azure utilizando o UUID da partição do sistema de ficheiros. Por exemplo, executar o seguinte comando:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid. Note que o disco que pretende recuperar está agora montado num novo VM. Embora os UUIDs devam ser consistentes, os IDs de partição do dispositivo (por exemplo, "/dev/sda1") são diferentes neste VM. As divisórias do sistema de ficheiros do VM original que estão localizados num VHD não-sistema não estão disponíveis para a recuperação VM [utilizando comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux).
+   > * Para determinar o UUID do sistema de ficheiros, executar o comando blkid. Para mais informações sobre a sintaxe, mande o comando blkid. Note que o disco que pretende recuperar está agora montado num novo VM. Embora os UUIDs devam ser consistentes, os IDs de partição do dispositivo (por exemplo, "/dev/sda1") são diferentes neste VM. As divisórias do sistema de ficheiros do VM original que estão localizados num VHD não-sistema não estão disponíveis para a recuperação VM [utilizando comandos CLI](./troubleshoot-recovery-disks-linux.md).
    > * A opção nofalil ajuda a garantir que o VM começa mesmo que o sistema de ficheiros esteja corrompido ou o sistema de ficheiros não exista no arranque. Recomendamos que utilize a opção nofalil no ficheiro fstab para permitir que o arranque continue após erros ocorridos em divisórias que não são necessárias para o arranque do VM.
 
 7. Altere ou comente quaisquer linhas incorretas ou desnecessárias no ficheiro fstab para permitir que o VM comece corretamente.
@@ -240,5 +240,5 @@ Para resolver este problema, inicie o VM em modo de emergência utilizando a con
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Resolução de problemas de um Linux VM, fixando o disco DE Aa a um VM de recuperação utilizando o portal Azure](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
+* [Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o Azure CLI 2.0](./troubleshoot-recovery-disks-linux.md)
+* [Resolução de problemas de um Linux VM, fixando o disco DE Aa a um VM de recuperação utilizando o portal Azure](./troubleshoot-recovery-disks-portal-linux.md)

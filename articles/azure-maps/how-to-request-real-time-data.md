@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4743fbe84f5d41b4659e13d96868d2f64a473e4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 784d6a94562e8b5a709d65abdadef46ca71de395
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086082"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505963"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público em tempo real utilizando o Serviço de Mobilidade Azure Maps
 
@@ -24,7 +24,7 @@ Neste artigo, você vai aprender a solicitar as próximas chegadas em tempo real
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Primeiro precisa de ter uma conta Azure Maps e uma chave de subscrição para fazer quaisquer chamadas para as APIs de trânsito público do Azure Maps. Para obter informações, siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma conta Azure Maps. Siga os passos na [chave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
+Primeiro precisa de ter uma conta Azure Maps e uma chave de subscrição para fazer quaisquer chamadas para as APIs de trânsito público do Azure Maps. Para obter informações, siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma conta Azure Maps. Siga os passos na [chave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
 
 Este artigo utiliza a [aplicação Do Carteiro](https://www.getpostman.com/apps) para construir chamadas REST. Você pode usar qualquer ambiente de desenvolvimento da API que você preferir.
 
@@ -111,7 +111,7 @@ Vamos usar o "522" como o nosso ID do metro, que é a identificação do metrô 
     }
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como solicitar dados de trânsito utilizando o Serviço de Mobilidade:
 

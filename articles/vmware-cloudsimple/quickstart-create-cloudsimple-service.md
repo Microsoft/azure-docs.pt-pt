@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d7c137a75c0a021aa8bca3aec23da6c4d1ada300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14df0f131aaef8a4c24e2d1eb242a9b440e7c7b0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868023"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507595"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Quickstart - Criar Solução VMware Azure por serviço CloudSimple
 
@@ -86,4 +87,4 @@ Para configurar a capacidade pay-as-you-go para um ambiente CloudSimple Private 
 ## <a name="next-steps"></a>Próximos passos
 
 * [Criar nuvem privada e configurar ambiente](quickstart-create-private-cloud.md)
-* Saiba mais sobre [o serviço CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)
+* Saiba mais sobre [o serviço CloudSimple](./cloudsimple-service.md)
