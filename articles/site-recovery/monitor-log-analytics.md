@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 047b689b10d03cf92e5cc744aa707b3f70fe77bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529035"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
@@ -67,8 +68,8 @@ Pode capturar as informações sobre a taxa de bito de dados e a informação de
 7. Uma vez concluída a instalação, vá ao espaço de trabalho do Log Analytics e clique em **Definições Avançadas**. Aceda à página **de Dados** e clique mais em **Contadores de Desempenho do Windows**. 
 8. Clique em **'+'** para adicionar os seguintes dois contadores com intervalo de amostra de 300 segundos:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 Os dados da taxa de churn e upload começarão a alimentar-se no espaço de trabalho.
 

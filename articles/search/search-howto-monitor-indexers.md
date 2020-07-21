@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b91c799972a21d9205577f0a5672e1182831416b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/12/2020
+ms.openlocfilehash: 2e62296e95a7b412a24c9d0c151c2bc9175ab4b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145408"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529749"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorizar o estado e os resultados do indexante de pesquisa cognitiva do Azure
 

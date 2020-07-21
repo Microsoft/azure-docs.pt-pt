@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 0a53122b324c0a6dc43619eb2e9c704873f87b69
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/12/2020
+ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207312"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529571"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinónimos em Pesquisa Cognitiva Azure
 
@@ -170,7 +170,7 @@ Se precisar de fazer uma única consulta que aplique expansão de sinónimo e pe
 
 Se tiver um índice existente num ambiente de desenvolvimento (não-produção), experimente com um pequeno dicionário para ver como a adição de sinónimos altera a experiência de pesquisa, incluindo o impacto nos perfis de pontuação, destaque de sucesso e sugestões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar um mapa de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

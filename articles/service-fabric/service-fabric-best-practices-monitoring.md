@@ -5,14 +5,14 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 0ee44ae12ba0f7f4d91de12ff2fa0730f8831b61
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529255"
 ---
-# <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
+# <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Monitorização e diagnóstico das melhores práticas para o Tecido de Serviço Azure
 
 [A monitorização e os diagnósticos](./service-fabric-diagnostics-overview.md) são fundamentais para o desenvolvimento, teste e implantação de cargas de trabalho em qualquer ambiente em nuvem. Por exemplo, pode acompanhar a forma como as suas aplicações são utilizadas, as ações tomadas pela plataforma Service Fabric, a sua utilização de recursos com contadores de desempenho e a saúde geral do seu cluster. Pode utilizar esta informação para diagnosticar e corrigir problemas, e evitar que ocorram no futuro.
 
@@ -36,7 +36,7 @@ Para os clusters Linux, os registos do Azure Monitor são também a ferramenta r
 
 Geralmente, um cão de guarda é um serviço separado que observa a saúde e a carga através de serviços, pontos finais de pings, e relata eventos de saúde inesperados no cluster. Isto pode ajudar a prevenir erros que podem não ser detetados apenas com base no desempenho de um único serviço. Os watchdogs também são um bom local para hospedar código que executa ação corretiva que não requer interação do utilizador, como limpar ficheiros de registo no armazenamento em determinados intervalos de tempo. Consulte uma implementação do serviço de cão de guarda de amostras em [eventos de cluster De Tecido de Serviço Linux em Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Começa a instrumentar as tuas aplicações: [Evento de nível de aplicação e geração de registos](service-fabric-diagnostics-event-generation-app.md).
 * Percora as etapas para configurar o Application Insights para a sua aplicação com [o Monitor e diagnosticar uma aplicação core ASP.NET no Tecido de Serviço.](service-fabric-tutorial-monitoring-aspnet.md)

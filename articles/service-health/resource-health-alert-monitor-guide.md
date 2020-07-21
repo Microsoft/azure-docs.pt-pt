@@ -3,11 +3,12 @@ title: Criar alertas de saúde de recursos usando o Portal Azure
 description: Crie alerta utilizando o portal Azure que o notifica quando os seus recursos Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 2ba7597283ed254b8c03e8ea58c3c7b1257250ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85218076"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529221"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurar alertas de estado de funcionamento dos recursos com o portal Azure
 
@@ -18,7 +19,7 @@ A Azure Resource Health mantém-no informado sobre o estado de saúde atual e hi
 > [!NOTE]
 > Os alertas de saúde de recursos estão atualmente em pré-visualização.
 
-As notificações de saúde dos recursos são armazenadas no registo de [atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) Dado o eventual grande volume de informação armazenada no registo de atividades, existe uma interface de utilizador separada para facilitar a visualização e configuração de alertas nas notificações de saúde dos recursos.
+As notificações de saúde dos recursos são armazenadas no registo de [atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) Dado o eventual grande volume de informação armazenada no registo de atividades, existe uma interface de utilizador separada para facilitar a visualização e configuração de alertas nas notificações de saúde dos recursos.
 Pode receber um alerta quando o recurso Azure enviar notificações de saúde de recursos para a sua subscrição do Azure. Pode configurar o alerta com base em:
 
 * A assinatura foi afetada.
@@ -34,9 +35,9 @@ Também pode configurar a quem o alerta deve ser enviado:
 * Selecione um grupo de ação existente.
 * Crie um novo grupo de ação (que pode ser usado para futuros alertas).
 
-Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
 
-Para obter informações sobre como configurar alertas de notificação de saúde de recursos utilizando modelos do Gestor de Recursos Azure, consulte [os modelos do Gestor de Recursos](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide).
+Para obter informações sobre como configurar alertas de notificação de saúde de recursos utilizando modelos do Gestor de Recursos Azure, consulte [os modelos do Gestor de Recursos](./resource-health-alert-arm-template-guide.md).
 Alerta de saúde de recursos usando portal Azure
 
 ## <a name="resource-health-alert-using-azure-portal"></a>Alerta de saúde de recursos usando o portal Azure
@@ -58,12 +59,12 @@ Alerta de saúde de recursos usando portal Azure
     1. **Nome da regra de alerta**: O nome da nova regra de alerta.
     2. **Descrição**: A descrição da nova regra de alerta.
     3. **Guardar alerta para o grupo de recursos**: Selecione o grupo de recursos onde pretende guardar esta nova regra.
-7. No **grupo Ação**, a partir do menu suspenso, especifique o grupo de ação que pretende atribuir a esta nova regra de alerta. Ou [criar um novo grupo de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) e atribuí-lo à nova regra. Para criar um novo grupo, selecione + **Novo grupo.**
+7. No **grupo Ação**, a partir do menu suspenso, especifique o grupo de ação que pretende atribuir a esta nova regra de alerta. Ou [criar um novo grupo de ação](../azure-monitor/platform/action-groups.md) e atribuí-lo à nova regra. Para criar um novo grupo, selecione + **Novo grupo.**
 8. Para ativar as regras após a sua criação, selecione **Sim** para a regra Enable após a opção **de criação.**
 9. Selecione **Criar regra de alerta**.
 
 A nova regra de alerta para o registo de atividade é criada e uma mensagem de confirmação aparece no canto superior direito da janela.
-Pode ativar, desativar, editar ou eliminar uma regra. Saiba mais sobre [como gerir as regras de registo de atividades.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#view-and-manage-in-the-azure-portal)
+Pode ativar, desativar, editar ou eliminar uma regra. Saiba mais sobre [como gerir as regras de registo de atividades.](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal)
 
 ## <a name="next-steps"></a>Próximos passos
 
@@ -74,6 +75,6 @@ Saiba mais sobre a Saúde dos Recursos:
 
 Criar alertas de saúde de serviço:
 
-* [Alertas de configuração para a saúde do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+* [Alertas de configuração para a saúde do serviço](./alerts-activity-log-service-notifications-portal.md) 
 * [Esquema de evento de registo de atividade azure](../azure-monitor/platform/activity-log-schema.md)
-* [Configurar alertas de estado de funcionamento dos recursos com os modelos do Resource Manager](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Configurar alertas de estado de funcionamento dos recursos com os modelos do Resource Manager](./resource-health-alert-arm-template-guide.md)

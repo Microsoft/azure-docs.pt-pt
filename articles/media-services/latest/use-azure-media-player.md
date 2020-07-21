@@ -11,13 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: d9e42e809443a2dd6cdeb989f692b96d63269f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63b05662e16dbcfd999788aa39c6c37eb12cf2c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78673585"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530410"
 ---
-# <a name="azure-media-player-overview"></a>Descrição geral do Leitor de Multimédia do Azure
+# <a name="playback-with-azure-media-player"></a>Reprodução com Azure Media Player
 
 O Azure Media Player é um leitor de vídeo sonoro construído para reproduzir conteúdo sonoro da Microsoft Azure Media Services numa grande variedade de navegadores e dispositivos. O Azure Media Player utiliza padrões da indústria, tais como HTML5, Extensões de Fonte de Mídia (MSE) e Extensões de Mídia Encriptadas (EME) para proporcionar uma experiência de streaming adaptativa enriquecida. Quando estes padrões não estão disponíveis num dispositivo ou num browser, o Azure Media Player utiliza o Flash e o Silverlight como tecnologia de retorno. Independentemente da tecnologia de reprodução utilizada, os desenvolvedores terão uma interface JavaScript unificada para aceder a APIs. Isto permite que os conteúdos servidos pela Azure Media Services sejam reproduzidos em uma vasta gama de dispositivos e navegadores sem qualquer esforço extra.
 

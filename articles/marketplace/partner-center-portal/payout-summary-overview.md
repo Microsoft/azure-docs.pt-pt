@@ -1,18 +1,18 @@
 ---
 title: Resumo do pagamento - Azure Marketplace
 description: O resumo do pagamento mostra-lhe detalhes sobre o dinheiro que ganhou com a sua oferta. Também lhe permite saber quando receberá pagamentos e quanto será pago.
-ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.service: marketplace
+ms.topic: article
 author: mingshen
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: 29a8eb72814d865cb02bd632e084cec0cc06a1ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535965"
 ---
 # <a name="payout-summary-overview"></a>Descrição geral do resumo de dividendos
 
@@ -42,19 +42,6 @@ Estas são papéis e permissões para aceder ao relatório de pagamento:
 | Perfil fiscal | Pode atualizar | Sem acesso | Sem acesso | Sem acesso | Pode atualizar | Sem acesso |
 | Resumo dos dividendos | Pode ver | Sem acesso | Sem acesso | Sem acesso | Pode ver | Sem acesso  |
 | | | | | | | |
-
-## <a name="payout-report-differences"></a>Diferenças de relatório de pagamento
-
-Estas são as diferenças no relatório de pagamento entre Cloud Partner Portal (antigo) e Partner Center (novo):
-
-| Portal de Parceiros da Cloud | Centro de Parceiros |
-| --- | --- |
-| **Ligação:**https://cloudpartner.azure.com/ | **Ligação**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory ehttps://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navegação**: Relatório de pagamento fornecido no Pagamento de Insights | **Navegação**: Relatório de pagamento fornecido no Partner Center – Ícone de pagamento |
-| **Âmbito:**<ul><li>A transação por item de linha é visível, para recolha em curso, recolhida e paga.</li><li>Reporting – mostra todos os itens de linha uma vez que a encomenda de compra é criada, incluindo a cobrança em andamento e faturação em andamento, e o estado de cobrança e itens de linha que ainda não estão elegíveis para serem pagos.</li></ul> | **Âmbito:**<ul><li>Mostra os itens de linha depois de serem considerados ganhos elegíveis.</li><li>Os clientes pagam primeiro à Microsoft, e depois os ISVs podem ver o relatório de pagamento a começar.</li><li>O relatório do pagamento não mostrará a cobrança em andamento e a faturação em Progress.</li></ul> |
-| **Transação não pronta para pagamento**: Faturação em Progresso | **Transação não pronta para pagamento**: Próximo pagamento estimado: O estado de pagamento está no estado não processado. |
-| **Estado do pagamento**: n/a | **Estado do pagamento:**<ul><li>Não processado: O ganho é elegível para pagamento.</li><li>A seguir: O ganho será enviado à editora no próximo pagamento mensal.</li><li>Enviado: O pagamento foi enviado para o seu banco.</li></ul> |
-| | |
 
 ## <a name="payment-schedules"></a>Horários de pagamento
 

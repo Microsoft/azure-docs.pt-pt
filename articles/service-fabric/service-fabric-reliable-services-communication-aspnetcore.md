@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: c8866714ca1736b3ba785b560cb5a7aea451fdf1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253342"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529306"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core em Serviço Azure Fabric Reliable Services
 
@@ -470,8 +470,8 @@ Kestrel é o servidor web sugerido para serviços frontais que expõem pontos fi
  
 Quando exposto à internet, um serviço apátrida deve usar um ponto final bem conhecido e estável que seja acessível através de um equilibrador de carga. Irá fornecer este URL aos utilizadores da sua aplicação. Recomendamos a seguinte configuração:
 
-|  |  | **Notas** |
-| --- | --- | --- |
+| Tipo | Recomendação | Notas |
+| ---- | -------------- | ----- |
 | Servidor Web | Rio Kestrel | Kestrel é o servidor web preferido, já que é suportado através do Windows e Linux. |
 | Configuração da porta | static | Uma porta estática bem conhecida deve ser configurada na `Endpoints` configuração de ServiceManifest.xml, tais como 80 para HTTP ou 443 para HTTPS. |
 | Opções de Integração de ServiçosFabric | Nenhum | Utilize a `ServiceFabricIntegrationOptions.None` opção ao configurar o middleware de integração do Tecido de Serviço, para que o serviço não tente validar pedidos de entrada para um identificador único. Os utilizadores externos da sua aplicação não saberão a informação de identificação única que o middleware utiliza. |
@@ -495,8 +495,8 @@ Se vários serviços expostos externamente partilharem o mesmo conjunto de nós,
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Serviço central de ASP.NET apátrida interna
 Os serviços apátridas que só são chamados de dentro do cluster devem utilizar URLs únicos e portos dinamicamente atribuídos para garantir a cooperação entre múltiplos serviços. Recomendamos a seguinte configuração:
 
-|  |  | **Notas** |
-| --- | --- | --- |
+| Tipo | Recomendação | Notas |
+| ---- | -------------- | ----- |
 | Servidor Web | Rio Kestrel | Embora possa utilizar HTTP.sys para serviços apátridas internos, a Kestrel é o melhor servidor para permitir que várias instâncias de serviço partilhem um hospedeiro.  |
 | Configuração da porta | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
 | Opções de Integração de ServiçosFabric | UseUniqueServiceUrl | Com uma atribuição dinâmica da porta, esta definição impede o problema de identidade errado descrito anteriormente. |
@@ -505,13 +505,13 @@ Os serviços apátridas que só são chamados de dentro do cluster devem utiliza
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Serviço central de ASP.NET só interno
 Os serviços estatais que são chamados apenas de dentro do cluster devem utilizar portos dinamicamente atribuídos para garantir a cooperação entre múltiplos serviços. Recomendamos a seguinte configuração:
 
-|  |  | **Notas** |
-| --- | --- | --- |
+| Tipo | Recomendação | Notas |
+| ---- | -------------- | ----- |
 | Servidor Web | Rio Kestrel | O `HttpSysCommunicationListener` não é projetado para ser usado por serviços estatais em que réplicas compartilham um processo de anfitrião. |
 | Configuração da porta | atribuído dinamicamente | Várias réplicas de um serviço imponente podem partilhar um processo de anfitrião ou um sistema operativo anfitrião e, portanto, precisarão de portas únicas. |
 | Opções de Integração de ServiçosFabric | UseUniqueServiceUrl | Com uma atribuição dinâmica da porta, esta definição impede o problema de identidade errado descrito anteriormente. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Depurar a sua aplicação do Service Fabric com o Visual Studio](service-fabric-debugging-your-application.md)
 
 

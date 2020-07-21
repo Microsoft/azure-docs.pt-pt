@@ -1,5 +1,5 @@
 ---
-title: Ativar a replicação para VMs Azure encriptados na recuperação do local de Azure
+title: Permitir a replicação de VMs Azure encriptados na recuperação do local de Azure
 description: Este artigo descreve como configurar a replicação de VMs com chave gerida pelo cliente (CMK) ativado discos de uma região de Azure para outra utilizando a Recuperação do Site.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
-ms.openlocfilehash: 92b35284fd7bbb3d4f1196ee0d9bae4ce42d7c9e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529000"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Máquinas de replicar com chaves geridas pelo cliente (CMK) discos ativados
 

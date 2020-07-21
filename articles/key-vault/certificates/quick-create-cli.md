@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Definir e recuperar um certificado do Cofre de Chaves Azure'
-description: Quickstart mostrando como definir e recuperar um certificado do Cofre chave Azure usando o Azure CLI
+title: 'Quickstart: Definir & ver certificados Azure Key Vault – Azure CLI'
+description: Quickstart mostrando como definir e recuperar um certificado do Azure Key Vault usando Azure CLI
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,31 +11,31 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8107d26405423da6bb5d85ab79b83edce95d179
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e845ce859994aaac7d225ce3411c280582300408
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423727"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536492"
 ---
-# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Quickstart: Definir e recuperar um certificado do Cofre de Chaves Azure usando o Azure CLI
+# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Quickstart: set and recuperar um certificado do Azure Key Vault usando Azure CLI
 
-Neste arranque rápido, cria-se um cofre chave no Cofre chave Azure com o Azure CLI. O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para mais informações sobre o Key Vault poderá rever a [visão geral](../general/overview.md). A CLI do Azure é utilizada para criar e gerir recursos do Azure através de comandos ou scripts. Assim que tiver concluído, irá armazenar um certificado.
+Neste arranque rápido, você cria um cofre chave em Azure Key Vault com Azure CLI. O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Para mais informações sobre o Key Vault, poderá rever a [Visão Geral.](../general/overview.md) A CLI do Azure é utilizada para criar e gerir recursos do Azure através de comandos ou scripts. Uma vez que tenha concluído isso, irá guardar um certificado.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-Para iniciar sessão no Azure utilizando o CLI pode escrever:
+Para iniciar seduca em Azure usando o CLI pode escrever:
 
 ```azurecli
 az login
 ```
 
-Para obter mais informações sobre as opções de login através do CLI, dê uma olhada no [login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Para obter mais informações sobre as opções de login através do CLI, dê uma olhada [no login com o Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -64,26 +64,26 @@ O resultado deste cmdlet mostra as propriedades do Key Vault recém-criado. Tome
 
 Nesta altura, a sua conta do Azure é a única autorizada a realizar quaisquer operações neste novo cofre.
 
-## <a name="add-a-certificate-to-key-vault"></a>Adicione um certificado ao Cofre chave
+## <a name="add-a-certificate-to-key-vault"></a>Adicione um certificado ao Cofre de Chaves
 
-Para adicionar um certificado ao cofre, só precisa de dar mais alguns passos. Este certificado pode ser utilizado por um pedido. 
+Para adicionar um certificado ao cofre, só precisa dar alguns passos adicionais. Este certificado pode ser utilizado por um pedido. 
 
-Digite os comandos abaixo para criar um certificado auto-assinado com a política predefinida chamada **ExemploCertificado:**
+Digite os comandos abaixo para criar um certificado auto-assinado com política padrão chamada **ExemploCertificate** :
 
 ```azurecli
 az keyvault certificate create --vault-name "Contoso-Vault2" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-Agora pode fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Use **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** para obter a versão atual. 
+Pode agora fazer referência a este certificado que adicionou ao Azure Key Vault utilizando o seu URI. Use **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** para obter a versão atual. 
 
-Para visualizar o certificado previamente armazenado:
+Para ver o certificado previamente armazenado:
 
 ```azurecli
 
 az keyvault certificate show --name "ExampleCertificate" --vault-name "Contoso-Vault2"
 ```
 
-Agora, criaste um Cofre chave, armazenaste um certificado e recuperaste-o.
+Criaste um Cofre-Chave, armazenaste um certificado e recuperaste-o.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -94,10 +94,10 @@ Quando já não forem necessários, pode utilizar o comando [az group delete](/c
 az group delete --name ContosoResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, criou um Cofre chave e guardou um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
+Neste quickstart criou um Cofre-Chave e guardou um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
-- Leia uma [visão geral do Cofre chave Azure](../general/overview.md)
-- Consulte a referência para os [comandos do cofre azure CLI az](/cli/azure/keyvault?view=azure-cli-latest)
-- Rever [as melhores práticas do Cofre de Chaves Azure](../general/best-practices.md)
+- Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
+- Consulte a referência para os [comandos Azure CLI az keyvault](/cli/azure/keyvault?view=azure-cli-latest)
+- Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

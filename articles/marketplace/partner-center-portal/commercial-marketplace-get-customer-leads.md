@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: ca6e9a66d6c4daa4706813f945850b51505adeca
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9ee433f226b37c8ffd6ad466cca7cbd844d53524
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133438"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535982"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>O cliente lidera a partir da sua oferta de mercado comercial
 
@@ -106,7 +106,7 @@ A resposta depende do tipo de oferta que está a publicar. Software como serviç
 
 ### <a name="how-can-i-find-the-test-lead"></a>Como posso encontrar o resultado do teste?
 
-Procure `"MSFT_TEST"` no seu destino principal. Aqui está uma amostra de chumbo do teste da Microsoft:
+Procure `"MSFT_TEST"` no seu destino principal. Abaixo está um chumbo de teste de amostra da Microsoft. Note que o formato do chumbo de teste varia consoante o destino de chumbo.
 
 ```
 {
@@ -146,7 +146,7 @@ Pode aceder aos dados de chumbo armazenados na tabela Azure a partir do portal A
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-commercial-marketplace-lead-is-sent"></a>Configurei uma mesa Azure como o meu destino principal. Posso ser notificado sempre que for enviado um novo líder comercial?
 
-Sim. Siga as instruções na [gestão do chumbo Configure utilizando uma tabela Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) para configurar um fluxo Microsoft que envia um e-mail se um fio for adicionado à tabela Azure.
+Yes. Siga as instruções na [gestão do chumbo Configure utilizando uma tabela Azure](./commercial-marketplace-lead-management-instructions-azure-table.md) para configurar um fluxo Microsoft que envia um e-mail se um fio for adicionado à tabela Azure.
 
 ### <a name="i-configured-salesforce-as-my-lead-destination-but-why-cant-i-find-the-leads"></a>Configurei a Salesforce como o meu destino principal, mas por que não encontro as pistas?
 

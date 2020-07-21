@@ -1,5 +1,5 @@
 ---
-title: Visão geral do benchmark de segurança Azure
+title: Visão geral do Azure Security Benchmark
 description: Visão geral do benchmark de segurança
 author: msmbaldwin
 manager: rkarlin
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f2cdaafddb14d8b69fd708e4c89a578b60e53317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 453e88ed59df0d6e88b8db32ea1836a4371ab3a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82606879"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529272"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Visão geral do Azure Security Benchmark
 
@@ -24,7 +24,7 @@ Este benchmark centra-se em áreas de controlo centradas na nuvem. Estes control
 Os seguintes controlos são utilizados no Benchmark de Segurança Azure: 
 
 - [Segurança da rede](security-control-network-security.md)
-- [Início de sessão e monitorização](security-control-logging-monitoring.md)
+- [Registos e monitorização](security-control-logging-monitoring.md)
 - [Identidade e controlo de acesso](security-control-identity-access-control.md)
 - [Proteção de dados](security-control-data-protection.md)
 - [Gestão de vulnerabilidades](security-control-vulnerability-management.md)

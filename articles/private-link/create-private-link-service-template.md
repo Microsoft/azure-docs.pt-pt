@@ -1,6 +1,6 @@
 ---
 title: Criar um serviço de ligação privada em Azure Private Link
-description: Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para criar um serviço de ligação privada.
+description: Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar um serviço de ligação privada.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817624"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529612"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar um serviço de ligação privada utilizando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Quickstart: Criar um serviço de ligação privada usando um modelo ARM
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para criar um serviço de ligação privada.
+Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo ARM) para criar um serviço de ligação privada.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Também pode completar este quickstart utilizando o [portal Azure](create-private-link-service-portal.md), [Azure PowerShell,](create-private-link-service-powershell.md)ou o [Azure CLI](create-private-link-service-cli.md).
 
-## <a name="prerequisite"></a>Pré-requisito
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Precisa de uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-## <a name="create-a-private-link-service"></a>Criar um serviço de ligação privada
+## <a name="review-the-template"></a>Rever o modelo
 
 Este modelo cria um serviço de ligação privada.
 
-### <a name="review-the-template"></a>Rever o modelo
-
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
@@ -48,13 +50,13 @@ Os recursos Azure múltiplos são definidos no modelo:
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): Existem dois endereços IP públicos, um para cada máquina virtual.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): O ponto final privado para aceder ao serviço.
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-Aqui está como implementar o modelo do Gestor de Recursos Azure para Azure:
+Aqui está como implementar o modelo ARM para Azure:
 
 1. Para iniciar súm na Azure e abrir o modelo, **selecione Implementar para Azure**. O modelo cria uma máquina virtual, balanceador de carga padrão, serviço de ligação privada, ponto final privado, networking e uma máquina virtual para validar.
 
-   [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. Selecione ou crie o seu grupo de recursos.
 3. Digite o nome de utilizador e palavra-passe do administrador de máquina virtual.
@@ -63,7 +65,7 @@ Aqui está como implementar o modelo do Gestor de Recursos Azure para Azure:
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
 > [!NOTE]
-> O modelo Azure Resource Manager gera um nome único para a máquina virtual myConsumerVm<b>{uniqueid}</b> recurso. Substitua o seu valor gerado por **{uniqueid}**.
+> O modelo ARM gera um nome único para a máquina virtual myConsumerVm<b>{uniqueid}</b> recurso. Substitua o seu valor gerado por **{uniqueid}**.
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
@@ -73,7 +75,7 @@ Ligue-se ao VM _myConsumerVm{uniqueid}_ da internet da seguinte forma:
 
 2.  Selecione **Ligar**. **Ligue-se à máquina virtual.**
 
-3.  Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol _(.rdp)_ e transfere-o para o computador.
+3.  Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol _(.rdp)_ e transfere-o para o computador.
 
 4.  Abra o ficheiro .rdp transferido.
 
@@ -95,7 +97,7 @@ Ligue-se ao VM _myConsumerVm{uniqueid}_ da internet da seguinte forma:
 Aqui está como ligar ao serviço http a partir do VM usando o ponto final privado.
 
 1.  Vá ao Ambiente de Trabalho Remoto do _myConsumerVm{uniqueid}_.
-2.  Abra um browser e insira o endereço de ponto final privado: http://10.0.0.5/ .
+2.  Abra um browser e insira o endereço de ponto final privado: `http://10.0.0.5/` .
 3.  A página IIS predefinida aparece.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -108,6 +110,6 @@ Para eliminar o grupo de recursos, ligue para o `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [o Azure Private Link](private-link-overview.md).

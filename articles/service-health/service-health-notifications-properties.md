@@ -3,13 +3,14 @@ title: O que são notificações de saúde do serviço Azure?
 description: As notificações de saúde do serviço permitem-lhe visualizar mensagens de saúde de serviço publicadas pela Microsoft Azure.
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77653973"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529017"
 ---
-# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure
+# <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Utilize o portal Azure para ver notificações de saúde do serviço
 
 As notificações de saúde do serviço são publicadas pela Azure e contêm informações sobre os recursos sob a sua subscrição. Estas notificações são uma sub-classe de eventos de registo de atividade, e também podem ser encontradas no registo de atividades. As notificações de saúde do serviço podem ser informativas ou accuais, dependendo da classe.
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 63b3def9c37f53ebf68642faf3f45cee6602bbe5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: b25d6c33aa2bd50cbf96fb09f0de03354d24f2da
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057301"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530376"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
 
@@ -29,8 +29,8 @@ Estas notas de lançamento para a Azure Media Services resumem as alterações d
 
 Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de problemas que o afetam. Para reportar um problema ou fazer perguntas, envie um post no [Fórum MSDN dos Media Media Services]. 
 
-## <a name="known-issues"></a><a id="issues"/>Problemas conhecidos
-### <a name="media-services-general-issues"></a><a id="general_issues"/>Questões gerais dos Serviços de Comunicação Social
+## <a name="known-issues"></a><a name="issues"></a>Problemas conhecidos
+### <a name="media-services-general-issues"></a><a name="general_issues"></a>Questões gerais dos Serviços de Comunicação Social
 
 | Problema | Descrição |
 | --- | --- |
@@ -43,7 +43,7 @@ Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de 
 | Os objetos Net SDK não podem ser serializados e, como resultado, não funcionam com a Azure Cache para redis. |Se tentar serializar o objeto SDK AssetCollection para o adicionar ao Azure Cache para Redis, é lançada uma exceção. |
 |A API REST responde com uma mensagem de erro a dizer "O filtro não pode ser acedido por esta versão do REST Api" ao tentar obter um filtro de nível de Ativo ou Conta.|O filtro foi criado ou modificado com uma versão API mais recente do que está a ser usado para tentar obter o filtro. Isto pode acontecer se duas versões API estiverem a ser utilizadas por código ou ferramentas que estão a ser utilizadas pelo cliente.  A melhor solução aqui é atualizar o código ou ferramentas para usar as versões mais recentes ou as duas versões API.|
 
-## <a name="rest-api-version-history"></a><a id="rest_version_history"/>Rest API versão história
+## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>Rest API versão história
 Para obter informações sobre o histórico da versão API dos Serviços de Mídia REST, consulte a referência API dos [Serviços de Mídia Azure].
 
 ## <a name="february-2020"></a>Fevereiro de 2020
@@ -159,7 +159,7 @@ Para obter mais informações sobre estas propriedades, consulte [StreamingEndpo
 
  Agora pode utilizar os Serviços de Comunicação Social para aceder a dados de telemetria/métricas para os seus serviços. Pode utilizar a versão atual dos Media Services para recolher dados de telemetria para canais ao vivo, streaming de endpoint e entidades de arquivo. Para mais informações, consulte [a telemetria dos Serviços de Comunicação Social.](media-services-telemetry-overview.md)
 
-## <a name="july-2016-release"></a><a id="july_changes16"/>Lançamento de julho de 2016
+## <a name="july-2016-release"></a><a name="july_changes16"></a>Lançamento de julho de 2016
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Atualizações para o ficheiro manifesto (*. ISM) gerado por tarefas de codificação
 Quando uma tarefa de codificação é submetida à Media Encoder Standard ou Media Encoder Premium, a tarefa de codificação gera um [ficheiro manifesto de streaming](media-services-deliver-content-overview.md) (*.ism) no ativo de saída. Com a mais recente versão do serviço, a sintaxe deste ficheiro manifesto de streaming foi atualizada.
 
@@ -214,7 +214,7 @@ As unidades reservadas de codificação Básica, Standard e Premium foram renome
 ### <a name="azure-sdk-for-php"></a>Azure SDK for PHP (Azure SDK para PHP)
 A equipa da Azure SDK publicou um novo lançamento do pacote [Azure SDK para PHP](https://github.com/Azure/azure-sdk-for-php) que contém atualizações e novas funcionalidades para os Media Services. Em particular, o Media Services SDK para PHP suporta agora as mais recentes funcionalidades [de proteção de conteúdos.](media-services-content-protection-overview.md) Estas funcionalidades são encriptação dinâmica com AES e DRM (PlayReady e Widevine) com e sem restrições simbólicas. Também suporta unidades de [codificação](media-services-dotnet-encoding-units.md)de escala.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * As [seguintes amostras](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) de código ajudam-no a começar rapidamente:
   * **vodworkflow_aes.php**: Este ficheiro PHP mostra como utilizar a encriptação dinâmica AES-128 e o serviço de entrega de chaves. Baseia-se na amostra .NET explicada na [encriptação dinâmica Use AES-128 e no serviço de entrega de chaves](media-services-protect-with-aes128.md).
@@ -253,7 +253,7 @@ Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/pa
 Para mais informações, consulte [este blog.](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)
 
 ## <a name="august-2015-release"></a><a id="august_changes_15"></a>Lançamento de agosto de 2015
-* O Media Services SDK para a versão Java 0.8.0 e novas amostras estão agora disponíveis. Para obter mais informações, consulte:
+* O Media Services SDK para a versão Java 0.8.0 e novas amostras estão agora disponíveis. Para obter mais informações, veja:
     
 * O Azure Media Player foi atualizado com suporte de fluxo multi-áudio. Para mais informações, consulte [este post de blog.](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 

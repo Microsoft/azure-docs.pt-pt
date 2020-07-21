@@ -3,14 +3,14 @@ title: Partner Center Orders dashboard em análise de marketplace comercial
 description: Saiba como aceder a relatórios analíticos sobre o seu mercado oferece encomendas num formato gráfico e transferível.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 4f5e18a2cebc309475c4fbcf84d7baaa28c6e61d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: fe1f64994d344ad9b23895823b846da62d895128
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118363"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536135"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 
@@ -29,12 +29,9 @@ O **painel de encomendas** do menu **'Encomendas'** apresenta as encomendas atua
 - [Encomendas por geografia](#orders-by-geography)
 - [Encomendas por ofertas](#orders-by-offers)
 - [Tendência de encomendas por site versus por assento](#orders-trend-per-site-versus-per-seat)
-- [Encomendas por SKUs](#orders-by-skus)
+- [Encomendas por planos](#orders-by-plans)
 - [Tendência de encomendas e assentos](#orders-and-seats-trend)
 - [Tabela de detalhes do pedido](#order-details-table)
-
-> [!NOTE]
-> Existem diferenças entre a forma como os relatórios de análise são exibidos no Portal do Parceiro Cloud (CPP) e o novo programa de marketplace comercial no Partner Center. Uma forma específica é que o **Seller Insights** em CPP tem um separador **de utilização & encomendas,** que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso. No Partner Center, a página **Encomendas** tem um separado separado para Ofertas SaaS.
 
 ## <a name="order-dashboard-details"></a>Encomende detalhes do painel de instrumentos
 
@@ -76,16 +73,16 @@ As **Encomendas por ofertas** de gráfico de donut organiza encomendas (incluind
 
 O gráfico de donut **por site versus por assento** representa a desagregação de por site SaaS e por assento As encomendas SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas). O gráfico de colunas representa a tendência de por site SaaS e por assento As encomendas SaaS compradas pelos clientes (este gráfico inclui encomendas canceladas).
 
-### <a name="orders-by-skus"></a>Encomendas por SKUs
+### <a name="orders-by-plans"></a>Encomendas por planos
 
-O gráfico **de Encomendas por SKUs** representa a tendência de encomendas ao nível da Unidade de Manutenção de Stocks (SKU) para todas as suas ofertas (isto inclui encomendas canceladas). O gráfico de donuts representa a desagregação das cinco principais encomendas SKU e o gráfico da coluna representa a tendência das encomendas para os cinco melhores SKUs.
+O gráfico **de Encomendas por planos** representa a tendência das encomendas ao nível do plano para todas as suas ofertas (isto inclui encomendas canceladas). O gráfico de donuts representa a desagregação das cinco principais encomendas de planos e o gráfico da coluna representa a tendência das encomendas para os cinco primeiros planos.
 
 ### <a name="orders-and-seats-trend"></a>Tendência encomendas e assentos
 
 O gráfico **de tendências de encomendas e lugares** apresenta as 50 melhores ofertas com o maior número de encomendas. Estes são exibidos num quadro de líderes e são classificados pela maior percentagem de pedidos e pedidos.
 
-- **Encomendas por SKUs**: Selecione uma oferta para ver a contagem de avarias para os cinco melhores SKUs na tabela.
-- **Lugares por SKUs**: A tendência mensal dos lugares para os cinco melhores SKUs. Se a oferta selecionada não for uma oferta por assento, não verá nenhum dado nesta tabela de área.
+- **Encomendas por planos** – Selecione uma oferta para ver a contagem decrescente para os cinco melhores planos da tabela.
+- **Lugares por planos** – A tendência mensal dos lugares para os cinco primeiros planos. Se a oferta selecionada não for uma oferta por assento, não verá nenhum dado nesta tabela de área.
 
 ### <a name="canceled-orders-by-offers"></a>Encomendas canceladas por ofertas
 

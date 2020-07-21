@@ -1,5 +1,5 @@
 ---
-title: Tráfego de rotas para HA de aplicações - Azure PowerShell - Traffic Manager
+title: Tráfego de rede de rotas para alta disponibilidade - Azure PowerShell
 description: Amostra de script Azure PowerShell - Tráfego de rota para alta disponibilidade de aplicações
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
-ms.openlocfilehash: 183599fccfad1806faae3cb90de225d388b77da8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40f24fa7b37bf5131256287c5f9c74dc7e0dec26
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74049241"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530156"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Tráfego de rotas para alta disponibilidade de aplicações - Azure PowerShell
 

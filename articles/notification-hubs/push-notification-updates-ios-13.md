@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74228148"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529714"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Atualizações do Azure Notification Hubs para iOS 13
 
@@ -57,7 +58,7 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-Para o ajudar durante esta transição, quando o Azure Notification Hubs deteta uma notificação que não tem o `apns-push-type` conjunto, o serviço infere o tipo de pressão a partir do pedido de notificação e define o valor automaticamente. Lembre-se de que deve configurar os Hubs de Notificação Azure para utilizar a autenticação baseada em símbolos para definir o cabeçalho necessário; para obter mais informações, consulte [a autenticação baseada em Token (HTTP/2) para a APNS](notification-hubs-push-notification-http2-token-authentification.md).
+Para o ajudar durante esta transição, quando o Azure Notification Hubs deteta uma notificação que não tem o `apns-push-type` conjunto, o serviço infere o tipo de pressão a partir do pedido de notificação e define o valor automaticamente. Lembre-se de que deve configurar os Hubs de Notificação Azure para utilizar a autenticação baseada em símbolos para definir o cabeçalho necessário; para obter mais informações, consulte [a autenticação baseada em Token (HTTP/2) para a APNS](./notification-hubs-push-notification-http2-token-authentication.md).
 
 ## <a name="apns-priority"></a>Prioridade da APNS
 

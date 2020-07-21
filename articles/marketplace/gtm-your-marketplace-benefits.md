@@ -7,32 +7,32 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c954e3c685a795942f78bdb19b59ca817252d26b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c305a2513a5ace241fe697766b851cd2851e8b78
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135520"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536083"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Os seus benefícios no mercado comercial
 
-Publicou no mercado, agora quer ver a sua oferta ser bem sucedida. Fornecemos-lhe os benefícios - vendas, técnicos e marketing - que precisa para acelerar o crescimento da sua oferta.
+Publicou no mercado comercial da Microsoft, agora quer ver a sua oferta ser bem sucedida. Fornecemos-lhe os benefícios - vendas, técnicos e marketing - que precisa para acelerar o crescimento da sua oferta.
 
-Assim que a sua oferta estiver ao vivo no Azure Marketplace ou appSource, vá ao [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para aceder e ativar os seus benefícios técnicos de marketing, vendas e benefícios técnicos elegíveis. Os benefícios do Marketplace Rewards acumulam-se com base no seu envolvimento e vendas no mercado comercial. Quanto mais se envolver, mais se volta.
+Assim que a sua oferta estiver ao vivo no Microsoft AppSource ou no Azure Marketplace, vá ao [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para aceder e ativar os seus benefícios técnicos de marketing, vendas e benefícios técnicos elegíveis. Os benefícios do Marketplace Rewards acumulam-se com base no seu envolvimento e vendas no mercado comercial. Quanto mais se envolver, mais se volta.
 
-## <a name="marketplace-rewards"></a>Recompensas do Mercado
+## <a name="marketplace-rewards"></a>Marketplace Rewards
 
-O Marketplace Rewards foi concebido para o apoiar na sua fase específica de crescimento, começando com atividades de sensibilização para o ajudar a obter os seus primeiros clientes. À medida que cresce através do mercado, desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e fechar ofertas. 
+O Marketplace Rewards foi concebido para o apoiar na sua fase específica de crescimento, começando com atividades de sensibilização para o ajudar a obter os seus primeiros clientes. À medida que cresce através do mercado comercial, desbloqueia novos benefícios projetados para ajudá-lo a converter clientes e fechar ofertas.
 
-O programa cria um ciclo de feedback positivo: os benefícios em cada fase de crescimento são projetados para progredir para a fase seguinte, permitindo-lhe crescer o seu negócio para os clientes da Microsoft, com o campo da Microsoft, e através do canal da Microsoft, alavancando o mercado comercial como a sua plataforma. 
+O programa cria um ciclo de feedback positivo: os benefícios em cada fase de crescimento são projetados para progredir para a fase seguinte, permitindo-lhe crescer o seu negócio para os clientes da Microsoft, com o campo da Microsoft, e através do canal da Microsoft, alavancando o mercado comercial como a sua plataforma.
 
 Os seus benefícios são diferenciados com base no facto de a sua oferta ser [List, Trial ou Transact.](determine-your-listing-type.md#choose-a-publishing-option)
 
-Será contactado por um membro da equipa de Prémios quando a sua oferta for transmitida ao vivo, com base na sua elegibilidade. 
+Será contactado por um membro da equipa de Prémios quando a sua oferta for transmitida ao vivo, com base na sua elegibilidade.
 
-Para os parceiros Da Transact, à medida que aumenta as suas vendas faturadas através da plataforma de marketplace, desbloqueia maiores benefícios por nível. 
+Para os parceiros Da Transact, à medida que aumenta as suas vendas faturadas através da plataforma de marketplace comercial, desbloqueia maiores benefícios por nível.
 
-O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado como uma plataforma.
+O requisito mínimo para publicar nas montras é um MPNID, pelo que estes benefícios estão disponíveis para todos os parceiros, independentemente do estatuto de competência da MPN ou do tipo de parceiro. Cada parceiro tem poderes para crescer o seu negócio através do mercado comercial como plataforma.
 
 Você terá apoio na compreensão dos recursos disponíveis para si e na implementação das melhores práticas, que também pode [rever por conta própria.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
@@ -42,7 +42,7 @@ Começar é fácil:
 
 1. Publique uma oferta no Microsoft AppSource ou no Azure Marketplace.
 2. Vá ao [Marketplace Rewards](https://partner.microsoft.com/en-us/dashboard/mpn/program/commercialmarketplace) no Partner Center e selecione **Matricular-se no Programa de Recompensas do Mercado.**
-3. Para ativar o benefício de vendas e marketing, atribua um contacto de marketing da empresa. Este contacto receberá as comunicações de acompanhamento do Marketplace Rewards.
+3. Para ativar os benefícios de vendas e marketing, atribua um contacto de marketing da empresa. Este contacto receberá as comunicações de acompanhamento do Marketplace Rewards.
 4. Para adicionar ou atualizar as suas informações de contacto de marketing, vá ao topo do separador de benefícios de Vendas e Marketing na página Marketplace Rewards e, em **seguida, selecione Adicionar, atualizar ou alterar**.  Em seguida, faça o seguinte:
 
     1. Selecione um utilizador da lista. Se o utilizador que pretende atribuir não estiver na lista, pode adicionar novos utilizadores nas **definições de Conta**.
@@ -52,19 +52,19 @@ Começar é fácil:
 
 **Benefícios técnicos**
 
-1. Pode utilizar o seu benefício técnico para solicitar assistência técnica durante as fases de pré-venda, design, implementação e desenvolvimento de aplicações das suas soluções cloud e híbridas. Para solicitar assistência, preencha o formulário de pedido e, em seguida, **selecione Enviar pedido.**
+1. Pode utilizar os seus benefícios técnicos para solicitar assistência técnica durante as fases de pré-venda, design, implementação e desenvolvimento de aplicações das suas soluções cloud e híbridas. Para solicitar assistência, preencha o formulário de pedido e, em seguida, **selecione Enviar pedido.**
 2. Como utilizar os benefícios de patrocínio da Azure será partilhado através de um e-mail à medida que desbloqueie estes benefícios.
 
 >[!NOTE]
 >Se a sua oferta está ao vivo há mais de quatro semanas e não recebeu uma mensagem, por favor, verifique dentro da sua organização quem é o proprietário da oferta em questão, olhando para o Partner Center. Devem ter a comunicação e os próximos passos.<br><br>Se não conseguir determinar o proprietário, ou se o proprietário tiver deixado a sua empresa, pode levantar um bilhete de apoio na [Ajuda e Apoio.](https://aka.ms/marketplacepublishersupport)
 
-O âmbito das atividades disponíveis para si expande-se à medida que aumenta as suas ofertas no mercado. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um email auto-servido de recursos e boas práticas.
+O âmbito das atividades disponíveis para si expande-se à medida que aumenta as suas ofertas no mercado comercial. Todos os anúncios recebem um nível base de recomendações de otimização e promoção como parte de um email auto-servido de recursos e boas práticas.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Lista, experiência e benefícios de consultoria
 
 Se publicar um teste ou consultar uma prova de conceito, implementação ou workshop, será designado um gestor de noivado por três meses, que ajudará a guiá-lo num plano de sucesso. Pode repetir este noivado de três meses cada vez que publicar uma nova oferta, para ajudar a começar com sucesso cada uma das suas novas ofertas.
 
-O quadro abaixo resume os requisitos de elegibilidade para as ofertas de listas e ensaios:
+O quadro abaixo resume os requisitos de elegibilidade para ofertas de lista, julgamento e consultoria:
 
 ![Benefícios go-to-market](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
@@ -72,14 +72,14 @@ Descrições detalhadas para todos estes benefícios podem ser encontradas no de
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Prémios marketplace para parceiros transacionados
 
-Quando você vai ao vivo com a sua oferta transacionável no Azure Marketplace ou Microsoft AppSource, você pode aceder a benefícios adicionais à medida que cresce suas transações de vendas faturadas ou assentos vendidos através do mercado comercial. 
+Quando você vai ao vivo com a sua oferta transacionável no Microsoft AppSource ou no Azure Marketplace, você pode aceder a benefícios adicionais à medida que cresce suas transações de vendas faturadas ou assentos vendidos através do mercado comercial.
 
 >[!NOTE]
->O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que têm integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem ter sido concluídos até 30 de junho de 2020.
+>O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que têm integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem ter sido concluídos até 30 de junho de 2021.
 
 Estes benefícios são projetados para apoiá-lo em marketing, vendas e atividades técnicas, ajudando assim a obter mais visitantes, receber mais leads e converter mais negócios.
 
-Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor de noivado dedicado para escolher as atividades de maior valor para o seu portfólio de ofertas de marketplace. Este compromisso é sempre verde por oferta, o que significa que você pode escolher suas atividades e o momento destas atividades para alinhar com o timing das estratégias de marketing e vendas mais amplas da sua empresa. 
+Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor de noivado dedicado para escolher as atividades de maior valor para o seu portfólio de ofertas de mercado comercial. Este compromisso é sempre verde por oferta, o que significa que você pode escolher suas atividades e o momento destas atividades para alinhar com o timing das estratégias de marketing e vendas mais amplas da sua empresa. 
 
 ![Benefícios de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -87,7 +87,7 @@ Todos os parceiros que tenham uma oferta ao vivo podem trabalhar com um gestor d
 
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\*O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2020.
+\*O limiar de lugares vendidos aplica-se apenas às aplicações da Microsoft 365 (aplicações SaaS que tenham integrações com as Equipas da Microsoft, Office, Outlook ou SharePoint) e os benefícios devem estar concluídos até 30 de junho de 2021.
 
 Descrições detalhadas para todos estes benefícios podem ser encontradas no deck do [programa Marketplace Rewards.](https://aka.ms/marketplacerewards)
 
@@ -118,7 +118,9 @@ As transações que se prove serem fraudulentas não contarão para o nível de 
 
 ## <a name="next-steps"></a>Próximos passos
 
-Se criou a sua oferta no [Partner Center,](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)inscreva-se para criar ou configurar a sua oferta.
+Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para criar ou configurar a sua oferta.
+
+Ativar os benefícios do Marketplace Rewards no [Partner Center.](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
 
 Reveja os [recursos de autosserviço disponíveis para si.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 

@@ -9,13 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
-ms.author: anzaman
-ms.openlocfilehash: b71890323f6aca92fb9f847252feed57d8db234f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 45da0556d074fdb81002f73cd89d0c35cb37276e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594955"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530054"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Regiões do azul em que existe indexante de vídeo
 
@@ -44,7 +44,7 @@ Por exemplo, para a região de Azure West US 2 (apresentado abaixo), você usar�
     }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Personalizar modelo de linguagem usando APIs](customize-language-model-with-api.md)
 - [Personalize o modelo de Marcas usando APIs](customize-brands-model-with-api.md)

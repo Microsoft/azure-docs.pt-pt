@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146564"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536390"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -441,9 +441,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 Neste exemplo, a configuração especifica as seguintes definições:
 
-* Que o modelo requer Python.
-* O [script de entrada](#script), que é utilizado para lidar com pedidos web enviados para o serviço implantado.
-* O ficheiro Conda que descreve os pacotes Python necessários para a inferência.
+* Que o modelo requer Python
+* O [script de entrada](#script), que é usado para lidar com pedidos web enviados para o serviço implantado
+* O ficheiro Conda que descreve os pacotes Python necessários para a inferência
 
 Para obter informações sobre a utilização de uma imagem personalizada do Docker com uma configuração de inferência, consulte [Como implementar um modelo utilizando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
@@ -459,7 +459,7 @@ Para perfilar o seu modelo, necessitará:
 > [!IMPORTANT]
 > Neste momento, apenas apoiamos o perfil de serviços que esperam que os seus dados de pedido sejam uma cadeia, por exemplo: json serializado de cordas, texto, imagem serializada de cordas, etc. O conteúdo de cada linha do conjunto de dados (cadeia) será colocado no corpo do pedido HTTP e enviado para o serviço que encapsula o modelo para pontuação.
 
-Abaixo está um exemplo de como é possível construir um conjunto de dados de entrada para perfilar um serviço que espera que os dados do seu pedido de entrada contenham json serializado. Neste caso, criámos um conjunto de dados baseado em cem casos do mesmo conteúdo de dados de pedido. Em cenários reais, sugerimos que utilize conjuntos de dados maiores que contenham várias entradas, especialmente se o uso/comportamento do seu modelo de recursos depende.
+Abaixo está um exemplo de como é possível construir um conjunto de dados de entrada para perfilar um serviço que espera que os dados do seu pedido de entrada contenham json serializado. Neste caso, criámos um conjunto de dados com base em 100 casos do mesmo conteúdo de dados de pedido. Em cenários reais, sugerimos que utilize conjuntos de dados maiores que contenham várias entradas, especialmente se o uso/comportamento do seu modelo de recursos depende.
 
 ```python
 import json
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>Implementar para o alvo
 
-A implementação utiliza a configuração de configuração de inferência para implantar os modelos. O processo de implantação é semelhante independentemente do alvo do cálculo. A implantação em AKS é ligeiramente diferente porque deve fornecer uma referência ao cluster AKS.
+A implementação utiliza a configuração de configuração de inferência para implantar os modelos. O processo de implantação é semelhante independentemente do alvo do cálculo. A implantação no Serviço Azure Kubernetes (AKS) é ligeiramente diferente porque deve fornecer uma referência ao cluster AKS.
 
 ### <a name="choose-a-compute-target"></a>Escolha um alvo de cálculo
 
@@ -559,7 +559,7 @@ A tabela a seguir fornece um exemplo de criação de uma configuração de imple
 
 | Destino de computação | Exemplo de configuração de implementação |
 | ----- | ----- |
-| Localização | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -629,7 +629,7 @@ Ver [Implementar para instâncias de contentores Azure](how-to-deploy-azure-cont
 Consulte [o Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
 ### <a name="ab-testing-controlled-rollout"></a>Teste a/B (lançamento controlado)
-Consulte [o lançamento controlado dos modelos ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obter mais informações.
+Para obter mais informações, consulte [o lançamento controlado dos modelos ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obter mais informações.
 
 ## <a name="consume-web-services"></a>Consumir os serviços web
 
@@ -914,6 +914,12 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+Para marcar um modelo, consulte [Consumir um modelo Azure Machine Learning implementado como um serviço web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Muitos projetos onNX usam ficheiros protobuf para armazenar compactamente dados de formação e validação, o que pode dificultar saber qual o formato de dados esperado pelo serviço. Como desenvolvedor de modelos, deve documentar para os seus desenvolvedores:
+
+* Formato de entrada (JSON ou binário)
+* Forma e tipo de dados de entrada (por exemplo, uma matriz de flutuadores de forma [100,100,3])
+* Informações de domínio (por exemplo, para uma imagem, o espaço de cores, a ordem dos componentes e se os valores estão normalizados)
+
 Se estiver a utilizar o Pytorch, [os modelos de exportação de PyTorch para ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) têm os detalhes sobre a conversão e limitações. 
 
 ### <a name="scikit-learn-models"></a>Modelos de aprendizagem de scikit
@@ -1104,7 +1110,7 @@ Para parar o recipiente, utilize o seguinte comando a partir de uma concha ou li
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para eliminar um serviço web implantado, utilize `service.delete()` .
 Para eliminar um modelo registado, utilize `model.delete()` .
@@ -1222,12 +1228,12 @@ def run(request):
 > A Azure Machine Learning irá encaminhar apenas os pedidos POST e GET para os contentores que executam o serviço de pontuação. Isto pode causar erros devido aos navegadores que usam pedidos OPTIONS para pedidos de CORS pré-voo.
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
 * [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
-* [Consumir um modelo de Aprendizagem automática Azure implementado como um serviço web](how-to-consume-web-service.md)
+* [Consumir um modelo do Azure Machine Learning implementado como serviço Web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)
 * [Criar alertas e gatilhos de eventos para implementações de modelos](how-to-use-event-grid.md)

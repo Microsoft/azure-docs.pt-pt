@@ -7,16 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: debc5d91478d0a5c3cc16c7b09f5713ba09b467e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37c8b760ada12bd8f54c78ac6a0ea228d113b6c2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74080104"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536991"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos do QoS do ExpressRoute
 O Skype para Empresas tem várias cargas de trabalho que exigem um tratamento do QoS diferenciado. Se planear consumir serviços de voz através do ExpressRoute, deve cumprir os requisitos descritos abaixo.
 
-![](./media/expressroute-qos/expressroute-qos.png)
+![Diagrama que mostra os serviços de voz passando pelo ExpressRoute.](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
 > Os requisitos do QoS aplicam-se apenas ao peering da Microsoft. Os valores DSCP no seu tráfego recebido de rede no peering público do Azure e no peering privado do Azure serão repostos a 0. 

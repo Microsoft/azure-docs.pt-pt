@@ -1,23 +1,20 @@
 ---
-title: Referências
-description: ''
+title: Azure FarmBeats APIs
+description: Conheça as APIs Azure FarmBeats, que fornecem às empresas agrícolas uma interface RESTful padronizada com respostas baseadas em JSON.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488040"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536577"
 ---
-# <a name="references"></a>Referências
+# <a name="azure-farmbeats-apis"></a>Azure FarmBeats APIs
 
-Este artigo descreve as APIs Azure FarmBeats.
-
-## <a name="rest-api"></a>API REST
-
-As APIs Azure FarmBeats proporcionam às empresas agrícolas uma interface RESTful padronizada com respostas baseadas em JSON para ajudá-lo a tirar partido das capacidades do Azure FarmBeats, tais como:
+Este artigo descreve as APIs Azure FarmBeats. As APIs Azure FarmBeats proporcionam às empresas agrícolas uma interface RESTful padronizada com respostas baseadas em JSON para ajudá-lo a tirar partido das capacidades do Azure FarmBeats, tais como:
 
 - APIs para obter sensor, câmara, drone, tempo, satélite, e dados de terra curados.
 - Normalização e contextualização de dados em todos os fornecedores comuns de dados.
@@ -62,7 +59,7 @@ Para escrutinar um pedido autenticado às APIs REST, o código do cliente requer
 
 O token de acesso deve ser enviado em pedidos de API subsequentes, na secção de cabeçalho, como:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -112,7 +109,7 @@ Azure FarmBeats Databeats Datahub APIs devolve os erros HTTP padrão. Os código
 
  |Código de erro             | Descrição |
  |---                    | --- |
- |200                    | Êxito |
+ |200                    | Success |
  |201                    | Criar (Post) Sucesso |
  |400                    | Mau pedido. Há um erro no pedido. |
  |401                    | Não autorizado. O chamador da API não está autorizado a aceder ao recurso. |
@@ -181,6 +178,6 @@ Depois de terminar os passos anteriores, o registo da sua aplicação (cliente) 
 
 Utilize o token de acesso para enviá-lo em pedidos de API subsequentes na secção de cabeçalho como:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

@@ -1,31 +1,34 @@
 ---
 title: Recolher dados sobre os seus modelos de produção
 titleSuffix: Azure Machine Learning
-description: Saiba como recolher dados do modelo de entrada Azure Machine Learning no armazenamento Azure Blob.
+description: Saiba como recolher dados de um modelo de Aprendizagem automática Azure implantado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
+ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432989"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536333"
 ---
-# <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
+# <a name="collect-data-from-models-in-production"></a>Recolher dados de modelos em produção
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo mostra como recolher dados do modelo de entrada da Azure Machine Learning. Também mostra como implementar os dados de entrada num cluster Azure Kubernetes Service (AKS) e armazenar os dados de saída no armazenamento Azure Blob.
+Este artigo mostra como recolher dados de um modelo de Aprendizagem automática Azure implantado num cluster Azure Kubernetes Service (AKS). Os dados recolhidos são então armazenados no armazenamento da Azure Blob.
 
 Uma vez ativada a recolha, os dados que recolhe ajudam-no:
 
-* [Monitorize as derivas de dados à](how-to-monitor-data-drift.md) medida que os dados de produção entram no seu modelo.
+* [Monitorize as derivas de dados](how-to-monitor-datasets.md) nos dados de produção que recolhe.
+
+* Analisar dados recolhidos usando [Power BI](#powerbi) ou [Azure Databricks](#databricks)
 
 * Tome melhores decisões sobre quando reconverter ou otimizar o seu modelo.
 
@@ -58,13 +61,13 @@ O caminho para os dados de saída na bolha segue esta sintaxe:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
 
-- Um espaço de trabalho AzureMachine Learning, um diretório local que contém os seus scripts, e o Azure Machine Learning SDK for Python devem ser instalados. Para aprender a instalá-los, veja [como configurar um ambiente de desenvolvimento.](how-to-configure-environment.md)
+- Um espaço de trabalho de aprendizagem automática Azure, um diretório local que contém os seus scripts, e o Azure Machine Learning SDK para Python devem ser instalados. Para aprender a instalá-los, veja [como configurar um ambiente de desenvolvimento.](how-to-configure-environment.md)
 
 - Precisa de um modelo de aprendizagem de máquinas treinado para ser implantado na AKS. Se não tiver um modelo, consulte o tutorial do [modelo de classificação de imagem train.](tutorial-train-models-with-aml.md)
 
 - Precisas de um aglomerado AKS. Para obter informações sobre como criar um e implementar nele, consulte [como implementar e onde](how-to-deploy-and-where.md).
 
-- [Confende o seu ambiente](how-to-configure-environment.md) e instale o [Azure Machine Learning Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
+- [Confende o seu ambiente](how-to-configure-environment.md) e instale o [Azure Machine Learning Monitoring SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Ativar a recolha de dados
 
@@ -74,7 +77,7 @@ Para ativar a recolha de dados, é necessário:
 
 1. Abra o ficheiro de pontuação.
 
-1. Adicione o [seguinte código](https://aka.ms/aml-monitoring-sdk) na parte superior do ficheiro:
+1. Adicione o seguinte código na parte superior do ficheiro:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -115,41 +118,10 @@ Para ativar a recolha de dados, é necessário:
 
 1. Para criar uma nova imagem e implementar o modelo de aprendizagem automática, consulte [como implementar e onde](how-to-deploy-and-where.md).
 
-Se já tiver um serviço com as dependências instaladas no seu ficheiro de ambiente e ficheiro de pontuação, ative a recolha de dados seguindo estes passos:
-
-1. Ir ao [Azure Machine Learning.](https://ml.azure.com)
-
-1. Abra o seu espaço de trabalho.
-
-1. Selecione **Implementações**  >  **Selecione de serviço**  >  **Editar**.
-
-   ![Editar o serviço](././media/how-to-enable-data-collection/EditService.PNG)
-
-1. Em **Definições Avançadas**, selecione **Ativar os diagnósticos de Informações e a recolha de dados**.
-
-1. Selecione **Update** para aplicar as alterações.
 
 ## <a name="disable-data-collection"></a>Desativar a recolha de dados
 
-Pode parar de recolher dados a qualquer momento. Utilize o código Python ou a aprendizagem automática Azure para desativar a recolha de dados.
-
-### <a name="option-1---disable-data-collection-in-azure-machine-learning"></a>Opção 1 - Desativar a recolha de dados em Azure Machine Learning
-
-1. Inscreva-se no [Azure Machine Learning](https://ml.azure.com).
-
-1. Abra o seu espaço de trabalho.
-
-1. Selecione **Implementações**  >  **Selecione de serviço**  >  **Editar**.
-
-   [![Selecione a opção Editar](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
-
-1. Em **Definições Avançadas**, **aclareifique os diagnósticos de Insights de Aplicação e a recolha de dados**.
-
-1. Selecione **Update** para aplicar a alteração.
-
-Também pode aceder a estas definições no seu espaço de trabalho em [Azure Machine Learning](https://ml.azure.com).
-
-### <a name="option-2---use-python-to-disable-data-collection"></a>Opção 2 - Use Python para desativar a recolha de dados
+Pode parar de recolher dados a qualquer momento. Utilize o código Python para desativar a recolha de dados.
 
   ```python 
   ## replace <service_name> with the name of the web service
@@ -162,7 +134,7 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 ### <a name="quickly-access-your-blob-data"></a>Aceda rapidamente aos seus dados blob
 
-1. Inscreva-se no [Azure Machine Learning](https://ml.azure.com).
+1. Inscreva-se no [portal Azure](https://portal.azure.com).
 
 1. Abra o seu espaço de trabalho.
 
@@ -177,7 +149,7 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a>Analisar dados de modelos usando Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Analisar dados de modelos usando Power BI
 
 1. Descarregue e abra [o Power BI Desktop](https://www.powerbi.com).
 
@@ -213,7 +185,7 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 1. Comece a construir os seus relatórios personalizados sobre os seus dados de modelo.
 
-### <a name="analyze-model-data-using-azure-databricks"></a>Analisar dados de modelos usando Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analisar dados de modelos usando Azure Databricks
 
 1. Criar um [espaço de trabalho Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
@@ -237,3 +209,7 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
     [![Configuração de databricks](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Siga os passos no modelo para visualizar e analisar os seus dados.
+
+## <a name="next-steps"></a>Próximos passos
+
+[Detete a deriva de dados](how-to-monitor-datasets.md) nos dados recolhidos.

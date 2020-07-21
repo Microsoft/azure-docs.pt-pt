@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 56acddda2cf5ae2ef2a94353ec11c3ddf6990e1c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223463"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536118"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -96,6 +96,22 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
     ```bash
     automl_setup
     ```
+    
+* **KeyError: 'marca' ao executar AutoML em computação local ou cluster Azure Databricks**
+
+    Se um novo ambiente for criado após 10 de junho de 2020, utilizando o SDK 1.7.0 ou mais cedo, o treino poderá falhar com este erro devido a uma atualização no pacote py-cpuinfo. (Ambientes criados em ou antes de 10 de junho de 2020, não são afetados, assim como as experiências executadas em computação remota porque são usadas imagens de treino em cache.) Para contornar esta questão, tome um dos dois passos seguintes:
+    
+    * Atualizar a versão SDK para 1.8.0 ou mais tarde (isto também reduz py-cpuinfo para 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Desclasse a versão instalada do py-cpuinfo para 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Error message: Can't desinstalar 'PyYAML'**
 
@@ -147,7 +163,13 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
 
 * **Portal Azure**: Se for diretamente ver o seu espaço de trabalho a partir de um link de partilha a partir do SDK ou do portal, não poderá ver a página **geral** normal com informações de subscrição na extensão. Também não poderá mudar para outro espaço de trabalho. Se precisar de ver outro espaço de trabalho, vá diretamente ao [estúdio Azure Machine Learning](https://ml.azure.com) e procure o nome do espaço de trabalho.
 
-## <a name="set-up-your-environment"></a>Configurar o ambiente
+* **Browsers suportados no portal web do estúdio Azure Machine Learning**: Recomendamos que utilize o navegador mais atualizado que seja compatível com o seu sistema operativo. Os seguintes navegadores são suportados:
+  * Microsoft Edge (O novo Microsoft Edge, versão mais recente. Não o legado da Microsoft Edge)
+  * Safari (versão mais recente, apenas Mac)
+  * Chrome (versão mais recente)
+  * Firefox (versão mais recente)
+
+## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
 * **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
 
@@ -217,9 +239,16 @@ Limitações e questões conhecidas para monitores de deriva de dados:
 
 ## <a name="azure-machine-learning-designer"></a>Designer de aprendizagem de máquinas Azure
 
-Problemas conhecidos:
+* **Tempo de preparação de computação longa:**
 
-* **Tempo de preparação**de cálculo longo : Pode demorar alguns minutos ou até mais quando se liga ou cria um alvo de computação. 
+Pode demorar alguns minutos ou até mais quando ligar ou criar um alvo de computação. 
+
+A partir do Colecionador de Dados do Modelo, pode levar até (mas normalmente menos de) 10 minutos para os dados chegarem à sua conta de armazenamento de bolhas. Aguarde 10 minutos para garantir que as células abaixo irão funcionar.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>Preparar modelos
 
@@ -340,7 +369,7 @@ Se efetuar uma operação de gestão num alvo de computação a partir de um tra
 
 Por exemplo, receberá um erro se tentar criar ou anexar um alvo de cálculo a partir de um Pipeline ML que é submetido para execução remota.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

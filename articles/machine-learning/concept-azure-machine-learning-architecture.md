@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 8cfa7a7b251f2aa74230d8883a0335582387aa06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 749a2366438bd1abfef4ca0cf2a195f23529d6a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602521"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536305"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -44,6 +44,10 @@ O fluxo de trabalho do modelo de aprendizagem automática geralmente segue esta 
 
 Utilize estas ferramentas para aprendizagem automática Azure:
 
+> [!IMPORTANT]
+> As ferramentas marcadas (pré-visualização) abaixo estão atualmente em visualização pública.
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 +  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Interaja com o serviço em qualquer ambiente R com o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (pré-visualização).
 + Automatize as suas atividades de machine learning com o [CLI de Aprendizagem automática Azure.](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
@@ -56,7 +60,7 @@ Utilize estas ferramentas para aprendizagem automática Azure:
 ## <a name="glossary"></a>Glossário
 
 * [Atividade](#activities)
-* [Área de trabalho](#workspaces)
+* [Espaço de trabalho](#workspaces)
     * [Experiências](#experiments)
         * [Executar](#runs) 
             * [Configuração de execução](#run-configurations)
@@ -69,7 +73,7 @@ Utilize estas ferramentas para aprendizagem automática Azure:
         * [Roteiro de treino](#training-scripts)
         * [Estimadores](#estimators)
     * [Pontos Finais](#endpoints)
-        * [Serviço web](#web-service-endpoint)
+        * [Serviço Web](#web-service-endpoint)
         * [Módulos IoT](#iot-module-endpoints)
     * [Dataset & datastores](#datasets-and-datastores)
     * [Os destinos de computação](#compute-targets)

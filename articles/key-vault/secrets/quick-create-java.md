@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 16248cd276b63e9570221626ec32d1d4723c4ebd
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 2da208c7c85dd001502a88f00bc7c1e090bbc3ef
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536441"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Quickstart: Biblioteca de clientes Azure Key Vault para Java
 
@@ -26,7 +26,12 @@ O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os se
 - Simplificar e automatizar tarefas para certificados TLS/SSL.
 - Utilize OS HSMs validados FIPS 140-2.
 
-[Código fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)  |  [Documentação de](https://azure.github.io/azure-sdk-for-java)  |  referência da API Documentação do [produto](index.yml)  |  [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
+Recursos adicionais:
+
+* [Código de origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)
+* [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java)
+* [Documentação do produto](index.yml)
+* [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -311,7 +316,7 @@ public class App {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido criaste um cofre, armazenaste um segredo e recuperaste esse segredo. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 

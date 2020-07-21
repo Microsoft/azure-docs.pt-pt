@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae4b984d0ce66dec2a32b3431301ed97fe2c3fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71212204"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530139"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich Push
 
@@ -31,7 +31,7 @@ Para envolver os utilizadores com conteúdos instantâneos e ricos, uma aplicaç
 
 Este tutorial é compatível com o iOS 7 & 8.
 
-  ![][IOS1]
+  ![Três imagens: um ecrã de aplicação com um botão Enviar, um ecrã inicial num dispositivo e um logótipo do Windows com um botão Back.][IOS1]
 
 A um nível elevado:
 
@@ -49,7 +49,7 @@ A um nível elevado:
 3. Clique em **Mostrar Todos os Ficheiros** no Explorador de Solução e clique com o botão direito na pasta para **Incluir no Projeto**.
 4. Com a imagem selecionada, altere a sua janela Build Action in Properties para **o Recurso Incorporado.**
 
-    ![][IOS2]
+    ![Screenshot do Solution Explorer. O ficheiro de imagem é selecionado e, no seu painel de propriedades, o recurso incorporado é listado como ação de construção.][IOS2]
 5. Em `Notifications.cs` , adicione a seguinte declaração de utilização:
 
     ```csharp
@@ -137,7 +137,7 @@ A um nível elevado:
     }
     ```
 8. Agora vamos re-implantar esta aplicação para um Website Azure de forma a torná-la acessível a partir de todos os dispositivos. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
-9. Selecione o Website Azure como o seu alvo de publicação. Faça login com a sua conta Azure e selecione um Website existente ou novo, e tome nota da propriedade URL de **destino** no separador **Ligação.** Vamos referir-nos a este URL como o seu ponto final de *backend* mais tarde neste tutorial. Clique em **Publicar**.
+9. Selecione o Website Azure como o seu alvo de publicação. Faça login com a sua conta Azure e selecione um Website existente ou novo, e tome nota da propriedade URL de **destino** no separador **Ligação.** Vamos referir-nos a este URL como o seu ponto final de *backend* mais tarde neste tutorial. Clique em **Publish** (Publicar).
 
 ## <a name="modify-the-ios-project"></a>Modifique o projeto iOS
 
@@ -146,12 +146,12 @@ Agora que modificou o seu backend da app para enviar apenas o *id* de uma notifi
 1. Abra o seu projeto iOS e permita notificações remotas indo para o seu alvo principal de aplicação na secção **Alvos.**
 2. Clique em **Capabilities,** ligue os **modos de fundo**e verifique a caixa **de verificação de Notificações Remotas.**
 
-    ![][IOS3]
+    ![Screenshot do projeto iOS mostrando o ecrã Capabilities. Os modos de fundo estão ligados e a caixa de verificação de notificações remotas é selecionada.][IOS3]
 3. Abra `Main.storyboard` , e certifique-se de que tem um Controlador de Visualização (referido como Controlador de Visualização Doméstica neste tutorial) a partir do tutorial do [Utilizador notificado.](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 4. Adicione um **Controlador de Navegação** ao seu storyboard e faça o control-drag para o Controlador home view para torná-lo a **visão raiz** da navegação. Certifique-se de que o **controlador de visualização inicial** em Atributos é selecionado apenas para o Controlador de Navegação.
 5. Adicione um **Controlador de visualização** ao storyboard e adicione uma **visualização de imagem**. Esta é a página que os utilizadores verão assim que optarem por saber mais clicando na notificação. O seu storyboard deve parecer o seguinte:
 
-    ![][IOS4]
+    ![Imagem de um storyboard. Três ecrãs de aplicativos são visíveis: uma vista de navegação, uma vista de casa e uma vista de imagem.][IOS4]
 6. Clique no **Controlador home view** no storyboard e certifique-se de que tem **homeViewController** como o seu **ID de classe personalizada** e **storyboard** sob o inspetor de identidade.
 7. Faça o mesmo para o Controlador de Visualização de Imagem como **imageViewController**.
 8. Em seguida, crie uma nova classe de Controlador de Visualização intitulada **ImagemViewController** para lidar com o UI que acabou de criar.

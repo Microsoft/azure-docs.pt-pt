@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76907984"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536275"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar os registos do Azure Monitor e recolher dados de diagnóstico para mensagens B2B no Azure Logic Apps
 
-Depois de configurar a comunicação B2B entre parceiros comerciais na sua conta de integração, esses parceiros podem trocar mensagens utilizando protocolos como AS2, X12 e EDIFACT. Para verificar se esta comunicação funciona da forma que espera, pode configurar [registos do Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para a sua conta de integração. [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode gravar e armazenar dados sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num [espaço de trabalho do Log Analytics.](../azure-monitor/platform/resource-logs-collect-workspace.md) Para mensagens, o registo também recolhe informações como:
+Depois de configurar a comunicação B2B entre parceiros comerciais na sua conta de integração, esses parceiros podem trocar mensagens utilizando protocolos como AS2, X12 e EDIFACT. Para verificar se esta comunicação funciona da forma que espera, pode configurar [registos do Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para a sua conta de integração. [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode gravar e armazenar dados sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num [espaço de trabalho do Log Analytics.](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) Para mensagens, o registo também recolhe informações como:
 
 * Contagem de mensagens e estado
 * Estatuto de agradecimento
@@ -162,7 +163,7 @@ Após a execução da sua aplicação lógica, pode visualizar o estado e os dad
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -183,13 +184,13 @@ Aqui estão as descrições da propriedade para cada mensagem AS2.
 |----------|-------------|
 | **Remetente** | O parceiro convidado especificado em **Definições de Receção**, ou o parceiro anfitrião especificado em **Definições de Envio** para um acordo AS2 |
 | **Recetor** | O parceiro anfitrião especificado em **Definições de Receção**, ou o parceiro convidado especificado em **Definições de Envio** para um acordo AS2 |
-| **App Lógica** | A aplicação lógica onde as ações do AS2 são criadas |
+| **Aplicação Lógica** | A aplicação lógica onde as ações do AS2 são criadas |
 | **Estado** | O estado da mensagem AS2 <br>Sucesso = Recebeu ou enviou uma mensagem AS2 válida. Não está configurado nenhum MDN. <br>Sucesso = Recebeu ou enviou uma mensagem AS2 válida. A MDN é configurada e recebida, ou a MDN é enviada. <br>Falhou = Recebeu uma mensagem AS2 inválida. Não está configurado nenhum MDN. <br>Pendente = Recebeu ou enviou uma mensagem AS2 válida. A MDN está configurada, e a MDN é esperada. |
 | **Rio ACK** | O estado da mensagem MDN <br>Aceite = Recebido ou enviado um MDN positivo. <br>Pendente = Esperando para receber ou enviar um MDN. <br>Rejeitado = Recebido ou enviado um MDN negativo. <br>Não É Necessário = MDN não está estabelecido no acordo. |
 | **Direção** | A direção da mensagem AS2 |
 | **ID de rastreio** | O ID que correlaciona todos os gatilhos e ações numa aplicação lógica |
 | **ID da Mensagem** | O ID de mensagem AS2 dos cabeçalhos de mensagens AS2 |
-| **Carimbo de data/hora** | O momento em que a ação AS2 processou a mensagem |
+| **Timestamp** | O momento em que a ação AS2 processou a mensagem |
 |||
 
 <!--
@@ -216,7 +217,7 @@ Aqui estão as descrições da propriedade para cada mensagem X12.
 |----------|-------------|
 | **Remetente** | O parceiro convidado especificado em **Configurações de Receção**, ou o parceiro anfitrião especificado em **Definições de Envio** para um acordo X12 |
 | **Recetor** | O parceiro anfitrião especificado em **'Receber Definições'** ou o parceiro convidado especificado em **Definições de Envio** para um acordo X12 |
-| **App Lógica** | A aplicação lógica onde as ações X12 são criadas |
+| **Aplicação Lógica** | A aplicação lógica onde as ações X12 são criadas |
 | **Estado** | O estado da mensagem X12 <br>Sucesso = Recebeu ou enviou uma mensagem X12 válida. Não está configurado nenhum ack funcional. <br>Sucesso = Recebeu ou enviou uma mensagem X12 válida. Ack funcional é configurada e recebida, ou é enviada uma ack funcional. <br>Falhado = Recebeu ou enviou uma mensagem X12 inválida. <br>Pendente = Recebeu ou enviou uma mensagem X12 válida. Ack funcional é configurado, e espera-se um ack funcional. |
 | **Rio ACK** | Estado funcional do Ack (997) <br>Aceite = Recebido ou enviado um ack funcional positivo. <br>Rejeitado = Recebido ou enviado um ack funcional negativo. <br>Pendente = Esperando um ack funcional mas não recebido. <br>Pendente = Gerou um ack funcional mas não pode enviar para o parceiro. <br>Não É Necessário = Ack funcional não é configurado. |
 | **Direção** | A direção da mensagem X12 |
@@ -224,7 +225,7 @@ Aqui estão as descrições da propriedade para cada mensagem X12.
 | **Tipo Msg** | O tipo de mensagem EDI X12 |
 | **ICN** | O Número de Controlo de Intercâmbio para a mensagem X12 |
 | **TSCN** | O número de controlo do conjunto de transações para a mensagem X12 |
-| **Carimbo de data/hora** | O tempo em que a ação X12 processou a mensagem |
+| **Timestamp** | O tempo em que a ação X12 processou a mensagem |
 |||
 
 <!--
@@ -251,7 +252,7 @@ Aqui estão as descrições da propriedade para cada mensagem EDIFACT.
 |----------|-------------|
 | **Remetente** | O parceiro convidado especificado em **Definições de Receção,** ou o parceiro anfitrião especificado em **Definições de Envio** para um acordo EDIFACT |
 | **Recetor** | O parceiro anfitrião especificado em **Definições de Receção,** ou o parceiro convidado especificado em **Definições de Envio** para um acordo EDIFACT |
-| **App Lógica** | A aplicação lógica onde as ações do EDIFACT são criadas |
+| **Aplicação Lógica** | A aplicação lógica onde as ações do EDIFACT são criadas |
 | **Estado** | O estado da mensagem EDIFACT <br>Sucesso = Recebeu ou enviou uma mensagem EDIFACT válida. Não está configurado nenhum ack funcional. <br>Sucesso = Recebeu ou enviou uma mensagem EDIFACT válida. Ack funcional é configurada e recebida, ou é enviada uma ack funcional. <br>Falhado = Recebido ou enviado uma mensagem EDIFACT inválida <br>Pendente = Recebeu ou enviou uma mensagem EDIFACT válida. Ack funcional é configurado, e espera-se um ack funcional. |
 | **Rio ACK** | Estado funcional do Ack (CONTRL) <br>Aceite = Recebido ou enviado um ack funcional positivo. <br>Rejeitado = Recebido ou enviado um ack funcional negativo. <br>Pendente = Esperando um ack funcional mas não recebido. <br>Pendente = Gerou um ack funcional mas não pode enviar para o parceiro. <br>Não É Necessário = Ack funcional não está configurado. |
 | **Direção** | A direção da mensagem EDIFACT |
@@ -259,7 +260,7 @@ Aqui estão as descrições da propriedade para cada mensagem EDIFACT.
 | **Tipo Msg** | O tipo de mensagem EDIFACT |
 | **ICN** | O Número de Controlo Intercambial da mensagem EDIFACT |
 | **TSCN** | O número de controlo do conjunto de transações para a mensagem EDIFACT |
-| **Carimbo de data/hora** | O tempo em que a ação EDIFACT processou a mensagem |
+| **Timestamp** | O tempo em que a ação EDIFACT processou a mensagem |
 |||
 
 <!--

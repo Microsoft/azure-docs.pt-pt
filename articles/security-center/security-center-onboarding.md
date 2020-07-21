@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: be26a9d4c66412518079de303ac0764d979c3e7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f14f5412b701ce055713fee347175c2dffd5c5b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77912057"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529422"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Inclusão do Centro de Segurança do Azure Standard para segurança avançada
 Upgrade para Security Center Standard para aproveitar a gestão de segurança reforçada e proteção de ameaças para as suas cargas de trabalho em nuvem híbrida. Pode tentar o Standard de graça. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) do Centro de Segurança para obter mais informações.
@@ -31,7 +32,7 @@ O nível padrão do Centro de Segurança inclui:
 ## <a name="detecting-unprotected-resources"></a>Deteção de recursos desprotegidos
 O Centro de Segurança deteta automaticamente quaisquer subscrições ou áreas de trabalho do Azure não ativadas para o Centro de Segurança Standard. Isto inclui as subscrições do Azure que utilizam o Centro de Segurança Gratuito e as áreas de trabalho que não têm a solução de Segurança ativada.
 
-Pode atualizar toda uma subscrição do Azure para o nível Standard, que é herdada por todos os recursos suportados dentro da subscrição. A aplicação do nível Standard a um espaço de trabalho aplica-se a todos os recursos que reportam ao espaço de trabalho.
+Pode atualizar toda uma subscrição do Azure para o nível padrão, que é herdada por todos os recursos suportados dentro da subscrição. A aplicação do nível padrão a um espaço de trabalho aplica-se a todos os recursos que reportam ao espaço de trabalho.
 
 > [!NOTE]
 > Pode querer gerir os seus custos e limitar a quantidade de dados recolhidos para uma solução, limitando-os a um determinado conjunto de agentes. [A segmentação da solução](../operations-management-suite/operations-management-suite-solution-targeting.md) permite-lhe aplicar um âmbito à solução e direcionar um subconjunto de computadores no espaço de trabalho. Se estiver a utilizar a solução-alvo, o Centro de Segurança lista o espaço de trabalho como não tendo uma solução.
@@ -47,7 +48,7 @@ Para atualizar uma subscrição ou espaço de trabalho para a norma:
    -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para avaliação.
    -    Pode selecionar as áreas de trabalho e subscrições elegíveis para iniciar a avaliação.
 3.  Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
-  ![Selecione subscrição](./media/security-center-onboarding/select-subscription.png)
+  ![Selecionar subscrição](./media/security-center-onboarding/select-subscription.png)
 
 
    > [!NOTE]
@@ -91,7 +92,7 @@ Pode adicionar um computador seguindo o fluxo de trabalho a partir do **Onboardi
 
 1. Volte ao menu principal do Security Center e ao painel **de instrumentos do Overview.**
 
-   ![Descrição geral][5]
+   ![Descrição Geral][5]
 
 2. **Selecione Aplicações de & computacional**.
 3. No **âmbito de aplicações de & compute**, selecione **Adicionar computadores**.

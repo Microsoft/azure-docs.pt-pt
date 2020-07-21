@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b5682334bd3fb23fbbebed5fc8ece6d55e9c5652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1aab92bd192119f72bb057347f5a3ea2d980336
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733234"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536855"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Orientação de comunicações nuvem-para-dispositivo
 
@@ -31,12 +32,12 @@ O IoT Hub oferece três opções para as aplicações do dispositivo exporem a f
 
 Aqui está uma comparação detalhada das várias opções de comunicação nuvem-a-dispositivo.
 
-|  | Métodos diretos | As propriedades desejadas de Twin | Mensagens nuvem-para-dispositivo |
-| ---- | ------- | ---------- | ---- |
-| Scenario | Comandos que requerem confirmação imediata, como ligar um ventilador. | Comandos de longa duração destinados a colocar o dispositivo num determinado estado desejado. Por exemplo, desaponte o intervalo de envio da telemetria para 30 minutos. | Notificações unidirecionais para a aplicação do dispositivo. |
+| Categorias | Métodos diretos | As propriedades desejadas de Twin | Mensagens nuvem-para-dispositivo |
+| ---------- | -------------- | ------------------------- | ------------------------ |
+| Cenário | Comandos que requerem confirmação imediata, como ligar um ventilador. | Comandos de longa duração destinados a colocar o dispositivo num determinado estado desejado. Por exemplo, desaponte o intervalo de envio da telemetria para 30 minutos. | Notificações unidirecionais para a aplicação do dispositivo. |
 | Fluxo de dados | De dois sentidos. A aplicação do dispositivo pode responder ao método de imediato. A solução back end recebe o resultado contexicamente ao pedido. | Só de ida. A aplicação do dispositivo recebe uma notificação com a alteração da propriedade. | Só de ida. A aplicação do dispositivo recebe a mensagem
 | Durabilidade | Os dispositivos desligados não são contactados. A solução traseira é notificada de que o dispositivo não está ligado. | Os valores patrimoniais são preservados no dispositivo twin. O dispositivo lê-o na próxima reconexão. Os valores de propriedade são recuperáveis com a [linguagem de consulta IoT Hub](iot-hub-devguide-query-language.md). | As mensagens podem ser retidas pelo IoT Hub até 48 horas. |
-| Destinos | Dispositivo único utilizando **dispositivoId**, ou vários dispositivos que utilizem [trabalhos](iot-hub-devguide-jobs.md). | Dispositivo único utilizando **dispositivoId**, ou vários dispositivos que utilizem [trabalhos](iot-hub-devguide-jobs.md). | Dispositivo único por **dispositivoId**. |
+| Targets | Dispositivo único utilizando **dispositivoId**, ou vários dispositivos que utilizem [trabalhos](iot-hub-devguide-jobs.md). | Dispositivo único utilizando **dispositivoId**, ou vários dispositivos que utilizem [trabalhos](iot-hub-devguide-jobs.md). | Dispositivo único por **dispositivoId**. |
 | Tamanho | O tamanho máximo da carga útil do método direto é de 128 KB. | O tamanho máximo das propriedades desejadas é de 32 KB. | Até 64 mensagens KB. |
 | Frequência | Elevada. Para mais informações, consulte [os limites do IoT Hub.](iot-hub-devguide-quotas-throttling.md) | Média. Para mais informações, consulte [os limites do IoT Hub.](iot-hub-devguide-quotas-throttling.md) | Baixo. Para mais informações, consulte [os limites do IoT Hub.](iot-hub-devguide-quotas-throttling.md) |
 | Protocolo | Disponível usando MQTT ou AMQP. | Disponível usando MQTT ou AMQP. | Disponível em todos os protocolos. O dispositivo deve fazer sondagem ao utilizar HTTPS. |

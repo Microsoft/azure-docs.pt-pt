@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Utilize a chave simétrica para fornecer dispositivo simulado ao Hub Azure IoT usando Java
-description: Neste arranque rápido, utilizará o dispositivo Java SDK para criar um dispositivo simulado que utiliza a chave simétrica com o Serviço de Provisionamento de Dispositivos Hub Azure IoT (DPS)
+title: Quickstart - Use a chave simétrica para providenciar dispositivo simulado para O Azure IoT Hub usando Java
+description: Neste arranque rápido utilizará o dispositivo Java SDK para criar um dispositivo simulado que utiliza a chave simétrica com o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/30/2020
@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: aaa1a4423363255536db7d53a1f8f8fa9ba686ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b54f216850b77473ea8c272311e3f135f256518
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76941403"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536509"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas
+# <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>Quickstart: Fornecimento de um dispositivo simulado ao IoT Hub com teclas simétricas
 
-Neste guia de início rápido, vai aprender a criar e executar um simulador de dispositivos numa máquina de desenvolvimento do Windows. Configurará este dispositivo simulado para utilizar uma chave simétrica para autenticar com uma instância do Serviço de Fornecimento de Dispositivos (DPS) e será atribuído a um hub IoT. O código de amostra dos [SDKs Microsoft Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java) será utilizado para simular uma sequência de boot para o dispositivo que inicia o fornecimento. O dispositivo será reconhecido com base numa inscrição individual com uma instância de serviço DPS e atribuído a um hub IoT.
+Neste guia de início rápido, vai aprender a criar e executar um simulador de dispositivos numa máquina de desenvolvimento do Windows. Configurará este dispositivo simulado para utilizar uma chave simétrica para autenticar com uma instância do Serviço de Provisionamento de Dispositivos (DPS) e será atribuído a um hub IoT. O código de amostra dos [SDKs IoT do Microsoft Azure para Java](https://github.com/Azure/azure-iot-sdk-java) será utilizado para simular uma sequência de arranque para o dispositivo que inicia o fornecimento. O dispositivo será reconhecido com base numa inscrição individual com uma instância de serviço DPS e atribuído a um hub IoT.
 
-Embora este artigo demonstre o provisionamento com uma inscrição individual, você pode usar grupos de inscrição. Existem algumas diferenças na utilização de grupos de matrícula. Por exemplo, deve utilizar uma chave de dispositivo derivada com um ID de registo único para o dispositivo. Embora os grupos de inscrições de chave simétrica não estejam limitados a dispositivos legados, o artigo [Como aprovisionar dispositivos legados com o atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de inscrições. Para obter mais informações, veja [Inscrições em grupo para o Atestado de Chave Simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
+Embora este artigo demonstre o provisionamento com uma inscrição individual, você pode usar grupos de inscrição. Há algumas diferenças na utilização de grupos de inscrição. Por exemplo, deve utilizar uma chave de dispositivo derivada com um ID de registo único para o dispositivo. Embora os grupos de inscrições de chave simétrica não estejam limitados a dispositivos legados, o artigo [Como aprovisionar dispositivos legados com o atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de inscrições. Para obter mais informações, veja [Inscrições em grupo para o Atestado de Chave Simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
 Se não estiver familiarizado com o processo de aprovisionamento automático, reveja [Conceitos de aprovisionamento automático](concepts-auto-provisioning.md). 
 
@@ -34,7 +34,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Certifique-se de que tem o Kit de [Desenvolvimento Java SE 8](https://aka.ms/azure-jdks) ou posteriormente instalado na sua máquina.
+* Certifique-se de que tem [o Kit de Desenvolvimento Java SE 8](https://aka.ms/azure-jdks) ou mais tarde instalado na sua máquina.
 
 * Transfira e instale o [Maven](https://maven.apache.org/install.html).
 
@@ -51,7 +51,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-3. Navegue para `azure-iot-sdk-java` o diretório de raiz e construa o projeto para descarregar todos os pacotes necessários.
+3. Navegue até ao diretório de raiz `azure-iot-sdk-java` e construa o projeto para descarregar todos os pacotes necessários.
    
    ```cmd/sh
    cd azure-iot-sdk-java
@@ -60,35 +60,35 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 ## <a name="create-a-device-enrollment"></a>Criar uma inscrição de dispositivo
 
-1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione o botão **Todos os recursos** no menu à esquerda e abra a instância do serviço de fornecimento de dispositivos (DPS).
+1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione o botão **Todos os recursos** no menu esquerdo e abra a sua instância de Serviço de Provisionamento de Dispositivos (DPS).
 
-2. Selecione o separador **'Gerir as matrículas'** e, em seguida, selecione o botão **de inscrição individual Adicionar** na parte superior. 
+2. Selecione o **separador Descodusagens** de Gestão e, em seguida, selecione o botão **de inscrição individual Adicionar** no topo. 
 
-3. No painel **Adicionar Inscrições,** introduza as seguintes informações e prima o botão **Guardar.**
+3. No painel **'Adicionar Inscrição',** introduza as seguintes informações e prima o botão **Guardar.**
 
    - **Mecanismo:** selecione **Chave Simétrica** como o *Mecanismo* de atestado de identidades.
 
-   - **Chaves de geração automática**: Verifique esta caixa.
+   - **Teclas de geração automática**: Verifique esta caixa.
 
    - **ID de Registo**: introduza um ID de registo para identificar a inscrição. Utilize apenas carateres alfanuméricos em minúsculas e travessões ("-"). Por exemplo, **symm-key-java-device-007**.
 
-   - **ID do Dispositivo do Hub IoT:** introduza o identificador de um dispositivo. Por exemplo, **java-dispositivo-007**.
+   - **ID do Dispositivo do Hub IoT:** introduza o identificador de um dispositivo. Por exemplo, **java-device-007**.
 
      ![Adicionar inscrição individual para o atestado de chave simétrica no portal](./media/quick-create-simulated-device-symm-key-java/create-individual-enrollment-java.png)
 
-4. Uma vez que tenha guardado a sua inscrição, a **Chave Primária** e a **Chave Secundária** serão geradas e adicionadas à inscrição. A sua inscrição simétrica do dispositivo chave aparece como **symm-key-java-device-007** sob a coluna *DE Identificação* de Registo no separador *Individual Registration.* 
+4. Uma vez guardada a sua inscrição, a **Chave Primária** e a **Chave Secundária** serão geradas e adicionadas à inscrição. A inscrição do seu dispositivo chave simétrico aparece como **symm-key-java-device-007** sob a coluna *de Identificação* de Registo no separador *Inscrições Individuais.* 
 
-    Abra a inscrição e copie o valor da **Chave Primária** gerada. Utilizará este valor-chave e o **ID de registo** mais tarde quando atualizar o código Java para o dispositivo.
+    Abra a inscrição e copie o valor da **Chave Primária** gerada. Utilizará este valor chave e o **ID de registo** mais tarde quando atualizar o código Java para o dispositivo.
 
 
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-device-boot-sequence"></a>Simular a sequência de arranque do dispositivo
+## <a name="simulate-device-boot-sequence"></a>Simular sequência de arranque do dispositivo
 
-Nesta secção, irá atualizar o código da amostra do dispositivo para enviar a sequência de boot do dispositivo para a sua instância DPS. Esta sequência de arranque fará com que o dispositivo seja reconhecido, autenticado e atribuído a um hub IoT ligado à instância DPS.
+Nesta secção, atualizará o código de amostra do dispositivo para enviar a sequência de arranque do dispositivo para a sua instância DPS. Esta sequência de arranque fará com que o dispositivo seja reconhecido, autenticado e atribuído a um hub IoT ligado à instância DPS.
 
-1. No menu do Serviço de Fornecimento de Dispositivos, selecione **visão geral** e note o seu _id scope_ e _provisioning service Global Endpoint_.
+1. A partir do menu serviço de fornecimento de dispositivos, selecione **Overview** e note o seu _ID Scope_ e _Serviço de Provisionamento Global Endpoint_.
 
     ![Informações de serviço](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -96,7 +96,7 @@ Nesta secção, irá atualizar o código da amostra do dispositivo para enviar a
 
     `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
 
-   - Adicione o _id scope_ e o serviço de _provisionamento Global Endpoint_ da sua instância DPS. Inclua também a chave simétrica primária e o ID de inscrição que escolheu para a sua inscrição individual. Guarde as alterações. 
+   - Adicione o _ID Scope_ and _Provisioning Service Global Endpoint_ da sua instância DPS. Inclua também a chave simétrica primária e o ID de inscrição que escolheu para a sua inscrição individual. Guarde as alterações. 
 
       ```java
         private static final String SCOPE_ID = "[Your scope ID here]";
@@ -111,7 +111,7 @@ Nesta secção, irá atualizar o código da amostra do dispositivo para enviar a
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample
     ```
 
-4. Construa a amostra `target` e navegue até à pasta para executar o ficheiro .jar criado.
+4. Construa a amostra e navegue na `target` pasta para executar o ficheiro .jar criado.
 
     ```cmd/sh
     mvn clean install
@@ -119,7 +119,7 @@ Nesta secção, irá atualizar o código da amostra do dispositivo para enviar a
     java -jar ./provisioning-symmetrickey-sample-{version}-with-deps.jar
     ```
 
-5. A saída esperada deve ser semelhante à seguinte:
+5. A produção esperada deve ser semelhante à seguinte:
 
     ```cmd/sh
       Starting...
@@ -132,26 +132,26 @@ Nesta secção, irá atualizar o código da amostra do dispositivo para enviar a
       Message received! Response status: OK_EMPTY
     ```
 
-6. No portal do Azure, navegue para o IoT hub ligado ao seu serviço de aprovisionamento e abra o painel **Explorador de Dispositivos**. Depois de ter conseguido fornecer o dispositivo de chave simétrica simulado ao hub, o seu ID do dispositivo aparece na lâmina do **Device Explorer,** com o *STATUS* tal como **está ativado**.  Poderá ter de premir o botão **Refresh** na parte superior se já abriu a lâmina antes de executar a aplicação do dispositivo de amostra. 
+6. No portal do Azure, navegue para o IoT hub ligado ao seu serviço de aprovisionamento e abra o painel **Explorador de Dispositivos**. Após o fornecimento bem sucedido do dispositivo de chave simétrica simulado para o hub, o seu ID do dispositivo aparece na lâmina do Explorador do **Dispositivo,** com *o STATUS* **como ativado**.  Pode ser necessário premir o botão **Refresh** na parte superior se já tiver aberto a lâmina antes de executar a aplicação do dispositivo de amostra. 
 
     ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device-symm-key-java/hubregistration-java.png) 
 
 > [!NOTE]
-> Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para mais informações, consulte [Compreender e utilizar gémeos dispositivos no IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+> Se tiver alterado o *estado inicial do dispositivo duplo* face ao valor predefinido na entrada de inscrição do seu dispositivo, este pode extrair o estado pretendido do dispositivo duplo a partir do hub e agir em conformidade. Para obter mais informações, consulte [Compreender e utilizar gémeos do dispositivo no IoT Hub.](../iot-hub/iot-hub-devguide-device-twins.md)
 >
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se pretende continuar a trabalhar e a explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste arranque rápido. Se não pretende continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
+Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 
 1. Feche a janela da saída do exemplo de dispositivo cliente no seu computador.
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de fornecimento de dispositivos. Abra **as Inscrições** de Gestão para o seu serviço e, em *REGISTRATION ID* seguida, selecione o separador **Individual Registration.** **Delete** 
-1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra **os dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *DISPOSITIVO ID* do dispositivo que registou neste arranque rápido e, em seguida, prima o botão **Apagar** na parte superior do painel.
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu serviço de Provisionamento de Dispositivos. Abrir **As Inscrições** para o seu serviço e, em seguida, selecionar o separador **Matrículas Individuais.** Selecione a caixa de verificação ao lado do *ID* de registo do dispositivo que inscreveu neste arranque rápido e prima o botão **Eliminar** na parte superior do painel. 
+1. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, selecione o seu hub IoT. Abra **os dispositivos IoT** para o seu hub, selecione a caixa de verificação ao lado do *ID* do dispositivo que registou neste arranque rápido e, em seguida, pressione o botão **Eliminar** na parte superior do painel.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, criou um dispositivo simulado na sua máquina Windows e aprovisionou-o no seu hub IoT utilizando a chave Simétrica com o Serviço de Provisionamento de Dispositivos Hub Azure IoT no portal. Para aprender a inscrever o seu dispositivo programáticamente, continue a acelerar a inscrição programática de dispositivos X.509. 
+Neste arranque rápido, criou um dispositivo simulado na sua máquina Windows e forcou-o no seu hub IoT utilizando a chave simétrica com o Serviço de Provisionamento de Dispositivos Azure IoT Hub no portal. Para aprender a inscrever o seu dispositivo programáticamente, continue a iniciar o quickstart para a inscrição programática de dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Azure quickstart - Inscreva dispositivos X.509 para o Serviço de Provisionamento de Dispositivos Hub Azure IoT](quick-enroll-device-x509-java.md)
+> [Azure quickstart - Inscreva dispositivos X.509 para O Serviço de Provisionamento de Dispositivos Azure IoT Hub](quick-enroll-device-x509-java.md)

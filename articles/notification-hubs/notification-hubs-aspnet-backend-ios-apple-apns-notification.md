@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 71d55471de6fc8681f19a56cd67bb9ba7390e026
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248807"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530183"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push a utilizadores específicos usando hubs de notificação do Azure
 
@@ -41,7 +41,7 @@ Neste tutorial, siga os seguintes passos:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial pressupõe que criou e configura o seu centro de notificação como descrito no [Enviar notificações push para aplicações iOS usando Azure Notification Hubs](ios-sdk-get-started.md). Este tutorial é também o pré-requisito para o tutorial [Secure Push (iOS).](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
-Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte as [aplicações móveis Começar com push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte as [aplicações móveis Começar com push](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 

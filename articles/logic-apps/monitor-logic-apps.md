@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82732007"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536256"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorize o estado de execução, reveja o histórico do gatilho e crie alertas para apps Azure Logic
 
@@ -48,11 +48,11 @@ Cada vez que o gatilho dispara para um item ou evento, o motor De Aplicações L
 
    | Estado | Descrição |
    |--------|-------------|
-   | **Cancelada** | O fluxo de trabalho estava em execução, mas recebeu um pedido de cancelamento |
-   | **Falhou** | Pelo menos uma ação falhou, e nenhuma ação posterior no fluxo de trabalho foi criada para lidar com a falha |
-   | **A executar** | O fluxo de trabalho está em funcionamento. <p>Este estado também pode aparecer para fluxos de trabalho acelerados ou devido ao plano de preços atual. Para mais informações, consulte os [limites de ação na página de preços.](https://azure.microsoft.com/pricing/details/logic-apps/) Se configurar [o registo de diagnósticos,](../logic-apps/monitor-logic-apps.md)pode obter informações sobre quaisquer eventos de aceleração que ocorram. |
-   | **Bem-sucedido** | Todas as ações foram bem sucedidas. <p>**Nota:** Se alguma falha ocorrer numa ação específica, uma ação posterior no fluxo de trabalho tratou dessa falha. |
-   | **A aguardar** | O fluxo de trabalho não começou ou está parado, por exemplo, devido a um fluxo de trabalho anterior que ainda está em funcionamento. |
+   | **Cancelado** | O fluxo de trabalho estava em execução, mas recebeu um pedido de cancelamento |
+   | **Com falhas** | Pelo menos uma ação falhou, e nenhuma ação posterior no fluxo de trabalho foi criada para lidar com a falha |
+   | **Em Execução** | O fluxo de trabalho está em funcionamento. <p>Este estado também pode aparecer para fluxos de trabalho acelerados ou devido ao plano de preços atual. Para mais informações, consulte os [limites de ação na página de preços.](https://azure.microsoft.com/pricing/details/logic-apps/) Se configurar [o registo de diagnósticos,](../logic-apps/monitor-logic-apps.md)pode obter informações sobre quaisquer eventos de aceleração que ocorram. |
+   | **Com êxito** | Todas as ações foram bem sucedidas. <p>**Nota:** Se alguma falha ocorrer numa ação específica, uma ação posterior no fluxo de trabalho tratou dessa falha. |
+   | **Em espera** | O fluxo de trabalho não começou ou está parado, por exemplo, devido a um fluxo de trabalho anterior que ainda está em funcionamento. |
    |||
 
 1. Para rever os passos e outras informações para uma execução específica, no **histórico de Runs,** selecione que executar.
@@ -71,7 +71,7 @@ Cada vez que o gatilho dispara para um item ou evento, o motor De Aplicações L
 
    ![Reveja detalhes sobre cada passo na corrida](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Por exemplo, pode obter a propriedade **de ID de correlação da execução,** que poderá necessitar quando utilizar a [API REST para aplicações lógicas.](https://docs.microsoft.com/rest/api/logic)
+   Por exemplo, pode obter a propriedade **de ID de correlação da execução,** que poderá necessitar quando utilizar a [API REST para aplicações lógicas.](/rest/api/logic)
 
 1. Para obter mais informações sobre um passo específico, selecione qualquer uma das opções:
 
@@ -118,9 +118,9 @@ Cada aplicação lógica começa com um gatilho. O histórico do gatilho lista t
 
    | Estado | Descrição |
    |--------|-------------|
-   | **Falhou** | Ocorreu um erro. Para rever quaisquer mensagens de erro geradas por um gatilho falhado, selecione a tentativa de gatilho e escolha **Saídas**. Por exemplo, pode encontrar entradas que não são válidas. |
+   | **Com falhas** | Ocorreu um erro. Para rever quaisquer mensagens de erro geradas por um gatilho falhado, selecione a tentativa de gatilho e escolha **Saídas**. Por exemplo, pode encontrar entradas que não são válidas. |
    | **Ignorado** | O gatilho verificou o ponto final, mas não encontrou dados. |
-   | **Bem-sucedido** | O gatilho verificou o ponto final e encontrou dados disponíveis. Normalmente, um estatuto de "Despedido" também aparece ao lado deste estatuto. Se não, a definição do gatilho pode ter uma condição ou `SplitOn` comando que não foi cumprido. <p>Este estado pode aplicar-se a um gatilho manual, ao gatilho de recorrência ou ao gatilho das sondagens. Um gatilho pode ser executado com sucesso, mas a execução em si pode ainda falhar quando as ações geram erros não manipulados. |
+   | **Com êxito** | O gatilho verificou o ponto final e encontrou dados disponíveis. Normalmente, um estatuto de "Despedido" também aparece ao lado deste estatuto. Se não, a definição do gatilho pode ter uma condição ou `SplitOn` comando que não foi cumprido. <p>Este estado pode aplicar-se a um gatilho manual, ao gatilho de recorrência ou ao gatilho das sondagens. Um gatilho pode ser executado com sucesso, mas a execução em si pode ainda falhar quando as ações geram erros não manipulados. |
    |||
 
    > [!TIP]
@@ -138,7 +138,7 @@ Cada aplicação lógica começa com um gatilho. O histórico do gatilho lista t
 
 ## <a name="set-up-monitoring-alerts"></a>Configurar alertas de monitorização
 
-Para obter alertas baseados em métricas específicas ou limiares excededos para a sua aplicação lógica, crie [alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais [sobre as métricas em Azure.](../monitoring-and-diagnostics/monitoring-overview-metrics.md) Para configurar alertas sem utilizar [o Azure Monitor,](../log-analytics/log-analytics-overview.md)siga estes passos.
+Para obter alertas baseados em métricas específicas ou limiares excededos para a sua aplicação lógica, crie [alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais [sobre as métricas em Azure.](../azure-monitor/platform/data-platform.md) Para configurar alertas sem utilizar [o Azure Monitor,](../azure-monitor/log-query/log-query-overview.md)siga estes passos.
 
 1. No menu de aplicativos logic, em **Monitorização,** selecione **Alertas**  >  **Nova regra de alerta**.
 
@@ -189,6 +189,6 @@ Para obter alertas baseados em métricas específicas ou limiares excededos para
 > * [Enviar um SMS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 > * [Adicione uma mensagem a uma fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Monitorize aplicações lógicas utilizando o Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md)

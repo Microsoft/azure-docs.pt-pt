@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e9ed36971e157e67ede6573b9fdf9ff1fc6e05a0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bb75405a1cd1e282023936673aa73be25556e0af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044282"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529357"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -41,7 +41,7 @@ Para o ajudar a proteger-se contra estes desafios, o Centro de Segurança fornec
 
 -   **Proteja contra ameaças**: O Centro de Segurança avalia as suas cargas de trabalho e eleva as recomendações de prevenção de ameaças e alertas de segurança.
 
--   **Fique seguro mais rápido**: No Centro de Segurança, tudo é feito em velocidade de nuvem. Como é integrada nativamente, a implementação do Centro de Segurança é fácil, fornecendo aprovisionamento automático e proteção com serviços do Azure.
+-   **Proteger-se rapidamente**: no Centro de Segurança, tudo é feito à velocidade da cloud. Como é integrada nativamente, a implementação do Centro de Segurança é fácil, fornecendo aprovisionamento automático e proteção com serviços do Azure.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -53,7 +53,7 @@ Além disso, o Security Center protege servidores e máquinas virtuais não-Azur
 
 Os eventos recolhidos dos agentes e da Azure estão correlacionados no motor de análise de segurança para fornecer-lhe recomendações personalizadas (tarefas de endurecimento), que deve seguir para se certificar de que as suas cargas de trabalho estão seguras e alertas de segurança. Deve investigar tais alertas o mais rápido possível para garantir que ataques maliciosos não ocorram nas suas cargas de trabalho.
 
-Quando ativa o Centro de Segurança, a política de segurança incorporada ao Centro de Segurança reflete-se na Política Azure como uma iniciativa integrada na categoria Centro de Segurança. A iniciativa incorporada é automaticamente atribuída a todas as subscrições registadas do Security Center (níveis gratuitos ou standard). A iniciativa incorporada contém apenas políticas de auditoria. Para obter mais informações sobre as políticas do Centro de Segurança na Política Azure, consulte [Trabalhar com políticas de segurança.](tutorial-security-policy.md)
+Quando ativa o Centro de Segurança, a política de segurança incorporada ao Centro de Segurança reflete-se na Política Azure como uma iniciativa integrada na categoria Centro de Segurança. A iniciativa incorporada é automaticamente atribuída a todas as subscrições registadas do Security Center (níveis de preços gratuitos ou padrão). A iniciativa incorporada contém apenas políticas de auditoria. Para obter mais informações sobre as políticas do Centro de Segurança na Política Azure, consulte [Trabalhar com políticas de segurança.](tutorial-security-policy.md)
 
 ## <a name="strengthen-security-posture"></a>Reforçar a postura de segurança
 

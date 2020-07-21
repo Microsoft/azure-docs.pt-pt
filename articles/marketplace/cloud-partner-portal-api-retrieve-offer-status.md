@@ -4,18 +4,20 @@ description: API para recuperar o estado atual da oferta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: 897c2517c3836e1c3940db02efae0e5d94667a65
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5652e7b6123a9836c574059e83101a073eea56ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114079"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535880"
 ---
 # <a name="retrieve-offer-status"></a>Obter estado da oferta
 
 > [!NOTE]
-> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a funcionar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a migração para o Partner Center.
+> As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
 Recupera o estado atual da oferta.
 
@@ -25,11 +27,10 @@ Recupera o estado atual da oferta.
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador de editor, por exemplo`Contoso`  |     String     |
-|  offerId        | GUID que identifica exclusivamente a oferta      |     String     |
+|  publisherId    | Identificador de editor, por exemplo`Contoso`  |     Cadeia     |
+|  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia     |
 |  api-version    | Última versão da API                        |     Data       |
 |  |  |
-
 
 ## <a name="header"></a>Cabeçalho
 
@@ -41,7 +42,6 @@ Recupera o estado atual da oferta.
 |  |  |
 
 ## <a name="body-example"></a>Exemplo corporal
-
 
 ### <a name="response"></a>Resposta
 
@@ -116,7 +116,6 @@ Recupera o estado atual da oferta.
   }
 ```
 
-
 ### <a name="response-body-properties"></a>Propriedades do corpo de resposta
 
 |  **Nome**             |    **Descrição**                                                                             |
@@ -152,10 +151,10 @@ Recupera o estado atual da oferta.
 |  Nunca publicado              | A oferta nunca foi publicada.                          |
 |  Não Começou                  | A oferta é nova e não começou.                            |
 |  WaitingForPublisherReview   | A oferta está à espera da aprovação dos editores.                 |
-|  A executar                     | A submissão da oferta está a ser processada.                     |
-|  Bem-sucedido                   | A submissão da oferta completou o processamento.               |
+|  Em Execução                     | A submissão da oferta está a ser processada.                     |
+|  Com êxito                   | A submissão da oferta completou o processamento.               |
 |  Cancelado                    | A submissão da oferta foi cancelada.                           |
-|  Falhou                      | A submissão da oferta falhou.                                 |
+|  Com falhas                      | A submissão da oferta falhou.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Estatuto do Passo

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2fdb83a61f7eaaefb3fab10af46315893791590c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536288"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Quickstart: Crie o seu primeiro fluxo de trabalho utilizando aplicações Azure Logic - portal Azure
 
@@ -20,10 +20,10 @@ Este quickstart introduz os conceitos gerais básicos por trás de como construi
 
 ![Fluxo de trabalho de aplicações lógicas de exemplo de alto nível](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Para este cenário, precisa de uma subscrição do Azure ou [de uma conta Azure gratuita](https://azure.microsoft.com/free/), uma conta de e-mail de um serviço que é suportado por Azure Logic Apps, como o Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de e-mail suportados, [reveja a lista de conectores aqui.](https://docs.microsoft.com/connectors/) Neste exemplo, a aplicação lógica utiliza uma conta Office 365 Outlook. Se utilizar um serviço de e-mail diferente, os passos gerais gerais são os mesmos, mas a interface do utilizador pode diferir ligeiramente.
+Para este cenário, precisa de uma subscrição do Azure ou [de uma conta Azure gratuita](https://azure.microsoft.com/free/), uma conta de e-mail de um serviço que é suportado por Azure Logic Apps, como o Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de e-mail suportados, [reveja a lista de conectores aqui.](/connectors/) Neste exemplo, a aplicação lógica utiliza uma conta Office 365 Outlook. Se utilizar um serviço de e-mail diferente, os passos gerais gerais são os mesmos, mas a interface do utilizador pode diferir ligeiramente.
 
 > [!IMPORTANT]
-> Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+> Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -49,7 +49,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
    | **Subscrição** | <*Nome de subscrição Azure*> | O seu nome de subscrição Azure |
    | **Grupo de recursos** | <*Nome de grupo Azure-recursos*> | O nome do [grupo de recursos Azure](../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". <p><p>**Nota:** Os nomes dos grupos de recursos devem ser únicos em todas as regiões. |
    | **Localização** | <*Região de Azure*> | A região onde armazenar a sua informação lógica de aplicações. Este exemplo usa "West US". |
-   | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
+   | **Log Analytics** | Desligado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
 1. Depois de o Azure implementar a sua aplicação, na barra de **ferramentas**Azure, selecione Notifications  >  **Go para o recurso** para a sua aplicação lógica implementada.
@@ -91,7 +91,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Colapso forma de aplicativo lógica para esconder detalhes](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
-1. Guarde a aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
 A sua aplicação lógica está agora ativa, mas não faz mais nada que não verificar o feed RSS. Por isso, adicione uma ação que responde quando o acionador é acionado.
 
@@ -155,7 +155,7 @@ Adicione agora uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
       | **Ligação principal do feed** | O URL do item |
       |||
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
 Em seguida, teste a aplicação lógica.
 
@@ -186,7 +186,7 @@ Quando já não precisar deste exemplo, elimine o grupo de recursos que contém 
 > [!NOTE]
 > Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, criou a sua primeira aplicação lógica que verifica a existência de atualizações RSS com base no seu agendamento especificado (a cada minuto) e realiza uma ação (envia e-mail) quando existem atualizações. Para saber mais, continue com este tutorial que cria fluxos de trabalho mais avançados com base num agendamento:
 

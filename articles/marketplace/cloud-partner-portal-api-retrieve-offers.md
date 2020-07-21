@@ -4,36 +4,34 @@ description: API para recuperar uma lista resumida de ofertas sob um espaço de 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: ab5f09d0d81d8a6aa526576faea0b11a6536381a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 22d22feb3931f466647c2c4d94bdf924568f2dc5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113484"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535897"
 ---
-<a name="retrieve-offers"></a>Obter ofertas
-===============
+# <a name="retrieve-offers"></a>Obter ofertas
 
 > [!NOTE]
-> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a funcionar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a migração para o Partner Center.
+> As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
 Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros URI
---------------
+## <a name="uri-parameters"></a>Parâmetros URI
 
 | **Nome**         |  **Descrição**                         |  **Tipo de dados** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador de editor, por exemplo`contoso` |   String    |
+|  publisherId     | Identificador de editor, por exemplo`contoso` |   Cadeia    |
 |  api-version     | Última versão da API                    |    Data        |
 |  |  |
 
-
-<a name="header"></a>Cabeçalho
-------
+## <a name="header"></a>Cabeçalho
 
 |  **Nome**        |         **Valor**       |
 |  --------------- |       ----------------  |
@@ -41,9 +39,7 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 |  Autorização   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
-
-<a name="body-example"></a>Exemplo corporal
-------------
+## <a name="body-example"></a>Exemplo corporal
 
 ### <a name="response"></a>Resposta
 
@@ -77,7 +73,6 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 |  mudou de tempo    | Hora utc quando a oferta foi modificada pela última vez                                                                              |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Códigos de estado de resposta
 
 | **Código**  |  **Descrição**                                                                                                   |
@@ -88,7 +83,6 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 |  404      | `Not found`- A entidade especificada não existe.                                                                 |
 |  |  |
 
-
 ### <a name="offer-status"></a>Estado da Oferta
 
 |  **Nome**                    | **Descrição**                                  |
@@ -96,8 +90,8 @@ Recupera uma lista resumida de ofertas sob um espaço de nome de editor.
 |  Nunca publicado              | A oferta nunca foi publicada.                  |
 |  Não Começou                  | A oferta é nova, mas ainda não começou.                 |
 |  WaitingForPublisherReview   | A oferta está à espera da aprovação dos editores.         |
-|  A executar                     | A submissão da oferta está a ser processada.             |
-|  Bem-sucedido                   | A submissão da oferta completou o processamento.       |
+|  Em Execução                     | A submissão da oferta está a ser processada.             |
+|  Com êxito                   | A submissão da oferta completou o processamento.       |
 |  Cancelado                    | A submissão da oferta foi cancelada.                   |
-|  Falhou                      | A submissão da oferta falhou.                         |
+|  Com falhas                      | A submissão da oferta falhou.                         |
 |  |  |

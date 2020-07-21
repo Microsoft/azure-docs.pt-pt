@@ -8,13 +8,13 @@ ms.author: arjagann
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1f93ae8a017c889f6c465b3ccbbb66382577e871
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/11/2020
+ms.openlocfilehash: 6606391d7fd5c2419714531e1220d97fb29aea4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146794"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529595"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexação de bolhas para produzir vários documentos de pesquisa
 Por predefinição, um indexante blob tratará o conteúdo de uma bolha como um único documento de pesquisa. Certos **valores de parsingMode** suportam cenários onde uma bolha individual pode resultar em vários documentos de pesquisa. Os diferentes tipos de **parsingMode** que permitem a um indexante extrair mais de um documento de pesquisa de uma bolha são:
@@ -109,7 +109,7 @@ Se pretender configurar um mapeamento de campo explícito, certifique-se de que 
 > [!NOTE]
 > A abordagem utilizada para `AzureSearch_DocumentKey` garantir a singularidade por entidade extraída está sujeita a alterações e, por isso, não deve confiar no seu valor para as necessidades da sua aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se ainda não está familiarizado com a estrutura básica e o fluxo de trabalho da indexação de bolhas, deve rever o [Indexing Azure Blob Storage com Azure Cognitive Search](search-howto-index-json-blobs.md) em primeiro lugar. Para obter mais informações sobre modos de análise para diferentes tipos de conteúdo de bolhas, reveja os seguintes artigos.
 

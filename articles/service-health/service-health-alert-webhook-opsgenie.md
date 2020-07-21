@@ -3,11 +3,12 @@ title: Envie alertas de saúde do serviço Azure com a OpsGenie usando webhooks
 description: Receba notificações personalizadas sobre eventos de saúde de serviço para a sua instância OpsGenie.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: def12d5e7b1b93b8370cd7be61538fca53531ae1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654142"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529102"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envie alertas de saúde do serviço Azure com a OpsGenie usando webhooks
 
@@ -36,7 +37,7 @@ Este artigo mostra-lhe como configurar alertas de saúde do serviço Azure com a
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Crie um alerta usando OpsGenie no portal Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga os passos 1 a 8 no [Criar um alerta sobre uma notificação de saúde de serviço para um novo grupo de ação através do portal Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Siga os passos 1 a 8 no [Criar um alerta sobre uma notificação de saúde de serviço para um novo grupo de ação através do portal Azure](./alerts-activity-log-service-notifications-portal.md).
 
 1. Definir na lista de **ações:**
 
@@ -84,5 +85,5 @@ Este artigo mostra-lhe como configurar alertas de saúde do serviço Azure com a
 ## <a name="next-steps"></a>Próximos passos
 - Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
 - Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre [as notificações de saúde do serviço.](../azure-monitor/platform/service-notifications.md)
+- Saiba mais sobre [as notificações de saúde do serviço.](./service-notifications.md)
 - Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)

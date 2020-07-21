@@ -143,6 +143,8 @@
           href: cluster-security-certificates.md
         - name: Gestão de certificados no Service Fabric
           href: cluster-security-certificate-management.md
+        - name: Linha de base de segurança para a Referência de Segurança do Azure
+          href: security-baseline.md
     - name: Terminologia
       href: service-fabric-technical-overview.md
     - name: A criar aplicações

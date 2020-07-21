@@ -4,18 +4,20 @@ description: A API Go Live inicia o processo de listagem ao vivo da oferta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: f356291662851172a3c6917b44891ce901546dfa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 5c5448a853447a0eacc8d974a5b00d5d1e8f4be2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115711"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86535948"
 ---
 # <a name="go-live"></a>Ir ao vivo
 
 > [!NOTE]
-> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a funcionar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a migração para o Partner Center.
+> As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
 Esta API inicia o processo de produção de uma app. Esta operação é geralmente longa. Esta chamada utiliza a lista de e-mails de notificação da operação [Publish](./cloud-partner-portal-api-publish-offer.md) API.
 
@@ -26,8 +28,8 @@ Esta API inicia o processo de produção de uma app. Esta operação é geralmen
 
 |  **Nome**      |   **Descrição**                                                           | **Tipo de dados** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificador de editor para a oferta de recuperar, por exemplo`contoso`       |  String       |
-| offerId        | Oferta identificador da oferta para recuperar                                   |  String       |
+| publisherId    | Identificador de editor para a oferta de recuperar, por exemplo`contoso`       |  Cadeia       |
+| offerId        | Oferta identificador da oferta para recuperar                                   |  Cadeia       |
 | api-version    | Última versão da API                                                   |  Data         |
 |  |  |  |
 

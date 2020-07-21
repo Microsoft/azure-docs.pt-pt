@@ -1,5 +1,5 @@
 ---
-title: Computadores Linux a bordo do Azure Security Center Microsoft Docs
+title: A bordo de computadores Linux para o Centro de Segurança Azure Microsoft Docs
 description: Este início rápido mostra como carregar os computadores Linux para o Centro de Segurança.
 services: security-center
 documentationcenter: na
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 72c0c33c973219a9701c8a7c8d45324681e14850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80435966"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529782"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Carregar computadores Linux para o Centro de Segurança do Azure
-Depois de embarcar nas suas subscrições do Azure, pode ativar o Centro de Segurança dos recursos Linux que corre fora do Azure, por exemplo no local ou noutras nuvens, ao fornecer um Agente. O agente chama-se agente de Log Analytics, mas também é conhecido como agente oms.
+Depois de embarcar nas suas subscrições Azure, pode ativar o Centro de Segurança para recursos Linux que correm fora de Azure, por exemplo no local ou em outras nuvens, fornecendo um Agente. O agente é chamado de agente do Log Analytics, mas também é conhecido como o agente OMS.
 
 Este arranque rápido mostra-lhe como instalar o Agente num computador Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Deve estar no nível de preços standard do Security Center antes de iniciar este arranque rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode tentar o Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Deve estar no nível de preços padrão do Security Center antes de iniciar este arranque rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode tentar o Standard do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Adicionar um novo computador Linux
 
-1. Assine no [portal Azure.](https://azure.microsoft.com/features/azure-portal/)
-2. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - Descrição Geral** é aberto.
+1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+2. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - A visão geral** abre.
 
    ![Descrição geral do Centro de Segurança][2]
 
 3. No menu principal do Centro de Segurança, selecione **Introdução**.
-4. Selecione o ![separador **Iniciar.**][3]
+4. Selecione o **separador Iniciar.** ![ Começar][3]
 
 5. Clique em **Configurar** em **Adicionar novos computadores não Azure** e será apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
@@ -56,7 +56,7 @@ Deve estar no nível de preços standard do Security Center antes de iniciar est
 
    ![Instalar o agente][5]
 
-Os registos do Agente podem ser encontrados em: */var/opt/microsoft/omsagent/\<workspace id>/log/*
+Os registos do Agente podem ser encontrados em: */var/opt/microsoft/omsagent/ \<workspace id> /log/*
 
   ![Registos para o agente][6]
 
@@ -80,8 +80,8 @@ Para remover o agente:
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, aprovisionou o agente num computador Linux. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
+## <a name="next-steps"></a>Próximos passos
+Neste arranque rápido, ateses o agente num computador Linux. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)

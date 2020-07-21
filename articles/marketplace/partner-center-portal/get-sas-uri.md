@@ -3,22 +3,22 @@ title: Assinatura de acesso partilhado URI para imagens VM - Azure Marketplace
 description: Gere uma assinatura de acesso partilhado (SAS) URI para os seus discos rígidos virtuais (VHD) no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 04/09/2020
-ms.openlocfilehash: 0fbd7aa42bf65ee0e553282b9961f1a9302b7903
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 569d9ce04422230c1d6b9ebb0957f01c320c5ba0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121729"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536152"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha a assinatura de acesso partilhado URI para a sua imagem VM
 
 Este artigo descreve como gerar um identificador de recursos uniforme (SAS) de acesso partilhado (URI) para cada disco rígido virtual (VHD).
 
-Durante o processo de publicação, você deve fornecer um URI para cada VHD que está associado aos seus planos. Estes planos eram anteriormente referidos como SKUs, ou unidades de armazenamento de stocks. A Microsoft precisa de acesso a estes VHDs durante o processo de certificação. Você vai inserir este URI no **separador Planos** no Partner Center.
+Durante o processo de publicação, você deve fornecer um URI para cada VHD que está associado aos seus planos (anteriormente chamado SKUs). A Microsoft precisa de acesso a estes VHDs durante o processo de certificação. Você vai inserir este URI no **separador Planos** no Partner Center.
 
 Ao gerar SAS URIs para os seus VHDs, siga estes requisitos:
 
@@ -110,7 +110,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Repita estes passos para cada VHD nos SKUs que pretende publicar.
+Repita estes passos para cada VHD nos planos que publicará.
 
 ## <a name="verify-the-sas-uri"></a>Verifique o SAS URI
 
