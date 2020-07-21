@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658562"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539402"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para ver peças de visualização do designer no Azure Monitor
 Ao utilizar o View Designer no Azure Monitor, pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo é um guia de referência para as definições das peças de visualização que estão disponíveis nas suas vistas personalizadas.
@@ -45,7 +46,7 @@ A lista de consultas por parte apresenta uma lista de consultas de registo. Pode
 
 ![Lista de consultas](media/view-designer-parts/view-list-queries.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título |O texto que é exibido na parte superior da vista. |
@@ -61,7 +62,7 @@ O cabeçalho apresenta um único número que mostra uma contagem de registos de 
 
 ![Lista de consultas](media/view-designer-parts/view-number-list.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido na parte superior da vista. |
@@ -76,7 +77,7 @@ O cabeçalho apresenta um único número que mostra uma contagem de registos de 
 | Consulta |A consulta para concorrer à lista. As duas primeiras propriedades para os primeiros dez registos dos resultados são apresentadas. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o `Sort` comando na consulta para classificar os registos da lista. Para executar a consulta e devolver todos os registos, pode selecionar **Ver tudo.** |
 | Ocultar gráfico |Selecione este link para desativar o gráfico à direita da coluna numérica. |
 | Ativar linhas de faísca |Selecione este link para mostrar uma linha de faísca em vez de uma barra horizontal. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
-| Cor |A cor das barras ou das linhas de faísca. |
+| Color |A cor das barras ou das linhas de faísca. |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |**Títulos da Coluna>** |
@@ -90,7 +91,7 @@ O cabeçalho tem dois números que mostram uma contagem de registos de consultas
 
 ![Dois números & vista da lista](media/view-designer-parts/view-two-numbers-list.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido na parte superior da vista. |
@@ -106,7 +107,7 @@ O cabeçalho tem dois números que mostram uma contagem de registos de consultas
 | Consulta |A consulta para concorrer à lista. As duas primeiras propriedades para os primeiros dez registos dos resultados são apresentadas. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. As barras são criadas automaticamente com base no valor relativo da coluna numérica.<br><br>Use o `Sort` comando na consulta para classificar os registos da lista. Para executar a consulta e devolver todos os registos, pode selecionar **Ver tudo.** |
 | Ocultar gráfico |Selecione este link para desativar o gráfico à direita da coluna numérica. |
 | Ativar linhas de faísca |Selecione este link para mostrar uma linha de faísca em vez de uma barra horizontal. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
-| Cor |A cor das barras ou das linhas de faísca. |
+| Color |A cor das barras ou das linhas de faísca. |
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
@@ -121,7 +122,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 
 ![Vista de donut e lista](media/view-designer-parts/view-donut-list.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido no topo do azulejo. |
@@ -142,12 +143,12 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor para cada um dos valores que são apresentados no donut. |
 | **Opções adicionais** |**> Mapeamento de cores avançadas** |
 | Valor do campo |Digite o nome de um campo para exibi-lo como uma cor diferente se estiver incluído no donut. |
-| Cor |Selecione a cor para o campo único. |
+| Color |Selecione a cor para o campo único. |
 | **Lista** | |
 | Consulta |A consulta para concorrer à lista. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione este link para desativar o gráfico à direita da coluna numérica. |
 | Ativar linhas de faísca |Selecione este link para mostrar uma linha de faísca em vez de uma barra horizontal. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
-| Cor |A cor das barras ou das linhas de faísca. |
+| Color |A cor das barras ou das linhas de faísca. |
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
@@ -162,7 +163,7 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 
 ![Duas linhas do tempo e vista de lista](media/view-designer-parts/view-two-timelines-list.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido no topo do azulejo. |
@@ -173,14 +174,14 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Primeira tabela <br> Segundo gráfico** | |
 | Legenda |O texto que é exibido sob a chamada para a primeira série. |
-| Cor |A cor a usar para as colunas da série. |
+| Color |A cor a usar para as colunas da série. |
 | Consulta |A consulta para correr para a primeira série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas de gráficos. |
 | Operação |A operação para executar na propriedade de valor para resumi-la como um único valor para a chamada.<ul><li>Soma: A soma dos valores de todos os registos.</li><li>Média: A média dos valores de todos os registos.</li><li>Última amostra: o valor do último intervalo incluído na tabela.</li><li>Primeira amostra: o valor do primeiro intervalo incluído na tabela.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li></ul> |
 | **Lista** | |
 | Consulta |A consulta para concorrer à lista. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione este link para desativar o gráfico à direita da coluna numérica. |
 | Ativar linhas de faísca |Selecione este link para mostrar uma linha de faísca em vez de uma barra horizontal. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
-| Cor |A cor das barras ou das linhas de faísca. |
+| Color |A cor das barras ou das linhas de faísca. |
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Lista** |**Títulos da Coluna>** |
@@ -194,12 +195,12 @@ O cabeçalho apresenta texto estático e um link opcional. A lista apresenta um 
 
 ![Vista de informação](media/view-designer-parts/view-information.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido no topo do azulejo. |
 | Novo Grupo |Selecione este link para criar um novo grupo na vista, começando pela vista atual. |
-| Cor |A cor de fundo para o cabeçalho. |
+| Color |A cor de fundo para o cabeçalho. |
 | **Cabeçalho** | |
 | Imagem |O ficheiro de imagem que é apresentado no cabeçalho. |
 | Etiqueta |O texto que é mostrado no cabeçalho. |
@@ -215,7 +216,7 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 
 ![Gráfico de linha, chamada e vista de lista](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido no topo do azulejo. |
@@ -225,14 +226,14 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | **Cabeçalho** | |
 | Título |O texto que é mostrado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é exibido sob o título no topo do cabeçalho. |
-| **Gráfico de linha** | |
+| **Gráfico de linhas** | |
 | Consulta |A consulta para correr para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não incluir a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Gráfico de linha** |**> Callout** |
+| **Gráfico de linhas** |**> Callout** |
 | Título de chamada |O texto que é apresentado acima do valor de chamada. |
 | Nome da série |Valor da propriedade para a série a usar para o valor de chamada. Se não forem fornecidas séries, todos os registos da consulta são utilizados. |
 | Operação |A operação para executar na propriedade de valor para resumi-la como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: o valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela.</li><li>Min: O valor mínimo dos intervalos incluídos na tabela.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
-| **Gráfico de linha** |**> eixo Y** |
+| **Gráfico de linhas** |**> eixo Y** |
 | Use a escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para que os valores sejam devolvidos pela consulta. Estas informações são utilizadas para exibir etiquetas de gráficos que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *de Unidade* especifica a categoria da unidade e define os valores de tipo Unidade *De Corrente* disponíveis. Se selecionar um valor em *Converter para,* os valores numéricos são convertidos do tipo *Unidade Atual* para o *Converse para* o tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada nenhuma etiqueta, apenas é apresentado o tipo *Unidade.* |
@@ -240,7 +241,7 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | Consulta |A consulta para concorrer à lista. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione este link para desativar o gráfico à direita da coluna numérica. |
 | Ativar linhas de faísca |Selecione este link para mostrar uma linha de faísca em vez de uma barra horizontal. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
-| Cor |A cor das barras ou das linhas de faísca. |
+| Color |A cor das barras ou das linhas de faísca. |
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
@@ -255,7 +256,7 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 
 ![Gráfico de linha e vista de lista](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido no topo do azulejo. |
@@ -265,10 +266,10 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | **Cabeçalho** | |
 | Título |O texto que é mostrado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é exibido sob o título no topo do cabeçalho. |
-| **Gráfico de linha** | |
+| **Gráfico de linhas** | |
 | Consulta |A consulta para correr para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não incluir a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
-| **Gráfico de linha** |**> eixo Y** |
+| **Gráfico de linhas** |**> eixo Y** |
 | Use a escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para que os valores sejam devolvidos pela consulta. Estas informações são utilizadas para exibir etiquetas de gráficos que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *de Unidade* especifica a categoria da unidade e define os valores de tipo Unidade *De Corrente* disponíveis. Se selecionar um valor em *Converter para,* os valores numéricos são convertidos do tipo *Unidade Atual* para o *Converse para* o tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada nenhuma etiqueta, apenas é apresentado o tipo *Unidade.* |
@@ -276,7 +277,7 @@ O cabeçalho apresenta um gráfico de linha com várias séries a partir de uma 
 | Consulta |A consulta para concorrer à lista. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione este link para desativar o gráfico à direita da coluna numérica. |
 | Ativar linhas de faísca |Selecione este link para mostrar uma linha de faísca em vez de uma barra horizontal. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
-| Cor |A cor das barras ou das linhas de faísca. |
+| Color |A cor das barras ou das linhas de faísca. |
 | Operação |A operação para executar para a linha de faísca. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Separador de nome e valor |O delimiter de caracteres únicos para usar para analisar a propriedade do texto em múltiplos valores. Para obter mais informações, consulte [As Definições Comuns](#sparklines). |
 | Navegação por clique | Ação tomada quando clica num item da lista.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
@@ -291,7 +292,7 @@ A pilha de gráficos de linha apresenta três gráficos de linha separados, com 
 
 ![Pilha de gráficos de linha](media/view-designer-parts/view-stack-line-charts.png)
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | **Geral** | |
 | Título de grupo |O texto que é exibido no topo do azulejo. |
@@ -300,7 +301,7 @@ A pilha de gráficos de linha apresenta três gráficos de linha separados, com 
 | **Gráfico 1 <br> Gráfico 2 <br> Gráfico 3** |**Cabeçalho>** |
 | Título |O texto que é exibido no topo da tabela. |
 | Subtítulo |O texto que é exibido sob o título no topo da tabela. |
-| **Gráfico 1 <br> Gráfico 2 <br> Gráfico 3** |**Gráfico de linha** |
+| **Gráfico 1 <br> Gráfico 2 <br> Gráfico 3** |**Gráfico de linhas** |
 | Consulta |A consulta para correr para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não incluir a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | Navegação por clique | Ação tomada quando clica no cabeçalho.  Para obter mais informações, consulte [As Definições Comuns](#click-through-navigation). |
 | **Gráfico** |**> eixo Y** |
@@ -317,11 +318,11 @@ O separador de nome e valor é o delimiter de caracteres únicos para usar para 
 Por exemplo, considere uma propriedade chamada *Localização* que incluiu valores como *Redmond-Building 41* e *Bellevue-Building 12*. Pode especificar um traço (-) para o nome e separador de valor e *city-building* para o nome. Esta abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício.*
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navegação click-through
-A navegação por clique define que ação será tomada quando clicar num cabeçalho ou listar um item numa vista.  Isto abrirá uma consulta no [Log Analytics](../../azure-monitor/log-query/portals.md) ou lançará outra vista.
+A navegação por clique define que ação será tomada quando clicar num cabeçalho ou listar um item numa vista.  Isto abrirá uma consulta no [Log Analytics](../log-query/log-query-overview.md) ou lançará outra vista.
 
 A tabela seguinte descreve as definições para a navegação por clique.
 
-| Definição           | Descrição |
+| Definições           | Descrição |
 |:--|:--|
 | Pesquisa de registo (Auto) | Faça a consulta de registo a executar quando selecionar um item de cabeçalho.  Esta é a mesma consulta de registo em que o item é baseado.
 | Pesquisa de Registos        | Faça a consulta de registo a ser executada quando selecionar um item numa lista.  Digite a consulta na caixa **de consulta de navegação.**   Utilize *{item selecionado}* para incluir a sintaxe para o item que o utilizador selecionou.  Por exemplo, se a consulta tiver uma coluna chamada *Computador* e a consulta de navegação for *{item selecionado}*, uma consulta como *Computer="MyComputer"* é executada quando seleciona um computador. Se a consulta de navegação for *Type=Event {item selecionado}*, é executada a consulta *Type=Event Computer="MyComputer".* |
@@ -334,7 +335,7 @@ Uma linha de faísca é um pequeno gráfico de linha que ilustra o valor de uma 
 
 A tabela a seguir descreve as definições para as linhas de faísca:
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | Ativar linhas de faísca |Selecione este link para mostrar uma linha de faísca em vez de uma barra horizontal. |
 | Operação |Se as linhas de faísca estiverem ativadas, esta é a operação a executar em cada propriedade da lista para calcular os valores para a linha de faísca.<ul><li>Última amostra: O último valor da série durante o intervalo de tempo.</li><li>Max: O valor máximo da série durante o intervalo de tempo.</li><li>Min: O valor mínimo para a série durante o intervalo de tempo.</li><li>Soma: A soma dos valores da série ao longo do intervalo de tempo.</li><li>Resumo: Utiliza o mesmo `measure` comando que a consulta no cabeçalho.</li></ul> |
@@ -348,12 +349,12 @@ Cada conjunto de limiares tem um limiar com um valor de **Padrão**. Esta é a c
 
 O quadro que se segue descreve as definições dos limiares:
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:--- |:--- |
 | Ativar limiares |Selecione este link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a saúde do valor em relação aos limiares especificados. |
 | Name |O nome do valor limiar. |
 | Limiar |O valor para o limiar. A cor de saúde de cada item da lista é definida para a cor do valor limiar mais elevado que é ultrapassado pelo valor do item. Se não forem ultrapassados os valores limiares, é utilizada uma cor padrão. |
-| Cor |A cor que indica o valor limiar. |
+| Color |A cor que indica o valor limiar. |
 
 ## <a name="next-steps"></a>Próximos passos
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para suportar as consultas em peças de visualização.

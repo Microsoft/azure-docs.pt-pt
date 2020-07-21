@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: c68ffd019937f902567c3deda8d879448dc082da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847036"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537025"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Circuitos e peering do ExpressRoute)
 
 Os circuitos ExpressRoute ligam a sua infraestrutura no local à Microsoft através de um fornecedor de conectividade. Este artigo ajuda-o a compreender os circuitos ExpressRoute e os domínios de encaminhamento/observação. A seguinte figura mostra uma representação lógica da conectividade entre o wan e a Microsoft.
 
-![](./media/expressroute-circuit-peerings/expressroute-basic.png)
+![Diagrama mostrando como os circuitos ExpressRoute ligam a sua infraestrutura no local à Microsoft através de um fornecedor de conectividade.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
 > O azure de espreitar público foi depreciado e não está disponível para novos circuitos ExpressRoute. Os novos circuitos suportam o espreitamento da Microsoft e o seu espreitamento privado.  
@@ -42,7 +42,7 @@ As quotas e limites predefinidos aplicam-se a todos os circuitos ExpressRoute. C
 
 Um circuito ExpressRoute tem vários domínios/pares associados: Público Azure, Azure privado e Microsoft. Cada espreguite é configurado de forma idêntica num par de routers (em configuração ativa ou de partilha de carga) para uma elevada disponibilidade. Os serviços Azure são classificados como *públicos Azure* e *Azure privados* para representar os esquemas de endereçamento ip.
 
-![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Diagrama mostrando como o público Azure, a Azure privado e os seus pares microsoft são configurados num circuito ExpressRoute.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="azure-private-peering"></a><a name="privatepeering"></a>Peering privado do Azure
 
@@ -50,7 +50,7 @@ Os serviços de computação Azure, nomeadamente máquinas virtuais (IaaS) e ser
 
 Pode ligar mais do que uma rede virtual ao domínio de observação privada. Reveja a [página de PERGUNTAS Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Pode visitar a página [Azure Subscription and Service Limits, Quotas e Restrições](../azure-resource-manager/management/azure-subscription-service-limits.md) para obter informações atualizadas sobre limites.  Consulte a página [de encaminhamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração do encaminhamento.
 
-### <a name="microsoft-peering"></a><a name="microsoftpeering"></a>Microsoft a espreitar
+### <a name="microsoft-peering"></a><a name="microsoftpeering"></a>Peering da Microsoft
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 

@@ -5,11 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864407"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538824"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Falha de backup do Azure: Problemas com o agente ou extensão
 
@@ -27,7 +28,7 @@ O agente Azure VM pode ser detido, desatualizado, num estado inconsistente, ou n
 - **O portal Open Azure > VM > Configurações > o painel de propriedades** > garantir que o estado **do** VM está **a funcionar** e o estado **do agente** está **pronto**. Se o agente VM for parado ou estiver num estado inconsistente, reinicie o agente<br>
   - Para os VMs do Windows, siga estes [passos](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) para reiniciar o Agente Convidado.<br>
   - Para os VMs Linux, siga estes [passos](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) para reiniciar o Agente Convidado.
-- **O portal Open Azure > VM > Definições > extensões** > Garantir que todas as extensões estão em **estado de provisionamento bem sucedido.** Caso contrário, siga estes [passos](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) para resolver a questão.
+- **O portal Open Azure > VM > Definições > extensões** > Garantir que todas as extensões estão em **estado de provisionamento bem sucedido.** Caso contrário, siga estes [passos](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) para resolver a questão.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - não foi possível comunicar com o agente da VM para obter o estado do instantâneo
 
@@ -51,7 +52,7 @@ Depois de registar e agendar um VM para o serviço Azure Backup, o Backup inicia
 **Código de erro**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
 
-Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de provisão falhado.<br>**O portal Open Azure > VM > Definições > Extensões > Estado das Extensões** e verifique se todas as extensões estão em **disposição estão bem sucedidas.** Para saber mais, consulte [os Estados de Provisionamento.](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states)
+Este erro ocorre quando uma das falhas de extensão coloca o VM em estado de provisão falhado.<br>**O portal Open Azure > VM > Definições > Extensões > Estado das Extensões** e verifique se todas as extensões estão em **disposição estão bem sucedidas.** Para saber mais, consulte [os Estados de Provisionamento.](../virtual-machines/windows/states-lifecycle.md#provisioning-states)
 
 - Se a extensão VMSnapshot estiver num estado falhado, clique com o botão direito na extensão falhada e remova-a. Desencadeie uma cópia de segurança a pedido. Esta ação reinstalará as extensões e executará o trabalho de backup.  <br>
 - Se qualquer outra extensão estiver em estado de falha, então pode interferir com a cópia de segurança. Certifique-se de que estas questões de extensão estão resolvidas e relemisse a operação de reserva.
@@ -79,7 +80,7 @@ Para resolver este problema, retire o bloqueio do grupo de recursos do VM e reve
 **Código de erro**: UserErrorKeyvaultPermissionsNot Configurado <br>
 **Error message**: Backup não tem permissões suficientes para o cofre de chaves para cópia de segurança de VMs encriptados. <br>
 
-Para que uma operação de backup tenha sucesso em VMs encriptados, deve ter permissões para aceder ao cofre da chave. As permissões podem ser definidas através do [portal Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou através [do PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Para que uma operação de backup tenha sucesso em VMs encriptados, deve ter permissões para aceder ao cofre da chave. As permissões podem ser definidas através do [portal Azure](./backup-azure-vms-encryption.md) ou através [do PowerShell](./backup-azure-vms-automation.md#enable-protection).
 
 ## <a name="extensionsnapshotfailednonetwork---snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a><a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - a operação de instantâneo falhou devido à falta de conectividade de rede na máquina virtual
 
@@ -129,9 +130,9 @@ O teu recente trabalho de reserva falhou porque há um trabalho de reserva em an
 2. Da lista de cofres dos serviços de recuperação, selecione um cofre no qual a cópia de segurança está configurada.
 3. No menu do painel de instrumentos do cofre, clique **em Backup Jobs** exibe todos os trabalhos de backup.
    - Se um trabalho de reserva estiver em andamento, aguarde que complete ou cancele o trabalho de reserva.
-     - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e clique em **Cancelar** ou utilizar [o PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+     - Para cancelar o trabalho de backup, clique com o botão direito no trabalho de backup e clique em **Cancelar** ou utilizar [o PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - Se reconfiguraste o apoio num cofre diferente, então assegura-te que não há trabalhos de reserva a funcionar no velho cofre. Se existe, cancele o trabalho de reserva.
-     - Para cancelar a tarefa de cópia de segurança, faça clique com o botão direito do rato na tarefa de cópia de segurança e clique em **Cancelar** ou utilize o [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+     - Para cancelar a tarefa de cópia de segurança, faça clique com o botão direito do rato na tarefa de cópia de segurança e clique em **Cancelar** ou utilize o [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
 4. Re-tentar a operação de reserva.
 
 Se a operação de backup programada estiver a demorar mais tempo, entrando em conflito com a próxima configuração de backup, em seguida, reveja as [melhores práticas,](backup-azure-vms-introduction.md#best-practices) [o desempenho de backup](backup-azure-vms-introduction.md#backup-performance)e a [consideração de Restauro](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -166,7 +167,7 @@ O agente VM pode ter sido corrompido, ou o serviço pode ter sido parado. Reinst
 6. Faça uma cópia de segurança a pedido:
    - No portal, **selecione Backup Now**.
 
-Além disso, verifique se [o Microsoft .NET 4.5 está instalado](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) no VM. .NET 4.5 é necessário para que o agente VM comunique com o serviço.
+Além disso, verifique se [o Microsoft .NET 4.5 está instalado](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) no VM. .NET 4.5 é necessário para que o agente VM comunique com o serviço.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>O agente instalado no VM está desatualizado (para Os VMs Linux)
 
@@ -174,7 +175,7 @@ Além disso, verifique se [o Microsoft .NET 4.5 está instalado](https://docs.mi
 
 A maioria das falhas relacionadas com o agente ou relacionadas com extensões para os VMs do Linux são causadas por problemas que afetam um agente VM desatualizado. Para resolver este problema, siga estas orientações gerais:
 
-1. Siga as instruções de [atualização do agente Linux VM](../virtual-machines/linux/update-agent.md).
+1. Siga as instruções de [atualização do agente Linux VM](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
    > *Recomendamos vivamente* que atualize o agente apenas através de um repositório de distribuição. Não recomendamos o download do código de agente diretamente do GitHub e atualizá-lo. Se o último agente para a sua distribuição não estiver disponível, contacte o suporte de distribuição para obter instruções sobre como instalá-lo. Para verificar o agente mais recente, vá à página do [agente Do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) no repositório do GitHub.
@@ -206,7 +207,7 @@ Para obter a lista completa das opções de ficheiros de configuração de víde
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>A solução de controlo de aplicações está a bloquear IaaSBcdrExtension.exe
 
-Se estiver a executar [o AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou outra solução de controlo de aplicações) e as regras forem baseadas em editores ou caminhos, podem bloquear a execução da **IaaSBcdrExtension.exe.**
+Se estiver a executar [o AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou outra solução de controlo de aplicações) e as regras forem baseadas em editores ou caminhos, podem bloquear a execução da **IaaSBcdrExtension.exe.**
 
 #### <a name="solution"></a>Solução
 

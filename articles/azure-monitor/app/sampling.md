@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28bbf9749375a4523237e840c217977853cd4ddd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319639"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539827"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -21,7 +21,7 @@ Quando as contagens métricas são apresentadas no portal, são renormalizadas p
 ## <a name="brief-summary"></a>Breve resumo
 
 * Existem três tipos diferentes de amostragem: amostragem adaptativa, amostragem de taxa fixa e amostragem de ingestão.
-* A amostragem adaptativa é ativada por padrão em todas as versões mais recentes dos ASP.NET de Insights de Aplicação e ASP.NET Core Software Development Kits (SDKs). Também é utilizado pelas [Funções Azure.](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+* A amostragem adaptativa é ativada por padrão em todas as versões mais recentes dos ASP.NET de Insights de Aplicação e ASP.NET Core Software Development Kits (SDKs). Também é utilizado pelas [Funções Azure.](../../azure-functions/functions-overview.md)
 * A amostragem de taxa fixa está disponível nas versões recentes dos SDKs application insights para ASP.NET, ASP.NET Core, Java (tanto o agente como o SDK) e Python.
 * A amostragem de ingestão funciona no ponto final do serviço Application Insights. Só se aplica quando não existe outra amostragem. Se o SDK provar a sua telemetria, a amostragem de ingestão é desativada.
 * Para aplicações web, se registar eventos personalizados e precisar de garantir que um conjunto de eventos é mantido ou descartado em conjunto, os eventos devem ter o mesmo `OperationId` valor.
@@ -33,9 +33,10 @@ O quadro que se segue resume os tipos de amostragem disponíveis para cada SDK e
 | Insights de Aplicação SDK | Amostragem adaptativa suportada | Amostragem de taxa fixa suportada | Amostragem de ingestão suportada |
 |-|-|-|-|
 | ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Núcleo de ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| ASP.NET Core | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
 | Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | Não | Só se nenhuma outra amostragem estiver em vigor |
 | Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Node.JS | Não | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
 | Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
 | Todos os outros | Não | Não | [Sim](#ingestion-sampling) |
 
@@ -209,7 +210,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Configurar amostras adaptativas para funções Azure
 
-Siga as instruções [desta página](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) para configurar amostras adaptativas para aplicações em execução em Funções Azure.
+Siga as instruções [desta página](../../azure-functions/functions-monitoring.md#configure-sampling) para configurar amostras adaptativas para aplicações em execução em Funções Azure.
 
 ## <a name="fixed-rate-sampling"></a>Amostragem de taxa fixa
 
@@ -481,7 +482,7 @@ Se não se aplicarem as condições de utilização das outras formas de amostra
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>Saber se a amostragem está em funcionamento
 
-Para descobrir a taxa de amostragem real, independentemente do local onde tenha sido aplicada, utilize uma [consulta analítica](../../azure-monitor/app/analytics.md) como esta:
+Para descobrir a taxa de amostragem real, independentemente do local onde tenha sido aplicada, utilize uma [consulta analítica](../log-query/log-query-overview.md) como esta:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -586,4 +587,4 @@ Antes de v2.5.0-beta2 do ASP.NET SDK, e v2.2.0-beta3 de ASP.NET Core SDK, a deci
 ## <a name="next-steps"></a>Próximos passos
 
 * [A filtragem](../../azure-monitor/app/api-filtering-sampling.md) pode fornecer um controlo mais rigoroso do que o seu SDK envia.
-* Leia o artigo da Rede de [Desenvolvedores Otimize a Telemetria com Insights de Aplicação](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Leia o artigo da Rede de [Desenvolvedores Otimize a Telemetria com Insights de Aplicação](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).

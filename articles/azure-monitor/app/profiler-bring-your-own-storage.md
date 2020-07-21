@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361943"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539861"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure Traga o seu próprio armazenamento (BYOS) para perfis de aplicações e debugger snapshot
 
@@ -21,9 +21,9 @@ Quando utiliza o Profiler Application Insights ou o Snapshot Debugger, os artefa
 Com o Bring Your Own Storage, estes artefactos são enviados para uma conta de armazenamento que controla. Isso significa que controla a política de encriptação em repouso, a política de gestão vitalícia e o acesso à rede. No entanto, será responsável pelos custos associados a essa conta de armazenamento.
 
 > [!NOTE]
-> Se estiver a ativar o Link Privado, o Bring Your Own Storage é um requisito. Para obter mais informações sobre o Link Privado para Insights de Aplicações, [consulte a documentação.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
+> Se estiver a ativar o Link Privado, o Bring Your Own Storage é um requisito. Para obter mais informações sobre o Link Privado para Insights de Aplicações, [consulte a documentação.](../platform/private-link-security.md)
 >
-> Se estiver a ativar as chaves geridas pelo cliente, o Bring Your Own Storage é um requisito. Para obter mais informações sobre as Chaves Geridas pelo Cliente para Insights de Aplicações, [consulte a documentação.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
+> Se estiver a ativar as chaves geridas pelo cliente, o Bring Your Own Storage é um requisito. Para obter mais informações sobre as Chaves Geridas pelo Cliente para Insights de Aplicações, [consulte a documentação.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Como é que a minha conta de armazenamento vai ser acedida?
 1. Os agentes que executam as suas Máquinas Virtuais ou Serviço de Aplicações irão enviar artefactos (perfis, instantâneos e símbolos) para contentores de bolhas na sua conta. Este processo envolve contactar o profiler de insights de aplicações ou o serviço Snapshot Debugger para obter um token SAS (Shared Access Signature) para uma nova bolha na sua conta de armazenamento.
@@ -31,7 +31,7 @@ Com o Bring Your Own Storage, estes artefactos são enviados para uma conta de a
 1. Quando visualizar os vestígios do perfil, ou a análise do depurador instantâneo, o serviço irá buscar os resultados da análise do armazenamento de bolhas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Certifique-se de criar a sua Conta de Armazenamento no mesmo local que o seu Recurso de Insights de Aplicação. Ex. Se o seu recurso Application Insights estiver no West US 2, a sua Conta de Armazenamento também deve estar no West US 2. 
+* Certifique-se de criar a sua Conta de Armazenamento no mesmo local que o seu Recurso de Insights de Aplicação. Por exemplo: Se o seu recurso Application Insights estiver no West US 2, a sua Conta de Armazenamento também deve estar no West US 2. 
 * Conceda a função "Storage Blob Data Contributor" à aplicação AAD "Serviços de Diagnóstico Acesso de Armazenamento Fidedignos" na sua conta de armazenamento através do UI do Controlo de Acesso (IAM).
 * Se o Private Link estiver ativado, configufique a definição adicional para permitir a ligação ao nosso Serviço Microsoft Fidedigno a partir da sua Rede Virtual. 
 
@@ -60,7 +60,7 @@ Depois de ter adicionado o papel, aparecerá na secção "Atribuições de Funç
 _ ![ Figura 1.1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _Figura 1.1_ 
 
-Se também estiver a utilizar o Private Link, é necessária uma configuração adicional para permitir a ligação ao nosso Serviço Microsoft Fidedigno a partir da sua Rede Virtual. Consulte a [documentação de segurança da rede de armazenamento.](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
+Se também estiver a utilizar o Private Link, é necessária uma configuração adicional para permitir a ligação ao nosso Serviço Microsoft Fidedigno a partir da sua Rede Virtual. Consulte a [documentação de segurança da rede de armazenamento.](../../storage/common/storage-network-security.md#trusted-microsoft-services)
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Ligue a sua Conta de Armazenamento com o seu recurso Application Insights
 Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugger), existem duas opções:
@@ -73,7 +73,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
 
 1. Certifique-se de que instalou aZ PowerShell 4.2.0 ou superior.
 
-    Para instalar a Azure PowerShell, consulte a [documentação Oficial Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+    Para instalar a Azure PowerShell, consulte a [documentação Oficial Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. Instale a extensão PowerShell do Insights de Aplicação.
     ```powershell
@@ -85,7 +85,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
     Connect-AzAccount -Subscription "{subscription_id}"
     ```
 
-    Para obter mais informações sobre como iniciar scontabilidade, consulte a [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    Para obter mais informações sobre como iniciar scontabilidade, consulte a [documentação Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Remova a Conta de Armazenamento anterior ligada ao seu recurso Application Insights.
 
@@ -121,7 +121,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
 
 1. Certifique-se de que instalou o Azure CLI.
 
-    Para instalar o Azure CLI, consulte a documentação oficial do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+    Para instalar o Azure CLI, consulte a documentação oficial do [Azure CLI](/cli/azure/install-azure-cli).
 
 1. Instale a extensão CLI do Application Insights.
     ```powershell
@@ -152,7 +152,7 @@ Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugge
     ```
 
     > [!NOTE]
-    > Para realizar atualizações nas contas de armazenamento ligadas ao seu recurso Application Insights, consulte a [documentação CLI](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage)do Application Insights .
+    > Para realizar atualizações nas contas de armazenamento ligadas ao seu recurso Application Insights, consulte a [documentação CLI](/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage)do Application Insights .
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Configurar usando o modelo do Gestor de Recursos Azure
 

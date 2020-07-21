@@ -4,17 +4,18 @@ description: Aprenda a escalar o seu recurso por métrica personalizada em Azure
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e744e6a91eb6fbe23a6b45f95c39b1acfdcb61f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425124"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539589"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Começar com escala automática por métrica personalizada em Azure
 Este artigo descreve como escalar o seu recurso por uma métrica personalizada no portal Azure.
 
 A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escala de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure Data Explorer Cluster](https://azure.microsoft.com/services/data-explorer/) ,   
-Serviços de Integração Ambiente e [Gestão de API.](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
+Serviços de Integração Ambiente e [Gestão de API.](../../api-management/api-management-key-concepts.md)
 
 ## <a name="lets-get-started"></a>Vamos começar
 Este artigo assume que tem uma aplicação web com insights de aplicações configurados. Se ainda não tiver um, pode [configurar o Application Insights para o seu website ASP.NET][1]
@@ -40,11 +41,10 @@ Parabéns! Criou agora com sucesso a sua definição de escala para escalar auto
 > Nota: Os mesmos passos são aplicáveis para começar com uma função de VMSS ou serviço de nuvem.
 
 <!--Reference-->
-[1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net
+[1]: ../app/asp-net.md
 [2]: https://portal.azure.com
 [3]: ./media/autoscale-custom-metric/azure-monitor-launch.png
 [4]: ./media/autoscale-custom-metric/discover-autoscale-azure-monitor.png
 [5]: ./media/autoscale-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/autoscale-custom-metric/scale-by-custom-metric.png
 [7]: ./media/autoscale-custom-metric/autoscale-setting-custom-metrics-ai.png
-

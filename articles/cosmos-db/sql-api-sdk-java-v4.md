@@ -8,11 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc872b24c78fbdf6e55673f9d1f78efc0647895
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412639"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537889"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 para Core (SQL) API: notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -60,6 +61,17 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 | **Workshops e laboratórios DB da Azure Cosmos** |[Página inicial dos workshops do Cosmos DB](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>História do lançamento
+
+### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+* A sessão de registo de scripts adicionada permitiu que a API `CosmosStoredProcedureRequestOptions` .
+* Padrão atualizado `DirectConnectionConfig` `idleEndpointTimeout` para 1h e predefinição `connectTimeout` para 5s.
+#### <a name="key-bug-fixes"></a>Correções de erros de chaves
+* Problema fixo onde `GatewayConnectionConfig` `idleConnectionTimeout` foi `DirectConnectionConfig` `idleConnectionTimeout` primordial.
+* Fixo `responseContinuationTokenLimitInKb` get e definir APIs em `CosmosQueryRequestOptions` .
+* Problema fixo na consulta e alteração do feed ao recriar a coleção com o mesmo nome.
+* Problema fixo com consulta de topo lançando ClassCastException.
+* Problema fixo com a ordem por consulta lançando NullPointerException.
+* Problema fixo no tratamento de pedidos cancelados em modo direto, fazendo com que o reator `onErrorDropped` seja chamado. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
 #### <a name="new-features"></a>Novas Funcionalidades

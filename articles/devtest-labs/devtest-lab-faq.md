@@ -2,13 +2,13 @@
 title: Azure DevTest Labs FAQ Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 707b66fadab482a31ac02f10460d581997931a0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481668"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537496"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre a Azure DevTest Labs.
@@ -200,7 +200,7 @@ Para copiar os seus VMs existentes para a DevTest Labs:
 Sim, pode anexar vários discos aos seus VMs.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>As imagens da Gen 2 são apoiadas pela DevTest Labs?
-Não. O serviço DevTest Labs não suporta [imagens da Gen 2.](../virtual-machines/windows/generation-2.md) Se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Não verá uma imagem se só houver versão da Gen 2 disponível. 
+Yes. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/windows/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do Windows OS para os meus testes, tenho de comprar uma subscrição da MSDN?
 Para utilizar imagens DE OS do cliente Do Windows (Windows 7 ou versão posterior) para o seu desenvolvimento ou teste em Azure, tome um dos seguintes passos:
@@ -212,7 +212,7 @@ Para obter mais informações sobre os créditos Azure para cada oferta da MSDN,
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>Como posso automatizar o processo de apagar todos os VMs do meu laboratório?
-Como dono de laboratório, pode apagar VMs do seu laboratório no portal Azure. Também pode eliminar todos os VMs do seu laboratório utilizando um script PowerShell. No exemplo seguinte, nos **valores para alterar** comentários, modificar os valores dos parâmetros. Pode recuperar os valores de subscriçãoId, labResourceGroup e labName a partir do painel de laboratório no portal Azure.
+Como dono de laboratório, pode apagar VMs do seu laboratório no portal Azure. Também pode eliminar todos os VMs do seu laboratório utilizando um script PowerShell. No exemplo seguinte, nos **valores para alterar** comentários, modificar os valores dos parâmetros. Pode recuperar o `subscriptionId` `labResourceGroup` , e `labName` valores do painel de laboratório no portal Azure.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -337,12 +337,12 @@ As seguintes publicações de blog oferecem orientação e informações sobre a
 
 Para outras cadeiras de ferramentas de integração contínua (CI)/entrega contínua (CD), pode alcançar os mesmos cenários através da implementação de [modelos de Gestor de Recursos Azure,](https://azure.microsoft.com/resources/templates/) utilizando [cmdlets Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Também pode utilizar [APIs REST para a DevTest Labs](https://aka.ms/dtlrestapis) para se integrar com a sua ferramenta.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para o meu ambiente DevTest Labs vs. usando uma rede virtual existente?
-Se os seus VMs precisarem de interagir com a infraestrutura existente, então considere usar uma rede virtual existente dentro do seu ambiente DevTest Labs. Se utilizar o ExpressRoute, poderá querer minimizar a quantidade de VNets / Subnets para que não fragmente o espaço de endereço IP que é atribuído para utilização nas subscrições.
+Se os seus VMs precisarem de interagir com a infraestrutura existente, então considere usar uma rede virtual existente dentro do seu ambiente DevTest Labs. Se utilizar o ExpressRoute, poderá querer minimizar o número de redes/sub-redes virtuais para que não fragmente o espaço de endereço IP que é atribuído para utilização nas subscrições.
 
-Considere usar o padrão de observação VNet aqui[(modelo Hub-Spoke)](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)também. Esta abordagem permite a comunicação vnet/sub-rede através de subscrições. Caso contrário, cada ambiente da DevTest Labs poderia ter a sua própria rede virtual.
+Considere usar o padrão de observação da rede virtual aqui[(modelo Hub-Spoke)](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)também. Esta abordagem permite a comunicação vnet/sub-rede através de subscrições. Caso contrário, cada ambiente da DevTest Labs poderia ter a sua própria rede virtual.
 
 Existem [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) no número de redes virtuais por subscrição. O valor por defeito é de 50, embora este limite possa ser aumentado para 100.
 
@@ -357,7 +357,7 @@ Ao utilizar iPs públicos partilhados, as máquinas virtuais em um laboratório 
 
 ### <a name="how-do-i-ensure-that-development-and-test-virtual-machines-are-unable-to-reach-the-public-internet-are-there-any-recommended-patterns-to-set-up-network-configuration"></a>Como posso garantir que as máquinas virtuais de desenvolvimento e de teste não conseguem chegar à internet pública? Existem padrões recomendados para configurar a configuração da rede?
 
-Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
+Yes. Há dois aspetos a ter em conta : tráfego de entrada e saída.
 
 - **Tráfego de entrada** – Se a máquina virtual não tiver um endereço IP público, então não pode ser alcançada pela internet. Uma abordagem comum consiste em assegurar que seja definida uma política de nível de subscrição, de modo a que nenhum utilizador possa criar um endereço IP público.
 - **Tráfego de saída** – Se pretender evitar que máquinas virtuais acedam diretamente à internet pública e forcem o tráfego através de uma firewall corporativa, então pode encaminhar o tráfego para o local através de via expressa ou VPN, utilizando o encaminhamento forçado.

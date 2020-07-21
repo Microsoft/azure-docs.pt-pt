@@ -3,17 +3,18 @@ title: Excluir suave para cópia de segurança do Azure
 description: Aprenda a usar funcionalidades de segurança no Azure Backup para tornar as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116406"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538841"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Excluir suave para cópia de segurança do Azure
 
 As preocupações com questões de segurança, como malware, ransomware e intrusão, estão a aumentar. Estas questões de segurança podem ser dispendiosas, tanto em termos de dinheiro como de dados. Para evitar tais ataques, o Azure Backup fornece agora funcionalidades de segurança para ajudar a proteger os dados de backup mesmo após a eliminação.
 
-Uma dessas características é a eliminação suave. Com a eliminação suave, mesmo que um ator malicioso elimine uma cópia de segurança (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção de dados de backup no estado de "soft delete" não incorrem em qualquer custo para o cliente.
+Uma dessas características é a eliminação suave. Com a eliminação suave, mesmo que um ator malicioso elimine uma cópia de segurança (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "soft delete" não incorrem em qualquer custo para o cliente.
 
 A proteção para eliminação suave está disponível para estes serviços:
 
@@ -28,7 +29,7 @@ Este gráfico de fluxo mostra os diferentes passos e estados de um item de backu
 
 A eliminação suave é ativada por padrão em cofres recém-criados para proteger os dados de backup de eliminações acidentais ou maliciosas.  Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Só o proprietário do cofre pode desativar esta função. Se desativar esta funcionalidade, todas as futuras eliminações de itens protegidos resultarão numa remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem em estado de apagação suave antes de desativar esta funcionalidade, permanecerão em estado de apagação suave durante o período de 14 dias. Se desejar eliminá-las imediatamente, terá de desafiá-las e eliminá-las novamente para ser permanentemente eliminada.
 
- É importante lembrar que uma vez que a eliminação suave é desativada, a funcionalidade é desativada para todos os tipos de cargas de trabalho, incluindo servidor SQL e cargas de trabalho SAP HANA. Por exemplo, uma vez que a [pré-visualização SQL Server/ SAP HANA](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) está ativada para uma subscrição, não é possível desativar a exclusão suave apenas para servidor SQL ou DBs SAP HANA, mantendo-a ativada para máquinas virtuais no mesmo cofre. Pode criar abóbadas separadas para controlo granular.
+ É importante lembrar que uma vez que a eliminação suave é desativada, a funcionalidade é desativada para todos os tipos de cargas de trabalho, incluindo servidor SQL e cargas de trabalho SAP HANA. Por exemplo, uma vez que a [pré-visualização SQL Server/ SAP HANA](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) está ativada para uma subscrição, não é possível desativar a exclusão suave apenas para servidor SQL ou DBs SAP HANA, mantendo-a ativada para máquinas virtuais no mesmo cofre. Pode criar abóbadas separadas para controlo granular.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Desativar a eliminação suave usando o portal Azure
 
@@ -45,7 +46,7 @@ Para desativar a eliminação suave, siga estes passos:
 > [!IMPORTANT]
 > A versão Az.RecoveryServices necessária para utilizar soft-delete usando Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Para desativar, utilize o [cmdlet PS Set-AzRecoveryServicesVaultBackupProperty.](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0)
+Para desativar, utilize o [cmdlet PS Set-AzRecoveryServicesVaultBackupProperty.](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty)
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -68,7 +69,7 @@ Os dados de backup em estado apagado suave antes de desativar esta funcionalidad
 
 ### <a name="using-azure-portal"></a>Com o Portal do Azure
 
-Siga estes passos.
+Siga estes passos:
 
 1. Siga os passos para [desativar a eliminação suave](#enabling-and-disabling-soft-delete).
 
@@ -86,11 +87,11 @@ Siga estes passos.
 
 5. Escolha **Eliminar os dados de backup** para eliminar permanentemente os dados de backup.
 
-   ![Escolha Eliminar dados de backup](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Escolha Eliminar dados de backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Digite o nome do item de cópia de segurança para confirmar que pretende eliminar os pontos de recuperação.
 
-   ![Digite o nome do item de reserva](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digite o nome do item de reserva](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Para eliminar os dados de cópia de segurança do item, selecione **Eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foram eliminados.
 
@@ -159,7 +160,7 @@ Não, é necessário desembolsar o recurso suave apagado para restaurar. A opera
 
 ### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>As minhas fotos vão seguir o mesmo ciclo de vida que os meus pontos de recuperação no cofre?
 
-Sim.
+Yes.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso voltar a ativar as cópias de segurança programadas para um recurso apagado?
 

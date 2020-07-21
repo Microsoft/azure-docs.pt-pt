@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82591657"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539606"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de registo no Azure Monitor
 As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos [Registos do Monitor Azure](../platform/data-platform-logs.md). Uma linguagem de consulta poderosa permite-lhe juntar dados de várias tabelas, agregar grandes conjuntos de dados e realizar operações complexas com código mínimo. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte sejam recolhidos, e você entende como construir a consulta correta.
 
-Algumas funcionalidades no Azure Monitor, como [insights](../insights/insights-overview.md) e [soluções,](../insights/solutions-inventory.md) processam dados de registo sem o expor às consultas subjacentes. Para aproveitar totalmente outras funcionalidades do Azure Monitor, deve entender como as consultas são construídas e como pode usá-las para analisar interativamente dados em Registos do Monitor Azure.
+Algumas funcionalidades no Azure Monitor, como [insights](../insights/insights-overview.md) e [soluções,](../monitor-reference.md) processam dados de registo sem o expor às consultas subjacentes. Para aproveitar totalmente outras funcionalidades do Azure Monitor, deve entender como as consultas são construídas e como pode usá-las para analisar interativamente dados em Registos do Monitor Azure.
 
 Use este artigo como ponto de partida para aprender sobre consultas de registo no Azure Monitor. Responde a questões comuns e fornece ligações a outra documentação que fornece mais detalhes e lições.
 
@@ -99,6 +99,6 @@ Além de trabalhar interativamente com consultas de log e seus resultados em Log
 - **Azure Monitor Regista API.**  A [Azure Monitor Logs API](https://dev.loganalytics.io) permite que qualquer cliente da API REST recupere dados de registo do espaço de trabalho.  O pedido da API inclui uma consulta que é executada contra o Azure Monitor para determinar os dados a recuperar.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Caminhe através de um [tutorial sobre a utilização do Log Analytics no portal Azure](get-started-portal.md).
 - Caminhe por um [tutorial sobre consultas de escrita.](get-started-queries.md)

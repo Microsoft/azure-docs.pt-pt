@@ -9,11 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8429f58b9b8ce1be12fea861b805084347a0e2b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84611052"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537702"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,14 +27,14 @@ O formato JSON é suportado para os seguintes conectores: [Amazon S3](connector-
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados JSON.
 
-| Propriedade         | Descrição                                                  | Necessário |
+| Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Json**. | Sim      |
 | localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
 | encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.| Não       |
 | compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
-| tipo | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate,** **snappy,** ou **lz4**. para utilizar ao guardar o ficheiro. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Note** quando utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados de lavatórios baseados em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` [cópia](#json-as-source) para controlar se deve preservar o nome do ficheiro zip como estrutura de pasta. | Não.  |
-| nível | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
+| tipo<br/>*(em) `compression` * | O códice de compressão usado para ler/escrever ficheiros JSON. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate,** **snappy,** ou **lz4**. para utilizar ao guardar o ficheiro. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Note** quando utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados de lavatórios baseados em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` [cópia](#json-as-source) para controlar se deve preservar o nome do ficheiro zip como estrutura de pasta. | Não.  |
+| nível<br/>*(em) `compression` * | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo do conjunto de dados JSON no Azure Blob Storage:
 
@@ -65,11 +66,13 @@ Abaixo está um exemplo do conjunto de dados JSON no Azure Blob Storage:
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Pipelines.](concepts-pipelines-activities.md) Esta secção fornece uma lista de propriedades suportadas pela fonte JSON e pia.
 
+Saiba como extrair dados dos ficheiros JSON e mapear para afundar a loja/formato de dados ou vice-versa do [mapeamento](copy-activity-schema-and-type-mapping.md)de esquemas.
+
 ### <a name="json-as-source"></a>JSON como fonte
 
 As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
 
-| Propriedade      | Descrição                                                  | Necessário |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **JSONSource**. | Sim      |
 | formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de leitura JSON** abaixo. | Não       |
@@ -77,7 +80,7 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 Configurações de **leitura JSON** suportadas em `formatSettings` :
 
-| Propriedade      | Descrição                                                  | Necessário |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | O tipo de formatoStais devem ser definidos para **JsonReadSettings**. | Sim      |
 | compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
@@ -87,7 +90,7 @@ Configurações de **leitura JSON** suportadas em `formatSettings` :
 
 As seguintes propriedades são suportadas na secção de *** \* lavatório \* *** de atividade de cópia.
 
-| Propriedade      | Descrição                                                  | Necessário |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **JSONSink**. | Sim      |
 | formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita JSON** abaixo. | Não       |
@@ -95,7 +98,7 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 Configurações de **escrita JSON** suportadas em `formatSettings` :
 
-| Propriedade      | Descrição                                                  | Necessário                                              |
+| Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | tipo          | O tipo de formatoStas devem ser definidas para **JsonWriteSettings**. | Sim                                                   |
 | filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são: **setOfObjects (Linhas** JSON) e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
@@ -199,16 +202,16 @@ No mapeamento dos fluxos de dados, pode ler e escrever para o formato JSON nas s
 
 A tabela abaixo lista as propriedades suportadas por uma fonte json. Pode editar estas propriedades no separador **Opções Fonte.**
 
-| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
-| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | Cadeia | partitionRootPath |
 | Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
-| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | Cadeia | rowUrlColumn |
 | Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou`false` <br> Mover-se:`['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Carimbo de data/hora | modificado Depois <br> modificadoSForo antes |
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes |
 | Documento único | Fluxos de dados de mapeamento lêem um documento JSON de cada ficheiro | não | `true` ou `false` | únicoDocumento |
-| Nomes de colunas não citados | Se **forem selecionados nomes de colunas não citados,** os fluxos de dados de mapeamento lêem colunas JSON que não estão rodeadas de citações. | não | `true` ou `false` |  não citadoColumnAmes
+| Nomes de colunas não citados | Se **forem selecionados nomes de colunas não citados,** os fluxos de dados de mapeamento lêem colunas JSON que não estão rodeadas de citações. | não | `true` ou `false` |  não citadoColumnAmes |
 | Tem comentários | Selecione Tem comentários se os **dados** JSON têm comentários de estilo C ou C++ | não | `true` ou `false` | asCommentos |
 | Único citado | Lê colunas JSON que não estão rodeadas de citações | não | `true` ou `false` | singleQuoted |
 | Backslash escapou | Selecione **Backslash escapou** se as costas forem usadas para escapar de caracteres nos dados do JSON | não | `true` ou `false` | backslashEscape |
@@ -294,7 +297,7 @@ Selecione **Backslash escapou** se as costas forem usadas para escapar de caract
 
 A tabela abaixo lista as propriedades suportadas por um lavatório json. Pode editar estas propriedades no **separador Definições.**
 
-| Name | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
 | Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato`part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |

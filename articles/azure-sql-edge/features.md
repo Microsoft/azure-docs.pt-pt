@@ -8,12 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 34d2ba05b00ab92066bc7fa3ccd0b7b2aa59e15c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539215"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funcionalidades suportadas do Azure SQL Edge (Pré-visualização) 
 
@@ -35,15 +36,17 @@ O Azure SQL Edge está disponível com duas edições diferentes ou planos de so
 
 ## <a name="operating-system"></a>Sistema operativo
 
-Os recipientes Azure SQL Edge são atualmente baseados em Ubuntu 16.04, e como tal só são suportados para funcionar em anfitriões Docker que executam Ubuntu 16.04 (recomendado) ou Ubuntu 18.04. O Azure SQL Edge também pode funcionar em outros anfitriões do sistema operativo. Por exemplo, pode funcionar em outras distribuições de Linux ou no Windows (utilizando Docker CE ou Docker EE). Note-se, no entanto, que a Microsoft não testou extensivamente estas configurações.
+Os contentores Azure SQL Edge são atualmente baseados em Ubuntu 16.04, e como tal só são suportados para funcionar em anfitriões Docker que executam Ubuntu 16.04 LTS (recomendado) ou Ubuntu 18.04 LTS. É possível executar recipientes Azure SQL Edge em outros anfitriões do sistema operativo, por exemplo, pode funcionar em outras distribuições de Linux ou windows (usando Docker CE ou Docker EE), no entanto a Microsoft não recomenda que o faça, uma vez que esta configuração pode não ser testada extensivamente.
 
 A Azure SQL Edge é atualmente apenas suportado para implantação através do Azure IoT Edge. Para obter mais informações, consulte [os sistemas suportados Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support).
 
 A configuração recomendada para executar Azure SQL Edge no Windows é configurar um Ubuntu VM no anfitrião do Windows e, em seguida, executar Azure SQL Edge dentro do Linux VM.
 
+O sistema de ficheiros recomendado e suportado para Azure SQL Edge é EXT4 e XFS. Se estiverem a ser utilizados volumes persistentes para apoiar o armazenamento da base de dados Azure SQL Edge, então o sistema de ficheiros hospedeiros subjacentes tem de ser EXT4 e XFS.
+
 ## <a name="hardware-support"></a>Suporte de hardware
 
-O Azure SQL Edge necessita de um processador de 64 bits, que pode ser da Intel, AMD ou ARM, com um mínimo de um processador e um GB de RAM no hospedeiro. Enquanto a pegada de memória de arranque do Azure SQL Edge está próxima dos 500 MB, a memória adicional é necessária para outros módulos IoT Edge que estão a funcionar no dispositivo de borda.
+O Azure SQL Edge necessita de um processador de 64 bits (x64 ou ARM64), com um mínimo de um processador e um RAM GB no hospedeiro. Enquanto a pegada de memória de arranque do Azure SQL Edge está próxima dos 500 MB, a memória adicional é necessária para outros módulos IoT Edge que estão a funcionar no dispositivo de borda. Os requisitos reais de memória e CPU para Azure SQL Edge variarão em função da complexidade da carga de trabalho e do volume de dados que estão a ser tratados. Ao escolher um hardware para a sua solução, a Microsoft recomenda que faça testes de desempenho extensivos para garantir que as características de desempenho necessárias para a sua solução sejam satisfeitas.  
 
 ## <a name="azure-sql-edge-components"></a>Componentes Azure SQL Edge
 

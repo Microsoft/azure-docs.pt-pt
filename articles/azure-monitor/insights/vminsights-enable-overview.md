@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 261e5f17e787fd96697b06a9b338e74ea0409454
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072f8fd44fa45648afd15cb40cba26bb427c7b56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507080"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539623"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para visão geral dos VMs
 
@@ -43,7 +43,7 @@ O Azure Monitor for VMs suporta um espaço de trabalho Log Analytics nas seguint
 
 - E.U.A. Centro-Oeste
 - E.U.A. Oeste
-- E.U.A.Oeste 2
+- E.U.A. Oeste 2
 - E.U.A. Centro-Sul
 - E.U.A. Leste
 - E.U.A. Leste 2
@@ -56,8 +56,8 @@ O Azure Monitor for VMs suporta um espaço de trabalho Log Analytics nas seguint
 - Europa do Norte
 - Europa Ocidental
 - Ásia Leste
-- Ásia Sudeste
-- Índia Central
+- Sudeste Asiático
+- Central India
 - Leste do Japão
 - Leste da Austrália
 - Austrália Sudeste
@@ -68,7 +68,7 @@ O Azure Monitor for VMs suporta um espaço de trabalho Log Analytics nas seguint
 
 Se não tiver um espaço de trabalho log analytics, pode criar um utilizando um dos recursos:
 * [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Portal do Azure](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
@@ -86,7 +86,7 @@ O Azure Monitor para VMs está disponível para servidores ativados aZure Arc em
 
 A tabela que se segue lista os sistemas operativos Windows e Linux que o Azure Monitor suporta para VMs. Mais tarde nesta secção, você encontrará uma lista completa que detalha o lançamento principal e menor do Linux OS e as versões de kernel suportadas.
 
-|Versão do SO |Desempenho |Maps |
+|Versão do SO |Desempenho |Mapas |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -199,7 +199,7 @@ Ativar o Monitor Azure para VMs utilizando um dos métodos descritos neste quadr
 | Single Azure VM, Azure VMSS ou Azure Arc machine | [Ativar a partir do portal](vminsights-enable-single-vm.md) | Selecione **Insights** diretamente do menu no portal Azure. |
 | Múltipla VM azul, VMSS Azure ou máquina Azure Arc | [Ativar através da Política Azure](vminsights-enable-at-scale-policy.md) | Utilize a Política Azure para ativar automaticamente quando um VM ou VMSS é criado. |
 | | [Ativar através dos modelos Azure PowerShell ou Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Utilize modelos Azure PowerShell ou Azure Resource Manager para permitir vários Azure VM, Azure Arc VM ou Azure VMSS através de um grupo de subscrição ou recursos especificados por . |
-| Nuvem híbrida | [Permitir o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Implemente em VMs ou computadores físicos que estejam hospedados no seu datacenter ou em outros ambientes em nuvem. |
+| Cloud híbrida | [Permitir o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Implemente em VMs ou computadores físicos que estejam hospedados no seu datacenter ou em outros ambientes em nuvem. |
 
 ## <a name="management-packs"></a>Pacotes de gestão
 

@@ -3,11 +3,12 @@ title: O que o Azure Backup Server V3 RTM pode fazer backup
 description: Este artigo fornece uma matriz de proteção que lista todas as cargas de trabalho, tipos de dados e instalações que o Azure Backup Serve V3 RTM protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 742b43d748fbd4c1235d0555ac3bd4419880db5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aebd1d1f90a2c0b84d7a6e1cb77d0e50915b091e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84632088"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538571"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção V3 RTM do servidor de backup Azure
 
@@ -38,7 +39,7 @@ A matriz que se segue lista o que pode ser protegido com O Azure Backup Server V
 |Servidores (32 e 64 bits)|Windows Server 2008 SP2|Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
 |Servidores (32 e 64 bits)|Windows Storage Server 2008|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Volume, partilha, pasta, ficheiro, estado do sistema/bare-metal|
 |SQL Server|SQL Server 2019|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure) <br /><br /> Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure) <br /><br /> Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure) <br /><br /> Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2016 SP2|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2016 SP1|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2016|Servidor físico <br /><br /> Máquina virtual do Hyper-V no local <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
@@ -50,12 +51,12 @@ A matriz que se segue lista o que pode ser protegido com O Azure Backup Server V
 |SQL Server|SQL Server 2012, SQL Server 2012 com SP1|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2012, SQL Server 2012 com SP1|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |SQL Server|SQL Server 2012, SQL Server 2012 com SP1|Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008 R2|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008 R2|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008 R2|Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
-|SQL Server|SQL Server 2008|Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008 R2|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008 R2|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008 R2|Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008|Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
+|SQL Server|SQL Server 2008|Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Todos os cenários de implementação: base de dados|
 |Troca|Exchange 2016|Servidor físico<br/><br/> Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack<br /> <br />Máquina virtual do Azure (quando a carga de trabalho é executada como máquina virtual do Azure)|V3, V2|Proteger (todos os cenários de implementação): servidor Exchange autónomo, base de dados num grupo de disponibilidade de bases de dados (DAG)<br /><br />Recuperar (todos os cenários de implementação): caixa de correio, bases de dados de caixa de correio num DAG<br/><br/> Backup da Exchange sobre ReFS não suportado |
 |Troca|Exchange 2016|Máquina virtual do Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual do Windows no VMWare)<br /> <br /> Azure Stack|V3, V2|Proteger (todos os cenários de implementação): servidor Exchange autónomo, base de dados num grupo de disponibilidade de bases de dados (DAG)<br /><br />Recuperar (todos os cenários de implementação): caixa de correio, bases de dados de caixa de correio num DAG<br/><br/> Backup da Exchange sobre ReFS não suportado |
 |Troca|Exchange 2013|Servidor físico<br /><br />Máquina virtual do Hyper-V no local<br /> <br /> Azure Stack|V3, V2|Proteger (todos os cenários de implementação): servidor Exchange autónomo, base de dados num grupo de disponibilidade de bases de dados (DAG)<br /><br />Recuperar (todos os cenários de implementação): caixa de correio, bases de dados de caixa de correio num DAG<br/><br/> Backup da Exchange sobre ReFS não suportado |
@@ -97,7 +98,7 @@ Com o olhar da Microsoft, selecione os seguintes serviços/regiões e valores co
 * Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)
 * Azure Storage (de acordo com a localização do cofre dos Serviços de Recuperação)
 
-Para mais detalhes, consulte os [requisitos de encaminhamento ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para mais detalhes, consulte os [requisitos de encaminhamento ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >O "Peering Público" é precotado para novos circuitos.

@@ -3,12 +3,12 @@ title: Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de traba
 description: Saiba como a eliminação suave para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM torna as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: f1e3ecae5d643b8e32f8f4f07808d56cdc421163
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791379"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538195"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM
 
@@ -99,7 +99,7 @@ A sequência de passos para a utilização do Azure PowerShell é a mesma que no
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Elimine o item de backup usando a Azure PowerShell
 
-Elimine o item de cópia de segurança utilizando o cmdlet PS [de Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS.
+Elimine o item de cópia de segurança utilizando o cmdlet PS [de Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -117,7 +117,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, efetue a operação de eliminação utilizando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.8.0) PS.
+Em seguida, efetue a operação de eliminação utilizando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -129,7 +129,7 @@ O **DeleteState** do item de cópia de segurança reverterá para **NotDeleted**
 
 Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Para obter instruções sobre como desativar a eliminação suave, consulte [ativar e desativar a eliminação suave](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia as [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre apagar suaves
 - Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)

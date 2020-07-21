@@ -4,11 +4,12 @@ description: Como personalizar canais de telemetria em Azure Application Insight
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f9e93d477efeee7e1d8a0b0d8704f9c83d2a4f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691956"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539793"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria em Insights de Aplicação
 
@@ -16,7 +17,7 @@ Os canais de telemetria são parte integrante dos [SDKs Azure Application Insigh
 
 ## <a name="what-are-telemetry-channels"></a>O que são canais de telemetria?
 
-Os canais de telemetria são responsáveis pela tamponagem de itens de telemetria e pelo envio para o serviço Application Insights, onde estão armazenados para consulta e análise. Um canal de telemetria é qualquer classe que implemente a [`Microsoft.ApplicationInsights.ITelemetryChannel`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interface.
+Os canais de telemetria são responsáveis pela tamponagem de itens de telemetria e pelo envio para o serviço Application Insights, onde estão armazenados para consulta e análise. Um canal de telemetria é qualquer classe que implemente a [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interface.
 
 O `Send(ITelemetry item)` método de um canal de telemetria é chamado depois de todos os inicializadores de telemetria e processadores de telemetria serem chamados. Então, quaisquer itens deixados por um processador de telemetria não chegam ao canal. `Send()`não costuma enviar os itens para a parte de trás instantaneamente. Tipicamente, tampona-os na memória e envia-os em lotes, para uma transmissão eficiente.
 
@@ -30,7 +31,7 @@ O navio Application Insights .NET e .NET Core SDKs com dois canais incorporados:
 
     Este canal faz parte do pacote NuGet microsoft.ApplicationInsights maior e é o canal padrão que o SDK utiliza quando nada mais está configurado.
 
-* `ServerTelemetryChannel`: Um canal mais avançado que tenha políticas de retenção e capacidade de armazenar dados num disco local. Este canal recauchutado envia telemetria se ocorrerem erros transitórios. Este canal também utiliza o armazenamento de discos locais para manter os itens no disco durante interrupções de rede ou volumes elevados de telemetria. Devido a estes mecanismos de retenção e armazenamento de discos locais, este canal é considerado mais fiável e é recomendado para todos os cenários de produção. Este canal é o padrão para [aplicações ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) e [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) que são configuradas de acordo com a documentação oficial. Este canal está otimizado para cenários de servidor com processos de longa duração. O [`Flush()`](#which-channel-should-i-use) método implementado por este canal não é sincronizado.
+* `ServerTelemetryChannel`: Um canal mais avançado que tenha políticas de retenção e capacidade de armazenar dados num disco local. Este canal recauchutado envia telemetria se ocorrerem erros transitórios. Este canal também utiliza o armazenamento de discos locais para manter os itens no disco durante interrupções de rede ou volumes elevados de telemetria. Devido a estes mecanismos de retenção e armazenamento de discos locais, este canal é considerado mais fiável e é recomendado para todos os cenários de produção. Este canal é o padrão para [aplicações ASP.NET](./asp-net.md) e [ASP.NET Core](./asp-net-core.md) que são configuradas de acordo com a documentação oficial. Este canal está otimizado para cenários de servidor com processos de longa duração. O [`Flush()`](#which-channel-should-i-use) método implementado por este canal não é sincronizado.
 
     Este canal é enviado como o pacote Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel NuGet e é adquirido automaticamente quando utiliza o pacote Microsoft.ApplicationInsights.Web ou Microsoft.ApplicationInsights.AspNetCore NuGet.
 

@@ -3,12 +3,12 @@ title: Enviar ou receber eventos de Azure Event Hubs usando .NET (mais recente)
 description: Este artigo fornece uma passagem para criar uma aplicação .NET Core que envia/recebe eventos de/a partir de Azure Event Hubs usando o mais recente pacote Azure.Messaging.EventHubs.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8752064b59030c04e409e13baf7bf58836ce7ac7
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 9e7f40b0312798667b63c6cf5d02772307dbc2b9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320160"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537144"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar eventos para e receber eventos dos Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
 Este quickstart mostra como enviar eventos e receber eventos de um centro de eventos usando a biblioteca **Azure.Messaging.EventHubs** .NET. 
@@ -24,7 +24,7 @@ Se você é novo em Azure Event Hubs, consulte o [Event Hubs](event-hubs-about.m
 Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
 
 - **Subscrição do Microsoft Azure**. Para utilizar os serviços Azure, incluindo os Azure Event Hubs, precisa de uma subscrição.  Se não tiver uma conta Azure existente, pode inscrever-se para um [teste gratuito](https://azure.microsoft.com/free/) ou utilizar os benefícios do seu assinante MSDN quando [criar uma conta.](https://azure.microsoft.com)
-- **Microsoft Visual Studio 2019**. A biblioteca de clientes Azure Event Hubs faz uso de novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode utilizar a biblioteca com versões linguísticas C# anteriores, mas a nova sintaxe não estará disponível. Para utilizar a sintaxe completa, recomenda-se que compile com a versão [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 ou superior e [a versão linguística](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) definida para `latest` . Se estiver a utilizar o Visual Studio, as versões antes do Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição comunitária gratuita, pode ser descarregado [aqui.](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. A biblioteca de clientes Azure Event Hubs faz uso de novas funcionalidades que foram introduzidas em C# 8.0.  Ainda pode utilizar a biblioteca com versões linguísticas C# anteriores, mas a nova sintaxe não estará disponível. Para utilizar a sintaxe completa, recomenda-se que compile com a versão [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 ou superior e [a versão linguística](/dotnet/csharp/language-reference/configure-language-version#override-a-default) definida para `latest` . Se estiver a utilizar o Visual Studio, as versões antes do Visual Studio 2019 não são compatíveis com as ferramentas necessárias para construir projetos C# 8.0. O Visual Studio 2019, incluindo a edição comunitária gratuita, pode ser descarregado [aqui.](https://visualstudio.microsoft.com/vs/)
 - **Crie um espaço de nomes de Centros de Eventos e um centro de eventos.** O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nome e um centro de eventos, siga o procedimento [neste artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de ligação para o espaço de nomes Do Event Hubs** seguindo as instruções do artigo: Obter a cadeia de [ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a cadeia de ligação mais tarde neste arranque rápido.
 
 ## <a name="send-events"></a>Enviar eventos 
@@ -32,7 +32,7 @@ Esta secção mostra-lhe como criar uma aplicação de consola .NET Core para en
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-1. Iniciar o Visual Studio 2019. 
+1. Inicie o Visual Studio 2019. 
 1. **Selecione Criar um novo projeto.** 
 1. Na caixa de diálogo do **projeto,** faça os seguintes passos: Se não vir esta caixa de diálogo, selecione **Ficheiro** no menu, selecione **Novo**, e, em seguida, selecione **Project**. 
     1. Selecione **C#** para a linguagem de programação.
@@ -109,12 +109,12 @@ Esta secção mostra como escrever uma aplicação de consola .NET Core que rece
 
 
 > [!NOTE]
-> Se estiver a correr no Azure Stack Hub, essa plataforma poderá suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Por exemplo, se estiver a executar [a versão 2002 do Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar a versão API do serviço de armazenamento 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Para obter mais informações sobre as versões de serviço de armazenamento Azure suportadas no Azure Stack Hub, consulte o [armazenamento do Azure Stack Hub: Diferenças e considerações](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
+> Se estiver a correr no Azure Stack Hub, essa plataforma poderá suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Por exemplo, se estiver a executar [a versão 2002 do Azure Stack Hub](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar a versão API do serviço de armazenamento 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte [esta amostra no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Para obter mais informações sobre as versões de serviço de armazenamento Azure suportadas no Azure Stack Hub, consulte o [armazenamento do Azure Stack Hub: Diferenças e considerações](/azure-stack/user/azure-stack-acs-differences).
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Criar um armazenamento Azure e um recipiente blob
 Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verificação. Siga estes passos para criar uma conta de Armazenamento Azure. 
 
-1. [Criar uma conta de Armazenamento Azure](/azure/storage/common/storage-account-create?tabs=azure-portal)
+1. [Criar uma conta de Armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Criar um contentor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
@@ -221,7 +221,7 @@ Neste arranque rápido, utiliza-se o Azure Storage como loja de pontos de verifi
     Estes eventos são os três eventos que enviou para o centro de eventos mais cedo, executando o programa remetente. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Vê as amostras do GitHub. 
 
 - [Amostras de Centros de Eventos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)

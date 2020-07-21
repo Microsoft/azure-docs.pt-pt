@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0094be0eef4595662477ef1c7914ae9f118b8e25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320588"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537185"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -33,7 +33,7 @@ O nível standard de Azure Event Hubs fornece funcionalidades para além do que 
 * Retenção de eventos mais longos
 * Ligações intermediadas adicionais, com uma taxa de sobrecarga para mais do que o número incluído
 * Mais do que um único [grupo de consumidores](event-hubs-features.md#consumer-groups)
-* [Captura](event-hubs-capture-overview.md)
+* [Recolha](event-hubs-capture-overview.md)
 * [Integração kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 Para obter mais informações sobre os níveis de preços, incluindo os Event Hubs Dedicados, consulte os detalhes dos preços dos [Centros de Eventos.](https://azure.microsoft.com/pricing/details/event-hubs/)
@@ -261,7 +261,7 @@ O Event Hubs suporta dois tipos de [registos](event-hubs-diagnostic-logs.md) de 
 
 ### <a name="support-and-sla"></a>Apoio e SLA
 
-O suporte técnico para o Event Hubs está disponível através da [página de perguntas do Microsoft Q&A para o Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). O suporte de gestão de faturação e subscrição é fornecido sem custos.
+O suporte técnico para o Event Hubs está disponível através da [página de perguntas do Microsoft Q&A para o Azure Service Bus](/answers/topics/azure-service-bus.html). O suporte de gestão de faturação e subscrição é fornecido sem custos.
 
 Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de Serviço.](https://azure.microsoft.com/support/legal/sla/)
 
@@ -269,6 +269,6 @@ Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de S
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Criar um Centro de Eventos](event-hubs-create.md)
+* [Descrição geral dos Event Hubs](./event-hubs-about.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)
 * [Hubs de eventos Auto-insuflado](event-hubs-auto-inflate.md)

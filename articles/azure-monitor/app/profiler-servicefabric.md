@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 664d6eb377185613a1a5670daf6747b482c79d9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d63d932756495584b2870c597d3332077f8e86c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671618"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539844"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Aplicações de tecido de serviço Azure ao vivo com Insights de Aplicação
 
@@ -25,9 +26,9 @@ O Profiler De Insights de Aplicação está incluído no Azure Diagnostics. Pode
 
 Para configurar o seu ambiente, tome as seguintes ações:
 
-1. Profiler suporta .NET Framework e .Net Core. Se estiver a utilizar o Quadro .NET, certifique-se de que utiliza [o Quadro .NET 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou mais tarde. É suficiente para confirmar que o sistema operativo é `Windows Server 2012 R2` ou mais tarde. O profiler suporta .NET Core 2.1 e aplicações mais recentes.
+1. Profiler suporta .NET Framework e .Net Core. Se estiver a utilizar o Quadro .NET, certifique-se de que utiliza [o Quadro .NET 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou mais tarde. É suficiente para confirmar que o sistema operativo é `Windows Server 2012 R2` ou mais tarde. O profiler suporta .NET Core 2.1 e aplicações mais recentes.
 
-1. Procure a extensão [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) no ficheiro do modelo de implementação.
+1. Procure a extensão [Azure Diagnostics](../platform/diagnostics-extension-overview.md) no ficheiro do modelo de implementação.
 
 1. Adicione a `SinksConfig` seguinte secção como elemento infantil de `WadCfg` . Substitua o `ApplicationInsightsProfiler` valor da propriedade pela sua própria chave de instrumentação Application Insights:  
 
@@ -42,7 +43,7 @@ Para configurar o seu ambiente, tome as seguintes ações:
       }
       ```
 
-      Para obter informações sobre a adição da extensão de Diagnóstico ao seu modelo de implementação, consulte [monitorizar e diagnosticar a utilização com os modelos windows VM e Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+      Para obter informações sobre a adição da extensão de Diagnóstico ao seu modelo de implementação, consulte [monitorizar e diagnosticar a utilização com os modelos windows VM e Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json).
 
 1. Implemente o seu cluster de Tecido de Serviço utilizando o seu modelo de Gestor de Recursos Azure.  
   Se as definições estiverem corretas, o Profiler Application Insights será instalado e ativado quando a extensão Azure Diagnostics estiver instalada. 

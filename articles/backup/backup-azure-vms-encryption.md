@@ -3,12 +3,12 @@ title: Fazer o back up e restaurar vMs Azure encriptados
 description: Descreve como fazer backup e restaurar VMs Azure encriptados com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124508"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538909"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer o back up e restaurar o Azure VM encriptado
 
@@ -30,8 +30,8 @@ O Azure Backup pode fazer backup e restaurar VMs Azure usando ADE com e sem a ap
 **Não gerido** | Sim | Sim
 **Gerido**  | Sim | Sim
 
-- Saiba mais sobre [ADE,](../security/azure-security-disk-encryption-overview.md) [Key Vault](../key-vault/general/overview.md)e [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
-- Leia as [FAQ](../security/azure-security-disk-encryption-faq.md) para encriptação do disco Azure VM.
+- Saiba mais sobre [ADE,](../security/fundamentals/azure-disk-encryption-vms-vmss.md) [Key Vault](../key-vault/general/overview.md)e [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Leia as [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para encriptação do disco Azure VM.
 
 ### <a name="limitations"></a>Limitações
 
@@ -45,7 +45,7 @@ O Azure Backup pode fazer backup e restaurar VMs Azure usando ADE com e sem a ap
 
 Antes de começar, faça o seguinte:
 
-1. Certifique-se de que tem um ou mais [VMs Windows](../security/azure-security-disk-encryption-windows.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) com ADE ativados.
+1. Certifique-se de que tem um ou mais [VMs Windows](../virtual-machines/linux/disk-encryption-overview.md) ou [Linux](../virtual-machines/linux/disk-encryption-overview.md) com ADE ativados.
 2. [Reveja a matriz](backup-support-matrix-iaas.md) de suporte para backup Azure VM
 3. [Crie](backup-azure-arm-vms-prepare.md#create-a-vault) um cofre de reserva dos Serviços de Recuperação se não tiver um.
 4. Se ativar a encriptação de VMs que já estão ativados para cópia de segurança, basta fornecer ao Backup permissões para aceder ao Cofre de Chaves para que as cópias de segurança possam continuar sem interrupções. [Saiba mais](#provide-permissions) sobre a atribuição destas permissões.

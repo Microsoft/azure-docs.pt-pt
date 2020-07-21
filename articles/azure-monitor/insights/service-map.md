@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 637db3a0749b5a0738b0ccc5136d26e435a03c7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203124"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539776"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
@@ -41,7 +41,7 @@ Aceda ao Mapa de Serviços no portal Azure a partir do seu espaço de trabalho L
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de utilização: Sensibilizar os seus processos de TI para a dependência
 
-### <a name="discovery"></a>Descoberta
+### <a name="discovery"></a>Deteção
 
 O Mapa de Serviços constrói automaticamente um mapa comum de dependências através dos seus servidores, processos e serviços de terceiros. Descobre e mapeia todas as dependências da TCP, identificando ligações surpresa, sistemas remotos de terceiros de que depende, e dependências para áreas escuras tradicionais da sua rede, como o Ative Directory. O Mapa de Serviços descobre ligações de rede falhadas que os seus sistemas geridos estão a tentar fazer, ajudando-o a identificar potenciais erros de configuração do servidor, falha de serviço e problemas de rede.
 
@@ -241,7 +241,7 @@ O Mapa de Serviços integra-se com a Log Search para mostrar uma contagem de tod
 
 ## <a name="service-desk-integration"></a>Integração do Balcão de Serviço
 
-A integração do Mapa de Serviço com o Conector de Gestão de Serviços de TI é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics. A integração no Mapa de Serviços está rotulada como "Service Desk". Para obter mais informações, consulte [Centralmente gerir itens de trabalho ITSM utilizando o Conector de Gestão de Serviços de TI.](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)
+A integração do Mapa de Serviço com o Conector de Gestão de Serviços de TI é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics. A integração no Mapa de Serviços está rotulada como "Service Desk". Para obter mais informações, consulte [Centralmente gerir itens de trabalho ITSM utilizando o Conector de Gestão de Serviços de TI.](../platform/itsmc-overview.md)
 
 O **painel de serviço de máquinas** lista todos os eventos de Gestão de Serviços de TI para o servidor selecionado no intervalo de tempo selecionado. O servidor apresenta um ícone se existirem itens atuais e o painel de serviço de máquinas os lista.
 
@@ -270,7 +270,7 @@ O **painel de desempenho** da máquina apresenta métricas de desempenho padrão
 
 ![Painel de desempenho da máquina](media/service-map/machine-performance.png)
 
-Para ver os dados de desempenho, poderá ser necessário [ativar os contadores de desempenho apropriados do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Os contadores que pretende ativar:
+Para ver os dados de desempenho, poderá ser necessário [ativar os contadores de desempenho apropriados do Log Analytics](../platform/data-sources-performance-counters.md).  Os contadores que pretende ativar:
 
 Windows:
 - Processador(*) \\ % tempo do processador
@@ -540,7 +540,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 ## <a name="rest-api"></a>API REST
 
-Todos os dados do servidor, processo e dependência no Mapa de Serviços estão disponíveis através do Mapa de [Serviço REST API](https://docs.microsoft.com/rest/api/servicemap/).
+Todos os dados do servidor, processo e dependência no Mapa de Serviços estão disponíveis através do Mapa de [Serviço REST API](/rest/api/servicemap/).
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de diagnóstico e utilização
 
@@ -548,7 +548,7 @@ A Microsoft recolhe automaticamente dados de utilização e desempenho através 
 
 Para obter mais informações sobre a recolha e utilização de dados, consulte a [Declaração de Privacidade dos Serviços Online da Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [pesquisas de registo](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b5ce0cba68d4374d6a0403af28ec3f03920acf6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81419311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537603"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregue 1 TB no Armazém de Dados Azure SQL em menos de 15 minutos com a Fábrica de Dados
 > [!NOTE]
@@ -46,7 +46,7 @@ Este artigo fornece instruções passo a passo para mover dados para o Azure SQL
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Azure Blob Storage: esta experiência utiliza o Azure Blob Storage (GRS) para armazenar conjunto de dados de teste TPC-H.  Se não tiver uma conta de armazenamento Azure, aprenda [a criar uma conta de armazenamento.](../../storage/common/storage-account-create.md)
-* [Dados TPC-H:](http://www.tpc.org/tpch/) vamos usar o TPC-H como conjunto de dados de teste.  Para isso, é necessário utilizar a `dbgen` partir do kit de ferramentas TPC-H, o que o ajuda a gerar o conjunto de dados.  Você pode baixar código fonte para `dbgen` a partir de [Ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por si mesmo, ou baixar o binário compilado do [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Executar dbgen.exe com os seguintes comandos para gerar 1 ficheiro plano de TB para `lineitem` tabela espalhada por 10 ficheiros:
+* [Dados TPC-H:](http://www.tpc.org/tpch/) vamos usar o TPC-H como conjunto de dados de teste.  Para isso, é necessário utilizar a `dbgen` partir do kit de ferramentas TPC-H, o que o ajuda a gerar o conjunto de dados.  Você pode baixar código fonte para `dbgen` a partir de [Ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp) e compilá-lo por si mesmo, ou baixar o binário compilado do [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Executar dbgen.exe com os seguintes comandos para gerar 1 ficheiro plano de TB para `lineitem` tabela espalhada por 10 ficheiros:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -117,13 +117,13 @@ Este artigo fornece instruções passo a passo para mover dados para o Azure SQL
 
    1. **Insira LoadIntoSQLDWDataFactory** para o **nome**.
        O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: O **nome da fábrica de dados "LoadIntoSQLDWDataFactory" não está disponível,** altere o nome da fábrica de dados (por exemplo, o seu nomeLoadIntoSQLDWDataFactory) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.  
-   2. Selecione a sua **subscrição** do Azure.
+   2. Selecione a sua **subscrição Azure**.
    3. No Grupo de Recursos, siga um destes passos:
       1. Selecione **Utilizar existente** para selecionar um grupo de recursos já existente.
       2. Selecione **Criar novo** para introduzir um nome para um grupo de recursos.
    4. Selecione uma **localização** para a fábrica de dados.
    5. Selecione a caixa de verificação **Afixar ao dashboard**, na parte inferior do painel.  
-   6. Clique em **Criar**.
+   6. Clique em **Create** (Criar).
 4. Após a criação estar concluída, vê a lâmina da **Fábrica de Dados** como mostrado na seguinte imagem:
 
    ![Home page da fábrica de dados](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
@@ -212,6 +212,6 @@ Aqui estão algumas boas práticas para executar a sua base de dados Azure SQL D
 
 Consulte [as melhores práticas para o Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Data Factory Copy Wizard](data-factory-copy-wizard.md) - Este artigo fornece detalhes sobre o Assistente de Cópia.
 * [Copy Activity performance and afinaning guide](data-factory-copy-activity-performance.md) - Este artigo contém as medidas de desempenho de referência e o guia de afinação.

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb216f164e02dfa4dbc4ad11774569b2e8ea970f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797605"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539691"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com monitor azure
 
@@ -37,7 +38,7 @@ As aplicações são tão fiáveis quanto as suas infraestruturas subjacentes. T
 - Obtém automaticamente [métricas de plataforma, registos de atividades e registos](platform/data-sources.md) de diagnóstico da maioria dos seus recursos Azure sem configuração.
 - Ativar uma monitorização mais profunda dos VMs com [monitores Azure para VMs](insights/vminsights-overview.md).
 -  Ativar uma monitorização mais profunda dos aglomerados AKS com [o Azure Monitor para contentores](insights/container-insights-overview.md).
-- Adicione [soluções de monitorização](insights/solutions-inventory.md) para diferentes aplicações e serviços no seu ambiente.
+- Adicione [soluções de monitorização](./monitor-reference.md) para diferentes aplicações e serviços no seu ambiente.
 
 
 [A infraestrutura como código](/azure/devops/learn/what-is-infrastructure-as-code) é a gestão da infraestrutura num modelo descritivo, utilizando a mesma versão que as equipas de DevOps usam para código fonte. Adiciona fiabilidade e escalabilidade ao seu ambiente e permite-lhe alavancar processos semelhantes que costumavam gerir as suas aplicações.

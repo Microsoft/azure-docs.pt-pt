@@ -3,12 +3,12 @@ title: Apoiar uma quinta sharePoint para Azure com DPM
 description: Este artigo fornece uma visão geral da proteção do servidor de backup DPM/Azure de uma fazenda SharePoint para Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80054114"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539113"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Apoiar uma quinta sharePoint para Azure com DPM
 
@@ -18,7 +18,7 @@ O backup do SharePoint para o Azure com o DPM é um processo muito semelhante pa
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões suportadas no SharePoint e cenários de proteção conexos
 
-Para obter uma lista das versões suportadas do SharePoint e das versões do DPM necessárias para criar uma cópia de segurança das mesmas, consulte [Que conteúdos pode o DPM armazenar em cópia de segurança?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
+Para obter uma lista das versões suportadas do SharePoint e das versões do DPM necessárias para criar uma cópia de segurança das mesmas, consulte [Que conteúdos pode o DPM armazenar em cópia de segurança?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -28,19 +28,19 @@ Há algumas coisas que precisa de confirmar antes de voltar a uma quinta sharePo
 
 Antes de prosseguir, certifique-se de que cumpriu todos os [pré-requisitos para usar o Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para proteger as cargas de trabalho. Algumas tarefas para pré-requisitos incluem: criar um cofre de reserva, baixar credenciais de cofre, instalar o Agente de Backup Azure e registar o DPM/Azure Backup Server com o cofre.
 
-Pré-requisitos e limitações adicionais podem ser encontrados no Back up SharePoint com o artigo [DPM.](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations)
+Pré-requisitos e limitações adicionais podem ser encontrados no Back up SharePoint com o artigo [DPM.](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations)
 
 ## <a name="configure-backup"></a>Configurar a cópia de segurança
 
-Para criar cópias de segurança do farm do SharePoint, configure a proteção para o SharePoint através do ConfigureSharePoint.exe e, em seguida, crie um grupo de proteção no DPM. Para obter instruções, consulte [a Cópia de Segurança configurada](https://docs.microsoft.com//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) na documentação DPM.
+Para criar cópias de segurança do farm do SharePoint, configure a proteção para o SharePoint através do ConfigureSharePoint.exe e, em seguida, crie um grupo de proteção no DPM. Para obter instruções, consulte [a Cópia de Segurança configurada](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) na documentação DPM.
 
 ## <a name="monitoring"></a>Monitorização
 
-Para monitorizar o trabalho de backup, siga as instruções na [monitorização da cópia de segurança do DPM](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
+Para monitorizar o trabalho de backup, siga as instruções na [monitorização da cópia de segurança do DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
 
 ## <a name="restore-sharepoint-data"></a>Restaurar dados do SharePoint
 
-Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consulte [os dados do SharePoint de restauro](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
+Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consulte [os dados do SharePoint de restauro](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restaurar uma base de dados SharePoint a partir do Azure utilizando o DPM
 
@@ -61,7 +61,7 @@ Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consu
 
     ![DPM SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Depois de concluída a catalogação, o estado muda para *Sucesso*. Clique em **Fechar**.
+    Depois de concluída a catalogação, o estado muda para *Sucesso*. Clique em **Close** (Fechar).
 
     ![DPM SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
 4. Clique no objeto SharePoint mostrado no separador **Recuperação** de DPM para obter a estrutura da base de dados de conteúdos. Clique com o botão direito no item e, em seguida, clique em **Recuperar**.
@@ -71,9 +71,9 @@ Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consu
 
 ## <a name="switching-the-front-end-web-server"></a>Mudar o servidor web frontal
 
-Se tiver mais do que um servidor web frontal e quiser mudar o servidor que o DPM utiliza para proteger a quinta, siga as instruções para [mudar o Servidor Web front-end](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
+Se tiver mais do que um servidor web frontal e quiser mudar o servidor que o DPM utiliza para proteger a quinta, siga as instruções para [mudar o Servidor Web front-end](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Azure Backup Server e DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
 * [Troubleshoot System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md) (Resolver Problemas do System Center Data Protection Manager)

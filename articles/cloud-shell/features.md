@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506570"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538178"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Possui ferramentas & para Azure Cloud Shell
 
@@ -49,19 +49,19 @@ A unidade Azure permite uma fácil descoberta e navegação de recursos Azure ta
 Pode continuar a utilizar os [conhecidos cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure) para gerir estes recursos, independentemente da unidade em que se encontre.
 Quaisquer alterações feitas aos recursos Azure, efetuadas diretamente no portal Azure ou através de cmdlets Azure PowerShell, refletem-se na unidade Azure.  Pode correr `dir -Force` para refrescar os seus recursos.
 
-![](media/features-powershell/azure-drive.png)
+![Screenshot de um Azure Cloud Shell sendo inicializado e uma lista de recursos de diretório.](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Gerir Troca Online
 
 PowerShell em Cloud Shell contém uma construção privada do módulo Exchange Online.  Corra `Connect-EXOPSSession` para obter os seus cmdlets de troca.
 
-![](media/features-powershell/exchangeonline.png)
+![Screenshot de uma Azure Cloud Shell executando os comandos Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
 
  Execute `Get-Command -Module tmp_*`
 > [!NOTE]
 > O nome do módulo deve começar `tmp_` por, se tiver módulos instalados com o mesmo prefixo, os seus cmdlets também serão lançados. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![Screenshot de uma Azure Cloud Shell executando o comando Get-Command -Module tmp_*.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Integração profunda com ferramentas de código aberto
 
@@ -75,8 +75,8 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 |Ferramentas do Azure            |[CLI clássico de Azure E](https://github.com/Azure/azure-cli) [Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [CLI das Funções do Azure](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editores de texto           |código (editor cloud shell)<br> vim<br> nano<br> emacs    |
 |Controlo de código fonte         |git                    |
-|Ferramentas de compilação            |modelo<br> maven<br> npm<br> pip         |
-|Contentores             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Leme](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Ferramentas de compilação            |make<br> maven<br> npm<br> pip         |
+|Contentores             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Bases de Dados              |Cliente MySQL<br> Cliente PostgreSql<br> [utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Outros                  |Cliente iPython<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso de marioneta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Escritório 365 CLI](https://pnp.github.io/office365-cli/)|
 
@@ -85,7 +85,7 @@ A Cloud Shell inclui a autenticação pré-configurada para ferramentas de códi
 |Linguagem   |Versão   |
 |---|---|
 |.NET Core  |2.2.402       |
-|Ir         |1.9        |
+|Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |

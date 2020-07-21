@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 80c789f955b279e7771fe39c20087baa465b3293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042625"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539198"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisão e catálogo de novos inquilinos numa aplicação SaaS utilizando uma base de dados Azure SQL de vários inquilinos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +30,7 @@ Este artigo tem duas partes principais:
 - [Tutorial](#goto_1_tutorial) que destaca o código de script PowerShell que realiza o provisionamento e catalogação.
   - O tutorial utiliza a aplicação Wingtip Tickets SaaS, adaptada ao padrão de base de dados de vários inquilinos.
 
-<a name="goto_2_conceptual"/>
+<a name="goto_2_conceptual"></a>
 
 ## <a name="database-pattern"></a>Padrão da base de dados
 
@@ -110,7 +111,7 @@ O arrendatário que fornece scripts neste tutorial suporta ambos os seguintes ce
 
 Os dados do inquilino são então inicializados e registados no mapa de fragmentos do catálogo. Na aplicação da amostra, as bases de dados que contêm vários inquilinos recebem um nome genérico, como *inquilinos1* ou *inquilinos2.* As bases de dados que contêm um único inquilino recebem o nome do inquilino. As convenções específicas de nomeação utilizadas na amostra não são uma parte crítica do padrão, uma vez que a utilização de um catálogo permite que qualquer nome seja atribuído à base de dados.
 
-<a name="goto_1_tutorial"/>
+<a name="goto_1_tutorial"></a>
 
 ## <a name="tutorial-begins"></a>Começa o tutorial
 

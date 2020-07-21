@@ -1,5 +1,5 @@
 ---
-title: Ambientes computativos apoiados pela Azure Data Factory
+title: Ambientes computativos suportados pela versão 1 da Azure Data Factory
 description: Saiba mais sobre ambientes computativos que pode utilizar nos oleodutos Azure Data Factory (como a Azure HDInsight) para transformar ou processar dados.
 services: data-factory
 documentationcenter: ''
@@ -11,13 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022015"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537569"
 ---
-# <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes computativos apoiados pela Azure Data Factory
+# <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes computativos suportados pela versão 1 da Azure Data Factory
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Azure Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte [os serviços ligados ao Compute em](../compute-linked-services.md).
 
@@ -118,7 +119,7 @@ O JSON seguinte define um serviço hdinsight baseado na procura do Linux. A Data
 > 
 
 ### <a name="properties"></a>Propriedades
-| Propriedade                     | Descrição                              | Necessário |
+| Propriedade                     | Descrição                              | Obrigatório |
 | ---------------------------- | ---------------------------------------- | -------- |
 | tipo                         | Defina a propriedade tipo para **HDInsightOnDemand**. | Sim      |
 | clusterSize                  | O número de trabalhadores e nó de dados no cluster. O cluster HDInsight é criado com 2 nós de cabeça, além do número de nós de trabalhadores que especifica para esta propriedade. Os nós são de tamanho Standard_D3, que tem 4 núcleos. Um aglomerado de nó de 4 trabalhadores leva 24 núcleos \* (4 4 = 16 núcleos para os nóns dos trabalhadores, mais 2 \* 4 = 8 núcleos para os nosdes da cabeça). Para obter mais informações sobre o nível Standard_D3, consulte [os clusters Hadoop baseados em Linux em HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Sim      |
@@ -141,7 +142,7 @@ O JSON seguinte define um serviço hdinsight baseado na procura do Linux. A Data
 ### <a name="advanced-properties"></a>Propriedades avançadas
 Para a configuração granular do cluster HDInsight a pedido, pode especificar as seguintes propriedades:
 
-| Propriedade               | Descrição                              | Necessário |
+| Propriedade               | Descrição                              | Obrigatório |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Especifica os parâmetros de configuração do núcleo (core-site.xml) para a criação do cluster HDInsight. | Não       |
 | hConfiguration base     | Especifica os parâmetros de configuração HBase (hbase-site.xml) para o cluster HDInsight. | Não       |
@@ -194,7 +195,7 @@ Para a configuração granular do cluster HDInsight a pedido, pode especificar a
 ### <a name="node-sizes"></a>Tamanhos dos nómdais
 Para especificar o tamanho dos nosmos de cabeça, dados e ZooKeeper, utilize as seguintes propriedades: 
 
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Define o tamanho do nó da cabeça. O valor **predefinido**é Standard_D3 . Para mais [informações, consulte especificar os tamanhos dos nós.](#specify-node-sizes) | Não       |
 | dataNodeSize      | Define o tamanho do nó de dados. O valor **predefinido**é Standard_D3 . | Não       |
@@ -254,11 +255,11 @@ Pode criar um serviço ligado a HDInsight para registar o seu próprio cluster H
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | tipo              | Defina a propriedade tipo para **HDInsight**. | Sim      |
 | clusterUri        | O URI do cluster HDInsight.        | Sim      |
-| o nome de utilizador          | O nome da conta de utilizador a utilizar para ligar a um cluster HDInsight existente. | Sim      |
+| nome de utilizador          | O nome da conta de utilizador a utilizar para ligar a um cluster HDInsight existente. | Sim      |
 | palavra-passe          | A palavra-passe para a conta de utilizador.   | Sim      |
 | linkedServiceName | O nome do serviço ligado ao armazenamento que se refere ao armazenamento Blob utilizado pelo cluster HDInsight. <p>Atualmente, não é possível especificar um serviço ligado à Data Lake Store para esta propriedade. Se o cluster HDInsight tiver acesso à Data Lake Store, poderá aceder a dados na Data Lake Store a partir de scripts de Colmeia ou Porco. </p> | Sim      |
 
@@ -302,7 +303,7 @@ Outra opção é fornecer o ponto final **do batchUri.** Por exemplo:
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
 | tipo              | Desa estabaja a propriedade tipo **para AzureBatch**. | Sim      |
 | accountName       | O nome da conta do Lote.         | Sim      |
@@ -340,7 +341,7 @@ Pode criar um serviço de data lake analytics ligado para ligar um serviço de c
 
 A tabela a seguir descreve as propriedades genéricas que são utilizadas na definição JSON:
 
-| Propriedade                 | Descrição                              | Necessário                                 |
+| Propriedade                 | Descrição                              | Obrigatório                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | tipo                 | Desaperte a propriedade tipo para **AzureDataLakeAnalytics**. | Sim                                      |
 | accountName          | O nome da conta Data Lake Analytics.  | Sim                                      |
@@ -359,7 +360,7 @@ Para utilizar a autenticação principal do serviço, registe uma entidade de ap
 
 Utilize a autenticação principal do serviço especificando as seguintes propriedades:
 
-| Propriedade                | Descrição                              | Necessário |
+| Propriedade                | Descrição                              | Obrigatório |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | A identificação do cliente da candidatura.     | Sim      |
 | servicePrincipalKey | A chave da inscrição.           | Sim      |
@@ -387,7 +388,7 @@ Utilize a autenticação principal do serviço especificando as seguintes propri
 #### <a name="user-credential-authentication"></a>Autenticação credencial do utilizador
 Para a autenticação credencial do utilizador para data lake analytics, especifique as seguintes propriedades:
 
-| Propriedade          | Descrição                              | Necessário |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | autorização | No Data Factory Editor, selecione o botão **Authorize.** Introduza a credencial que atribui o URL de autorização autogerado a esta propriedade. | Sim      |
 | sessionId     | O ID da sessão OAuth da sessão de autorização da OAuth. Cada ID de sessão é único e só pode ser usado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor de Fábrica de Dados. | Sim      |

@@ -12,13 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f0d60d1f76523beca6567517ef44d50b910b221
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020137"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537620"
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
+# <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Utilize atividades personalizadas num pipeline da versão 1 da Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](data-factory-use-custom-activities.md)
 > * [Versão 2 (versão atual)](../transform-data-using-dotnet-custom-activity.md)
@@ -98,7 +99,7 @@ O método devolve um dicionário que pode ser usado para acorrentar atividades p
 ### <a name="procedure"></a>Procedimento
 1. Criar um projeto **da Biblioteca classe .NET.**
    <ol type="a">
-     <li>Inicie o Visual Studio.</li>
+     <li>Lançamento Visual Studio.</li>
      <li>Clique em <b>Ficheiro</b>, aponte para <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li>
      <li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b>. Neste walkthrough, você usa C#, mas você pode usar qualquer idioma .NET para desenvolver a atividade personalizada.</li>
      <li>Selecione <b>a Biblioteca</b> de Classe da lista de tipos de projeto à direita. No Estúdio Visual, escolha <b>a Biblioteca de Classes (.NET Framework)</b> </li>

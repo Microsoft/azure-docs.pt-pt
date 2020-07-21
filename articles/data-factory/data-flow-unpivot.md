@@ -3,16 +3,16 @@ title: Mapeamento fluxo de dados Transformação Unpivot
 description: Azure Data Factory mapeamento de dados fluxo unpivot Transformação
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: c3e769334beb6a5739eebb8d7e8dc370533c2dc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606246"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537719"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformação unpivot da Fábrica de Dados Azure
 
@@ -21,6 +21,8 @@ ms.locfileid: "81606246"
 Utilize o fluxo de dados de mapeamento unpivot em ADF como forma de transformar um conjunto de dados não normalizado numa versão mais normalizada, expandindo valores de várias colunas num único registo em múltiplos registos com os mesmos valores numa única coluna.
 
 ![Transformação Não-3](media/data-flow/unpivot1.png "Opções não-depívoras 1")
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
 
 ## <a name="ungroup-by"></a>Desagrupamento por
 

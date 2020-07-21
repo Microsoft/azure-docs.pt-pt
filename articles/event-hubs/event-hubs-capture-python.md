@@ -3,12 +3,12 @@ title: 'Quickstart: Leia os dados capturados da aplicação Python - Azure Event
 description: 'Quickstart: Scripts que usam o Azure Python SDK para demonstrar a funcionalidade de Captura de Centros de Eventos.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 8e6174970a6821f7541387f91b226cdebe555625
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 364ca789f560dc8fdae099b09c77946bc4ad5005
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323063"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537229"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Quickstart: Event Hubs Capture walkthrough: Python (azure-eventhub versão 1)
 
@@ -177,7 +177,7 @@ Este script lê os ficheiros capturados e cria um ficheiro para cada um dos seus
 
    O processador de captura descarrega todas as bolhas não vazias do recipiente da conta de armazenamento e escreve os resultados como *ficheiros .csv* no diretório local. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os Centros de Eventos, consulte: 
 
@@ -190,4 +190,4 @@ Para saber mais sobre os Centros de Eventos, consulte:
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

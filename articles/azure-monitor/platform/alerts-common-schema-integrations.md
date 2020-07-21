@@ -4,17 +4,18 @@ description: Saiba como criar uma aplicação lógica que aproveite o esquema de
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05349554f4c5e076562a75d48d58e0849986d6cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77668235"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539504"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com apps lógicas
 
 Este artigo mostra-lhe como criar uma aplicação lógica que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os seus diferentes tipos de alerta. O esquema de alerta comum é mais útil quando alavancado programáticamente – através de webhooks, runbooks e aplicações lógicas. Neste artigo, demonstramos como uma única aplicação lógica pode ser da autoria de todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos programáticos. A aplicação lógica descrita neste artigo cria variáveis bem definidas para os [campos 'essenciais'](alerts-common-schema-definitions.md#essentials)e também descreve como pode lidar com a lógica específica [do tipo de alerta.](alerts-common-schema-definitions.md#alert-context)
 
@@ -22,13 +23,13 @@ O [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs) fornece um esq
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 Este artigo assume que o leitor está familiarizado com 
-* Configuração de regras de alerta[(métrica,](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) [log,](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) [log, log de atividades)](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
-* Criação de [grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* Permitir o [esquema de alerta comum](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) dentro de grupos de ação
+* Configuração de regras de alerta[(métrica,](./alerts-metric.md) [log,](./alerts-log.md) [log, log de atividades)](./alerts-activity-log.md)
+* Criação de [grupos de ação](./action-groups.md)
+* Permitir o [esquema de alerta comum](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) dentro de grupos de ação
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Crie uma aplicação lógica aproveitando o esquema de alerta comum
 
-1. Siga os [passos delineados para criar a sua aplicação lógica.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app) 
+1. Siga os [passos delineados para criar a sua aplicação lógica.](./action-groups-logic-app.md) 
 
 1.  Selecione o gatilho: **Quando um pedido HTTP for recebido**.
 
@@ -129,7 +130,7 @@ Este artigo assume que o leitor está familiarizado com
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     Saiba mais sobre [a escrita de expressões de aplicativos lógicos.](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions)
+     Saiba mais sobre [a escrita de expressões de aplicativos lógicos.](../../logic-apps/workflow-definition-language-functions-reference.md#logical-comparison-functions)
 
     
 
@@ -138,4 +139,3 @@ Este artigo assume que o leitor está familiarizado com
 
 * [Saiba mais sobre grupos de ação.](../../azure-monitor/platform/action-groups.md)
 * [Saiba mais sobre o esquema de alerta comum.](https://aka.ms/commonAlertSchemaDocs)
-

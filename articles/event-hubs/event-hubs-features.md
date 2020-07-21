@@ -3,18 +3,18 @@ title: Visão geral das funcionalidades - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece detalhes sobre funcionalidades e terminologia dos Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b646c1a0730b046dd3e66a5d5324b659999f83a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034983074ddc6faf324d70a18a9a49b8df659649
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320711"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537314"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e terminologia nos Hubs de Eventos do Azure
 
-O Azure Event Hubs é um serviço de processamento de eventos escalável que ingere e processa grandes volumes de eventos e dados, com baixa latência e elevada fiabilidade. Veja [o que é o Event Hubs para](event-hubs-what-is-event-hubs.md) uma visão geral de alto nível.
+O Azure Event Hubs é um serviço de processamento de eventos escalável que ingere e processa grandes volumes de eventos e dados, com baixa latência e elevada fiabilidade. Veja [o que é o Event Hubs para](./event-hubs-about.md) uma visão geral de alto nível.
 
-Este artigo baseia-se na informação no [artigo geral,](event-hubs-what-is-event-hubs.md)e fornece detalhes técnicos e de implementação sobre componentes e funcionalidades do Event Hubs.
+Este artigo baseia-se na informação no [artigo geral,](./event-hubs-about.md)e fornece detalhes técnicos e de implementação sobre componentes e funcionalidades do Event Hubs.
 
 ## <a name="namespace"></a>Espaço de Nomes
 Um espaço de nomes de Event Hubs fornece um recipiente de scoping único, referenciado pelo seu [nome de domínio totalmente qualificado,](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)no qual você cria um ou mais centros de eventos ou tópicos Kafka. 
@@ -33,7 +33,7 @@ Qualquer entidade que envie dados para um centro de eventos é um produtor de ev
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Pode publicar um evento via AMQP 1.0, Kafka 1.0 (e mais tarde) ou HTTPS. O Event Hubs fornece [bibliotecas e aulas](event-hubs-dotnet-framework-api-overview.md) de clientes para a publicação de eventos a um centro de eventos de clientes .NET. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados de eventos) tem um limite de 1 MB, independentemente de se trate de um único evento ou de um lote. Publicar eventos maiores do que este limiar resulta num erro. É preferível os publicadores não terem conhecimento das partições dentro do hub de eventos e apenas especificarem uma *chave de partição* (apresentada na secção seguinte) ou a sua identidade através do respetivo token SAS.
+Pode publicar um evento via AMQP 1.0, Kafka 1.0 (e mais tarde) ou HTTPS. O Event Hubs fornece [bibliotecas e aulas](./event-hubs-dotnet-framework-getstarted-send.md) de clientes para a publicação de eventos a um centro de eventos de clientes .NET. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados de eventos) tem um limite de 1 MB, independentemente de se trate de um único evento ou de um lote. Publicar eventos maiores do que este limiar resulta num erro. É preferível os publicadores não terem conhecimento das partições dentro do hub de eventos e apenas especificarem uma *chave de partição* (apresentada na secção seguinte) ou a sua identidade através do respetivo token SAS.
 
 A opção para utilizar AMQP ou HTTPS é específica do cenário de utilização. O AMQP requer o estabelecimento de um socket bidirecional persistente, para além da segurança de nível do transporte (TLS) ou SSL/TLS. A AMQP tem custos de rede mais elevados ao rubricar a sessão, no entanto HTTPS requer despesa adicional de TLS para cada pedido. O AMQP tem um desempenho superior para publicadores frequentes.
 
@@ -51,7 +51,7 @@ Os Event Hubs permitem um controlo granular sobre os publicadores de eventos atr
 
 Não precisa de criar os nomes dos publicadores com antecedência, mas devem corresponder ao token SAS utilizado ao publicar um evento, para garantir identidades do publicador independentes. Ao utilizar as políticas do publicador, o valor **PartitionKey** é definido para o nome do publicador. Para que funcionem corretamente, estes valores têm de corresponder.
 
-## <a name="capture"></a>Captura
+## <a name="capture"></a>Recolha
 
 [O Event Hubs Capture](event-hubs-capture-overview.md) permite-lhe capturar automaticamente os dados de streaming nos Centros de Eventos e guardá-los para a sua escolha de uma conta de armazenamento Blob ou de uma conta Azure Data Lake Service. Pode ativar a Captura a partir do portal Azure e especificar um tamanho e janela de tempo mínimos para realizar a captura. Utilizando a Captura de Centros de Eventos, especifica a sua própria conta e contentor Azure Blob, ou conta Azure Data Lake Service, uma das quais é usada para armazenar os dados capturados. Os dados capturados estão escritos no formato Apache Avro.
 
@@ -94,14 +94,14 @@ Um *desvio* é a posição de um evento numa partição. Pode considerar um desv
 
 ![Hubs de Eventos](./media/event-hubs-features/partition_offset.png)
 
-### <a name="checkpointing"></a>Ponto de verificação
+### <a name="checkpointing"></a>Pontos de verificação
 
 O *ponto de verificação* é um processo pelo qual os leitores marcam ou confirmam a respetiva posição dentro de uma sequência de eventos da partição. O ponto de verificação é da responsabilidade do consumidor e ocorre numa base por partição dentro de um grupo de consumidores. Esta responsabilidade significa que para cada grupo de consumidores, cada leitor da partição tem de manter um controlo da respetiva posição atual no fluxo de eventos e pode informar o serviço quando considera o fluxo de dados completo.
 
 Se um leitor for desligado de uma partição, quando voltar a ser ligado, começa a leitura no ponto de verificação que foi previamente submetido pelo último leitor dessa partição nesse grupo de consumidores. Quando o leitor se conecta, passa a offset para o centro do evento para especificar o local onde começar a ler. Desta forma, pode utilizar o ponto de verificação para marcar os eventos como “concluídos” pelas aplicações a jusante e para fornecer resiliência se ocorrer uma ativação pós-falha entre os leitores em execução em computadores diferentes. É possível devolver dados mais antigos ao especificar um desvio inferior a partir deste processo de ponto de verificação. Através deste mecanismo, o ponto de verificação ativa a resiliência pós-falha e a repetição do fluxo de eventos.
 
 > [!NOTE]
-> Se estiver a utilizar o Azure Blob Storage como loja de checkpoint num ambiente que suporta uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure, terá de utilizar código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar [Os Centros de Eventos numa versão Azure Stack Hub 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte estas amostras no GitHub: 
+> Se estiver a utilizar o Azure Blob Storage como loja de checkpoint num ambiente que suporta uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure, terá de utilizar código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar [Os Centros de Eventos numa versão Azure Stack Hub 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte estas amostras no GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
@@ -113,7 +113,7 @@ Todos os consumidores de Centros de Eventos conectam-se através de uma sessão 
 
 #### <a name="connect-to-a-partition"></a>Ligar a uma partição
 
-Ao ligar-se às divisórias, é prática comum usar um mecanismo de locação para coordenar as ligações dos leitores a divisórias específicas. Desta forma, é possível que cada divisória de um grupo de consumidores tenha apenas um leitor ativo. A verificação, o leasing e a gestão dos leitores são simplificados utilizando os clientes dentro dos SDKs do Event Hubs, que funcionam como agentes de consumo inteligentes. Nomeadamente:
+Ao ligar-se às divisórias, é prática comum usar um mecanismo de locação para coordenar as ligações dos leitores a divisórias específicas. Desta forma, é possível que cada divisória de um grupo de consumidores tenha apenas um leitor ativo. A verificação, o leasing e a gestão dos leitores são simplificados utilizando os clientes dentro dos SDKs do Event Hubs, que funcionam como agentes de consumo inteligentes. Esses avisos são:
 
 - O [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) para .NET
 - O [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) para Java

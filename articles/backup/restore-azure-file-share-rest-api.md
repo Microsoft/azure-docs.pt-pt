@@ -3,15 +3,16 @@ title: Restaurar ações de ficheiros Azure com a REST API
 description: Saiba como usar a API REST para restaurar ações de ficheiros Azure ou ficheiros específicos a partir de um ponto de restauração criado pelo Azure Backup
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710580"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538161"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar ações de arquivo Azure usando REST API
 
-Este artigo explica como restaurar uma partilha de ficheiros inteira ou ficheiros específicos a partir de um ponto de restauração criado pela [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) utilizando a API REST.
+Este artigo explica como restaurar uma partilha de ficheiros inteira ou ficheiros específicos a partir de um ponto de restauração criado pela [Azure Backup](./backup-overview.md) utilizando a API REST.
 
 No final deste artigo, você aprenderá a executar as seguintes operações usando REST API:
 
@@ -32,7 +33,7 @@ Para este artigo, usaremos os seguintes recursos:
 
 ## <a name="fetch-containername-and-protecteditemname"></a>Buscar o Nome do Contentor e o Natal Protegido
 
-Para a maioria das chamadas API relacionadas com a restauração, é necessário passar valores para os parâmetros {containerName} e {protectedItemName} URI. Utilize o atributo ID no corpo de resposta da operação [de proteção de backup GET](https://docs.microsoft.com/rest/api/backup/protecteditems/get) para recuperar valores para estes parâmetros. No nosso exemplo, a ID da partilha de ficheiros que queremos proteger é:
+Para a maioria das chamadas API relacionadas com a restauração, é necessário passar valores para os parâmetros {containerName} e {protectedItemName} URI. Utilize o atributo ID no corpo de resposta da operação [de proteção de backup GET](/rest/api/backup/protecteditems/get) para recuperar valores para estes parâmetros. No nosso exemplo, a ID da partilha de ficheiros que queremos proteger é:
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
@@ -43,7 +44,7 @@ Assim, os valores traduzem-se da seguinte forma:
 
 ## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>Procure pontos de recuperação para a partilha de ficheiros Azure
 
-Para restaurar qualquer partilha de ficheiros ou ficheiros com apoio, selecione primeiro um ponto de recuperação para executar a operação de restauro. Os pontos de recuperação disponíveis de um item de apoio podem ser listados através da chamada API da [Lista de Pontos de Recuperação.](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) É uma operação GET com todos os valores relevantes.
+Para restaurar qualquer partilha de ficheiros ou ficheiros com apoio, selecione primeiro um ponto de recuperação para executar a operação de restauro. Os pontos de recuperação disponíveis de um item de apoio podem ser listados através da chamada API da [Lista de Pontos de Recuperação.](/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) É uma operação GET com todos os valores relevantes.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
@@ -143,7 +144,7 @@ O ponto de recuperação é identificado com o campo {name} na resposta acima.
 ## <a name="full-share-recovery-using-rest-api"></a>Recuperação total de ações usando REST API
 
 Utilize esta opção de restauro para restaurar a partilha completa de ficheiros no local original ou alternativo.
-O desencadeamento da restauração é um pedido DE POST e pode efetuar esta operação utilizando o [gatilho restaurar](https://docs.microsoft.com/rest/api/backup/restores/trigger) a API REST.
+O desencadeamento da restauração é um pedido DE POST e pode efetuar esta operação utilizando o [gatilho restaurar](/rest/api/backup/restores/trigger) a API REST.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -159,11 +160,11 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Para desencadear uma restauração de uma partilha de ficheiros Azure, são os seguintes os componentes do organismo de pedido:
 
-Name |  Tipo   |   Descrição
+Nome |  Tipo   |   Descrição
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Restaurar propriedades RequestResource
 
-Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte o [documento API do gatilho Restore REST](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte o [documento API do gatilho Restore REST](/rest/api/backup/restores/trigger#request-body).
 
 ### <a name="restore-to-original-location"></a>Restaurar a localização original
 
@@ -218,7 +219,7 @@ O seguinte órgão de pedido restaura a parte de ficheiros *azurefiles* na conta
 
 ### <a name="response"></a>Resposta
 
-O desencadeamento de uma operação de restauro é uma [operação assíncronea](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Esta operação cria outra operação que precisa de ser rastreada separadamente.
+O desencadeamento de uma operação de restauro é uma [operação assíncronea](../azure-resource-manager/management/async-operations.md). Esta operação cria outra operação que precisa de ser rastreada separadamente.
 Devolve duas respostas: 202 (Aceite) quando outra operação é criada, e 200 (OK) quando essa operação termina.
 
 #### <a name="response-example"></a>Exemplo de resposta
@@ -349,7 +350,7 @@ Para uma recuperação alternativa da localização, o corpo de resposta será a
 }
 ```
 
-Uma vez que o trabalho de backup é uma operação de longa duração, deve ser rastreado como explicado nos trabalhos de monitorização utilizando o [documento REST API](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Uma vez que o trabalho de backup é uma operação de longa duração, deve ser rastreado como explicado nos trabalhos de monitorização utilizando o [documento REST API](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="item-level-recovery-using-rest-api"></a>Recuperação do nível do item usando API REST
 
@@ -369,11 +370,11 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Para desencadear uma restauração de uma partilha de ficheiros Azure, são os seguintes os componentes do organismo de pedido:
 
-Name |  Tipo   |   Descrição
+Nome |  Tipo   |   Descrição
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Restaurar propriedades RequestResource
 
-Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte o [documento API do gatilho Restore REST](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+Para obter a lista completa das definições do organismo de pedido e outros detalhes, consulte o [documento API do gatilho Restore REST](/rest/api/backup/restores/trigger#request-body).
 
 ### <a name="restore-to-original-location"></a>Restaurar a localização original
 

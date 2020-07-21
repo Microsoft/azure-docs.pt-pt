@@ -2,19 +2,19 @@
 title: Instalar extensão de nuvem híbrida (HCX)
 description: Confiem a solução VMware Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMware Solution (AVS)
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: b897a44fb6811c4e3564c59a8ab2c064506f0a4f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367551"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539164"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instale hCX para solução VMware Azure
 
 Neste artigo, percorremos procedimentos para configurar a solução VMWare Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMWare Solution (AVS). O HCX permite a migração das suas cargas de trabalho VMware para a nuvem, e outros sites conectados através de vários tipos de migração suportados por HCX incorporados.
 
-HCX Advanced, a instalação predefinida, suporta até três locais externos. Se forem necessários mais de três sites, os clientes têm a opção de ativar o add-on da Empresa HCX através do Suporte. A instalação da HCX Enterprise tem custos adicionais para os clientes após a disponibilidade geral (GA), mas fornece [funcionalidades adicionais.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)
+HCX Advanced, a instalação predefinida, suporta até três vCenters. Se forem necessários mais de três, os clientes têm a opção de ativar o addon da Empresa HCX através do Suporte. A instalação da HCX Enterprise tem custos adicionais para os clientes após a disponibilidade geral (GA), mas fornece [funcionalidades adicionais.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)
 
 
 Reveja minuciosamente [Antes de começar,](#before-you-begin) [os requisitos de versão de software](#software-version-requirements)e [pré-requisitos](#prerequisites) primeiro. 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f44cbd9b735839640702970a65de239b36b3f30
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209806"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537042"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Sobre a modernização da largura de banda do circuito ExpressRoute
 
@@ -34,14 +34,14 @@ Se a capacidade estiver disponível, pode atualizar o circuito utilizando os seg
 
 Se o parceiro ExpressRoute não tiver capacidade suficiente, é necessário criar um novo circuito, configurado para a largura de banda desejada. Para manter a conectividade, não apague o circuito antigo até que o circuito recém-criado seja provisionado, o espreitamento foi configurado e (no que diz respeito ao espreitamento privado) foi provisionado o objeto de ligação ao gateway de rede virtual ExpressRoute.
 
-Se o seu parceiro ExpressRoute não tiver capacidade disponível suficiente, tem de solicitar capacidade adicional no local de observação pretendido. Uma vez a nova capacidade, pode utilizar os passos contidos nos artigos na secção de largura de banda do [circuito de atualização](#upgrade) para criar um novo circuito, configurar a conectividade e eliminar o circuito antigo:
+Se o seu parceiro ExpressRoute não tiver capacidade disponível suficiente, tem de solicitar capacidade adicional no local de observação pretendido. Uma vez a nova capacidade, pode utilizar os passos contidos nos artigos na secção de largura de banda do [circuito de atualização](#upgrade) para criar um novo circuito, configurar a conectividade e eliminar o circuito antigo.
 
 
 ### <a name="insufficient-expressroute-direct-bandwidth"></a><a name="bandwidth"></a>Largura de banda ExpressRoute Direct insuficiente
 
 Se o ExpressRoute Direct não tiver capacidade suficiente, pode eliminar circuitos associados ao recurso ExpressRoute Direct que já não são necessários, ou criar um novo recurso ExpressRoute Direct. Para obter orientações sobre a gestão do recurso ExpressRoute Direct, consulte [como configurar o ExpressRoute Direct](how-to-expressroute-direct-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e modificar um circuito](expressroute-howto-circuit-portal-resource-manager.md)
 * [Criar e modificar a configuração de peering](expressroute-howto-routing-portal-resource-manager.md)

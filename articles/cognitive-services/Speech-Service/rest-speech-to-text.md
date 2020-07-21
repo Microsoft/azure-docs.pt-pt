@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: e7bbedf253d6a64609179a8710fc9accd1f03818
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636092"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537974"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
@@ -74,7 +74,7 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de discur
 
 O áudio é enviado no corpo do `POST` pedido HTTP. Deve estar num dos formatos desta tabela:
 
-| Formato | Codec | Taxa de bit | Taxa de amostra  |
+| Formatar | Codec | Taxa de bit | Taxa de amostra  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16 kHz, mono |
 | OGG    | OPUS  | 256 km/h | 16 kHz, mono |
@@ -223,10 +223,10 @@ O objeto da `NBest` lista pode incluir:
 | `ITN` | A forma inversamente normalizada de texto ("canónica") do texto reconhecido, com números de telefone, números, abreviaturas ("doctor smith" para "dr smith"), e outras transformações aplicadas. |
 | `MaskedITN` | O formulário ITN com máscara de profanação aplicada, se solicitado. |
 | `Display` | A forma de exibição do texto reconhecido, com pontuação e capitalização adicionadas. Este parâmetro é o mesmo que o fornecido quando o `DisplayText` formato é definido para `simple` . |
-| `AccuracyScore` | A pontuação indica a precisão da pronúncia do discurso dado. |
-| `FluencyScore` | A partitura indicando a fluência do discurso dado. |
-| `CompletenessScore` | A partitura indicando a completude do discurso dado calculando o rácio de palavras pronunciadas para toda a entrada. |
-| `PronScore` | A pontuação geral indica a qualidade da pronúncia do discurso dado. Isto é calculado a partir de `AccuracyScore` , `FluencyScore` e com `CompletenessScore` peso. |
+| `AccuracyScore` | Precisão de pronúncia do discurso. A precisão indica como os fones correspondem à pronúncia de um altifalante nativo. A pontuação de precisão do nível de texto completo e palavra é agregada a partir da pontuação de precisão do nível do telefone. |
+| `FluencyScore` | Fluência do discurso dado. A fluência indica o quão perto o discurso corresponde ao uso de quebras silenciosas de um orador nativo entre as palavras. |
+| `CompletenessScore` | Completude da fala, determinada calculando a relação de palavras pronunciadas com a entrada de texto de referência. |
+| `PronScore` | Pontuação geral indicando a qualidade da pronúncia do discurso dado. Isto é agregado de `AccuracyScore` , `FluencyScore` e com `CompletenessScore` peso. |
 | `ErrorType` | Este valor indica se uma palavra é omitida, inserida ou mal pronunciada, em comparação com `ReferenceText` . Os valores possíveis são `None` (ou seja, nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation` . |
 
 ## <a name="sample-responses"></a>Respostas da amostra

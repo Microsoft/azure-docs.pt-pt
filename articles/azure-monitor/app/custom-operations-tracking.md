@@ -4,12 +4,12 @@ description: Rastreio de operações personalizadas com Azure Application Insigh
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49c2ad44dab5e4f57db2f11c17c269289e56d2d5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82690854"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540048"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhe as operações personalizadas com o Application Insights .NET SDK
 
@@ -346,7 +346,7 @@ Quando eliminar a mensagem do instrumento, certifique-se de que define os identi
 
 ### <a name="dependency-types"></a>Tipos de Dependência
 
-Application Insights usa tipo de dependência para personalizar experiências de UI. Para filas reconhece os seguintes tipos de que melhoram a experiência de `DependencyTelemetry` diagnóstico de [transações:](/azure/azure-monitor/app/transaction-diagnostics)
+Application Insights usa tipo de dependência para personalizar experiências de UI. Para filas reconhece os seguintes tipos de que melhoram a experiência de `DependencyTelemetry` diagnóstico de [transações:](./transaction-diagnostics.md)
 - `Azure queue`para filas de armazenamento Azure
 - `Azure Event Hubs`para Azure Event Hubs
 - `Azure Service Bus`para a Azure Service Bus
@@ -425,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 A operação de eliminação faz com que a operação seja interrompida, pelo que pode fazê-lo em vez de ligar `StopOperation` .
 
-*Aviso:* em alguns casos, a exceção não foralizada pode [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` a sua chamada, pelo que as operações não podem ser rastreadas.
+*Aviso:* em alguns casos, a exceção não foralizada pode [impedir](/dotnet/csharp/language-reference/keywords/try-finally) `finally` a sua chamada, pelo que as operações não podem ser rastreadas.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Processamento e acompanhamento de operações paralelas
 
@@ -475,7 +475,7 @@ As atividades são cidadãos de primeira classe em Application Insights e a depe
 
 Cada operação de Insights de Aplicação (pedido ou dependência) envolve `Activity` - quando `StartOperation` é chamado, cria Atividade por baixo. `StartOperation`é a forma recomendada de rastrear manualmente o pedido ou a dependência das telemetrias e garantir que tudo está correlacionado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda os fundamentos da correlação de [telemetria](correlation.md) em Insights de Aplicação.
 - Confira como os dados correlacionados conferem experiência e mapa de aplicações de diagnóstico [de transações.](../../azure-monitor/app/app-map.md) [Transaction Diagnostics Experience](../../azure-monitor/app/transaction-diagnostics.md)

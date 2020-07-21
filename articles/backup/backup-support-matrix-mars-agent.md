@@ -3,11 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte de backup do Azure quando faz cópias de segurança que estão a executar o agente Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709883"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538654"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)
 
@@ -29,7 +30,7 @@ As suas opções de backup dependem do local onde o agente está instalado. Para
 **Instalação** | **Detalhes**
 --- | ---
 Descarregue o mais recente agente MARS | Você pode baixar a versão mais recente do agente a partir do cofre, ou [descarregá-la diretamente](https://aka.ms/azurebackup_agent).
-Instale diretamente numa máquina | Pode instalar o agente MARS diretamente num servidor Windows no local ou num VM do Windows que esteja a executar qualquer um dos [sistemas operativos suportados](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instale diretamente numa máquina | Pode instalar o agente MARS diretamente num servidor Windows no local ou num VM do Windows que esteja a executar qualquer um dos [sistemas operativos suportados](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Instalar num servidor de backup | Quando configurar o DPM ou o MABS para fazer o back up até ao Azure, descarregue e instale o agente MARS no servidor. Pode instalar o agente em [sistemas operativos suportados](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
 
 > [!NOTE]
@@ -84,7 +85,7 @@ Com o olhar da Microsoft, selecione os seguintes serviços/regiões e valores co
 - Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)
 - Azure Storage (de acordo com a localização do cofre dos Serviços de Recuperação)
 
-Para obter mais informações, consulte os [requisitos de encaminhamento ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para obter mais informações, consulte os [requisitos de encaminhamento ExpressRoute](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >O "Peering Público" é precotado para novos circuitos.
@@ -127,7 +128,7 @@ Os seguintes sistemas operativos encontram-se no final do suporte e é fortement
 
 Se os compromissos existentes impedirem a atualização do sistema operativo, considere migrar os servidores windows para Azure VMs e aproveitar as cópias de segurança Azure VM para continuar a manter-se protegida. Visite [a página de migração aqui](https://azure.microsoft.com/migration/windows-server/) para obter mais informações sobre a migração do seu servidor Windows.
 
-Para ambientes no local ou ambientes hospedados, onde não é possível atualizar o sistema operativo ou migrar para Azure, ative atualizações de segurança estendidas para que as máquinas continuem protegidas e suportadas. Note que apenas edições específicas são elegíveis para Atualizações de Segurança Alargadas. Visite a [página de PERGUNTAS Frequentes](https://www.microsoft.com/cloud-platform/extended-security-updates) para saber mais.
+Para ambientes no local ou ambientes hospedados, onde não é possível atualizar o sistema operativo ou migrar para Azure, ative atualizações de segurança estendidas para que as máquinas continuem protegidas e suportadas. Note que apenas edições específicas são elegíveis para Atualizações de Segurança Alargadas. Visite a [página de PERGUNTAS Frequentes](https://www.microsoft.com/windows-server/extended-security-updates) para saber mais.
 
 | **Sistema Operativo**                                       | **Ficheiros/pastas** | **Estado do sistema** | **Requisitos de software/módulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |

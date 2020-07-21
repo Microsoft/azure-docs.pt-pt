@@ -5,15 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 21f387a87224615ea6afbdce620c56e3ad2cc6ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83210544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540116"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Alterações de recursos baseadas no espaço de trabalho (pré-visualização)
 
-Antes da introdução dos recursos de [Insights de Aplicação baseados no espaço de trabalho,](create-workspace-resource.md)os dados do Application Insights foram armazenados separadamente de outros dados de registo no Azure Monitor. Ambos são baseados no Azure Data Explorer e usam a mesma língua de consulta kusto (KQL). Isto é descrito em [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
+Antes da introdução dos recursos de [Insights de Aplicação baseados no espaço de trabalho,](create-workspace-resource.md)os dados do Application Insights foram armazenados separadamente de outros dados de registo no Azure Monitor. Ambos são baseados no Azure Data Explorer e usam a mesma língua de consulta kusto (KQL). Isto é descrito em [Logs in Azure Monitor](../platform/data-platform-logs.md).
 
 Com os dados de recursos de aplicações baseados no espaço de trabalho, os dados de recursos do Log Analytics são armazenados num espaço de trabalho do Log Analytics com outros dados de monitorização e dados de aplicações. Isto simplifica a sua configuração, permitindo-lhe analisar mais facilmente dados em várias soluções e alavancar as capacidades dos espaços de trabalho.
 
@@ -59,12 +60,12 @@ Tabela legado: disponibilidade
 |cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
-|duration|real|DuraçãoMs|real|
+|duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
+|itemType|string|Tipo|Cadeia|
 |localização|string|Localização|string|
 |message|string|Mensagem|string|
 |name|string|Name|string|
@@ -76,7 +77,7 @@ Tabela legado: disponibilidade
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
 |size|real|Tamanho|real|
-|exito|string|Êxito|Booleano|
+|exito|string|Success|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
@@ -148,12 +149,12 @@ Tabela legado: dependências
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |dados|string|Dados|string|
-|duration|real|DuraçãoMs|real|
+|duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
+|itemType|string|Tipo|Cadeia|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -163,7 +164,7 @@ Tabela legado: dependências
 |resultadosDesco|string|Resultados Código|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|exito|string|Êxito|Booleano|
+|exito|string|Success|Booleano|
 |alvo|string|Destino|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
 |tipo|string|Tipo de Dependência|string|
@@ -270,12 +271,12 @@ Tabela legado: pageViews
 |cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
-|duration|real|DuraçãoMs|real|
+|duration|real|DurationMs|real|
 |`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
+|itemType|string|Tipo|Cadeia|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -350,25 +351,25 @@ Tabela legado: pedidos
 |cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
-|duration|real|DuraçãoMs|Real|
-|`id`|string|`Id`|String|
+|duration|real|DurationMs|Real|
+|`id`|string|`Id`|Cadeia|
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|String|
-|name|string|Name|String|
+|itemType|string|Tipo|Cadeia|
+|name|string|Name|Cadeia|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
 |operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
-|performanceBucket|string|PerformanceBucket|String|
-|resultadosDesco|string|Resultados Código|String|
+|performanceBucket|string|PerformanceBucket|Cadeia|
+|resultadosDesco|string|Resultados Código|Cadeia|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|source|string|Origem|String|
-|exito|string|Êxito|Booleano|
+|source|string|Origem|Cadeia|
+|exito|string|Success|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|url|string|Url|String|
+|url|string|Url|Cadeia|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|
@@ -466,4 +467,4 @@ Tabela do legado: vestígios
 ## <a name="next-steps"></a>Próximos passos
 
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)
+* [Escrever consultas da Análise](../log-query/log-query-overview.md)

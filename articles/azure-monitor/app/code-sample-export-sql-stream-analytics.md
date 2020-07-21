@@ -3,12 +3,12 @@ title: Exportação para SQL a partir de Azure Application Insights / Microsoft 
 description: Exportar continuamente dados de Insights de Aplicação para SQL usando Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3c8586e8a6950e827d1078ca7d9cc3792fa58ae0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4975d91cc20b81de302a1dd0cb7b3326878a96a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087236"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540099"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Exportação para SQL a partir de Insights de Aplicação usando Stream Analytics
 Este artigo mostra como mover os seus dados de telemetria da [Azure Application Insights][start] para a Base de Dados Azure SQL utilizando [a Continuação exportação][export] e [o Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -82,7 +82,7 @@ Certifique-se de que o servidor permite o acesso aos serviços Azure:
 ![Procurar, Servidores, o seu servidor, Definições, Firewall, Permitir acesso ao Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Criar uma tabela na Base de Dados Azure SQL
-Ligue à base de dados criada na secção anterior com a sua ferramenta de gestão preferida. Nesta passagem, estaremos a utilizar [ferramentas de gestão de servidores SQL](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+Ligue à base de dados criada na secção anterior com a sua ferramenta de gestão preferida. Nesta passagem, estaremos a utilizar [ferramentas de gestão de servidores SQL](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
 
 ![Ligar à Base de Dados SQL do Azure](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -255,4 +255,3 @@ FROM [dbo].[PageViewsTable]
 [metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

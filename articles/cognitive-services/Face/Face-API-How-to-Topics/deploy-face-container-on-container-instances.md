@@ -1,31 +1,30 @@
 ---
-title: Recipiente de rosto de corrida em instâncias de contentores azure
+title: Executar recipiente de rosto em instâncias de contentores Azure
 titleSuffix: Azure Cognitive Services
-description: Desloque o recipiente Face para uma instância de contentores Azure e teste-o num navegador web.
+description: Desloque o recipiente Face para uma Instância de Recipiente Azure e teste-o num navegador web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 4df5949e24e3fa59d37379c058a777c93dda2c44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5fbe316580cfa2ca280a2587536df037146e8d02
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878374"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538127"
 ---
-# <a name="deploy-the-face-container-to-azure-container-instances"></a>Desloque o recipiente Face para as instâncias do contentor azure
+# <a name="deploy-the-face-container-to-azure-container-instances"></a>Colocar o contentor Face para instâncias de contentores Azure
 
-Aprenda a implantar o recipiente [Face](../face-how-to-install-containers.md) dos Serviços Cognitivos para as [instâncias](https://docs.microsoft.com/azure/container-instances/)do contentor azure . Este procedimento demonstra a criação de um recurso Azure Face. Depois discutimos a imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão da infraestrutura para, em vez disso, concentrar-se no desenvolvimento de aplicações.
+> [!IMPORTANT]
+> O limite para os utilizadores de recipientes Face foi atingido. Não estamos atualmente a aceitar novas aplicações para o contentor Face.
+
+Saiba como implantar o recipiente [de rosto](../face-how-to-install-containers.md) dos serviços cognitivos para as [instâncias do contentor Azure](https://docs.microsoft.com/azure/container-instances/). Este procedimento demonstra a criação de um recurso Azure Face. Depois discutimos a retirada da imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão das infraestruturas para, em vez disso, concentrarem-se no desenvolvimento de aplicações.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
-
-## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registo de contentores privados
-
-[!INCLUDE [Request access to private container registry](../../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Create a Cognitive Services Face resource](../includes/create-face-resource.md)]
 

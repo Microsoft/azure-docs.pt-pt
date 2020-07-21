@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8998b450613e097230d7692a8ad1990830993b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83740455"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539334"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Orientação para dados pessoais armazenados em Log Analytics e Insights de Aplicações
 
@@ -66,8 +67,8 @@ O Log Analytics é uma loja flexível, que ao prescrever um esquema aos seus dad
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Dados em memória e em trânsito*: Os Insights de Aplicação acompanharão exceções, pedidos, chamadas de dependência e vestígios. Os dados privados podem ser recolhidos frequentemente ao nível do código e da chamada HTTP. Reveja as exceções, pedidos, dependências e traços de tabelas para identificar tais dados. Utilize [inicializadores de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) sempre que possível para ocultar estes dados.
-* *Snapshot Debugger captura*: A funcionalidade [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) em Application Insights permite-lhe recolher instantâneos de depurar sempre que uma exceção é apanhada na instância de produção da sua aplicação. Os instantâneos exporão o traço completo da pilha, conduzindo às exceções, bem como os valores para variáveis locais em cada passo da pilha. Infelizmente, esta funcionalidade não permite a eliminação seletiva de pontos de encaixe ou acesso programático aos dados dentro do instantâneo. Portanto, se a taxa de retenção de instantâneo padrão não satisfaz os seus requisitos de conformidade, a recomendação é desligar a funcionalidade.
+* *Dados em memória e em trânsito*: Os Insights de Aplicação acompanharão exceções, pedidos, chamadas de dependência e vestígios. Os dados privados podem ser recolhidos frequentemente ao nível do código e da chamada HTTP. Reveja as exceções, pedidos, dependências e traços de tabelas para identificar tais dados. Utilize [inicializadores de telemetria](../app/api-filtering-sampling.md) sempre que possível para ocultar estes dados.
+* *Snapshot Debugger captura*: A funcionalidade [Snapshot Debugger](../app/snapshot-debugger.md) em Application Insights permite-lhe recolher instantâneos de depurar sempre que uma exceção é apanhada na instância de produção da sua aplicação. Os instantâneos exporão o traço completo da pilha, conduzindo às exceções, bem como os valores para variáveis locais em cada passo da pilha. Infelizmente, esta funcionalidade não permite a eliminação seletiva de pontos de encaixe ou acesso programático aos dados dentro do instantâneo. Portanto, se a taxa de retenção de instantâneo padrão não satisfaz os seus requisitos de conformidade, a recomendação é desligar a funcionalidade.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Como exportar e eliminar dados privados
 
@@ -100,7 +101,7 @@ Uma vez atribuída a função de Gestor de Recursos Azure, estão disponíveis d
 
 #### <a name="log-data"></a>Dados de registo
 
-* [Purga POST](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) - toma um objeto especificando parâmetros de dados para apagar e devolve uma referência GUID 
+* [Purga POST](/rest/api/loganalytics/workspacepurge/purge) - toma um objeto especificando parâmetros de dados para apagar e devolve uma referência GUID 
 * Obtenha o estado de purga - a chamada de purga POST devolverá um cabeçalho 'x-ms-status-location' que incluirá um URL que pode ligar para determinar o estado da sua expurgação API. Por exemplo:
 
     ```
@@ -112,7 +113,7 @@ Uma vez atribuída a função de Gestor de Recursos Azure, estão disponíveis d
 
 #### <a name="application-data"></a>Dados da aplicação
 
-* [Purga POST](https://docs.microsoft.com/rest/api/application-insights/components/purge) - toma um objeto especificando parâmetros de dados para apagar e devolve uma referência GUID
+* [Purga POST](/rest/api/application-insights/components/purge) - toma um objeto especificando parâmetros de dados para apagar e devolve uma referência GUID
 * Obtenha o estado de purga - a chamada de purga POST devolverá um cabeçalho 'x-ms-status-location' que incluirá um URL que pode ligar para determinar o estado da sua expurgação API. Por exemplo:
 
    ```

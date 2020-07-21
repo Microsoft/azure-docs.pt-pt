@@ -1,7 +1,7 @@
 ---
 title: Padrões ajudam a previsão - LUIS
 titleSuffix: Azure Cognitive Services
-description: Um padrão permite-lhe ganhar mais precisão para uma intenção sem fornecer muitas mais expressões.
+description: Um padrão permite-lhe ganhar mais precisão para uma intenção sem fornecer muitos mais pronunciamentos.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,74 +11,74 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683914"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538059"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Os padrões melhoram a precisão da previsão
-Os padrões são projetados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe ganhar mais precisão para uma intenção sem fornecer muitas mais expressões.
+Os padrões são projetados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe ganhar mais precisão para uma intenção sem fornecer muitos mais pronunciamentos.
 
-## <a name="patterns-solve-low-intent-confidence"></a>Padrões resolvem baixa confiança de intenção
-Considere uma aplicação de Recursos Humanos que reporte sobre o gráfico organizacional em relação a um funcionário. Dado o nome e a relação de um empregado, a LUIS devolve os colaboradores envolvidos. Considere um empregado, Tom, com um empresário chamado Alice, e uma equipa de subordinados chamados: Michael, Rebecca e Carl.
+## <a name="patterns-solve-low-intent-confidence"></a>Padrões resolvem baixa confiança intenção
+Considere uma aplicação de Recursos Humanos que reporte no gráfico organizacional em relação a um funcionário. Dado o nome e a relação de um empregado, a LUIS devolve os colaboradores envolvidos. Considere um empregado, Tom, com um nome de gerente Alice, e uma equipa de subordinados chamado: Michael, Rebecca e Carl.
 
-![Imagem do gráfico da Organização](./media/luis-concept-patterns/org-chart.png)
+![Gráfico de imagem da Organização](./media/luis-concept-patterns/org-chart.png)
 
 |Expressões|Intenção prevista|Pontuação de intenção|
 |--|--|--|
-|Quem é subordinado do Tom?|Getorgchart|.30|
-|Quem é o subordinado de Tom?|Getorgchart|.30|
+|Quem é o subordinado do Tom?|GetOrgChart|.30|
+|Quem é o subordinado de Tom?|GetOrgChart|.30|
 
-Se uma aplicação tiver entre 10 a 20 frases com diferentes comprimentos de frase, ordem de palavras diferentes e até palavras diferentes (sinónimos de "subordinado", "gerir", "reportar"), LUIS pode devolver uma pontuação de baixa confiança. Crie um padrão para ajudar luis a entender a importância da palavra ordem.
+Se uma app tiver entre 10 e 20 expressões com diferentes comprimentos de frase, ordem de palavras diferentes e até palavras diferentes (sinónimos de "subordinado", "gerir", "reportar"), o LUIS pode devolver uma pontuação de baixa confiança. Crie um padrão para ajudar o LUIS a compreender a importância da ordem da palavra.
 
 Os padrões resolvem as seguintes situações:
 
-* A pontuação da intenção é baixa
-* A intenção correta não é a pontuação máxima, mas muito perto do resultado máximo.
+* A pontuação de intenção é baixa
+* A intenção correta não é a pontuação máxima, mas muito perto da pontuação máxima.
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Padrões não são uma garantia de intenção
-Os padrões usam uma mistura de tecnologias de previsão. Definir uma intenção de uma expressão de modelo num padrão não é uma garantia da previsão de intenção, mas é um sinal forte.
+Os padrões usam uma mistura de tecnologias de previsão. Definir uma intenção para uma expressão de modelo em um padrão não é uma garantia da previsão de intenção, mas é um sinal forte.
 
-<a name="patterns-do-not-improve-entity-detection"/></a>
+<a name="patterns-do-not-improve-entity-detection"></a>
 
 ## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Os padrões não melhoram a deteção de entidades de aprendizagem automática
 
-Um padrão destina-se principalmente a ajudar na previsão de intenções e papéis. O _padrão.qualquer_ entidade é usada para extrair entidades de forma livre. Embora os padrões utilizem entidades, um padrão não ajuda a detetar uma entidade de aprendizagem automática.
+Um padrão destina-se principalmente a ajudar a previsão de intenções e papéis. O _padrão.qualquer_ entidade é usada para extrair entidades de forma livre. Enquanto os padrões usam entidades, um padrão não ajuda a detetar uma entidade de aprendizagem automática.
 
-Não espere ver uma previsão melhorada da entidade se colapsar várias expressões num único padrão. Para que entidades simples disparem, é necessário adicionar declarações ou utilizar entidades da lista que o seu padrão não irá disparar.
+Não espere ver uma previsão melhorada da entidade se colapsar várias expressões num único padrão. Para entidades simples dispararem, é necessário adicionar expressões ou utilizar entidades de listas que o seu padrão não dispare.
 
-## <a name="patterns-use-entity-roles"></a>Padrões usam funções de entidade
-Se duas ou mais entidades num padrão estiverem contextualizaçãomente relacionadas, os padrões utilizam [funções](luis-concept-roles.md) de entidade para extrair informações contextuais sobre entidades.
+## <a name="patterns-use-entity-roles"></a>Os padrões usam funções de entidade
+Se duas ou mais entidades num padrão estiverem contextualização, os padrões utilizam [as funções](luis-concept-roles.md) da entidade para extrair informação contextual sobre entidades.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de previsão com e sem padrões
-Dado o suficiente exemplo de declarações, luis seria capaz de aumentar a confiança da previsão sem padrões. Os padrões aumentam a pontuação de confiança sem ter que fornecer tantas expressões.
+Dado o exemplo suficiente, LUIS seria capaz de aumentar a confiança da previsão sem padrões. Os padrões aumentam a pontuação de confiança sem ter que fornecer tantas expressões.
 
-## <a name="pattern-matching"></a>Correspondência de padrão
-Um padrão é combinado com base na deteção das entidades dentro do padrão primeiro, em seguida, validando o resto das palavras e ordem de palavrado do padrão. As entidades são necessárias no padrão para um padrão que combine. O padrão é aplicado no nível do símbolo, não no nível de carácter.
+## <a name="pattern-matching"></a>Correspondência de padrões
+Um padrão é combinado com base na deteção das entidades dentro do padrão primeiro, em seguida, validando o resto das palavras e ordem de palavras do padrão. As entidades são necessárias no padrão para que um padrão corresponda. O padrão é aplicado ao nível do símbolo, não ao nível do carácter.
 
-## <a name="pattern-only-apps"></a>Aplicativos só para padrões
-Você pode construir uma app com intenções que não têm pronunciamentos de exemplo, desde que haja um padrão para cada intenção. Para uma aplicação só para padrões, o padrão não deve conter entidades de aprendizagem automática porque estas requerem declarações exemplo.
+## <a name="pattern-only-apps"></a>Aplicativos apenas para padrões
+Pode construir uma app com intenções que não têm palavras de exemplo, desde que haja um padrão para cada intenção. Para uma aplicação apenas por padrões, o padrão não deve conter entidades de aprendizagem automática porque estas requerem palavras de exemplo.
 
 ## <a name="patternany-entity"></a>Entidade Pattern.any
 
 [!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ## <a name="best-practices"></a>Melhores práticas
-Aprenda [as melhores práticas.](luis-concept-best-practices.md)
+Aprenda as [melhores práticas.](luis-concept-best-practices.md)
 
 ## <a name="pattern-syntax"></a>Sintaxe de padrão
 
-Aprenda a sintaxe padrão a partir da [referência sintaxe](reference-pattern-syntax.md)padrão .
+Aprenda a sintaxe padrão a partir da referência de [sintaxe de padrão](reference-pattern-syntax.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre padrões:
 
 * [Como adicionar padrões](luis-how-to-model-intent-pattern.md)
 * [Como adicionar padrão.qualquer entidade](luis-how-to-add-entities.md#add-a-patternany-entity)
-* [Padrões Sintaxe](reference-pattern-syntax.md)
+* [Sintaxe de padrões](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]
-> [Saiba implementar padrões neste tutorial](luis-tutorial-pattern.md)
+> [Saiba como implementar padrões neste tutorial](luis-tutorial-pattern.md)

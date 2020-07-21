@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: de1c6e91a6502e3a5e03dde69c5559445628d369
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184553"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539674"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
@@ -19,11 +19,11 @@ ms.locfileid: "86184553"
 
 Este artigo captura as perguntas frequentes (FAQs) sobre Network Performance Monitor (NPM) em Azure
 
-[O Network Performance Monitor](/azure/networking/network-monitoring-overview) é uma solução de [monitorização de rede híbrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) baseada na nuvem que o ajuda a monitorizar o desempenho da rede entre vários pontos da sua infraestrutura de rede. Também ajuda a monitorizar a conectividade da rede para [os pontos finais](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) de serviço e aplicação e [monitorizar o desempenho do Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[O Network Performance Monitor](../../networking/network-monitoring-overview.md) é uma solução de [monitorização de rede híbrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) baseada na nuvem que o ajuda a monitorizar o desempenho da rede entre vários pontos da sua infraestrutura de rede. Também ajuda a monitorizar a conectividade da rede para [os pontos finais](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) de serviço e aplicação e [monitorizar o desempenho do Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 O Monitor de Desempenho da Rede deteta problemas de rede como o blackholing de tráfego, erros de encaminhamento e problemas que os métodos convencionais de monitorização da rede não são capazes de detetar. A solução gera alertas e notifica-o quando existir uma falha do limiar de uma ligação de rede. Também garante a deteção atempada de problemas de desempenho de rede e localiza a origem do problema num dispositivo ou segmento de rede específico. 
 
-Mais informações sobre as várias capacidades suportadas pelo [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) estão disponíveis online.
+Mais informações sobre as várias capacidades suportadas pelo [Network Performance Monitor](../../networking/network-monitoring-overview.md) estão disponíveis online.
 
 ## <a name="set-up-and-configure-agents"></a>Configurar e configurar agentes
 
@@ -149,7 +149,7 @@ NetworkMonitoring
 O NPM apenas identifica o nome IP e anfitrião do lúpulo de rede subjacente (comutadores, routers, servidores, etc.) entre os IPs de origem e destino. Também identifica a latência entre estes lúpulos identificados. Não monitoriza individualmente estes lúpulos subjacentes.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>O NPM pode ser utilizado para monitorizar a conectividade da rede entre o Azure e o AWS?
-Sim. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) para obter mais detalhes.
+Yes. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) para obter mais detalhes.
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>O uso da largura de banda ExpressRoute está a chegar ou a sair?
 O uso da largura de banda é o total de largura de banda de entrada e saída. É expressa em Bits/seg.
@@ -188,9 +188,9 @@ O NPM pode monitorizar a conectividade entre redes em qualquer parte do mundo, a
 O NPM pode monitorizar a conectividade com os serviços em qualquer parte do mundo, a partir de um espaço de trabalho que é hospedado numa das [regiões apoiadas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Que regiões são apoiadas para o Monitor ExpressRoute da NPM?
-A NPM pode monitorizar os seus circuitos ExpressRoute localizados em qualquer região de Azure. Para embarcar no NPM, você precisará de um espaço de trabalho Log Analytics que deve ser hospedado em uma das [regiões apoiadas](/azure/expressroute/how-to-npm)
+A NPM pode monitorizar os seus circuitos ExpressRoute localizados em qualquer região de Azure. Para embarcar no NPM, você precisará de um espaço de trabalho Log Analytics que deve ser hospedado em uma das [regiões apoiadas](../../expressroute/how-to-npm.md)
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Porque é que alguns dos lúpulos são marcados como não identificados na vista da topologia da rede?
 O NPM usa uma versão modificada de rastreá-lo para descobrir a topologia do agente de origem para o destino. Um lúpulo não identificado representa que o salto de rede não respondeu ao pedido de rastreio do agente de origem. Se três lúpulos de rede consecutivos não responderem ao rasto do agente, a solução marca o lúpulo sem resposta como não identificado e não tenta descobrir mais lúpulo.
@@ -231,7 +231,7 @@ Isto pode acontecer se a firewall do anfitrião ou a firewall intermédia (firew
 * Para verificar se a firewall do anfitrião não está a bloquear a comunicação na porta requerida, consulte o estado de saúde dos nós de origem e destino a partir da seguinte vista: Monitor de desempenho de rede -> Configuração -> Nós. 
   Se não forem saudáveis, consulte as instruções e tome medidas corretivas. Se os nós estiverem saudáveis, mova-se para o passo B. abaixo.
 * Para verificar se uma firewall de rede intermédia ou Azure NSG não bloqueia a comunicação na porta necessária, utilize o utilitário PsPing de terceiros utilizando as instruções abaixo:
-  * utilitário psping está disponível para download [aqui](https://technet.microsoft.com/sysinternals/psping.aspx) 
+  * utilitário psping está disponível para download [aqui](/sysinternals/downloads/psping) 
   * Corra seguindo o comando do nó de origem.
     * psping -n 15 \<destination node IPAddress\> :portNumber Por defeito NPM usa porta 8084. Caso tenha alterado explicitamente esta introdução utilizando o EnableRules.ps1 script, insira o número de porta personalizado que está a utilizar). Este é um ping da máquina Azure para o local
 * Verifique se os pings são bem sucedidos. Caso contrário, indica que uma firewall de rede intermédia ou a Azure NSG está a bloquear o tráfego nesta porta.
@@ -297,6 +297,6 @@ Pode visualizar o estado de saúde dos nós utilizados para a monitorização a 
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>A NPM pode reportar números de latência em microsegundos?
 O NPM completa os números de latência na UI e em milissegundos. Os mesmos dados são armazenados numa granularidade mais elevada (às vezes até quatro casas decimais).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o Monitor de Desempenho da Rede referindo-se à [solução Monitor de Desempenho da Rede em Azure](../../azure-monitor/insights/network-performance-monitor.md).

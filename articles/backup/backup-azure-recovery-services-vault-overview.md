@@ -3,11 +3,12 @@ title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma visão geral e comparação entre cofres dos Serviços de Recuperação e cofres Azure Backup.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 798f49629ad1012e8cc9ac3ed43f5beddd6eefeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11a218badfab141c41430c3f48a5e930bfa1af8b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248911"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539045"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
 
@@ -35,9 +36,9 @@ Os cofres dos Serviços de Recuperação baseiam-se no modelo Azure Resource Man
 
 Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e pontos de recuperação criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém as políticas de backup que estão associadas às máquinas virtuais protegidas.
 
-O Azure Backup manuseia automaticamente o armazenamento para o cofre. Veja como as [definições de armazenamento podem ser alteradas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+O Azure Backup manuseia automaticamente o armazenamento para o cofre. Veja como as [definições de armazenamento podem ser alteradas](./backup-create-rs-vault.md#set-storage-redundancy).
 
-Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre [redundância geo](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) e [local.](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre [redundância geo](../storage/common/storage-redundancy.md) e [local.](../storage/common/storage-redundancy.md)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gerir os cofres dos Serviços de Recuperação no portal
 
@@ -61,7 +62,7 @@ As seguintes secções contêm ligações a artigos que explicam como usar um co
 ### <a name="back-up-data"></a>Fazer cópias de segurança de dados
 
 - [Apoiar um VM Azure](backup-azure-vms-first-look-arm.md)
-- [Faça o back up Windows Server ou Windows workstation](backup-try-azure-backup-in-10-mins.md)
+- [Faça o back up Windows Server ou Windows workstation](./backup-windows-with-mars-agent.md)
 - [Apoiar cargas de trabalho da DPM para Azure](backup-azure-dpm-introduction.md)
 - [Prepare-se para fazer backup de cargas de trabalho usando o Servidor de Backup Azure](backup-azure-microsoft-azure-backup.md)
 
@@ -81,9 +82,9 @@ As seguintes secções contêm ligações a artigos que explicam como usar um co
 
 ## <a name="azure-advisor"></a>Assistente do Azure
 
-[O Azure Advisor](https://docs.microsoft.com/azure/advisor/) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Analisa o seu uso Azure e fornece recomendações oportunas para ajudar a otimizar e proteger as suas implementações. Fornece recomendações em quatro categorias: Alta Disponibilidade, Segurança, Desempenho e Custo.
+[O Azure Advisor](../advisor/index.yml) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Analisa o seu uso Azure e fornece recomendações oportunas para ajudar a otimizar e proteger as suas implementações. Fornece recomendações em quatro categorias: Alta Disponibilidade, Segurança, Desempenho e Custo.
 
-O Azure Advisor fornece [recomendações horárias](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) para VMs que não são apoiados, por isso nunca perca o apoio de VMs importantes. Também pode controlar as recomendações snoozing-las.  Pode clicar na recomendação e ativar a cópia de segurança em VMs em linha especificando o cofre (onde serão armazenadas cópias de segurança) e a política de backup (agendamento de cópias de backup e retenção de cópias de backup).
+O Azure Advisor fornece [recomendações horárias](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) para VMs que não são apoiados, por isso nunca perca o apoio de VMs importantes. Também pode controlar as recomendações snoozing-las.  Pode clicar na recomendação e ativar a cópia de segurança em VMs em linha especificando o cofre (onde serão armazenadas cópias de segurança) e a política de backup (agendamento de cópias de backup e retenção de cópias de backup).
 
 ![Assistente do Azure](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

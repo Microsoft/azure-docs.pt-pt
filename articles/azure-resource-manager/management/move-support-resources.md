@@ -2,13 +2,13 @@
 title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos Azure que podem ser transferidos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 785243676040fc86d42e3125684239ebe6da2061
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/13/2020
+ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134677"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539232"
 ---
 # <a name="move-operation-support-for-resources"></a>Suporte da operação de movimentação para recursos
 
@@ -207,7 +207,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | serviços de domínio | Não | Não |
 > | serviços de domínio / oucontainer | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 
@@ -279,7 +279,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operações | Não | Não |
@@ -310,7 +310,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | checknamedilability | Não | Não |
 > | lojas de configurações | Sim | Sim |
 > | lojas de configurações / filtros de eventos | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
 
@@ -319,7 +319,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operaçõestatus | Não | Não |
@@ -399,7 +399,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checkquotaailability | Não | Não |
 > | localizações / checktrialavailability | Não | Não |
 > | operações | Não | Não |
@@ -456,7 +456,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | lotaccounts | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | locais / resultados da operação de conta | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / quotas | Não | Não |
@@ -582,7 +582,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | membros blockchain | Não | Não |
 > | cordamembers | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / blockchainmemberoperationresults | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / listconsortiums | Não | Não |
@@ -630,7 +630,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
@@ -827,7 +827,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | accounts | Sim | Sim |
 > | checkdomainailability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checkskuavailability | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
@@ -857,7 +857,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | grupos de anfitriões | Não | Não |
 > | grupos de anfitriões / anfitriões | Não | Não |
 > | imagens | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / artefactospublishers | Não | Não |
 > | localizações / capsoperações | Não | Não |
 > | localizações / operações de discos | Não | Não |
@@ -928,7 +928,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | grupos de contentores | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / cachedimages | Não | Não |
 > | localizações / capacidades | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
@@ -943,7 +943,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / autorizar | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
@@ -1001,7 +1001,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | serviços de contentores | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / aglomerados de turno aberto | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operações | Não | Não |
@@ -1086,7 +1086,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | associações | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | recursosproviders | Sim | Sim |
@@ -1097,7 +1097,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | empregos | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / availableskus | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
@@ -1121,7 +1121,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / obter redes políticas | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
@@ -1137,7 +1137,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | catálogos | Sim | Sim |
 > | checknamedilability | Não | Não |
 > | datacatalogs | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / empregos | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
@@ -1170,7 +1170,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | datafactoryschema | Não | Não |
 > | fábricas | Sim | Sim |
 > | fábricas / integrações tempos | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / configurafactoryrepo | Não | Não |
 > | localizações / getfeaturevalue | Não | Não |
 > | operações | Não | Não |
@@ -1192,7 +1192,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | contas / contas de armazenamento | Não | Não |
 > | contas / contas de armazenamento / contentores | Não | Não |
 > | contas / contas de armazenamento / contentores / listastokens | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / capacidade | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
@@ -1207,7 +1207,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | accounts | Sim | Sim |
 > | contas / filtros de eventgridfilters | Não | Não |
 > | contas / firewallrules | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / capacidade | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
@@ -1220,7 +1220,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operações | Não | Não |
@@ -1235,7 +1235,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | backupvaults | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
@@ -1254,7 +1254,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | contas / subscrições de ações / datasetmappings | Não | Não |
 > | contas / subscrições de ações / gatilhos | Não | Não |
 > | listinvitações | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / consumidores | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / rejeição | Não | Não |
@@ -1266,7 +1266,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / azureasyncoperação | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / performancetiers | Não | Não |
@@ -1298,7 +1298,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / administradorazureasyncoperação | Não | Não |
 > | locais / administradores resultados operacionais | Não | Não |
 > | localizações / azureasyncoperação | Não | Não |
@@ -1333,7 +1333,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / administradorazureasyncoperação | Não | Não |
 > | locais / administradores resultados operacionais | Não | Não |
 > | localizações / azureasyncoperação | Não | Não |
@@ -1426,7 +1426,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | controladores | Sim | Sim |
 > | controladores / listconnectiondetails | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checkcontainerhostmapping | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
@@ -1441,7 +1441,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | laboratórios / ambientes | Sim | Sim |
 > | laboratórios / corredores de serviço | Sim | Sim |
 > | laboratórios / virtualmachines | Sim | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | horários | Sim | Sim |
@@ -1453,7 +1453,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | digitaltwinsinstances | Não | Não |
 > | resultados digitais /operação | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
@@ -1463,7 +1463,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | números de dados | Não | Não |
 > | contas de base de dados | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operaçõesstatus | Não | Não |
@@ -1489,7 +1489,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 > | services | Sim | Sim |
@@ -1503,7 +1503,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | domínios / tópicos | Não | Não |
 > | subscrições de eventos | Não - não pode ser movido de forma independente, mas automaticamente movido com recurso subscrito. | Não - não pode ser movido de forma independente, mas automaticamente movido com recurso subscrito. |
 > | extensõestópicas | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / subscrições de eventos | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operaçõesstatus | Não | Não |
@@ -1530,7 +1530,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | checknamedilability | Não | Não |
 > | checknamespaceailability | Não | Não |
 > | aglomerados | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | espaços de nome | Sim | Sim |
 > | espaços de nomes / regras de autorização | Não | Não |
@@ -1549,7 +1549,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | espaços de trabalho experimenta | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
@@ -1596,7 +1596,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | hanainstances | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
@@ -1608,7 +1608,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | dedicados | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | operações | Não | Não |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -1619,7 +1619,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | aglomerados | Sim | Sim |
 > | clusters / aplicações | Não | Não |
 > | clusters / resultados de operações | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / azureasyncoperações | Não | Não |
 > | localizações / billingspecs | Não | Não |
 > | localizações / capacidades | Não | Não |
@@ -1639,7 +1639,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 > | services | Sim | Sim |
@@ -1651,7 +1651,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operaçõestatus | Não | Não |
 > | máquinas | Sim | Sim |
@@ -1672,7 +1672,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | dispositivos | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | vnfs | Não | Não |
@@ -1683,7 +1683,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | componentes | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | networkscopes | Não | Não |
 > | operações | Não | Não |
 
@@ -1693,7 +1693,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | empregos | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
 
@@ -1723,7 +1723,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | diagnósticosgnósticos estendidos | Não | Não |
 > | guestdiagnosticsettings | Não | Não |
 > | listmigrationdate | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | início de ções | Não | Não |
 > | logprofiles | Não | Não |
@@ -1785,7 +1785,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | checknamedilability | Não | Não |
 > | deletedvaults | Não | Não |
 > | hsmpools | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / deletedvaults | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | localizações / resultados de operações | Não | Não |
@@ -1805,7 +1805,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | aglomerados conectados | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | assinaturas registadas | Não | Não |
@@ -1829,7 +1829,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | clusters / bases de dados / ligações eventhub | Não | Não |
 > | clusters / bases de dados / principais assinaturas | Não | Não |
 > | aglomerados / principais destacamentos | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | operações | Não | Não |
@@ -1840,7 +1840,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | contas de laboratório | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | utilizadores | Não | Não |
@@ -1869,7 +1869,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | integração de ambientes | Sim | Não |
 > | integração de ambientesvírus /managedapis | Sim | Não |
 > | ambientes isolados | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / fluxos de trabalho | Não | Não |
 > | operações | Não | Não |
 > | fluxos de trabalho | Sim | Sim |
@@ -1880,7 +1880,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | planos de compromisso | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | localizações / operaçõesstatus | Não | Não |
 > | operações | Não | Não |
@@ -1918,7 +1918,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / computeoperationsstatus | Não | Não |
 > | localizações / quotas | Não | Não |
 > | localizações / atualizações | Não | Não |
@@ -2046,7 +2046,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | mediaservices | Sim | Sim |
 > | mediaservices / filtros de conta | Não | Não |
@@ -2079,7 +2079,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | projetos de avaliação | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / opções de avaliação | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | migrarprojects | Não | Não |
@@ -2093,7 +2093,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | holográficosbroscastaccounts | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | contas objectunderstanding | Não | Não |
 > | operações | Não | Não |
@@ -2165,7 +2165,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ipgrupos | Sim | Sim |
 > | loadbalancers | Sim - SKU Básico<br>Não - SKU Padrão | Sim - SKU Básico<br>Não - SKU Padrão |
 > | vias de rede locais | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / serviços deprivatelinks auto-aprovados | Não | Não |
 > | localizações / deslegações disponíveis | Não | Não |
 > | localizações / disponíveis deponts de nomeação | Não | Não |
@@ -2188,7 +2188,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | localizações / utilizações | Não | Não |
 > | localizações / validação de fontes | Não | Não |
 > | localizações / virtualnetworkavailableendpointservices | Não | Não |
-> | natgateways | Sim | Sim |
+> | natgateways | Não | Não |
 > | projetos de bioperiment de rede | Não | Não |
 > | políticas de networkintent | Sim | Sim |
 > | networkinterfaces | Sim | Sim |
@@ -2278,7 +2278,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | aglomerados | Não | Não |
 > | espaços de trabalho apagados | Não | Não |
 > | linktargets | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | storageinsightconfigs | Não | Não |
@@ -2341,7 +2341,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | Consolas do | Não | Não |
 > | dashboards | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / consolas | Não | Não |
 > | localizações / utilizadores | Não | Não |
 > | operações | Não | Não |
@@ -2352,7 +2352,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | trabalhopascoscollections | Sim | Sim |
 
@@ -2362,7 +2362,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | capacidades | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operações | Não | Não |
@@ -2399,7 +2399,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | áreas de trabalho | Não | Não |
@@ -2410,7 +2410,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | backupprotectesites | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / alocação de estamp | Não | Não |
 > | localizações / atribuiçãoestamp | Não | Não |
 > | localizações / backupaproperties | Não | Não |
@@ -2435,7 +2435,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operaçõesstatus | Não | Não |
 > | aglomerados de turnos abertos | Não | Não |
@@ -2496,7 +2496,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | descrições de implementação | Não | Não |
 > | implementações / registos | Não | Não |
 > | ligações | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / destacamentos de operações de funcionamento | Não | Não |
 > | notificar resourcejobs | Não | Não |
 > | resultados de operações | Não | Não |
@@ -2571,7 +2571,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | iotsecuritysolutions / analyticsmodels / agregados | Não | Não |
 > | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Não | Não |
 > | jitnetworkacsspolicies | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / alertas | Não | Não |
 > | localizações / ligações permitidas | Não | Não |
 > | localizações / listas de aplicações | Não | Não |
@@ -2615,7 +2615,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | verificação de dataconnectors | Não | Não |
 > | entidades | Não | Não |
 > | entidadequeries | Não | Não |
-> | incidentes | Não | Não |
+> | Incidentes | Não | Não |
 > | escritórioconsents | Não | Não |
 > | operações | Não | Não |
 > | definições | Não | Não |
@@ -2627,7 +2627,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | serviços de consola | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / serviços de consola | Não | Não |
 > | operações | Não | Não |
 
@@ -2646,7 +2646,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
 > | checknamespaceailability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
 > | espaços de nome | Sim | Sim |
 > | espaços de nomes / regras de autorização | Não | Não |
@@ -2675,7 +2675,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | grupos de contentores | Não | Não |
 > | conjuntos de contentores | Não | Não |
 > | edgeclusters | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / agrupações | Não | Não |
 > | localizações / ambientes | Não | Não |
 > | localizações / resultados de operações | Não | Não |
@@ -2694,7 +2694,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | aplicações | Sim | Sim |
 > | grupos de contentores | Não | Não |
 > | portais | Sim | Sim |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações de aplicação | Não | Não |
 > | localizações / operações de gateway | Não | Não |
 > | localizações / operações em rede | Não | Não |
@@ -2717,13 +2717,13 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operações | Não | Não |
 > | localizações / utilizações | Não | Não |
 > | operações | Não | Não |
-> | signalr | Sim | Sim |
+> | sinaleiro | Sim | Sim |
 > | signalr / eventgridfilters | Não | Não |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
@@ -2742,7 +2742,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | aplicações dedefinições | Não | Não |
 > | aplicações | Não | Não |
 > | jitrequests | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 
@@ -2753,7 +2753,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
 > | instâncias | Não | Não |
-> | localizações | Sim | Sim |
+> | Locais | Sim | Sim |
 > | localizações / administradorazureasyncoperação | Não | Não |
 > | locais / administradores resultados operacionais | Não | Não |
 > | localizações / auditingsazureasyncoperação | Não | Não |
@@ -2930,7 +2930,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | locais / disponibilidadegrouplisteneroperationresults | Não | Não |
 > | localizações / tipos de operação | Não | Não |
 > | localizações / sqlvirtualmachinegroupoperatórios | Não | Não |
@@ -2946,7 +2946,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | checknamedilability | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / assincoperações | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / deletevirtualnetworkorsubnets | Não | Não |
@@ -2975,7 +2975,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / checknameavailability | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / operações | Não | Não |
@@ -3016,7 +3016,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | aglomerados | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / quotas | Não | Não |
 > | operações | Não | Não |
 > | streamingjobs | Sim | Sim |
@@ -3104,7 +3104,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | imagens | Não | Não |
 > | linhas de imagens / runoutputs | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 
@@ -3128,7 +3128,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | arczones | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | recursos | Não | Não |
@@ -3144,7 +3144,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | não-100 dedicados | Não | Não |
 > | serviços decloud dedicados | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / disponibilidades | Não | Não |
 > | localizações / resultados de operações | Não | Não |
 > | localizações / nuvens privadas | Não | Não |
@@ -3161,7 +3161,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | dispositivos | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | vnfs | Não | Não |
@@ -3200,7 +3200,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | isusername disponível | Não | Não |
 > | kubeenvironments | Sim | Sim |
 > | nome de nome de listasassignedtohostname | Não | Não |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / apiperações | Não | Não |
 > | localizações / instalações de connectiongateway | Não | Não |
 > | localizações / locais apagados | Não | Não |
@@ -3241,7 +3241,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | multipleactivationkeys | Não | Não |
 > | operações | Não | Não |
@@ -3259,7 +3259,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | localizações | Não | Não |
+> | Locais | Não | Não |
 > | localizações / operações | Não | Não |
 > | operações | Não | Não |
 > | cargas de trabalho | Não | Não |

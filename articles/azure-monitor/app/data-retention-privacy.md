@@ -3,12 +3,12 @@ title: Retenção e armazenamento de dados no Azure Application Insights / Micro
 description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: acee1ad0b531f23a872d78111ccd9f0ac09bcfb1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 16483c9417c08ea60853d7e70b7121cd0af9db71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224490"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540065"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados em Insights de Aplicação
 
@@ -74,7 +74,7 @@ Para páginas web, abra a janela de depuragem do seu navegador.
 Isto seria possível escrevendo um [plugin de processador de telemetria](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>Quanto tempo os dados são mantidos?
-Os pontos de dados brutos (isto é, itens que pode consultar em Analytics e inspecionar em Pesquisa) são mantidos por até 730 dias. Pode [selecionar uma duração](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) de retenção de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias. Se precisar de manter os dados por mais de 730 dias, pode utilizar a [Exportação Contínua](../../azure-monitor/app/export-telemetry.md) para copiá-lo numa conta de armazenamento durante a ingestão de dados. 
+Os pontos de dados brutos (isto é, itens que pode consultar em Analytics e inspecionar em Pesquisa) são mantidos por até 730 dias. Pode [selecionar uma duração](./pricing.md#change-the-data-retention-period) de retenção de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias. Se precisar de manter os dados por mais de 730 dias, pode utilizar a [Exportação Contínua](../../azure-monitor/app/export-telemetry.md) para copiá-lo numa conta de armazenamento durante a ingestão de dados. 
 
 Os dados mantidos por mais de 90 dias incorrerão em taxas adicionais. Saiba mais sobre os preços dos Insights de Aplicação na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -122,7 +122,7 @@ Sim, certos canais de telemetria persistirão dados localmente se não for poss�
 
 Os canais de telemetria que utilizam o armazenamento local criam ficheiros temporários nos diretórios TEMP ou APPDATA, que se limitam à conta específica que executa a sua aplicação. Isto pode acontecer quando um ponto final estava temporariamente indisponível ou se atingir o limite de estrangulamento. Uma vez resolvido este problema, o canal de telemetria retomará o envio de todos os dados novos e persistidos.
 
-Estes dados persistidos não são encriptados localmente. Se isso for uma preocupação, reveja os dados e restringa a recolha de dados privados. (Para mais informações, consulte [Como exportar e eliminar dados privados](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
+Estes dados persistidos não são encriptados localmente. Se isso for uma preocupação, reveja os dados e restringa a recolha de dados privados. (Para mais informações, consulte [Como exportar e eliminar dados privados](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
 
 Se um cliente precisar de configurar este diretório com requisitos de segurança específicos, pode ser configurado por estrutura. Certifique-se de que o processo em execução da sua aplicação tem acesso a este diretório, mas também certifique-se de que este diretório está protegido para evitar que a telemetria seja lida por utilizadores não intencionais.
 
@@ -204,14 +204,14 @@ Não recomendamos que a sua aplicação apenas utilize o TLS 1.2, a menos que se
 | --- | --- | --- |
 | Serviços de Aplicações do Azure  | Suportado, pode ser necessária configuração. | O apoio foi anunciado em abril de 2018. Leia o anúncio para [detalhes da configuração](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
 | Aplicações de Funções do Azure | Suportado, pode ser necessária configuração. | O apoio foi anunciado em abril de 2018. Leia o anúncio para [detalhes da configuração](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
-|.NET | Suportada, a configuração varia por versão. | Para obter informações detalhadas sobre a configuração para as versões .NET 4.7 e anteriores, consulte [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de Estado | Suportado, configuração necessária | O Status Monitor baseia-se na [configuração de configuração do SISTEMA](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  +  [.NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para suportar O TLS 1.2.
+|.NET | Suportada, a configuração varia por versão. | Para obter informações detalhadas sobre a configuração para as versões .NET 4.7 e anteriores, consulte [estas instruções](/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Monitor de Estado | Suportado, configuração necessária | O Status Monitor baseia-se na [configuração de configuração do SISTEMA](/windows-server/security/tls/tls-registry-settings)  +  [.NET](/dotnet/framework/network-programming/tls#support-for-tls-12) para suportar O TLS 1.2.
 |Node.js |  Suportada, em v10.5.0, pode ser necessária uma configuração. | Utilize a [documentação oficial Node.js TLS/SSL](https://nodejs.org/api/tls.html) para qualquer configuração específica da aplicação. |
 |Java | Suportado, o suporte JDK para TLS 1.2 foi adicionado na [atualização 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 utiliza [TLS 1.2 por predefinição](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | As distribuições linux tendem a contar com [o suporte OpenSSL](https://www.openssl.org) para suporte TLS 1.2.  | Verifique o [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar que a sua versão do OpenSSL está suportada.|
-| Windows 8.0 - 10 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidos](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por defeito. | Consulte a página [de definições de registo de segurança da camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
+| Windows 8.0 - 10 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidos](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por defeito. | Consulte a página [de definições de registo de segurança da camada de transporte (TLS)](/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
 | Windows Server 2008 SP2 | O suporte para TLS 1.2 requer uma atualização. | Consulte [Update para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
 |Windows Vista | Não suportado. | N/D
 
@@ -286,7 +286,7 @@ Para [SDKs para outras plataformas,][platforms]consulte os seus documentos.
 Pode [desativar alguns dos dados editando ApplicationInsights.config][config]
 
 > [!NOTE]
-> O COMPUTADOR do cliente é utilizado para inferir a localização geográfica, mas por padrão os dados IP já não são armazenados e todos os zeros são escritos para o campo associado. Para saber mais sobre o tratamento de dados pessoais recomendamos este [artigo.](../../azure-monitor/platform/personal-data-mgmt.md#application-data) Se necessitar de armazenar dados de endereço IP, o nosso [artigo de recolha de endereços IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) irá acompanhar-lhe as suas opções.
+> O COMPUTADOR do cliente é utilizado para inferir a localização geográfica, mas por padrão os dados IP já não são armazenados e todos os zeros são escritos para o campo associado. Para saber mais sobre o tratamento de dados pessoais recomendamos este [artigo.](../../azure-monitor/platform/personal-data-mgmt.md#application-data) Se necessitar de armazenar dados de endereço IP, o nosso [artigo de recolha de endereços IP](./ip-collection.md) irá acompanhar-lhe as suas opções.
 
 ## <a name="credits"></a>Créditos
 Este produto inclui dados da GeoLite2 criados pela MaxMind, disponíveis a partir de [https://www.maxmind.com](https://www.maxmind.com) .

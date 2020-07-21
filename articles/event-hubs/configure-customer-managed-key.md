@@ -3,17 +3,17 @@ title: Configure a sua própria chave para encriptar os dados do Azure Event Hub
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479832"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537263"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O Event Hubs conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure Event Hubs suporta agora a opção de encriptar dados em repouso com as teclas geridas pela Microsoft ou com teclas geridas pelo cliente (Bring Your Own Key – BYOK). Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às teclas geridas pelo cliente que são utilizadas para encriptar os dados do Azure Event Hubs em repouso.
 
 Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -41,7 +41,7 @@ Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 ## <a name="set-up-a-key-vault-with-keys"></a>Configurar um cofre com chaves
 Depois de ativar as chaves geridas pelo cliente, tem de associar a chave gerida pelo cliente ao seu espaço de nomes Azure Event Hubs. O Event Hubs suporta apenas o Cofre da Chave Azure. Se ativar a **Encriptação com** a opção chave gerida pelo cliente na secção anterior, precisa de ter a chave importada para o Cofre da Chave Azure. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configuradas para a chave. Estas definições podem ser configuradas utilizando [PowerShell](../key-vault/general/soft-delete-powershell.md) ou [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/general/overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [sobre chaves, segredos e certificados.](../key-vault/about-keys-secrets-and-certificates.md)
+1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/general/overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [sobre chaves, segredos e certificados.](../key-vault/general/about-keys-secrets-certificates.md)
 1. Para ligar a proteção de eliminação e purga suave ao criar um cofre, utilize o [comando de criação de chave-teclas az.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
 
     ```azurecli-interactive
@@ -94,7 +94,7 @@ Siga estes passos para ativar os registos para chaves geridas pelo cliente.
 ## <a name="log-schema"></a>Esquema de registo 
 Todos os registos são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cordas que usam o formato descrito na tabela seguinte. 
 
-| Name | Descrição |
+| Nome | Descrição |
 | ---- | ----------- | 
 | Nome de tarefa | Descrição da tarefa que falhou. |
 | ActivityId | Identificação interna que é usada para rastrear. |
@@ -395,7 +395,7 @@ Neste passo, irá atualizar o espaço de nomes do Event Hubs com informações d
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 Como uma boa prática, ative sempre os registos como mostrados na secção anterior. Ajuda a rastrear as atividades quando a encriptação BYOK está ativada. Também ajuda a descodi o problema.
 
 Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK estiver ativada.
@@ -419,7 +419,3 @@ Seguem-se os códigos de erros comuns a procurar quando a encriptação BYOK est
 Consulte os seguintes artigos:
 - [Descrição geral dos Event Hubs](event-hubs-about.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)
-
-
-
-

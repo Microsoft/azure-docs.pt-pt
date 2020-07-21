@@ -3,12 +3,12 @@ title: Azure Monitor regista modelo de dados
 description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor Log Analytics para os dados do Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: e776649ff22e3249e2472adbe298c869ff5c946a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854762"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539079"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
 
@@ -18,7 +18,7 @@ Utilize o modelo de dados Log Analytics para criar alertas personalizados a part
 
 > [!NOTE]
 >
-> Este modelo de dados faz referência ao Modo Azure Diagnostics de enviar eventos de diagnóstico para Log Analytics (LA). Para conhecer o modelo de dados para o novo Modo Específico de Recurso, pode consultar o seguinte artigo: [Data Model for Azure Backup Diagnostic Events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+> Este modelo de dados faz referência ao Modo Azure Diagnostics de enviar eventos de diagnóstico para Log Analytics (LA). Para conhecer o modelo de dados para o novo Modo Específico de Recurso, pode consultar o seguinte artigo: [Data Model for Azure Backup Diagnostic Events](./backup-azure-reports-data-model.md)
 
 ## <a name="using-azure-backup-data-model"></a>Usando o modelo de dados de backup Azure
 
@@ -33,7 +33,7 @@ Esta tabela fornece detalhes sobre campos relacionados com alerta.
 | AlertUniqueId_s |Texto |Identificador único do alerta gerado |
 | AlertType_s |Texto |Tipo de alerta, por exemplo, Backup |
 | AlertStatus_s |Texto |Estado do alerta, por exemplo, Ativo |
-| AlertOccurrenceDateTime_s |Data/Hora |Data e hora quando o alerta foi criado |
+| AlertOccurrenceDateTime_s |Date/Time |Data e hora quando o alerta foi criado |
 | AlertSeverity_s |Texto |Gravidade do alerta, por exemplo, Critical |
 |AlertTimeToResolveInMinutes_s    | Número        |Tempo tomado para resolver um alerta. Em branco para alertas ativos.         |
 |AlertConsolidationStatus_s   |Texto         |Identifique se o alerta é um alerta consolidado ou não         |
@@ -152,7 +152,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 | JobOperation_s |Texto |Operação para que trabalho é executado por exemplo, Backup, Restaurar, Configurar Backup |
 | JobStatus_s |Texto |Estado do trabalho acabado, por exemplo, Concluído, Falhado |
 | JobFailureCode_s |Texto |Cadeia de código de falha por causa da falha de trabalho |
-| JobStartDateTime_s |Data/Hora |Data e hora quando o trabalho começou a correr |
+| JobStartDateTime_s |Date/Time |Data e hora quando o trabalho começou a correr |
 | BackupStorageDestination_s |Texto |Destino do armazenamento de backup, por exemplo, Cloud, Disco  |
 | AdHocOrScheduledJob_s |Texto | Campo para especificar se o trabalho é Ad Hoc ou Agendado |
 | JobDurationInSecs_s | Número |Duração total do trabalho em segundos |
@@ -465,7 +465,7 @@ Anteriormente, os dados de diagnóstico do Agente de Backup Azure e da cópia de
 
 Por razões de retrocompatibilidade, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM são atualmente enviados para a tabela Azure Diagnostics no esquema V1 e V2 (com o esquema V1 agora em rota de depreciação). Pode identificar quais os registos em Log Analytics que são de esquema V1 filtrando registos de SchemaVersion_s=="V1" nas suas consultas de registo. 
 
-Consulte a terceira coluna 'Descrição' no modelo de [dados](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) acima descrito para identificar quais colunas pertencem apenas ao esquema V1.
+Consulte a terceira coluna 'Descrição' no modelo de [dados](#using-azure-backup-data-model) acima descrito para identificar quais colunas pertencem apenas ao esquema V1.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Modificar as suas consultas para usar o esquema V2
 Como o esquema V1 está em caminho de depreciação, recomenda-se a utilização apenas do esquema V2 em todas as suas consultas personalizadas sobre dados de diagnóstico de backup Azure. Abaixo está um exemplo de como atualizar as suas consultas para remover a dependência do esquema V1:

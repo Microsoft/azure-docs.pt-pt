@@ -3,11 +3,12 @@ title: Fazer o back up das máquinas Do Windows utilizando o agente MARS
 description: Utilize o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 4f0e605185be6db8629144e05f5f39309a3831ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604850"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538637"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer o back up ficheiros e pastas do Windows Server para O Azure
 
@@ -103,7 +104,7 @@ Para fazer uma transferência offline:
 1. Escreva os dados de reserva para um local de preparação.
 1. Utilize a ferramenta AzureOfflineBackupDiskPrep para copiar os dados da localização de localização para um ou mais discos SATA.
 
-    A ferramenta cria um trabalho de Importação Azure. Para mais informações, consulte [o serviço Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    A ferramenta cria um trabalho de Importação Azure. Para mais informações, consulte [o serviço Azure Import/Export](../storage/common/storage-import-export-service.md).
 1. Envie os discos SATA para um datacenter Azure.
 
     No datacenter, os dados do disco são copiados para uma conta de armazenamento Azure. A Azure Backup copia os dados da conta de armazenamento para o cofre, e estão agendadas cópias incrementais.
@@ -114,7 +115,7 @@ Para obter mais informações sobre a sementeira offline, consulte [Use Azure Da
 
 Pode controlar a forma como o agente MARS utiliza a largura de banda da rede, permitindo o estrangulamento da rede. O estrangulamento é útil se precisar de fazer cópias de segurança durante o horário de trabalho, mas pretende controlar a largura de banda que a cópia de segurança e a atividade de restauração utiliza.
 
-O estrangulamento da rede em Azure Backup utiliza [qualidade de serviço (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) no sistema operativo local.
+O estrangulamento da rede em Azure Backup utiliza [qualidade de serviço (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) no sistema operativo local.
 
 O estrangulamento da rede para cópias de segurança está disponível no Windows Server 2012 e mais tarde, e no Windows 8 e mais tarde. Os sistemas operativos devem estar a executar os mais recentes pacotes de serviços.
 

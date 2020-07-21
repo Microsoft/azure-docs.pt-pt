@@ -3,12 +3,12 @@ title: Autenticar com a identidade gerida
 description: Fornecer acesso a imagens no seu registo de contentores privados utilizando uma identidade Azure gerida atribuída pelo utilizador ou pelo sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: d3a1f0f9c9e814cabaa205fbb0abf05333fd6daf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e5fd8ead989838c0ba74b42a9766bc63936379fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259087"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537906"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utilize uma identidade gerida a Azure para autenticar num registo de contentores Azure 
 
@@ -79,6 +79,7 @@ ssh azureuser@publicIpAddress
 Executar o seguinte comando para instalar Docker no VM:
 
 ```bash
+sudo apt update
 sudo apt install docker.io -y
 ```
 
@@ -230,7 +231,7 @@ Devia ver uma `Login succeeded` mensagem. Em seguida, pode executar `docker` com
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre a utilização de identidades geridas com o Registo de Contentores Azure e como:
 

@@ -4,15 +4,16 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68f85b3d5da811f78ba398093db5a65ee5c49ab1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82800656"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538773"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
-Este artigo responde a perguntas comuns sobre o backup dos VMs Azure com o serviço [Azure Backup.](backup-introduction-to-azure-backup.md)
+Este artigo responde a perguntas comuns sobre o backup dos VMs Azure com o serviço [Azure Backup.](./backup-overview.md)
 
 ## <a name="backup"></a>Backup
 
@@ -58,11 +59,11 @@ O feiticeiro só lista VMs na mesma região que o cofre, e isso já não está a
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>O meu VM está desligado. Um trabalho de reserva ou de reserva?
 
-Sim. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
+Yes. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de reserva em progresso?
 
-Sim. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
+Yes. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
 
 ### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Consegui bloquear o grupo de recursos criado pelo Azure Backup Service (por exemplo, `AzureBackupRG_<geo>_<number>` ). As minhas cópias de segurança vão continuar a funcionar?
 
@@ -82,7 +83,7 @@ As imagens não podem ser tiradas no disco ativado pela WA. No entanto, o servi�
 
 O Azure Backup não pode fazer backup do disco ativado pela WA, mas pode excluí-lo da cópia de segurança. No entanto, a cópia de segurança não fornecerá consistência na base de dados porque a informação no disco ativado pela WA não é apoiada. Pode fazer backup de discos com esta configuração se quiser a cópia de segurança do disco do sistema operativo e a cópia de segurança dos discos que não estão ativados por WA.
 
-O Azure Backup fornece uma solução de backup de streaming para bases de dados SAP HANA com um RPO de 15 minutos. É backint certificado pela SAP para fornecer um suporte de reserva nativo aproveitando as APIs nativas da SAP HANA. Saiba mais [sobre o backup das bases de dados SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+O Azure Backup fornece uma solução de backup de streaming para bases de dados SAP HANA com um RPO de 15 minutos. É backint certificado pela SAP para fornecer um suporte de reserva nativo aproveitando as APIs nativas da SAP HANA. Saiba mais [sobre o backup das bases de dados SAP HANA em VMs Azure](./sap-hana-db-about.md).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Qual é o atraso máximo que posso esperar na hora de início de reserva a partir do tempo de reserva programado que estarei na minha política de backup VM?
 
@@ -128,9 +129,13 @@ O processo de restauro permanece o mesmo. Se o ponto de recuperação for de um 
 
 [Saiba mais](backup-azure-vms-automation.md#restore-an-azure-vm) sobre fazer isto na PowerShell.
 
-### <a name="can-i-restore-the-vm-thats-been-deleted"></a>Posso restaurar o VM que foi apagado?
+### <a name="if-the-restore-fails-to-create-the-vm-what-happens-to-the-disks-included-in-the-restore"></a>Se o restauro não criar o VM, o que acontece com os discos incluídos no restauro?
 
-Sim. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
+No caso de uma restauração gerida do VM, mesmo que a criação de VM falhe, os discos continuarão a ser restaurados.
+
+### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Posso restaurar um VM que foi apagado?
+
+Yes. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como posso restaurar um VM para os mesmos conjuntos de disponibilidade?
 
@@ -142,13 +147,13 @@ Para VMs Azure de Disco Gerido, restaurar os conjuntos de disponibilidade é ati
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>O que acontece quando mudamos as definições do cofre para o VM encriptado?
 
-Depois de alterar as definições do cofre de chaves para o VM encriptado, as cópias de segurança continuarão a funcionar com o novo conjunto de detalhes. No entanto, após o restauro de um ponto de recuperação antes da mudança, terá que restaurar os segredos num cofre chave antes de poder criar o VM a partir dele. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+Depois de alterar as definições do cofre de chaves para o VM encriptado, as cópias de segurança continuarão a funcionar com o novo conjunto de detalhes. No entanto, após o restauro de um ponto de recuperação antes da mudança, terá que restaurar os segredos num cofre chave antes de poder criar o VM a partir dele. Para mais informações, consulte este [artigo.](./backup-azure-restore-key-secret.md)
 
-Operações como o secret/key roll-over não requerem este passo e o mesmo KeyVault pode ser usado após a restauração.
+Operações como o secret/key roll-over não requerem este passo e o mesmo cofre chave pode ser usado após a restauração.
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso aceder ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio?
 
-Sim, acede ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio. Para mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Sim, acede ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio. Para mais informações, consulte este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 

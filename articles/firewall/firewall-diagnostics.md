@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.author: victorh
-ms.openlocfilehash: e55f92c624ec338005cd23ba5e6063a9ca7f82c4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 82202705c5dbd4539eec4775d0844a749fd405f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262049"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537008"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar registos e métricas do Azure Firewall
 
@@ -93,9 +93,8 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 ## <a name="view-metrics"></a>Ver métricas
 Navegue por uma Firewall Azure, em **Métricas selecionadas** **de Monitorização** . Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que configuraste a tua firewall para recolher registos, podes explorar registos do Azure Monitor para visualizar os teus dados.
 
-> [!div class="nextstepaction"]
-> [Soluções de monitorização de rede nos registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
+[Soluções de monitorização de rede nos registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)

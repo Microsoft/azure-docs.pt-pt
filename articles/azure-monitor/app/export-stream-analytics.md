@@ -3,12 +3,12 @@ title: Exportação com Stream Analytics da Azure Application Insights / Microso
 description: O Stream Analytics pode transformar, filtrar e encaminhar continuamente os dados que exporta do Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 71b19f0b49dec8f7176a53eeb656519c65f9c1d0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224524"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539963"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilize o Stream Analytics para processar dados exportados a partir de Insights de Aplicação
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para o processamento de dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de fontes. Pode transformar e filtrar os dados, e depois encaminhá-lo para uma variedade de pias.
@@ -138,7 +138,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * exportação-entrada é o pseudónimo que demos à entrada de fluxo
 * pbi-output é o pseudónimo de saída que definimos
-* Utilizamos [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) porque o nome do evento está numa matriz JSON aninhada. Em seguida, o Select escolhe o nome do evento, juntamente com uma contagem do número de casos com esse nome no período de tempo. A cláusula [Grupo Por](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) Cláusula agruta os elementos em períodos de tempo de um minuto.
+* Utilizamos [OUTER APPLY GetElements](/stream-analytics-query/apply-azure-stream-analytics) porque o nome do evento está numa matriz JSON aninhada. Em seguida, o Select escolhe o nome do evento, juntamente com uma contagem do número de casos com esse nome no período de tempo. A cláusula [Grupo Por](/stream-analytics-query/group-by-azure-stream-analytics) Cláusula agruta os elementos em períodos de tempo de um minuto.
 
 ### <a name="query-to-display-metric-values"></a>Consulta para mostrar valores métricos
 
@@ -208,8 +208,7 @@ Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Exportação contínua](export-telemetry.md)
 * [Referência detalhada do modelo de dados para os tipos e valores da propriedade.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-

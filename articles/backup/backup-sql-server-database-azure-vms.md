@@ -3,12 +3,12 @@ title: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azu
 description: Neste artigo, aprenda a fazer backup das bases de dados do SQL Server em máquinas virtuais Azure com Cópia de Segurança Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 16e24ed94d8017d9fb922193bb16a33ec7a9cdfd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfd8233b9a696b5b4b1981eefa81aa9723f6431
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538983"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -59,17 +59,17 @@ Mais detalhes sobre a utilização destas opções são partilhados abaixo:
 
 #### <a name="private-endpoints"></a>Pontos finais privados
 
-Os pontos finais privados permitem-lhe ligar-se de forma segura a partir de servidores dentro de uma rede virtual ao cofre dos Serviços de Recuperação. O ponto final privado utiliza um IP a partir do espaço de endereço VNET para o seu cofre. O tráfego de rede entre os seus recursos dentro da rede virtual e o cofre viaja pela sua rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft. Isto elimina a exposição da internet pública. Leia mais sobre os pontos finais privados para o Azure Backup [aqui](https://docs.microsoft.com/azure/backup/private-endpoints).
+Os pontos finais privados permitem-lhe ligar-se de forma segura a partir de servidores dentro de uma rede virtual ao cofre dos Serviços de Recuperação. O ponto final privado utiliza um IP a partir do espaço de endereço VNET para o seu cofre. O tráfego de rede entre os seus recursos dentro da rede virtual e o cofre viaja pela sua rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft. Isto elimina a exposição da internet pública. Leia mais sobre os pontos finais privados para o Azure Backup [aqui](./private-endpoints.md).
 
 #### <a name="nsg-tags"></a>Etiquetas NSG
 
-Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras NSG semelhantes](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para *Azure AD* e *Azure Storage*.  Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
+Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras NSG semelhantes](../virtual-network/security-overview.md#service-tags) para *Azure AD* e *Azure Storage*.  Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
 
 1. Em **Todos os Serviços,** vá aos **grupos de segurança da Rede** e selecione o grupo de segurança da rede.
 
 1. Selecione **regras de segurança de saída** em **Definições**.
 
-1. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
+1. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
 
 1. Clique **em Adicionar** para salvar a regra de segurança de saída recém-criada.
 
@@ -77,7 +77,7 @@ Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Az
 
 #### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 
-Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN Azure Firewall AzureBackup .](https://docs.microsoft.com/azure/firewall/fqdn-tags) *AzureBackup* Isto permite que todo o acesso de saída ao Azure Backup.
+Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN Azure Firewall AzureBackup .](../firewall/fqdn-tags.md) *AzureBackup* Isto permite que todo o acesso de saída ao Azure Backup.
 
 #### <a name="allow-access-to-service-ip-ranges"></a>Permitir o acesso às gamas IP de serviço
 
@@ -91,7 +91,7 @@ Também pode utilizar os seguintes FQDNs para permitir o acesso aos serviços ne
 | -------------- | ------------------------------------------------------------ |
 | Reserva Azure  | `*.backup.windowsazure.com`                             |
 | Armazenamento Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Permitir o acesso às FQDNs nos termos das secções 56 e 59 de acordo com [este artigo](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Azure AD      | Permitir o acesso às FQDNs nos termos das secções 56 e 59 de acordo com [este artigo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Use um servidor de procuração HTTP para encaminhar o tráfego
 
@@ -107,7 +107,7 @@ Evite utilizar os seguintes elementos em nomes de bases de dados:
 * Ponto e vírgula';
 * Corte para a frente '/'
 
-O aliasing está disponível para caracteres não suportados, mas recomendamos que os evitem. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+O aliasing está disponível para caracteres não suportados, mas recomendamos que os evitem. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 >[!NOTE]
 >A **operação de Proteção de Configuração** para bases de dados com caracteres especiais como "+" ou "&" em seu nome não é suportada. Pode alterar o nome da base de dados ou ativar a **Proteção Automática,** que pode proteger com sucesso estas bases de dados.
@@ -161,11 +161,15 @@ Como descobrir bases de dados em execução num VM:
 
    ![Selecione Configurar Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Em **Selecionar itens para backup,** consulte todos os grupos de disponibilidade registados e instâncias autónomas do SQL Server. Selecione a seta à esquerda de uma linha para expandir a lista de todas as bases de dados desprotegidas nesse caso ou grupo de disponibilidade Always On.  
+1. Clique em **Adicionar Recursos** para ver todos os grupos de disponibilidade registados e instâncias autónomas do SQL Server.
 
-    ![Exibindo todas as instâncias do SQL Server com bases de dados autónomas](./media/backup-azure-sql-database/list-of-sql-databases.png)
+    ![Selecione adicionar recursos](./media/backup-azure-sql-database/add-resources.png)
 
-3. Escolha todas as bases de dados que pretende proteger e, em seguida, selecione **OK**.
+1. No **ecrã de reserva selecione itens para o** ecrã de reserva, selecione a seta à esquerda de uma linha para expandir a lista de todas as bases de dados desprotegidas nesse caso ou grupo de disponibilidade Always On.
+
+    ![Selecione itens para backup](./media/backup-azure-sql-database/select-items-to-backup.png)
+
+1. Escolha todas as bases de dados que pretende proteger e, em seguida, selecione **OK**.
 
    ![Proteger a base de dados](./media/backup-azure-sql-database/select-database-to-protect.png)
 
@@ -174,28 +178,20 @@ Como descobrir bases de dados em execução num VM:
      * Para proteger mais de 50 bases de dados, configuure várias cópias de segurança.
      * Para [ativar](#enable-auto-protection) toda a instância ou o grupo de disponibilidade Always On, na lista de drop-down **AUTOPROTECT,** selecione **ON**e, em seguida, selecione **OK**.
 
-    > [!NOTE]
-    > A funcionalidade [de proteção automática](#enable-auto-protection) não só permite a proteção em todas as bases de dados existentes de uma só vez, como também protege automaticamente quaisquer novas bases de dados adicionadas a esse caso ou ao grupo de disponibilidade.  
+         > [!NOTE]
+         > A funcionalidade [de proteção automática](#enable-auto-protection) não só permite a proteção em todas as bases de dados existentes de uma só vez, como também protege automaticamente quaisquer novas bases de dados adicionadas a esse caso ou ao grupo de disponibilidade.  
 
-4. Selecione **OK** para abrir a **política de backup**.
+1. Defina a **política de backup**. Pode optar por uma das seguintes opções:
 
-    ![Ativar a proteção automática para o grupo de disponibilidade Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-5. Na **política de backup,** escolha uma política e, em seguida, selecione **OK**.
-
-   * Selecione a política predefinitiva como HourlyLogBackup.
+   * Selecione a política predefinitiva como *HourlyLogBackup*.
    * Escolha uma política de backup existente previamente criada para o SQL.
    * Defina uma nova política com base no seu RPO e na gama de retenção.
 
      ![Selecione a política de backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. Em **Cópia de Segurança**, selecione Ative **backup**.
+1. Clique em **Ativar** a Cópia de Segurança para submeter a **operação de Proteção** de Configuração e acompanhar o progresso da configuração na área de **Notificações** do portal.
 
-    ![Ativar a política de backup escolhida](./media/backup-azure-sql-database/enable-backup-button.png)
-
-7. Acompanhe o progresso da configuração na área de **Notificações** do portal.
-
-    ![Área de notificação](./media/backup-azure-sql-database/notifications-area.png)
+   ![Progresso da configuração da faixa](./media/backup-azure-sql-database/track-configuration-progress.png)
 
 ### <a name="create-a-backup-policy"></a>Criar uma política de backup
 
@@ -210,22 +206,22 @@ Uma política de backup define quando as cópias de segurança são tomadas e qu
 Para criar uma política de backup:
 
 1. No cofre, selecione **políticas de backup**  >  **Adicionar**.
-2. Em **Adicionar**, selecione **SQL Server em Azure VM** para definir o tipo de política.
+1. Em **Adicionar**, selecione **SQL Server em Azure VM** para definir o tipo de política.
 
    ![Escolha um tipo de política para a nova política de backup](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Em **nome da Política,** insira um nome para a nova política.
-4. Na **política de cópia de segurança completa,** selecione uma frequência de **backup**. Escolha **o Daily** ou **o Weekly**.
+1. Em **nome da Política,** insira um nome para a nova política.
 
-   * Para **diariamente,** selecione o fuso horário e hora quando o trabalho de reserva começar.
-   * Para **o Weekly**, selecione o dia da semana, hora e fuso horário quando o trabalho de reserva começar.
-   * Faça uma cópia de segurança completa, porque não pode desligar a opção **Full Backup.**
-   * Selecione **Full Backup** para ver a política.
-   * Não é possível criar cópias de segurança diferenciais para cópias de segurança diárias.
+    ![Insira o nome da política](./media/backup-azure-sql-database/policy-name.png)
+
+1. Clique no link **Editar** correspondente, para **cópia de segurança completa,** para modificar as definições predefinidos.
+
+   * Selecione uma **frequência de backup**. Escolha **o Daily** ou **o Weekly**.
+   * Para **diariamente,** selecione o fuso horário e hora quando o trabalho de reserva começar. Não é possível criar cópias de segurança diferenciais para cópias de segurança diárias.
 
      ![Novos campos de política de backup](./media/backup-azure-sql-database/full-backup-policy.png)  
 
-5. No **INTERVALO DE RETENÇÃO,** todas as opções são selecionadas por predefinição. Limpe os limites de alcance de retenção que não deseja e, em seguida, desa um pouco dos intervalos a utilizar.
+1. No **INTERVALO DE RETENÇÃO,** todas as opções são selecionadas por predefinição. Limpe os limites de alcance de retenção que não deseja e, em seguida, desa um pouco dos intervalos a utilizar.
 
     * O período mínimo de retenção para qualquer tipo de backup (completo, diferencial e log) é de sete dias.
     * Os pontos de recuperação são marcados para retenção com base no seu alcance de retenção. Por exemplo, se selecionar uma cópia de segurança diária completa, apenas uma cópia de segurança completa é ativada todos os dias.
@@ -234,28 +230,28 @@ Para criar uma política de backup:
 
        ![Definições de intervalo de intervalo de retenção](./media/backup-azure-sql-database/retention-range-interval.png)
 
-6. No menu **de política de cópia de segurança completa,** selecione **OK** para aceitar as definições.
-7. Para adicionar uma política de backup diferencial, selecione **Backup Diferencial**.
+1. Selecione **OK** para aceitar a definição para cópias de segurança completas.
+1. Clique no link **Editar** correspondente à **cópia de segurança diferencial,** para modificar as definições predefinidos.
 
-   ![Definições de intervalo de intervalo de retenção ](./media/backup-azure-sql-database/retention-range-interval.png)
-    ![ Abra o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
+    * Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção.
+    * Só pode acionar uma cópia de segurança diferencial por dia. Um reforço diferencial não pode ser acionado no mesmo dia que um reforço completo.
+    * As cópias de segurança diferenciais podem ser mantidas por um máximo de 180 dias.
+    * A cópia de segurança diferencial não é suportada para a base de dados principal.
 
-8. Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção.
+      ![Política de backup diferencial](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-    * Só pode acionar uma cópia de segurança diferencial por dia.
-    * As cópias de segurança diferenciais podem ser mantidas por um máximo de 180 dias. Para uma retenção mais longa, utilize cópias de segurança completas.
+1. Clique no link **editar** correspondente à cópia de segurança do **Registo,** para modificar as definições predefinidos
 
-9. Selecione **OK** para guardar a política e volte ao menu de política de **backup** principal.
+    * In **Log Backup**, selecione **Ativar**e, em seguida, definir os controlos de frequência e retenção.
+    * As cópias de segurança podem ocorrer com a maior frequência a cada 15 minutos e podem ser mantidas até 35 dias.
+    * Se a base de dados estiver no [modelo de recuperação simples,](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15)o horário de cópia de segurança para essa base de dados será interrompido e, por isso, não serão acionados os backups de registo.
+    * Se o modelo de recuperação da base de dados mudar de **Full** para **Simple,** as cópias de segurança de registo serão interrompidas no prazo de 24 horas após a alteração do modelo de recuperação. Da mesma forma, se o modelo de recuperação mudar de **Simples**, implicando que as cópias de segurança de registo podem agora ser suportadas na base de dados, os horários de backup de registo serão ativados dentro de 24 horas após a alteração do modelo de recuperação.
 
-10. Para adicionar uma política de backup de registo de transações, **selecione Registar Backup**.
-11. In **Log Backup**, selecione **Ativar**e, em seguida, definir os controlos de frequência e retenção. As cópias de segurança podem ocorrer com a maior frequência a cada 15 minutos e podem ser mantidas até 35 dias.
-12. Selecione **OK** para guardar a política e volte ao menu de política de **backup** principal.
+      ![Política de backup de registo](./media/backup-azure-sql-database/log-backup-policy.png)
 
-    ![Editar a política de backup de registo](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+1. No menu **de política de cópia de segurança,** escolha se ativa ou não a **compressão de backup SQL.** Esta opção está desativada por predefinição. Se estiver ativado, o SQL Server enviará um fluxo de backup comprimido para o VDI. O Azure Backup substitui os padrãos de nível de instância com cláusula compression /NO_COMPRESSION dependendo do valor deste controlo.
 
-13. No menu **de política de cópia de segurança,** escolha se ativa ou não a **compressão de backup SQL.** Esta opção está desativada por predefinição. Se estiver ativado, o SQL Server enviará um fluxo de backup comprimido para o VDI.  Por favor, note que o Azure Backup substitui os padrãos de nível de instância com compression /NO_COMPRESSION cláusula dependendo do valor deste controlo.
-
-14. Depois de completar as edições para a política de backup, selecione **OK**.
+1. Depois de completar as edições para a política de backup, selecione **OK**.
 
 > [!NOTE]
 > Cada cópia de segurança de registo está acorrentada à cópia de segurança completa anterior para formar uma cadeia de recuperação. Este backup completo será mantido até que a retenção da última cópia de segurança de registo tenha expirado. Isto pode significar que a cópia de segurança completa é retida por um período extra para garantir que todos os registos podem ser recuperados. Vamos assumir que o utilizador tem uma cópia de segurança semanal, diferencial diário e registos de 2 horas. Todos estão retidos por 30 dias. Mas, a totalidade semanal só pode ser limpa/eliminada após a próxima cópia de segurança completa disponível, ou seja, após 30 + 7 dias. Digamos, um reforço semanal completo acontece no dia 16 de novembro. De acordo com a política de retenção, deve ser mantida até 16 de dezembro. O último registo para este registo completo acontece antes do próximo dia 22 de novembro. Até que este registo esteja disponível até 22 de dezembro, o 16 de novembro completo não pode ser apagado. Assim, o 16º de novembro completo é mantido até 22 de dezembro.

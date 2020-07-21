@@ -3,11 +3,12 @@ title: Apoie uma fazenda SharePoint em Azure Stack
 description: Utilize o Servidor de Backup Azure para fazer backup e restaurar os dados do SharePoint no Azure Stack. Este artigo fornece as informações para configurar a sua quinta SharePoint para que os dados desejados possam ser armazenados em Azure. Pode restaurar dados protegidos do SharePoint a partir do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 8b9257c1d175c350df06f9421b31a9e7b8e2bb80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84657940"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538790"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Apoie uma fazenda SharePoint em Azure Stack
 
@@ -101,7 +102,7 @@ Para fazer o back up da quinta SharePoint, configuure a proteção para o ShareP
 
 1. Na **política de retenção on-line,** pode especificar como os pontos de recuperação criados a partir das cópias de segurança diárias/semanais/mensais são mantidos em Azure.
 
-1. In **Escolha a replicação on-line**, especifique como a replicação completa inicial dos dados ocorrerá. Pode replicar através da rede ou criar uma cópia de segurança offline (propagação offline). A cópia de segurança offline utiliza a funcionalidade de Importação do Azure. [Leia mais.](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/)
+1. In **Escolha a replicação on-line**, especifique como a replicação completa inicial dos dados ocorrerá. Pode replicar através da rede ou criar uma cópia de segurança offline (propagação offline). A cópia de segurança offline utiliza a funcionalidade de Importação do Azure. [Leia mais.](./backup-azure-backup-import-export.md)
 
 1. Na página **Resumo,** reveja as suas definições. Depois de clicar em **Criar Grupo,** ocorre a replicação inicial dos dados. Quando terminar, o estado do grupo de proteção mostrará **como OK** na página **'Status'.** A criação da cópia de segurança está em conformidade com as definições do grupo de proteção.
 
@@ -210,7 +211,7 @@ No exemplo seguinte, o *item RecoverIng SharePoint* foi acidentalmente eliminado
 
     ![MABS SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Depois de concluída a catalogação, o estado muda para *Sucesso*. Clique em **Fechar**.
+    Depois de concluída a catalogação, o estado muda para *Sucesso*. Clique em **Close** (Fechar).
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
 4. Clique no objeto SharePoint mostrado no separador **Recuperação** MABS para obter a estrutura da base de dados de conteúdos. Clique com o botão direito no item e, em seguida, clique em **Recuperar**.

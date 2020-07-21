@@ -6,11 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09db7684c84bbde038c67f9ccfb3f27f6b61bee6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539555"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar as suas aplicações lógicas e runbooks para a migração de regras de alerta clássicas
 
@@ -27,12 +28,12 @@ As APIs que criam e gerem regras clássicas de alerta `microsoft.insights/alertr
 
 A tabela a seguir é uma referência às interfaces programáticas tanto para alertas clássicos como para novos:
 
-|         |Alertas clássicos  |Novos alertas métricos |
-|---------|---------|---------|
-|API REST     | [microsoft.insights/alertars](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|CLI do Azure     | [alerta de monitor az](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta de métricas de monitor az](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Modelo Azure Resource Manager | [Para alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para novos alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Tipo de script de implementação | Alertas clássicos | Novos alertas métricos |
+| ---------------------- | -------------- | ----------------- |
+|API REST     | [microsoft.insights/alertars](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
+|CLI do Azure     | [alerta de monitor az](/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta de métricas de monitor az](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|PowerShell      | [Referência](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+| Modelo Azure Resource Manager | [Para alertas clássicos](./alerts-enable-template.md)|[Para novos alertas métricos](./alerts-metric-create-templates.md)|
 
 ## <a name="notification-payload-changes"></a>Alterações na carga útil da notificação
 
@@ -40,8 +41,8 @@ O formato de carga útil de notificação é ligeiramente diferente entre [as re
 
 Utilize a seguinte tabela para mapear os campos de carga útil webhook do formato clássico para o novo formato:
 
-|  |Alertas clássicos  |Novos alertas métricos |
-|---------|---------|---------|
+| Tipo de ponto final de notificação | Alertas clássicos | Novos alertas métricos |
+| -------------------------- | -------------- | ----------------- |
 |O alerta foi ativado ou resolvido?    | **estado**       | **data.status** |
 |Informação contextual sobre o alerta     | **contexto**        | **data.context**        |
 |Carimbo de tempo em que o alerta foi ativado ou resolvido     | **contexto.timetamp**       | **data.context.timestamp**        |
@@ -70,7 +71,7 @@ As cargas são semelhantes, como pode ver. A seguinte secção oferece:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modifique uma aplicação lógica para receber uma notificação de alerta métrico
 
-Se estiver a utilizar aplicações lógicas com alertas clássicos, tem de modificar o seu código de aplicação lógica para analisar a carga útil dos novos alertas métricos. Siga estes passos.
+Se estiver a utilizar aplicações lógicas com alertas clássicos, tem de modificar o seu código de aplicação lógica para analisar a carga útil dos novos alertas métricos. Siga estes passos:
 
 1. Crie uma nova aplicação lógica.
 
@@ -149,11 +150,11 @@ else {
 
 ```
 
-Para um exemplo completo de um livro de execução que para uma máquina virtual quando um alerta é acionado, consulte a documentação da [Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Para um exemplo completo de um livro de execução que para uma máquina virtual quando um alerta é acionado, consulte a documentação da [Azure Automation](../../automation/automation-create-alert-triggered-runbook.md).
 
 ## <a name="partner-integration-via-webhooks"></a>Integração de parceiros via webhooks
 
-A maioria dos [nossos parceiros que se integram com alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/partners) já suportam alertas métricos mais recentes através das suas integrações. As integrações conhecidas que já funcionam com novos alertas métricos são:
+A maioria dos [nossos parceiros que se integram com alertas clássicos](./partners.md) já suportam alertas métricos mais recentes através das suas integrações. As integrações conhecidas que já funcionam com novos alertas métricos são:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

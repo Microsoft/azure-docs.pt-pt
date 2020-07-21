@@ -3,11 +3,12 @@ title: Apoie um VM Azure a partir das definições de VM
 description: Neste artigo, aprenda a apoiar um VM Azure singular ou vários VMs Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 580cb1ad5f611991212bc8cdb48c66339f14d8e8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705450"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538892"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Apoie um VM Azure a partir das definições de VM
 
@@ -25,7 +26,7 @@ Este artigo explica como apoiar os VMs Azure com o serviço [Azure Backup.](back
 
 Para apoiar os VMs Azure, o Azure Backup instala uma extensão no agente VM em funcionamento na máquina. Se o seu VM foi criado a partir de uma imagem de mercado Azure, o agente estará em execução. Em alguns casos, por exemplo, se criar um VM personalizado, ou migrar uma máquina a partir do local. pode ser necessário instalar o agente manualmente.
 
-- Se necessitar de instalar manualmente o agente VM, siga as instruções para [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) VMs.
+- Se necessitar de instalar manualmente o agente VM, siga as instruções para [Windows](../virtual-machines/extensions/agent-windows.md) ou [Linux](../virtual-machines/extensions/agent-linux.md) VMs.
 - Depois de o agente ser instalado, quando ativa a cópia de segurança, o Azure Backup instala a extensão de reserva ao agente. Atualiza e corrige a extensão sem a intervenção do utilizador.
 
 ## <a name="back-up-from-azure-vm-settings"></a>Recua das definições de Azure VM

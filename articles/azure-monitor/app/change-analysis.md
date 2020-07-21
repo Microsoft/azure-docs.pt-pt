@@ -5,22 +5,23 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: c287a2315f2b2319a6873ce84ee0e4e48bec8444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82836818"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540167"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilizar a Análise de Alteração de Aplicações (pré-visualização) no Monitor Azure
 
 Quando ocorre um problema ou interrupção do site ao vivo, determinar rapidamente a causa da raiz é fundamental. As soluções de monitorização padrão podem alertá-lo para um problema. Podem até indicar que componente está a falhar. Mas este alerta nem sempre explica imediatamente a causa do fracasso. Sabes que o teu site funcionou há cinco minutos, e agora está avariado. O que mudou nos últimos cinco minutos? Esta é a questão que a Análise de Alteração de Aplicações foi concebida para responder no Azure Monitor.
 
-Com base na potência do [Azure Resource Graph,](https://docs.microsoft.com/azure/governance/resource-graph/overview)a Change Analysis fornece insights sobre as alterações da sua aplicação Azure para aumentar a observabilidade e reduzir o MTTR (tempo médio de reparação).
+Com base na potência do [Azure Resource Graph,](../../governance/resource-graph/overview.md)a Change Analysis fornece insights sobre as alterações da sua aplicação Azure para aumentar a observabilidade e reduzir o MTTR (tempo médio de reparação).
 
 > [!IMPORTANT]
 > A Análise de Alterações está atualmente em pré-visualização. Esta versão de pré-visualização é fornecida sem um acordo de nível de serviço. Esta versão não é recomendada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas ou podem ter capacidades restritas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Análise de Alterações deteta vários tipos de alterações, desde a camada de infraestrutura até à implementação da aplicação. É um fornecedor de recursos Azure de nível de subscrição que verifica as alterações de recursos na subscrição. A Change Analysis fornece dados para várias ferramentas de diagnóstico para ajudar os utilizadores a entender que mudanças podem ter causado problemas.
 
@@ -34,7 +35,7 @@ As consultas de análise de alterações de aplicações para O Gestor de Recurs
 
 ### <a name="azure-resource-manager-tracked-properties-changes"></a>Azure Resource Manager rastreou as mudanças de propriedades
 
-Utilizando [o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), a Change Analysis fornece um registo histórico de como os recursos Azure que acolhem a sua aplicação mudaram ao longo do tempo. Podem ser detetadas definições rastreadas como identidades geridas, upgrade do Sistema operativo da Plataforma e hostnames.
+Utilizando [o Azure Resource Graph](../../governance/resource-graph/overview.md), a Change Analysis fornece um registo histórico de como os recursos Azure que acolhem a sua aplicação mudaram ao longo do tempo. Podem ser detetadas definições rastreadas como identidades geridas, upgrade do Sistema operativo da Plataforma e hostnames.
 
 ### <a name="azure-resource-manager-proxied-setting-changes"></a>Azure Resource Manager proxied alterações de definição
 
@@ -58,7 +59,7 @@ Atualmente são suportadas as seguintes dependências:
 
 O serviço de Análise de Alterações de Aplicação calcula e agrega os dados das fontes de dados acima mencionadas. Fornece um conjunto de análises para que os utilizadores naveguem facilmente através de todas as alterações de recursos e identifiquem qual a mudança relevante no contexto de resolução de problemas ou monitorização.
 O fornecedor de recursos "Microsoft.ChangeAnalysis" precisa de ser registado com uma subscrição para o Gestor de Recursos Azure que rastreou propriedades e definições proxied alterar dados para estar disponível. Ao introduzir a ferramenta de diagnóstico e resolução de problemas da Web App ou apresentar o separador Change Analysis autónomo, este fornecedor de recursos é automaticamente registado. Não tem qualquer desempenho ou implementações de custos para a sua subscrição. Quando ativa a Análise de Alterações para aplicações web (ou ativar a ferramenta de problemas de diagnóstico e resolução), terá um impacto de desempenho negligenciável na aplicação web e sem custo de faturação.
-Para alterações na aplicação web no hóspede, é necessária uma ativação separada para digitalizar ficheiros de código dentro de uma aplicação web. Para obter mais informações, consulte a Análise de Alterações na secção [de Ferramentas de Diagnóstico e resolva problemas](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#application-change-analysis-in-the-diagnose-and-solve-problems-tool) mais tarde neste artigo para obter mais detalhes.
+Para alterações na aplicação web no hóspede, é necessária uma ativação separada para digitalizar ficheiros de código dentro de uma aplicação web. Para obter mais informações, consulte a Análise de Alterações na secção [de Ferramentas de Diagnóstico e resolva problemas](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) mais tarde neste artigo para obter mais detalhes.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualizações para análise de mudança de aplicação
 
@@ -118,7 +119,7 @@ Se a sua subscrição incluir numerosas aplicações web, ativar o serviço ao n
 
 Pré-requisitos:
 
-- Módulo PowerShell Az. Siga as instruções na [Instalação do módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
+- Módulo PowerShell Az. Siga as instruções na [Instalação do módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0)
 
 Execute o seguintes script:
 
@@ -158,4 +159,4 @@ Vá para a ferramenta Diagnosticar e Resolver Problemas para uma Máquina Virtua
 
 - Ativar insights de aplicações para [aplicações Azure App Services](azure-web-apps.md).
 - Ativar os Insights de Aplicações para [Azure VM e Azure série de máquinas virtuais definir aplicações hospedadas no IIS](azure-vm-vmss-apps.md).
-- Saiba mais sobre [o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), que ajuda a power Change Analysis.
+- Saiba mais sobre [o Azure Resource Graph](../../governance/resource-graph/overview.md), que ajuda a power Change Analysis.

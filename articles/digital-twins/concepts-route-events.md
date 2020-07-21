@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390793"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537523"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -46,7 +46,7 @@ Em alternativa, a mensagem do evento também contém o ID do gémeo de origem qu
 
 O recurso computacional também precisa de estabelecer permissões de segurança e acesso de forma independente.
 
-Para percorrer o processo de criação de uma função Azure para processar eventos gémeos digitais, consulte [Como-a-fazer: Configurar uma função Azure para o processamento de dados](how-to-create-azure-function.md).
+Para percorrer o processo de criação de uma função Azure para processar eventos gémeos digitais, consulte [*Como-a-fazer: Configurar uma função Azure para o processamento de dados*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Criar um ponto final
 
@@ -90,7 +90,7 @@ Diferentes tipos de eventos no IoT Hub e no Azure Digital Twins produzem diferen
 ## <a name="next-steps"></a>Próximos passos
 
 Veja como configurar e gerir uma rota de eventos:
-* [Como fazer: Gerir pontos finais e rotas](how-to-manage-routes.md)
+* [*Como fazer: Gerir pontos finais e rotas*](how-to-manage-routes.md)
 
 Ou, veja como usar as Funções Azure para encaminhar eventos dentro da Azure Digital Twins:
-* [Como fazer: Criar uma função Azure para o processamento de dados](how-to-create-azure-function.md)
+* [*Como fazer: Criar uma função Azure para o processamento de dados*](how-to-create-azure-function.md)

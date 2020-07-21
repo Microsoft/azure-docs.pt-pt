@@ -4,11 +4,12 @@ description: Visão geral do alerta em Azure. Alertas, alertas clássicos e a in
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81769775"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539572"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -19,7 +20,7 @@ Os alertas notificam-no proativamente quando forem encontradas condições impor
 
 Este artigo discute a experiência de alerta unificada no Azure Monitor, que inclui alertas que foram previamente geridos por Log Analytics e Application Insights. Os tipos [anteriores de experiência](alerts-classic.overview.md) de alerta e alerta são *chamados alertas clássicos.* Pode ver esta experiência mais antiga e o tipo de alerta mais antigo selecionando **Ver alertas clássicos** no topo da página de alerta. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O diagrama abaixo representa o fluxo de alertas. 
 
@@ -67,7 +68,7 @@ Anteriormente, as métricas do Monitor Azure, Insights de Aplicação, Log Analy
 
 | **Fonte de monitorização** | **Tipo de sinal**  | **Descrição** |
 |-------------|----------------|-------------|
-| Estado de funcionamento dos serviços | Registo de atividades  | Não suportado. Consulte [Criar alertas de registo de atividades nas notificações de serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Estado de funcionamento dos serviços | Registo de atividades  | Não suportado. Consulte [Criar alertas de registo de atividades nas notificações de serviço](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
 | Application Insights | Testes de disponibilidade web | Não suportado. Consulte [os alertas de teste web](../../azure-monitor/app/monitor-web-app-availability.md). Disponível para qualquer website que seja instrumentalizado para enviar dados para o Application Insights. Receba uma notificação quando a disponibilidade ou capacidade de resposta de um website está abaixo das expectativas. |
 
 ## <a name="manage-alerts"></a>Gerir alertas
@@ -177,7 +178,7 @@ A página de detalhes do alerta inclui as seguintes secções:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controlo de acesso baseado em funções (RBAC) para os seus casos de alerta
 
-O consumo e a gestão de casos de alerta requerem que o utilizador tenha as funções de RBAC incorporadas, quer de [monitorização do contribuinte,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) quer do [leitor de monitorização.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Azure Resource Manager, desde o nível de subscrição até atribuições granulares a nível de recursos. Por exemplo, se um utilizador tiver apenas acesso de colaborador a máquina `ContosoVM1` virtual, esse utilizador pode consumir e gerir apenas os alertas gerados em `ContosoVM1` .
+O consumo e a gestão de casos de alerta requerem que o utilizador tenha as funções de RBAC incorporadas, quer de [monitorização do contribuinte,](../../role-based-access-control/built-in-roles.md#monitoring-contributor) quer do [leitor de monitorização.](../../role-based-access-control/built-in-roles.md#monitoring-reader) Estas funções são suportadas em qualquer âmbito do Azure Resource Manager, desde o nível de subscrição até atribuições granulares a nível de recursos. Por exemplo, se um utilizador tiver apenas acesso de colaborador a máquina `ContosoVM1` virtual, esse utilizador pode consumir e gerir apenas os alertas gerados em `ContosoVM1` .
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie os seus casos de alerta programáticamente
 
@@ -211,9 +212,3 @@ Utilize a [API de Gestão de Alertas](https://aka.ms/alert-management-api) PARA 
 - [Gerir as suas instâncias de alerta em Azure](https://aka.ms/managing-alert-instances)
 - [Gestão de Grupos Inteligentes](https://aka.ms/managing-smart-groups)
 - [Saiba mais sobre os preços dos alertas do Azure](https://azure.microsoft.com/pricing/details/monitor/)
-
-
-
-
-
-

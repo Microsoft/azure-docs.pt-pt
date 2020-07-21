@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2020
-ms.openlocfilehash: 4bf0acdc774bc41d0bc80c944560f41789584c03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 5810f9b08d914522f1304e238567c06e87872715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513913"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537736"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) utilizando a Azure Data Factory
 
@@ -42,7 +42,7 @@ Para a atividade copy, este conector Azure Synapse Analytics suporta estas funç
 
 - Copie os dados utilizando a autenticação SQL e o Azure Ative Directory (Azure AD) A autenticação de ficha de aplicação com um principal serviço ou identidades geridas para recursos Azure.
 - Como fonte, recupere os dados utilizando uma consulta SQL ou procedimento armazenado.
-- Como pia, carregue os dados utilizando a declaração [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [COPY](#use-copy-statement) (pré-visualização) ou a peça a granel. Recomendamos a declaração PolyBase ou COPY (pré-visualização) para um melhor desempenho da cópia. O conector também suporta automaticamente a criação de uma tabela de destino, caso não exista com base no esquema de origem.
+- Como pia, carregue os dados utilizando a declaração [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [COPY](#use-copy-statement) (pré-visualização) ou a peça a granel. Recomendamos a declaração PolyBase ou COPY (pré-visualização) para um melhor desempenho da cópia. O conector também suporta automaticamente a criação de uma tabela de destino se não existir com base no esquema de origem.
 
 > [!IMPORTANT]
 > Se copiar dados utilizando o tempo de execução da integração da Azure Data Factory, configure uma [regra de firewall ao nível do servidor](../azure-sql/database/firewall-configure.md) para que os serviços Azure possam aceder ao servidor [lógico SQL](../azure-sql/database/logical-servers.md).
@@ -61,7 +61,7 @@ As secções seguintes fornecem detalhes sobre propriedades que definem entidade
 
 As seguintes propriedades são suportadas para um serviço Azure Synapse Analytics ligado:
 
-| Propriedade            | Descrição                                                  | Necessário                                                     |
+| Propriedade            | Descrição                                                  | Obrigatório                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | tipo                | A propriedade tipo deve ser definida para **AzureSqlDW**.             | Sim                                                          |
 | conexãoStragem    | Especifique as informações necessárias para ligar à instância Azure Synapse Analytics para a **propriedade connectionString.** <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory. Também pode colocar a chave principal de senha/serviço no Cofre da Chave Azure, e se for a autenticação SQL retire a `password` configuração da cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [guarde as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim                                                          |
@@ -221,11 +221,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas para o conjunto de dados Azure Synapse Analytics:
 
-| Propriedade  | Descrição                                                  | Necessário                    |
+| Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | tipo      | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlDWTable**. | Sim                         |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
-| table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
+| tabela | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 | tableName | Nome da tabela/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não para a fonte, sim para a pia |
 
 ### <a name="dataset-properties-example"></a>Exemplo de propriedades de dataset
@@ -257,7 +257,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Azure Synapse Analytics, decreva a propriedade **tipo** na fonte de Atividade de Cópia para **SqlDWSource**. As seguintes propriedades são suportadas na secção **origem** da Atividade de Cópia:
 
-| Propriedade                     | Descrição                                                  | Necessário |
+| Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | tipo                         | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **SqlDWSource**. | Sim      |
 | sqlReaderQuery               | Utilize a consulta SQL personalizada para ler dados. Exemplo: `select * from MyTable`. | Não       |
@@ -366,7 +366,7 @@ A forma mais rápida e escalável de carregar dados é através da [PolyBase](ht
 
 Para copiar os dados para o Azure SQL Data Warehouse, decreva o tipo de pia em Atividade de Cópia para **SqlDWSink**. As seguintes propriedades são suportadas na secção de **lavatório** Copy Activity:
 
-| Propriedade          | Descrição                                                  | Necessário                                      |
+| Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | tipo              | A propriedade **tipo** do lavatório Copy Activity deve ser definida como **SqlDWSink**. | Sim                                           |
 | permitir A Base DePoly     | Indica se deve utilizar o PolyBase para carregar dados no SQL Data Warehouse. `allowCopyCommand`e `allowPolyBase` não pode ser ambos verdadeiros. <br/><br/>Consulte [o PolyBase para carregar dados na secção Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter constrangimentos e detalhes.<br/><br/>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não.<br/>Aplicar quando utilizar o PolyBase.     |
@@ -376,7 +376,7 @@ Para copiar os dados para o Azure SQL Data Warehouse, decreva o tipo de pia em A
 | escreverBatchSize    | Número de linhas para inserir na tabela SQL **por lote**.<br/><br/>O valor permitido é **inteiro (número** de linhas). Por predefinição, a Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha. | Não.<br/>Aplicar quando utilizar a inserção a granel.     |
 | escreverBatchTimeout | Aguarde o tempo para que a operação de inserção do lote termine antes de se esgotar.<br/><br/>O valor permitido é **o tempo.** Exemplo: "00:30:00" (30 minutos). | Não.<br/>Aplicar quando utilizar a inserção a granel.        |
 | preCopyScript     | Especifique uma consulta SQL para a Copy Activity a executar antes de escrever dados no Azure SQL Data Warehouse em cada execução. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
-| mesaOption | Especifica se deve criar automaticamente a tabela do lavatório se não existir com base no esquema de origem. A criação de tabela automática não é suportada quando a cópia encenada é configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
+| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. A criação de tabela automática não é suportada quando a cópia encenada é configurada na atividade de cópia. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como OS DWUs do SQL Data Warehouse para otimização de desempenho de cópia e recomendações. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse exemplo de afundanço
@@ -400,14 +400,14 @@ Para copiar os dados para o Azure SQL Data Warehouse, decreva o tipo de pia em A
 A utilização do [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) é uma forma eficiente de carregar uma grande quantidade de dados no Azure Synapse Analytics com alta produção. Verá um grande ganho na produção utilizando o PolyBase em vez do mecanismo padrão BULKINSERT. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
 
 - Se os seus dados de origem estiverem em **Azure Blob, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2**, e o **formato é compatível com PolyBase,** pode utilizar a atividade de cópia para invocar diretamente a PolyBase para permitir que o Azure SQL Data Warehouse retire os dados da fonte. Para mais informações, consulte **[a cópia direta utilizando a PolyBase](#direct-copy-by-using-polybase)**.
-- Se a sua loja de dados de origem e o seu formato não forem originalmente suportados pela PolyBase, utilize a cópia Encenada utilizando a funcionalidade **[PolyBase.](#staged-copy-by-using-polybase)** A funcionalidade de cópia encenada também lhe proporciona uma melhor produção. Converte automaticamente os dados em formato compatível com a PolyBase, armazena os dados no armazenamento Azure Blob., e depois chama a PolyBase para carregar dados no SQL Data Warehouse.
+- Se a sua loja de dados de origem e o seu formato não forem originalmente suportados pela PolyBase, utilize a cópia Encenada utilizando a funcionalidade **[PolyBase.](#staged-copy-by-using-polybase)** A funcionalidade de cópia encenada também lhe proporciona uma melhor produção. Converte automaticamente os dados em formato compatível com a PolyBase, armazena os dados no armazenamento do Azure Blob e, em seguida, chama a PolyBase para carregar dados no SQL Data Warehouse.
 
 > [!TIP]
 > Saiba mais sobre [as melhores práticas para a utilização do PolyBase.](#best-practices-for-using-polybase)
 
 As seguintes definições de PolyBase são suportadas `polyBaseSettings` na atividade de cópia:
 
-| Propriedade          | Descrição                                                  | Necessário                                      |
+| Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejeitarValue       | Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção de Argumentos da [TABELA EXTERNA CREATE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Os valores permitidos são 0 (padrão), 1, 2, etc. | Não                                            |
 | rejeitarType        | Especifica se a opção **rejeitar o Valor** é um valor literal ou uma percentagem.<br/><br/>Os valores permitidos são **Valor** (padrão) e **Percentagem**. | Não                                            |
@@ -630,7 +630,7 @@ A utilização da declaração COPY suporta a seguinte configuração:
 
 As seguintes definições de declaração COPY são suportadas `allowCopyCommand` na atividade de cópia:
 
-| Propriedade          | Descrição                                                  | Necessário                                      |
+| Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | padrãoValues | Especifica os valores predefinidos para cada coluna-alvo em SQL DW.  Os valores predefinidos na propriedade substituem a restrição DEFAULT definida no armazém de dados, e a coluna de identidade não pode ter um valor padrão. | Não |
 | opções adicionais | Opções adicionais que serão passadas para a declaração DE DW DW SQL diretamente na cláusula "With" na [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Cite o valor necessário para alinhar com os requisitos de declaração COPY. | Não |
@@ -690,13 +690,15 @@ Ao transformar dados no fluxo de dados de mapeamento, pode ler e escrever para t
 
 As definições específicas do Azure Synapse Analytics estão disponíveis no separador **Opções De Origem** da transformação da fonte.
 
-**Entrada:** Selecione se aponta a sua fonte para uma mesa (equivalente ```Select * from <table-name>``` a) ou introduza uma consulta SQL personalizada.
+**Entrada** Selecione se aponta a sua fonte para uma mesa (equivalente ```Select * from <table-name>``` a) ou introduza uma consulta SQL personalizada.
+
+**Ativar a encenação** Recomenda-se vivamente que utilize esta opção em cargas de trabalho de produção com fontes DW da Synapse. Quando executa uma atividade de fluxo de dados com fontes synapase a partir de um oleoduto, a ADF irá solicitar-lhe uma conta de armazenamento de localização de localização de localização e irá usá-la para carregamento de dados encenado. É o mecanismo mais rápido para carregar dados da Synapse DW.
 
 **Consulta**: Se selecionar Consulta no campo de entrada, introduza uma consulta SQL para a sua fonte. Esta definição substitui qualquer tabela que tenha escolhido no conjunto de dados. **As** cláusulas de encomenda por não são suportadas aqui, mas pode definir uma declaração completa SELECT FROM. Também pode utilizar funções de tabela definidas pelo utilizador. **selecionar * do udfGetData()** é um UDF em SQL que devolve uma tabela. Esta consulta produzirá uma tabela de origem que pode utilizar no fluxo de dados. Usar consultas também é uma ótima maneira de reduzir linhas para testes ou para procuras.
 
 Exemplo SQL:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Tamanho do lote**: Introduza o tamanho do lote para colar dados grandes em leituras. Nos fluxos de dados, a ADF utilizará esta definição para definir o caching colunar Spark. Este é um campo de opção que utilizará os padrão spark se ficar em branco.
+**Tamanho do lote**: Introduza o tamanho do lote para colar dados grandes em leituras. Nos fluxos de dados, a ADF utilizará esta definição para definir o caching colunar Spark. Este é um campo de opção, que utilizará os padrão spark se ficar em branco.
 
 **Nível de isolamento**: O padrão para as fontes SQL no fluxo de dados de mapeamento é lido sem compromisso. Pode alterar o nível de isolamento aqui para um destes valores:
 
@@ -748,13 +750,13 @@ Quando copia dados de ou para Azure Synapse Analytics, os seguintes mapeamentos 
 | binary                                | Byte[]                         |
 | bit                                   | Booleano                        |
 | char                                  | String, Char[]                 |
-| date                                  | DateTime                       |
+| data                                  | DateTime                       |
 | Datetime                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | Datatimeoff                        | Início de execução de tempo de data                 |
 | Decimal                               | Decimal                        |
 | Atributo FILESTREAM (varbinário(máx)) | Byte[]                         |
-| Float                                 | Double                         |
+| Float                                 | Double (Duplo)                         |
 | image                                 | Byte[]                         |
 | int                                   | Int32                          |
 | dinheiro                                 | Decimal                        |

@@ -1,22 +1,23 @@
 ---
-title: Encriptação no Backup Azure
+title: Encriptação no Azure Backup
 description: Saiba como as funcionalidades de encriptação no Azure Backup ajudam a proteger os seus dados de backup e a satisfazer as necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: aafb9868dfb6a63ec9b6a3ae654b88b202a1a145
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: references_regions
+ms.openlocfilehash: 099e736bfb321f0f92bd3a57f9c24e88293b42bb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171827"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538756"
 ---
-# <a name="encryption-in-azure-backup"></a>Encriptação no Backup Azure
+# <a name="encryption-in-azure-backup"></a>Encriptação no Azure Backup
 
 Todos os seus dados de back-up são automaticamente encriptados quando armazenados na nuvem usando encriptação de Armazenamento Azure, o que o ajuda a cumprir os seus compromissos de segurança e conformidade. Estes dados em repouso são encriptados utilizando encriptação AES de 256 bits, uma das cifras de blocos mais fortes disponíveis, e é compatível com FIPS 140-2.
 
 Além da encriptação em repouso, todos os seus dados de backup em trânsito são transferidos para HTTPS. Permanece sempre na rede de espinha dorsal do Azure.
 
-Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte as FAQ de backup do [Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a quaisquer perguntas que possa ter sobre encriptação.
+Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](../storage/common/storage-service-encryption.md). Consulte as FAQ de backup do [Azure](./backup-azure-backup-faq.md#encryption) para responder a quaisquer perguntas que possa ter sobre encriptação.
 
 ## <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pela plataforma
 
@@ -30,7 +31,7 @@ Leia mais sobre como encriptar os seus dados de backup utilizando chaves geridas
 
 ## <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Backup de VMs de disco gerido encriptados usando chaves geridas pelo cliente
 
-O Azure Backup também permite fazer backup dos seus VMs Azure que utilizam a sua chave para [encriptação do serviço de armazenamento.](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) A chave utilizada para encriptar os discos é armazenada no Cofre da Chave Azure e gerida por si. A Encriptação do Serviço de Armazenamento (SSE) utilizando chaves geridas pelo cliente difere da Encriptação do Disco Azure, uma vez que a ADE aproveita o BitLocker (para Windows) e o DM-Crypt (para Linux) para executar a encriptação no hóspede, a SSE encripta dados no serviço de armazenamento, permitindo-lhe utilizar qualquer SISTEMA ou imagens para os seus VMs. Consulte a [encriptação de discos geridos com chaves geridas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) para obter mais detalhes.
+O Azure Backup também permite fazer backup dos seus VMs Azure que utilizam a sua chave para [encriptação do serviço de armazenamento.](../storage/common/storage-service-encryption.md) A chave utilizada para encriptar os discos é armazenada no Cofre da Chave Azure e gerida por si. A Encriptação do Serviço de Armazenamento (SSE) utilizando chaves geridas pelo cliente difere da Encriptação do Disco Azure, uma vez que a ADE aproveita o BitLocker (para Windows) e o DM-Crypt (para Linux) para executar a encriptação no hóspede, a SSE encripta dados no serviço de armazenamento, permitindo-lhe utilizar qualquer SISTEMA ou imagens para os seus VMs. Consulte a [encriptação de discos geridos com chaves geridas pelo cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys) para obter mais detalhes.
 
 ## <a name="infrastructure-level-encryption-for-backup-data"></a>Encriptação ao nível da infraestrutura para dados de backup
 
@@ -41,8 +42,8 @@ Além de encriptar os seus dados no cofre dos Serviços de Recuperação utiliza
 
 ## <a name="backup-of-vms-encrypted-using-ade"></a>Cópia de segurança dos VMs encriptados através do ADE
 
-Com o Azure Backup, também pode fazer backup das suas máquinas Azure Virtual que têm o seu SISTEMA ou discos de dados encriptados através da Encriptação do Disco Azure. O ADE utiliza o BitLocker para VMs windows e DM-Crypt para os VMs do Linux para executar encriptação no hóspede. Para mais detalhes, consulte [Back up e restaure máquinas virtuais encriptadas com Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Com o Azure Backup, também pode fazer backup das suas máquinas Azure Virtual que têm o seu SISTEMA ou discos de dados encriptados através da Encriptação do Disco Azure. O ADE utiliza o BitLocker para VMs windows e DM-Crypt para os VMs do Linux para executar encriptação no hóspede. Para mais detalhes, consulte [Back up e restaure máquinas virtuais encriptadas com Azure Backup](./backup-azure-vms-encryption.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Recue e restaure um Azure VM encriptado](backup-azure-vms-encryption.md)

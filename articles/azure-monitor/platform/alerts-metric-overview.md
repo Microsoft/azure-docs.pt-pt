@@ -1,15 +1,15 @@
 ---
 title: Entenda como os alertas métricos funcionam no Azure Monitor.
 description: Obtenha uma visão geral do que pode fazer com alertas métricos e como funcionam no Azure Monitor.
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: cd8c28b2c26e8859eda1634d2441982336cdd460
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 05e25a67279786ef4679552503e577b1b1a382ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187528"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539436"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -120,6 +120,15 @@ Esta regra monitoriza se a utilização média do CPU nos últimos 5 minutos exc
 
 O aumento dos períodos de retrocesso e o número de violações também podem permitir que os alertas de filtragem apenas alertem para a sua definição de um desvio significativo. [Saiba mais sobre as opções avançadas dynamic Thresholds](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
+> [!NOTE]
+>
+> Recomendamos a escolha de uma *granularidade agregada (Período)* maior do que a *Frequência de avaliação,* para reduzir a probabilidade de faltar à primeira avaliação de séries temporais adicionadas nos seguintes casos:
+> - Regra de alerta métrico que monitoriza múltiplas dimensões – Quando uma nova combinação de valor de dimensão é adicionada
+> - Regra de alerta métrico que monitoriza múltiplos recursos – Quando um novo recurso é adicionado ao âmbito
+> - Regra de alerta métrico que monitoriza uma métrica que não é emitida continuamente (métrica escassa) – Quando a métrica é emitida após um período superior a 24 horas em que não foi emitida
+
+
+
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitorização em escala usando alertas métricos no Azure Monitor
 
 Até agora, você viu como um único alerta métrico poderia ser usado para monitorizar uma ou muitas séries de tempo métricas relacionadas com um único recurso Azure. Muitas vezes, pode querer a mesma regra de alerta aplicada a muitos recursos. O Azure Monitor também apoia a monitorização de múltiplos recursos (do mesmo tipo) com uma regra de alerta métrico, para os recursos que existem na mesma região do Azure. 
@@ -158,7 +167,7 @@ Para alertas métricos, normalmente será notificado em menos de 5 minutos se de
 Pode encontrar a lista completa de tipos de recursos suportados neste [artigo.](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba como criar, ver e gerir alertas métricos em Azure](alerts-metric.md)
 - [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Azure](../../azure-monitor/platform/alerts-metric-create-templates.md)

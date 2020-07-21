@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 1922e92f9314e48ae4e3106a53cf750da5daf5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84049835"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539181"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +39,7 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |Uptime SLA|99,99%|99,99%|99,99%|
 |Retenção máxima de backup|7 dias|35 dias|35 dias|
-|CPU|Baixa|Baixo, Médio, Alto|Médio, Alto|
+|CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |Produção de IO (aproximada) |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |Latência IO (aproximada)|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
 |Indexação de colunas |N/D|S3 e acima|Suportado|
@@ -58,7 +59,7 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 
 Os tamanhos de cálculo são expressos em termos de Unidades de Transação de Dados de Base de Dados (DTUs) para bases de dados únicas e unidades elásticas de transação de bases de dados (eDTUs) para piscinas elásticas. Para mais informações sobre DTUs e eDTUs, consulte [o modelo de compra baseado em DTU.](purchasing-models.md#dtu-based-purchasing-model)
 
-||Básica|Standard|Premium|
+|Básica|Standard|Premium|
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | DTUs máximos | 5 | 3.000 | 4000 | 
@@ -69,7 +70,7 @@ Os tamanhos de cálculo são expressos em termos de Unidades de Transação de D
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU elástico de piscina, armazenamento e limites de base de dados em conjunto
 
-| | **Básica** | **Standard** | **Premium** |
+| **Básica** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento por base de dados  | 2 GB | 1 TB | 1 TB |
 | Tamanho máximo de armazenamento por piscina | 156 GB | 4 TB | 4 TB |
@@ -174,7 +175,7 @@ As métricas-chave no benchmark são o tempo de produção e resposta.
 | --- | --- | --- |
 | Premium |Transações por segundo |Percentil 95 a 0,5 segundos |
 | Standard |Transações por minuto |Percentil 90 a 1,0 segundos |
-| Básica |Transações por hora |Percentil 80 a 2,0 segundos |
+| Básico |Transações por hora |Percentil 80 a 2,0 segundos |
 
 ## <a name="next-steps"></a>Próximos passos
 

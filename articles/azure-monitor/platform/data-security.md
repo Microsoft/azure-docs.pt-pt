@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 63d8d8d3701a9adca4bd01e6e061877f5d0bd245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 540e824f301c402e1f65f6186b26ad1672e21d37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80333350"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539351"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics segurança de dados
-Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](../../security/fundamentals/trust-center.md).  
+Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 Este artigo explica a forma como os dados são recolhidos, processados e protegidos pelo Log Analytics. Pode utilizar agentes para se conectar ao serviço web, utilizar o Gestor de Operações do Centro de Sistema para recolher dados operacionais ou recolher dados dos diagnósticos do Azure para utilização pelo Log Analytics. 
 
@@ -42,9 +42,9 @@ Não recomendamos que o seu agente utilize apenas o TLS 1.2 a menos que seja abs
 |Plataforma/Idioma | Suporte | Mais Informações |
 | --- | --- | --- |
 |Linux | As distribuições linux tendem a contar com [o suporte OpenSSL](https://www.openssl.org) para suporte TLS 1.2.  | Verifique o [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar que a sua versão do OpenSSL está suportada.|
-| Windows 8.0 - 10 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidos](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por defeito. | Consulte a página [de definições de registo de segurança da camada de transporte (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
+| Windows 8.0 - 10 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinidos](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por defeito. | Consulte a página [de definições de registo de segurança da camada de transporte (TLS)](/windows-server/security/tls/tls-registry-settings) para obter mais detalhes sobre como ativar.  |
 
 ## <a name="data-segregation"></a>Segregação de dados
 Após os seus dados são ingeridos pelo serviço Log Analytics, os dados são mantidos logicamente separados em cada componente durante todo o serviço. Todos os dados são marcados por espaço de trabalho. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço. Os seus dados são armazenados numa base de dados dedicada no cluster de armazenamento da região que selecionou.
@@ -171,8 +171,7 @@ O período de retenção dos dados recolhidos armazenados na base de dados depen
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilize o Log Analytics para aceder aos dados
 Para aceder ao seu espaço de trabalho Log Analytics, inscreva-se no portal Azure utilizando a conta organizacional ou a conta microsoft que criou anteriormente. Todo o tráfego entre o portal e o serviço Log Analytics é enviado através de um canal HTTPS seguro. Ao utilizar o portal, é gerado um ID de sessão no cliente utilizador (navegador web) e os dados são armazenados numa cache local até que a sessão seja terminada. Quando terminada, a cache é apagada. Os cookies do lado do cliente, que não contêm informações pessoalmente identificáveis, não são removidos automaticamente. Os cookies de sessão estão marcados HTTPOnly e estão seguros. Após um período de inatividade pré-determinado, a sessão do portal Azure é encerrada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como recolher dados com o Log Analytics para os seus VMs Azure seguindo o [quickstart Azure VM](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 *  Se procura recolher dados de computadores Físicos ou virtuais do Windows ou Linux no seu ambiente, consulte o [Quickstart para computadores Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) ou [Quickstart para computadores Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
-

@@ -7,23 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: a014628a9664e33aa855cc4fbf40979236d765f9
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355612"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538025"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulários (pré-visualização)
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Azure Form Recogniser aplica tecnologia de aprendizagem automática para identificar e extrair pares e tabelas de valor-chave a partir de formas. Associa valores e entradas de tabela com os pares de valor-chave e, em seguida, produz dados estruturados que incluem as relações no ficheiro original. 
 
 Para reduzir a complexidade e integrar facilmente um modelo personalizado de Reconhecimento de Formulários no seu processo de automatização de fluxo de trabalho ou outra aplicação, pode ligar para o modelo utilizando uma API rest simples. São necessários apenas cinco documentos de formulário (ou um formulário vazio e dois formulários preenchidos), para que possa obter resultados de forma rápida, precisa e adaptada ao seu conteúdo específico. Não é necessária uma intervenção manual pesada ou uma vasta experiência em ciências dos dados. E não requer rotulagem de dados ou anotação de dados.
-
-> [!IMPORTANT]
-> Os recipientes do Reconhecimento de Formulários utilizam atualmente a versão 1.0 da API do Reconhecimento de Formulários. Pode aceder à versão mais recente da API utilizando o serviço gerido.
 
 | Função | Funcionalidades |
 |----------|----------|
@@ -64,14 +63,6 @@ Esta chave é utilizada para iniciar o contentor e está disponível na página 
 
 > [!IMPORTANT]
 > Estas chaves de subscrição são usadas para aceder à sua API de Serviço Cognitivo. Não partilhem as chaves. Guarde-os de forma segura, por exemplo, utilizando o Cofre da Chave Azure. Recomendamos também a regeneração regular destas teclas. Apenas uma chave é necessária para fazer uma chamada da API. Ao regenerar a primeira chave, pode utilizar a segunda chave para o acesso continuado ao serviço.
-
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
-
-Preencha e envie o [formulário de pedido](https://aka.ms/cognitivegate) para solicitar o acesso ao contentor.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## <a name="the-host-computer"></a>O computador anfitrião
 
@@ -248,9 +239,9 @@ services:
 > [!IMPORTANT]
 > O `Eula` , e , , bem como as `Billing` `ApiKey` `FormRecognizer:ComputerVisionApiKey` opções e `FormRecognizer:ComputerVisionEndpointUri` opções , devem ser especificados para executar o recipiente; caso contrário, o recipiente não será iniciado. Para mais informações, consulte [Billing.](#billing)
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de previsão do contentor
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
 
-|Contentor|Ponto Final|
+|Contentor|Ponto final|
 |--|--|
 |reconhecimento de formulários|http://localhost:5000
 
@@ -341,7 +332,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 >  Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Reveja os recipientes de configuração](form-recognizer-container-configuration.md) para configurações.
 * Utilize mais [recipientes de serviços cognitivos.](../cognitive-services-container-support.md)
