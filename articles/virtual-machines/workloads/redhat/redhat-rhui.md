@@ -11,11 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 19503fa2257f42cf896dbfb831d4165e329134b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 685d337f9e6448f44d34a980ed884026d8a0a168
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250354"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525420"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização de chapéu vermelho para red hat enterprise Linux VMs em Azure
  [A Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de nuvem, como o Azure, espelham o conteúdo do repositório apresentado pelo Chapéu Vermelho, criem repositórios personalizados com conteúdo específico do Azure e disponibilizem-no para os VMs do utilizador final.
@@ -85,7 +86,7 @@ Os repositórios de suporte de atualização alargada (EUS) estão disponíveis 
 No momento desta redação, o apoio da UE terminou para a <DAR = 7.4. Consulte a secção "Red Hat Enterprise Linux Extended Maintenance" na [documentação](https://access.redhat.com/support/policy/updates/errata/#Long_Support) do Chapéu Vermelho para obter mais detalhes.
 * Apoio DA REL 7.4 EUS termina a 31 de agosto de 2019
 * Apoio DA REL 7.5 EUS termina a 30 de abril de 2020
-* Apoio DA REL 7.6 EUS termina a 31 de outubro de 2020
+* Apoio DA REL 7.6 EUS termina em 31 de maio de 2021
 * Apoio DA REL 7.7 EUS termina a 30 de agosto de 2021
 
 ### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Mude um RHEL VM para EUS (versão-lock para uma versão menor específica)
@@ -167,7 +168,7 @@ Se estiver a utilizar uma configuração de rede para restringir ainda mais o ac
 >As novas imagens do Governo dos EUA, a partir de janeiro de 2020, vão utilizar IP público mencionado no cabeçalho da Azure Global acima.
 
 >[!NOTE]
->Note-se também que a Alemanha Azure é depreciada a favor das regiões públicas da Alemanha. A recomendação para os clientes da Azure Germany é começar a apontar para o RHUI público usando os passos [aqui.](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers)
+>Note-se também que a Alemanha Azure é depreciada a favor das regiões públicas da Alemanha. A recomendação para os clientes da Azure Germany é começar a apontar para o RHUI público usando os passos [aqui.](#manual-update-procedure-to-use-the-azure-rhui-servers)
 
 ## <a name="azure-rhui-infrastructure"></a>Infraestrutura Azure RHUI
 

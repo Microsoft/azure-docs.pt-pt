@@ -10,11 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fe2427d008b49daa6222ca981994f0dc2fbea355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 092d3893c3cc5473debf8f7d51f393751cfd82bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79476591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526824"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como usar diagnósticos de arranque para resolver problemas em máquinas virtuais em Azure
 
@@ -95,5 +96,4 @@ Tem de reiniciar a máquina virtual para que a alteração entre em vigor.
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Ativar diagnósticos de arranque com a CLI do Azure
 
-Pode utilizar o CLI Azure para ativar os diagnósticos de arranque numa máquina virtual Azure existente. Para obter mais informações, consulte [os diagnósticos de arranque az vm](
-https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+Pode utilizar o CLI Azure para ativar os diagnósticos de arranque numa máquina virtual Azure existente. Para obter mais informações, consulte [os diagnósticos de arranque az vm](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).

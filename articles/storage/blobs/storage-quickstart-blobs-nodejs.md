@@ -7,18 +7,23 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 18afd9faf21e5de4831d54d0870b64e79d29cb0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72d1048af5f1d6d812228d8928224b2104958300
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833304"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528575"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Quickstart: Gerir bolhas com JavaScript v12 SDK em Node.js
 
 Neste arranque rápido, aprende-se a gerir as bolhas usando Node.js. As bolhas são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, streaming de meios e dados de arquivo. Você vai carregar, baixar e listar bolhas, e você vai criar e apagar recipientes.
 
-[Documentação de](/javascript/api/@azure/storage-blob)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  [Pacote (Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Recursos adicionais:
+
+* [Documentação de referência da API](/javascript/api/@azure/storage-blob)
+* [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+* [Pacote (Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-blob)
+* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -302,7 +307,7 @@ Done
 
 Passe pelo código no seu depurador e verifique o seu [portal Azure](https://portal.azure.com) durante todo o processo. Verifique se o contentor está a ser criado. Pode abrir a bolha no interior do recipiente e ver o conteúdo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a carregar, descarregar e listar bolhas usando JavaScript.
 

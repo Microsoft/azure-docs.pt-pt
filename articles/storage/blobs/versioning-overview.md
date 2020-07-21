@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd620e253e661f986f67a440272937026cb4ff7f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84433582"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528406"
 ---
 # <a name="blob-versioning-preview"></a>Veragem blob (pré-visualização)
 
@@ -194,6 +195,10 @@ A tabela seguinte mostra a permissão necessária num SAS para eliminar uma vers
 
 A versão blob está disponível em pré-visualização nas seguintes regiões:
 
+- E.U.A. Leste 2
+- E.U.A. Central
+- Europa do Norte
+- Europa Ocidental
 - França Central
 - Leste do Canadá
 - Canadá Central

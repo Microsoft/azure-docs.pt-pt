@@ -1,5 +1,5 @@
 ---
-title: Adicione uma barra de ferramentas de desenho a um mapa Microsoft Azure Maps
+title: Eventos de ferramentas de desenho / Microsoft Azure Maps
 description: Neste artigo você vai aprender, como adicionar uma barra de ferramentas de desenho a um mapa usando Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5cbd5311c6070f59f8a5953d8b99789ab758c9c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804678"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524612"
 ---
 # <a name="drawing-tool-events"></a>Eventos de ferramentas de desenho
 

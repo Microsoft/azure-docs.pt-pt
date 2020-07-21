@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373352"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526544"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows VM não pode arrancar devido ao Windows Boot Manager
 
@@ -29,7 +29,7 @@ Este artigo fornece medidas para resolver problemas em que o Windows Boot Manage
 
 O VM fica preso à espera de uma solicitação do utilizador e não é iniciado a menos que instrua manualmente.
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem exibe o Gestor de Boot do Windows com a mensagem *Escolha um sistema operativo para iniciar ou prima TAB para selecionar uma ferramenta:*
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, verá que a imagem exibe o Gestor de Boot do Windows com a mensagem *Escolha um sistema operativo para iniciar ou prima TAB para selecionar uma ferramenta:*
 
 Figura 1
  
@@ -53,7 +53,7 @@ Visão geral do processo:
 
 Se tiver acesso à consola em série, há duas formas de conseguir tempos de arranque mais rápidos. Diminua o tempo de espera *do displaybootmenu* ou retire completamente a bandeira.
 
-1. Siga as instruções para aceder ao [Azure Serial Console para](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) que o Windows obtenha acesso à consola baseada em texto.
+1. Siga as instruções para aceder ao [Azure Serial Console para](./serial-console-windows.md) que o Windows obtenha acesso à consola baseada em texto.
 
    > [!NOTE]
    > Se não conseguir aceder à consola em série, avance para criar e aceder a [um VM de reparação](#create-and-access-a-repair-vm).
@@ -77,7 +77,7 @@ Se tiver acesso à consola em série, há duas formas de conseguir tempos de arr
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e Aceder a um VM de reparação
 
-1. Utilize [os passos 1-3 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
+1. Utilize [os passos 1-3 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um VM de reparação.
 2. Utilize ligação de ambiente de trabalho remoto à VM de reparação.
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Configurar para tempo de arranque mais rápido num VM de reparação
@@ -154,4 +154,4 @@ Para ativar a recolha de despejo de memória e a Consola em Série, execute o se
 
 ### <a name="rebuild-the-original-vm"></a>Reconstruir o VM Original
 
-Utilize [o passo 5 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar o VM.
+Utilize [o passo 5 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar o VM.

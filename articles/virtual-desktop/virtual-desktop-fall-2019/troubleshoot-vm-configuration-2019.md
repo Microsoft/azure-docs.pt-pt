@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Windows Virtual Desktop host - Azure
+title: Resolução de problemas Windows Virtual Desktop host Fall 2019 - Azure
 description: Como resolver problemas quando está a configurar a sessão virtual do Windows Desktop acolhe máquinas virtuais.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f4a288ab83ca9f20434c55a180c2d9b30be5d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362514"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527664"
 ---
-# <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
+# <a name="troubleshoot-session-host-virtual-machine-configuration"></a>Sessão de resolução de problemas host configuração de máquina virtual
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../troubleshoot-vm-configuration.md).

@@ -12,11 +12,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb9d46adf63f9cd0f4b19e4eace0a2f4a7129226
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 110e8d3be88fb2e1bd958f40d5defa23f8c679f3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022612"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525403"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -25,7 +26,7 @@ As informações gerais sobre a gestão do SAP Business Suite na IBM Db2 para a 
 
 Para obter mais informações e atualizações sobre o SAP no Db2 para LUW on Azure, consulte a Nota [SAP 2233094]. 
 
-São vários artigos sobre a carga de trabalho da SAP sobre o Azure lançados.  Recomenda-se começar na [carga de trabalho da SAP em Azure - Começar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) e, em seguida, escolher a área de interesses
+São vários artigos sobre a carga de trabalho da SAP sobre o Azure lançados.  Recomenda-se começar na [carga de trabalho da SAP em Azure - Começar](./get-started.md) e, em seguida, escolher a área de interesses
 
 As seguintes notas SAP estão relacionadas com a SAP on Azure relativamente à área abrangida pelo presente documento:
 
@@ -43,7 +44,7 @@ As seguintes notas SAP estão relacionadas com a SAP on Azure relativamente à �
 | [2002167] |Red Hat Enterprise Linux 7.x: Instalação e atualização |
 | [1597355] |Recomendação de espaço de troca para Linux |
 
-Como uma leitura pr-read a este documento, você deve ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Como uma leitura pr-read a este documento, você deve ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](./get-started.md). 
 
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM Db2 para Suporte a Versão Linux, UNIX e Windows
@@ -72,7 +73,7 @@ Em alternativa, pode utilizar os Pools de Armazenamento do Windows (apenas dispo
 
 Para os discos que contêm os caminhos de armazenamento Db2 para os seus diretórios de sapdata e saptmp, deve especificar um tamanho do sector do disco físico de 512 KB. Ao utilizar piscinas de armazenamento do Windows, deve criar as piscinas de armazenamento manualmente através da interface da linha de comando utilizando o parâmetro `-LogicalSectorSizeDefault` . Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-Para o Azure M-Series VM, a escrita de latência nos registos de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para os registos de transações Db2. Os detalhes podem ser lidos no documento [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+Para o Azure M-Series VM, a escrita de latência nos registos de transações pode ser reduzida por fatores, em comparação com o desempenho do Azure Premium Storage, quando se utiliza o Acelerador de Escrita Azure. Assim, deve implantar o Acelerador de Escrita Azure para os VHD(s) que formam o volume para os registos de transações Db2. Os detalhes podem ser lidos no documento [Write Accelerator](../../windows/how-to-enable-write-accelerator.md).
 
 ### <a name="backuprestore"></a>Cópia de segurança/Restauro
 A funcionalidade de backup/restauro para IBM Db2 para LUW é suportada da mesma forma que nos sistemas operativos padrão do Windows Server e Hiper-V.

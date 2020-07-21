@@ -1,30 +1,30 @@
 ---
-title: Referência de armazenamento das Partilhas de Ficheiros do Azure
+title: Referência de Ficheiros Azure
 description: Encontre referência API de armazenamento Azure, readme ficheiros e pacotes de biblioteca de clientes.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5799b7ec9f6ecce1b9203345446b2d3240beb80
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976528"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527851"
 ---
-# <a name="azure-file-shares-storage-reference"></a>Referência de armazenamento das Partilhas de Ficheiros do Azure
+# <a name="azure-files-reference"></a>Referência de Ficheiros Azure
 
-Encontre a azure File Shares armazenamento referência API, pacotes de biblioteca, ler ficheiros e começar artigos.
+Encontre referência a API de ficheiros Azure, pacotes de bibliotecas, ficheiros de leitura e iniciação de artigos.
 
 ## <a name="net-client-libraries"></a>Bibliotecas de clientes .NET
 
-O quadro que se segue lista a referência e a documentação da amostra para Azure File Shares .NET APIs.
+O quadro que se segue lista a referência e a documentação da amostra para Azure Files .NET APIs.
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure File Shares client library v12 for .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
+| 12.x | [Biblioteca cliente Azure Files v12 para .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
 | 11.x | [Microsoft.Azure.Storage.File Namespace](/dotnet/api/microsoft.azure.storage.file) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Programar para os Ficheiros do Azure com .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
 
 ### <a name="storage-management"></a>Gestão de armazenamento
@@ -45,11 +45,11 @@ O quadro que se segue lista a documentação de referência para o movimento de 
 
 ## <a name="java-client-libraries"></a>Bibliotecas de clientes java
 
-A tabela que se segue lista a referência e a documentação da amostra para as APIs java de Azure File Shares.
+A tabela que se segue lista a referência e a documentação da amostra para as APIs java dos ficheiros Azure.
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de clientes Azure File Share para Java](/java/api/overview/azure/storage-file-share-readme) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
+| 12.x | [Biblioteca de clientes Azure Files para Java](/java/api/overview/azure/storage-file-share-readme) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
 | 8.x | [com.microsoft.azure.storage.file](/java/api/com.microsoft.azure.storage.file) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Programar para os Ficheiros do Azure com Java](/azure/storage/files/storage-java-how-to-use-file-storage) |
 
 ### <a name="storage-management"></a>Gestão de armazenamento
@@ -62,7 +62,7 @@ A tabela que se segue lista a documentação de referência para a gestão de ar
 
 ## <a name="python-client-libraries"></a>Bibliotecas de clientes Python
 
-A tabela que se segue lista a referência e a documentação da amostra para as APIs python de partilha de ficheiros Azure.
+A tabela que se segue lista a referência e a documentação da amostra para apis python ficheiros Azure.
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -71,18 +71,18 @@ A tabela que se segue lista a referência e a documentação da amostra para as 
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas de clientes JavaScript
 
-A tabela que se segue lista a referência e a documentação da amostra para Azure File Shares JavaScript APIs.
+A tabela que se segue lista a referência e a documentação da amostra para apis de JavaScript de ficheiros Azure.
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de clientes Azure Storage File Share para JavaScript](/javascript/api/overview/azure/storage-file-share-readme) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-file-share) | [Exemplos](/javascript/api/overview/azure/storage-file-share-readme#examples) |
+| 12.x | [Biblioteca de clientes Azure Files para JavaScript](/javascript/api/overview/azure/storage-file-share-readme) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-file-share) | [Exemplos](/javascript/api/overview/azure/storage-file-share-readme#examples) |
 | 10.x | [@azure/storage-file](/javascript/api/@azure/storage-file) | [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-file) | &nbsp; |
 
 ## <a name="rest-apis"></a>APIs REST
 
-A tabela que se segue lista a referência e a documentação da amostra para as Azure File Shares REST APIs.
+A tabela que se segue lista a referência e a documentação da amostra para as APIs do Azure Files REST.
 
-| Documentação de referência | Descrição geral |
+| Documentação de referência | Descrição Geral |
 | ----------------------- | -------- |
 | [Serviço de arquivo REST API](/rest/api/storageservices/file-service-rest-api) | [Conceitos de serviço de ficheiros](/rest/api/storageservices/file-service-concepts) |
 

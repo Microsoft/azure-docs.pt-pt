@@ -3,15 +3,16 @@ title: Restaurar VMs VMware com o Azure Backup Server
 description: Utilize o Azure Backup Server (MABS) para restaurar vMware VMware em execução num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212370"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524527"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
 
-Este artigo explica como usar o Microsoft Azure Backup Server (MABS) para restaurar os pontos de recuperação de VMware VMware. Para obter uma visão geral sobre a utilização do MABS para recuperar dados, consulte [recuperar dados protegidos](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server). Na Consola de Administrador MABS, existem duas formas de encontrar dados recuperáveis - pesquisar ou navegar. Ao recuperar dados, pode ou não querer restaurar dados ou um VM no mesmo local. Por esta razão, o MABS suporta três opções de recuperação para cópias de segurança VMware VM:
+Este artigo explica como usar o Microsoft Azure Backup Server (MABS) para restaurar os pontos de recuperação de VMware VMware. Para obter uma visão geral sobre a utilização do MABS para recuperar dados, consulte [recuperar dados protegidos](./backup-azure-alternate-dpm-server.md). Na Consola de Administrador MABS, existem duas formas de encontrar dados recuperáveis - pesquisar ou navegar. Ao recuperar dados, pode ou não querer restaurar dados ou um VM no mesmo local. Por esta razão, o MABS suporta três opções de recuperação para cópias de segurança VMware VM:
 
 * **Recuperação original da localização (OLR)** - Utilize o OLR para restaurar um VM protegido na sua localização original. Só pode restaurar um VM na sua localização original se não tiverem sido adicionados ou eliminados discos, uma vez que a cópia de segurança ocorreu. Se os discos tiverem sido adicionados ou eliminados, deve utilizar a recuperação alternativa da localização.
 

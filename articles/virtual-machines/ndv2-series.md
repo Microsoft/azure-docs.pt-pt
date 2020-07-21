@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a5b7dea30cff70d5c45460eb8ded2fa370afa2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c298ee691b476fb58c567490ab2e62e45aba3e7c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726595"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526950"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 atualizada
 
@@ -23,9 +24,9 @@ As instâncias NDv2 proporcionam um excelente desempenho para as cargas de traba
 
 Criticamente, o NDv2 é construído para uma escala computacionalmente intensa (aproveitando 8 GPUs por VM) e cargas de carga de escala (aproveitando várias VMs trabalhando em conjunto). A série NDv2 suporta agora a rede de backend EDR 100 Gigabit InfiniBand EDR, semelhante à disponível na série HB de HPC VM, para permitir o agrupamento de alto desempenho para cenários paralelos, incluindo formação distribuída para IA e ML. Esta rede de backend suporta todos os principais protocolos InfiniBand, incluindo os utilizados pelas bibliotecas NCCL2 da NVIDIA, permitindo um agrupamento sem emendas de GPUs.
 
-> Quando [ativar a InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) no VM ND40rs_v2, utilize o controlador 4.7-1.0.0.1 Mellanox OFED.
+> Quando [ativar a InfiniBand](./workloads/hpc/enable-infiniband.md) no VM ND40rs_v2, utilize o controlador 4.7-1.0.0.1 Mellanox OFED.
 >
-> Devido ao aumento da memória da GPU, o novo ND40rs_v2 VM requer a utilização de [VMs de Geração 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e imagens de marketplace. 
+> Devido ao aumento da memória da GPU, o novo ND40rs_v2 VM requer a utilização de [VMs de Geração 2](./windows/generation-2.md) e imagens de marketplace. 
 >
 > Nota: O ND40s_v2 com 16 GB de memória por GPU já não está disponível para pré-visualização e foi substituído pela ND40rs_v2 atualizada.
 
@@ -60,7 +61,7 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 

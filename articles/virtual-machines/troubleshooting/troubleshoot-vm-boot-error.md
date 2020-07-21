@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: c24a840716841d04537ac5b77bcaf26fca4b78cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7774ea5138e6d77547e386531e573457cd6d2862
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77561954"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525947"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Botas Linux VM para Grub Rescue
 
@@ -33,8 +34,8 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
 * Se estiver a obter o erro **Do sistema de ficheiros Desconhecido,** este erro pode resultar de uma corrupção no sistema de ficheiros na partição do arranque ou de uma configuração incorreta do núcleo.
 
-   * Para problemas no sistema de ficheiros, siga os passos do artigo [Recuperação Linux: Não pode SSH a Linux VM devido a erros do sistema de ficheiros (fsck, inodes)](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/).
-   * Para questões de kernel, siga os passos no artigo [Recuperação linux: corrigir manualmente problemas de não arranque relacionados com problemas de Kernel](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/), ou [Recuperação linux: Corrigir problemas de não-arranque relacionados com problemas de Kernel utilizando croástas](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * Para problemas no sistema de ficheiros, siga os passos do artigo [Recuperação Linux: Não pode SSH a Linux VM devido a erros do sistema de ficheiros (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
+   * Para questões de kernel, siga os passos no artigo [Recuperação linux: corrigir manualmente problemas de não arranque relacionados com problemas de Kernel](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems), ou [Recuperação linux: Corrigir problemas de não-arranque relacionados com problemas de Kernel utilizando croástas](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot).
    
 ### <a name="error---file-not-found"></a>Erro - Ficheiro não encontrado
 
@@ -50,7 +51,7 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
 ### <a name="error---no-such-partition"></a>Erro - Não há tal partição
 
-* Se tiver o erro **Não existe tal partição**, consulte o Cenário de Caso : ["não existe tal partição" enquanto tenta iniciar o VM depois de tentar estender a unidade de SO](https://blogs.technet.microsoft.com/shwetanayak/2017/03/12/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive/).
+* Se tiver o erro **Não existe tal partição**, consulte o Cenário de Caso : ["não existe tal partição" enquanto tenta iniciar o VM depois de tentar estender a unidade de SO](/archive/blogs/shwetanayak/case-scenario-no-such-partition-error-while-trying-to-start-the-vm-after-attempting-to-extend-the-os-drive).
 
 ### <a name="error---grubcfg-file-not-found"></a>Error - grub.cfg ficheiro não encontrado
 
@@ -68,4 +69,3 @@ Siga os passos de mitigação abaixo, dependendo do erro que recebe:
 
 * [Descrição geral do Agente da Máquina Virtual do Azure](../extensions/agent-windows.md)
 * [Extensões e funcionalidades de máquinas virtuais para Windows](../extensions/features-windows.md)
-

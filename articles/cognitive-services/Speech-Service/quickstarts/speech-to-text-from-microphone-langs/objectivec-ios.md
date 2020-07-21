@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Reconhecer a fala a partir de um microfone, Objective-C - Serviço de fala'
+title: 'Quickstart: Reconhecer a fala, Objective-C - Serviço de Fala (iOS)'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconhecer a fala no Objective-C no iOS utilizando o Discurso SDK
+description: Saiba como criar uma app para reconhecer a fala no Objective-C para um dispositivo iOS utilizando o SDK de Discurso dos Serviços Cognitivos.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c355071c4bbaff5ddb22b2db5fc4a3a0fdb561d4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ba12f258ce7b0db60d3e7343bf12ffc28e8548ab
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391558"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524289"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Quickstart: Reconhecer a fala no Objective-C no iOS utilizando o SDK de discurso
 
@@ -100,7 +100,7 @@ Substitua o XML autogerado por este código:
 
 1. Depois de selecionar o botão **Reconhecer (Microfone)** na aplicação e dizer algumas palavras, deverá ver o texto que falou na parte inferior do ecrã.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Explore amostras objectiva-C no GitHub](https://aka.ms/csspeech/samples)

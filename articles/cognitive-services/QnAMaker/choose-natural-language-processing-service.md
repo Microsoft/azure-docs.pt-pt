@@ -1,19 +1,19 @@
 ---
-title: Use Serviços Cognitivos NLP para enriquecer conversas
-description: Os Serviços Cognitivos fornecem dois serviços de processamento de linguagem natural, compreensão linguística e Fabricante de QnA, cada um com um propósito diferente. Entenda quando usar cada serviço e como se elogiam mutuamente.
+title: Use NLP com LUIS para bots de chat
+description: Os Serviços Cognitivos fornecem dois serviços naturais de processamento de linguagem, compreensão linguística e QnA Maker, cada um com um propósito diferente. Entenda quando usar cada serviço e como se elogiam mutuamente.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0a7d1ebd652be96e546df488af31ffe868dbab90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: beaa8b7033aeff3958632b3703323754e5ad5084
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606661"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524476"
 ---
-# <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Utilizar Serviços Cognitivos com processamento de linguagem natural (NLP) para enriquecer conversas de bots
+# <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Use serviços cognitivos com processamento de linguagem natural (NLP) para enriquecer conversas de bot
 
 [!INCLUDE [Use Cognitive Services with natural language processing (NLP) to enrich bot conversations](../includes/luis-qnamaker-shared-concept.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Saiba [como gerir os recursos do Azure](How-To/set-up-qnamaker-service-azure.md)
+* Saiba [como gerir os recursos da Azure](How-To/set-up-qnamaker-service-azure.md)

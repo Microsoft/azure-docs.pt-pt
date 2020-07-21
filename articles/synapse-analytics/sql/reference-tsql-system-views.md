@@ -1,5 +1,5 @@
 ---
-title: Vistas de sistema
+title: Vistas do sistema suportadas no Synapse SQL - pré-visualização de espaços de trabalho
 description: Ligações à documentação para visualizações do sistema suportadas no Sinaapse SQL.
 author: filippopovic
 ms.service: synapse-analytics
@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f58c34a46f4eb1bffe4516f2a6f9f17a799fbfb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab6d7266daf96a38f81566725a6931aebaf7e7d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82786602"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527800"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Vistas do sistema suportadas no SQL da Sinapse
 Ligações à documentação das declarações T-SQL suportadas no Synapse SQL.
@@ -247,7 +247,7 @@ Os seguintes DMVs são aplicáveis à piscina SQL, mas devem ser executados liga
 * [VIEW_TABLE_USAGE](/sql/relational-databases/system-information-schema-views/view-table-usage-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [Modos de exibição](/sql/relational-databases/system-information-schema-views/views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações de referência, consulte [as declarações de T-SQL em Synapse SQL,](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)e [elementos de língua T-SQL em Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
 

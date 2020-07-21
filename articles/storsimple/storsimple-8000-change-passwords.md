@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: becbf7f89266fb0f56aaa053eb7cba9291da6896
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514101"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527868"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Utilize o serviço StorSimple Device Manager para alterar as suas palavras-passe StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A opção **de definição do dispositivo do** portal Azure contém todos os parâmetros do dispositivo que pode reconfigurar num dispositivo StorSimple que é gerido por um serviço StorSimple Device Manager. Este tutorial explica como pode utilizar a opção **De Segurança** nas **definições do Dispositivo** para alterar o administrador do dispositivo ou a palavra-passe do Gestor de Instantâneo storSimple.
 
 ## <a name="change-the-device-administrator-password"></a>Alterar palavra-passe do administrador do dispositivo
@@ -36,25 +36,25 @@ A palavra-passe que foi definida pela primeira vez através da interface Windows
 
 2. A partir da listagem tabular de dispositivos, selecione e clique no dispositivo cuja palavra-passe pretende alterar.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![Screenshot mostrando o serviço StorSimple Device Manager. Em Gestão, os Dispositivos são selecionados. Na lista de dispositivos, é selecionado um dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. Na lâmina **Definições,** aceda às **definições do dispositivo > Segurança**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Screenshot mostrando a lâmina de Definições do serviço Gestor de Dispositivos. Nas Definições do Dispositivo, a Segurança é selecionada.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. Na lâmina de **definições de segurança,** clique em **Palavra-passe** para alterar a palavra-passe do administrador do dispositivo.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd3.png)
+    ![Screenshot mostrando a lâmina de definições de segurança. O botão Palavra-Passe é realçado.](./media/storsimple-8000-change-passwords/changepwd3.png)
 
 5. Na lâmina **palavra-passe,** forneça uma palavra-passe do administrador que contenha de 8 a 15 caracteres. A palavra-passe deve ser uma combinação de 3 ou mais caracteres maiúsculas, minúsculas, numéricas e especiais.
 
 6. Confirme a palavra-passe.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd4.png)
+    ![Screenshot mostrando a lâmina da palavra-passe. Sob a palavra-passe do dispositivo, as novas caixas de palavra-passe e palavra-passe confirmam a saúde.](./media/storsimple-8000-change-passwords/changepwd4.png)
 
 7. Clique **em Guardar** e quando solicitado para confirmação, clique em **Sim**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+    ![Screenshot mostrando a lâmina da palavra-passe. O botão Guardar é realçado.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 A palavra-passe do administrador do dispositivo deve agora ser atualizada. Pode utilizar esta palavra-passe modificada para aceder à interface Windows PowerShell.
 
@@ -70,25 +70,25 @@ Pode definir ou alterar a palavra-passe para StorSimple Snapshot Manager atravé
 
 2. A partir da listagem tabular de dispositivos, selecione e clique no dispositivo cuja palavra-passe StorSimple Snapshot Manager pretende definir ou alterar.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![Screenshot mostrando o serviço StorSimple Device Manager. Em Gestão, os Dispositivos são selecionados. Na lista de dispositivos, é selecionado um dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. Na lâmina **Definições,** aceda às **definições do dispositivo > Segurança**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Screenshot mostrando a lâmina de Definições do serviço Gestor de Dispositivos. Nas Definições do Dispositivo, a Segurança é selecionada.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. Na lâmina de **definições de segurança,** clique em **Palavra-passe** para definir ou alterar a palavra-passe StorSimple Snapshot Manager.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
+     ![Screenshot mostrando a lâmina de definições de segurança. O botão Palavra-Passe é realçado.](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
 5. Na lâmina **da palavra-passe,** introduza uma palavra-passe de 14 ou 15 caracteres. Certifique-se de que a palavra-passe contém uma combinação de 3 ou mais caracteres maiúsculas, minúsculas, numéricas e especiais.
 
 6. Confirme a palavra-passe.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd5.png)
+     ![Screenshot mostrando a lâmina da palavra-passe. Sob palavra-passe do Gestor instantâneo, as novas caixas de palavra-passe e de confirmação de palavras-passe são preenchidas.](./media/storsimple-8000-change-passwords/changepwd5.png)
 
 7. Clique **em Guardar** e quando solicitado para confirmação, clique em **Sim**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+     ![Screenshot mostrando a lâmina da palavra-passe. O botão Guardar é realçado.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 A palavra-passe StorSimple Snapshot Manager deve agora ser atualizada.
 

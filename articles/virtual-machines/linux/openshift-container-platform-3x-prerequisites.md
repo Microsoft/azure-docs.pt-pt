@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 26b190515819378309c2b0705efdbc349ecccbe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 244bea1aaf5457601ced9bac05c8dae43e5b9199
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759503"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527137"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para a implantação da Plataforma de Contentores OpenShift 3.11 em Azure
 
@@ -83,7 +84,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 > [!NOTE]
 > O seu par de chaves SSH não pode ter uma palavra-passe / palavra-passe.
 
-Para obter mais informações sobre as teclas SSH no Windows, consulte [como criar as teclas SSH no Windows](/azure/virtual-machines/linux/ssh-from-windows). Certifique-se de exportar a chave privada no formato OpenSSH.
+Para obter mais informações sobre as teclas SSH no Windows, consulte [como criar as teclas SSH no Windows](./ssh-from-windows.md). Certifique-se de exportar a chave privada no formato OpenSSH.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Guarde a chave privada SSH no Cofre da Chave Azure
 A implementação OpenShift utiliza a chave SSH criada para garantir o acesso ao mestre OpenShift. Para ativar a implantação para recuperar de forma segura a chave SSH, guarde a chave no Cofre de Chaves utilizando o seguinte comando:
@@ -133,7 +134,7 @@ Tome nota da propriedade appId e senha devolvida do comando:
  > [!WARNING] 
  > Certifique-se de que escreve a palavra-passe segura, uma vez que não será possível recuperar novamente esta palavra-passe.
 
-Para obter mais informações sobre os principais serviços, consulte [Criar um diretor de serviço Azure com a Azure CLI.](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+Para obter mais informações sobre os principais serviços, consulte [Criar um diretor de serviço Azure com a Azure CLI.](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis apenas ao modelo de Gestor de Recursos
 

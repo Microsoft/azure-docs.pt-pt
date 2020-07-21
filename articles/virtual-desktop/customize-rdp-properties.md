@@ -1,5 +1,5 @@
 ---
-title: Personalize propriedades RDP com PowerShell - Azure
+title: Personalize propriedades RDP com PowerShell Spring 2020 - Azure
 description: Como personalizar propriedades RDP para windows Virtual Desktop com cmdlets PowerShell.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d41df8fe4f411cf28af83c8b4b667f1e86bdb45d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259910"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527766"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto para uma piscina de anfitriões
+# <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) para uma piscina de anfitriões
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
@@ -128,7 +128,7 @@ Name              : <hostpoolname>
 CustomRdpProperty : <CustomRDPpropertystring>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que personalizou as propriedades RDP para uma determinada piscina de anfitriões, pode iniciar sessão num cliente virtual do Windows desktop para testá-las como parte de uma sessão de utilizador. Estes próximos guias de como ligar-se a uma sessão utilizando o cliente à sua escolha:
 

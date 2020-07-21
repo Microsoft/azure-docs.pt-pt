@@ -9,14 +9,15 @@ ms.subservice: disks
 ms.date: 4/25/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e5bdb30929b4d93b05d850a56c9a6baf32f9856b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e4bdf868d3f8ddf3a049509ead30a4b1ba341b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125014"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527443"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjunto de dimensionamento de máquinas virtuais do Azure e discos de dados anexados
-Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure suportam instâncias de VM com discos de dados anexados. Pode anexar os discos de dados quando o conjunto de dimensionamento é criado ou a um conjunto de dimensionamento existente.
+Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](./index.yml) do Azure suportam instâncias de VM com discos de dados anexados. Pode anexar os discos de dados quando o conjunto de dimensionamento é criado ou a um conjunto de dimensionamento existente.
 
 > [!NOTE]
 > Quando cria um conjunto de dimensionamento com discos de dados anexados, tem de montar e formatar os discos a partir de uma VM para poder utilizá-los (tal como acontece com VMs do Azure autónomas). Uma forma conveniente de executar este processo é utilizar uma Extensão de Script Personalizado que chama um script para particionar e formatar todos os discos de dados numa VM. Para obter exemplos deste processo, veja [CLI do Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
@@ -32,7 +33,7 @@ O resto deste artigo descreve casos de utilização específicos, tais como clus
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Criar um cluster do Service Fabric com discos de dados anexados
-Cada [tipo de nó](../service-fabric/service-fabric-cluster-nodetypes.md) num cluster do [Service Fabric](/azure/service-fabric) em execução no Azure é suportado por um conjunto de dimensionamento de máquinas virtuais. Ao utilizar um modelo do Azure Resource Manager, pode anexar discos de dados aos conjuntos de dimensionamento que compõem o cluster do Service Fabric. Pode utilizar um [modelo existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como um ponto de partida. No modelo, inclua uma secção _dataDisks_ no _storageProfile_ do(s) recursos _Microsoft.Compute/virtualMachineScaleSets_ e implemente o modelo. O exemplo seguinte anexa um disco de dados de 128 GB:
+Cada [tipo de nó](../service-fabric/service-fabric-cluster-nodetypes.md) num cluster do [Service Fabric](../service-fabric/index.yml) em execução no Azure é suportado por um conjunto de dimensionamento de máquinas virtuais. Ao utilizar um modelo do Azure Resource Manager, pode anexar discos de dados aos conjuntos de dimensionamento que compõem o cluster do Service Fabric. Pode utilizar um [modelo existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como um ponto de partida. No modelo, inclua uma secção _dataDisks_ no _storageProfile_ do(s) recursos _Microsoft.Compute/virtualMachineScaleSets_ e implemente o modelo. O exemplo seguinte anexa um disco de dados de 128 GB:
 
 ```json
 "dataDisks": [
@@ -93,5 +94,3 @@ Os discos de dados especificados no modelo de conjunto de dimensionamento estão
 O suporte para o Azure Managed Disks e para discos de dados anexados a conjuntos de dimensionamento está disponível na versão da API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) ou posterior da API Microsoft.Compute.
 
 O suporte do portal Azure para discos de dados anexados em conjuntos de escala é limitado. Dependendo das suas necessidades, pode utilizar modelos do Azure, a CLI, o PowerShell, SDKs e a API REST para gerir discos anexados.
-
-

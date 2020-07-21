@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039012"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524510"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar recipientes de estivadores LUIS
 
@@ -53,7 +53,7 @@ Autoria de APIs para aplicações embaladas:
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos e recomendações do contentor
 
-Este recipiente suporta valores mínimos e recomendados para as definições:
+A tabela abaixo lista valores mínimos e recomendados para o hospedeiro do recipiente. Os seus requisitos podem mudar dependendo do volume de tráfego.
 
 |Contentor| Mínimo | Recomendado | TPS<br>(Mínimo, Máximo)|
 |-----------|---------|-------------|--|
@@ -108,7 +108,7 @@ O diretório de suporte de entrada pode conter simultaneamente os modelos **Prod
 |Tipo de pacote|Consulta Endpoint API|Disponibilidade de consulta|Formato de nome de ficheiro de pacote|
 |--|--|--|--|
 |Versão|GET, POST|Apenas contentor|`{APP_ID}_v{APP_VERSION}.gz`|
-|Processo de teste|GET, POST|Azul e contentor|`{APP_ID}_STAGING.gz`|
+|Transição|GET, POST|Azul e contentor|`{APP_ID}_STAGING.gz`|
 |Produção|GET, POST|Azul e contentor|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -237,15 +237,15 @@ Mais [exemplos](luis-container-configuration.md#example-docker-run-commands) do 
 
 As versões V2 e [V3](luis-migration-api-v3.md) da API estão disponíveis com o recipiente.
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de previsão do contentor
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
 
-O recipiente fornece APIs de previsão de consulta baseada em REST. Os pontos finais para aplicações publicadas (encenação ou produção) têm uma rota _diferente_ dos pontos finais para aplicações versadas.
+O contentor fornece APIs de ponto final de predição de consulta com base em REST. Os pontos finais para aplicações publicadas (encenação ou produção) têm uma rota _diferente_ dos pontos finais para aplicações versadas.
 
-Utilize o hospedeiro, `http://localhost:5000` para apis de contentores.
+Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor.
 
 # <a name="v3-prediction-endpoint"></a>[Ponto final de previsão V3](#tab/v3)
 
-|Tipo de pacote|Verbo HTTP|Encaminhar|Parâmetros de consulta|
+|Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
 |--|--|--|--|
 |Publicado|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 |Versão|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
@@ -261,7 +261,7 @@ Os parâmetros de consulta configuram como e o que é devolvido na resposta de c
 
 # <a name="v2-prediction-endpoint"></a>[Ponto final de previsão V2](#tab/v2)
 
-|Tipo de pacote|Verbo HTTP|Encaminhar|Parâmetros de consulta|
+|Tipo de pacote|Verbo HTTP|Rota|Parâmetros de consulta|
 |--|--|--|--|
 |Publicado|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
 |Versão|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|

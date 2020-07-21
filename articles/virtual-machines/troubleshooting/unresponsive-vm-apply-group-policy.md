@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629252"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526015"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>VM não responde ao aplicar a política de utilizadores e grupos locais de política de grupo
 
@@ -26,7 +27,7 @@ Este artigo fornece medidas para resolver problemas em que o ecrã de carga não
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando está a utilizar [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar uma imagem do VM, o ecrã está preso a carregar com a mensagem: "Aplicando a política de utilizadores e grupos locais de política de grupos."
+Quando está a utilizar [diagnósticos de arranque](./boot-diagnostics.md) para visualizar uma imagem do VM, o ecrã está preso a carregar com a mensagem: "Aplicando a política de utilizadores e grupos locais de política de grupos."
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Screenshot de Aplicação da Política de Grupo Utilizadores locais e grupos de carregamento de políticas (Windows Server 2012 R2).":::
 
@@ -57,7 +58,7 @@ Eis a política problemática:
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Passo 1: Criar e aceder a um VM de reparação
 
-1. Utilize [os passos 1-3 dos comandos de reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para preparar um VM de reparação.
+1. Utilize [os passos 1-3 dos comandos de reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para preparar um VM de reparação.
 2. Utilize ligação de ambiente de trabalho remoto para ligar ao VM de reparação.
 
 ### <a name="step-2-disable-the-policy"></a>Passo 2: Desativar a política
@@ -139,7 +140,7 @@ Para ativar a recolha de lixo de memória e a consola em série, execute este sc
 
 ### <a name="step-4-rebuild-the-vm"></a>Passo 4: Reconstruir o VM
 
-Utilize [o passo 5 dos comandos de reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para remontar o VM.
+Utilize [o passo 5 dos comandos de reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para remontar o VM.
 
 Se a questão for corrigida, a política é agora desativada localmente. Para uma solução permanente, não utilize a política de LimpezaProfiles em VMs. Utilize um método diferente para realizar limpezas de perfis.
 
@@ -149,4 +150,4 @@ Não use esta política:
 
 ## <a name="next-steps"></a>Próximos passos
 
-Se tiver problemas quando aplicar o Windows Update, veja que [o VM não responde com o erro "C01A001D" ao aplicar o Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+Se tiver problemas quando aplicar o Windows Update, veja que [o VM não responde com o erro "C01A001D" ao aplicar o Windows Update](./unresponsive-vm-apply-windows-update.md).

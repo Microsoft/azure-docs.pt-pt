@@ -1,19 +1,20 @@
 ---
-title: 'VPN Gateway: cliente VPN para ligações P2S do protocolo OpenVPN: Autenticação Azure AD'
+title: 'VPN Gateway: cliente VPN para ligações de protocolo P2S OpenVPN: Autenticação Azure AD'
 description: Pode utilizar o P2S VPN para ligar ao seu VNet utilizando a autenticação AD Azure
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: 868bcfc898fc6bc804f36516f2cc01a52ad2db47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c14d300e2c09316e0665ece3f3e15f7036d5b9a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414339"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525080"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Configurar um cliente VPN para ligações de protocolo P2S OpenVPN: autenticação do Azure Active Directory)
+# <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticação do Azure Ative Directory: Configurar um cliente VPN para ligações de protocolo P2S OpenVPN
 
 Este artigo ajuda-o a configurar um cliente VPN para se conectar a uma rede virtual utilizando a autenticação point-to-site VPN e Azure Ative Directory. Antes de poder ligar e autenticar usando a Azure AD, tem primeiro de configurar o seu inquilino AZure AD. Para mais informações, consulte [Configure um inquilino AD AZure.](openvpn-azure-ad-tenant.md)
 
@@ -87,11 +88,11 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
 1. Selecione as elipses ao lado do perfil do cliente que pretende eliminar. Em seguida, **selecione Remover**.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![eliminação](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Selecione **Remover** para eliminar.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![eliminação](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Criar uma ligação
 

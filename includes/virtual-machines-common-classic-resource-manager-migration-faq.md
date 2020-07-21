@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83837875"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527218"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
@@ -29,7 +29,7 @@ Os clientes que tinham ativado ou parado mas que atribuíram VMs IaaS (Classic) 
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Porque estou a receber um erro a dizer "NewClassicVMCreationNotAllowedForSubscription"?
 
-Como parte do processo de aposentação, a IaaS VM (clássico) já não está disponível para novos clientes. Identificámo-lo como novos clientes e, por isso, a sua operação não foi autorizada. Recomendamos vivamente a utilização de [Máquinas Virtuais Azure utilizando o ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se não puder utilizar VMs Azure utilizando ARM, contacte o suporte para a lista de assinaturas.
+Como parte do processo de aposentação, a IaaS VM (clássico) já não está disponível para novos clientes. Identificámo-lo como novos clientes e, por isso, a sua operação não foi autorizada. Recomendamos vivamente a utilização de [Máquinas Virtuais Azure utilizando o ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se não puder utilizar VMs Azure utilizando ARM, contacte o suporte para adicionar a sua subscrição à lista de autorizações.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
 
@@ -84,7 +84,7 @@ Além disso, se pretender fazer o backup do VM migrado, aceda à lâmina de gest
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
-Sim. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
+Yes. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
 
 ## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>O que acontece se me deparar com um erro de quota ao preparar os recursos de IaaS para a migração? 
 

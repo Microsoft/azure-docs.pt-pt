@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76842406"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526508"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Resolução de problemas Linux VM problemas iniciais devido a erros no sistema de ficheiros
 
@@ -74,7 +75,7 @@ Linux tem vários verificadores do sistema de ficheiros disponíveis. As mais co
 
 ## <a name="resolution"></a>Resolução
 
-Para resolver este problema, insira o VM em modo de emergência utilizando a [consola em série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) e utilize essa ferramenta para reparar o sistema de ficheiros. Se a consola em série não estiver ativada no seu VM ou não funcionar, consulte a secção [offline VM](#repair-the-vm-offline) deste artigo.
+Para resolver este problema, insira o VM em modo de emergência utilizando a [consola em série](./serial-console-linux.md) e utilize essa ferramenta para reparar o sistema de ficheiros. Se a consola em série não estiver ativada no seu VM ou não funcionar, consulte a secção [offline VM](#repair-the-vm-offline) deste artigo.
 
 ## <a name="use-the-serial-console"></a>Utilizar a consola de série
 
@@ -82,8 +83,8 @@ Para resolver este problema, insira o VM em modo de emergência utilizando a [co
 
    > [!Note]
    > Para obter mais informações sobre a utilização da consola em série para Linux, consulte:
-   > * [Utilize consola em série para aceder ao GRUB e ao modo de utilizador único](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
-   > * [Utilize consola em série para chamadas SysRq e NMI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-nmi-sysrq)
+   > * [Utilize consola em série para aceder ao GRUB e ao modo de utilizador único](../linux/serial-console-grub-single-user-mode.md)
+   > * [Utilize consola em série para chamadas SysRq e NMI](./serial-console-nmi-sysrq.md)
 
 2. Selecione o botão de ícone de alimentação e, em seguida, selecione Restart VM. (Se a consola em série não estiver ativada ou não ligada com sucesso, não verá o botão.)
 
@@ -133,7 +134,7 @@ Para resolver este problema, insira o VM em modo de emergência utilizando a [co
 
 ## <a name="repair-the-vm-offline"></a>Reparar o VM offline
 
-1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer LM Linux em funcionamento). Para isso, pode utilizar [comandos CLI](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) ou automatizar a configuração do VM de recuperação utilizando os [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Fixe o disco de sistema do VM como um disco de dados a um VM de recuperação (qualquer LM Linux em funcionamento). Para isso, pode utilizar [comandos CLI](./troubleshoot-recovery-disks-linux.md) ou automatizar a configuração do VM de recuperação utilizando os [comandos de reparação VM](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
 
 2. Localize a etiqueta de acionamento do disco de sistema que anexou. Neste caso, assumimos que a etiqueta do disco do sistema que anexou é /dev/sdc1. Substitua-o pelo valor adequado para o seu VM.
 
@@ -177,6 +178,5 @@ Para resolver este problema, insira o VM em modo de emergência utilizando a [co
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Utilizar o portal para anexar um disco de dados a uma VM do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal)
-
+* [Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o Azure CLI 2.0](./troubleshoot-recovery-disks-linux.md)
+* [Utilizar o portal para anexar um disco de dados a uma VM do Linux](../linux/attach-disk-portal.md)

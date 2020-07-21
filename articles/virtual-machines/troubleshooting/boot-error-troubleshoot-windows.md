@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678771"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526763"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>O encerramento do Azure Windows VM está preso em "Reiniciar", "Desligar" ou "Parar serviços"
 
@@ -24,7 +25,7 @@ Este artigo fornece medidas para resolver os problemas de "Reiniciar", "Desligar
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, poderá ver que a imagem exibe a mensagem "Reiniciar", "Desligar" ou "Parar os serviços".
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, poderá ver que a imagem exibe a mensagem "Reiniciar", "Desligar" ou "Parar os serviços".
 
 ![Reiniciar, desligar e parar os ecrãs de serviços](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -40,9 +41,9 @@ O Windows utiliza o processo de paragem para executar operações de manutençã
 
 2. Retire o disco que contém os ficheiros necessários do VM de funcionamento e prenda o disco ao seu VM avariado. Estamos a chamar a este disco o **disco utility.**
 
-Utilize [a Consola em Série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para completar os seguintes passos:
+Utilize [a Consola em Série](./serial-console-windows.md) para completar os seguintes passos:
 
-1. Abra uma Powershell administrativa e verifique o serviço que deixa de responder após a paragem.
+1. Abra uma PowerShell administrativa e verifique o serviço que deixa de responder após a paragem.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
@@ -80,13 +81,13 @@ Se o problema não se resolver depois de esperar pelas alterações ao processo,
 
 **Ligue o disco de SO a um VM de recuperação**
 
-1. Tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
 
-2. [Fixe o disco DE A uma VM de recuperação](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Fixe o disco DE A uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Ambiente de trabalho remoto para o VM de recuperação.
 
-4. Se o disco DE estiver encriptado, deve desligar a encriptação antes de passar para o passo seguinte. Para obter mais informações, consulte [desencriptar o disco de OS encriptado no VM que não pode arrancar](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Se o disco DE estiver encriptado, deve desligar a encriptação antes de passar para o passo seguinte. Para obter mais informações, consulte [desencriptar o disco de OS encriptado no VM que não pode arrancar](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Localize o ficheiro de despejo e envie um bilhete de apoio**
 
@@ -141,7 +142,7 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Retire o disco de OS e, em seguida, recoloque o disco de OS no VM afetado](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Retire o disco de OS e, em seguida, recoloque o disco de OS no VM afetado](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Inicie o VM e aceda à Consola em Série.
 

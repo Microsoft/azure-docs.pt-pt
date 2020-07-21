@@ -7,13 +7,14 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6c621219bc424b7e0df6de286a066fd5b94af4a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a836f4ce40f4d2e0871f99122d25bb6c6f346d05
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514958"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527885"
 ---
-# <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com a AzCopy e armazenamento de ficheiros 
+# <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e armazenamento de ficheiros 
 
 O AzCopy é um utilitário da linha de comando que pode utilizar para copiar blobs ou ficheiros de/para uma conta de armazenamento. Este artigo contém comandos de exemplo que funcionam com ficheiros Azure.
 
@@ -22,7 +23,7 @@ Antes de começar, consulte o [artigo do Get start with AzCopy](storage-use-azco
 > [!TIP]
 > Os exemplos deste artigo encerram argumentos de caminho com citações simples ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
 
-## <a name="create-file-shares"></a>Criar ações de ficheiros
+## <a name="create-file-shares"></a>Criar partilhas de ficheiros
 
 Pode utilizar o comando [de azcopia](storage-ref-azcopy-make.md) para criar uma partilha de ficheiros. O exemplo nesta secção cria uma partilha de ficheiros denominada `myfileshare` .
 
@@ -48,7 +49,7 @@ Esta secção contém os seguintes exemplos:
 > [!TIP]
 > Pode ajustar a sua operação de upload utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Scenario|Sinalizador|
+> |Cenário|Sinalizador|
 > |---|---|
 > |Copiar listas de controlo de acesso (ACLs) juntamente com os ficheiros.|**---conserva-smb-permissões** = \[ verdadeiro \| falso\]|
 > |Copie informações de propriedade SMB juntamente com os ficheiros.|**--preservar-smb-info** = \[ verdadeiro \| falso\]|
@@ -117,7 +118,7 @@ Também pode excluir ficheiros utilizando a `--exclude-path` opção. Para saber
 
 #### <a name="use-wildcard-characters"></a>Use caracteres wildcard
 
-Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluem os caracteres wildcard. Separar nomes utilizando uma esímina `;` ().
+Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluem os caracteres wildcard. Separar nomes utilizando um ponto e vírgula `;` ().
 
 |    |     |
 |--------|-----------|
@@ -143,7 +144,7 @@ Esta secção contém os seguintes exemplos:
 > [!TIP]
 > Pode ajustar a sua operação de descarregamento utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Scenario|Sinalizador|
+> |Cenário|Sinalizador|
 > |---|---|
 > |Copiar listas de controlo de acesso (ACLs) juntamente com os ficheiros.|**---conserva-smb-permissões** = \[ verdadeiro \| falso\]|
 > |Copie informações de propriedade SMB juntamente com os ficheiros.|**--preservar-smb-info** = \[ verdadeiro \| falso\]|
@@ -188,7 +189,7 @@ Pode especificar nomes completos de ficheiros ou usar nomes parciais com caracte
 
 #### <a name="specify-multiple-complete-file-names"></a>Especifique vários nomes completos de ficheiros
 
-Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes individuais dos ficheiros utilizando uma esímula `;` ().
+Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--include-path` opção. Separe os nomes individuais dos ficheiros utilizando um ponto e vírgula `;` ().
 
 |    |     |
 |--------|-----------|
@@ -201,7 +202,7 @@ Também pode excluir ficheiros utilizando a `--exclude-path` opção. Para saber
 
 #### <a name="use-wildcard-characters"></a>Use caracteres wildcard
 
-Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluem os caracteres wildcard. Separar nomes utilizando uma esímina `;` ().
+Utilize o comando [de cópia azcopia](storage-ref-azcopy-copy.md) com a `--include-pattern` opção. Especifique nomes parciais que incluem os caracteres wildcard. Separar nomes utilizando um ponto e vírgula `;` ().
 
 |    |     |
 |--------|-----------|
@@ -229,7 +230,7 @@ Esta secção contém os seguintes exemplos:
 > [!TIP]
 > Pode ajustar a sua operação de cópia utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Scenario|Sinalizador|
+> |Cenário|Sinalizador|
 > |---|---|
 > |Copiar listas de controlo de acesso (ACLs) juntamente com os ficheiros.|**---conserva-smb-permissões** = \[ verdadeiro \| falso\]|
 > |Copie informações de propriedade SMB juntamente com os ficheiros.|**--preservar-smb-info** = \[ verdadeiro \| falso\]|
@@ -280,7 +281,7 @@ Se colocar a `--delete-destination` bandeira no `true` AzCopy elimina ficheiros 
 > [!TIP]
 > Pode ajustar a sua operação de sincronização utilizando bandeiras opcionais. Aqui estão alguns exemplos.
 >
-> |Scenario|Sinalizador|
+> |Cenário|Sinalizador|
 > |---|---|
 > |Especifique como os hashes MD5 devem ser validados ao descarregar.|**--check-md5** = \[ NoCheck \| LogOnly \| FailIfDifferent \| FailIfDifferentOrMissing\]|
 > |Excluir ficheiros com base num padrão.|**--excluir caminho**|

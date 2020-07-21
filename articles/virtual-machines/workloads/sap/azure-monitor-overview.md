@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: fc4e8766f77a41a3a53e3db3098a6d9cefd628d6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 306983e612793eb92dd95fe57e7177da17874893
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525437"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitor Azure para soluções SAP (pré-visualização)
 
-## <a name="overview"></a>Descrição geral  
+## <a name="overview"></a>Descrição Geral  
 
-O Azure Monitor for SAP Solutions é um produto de monitorização nativo da Azure para os clientes, que gere as suas paisagens SAP em Azure. O produto funciona com tanto [o SAP em Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started) [como com o SAP em Azure Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+O Azure Monitor for SAP Solutions é um produto de monitorização nativo da Azure para os clientes, que gere as suas paisagens SAP em Azure. O produto funciona com tanto [o SAP em Azure Virtual Machines](./hana-get-started.md) [como com o SAP em Azure Large Instances](./hana-overview-architecture.md).  
 Com o Azure Monitor for SAP Solutions, os clientes podem recolher dados de telemetria a partir de infraestruturas e bases de dados Azure numa localização central e correlacionar visualmente os dados de telemetria para uma resolução mais rápida de problemas.  
 
 O Azure Monitor for SAP Solutions é oferecido através do Azure Marketplace. Proporciona uma experiência de configuração simples e intuitiva e leva apenas alguns cliques para implementar o recurso para O Azure Monitor para soluções SAP (conhecido como **recurso de monitor SAP).**  
@@ -42,7 +42,7 @@ Bases de dados suportadas:
 - Base de Dados do SAP HANA 
 - Servidor Microsoft SQL  
 
-O Azure Monitor for SAP Solutions aproveita o poder das capacidades existentes do [Azure Monitor,](https://docs.microsoft.com/azure/azure-monitor/overview) tais como Log Analytics e [Workbooks,](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) para fornecer capacidades de monitorização adicionais. Os clientes podem criar [visualizações personalizadas](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview#getting-started) editando os livros de trabalho predefinidos fornecidos pelo Azure Monitor para soluções SAP, escrever [consultas personalizadas](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) e criar [alertas personalizados](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response) utilizando o espaço de trabalho do Azure Log Analytics, aproveitar o período de [retenção flexível](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) e ligar dados de monitorização com o seu sistema de bilhética.
+O Azure Monitor for SAP Solutions aproveita o poder das capacidades existentes do [Azure Monitor,](../../../azure-monitor/overview.md) tais como Log Analytics e [Workbooks,](../../../azure-monitor/platform/workbooks-overview.md) para fornecer capacidades de monitorização adicionais. Os clientes podem criar [visualizações personalizadas](../../../azure-monitor/platform/workbooks-overview.md#getting-started) editando os livros de trabalho predefinidos fornecidos pelo Azure Monitor para soluções SAP, escrever [consultas personalizadas](../../../azure-monitor/log-query/get-started-portal.md) e criar [alertas personalizados](../../../azure-monitor/learn/tutorial-response.md) utilizando o espaço de trabalho do Azure Log Analytics, aproveitar o período de [retenção flexível](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) e ligar dados de monitorização com o seu sistema de bilhética.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Que dados o Azure Monitor para soluções SAP recolhe?
 
@@ -87,11 +87,11 @@ Os componentes-chave da arquitetura são:
 - Azure Monitor for SAP Solutions recurso – um local de aterragem para os clientes verem a telemetria de monitorização 
 - Grupo de recursos geridos – implantado automaticamente como parte do Azure Monitor para implementação de recursos SAP Solutions. Os recursos mobilizados no âmbito da ajuda do grupo de recursos geridos na recolha de telemetria. Os recursos-chave utilizados e o seu propósito são:  
    - Máquina Virtual Azure: Também conhecida como *Colecionador VM*. Este é um VM Standard_B2ms. O principal objetivo deste VM é acolher a *carga de monitorização.* A carga útil de monitorização refere-se à lógica de recolher a telemetria dos sistemas de origem e transferir os dados recolhidos para o quadro de monitorização. No diagrama acima, a carga útil de monitorização contém a lógica de ligação à base de dados SAP HANA sobre a porta SQL.
-   - [Cofre chave Azure](https://docs.microsoft.com/azure/key-vault/general/basic-concepts): Este recurso é implantado para deter de forma segura as credenciais de base de dados SAP HANA e para armazenar informações sobre [fornecedores](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers).  
+   - [Cofre chave Azure](../../../key-vault/general/basic-concepts.md): Este recurso é implantado para deter de forma segura as credenciais de base de dados SAP HANA e para armazenar informações sobre [fornecedores](./azure-monitor-providers.md).  
    - Log Analytics Workspace: o destino onde residem os dados da telemetria.  
-      - A visualização é construída em cima da telemetria em Log Analytics usando [livros de trabalho Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Os clientes podem personalizar a visualização. Os clientes também podem fixar os seus Livros de Trabalho ou visualização específica dentro de Livros de Trabalho para o painel Azure para capacidade de autorefresh com menor granularidade de 30 minutos.  
+      - A visualização é construída em cima da telemetria em Log Analytics usando [livros de trabalho Azure](../../../azure-monitor/platform/workbooks-overview.md). Os clientes podem personalizar a visualização. Os clientes também podem fixar os seus Livros de Trabalho ou visualização específica dentro de Livros de Trabalho para o painel Azure para capacidade de autorefresh com menor granularidade de 30 minutos.  
       - Os clientes podem utilizar o seu espaço de trabalho existente dentro da mesma subscrição que o recurso monitor SAP, escolhendo esta opção no momento da implementação. 
-      - Os clientes podem usar a linguagem de consulta Kusto (KQL) para executar [consultas](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) contra as tabelas cruas dentro do espaço de trabalho log analytics. Veja os *Registos Personalizados.*  
+      - Os clientes podem usar a linguagem de consulta Kusto (KQL) para executar [consultas](../../../azure-monitor/log-query/log-query-overview.md) contra as tabelas cruas dentro do espaço de trabalho log analytics. Veja os *Registos Personalizados.*  
 
 > [!Note]
 > Os clientes são responsáveis pela remendação e manutenção do VM, implantado no grupo de recursos geridos.  
@@ -113,5 +113,5 @@ O Azure Monitor for SAP Solutions é um produto gratuito (sem taxa de licença).
 ## <a name="next-steps"></a>Próximos passos
 
 Conheça os fornecedores e crie o seu primeiro recurso Azure Monitor para soluções SAP.
- - Saiba mais sobre [Fornecedores](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-providers)
- - Tem alguma dúvida sobre o Azure Monitor para soluções SAP? Consulte a secção [de PERGUNTAS Frequentes](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq)
+ - Saiba mais sobre [Fornecedores](./azure-monitor-providers.md)
+ - Tem alguma dúvida sobre o Azure Monitor para soluções SAP? Consulte a secção [de PERGUNTAS Frequentes](./azure-monitor-faq.md)

@@ -4,17 +4,17 @@ description: O Azure Storage protege os seus dados encriptando-os automaticament
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 06/17/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8b4236e40e8dfbe6ce67bca007be0b6737a6e0c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6244b3ab72f7fa8ea375ff67a08e8d1d241df4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945584"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527902"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -32,6 +32,8 @@ Cada blob de bloco, blob de apêndice ou bolha de página que foi escrito para A
 
 Para obter mais informações sobre os módulos criptográficos subjacentes à encriptação do Armazenamento Azure, consulte [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
+Para obter informações sobre encriptação e gestão de chaves para discos geridos pelo Azure, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/windows/disk-encryption.md) para VMs do Windows ou [encriptação do lado do Servidor de discos geridos pelo Azure](../../virtual-machines/linux/disk-encryption.md) para Os VMs Do Linux.
+
 ## <a name="about-encryption-key-management"></a>Sobre a gestão de chaves de encriptação
 
 Os dados de uma nova conta de armazenamento são encriptados com as chaves geridas pela Microsoft. Pode confiar nas teclas geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, tem duas opções:
@@ -41,22 +43,60 @@ Os dados de uma nova conta de armazenamento são encriptados com as chaves gerid
 
 A tabela seguinte compara as opções de gestão chave para a encriptação do Azure Storage.
 
-|                                        |    Chaves geridas pela Microsoft                             |    Chaves geridas pelo cliente                                                                                                                        |    Chaves fornecidas pelo cliente                                                          |
-|----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|    Operações de encriptação/desencriptação    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Serviços de Armazenamento Azure apoiados    |    Todos                                                |    Armazenamento blob, Ficheiros Azure<sup>1,2</sup>                                                                                                               |    Armazenamento de blobs                                                                  |
-|    Armazenamento de chaves                         |    Loja de chaves da Microsoft    |    Azure Key Vault                                                                                                                              |    Loja chave do próprio cliente                                                                 |
-|    Responsabilidade de rotação chave         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
-|    Controlo de chaves                          |    Microsoft                                     |    Cliente                                                                                                                    |    Cliente                                                                 |
+| Parâmetro de gestão chave | Chaves geridas pela Microsoft | Chaves geridas pelo cliente | Chaves fornecidas pelo cliente |
+|--|--|--|--|
+| Operações de encriptação/desencriptação | Azure | Azure | Azure |
+| Serviços de Armazenamento Azure apoiados | Todos | Armazenamento blob, Ficheiros Azure<sup>1,2</sup> | Armazenamento de blobs |
+| Armazenamento de chaves | Loja de chaves da Microsoft | Azure Key Vault | Loja chave do próprio cliente |
+| Responsabilidade de rotação chave | Microsoft | Customer | Customer |
+| Controlo de chaves | Microsoft | Customer | Customer |
 
 <sup>1</sup> Para obter informações sobre a criação de uma conta que suporte a utilização de chaves geridas pelo cliente com armazenamento de fila, consulte [Criar uma conta que suporte chaves geridas pelo cliente para filas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> Para obter informações sobre a criação de uma conta que suporte a utilização de chaves geridas pelo cliente com armazenamento de mesa, consulte [Criar uma conta que suporte chaves geridas pelo cliente para tabelas](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 
-Para obter informações sobre encriptação e gestão de chaves para discos geridos pelo Azure, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/windows/disk-encryption.md) para VMs do Windows ou [encriptação do lado do Servidor de discos geridos pelo Azure](../../virtual-machines/linux/disk-encryption.md) para Os VMs Do Linux.
+## <a name="encryption-scopes-for-blob-storage-preview"></a>Âmbitos de encriptação para armazenamento blob (pré-visualização)
+
+Por padrão, uma conta de armazenamento é encriptada com uma chave que é telescópio na conta de armazenamento. Pode optar por utilizar as teclas geridas pela Microsoft ou as teclas geridas pelo cliente armazenadas no Cofre da Chave Azure para proteger e controlar o acesso à chave que encripta os seus dados.
+
+Os âmbitos de encriptação permitem-lhe gerir opcionalmente a encriptação ao nível do recipiente ou de uma bolha individual. Pode utilizar âmbitos de encriptação para criar limites seguros entre dados que residem na mesma conta de armazenamento, mas que pertencem a diferentes clientes.
+
+Pode criar um ou mais âmbitos de encriptação para uma conta de armazenamento utilizando o fornecedor de recursos de armazenamento Azure. Quando cria um âmbito de encriptação, especifica se o âmbito está protegido com uma chave gerida pela Microsoft ou com uma chave gerida pelo cliente que é armazenada no Cofre da Chave Azure. Diferentes âmbitos de encriptação na mesma conta de armazenamento podem utilizar chaves geridas pela Microsoft ou geridas pelo cliente.
+
+Depois de ter criado um âmbito de encriptação, pode especificar esse âmbito de encriptação num pedido de criação de um recipiente ou de uma bolha. Para obter mais informações sobre como criar um âmbito de encriptação, consulte [Criar e gerir os âmbitos de encriptação (pré-visualização)](../blobs/encryption-scope-manage.md).
+
+> [!NOTE]
+> Os âmbitos de encriptação não são suportados com contas de armazenamento geo-redundante de acesso à leitura (RA-GRS) durante a pré-visualização.
+
+> [!IMPORTANT]
+> A pré-visualização dos âmbitos de encriptação destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
+>
+> Para evitar custos inesperados, certifique-se de desativar quaisquer âmbitos de encriptação que não necessita atualmente.
+
+### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Criar um recipiente ou bolha com um âmbito de encriptação
+
+As bolhas criadas sob um âmbito de encriptação são encriptadas com a chave especificada para esse âmbito. Pode especificar um âmbito de encriptação para uma bolha individual quando criar a bolha, ou pode especificar um âmbito de encriptação padrão quando criar um recipiente. Quando um âmbito de encriptação predefinido é especificado ao nível de um recipiente, todas as bolhas nesse recipiente são encriptadas com a chave associada ao âmbito padrão.
+
+Quando cria uma bolha num recipiente que tenha um âmbito de encriptação padrão, pode especificar um âmbito de encriptação que substitui o âmbito de encriptação padrão se o recipiente estiver configurado para permitir substituições do âmbito de encriptação padrão. Para evitar sobreposições do âmbito de encriptação padrão, configuure o recipiente para negar sobreposições para uma bolha individual.
+
+A leitura das operações numa bolha que pertence a um âmbito de encriptação acontece de forma transparente, desde que o âmbito de encriptação não seja desativado.
+
+### <a name="disable-an-encryption-scope"></a>Desativar um âmbito de encriptação
+
+Quando desativar um âmbito de encriptação, quaisquer operações de leitura ou escrita subsequentes efetuadas com o âmbito de encriptação falharão com o código de erro HTTP 403 (Proibido). Se voltar a ativar o âmbito de encriptação, as operações de leitura e escrita voltarão a proceder normalmente.
+
+Quando um âmbito de encriptação é desativado, já não é cobrado por isso. Desative quaisquer âmbitos de encriptação que não sejam necessários para evitar encargos desnecessários.
+
+Se o seu âmbito de encriptação estiver protegido com chaves geridas pelo cliente para o Cofre da Chave Azure, também pode eliminar a chave associada no cofre de chaves para desativar o âmbito de encriptação. Tenha em mente que as teclas geridas pelo cliente no Cofre da Chave Azure estão protegidas por proteção de eliminação e purga suave, e uma chave eliminada está sujeita ao comportamento definido por essas propriedades. Para mais informações, consulte um dos seguintes tópicos na documentação do Cofre chave Azure:
+
+- [Como utilizar soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md)
+- [Como usar soft-delete com CLI](../../key-vault/general/soft-delete-cli.md)
+
+> [!NOTE]
+> Não é possível eliminar um âmbito de encriptação.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [O que é o cofre de chave do Azure?](../../key-vault/general/overview.md)
+- [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
 - [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no portal do Azure](storage-encryption-keys-portal.md)
 - [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no PowerShell](storage-encryption-keys-powershell.md)
 - [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure na CLI do Azure](storage-encryption-keys-cli.md)

@@ -4,14 +4,14 @@ description: Saiba como mover os recursos do Serviço de Aplicações de uma reg
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c19c18e8d9980b75acd9790dba712fbb6b2a4b1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524859"
 ---
-# <a name="move-an-app-service-app-to-another-region"></a>Mover uma app de Serviço de Aplicações para outra região
+# <a name="move-an-app-service-resource-to-another-region"></a>Mover um recurso de Serviço de Aplicações para outra região
 
 Este artigo descreve como mover recursos do Serviço de Aplicações para uma região de Azure diferente. Pode mover os seus recursos para outra região por várias razões. Por exemplo, aproveitar uma nova região de Azure, para implantar características ou serviços disponíveis apenas em regiões específicas, para satisfazer os requisitos de política interna e governação, ou em resposta aos requisitos de planeamento de capacidades.
 

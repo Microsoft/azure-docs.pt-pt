@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6285c25c44b7b8c5b2c1d9c148424fc36912b57c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194710"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528716"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -36,7 +36,7 @@ A política de gestão do ciclo de vida está disponível com contas de Finalida
 
 ## <a name="pricing"></a>Preços
 
-A função de gestão do ciclo de vida é gratuita. Os clientes são cobrados o custo regular de operação para as chamadas [API list Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) e [set Blob Tier.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) A operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [os preços do Block Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
+A função de gestão do ciclo de vida é gratuita. Os clientes são cobrados o custo regular de operação para as chamadas [API de Nível Blob.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) A operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [os preços do Block Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
@@ -234,7 +234,7 @@ Cada regra dentro da política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos.  Deve ser único dentro de uma política. | Verdadeiro |
+| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos.  Deve ser único dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um boolean opcional para permitir que uma regra seja temporariamente desativada. O valor predefinido é verdadeiro se não estiver definido. | Falso | 
 | `type`         | Um valor enum | O tipo válido atual é `Lifecycle` . | Verdadeiro |
 | `definition`   | Um objeto que define a regra do ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ação. | Verdadeiro |
@@ -308,7 +308,7 @@ A gestão do ciclo de vida suporta o tiering e a eliminação de bolhas e a elim
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Blobs de suporte atualmente em nível quente         | Não suportado |
 | tierToArchive | Bolhas de suporte atualmente em nível quente ou fresco | Não suportado |
-| delete        | Suportado                                   | Suportado     |
+| eliminação        | Suportado                                   | Suportado     |
 
 >[!NOTE]
 >Se definir mais do que uma ação na mesma bolha, a gestão do ciclo de vida aplica a ação menos dispendiosa à bolha. Por exemplo, a ação `delete` é mais barata do que a `tierToArchive` ação. A ação `tierToArchive` é mais barata do que a `tierToCool` ação.

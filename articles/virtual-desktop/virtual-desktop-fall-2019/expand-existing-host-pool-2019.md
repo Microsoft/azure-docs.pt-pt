@@ -1,5 +1,5 @@
 ---
-title: Expandir o pool de anfitriões existente com novos anfitriões de sessão - Azure
+title: Expandir piscina de anfitriões existente com novos anfitriões de sessão outono 2019 - Azure
 description: Como expandir um pool de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 291dc32453001dd1e188bacae8be372bb3645ece
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527545"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-fall-2019"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão (outono 2019)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../expand-existing-host-pool.md).
@@ -126,7 +126,7 @@ Todos os valores de parâmetros nesta secção devem corresponder ao que fornece
 
 Siga as instruções em [Executar o modelo Azure Resource Manager para o fornecimento de uma nova piscina de anfitriões](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, com exceção do *Número de Ocorrências do Rdsh*. Introduza o número de VMs do anfitrião de sessão que deseja na piscina de anfitrião depois de executar o modelo. Por exemplo, se estiver a expandir o seu pool de anfitriões de cinco sessão para oito, insira **8**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão num cliente do Windows Virtual Desktop para testá-los como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
 

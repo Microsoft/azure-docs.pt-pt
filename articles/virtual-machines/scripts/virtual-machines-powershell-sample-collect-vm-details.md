@@ -15,17 +15,18 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: 27e88966759eaa158ffe86efce9905b1709ddbbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a45f0a882c58c7035badcc1270c66bd9c6fb252a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83848727"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526916"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Recolher detalhes sobre todas as VMs numa subscrição com o PowerShell
 
 Este script cria um csv que contém o Nome VM, Nome do Grupo de Recursos, Região, Tamanho Vm, Rede Virtual, Subnet, Endereço IP Privado, Tipo DE SO e Endereço IP Público dos VMs na subscrição fornecida.
 
-Se não tiver uma [subscrição do Azure,](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+Se não tiver uma [subscrição do Azure,](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -74,15 +75,13 @@ Este script utiliza os seguintes comandos para criar uma exportação csv dos de
 
 |Comando|Notas|
 |-|-|
-|[Selecione-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|Define o inquilino, subscrição e ambiente para os cmdlets a utilizar na sessão atual.|
-|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|Obtém as propriedades de uma máquina virtual.|
-|[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzPublicIpAddress)|Obtém um endereço IP público.|
-|[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|Obtém uma interface de rede.|
+|[Selecione-AzSubscription](/powershell/module/az.accounts/set-azcontext)|Define o inquilino, subscrição e ambiente para os cmdlets a utilizar na sessão atual.|
+|[Get-AzVM](/powershell/module/az.compute/get-azvm)|Obtém as propriedades de uma máquina virtual.|
+|[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)|Obtém um endereço IP público.|
+|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface)|Obtém uma interface de rede.|
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Pode ver exemplos adicionais de scripts do PowerShell da máquina virtual na [Documentação da VM Windows do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples?toc=/azure/virtual-machines/windows/toc.json).
-
-
+Pode ver exemplos adicionais de scripts do PowerShell da máquina virtual na [Documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=/azure/virtual-machines/windows/toc.json).

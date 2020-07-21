@@ -9,11 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: b2466cc1d36206d0a6a382c948969ad6c28a199f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dc671e3aab7568da61e5dab870967d7fd2bb90f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232813"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525743"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar um VM a partir de um VHD especializado numa conta de armazenamento
 
@@ -63,7 +64,7 @@ Se precisar de criar uma conta de armazenamento, siga estes passos:
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Crie uma conta de armazenamento denominada **mystorageaccount** neste grupo de recursos utilizando o [cmdlet New-AzStorageAccount:](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)
+2. Crie uma conta de armazenamento denominada **mystorageaccount** neste grupo de recursos utilizando o [cmdlet New-AzStorageAccount:](/powershell/module/az.storage/new-azstorageaccount)
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -71,7 +72,7 @@ Se precisar de criar uma conta de armazenamento, siga estes passos:
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Upload the VHD to your storage account (Carregar o VHD para a conta de armazenamento)
-Utilize o [cmdlet Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para enviar a imagem para um recipiente na sua conta de armazenamento. Este exemplo envia o ficheiro **myVHD.vhd** para uma conta de `"C:\Users\Public\Documents\Virtual hard disks\"` armazenamento chamada **mystorageaccount** no grupo de recursos **myResourceGroup.** O ficheiro será colocado no contentor chamado **mycontainer** e o novo nome do ficheiro será **myUploadedVHD.vhd**.
+Utilize o [cmdlet Add-AzVhd](/powershell/module/az.compute/add-azvhd) para enviar a imagem para um recipiente na sua conta de armazenamento. Este exemplo envia o ficheiro **myVHD.vhd** para uma conta de `"C:\Users\Public\Documents\Virtual hard disks\"` armazenamento chamada **mystorageaccount** no grupo de recursos **myResourceGroup.** O ficheiro será colocado no contentor chamado **mycontainer** e o novo nome do ficheiro será **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -105,14 +106,14 @@ Pode copiar um VHD para outra conta de armazenamento para utilizar ao criar um n
 ### <a name="before-you-begin"></a>Before you begin
 Certifique-se de que:
 
-* Tenha informações sobre as contas de armazenamento de **origem e destino.** Para a fonte VM, você precisa ter a conta de armazenamento e os nomes do recipiente. Normalmente, o nome do recipiente será **vhds**. Também precisa de ter uma conta de armazenamento de destino. Se ainda não tiver um, pode criar um utilizando o portal **(Todos os serviços** > contas de Armazenamento > Add) ou utilizando o cmdlet [New-AzStorageAccount.](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) 
-* Descarregue e instale a [ferramenta AzCopy](../../storage/common/storage-use-azcopy.md). 
+* Tenha informações sobre as contas de armazenamento de **origem e destino.** Para a fonte VM, você precisa ter a conta de armazenamento e os nomes do recipiente. Normalmente, o nome do recipiente será **vhds**. Também precisa de ter uma conta de armazenamento de destino. Se ainda não tiver um, pode criar um utilizando o portal **(Todos os serviços** > contas de Armazenamento > Add) ou utilizando o cmdlet [New-AzStorageAccount.](/powershell/module/az.storage/new-azstorageaccount) 
+* Descarregue e instale a [ferramenta AzCopy](../../storage/common/storage-use-azcopy-v10.md). 
 
 ### <a name="deallocate-the-vm"></a>Deallocate o VM
 Deallocate o VM, que liberta o VHD para ser copiado. 
 
 * **Portal**: Clique em **máquinas virtuais**  >  **myVM** > Stop
-* **Powershell**: Use [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar (deallocate) o VM nomeado **myVM** no grupo de recursos **myResourceGroup**.
+* **Powershell**: Use [Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar (deallocate) o VM nomeado **myVM** no grupo de recursos **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -126,17 +127,17 @@ Você precisa dos URLs das contas de armazenamento de origem e destino. Os URLs 
 Pode utilizar o portal Azure ou Azure Powershell para obter o URL:
 
 * **Portal**: Clique na **>** conta de armazenamento de contas de armazenamento de todos os **All services**  >  **serviços**  >  *storage account*  >  **Blobs** e o seu ficheiro VHD de origem provavelmente está no recipiente **vhds.** Clique em **Propriedades** para o recipiente e copie o URL com rótulo **de**texto . Você precisará dos URLs dos contentores de origem e destino. 
-* **Powershell**: Utilize [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para obter as informações relativas à VM nomeada **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, procure na secção **de perfil de armazenamento** para o **Vhd Uri.** A primeira parte do Uri é o URL do recipiente e a última parte é o nome OS VHD para o VM.
+* **Powershell**: Utilize [o Get-AzVM](/powershell/module/az.compute/get-azvm) para obter as informações relativas à VM nomeada **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, procure na secção **de perfil de armazenamento** para o **Vhd Uri.** A primeira parte do Uri é o URL do recipiente e a última parte é o nome OS VHD para o VM.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>Obtenha as chaves de acesso ao armazenamento
-Encontre as chaves de acesso para as contas de armazenamento de origem e destino. Para obter mais informações sobre as chaves de acesso, consulte [as contas de armazenamento do Azure.](../../storage/common/storage-create-storage-account.md)
+Encontre as chaves de acesso para as contas de armazenamento de origem e destino. Para obter mais informações sobre as chaves de acesso, consulte [as contas de armazenamento do Azure.](../../storage/common/storage-account-create.md)
 
 * **Portal**: Clique **em todos os serviços**Armazena as contas de armazenamento de  >  **Storage accounts**  >  *contas*  >  **As teclas de acesso**. Copie a chave rotulada como **key1**.
-* **Powershell**: Utilize [o Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **myResourceGroup**. Copie a chave com a **chave 1**.
+* **Powershell**: Utilize [o Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **myResourceGroup**. Copie a chave com a **chave 1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -308,4 +309,3 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Próximos passos
 Inscreva-se na sua nova máquina virtual. Para obter mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md).
-

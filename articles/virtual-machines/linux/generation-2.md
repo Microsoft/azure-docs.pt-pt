@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e84d4d147490cd3b9d136f25a3707f5a74999f3f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652527"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527341"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para geração 2 VMs em Azure
 
@@ -19,28 +20,28 @@ O suporte para máquinas virtuais de geração 2 (VMs) já está disponível no 
 
 A geração 2 VMs suporta características-chave que não são suportadas na geração 1 VMs. Estas funcionalidades incluem memória aumentada, extensões de guarda de software Intel (Intel SGX) e memória persistente virtualizada (vPMEM). Os VMs de geração 2 que estão no local, têm algumas funcionalidades que ainda não foram suportadas no Azure. Para mais informações, consulte a secção [Funcionalidades e Capacidades.](#features-and-capabilities)
 
-A geração 2 VMs usa a nova arquitetura de arranque baseada na UEFI em vez da arquitetura baseada em BIOS usada pela geração 1 VMs. Em comparação com a geração 1 VMs, os VMs de geração 2 podem ter melhorado os tempos de arranque e instalação. Para uma visão geral da geração 2 VMs e algumas das diferenças entre a geração 1 e a geração 2, ver [Devo criar uma máquina virtual de geração 1 ou 2 em Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+A geração 2 VMs usa a nova arquitetura de arranque baseada na UEFI em vez da arquitetura baseada em BIOS usada pela geração 1 VMs. Em comparação com a geração 1 VMs, os VMs de geração 2 podem ter melhorado os tempos de arranque e instalação. Para uma visão geral da geração 2 VMs e algumas das diferenças entre a geração 1 e a geração 2, ver [Devo criar uma máquina virtual de geração 1 ou 2 em Hyper-V?](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
 ## <a name="generation-2-vm-sizes"></a>Tamanhos de geração 2 VM
 
 Os VMs de geração 1 são suportados por todos os tamanhos VM em Azure (exceto para VMs da série Mv2). A Azure oferece agora suporte de geração 2 para as seguintes séries VM selecionadas:
 
-* [Série B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
+* [Série B](../sizes-b-series-burstable.md)
 * [Série DCsv2](../dcv2-series.md)
 * [Série DSv2](../dv2-dsv2-series.md) e [série Dsv3](../dv3-dsv3-series.md)
 * [Série Esv3](../ev3-esv3-series.md)
 * [Série Fsv2](../fsv2-series.md)
-* [Série GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [Série GS](../sizes-previous-gen.md#gs-series)
 * [Série HB](../hb-series.md)
 * [Série HC](../hc-series.md)
-* [Série Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) e [série Lsv2](../lsv2-series.md)
+* [Série Ls](../sizes-previous-gen.md#ls-series) e [série Lsv2](../lsv2-series.md)
 * [Série M](../m-series.md)
 * [Série Mv2](../mv2-series.md)<sup>1</sup>
 * [Série NCv2](../ncv2-series.md) e [série NCv3](../ncv3-series.md)
 * [Série ND](../nd-series.md)
 * [Série NVv3](../nvv3-series.md)
 
-<sup>1</sup> Mv2 série não suporta imagens De Geração 1 VM e suporta apenas um subconjunto de imagens da Geração 2. Consulte a [documentação da série Mv2](https://docs.microsoft.com/azure/virtual-machines/mv2-series) para mais detalhes.
+<sup>1</sup> Mv2 série não suporta imagens De Geração 1 VM e suporta apenas um subconjunto de imagens da Geração 2. Consulte a [documentação da série Mv2](../mv2-series.md) para mais detalhes.
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Geração 2 Imagens VM no Azure Marketplace
 
@@ -79,7 +80,7 @@ A Azure não suporta atualmente algumas das funcionalidades que o Hyper-V suport
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Capacidades de geração 1 vs geração 2
 
-| Funcionalidade | Geração 1 | Geração 2 |
+| Capacidade | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
 | Disco de oss > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco/imagem/swap OS personalizados         | :heavy_check_mark: | :heavy_check_mark: |
@@ -103,7 +104,7 @@ Abaixo estão os passos para criar uma VM de geração 2 (Gen2) no portal Azure.
 1. Selecione **Criar um recurso**.
 1. Clique **em Ver tudo** a partir do Mercado Azure à esquerda.
 1. Selecione uma imagem que suporte a Gen2.
-1. Clique em **Criar**.
+1. Clique em **Create** (Criar).
 1. No separador **Avançado,** na secção **de geração VM,** selecione a opção **Gen 2.**
 1. No **separador Basics,** detalhes de Under **Instance,** vá ao **Tamanho** e abra a lâmina **de tamanho VM** Select.
 1. Selecione uma [geração suportada 2 VM](#generation-2-vm-sizes).
@@ -149,7 +150,7 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 * **A geração 2 VMs está disponível em todas as regiões de Azure?**  
-    Sim. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
+    Yes. Mas nem todos os [tamanhos de geração 2 VM](#generation-2-vm-sizes) estão disponíveis em todas as regiões. A disponibilidade da geração 2 VM depende da disponibilidade do tamanho VM.
 
 * **Existe uma diferença de preço entre a geração 1 e a geração 2 VMs?**  
     Não.
@@ -183,13 +184,13 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
   Pode ver um aviso para discos de SO maiores do que 2 TB. O aviso não se aplica à geração 2 VMs. No entanto, não são *recomendados* tamanhos de disco de SO superiores a 4 TB.
 
 * **A geração 2 VMs suporta rede acelerada?**  
-    Sim. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../../virtual-network/create-vm-accelerated-networking-cli.md)
+    Yes. Para obter mais informações, consulte [Criar um VM com rede acelerada.](../../virtual-network/create-vm-accelerated-networking-cli.md)
 
 * **A VHDX é suportada na geração 2?**  
     Não, a geração 2 VMs suporta apenas VHD.
 
 * **A geração 2 VMs suporta o armazenamento do disco Azure Ultra?**  
-    Sim.
+    Yes.
 
 * **Posso migrar um VM da geração 1 para a geração 2?**  
     Não, não podes mudar a geração de um VM depois de o criares. Se precisar de alternar entre gerações VM, crie um novo VM de uma geração diferente.
@@ -203,4 +204,4 @@ Também pode criar geração de 2 VMs utilizando conjuntos de escala de máquina
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre [máquinas virtuais de geração 2 em Hyper-V.](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Saiba mais sobre [máquinas virtuais de geração 2 em Hyper-V.](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)

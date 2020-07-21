@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 9363f400754a38d4cc6efd29ac48d7a0476de66f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362378"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524306"
 ---
 # <a name="add-parameters-to-commands"></a>Adicionar parâmetros aos comandos
 
@@ -56,14 +56,17 @@ Edite o comando **TurnOn** existente para ligar e desligar vários dispositivos.
        | É Global          | descontrolado       | Caixa de verificação indicando se um valor para este parâmetro é aplicado globalmente a todos os Comandos na aplicação|
        | Necessário           | verificado         | Caixa de verificação indicando se é necessário um valor para este parâmetro antes de completar o Comando |
        | Resposta para parâmetro requerido      |Editor simples >`On or Off?`      | Um pedido para pedir o valor deste parâmetro quando não se sabe |
-       | Tipo               | String          | O tipo de parâmetro, como Número, Cadeia, Hora da Data ou Geografia   |
+       | Tipo               | Cadeia          | O tipo de parâmetro, como Número, Cadeia, Hora da Data ou Geografia   |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | Para cordas, isto limita as entradas a um conjunto de valores possíveis |
        | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores possíveis e seus pseudónimos         |
        
         
    1. Para adicionar valores de entrada predefinidos, **selecione Adicione uma entrada predefinida** e na janela New **Item,** digite **o nome** conforme indicado na tabela acima. Neste caso, não estamos a usar pseudónimos, por isso podes deixá-lo em branco. 
+
     > [!div class="mx-imgBorder"]
-        > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
+
+    > ![Criar parâmetro](media/custom-commands/create-on-off-parameter.png)
+
    1. **Selecione Guardar** para guardar todas as configurações do parâmetro.
  
  ### <a name="add-subjectdevice-parameter"></a>Adicionar o parâmetro SubjectDevice 
@@ -73,11 +76,11 @@ Edite o comando **TurnOn** existente para ligar e desligar vários dispositivos.
 
        | Definição            | Valor sugerido       |
        | ------------------ | --------------------- |
-       | Nome               | `SubjectDevice`         |
+       | Name               | `SubjectDevice`         |
        | É Global          | descontrolado             |
        | Necessário           | verificado               |
        | Resposta para parâmetro requerido     | Editor simples >`Which device do you want to control?`    | 
-       | Tipo               | String                |          |
+       | Tipo               | Cadeia                |          |
        | Configuração      | Aceitar valores de entrada predefinidos do catálogo interno | 
        | Valores de entrada predefinidos | `tv`, `fan`               |
        | Pseudónimos `tv`      | `television`, `telly`     |
@@ -146,7 +149,7 @@ Adicionar novo parâmetro **Temperatura** com a seguinte configuração
 
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
-| Nome               | `Temperature`           |
+| Name               | `Temperature`           |
 | Necessário           | verificado         |
 | Resposta para parâmetro requerido      | Editor simples >`What temperature would you like?`
 | Tipo               | Número          |
@@ -183,7 +186,7 @@ Adicione um parâmetro chamado **DateTime** com a seguinte configuração.
 
    | Definição                           | Valor sugerido                     | 
    | --------------------------------- | ----------------------------------------|
-   | Nome                              | `DateTime`                               |
+   | Name                              | `DateTime`                               |
    | Necessário                          | verificado                                 |
    | Resposta para parâmetro requerido   | Editor simples >`For what time?`            | 
    | Tipo                              | DateTime                                |
@@ -234,7 +237,7 @@ Teste os três comandos juntos usando expressões relacionadas com diferentes co
 - Entrada: 17h
 - Saída: Ok, alarme definido para 2020-05-01 17:00:00
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Como: Adicionar configurações aos parâmetros de comandos](./how-to-custom-commands-add-parameter-configuration.md)

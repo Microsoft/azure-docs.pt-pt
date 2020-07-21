@@ -4,29 +4,24 @@ description: Explica como utilizar o catálogo de backup do serviço StorSimple 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 0f0be9609dfd00e8e5dc9919b20fc42ec91ce9eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527834"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume StorSimple a partir de um conjunto de cópias de segurança
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve a operação de restauro realizada num dispositivo da série StorSimple 8000 utilizando um conjunto de backup existente. Utilize a lâmina **do catálogo Backup** para restaurar um volume a partir de uma cópia de segurança local ou na nuvem. A lâmina **do catálogo de cópias de segurança** exibe todos os conjuntos de backup que são criados quando são recolhidas cópias de segurança manuais ou automatizadas. A operação de restauro a partir de um conjunto de backup traz o volume on-line imediatamente enquanto os dados são descarregados em segundo plano.
-
-Um método alternativo para iniciar a restauração é ir para **dispositivos > [O seu dispositivo] > Volumes**. Na lâmina **Volumes,** selecione um volume, clique à direita para invocar o menu de contexto e, em seguida, selecione **Restaurar**.
 
 ## <a name="before-you-restore"></a>Antes de restaurar
 

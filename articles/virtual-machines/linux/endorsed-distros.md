@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: e51eeb32ecd306986dc22d6bfa09ee95b8b87852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2edc8d0116778e292f0e44761100d3c1e9212ff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658708"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527392"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuição de Linux endossada em Azure
 
-Os parceiros fornecem imagens Linux no Azure Marketplace. A Microsoft trabalha com várias comunidades Linux para adicionar ainda mais sabores à lista de Distribuição Endossada. Para distribuições que não estão disponíveis no Marketplace, pode sempre trazer o seu próprio Linux seguindo as diretrizes da [Create e carregar um disco rígido virtual que contenha o sistema operativo Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+Os parceiros fornecem imagens Linux no Azure Marketplace. A Microsoft trabalha com várias comunidades Linux para adicionar ainda mais sabores à lista de Distribuição Endossada. Para distribuições que não estão disponíveis no Marketplace, pode sempre trazer o seu próprio Linux seguindo as diretrizes da [Create e carregar um disco rígido virtual que contenha o sistema operativo Linux.](./create-upload-generic.md)
 
 ## <a name="supported-distributions-and-versions"></a>Distribuições e versões apoiadas
 
@@ -45,7 +46,7 @@ O Agente Azure Linux já está pré-instalado nas imagens do Azure Marketplace e
 
 ## <a name="image-update-cadence"></a>Cadência de atualização de imagem
 
-O Azure exige que os editores das distribuições de Linux endossadas atualizem regularmente as suas imagens no Azure Marketplace com as mais recentes correções e correções de segurança, numa cadência trimestral ou mais rápida. Imagens atualizadas no Azure Marketplace estão disponíveis automaticamente para os clientes como novas versões de uma imagem SKU. Mais informações sobre como encontrar imagens Linux: [Encontre imagens Linux VM no Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
+O Azure exige que os editores das distribuições de Linux endossadas atualizem regularmente as suas imagens no Azure Marketplace com as mais recentes correções e correções de segurança, numa cadência trimestral ou mais rápida. Imagens atualizadas no Azure Marketplace estão disponíveis automaticamente para os clientes como novas versões de uma imagem SKU. Mais informações sobre como encontrar imagens Linux: [Encontre imagens Linux VM no Azure Marketplace](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Núcleos afinados a azulados
 

@@ -13,11 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85acd8e26ca10730638332047a37d281358d205f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75965615"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526559"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Resolver problemas de implementação ao reiniciar ou redimensionar uma VM do Windows existente no Azure
 Quando tenta iniciar uma Máquina Virtual Azure (VM) parada ou redimensionar um Azure VM existente, o erro comum que encontra é uma falha de atribuição. Este erro resulta quando o cluster ou a região não dispõem de recursos disponíveis ou não conseguem suportar a dimensão VM solicitada.
@@ -29,7 +30,7 @@ Para iniciar a resolução de problemas, recolha os registos de atividade para i
 
 [Ver as operações de implementação](../../azure-resource-manager/templates/deployment-history.md)
 
-[Ver registos de atividades para gerir recursos do Azure](../../resource-group-audit.md)
+[Ver registos de atividades para gerir recursos do Azure](../../azure-resource-manager/management/view-activity-logs.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: erro ao iniciar uma VM parada
 Tenta-se iniciar um VM parado, mas obtém-se uma falha na atribuição.
@@ -61,5 +62,4 @@ O pedido de redimensionar o VM tem de ser tentado no cluster original que acolhe
   3. Selecione o VM redimensionado e clique em **Iniciar**e, em seguida, inicie cada um dos VMs parados.
 
 ## <a name="next-steps"></a>Próximos passos
-Se encontrar problemas quando criar um novo Windows VM em Azure, consulte [problemas de implementação de Resolução de Problemas com a criação de uma nova máquina virtual windows em Azure](../windows/troubleshoot-deployment-new-vm.md).
-
+Se encontrar problemas quando criar um novo Windows VM em Azure, consulte [problemas de implementação de Resolução de Problemas com a criação de uma nova máquina virtual windows em Azure](./troubleshoot-deployment-new-vm-windows.md).

@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b351a828c47058025247a3edd95f31dc6cc84295
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806184"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525008"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicação que aloja vários sites através do Azure PowerShell
 
@@ -30,7 +30,7 @@ Neste artigo, vai aprender a:
 > * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
 > * Criar um registo CNAME no seu domínio
 
-![Exemplo de encaminhamento multilocal](./media/tutorial-multiple-sites-powershell/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Gateway de aplicação multi-site":::
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -125,6 +125,10 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 São necessários serviços de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para os conjuntos de endereços de back-end. Neste artigo, cria-se dois ouvintes para os seus dois domínios. Os ouvintes são criados para os domínios *contoso.com* e *fabrikam.com.*
 
 Crie o primeiro ouvinte utilizando [o New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração frontal e a porta frontal que criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *contosoRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+
+>[!NOTE]
+> Com o Application Gateway ou WAF v2 SKU, também pode configurar até 5 nomes de anfitriões por ouvinte e pode utilizar caracteres wildcard no nome do anfitrião. Consulte [os nomes dos anfitriões wildcard no ouvinte](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obter mais informações.
+>Para utilizar vários nomes de anfitriões e caracteres wildcard num ouvinte usando a Azure PowerShell, deve utilizar `-HostNames` em vez de `-HostName` . Com hostNames, pode mencionar até 5 nomes de anfitriões como valores separados por vírgula. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

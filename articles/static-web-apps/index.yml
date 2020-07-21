@@ -9,12 +9,12 @@ metadata:
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 04/09/2020
-  ms.openlocfilehash: b4a5ebe22c01f3a16831d3a7739b7c56eab7dc00
-  ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+  ms.openlocfilehash: f70a746c948038b5bd67f4645e8dbd3df71b8b8a
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/09/2020
-  ms.locfileid: "84559192"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86528660"
 landingContent:
 - title: Sobre Aplicações Web Estáticas
   linkLists:
@@ -27,13 +27,13 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Criar a sua primeira aplicação Angular
-      url: /azure/static-web-apps/getting-started?tabs=angular
+      url: ./getting-started.md?tabs=angular
     - text: Criar a sua primeira aplicação React
-      url: /azure/static-web-apps/getting-started?tabs=react
+      url: ./getting-started.md?tabs=react
     - text: Criar a sua primeira aplicação Vue
-      url: /azure/static-web-apps/getting-started?tabs=vue
+      url: ./getting-started.md?tabs=vue
     - text: Criar a sua primeira aplicação (sem quadro)
-      url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
+      url: ./getting-started.md?tabs=vanilla-javascript
   - linkListType: learn
     links:
     - text: Publicar uma aplicação Angular, React, Svelte ou Vue JavaScript e API

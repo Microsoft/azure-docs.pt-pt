@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Reconhecer a fala a partir de um microfone, Objective-C - Serviço de fala'
+title: 'Quickstart: Reconhecer a fala, Objective-C - Serviço de Fala (macOS)'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconhecer a fala no Objective-C sobre o macOS utilizando o Discurso SDK
+description: Aprenda a criar uma app para reconhecer a fala no Objective-C para um computador macOS usando o SDK de Discurso de Serviços Cognitivos.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: 8f94f2ed810204d739dfd2e6d5e88ef0977ad9a4
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: b73925165552fe428be7df465b33701eeed157cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391524"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524238"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Quickstart: Reconhecer a fala no Objective-C sobre o macOS utilizando o SDK de discurso
 
@@ -89,7 +89,7 @@ Nas caixas de diálogo que se seguem, faça as seguintes seleções.
 1. Construa e execute o código de exemplo selecionando **o Produto**  >  **Executar** a partir do menu. Também pode selecionar **Reproduzir**.
 1. Depois de selecionar o botão e dizer algumas palavras, deve ver o texto que falou na parte inferior do ecrã. Quando executar a aplicação pela primeira vez, deve ser solicitado a dar acesso à aplicação ao microfone do seu computador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Explore amostras objectiva-C no GitHub](https://aka.ms/csspeech/samples)

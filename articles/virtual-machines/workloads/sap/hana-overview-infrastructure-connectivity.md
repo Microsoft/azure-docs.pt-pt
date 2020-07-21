@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ecb9ab208b6ead3944455b95f7fe6baa044d35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616925"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525114"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Implantação SAP HANA (grandes instâncias) 
 
@@ -35,7 +36,7 @@ A Microsoft requer as seguintes informações para implementar unidades de grand
 - Para cada região de implantação de Azure:
     - Um intervalo de endereços IP /29 para ligações ER-P2P que ligam redes virtuais Azure a grandes instâncias HANA.
     - Um bloco CIDR /24 utilizado para o conjunto IP do servidor de grandes instâncias HANA.
-    - Opcional ao utilizar o [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para permitir o encaminhamento direto das unidades de grande instância da HANA ou o encaminhamento entre unidades HANA Large Instance em diferentes regiões de Azure, é necessário reservar outra gama de endereços IP /29. Este intervalo em particular pode não se sobrepor a nenhum dos outros intervalos de endereços IP definidos anteriormente.
+    - Opcional ao utilizar o [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) para permitir o encaminhamento direto das unidades de grande instância da HANA ou o encaminhamento entre unidades HANA Large Instance em diferentes regiões de Azure, é necessário reservar outra gama de endereços IP /29. Este intervalo em particular pode não se sobrepor a nenhum dos outros intervalos de endereços IP definidos anteriormente.
 - Os valores de gama de endereços IP utilizados no atributo espaço de endereço de rede virtual de cada rede virtual Azure que se conecta às grandes instâncias HANA.
 - Dados para cada sistema de grandes instâncias HANA:
   - Nome de anfitrião desejado, idealmente com um nome de domínio totalmente qualificado.
@@ -52,4 +53,3 @@ Utilize a seguinte sequência para ligar ao HANA grandes instâncias depois de a
 1. [Ligação de VMs Azure a HANA grandes instâncias](hana-connect-azure-vm-large-instances.md)
 2. [Ligação de um VNet a HANA grandes instâncias ExpressRoute](hana-connect-vnet-express-route.md)
 3. [Requisitos adicionais de rede (opcional)](hana-additional-network-requirements.md)
-

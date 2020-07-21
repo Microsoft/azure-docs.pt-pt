@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79266991"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526805"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
@@ -43,7 +44,7 @@ Este cenário recolhe informações básicas como armazenamento e configuração
 
 - Informação de armazenamento
 
-- Configuração da máquina virtual Azure (recolhida usando [o Serviço de Metadados de Instância Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service))
+- Configuração da máquina virtual Azure (recolhida usando [o Serviço de Metadados de Instância Azure](../windows/instance-metadata-service.md))
 
 - Lista de processos de execução, utilização de disco, memória e CPU
 
@@ -77,7 +78,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - Captura de perfis de CPU e processa utilização do CPU em intervalo de 5 segundos
   - Captura de perfis de utilização da memória dos processos com intervalo de 5 segundos
 
-- Redes  
+- Rede  
   - Lista de adaptadores de rede com estatísticas de adaptadores
   - Tabela de encaminhamento de rede
   - Portas abertas e estatuto
@@ -108,7 +109,7 @@ São recolhidas informações sobre a máquina virtual Linux, sistema operativo,
   - /etc/waagent.config
   - Produção de diário nos últimos cinco dias
 
-- [Metadados de caso de máquina virtual Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- [Metadados de caso de máquina virtual Azure](../windows/instance-metadata-service.md)
 
 >[!Note]
 >[ `*` ] As informações sobre PCI ainda não são recolhidas nas distribuições de Debian e SLES

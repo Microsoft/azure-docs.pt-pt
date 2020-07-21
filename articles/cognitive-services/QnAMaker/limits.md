@@ -3,12 +3,12 @@ title: Limites e limites - QnA Maker
 description: A QnA Maker tem meta-limites para partes da base de conhecimento e serviço. É importante manter a sua base de conhecimento dentro desses limites para testar e publicar.
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: 6a600bcb25bc524cda38d1e35a777d23d47b15c9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855558"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524442"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker limites e limites de base de conhecimento
 
@@ -79,7 +79,8 @@ Os caracteres de comprimento e aceitáveis para nome e valor dos metadados estã
 Limites globais sobre o conteúdo na base de conhecimento:
 * Duração do texto de resposta: 25.000
 * Duração do texto de pergunta: 1.000
-* Duração da chave/valor dos metadados: 100
+* Comprimento do texto chave dos metadados: 100
+* Duração do texto do valor dos metadados: 500
 * Caracteres suportados para nome de metadados: Alfabetos, dígitos e`_`
 * Caracteres suportados para valor de metadados: Todos exceto `:` e`|`
 * Duração do ficheiro: 200

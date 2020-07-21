@@ -13,15 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75772623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526661"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Resolução de problemas Desempenho da máquina virtual Azure em Linux ou Windows
 
-Este artigo descreve a resolução genérica de problemas de desempenho da máquina virtual (VM) através da monitorização e observação de estrangulamentos e fornece uma possível reparação para problemas que possam ocorrer. Além da monitorização, também pode utilizar Perfinsights que pode fornecer um relatório com recomendações de boas práticas e estrangulamentos chave em torno de IO/CPU/Memória. Perfinsights está disponível tanto para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) como [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM's em Azure.
+Este artigo descreve a resolução genérica de problemas de desempenho da máquina virtual (VM) através da monitorização e observação de estrangulamentos e fornece uma possível reparação para problemas que possam ocorrer. Além da monitorização, também pode utilizar Perfinsights que pode fornecer um relatório com recomendações de boas práticas e estrangulamentos chave em torno de IO/CPU/Memória. Perfinsights está disponível tanto para [Windows](./how-to-use-perfinsights.md) como [Linux](./how-to-use-perfinsights-linux.md) VM's em Azure.
 
 Este artigo passará pela monitorização para diagnosticar estrangulamentos de desempenho.
 
@@ -29,7 +30,7 @@ Este artigo passará pela monitorização para diagnosticar estrangulamentos de 
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitorização da máquina virtual Azure IAAS
 
-Para monitorizar o VM do hóspede, utilize o Monitor Azure VM, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se tem os diagnósticos VM ativados, consulte [a visão geral dos registos de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Se vir o seguinte, então provavelmente não tem os diagnósticos ativados:
+Para monitorizar o VM do hóspede, utilize o Monitor Azure VM, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se tem os diagnósticos VM ativados, consulte [a visão geral dos registos de recursos do Azure](../../azure-monitor/learn/tutorial-resource-logs.md). Se vir o seguinte, então provavelmente não tem os diagnósticos ativados:
 
 ![A monitorização não está ativada](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -100,7 +101,7 @@ Para identificar se tem algum estrangulamento de recursos, reveja os seus dados.
 
 ### <a name="cpu-observe-trends"></a>CPU observa tendências
 
-Ao olhar para as questões de desempenho, esteja atento às tendências e compreenda se elas o afetam. Nas próximas secções, usaremos os gráficos de monitorização do portal para mostrar tendências. Também podem ser úteis para cruzar comportamentos de recursos de diferença no mesmo período de tempo. Para personalizar os gráficos, clique na [plataforma de dados do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
+Ao olhar para as questões de desempenho, esteja atento às tendências e compreenda se elas o afetam. Nas próximas secções, usaremos os gráficos de monitorização do portal para mostrar tendências. Também podem ser úteis para cruzar comportamentos de recursos de diferença no mesmo período de tempo. Para personalizar os gráficos, clique na [plataforma de dados do Azure Monitor](../../azure-monitor/platform/data-platform.md).
 
 Spiking – Spiking pode estar relacionado com uma tarefa/evento conhecido agendado. Se conseguir identificar a tarefa, determine se a tarefa é executado ao nível de desempenho exigido. Se o desempenho for aceitável, pode não precisar de aumentar recursos.
 
@@ -119,7 +120,7 @@ Se a sua aplicação ou processo não estiver a decorrer ao nível de desempenho
 
 Se tiver aumentado o VM e o CPU ainda estiver a funcionar 95%, determine se esta definição está a oferecer um melhor desempenho ou uma produção de aplicação superior a um nível aceitável. Caso contrário, resolva o processo de aplicação individual.
 
-Pode utilizar Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar que processo está a impulsionar o consumo de CPU. 
+Pode utilizar Perfinsights para [Windows](./how-to-use-perfinsights.md) ou [Linux](./how-to-use-perfinsights-linux.md) para analisar que processo está a impulsionar o consumo de CPU. 
 
 ## <a name="check-for-memory-bottleneck"></a>Verifique se há estrangulamento de memória
 
@@ -150,13 +151,13 @@ Para resolver uma utilização de memória elevada, execute qualquer uma das seg
 
 Se depois de atualizar para um VM maior, você descobre que ainda tem um aumento constante constante até 100%, identifique a aplicação/processo e resolução de problemas.
 
-Pode utilizar Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar que processo está a impulsionar o consumo de Memória. 
+Pode utilizar Perfinsights para [Windows](./how-to-use-perfinsights.md) ou [Linux](./how-to-use-perfinsights-linux.md) para analisar que processo está a impulsionar o consumo de Memória. 
 
 ## <a name="check-for-disk-bottleneck"></a>Verifique se há estrangulamento do disco
 
 Para verificar o subsistema de armazenamento do VM, verifique os diagnósticos ao nível do VM Azure utilizando os contadores em VM Diagnostics e também os Diagnósticos de Conta de Armazenamento.
 
-Para uma resolução específica de problemas em VM, pode utilizar Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), o que pode ajudar a analisar que processo está a conduzir o IO's. 
+Para uma resolução específica de problemas em VM, pode utilizar Perfinsights para [Windows](./how-to-use-perfinsights.md) ou [Linux](./how-to-use-perfinsights-linux.md), o que pode ajudar a analisar que processo está a conduzir o IO's. 
 
 Note que não temos balcões para contas de armazenamento de zonas redundantes e premium. Para questões relacionadas com estes balcões, levante um caso de apoio.
 
@@ -207,7 +208,7 @@ Para identificar se está a atingir o limite do IOPS, entre nos diagnósticos da
 
 Com novas ofertas de discos sob armazenamento standard, os limites de IOPS e Depute podem diferir, mas o limite acumulado da conta standard de armazenamento é 20000 IOPS (O armazenamento premium tem limites diferentes a nível da conta ou do disco). Leia mais sobre diferentes ofertas padrão de disco de armazenamento e por limites de disco:
 
-* [Metas de escalabilidade e desempenho para discos VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Metas de escalabilidade e desempenho para discos VM no Windows](../windows/disk-scalability-targets.md).
 
 #### <a name="references"></a>Referências
 
@@ -223,19 +224,19 @@ Verifique os limites de produção dos VHDs ligados ao VM. Adicione as métricas
 
 As novas ofertas de discos sob armazenamento standard têm diferentes IOPS e limites de produção (O IOPS não está exposto por VHD). Veja os dados para ver se está a atingir os limites de MB de produção combinada dos VHD(s) a nível VM utilizando a Leitura e a Escrita do Disco, em seguida, otimize a sua configuração de armazenamento VM para escalar os limites de VHD únicos. Leia mais sobre diferentes ofertas padrão de disco de armazenamento e por limites de disco:
 
-* [Metas de escalabilidade e desempenho para discos VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+* [Metas de escalabilidade e desempenho para discos VM no Windows](../windows/disk-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Reparação de alta utilização/latência do disco
 
 Reduzir a latência do cliente e otimizar o IO VM para escalar os limites de VHD passados
 
-* [Otimização de IO para Windows em Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices/)
+* [Otimização de IO para Windows em Azure](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/toc.json)
 
-* [Otimização de IO para Linux em Azure](https://blogs.msdn.microsoft.com/igorpag/2014/10/23/azure-storage-secrets-and-linux-io-optimizations/)
+* [Otimização de IO para Linux em Azure](/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 
 #### <a name="reduce-throttling"></a>Reduzir o estrangulamento
 
-Se atingir os limites superiores das contas de armazenamento, reequilibre os VHDs entre contas de armazenamento. Consulte os [objetivos de escalabilidade e desempenho do armazenamento Azure](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/).
+Se atingir os limites superiores das contas de armazenamento, reequilibre os VHDs entre contas de armazenamento. Consulte os [objetivos de escalabilidade e desempenho do armazenamento Azure](../../storage/common/scalability-targets-standard-account.md).
 
 ### <a name="increase-throughput-and-reduce-latency"></a>Aumentar a produção e reduzir a latência
 
@@ -243,9 +244,9 @@ Se tiver uma aplicação sensível à latência e necessitar de alta produção,
 
 Estes artigos discutem os cenários específicos:
 
-* [Migrar para o Armazenamento Premium do Azure](https://azure.microsoft.com/documentation/articles/storage-migration-to-premium-storage/)
+* [Migrar para o Armazenamento Premium do Azure](../windows/migrate-to-managed-disks.md)
 
-* [Use armazenamento Azure Premium com servidor SQL](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/)
+* [Use armazenamento Azure Premium com servidor SQL](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-premium-storage)
 
 ## <a name="next-steps"></a>Próximos passos
 

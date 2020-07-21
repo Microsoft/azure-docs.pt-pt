@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 3a093303efe63a051e8e2ff9824a35228e44e1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525573"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 
@@ -95,4 +96,4 @@ Para saber mais sobre as opções de backup de dados no armazenamento local, con
    
 ## <a name="next-steps"></a>Próximos passos
 
-* Consulte as especificações de todos os [VMs otimizados para o desempenho do armazenamento](sizes-storage.md) no Azure
+* Consulte as especificações de todos os [VMs otimizados para o desempenho do armazenamento](../sizes-storage.md) no Azure

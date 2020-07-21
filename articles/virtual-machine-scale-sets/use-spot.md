@@ -9,11 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70d7eb000ed2d50bc22bb005621ee7515e5a2a61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310568"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527460"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 
 
@@ -29,7 +30,7 @@ Os preços dos casos spot são variáveis, com base na região e no SKU. Para ma
 
 Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o caso não será despejado com base no preço. O preço, por exemplo, será o preço atual para o Spot ou o preço de uma instância padrão, que sempre é menor, desde que haja capacidade e quota disponíveis.
 
-## <a name="eviction-policy"></a>Política de despejo
+## <a name="eviction-policy"></a>Política de expulsão
 
 Ao criar conjuntos de escala spot, pode definir a política de despejo para *Deallocate* (predefinição) ou *Eliminar*. 
 
@@ -46,7 +47,7 @@ Para implantar VMs spot em conjuntos de escala, pode definir a nova bandeira *pr
 - [Portal do Azure](#portal)
 - [CLI do Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Modelos do Azure Resource Manager](#resource-manager-templates)
+- [Modelos de gestor de recursos Azure](#resource-manager-templates)
 
 ## <a name="portal"></a>Portal
 
@@ -114,12 +115,12 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 **Q:** Como é gerida a quota para o Spot?
 
-**A:** As instâncias pontuais e as instâncias-padrão terão piscinas de quotas separadas. A quota pontual será partilhada entre VMs e instâncias definidas em escala. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** As instâncias pontuais e as instâncias-padrão terão piscinas de quotas separadas. A quota pontual será partilhada entre VMs e instâncias definidas em escala. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q:** Posso pedir uma quota adicional para o Spot?
 
-**A:** Sim, poderá submeter o pedido de aumento da sua quota de VMs spot através do [processo padrão de pedido de quota.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
+**A:** Sim, poderá submeter o pedido de aumento da sua quota de VMs spot através do [processo padrão de pedido de quota.](../azure-portal/supportability/per-vm-quota-requests.md)
 
 
 **Q:** Posso converter os conjuntos de escala existentes em conjuntos de escala spot?
@@ -157,7 +158,7 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 |------------------------------|-----------------------------------|
 | Contrato Enterprise         | Sim                               |
 | Pay As You Go                | Sim                               |
-| Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Sim                               |
 | Avaliação Gratuita                   | Não disponível                     |
@@ -165,7 +166,7 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 **Q:** Onde posso fazer perguntas?
 
-**A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Você pode postar e marcar a sua pergunta com `azure-spot` [q&A](/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Próximos passos
 

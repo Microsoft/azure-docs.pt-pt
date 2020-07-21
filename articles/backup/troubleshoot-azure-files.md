@@ -3,12 +3,12 @@ title: Resolução de problemas Azure ficheiros backup
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079892"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524493"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Problemas de resolução de problemas ao mesmo tempo que apoiam as ações de ficheiros da Azure
 
@@ -57,6 +57,9 @@ No portal Azure, abra as suas contas de Armazenamento de Infraestruturas de **Ba
 >Um cofre de serviços de recuperação só pode ser apagado depois de não registar todas as contas de armazenamento registadas no cofre.
 
 ## <a name="common-backup-or-restore-errors"></a>Erros comuns de backup ou restauro
+
+>[!NOTE]
+>Consulte [este documento](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) para garantir que tem permissões suficientes para realizar operações de backup ou restauro.
 
 ### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound- Operação falhou uma vez que a partilha de ficheiros não é encontrada
 
@@ -313,7 +316,7 @@ Código de erro: UserErrorBackupAFSInDeleteState
 
 Error Message: A cópia de segurança falhou à medida que a partilha de ficheiros Azure associada é permanentemente eliminada
 
-Verifique se a parte do ficheiro retrossativo é permanentemente eliminada. Se sim, pare a cópia de segurança para a partilha de ficheiros para evitar falhas repetidas de backup. Para aprender a parar a proteção consulte [stop Protection for Azure file share](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
+Verifique se a parte do ficheiro retrossativo é permanentemente eliminada. Se sim, pare a cópia de segurança para a partilha de ficheiros para evitar falhas repetidas de backup. Para aprender a parar a proteção consulte [stop Protection for Azure file share](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Próximos passos
 

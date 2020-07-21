@@ -1,5 +1,5 @@
 ---
-title: Construa uma app Java com Azure Cosmos DB Cassandra API
+title: Aplicativo Java com Azure Cosmos DB Cassandra API usando Java 3.0 SDK
 description: Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o portal do Azure e o Java
 ms.service: cosmos-db
 author: TheovanKraay
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 0136dce793fea1672b68062480420e5a05c75253
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 2522d1def3407d9e2bd49363c3da8e462231c70c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118377"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523864"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB Cassandra API (v3 Driver)
 
@@ -148,7 +148,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     :::image type="content" source="./media/create-cassandra-java/copy-username-connection-string-azure-portal.png" alt-text="Ver e copiar um nome de utilizador no portal do Azure, página Cadeia de ligação":::
 
-2. Utilize o ![botão Copiar](./media/create-cassandra-java/copy-button-azure-portal.png) botão à direita do ecrã, para copiar o PONTO DE CONTACTO.
+2. Utilize o :::image type="icon" source="./media/create-cassandra-java/copy-button-azure-portal.png"::: botão no lado direito do ecrã para copiar o valor CONTACT POINT. 
 
 3. Abra o ficheiro *config.properties* a partir da pasta *C:\git-samples\azure-cosmosdb-cassandra-java-start-start-start\java-exemplos\src\main\resources.* 
 
@@ -212,7 +212,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, aprendeu a criar uma conta DB Azure Cosmos com a Cassandra API, e executou uma aplicação Cassandra Java que cria uma base de dados e um recipiente Cassandra. Pode agora importar dados adicionais na sua conta DB Azure Cosmos. 
 

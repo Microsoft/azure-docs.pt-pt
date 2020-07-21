@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 5a491bf85546c982db126ef4d6260a46ca8bf88b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f6b9ddfd5b25ea8482e0bbf5622fa16bc450662
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224456"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525607"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Recue e recupere uma base de dados de 12c da Oracle Database numa máquina virtual Azure Linux
 
 Você pode usar O CLI Azure para criar e gerir recursos Azure em uma origem de comando, ou usar scripts. Neste artigo, usamos scripts Azure CLI para implementar uma base de dados Oracle Database 12c a partir de uma imagem da galeria Azure Marketplace.
 
-Antes de começar, certifique-se de que o Azure CLI está instalado. Para mais informações, consulte o guia de instalação do [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Antes de começar, certifique-se de que o Azure CLI está instalado. Para mais informações, consulte o guia de instalação do [Azure CLI.](/cli/azure/install-azure-cli)
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
@@ -33,7 +33,7 @@ Antes de começar, certifique-se de que o Azure CLI está instalado. Para mais i
 
 *   Para realizar o processo de backup e recuperação, tem primeiro de criar um Linux VM que tenha uma instância instalada da Oracle Database 12c. A imagem do Marketplace que utiliza para criar o VM *chama-se Oracle:Oracle-Database-Ee:12.1.0.2:last*.
 
-    Para aprender a criar uma base de dados Oracle, consulte o [Oracle criar uma base de dados rápida.](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create)
+    Para aprender a criar uma base de dados Oracle, consulte o [Oracle criar uma base de dados rápida.](./oracle-database-quick-create.md)
 
 
 ### <a name="step-2-connect-to-the-vm"></a>Passo 2: Ligar ao VM
@@ -567,11 +567,8 @@ Quando já não precisar do VM, pode utilizar o seguinte comando para remover o 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 
 [Explore amostras de CLI de implantação VM](../../linux/cli-samples.md)
-
-
-

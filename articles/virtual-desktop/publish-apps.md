@@ -1,5 +1,5 @@
 ---
-title: Publicar aplicativos incorporados no Windows Virtual Desktop - Azure
+title: Publicar aplicativos incorporados no Windows Virtual Desktop Spring 2020 - Azure
 description: Como publicar aplicativos incorporados no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 11416eb06e29b4621c1949f193318d32d76cdde3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63d20bbb09af6f464a331ddfbad823f5d3b18d76
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212722"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527589"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicar aplicativos incorporados no Windows Virtual Desktop
 

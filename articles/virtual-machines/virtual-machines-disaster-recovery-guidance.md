@@ -6,11 +6,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6481bfe265786ca8b79f96bbcac7fe4d58076911
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77115624"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525828"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>E se uma rutura do serviço Azure impactar os VMs Azure
 Na Microsoft, trabalhamos arduamente para garantir que os nossos serviços estão sempre disponíveis para si quando precisa deles. Forças fora do nosso controlo, por vezes, afetam-nos de formas que causam perturbações não planeadas de serviços.
@@ -34,7 +35,7 @@ Esta é a melhor opção se não tiver configurado a Recuperação do Local de A
 
 
 > [!NOTE]
-> Esteja ciente de que não tem qualquer controlo sobre este processo, e só ocorrerá para interrupções de serviço em toda a região. Por isso, deve também contar com outras estratégias de backup específicas para obter o mais alto nível de disponibilidade. Para mais informações, consulte a secção sobre [estratégias de dados para a recuperação de desastres.](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)
+> Esteja ciente de que não tem qualquer controlo sobre este processo, e só ocorrerá para interrupções de serviço em toda a região. Por isso, deve também contar com outras estratégias de backup específicas para obter o mais alto nível de disponibilidade. Para mais informações, consulte a secção sobre [estratégias de dados para a recuperação de desastres.](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)
 >
 >
 
@@ -44,7 +45,7 @@ Esta é a melhor opção se não tiver configurado a Recuperação do Local de A
 
 - Para saber mais sobre como implementar uma estratégia de recuperação de desastres e alta disponibilidade, consulte [a recuperação de desastres e a elevada disponibilidade para aplicações Azure.](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
-- Para desenvolver uma compreensão técnica detalhada das capacidades de uma plataforma em nuvem, consulte [a orientação técnica de resiliência do Azure](/azure/data-lake-store/data-lake-store-disaster-recovery-guidance).
+- Para desenvolver uma compreensão técnica detalhada das capacidades de uma plataforma em nuvem, consulte [a orientação técnica de resiliência do Azure](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
 
 
 - Se as instruções não forem claras, ou se pretender que a Microsoft faça as operações em seu nome, contacte [o Apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)ao Cliente .

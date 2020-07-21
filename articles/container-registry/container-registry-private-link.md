@@ -2,24 +2,28 @@
 title: Configurar link privado
 description: Crie um ponto final privado num registo de contentores e permita o acesso a uma ligação privada numa rede virtual local. O acesso a ligações privadas é uma característica do nível de serviço Premium.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/26/2020
+ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509343"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523847"
 ---
-# <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configure Azure Private Link para um registo de contentores Azure 
+# <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link
 
-Limitar o acesso a um registo atribuindo endereços IP privados de rede virtual aos pontos finais de registo utilizando [o Azure Private Link](../private-link/private-link-overview.md). O tráfego de rede entre os clientes da rede virtual e o registo atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
 
-Pode [configurar as definições de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para o seu ponto final privado, de modo a que as definições resolvam o endereço IP privado atribuído pelo registo. Com a configuração do DNS, os clientes e serviços na rede podem continuar a aceder ao registo no nome de domínio totalmente qualificado do registo, como *myregistry.azurecr.io*.
+Limitar o acesso a um registo atribuindo endereços IP privados de rede virtual aos pontos finais do registo e utilizando o [Azure Private Link](../private-link/private-link-overview.md). O tráfego de rede entre os clientes da rede virtual e os pontos finais privados do registo atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública. O Private Link também permite o acesso ao registo privado a partir das instalações através do [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou de um [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+
+Pode [configurar as definições de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para os pontos finais privados do registo, de modo a que as definições resolvam o endereço IP privado atribuído pelo registo. Com a configuração do DNS, os clientes e serviços na rede podem continuar a aceder ao registo no nome de domínio totalmente qualificado do registo, como *myregistry.azurecr.io*. 
 
 Esta funcionalidade está disponível no nível de serviço de registo de contentores **Premium.** Para obter informações sobre os níveis e limites do serviço de registo, consulte [os níveis de registo do contentor Azure](container-registry-skus.md).
+
 
 ## <a name="things-to-know"></a>Aspetos importantes
 
 * Atualmente, a digitalização de imagens usando o Azure Security Center não está disponível num registo configurado com um ponto final privado.
+* Atualmente, um máximo de 10 pontos finais privados podem ser criados para um registo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

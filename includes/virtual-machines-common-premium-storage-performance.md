@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218284"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526044"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
@@ -138,7 +138,7 @@ Para obter mais informações sobre os tamanhos VM e sobre o IOPS, produção e 
 Um pedido de IO é uma unidade de operação de entrada/saída que a sua aplicação irá realizar. Identificar a natureza dos pedidos de IO, aleatórios ou sequenciais, ler ou escrever, pequenos ou grandes, irá ajudá-lo a determinar os requisitos de desempenho da sua aplicação. É importante compreender a natureza dos pedidos de IO, tomar as decisões certas ao conceber a sua infraestrutura de aplicação. Os IOs devem ser distribuídos uniformemente para alcançar o melhor desempenho possível.
 
 O tamanho do IO é um dos fatores mais importantes. O tamanho IO é o tamanho do pedido de operação de entrada/saída gerado pela sua aplicação. O tamanho do IO tem um impacto significativo no desempenho, especialmente no IOPS e largura de banda que a aplicação é capaz de alcançar. A fórmula a seguir mostra a relação entre o IOPS, o tamanho IO e a largura de banda/produção.  
-    ![](media/premium-storage-performance/image1.png)
+    ![Um diagrama que mostra a equação I O P S vezes O tamanho igual a Produção.](media/premium-storage-performance/image1.png)
 
 Algumas aplicações permitem alterar o seu tamanho de IO, enquanto algumas aplicações não. Por exemplo, o SQL Server determina o tamanho ideal do IO em si e não fornece aos utilizadores quaisquer botões para alterá-lo. Por outro lado, a Oracle fornece um parâmetro chamado [DB \_ BLOCK \_ SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) utilizando o qual pode configurar o tamanho do pedido de E/S da base de dados.
 
@@ -371,17 +371,17 @@ Por exemplo, no SQL Server, definir o valor MAXDOP para uma consulta a "4" infor
 
 *Profundidade de fila ideal*  
 O valor de profundidade de fila muito elevado também tem as suas desvantagens. Se o valor de profundidade da fila for demasiado elevado, a aplicação tentará conduzir IOPS muito elevado. A menos que a aplicação tenha discos persistentes com IOPS suficientes, isso pode afetar negativamente as latências da aplicação. A fórmula seguinte mostra a relação entre iops, latência e profundidade de fila.  
-    ![](media/premium-storage-performance/image6.png)
+    ![Um diagrama que mostra a equação I O P S vezes latência é igual a profundidade de fila.](media/premium-storage-performance/image6.png)
 
 Não deve configurar a Profundidade da Fila a qualquer valor elevado, mas a um valor ideal, que pode fornecer IOPS suficiente para a aplicação sem afetar as latências. Por exemplo, se a latência da aplicação precisar de ser de 1 milissegundo, a Profundidade de Fila necessária para atingir 5.000 IOPS é, QD = 5000 x 0,001 = 5.
 
 *Profundidade da fila para volume listrado*  
 Para um volume listrado, mantenha uma profundidade de fila suficientemente alta para que, cada disco tenha uma profundidade de fila de pico individualmente. Por exemplo, considere uma aplicação que empurre uma profundidade de fila de 2 e há quatro discos na listra. Os dois pedidos de IO irão para dois discos e os restantes dois discos ficarão inativos. Portanto, configurar a profundidade da fila de modo que todos os discos possam estar ocupados. A fórmula abaixo mostra como determinar a profundidade da fila dos volumes listrados.  
-    ![](media/premium-storage-performance/image7.png)
+    ![Um diagrama que mostra a equação Q D por Disco vezes o número de colunas por volume é igual a Q D de Volume Listrado.](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitação
 
 As disposições de Armazenamento Azure Premium especificaram o número de IOPS e Depute dependendo dos tamanhos de VM e dos tamanhos do disco que escolher. Sempre que a sua aplicação tentar conduzir IOPS ou Produção acima destes limites do que o VM ou o disco podem manusear, o Premium Storage irá estrangulá-lo. Isto manifesta-se sob a forma de desempenho degradado na sua aplicação. Isto pode significar maior latência, menor produção ou iops mais baixo. Se o Armazenamento Premium não acelerar, a sua aplicação poderá falhar completamente excedendo o que os seus recursos são capazes de alcançar. Assim, para evitar problemas de desempenho devido a estrangulamento, sempre fornecendo recursos suficientes para a sua aplicação. Tome em consideração o que discutimos nas secções de tamanhos de VM e tamanhos de disco acima. O benchmarking é a melhor maneira de descobrir quais os recursos necessários para hospedar a sua aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 

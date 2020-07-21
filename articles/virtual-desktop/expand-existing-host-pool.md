@@ -1,5 +1,5 @@
 ---
-title: Expandir o pool de anfitriões existente com novos anfitriões de sessão - Azure
+title: Expandir piscina de anfitriões existente com novas sessão anfitriões primavera 2020 - Azure
 description: Como expandir um pool de anfitriões existente com novos anfitriões de sessão no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eee6f34124f8b286deff278c6c3d1038b595357
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b23cee72af7f8262fdd552c2d4c26c608b68a1e4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259875"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527613"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir uma piscina de anfitriões existente com novos anfitriões de sessão
 
@@ -74,7 +74,7 @@ Para expandir a sua piscina de anfitriões adicionando máquinas virtuais:
 
 12. Selecione o **separador 'Rever + Criar'.** Reveja as suas escolhas e, se tudo estiver bem, selecione **Criar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que expandiu o seu pool de anfitriões existente, pode iniciar sessão num cliente do Windows Virtual Desktop para testá-los como parte de uma sessão de utilizador. Pode ligar-se a uma sessão com qualquer um dos seguintes clientes:
 

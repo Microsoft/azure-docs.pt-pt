@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: a7e44046de3eccab83e8315e6adea150a146e660
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 267d600270e834cf4f1f077452fda7459fac3029
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964197"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525454"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitor Azure para fornecedores de soluções SAP (pré-visualização)
 
-## <a name="overview"></a>Descrição geral  
+## <a name="overview"></a>Descrição Geral  
 
 No contexto do Azure Monitor for SAP Solutions, um *tipo de fornecedor* refere-se a um *fornecedor*específico. Por *exemplo, SAP HANA*, que é configurado para um componente específico dentro da paisagem SAP, como base de dados SAP HANA. Um fornecedor contém as informações de ligação para o componente correspondente e ajuda a recolher dados de telemetria a partir desse componente. Um recurso Azure Monitor for SAP Solutions (também conhecido como recurso de monitor SAP) pode ser configurado com vários fornecedores do mesmo tipo de fornecedor ou vários fornecedores de vários tipos de fornecedores.
    
@@ -82,4 +82,4 @@ Para configurar o fornecedor do Microsoft SQL Server, são necessários o ID do 
 ## <a name="next-steps"></a>Próximos passos
 
 - Crie o seu primeiro recurso Azure Monitor para soluções SAP.
-- Tem alguma dúvida sobre o Azure Monitor para soluções SAP? Consulte a secção [de PERGUNTAS Frequentes](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq)
+- Tem alguma dúvida sobre o Azure Monitor para soluções SAP? Consulte a secção [de PERGUNTAS Frequentes](./azure-monitor-faq.md)

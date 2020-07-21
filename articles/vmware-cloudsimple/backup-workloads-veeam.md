@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025134"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525046"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Apoiar VMs de carga de trabalho na CloudSimple Private Cloud usando Veeam B&R
 
@@ -194,7 +195,7 @@ Ligue a sua rede virtual à Nuvem Privada seguindo as instruções na [Ligação
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Configure armazenamento de bolhas Azure para retenção de dados a longo prazo
 
 1. Crie uma conta de armazenamento para fins gerais (GPv2) de tipo padrão e um recipiente blob, conforme descrito no vídeo da Microsoft [Getting Started with Azure Storage](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
-2. Crie um recipiente de armazenamento Azure, conforme descrito na referência [Do Recipiente Criar.](https://docs.microsoft.com/rest/api/storageservices/create-container)
+2. Crie um recipiente de armazenamento Azure, conforme descrito na referência [Do Recipiente Criar.](/rest/api/storageservices/create-container)
 2. Descarregue o `azcopy` utilitário da linha de comando para Linux da Microsoft. Pode utilizar os seguintes comandos na casca de choque no CentOS 7.5.
 
     ```
@@ -205,7 +206,7 @@ Ligue a sua rede virtual à Nuvem Privada seguindo as instruções na [Ligação
     sudo yum -y install icu
     ```
 
-3. Utilize o `azcopy` comando para copiar ficheiros de cópia de e para o recipiente blob.  Consulte [os dados de transferência com a AzCopy no Linux](../storage/common/storage-use-azcopy-linux.md) para obter comandos detalhados.
+3. Utilize o `azcopy` comando para copiar ficheiros de cópia de e para o recipiente blob.  Consulte [os dados de transferência com a AzCopy no Linux](../storage/common/storage-use-azcopy-v10.md) para obter comandos detalhados.
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>vCenter consola de Nuvem Privada: Instalar Veeam B&R
 
@@ -290,8 +291,8 @@ Para desescalar os privilégios, veja [os privilégios de De-escalate.](escalate
 * [Criar uma máquina virtual Linux no portal Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Como anexar um disco de dados gerido a um Windows VM no portal Azure](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Começar com Azure Storage - Vídeo](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [Criar Recipiente](https://docs.microsoft.com/rest/api/storageservices/create-container)
-* [Transferir dados com o AzCopy no Linux](../storage/common/storage-use-azcopy-linux.md)
+* [Criar Recipiente](/rest/api/storageservices/create-container)
+* [Transferir dados com o AzCopy no Linux](../storage/common/storage-use-azcopy-v10.md)
 
 ### <a name="vmware-references"></a>Referências VMware
 
