@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499397"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicações de produção de perfis em Azure com Insights de Aplicação
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Ativar o Profiler de Insights de Aplicação para a sua aplicação
@@ -29,7 +30,7 @@ Se ativou o Profiler mas não está a ver vestígios, consulte o nosso [guia de 
 
 ## <a name="view-profiler-data"></a>Ver dados do Profiler
 
-Para o Profiler carregar vestígios, a sua aplicação deve estar a lidar ativamente com pedidos. Se estiver a fazer uma experiência, pode gerar pedidos para a sua aplicação web utilizando [testes de desempenho do Application Insights.](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test) Se tiver o Profiler recentemente ativado, pode fazer um teste de carga curto. Enquanto o teste de carga estiver em execução, selecione o botão **Profile Now** no painel [ **de definições** ](profiler-settings.md)do perfil . Quando o Profiler está a funcionar, perfis aleatoriamente cerca de uma vez por hora e durante uma duração de dois minutos. Se a sua aplicação estiver a lidar com um fluxo constante de pedidos, o Profiler envia vestígios a cada hora.
+Para o Profiler carregar vestígios, a sua aplicação deve estar a lidar ativamente com pedidos. Se estiver a fazer uma experiência, pode gerar pedidos para a sua aplicação web utilizando [testes de desempenho do Application Insights.](/vsts/load-test/app-service-web-app-performance-test) Se tiver o Profiler recentemente ativado, pode fazer um teste de carga curto. Enquanto o teste de carga estiver em execução, selecione o botão **Profile Now** no painel [ **de definições** ](profiler-settings.md)do perfil . Quando o Profiler está a funcionar, perfis aleatoriamente cerca de uma vez por hora e durante uma duração de dois minutos. Se a sua aplicação estiver a lidar com um fluxo constante de pedidos, o Profiler envia vestígios a cada hora.
 
 Depois de a sua aplicação receber algum tráfego e o Profiler ter tido tempo para carregar os vestígios, deverá ter vestígios para visualizar. Este processo pode demorar 5 a 10 minutos. Para visualizar vestígios, no painel **performance,** selecione **Take Actions**e, em seguida, selecione o botão **Traces Profiler.**
 

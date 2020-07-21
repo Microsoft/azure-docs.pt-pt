@@ -6,11 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ecdcc8a84cdccb05ec514003d63f808583d719c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a59b6658e6ea0229f65492b20b5f5f2882d12a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797688"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499244"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Envie IDs de contexto de utilizador para permitir experiências de utilização em Azure Application Insights
 
@@ -18,10 +19,10 @@ ms.locfileid: "83797688"
 
 O Application Insights permite-lhe monitorizar e rastrear os seus utilizadores através de um conjunto de ferramentas de utilização do produto:
 
-- [Utilizadores, Sessões, Eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [Funis](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [Retenção](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention) Coortes
-- [Livros](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Utilizadores, Sessões, Eventos](./usage-segmentation.md)
+- [Funis](./usage-funnels.md)
+- [Retenção](./usage-retention.md) Coortes
+- [Livros](../platform/workbooks-overview.md)
 
 Para acompanhar o que um utilizador faz ao longo do tempo, o Application Insights necessita de um ID para cada utilizador ou sessão. Inclua os seguintes IDs em cada evento personalizado ou vista de página.
 
@@ -41,11 +42,11 @@ Os IDs do utilizador devem persistir em todas as sessões do utilizador para aco
 
 O ID deve ser um complexo de cordas guid ou outro o suficiente para identificar cada utilizador de forma única. Por exemplo, pode ser um número longo e aleatório.
 
-Se o ID contiver informações de identificação pessoal sobre o utilizador, não é um valor apropriado enviar para o Application Insights como ID do utilizador. Pode enviar um ID tal como um [ID de utilizador autenticado,](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users)mas não preenche o requisito de ID do utilizador para cenários de utilização.
+Se o ID contiver informações de identificação pessoal sobre o utilizador, não é um valor apropriado enviar para o Application Insights como ID do utilizador. Pode enviar um ID tal como um [ID de utilizador autenticado,](./api-custom-events-metrics.md#authenticated-users)mas não preenche o requisito de ID do utilizador para cenários de utilização.
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET apps: Definir o contexto do utilizador num ITelemetryInitializer
 
-Crie um inicializador de telemetria, conforme descrito em detalhe [aqui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Passe a identificação da sessão através da telemetria do pedido, e desempenhe o Context.User.Id e o Context.Session.Id.
+Crie um inicializador de telemetria, conforme descrito em detalhe [aqui](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer). Passe a identificação da sessão através da telemetria do pedido, e desempenhe o Context.User.Id e o Context.Session.Id.
 
 Este exemplo define o ID do utilizador a um identificador que expira após a sessão. Se possível, utilize um ID do utilizador que persista em todas as sessões.
 
@@ -127,7 +128,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para ativar experiências de utilização, comece a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página.](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)
+- Para ativar experiências de utilização, comece a enviar [eventos personalizados](./api-custom-events-metrics.md#trackevent) ou [vistas de página.](./api-custom-events-metrics.md#page-views)
 - Se já envia eventos personalizados ou vistas de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
     - [Visão geral do uso](usage-overview.md)
     - [Users, Sessions, and Events](usage-segmentation.md) (Utilizadores, Sessões e Eventos)

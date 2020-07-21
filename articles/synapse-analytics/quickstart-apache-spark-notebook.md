@@ -9,14 +9,14 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 1ec73c07d97a0e400e048e77ba6a30a6a12c0fc4
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194914"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496252"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark (pré-visualização) em Azure Synapse Analytics usando ferramentas web
+# <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web
 
 Neste arranque rápido, você aprende a criar uma piscina Apache Spark (pré-visualização) em Azure Synapse usando ferramentas web. Em seguida, aprende a ligar-se à piscina Apache Spark e a executar consultas Spark SQL contra ficheiros e tabelas. O Apache Spark permite uma análise de dados e computação de clusters rápidas através do processamento dentro da memória. Para obter informações sobre a Spark in Azure Synapse, consulte [a visão geral: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
 
@@ -139,7 +139,7 @@ Uma vez que os encargos para a piscina são muitas vezes mais do que os encargos
 
 Para garantir que a instância Spark seja desligada, termine quaisquer sessões ligadas (cadernos). A piscina fecha quando o **tempo de marcha** lenta especificado na piscina Apache Spark é atingido. Também pode selecionar a **sessão final** a partir da barra de estado na parte inferior do caderno.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, você aprendeu a criar uma piscina Apache Spark Azure Synapse e executar uma consulta básica spark SQL.
 

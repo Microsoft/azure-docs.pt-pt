@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 60e3529e68183488016e40211730412da8e3e0bb
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564614"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496218"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Quickstart: Começa com o Azure Sentinel
 
@@ -91,23 +91,26 @@ Pode criar um novo livro de raiz ou usar um livro embutido como base para o seu 
 
 A seguinte consulta de amostra permite-lhe comparar tendências de tráfego ao longo de semanas. Pode facilmente alternar qual o fornecedor de dispositivo e fonte de dados em que executou a consulta. Este exemplo utiliza SecurityEvent a partir do Windows, pode alterá-lo para funcionar no AzureActivity ou CommonSecurityLog em qualquer outra firewall.
 
-     |where DeviceVendor == "Palo Alto Networks":
-      // week over week query
-      SecurityEvent
-      | where TimeGenerated > ago(14d)
-      | summarize count() by bin(TimeGenerated, 1d)
-      | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
-
+```console
+ |where DeviceVendor == "Palo Alto Networks":
+  // week over week query
+  SecurityEvent
+  | where TimeGenerated > ago(14d)
+  | summarize count() by bin(TimeGenerated, 1d)
+  | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
+```
 
 É melhor criar uma consulta que incorpore dados de múltiplas fontes. Pode criar uma consulta que analise os registos de auditoria do Azure Ative Directory para novos utilizadores que acabam de ser criados e, em seguida, verifique os seus registos Azure para ver se o utilizador começou a fazer alterações na atribuição de funções dentro de 24 horas após a criação. Aquela atividade suspeita apareceria neste painel de instrumentos:
 
-    AuditLogs
-    | where OperationName == "Add user"
-    | project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
-    | join (AzureActivity
-    | where OperationName == "Create role assignment"
-    | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
-    | project-away user1
+```console
+AuditLogs
+| where OperationName == "Add user"
+| project AddedTime = TimeGenerated, user = tostring(TargetResources[0].userPrincipalName)
+| join (AzureActivity
+| where OperationName == "Create role assignment"
+| project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
+| project-away user1
+```
 
 Pode criar diferentes livros baseados no papel da pessoa que olha para os dados e para o que procura. Por exemplo, pode criar um livro de trabalho para a sua administração de rede que inclui os dados de firewall. Também pode criar livros com base na frequência com que pretende olhar para eles, se há coisas que quer rever diariamente, e outros itens que pretende verificar uma vez por hora, por exemplo, que talvez queira ver os seus sign-ins Azure AD a cada hora para procurar anomalias. 
 
@@ -123,7 +126,7 @@ Para ver todas as deteções fora da caixa, vá ao **Analytics** e, em seguida, 
 
 Para obter mais informações sobre a obtenção de deteções fora da caixa, consulte [Tutorial: Obter analíticos incorporados.](tutorial-detect-threats-built-in.md)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste arranque rápido, aprendeu a começar a usar o Azure Sentinel. Continue ao tutorial para [detetar ameaças.](tutorial-detect-threats-built-in.md)
 > [!div class="nextstepaction"]
 > [Crie regras de deteção de ameaças personalizadas](tutorial-detect-threats-custom.md) para automatizar as suas respostas a ameaças.

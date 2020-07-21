@@ -1,5 +1,5 @@
 ---
-title: Melhorar o desempenho do índice de lojas de colunas
+title: Melhorar o desempenho do índice de loja de colunas (pré-visualização de espaços de trabalho)
 description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice de loja de colunas comprime em cada grupo de fila.
 services: synapse-analytics
 author: kevinvngo
@@ -11,14 +11,14 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1f3667c088c5f7300317ea02ca19a72e4e62905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c885bce5ca17d5919ec134d179f6009e91a969cc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81431036"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495487"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizar a qualidade do grupo de remo para a loja de colunas
+# <a name="maximizing-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do grupo de linha para o desempenho do índice de loja de colunas
 
 A qualidade do grupo rowgroup é determinada pelo número de linhas num grupo de linhas. Aumentar a memória disponível pode maximizar o número de linhas que um índice de loja de colunas comprime em cada grupo de linha.  Utilize estes métodos para melhorar as taxas de compressão e o desempenho da consulta para os índices de loja de colunas.
 
@@ -139,7 +139,7 @@ O tamanho do DWU e a classe de recursos do utilizador em conjunto determinam a q
 - Para aumentar os DWUs, veja [como dimensionar o desempenho?](../sql-data-warehouse/quickstart-scale-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - Para alterar a classe de recursos para uma consulta, consulte [Alterar um exemplo de classe de recursos do utilizador](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para encontrar mais formas de melhorar o desempenho no Synapse SQL, consulte a [visão geral](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)do Desempenho .
 

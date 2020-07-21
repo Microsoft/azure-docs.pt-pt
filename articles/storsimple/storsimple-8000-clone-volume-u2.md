@@ -4,26 +4,22 @@ description: Descreve os diferentes tipos de clones e utilização, e explica co
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 12/05/2017
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ddc7d9e359fbb43680ae093c4e6cd2b9fb1ab2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514977"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496150"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gestor de Dispositivos do StorSimple no portal do Azure para clonar um volume
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve como pode utilizar um conjunto de backup para clonar um volume individual através da lâmina do **catálogo Backup.** Também explica a diferença entre clones *transitórios* e *permanentes.* A orientação neste tutorial aplica-se a todos os dispositivos da série StorSimple 8000 em execução Update 3 ou posterior.
 
@@ -31,7 +27,7 @@ A lâmina de **catálogo de backup** do serviço StorSimple Device Manager exibe
 
  ![Lista de conjuntos de backup](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
 
-## <a name="considerations-for-cloning-a-volume"></a>Considerações para clonagem de um volume
+## <a name="considerations-for-cloning-a-volume"></a>Considerações para a clonagem de um volume
 
 Considere as seguintes informações ao clonar um volume.
 
@@ -51,7 +47,7 @@ Considere as seguintes informações ao clonar um volume.
 
 Pode criar um clone no mesmo dispositivo, outro dispositivo ou até mesmo um aparelho em nuvem utilizando um instantâneo local ou em nuvem.
 
-O procedimento abaixo descreve como criar um clone a partir do catálogo de backup.  Um método alternativo para iniciar o clone é ir a **Volumes,** selecionar um volume, em seguida, clicar com o botão direito para invocar o menu de contexto e selecionar **Clone**.
+O procedimento abaixo descreve como criar um clone a partir do catálogo de backup.  
 
 Execute os seguintes passos para criar um clone do seu volume a partir do catálogo de backup.
 

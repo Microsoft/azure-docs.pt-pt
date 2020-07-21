@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72025933"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499924"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instale o ambiente ibm zD&T dev/test em Azure
 
@@ -56,13 +56,13 @@ Este artigo mostra-lhe como configurar a Z Development and Test Environment (zD&
 
 ## <a name="create-the-base-image-and-connect"></a>Crie a imagem base e conecte-se
 
-1. No portal Azure, [crie um VM](/azure/virtual-machines/linux/quick-create-portal) com a configuração do sistema operativo que pretende. Este artigo assume um VM B4ms (com 4 vCPUs e 16 GB de memória) executando Ubuntu 16.04.
+1. No portal Azure, [crie um VM](../../../linux/quick-create-portal.md) com a configuração do sistema operativo que pretende. Este artigo assume um VM B4ms (com 4 vCPUs e 16 GB de memória) executando Ubuntu 16.04.
 
 2. Após a criação do VM, abra as portas de entrada 22 para SSH, 21 para FTP e 9443 para o servidor web.
 
 3. Obtenha as credenciais SSH mostradas na lâmina **de visão geral** do VM através do botão **Connect.** Selecione o separador **SSH** e copie o comando de início de ssh para a área de transferência.
 
-4. Inicie sessão numa [casca bash](/azure/cloud-shell/quickstart) do seu PC local e cole o comando. Será na forma **ssh. \<user id\> \@ \<IP Address\> ** Quando solicitado para as suas credenciais, insira-as para estabelecer uma ligação com o seu diretório home.
+4. Inicie sessão numa [casca bash](../../../../cloud-shell/quickstart.md) do seu PC local e cole o comando. Será na forma **ssh. \<user id\> \@ \<IP Address\> ** Quando solicitado para as suas credenciais, insira-as para estabelecer uma ligação com o seu diretório home.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copie o ficheiro de instalação para o servidor
 
@@ -136,6 +136,6 @@ Tenha em mente que, quando o servidor web começa, funciona sob o ID do utilizad
 
 3. Cole o URL num navegador web para abrir o componente de gestão para a instalação do zD&T.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar uma Distribuição Controlada de Desenvolvedores de Aplicações (ADCD) em IBM zD&T v1](./demo.md)

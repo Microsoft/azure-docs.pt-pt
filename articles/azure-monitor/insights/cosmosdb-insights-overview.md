@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 3fd4bcd13b4d92d2c6e61d10ae9e62996b5dfcf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8043dfb7fdda972d4ede6798d07355936b23bf93
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945499"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498921"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Para visualizar a utilização e desempenho das suas contas de armazenamento em 
 
     ![Screenshot do livro de visão geral da Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Em **visão geral,** a tabela apresenta métricas interativas de Azure Cosmos DB. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
 
@@ -78,7 +78,7 @@ Selecione **Falhas** no topo da página e a parte de **Falhas** do modelo de liv
 | `201 Created` | Uma operação POST para criar um recurso é bem sucedida. |
 | `404 Not Found` | A operação está a tentar agir com base num recurso que já não existe. Por exemplo, o recurso pode já ter sido eliminado. |
 
-Para obter uma lista completa de códigos de estado, consulte o [artigo de código de estado Azure Cosmos DB HTTP](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Para obter uma lista completa de códigos de estado, consulte o [artigo de código de estado Azure Cosmos DB HTTP](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Capacidade
 
@@ -98,7 +98,7 @@ Assim, no exemplo abaixo vê-se que `eastus-billingint` está predominantemente 
 
 ## <a name="pin-export-and-expand"></a>Pin, exportação e expansão
 
-Pode fixar qualquer uma das secções métricas a um [Painel de Instrumentos Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) selecionando o ícone de pino de pressão no canto superior direito da secção.
+Pode fixar qualquer uma das secções métricas a um [Painel de Instrumentos Azure](../../azure-portal/azure-portal-dashboards.md) selecionando o ícone de pino de pressão no canto superior direito da secção.
 
 ![Pino de secção métrica para o exemplo do painel de instrumentos](./media/cosmosdb-insights-overview/pin.png)
 
@@ -126,6 +126,6 @@ Para obter orientações sobre resolução de problemas, consulte o artigo dedic
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
+* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
 
 * Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)

@@ -3,11 +3,12 @@ title: Monitorização de utilização e desempenho de aplicações de ambiente 
 description: Analise a utilização e o desempenho da sua aplicação de ambiente de trabalho do Windows com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 1b8909c47594ebd752035ca88b23d4b836345f88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb602536e1b8bbc987c4ba366e2007163c814ec
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718789"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499193"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico
 
@@ -72,9 +73,9 @@ using Microsoft.ApplicationInsights;
 
 Por predefinição, este SDK recolherá e armazenará o nome do computador do sistema que emite telemetria.
 
-O nome do computador é usado pelo nível de preços da Application Insights [Legacy Enterprise (Per Node)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) para efeitos de faturação interna. Por predefinição, se utilizar um inicializador de telemetria para `telemetry.Context.Cloud.RoleInstance` substituir, será enviada uma propriedade separada `ai.internal.nodeName` que ainda conterá o valor do nome do computador. Este valor não será armazenado com a telemetria Application Insights, mas é utilizado internamente para permitir uma retrocompatibilidade com o modelo de faturação baseado em nó legado.
+O nome do computador é usado pelo nível de preços da Application Insights [Legacy Enterprise (Per Node)](./pricing.md#legacy-enterprise-per-node-pricing-tier) para efeitos de faturação interna. Por predefinição, se utilizar um inicializador de telemetria para `telemetry.Context.Cloud.RoleInstance` substituir, será enviada uma propriedade separada `ai.internal.nodeName` que ainda conterá o valor do nome do computador. Este valor não será armazenado com a telemetria Application Insights, mas é utilizado internamente para permitir uma retrocompatibilidade com o modelo de faturação baseado em nó legado.
 
-Se estiver no [nível de preços da Legacy Enterprise (Per Node)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) e simplesmente precisar de substituir o armazenamento do nome do computador, utilize um inicializador de telemetria:
+Se estiver no [nível de preços da Legacy Enterprise (Per Node)](./pricing.md#legacy-enterprise-per-node-pricing-tier) e simplesmente precisar de substituir o armazenamento do nome do computador, utilize um inicializador de telemetria:
 
 **Escreva telemetriaInitializador personalizado como abaixo.**
 
@@ -115,7 +116,7 @@ Instantiizar o inicializador no `Program.cs` `Main()` método abaixo definindo a
 
 ## <a name="override-transmission-of-computer-name"></a>Sobrepor a transmissão do nome do computador
 
-Se não estiver no [nível de preços da Legacy Enterprise (Per Node)](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) e desejar impedir completamente o envio de qualquer telemetria que contenha o nome do computador, tem de utilizar um processador de telemetria.
+Se não estiver no [nível de preços da Legacy Enterprise (Per Node)](./pricing.md#legacy-enterprise-per-node-pricing-tier) e desejar impedir completamente o envio de qualquer telemetria que contenha o nome do computador, tem de utilizar um processador de telemetria.
 
 ### <a name="telemetry-processor"></a>Processador de telemetria
 
@@ -171,11 +172,10 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> Embora possa utilizar tecnicamente um processador de telemetria como descrito acima, mesmo que esteja no [nível de preços da Legacy Enterprise (Per Node),](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier)isso resultará no potencial de faturação excessiva devido à incapacidade de distinguir adequadamente os nós para o preço por nó.
+> Embora possa utilizar tecnicamente um processador de telemetria como descrito acima, mesmo que esteja no [nível de preços da Legacy Enterprise (Per Node),](./pricing.md#legacy-enterprise-per-node-pricing-tier)isso resultará no potencial de faturação excessiva devido à incapacidade de distinguir adequadamente os nós para o preço por nó.
 
 ## <a name="next-steps"></a>Próximos passos
-* [Create a dashboard (Criar um dashboard)](../../azure-monitor/app/overview-dashboard.md)
+* [Criar um dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)
-
+* [Escrever consultas da Análise](../log-query/log-query-overview.md)

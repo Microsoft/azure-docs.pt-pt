@@ -1,5 +1,5 @@
 ---
-title: Use imagens VM partilhadas para criar uma escala definida em Azure
+title: Utilize imagens VM partilhadas para criar uma escala definida no Azure CLI
 description: Aprenda a usar o CLI Azure para criar imagens VM partilhadas para usar para implantar conjuntos de escala de máquina virtual em Azure.
 author: axayjo
 tags: azure-resource-manager
@@ -10,11 +10,12 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 8d129ae2c6048e592bfc43f07ee609ce930aa3fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdcd11b6bd9c773e8018ee303564fff6abd098a6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558776"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494909"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Crie e utilize imagens partilhadas para conjuntos de escala de máquina virtual com o Azure CLI 2.0
 

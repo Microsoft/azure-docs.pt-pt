@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945465"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498961"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorizar o seu serviço de cofre de chaves com o Azure Monitor para o Cofre de Chaves (pré-visualização)
 O Azure Monitor for Key Vault (pré-visualização) proporciona uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
@@ -24,7 +24,7 @@ Antes de entrar na experiência, deve entender como apresenta e visualiza a info
 -   **Faça uma análise** de um cofre chave para fazer análises detalhadas.
 -    **Personalizável** onde pode alterar quais as métricas que deseja ver, modificar ou definir limiares que se alinham com os seus limites, e guardar o seu próprio livro de trabalho. Os gráficos do livro podem ser fixados aos dashboards Azure.
 
-O Azure Monitor para Key Vault combina registos e métricas para fornecer uma solução de monitorização global. Todos os utilizadores podem aceder aos dados de monitorização baseados em métricas, no entanto a inclusão de visualizações baseadas em registos pode exigir que os utilizadores permitam que os utilizadores possam ativar o [registo do seu Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+O Azure Monitor para Key Vault combina registos e métricas para fornecer uma solução de monitorização global. Todos os utilizadores podem aceder aos dados de monitorização baseados em métricas, no entanto a inclusão de visualizações baseadas em registos pode exigir que os utilizadores permitam que os utilizadores possam ativar o [registo do seu Cofre de Chaves Azure](../../key-vault/general/logging.md).
 
 ## <a name="configuring-your-key-vaults-for-monitoring"></a>Configurar os seus cofres-chave para monitorização
 
@@ -39,7 +39,7 @@ O Azure Monitor para Key Vault combina registos e métricas para fornecer uma so
 
 3. Uma vez guardadas as definições de diagnóstico, poderá visualizar todos os gráficos e visualizações baseados em registos por baixo dos Insights do Cofre de Chaves. Por favor, note que pode levar vários minutos a horas para começar a povoar os troncos.
 
-4. Para obter assistência adicional sobre como ativar registos de diagnóstico para o seu serviço Key Vault, leia o [guia completo](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+4. Para obter assistência adicional sobre como ativar registos de diagnóstico para o seu serviço Key Vault, leia o [guia completo](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Vista do Monitor Azure
 
@@ -75,7 +75,7 @@ Existe codificação de cores condicional ou massas de calor para colunas no liv
 
 O livro apresenta Sucessos (códigos de estado 2xx), Erros de Autenticação (códigos de estado 401/403), Throttling (429 códigos de estado) e Outras Falhas (códigos de estado 4xx).
 
-Para melhor entender o que cada um dos códigos de estado representam, recomendamos a leitura através da documentação sobre o [estado do Cofre da Chave Azure e os códigos de resposta](https://docs.microsoft.com/azure/key-vault/authentication-requests-and-responses).
+Para melhor entender o que cada um dos códigos de estado representam, recomendamos a leitura através da documentação sobre o [estado do Cofre da Chave Azure e os códigos de resposta](../../key-vault/general/authentication-requests-and-responses.md).
 
 ## <a name="operations--latency-workbook"></a>Trabalho de & de latência de operações
 
@@ -120,7 +120,7 @@ O livro de operações permite que os utilizadores mergulhem profundamente nos d
 Os utilizadores também podem estender pontos de vista com base em tipos de transação específicos na tabela superior, que atualiza dinamicamente a tabela inferior, onde os utilizadores podem ver todos os detalhes de funcionamento num painel de contexto pop-up.
 
 >[!NOTE]
-> Note que os utilizadores devem ter as definições de diagnóstico ativadas para visualizar este livro. Para saber mais sobre a definição de diagnóstico, leia mais sobre [a Azure Key Vault Logging](https://docs.microsoft.com/azure/key-vault/general/logging).
+> Note que os utilizadores devem ter as definições de diagnóstico ativadas para visualizar este livro. Para saber mais sobre a definição de diagnóstico, leia mais sobre [a Azure Key Vault Logging](../../key-vault/general/logging.md).
 
 ## <a name="pin-and-export"></a>Pino e exportação
 
@@ -164,7 +164,7 @@ Esta secção irá ajudá-lo com o diagnóstico e resolução de problemas de al
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas de desempenho ou falhas
 
-Para ajudar a resolver problemas relacionados com o cofre que identificar com o Azure Monitor para o Key Vault (pré-visualização), consulte a documentação do [Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/).
+Para ajudar a resolver problemas relacionados com o cofre que identificar com o Azure Monitor para o Key Vault (pré-visualização), consulte a documentação do [Cofre da Chave Azure](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver 200 cofres chave
 
@@ -208,4 +208,4 @@ Pode editar o livro existente, através da utilização do modo de edição, e d
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)

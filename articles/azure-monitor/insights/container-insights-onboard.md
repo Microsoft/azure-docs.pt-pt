@@ -3,24 +3,25 @@ title: Ativar o Monitor Azure para contentores Microsoft Docs
 description: Este artigo descreve como ativar e configurar o Azure Monitor para contentores para que possa entender como o seu recipiente está a funcionar e quais as questões relacionadas com o desempenho que foram identificadas.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d85dd4f1eb89ddba96ec012acb7fb7550800ce7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5131d7b8a357075345b5165398d5fa9fc06b5ad8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800635"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499040"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Ativar o Monitor Azure para contentores
 
 Este artigo fornece uma visão geral das opções disponíveis para a criação do Azure Monitor para contentores para monitorizar o desempenho das cargas de trabalho que são implantadas nos ambientes de Kubernetes e hospedadas em:
 
-- [Serviço de Kubernetes do Azure (AKS)](https://docs.microsoft.com/azure/aks/)  
+- [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versões 3.x e 4.x  
 - [Versão Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 4.x  
 - Um [cluster Kubernetes ativado pelo Arco](../../azure-arc/kubernetes/overview.md)
 
 Também pode monitorizar o desempenho das cargas de trabalho que são implantadas em clusters Kubernetes auto-geridos hospedados em:
 - Azure, usando o [motor AKS](https://github.com/Azure/aks-engine)
-- [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local, utilizando o motor AKS.
+- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local, utilizando o motor AKS.
 
 Pode ativar o Azure Monitor para contentores para uma nova implantação ou para uma ou mais implantações existentes de Kubernetes utilizando qualquer um dos seguintes métodos suportados:
 
@@ -44,7 +45,7 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
    Se optar por criar o espaço de trabalho, pode criá-lo através de: 
    - [Azure Resource Manager](../platform/template-workspace-configuration.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [O portal do Azure](../learn/quick-create-workspace.md) 
+   - [O portal Azure](../learn/quick-create-workspace.md) 
    
    Para obter uma lista dos pares de mapeamento suportados para o espaço de trabalho predefinido, consulte [o mapeamento da região para o Monitor Azure para recipientes](container-insights-region-mapping.md).
 
@@ -62,7 +63,7 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
 
 O Azure Monitor para contentores suporta oficialmente as seguintes configurações:
 
-- Ambientes: Azure Red Hat OpenShift, Kubernetes no local e o motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS no Azure Stack.](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+- Ambientes: Azure Red Hat OpenShift, Kubernetes no local e o motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS no Azure Stack.](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
 - As versões de Kubernetes e a política de suporte são as mesmas que são [suportadas no Serviço Azure Kubernetes (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de rede
@@ -116,7 +117,7 @@ Para ativar o Azure Monitor para recipientes, utilize um dos métodos descritos 
 | Novo cluster Kubernetes | [Criar um cluster AKS utilizando o CLI Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Pode ativar a monitorização de um novo cluster AKS que cria utilizando o Azure CLI. |
 | | [Criar um cluster AKS utilizando o Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Pode ativar a monitorização de um novo cluster AKS que cria utilizando a ferramenta de código aberto Terraform. |
 | | [Crie um cluster OpenShift usando um modelo de Gestor de Recursos Azure](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Pode ativar a monitorização de um novo cluster OpenShift que cria utilizando um modelo pré-configurado do Gestor de Recursos Azure. |
-| | [Criar um cluster OpenShift utilizando o CLI Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Pode ativar a monitorização quando implementar um novo cluster OpenShift utilizando o Azure CLI. |
+| | [Criar um cluster OpenShift utilizando o CLI Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Pode ativar a monitorização quando implementar um novo cluster OpenShift utilizando o Azure CLI. |
 | Cluster Kubernetes existente | [Permitir a monitorização de um cluster AKS utilizando o CLI Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando o Azure CLI. |
 | |[Ativar o cluster AKS utilizando o Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando a ferramenta de código aberto Terraform. |
 | | [Ativar o cluster AKS a partir do Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Pode ativar a monitorização de um ou mais clusters AKS que já estão implantados a partir da página multi-cluster no Azure Monitor. |

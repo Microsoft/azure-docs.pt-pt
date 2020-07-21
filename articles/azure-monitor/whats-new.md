@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 4d061e7a105fc73f7f44c8336df82ff363ee6ded
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203752"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498513"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
@@ -67,21 +67,21 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 - [Envie um registo de atividade azure para log analytics espaço de trabalho usando o modelo de Gestor de Recursos Azure](learn/quick-collect-activity-log-arm.md) - Novo artigo.
 
 #### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Artigos novos e atualizados da reestruturação e consolidação de conteúdos de registo de plataforma
-- [Registos de recursos do Archive Azure para a conta de armazenamento](platform/resource-logs-collect-storage.md)
+- [Registos de recursos do Archive Azure para a conta de armazenamento](./platform/resource-logs.md#send-to-azure-storage)
 - [Esquema de evento de registo de atividade azure](platform/activity-log-schema.md)
 - [Log de atividades Azure](platform/activity-log.md)
 - [Amostras de CLI monitor Azure](samples/cli-samples.md)
 - [Amostras de PowerShell monitor Azure Monitor](samples/powershell-samples.md)
 - [Azure Monitoring REST API walkthrough](platform/rest-api-walkthrough.md)
-- [Azure Resource Logs suportados serviços e esquemas](platform/diagnostic-logs-schema.md)
+- [Azure Resource Logs suportados serviços e esquemas](./platform/resource-logs-schema.md)
 - [Registos de recursos Azure](platform/resource-logs.md)
-- [Recolher e analisar o registo de atividades do Azure no Azure Monitor](platform/activity-log-collect.md)
-- [Recolher registos de recursos Azure no espaço de trabalho Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Recolher e analisar o registo de atividades do Azure no Azure Monitor](./platform/activity-log.md)
+- [Recolher registos de recursos Azure no espaço de trabalho Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos](platform/diagnostic-settings.md)
-- [Exportar o Registo de Atividades Azure](platform/activity-log-export.md)
+- [Exportar o Registo de Atividades Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Visão geral dos registos da plataforma Azure](platform/platform-logs-overview.md)
-- [Stream Azure plataforma registra para um centro de eventos](platform/resource-logs-stream-event-hubs.md)
-- [Ver eventos de registo de atividades do Azure no Azure Monitor](platform/activity-log-view.md)
+- [Stream Azure plataforma registra para um centro de eventos](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [Ver eventos de registo de atividades do Azure no Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 - [Ativar o Monitor Azure para VMs no portal Azure](insights/vminsights-enable-single-vm.md) - Atualizado para incluir O Arco de Azure.
@@ -155,7 +155,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 
 ### <a name="insights"></a>Informações
 - [Monitor Azure para Azure Cache para Redis (pré-visualização)](insights/redis-cache-insights-overview.md) - Novo artigo.
-- [Monitor Key Vault com Monitor Azure para Cofre de Chaves (pré-visualização)](insights/key-vaults-insights-overview.md) - Novo artigo.
+- [Monitor Key Vault com Monitor Azure para Cofre de Chaves (pré-visualização)](./insights/key-vault-insights-overview.md) - Novo artigo.
 
 ### <a name="logs"></a>Registos
 - [Crie & configurar o Log Analytics com PowerShell](platform/powershell-workspace-configuration.md) - Secção de resolução de problemas adicionada.
@@ -280,7 +280,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 
 ### <a name="platform-logs"></a>Registos da plataforma
 
-- [Recolher e analisar o registo de atividades do Azure no Azure Monitor](platform/activity-log-collect.md) - Reescreva melhor a recolha do registo de atividade com definições de diagnóstico.
+- [Recolher e analisar o registo de atividades do Azure no Azure Monitor](./platform/activity-log.md) - Reescreva melhor a recolha do registo de atividade com definições de diagnóstico.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -326,7 +326,7 @@ Múltiplas atualizações como parte da reescrita do conteúdo de extensão de d
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor para Contentores
 
-- [Integre o Azure Ative Directory com o Serviço Azure Kubernetes](../aks/azure-ad-integration.md) - Nota adicionada para criar uma aplicação de cliente para apoiar o cluster ativado pelo RBAC para apoiar o Azure Monitor para contentores.
+- [Integre o Azure Ative Directory com o Serviço Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Nota adicionada para criar uma aplicação de cliente para apoiar o cluster ativado pelo RBAC para apoiar o Azure Monitor para contentores.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
 
@@ -412,8 +412,8 @@ Vários novos artigos para visualizar designer para guia de conversão de livros
 
 ### <a name="platform-logs"></a>Registos da plataforma
 
-- [Recolher registo de atividade azure com definições de diagnóstico- Monitor Azure](platform/diagnostic-settings-legacy.md) - Informações adicionais sobre propriedades alteradas.
-- [Exportar o Registo de Atividades Azure](platform/activity-log-export.md) - Atualizado para alterações de UI. 
+- [Recolher registo de atividade azure com definições de diagnóstico- Monitor Azure](./platform/activity-log.md) - Informações adicionais sobre propriedades alteradas.
+- [Exportar o Registo de Atividades Azure](./platform/activity-log.md#legacy-collection-methods) - Atualizado para alterações de UI. 
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
@@ -450,7 +450,7 @@ Vários novos artigos para visualizar designer para guia de conversão de livros
 
 ### <a name="insights-and-solutions"></a>Insights e soluções
 
-- [Monitor Azure para contentores Perguntas Frequentes](insights/container-insights-faq.md) - Pergunta adicionada nos campos de imagem e nome.
+- [Monitor Azure para contentores Perguntas Frequentes](./faq.md) - Pergunta adicionada nos campos de imagem e nome.
 - [Solução Azure SQL Analytics em Azure Monitor](insights/azure-sql.md) - Base de Dados Atualizada aguarda suporte de instância gerida.
 - [Configure Monitor Azure para recolha de dados de agente de contentores](insights/container-insights-agent-config.md) - Regulação adicional para enrich_container_logs.
 - [Configure os agrupamentos Híbridos Kubernetes com monitor Azure para contentores](insights/container-insights-hybrid-setup.md) - Secção de resolução de problemas adicionada.
@@ -474,19 +474,19 @@ Vários novos artigos para visualizar designer para guia de conversão de livros
 
 Vários artigos atualizados como parte da reestruturação de conteúdos para registos de plataformas com base em nova funcionalidade para configurar o registo de atividades utilizando definições de diagnóstico.
 
-- [Registos de recursos do Archive Azure para a conta de armazenamento](platform/resource-logs-collect-storage.md)
+- [Registos de recursos do Archive Azure para a conta de armazenamento](./platform/resource-logs.md#send-to-azure-storage)
 - [Esquema de evento de registo de atividade azure](platform/activity-log-schema.md)
 - [Limites de serviço do Azure Monitor](service-limits.md)
-- [Recolher e analisar registos de atividades do Azure no espaço de trabalho log Analytics](platform/activity-log-collect.md)
-- [Recolher registo de atividade do Azure com definições de diagnóstico (pré-visualização) - Monitor Azure](platform/diagnostic-settings-legacy.md)
+- [Recolher e analisar registos de atividades do Azure no espaço de trabalho log Analytics](./platform/activity-log.md)
+- [Recolher registo de atividade do Azure com definições de diagnóstico (pré-visualização) - Monitor Azure](./platform/activity-log.md)
 - [Colete registos de atividades Azure em um espaço de trabalho Log Analytics através de inquilinos Azure](platform/activity-log-collect-tenants.md)
-- [Recolher registos de recursos Azure no espaço de trabalho Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Recolher registos de recursos Azure no espaço de trabalho Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Crie uma definição de diagnóstico em Azure utilizando o modelo do Gestor de Recursos](platform/diagnostic-settings-template.md)
 - [Criar definição de diagnóstico para recolher registos e métricas em Azure](platform/diagnostic-settings.md)
-- [Exportar o Registo de Atividades Azure](platform/activity-log-export.md)
+- [Exportar o Registo de Atividades Azure](./platform/activity-log.md#legacy-collection-methods)
 - [Visão geral dos registos da plataforma Azure](platform/platform-logs-overview.md)
 - [Stream Azure monitorizando dados para o centro de eventos](platform/stream-monitoring-data-event-hubs.md)
-- [Stream Azure plataforma registra para um centro de eventos](platform/resource-logs-stream-event-hubs.md)
+- [Stream Azure plataforma registra para um centro de eventos](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### <a name="quickstarts-and-tutorials"></a>Inícios rápidos e tutoriais
 
@@ -494,6 +494,6 @@ Vários artigos atualizados como parte da reestruturação de conteúdos para re
 - [Colete registos de recursos a partir de um Recurso Azure e analise com o Azure Monitor](learn/tutorial-resource-logs.md) - Novo artigo.
 - [Monitorize um recurso Azure com Azure Monitor](learn/quick-monitor-azure-resource.md) - Novo artigo.
    
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Se quiser contribuir para a documentação do Azure Monitor, consulte o [Guia de Contribuintes docs](/contribute/).

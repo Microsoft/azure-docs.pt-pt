@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77663237"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498683"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Soluções de monitorização direcionais no Azure Monitor (Preview)
 Quando adiciona uma solução de monitorização à sua subscrição, é automaticamente implementada por padrão a todos os agentes Windows e Linux ligados ao seu espaço de trabalho Log Analytics.  Pode querer gerir os seus custos e limitar a quantidade de dados recolhidos para uma solução, limitando-os a um determinado conjunto de agentes.  Este artigo descreve como utilizar **o Solution Targeting,** que é uma funcionalidade que lhe permite aplicar um âmbito às suas soluções.
@@ -58,7 +59,7 @@ Aplique uma configuração de âmbito utilizando o seguinte processo.
 Seguem-se os critérios para agentes e soluções que não podem ser utilizados com a orientação de solução.
 
 - A solução que visa apenas aplica-se a soluções que se desdobram aos agentes.
-- A segmentagem da solução aplica-se apenas às soluções fornecidas pela Microsoft.  Não se aplica a soluções [criadas por si ou parceiros.](solutions-creating.md)
+- A segmentagem da solução aplica-se apenas às soluções fornecidas pela Microsoft.  Não se aplica a soluções [criadas por si ou parceiros.](./solutions.md)
 - Só é possível filtrar agentes que se ligam diretamente ao Azure Monitor.  As soluções serão automaticamente implementadas para quaisquer agentes que façam parte de um grupo de gestão de Gestores de Operações conectados, quer estejam ou não incluídos numa configuração de âmbito.
 
 ### <a name="exceptions"></a>Exceções

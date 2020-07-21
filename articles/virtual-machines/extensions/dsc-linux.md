@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698517"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494790"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) é uma plataforma de gestão que pode utilizar para gerir a sua infraestrutura de TI e desenvolvimento com configuração como código.
 
 > [!NOTE]
-> A extensão DSC para Linux e a [extensão da máquina virtual Azure Monitor para o Linux](/azure/virtual-machines/extensions/oms-linux) apresentam atualmente um conflito e não são suportadas numa configuração lado a lado. Não utilize as duas soluções juntas no mesmo VM.
+> A extensão DSC para Linux e a [extensão da máquina virtual Azure Monitor para o Linux](./oms-linux.md) apresentam atualmente um conflito e não são suportadas numa configuração lado a lado. Não utilize as duas soluções juntas no mesmo VM.
 
 A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão instala o agente OMI e DSC em máquinas virtuais Azure. A extensão do DSC também pode fazer as seguintes ações:
 
@@ -41,7 +42,7 @@ A extensão DSCForLinux é publicada e suportada pela Microsoft. A extensão ins
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão DSC Linux suporta todas as [distribuições Linux endossadas em Azure,](/azure/virtual-machines/linux/endorsed-distros) exceto:
+A extensão DSC Linux suporta todas as [distribuições Linux endossadas em Azure,](../linux/endorsed-distros.md) exceto:
 
 | Distribuição | Versão |
 |---|---|
@@ -409,7 +410,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o CLI Azure.
 

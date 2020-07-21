@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c71e4120d127277e8b46f59bfef7fca403847c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253768"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497663"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -25,7 +25,7 @@ ms.locfileid: "85253768"
 
 Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e a utilizá-los para construir fluxos de dados completos e orientados por dados para os seus cenários de movimento de dados e processamento de dados.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamentos lógicos de atividades que, em conjunto, realizam uma tarefa. Por exemplo, um pipeline poderia conter um conjunto de atividades que ingerem e limpam dados de registo, e, em seguida, iniciar um fluxo de dados de mapeamento para analisar os dados do registo. O oleoduto permite-lhe gerir as atividades como um conjunto em vez de cada um individualmente. Você implanta e agenda o oleoduto em vez das atividades de forma independente.
 
 As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados do SQL Server para um Azure Blob Storage. Em seguida, utilize uma atividade de fluxo de dados ou uma atividade de Caderno databricks para processar e transformar dados do armazenamento de bolhas para um pool Azure Synapse Analytics em cima do qual são construídas soluções de relatório de inteligência empresarial.
@@ -108,8 +108,8 @@ Eis como os pipelines são definidos no formato JSON:
 
 Etiqueta | Descrição | Tipo | Necessário
 --- | ----------- | ---- | --------
-name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" </li></ul> | String | Sim
-descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | String | Não
+name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" </li></ul> | Cadeia | Sim
+descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | Cadeia | Não
 atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Sim
 parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
 concurrency | O número máximo de execuções simultâneas que o gasoduto pode ter. Por padrão, não há máximo. Se o limite de concordância for atingido, os gasodutos adicionais são preenchidos até que os anteriores estejam completos | Número | Não 
@@ -141,7 +141,7 @@ As atividades de execução incluem [atividades de movimento de dados](#data-mov
 
 A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
-Etiqueta | Descrição | Necessário
+Etiqueta | Descrição | Obrigatório
 --- | ----------- | ---------
 name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" | Sim</li></ul>
 descrição | Texto que descreve para o que é utilizada a atividade | Sim
@@ -185,8 +185,8 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 Nome JSON | Descrição | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
 tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
-retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
-retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. O padrão é de 30 segundos
+retry | Número máximo de repetições | Integer (Número inteiro) | Não. A predefinição é 0
+retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Integer (Número inteiro) | Não. O padrão é de 30 segundos
 secureOutput | Quando definido como verdadeiro, a saída da atividade é considerada segura e não é registada para monitorização. | Booleano | Não. A predefinição é falso.
 
 ### <a name="control-activity"></a>Atividade de controlo
@@ -206,7 +206,7 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 }
 ```
 
-Etiqueta | Descrição | Necessário
+Etiqueta | Descrição | Obrigatório
 --- | ----------- | --------
 name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&","""\" | Sim</li><ul>
 descrição | Texto que descreve para o que é utilizada a atividade | Sim
@@ -265,10 +265,10 @@ Por exemplo, se um pipeline tiver a Atividade A -> Atividade B, os diferentes ce
     }
 }
 
-`"
+```
 
-## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to a database in Azure SQL Database.
+## <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
+No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na secção **activities**. Nesta amostra, a atividade de [cópias](copy-activity-overview.md) copia dados de um armazenamento Azure Blob para uma base de dados na Base de Dados Azure SQL.
 
 ```json
 {

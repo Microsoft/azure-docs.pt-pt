@@ -8,12 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 03/20/2020
-ms.openlocfilehash: 2579249cc088063d98bb101c7a5b5118e4b07722
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/15/2020
+ms.openlocfilehash: 192673ab2e21046f7af75887ffe13f47420dfbf3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027057"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496779"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Quickstart: Implementar a Pesquisa Cognitiva utilizando um modelo ARM
 
@@ -21,7 +22,7 @@ Este artigo acompanha-o através do processo de utilização de um modelo de Ges
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
@@ -31,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 :::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50,70-85":::
 
@@ -58,7 +59,7 @@ Quando a sua implementação estiver concluída, pode aceder ao seu novo grupo d
 
 Outros quickstarts e tutoriais de Pesquisa Cognitiva baseiam-se neste arranque rápido. Se pretender continuar a trabalhar com os rápidos e tutoriais subsequentes, pode desejar deixar este recurso no lugar. Quando já não é necessário, pode eliminar o grupo de recursos, que elimina o serviço de Pesquisa Cognitiva e recursos relacionados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, criou um serviço de Pesquisa Cognitiva usando um modelo ARM e validou a implementação. Para saber mais sobre a Pesquisa Cognitiva e O Gestor de Recursos Azure, continue para os artigos abaixo.
 

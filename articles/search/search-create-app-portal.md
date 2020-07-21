@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 11dd12fce669d6b6a027eb182d5f9e6e493577ad
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955697"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496757"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Quickstart: Criar uma app de demonstração no portal (Azure Cognitive Search)
 
@@ -31,7 +31,7 @@ Antes de começar, deve ter o seguinte:
 
 + [Microsoft Edge (versão mais recente)](https://www.microsoft.com/edge) ou Google Chrome.
 
-+ Um [índice de pesquisa](search-create-index-portal.md) para usar como base da sua aplicação gerada. 
++ Um [índice de pesquisa](search-what-is-an-index.md) para usar como base da sua aplicação gerada. 
 
   Este quickstart utiliza os dados e índices de amostras de imóveis incorporados porque tem imagens de miniatura (o assistente suporta adicionar imagens à página de resultados). Para criar o índice utilizado neste exercício, executar o assistente **de dados de Importação,** escolhendo a fonte de dados *da amostra real-nos-us.*
 
@@ -41,7 +41,7 @@ Quando o índice estiver pronto a ser utilizado, passe para o próximo passo.
 
 ## <a name="start-the-wizard"></a>Inicie o assistente
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com a sua conta Azure.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta do Azure.
 
 1. [Encontre o seu serviço de pesquisa](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) e na página 'Vista Geral', a partir dos links no meio da página, selecione **Índices**. 
 
@@ -106,7 +106,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Embora a aplicação predefinitiva seja útil para a exploração inicial e pequenas tarefas, a revisão das APIs no início irá ajudá-lo a compreender os conceitos e o fluxo de trabalho a um nível mais profundo:
 

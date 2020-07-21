@@ -1,18 +1,18 @@
 ---
-title: Integração de parceiros meteorológicos
+title: Integração de parceiros de meteorologia
 description: Este artigo descreve como um fornecedor de dados meteorológicos pode integrar-se com o FarmBeats
 author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: d4ceb25b9b81c831ed1b285a875742ebfaa6d24f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232649"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497000"
 ---
-# <a name="weather-partner-integration"></a>Integração de parceiros meteorológicos
+# <a name="weather-partner-integration"></a>Integração de parceiros de meteorologia
 
 Este artigo fornece informações sobre o **Connector** componente estivador Azure FarmBeats que os fornecedores de dados meteorológicos podem desenvolver para se integrarem com os FarmBeats, alavancando as suas APIs e enviando dados meteorológicos para farmbeats. Uma vez que os dados estão disponíveis em FarmBeats, pode ser usado para fusão de dados e para construir modelos de machine learning/inteligência artificial.
 
@@ -36,10 +36,10 @@ Utilizando as informações acima do estivador, o cliente registará um parceiro
 
 As APIs FarmBeats contêm documentação técnica da Swagger. Para obter informações sobre todas as APIs e os respetivos pedidos ou respostas, consulte [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Se você instalou FarmBeats, você pode acessá-lo em[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+Se você instalou FarmBeats, você pode acessá-lo em`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Note que "-api" está anexado ao nome do seu site FarmBeats.
-O ponto final da API será:[https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+O ponto final da API será:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub lib
 
@@ -134,7 +134,7 @@ Este componente será invocado sempre que um utilizador do FarmBeats executa um 
 
 ### <a name="details-of-the-objects"></a>Detalhes dos objetos
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Descrição |
   --- | ---
   Nome  | Nome do modelo de dados meteorológicos |
   Descrição  | Forneça uma descrição significativa do modelo. |
@@ -147,8 +147,8 @@ Este componente será invocado sempre que um utilizador do FarmBeats executa um 
   meteorologia Medidas > AgregaçãoType  | Qualquer um de Nenhum, Média, Máximo, Mínimo, StandardDeviation, Soma, Total
   meteorologia Medidas > Profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da humidade a 10 cm debaixo do solo.
   meteorologia Medidas > Descrição  | Fornecer uma descrição significativa da medição. |
-  **JobType** |  |
-  Nome  | nome do Trabalho - por exemplo, Get_Daily_Forecast; o trabalho que o cliente vai correr para obter dados meteorológicos|
+  **JobType** | **Descrição** |
+  Name  | nome do Trabalho - por exemplo, Get_Daily_Forecast; o trabalho que o cliente vai correr para obter dados meteorológicos|
   pipelineDetails > parâmetros > nome  | nome do parâmetro |
   pipelineDetails > parâmetros > tipo | ou de String, Int, Float, Bool, Array |
   pipelineDetails > parâmetros > isRequired | booleano; verdadeiro, se necessário parâmetro, falso se não; padrão é verdade |
@@ -156,10 +156,10 @@ Este componente será invocado sempre que um utilizador do FarmBeats executa um 
   pipelineDetails > parâmetros > descrição | Descrição do parâmetro |
   Propriedades  | Propriedades adicionais do fabricante.
   Propriedades > **programaRunCommand** | estivador executar comando - este comando será executado quando o cliente executar a tarefa meteorológica. |
-  **MeteorologiaDataLocation** |  |
+  **MeteorologiaDataLocation** | **Descrição** |
   weatherDataModelId  | ID do correspondente WeatherDataModel que foi criado durante a bootstrap|
   localização  | representa latitude, longitude e elevação |
-  Nome | Nome do objeto |
+  Name | Nome do objeto |
   Descrição | Descrição |
   farmId | **opcional** ID da quinta - fornecido pelo cliente como parte do parâmetro de trabalho |
   Propriedades  | Propriedades adicionais do fabricante.
@@ -267,6 +267,6 @@ Para adicionar um novo tipo weatherMeasure, por exemplo "PrecipitationDepth", si
 
 Para obter mais informações sobre a API /ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsSwagger).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora tens um estivador connector que se integra com o FarmBeats. Em seguida, você pode ver como obter dados meteorológicos usando o seu estivador em FarmBeats. Consulte [os dados meteorológicos.](get-weather-data-from-weather-partner.md)

@@ -7,13 +7,14 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: f92fae38d49c51dfe87a68b023ba779e89b0e0bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4408b7d442ce3f4fbb1ea61031295375ae036493
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84295461"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494552"
 ---
-# <a name="disk-bursting"></a>Expansão do disco
+# <a name="managed-disk-bursting"></a>Segurança do disco gerido
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
 ## <a name="virtual-machine-level-bursting"></a>Rebentamento do nível da máquina virtual

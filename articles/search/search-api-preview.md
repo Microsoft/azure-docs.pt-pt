@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 0c0f40144fde49d467ca7fb126a19afa6c76660a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/09/2020
+ms.openlocfilehash: b952d6b6fec9a1ec0dcd8af1a9566e67d3301d77
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246961"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496711"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funcionalidades de pré-visualização em Azure Cognitive Search
 
-Este artigo é uma lista completa de todas as funcionalidades que estão em pré-visualização. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este artigo é uma lista completa de todas as funcionalidades que estão em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As funcionalidades de pré-visualização de que a transição para a disponibilidade geral são removidas desta lista. Se uma funcionalidade não estiver listada abaixo, pode presumir que está geralmente disponível. Para anúncios sobre disponibilidade geral, consulte [Atualizações de Serviço](https://azure.microsoft.com/updates/?product=search) ou [Novidades](whats-new.md).
 
@@ -31,8 +31,8 @@ As funcionalidades de pré-visualização de que a transição para a disponibil
 | [**Competência de procura de entidade personalizada**](cognitive-search-skill-custom-entity-lookup.md ) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
 | [**Competência de deteção pii**](cognitive-search-skill-pii-detection.md) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |
 | [**Enriquecimento incremental**](cognitive-search-incremental-indexing-conceptual.md) | Configuração do indexante| Adiciona o caching a um pipeline de enriquecimento, permitindo-lhe reutilizar a saída existente se uma modificação direcionada, como uma atualização a um skillset ou outro objeto, não alterar o conteúdo. O caching aplica-se apenas a documentos enriquecidos produzidos por um skillset.| Adicione esta definição de configuração usando [Criar Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
-| [**Indexador Cosmos DB: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | Fonte de dados indexante | Para cosmos DB, a SQL API está geralmente disponível, mas MongoDB, Gremlin e Cassandra APIs estão em pré-visualização. | Apenas para Gremlin e Cassandra, [inscreva-se primeiro](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. As fontes de dados mongoDB podem ser configuradas no portal. Caso contrário, a configuração da fonte de dados para as três APIs é suportada utilizando [criar fonte de dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
-|  [**Indexador Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Fonte de dados indexante | Indexe conteúdo e metadados da Data Lake Storage Gen2.| É necessário [inscrever-se](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. Aceda a esta fonte de dados utilizando Criar Fonte de [Dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-datasource) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+| [**Indexador Cosmos DB: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | Fonte de dados indexante | Para cosmos DB, a SQL API está geralmente disponível, mas MongoDB, Gremlin e Cassandra APIs estão em pré-visualização. | Apenas para Gremlin e Cassandra, [inscreva-se primeiro](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. As fontes de dados mongoDB podem ser configuradas no portal. Caso contrário, a configuração da fonte de dados para as três APIs é suportada utilizando [criar fonte de dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
+|  [**Indexador Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Fonte de dados indexante | Indexe conteúdo e metadados da Data Lake Storage Gen2.| É necessário [inscrever-se](https://aka.ms/azure-cognitive-search/indexer-preview) para que o suporte possa ser ativado para a sua subscrição no backend. Aceda a esta fonte de dados utilizando Criar Fonte de [Dados (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Consulta | Encontra documentos relevantes para um documento específico. Esta funcionalidade já esteve em pré-visualizações anteriores. | Adicione este parâmetro de consulta em chamadas [de Documentos de Busca (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) com versão api=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview ou 2017-11-11-Preview. |
 
 ## <a name="calling-preview-rest-apis"></a>Chamada pré-visualização REST APIs
@@ -57,7 +57,7 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*
 
 O serviço Azure Cognitive Search está disponível em várias versões. Para mais informações, consulte as [versões API](search-api-versions.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Reveja a documentação de referência da API de pré-visualização de pré-visualização de pesquisa. Se encontrar problemas, peça-nos ajuda no [Stack Overflow](https://stackoverflow.com/) ou [no suporte de contacto.](https://azure.microsoft.com/support/community/?product=search)
 

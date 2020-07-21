@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b6f98f3c7f540e00743ae27b532b24d2310453e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499414"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar perfil de insights de aplicação
 
@@ -41,14 +41,14 @@ Sessões de perfis recentes | Exibe informações sobre sessões de perfis anter
 ## <a name="profile-now"></a>Perfil Agora
 Esta opção permite iniciar uma sessão de perfis a pedido. Quando clicar neste link, todos os agentes de perfis que estão a enviar dados para esta instância De Insights de Aplicação começarão a capturar um perfil. Após 5 a 10 minutos, a sessão de perfil será apresentada na lista abaixo.
 
-Para que um utilizador desencadeie manualmente uma sessão de perfis, exigem no mínimo o acesso "write" na sua função para o componente Application Insights. Na maioria dos casos, obtém-se este acesso automaticamente e não é necessário trabalho adicional. Se tiver problemas, a função de âmbito de subscrição a adicionar seria a função "Application Insights Component Contributor". [Veja mais sobre o controlo de acesso a funções com a Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+Para que um utilizador desencadeie manualmente uma sessão de perfis, exigem no mínimo o acesso "write" na sua função para o componente Application Insights. Na maioria dos casos, obtém-se este acesso automaticamente e não é necessário trabalho adicional. Se tiver problemas, a função de âmbito de subscrição a adicionar seria a função "Application Insights Component Contributor". [Veja mais sobre o controlo de acesso a funções com a Azure Monitoring](./resources-roles-access-control.md).
 
 ## <a name="trigger-settings"></a>Definições de gatilho
 ![Definições de gatilho Flyout][trigger-settings-flyout]
 
 Ao clicar no botão Gatilhos na barra de menu abre a caixa de definições do gatilho. Pode configurar o gatilho para começar a fazer perfis quando a percentagem de CPU ou utilização de Memória atingir o nível definido.
 
-| Definição | Descrição |
+| Definições | Descrição |
 |-|-|
 Botão ligado / desligado | Ligado: o perfil pode ser iniciado por este gatilho; Desligado: o profiler não será iniciado por este gatilho.
 Limiar de memória | Quando esta percentagem de memória estiver a ser utilizada, o perfil será iniciado.
@@ -58,12 +58,12 @@ Arrefecimento | Define o tempo que o perfis aguarda antes de verificar a memóri
 ## <a name="recent-profiling-sessions"></a>Sessões de Perfis Recentes
 Esta secção da página mostra informações sobre sessões de perfis recentes. Uma sessão de perfis representa o período de tempo em que o agente de perfis estava a tirar um perfil numa das máquinas que hospedam a sua aplicação. Pode abrir os perfis a partir de uma sessão clicando numa das linhas. Para cada sessão, mostramos:
 
-| Definição | Descrição |
+| Definições | Descrição |
 |-|-|
 Desencadeado por | Como a sessão foi iniciada, seja por um gatilho, perfil agora ou amostragem padrão. 
 Nome da Aplicação | Nome da aplicação que foi perfilada.
 Caso da Máquina | Nome da máquina onde o agente do perfil correu.
-CarimboDeDataEHora | Hora em que o perfil foi capturado.
+Timestamp | Hora em que o perfil foi capturado.
 Tracee | Número de vestígios ligados a pedidos individuais.
 % de CPU | Percentagem de CPU que estava a ser usada enquanto o perfil estava em funcionamento.
 Memória % | Percentagem de memória que estava a ser usada enquanto o perfil estava a funcionar.
@@ -105,7 +105,7 @@ Se a sua aplicação web já tiver tráfego de entrada ou se apenas quiser gerar
 
 Depois de o Profiler terminar de funcionar, siga as instruções de notificação para ir ao painel de desempenho e ver vestígios.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Ativar o profiler e visualizar vestígios](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png

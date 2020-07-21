@@ -1,17 +1,17 @@
 ---
-title: Criar uma instância cache Azure HPC
-description: Como criar uma instância cache Azure HPC
+title: Utilize o espaço de nome agregado Azure HPC Cache
+description: Como planear o espaço de nome virtual para o seu Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: v-erkel
+ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045812"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497034"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planear o espaço de nomes agregado
 
@@ -30,7 +30,7 @@ Por exemplo, considere um sistema onde um exemplo de Cache Azure HPC está a ser
 Os dados do modelo são armazenados num datacenter, e as informações necessárias para este trabalho são armazenadas nestas subdiretórios:
 
 * */goldline/templates/acme2017/sku798*
-* */goldline/templates/acme2017/sku980* 
+* */goldline/templates/acme2017/sku980*
 
 O sistema de armazenamento de datacenter expõe estas exportações:
 
@@ -52,10 +52,10 @@ Um alvo de armazenamento NFS pode ter vários caminhos virtuais do espaço de no
 
 Como os caminhos de origem NFS são subdiretas da mesma exportação, você precisará definir vários caminhos de espaço de nome a partir do mesmo alvo de armazenamento.
 
-| Nome anfitrião do alvo de armazenamento  | Caminho de exportação NFS      | Caminho subdirecional | Caminho do espaço de nome    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *Endereço IP ou nome de anfitrião* | /goldline/modelos  | acme2017/sku798   | /modelos/sku798 |
-| *Endereço IP ou nome de anfitrião* | /goldline/modelos  | acme2017/sku980   | /modelos/sku980 |
+| Nome anfitrião do alvo de armazenamento  | Caminho de exportação NFS     | Caminho subdirecional | Caminho do espaço de nome    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *Endereço IP ou nome de anfitrião* | /goldline/modelos | acme2017/sku798   | /modelos/sku798 |
+| *Endereço IP ou nome de anfitrião* | /goldline/modelos | acme2017/sku980   | /modelos/sku980 |
 
 Uma aplicação ao cliente pode montar a cache e aceder facilmente aos caminhos agregados de ficheiros do espaço de nome ``/source`` ``/templates/sku798`` , e ``/templates/sku980`` .
 

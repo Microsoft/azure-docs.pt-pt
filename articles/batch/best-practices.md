@@ -1,14 +1,14 @@
 ---
 title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954154"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497782"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -146,6 +146,10 @@ As junções de diretório, por vezes chamadas de ligações rígidas do diretó
 ### <a name="collect-the-batch-agent-logs"></a>Recolher os registos do agente Batch
 
 Se notar um problema que envolva o comportamento de um nó ou tarefas em execução num nó, recolha os registos do agente Batch antes de negociar os nós em questão. Os registos do agente Batch podem ser recolhidos utilizando os registos de serviço do Upload Batch API. Estes registos podem ser fornecidos como parte de um bilhete de suporte para a Microsoft e ajudarão na resolução e resolução de problemas de problemas.
+
+### <a name="manage-os-upgrades"></a>Gerir atualizações de SO
+
+Para o modo de subscrição do utilizador As contas de lote, as atualizações automatizadas de SO podem interromper o progresso da tarefa, especialmente se as tarefas forem longas. [A construção de tarefas idempotentes](#build-durable-tasks) pode ajudar a reduzir os erros causados por estas interrupções. Recomendamos também [o agendamento de atualizações de imagens de SO para horários em que não se espera que as tarefas sejam executadas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## <a name="isolation-security"></a>Segurança de isolamento
 

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480883"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498971"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução monitor de desempenho de rede em Azure
 
@@ -31,7 +32,7 @@ O Monitor de Desempenho da Rede oferece três amplas capacidades:
 
 * [ExpressRoute Monitor](network-performance-monitor-expressroute.md): Monitorize a conectividade e o desempenho de ponta a ponta entre as suas sucursais e a Azure, sobre o Azure ExpressRoute.  
 
-Mais informações sobre as várias capacidades suportadas pelo [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) estão disponíveis online.
+Mais informações sobre as várias capacidades suportadas pelo [Network Performance Monitor](../../networking/network-monitoring-overview.md) estão disponíveis online.
  
 ## <a name="supported-regions"></a>Regiões apoiadas
 O NPM pode monitorizar a conectividade entre redes e aplicações em qualquer parte do mundo, a partir de um espaço de trabalho que é hospedado numa das seguintes regiões:
@@ -46,7 +47,7 @@ O NPM pode monitorizar a conectividade entre redes e aplicações em qualquer pa
 * E.U.A. Central
 * E.U.A. Leste
 * E.U.A. Leste 2
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 * Japão Oriental
 * Ásia Sudeste
 * Sudeste da Austrália
@@ -55,12 +56,12 @@ O NPM pode monitorizar a conectividade entre redes e aplicações em qualquer pa
 * Reino Unido do Sul
 * Ásia Leste
 * Coreia do Sul Central
-* Índia Central
+* Central India
 * Governo dos EUA Virgínia
 * China Leste 2
 
 
-A lista de regiões apoiadas para o ExpressRoute Monitor está disponível na [documentação.](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)
+A lista de regiões apoiadas para o ExpressRoute Monitor está disponível na [documentação.](../../expressroute/how-to-npm.md?utm_swu=8117)
 
 
 ## <a name="set-up-and-configure"></a>Configurar e configurar
@@ -255,9 +256,9 @@ Todos os dados expostos graficamente através do painel de controlo de desempenh
 
 ## <a name="alerts"></a>Alertas
 
-O Monitor de Desempenho da Rede utiliza as capacidades de alerta do [Monitor Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+O Monitor de Desempenho da Rede utiliza as capacidades de alerta do [Monitor Azure](../platform/alerts-overview.md).
 
-Isto significa que todas as notificações são geridas através de [grupos de ação.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)  
+Isto significa que todas as notificações são geridas através de [grupos de ação.](../platform/action-groups.md)  
 
 Se for um utilizador NPM a criar um alerta via Log Analytics: 
 1. Verá um link que o redirecionará para o portal Azure. Clique nele para aceder ao portal.
@@ -268,7 +269,7 @@ Se for um utilizador NPM a criar um alerta via Log Analytics:
 Se for um utilizador NPM a criar um alerta através do portal Azure:  
 1. Pode optar por inserir o seu e-mail diretamente ou pode optar por criar alertas através de grupos de ação.
 2. Se optar por inserir o seu e-mail diretamente, é criado um grupo de ação com o nome **NPM Email ActionGroup** e o id de e-mail é adicionado a esse grupo de ação.
-3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação previamente criado. Pode aprender a criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação previamente criado. Pode aprender a criar um grupo de ação [aqui.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Uma vez criado o alerta com sucesso, pode utilizar o link 'Gerir alertas' para gerir os seus alertas. 
 
 Cada vez que cria um alerta, o NPM cria uma regra de alerta de registo baseada em consulta no Azure Monitor. Esta consulta é desencadeada a cada 5 minutos por defeito. O monitor Azure não cobra as primeiras 250 regras de alerta de registo criadas, e quaisquer regras de alerta acima do limite de 250 regras de alerta de registo serão faturadas de acordo com [os preços dos Alertas na página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).

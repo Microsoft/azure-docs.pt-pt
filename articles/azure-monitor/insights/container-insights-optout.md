@@ -3,11 +3,12 @@ title: Como parar de monitorizar o seu cluster de serviçoS Azure Kubernetes Mic
 description: Este artigo descreve como pode descontinuar a monitorização do seu cluster Azure AKS com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: 618a4d7e10212dd2b042724b1ea11c97920dad57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa932815ea46da2603c2621bef40e467fdf16c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691939"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499057"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
 
@@ -16,7 +17,7 @@ Depois de ativar a monitorização do seu cluster AKS, pode parar de monitorizar
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Utilize o comando [az aks para desativar os addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desativar o Monitor Azure para recipientes. O comando remove o agente dos nós do cluster, não remove a solução ou os dados já recolhidos e armazenados no seu recurso Azure Monitor.  
+Utilize o comando [az aks para desativar os addons](/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) para desativar o Monitor Azure para recipientes. O comando remove o agente dos nós do cluster, não remove a solução ou os dados já recolhidos e armazenados no seu recurso Azure Monitor.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -36,7 +37,7 @@ Se não está familiarizado com o conceito de implantação de recursos usando u
 >O modelo precisa de ser implantado no mesmo grupo de recursos do cluster. Se omitir quaisquer outras propriedades ou addons ao utilizar este modelo, pode resultar na sua remoção do cluster. Por exemplo, *ativar as* políticas de RBAC implementadas no seu cluster, ou *aksResourceTagValues* se as tags forem especificadas para o cluster AKS.  
 >
 
-Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Criar o modelo
 
@@ -163,4 +164,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Próximos passos
 
-Se o espaço de trabalho foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics com o portal Azure](../../log-analytics/log-analytics-manage-del-workspace.md). Não te esqueças do **ID do Espaço de Trabalho** copiado mais cedo no passo 4, vais precisar disso.
+Se o espaço de trabalho foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics com o portal Azure](../platform/delete-workspace.md). Não te esqueças do **ID do Espaço de Trabalho** copiado mais cedo no passo 4, vais precisar disso.

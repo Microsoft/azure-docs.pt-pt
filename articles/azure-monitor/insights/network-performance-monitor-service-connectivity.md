@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690019"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498870"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
@@ -56,7 +57,7 @@ Comece a criar os seus testes para monitorizar a conectividade da rede com os po
 
     * Selecione **Web** para monitorizar a conectividade a um serviço que responda a pedidos HTTP/S, como outlook.office365.com ou bing.com.<br>
     * Selecione **Rede** para monitorizar a conectividade a um serviço que responda aos pedidos de TCP mas não responda a pedidos HTTP/S, tais como um servidor SQL, servidor FTP ou porta SSH. 
-    * Por exemplo: Para criar um teste web para uma conta de armazenamento de bolhas, selecione **Web** e introduza o alvo como *sua conta*de blob.core.windows.net. Da mesma forma, pode criar testes para outros armazenamento de mesa, armazenamento de filas e Ficheiros Azure utilizando [este link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Por exemplo: Para criar um teste web para uma conta de armazenamento de bolhas, selecione **Web** e introduza o alvo como *sua conta*de blob.core.windows.net. Da mesma forma, pode criar testes para outros armazenamento de mesa, armazenamento de filas e Ficheiros Azure utilizando [este link.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. Se não quiser efetuar medições de rede, tais como latência de rede, perda de pacotes e descoberta de topologia, limpe a caixa **de verificação de medições de rede Perform.** Mantenha-o selecionado para obter o máximo benefício da capacidade. 
 5. No **Target,** insira o endereço URL/FQDN/IP ao qual pretende monitorizar a conectividade da rede.
 6. No **número do Porto,** insira o número de porta do serviço alvo. 

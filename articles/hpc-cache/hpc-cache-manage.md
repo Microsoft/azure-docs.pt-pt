@@ -1,21 +1,23 @@
 ---
 title: Gerir e atualizar cache Azure HPC
-description: Como gerir e atualizar a Cache Azure HPC utilizando o portal Azure
+description: Como gerir e atualizar a Cache Azure HPC utilizando o portal Azure ou Azure CLI
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515555"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497233"
 ---
-# <a name="manage-your-cache-from-the-azure-portal"></a>Gerencie a sua cache a partir do portal Azure
+# <a name="manage-your-cache"></a>Gerencie a sua cache
 
 A página geral da cache no portal Azure mostra detalhes do projeto, estado de cache e estatísticas básicas para o seu cache. Também tem controlos para parar ou iniciar a cache, eliminar a cache, lavar dados para armazenamento a longo prazo e atualizar o software.
+
+Este artigo também explica como fazer estas tarefas básicas com o Azure CLI.
 
 Para abrir a página geral, selecione o seu recurso cache no portal Azure. Por exemplo, carregue a página **De Todos os recursos** e clique no nome cache.
 
@@ -23,7 +25,7 @@ Para abrir a página geral, selecione o seu recurso cache no portal Azure. Por e
 
 Os botões no topo da página podem ajudá-lo a gerir a cache:
 
-* **Iniciar** e [**Parar**](#stop-the-cache) - Suspende a operação de cache
+* **Iniciar** e [**Parar**](#stop-the-cache) - Retoma ou suspende a operação de cache
 * [**Flush**](#flush-cached-data) - Escreve dados alterados para alvos de armazenamento
 * [**Upgrade**](#upgrade-cache-software) - Atualiza o software cache
 * **Refresh** - Recarregue a página geral
@@ -41,6 +43,8 @@ Pode parar a cache para reduzir os custos durante um período inativo. Não é c
 
 Uma cache parada não responde aos pedidos dos clientes. Deve desmontar os clientes antes de parar a cache.
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 O **botão Stop** suspende uma cache ativa. O botão **Stop** está disponível quando o estado de um cache é **saudável** ou **degradado**.
 
 ![screenshot dos botões superiores com Stop realçado e uma mensagem pop-up descrevendo a ação stop e perguntando 'você quer continuar?' com Sim (padrão) e Sem botões](media/stop-cache.png)
@@ -51,6 +55,42 @@ Para reativar uma cache parada, clique no botão **Iniciar.** Não é necessári
 
 ![screenshot dos botões superiores com Start realçado](media/start-cache.png)
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Suspenda temporariamente uma cache com o comando [de paragem az hpc-cache.](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) Esta ação só é válida quando o estado de uma cache é **saudável** ou **degradado.**
+
+A cache coloca automaticamente o seu conteúdo nos alvos de armazenamento antes de parar. Este processo pode demorar algum tempo, mas garante a consistência dos dados.
+
+Quando a ação estiver concluída, o estado da cache muda para **"Stop".**
+
+Reativar uma cache parada com [arranque az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+
+Quando emite o comando de arranque ou paragem, a linha de comando mostra uma mensagem de estado "Running" até que a operação esteja concluída.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+ - Running ..
+```
+
+No final, a mensagem atualiza para "Terminado" e mostra códigos de devolução e outras informações.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+{- Finished ..
+  "endTime": "2020-07-01T18:46:43.6862478+00:00",
+  "name": "c48d320f-f5f5-40ab-8b25-0ac065984f62",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-01T18:40:28.5468983+00:00",
+  "status": "Succeeded"
+}
+```
+
+---
+
 ## <a name="flush-cached-data"></a>Dados em cache de descarga
 
 O botão **Flush** na página de visão geral diz à cache para escrever imediatamente todos os dados alterados que são armazenados na cache para os alvos de armazenamento de back-end. A cache guarda rotineiramente dados para os alvos de armazenamento, por isso não é necessário fazê-lo manualmente, a menos que queira certificar-se de que o sistema de armazenamento de back-end está atualizado. Por exemplo, pode utilizar **flush** antes de tirar uma foto de armazenamento ou verificar o tamanho do conjunto de dados.
@@ -58,13 +98,47 @@ O botão **Flush** na página de visão geral diz à cache para escrever imediat
 > [!NOTE]
 > Durante o processo de descarga, a cache não pode servir os pedidos do cliente. O acesso à cache é suspenso e retomado após o fim da operação.
 
-![screenshot dos botões superiores com Flush realçado e uma mensagem pop-up descrevendo a ação de descarga e perguntando 'você quer continuar?' com Sim (padrão) e Sem botões](media/hpc-cache-flush.png)
-
 Quando inicia a operação de descarga de cache, a cache deixa de aceitar pedidos do cliente e o estado da cache na página geral muda para **Flushing**.
 
 Os dados na cache são guardados para os alvos de armazenamento apropriados. Dependendo da quantidade de dados necessários para ser lavado, o processo pode demorar alguns minutos ou mais de uma hora.
 
 Depois de todos os dados são guardados para alvos de armazenamento, a cache começa automaticamente a receber os pedidos do cliente novamente. O estado da cache regressa ao **Healthy**.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Para lavar a cache, clique no botão **Flush** e, em seguida, clique em **Sim** para confirmar a ação.
+
+![screenshot dos botões superiores com Flush realçado e uma mensagem pop-up descrevendo a ação de descarga e perguntando 'você quer continuar?' com Sim (padrão) e Sem botões](media/hpc-cache-flush.png)
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Utilize [o flush az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) para forçar a cache a escrever todos os dados alterados para os alvos de armazenamento.
+
+Exemplo:
+
+```azurecli
+$ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
+ - Running ..
+```
+
+Quando a descarga terminar, uma mensagem de sucesso é devolvida.
+
+```azurecli
+{- Finished ..
+  "endTime": "2020-07-09T17:26:13.9371983+00:00",
+  "name": "c22f8e12-fcf0-49e5-b897-6a6e579b6489",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-09T17:25:21.4278297+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="upgrade-cache-software"></a>Atualizar o software cache
 
@@ -80,7 +154,48 @@ Quando uma atualização de software estiver disponível, terá uma semana ou ma
 
 Se o seu cache for interrompido quando a data de fim passar, a cache atualizará automaticamente o software da próxima vez que for iniciado. (A atualização pode não começar imediatamente, mas começará na primeira hora.)
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Clique no botão **Deabos para** iniciar a atualização do software. O estado da cache muda para **atualização** até que a operação esteja concluída.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+No Azure CLI, novas informações de software são incluídas no final do relatório de estado da cache. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) para verificar.) Procure a cadeia "upgradeStatus" na mensagem.
+
+Utilize [a az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) para aplicar a atualização, se existir alguma.
+
+Se não houver atualização disponível, esta operação não tem qualquer efeito.
+
+Este exemplo mostra o estado da cache (não há atualização disponível) e os resultados do comando de upgrade-firmware.
+
+```azurecli
+$ az hpc-cache show --name doc-cache0629
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+
+<...>
+
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.61",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-06-29T22:18:32.004822+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+$ az hpc-cache upgrade-firmware --name doc-cache0629
+$
+```
+
+---
 
 ## <a name="delete-the-cache"></a>Apagar a cache
 
@@ -91,7 +206,35 @@ Os volumes de armazenamento de back-end utilizados como alvos de armazenamento n
 > [!NOTE]
 > A Azure HPC Cache não escreve automaticamente dados alterados da cache para os sistemas de armazenamento de back-end antes de eliminar a cache.
 >
-> Para se certificar de que todos os dados da cache foram escritos para armazenamento a longo prazo, [pare a cache](#stop-the-cache) antes de eliminá-lo. Certifique-se de que mostra o estado **parado** antes de clicar no botão eliminar.
+> Para se certificar de que todos os dados da cache foram escritos para armazenamento a longo prazo, [pare a cache](#stop-the-cache) antes de eliminá-lo. Certifique-se de que mostra o estado **parado** antes de apagar.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Depois de parar a cache, clique no botão **Eliminar** para remover permanentemente a cache.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Utilize o comando Azure CLI [az hpc-cache para](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) remover permanentemente a cache.
+
+Exemplo:
+```azurecli
+$ az hpc-cache delete --name doc-cache0629
+ - Running ..
+
+<...>
+
+{- Finished ..
+  "endTime": "2020-07-09T22:24:35.1605019+00:00",
+  "name": "7d3cd0ba-11b3-4180-8298-d9cafc9f22c1",
+  "startTime": "2020-07-09T22:13:32.0732892+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="cache-metrics-and-monitoring"></a>Cache métricas e monitorização
 

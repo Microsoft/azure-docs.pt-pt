@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26c8a8746fe748585f36e5282ad6e694cdcef1f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83723311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494467"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerida de uma máquina virtual ou VHD
 
@@ -24,7 +25,7 @@ Para criar uma imagem gerida, terá de remover informações pessoais da conta. 
 
 Para criar uma cópia do seu VM Linux existente para cópia de segurança ou depuração, ou para carregar um VHD Linux especializado a partir de um VM no local, consulte [upload e crie um Linux VM a partir de imagem de disco personalizado](upload-vhd.md).  
 
-Pode utilizar o serviço **Azure VM Image Builder (Visualização Pública)** para construir a sua imagem personalizada, não precisa de aprender quaisquer ferramentas, ou configurar oleodutos, simplesmente fornecendo uma configuração de imagem, e o Image Builder criará a Imagem. Para obter mais informações, consulte ["Começar com o Azure VM Image Builder".](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)
+Pode utilizar o serviço **Azure VM Image Builder (Visualização Pública)** para construir a sua imagem personalizada, não precisa de aprender quaisquer ferramentas, ou configurar oleodutos, simplesmente fornecendo uma configuração de imagem, e o Image Builder criará a Imagem. Para obter mais informações, consulte ["Começar com o Azure VM Image Builder".](./image-builder-overview.md)
 
 Vai precisar dos seguintes itens antes de criar uma imagem:
 
@@ -136,4 +137,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Próximos passos
-Para criar, armazenar e partilhar imagens em escala, consulte [galerias de imagem partilhadas.](shared-images.md)
+Para criar, armazenar e partilhar imagens em escala, consulte [galerias de imagem partilhadas.](../shared-images-cli.md)

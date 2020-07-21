@@ -4,12 +4,12 @@ description: Saiba mais sobre o dimensionamento no Serviço Azure Kubernetes (AK
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244519"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499890"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -19,7 +19,7 @@ Este artigo introduz os conceitos fundamentais que o ajudam a escalar aplicaçõ
 
 - [Escala manual](#manually-scale-pods-or-nodes)
 - [Autoescalador de cápsulas horizontais (HPA)](#horizontal-pod-autoscaler)
-- [Autoescalador de cluster](#cluster-autoscaler)
+- [Dimensionador automático de cluster](#cluster-autoscaler)
 - [Integração de Azure Container Instance (ACI) com AKS](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Cápsulas ou nóns de escala manual
@@ -48,7 +48,7 @@ Para minimizar os eventos de corrida, é definido um valor de atraso. Este valor
 
 Atualmente, não é possível sintonizar estes valores de arrefecimento a partir do padrão.
 
-## <a name="cluster-autoscaler"></a>Autoescalador de cluster
+## <a name="cluster-autoscaler"></a>Dimensionador automático de cluster
 
 Para responder às exigências do pod em mudança, a Kubernetes tem um cluster autoscaler, que ajusta o número de nós com base nos recursos de computação solicitados no conjunto de nós. Por predefinição, o autoescalador do cluster verifica o servidor API métricas a cada 10 segundos para quaisquer alterações necessárias na contagem de nós. Se o cluster determinar que é necessária uma alteração, o número de nós no seu cluster AKS é aumentado ou diminuído em conformidade. O autoescalador de cluster funciona com clusters AKS ativados pela RBAC que executam Kubernetes 1.10.x ou superior.
 
@@ -58,7 +58,7 @@ O autoescalador de cluster é normalmente utilizado ao lado do autoescalador hor
 
 Para começar com o cluster autoscaler em AKS, consulte [Cluster Autoscaler em AKS][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Aumentar os eventos
+### <a name="scale-out-events"></a>Escalar eventos
 
 Se um nó não tiver recursos computacional suficientes para executar uma cápsula solicitada, essa cápsula não pode progredir através do processo de agendamento. A cápsula não pode arrancar a menos que existam recursos adicionais de computação dentro da piscina de nós.
 
@@ -66,7 +66,7 @@ Quando o autoescalador do cluster nota pods que não podem ser programados devid
 
 Se a sua aplicação precisar de escalar rapidamente, algumas cápsulas podem permanecer num estado à espera de serem agendadas até que os nós adicionais implantados pelo autoescalador do cluster possam aceitar as cápsulas programadas. Para aplicações que tenham elevadas exigências de explosão, pode escalar com nós virtuais e instâncias de contentores Azure.
 
-### <a name="scale-down-events"></a>Reduzir eventos
+### <a name="scale-in-events"></a>Escala em eventos
 
 O autoescalador do cluster também monitoriza o estado de agendamento de pods para nós que não receberam recentemente novos pedidos de agendamento. Este cenário indica que o conjunto de nós tem mais recursos computetados do que os necessários, e o número de nós pode ser diminuído.
 
@@ -86,7 +86,7 @@ A sua aplicação não requer modificação para usar nós virtuais. As implemen
 
 Os nós virtuais são implantados numa sub-rede adicional na mesma rede virtual que o seu cluster AKS. Esta configuração de rede virtual permite que o tráfego entre ACI e AKS seja seguro. Como um cluster AKS, um caso ACI é um recurso de computação segura e lógica que é isolado de outros utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar com aplicações de escala, siga primeiro o [quickstart para criar um cluster AKS com o Azure CLI][aks-quickstart]. Em seguida, pode começar a escalar as aplicações manualmente ou automaticamente no seu cluster AKS:
 

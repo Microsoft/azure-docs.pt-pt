@@ -1,5 +1,5 @@
 ---
-title: Próximas alterações às regras de ingestão e achatamento em Azure Time Series Insights Microsoft Docs
+title: Próximas alterações às regras de ingestão e achatamento em Azure Time Series Insights Gen2 Microsoft Docs
 description: Alterações na regra da ingestão
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 067244aa40256e3cc76239343790974bc3c06481
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f667ca5ad82182fcf40d5c1fbb325f2ea99a7e08
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919033"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495113"
 ---
 # <a name="upcoming-changes-to-the-json-flattening-and-escaping-rules-for-new-environments"></a>Próximas alterações ao JSON achatando e escapando às regras para novos ambientes
 
-Estas alterações serão aplicadas apenas aos *novos* ambientes pay-as-you-go (PAYG) da Azure Time Series. Estas alterações não se aplicam aos ambientes SKU Standard (S) SKU.
+**Estas alterações serão aplicadas apenas aos ambientes da Azure Time Series Insights Gen2 *recém-criados.* Estas alterações não se aplicam aos ambientes da Gen1.**
 
-O seu ambiente Azure Time Series Insights cria dinamicamente as suas colunas de armazenamento, seguindo um conjunto particular de convenções de nomeação. Quando um evento é ingerido, um conjunto de regras é aplicado à carga útil JSON e nomes de propriedade. As alterações à forma como os dados da JSON são achatados e armazenados entrarão em vigor para novos ambientes pay-as-you-go da Azure Time Series Insights em julho de 2020. Esta alteração tem impacto nos seguintes casos:
+O seu ambiente Azure Time Series Insights Gen2 cria dinamicamente as suas colunas de armazenamento, seguindo um conjunto particular de convenções de nomeação. Quando um evento é ingerido, um conjunto de regras é aplicado à carga útil JSON e nomes de propriedade. As alterações à forma como os dados da JSON são achatados e armazenados entrarão em vigor para novos ambientes Azure Time Series Insights Gen2 em julho de 2020. Esta alteração tem impacto nos seguintes casos:
 
 * Se a sua carga JSON contiver objetos aninhados
 *  Se a sua carga útil JSON contiver matrizes
@@ -45,15 +45,16 @@ Matrizes de objetos são sempre achatados, produzindo vários eventos | Se os ob
 
  #### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Se a sua carga útil contiver JSON aninhado ou caracteres especiais e automatizar expressões variáveis [do Modelo de Séries](.\time-series-insights-update-tsm.md) de Tempo
 
-*  Atualize o código de execução do seu cliente [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) para corresponder às novas regras de ingestão. Por exemplo, uma expressão anterior da Série de [Tempo](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) deve ser atualizada para uma `"value": {"tsx": "$event.series_value.Double"}` das opções abaixo:
+*  Atualize o código de execução do seu cliente [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) para corresponder às novas regras de ingestão. Por exemplo, uma expressão anterior da Série de [Tempo](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) deve ser atualizada para uma `"value": {"tsx": "$event.series_value.Double"}` das opções abaixo:
     * `"value": {"tsx": "$event.series.value.Double"}`
     * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 
-
 ## <a name="next-steps"></a>Próximos passos
 
-- Leia [adicionar suporte para o tipo de dados longos](./time-series-insights-long-data-type.md).
+- Leia [Azure Time Series Insights Armazenamento e entrada da Gen2](./time-series-insights-update-storage-ingress.md).
 
-- Leia [Azure Time Series Insights Preview Armazenamento e entrada](./time-series-insights-update-storage-ingress.md).
+- Leia mais sobre como consultar os seus dados utilizando [APIs de consulta de séries de tempo](./concepts-query-overview.md).
+
+- Leia mais sobre a [nova sintaxe de expressão da série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 

@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 133de199c240cbc4ea7246a29e65347d53c50545
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045761"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494518"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Desativar ou remover o Agente Linux de VMs e imagens
 
 Antes de remover o Agente Linux, deve entender o que a VM não poderá fazer depois de o Agente Linux ser removido.
 
-As extensões de máquina virtual Azure (VM) são [pequenas](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) aplicações que fornecem tarefas de configuração e automatização pós-implantação em VMs Azure, as extensões são instaladas e geridas pelo plano de controlo Azure. Compete ao Agente [Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) processar os comandos de extensão da plataforma e garantir o estado correto da extensão dentro do VM.
+As extensões de máquina virtual Azure (VM) são [pequenas](../extensions/overview.md) aplicações que fornecem tarefas de configuração e automatização pós-implantação em VMs Azure, as extensões são instaladas e geridas pelo plano de controlo Azure. Compete ao Agente [Azure Linux](../extensions/agent-linux.md) processar os comandos de extensão da plataforma e garantir o estado correto da extensão dentro do VM.
 
 A plataforma Azure acolhe muitas extensões que vão desde a configuração de VM, monitorização, segurança e aplicações de utilidade. Há uma grande escolha de extensões de primeira e de terceiros, exemplos de cenários-chave para os seguintes para:
 * Serviços de apoio a Azure de primeira parte, tais como Azure Backup, Monitoring, Encriptação de Disco, Segurança, Replicação do Site e outros.
@@ -31,7 +31,7 @@ A plataforma Azure acolhe muitas extensões que vão desde a configuração de V
 
 ## <a name="disabling-extension-processing"></a>Desativação do processamento de extensão
 
-Existem várias formas de desativar o processamento de extensão, dependendo das suas necessidades, mas antes de continuar, **deve** remover todas as extensões implantadas no VM, por exemplo usando o CLI AZ, pode [listar](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) e [eliminar:](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete)
+Existem várias formas de desativar o processamento de extensão, dependendo das suas necessidades, mas antes de continuar, **deve** remover todas as extensões implantadas no VM, por exemplo usando o CLI AZ, pode [listar](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) e [eliminar:](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete)
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -155,7 +155,7 @@ Quando criar o VM a partir da imagem sem Agente Linux, tem de se certificar de q
 > 
 > Se não fizer o que precede, a plataforma tentará enviar a configuração de extensão e o tempo limite após 40min.
 
-Para implantar o VM com extensões desativadas, pode utilizar o CLI Azure com [--activar-agente](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
+Para implantar o VM com extensões desativadas, pode utilizar o CLI Azure com [--activar-agente](/cli/azure/vm#az-vm-create).
 
 ```bash
 az vm create \

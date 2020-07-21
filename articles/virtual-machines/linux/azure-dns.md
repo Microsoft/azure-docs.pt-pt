@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 1e53a6a5c024fe58eae00dcda785ff9622061654
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 41cf83a3d9c756d69df2e2e9777ebd8eb54d4d74
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135308"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494739"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux em Azure
 O Azure fornece resolução de nome DNS por padrão para todas as máquinas virtuais que se encontram numa única rede virtual. Pode implementar a sua própria solução de resolução de nomes DNS configurando os seus próprios serviços DNS nas suas máquinas virtuais que a Azure acolhe. Os seguintes cenários devem ajudá-lo a escolher o que trabalha para a sua situação.
@@ -121,7 +121,7 @@ O reencaminhamento de DNS também permite a resolução de DNS entre redes virtu
 
 Quando utiliza a resolução de nomes que o Azure fornece, o sufixo de DNS interno é fornecido a cada máquina virtual utilizando o DHCP. Quando utiliza a sua própria solução de resolução de nomes, este sufixo não é fornecido a máquinas virtuais porque o sufixo interfere com outras arquiteturas DNS. Para se referir a máquinas pela FQDN ou para configurar o sufixo nas suas máquinas virtuais, pode utilizar o PowerShell ou a API para determinar o sufixo:
 
-* Para redes virtuais geridas pelo Azure Resource Manager, o sufixo está disponível através do recurso [do cartão de interface](https://msdn.microsoft.com/library/azure/mt163668.aspx) de rede. Também pode executar o `azure network public-ip show <resource group> <pip name>` comando para mostrar os detalhes do seu IP público, que inclui o FQDN do NIC.
+* Para redes virtuais geridas pelo Azure Resource Manager, o sufixo está disponível através do recurso [do cartão de interface](/rest/api/virtualnetwork/networkinterfaces) de rede. Também pode executar o `azure network public-ip show <resource group> <pip name>` comando para mostrar os detalhes do seu IP público, que inclui o FQDN do NIC.
 
 Se as consultas de encaminhamento para Azure não se adequam às suas necessidades, precisa de fornecer a sua própria solução DNS.  A sua solução DNS precisa de:
 
@@ -131,6 +131,6 @@ Se as consultas de encaminhamento para Azure não se adequam às suas necessidad
 * Seja protegido contra o acesso da Internet para mitigar as ameaças colocadas por agentes externos.
 
 > [!NOTE]
-> Para melhor desempenho, quando utilizar máquinas virtuais nos servidores Azure DNS, desative o IPv6 e atribua um [IP público de nível de instância](../../virtual-network/virtual-networks-instance-level-public-ip.md) a cada máquina virtual de servidor DNS.  
+> Para melhor desempenho, quando utilizar máquinas virtuais nos servidores Azure DNS, desative o IPv6 e atribua um [IP público de nível de instância](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) a cada máquina virtual de servidor DNS.  
 >
 >

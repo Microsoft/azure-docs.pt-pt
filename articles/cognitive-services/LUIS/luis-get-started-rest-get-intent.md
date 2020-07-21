@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Obtenha intenção com APIs DE REST - LUIS'
+title: 'Quickstart: Use cURL e REST para obter intenção - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Neste rest API quickstart, use uma aplicação pública disponível LUIS para determinar a intenção de um utilizador de texto de conversação.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/19/2020
 ms.author: nitinme
-ms.openlocfilehash: 714d76641dd22f566b2464e3470f6a3324f4d758
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab76bcdfc62ed0af52e6c99ef6c7b14ebeef25f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207170"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497867"
 ---
 # <a name="quickstart-use-curl-and-rest-to-get-intent"></a>Quickstart: Use cURL e REST para obter intenção
 
@@ -261,7 +261,7 @@ Use o cURL para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction
     }
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicione expressões e comboio](luis-get-started-rest-get-model.md)

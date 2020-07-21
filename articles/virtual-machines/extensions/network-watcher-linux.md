@@ -14,17 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
-ms.openlocfilehash: 476241ad3d4077f2da0c513e3c989218701232ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37a2724e28269d5f8b10d6ae7073aacc8272255b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81255758"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494773"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual do Agente do Observador de Rede para Linux
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-[O Azure Network Watcher](/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização das redes Azure. A extensão da máquina virtual do Network Watcher Agent (VM) é um requisito para algumas das funcionalidades do Observador de Rede em VMs Azure, como a captura do tráfego de rede a pedido e outras funcionalidades avançadas.
+[O Azure Network Watcher](../../network-watcher/index.yml) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização das redes Azure. A extensão da máquina virtual do Network Watcher Agent (VM) é um requisito para algumas das funcionalidades do Observador de Rede em VMs Azure, como a captura do tráfego de rede a pedido e outras funcionalidades avançadas.
 
 Este artigo detalha as plataformas suportadas e as opções de implementação da extensão VM do Agente observador de rede para o Linux. A instalação do agente não interrompe, nem requer um reinício, do VM. Pode implantar a extensão em máquinas virtuais que implementar. Se a máquina virtual for implantada por um serviço Azure, verifique a documentação do serviço para determinar se permite ou não instalar extensões na máquina virtual.
 
@@ -48,7 +49,7 @@ A extensão do Agente observador de rede pode ser configurada para as seguintes 
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-Algumas das funcionalidades do Agente observador de rede requerem que um VM esteja ligado à Internet. Sem a capacidade de estabelecer ligações de saída, algumas das funcionalidades do Agente observador de rede podem funcionar mal ou ficar indisponíveis. Para obter mais informações sobre a funcionalidade do Observador de Rede que requer o agente, consulte a[documentação do Observador de Rede](/azure/network-watcher/).
+Algumas das funcionalidades do Agente observador de rede requerem que um VM esteja ligado à Internet. Sem a capacidade de estabelecer ligações de saída, algumas das funcionalidades do Agente observador de rede podem funcionar mal ou ficar indisponíveis. Para obter mais informações sobre a funcionalidade do Observador de Rede que requer o agente, consulte a[documentação do Observador de Rede](../../network-watcher/index.yml).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -118,4 +119,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode consultar a [documentação do Observador de Rede,](/azure/network-watcher/)ou contactar os especialistas do Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **suporte**. Para obter informações sobre a utilização do Suporte Azure, consulte o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, pode consultar a [documentação do Observador de Rede,](../../network-watcher/index.yml)ou contactar os especialistas do Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **suporte**. Para obter informações sobre a utilização do Suporte Azure, consulte o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

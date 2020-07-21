@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96bb624472aa2053599765d5bfedeb96339d0973
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808051"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496056"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é Azure Synapse Analytics (pré-visualização de espaços de trabalho)?
 
@@ -40,7 +40,7 @@ Além disso, a Azure Synapse facilita a construção de modelos preditivos e an�
 
 * O Synapse SQL oferece modelos de recursos **sem servidor** e **aprovisionados,** oferecendo opções de consumo e faturação para adequar as suas necessidades. Para um desempenho e custo previsíveis, provisões para reservar o poder de processamento dos dados armazenados em tabelas SQL. Para cargas de trabalho não planeadas ou rebentadas, utilize o ponto final SQL sem servidor, sempre disponível.
 * Use capacidades de **streaming** incorporadas para obter dados de fontes de dados em nuvem em tabelas SQL
-* Integre a IA com o SQL, utilizando modelos **de machine learning** para obter dados utilizando a função T-SQL PREDICT
+* Integre a IA com o SQL, utilizando modelos **de machine learning** para obter dados utilizando a [função T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### <a name="industry-standard-apache-spark"></a>Faísca Apache padrão da indústria
 

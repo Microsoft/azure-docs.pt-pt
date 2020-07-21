@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: f4f5c5d9a77353f36119b77601b88f9dab01ccc0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7eb77b9ffae49c7d8d3e5612b685e5725829898f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243618"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499788"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programadores utilizando o OAuth 2.0 na Azure API Management
 
@@ -50,7 +50,7 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
     > [!NOTE]
     > Estes campos são utilizados para identificar o servidor de autorização OAuth 2.0 dentro da atual instância de serviço de Gestão da API e os seus valores não provêm do servidor OAuth 2.0.
 
-3. Insira o URL da **página de registo do Cliente.** Esta página é onde os utilizadores podem criar e gerir as suas contas, e varia consoante o provedor OAuth 2.0 utilizado. O URL da **página de registo** do Cliente aponta para a página que os utilizadores podem usar para criar e configurar as suas próprias contas para os fornecedores OAuth 2.0 que suportam a gestão de contas dos utilizadores. Algumas organizações não configuram ou utilizam esta funcionalidade mesmo que o provedor OAuth 2.0 a suporte. Se o seu fornecedor OAuth 2.0 não tiver a gestão do utilizador das contas configuradas, insira aqui um URL de espaços reservado, como o URL da sua empresa, ou um URL como `https://placeholder.contoso.com` .
+3. Insira o URL da **página de registo do Cliente.** Esta página é onde os utilizadores podem criar e gerir as suas contas, e varia consoante o provedor OAuth 2.0 utilizado. O **URL da página de registo** do Cliente aponta para a página que os utilizadores podem usar para criar e configurar as suas próprias contas para os fornecedores OAuth 2.0 que suportam a gestão de contas dos utilizadores - por exemplo, `https://contoso.com/login` . Algumas organizações não configuram ou utilizam esta funcionalidade mesmo que o provedor OAuth 2.0 a suporte. Se o seu fornecedor OAuth 2.0 não tiver a gestão do utilizador das contas configuradas, insira aqui um URL de espaços reservado, como o URL da sua empresa, ou um URL como `https://placeholder.contoso.com` .
 
     ![OAuth 2.0 novo servidor](./media/api-management-howto-oauth2/oauth-02.png)
 
@@ -75,6 +75,11 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
     A definição predefinição dos **métodos de autenticação do Cliente** é **Básica,** e **o método de envio de ficha de acesso** é **cabeçalho de autorização**. Estes valores estão configurados nesta secção do formulário, juntamente com o **âmbito Padrão**.
 
 6. A secção **de credenciais do Cliente** contém o **ID** do Cliente e o **segredo do Cliente,** que são obtidos durante o processo de criação e configuração do seu servidor OAuth 2.0. Uma vez especificado o **ID do Cliente** e **o segredo do Cliente,** o **redirect_uri** para o código **de autorização** é gerado. Este URI é utilizado para configurar o URL de resposta na configuração do servidor OAuth 2.0.
+
+    No novo portal de desenvolvimento, o sufixo URI é de forma:
+
+    - `/signin-oauth/code/callback/{authServerName}`para o fluxo de concessão de código de autorização
+    - `/signin-oauth/implicit/callback`para o fluxo de subvenção implícita
 
     ![OAuth 2.0 novo servidor](./media/api-management-howto-oauth2/oauth-04.png)
 
@@ -126,7 +131,7 @@ Uma vez que tenha assinado, os **cabeçalhos do Pedido** são preenchidos com um
 
 Neste ponto pode configurar os valores desejados para os parâmetros restantes, e submeter o pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a utilização da OAuth 2.0 e da API Management, consulte o seguinte vídeo e [artigo](api-management-howto-protect-backend-with-aad.md)de acompanhamento .
 

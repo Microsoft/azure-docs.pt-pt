@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 385f4a9ff1c299f49a514ad63bb3c8d633d8c191
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 947b509468857b98b868881bdd48adf67a5d60db
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552811"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499006"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolha informações sobre a sua infraestrutura DNS com a solução de pré-visualização do DNS Analytics
 
@@ -38,11 +38,11 @@ O quadro que se segue descreve as fontes ligadas suportadas por esta solução:
 | [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução recolhe informações sobre DNS de agentes do Windows. |
 | [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes linux diretos. |
 | [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes de um grupo de gestão de Gestores de Operações conectado. Não é necessária uma ligação direta do agente gestor de operações ao Azure Monitor. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
-| [Conta de armazenamento Azure](../platform/collect-azure-metrics-logs.md) | Não | O armazenamento Azure não é usado pela solução. |
+| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da recolha de dados
 
-A solução recolhe o inventário DNS e dados relacionados com eventos DNS dos servidores DNS onde está instalado um agente Do Registo De Análise. Estes dados são então enviados para o Azure Monitor e apresentados no painel de instrumentos de solução. Os dados relacionados com o inventário, como o número de servidores, zonas e registos de recursos dns, são recolhidos executando os cmdlets DNS PowerShell. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados com o evento são recolhidos perto de tempo real a partir dos [registos analíticos e de auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecidos por registos dns melhorados e diagnósticos no Windows Server 2012 R2.
+A solução recolhe o inventário DNS e dados relacionados com eventos DNS dos servidores DNS onde está instalado um agente Do Registo De Análise. Estes dados são então enviados para o Azure Monitor e apresentados no painel de instrumentos de solução. Os dados relacionados com o inventário, como o número de servidores, zonas e registos de recursos dns, são recolhidos executando os cmdlets DNS PowerShell. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados com o evento são recolhidos perto de tempo real a partir dos [registos analíticos e de auditoria](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) fornecidos por registos dns melhorados e diagnósticos no Windows Server 2012 R2.
 
 ## <a name="configuration"></a>Configuração
 

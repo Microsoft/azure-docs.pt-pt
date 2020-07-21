@@ -1,5 +1,5 @@
 ---
-title: Prestação e segurança de um serviço ligado na Azure Synapse Analytics
+title: Garantir um serviço ligado
 description: Saiba como providenciar e garantir um serviço ligado com a Managed Vnet
 services: synapse-analytics
 author: acomet
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c7cf8ec7297b3c0ef855936becc3c06a5120a38
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430555"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496082"
 ---
 # <a name="securing-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados 
 
@@ -56,7 +56,7 @@ Caso não tenha clicando na hiperligação ao testar a ligação acima, siga o s
 1. Selecione o Ponto Final Privado que criou acima. Pode ver uma hiperligação que lhe permitirá aprovar o Ponto Final Privado ao nível da Conta de Armazenamento. *Uma alternativa é ir diretamente para a Conta de Armazenamento do portal Azure e entrar na lâmina **de ligações de ponto final privado.***
 1. Marque o ponto final privado que criou no Estúdio e selecione **Aprovar**.
 1. Adicione uma descrição e clique **em sim**
-1. Volte para o Synapse Studio sob a secção **Redes Virtuais Geridas** do **Separador De Gestão.**
+1. Volte para o Synapse Studio sob a secção **Redes Virtuais Geridas** do **separador Managed.**
 1. Deve levar cerca de 1 minuto para que a aprovação seja refletida para o seu ponto final privado.
 
 ## <a name="check-the-connection-works"></a>Verifique os trabalhos de ligação
@@ -66,7 +66,7 @@ Caso não tenha clicando na hiperligação ao testar a ligação acima, siga o s
 
 Estabeleceu agora uma ligação segura e privada entre a Synapse e o seu serviço ligado!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para desenvolver uma maior compreensão do ponto final privado gerido no Synapse Analytics, consulte o Conceito em torno do artigo [de ponto final privado gerido pela Synapse.](data-integration-data-lake.md)
 

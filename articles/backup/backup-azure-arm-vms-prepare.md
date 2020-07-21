@@ -3,11 +3,12 @@ title: Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88e7be7e2238637f1e6d5ac84abebdca0b9e1674
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727017"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497935"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 
@@ -66,10 +67,10 @@ Depois do cofre ser criado, aparece na lista de cofres dos Serviços de Recupera
 
 ### <a name="modify-storage-replication"></a>Modificar a replicação do armazenamento
 
-Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md).
 
 * Se o cofre for o seu mecanismo de reserva primário, recomendamos que utilize GRS.
-* Você pode usar [armazenamento localmente redundante (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma opção mais barata.
+* Você pode usar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para uma opção mais barata.
 
 Modificar o tipo de replicação de armazenamento da seguinte forma:
 
@@ -173,8 +174,8 @@ O estado do trabalho pode variar dependendo dos seguintes cenários:
 Concluído | Em curso | Em curso
 Concluído | Ignorado | Concluído
 Concluído | Concluído | Concluído
-Concluído | Falhou | Concluído com aviso
-Falhou | Falhou | Falhou
+Concluído | Com falhas | Concluído com aviso
+Com falhas | Com falhas | Com falhas
 
 Agora com esta capacidade, para o mesmo VM, duas cópias de segurança podem ser executadas em paralelo, mas em ambas as fases (instantâneo, dados de transferência para o cofre) apenas uma sub tarefa pode estar em execução. Assim, em cenários, um trabalho de backup em andamento resultou que o backup do dia seguinte para falhar será evitado com esta funcionalidade de dissociação. As cópias de segurança do dia seguinte podem ter a imagem completada enquanto **os dados de transferência para o cofre** saltaram se o trabalho de reserva de um dia anterior estiver em progresso.
 O ponto de recuperação incremental criado no cofre irá capturar todo o churn do último ponto de recuperação criado no cofre. Não há impacto de custos no utilizador.
@@ -188,7 +189,7 @@ O Azure Backup apoia os VMs Azure instalando uma extensão ao agente Azure VM em
 **VM** | **Detalhes**
 --- | ---
 **Windows** | 1. [Descarregue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) o ficheiro MSI do agente.<br/><br/> 2. Instale com permissões de administração na máquina.<br/><br/> 3. Verifique a instalação. Em *C:\WindowsAzure\Pacotes* no VM, clique à direita **WaAppAgent.exe**  >  **Propriedades**. No separador **Detalhes,** a **versão do produto** deve ser 2.6.1198.718 ou superior.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a ser operações de backup e [reinstala o agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Instale utilizando um RPM ou um pacote DEB do repositório de pacotes da sua distribuição. Este é o método preferido para instalar e atualizar o agente Azure Linux. Todos os [fornecedores de distribuição endossados](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integram o pacote de agente Azure Linux nas suas imagens e repositórios. O agente está disponível no [GitHub,](https://github.com/Azure/WALinuxAgent)mas não recomendamos a instalação a partir daí.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a ser operações de backup e atualize os binários.
+**Linux** | Instale utilizando um RPM ou um pacote DEB do repositório de pacotes da sua distribuição. Este é o método preferido para instalar e atualizar o agente Azure Linux. Todos os [fornecedores de distribuição endossados](../virtual-machines/linux/endorsed-distros.md) integram o pacote de agente Azure Linux nas suas imagens e repositórios. O agente está disponível no [GitHub,](https://github.com/Azure/WALinuxAgent)mas não recomendamos a instalação a partir daí.<br/><br/> Se estiver a atualizar o agente, certifique-se de que não estão a ser operações de backup e atualize os binários.
 
 >[!NOTE]
 > **O Azure Backup suporta agora a cópia de segurança seletiva do disco e restaura utilizando a solução de backup da Máquina Virtual Azure.**

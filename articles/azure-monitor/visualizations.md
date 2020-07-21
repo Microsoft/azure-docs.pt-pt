@@ -6,13 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797490"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498598"
 ---
-# <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
+# <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
 
 Visualizações como gráficos e gráficos podem ajudá-lo a analisar os seus dados de monitorização para aprofundar questões e identificar padrões. Dependendo da ferramenta que utiliza, poderá também ter a opção de partilhar visualizações com outros utilizadores dentro e fora da sua organização.
@@ -39,6 +40,8 @@ Os livros de trabalho são [documentos](../azure-monitor/platform/workbooks-over
 [Os dashboards Azure](../azure-portal/azure-portal-dashboards.md) são a principal tecnologia de dashboarding para o Azure. Eles são particularmente úteis para fornecer um único painel de vidro sobre a sua infraestrutura e serviços Azure permitindo-lhe identificar rapidamente questões importantes.
 
 ![Dashboard](media/visualizations/dashboard.png)
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Vantagens
 - Profunda integração no Azure. As visualizações podem ser fixadas a dashboards de várias páginas Azure, incluindo Metrics Explorer, Log Analytics e Application Insights.

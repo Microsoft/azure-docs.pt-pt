@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: a7a8af505394b5bf860778b9872434cdacf54210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887015"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497625"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -77,16 +77,16 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dinâmica 365 e Dinâmica CRM online
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Sim |
 | tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "Online" para a Dynamics online. | Sim |
-| serviceUri | O URL de serviço da sua instância Dynamics. Um exemplo é https://adfdynamics.crm.dynamics.com. | Sim |
+| serviceUri | O URL de serviço da sua instância Dynamics. Um exemplo é https://www.crmdynamics.com. | Sim |
 | authenticationType | O tipo de autenticação para ligar a um servidor Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Sim |
 | servicePrincipalId | A identificação do cliente da aplicação AD Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
 | ServiçoPrincipalCredentialType | O tipo de credencial a utilizar para a autenticação principal de serviço. Os valores válidos são "ServicePrincipalKey" e "ServicePrincipalCert". | Sim, quando a autenticação é "AADServicePrincipal" |
 | serviçoPrincipalCredential | A credencial principal de serviço. <br/><br/>Quando utiliza o "ServicePrincipalKey" como tipo credencial, `servicePrincipalCredential` pode ser uma cadeia que a Azure Data Factory encripta após a implementação do serviço ligado. Ou pode ser uma referência a um segredo em Azure Key Vault. <br/><br/>Quando utilizar o "ServicePrincipalCert" como credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Cofre da Chave Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
-| o nome de utilizador | O nome de utilizador para ligar à Dynamics. | Sim, quando a autenticação é "Office365" |
+| nome de utilizador | O nome de utilizador para ligar à Dynamics. | Sim, quando a autenticação é "Office365" |
 | palavra-passe | A palavra-passe para a conta de utilizador que especificou como nome de utilizador. Marque este campo com "SecureString" para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim, quando a autenticação é "Office365" |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se nenhum valor for especificado, a propriedade utiliza o tempo de execução de integração Azure padrão. | Não para fonte, e sim para afundar se o serviço ligado à fonte não tiver um tempo de integração |
 
@@ -102,7 +102,7 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",  
+            "serviceUri": "https://www.crmdynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://adfdynamics.crm.dynamics.com", 
+            "serviceUri": "https://www.crmdynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://adfdynamics.crm.dynamics.com",
+            "serviceUri": "https://www.crmdynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -174,16 +174,16 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
 
 Propriedades adicionais que se comparam à Dynamics online são **o hostName** e **o porto.**
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Sim. |
-| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "OnPremisesWithIfd" para a Dynamics no local com IFD.| Sim. |
-| nome hospedeiro | O nome de anfitrião do servidor Dynamics no local. | Sim. |
+| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Yes. |
+| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "OnPremisesWithIfd" para a Dynamics no local com IFD.| Yes. |
+| nome hospedeiro | O nome de anfitrião do servidor Dynamics no local. | Yes. |
 | porta | A porta do servidor Dynamics no local. | Não. O valor predefinido é 443. |
-| organização Nome | O nome da organização do caso Dynamics. | Sim. |
-| authenticationType | O tipo de autenticação para ligar ao servidor Dynamics. Especificar "Ifd" para Dinâmicas no local com IFD. | Sim. |
-| o nome de utilizador | O nome de utilizador para ligar à Dynamics. | Sim. |
-| palavra-passe | A palavra-passe para a conta de utilizador que especificou para o nome de utilizador. Pode marcar este campo com "SecureString" para armazená-lo de forma segura na Data Factory. Ou pode armazenar uma palavra-passe no Key Vault e deixar a atividade de cópia sair daí quando fizer cópia de dados. Saiba mais com as credenciais da [Loja no Key Vault.](store-credentials-in-key-vault.md) | Sim. |
+| organização Nome | O nome da organização do caso Dynamics. | Yes. |
+| authenticationType | O tipo de autenticação para ligar ao servidor Dynamics. Especificar "Ifd" para Dinâmicas no local com IFD. | Yes. |
+| nome de utilizador | O nome de utilizador para ligar à Dynamics. | Yes. |
+| palavra-passe | A palavra-passe para a conta de utilizador que especificou para o nome de utilizador. Pode marcar este campo com "SecureString" para armazená-lo de forma segura na Data Factory. Ou pode armazenar uma palavra-passe no Key Vault e deixar a atividade de cópia sair daí quando fizer cópia de dados. Saiba mais com as credenciais da [Loja no Key Vault.](store-credentials-in-key-vault.md) | Yes. |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se nenhum valor for especificado, a propriedade utiliza o tempo de execução de integração Azure padrão. | Não para fonte e sim para afundar. |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Exemplo: Dinâmica nas instalações com IFD utilizando a autenticação IFD
@@ -220,7 +220,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados de e para a Dynamics, suportam-se as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida como "DynamicsEntity", "DynamicsCrmEntity", ou "CommonDataServiceForAppsEntity". |Sim |
 | entidade Nome | O nome lógico da entidade para recuperar. | Não para a fonte se a fonte de atividade for especificada como "consulta" e sim para pia |
@@ -252,7 +252,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Dynamics, a secção **de origem** da atividade de cópia suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como "DynamicsSource", "DynamicsCrmSource", ou "CommonDataServiceForAppsSource". | Sim |
 | consulta | FetchXML é uma linguagem de consulta proprietária que é usada em Dynamics on-line e no local. Veja o seguinte exemplo. Para saber mais, consulte [Criar consultas com a FetchXML.](https://msdn.microsoft.com/library/gg328332.aspx) | Não se `entityName` no conjunto de dados for especificado |
@@ -320,9 +320,9 @@ Para copiar dados da Dynamics, a secção **de origem** da atividade de cópia s
 
 Para copiar dados para a Dynamics, a secção **de lavatório** de atividade de cópia suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida como "DynamicsSink", "DynamicsCrmSink", ou "CommonDataServiceForAppsSink". | Sim. |
+| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida como "DynamicsSink", "DynamicsCrmSink", ou "CommonDataServiceForAppsSink". | Yes. |
 | escrever Comportamento | O comportamento de escrita da operação. O valor deve ser "Upsert". | Sim |
 | nome alternativoKeyName | O nome de chave alternativa definido na sua entidade para fazer um upsert. | Não. |
 | escreverBatchSize | A contagem de dados escrita para a Dynamics em cada lote. | Não. O valor predefinido é 10. |
@@ -382,17 +382,17 @@ Configure o tipo de dados correspondente data factory numa estrutura de conjunto
 | AtributoType.Cliente | GUID | ✓ | ✓ (Ver [orientação)](#writing-data-to-a-lookup-field) |
 | AtributoType.DateTime | Datetime | ✓ | ✓ |
 | AtributoType.Decimal | Decimal | ✓ | ✓ |
-| AtributoType.Double | Double | ✓ | ✓ |
-| Nome de AtributoType.EntityName | String | ✓ | ✓ |
+| AtributoType.Double | Double (Duplo) | ✓ | ✓ |
+| Nome de AtributoType.EntityName | Cadeia | ✓ | ✓ |
 | AtributoType.Inteiro | Int32 | ✓ | ✓ |
 | AtributoType.Lookup | GUID | ✓ | ✓ (Ver [orientação)](#writing-data-to-a-lookup-field) |
 | AtributoType.ManagedProperty | Booleano | ✓ | |
-| AtributoType.Memo | String | ✓ | ✓ |
+| AtributoType.Memo | Cadeia | ✓ | ✓ |
 | AtributoType.Dinheiro | Decimal | ✓ | ✓ |
 | AtributoType.Proprietário | GUID | ✓ | ✓ (Ver [orientação)](#writing-data-to-a-lookup-field) |
 | AtributoType.Picklist | Int32 | ✓ | ✓ |
 | AtributoType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AtributoType.String | String | ✓ | ✓ |
+| AtributoType.String | Cadeia | ✓ | ✓ |
 | AtributoType.State | Int32 | ✓ | ✓ |
 | AtributoType.Status | Int32 | ✓ | ✓ |
 

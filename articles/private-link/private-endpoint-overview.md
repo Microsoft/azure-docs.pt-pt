@@ -7,11 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c739c6483832c08a91f2a5318853bf48e5d41854
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414152"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496966"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é Azure Private Endpoint?
 
@@ -23,7 +24,7 @@ O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço
 
 |Propriedade  |Descrição |
 |---------|---------|
-|Name    |    Um nome único dentro do grupo de recursos.      |
+|Nome    |    Um nome único dentro do grupo de recursos.      |
 |Subrede    |  A sub-rede para implantar e alocar endereços IP privados a partir de uma rede virtual. Para obter os requisitos da sub-rede, consulte a secção Limitações neste artigo.         |
 |Recurso de ligação privada    |   O recurso de ligação privada para ligar usando iD ou pseudónimo de recurso, a partir da lista de tipos disponíveis. Será gerado um identificador de rede único para todo o tráfego enviado a este recurso.       |
 |Subresource-alvo   |      O subresource para ligar. Cada tipo de recurso de ligação privada tem diferentes opções para selecionar com base na preferência.    |
@@ -59,19 +60,19 @@ Um recurso de ligação privada é o alvo de destino de um determinado ponto fin
 |**Azure Synapse Analytics** | Microsoft.Sql/servidores    |  Sql Server (SqlServer)        | 
 |**Armazenamento do Azure**  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAcontas    |  Blob (bolha, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
-|**BD do Cosmos para o Azure** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseSacons    | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Base de Dados Azure para PostgreSQL -Servidor único** | Microsoft.DBforPostgreSQL/servidores    | postgresqlServer |
 |**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servidores    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servidores    | mariadbServer |
-|**Azure IoT Hub** | Microsoft.Devices/IotHubs    | IotHub |
+|**Hub IoT do Azure** | Microsoft.Devices/IotHubs    | IotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/cofres    | cofre |
 |**Serviço Azure Kubernetes - Kubernetes API** | Microsoft.ContainerService/managedClusters    | geridoCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
-|**Registo de Contentores do Azure** | Microsoft.ContainerRegistry/registries    | registry |
-|**Configuração da Aplicação Azure** | Microsoft.Appconfiguration/configurationStores    | configuraçãoStore |
+|**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | registry |
+|**Configuração da Aplicação Azure** | Microsoft.Appconfiguration/configurationStores    | configuraçõesStores |
 |**Azure Backup** | Microsoft.RecoveryServices/cofres    | cofre |
 |**Hub de Eventos do Azure** | Microsoft.EventHub/espaços de nome    | espaço de nomes |
-|**Service Bus do Azure** | Microsoft.ServiceBus/namespaces | espaço de nomes |
+|**Azure Service Bus** | Microsoft.ServiceBus/namespaces | espaço de nomes |
 |**Reencaminhamento do Azure** | Microsoft.Relay/namespaces | espaço de nomes |
 |**Azure Event Grid** | Microsoft.EventGrid/tópicos    | tópico |
 |**Azure Event Grid** | Microsoft.EventGrid/domínios    | domínio |

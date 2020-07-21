@@ -3,12 +3,12 @@ title: Backup VMware VMs com Azure Backup Server
 description: Neste artigo, aprenda a utilizar o Azure Backup Server para fazer backup vMware VMs em execução num servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fed088a9c5eea461f93c844dcb0eead74761237e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c9868012698fcdf5a2352c289de85261b6899dc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081065"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497918"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Backup VMware VMs com Azure Backup Server
 
@@ -24,7 +24,7 @@ Este artigo explica como:
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Verifique se está a executar uma versão do vCenter/ESXi que é suportada por cópias de segurança. Consulte aqui a [matriz](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)de suporte.
+- Verifique se está a executar uma versão do vCenter/ESXi que é suportada por cópias de segurança. Consulte aqui a [matriz](./backup-mabs-protection-matrix.md)de suporte.
 - Certifique-se de que configura o Servidor de Backup Azure. Se não o fez, [faça isso](backup-azure-microsoft-azure-backup.md) antes de começar. Deverá estar a executar o Azure Backup Server com as últimas atualizações.
 - Certifique-se de que as seguintes portas de rede estão abertas:
   - TCP 443 entre MABS e vCenter
@@ -41,7 +41,7 @@ Por predefinição, o Azure Backup Server comunica com servidores VMware atravé
 - É importante entender como o Azure Backup Server lida com cópias de segurança.
   - Como primeiro passo, o Azure Backup Server regista dados para o armazenamento de discos locais. O Azure Backup Server utiliza uma piscina de armazenamento, um conjunto de discos e volumes nos quais o Azure Backup Server armazena pontos de recuperação de discos para os seus dados protegidos. A piscina de armazenamento pode ser anexada diretamente ao armazenamento (DAS), um canal de fibra SAN, ou dispositivo de armazenamento iSCSI ou SAN. É importante garantir que tem armazenamento suficiente para a cópia de segurança local dos seus dados VMware VMware VM.
   - O Azure Backup Server, em seguida, recua do armazenamento do disco local para o Azure.
-  - [Obtenha ajuda](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) para descobrir quanto espaço de armazenamento precisa. A informação é para DPM mas também pode ser usada para O Servidor de Backup Azure.
+  - [Obtenha ajuda](/system-center/dpm/create-dpm-protection-groups#figure-out-how-much-storage-space-you-need) para descobrir quanto espaço de armazenamento precisa. A informação é para DPM mas também pode ser usada para O Servidor de Backup Azure.
 
 ### <a name="set-up-the-certificate"></a>Configurar o certificado
 

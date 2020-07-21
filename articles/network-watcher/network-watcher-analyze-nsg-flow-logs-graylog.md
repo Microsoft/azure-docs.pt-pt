@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737432"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497119"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar registos de fluxo de grupos de segurança de rede em Azure usando Network Watcher e Graylog
 
@@ -30,7 +30,7 @@ Pode ter muitos grupos de segurança de rede na sua rede com registo de fluxos a
 > [!Warning]
 > Os passos seguintes funcionam com os registos de fluxo versão 1. Para mais informações, consulte [Introdução à registo de fluxo para grupos de segurança da rede](network-watcher-nsg-flow-logging-overview.md). As seguintes instruções não funcionarão com a versão 2 dos ficheiros de registo, sem modificação.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Os registos de fluxo do grupo de segurança da rede são ativados utilizando o Network Watcher. Os registos de fluxo fluem para o armazenamento de bolhas Azure. Um plugin logstash é utilizado para ligar e processar registos de fluxo a partir do armazenamento de bolhas e enviá-los para Graylog. Uma vez que os registos de fluxo são armazenados em Graylog, podem ser analisados e visualizados em dashboards personalizados.
 
@@ -190,7 +190,7 @@ Agora que estabeleceu uma ligação aos registos de fluxo utilizando o Logstash 
 
    Uma vez lançada a entrada, deve vê-la aparecer na secção **de entradas Local,** como mostra a seguinte imagem:
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![Screenshot que mostra a secção de entradas local que contém a entrada que lançou.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    Para saber mais sobre as entradas de mensagens Graylog, consulte a [documentação](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
@@ -212,7 +212,7 @@ Por predefinição, todos os campos de mensagens estão incluídos na pesquisa s
 
 Agora que o Graylog se instalou em funcionamento, pode utilizar algumas das suas funcionalidades para entender melhor os seus dados de registo de fluxo. Uma dessas formas é utilizar dashboards para criar visões específicas dos seus dados.
 
-### <a name="create-a-dashboard"></a>Create a dashboard (Criar um dashboard)
+### <a name="create-a-dashboard"></a>Criar um dashboard
 
 1. Na barra de navegação superior, selecione **Dashboards** ou navegue para`http://<graylog-server-ip>:9000/dashboards/`
 

@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536451"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86496184"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
 
@@ -73,7 +74,7 @@ Para Azure File Sync, o desempenho é fundamental em duas fases:
 
 Para ajudá-lo a planear a sua implantação para cada uma das fases, abaixo estão os resultados observados durante os testes internos num sistema com uma config
 
-| Configuração do sistema |  |
+| Configuração do sistema | Detalhes |
 |-|-|
 | CPU | 64 Núcleos Virtuais com cache MiB L3 64 |
 | Memória | 128 GiB |
@@ -81,7 +82,7 @@ Para ajudá-lo a planear a sua implantação para cada uma das fases, abaixo est
 | Rede | Rede 1 Gbps |
 | Carga de trabalho | Servidor de ficheiros de finalidade geral|
 
-| Provisão única inicial  |  |
+| Provisão única inicial  | Detalhes |
 |-|-|
 | Número de objetos | 25 milhões de objetos |
 | Tamanho do conjunto de dados| ~4.7 TiB |
@@ -91,7 +92,7 @@ Para ajudá-lo a planear a sua implantação para cada uma das fases, abaixo est
 
 *Quando um novo ponto final do servidor é criado, o agente Azure File Sync não descarrega nenhum dos conteúdos do ficheiro. Primeiro sincroniza o espaço de nome completo e, em seguida, desencadeia a chamada de fundo para descarregar os ficheiros, quer na sua totalidade, quer, se o tiering da nuvem estiver ativado, para a política de tiering de nuvem definida no ponto final do servidor.
 
-| Sincronização em curso  |   |
+| Sincronização em curso  | Detalhes  |
 |-|--|
 | Número de objetos sincronizados| 125.000 objetos (~1% churn) |
 | Tamanho do conjunto de dados| 50 GiB |
@@ -111,5 +112,5 @@ Como guia geral para a sua implantação, deve ter em mente algumas coisas:
 
 ## <a name="see-also"></a>Veja também
 
-- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+- [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

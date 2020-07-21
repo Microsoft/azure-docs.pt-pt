@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 280fea29b79db58d0974aaba961db9c7a7df3dad
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a4b61b89921b41476ff1c2196502092809862a82
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045795"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495504"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -102,7 +102,7 @@ Para criar uma base de dados, o utilizador deve ser um utilizador baseado num lo
 
    Para melhorar o desempenho, os início de sessão (principais ao nível do servidor) são temporariamente colocados em cache ao nível da base de dados. Para atualizar a cache de autenticação, veja [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-3. Na `master` base de dados, crie um utilizador utilizando a declaração [DO UTILIZADOR CREATE.](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) O utilizador pode ser um utilizador de autenticação do Azure Ative Directory (se tiver configurado o seu ambiente para a autenticação AD Azure), ou um utilizador de autenticação sql Server contido na base de dados, ou um utilizador de autenticação sql Server com base num login de autenticação do SQL Server (criado no passo anterior).) Declarações de amostras:
+3. Crie um utilizador de bases de dados utilizando a declaração [DO UTILIZADOR CREATE.](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) O utilizador pode ser um utilizador de autenticação do Azure Ative Directory (se tiver configurado o seu ambiente para a autenticação AD Azure), ou um utilizador de autenticação sql Server contido na base de dados, ou um utilizador de autenticação sql Server com base num login de autenticação do SQL Server (criado no passo anterior).) Declarações de amostras:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -110,11 +110,11 @@ Para criar uma base de dados, o utilizador deve ser um utilizador baseado num lo
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo utilizador, à função de base de dados **dbmanager** na `master` utilização da declaração [ALTER ROLE.](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Instruções de exemplo:
+4. Adicione o novo utilizador, à função de base de dados **dbmanager** na `master` utilização do procedimento [de sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (note que a declaração [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) não é suportada no SQL a provisionado). Instruções de exemplo:
 
    ```sql
-   ALTER ROLE dbmanager ADD MEMBER Mary;
-   ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
+   EXEC sp_addrolemember 'dbmanager', 'Mary'; 
+   EXEC sp_addrolemember 'dbmanager', 'mike@contoso.com]'; 
    ```
 
    > [!NOTE]
@@ -126,7 +126,7 @@ Agora o utilizador pode ligar-se à `master` base de dados e criar novas bases d
 
 ### <a name="login-managers"></a>Gestores de início de sessão
 
-A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager**) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os inícios de sessão não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de base de dados contidos, o que autentica ao nível da base de dados em vez de utilizar os utilizadores com base em inícios de sessão. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager**) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os inícios de sessão não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de base de dados contidos, o que autentica ao nível da base de dados em vez de utilizar os utilizadores com base em inícios de sessão. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -151,7 +151,7 @@ GRANT ALTER ANY USER TO Mary;
 
 Para dar aos utilizadores adicionais o controlo total da base de dados, faça-os um membro da **db_owner** papel de base de dados fixa.
 
-Na Base de Dados Azure SQL, utilize a `ALTER ROLE` declaração.
+Na Base de Dados Azure SQL ou na sinapse sem servidor, utilize a `ALTER ROLE` declaração.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;
@@ -235,5 +235,5 @@ Ao gerir logins e utilizadores na Base de Dados SQL, considere os seguintes pont
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx).
+Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx).
  

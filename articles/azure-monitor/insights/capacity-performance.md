@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666948"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499550"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Plan Hyper-V capacidade de máquina virtual com a solução capacidade e desempenho (depreciada)
 
@@ -43,7 +44,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de capacidade e dados de desempenho de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não    | A solução não recolhe informações de capacidade e dados de desempenho de agentes linux diretos.|
 | [Grupo de gestão SCOM](../../azure-monitor/platform/om-agents.md) | Sim |A solução recolhe dados de capacidade e desempenho de agentes de um grupo de gestão SCOM conectado. Não é necessária uma ligação direta do agente SCOM ao Log Analytics.|
-| [Conta de armazenamento Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do azul não inclui dados de capacidade e desempenho.|
+| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento do azul não inclui dados de capacidade e desempenho.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,7 +109,7 @@ Clique no azulejo de Capacidade e Desempenho para abrir o painel de capacidade e
 
 Os ambientes de computação de produção diferem muito de uma organização para outra. Além disso, as cargas de trabalho de capacidade e desempenho podem depender de como os seus VMs estão a funcionar, e do que considera normal. Procedimentos específicos para ajudá-lo a medir o desempenho provavelmente não se aplicariam ao seu ambiente. Então, orientação prescritiva mais generalizada é mais adequada para ajudar. A Microsoft publica uma variedade de artigos de orientação prescritivo para ajudá-lo a medir o desempenho.
 
-Resumindo, a solução recolhe dados de capacidade e desempenho de várias fontes, incluindo contadores de desempenho. Utilize essa capacidade e dados de desempenho que apresentaram em várias superfícies na solução e compare os seus resultados com os do [artigo De Medição em Hiper-V.](https://msdn.microsoft.com/library/cc768535.aspx) Embora o artigo tenha sido publicado há algum tempo, as métricas, considerações e orientações ainda são válidas. O artigo contém ligações a outros recursos úteis.
+Resumindo, a solução recolhe dados de capacidade e desempenho de várias fontes, incluindo contadores de desempenho. Utilize essa capacidade e dados de desempenho que apresentaram em várias superfícies na solução e compare os seus resultados com os do [artigo De Medição em Hiper-V.](https://www.microsoft.com/en-us/download/details.aspx?id=56495) Embora o artigo tenha sido publicado há algum tempo, as métricas, considerações e orientações ainda são válidas. O artigo contém ligações a outros recursos úteis.
 
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo

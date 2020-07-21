@@ -4,12 +4,12 @@ description: Saiba como o Agente MARS suporta os cenários de backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 64f43f42fc23b1ca9591b6a49c3acce6c52c09d6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134968"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497952"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente microsoft Azure Recovery Services (MARS)
 
@@ -40,10 +40,10 @@ O agente MARS suporta os seguintes cenários de restauro:
 ## <a name="backup-process"></a>Processo de cópia de segurança
 
 1. A partir do portal Azure, crie um [cofre dos Serviços de Recuperação](install-mars-agent.md#create-a-recovery-services-vault)e escolha ficheiros, pastas e o estado do sistema a partir dos **objetivos de Backup**.
-2. [Descarregue as credenciais de cofre dos Serviços de Recuperação e o instalador](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) de agentes para uma máquina no local.
+2. [Descarregue as credenciais de cofre dos Serviços de Recuperação e o instalador](./install-mars-agent.md#download-the-mars-agent) de agentes para uma máquina no local.
 
-3. [Instale o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e utilize as credenciais de cofre descarregadas para registar a máquina no cofre dos Serviços de Recuperação.
-4. A partir da consola do agente no cliente, [configufique a cópia de segurança](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) para especificar o que fazer, quando fazer backup (o horário), quanto tempo as cópias de segurança devem ser mantidas no Azure (a política de retenção) e começar a proteger.
+3. [Instale o agente](./install-mars-agent.md#install-and-register-the-agent) e utilize as credenciais de cofre descarregadas para registar a máquina no cofre dos Serviços de Recuperação.
+4. A partir da consola do agente no cliente, [configufique a cópia de segurança](./backup-windows-with-mars-agent.md#create-a-backup-policy) para especificar o que fazer, quando fazer backup (o horário), quanto tempo as cópias de segurança devem ser mantidas no Azure (a política de retenção) e começar a proteger.
 
 ![Diagrama do agente de backup Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -57,12 +57,12 @@ O agente MARS suporta os seguintes cenários de restauro:
 
 ### <a name="additional-scenarios"></a>Cenários adicionais
 
-- Faça o **backup de ficheiros e pastas específicas dentro de máquinas virtuais Azure**: O método principal para fazer o backup das máquinas virtuais Azure (VMs) é utilizar uma extensão de backup Azure no VM. A extensão confirma todo o VM. Se pretender fazer o back up ficheiros e pastas específicos dentro de um VM, pode instalar o agente MARS nos VMs Azure. Para mais informações, consulte [Arquitetura: Cópia de segurança Azure VM incorporada.](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup)
+- Faça o **backup de ficheiros e pastas específicas dentro de máquinas virtuais Azure**: O método principal para fazer o backup das máquinas virtuais Azure (VMs) é utilizar uma extensão de backup Azure no VM. A extensão confirma todo o VM. Se pretender fazer o back up ficheiros e pastas específicos dentro de um VM, pode instalar o agente MARS nos VMs Azure. Para mais informações, consulte [Arquitetura: Cópia de segurança Azure VM incorporada.](./backup-architecture.md#architecture-built-in-azure-vm-backup)
 
 - **Sementeira offline**: As cópias de segurança completas iniciais dos dados para o Azure normalmente transferem grandes quantidades de dados e requerem mais largura de banda de rede. As cópias de segurança subsequentes transferem apenas a quantidade de dados delta, ou incremental. O Azure Backup comprime as cópias de segurança iniciais. Através do processo de *sementeira offline,* o Azure Backup pode utilizar discos para enviar os dados de backup iniciais comprimidos offline para Azure. Para obter mais informações, consulte [a cópia de segurança offline do Azure Backup utilizando a Caixa de Dados Azure](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Matriz de suporte do agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[Matriz de suporte do agente MARS](./backup-support-matrix-mars-agent.md)
 
-[Agente MARS FAQ](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[Agente MARS FAQ](./backup-azure-file-folder-backup-faq.md)

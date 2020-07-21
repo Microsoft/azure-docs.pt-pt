@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 4919ce9ecaa3dc4f621aa5658b44aa53fad0bbf3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 529024256b8b3f6da7146787d3a37c59a13b5bd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201028"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494756"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Grupos de recursos exportadores que contêm extensões VM
 
@@ -137,7 +137,7 @@ O recurso de extensão final é semelhante ao seguinte exemplo JSON:
 }
 ```
 
-Se utilizar parâmetros de modelo para fornecer valores de propriedade, estes precisam de ser criados. Ao criar parâmetros de modelo para valores de regulação protegidos, certifique-se de que utiliza o `SecureString` tipo de parâmetro para que os valores sensíveis sejam fixados. Para obter mais informações sobre a utilização de parâmetros, consulte [os modelos do Gestor de Recursos Azure.](../../resource-group-authoring-templates.md)
+Se utilizar parâmetros de modelo para fornecer valores de propriedade, estes precisam de ser criados. Ao criar parâmetros de modelo para valores de regulação protegidos, certifique-se de que utiliza o `SecureString` tipo de parâmetro para que os valores sensíveis sejam fixados. Para obter mais informações sobre a utilização de parâmetros, consulte [os modelos do Gestor de Recursos Azure.](../../azure-resource-manager/templates/template-syntax.md)
 
 No exemplo da `IaasDiagnostic` extensão, os seguintes parâmetros seriam criados na secção de parâmetros do modelo de Gestor de Recursos.
 

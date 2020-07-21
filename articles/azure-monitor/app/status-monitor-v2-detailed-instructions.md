@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c74d4f0b2e0b2d8ca09c9b2c1f1091594f5657dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2faf33fdd58090a335804f084ef2d1f180a9754a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111019"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499329"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (anteriormente denominado Status Monitor v2): Instruções detalhadas
 
@@ -29,9 +29,7 @@ Para começar, precisa de uma chave de instrumentação. Para obter mais informa
 O PowerShell precisa de permissões ao nível do administrador para escoar alterações no seu computador.
 ### <a name="execution-policy"></a>Política de execução
 - Descrição: Por predefinição, os scripts PowerShell em execução são desativadas. Recomendamos permitir scripts remoteSigned apenas para o âmbito Atual.
-- Referência: Sobre políticas de [execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) e [política de execução de conjuntos](
-https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
-).
+- Referência: Sobre políticas de [execução](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) e [política de execução de conjuntos](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6).
 - Comando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` .
 - Parâmetro opcional:
     - `-Force`. Ignora o pedido de confirmação.
@@ -80,7 +78,7 @@ Estes passos irão preparar o seu servidor para descarregar módulos da PowerShe
 1. Executar PowerShell como Administrador com uma política de execução elevada.
 2. Instale o fornecedor de pacotes NuGet.
     - Descrição: Você precisa deste fornecedor para interagir com repositórios baseados em NuGet como a PowerShell Gallery.
-    - Referência: [Instalar-PacoteProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - Referência: [Instalar-PacoteProvider](/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - Comando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201` .
     - Parâmetros opcionais:
         - `-Proxy`. Especifica um servidor proxy para o pedido.
@@ -100,7 +98,7 @@ Estes passos irão preparar o seu servidor para descarregar módulos da PowerShe
 
 3. Configure a PowerShell Gallery como um repositório de confiança.
     - Descrição: Por defeito, a PowerShell Gallery é um repositório não fidedvo.
-    - Referência: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - Referência: [Set-PSRepository](/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Comando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted` .
     - Parâmetro opcional:
         - `-Proxy`. Especifica um servidor proxy para o pedido.
@@ -146,7 +144,7 @@ Estes passos irão descarregar o módulo Az.ApplicationMonitor da PowerShell Gal
 1. Certifique-se de que todos os pré-requisitos para a PowerShell Gallery são cumpridos.
 2. Executar PowerShell como Administrador com uma política de execução elevada.
 3. Instale o módulo Az.ApplicationMonitor.
-    - Referência: [Módulo de instalação](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
+    - Referência: [Módulo de instalação](/powershell/module/powershellget/install-module?view=powershell-6).
     - Comando: `Install-Module -Name Az.ApplicationMonitor` .
     - Parâmetros opcionais:
         - `-Proxy`. Especifica um servidor proxy para o pedido.
@@ -172,7 +170,7 @@ Para obter mais informações, consulte [a instalação de um módulo PowerShell
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Desaperte o nupkg como ficheiro zip utilizando o Expand-Archive (v1.0.1.0)
 
 - Descrição: A versão base do Microsoft.PowerShell.Archive (v1.0.1.0) não consegue desapertar ficheiros nupkg. Mude o nome do ficheiro com a extensão .zip.
-- Referência: [Expandir-Arquivo](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
+- Referência: [Expandir-Arquivo](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
 - Comando:
 
     ```console
@@ -186,7 +184,7 @@ Para obter mais informações, consulte [a instalação de um módulo PowerShell
 #### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Unzip nupkg utilizando o Expand-Archive (v1.1.0.0)
 
 - Descrição: Utilize uma versão atual do Expand-Archive para desapertar ficheiros nupkg sem alterar a extensão.
-- Referência: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) e [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Referência: [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) e [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Comando:
 
     ```console
@@ -199,7 +197,7 @@ Para obter mais informações, consulte [a instalação de um módulo PowerShell
 Instale o módulo PowerShell descarregado manualmente num diretório PowerShell para que seja detetado pelas sessões PowerShell.
 Para obter mais informações, consulte [a instalação de um módulo PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
-Se estiver a instalar o módulo em qualquer outro diretório, importe manualmente o módulo utilizando [o Módulo de Importação](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
+Se estiver a instalar o módulo em qualquer outro diretório, importe manualmente o módulo utilizando [o Módulo de Importação](/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 
 > [!IMPORTANT] 
 > Os DLLs serão instalados através de caminhos relativos.
@@ -218,14 +216,14 @@ Quando monitorizar um computador na sua intranet privada, terá de encaminhar o 
 Os comandos PowerShell para descarregar e instalar Az.ApplicationMonitor da PowerShell Gallery suportam um `-Proxy` parâmetro.
 Reveja as instruções anteriores quando escrever os scripts de instalação.
 
-O Application Insights SDK terá de enviar a telemetria da sua aplicação para a Microsoft. Recomendamos que configufique as definições de procuração para a sua aplicação no seu ficheiro web.config. Para obter mais informações, consulte [a Application Insights FAQ: Proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
+O Application Insights SDK terá de enviar a telemetria da sua aplicação para a Microsoft. Recomendamos que configufique as definições de procuração para a sua aplicação no seu ficheiro web.config. Para obter mais informações, consulte [a Application Insights FAQ: Proxy passthrough](../faq.md#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>Ativar monitorização
 
 Utilize o `Enable-ApplicationInsightsMonitoring` comando para ativar a monitorização.
 
-Consulte a [referência API](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) para obter uma descrição detalhada de como utilizar este cmdlet.
+Consulte a [referência API](./status-monitor-v2-api-reference.md#enable-applicationinsightsmonitoring) para obter uma descrição detalhada de como utilizar este cmdlet.
 
 
 
@@ -235,7 +233,7 @@ Consulte a [referência API](https://docs.microsoft.com/azure/azure-monitor/app/
 
 - [Explore métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
 - [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
-- [Use Analytics](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
+- [Use Analytics](../log-query/log-query-overview.md) para consultas mais avançadas.
 - [Criar painéis de instrumentos.](../../azure-monitor/app/overview-dashboard.md)
 
  Adicionar mais telemetria:

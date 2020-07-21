@@ -9,11 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124946"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494943"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Escalar automaticamente uma escala de máquina virtual definida no portal Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação.
@@ -43,13 +44,13 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
     | Parâmetro              | Explicação                                                                                                         | Valor          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregação do tempo*     | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
-    | *Nome da Métrica*          | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
+    | *Nome métrico*          | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
     | *Estatística do intervalo de agregação* | Define como as métricas recolhidas em cada vez que os grãos devem ser agregados para análise.                             | Média        |
     | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior que   |
     | *Limiar*            | A percentagem que faz com que a regra da autoescala desencadeie uma ação.                                                 | 70             |
     | *Duration*             | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de escala deve escalar para cima ou para baixo quando a regra se aplica e por que incremento                        | Aumentar por cento em |
-    | *Contagem de exemplos*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 20             |
+    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 20             |
     | *Repouso (minutos)*  | A quantidade de tempo de espera antes de a regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
 
     Os exemplos a seguir mostram uma regra criada no portal Azure que corresponde a estas configurações:
@@ -72,7 +73,7 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
     | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menor que   |
     | *Limiar*            | A percentagem que faz com que a regra da autoescala desencadeie uma ação.                                                 | 30             |
     | *Operação*            | Define se o conjunto de escala deve escalar para cima ou para baixo quando a regra se aplica e por que incremento                         | Diminuir por cento em |
-    | *Contagem de exemplos*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                             | 20             |
+    | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                             | 20             |
 
 3. Para criar a regra, **selecione Adicionar**
 
@@ -122,6 +123,6 @@ Para ver como são aplicadas as suas regras de autoescala, selecione **Executar 
 ## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a utilizar regras de autoescala para escalar horizontalmente e aumentar ou diminuir o *número* de instâncias em VM no seu conjunto de escala. Também pode escalar verticalmente para aumentar ou diminuir o *tamanho*da instância VM . Para obter mais informações, consulte [autoescala vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Para obter informações sobre como gerir as suas instâncias em VM, consulte [Gerir conjuntos de balanças de máquinas virtuais com Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+Para obter informações sobre como gerir as suas instâncias em VM, consulte [Gerir conjuntos de balanças de máquinas virtuais com Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Para aprender a gerar alertas quando as suas regras de autoescalação disparam, consulte [utilizar ações de autoescala para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Também pode [utilizar registos de auditoria para enviar notificações de alerta de email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Para aprender a gerar alertas quando as suas regras de autoescalação disparam, consulte [utilizar ações de autoescala para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Também pode [utilizar registos de auditoria para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).
