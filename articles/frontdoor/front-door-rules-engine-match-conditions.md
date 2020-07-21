@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Regras da porta dianteira Azure Condições de jogo do motor
 description: Este artigo fornece uma lista das várias condições de jogo disponíveis com o Motor das Regras da Porta Frontal Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: d42b6b56f0cdd1f6ef2ea45b21a027f1b4c56b1c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 311914078f8169a3b48b5559ed58a690c29be83a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321986"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512168"
 ---
-# <a name="azure-front-door-rules-engine-match-conditions"></a>Condições de jogo do motor das regras da porta da frente Azure
+# <a name="azure-front-door-rules-engine-match-conditions"></a>Condições de Correspondência do Motor de Regras do Azure Front Door
 
 No [MOTOR de Regras AFD](front-door-rules-engine.md) uma regra consiste em zero ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de jogo que pode utilizar no MOTOR de Regras DA AFD.
 
@@ -51,7 +51,7 @@ Identifica os pedidos com base em argumentos definidos para o método de pedido 
 
 Nome do argumento | Operador | Valor do argumento | Transformação de caso
 --------------|----------|----------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
+Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
 
 ## <a name="query-string"></a>Cadeias de consulta
 
@@ -71,9 +71,9 @@ Identifica os pedidos com base na localização ou endereço IP do solicitador.
 
 Operador | Valores suportados
 ---------|-----------------
-Geo Match | Código de país
+Geo Match | Indicativo do país
 Jogo IP | Endereço IP (separado pelo espaço)
-Não Geo Match | Código de país
+Não Geo Match | Indicativo do país
 Não jogo IP | Endereço IP (separado pelo espaço)
 
 #### <a name="key-information"></a>Informações-chave
@@ -104,7 +104,7 @@ Identifica os pedidos que utilizam um cabeçalho específico no pedido.
 
 Nome do cabeçalho | Operador | Valor do cabeçalho | Transformação de caso
 ------------|----------|--------------|---------------
-String | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
+Cadeia | [Lista de operadores padrão](#standard-operator-list) | String | Minúscula, Maiúscula, Guarnição, Remover Whitespace, URL Codificação, DEcode URL
 
 ## <a name="request-method"></a>Método de pedido
 
@@ -187,7 +187,7 @@ Operador | Valor | Transformação de caso
 Para as regras que aceitam valores da lista de operadores padrão, os seguintes operadores são válidos:
 
 - Qualquer
-- É igual a 
+- Igual a 
 - Contains 
 - Começa com 
 - Termina com 
@@ -207,7 +207,7 @@ Para as regras que aceitam valores da lista de operadores padrão, os seguintes 
 Para operadores numéricos como *Menos do que* e Maior do que ou *iguais,* a comparação utilizada baseia-se no comprimento. Neste caso, o valor na condição de jogo deve ser um número inteiro que seja igual ao comprimento que se quer comparar. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como configurar a sua primeira [configuração do Motor de Regras](front-door-tutorial-rules-engine.md). 
 - Saiba mais sobre [as ações do Regimento de Máquinas](front-door-rules-engine-actions.md)

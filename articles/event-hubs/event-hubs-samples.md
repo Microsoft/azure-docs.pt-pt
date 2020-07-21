@@ -3,15 +3,15 @@ title: Amostras - Azure Event Hubs / Microsoft Docs
 description: Este artigo fornece uma lista de amostras para Azure Event Hubs que estão no GitHub.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9529b11d15460c713a0ae14f3bccfa1c2684a3ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d7a40e399482af0ad3a501918a7e3307d724c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315509"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512304"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repositórios de Git com amostras para Azure Event Hubs 
-Você pode encontrar amostras de Event Hubs no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Estas amostras demonstram características-chave nos [Hubs de Eventos Azure.](/azure/event-hubs/) Este artigo categoriza e descreve as amostras disponíveis, com ligações a cada um.
+Você pode encontrar amostras de Event Hubs no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Estas amostras demonstram características-chave nos [Hubs de Eventos Azure.](./index.yml) Este artigo categoriza e descreve as amostras disponíveis, com ligações a cada um.
 
 ## <a name="net-samples"></a>Amostras de .NET
 
@@ -57,6 +57,6 @@ Você pode encontrar amostras para o evento Hubs para Apache Kafka recurso no [r
 ## <a name="next-steps"></a>Próximos passos
 Pode saber mais sobre os Centros de Eventos nos seguintes artigos:
 
-- [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Descrição geral dos Event Hubs](./event-hubs-about.md)
 - [Funcionalidades dos Hubs de Eventos](event-hubs-features.md)
 - [FAQ dos Hubs de Eventos](event-hubs-faq.md)

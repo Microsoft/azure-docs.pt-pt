@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1be80defd7a4291d1224d5b0cb9f9e833dcf9af5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81460125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510519"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação do disco Azure numa rede isolada
 
@@ -43,13 +43,13 @@ Quaisquer definições de grupo de segurança de rede que sejam aplicadas devem 
 
 Se utilizar [a Encriptação do Disco Azure com Azure AD (versão anterior),](disk-encryption-overview-aad.md)a [Biblioteca do Diretório Ativo Azure](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) terá de ser instalada manualmente para todos os distros (para além dos pacotes adequados ao distro, conforme [listado acima).](#package-management)
 
-Quando a encriptação estiver a ser ativada com [credenciais AD AZure,](disk-encryption-linux-aad.md)o VM alvo deve permitir a conectividade tanto para os pontos finais do Azure Ative Directory como para os pontos finais do Key Vault. Os pontos finais de autenticação do Azure Ative Directory são mantidos nas secções 56 e 59 da documentação [dos intervalos de iurdões e endereços IP do Office 365.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) As instruções do Cofre chave são fornecidas na documentação sobre como aceder ao [cofre da chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).
+Quando a encriptação estiver a ser ativada com [credenciais AD AZure,](disk-encryption-linux-aad.md)o VM alvo deve permitir a conectividade tanto para os pontos finais do Azure Ative Directory como para os pontos finais do Key Vault. Os pontos finais de autenticação do Azure Ative Directory são mantidos nas secções 56 e 59 da documentação [dos intervalos de iurdões e endereços IP do Office 365.](/office365/enterprise/urls-and-ip-address-ranges) As instruções do Cofre chave são fornecidas na documentação sobre como aceder ao [cofre da chave Azure atrás de uma firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 
 A máquina virtual deve poder aceder ao ponto final do [serviço Azure Instance Metadata,](instance-metadata-service.md) que utiliza um conhecido endereço IP não roteível `169.254.169.254` ( ) que só pode ser acedido a partir do VM.  As configurações proxy que alteram o tráfego HTTP local para este endereço (por exemplo, adicionar um cabeçalho X-Forwarded)não são suportadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Ver mais passos para a [resolução de problemas de encriptação do disco Azure](disk-encryption-troubleshooting.md)
-- [Encriptação de dados Azure em repouso](../../security/fundamentals/encryption-atrest.md)
+- [Encriptação de dados inativa do Azure](../../security/fundamentals/encryption-atrest.md)

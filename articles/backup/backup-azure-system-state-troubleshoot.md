@@ -4,11 +4,12 @@ description: Neste artigo, aprenda a resolver problemas na Cópia de Segurança 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969583"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513856"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Backup do Estado do Sistema de Resolução de Problemas
 
@@ -19,11 +20,11 @@ Este artigo descreve soluções para problemas que poderá encontrar durante a u
 Recomendamos que efetue a validação abaixo, antes de começar a resolver problemas na cópia de segurança do Estado do Sistema:
 
 - [Certifique-se de que o Agente dos Serviços de Recuperação do Microsoft Azure (MARS) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Certifique-se de que existe conectividade de rede entre o agente MARS e o Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Certifique-se de que existe conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e relemque a operação
-- [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder)
-- [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
-- [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
+- [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
+- [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](./backup-azure-mars-troubleshoot.md#backups-dont-run-according-to-schedule)
 - Certifique-se de que o seu SO tem as atualizações mais recentes
 - [Certifique-se de que as unidades e ficheiros não suportados com atributos não suportados estão excluídos da cópia de segurança](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Certifique-se de que o **Relógio do Sistema** no sistema protegido está configurado para corrigir o fuso horário <br>
@@ -32,7 +33,7 @@ Recomendamos que efetue a validação abaixo, antes de começar a resolver probl
   - Certifique-se de que o agente está desinstalado no servidor e que é eliminado do portal <br>
   - Utilize a mesma frase de acesso que foi inicialmente utilizada para registar o servidor <br>
 - Se isto for uma cópia de segurança offline, certifique-se de que a versão 3.7.0 do Azure PowerShell está instalada tanto no computador de origem como em cópia antes de iniciar a operação de backup offline
-- [Consideração quando o agente de backup está a funcionar numa máquina virtual Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine)
+- [Consideração quando o agente de backup está a funcionar numa máquina virtual Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine)
 
 ### <a name="limitation"></a>Limitação
 
@@ -136,7 +137,7 @@ Se o trabalho falhar, indica um problema WSB que resultaria na falha de backups 
 
 | Sintoma | Resolução
 | -- | --
-| - Agente MARS falha com mensagem de erro: A cópia de segurança falhou porque o volume de cópia sombra não podia crescer devido a um espaço de disco insuficiente em volumes que continham ficheiros do sistema <br/><br/> - Após registo de erro/aviso está presente nos registos de eventos do sistema volsnap: "Não havia espaço suficiente em disco no volume C: para aumentar o armazenamento de cópias-sombra para cópias-sombra de C: devido a esta falha, todas as cópias sombra do volume C: estão em risco de ser apagadas" | - Liberte espaço no volume realçado no registo do evento para que haja espaço suficiente para que as cópias sombra cresçam enquanto a cópia de segurança está em andamento <br/><br/> - Enquanto configuramos o espaço de cópia de sombras, podemos restringir a quantidade de espaço usado para a cópia de sombra. Para mais informações, consulte este [artigo](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| - Agente MARS falha com mensagem de erro: A cópia de segurança falhou porque o volume de cópia sombra não podia crescer devido a um espaço de disco insuficiente em volumes que continham ficheiros do sistema <br/><br/> - Após registo de erro/aviso está presente nos registos de eventos do sistema volsnap: "Não havia espaço suficiente em disco no volume C: para aumentar o armazenamento de cópias-sombra para cópias-sombra de C: devido a esta falha, todas as cópias sombra do volume C: estão em risco de ser apagadas" | - Liberte espaço no volume realçado no registo do evento para que haja espaço suficiente para que as cópias sombra cresçam enquanto a cópia de segurança está em andamento <br/><br/> - Enquanto configuramos o espaço de cópia de sombras, podemos restringir a quantidade de espaço usado para a cópia de sombra. Para mais informações, consulte este [artigo](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Divisórias EFI bloqueadas
 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 2dd2d3b8564535a64ff961479ed94fc92fb210f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eceb34b57a0b2dd62f93f7732a6b93221e3ecb56
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112991"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512668"
 ---
-# <a name="release-notes"></a>Notas de versão
+# <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
 ## <a name="text-to-speech-2020-july-release"></a>Lançamento de texto-a-discurso 2020-julho
 
@@ -217,7 +217,7 @@ Mantenha-se saudável!
 - JavaScript: Suporte adicional `FromHost API` para facilitar a utilização com recipientes on-prem e nuvens soberanas. Consulte a documentação [aqui.](speech-container-howto.md)
 - JavaScript: Agora honramos `NODE_TLS_REJECT_UNAUTHORIZED` graças a uma contribuição de [orgads](https://github.com/orgads). Consulte os detalhes [aqui.](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75)
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - `OpenSSL`foi atualizado para a versão 1.1.1b e está estáticamente ligado à biblioteca central do SDK do Discurso para o Linux. Isto pode causar uma rutura se a sua caixa de entrada `OpenSSL` não tiver sido instalada no `/usr/lib/ssl` diretório do sistema. Por favor, consulte a [nossa documentação](how-to-configure-openssl-linux.md) nos docs da Speech SDK para contornar o assunto.
 - Alteramos o tipo de dados devolvido para C# `WordLevelTimingResult.Offset` de para permitir o acesso a quando os `int` `long` `WordLevelTimingResults` dados da fala são superiores a 2 minutos.
@@ -258,7 +258,7 @@ Mantenha-se saudável!
 - Suporte `KeywordRecognizer` adicional no Windows (UWP), Android e iOS através dos pacotes NuGet e Unidade
 - Adicionou conversa remota Java API para fazer transcrição de conversação em lotes assíncronos.
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - As funcionalidades de Transcrição de Conversação deslocaram-se sob o espaço de `Microsoft.CognitiveServices.Speech.Transcription` nome.
 - Parte dos métodos de Transcrição de Conversação são transferidos para uma nova `Conversation` classe.
@@ -565,7 +565,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - Apoio ao Objective-C no iOS. Confira o nosso [arranque rápido Objective-C para iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Suporte para JavaScript no browser. Confira o nosso [arranque rápido JavaScript](quickstart-js-browser.md).
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - Com esta versão, são introduzidas várias alterações de rutura.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para mais detalhes.
@@ -584,7 +584,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 
 - Exponha informações adicionais sobre erros de ligação.
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - Em Java (Android), a `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não requer um parâmetro de caminho. Agora o caminho é automaticamente detetado em todas as plataformas suportadas.
 - O acessório da propriedade `EndpointUrl` em Java e C# foi removido.
@@ -613,7 +613,7 @@ No nosso [repositório de amostras,](https://aka.ms/csspeech/samples)foi adicion
 - O resultado do reconhecimento contém mais campos. São compensados desde o início e duração áudio (ambos em carrapatos) do texto reconhecido e valores adicionais que representam o estatuto de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout` .
 - Autorização de ApoioToken para criar instâncias de fábrica.
 
-**Quebra de mudanças**
+**Alterações interruptivas**
 
 - Eventos de reconhecimento: `NoMatch` tipo de evento foi fundido no `Error` evento.
 - SpeechOutputFormat em C# foi renomeado `OutputFormat` para permanecer alinhado com C++.

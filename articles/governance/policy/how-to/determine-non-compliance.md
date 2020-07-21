@@ -3,12 +3,12 @@ title: Determinar as causas da não conformidade
 description: Quando um recurso não é conforme, existem muitas razões possíveis. Aprenda a descobrir o que causou o incumprimento.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: d548f5b9db141eb6aed5984c43f00543d0228f31
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970778"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512032"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -133,7 +133,7 @@ Install-Module Az.GuestConfiguration
 Pode ver o estado atual de todas as Atribuições de Hóspedes para um VM utilizando o seguinte comando:
 
 ```azurepowershell-interactive
-Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname>
 ```
 
 ```output
@@ -146,7 +146,7 @@ Audit that an application is not installed inside Windows VMs.            {[Inst
 Para visualizar apenas a frase _da razão_ que descreve por que o VM é _incompatível,_ devolva apenas a propriedade da criança Reason.
 
 ```azurepowershell-interactive
-Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
 ```
 
 ```output

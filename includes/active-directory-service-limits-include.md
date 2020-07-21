@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: active-directory
 author: curtand
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: d906a3dd072770a05b818fd3ca8de359b8427728
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19952b807fcd315ca579454ce082895af929c2e2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80986705"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515911"
 ---
 Aqui estão as restrições de utilização e outros limites de serviço do serviço do Azure Active Directory (Azure AD).
 
@@ -27,7 +27,7 @@ Aqui estão as restrições de utilização e outros limites de serviço do serv
 |Manifesto de Candidatura |Um máximo de 1200 inscrições pode ser adicionado no Manifesto de Aplicação. |
 | Grupos |<ul><li>Um utilizador pode criar um máximo de 250 grupos numa organização AZure AD.</li><li>Uma organização AZure AD pode ter um máximo de 5000 grupos dinâmicos.<li>No máximo, cem utilizadores podem ser proprietários de um único grupo.</li><li>Qualquer número de recursos AD Azure pode ser membro de um único grupo.</li><li>Um utilizador pode ser membro de qualquer número de grupos.</li><li>O número de membros de um grupo que pode sincronizar a partir do Active Directory no local para o Azure Active Directory com o Azure AD Connect está limitado a 50 000 membros.</li><li>Grupos Aninhados em Azure AD não são apoiados em todos os cenários</li></ul><br/> Neste momento são os seguintes cenários apoiados com grupos aninhados.<ul><li> Um grupo pode ser adicionado como membro de outro grupo e você pode alcançar a nidificação em grupo.</li><li> As reclamações de membros do grupo (quando uma aplicação é configurada para receber pedidos de membros do grupo no token, os grupos aninhados de que o utilizador inscrito é membro são incluídos)</li><li>Acesso condicional (ao analisar uma política de acesso condicional a um grupo)</li><li>Restringir o acesso ao reset da palavra-passe de autosserviço</li><li>Restringir quais os utilizadores que podem fazer Azure AD Join e registo do dispositivo</li></ul><br/>Os seguintes cenários NÃO apoiaram grupos aninhados:<ul><li> A atribuição de funções de aplicativo (atribuir grupos a uma app é suportada, mas os grupos aninhados dentro do grupo diretamente designado não terão acesso), tanto para acesso como para provisionamento</li><li>Licenciamento baseado em grupo (atribuindo uma licença automaticamente a todos os membros de um grupo)</li><li>Escritório 365 Grupos.</li></ul> |
 | Proxy da aplicação | <ul><li>Um máximo de 500 transações por segundo por aplicação app Proxy</li><li>Um máximo de 750 transações por segundo para a organização AD AZure</li></ul><br/>Uma transação é definida como um único pedido de http e resposta para um recurso único. Quando estrangulado, os clientes receberão uma resposta de 429 (demasiados pedidos). |
-| Painel de Acesso |<ul><li>Não existe nenhum limite para o número de aplicações apresentado no Painel de Acesso por utilizador. Isto aplica-se aos utilizadores aos quais foram atribuídas licenças para o Azure AD Premium ou o Enterprise Mobility Suite.</li><li>Um máximo de dez mosaicos de aplicação é apresentado no Painel de Acesso para cada utilizador. Este limite aplica-se aos utilizadores que lhes sejam atribuídas licenças para o plano de licenças Azure AD Free. Exemplos de mosaicos de aplicação incluem o Box, Salesforce ou Dropbox. Este limite não se aplica às contas de administrador.</li></ul> |
+| Painel de Acesso |Não há limite para o número de aplicações que podem ser vistas no Painel de Acesso por utilizador, independentemente das licenças atribuídas.  |
 | Relatórios | Pode ser visto um máximo de 1000 linhas ou transferido em qualquer relatório. Quaisquer dados adicionais são truncados. |
 | Unidades administrativas | Um recurso AD Azure pode ser membro de não mais de 30 unidades administrativas. |
 | Funções e permissões de administrador | <ul><li>Um grupo não pode ser adicionado como [proprietário](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Um grupo não pode ser designado para um [papel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>A capacidade dos utilizadores de lerem as informações de diretório de outros utilizadores não pode ser restringida fora do interruptor da organização Azure AD para desativar o acesso de todos os utilizadores não administrativos a todas as informações do diretório (não recomendada). Mais informações sobre permissões por defeito [aqui.](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)</li><li>Pode levar até 15 minutos ou assinar/assinar antes de advogações de funções de administrador e revogações.</li></ul> |

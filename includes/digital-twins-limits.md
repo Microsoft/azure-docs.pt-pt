@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 76ccd6f42f2cfd83512a2e817e8c2ac9aa61a28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21d910fb0e0992b35aa19ce65fc216734e30265c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391498"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515916"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
 A tabela abaixo lista os limites funcionais de Azure Digital Twins na pré-visualização atual.
 
-| Área | Funcionalidade | Limite predefinido | Ajustável? |
+| Área | Capacidade | Limite predefinido | Ajustável? |
 | --- | --- | --- | --- |
-| Recurso azul | Número de casos de Gémeos Digitais Azure numa região, por subscrição | 10 | Sim |
+| Recurso do Azure | Número de casos de Gémeos Digitais Azure numa região, por subscrição | 10 | Sim |
 | Gémeos digitais | Número de gémeos num caso de Gémeos Digitais Azure | 200,000 | Sim |
 | Encaminhamento | Número de pontos finais para uma única instância Azure Digital Twins | 6 | Não |
 | Encaminhamento | Número de rotas para uma única instância Azure Digital Twins | 6 | Sim |
@@ -35,7 +35,7 @@ A tabela abaixo lista os limites funcionais de Azure Digital Twins na pré-visua
 
 Esta tabela reflete os limites de taxa de diferentes APIs.
 
-| API | Funcionalidade | Limite predefinido | Ajustável? |
+| API | Capacidade | Limite predefinido | Ajustável? |
 | --- | --- | --- | --- |
 | Modelos API | Número de pedidos por segundo | 100 | Sim |
 | API de Gémeos Digitais | Número de pedidos por segundo | 1,000 | Sim |
@@ -47,4 +47,4 @@ Esta tabela reflete os limites de taxa de diferentes APIs.
 
 Os limites dos tipos e campos de dados dentro dos documentos DTDL para os modelos Azure Digital Twins podem ser encontrados dentro da sua documentação de especificação no GitHub: [Digital Twins Definition Language (DTDL) - versão 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Os detalhes da latência de consulta e outras diretrizes sobre consultas de escrita durante a pré-visualização podem ser encontrados em [Como-a-: Consultar o gráfico gémeo](../articles/digital-twins/how-to-query-graph.md).
+Os detalhes da latência de consulta e outras diretrizes sobre consultas de escrita durante a pré-visualização podem ser encontrados em [*Como-a-: Consultar o gráfico gémeo*](../articles/digital-twins/how-to-query-graph.md).

@@ -3,11 +3,12 @@ title: Sessões de mensagens de autocarro da Azure Service Microsoft Docs
 description: Este artigo explica como usar sessões para permitir o manuseamento conjunto e ordenado de sequências ilimitadas de mensagens relacionadas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341183"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511301"
 ---
 # <a name="message-sessions"></a>Sessões de mensagens
 As sessões de ônibus de serviço da Microsoft Azure permitem o manuseamento conjunto e ordenado de sequências ilimitadas de mensagens relacionadas. As sessões podem ser usadas **em primeiro lugar, primeiro fora (FIFO)** e padrões **de resposta a pedidos.** Este artigo mostra como usar sessões para implementar estes padrões ao usar o Service Bus. 
@@ -30,7 +31,7 @@ A funcionalidade de sessão no Service Bus permite uma operação de receção e
 
 No portal, coloque a bandeira com a seguinte caixa de verificação:
 
-![][2]
+![Screenshot da caixa de diálogo de fila Create com a opção Desestação selecionada e delineada a vermelho.][2]
 
 > [!NOTE]
 > Quando as Sessões são ativadas numa fila ou numa subscrição, as aplicações do cliente ***já não*** podem enviar/receber mensagens regulares. Todas as mensagens devem ser enviadas como parte de uma sessão (definindo o id da sessão) e recebidas recebendo a sessão.
@@ -41,7 +42,7 @@ As APIs para sessões existem em clientes de fila e subscrição. Há um modelo 
 
 As sessões proporcionam uma des multiplexing simultânea de streams de mensagens intercaladas, preservando e garantindo a entrega ordenada.
 
-![][1]
+![Um diagrama que mostra como o recurso Sessions preserva a entrega ordenada.][1]
 
 Um recetor [messageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) é criado pelo cliente aceitando uma sessão. O cliente chama [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. No modelo de retorno reativo, regista um manipulador de sessão.
 
@@ -75,7 +76,7 @@ O estado da sessão realizado em fila ou numa subscrição conta para a quota de
 
 A definição de contagem de entrega por mensagem no contexto das sessões varia ligeiramente em parte da definição na ausência de sessões. Aqui está uma tabela que resume quando a contagem de entrega é incrementada.
 
-| Scenario | É a contagem de entrega da mensagem incrementada |
+| Cenário | É a contagem de entrega da mensagem incrementada |
 |----------|---------------------------------------------|
 | A sessão é aceite, mas o bloqueio da sessão expira (devido ao tempo limite) | Sim |
 | A sessão é aceite, as mensagens dentro da sessão não estão concluídas (mesmo que estejam bloqueadas), e a sessão está fechada | Não |

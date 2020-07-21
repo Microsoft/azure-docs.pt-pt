@@ -3,11 +3,13 @@ title: Matriz de suporte de backup Azure para backup do servidor SQL em VMs Azur
 description: Fornece um resumo das definições e limitações de suporte ao fazer o backup do SQL Server em VMs Azure com o serviço de Backup Azure.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234254"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513188"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
 
@@ -26,7 +28,7 @@ Pode utilizar o Azure Backup para fazer backup nas bases de dados do SQL Server 
 ## <a name="feature-consideration-and-limitations"></a>Consideração de recursos e limitações
 
 * A cópia de segurança do SQL Server pode ser configurada no portal Azure ou **no PowerShell**. Não apoiamos a CLI.
-* A solução é suportada em ambos os tipos de [implementações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) - VMs Azure Resource Manager e VMs clássicos.
+* A solução é suportada em ambos os tipos de [implementações](../azure-resource-manager/management/deployment-models.md) - VMs Azure Resource Manager e VMs clássicos.
 * VM executando SQL Server requer conectividade de internet para aceder a endereços IP públicos Azure.
 * SQL Server **Failover Cluster Instance (FCI)** não é suportado.
 * As operações de back-up e restauro de bases de dados de espelhos e de bases de dados não são suportadas.
@@ -57,7 +59,7 @@ Dependendo da preferência de backup e dos tipos de backups (completo/diferencia
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registar |  Primário
+Registo |  Primário
 Apenas cópia cheia |  Primário
 
 #### <a name="backup-preference-secondary-only"></a>Preferência de backup: Apenas secundário
@@ -66,7 +68,7 @@ Apenas cópia cheia |  Primário
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registar |  Secundária
+Registo |  Secundária
 Apenas cópia cheia |  Secundária
 
 #### <a name="backup-preference-secondary"></a>Preferência de backup: Secundário
@@ -75,7 +77,7 @@ Apenas cópia cheia |  Secundária
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registar |  Secundária
+Registo |  Secundária
 Apenas cópia cheia |  Secundária
 
 #### <a name="no-backup-preference"></a>Sem preferência de backup
@@ -84,7 +86,7 @@ Apenas cópia cheia |  Secundária
 --- | ---
 Completa | Primário
 Diferencial | Primário
-Registar |  Secundária
+Registo |  Secundária
 Apenas cópia cheia |  Secundária
 
 ## <a name="next-steps"></a>Próximos passos

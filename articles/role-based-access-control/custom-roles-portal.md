@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791202"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511726"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure através do portal do Azure
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure com o portal do Azure
 
 Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados Azure. Tal como as funções incorporadas, pode atribuir funções personalizadas aos utilizadores, grupos e principais de serviços nos âmbitos de subscrição e grupo de recursos. As funções personalizadas são armazenadas num diretório Azure Ative (Azure AD) e podem ser partilhadas através de subscrições. Cada diretório pode ter até 5000 funções personalizadas. As funções personalizadas podem ser criadas utilizando o portal Azure PowerShell, Azure CLI ou a API REST. Este artigo descreve como criar funções personalizadas usando o portal Azure.
 
@@ -203,17 +204,7 @@ Siga estes passos para adicionar ou remover permissões para o seu papel persona
 
 ### <a name="add-wildcard-permissions"></a>Adicionar permissões wildcard
 
-Dependendo da forma como escolheu começar, poderá ter permissões com wildcards \* na sua lista de permissões. Um wildcard \* () estende uma permissão a tudo o que corresponde à corda que fornece. Por exemplo, suponha que queria adicionar todas as permissões relacionadas com a Azure Cost Management e exportações. Pode adicionar todas estas permissões:
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-Em vez de adicionar todas estas permissões, pode apenas adicionar uma permissão wildcard. Por exemplo, a seguinte permissão wildcard é equivalente às cinco permissões anteriores. Isto incluiria igualmente eventuais futuras autorizações de exportação que possam ser adicionadas.
+Dependendo da forma como escolheu começar, poderá ter permissões com wildcards `*` na sua lista de permissões. Um wildcard `*` () estende uma permissão a tudo o que corresponde à cadeia de ação que fornece. Por exemplo, o seguinte fio wildcard adiciona todas as permissões relacionadas com a Azure Cost Management e exportações. Isto incluiria igualmente eventuais futuras autorizações de exportação que possam ser adicionadas.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -223,7 +214,7 @@ Se quiser adicionar uma nova permissão wildcard, não pode adicioná-la usando 
 
 ### <a name="exclude-permissions"></a>Excluir permissões
 
-Se a sua função tiver uma permissão wildcard \* () e pretender excluir ou subtrair permissões específicas dessa permissão wildcard, pode excluí-las. Por exemplo, digamos que tem a seguinte permissão wildcard:
+Se a sua função tiver uma permissão wildcard `*` () e pretender excluir ou subtrair permissões específicas dessa permissão wildcard, pode excluí-las. Por exemplo, digamos que tem a seguinte permissão wildcard:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -268,7 +259,7 @@ No **separador âmbitos atribuíveis,** especifica onde a sua função personali
 
 ## <a name="step-6-json"></a>Passo 6: JSON
 
-No separador **JSON,** vê o seu papel personalizado formatado no JSON. Se quiser, pode editar diretamente o JSON. Se quiser adicionar uma \* permissão wildcard () deve utilizar este separador.
+No separador **JSON,** vê o seu papel personalizado formatado no JSON. Se quiser, pode editar diretamente o JSON. Se quiser adicionar uma `*` permissão wildcard () deve utilizar este separador.
 
 1. Para editar o JSON, clique em **Editar**.
 
@@ -347,5 +338,5 @@ Siga estes passos para ver os seus papéis personalizados.
 ## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: Criar um papel personalizado Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Funções personalizadas Azure](custom-roles.md)
-- [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+- [Funções personalizadas do Azure](custom-roles.md)
+- [Operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

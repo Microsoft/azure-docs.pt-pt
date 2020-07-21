@@ -3,11 +3,12 @@ title: Prepare o servidor DPM para fazer o back-ups
 description: Neste artigo, aprenda a preparar-se para backups do System Center Data Protection Manager (DPM) para a Azure, utilizando o serviço de Backup Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7c2b811685ec9ea5f8fe752a5a1c73611a624b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9891be5eded94c64a6cc256b99510a9c0c673daf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718330"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514174"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Prepare-se para apoiar cargas de trabalho para Azure com O Centro de SistemaS DPM
 
@@ -23,7 +24,7 @@ O artigo fornece:
 
 ## <a name="why-back-up-dpm-to-azure"></a>Por que apoiar o DPM para Azure?
 
-[O Sistema Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) confirma os dados de ficheiros e aplicações. O DPM interage com a Azure Backup da seguinte forma:
+[O Sistema Center DPM](/system-center/dpm/dpm-overview) confirma os dados de ficheiros e aplicações. O DPM interage com a Azure Backup da seguinte forma:
 
 - **DPM a funcionar num servidor físico ou em VM no local** — Pode fazer cópias de segurança para um cofre de backup em Azure, além de backup de discos e fitas.
 - **DPM em execução num Azure VM** — do System Center 2012 R2 com atualização 3 ou mais tarde, pode implantar DPM num VM Azure. Pode fazer cópias de segurança de dados para discos Azure ligados ao VM ou utilizar a Cópia de Segurança Azure para fazer o backup dos dados para um cofre de reserva.
@@ -42,12 +43,12 @@ DPM em um servidor físico | System Center 2012 SP1 ou posterior; Centro de Sist
 DPM em um VM Hiper-V | System Center 2012 SP1 ou posterior; Centro de Sistema 2012 R2.
 DPM em um VMware VM | System Center 2012 R2 com Update Rollup 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e o .NET Framework 4.5 instalados.
-Aplicações suportadas | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode recuar.
+Aplicações suportadas | [Saiba](/system-center/dpm/dpm-protection-matrix) o que o DPM pode recuar.
 Tipos de ficheiro suportados | Estes tipos de ficheiros podem ser apoiados com Azure Backup: Encriptado (apenas cópias de segurança completas); Comprimido (cópias de segurança incrementais suportadas); Escassos (backups incrementais suportados); Comprimido e escasso (tratado como escasso).
 Tipos de ficheiros não suportados | Servidores em sistemas de ficheiros sensíveis a casos; links rígidos (ignorados); reparse pontos (ignorado); encriptado e comprimido (ignorado); encriptado e escasso (ignorado); Fluxo comprimido; fluxo de parse.
 Armazenamento local | Cada máquina que pretende fazer back-up deve ter armazenamento gratuito local que é pelo menos 5% do tamanho dos dados que estão sendo apoiados. Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização do risco.
 Armazenamento de cofre | Não há limite para a quantidade de dados que pode fazer até um cofre de backup Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou base de dados) não deve exceder 54.400 GB.
-Azure ExpressRoute | Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreitamento público (disponível para circuitos antigos) e o espreitamento da Microsoft. Backup sobre olhando privado não é apoiado.<br/><br/> **Com o olhar público**: Garantir o acesso aos seguintes domínios/endereços:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Com o espreguio da Microsoft,** selecione os seguintes serviços/regiões e valores comunitários relevantes:<br/><br/>- Diretório Ativo Azure (12076:5060)<br/><br/>- Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>- Azure Storage (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>Para obter mais informações, consulte [os requisitos de encaminhamento ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Nota:** O olhar público é precotado para novos circuitos.
+Azure ExpressRoute | Pode fazer o back up dos seus dados através do Azure ExpressRoute com o espreitamento público (disponível para circuitos antigos) e o espreitamento da Microsoft. Backup sobre olhando privado não é apoiado.<br/><br/> **Com o olhar público**: Garantir o acesso aos seguintes domínios/endereços:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Com o espreguio da Microsoft,** selecione os seguintes serviços/regiões e valores comunitários relevantes:<br/><br/>- Diretório Ativo Azure (12076:5060)<br/><br/>- Região microsoft Azure (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>- Azure Storage (de acordo com a localização do cofre dos Serviços de Recuperação)<br/><br/>Para obter mais informações, consulte [os requisitos de encaminhamento ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Nota:** O olhar público é precotado para novos circuitos.
 Agente do Backup do Azure | Se o DPM estiver em funcionamento no System Center 2012 SP1, instale o Rollup 2 ou mais tarde para o DPM SP1. Isto é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implementar a versão mais recente do agente Azure Backup, também conhecido como o agente do Microsoft Azure Recovery Service (MARS). Se tiver uma versão anterior implementada, atualize a versão mais recente para garantir que a cópia de segurança funciona como esperado.
 
 Antes de começar, precisa de uma conta Azure com a funcionalidade Azure Backup ativada. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Leia mais sobre os [preços do Microsoft Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -60,7 +61,7 @@ Pode escolher entre armazenamento geo-redundante e armazenamento localmente redu
 
 - Por predefinição, o seu cofre tem um armazenamento georredundante.
 - Se o cofre for o seu apoio primário, deixe a opção definida para armazenamento geo-redundante. Se quiser uma opção mais barata que não seja tão durável, use o seguinte procedimento para configurar o armazenamento localmente redundante.
-- Saiba mais sobre o [armazenamento da Azure](../storage/common/storage-redundancy.md)e as opções de armazenamento [geo-redundantes](../storage/common/storage-redundancy-grs.md) e [localmente redundantes.](../storage/common/storage-redundancy-lrs.md)
+- Saiba mais sobre o [armazenamento da Azure](../storage/common/storage-redundancy.md)e as opções de armazenamento [geo-redundantes](../storage/common/storage-redundancy.md) e [localmente redundantes.](../storage/common/storage-redundancy.md)
 - Modifique as definições de armazenamento antes da cópia de segurança inicial. Se já tiver feito o backup de um item, pare de o apoiar no cofre antes de modificar as definições de armazenamento.
 
 Para editar a definição de replicação de armazenamento:
@@ -164,7 +165,7 @@ Todas as máquinas que são apoiadas pela Azure Backup devem ter o agente De bac
 
 7. Clique **em Registar** para registar o servidor DPM no cofre.
 
-Depois de o servidor ser registado com sucesso no cofre e está agora pronto para começar a fazer backup no Microsoft Azure. Terá de configurar o grupo de proteção na consola DPM para fazer cópias de segurança para o Azure. [Saiba como](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) implantar grupos de proteção.
+Depois de o servidor ser registado com sucesso no cofre e está agora pronto para começar a fazer backup no Microsoft Azure. Terá de configurar o grupo de proteção na consola DPM para fazer cópias de segurança para o Azure. [Saiba como](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) implantar grupos de proteção.
 
 ## <a name="troubleshoot-vault-credentials"></a>Credenciais de cofre de resolução de problemas
 

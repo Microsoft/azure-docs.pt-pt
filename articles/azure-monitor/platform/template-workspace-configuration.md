@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: dbeaa58da109c5afceb03a560e69e0c8bf63ad42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 240a261f8dd401f36ef763e4c1274a1c0760f2dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81768125"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515653"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure
 
@@ -39,7 +40,7 @@ A tabela que se segue lista a versão API para os recursos utilizados neste exem
 | Recurso | Tipo de recurso | Versão API |
 |:---|:---|:---|
 | Área de trabalho   | áreas de trabalho    | Antevisão 2017-03-15 |
-| Pesquisa      | saveSearches | 2015-03-20 |
+| Pesquisar      | saveSearches | 2015-03-20 |
 | Origem de dados | fontes de dados   | Antevisão 2015-11-01 |
 | Solução    | soluções     | Antevisão 2015-11-01 |
 
@@ -152,7 +153,7 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada p
    >* "Nome": "Conservação da capacidade",
    >* "CapacidadeReservaçãoLevel": 100
 
-2. Edite o modelo para satisfazer os seus requisitos. Considere criar um [ficheiro de parâmetros do Gestor](../../azure-resource-manager/templates/parameter-files.md) de Recursos em vez de passar parâmetros como valores inline. Reveja a referência [do modelo Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais as propriedades e valores suportados. 
+2. Edite o modelo para satisfazer os seus requisitos. Considere criar um [ficheiro de parâmetros do Gestor](../../azure-resource-manager/templates/parameter-files.md) de Recursos em vez de passar parâmetros como valores inline. Reveja a referência [do modelo Microsoft.OperationalInsights/workspaces](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) para saber quais as propriedades e valores suportados. 
 
 3. Guarde este ficheiro à medida **quedeploylaworkspacetemplate.jsnuma** pasta local.
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: bcd5a17cce9afea3325f90cb6fbc89887ada55e5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 34d98905c9f068944ca9c149afa8fafa28a4cb68
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554543"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515092"
 ---
 # <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use Python para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-  || SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
+  | Ação | SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
   |:--- |:--- |:---|:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -104,15 +104,16 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
    server = '<server>.database.windows.net'
    database = '<database>'
    username = '<username>'
-   password = '<password>'
+   password = '<password>'   
    driver= '{ODBC Driver 17 for SQL Server}'
-   cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-   cursor = cnxn.cursor()
-   cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-   row = cursor.fetchone()
-   while row:
-       print (str(row[0]) + " " + str(row[1]))
-       row = cursor.fetchone()
+   
+   with pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
+       with conn.cursor() as cursor:
+           cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+           row = cursor.fetchone()
+           while row:
+               print (str(row[0]) + " " + str(row[1]))
+               row = cursor.fetchone()
    ```
    
 
@@ -126,7 +127,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 1. Verifique se as linhas top 20 categoria/produto são devolvidas e, em seguida, feche a janela de comando.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)
 - [Controladores Microsoft Python para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)

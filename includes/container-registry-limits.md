@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242166"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512623"
 ---
 | Recurso | Básica | Standard | Premium |
 |---|---|---|---|
@@ -28,6 +28,7 @@ ms.locfileid: "85242166"
 | Georreplicação | N/D | N/D | [Suportado][geo-replication] |
 | Confiança de conteúdo | N/D | N/D | [Suportado][content-trust] |
 | Ligação privada com pontos finais privados | N/D | N/D | [Suportado][plink] |
+| &bull;Pontos finais privados | N/D | N/D | 10 |
 | Acesso vnet de ponto final de serviço | N/D | N/D | [Pré-visualizar][vnet] |
 | Chaves geridas pelo cliente | N/D | N/D | [Suportado][cmk] |
 | Permissões de âmbito de repositório | N/D | N/D | [Pré-visualizar][token]|

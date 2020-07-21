@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5dba7d51765e2597ca18b0ba6bae03e9e8227a8d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: b307e39937378aa8228d4083f1a6f709069a59f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987341"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512944"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Analise uma imagem remota utilizando a API e Java da Visão de Computador
 
@@ -82,7 +82,6 @@ public class AnalyzeImage {
 
             // Request parameters. All of them are optional.
             builder.setParameter("visualFeatures", "Categories,Description,Color");
-            builder.setParameter("language", "en");
 
             // Prepare the URI for the REST API method.
             URI uri = builder.build();
@@ -129,7 +128,7 @@ Alternadamente, se estiver a executar o programa a partir de uma janela da linha
     javac -cp ".;libs/*" Main.java
     ```
 
-1. Execute o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da linha de comando.
+1. Executar o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da linha de comando.
 
     ```bash
     java -cp ".;libs/*" Main
@@ -196,7 +195,7 @@ REST Response:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Explore uma aplicação do Java Swing que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

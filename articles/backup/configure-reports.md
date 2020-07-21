@@ -3,11 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 20dcf7f3f9bbc5626c4a05ef064203b3ae5020cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484981"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513630"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -17,7 +18,7 @@ Um requisito comum para os administradores de backup é obter insights sobre có
 - Auditoria de backups e restauros.
 - Identificar as principais tendências em diferentes níveis de granularidade.
 
-Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) e [livros de trabalho Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e ver relatórios de Backup da Azure.
+Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Azure Monitor](../azure-monitor/log-query/get-started-portal.md) e [livros de trabalho Azure](../azure-monitor/platform/workbooks-overview.md). Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e ver relatórios de Backup da Azure.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
@@ -25,7 +26,7 @@ Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do A
 - Para as cargas de trabalho de DPM, os relatórios de backup são suportados para a versão DPM 5.1.363.0 ou acima e a versão 2.0.9127.0 ou superior.
 - Para as cargas de trabalho do MABS, os relatórios de backup são suportados para a versão MABS 13.0.415.0 e acima do agente Versão 2.0.9170.0 ou superior.
 - Os relatórios de backup podem ser vistos em todos os itens de backup, cofres, subscrições e regiões, desde que os seus dados sejam enviados para um espaço de trabalho do Log Analytics a que o utilizador tenha acesso. Para visualizar relatórios de um conjunto de cofres, basta ter acesso ao espaço de trabalho do Log Analytics para onde os cofres estão a enviar os seus dados. Não precisas de ter acesso aos cofres individuais.
-- Se é um utilizador do [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) com acesso delegado às subscrições dos seus clientes, pode utilizar estes relatórios com o Farol Azure para visualizar relatórios em todos os seus inquilinos.
+- Se é um utilizador do [Azure Lighthouse](../lighthouse/index.yml) com acesso delegado às subscrições dos seus clientes, pode utilizar estes relatórios com o Farol Azure para visualizar relatórios em todos os seus inquilinos.
 - Atualmente, os dados podem ser vistos em Relatórios de Backup em um máximo de 100 log analytics workspaces (entre inquilinos).
 - Os dados relativos aos trabalhos de backup de registos atualmente não estão nos relatórios.
 
@@ -37,22 +38,22 @@ Siga estes passos para começar a usar os relatórios.
 
 Configurar um ou mais espaços de trabalho do Log Analytics para armazenar os seus dados de relatórios de backup. A localização e subscrição onde este espaço de trabalho Log Analytics pode ser criado é independente da localização e subscrição onde os seus cofres existem.
 
-Para configurar um espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Para configurar um espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure](../azure-monitor/learn/quick-create-workspace.md).
 
-Por predefinição, os dados num espaço de trabalho do Log Analytics são retidos durante 30 dias. Para ver os dados para um horizonte temporal mais longo, altere o período de retenção do espaço de trabalho Log Analytics. Para alterar o período de retenção, consulte [Gerir a utilização e os custos com os registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+Por predefinição, os dados num espaço de trabalho do Log Analytics são retidos durante 30 dias. Para ver os dados para um horizonte temporal mais longo, altere o período de retenção do espaço de trabalho Log Analytics. Para alterar o período de retenção, consulte [Gerir a utilização e os custos com os registos do Monitor Azure](../azure-monitor/platform/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configurar as definições de diagnóstico para os seus cofres
 
 Recursos Azure Resource Manager, tais como cofres dos Serviços de Recuperação, informações de gravação sobre operações programadas e operações desencadeadas pelo utilizador como dados de diagnóstico.
 
-Na secção de monitorização do cofre dos Serviços de Recuperação, selecione **as definições de Diagnóstico** e especifique o alvo para os dados de diagnóstico do cofre dos Serviços de Recuperação. Para saber mais sobre a utilização de eventos de diagnóstico, consulte [as definições de diagnóstico para cofres dos Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
+Na secção de monitorização do cofre dos Serviços de Recuperação, selecione **as definições de Diagnóstico** e especifique o alvo para os dados de diagnóstico do cofre dos Serviços de Recuperação. Para saber mais sobre a utilização de eventos de diagnóstico, consulte [as definições de diagnóstico para cofres dos Serviços de Recuperação.](./backup-azure-diagnostic-events.md)
 
 ![Painel de definições de diagnóstico](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-O Azure Backup também fornece uma definição de Política Azure incorporada, que automatiza a configuração de configurações de diagnóstico para todos os cofres num determinado âmbito. Para aprender a utilizar esta política, consulte as definições de [diagnóstico de abóbada de Configure à escala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+O Azure Backup também fornece uma definição de Política Azure incorporada, que automatiza a configuração de configurações de diagnóstico para todos os cofres num determinado âmbito. Para aprender a utilizar esta política, consulte as definições de [diagnóstico de abóbada de Configure à escala](./azure-policy-configure-diagnostics.md).
 
 > [!NOTE]
-> Depois de configurar os diagnósticos, pode levar até 24 horas para que os dados iniciais se concretizem. Depois de os dados começarem a fluir para o espaço de trabalho do Log Analytics, poderá não ver os dados nos relatórios imediatamente porque os dados do dia parcial atual não são mostrados nos relatórios. Para obter mais informações, consulte [as Convenções utilizadas nos relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). Recomendamos que comece a ver os relatórios dois dias depois de configurar os seus cofres para enviar dados para o Log Analytics.
+> Depois de configurar os diagnósticos, pode levar até 24 horas para que os dados iniciais se concretizem. Depois de os dados começarem a fluir para o espaço de trabalho do Log Analytics, poderá não ver os dados nos relatórios imediatamente porque os dados do dia parcial atual não são mostrados nos relatórios. Para obter mais informações, consulte [as Convenções utilizadas nos relatórios de backup](#conventions-used-in-backup-reports). Recomendamos que comece a ver os relatórios dois dias depois de configurar os seus cofres para enviar dados para o Log Analytics.
 
 #### <a name="3-view-reports-in-the-azure-portal"></a>3. Ver relatórios no portal Azure
 
@@ -102,7 +103,7 @@ Selecione o botão pin na parte superior de cada widget para fixar o widget no s
 
 ## <a name="cross-tenant-reports"></a>Relatórios de inquilinos cruzados
 
-Se utilizar [o Farol Azure](https://docs.microsoft.com/azure/lighthouse/) com acesso delegado a subscrições em vários ambientes de inquilinos, pode utilizar o filtro de subscrição predefinido. Selecione o botão de filtro no canto superior direito do portal Azure para escolher todas as subscrições para as quais deseja ver dados. Ao fazê-lo, permite-lhe selecionar espaços de trabalho do Log Analytics em todos os seus inquilinos para visualizar relatórios multitendidos.
+Se utilizar [o Farol Azure](../lighthouse/index.yml) com acesso delegado a subscrições em vários ambientes de inquilinos, pode utilizar o filtro de subscrição predefinido. Selecione o botão de filtro no canto superior direito do portal Azure para escolher todas as subscrições para as quais deseja ver dados. Ao fazê-lo, permite-lhe selecionar espaços de trabalho do Log Analytics em todos os seus inquilinos para visualizar relatórios multitendidos.
 
 ## <a name="conventions-used-in-backup-reports"></a>Convenções utilizadas em relatórios de backup
 
@@ -130,8 +131,8 @@ Os widgets do relatório Backup são alimentados por consultas kusto, que funcio
 
 - A aplicação anterior do modelo Power BI para reporte, que originou dados de uma conta de armazenamento Azure, encontra-se num caminho de depreciação. Recomendamos que comece a enviar dados de diagnóstico de abóbada para registar análises para visualizar relatórios.
 
-- Além disso, o [esquema V1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em um caminho de depreciação. Isto significa que se tiver escrito quaisquer consultas personalizadas ou automatizações com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
+- Além disso, o [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em um caminho de depreciação. Isto significa que se tiver escrito quaisquer consultas personalizadas ou automatizações com base no esquema V1, é aconselhável atualizar estas consultas para utilizar o esquema V2 atualmente suportado.
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Saiba mais sobre monitorização e reporte com a Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Saiba mais sobre monitorização e reporte com a Azure Backup](./backup-azure-monitor-alert-faq.md)

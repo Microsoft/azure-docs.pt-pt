@@ -15,11 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996620"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511641"
 ---
 # <a name="understand-azure-role-definitions"></a>Compreender definições de função Azure
 
@@ -27,7 +28,7 @@ Se está a tentar perceber como funciona um papel Azure ou se está a criar o se
 
 ## <a name="role-definition"></a>Definição de função
 
-Uma *definição de função* é uma coleção de permissões. Por vezes é denominada apenas *função*. Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Pode ainda enumerar as operações excluídas das operações ou operações permitidas relacionadas com os dados subjacentes.
+Uma *definição de função* é uma coleção de permissões. Às vezes chama-se apenas um *papel.* Uma definição de função lista as operações que podem ser efetuadas, por exemplo, ler, escrever e eliminar. Pode ainda enumerar as operações excluídas das operações ou operações permitidas relacionadas com os dados subjacentes.
 
 O seguinte mostra um exemplo das propriedades numa definição de função quando exibidas utilizando a Azure PowerShell:
 
@@ -89,7 +90,7 @@ A `{action}` parte de uma cadeia de operação especifica o tipo de operações 
 
 ### <a name="role-definition-example"></a>Exemplo de definição de função
 
-Aqui está a definição de função [do Contribuinte,](built-in-roles.md#contributor) tal como exibida no Azure PowerShell e no Azure CLI. A operação de caráter universal (`*`) em `Actions` indica que o principal atribuído a esta função pode efetuar todas as ações ou, por outras palavras, pode gerir tudo. Isto inclui ações definidas no futuro, uma vez que o Azure adiciona novos tipos de recursos. As operações em `NotActions` são subtraídas de `Actions`. No caso da função [Contribuidor](built-in-roles.md#contributor), `NotActions` remove a capacidade desta função para gerir o acesso aos recursos e também atribuir acesso aos recursos.
+Aqui está a definição de função [do Contribuinte,](built-in-roles.md#contributor) tal como exibida no Azure PowerShell e no Azure CLI. A operação de caráter universal (`*`) em `Actions` indica que o principal atribuído a esta função pode efetuar todas as ações ou, por outras palavras, pode gerir tudo. Isto inclui ações definidas no futuro, uma vez que o Azure adiciona novos tipos de recursos. As operações em `NotActions` são subtraídas de `Actions`. No caso do [papel de Contribuinte,](built-in-roles.md#contributor) elimina a capacidade desta função de gerir o `NotActions` acesso aos recursos e também gerir as atribuições do Azure Blueprint.
 
 Função de contribuinte como mostrado no Azure PowerShell:
 
@@ -336,6 +337,6 @@ Para obter informações sobre `AssignableScopes` funções personalizadas, cons
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Funções incorporadas de Azure](built-in-roles.md)
-* [Funções personalizadas Azure](custom-roles.md)
-* [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+* [Funções incorporadas do Azure](built-in-roles.md)
+* [Funções personalizadas do Azure](custom-roles.md)
+* [Operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

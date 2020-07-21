@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 06/04/2020
-ms.openlocfilehash: 340f4310da5131ea0d2576e7c77d8f6cd0a731b3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/20/2020
+ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983110"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515133"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -101,7 +101,7 @@ O consumo de armazenamento de backup até ao tamanho máximo de dados para uma b
 
 ## <a name="backup-retention"></a>Retenção da cópia de segurança
 
-Para todas as bases de dados novas, restauradas e copiadas, a Base de Dados Azure SQL e a Azure SQL Managed Instance conservam cópias de segurança suficientes para permitir o PITR nos últimos 7 dias por padrão. Com exceção das bases de dados hyperscale, pode alterar o período de [retenção de backup](#change-the-pitr-backup-retention-period) por base de dados na faixa de 1-35 dias. Conforme descrito no [consumo de armazenamento de backup,](#backup-storage-consumption)as cópias de segurança armazenadas para permitir o PITR podem ser mais antigas do que o período de retenção.
+Para todas as bases de dados novas, restauradas e copiadas, a Base de Dados Azure SQL e a Azure SQL Managed Instance conservam cópias de segurança suficientes para permitir o PITR nos últimos 7 dias por padrão. Com exceção das bases de dados hyperscale, pode alterar o período de [retenção de backup](#change-the-pitr-backup-retention-period) por cada base de dados ativa na gama de 1-35 dias. Conforme descrito no [consumo de armazenamento de backup,](#backup-storage-consumption)as cópias de segurança armazenadas para permitir o PITR podem ser mais antigas do que o período de retenção. Apenas para a Azure SQL GerdEd Instance, é possível definir a taxa de retenção de backup PITR uma vez que uma base de dados tenha sido eliminada no intervalo de 0-35 dias. 
 
 Se eliminar uma base de dados, o sistema mantém as cópias de segurança da mesma forma que faria para uma base de dados online com o seu período de retenção específico. Não é possível alterar o período de retenção de cópias de segurança para uma base de dados eliminada.
 
@@ -192,7 +192,7 @@ Pode alterar o período de retenção de backup pitr predefinido utilizando o po
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Alterar o período de retenção de backup PITR utilizando o portal Azure
 
-Para alterar o período de retenção de backup pitr utilizando o portal Azure, vá ao servidor ou caso gerido com as bases de dados cujo período de retenção pretende alterar. 
+Para alterar o período de retenção de backup pitr para bases de dados ativas utilizando o portal Azure, vá ao servidor ou caso gerido com as bases de dados cujo período de retenção pretende alterar. 
 
 #### <a name="sql-database"></a>[Base de Dados SQL](#tab/single-database)
 
@@ -214,9 +214,54 @@ As alterações à retenção de backup pitr para sql Managed Instance são feit
 > [!IMPORTANT]
 > O módulo PowerShell AzureRM ainda é suportado pela SQL Database e pela SQL Managed Instance, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para mais informações, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az são substancialmente idênticos aos dos módulos AzureRm.
 
+#### <a name="sql-database"></a>[Base de Dados SQL](#tab/single-database)
+
+Para alterar a retenção de backup PITR para bases de dados Azure SQL ativas, utilize o seguinte exemplo PowerShell.
+
 ```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
+
+#### <a name="sql-managed-instance"></a>[Instância Gerida do SQL](#tab/managed-instance)
+
+Para alterar a retenção de backup PITR para uma base de dados de exemplo gerida pela SQL **ativa individual,** utilize o seguinte exemplo PowerShell.
+
+```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
+```
+
+Para alterar a retenção de backup PITR para todas as bases de dados de sql gestão **ativas,** utilize o seguinte exemplo PowerShell.
+
+```powershell
+# SET new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
+```
+
+Para alterar a retenção de backup PITR para uma base de dados de casos geridos sql **eliminados individualmente,** utilize o seguinte exemplo PowerShell.
+ 
+```powershell
+# SET new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Para alterar a retenção de backup PITR para todas as bases de dados de sql de instância gerida **eliminadas,** utilize o seguinte exemplo PowerShell.
+
+```powershell
+# SET new PITR backup retention for ALL deleted databases
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Zero (0) dias de retenção denotaria que a cópia de segurança é imediatamente eliminada e deixou de ser guardada para uma base de dados eliminada.
+Uma vez que a retenção de backup PITR tenha sido reduzida para uma base de dados eliminada, ela já não pode ser aumentada.
+
+---
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-rest-api"></a>Alterar o período de retenção de backup PITR utilizando a API REST
 
@@ -260,3 +305,4 @@ Para obter mais informações, consulte [a API de Retenção de Retenção de Re
 - Obtenha mais informações sobre como [restaurar uma base de dados a um ponto no tempo, utilizando o PowerShell](scripts/restore-database-powershell.md).
 - Para obter informações sobre como configurar, gerir e restaurar a partir da retenção a longo prazo de backups automatizados no armazenamento Azure Blob utilizando o portal Azure, consulte Gerir a [retenção de backup a longo prazo utilizando o portal Azure](long-term-backup-retention-configure.md).
 - Para obter informações sobre como configurar, gerir e restaurar a partir da retenção a longo prazo de cópias de segurança automatizadas no armazenamento de Azure Blob utilizando o PowerShell, consulte [Gerir a retenção de backup a longo prazo utilizando o PowerShell](long-term-backup-retention-configure.md).
+- Para aprender a afinar a retenção de armazenamento de backup e os custos para a Azure SQL Managed Instance, consulte [os custos de armazenamento de backup de afinação fina em Casos Geridos](https://aka.ms/mi-backup-tuning).

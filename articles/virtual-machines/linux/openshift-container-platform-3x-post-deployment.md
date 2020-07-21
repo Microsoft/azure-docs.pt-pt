@@ -9,11 +9,13 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-ansible
+ms.openlocfilehash: ba6fab2c2112c0e2c32e07965ededea817c37cbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759531"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510604"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas pós-implantação
 
@@ -84,7 +86,7 @@ No portal do Azure:
 
    ![Acesso ao Registo de Aplicações](media/openshift-post-deployment/app-registration-access.png)
 
-8. Selecione **Done** (Concluído).
+8. Selecione **Concluído**.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurar OpenShift para autenticação Azure AD
 
@@ -158,7 +160,7 @@ Existem três formas de adicionar o agente Log Analytics ao OpenShift.
 - Ativar extensão VM do monitor azul em cada nó OpenShift
 - Instale o agente Log Analytics como um conjunto de daemon openshift
 
-Leia as [instruções completas](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) para mais detalhes.
+Leia as [instruções completas](../../azure-monitor/insights/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) para mais detalhes.
 
 ## <a name="configure-metrics-and-logging"></a>Configure métricas e madeireiros
 

@@ -7,13 +7,14 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 0b13040b39ed491ec4fee4d6922d41f086edeeb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79284918"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511947"
 ---
-# <a name="use-ip-filters"></a>Utilizar filtros de IP
+# <a name="use-azure-iot-dps-ip-connection-filters"></a>Utilize filtros de conexão IP Azure IoT DPS
 
 A segurança é um aspeto importante de qualquer solução IoT. Por vezes, é necessário especificar explicitamente os endereços IP a partir dos quais os dispositivos podem ligar-se como parte da sua configuração de segurança. A funcionalidade *de filtro IP* para um Serviço de Provisionamento de Dispositivos IoT Hub (DPS) permite-lhe configurar regras para rejeitar ou aceitar tráfego a partir de endereços IPv4 específicos.
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68e88ec90625f34e5bc8ae1b70c75e3cfe9a53ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81457268"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515534"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
 
@@ -49,7 +49,7 @@ Os registos no Azure Monitor são armazenados num espaço de trabalho log analyt
 > É importante distinguir entre registos do Monitor Azure e fontes de dados de registo em Azure. Por exemplo, os eventos de nível de subscrição em Azure são escritos para um registo de [atividade](platform-logs-overview.md) que você pode ver a partir do menu Azure Monitor. A maioria dos recursos escreverá informações operacionais para um [registo de recursos](platform-logs-overview.md) que pode encaminhar para diferentes locais. O Azure Monitor Logs é uma plataforma de dados de registo que recolhe registos de atividade e registos de recursos, juntamente com outros dados de monitorização para fornecer uma análise profunda em todo o seu conjunto de recursos.
 
 
- Pode trabalhar com [consultas de registo](../log-query/log-query-overview.md) interativamente com o Log [Analytics](../log-query/portals.md) no portal Azure ou adicionar os resultados a um [dashboard Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados. Também pode criar [alertas de registo](alerts-log.md) que irão desencadear um alerta com base nos resultados de uma consulta de agendamento.
+ Pode trabalhar com [consultas de registo](../log-query/log-query-overview.md) interativamente com o Log [Analytics](../log-query/log-query-overview.md) no portal Azure ou adicionar os resultados a um [dashboard Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados. Também pode criar [alertas de registo](alerts-log.md) que irão desencadear um alerta com base nos resultados de uma consulta de agendamento.
 
 Leia mais sobre os Registos do Monitor Azure, incluindo as suas fontes de [dados em Registos no Azure Monitor](data-platform-logs.md).
 
@@ -81,11 +81,11 @@ Consulte [métricas no Monitor E](data-platform-metrics.md) [Registos Azure no M
 
 
 ## <a name="stream-data-to-external-systems"></a>Transmitir dados para sistemas externos
-Além de utilizar as ferramentas em Azure para analisar os dados de monitorização, poderá ter a obrigação de encaminhá-los para uma ferramenta externa, como um produto de informação de segurança e gestão de eventos (SIEM). Este reencaminhamento é normalmente feito diretamente a partir de recursos monitorizados através de [Azure Event Hubs](/azure/event-hubs/). Algumas fontes podem ser configuradas para enviar dados diretamente para um centro de eventos enquanto você pode usar outro processo, como uma App Lógica para recuperar os dados necessários. Consulte [os dados de monitorização do Stream Azure num centro de eventos para consumo através de uma ferramenta externa](stream-monitoring-data-event-hubs.md) para obter mais detalhes.
+Além de utilizar as ferramentas em Azure para analisar os dados de monitorização, poderá ter a obrigação de encaminhá-los para uma ferramenta externa, como um produto de informação de segurança e gestão de eventos (SIEM). Este reencaminhamento é normalmente feito diretamente a partir de recursos monitorizados através de [Azure Event Hubs](../../event-hubs/index.yml). Algumas fontes podem ser configuradas para enviar dados diretamente para um centro de eventos enquanto você pode usar outro processo, como uma App Lógica para recuperar os dados necessários. Consulte [os dados de monitorização do Stream Azure num centro de eventos para consumo através de uma ferramenta externa](stream-monitoring-data-event-hubs.md) para obter mais detalhes.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia mais sobre [Métricas no Monitor Azure.](data-platform-metrics.md)
 - Leia mais sobre [Registos no Monitor Azure](data-platform-logs.md).

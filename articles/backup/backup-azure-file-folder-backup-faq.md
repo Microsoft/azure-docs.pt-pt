@@ -1,18 +1,18 @@
 ---
-title: Backup de ficheiros e pastas - questões comuns
+title: Agente dos Serviços de Recuperação da Microsoft Azure (MARS) – FAQ
 description: Aborda questões comuns sobre o backup de ficheiros e pastas com Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056179"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514072"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre o backup de ficheiros e pastas
+# <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Perguntas frequentes - Agente da Microsoft Azure Recovery Services (MARS)
 
-Este artigo responde a questões comuns que abundam com ficheiros e pastas com o Agente microsoft Azure Recovery Services (MARS) no serviço [Azure Backup.](backup-overview.md)
+Este artigo responde a perguntas comuns sobre o backup de dados com o Agente microsoft Azure Recovery Services (MARS) no serviço [Azure Backup.](backup-overview.md)
 
 ## <a name="configure-backups"></a>Configurar backups
 
@@ -41,11 +41,11 @@ Não é possível fazer recuar os seguintes tipos de unidades e volumes:
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas num VM Azure?  
 
-Sim. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
+Yes. O Azure Backup fornece uma cópia de segurança ao nível VM para VMs Azure utilizando a extensão VM para o agente Azure VM. Se pretender fazer o back up ficheiros e pastas no sistema operativo Windows do hóspede no VM, pode instalar o agente MARS para o fazer.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Posso usar o agente MARS para fazer o back-up ficheiros e pastas no armazenamento temporário para o Azure VM?
 
-Sim. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
+Yes. Instale o agente MARS e ressalte ficheiros e pastas no sistema operativo Windows do hóspede para armazenamento temporário.
 
 * Os trabalhos de reserva falham quando os dados de armazenamento temporários são eliminados.
 * Se os dados de armazenamento temporário forem eliminados, só poderá restaurar o armazenamento não volátil.
@@ -56,7 +56,7 @@ Os dados de cópia de segurança são enviados para o centro de dados do cofre n
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>O agente MARS suporta a deduplica do Windows Server 2012?
 
-Sim. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
+Yes. O agente MARS converte os dados desduplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para a cópia de segurança, encripta os dados e, em seguida, envia os dados encriptados para o cofre.
 
 ### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Preciso de permissões de administrador para instalar e configurar o agente MARS?
 
@@ -74,11 +74,11 @@ Quando se muda o nome de uma máquina Windows, todas as cópias de segurança at
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual é o comprimento máximo do caminho do ficheiro para a cópia de segurança?
 
-O agente MARS baseia-se no NTFS e utiliza a especificação de comprimento do filepath limitada pela [API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths)do Windows . Se os ficheiros que pretende proteger forem mais longos do que o valor permitido, faça uma erússio na pasta dos pais ou na unidade do disco.  
+O agente MARS baseia-se no NTFS e utiliza a especificação de comprimento do filepath limitada pela [API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths)do Windows . Se os ficheiros que pretende proteger forem mais longos do que o valor permitido, faça uma erússio na pasta dos pais ou na unidade do disco.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Que caracteres são permitidos em caminhos de arquivo?
 
-O agente MARS conta com NTFS e permite [caracteres suportados](/windows/desktop/FileIO/naming-a-file#naming-conventions) em nomes/caminhos de ficheiros.
+O agente MARS conta com NTFS e permite [caracteres suportados](/windows/win32/FileIO/naming-a-file#naming-conventions) em nomes/caminhos de ficheiros.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>O aviso "Backups Azure não foram configurados para este servidor" aparece
 
@@ -91,11 +91,11 @@ Este aviso pode aparecer mesmo tendo configurado uma política de backup, quando
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>Qual é o requisito de tamanho mínimo para a pasta da cache?
 
-O tamanho da pasta cache determina a quantidade de dados para a cópia de segurança.
+O tamanho da pasta de cache determina a quantidade de dados que está a fazer.
 
 * Os volumes da pasta cache devem ter espaço livre que equivale a pelo menos 5-10% do tamanho total dos dados de backup.
 * Se o volume tiver menos de 5% de espaço livre, aumente o tamanho do volume ou mova a pasta cache para um volume com espaço suficiente seguindo [estes passos](#how-do-i-change-the-cache-location-for-the-mars-agent).
-* Se fizer cópia de segurança do Windows System State, necessitará de mais 30-35 GB de espaço livre no volume que contém a pasta cache.
+* Se fizer uma reserva do Windows System State, precisará de mais 30-35 GB de espaço livre no volume que contém a pasta cache.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de risco é válida e acessível?
 
@@ -141,7 +141,7 @@ Não são recomendados os seguintes locais para a pasta cache:
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Existem atributos da pasta cache que não sejam suportados?
 
-Os atributos ou respetivas combinações seguintes não são suportadas para a pasta de cache:
+Os seguintes atributos ou as suas combinações não são suportados para a pasta cache:
 
 * Encriptados
 * Duplicados eliminados
@@ -165,17 +165,17 @@ O agente Azure Backup requer uma palavra-passe (que forneceu durante o registo) 
 
 | Máquina Original <br> *(máquina de origem onde foram tomadas cópias de segurança)* | Frase-passe | Opções disponíveis |
 | --- | --- | --- |
-| Disponível |Perdido |Se a sua máquina original (onde foram feitas cópias de segurança) estiver disponível e ainda estiver registada com o mesmo cofre dos Serviços de Recuperação, então pode regenerar a palavra-passe seguindo estes [passos.](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)  |
+| Disponível |Perdido |Se a sua máquina original (onde foram feitas cópias de segurança) estiver disponível e ainda estiver registada com o mesmo cofre dos Serviços de Recuperação, então pode regenerar a palavra-passe seguindo estes [passos.](./backup-azure-manage-mars.md#re-generate-passphrase)  |
 | Perdido |Perdido |Não é possível recuperar os dados ou os dados não estão disponíveis |
 
 Considere as seguintes condições:
 
-* Se desinstalar e voltar a registar o agente na mesma máquina original com
-  * *A mesma frase-* passe, então poderá restaurar os seus dados de back-up.
-  * *Frases de passe diferentes,* então não poderá restaurar os seus dados de back-up.
-* Se instalar o agente numa *máquina diferente* com
-  * *A mesma frase-passe* (utilizada na máquina original), então poderá restaurar os seus dados de back-up.
-  * *Frases de passe diferentes,* não poderá restaurar os seus dados de back-up.
+* Se desinstalar e voltar a registar o agente na mesma máquina original com a ti
+  * *A mesma palavra-passe,* então pode restaurar os seus dados de retenção.
+  * *Frases-passe diferentes,* então não pode restaurar os seus dados retroativos.
+* Se instalar o agente numa *máquina diferente* com a
+  * *A mesma frase-passe* (utilizada na máquina original), pode então restaurar os seus dados de retenção.
+  * *Frases de passe diferentes,* não é possível restaurar os seus dados de back-up.
 * Se a sua máquina original estiver corrompida (impedindo-o de regenerar a palavra-passe através da consola MARS), mas pode restaurar ou aceder à pasta de risco original utilizada pelo agente MARS, então poderá ser capaz de restaurar (se esqueceu da palavra-passe). Para mais assistência, contacte o Apoio ao Cliente.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>Como é que me recupero se perdi a minha máquina original (para onde foram levados reforços)?
@@ -184,7 +184,7 @@ Se tiver a mesma palavra-passe (que forneceu durante o registo) da máquina orig
 
 | Máquina Original | Frase-passe | Opções disponíveis |
 | --- | --- | --- |
-| Perdido |Disponível |Pode instalar e registar o agente MARS noutra máquina com a mesma frase de passe que forneceu durante o registo da máquina original. Escolha **A Opção de Recuperação**  >  **Outro local** para realizar a sua restauração. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)
+| Perdido |Disponível |Pode instalar e registar o agente MARS noutra máquina com a mesma frase de passe que forneceu durante o registo da máquina original. Escolha **A Opção de Recuperação**  >  **Outro local** para realizar a sua restauração. Para mais informações, consulte este [artigo.](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
 | Perdido |Perdido |Não é possível recuperar os dados ou os dados não estão disponíveis |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Os meus trabalhos de apoio têm falhado ou não estão a funcionar há muito tempo. Já passei do período de retenção. Ainda posso restaurar?

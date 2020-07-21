@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75e469b30632bb7e7e8f6445db78acda784ac5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8e4843ad71455f8e478ef74ee71975c1dbf2925
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601280"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510569"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação do disco Azure para VMs Linux 
 
@@ -26,7 +26,7 @@ Se utilizar [o Centro de Segurança Azure,](../../security-center/index.yml)é a
 > [!WARNING]
 > - Se já utilizou a Encriptação do Disco Azure com AZure AD para encriptar um VM, deve continuar a utilizar esta opção para encriptar o seu VM. Consulte [a encriptação do disco Azure com Azure AD (versão anterior)](disk-encryption-overview-aad.md) para obter mais detalhes. 
 > - Certas recomendações podem aumentar o uso de dados, redes ou recursos computativos, resultando em custos adicionais de licença ou subscrição. Você deve ter uma subscrição ativa válida Azure para criar recursos em Azure nas regiões apoiadas.
-> - Atualmente, os VMs da Geração 2 não suportam a Encriptação do Disco Azure. Consulte [o Suporte para Azure da Geração 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) para obter mais detalhes.
+> - Atualmente, os VMs da Geração 2 não suportam a Encriptação do Disco Azure. Consulte [o Suporte para Azure da Geração 2](../windows/generation-2.md) para obter mais detalhes.
 
 Pode aprender os fundamentos da Encriptação do Disco Azure para o Linux em poucos minutos com o [Create e encriptar um Linux VM com quickstart Azure CLI](disk-encryption-cli-quickstart.md) ou o [Create e encriptar um Linux VM com quickstart Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -63,6 +63,7 @@ As distribuições de servidores Linux que não são endossadas pelo Azure não 
 | Canónico | Ubuntu 16.04 | 16.04-DAILY-LTS | Canónico:UbuntuServer:16.04-DAILY-LTS:mais recente | SO e disco de dados |
 | Canónico | Ubuntu 14.04.5</br>[com o núcleo afinado Azure atualizado para 4.15 ou mais tarde](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canónico:UbuntuServer:14.04.5-LTS:mais recente | SO e disco de dados |
 | Canónico | Ubuntu 14.04.5</br>[com o núcleo afinado Azure atualizado para 4.15 ou mais tarde](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canónico:UbuntuServer:14.04.5-DAILY-LTS:mais recente | SO e disco de dados |
+| RedHat | RHEL 7.8 | 7.8 | RedHat:RHEL:7.8:mais recente | SO e disco de dados (ver nota abaixo) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:mais recente | SO e disco de dados (ver nota abaixo) |
 | RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:mais recente | SO e disco de dados (ver nota abaixo) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:mais recente | SO e disco de dados (ver nota abaixo) |
@@ -95,7 +96,7 @@ As distribuições de servidores Linux que não são endossadas pelo Azure não 
 
 A encriptação do disco Azure requer que os módulos dm-crypt e vfat estejam presentes no sistema. Remover ou desativar o vfat da imagem padrão impedirá o sistema de ler o volume da chave e obter a chave necessária para desbloquear os discos em reboots subsequentes. Os passos de endurecimento do sistema que removem o módulo vfat do sistema ou impõem a expansão dos pontos/pastas de oss nas unidades de dados não são compatíveis com a Encriptação do Disco Azure. 
 
-Antes de permitir a encriptação, os discos de dados a encriptar devem ser devidamente listados em /etc/fstab. Utilize a opção "nofail" ao criar entradas e escolha um nome persistente do dispositivo de bloqueio (como os nomes do dispositivo no formato "/dev/sdX" podem não estar associados ao mesmo disco através de reboots, particularmente após a encriptação; para obter mais detalhes sobre este comportamento, consulte: Alterações no nome do [dispositivo Linux VM](troubleshoot-device-names-problems.md)de resolução de problemas).
+Antes de permitir a encriptação, os discos de dados a encriptar devem ser devidamente listados em /etc/fstab. Utilize a opção "nofail" ao criar entradas e escolha um nome persistente do dispositivo de bloqueio (como os nomes do dispositivo no formato "/dev/sdX" podem não estar associados ao mesmo disco através de reboots, particularmente após a encriptação; para obter mais detalhes sobre este comportamento, consulte: Alterações no nome do [dispositivo Linux VM](../troubleshooting/troubleshoot-device-names-problems.md)de resolução de problemas).
 
 Certifique-se de que as definições /etc/fstab estão configuradas corretamente para a montagem. Para configurar estas definições, executar o suporte -um comando ou reiniciar o VM e acionar a montagem dessa forma. Uma vez concluído, verifique a saída do comando de Lsblk para verificar se a unidade ainda está montada. 
 
@@ -136,7 +137,7 @@ A tabela a seguir define alguns dos termos comuns utilizados na documentação d
 | --- | --- |
 | Azure Key Vault | Key Vault é um serviço de gestão criptográfico e chave que é baseado em módulos de segurança de hardware validados (FIPS) federais de processamento de informação. Estes padrões ajudam a salvaguardar as suas chaves criptográficas e segredos sensíveis. Para obter mais informações, consulte a documentação do [Cofre da Chave Azure](https://azure.microsoft.com/services/key-vault/) e [criando e configurando um cofre chave para encriptação do disco Azure](disk-encryption-key-vault.md). |
 | CLI do Azure | [O CLI Azure](/cli/azure/install-azure-cli) está otimizado para gerir e administrar recursos Azure a partir da linha de comando.|
-| DM-Cripta |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) é o subsistema de encriptação de disco transparente baseado em Linux que é usado para permitir encriptação de discos em VMs Linux. |
+| DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) é o subsistema de encriptação de disco transparente baseado em Linux que é usado para permitir encriptação de discos em VMs Linux. |
 | Chave de encriptação (KEK) | A chave assimétrica (RSA 2048) que pode usar para proteger ou embrulhar o segredo. Pode fornecer uma chave protegida por hardware (HSM) ou uma chave protegida por software. Para obter mais informações, consulte a documentação do [Cofre da Chave Azure](https://azure.microsoft.com/services/key-vault/) e [criando e configurando um cofre chave para encriptação do disco Azure](disk-encryption-key-vault.md). |
 | Cmdlets do PowerShell | Para obter mais informações, consulte [os cmdlets Azure PowerShell](/powershell/azure/overview). |
 
@@ -145,9 +146,7 @@ A tabela a seguir define alguns dos termos comuns utilizados na documentação d
 
 - [Quickstart - Criar e encriptar um Linux VM com Azure CLI](disk-encryption-cli-quickstart.md)
 - [Quickstart - Criar e encriptar um Linux VM com Azure Powershell](disk-encryption-powershell-quickstart.md)
-- [Cenários do Azure Disk Encryption em VMs do Linux](disk-encryption-linux.md)
+- [Cenários do Azure Disk Encryption em VMs com Linux](disk-encryption-linux.md)
 - [Encriptação de disco Azure pré-requisitos do script CLI](https://github.com/ejarvi/ade-cli-getting-started)
 - [Encriptação de disco Azure pré-requisitos PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Criar e configurar um cofre de chaves para o Azure Disk Encryption](disk-encryption-key-vault.md)
-
-

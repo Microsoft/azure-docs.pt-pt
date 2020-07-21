@@ -6,16 +6,16 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: guybo
-ms.openlocfilehash: ebd20b6187fd4f04ac525e0152d805d9d81de3ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4c2edddb8eec4a2f8300077bb00df72d7e2b00de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134598"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510730"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Prepare um VHD Debian para Azure
 ## <a name="prerequisites"></a>Pré-requisitos
-Esta secção pressupõe que já instalou um sistema operativo Debian Linux a partir de um ficheiro .iso descarregado do [site Debian](https://www.debian.org/distrib/) para um disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd; Hiper-V é apenas um exemplo. Para obter instruções que utilizem o Hyper-V, consulte [instalar a função Hiper-V e configurar uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
+Esta secção pressupõe que já instalou um sistema operativo Debian Linux a partir de um ficheiro .iso descarregado do [site Debian](https://www.debian.org/distrib/) para um disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd; Hiper-V é apenas um exemplo. Para obter instruções que utilizem o Hyper-V, consulte [instalar a função Hiper-V e configurar uma máquina virtual](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 ## <a name="installation-notes"></a>Notas de instalação
 * Consulte também [as notas de instalação do General Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre a preparação do Linux para a Azure.
@@ -116,4 +116,3 @@ Existem ferramentas disponíveis para gerar VHDs Debian para Azure, como os scri
 
 ## <a name="next-steps"></a>Próximos passos
 Está agora pronto para usar o seu disco rígido virtual Debian para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
-

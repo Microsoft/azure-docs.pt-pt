@@ -9,12 +9,12 @@ ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0952f31bf6e327ff6d9f632f242919139ed6cae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82134419"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512015"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementar módulos IoT Edge em escala utilizando o portal Azure
 
@@ -61,7 +61,7 @@ Há cinco passos para criar uma implantação. As seguintes secções atravessam
 
 ### <a name="step-2-modules"></a>Passo 2: Módulos
 
-Pode adicionar até 20 módulos a uma implantação. Se criar uma implantação sem módulos, remove quaisquer módulos atuais dos dispositivos-alvo.
+Pode adicionar até 30 módulos a uma implantação. Se criar uma implantação sem módulos, remove quaisquer módulos atuais dos dispositivos-alvo.
 
 Nas implementações, pode gerir as definições para os módulos IoT Edge e IoT Edge hub. Selecione **Definições de tempo de** execução para configurar os dois módulos de tempo de execução. Na implementação em camadas, os módulos de tempo de execução não estão incluídos, pelo que não podem ser configurados.
 
@@ -211,6 +211,6 @@ Quando elimina uma implantação, qualquer dispositivo implantado assume a sua p
 1. Selecione **Eliminar**.
 1. Um aviso irá informá-lo que esta ação irá eliminar esta implementação e reverter para o estado anterior para todos os dispositivos.Será aplicada uma implantação com uma prioridade mais baixa.Se nenhuma outra implantação for direcionada, nenhum módulo será removido. Se pretender remover todos os módulos do seu dispositivo, crie uma implementação com zero módulos e coloque-o nos mesmos dispositivos.Selecione **Sim** para continuar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a implementação de módulos para dispositivos IoT Edge](module-deployment-monitoring.md).

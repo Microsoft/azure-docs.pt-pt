@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80366499"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510434"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -109,7 +109,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-O *Estado de Provisionamento* de *Sucesso* é mostrado uma vez que a extensão é instalada com sucesso no VM. O VM precisa de um agente VM em execução para instalar a extensão. Para mais informações, consulte [a visão geral do agente VM.](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)
+O *Estado de Provisionamento* de *Sucesso* é mostrado uma vez que a extensão é instalada com sucesso no VM. O VM precisa de um agente VM em execução para instalar a extensão. Para mais informações, consulte [a visão geral do agente VM.](../extensions/agent-windows.md)
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configure atribuições de funções para o VM
 
@@ -138,7 +138,7 @@ az role assignment create \
 
 Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte utilizando o [Azure CLI,](../../role-based-access-control/role-assignments-cli.md) [portal Azure](../../role-based-access-control/role-assignments-portal.md)ou [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Também pode configurar a Azure AD para exigir a autenticação de vários fatores para um utilizador específico iniciar sedutação na máquina virtual Linux. Para obter mais informações, consulte [Começar com a autenticação multi-factor Azure na nuvem.](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+Também pode configurar a Azure AD para exigir a autenticação de vários fatores para um utilizador específico iniciar sedutação na máquina virtual Linux. Para obter mais informações, consulte [Começar com a autenticação multi-factor Azure na nuvem.](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Faça login na máquina virtual Linux
 
@@ -212,6 +212,6 @@ Os utilizadores que herdam os direitos de acesso através de grupos aninhados ou
 
 Partilhe o seu feedback sobre este recurso de pré-visualização ou reporte problemas que o utilizem no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-whatis.md)

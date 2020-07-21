@@ -3,16 +3,15 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 author: davidsmatlak
-ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: 594e34a07cf2c370546e59ebe59df1de88eb2aa4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffe0703fbbea75b221dfc6fd16f334dcf58e8ab3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080980"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515896"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
 Este documento enumera alguns dos limites mais comuns do Microsoft Azure, que também são por vezes chamados de quotas.
 
@@ -377,6 +376,10 @@ Para obter mais informações sobre os limites dos Ficheiros Azure, consulte os 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
 Para obter mais informações, consulte [os tamanhos da máquina virtual.](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+#### <a name="disk-encryption-sets"></a>Conjuntos de encriptação de disco
+
+Há uma limitação de 50 conjuntos de encriptação de disco por região, por subscrição. Para obter mais informações, consulte a documentação de encriptação para máquinas virtuais [Linux](/azure/virtual-machines/linux/disk-encryption#restrictions) ou [Windows.](/azure/virtual-machines/windows/disk-encryption#restrictions) Se precisar de aumentar a quota, contacte o suporte da Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquinas virtuais geridos
 

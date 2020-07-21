@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 7ee4674f5e7c04709256459c3417a1379a65aedc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cc7a739b27d96eac01733b4f340d6d6d4dac265
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969550"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511131"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Crie uma máquina virtual Linux completa com o Azure CLI
 Para criar rapidamente uma máquina virtual (VM) em Azure, pode utilizar um único comando Azure CLI que utiliza valores predefinidos para criar os recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras do grupo de segurança de rede são automaticamente criados. Para um maior controlo do seu ambiente em uso de produção, pode criar estes recursos com antecedência e, em seguida, adicionar-lhes os seus VMs. Este artigo guia-o através da forma de criar um VM e cada um dos recursos de apoio, um a um.
@@ -549,13 +550,13 @@ Para ver o site NGINX padrão em ação, abra o seu navegador web e insira o seu
 ![Site NGINX predefinido no seu VM](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Exportação como modelo
-E se agora quiser criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou um ambiente de produção que o corresponda? O Gestor de Recursos utiliza modelos JSON que definem todos os parâmetros para o seu ambiente. Você constrói ambientes inteiros fazendo referência a este modelo JSON. Pode [construir modelos JSON manualmente](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para si. Utilize [a exportação do grupo AZ](/cli/azure/group) para exportar o seu grupo de recursos da seguinte forma:
+E se agora quiser criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou um ambiente de produção que o corresponda? O Gestor de Recursos utiliza modelos JSON que definem todos os parâmetros para o seu ambiente. Você constrói ambientes inteiros fazendo referência a este modelo JSON. Pode [construir modelos JSON manualmente](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) ou exportar um ambiente existente para criar o modelo JSON para si. Utilize [a exportação do grupo AZ](/cli/azure/group) para exportar o seu grupo de recursos da seguinte forma:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Este comando cria o `myResourceGroup.json` ficheiro no seu diretório de trabalho atual. Quando cria um ambiente a partir deste modelo, é solicitado para todos os nomes de recursos. Pode preencher estes nomes no seu ficheiro de modelo adicionando o `--include-parameter-default-value` parâmetro ao `az group export` comando. Edite o seu modelo JSON para especificar os nomes dos recursos ou [crie uma parameters.jsno ficheiro](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifique os nomes dos recursos.
+Este comando cria o `myResourceGroup.json` ficheiro no seu diretório de trabalho atual. Quando cria um ambiente a partir deste modelo, é solicitado para todos os nomes de recursos. Pode preencher estes nomes no seu ficheiro de modelo adicionando o `--include-parameter-default-value` parâmetro ao `az group export` comando. Edite o seu modelo JSON para especificar os nomes dos recursos ou [crie uma parameters.jsno ficheiro](../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/linux/toc.json) que especifique os nomes dos recursos.
 
 Para criar um ambiente a partir do seu modelo, utilize a implementação do [grupo az criar](/cli/azure/group/deployment) da seguinte forma:
 
@@ -565,7 +566,7 @@ az group deployment create \
     --template-file myResourceGroup.json
 ```
 
-Você pode querer ler [mais sobre como implementar a partir de modelos](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba como atualizar gradualmente os ambientes, usar o ficheiro de parâmetros e aceder a modelos a partir de um único local de armazenamento.
+Você pode querer ler [mais sobre como implementar a partir de modelos](../../azure-resource-manager/templates/deploy-cli.md?toc=/azure/virtual-machines/linux/toc.json). Saiba como atualizar gradualmente os ambientes, usar o ficheiro de parâmetros e aceder a modelos a partir de um único local de armazenamento.
 
 ## <a name="next-steps"></a>Próximos passos
 Agora está pronto para começar a trabalhar com vários componentes de rede e VMs. Pode utilizar este ambiente de amostra para construir a sua aplicação utilizando os componentes centrais introduzidos aqui.

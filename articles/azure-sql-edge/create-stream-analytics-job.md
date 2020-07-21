@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: fc6ab2c9c844350e83674ed96a0e79289c7f5b43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255420"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515228"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Criar um trabalho Azure Stream Analytics em Azure SQL Edge (Preview) 
 
@@ -41,9 +41,9 @@ A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como ent
 
 | Tipo de fonte de dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
-| Hub Azure IoT Edge | S | S | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| SQL Database | N | S | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
-| Armazenamento de Blobs do Azure | N | S | Fonte de dados para escrever dados para uma bolha numa conta de armazenamento Azure. |
+| Hub Azure IoT Edge | Y | Y | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
+| Base de Dados SQL | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
+| Armazenamento de Blobs do Azure | N | Y | Fonte de dados para escrever dados para uma bolha numa conta de armazenamento Azure. |
 | Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. Atualmente, este adaptador apenas se encontra disponível para versões Intel ou AMD do Azure SQL Edge. Não está disponível para a versão ARM64 do Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exemplo: Criar um objeto de entrada/saída de fluxo externo para o hub Azure IoT Edge
@@ -153,7 +153,7 @@ SELECT
 Timestamp as [Time],
 [Temperature] As [Temperature],
 GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''Score'') as ChangePointScore,
-GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''IsAnomaly'') as IsChangePointAnomaly,
+GetRecordPropertyValue(AnomalyDetection_ChangePoint(Temperature, 80, 1200) OVER(LIMIT DURATION(minute, 20)), ''IsAnomaly'') as IsChangePointAnomaly
 INTO TemperatureAnomalies FROM MyEdgeHubInput2;
 '
 go
@@ -205,7 +205,7 @@ O trabalho de streaming pode ter qualquer um dos seguintes estatutos:
 | Em processamento | O trabalho de streaming está a funcionar e está a processar entradas. Este estado indica um estado saudável para o trabalho de streaming. |
 | Degradado | O trabalho de streaming está a funcionar, mas houve alguns erros não fatais durante o processamento de entradas. O trabalho de entrada continuará a funcionar, mas deixará cair as entradas que encontram erros. |
 | Parada | O trabalho de streaming foi interrompido. |
-| Falhou | O trabalho de streaming falhou. Isto é geralmente uma indicação de um erro fatal durante o processamento. |
+| Com falhas | O trabalho de streaming falhou. Isto é geralmente uma indicação de um erro fatal durante o processamento. |
 
 ## <a name="next-steps"></a>Próximos passos
 

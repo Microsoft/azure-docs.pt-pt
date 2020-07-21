@@ -3,12 +3,12 @@ title: Azure Event Hubs - exceções
 description: Este artigo fornece uma lista de exceções de mensagens Azure Event Hubs e ações sugeridas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ce9e1bcd1f9e4d196d03d55374af8b1c86651851
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a93daa88c468a22838a6f9012f0c4622447f5555
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314620"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512372"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs exceções de mensagens - .NET
 Esta secção enumera as exceções .NET geradas por .NET Framework APIs. 
@@ -19,10 +19,10 @@ As APIs de Eventos .NET geram exceções que podem enquadrar-se nas seguintes ca
 
  - Erro de codificação do utilizador: 
  
-   - [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)
-   - [Sistema.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)
-   - [Sistema.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)
-   - [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)
+   - [System.ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)
+   - [Sistema.InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1)
+   - [Sistema.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1)
+   - [System.Runtime.Serialization.SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1)
    
    Ação geral: Tente fixar o código antes de prosseguir.
  
@@ -30,7 +30,7 @@ As APIs de Eventos .NET geram exceções que podem enquadrar-se nas seguintes ca
  
    - [Microsoft.ServiceBus.messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception)
    - [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception)
-   - [Sistema.União DesacessExcepção](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)
+   - [Sistema.União DesacessExcepção](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1)
    
    Ação geral: Reveja a sua configuração e altere se necessário.
    
@@ -45,7 +45,7 @@ As APIs de Eventos .NET geram exceções que podem enquadrar-se nas seguintes ca
  
  - Outras exceções: 
  
-   - [System.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)
+   - [System.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1)
    - [Sistema.TimeoutExcepção](#timeoutexception)
    - [Microsoft.ServiceBus.messaging.messageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception)
    - [Microsoft.ServiceBus.messaging.SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception)
@@ -57,11 +57,11 @@ A tabela que se segue lista tipos de exceções de mensagens e as suas causas, e
 
 | Tipo de Exceção | Descrição/Causas/Exemplos | Ação Sugerida | Nota sobre relagem automática/imediata |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutExcepção](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |O servidor não respondeu à operação solicitada dentro do tempo especificado, que é controlado pelo [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). O servidor pode ter concluído a operação solicitada. Esta exceção pode acontecer devido a atrasos na rede ou em outras infraestruturas. |Verifique se o estado do sistema é necessário para obter consistência e volte a tentar, se necessário.<br /> Ver [TimeoutException](#timeoutexception). | Redação pode ajudar em alguns casos; adicionar lógica de retíria ao código. |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |A operação de utilizador solicitada não é permitida dentro do servidor ou serviço. Consulte a mensagem de exceção para mais detalhes. Por exemplo, [a Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) gera esta exceção se a mensagem tiver sido recebida no modo [ReceiveAndDelete.](/dotnet/api/microsoft.servicebus.messaging.receivemode) | Verifique o código e a documentação. Certifique-se de que a operação solicitada é válida. | Tentar não vai ajudar. |
-| [OperaçãoCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | Uma tentativa é feita para invocar uma operação num objeto que já foi fechado, abortado ou eliminado. Em casos raros, a transação ambiente já está eliminada. | Verifique o código e certifique-se de que não invoca operações num objeto eliminado. | Tentar não vai ajudar. |
-| [Não autorizadoAccessExcepção](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | O objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) não conseguiu adquirir um token, o token é inválido, ou o token não contém as alegações necessárias para fazer a operação. | Certifique-se de que o fornecedor de fichas é criado com os valores corretos. Verifique a configuração do Serviço de Controlo de Acesso. | Redação pode ajudar em alguns casos; adicionar lógica de retíria ao código. |
-| [ArgumentoExcepção](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [Argumentação](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | Um ou mais argumentos fornecidos ao método são inválidos. O URI fornecido ao [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contém segmento de caminhos. O esquema URI fornecido ao [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inválido. O valor da propriedade é maior que 32 KB. | Verifique o código de chamada e certifique-se de que os argumentos estão corretos. | Tentar novamente não vai ajudar. |
+| [TimeoutExcepção](/dotnet/api/system.timeoutexception?view=netcore-3.1) |O servidor não respondeu à operação solicitada dentro do tempo especificado, que é controlado pelo [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). O servidor pode ter concluído a operação solicitada. Esta exceção pode acontecer devido a atrasos na rede ou em outras infraestruturas. |Verifique se o estado do sistema é necessário para obter consistência e volte a tentar, se necessário.<br /> Ver [TimeoutException](#timeoutexception). | Redação pode ajudar em alguns casos; adicionar lógica de retíria ao código. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |A operação de utilizador solicitada não é permitida dentro do servidor ou serviço. Consulte a mensagem de exceção para mais detalhes. Por exemplo, [a Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) gera esta exceção se a mensagem tiver sido recebida no modo [ReceiveAndDelete.](/dotnet/api/microsoft.servicebus.messaging.receivemode) | Verifique o código e a documentação. Certifique-se de que a operação solicitada é válida. | Tentar não vai ajudar. |
+| [OperaçãoCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) | Uma tentativa é feita para invocar uma operação num objeto que já foi fechado, abortado ou eliminado. Em casos raros, a transação ambiente já está eliminada. | Verifique o código e certifique-se de que não invoca operações num objeto eliminado. | Tentar não vai ajudar. |
+| [Não autorizadoAccessExcepção](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) | O objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) não conseguiu adquirir um token, o token é inválido, ou o token não contém as alegações necessárias para fazer a operação. | Certifique-se de que o fornecedor de fichas é criado com os valores corretos. Verifique a configuração do Serviço de Controlo de Acesso. | Redação pode ajudar em alguns casos; adicionar lógica de retíria ao código. |
+| [ArgumentoExcepção](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [Argumentação](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) | Um ou mais argumentos fornecidos ao método são inválidos. O URI fornecido ao [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contém segmento de caminhos. O esquema URI fornecido ao [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inválido. O valor da propriedade é maior que 32 KB. | Verifique o código de chamada e certifique-se de que os argumentos estão corretos. | Tentar novamente não vai ajudar. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MensagensEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | A entidade associada à operação não existe ou foi eliminada. | Certifique-se de que a entidade existe. | Tentar novamente não vai ajudar. |
 | [MensagensComumicoexcepção](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | O cliente não é capaz de estabelecer uma ligação ao Event Hub. |Certifique-se de que o nome do anfitrião fornecido está correto e que o hospedeiro está acessível. | Redatório pode ajudar se houver problemas de conectividade intermitentes. |
 | [Microsoft.ServiceBus.Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | O serviço não é capaz de processar o pedido neste momento. | O cliente pode esperar por um período de tempo e depois voltar a tentar a operação. <br /> Ver [ServerBusyException](#serverbusyexception). | O cliente pode voltar a tentar após determinado intervalo. Se uma nova mente resultar numa exceção diferente, verifique o comportamento de repetição dessa exceção. |
@@ -80,7 +80,7 @@ Esta exceção pode acontecer se o número máximo de recetores (5) já tiver si
 O Event Hubs tem um limite de 20 grupos de consumidores por Event Hub. Quando tenta criar mais, recebe uma [QuotaExceedededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutExcepção
-Um [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica que uma operação iniciada pelo utilizador está a demorar mais tempo do que o tempo limite de funcionamento. 
+Um [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) indica que uma operação iniciada pelo utilizador está a demorar mais tempo do que o tempo limite de funcionamento. 
 
 Para os Centros de Eventos, o tempo limite é especificado quer como parte da cadeia de ligação, quer através do [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). A mensagem de erro em si pode variar, mas contém sempre o valor de tempo limite especificado para a operação atual. 
 
@@ -120,6 +120,6 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Criar um Centro de Eventos](event-hubs-create.md)
+* [Descrição geral dos Event Hubs](./event-hubs-about.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)

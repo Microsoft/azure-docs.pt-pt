@@ -3,12 +3,12 @@ title: Use definições de diagnóstico para cofres de serviços de recuperaçã
 description: Este artigo descreve como usar os antigos e novos eventos de diagnóstico para Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 7dbc6d97cd923c75a25eadccef2c2292b10deb41
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854813"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514152"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Use definições de diagnóstico para cofres de serviços de recuperação
 
@@ -29,15 +29,15 @@ A Azure Backup fornece os seguintes eventos de diagnóstico. Cada evento fornece
 * AddonAzureBackupPolicy
 * AddonAzureBackupstorage
 
-Se estiver a utilizar o [evento legado](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport, recomenda-se que mude para utilizar os eventos acima o mais cedo possível.
+Se estiver a utilizar o [evento legado](#legacy-event) AzureBackupReport, recomenda-se que mude para utilizar os eventos acima o mais cedo possível.
 
-Para obter mais informações, consulte [o modelo de dados para eventos de diagnóstico de backup Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
+Para obter mais informações, consulte [o modelo de dados para eventos de diagnóstico de backup Azure](./backup-azure-reports-data-model.md).
 
 Os dados para estes eventos podem ser enviados para uma conta de armazenamento, um espaço de trabalho Log Analytics ou um centro de eventos. Se estiver a enviar estes dados para um espaço de trabalho do Log Analytics, selecione o **recurso específico** para alternar no ecrã de **definições de Diagnóstico.** Para mais informações, consulte as seguintes secções.
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Use definições de diagnóstico com Log Analytics
 
-Agora pode utilizar o Azure Backup para enviar dados de diagnóstico de cofre para tabelas dedicadas do Log Analytics para cópias de segurança. Estas tabelas são chamadas [tabelas específicas de recursos.](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific)
+Agora pode utilizar o Azure Backup para enviar dados de diagnóstico de cofre para tabelas dedicadas do Log Analytics para cópias de segurança. Estas tabelas são chamadas [tabelas específicas de recursos.](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
 
 Para enviar os dados de diagnóstico do seu cofre para registar analítica:
 
@@ -52,23 +52,23 @@ Para enviar os dados de diagnóstico do seu cofre para registar analítica:
 Após o fluxo de dados para o espaço de trabalho Log Analytics, são criadas tabelas dedicadas para cada um destes eventos no seu espaço de trabalho. Pode consultar qualquer uma destas mesas diretamente. Você também pode realizar juntas ou sindicatos entre estas mesas, se necessário.
 
 > [!IMPORTANT]
-> Os seis eventos, nomeadamente CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolice, AddonAzureBackupPolicy, AddonAzureBackupStorage e AddonAzureBackupProtectedInstance, são suportados *apenas* no modo específico de recursos nos [relatórios backup.](https://docs.microsoft.com/azure/backup/configure-reports) *Se tentar enviar dados para estes seis eventos no modo de diagnóstico Azure, nenhum dado será visível nos relatórios de Backup.*
+> Os seis eventos, nomeadamente CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolice, AddonAzureBackupPolicy, AddonAzureBackupStorage e AddonAzureBackupProtectedInstance, são suportados *apenas* no modo específico de recursos nos [relatórios backup.](./configure-reports.md) *Se tentar enviar dados para estes seis eventos no modo de diagnóstico Azure, nenhum dado será visível nos relatórios de Backup.*
 
 ## <a name="legacy-event"></a>Evento legado
 
 Tradicionalmente, todos os dados de diagnóstico relacionados com backup para um cofre foram contidos num único evento chamado AzureBackupReport. Os seis eventos aqui descritos são, na sua essência, uma decomposição de todos os dados contidos no AzureBackupReport.
 
-Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibilidade nos casos em que os utilizadores tenham consultas personalizadas existentes neste evento. Exemplos são alertas de registo personalizados e visualizações personalizadas. *Recomendamos que se mude para os [novos eventos](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) o mais cedo possível.* Os novos eventos:
+Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibilidade nos casos em que os utilizadores tenham consultas personalizadas existentes neste evento. Exemplos são alertas de registo personalizados e visualizações personalizadas. *Recomendamos que se mude para os [novos eventos](#diagnostics-events-available-for-azure-backup-users) o mais cedo possível.* Os novos eventos:
 
 * Torne os dados muito mais fáceis de trabalhar em consultas de registo.
 * Proporcionar uma melhor descoberta dos esquemas e da sua estrutura.
 * Melhore o desempenho em ambos os tempos de latência e consulta.
 
-*O evento legado no modo de diagnóstico Azure acabará por ser depreciado. Escolher os novos eventos pode ajudá-lo a evitar migrações complexas mais tarde.* A nossa [solução de reporte](https://docs.microsoft.com/azure/backup/configure-reports) que utiliza o Log Analytics também deixará de suportar dados do evento legado.
+*O evento legado no modo de diagnóstico Azure acabará por ser depreciado. Escolher os novos eventos pode ajudá-lo a evitar migrações complexas mais tarde.* A nossa [solução de reporte](./configure-reports.md) que utiliza o Log Analytics também deixará de suportar dados do evento legado.
 
 ### <a name="steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace"></a>Passos para passar para novas definições de diagnóstico para um espaço de trabalho Log Analytics
 
-1. Identifique quais os cofres que estão a enviar dados para os espaços de trabalho do Log Analytics utilizando o evento legado e as subscrições a que pertencem. Execute os seguintes espaços de trabalho para identificar estes cofres e subscrições.
+1. Identifique quais os cofres que estão a enviar dados para os espaços de trabalho do Log Analytics utilizando o evento legado e as subscrições a que pertencem. Faça a seguinte consulta em cada um dos seus espaços de trabalho para identificar estes cofres e subscrições.
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
@@ -84,7 +84,7 @@ Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibil
         | project ResourceId, Category};
         // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true
+        union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
@@ -96,7 +96,11 @@ Atualmente, continuamos a apoiar o evento AzureBackupReport para retrocompatibil
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. Utilize as [definições de Política Azure incorporadas](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) no Azure Backup para adicionar uma nova definição de diagnóstico para todos os cofres num âmbito especificado. Esta política adiciona uma nova definição de diagnóstico a cofres que não têm uma definição de diagnóstico ou têm apenas uma definição de diagnóstico legado. Esta política pode ser atribuída a toda uma subscrição ou grupo de recursos de cada vez. Tem de ter acesso ao Proprietário a cada subscrição para a qual a apólice é atribuída.
+    Abaixo está uma imagem da consulta que está sendo executada em um dos espaços de trabalho:
+
+    ![Consulta de espaço de trabalho](./media/backup-azure-diagnostics-events/workspace-query.png)
+
+2. Utilize as [definições de Política Azure incorporadas](./azure-policy-configure-diagnostics.md) no Azure Backup para adicionar uma nova definição de diagnóstico para todos os cofres num âmbito especificado. Esta política adiciona uma nova definição de diagnóstico a cofres que não têm uma definição de diagnóstico ou têm apenas uma definição de diagnóstico legado. Esta política pode ser atribuída a toda uma subscrição ou grupo de recursos de cada vez. Tem de ter acesso ao Proprietário a cada subscrição para a qual a apólice é atribuída.
 
 Pode optar por ter configurações de diagnóstico separadas para o AzureBackupReport e os seis novos eventos até que tenha migrado todas as suas consultas personalizadas para utilizar dados das novas tabelas. A imagem a seguir mostra um exemplo de um cofre que tem duas configurações de diagnóstico. A primeira definição, denominada **Setting1,** envia dados de um evento AzureBackupReport para um espaço de trabalho Log Analytics no modo de diagnóstico Azure. A segunda definição, denominada **Setting2,** envia dados dos seis novos eventos de Backup Azure para um espaço de trabalho Log Analytics no modo específico de recursos.
 
@@ -114,7 +118,7 @@ Os eventos de Backup e Azure Site Recovery são enviados a partir do mesmo cofre
 
 ![Eventos de recuperação do local](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
-Em resumo:
+Para resumir:
 
 * Se já tiver diagnósticos de Log Analytics configurados com Azure Diagnostics e tiver consultas personalizadas escritas em cima dele, mantenha essa definição *intacta* até migrar as suas consultas para utilizar dados dos novos eventos.
 * Se também quiser embarcar em novas tabelas, como recomendamos, crie uma **nova** definição de diagnóstico, selecione **Recursos específicos**e selecione os seis novos eventos.
@@ -126,4 +130,4 @@ A imagem a seguir mostra um exemplo de um utilizador que tem três configuraçõ
 
 ## <a name="next-steps"></a>Próximos passos
 
-[Aprenda o modelo de dados do Log Analytics para os eventos de diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+[Aprenda o modelo de dados do Log Analytics para os eventos de diagnóstico](./backup-azure-reports-data-model.md)

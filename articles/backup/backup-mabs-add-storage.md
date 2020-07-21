@@ -3,11 +3,12 @@ title: Use armazenamento de backup moderno com servidor de backup Azure
 description: Conheça as novas funcionalidades no Azure Backup Server. Este artigo descreve como atualizar a instalação do Servidor de Cópia de Segurança.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74172385"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513715"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
@@ -17,7 +18,7 @@ O Azure Backup Server V2 e mais tarde suporta o Modern Backup Storage que oferec
 > Para utilizar o armazenamento de backup moderno, tem de executar backup Server V2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
 > Se executar o Backup Server V2 numa versão anterior do Windows Server, o Azure Backup Server não pode tirar partido do armazenamento de backup moderno. Em vez disso, protege cargas de trabalho como com o Backup Server V1. Para obter mais informações, consulte a matriz de [proteção da](backup-mabs-protection-matrix.md)versão do Servidor de Cópia de Segurança .
 >
-> Para obter desempenhos de backup melhorados, recomendamos implementar MABS v3 com armazenamento hierárquico no Windows Server 2019. Consulte o artigo da DPM "[Configurar MBS com Armazenamento Tiered](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter etapas para configurar o armazenamento hierárquico.
+> Para obter desempenhos de backup melhorados, recomendamos implementar MABS v3 com armazenamento hierárquico no Windows Server 2019. Consulte o artigo da DPM "[Configurar MBS com Armazenamento Tiered](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter etapas para configurar o armazenamento hierárquico.
 
 ## <a name="volumes-in-backup-server"></a>Volumes no Servidor de Backup
 
@@ -102,13 +103,13 @@ A atualização dos grupos de proteção para utilizar o Armazenamento de Cópia
 
 1. Na Consola de Administrador, selecione a **função Proteção.** Na lista **de Membros do Grupo de Proteção,** clique com o botão direito no membro e, em seguida, selecione **Stop protection of member**.
 
-   ![Parar a proteção do membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Parar a proteção do membro](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. Na caixa de diálogo **Remove from Group,** reveja o espaço do disco usado e o espaço livre disponível para a piscina de armazenamento. A predefinição é deixar os pontos de recuperação no disco e permitir que os mesmos expirem, conforme a política de retenção associada. Clique em **OK**.
 
    Se pretender devolver imediatamente o espaço do disco usado ao conjunto de armazenamento gratuito, selecione a **réplica Delete na** caixa de verificação do disco para eliminar os dados de cópia de segurança (e pontos de recuperação) associados a esse membro.
 
-   ![Remover da caixa de diálogo do grupo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Remover da caixa de diálogo do grupo](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Crie um grupo de proteção que utilize o armazenamento de backup moderno. Inclua as fontes de dados desprotegidas.
 
@@ -120,7 +121,7 @@ Adicionar armazenamento no disco:
 
 1. Na Consola de Administrador, selecione **Management**  >  **Disk Storage**  >  **Add**.
 
-    ![Adicionar diálogo de armazenamento de disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Adicionar diálogo de armazenamento de disco](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. No diálogo **de armazenamento de disco** de adicionar, selecione Adicionar **discos**.
 

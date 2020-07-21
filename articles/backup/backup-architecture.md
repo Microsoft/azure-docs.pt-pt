@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055261"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514310"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -42,10 +42,10 @@ Os cofres dos Serviços de Recuperação têm as seguintes características:
 - Os cofres facilitam a organização dos seus dados de backup, minimizando a sobrecarga de gestão.
 - Em cada subscrição do Azure, pode criar até 500 cofres.
 - Pode monitorizar itens de apoio num cofre, incluindo VMs Azure e máquinas no local.
-- Você pode gerir o acesso ao cofre com [o controlo de acesso baseado em funções Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Você pode gerir o acesso ao cofre com [o controlo de acesso baseado em funções Azure (RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Especifica como os dados no cofre são replicados para redundância:
-  - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md).
+  - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md).
   - Por predefinição, os cofres dos Serviços de Recuperação utilizam GRS.
 
 ## <a name="backup-agents"></a>Agentes do Azure Backup
@@ -120,6 +120,17 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
 - Quando um cofre é criado, um "DefaultPolicy" também é criado e pode ser usado para apoiar recursos.
 - Quaisquer alterações introduzidas no período de retenção de uma política de backup serão aplicadas retroativamente a todos os pontos de recuperação mais antigos, para além dos novos.
 
+### <a name="additional-reference"></a>Referência adicional 
+
+-   Máquina Azure VM: Como [criar](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) a política? 
+-   Base de dados do SQL Server na máquina Azure VM: Como [criar](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [modificar](./manage-monitor-sql-database-backup.md#modify-policy) a política? 
+-   Partilha de ficheiros Azure: Como [criar](./backup-afs.md#discover-file-shares-and-configure-backup) e [modificar](./manage-afs-backup.md#modify-policy) a política? 
+-   SAP HANA: Como [criar](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [modificar](./sap-hana-db-manage.md#change-policy) a política? 
+-   Como [criar](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) a política? 
+-   [Existem limitações no agendamento de backup com base no tipo de carga de trabalho?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [O que acontece aos pontos de recuperação existentes se eu mudar a política de retenção?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: Backup Azure VM incorporado
 
 1. Quando ativa a cópia de segurança para um Azure VM, uma cópia de segurança é executada de acordo com o horário especificado.
@@ -134,7 +145,7 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
     - Apenas blocos de dados que mudaram desde a última cópia de segurança são copiados.
     - Os dados não estão encriptados. O Azure Backup pode fazer backup de VMs Azure que foram encriptados usando encriptação de disco Azure.
     - Os dados do instantâneo podem não ser imediatamente copiados para o cofre. Em horas de pico, o reforço pode demorar algumas horas. O tempo total de backup para um VM será inferior a 24 horas para as políticas diárias de backup.
-1. Depois que os dados são enviados para o cofre, um ponto de recuperação é criado. Por predefinição, as imagens são mantidas durante dois dias antes de serem eliminadas. Esta funcionalidade permite restaurar o funcionamento destes instantâneos, reduzindo assim os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre. Consulte [a capacidade de restauro instantâneo de backup Azure](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. Depois que os dados são enviados para o cofre, um ponto de recuperação é criado. Por predefinição, as imagens são mantidas durante dois dias antes de serem eliminadas. Esta funcionalidade permite restaurar o funcionamento destes instantâneos, reduzindo assim os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre. Consulte [a capacidade de restauro instantâneo de backup Azure](./backup-instant-restore-capability.md).
 
 Não precisa de permitir explicitamente que a conectividade da Internet faça o back up dos seus VMs Azure.
 

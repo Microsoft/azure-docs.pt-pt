@@ -3,11 +3,12 @@ title: Instalar Azure Backup Server no Azure Stack
 description: Neste artigo, aprenda a usar o Azure Backup Server para proteger ou fazer backup de cargas de trabalho em Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 634f560174413dd75bebdee6513160a3700df9a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747442"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513902"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -88,9 +89,9 @@ A máquina virtual Azure Backup Server deve ser unida a um domínio. Um utilizad
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Usando um IaaS VM em Azure Stack
 
-Ao escolher um servidor para O Azure Backup Server, comece com uma imagem de datacenter R2 do Windows Server 2012 ou do Windows Server 2016 Datacenter. O artigo, [Crie a sua primeira máquina virtual Windows no portal Azure,](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)fornece um tutorial para começar com a máquina virtual recomendada. Os requisitos mínimos recomendados para a máquina virtual do servidor (VM) devem ser: Norma A2 com dois núcleos e RAM de 3,5 GB.
+Ao escolher um servidor para O Azure Backup Server, comece com uma imagem de datacenter R2 do Windows Server 2012 ou do Windows Server 2016 Datacenter. O artigo, [Crie a sua primeira máquina virtual Windows no portal Azure,](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json)fornece um tutorial para começar com a máquina virtual recomendada. Os requisitos mínimos recomendados para a máquina virtual do servidor (VM) devem ser: Norma A2 com dois núcleos e RAM de 3,5 GB.
 
-Proteger cargas de trabalho com o Azure Backup Server tem muitas nuances. A [matriz de proteção do MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) ajuda a explicar estas nuances. Antes de colocar a máquina, leia completamente este artigo.
+Proteger cargas de trabalho com o Azure Backup Server tem muitas nuances. A [matriz de proteção do MABS](./backup-mabs-protection-matrix.md) ajuda a explicar estas nuances. Antes de colocar a máquina, leia completamente este artigo.
 
 > [!NOTE]
 > O Azure Backup Server foi concebido para funcionar numa máquina virtual dedicada e uni única. Não é possível instalar o Servidor de Backup Azure em:
@@ -106,7 +107,7 @@ Junte sempre o Servidor de Backup Azure a um domínio. Se precisar de mover o Az
 
 ### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
 
-A opção de replicação do armazenamento do cofre dos Serviços de Recuperação permite-lhe escolher entre armazenamento geo-redundante e armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha o armazenamento localmente redundante se quiser uma opção mais barata que seja menos durável. Leia mais sobre opções de armazenamento [geo-redundantes](../storage/common/storage-redundancy-grs.md) e [localmente redundantes](../storage/common/storage-redundancy-lrs.md) na visão geral da [replicação do Azure Storage](../storage/common/storage-redundancy.md).
+A opção de replicação do armazenamento do cofre dos Serviços de Recuperação permite-lhe escolher entre armazenamento geo-redundante e armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha o armazenamento localmente redundante se quiser uma opção mais barata que seja menos durável. Leia mais sobre opções de armazenamento [geo-redundantes](../storage/common/storage-redundancy.md) e [localmente redundantes](../storage/common/storage-redundancy.md) na visão geral da [replicação do Azure Storage](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
@@ -242,7 +243,7 @@ O Azure Backup Server partilha código com o Gestor de Proteção de Dados. Ver�
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    A localização do risco é necessária para voltar a Azure. Certifique-se de que o tamanho da localização do risco equivale a pelo menos 5% dos dados previstos para serem apoiados até ao Azure. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre os pools de armazenamento, consulte [prepare o armazenamento de dados.](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)
+    A localização do risco é necessária para voltar a Azure. Certifique-se de que o tamanho da localização do risco equivale a pelo menos 5% dos dados previstos para serem apoiados até ao Azure. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre os pools de armazenamento, consulte [prepare o armazenamento de dados.](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)
 
 6. No ecrã **Definições de Segurança,** forneça uma palavra-passe forte para contas de utilizador locais restritas e clique em **Seguinte**.
 
@@ -308,7 +309,7 @@ O Azure Backup Server partilha código com o Gestor de Proteção de Dados. Ver�
 
 ## <a name="add-backup-storage"></a>Adicionar armazenamento de backup
 
-A primeira cópia de backup é mantida no armazenamento anexado à máquina do Servidor de Backup Azure. Para obter mais informações sobre a adição de discos, consulte [o armazenamento de Backup Moderno.](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801)
+A primeira cópia de backup é mantida no armazenamento anexado à máquina do Servidor de Backup Azure. Para obter mais informações sobre a adição de discos, consulte [o armazenamento de Backup Moderno.](/system-center/dpm/add-storage)
 
 > [!NOTE]
 > Tem de adicionar armazenamento de backup mesmo que planeie enviar dados para o Azure. Na arquitetura do Azure Backup Server, o cofre dos Serviços de Recuperação detém a *segunda* cópia dos dados enquanto o armazenamento local detém a primeira cópia de backup (e obrigatória).
@@ -326,10 +327,10 @@ Assim que conhecer o estado da conectividade Azure e da subscrição do Azure, p
 | Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restauro de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
 | Ligada |Ativo |Permitido |Permitido |Permitido |Permitido |
-| Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
+| Ligada |Expirada |Parada |Parada |Permitido |Permitido |
 | Ligada |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
 | Conectividade perdida > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
-| Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
+| Conectividade perdida > 15 dias |Expirada |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação da perda de conectividade
@@ -358,10 +359,10 @@ Também pode consultar [as FAQs relacionadas com o Azure Backup](backup-azure-ba
 
 ## <a name="next-steps"></a>Próximos passos
 
-O artigo, [Preparando o seu ambiente para DPM,](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)contém informações sobre configurações suportadas do Servidor de Backup Azure.
+O artigo, [Preparando o seu ambiente para DPM,](/system-center/dpm/prepare-environment-for-dpm)contém informações sobre configurações suportadas do Servidor de Backup Azure.
 
 Pode utilizar os seguintes artigos para obter uma compreensão mais profunda da proteção da carga de trabalho utilizando o Microsoft Azure Backup Server.
 
-- [Backup do SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
-- [Backup do servidor SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Backup do SQL Server](./backup-mabs-sql-azure-stack.md)
+- [Backup do servidor SharePoint](./backup-mabs-sharepoint-azure-stack.md)
 - [Backup alternativo do servidor](backup-azure-alternate-dpm-server.md)

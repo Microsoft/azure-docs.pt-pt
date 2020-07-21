@@ -3,12 +3,13 @@ title: Azure Service Bus - adiamento de mensagem
 description: Este artigo explica como adiar a entrega de mensagens Azure Service Bus. A mensagem permanece na fila ou subscrição, mas é reservada.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341227"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511284"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
 
@@ -19,6 +20,9 @@ O adiamento é uma funcionalidade criada especificamente para cenários de proce
 Um simples exemplo ilustrativo é uma sequência de processamento de encomendas em que uma notificação de pagamento de um prestador de pagamento externo aparece num sistema antes de a ordem de compra correspondente ter sido propagada da frente da loja para o sistema de realização. Nesse caso, o sistema de cumprimento pode adiar o processamento da notificação de pagamento até que exista uma ordem para a associar. Em cenários de encontro, em que mensagens de diferentes fontes impulsionam um fluxo de trabalho para a frente, a ordem de execução em tempo real pode mesmo estar correta, mas as mensagens que refletem os resultados podem chegar fora de ordem.
 
 Em última análise, os auxiliares de diferimento na reordenação das mensagens da ordem de chegada para uma ordem em que podem ser processadas, deixando essas mensagens em segurança na loja de mensagens para as quais o processamento precisa de ser adiado.
+
+> [!NOTE]
+> As mensagens diferidas não serão automaticamente transferidas para a fila das letras mortas após a [sua expiração](./service-bus-dead-letter-queues.md#exceeding-timetolive). Este comportamento é por desígnio.
 
 ## <a name="message-deferral-apis"></a>APIs de diferimento de mensagem
 

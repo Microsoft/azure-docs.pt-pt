@@ -13,19 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: a30a6b3daaf1f334c7e61f93aaab6fc717e18063
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8390f3273c7c8b5ca3b97d5da5184ab784b15c4b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676544"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511046"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão do controlador gpu da NVIDIA para windows
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Esta extensão instala controladores GPU NVIDIA em VMs da série N do Windows. Dependendo da família VM, a extensão instala os controladores CUDA ou GRID. Ao instalar controladores NVIDIA utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de [Licença de Utilizador Final da NVIDIA.](https://go.microsoft.com/fwlink/?linkid=874330) Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
 
-As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
+As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](../windows/n-series-driver-setup.md).
 Uma extensão também está disponível para instalar controladores GPU NVIDIA em [VMs da série Linux N](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -72,7 +73,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.3 | int |
@@ -84,7 +85,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 As extensões Azure VM podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem configuração de implantação de posts.
 
-A configuração JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo do recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/resource-manager-template-child-resource.md) 
+A configuração JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo do recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/templates/child-resource-name-type.md) 
 
 O exemplo a seguir pressupõe que a extensão está aninhada dentro do recurso da máquina virtual. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
@@ -138,7 +139,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure, e utilizando a Azure PowerShell e a Azure CLI. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando.
 
@@ -175,4 +176,4 @@ Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os espe
 ## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina Virtual para Windows](features-windows.md).
 
-Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../windows/sizes-gpu.md)
+Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../sizes-gpu.md)

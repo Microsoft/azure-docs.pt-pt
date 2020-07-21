@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: cce74358a206c7103d537ba80c62d6561606b818
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 983091ac0d1f9fdcb33e64d2af521ec3442a040b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242037"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515517"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog data sources in Azure Monitor (Origens de dados de Syslog no Azure Monitor)
 Syslog é um protocolo de registo de eventos que é comum ao Linux. As aplicações enviarão mensagens que podem ser armazenadas na máquina local ou entregues a um colecionador Syslog. Quando o agente Log Analytics do Linux é instalado, configura o daemon Syslog local para transmitir mensagens ao agente. Em seguida, o agente envia a mensagem para o Azure Monitor, onde é criado um registo correspondente.  
@@ -90,7 +90,6 @@ Pode remover uma instalação removendo a sua secção do ficheiro de configura�
 user.error    @127.0.0.1:25224
 ```
 
-
 #### <a name="syslog-ng"></a>syslog-ng
 O ficheiro de configuração para syslog-ng é localização em **/etc/syslog-ng/syslog-ng.conf**.  Os seus conteúdos predefinidos são apresentados abaixo. Isto recolhe mensagens syslog enviadas do agente local para todas as instalações e todas as severidades.   
 
@@ -163,17 +162,16 @@ Pode alterar o número de porta criando dois ficheiros de configuração: um fic
 
 * O ficheiro config FluentD deve ser um novo ficheiro localizado em: `/etc/opt/microsoft/omsagent/conf/omsagent.d` e substituir o valor na entrada da **porta** pelo seu número de porta personalizado.
 
-    ```config
+    ```xml
     <source>
-      type syslog
-      port %SYSLOG_PORT%
-      bind 127.0.0.1
-      protocol_type udp
-      tag oms.syslog
+        type syslog
+        port %SYSLOG_PORT%
+        bind 127.0.0.1
+        protocol_type udp
+        tag oms.syslog
     </source>
     <filter oms.syslog.**>
-      type filter_syslog
-    </filter>
+        type filter_syslog
     ```
 
 * Para o rsyslog, deverá criar um novo ficheiro de configuração localizado em: `/etc/rsyslog.d/` e substituir o valor %SYSLOG_PORT% pelo número de porta personalizado.  
@@ -228,7 +226,7 @@ A tabela seguinte fornece diferentes exemplos de consultas de log que recuperam 
 | Syslog &#124; resumir AggregatedValue = count() por Computador |Contagem de registos de Syslog por computador. |
 | Syslog &#124; resumir AggregatedValue = count() by Facility |Contagem de registos de Syslog por instalações. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais [sobre consultas de registo](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.
 * Utilize [campos personalizados](../../azure-monitor/platform/custom-fields.md) para analisar dados de syslog records em campos individuais.
 * [Configure os agentes Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) para recolher outros tipos de dados.

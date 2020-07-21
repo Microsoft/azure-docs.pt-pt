@@ -3,17 +3,17 @@ title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfed3f8e4c19463e10b721006d742726cf916900
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312828"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512265"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integre os Hubs de Eventos Azure com Azure Private Link
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
 
-Um ponto final privado é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
+Um ponto final privado é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir da sua rede virtual, efetivamente trazendo o serviço para a sua rede virtual. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
 
 Para mais informações, consulte [o que é a Azure Private Link?](../private-link/private-link-overview.md)
 
@@ -58,10 +58,13 @@ Se já tem um espaço de nomes do Event Hubs, pode criar uma ligação de ligaç
 2. Na barra de pesquisa, escreva nos **centros de eventos.**
 3. Selecione o **espaço de nomes** da lista à qual pretende adicionar um ponto final privado.
 4. Selecione o **separador 'Rede'** em **Definições**.
-5. Selecione o **separador de ligações de ponto final privado** no topo da página. 
-6. Selecione o botão **+ Ponto final privado** na parte superior da página.
 
-    ![Imagem](./media/private-link-service/private-link-service-3.png)
+    > [!NOTE]
+    > Você vê o **separador Networking** apenas para espaços de nome **padrão** ou **dedicados.** 
+1. Selecione o **separador de ligações de ponto final privado** no topo da página. 
+1. Selecione o botão **+ Ponto final privado** na parte superior da página.
+
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Página de rede - Separador de ligações de ponto final privado - Adicionar link de ponto final privado":::
 7. Na página **Basics,** siga estes passos: 
     1. Selecione a **subscrição Azure** na qual pretende criar o ponto final privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto final privado.
@@ -196,14 +199,14 @@ Existem quatro estados de provisionamento:
 
 | Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
-| Nenhuma | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
+| Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
 | Rejeitar | Rejeitado | A ligação foi rejeitada pelo proprietário de recursos de ligação privada. |
 | Remover | Desligado | A ligação foi removida pelo proprietário do recurso de ligação privada, o ponto final privado torna-se informativo e deve ser eliminado para limpeza. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Na barra de pesquisa, escreva nos **centros de eventos.**
 3. Selecione o **espaço de nomes** que pretende gerir.
 4. Selecione o **separador 'Rede'.**

@@ -3,11 +3,13 @@ title: Filas de cartas mortas do Service Bus Microsoft Docs
 description: Descreve filas de cartas mortas no Azure Service Bus. As filas de autocarros de serviço e as subscrições de tópicos fornecem um subqueue secundário, chamado de fila de letras mortas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337587"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511216"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de cartas mortas do Service Bus
 
@@ -56,7 +58,7 @@ Este comportamento não pode ser desativado, mas pode definir [o MaxDeliveryCoun
 
 Quando a propriedade [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) é definida como **verdadeira** (o padrão é **falso),** todas as mensagens caduques são transferidas para o DLQ, especificando o `TTLExpiredException` código de razão.
 
-As mensagens caducadas são apenas purgadas e transferidas para o DLQ quando há pelo menos um recetor ativo a puxar da fila principal ou da subscrição; que o comportamento é por design.
+As mensagens expiradas só são purgadas e transferidas para o DLQ quando há pelo menos um recetor ativo a puxar da fila principal ou subscrição, e [as mensagens diferidas](./message-deferral.md) também não serão purgadas e transferidas para a fila da letra morta após o seu termo. Estes comportamentos são por desígnio.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Erros durante o processamento das regras de subscrição
 

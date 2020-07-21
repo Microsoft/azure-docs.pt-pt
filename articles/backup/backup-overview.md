@@ -1,17 +1,17 @@
 ---
-title: O que é o Backup do Azure?
+title: O que é o Azure Backup?
 description: Fornece uma visão geral do serviço Azure Backup, e como contribui para a sua estratégia de continuidade e recuperação de desastres (BCDR).
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: cf48090b2c32f0c3a1c8170873cb8d6a771fe21f
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 70fcbc432c3a3584047fe5ac39f217981a73df71
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84709934"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513528"
 ---
-# <a name="what-is-the-azure-backup-service"></a>O que é o serviço de backup Azure?
+# <a name="what-is-the-azure-backup-service"></a>O que é o serviço Azure Backup?
 
 O serviço Azure Backup fornece soluções simples, seguras e económicas que lhe permitem fazer cópias de segurança dos seus dados e recuperá-los a partir da cloud do Microsoft Azure.
 
@@ -27,7 +27,7 @@ O serviço Azure Backup fornece soluções simples, seguras e económicas que lh
 
 ![Visão geral do backup Azure](./media/backup-overview/azure-backup-overview.png)
 
-## <a name="why-use-azure-backup"></a>Porquê utilizar o Backup do Azure?
+## <a name="why-use-azure-backup"></a>Porquê utilizar o Azure Backup?
 
 A Azure Backup oferece estes principais benefícios:
 
@@ -43,10 +43,10 @@ A Azure Backup oferece estes principais benefícios:
 - **Reter dados a curto e longo prazo**: Pode utilizar [cofres dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para retenção de dados a curto e longo prazo.
 - **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com a Azure Backup, não há custos para usar dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança, e utiliza um modelo de pagamento enquanto utiliza. Então, só paga pelo armazenamento que consome. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre preços.
 - **Múltiplas opções de armazenamento** - Azure Backup oferece dois tipos de replicação para manter o seu armazenamento/dados altamente disponíveis.
-  - [O armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy-lrs.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
-  - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy-grs.md) é a opção de replicação padrão e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
+  - [O armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
+  - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md) é a opção de replicação padrão e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Reveja](backup-architecture.md) a arquitetura e os componentes para diferentes cenários de backup.
 - [Verifique os](backup-support-matrix.md) requisitos de suporte e limitações para a cópia de segurança e para [a cópia de segurança da Azure VM](backup-support-matrix-iaas.md).

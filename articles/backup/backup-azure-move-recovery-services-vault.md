@@ -3,12 +3,13 @@ title: Como mover cofres dos Serviços de Recuperação de Backup da Azure
 description: Instruções sobre como mover o cofre de serviços de recuperação através de assinaturas Azure e grupos de recursos.
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 9373ea41c3cd5d35c86b8b306a20b5c106105217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514106"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -16,7 +17,7 @@ Este artigo explica como mover um cofre de Serviços de Recuperação configurad
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O movimento de recursos para o cofre dos Serviços de Recuperação é suportado na Austrália Oriental, Austrália Sudeste, Canadá Central, Canadá Leste, Ásia Do Sudeste, Ásia Oriental, Eua Central, Eua Central, Leste DOS EUA, Centro Sul dos EUA, Centro Ocidental EUA, West Central US2, West US, West Us, West Us, Central India, Índia do Sul, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul, Europa do Norte, Europa Ocidental, África do Sul Norte , África do Sul Oeste, Reino Unido Sul e Reino Unido Oeste.
+O movimento de recursos para o cofre dos Serviços de Recuperação é suportado na Austrália Leste, Austrália Sudeste, Canadá Central, Canadá Leste, Ásia Do Sudeste, Ásia Oriental, Eua Central, Eua Central, Leste dos EUA 2, Central Sul dos EUA, Centro-Oeste dos EUA, West Central EUA 2, West US 2, West US 2, Índia Central, Índia Central, Índia Central, Índia Do Sul, Japão Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Europa do Norte , Europa Ocidental, África do Sul Norte, África do Sul Oeste, Reino Unido Sul e Reino Unido Oeste.
 
 ## <a name="unsupported-regions"></a>Regiões não suportadas
 
@@ -24,7 +25,7 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Pré-requisitos para a mudança do cofre dos Serviços de Recuperação
 
-- Durante a deslocação do cofre através de grupos de recursos, tanto os grupos de recursos de origem como os grupos de recursos-alvo estão bloqueados impedindo as operações de escrita e eliminação. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- Durante a deslocação do cofre através de grupos de recursos, tanto os grupos de recursos de origem como os grupos de recursos-alvo estão bloqueados impedindo as operações de escrita e eliminação. Para mais informações, consulte este [artigo.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - Só a subscrição de administrador tem as permissões para mover um cofre.
 - Para mover cofres através de subscrições, a subscrição-alvo deve residir no mesmo inquilino que a subscrição de origem e o seu estado deve ser ativado.
 - Tem de ter permissão para efetuar operações de escrita no grupo de recursos-alvo.
@@ -34,10 +35,10 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 - Quer o VM seja movido com o cofre ou não, pode sempre restaurar o VM do histórico de reserva retido no cofre.
 - A Encriptação do Disco Azure requer que o cofre-chave e vMs residam na mesma região de Azure e subscrição.
 - Para mover uma máquina virtual com discos geridos, consulte este [artigo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
-- As opções de movimentação de recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou a uma nova subscrição. Para mais informações, consulte este [artigo.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- As opções de movimentação de recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou a uma nova subscrição. Para mais informações, consulte este [artigo.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - As políticas de backup definidas para o cofre são mantidas após o cofre se mover através de subscrições ou para um novo grupo de recursos.
 - Só é possível mover um cofre que contenha qualquer um dos seguintes tipos de itens de reserva. Quaisquer itens de backup de tipos não listados abaixo terão de ser interrompidos e os dados permanentemente eliminados antes de mover o cofre.
-  - Máquinas Virtuais do Azure
+  - Máquinas Virtuais do Microsoft Azure
   - Agente dos Serviços de Recuperação da Microsoft Azure (MARS)
   - Microsoft Azure Backup Server (MABS)
   - Data Protection Manager (DPM)
@@ -45,7 +46,7 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 
 > [!NOTE]
 > A movimentação de cofres dos Serviços de Recuperação para o Azure Backup em todas as regiões de Azure não é suportada.<br><br>
-> Se tiver configurado quaisquer VMs (Azure IaaS, Hyper-V, VMware) ou máquinas físicas para recuperação de desastres utilizando **a Recuperação do Local de Azure,** a operação de movimento será bloqueada. Se quiser mover cofres para a Recuperação do Local de Azure, [reveja este artigo](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) para saber sobre como mover os cofres manualmente.
+> Se tiver configurado quaisquer VMs (Azure IaaS, Hyper-V, VMware) ou máquinas físicas para recuperação de desastres utilizando **a Recuperação do Local de Azure,** a operação de movimento será bloqueada. Se quiser mover cofres para a Recuperação do Local de Azure, [reveja este artigo](../site-recovery/move-vaults-across-regions.md) para saber sobre como mover os cofres manualmente.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Use o portal Azure para mover o cofre dos Serviços de Recuperação para diferentes grupos de recursos
 
@@ -146,4 +147,4 @@ Para passar para uma nova subscrição, forneça o `--destination-subscription-i
 
 Você pode mover vários tipos diferentes de recursos entre grupos de recursos e subscrições.
 
-Para obter mais informações, consulte [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Para obter mais informações, consulte [Mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md).

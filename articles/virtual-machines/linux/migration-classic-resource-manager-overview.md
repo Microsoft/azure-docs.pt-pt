@@ -8,16 +8,17 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: d548af6cba6d35b497f67a0dc774171088a91010
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff8d514de7c3c1995d5cce8a4afa4219ad33cbce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944679"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510468"
 ---
-# <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager
+# <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migração suportada pela plataforma de recursos iaas do clássico para o Azure Resource Manager em Linux
 
 > [!IMPORTANT]
-> Hoje, cerca de 90% dos VMs da IaaS estão a usar [o Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VM clássicos foram depreciados e serão totalmente retirados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)
+> Hoje, cerca de 90% dos VMs da IaaS estão a usar [o Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partir de 28 de fevereiro de 2020, os VM clássicos foram depreciados e serão totalmente retirados a 1 de março de 2023. [Saiba mais]( https://aka.ms/classicvmretirement) sobre esta depreciação e [como isso o afeta.](../classic-vm-deprecation.md#how-does-this-affect-me)
 
 
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]

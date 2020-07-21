@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80545636"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511845"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Saiba como implementar módulos e estabelecer rotas no IoT Edge
 
@@ -38,7 +38,7 @@ A um nível elevado, um manifesto de implantação é uma lista de gémeos módu
 
 São necessários dois módulos em todos os manifestos de implantação: `$edgeAgent` e `$edgeHub` . Estes módulos fazem parte do tempo de funcionamento do IoT Edge que gere o dispositivo IoT Edge e os módulos que funcionam nele. Para obter mais informações sobre estes módulos, consulte [o tempo de execução IoT Edge e a sua arquitetura.](iot-edge-runtime.md)
 
-Além dos dois módulos de tempo de execução, pode adicionar até 20 módulos próprios para executar num dispositivo IoT Edge.
+Além dos dois módulos de tempo de execução, pode adicionar até 30 módulos próprios para executar num dispositivo IoT Edge.
 
 Um manifesto de implantação que contenha apenas o tempo de execução IoT Edge (edgeAgent e edgeHub) é válido.
 
@@ -141,7 +141,7 @@ Utilizando os SDKs IoT, os módulos podem declarar filas de saída específicas 
 
 A propriedade de origem pode ser qualquer um dos seguintes valores:
 
-| Origem | Description |
+| Fonte | Descrição |
 | ------ | ----------- |
 | `/*` | Todas as mensagens dispositivo-a-nuvem ou notificações de alteração dupla de qualquer módulo ou dispositivo de folha |
 | `/twinChangeNotifications` | Qualquer alteração gémea (propriedades reportadas) proveniente de qualquer módulo ou dispositivo de folha |
@@ -177,7 +177,7 @@ A pia define para onde as mensagens são enviadas. Apenas os módulos e o IoT Hu
 
 A propriedade da pia pode ser qualquer um dos seguintes valores:
 
-| Sink | Description |
+| Sink | Descrição |
 | ---- | ----------- |
 | `$upstream` | Envie a mensagem para o IoT Hub |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Envie a mensagem para uma entrada específica de um módulo específico |
@@ -279,7 +279,7 @@ O exemplo a seguir mostra como pode ser um documento manifesto de implantação 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma lista completa de propriedades que podem ou devem ser incluídas em $edgeAgent e $edgeHub, consulte [propriedades do agente IoT Edge e do hub IoT Edge](module-edgeagent-edgehub.md).
 

@@ -2,18 +2,16 @@
 title: Crie um membro do Serviço Azure Blockchain usando o modelo de Gestor de Recursos Azure
 description: Saiba como criar um membro do Serviço Azure Blockchain utilizando o modelo Azure Resource Manager.
 services: azure-resource-manager
-author: PatAltimore
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.author: patricka
-ms.date: 06/04/2020
-ms.openlocfilehash: 8eabb6806dee96871648ea419ba36d768d32a2ab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: subject-armqs, references_regions
+ms.date: 07/16/2020
+ms.openlocfilehash: fb7f91a0670d99170656c0c3a2c1b73d96095762
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078171"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513035"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>Quickstart: Criar um membro do Serviço Azure Blockchain usando um modelo ARM
 
@@ -21,7 +19,7 @@ Neste quickstart, você implementa um novo membro blockchain e consórcio no Azu
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente satisfaça os pré-requisitos e estiver familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
@@ -31,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="review-the-template"></a>Rever o modelo
 
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
 
 :::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json" range="1-84" highlight="52-80":::
 
@@ -47,11 +45,11 @@ Recursos azuis definidos no modelo:
 
 1. Especificar as definições para o membro do Serviço Azure Blockchain.
 
-    Definição | Descrição
+    Definições | Descrição
     --------|------------
     Subscrição | Selecione a subscrição Azure que pretende utilizar para o seu serviço. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
     Grupo de recursos | Crie um novo nome de grupo de recursos ou escolha um existente da sua subscrição.
-    Localização | Escolha um local para criar o membro. Todos os membros do consórcio devem estar no mesmo local. As localizações disponíveis para o destacamento são *westeurope, eastus, southeastasia, westeurope, northeurope, westus2*, e *japaneast.*
+    Localização | Escolha um local para criar o membro. Todos os membros do consórcio devem estar no mesmo local. As localizações disponíveis para o destacamento são *westeurope, eastus, southeastasia, westeurope, northeurope, westus2*, e *japaneast.* As funcionalidades podem não estar disponíveis em algumas regiões. O Azure Blockchain Data Manager está disponível nas seguintes regiões de Azure: Leste dos EUA e Europa Ocidental.
     Nome do membro | Escolha um nome único para o membro do Serviço Azure Blockchain. O nome do membro blockchain só pode conter letras e números minúsculos. O primeiro caráter tem de ser uma letra. O valor deve ter entre 2 e 20 caracteres de comprimento.
     Nome do consórcio | Introduza um nome exclusivo. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
     Senha do membro | A palavra-passe da conta do membro é usada para encriptar a chave privada da conta Ethereum que é criada para o seu membro. Utilize a conta de membro e a palavra-passe da conta do membro para a gestão do consórcio.

@@ -8,13 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: eeacea9e3305865881747801100dc17770b7df63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abd802f19917b048f6d006b8e3097b08efaf22e2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970493"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510485"
 ---
-# <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco Azure
+# <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Encriptação do disco Azure para guia de resolução de problemas de Linux VMs
 
 Este guia destina-se a profissionais de TI, analistas de segurança de informação e administradores de nuvem cujas organizações utilizam encriptação de disco Azure. Este artigo é para ajudar na resolução de problemas relacionados com a encriptação do disco.
 
@@ -110,5 +111,5 @@ Para desativar a encriptação do disco Azure com O CLI, utilize [desativação 
 
 Neste documento, aprendeu mais sobre alguns problemas comuns na Encriptação do Disco Azure e como resolver esses problemas. Para obter mais informações sobre este serviço e as suas capacidades, consulte os seguintes artigos:
 
-- [Aplicar encriptação de disco no Azure Security Center](../../security-center/security-center-apply-disk-encryption.md)
-- [Encriptação de dados Azure em repouso](../../security/fundamentals/encryption-atrest.md)
+- [Aplicar encriptação de disco no Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Encriptação de dados inativa do Azure](../../security/fundamentals/encryption-atrest.md)

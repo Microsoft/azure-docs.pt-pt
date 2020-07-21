@@ -6,13 +6,14 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: c19b3410e106aaf5fed53aba45d06eac6dd9d601
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e19f74c40bbeb83c9230e620c4488778823ef99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970733"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510808"
 ---
-# <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados Azure
+# <a name="azure-dedicated-hosts-for-virtual-machines"></a>Azure Anfitriões Dedicados para máquinas virtuais
 
 O Azure Dedicated Host é um serviço que fornece servidores físicos - capazes de hospedar uma ou mais máquinas virtuais - dedicados a uma subscrição do Azure. Os anfitriões dedicados são os mesmos servidores físicos utilizados nos nossos centros de dados, fornecidos como recurso. Você pode providenciar anfitriões dedicados dentro de uma região, zona de disponibilidade e domínio de falhas. Em seguida, pode colocar VMs diretamente nos seus anfitriões a provisionados, em qualquer configuração que satisfaça melhor as suas necessidades.
 

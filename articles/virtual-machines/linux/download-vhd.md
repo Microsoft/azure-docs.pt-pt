@@ -6,17 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14beeebe15193cbe2ef4684f97e4783810ad77a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78968787"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510559"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Faça o download de um Linux VHD de Azure
 
 Neste artigo, você aprende a baixar um ficheiro de disco rígido virtual Linux (VHD) a partir de Azure usando o portal Azure CLI e Azure. 
 
-Se ainda não o fez, instale [o Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Se ainda não o fez, instale [o Azure CLI](/cli/azure/install-az-cli2).
 
 ## <a name="stop-the-vm"></a>Parar a VM
 
@@ -24,7 +25,7 @@ Um VHD não pode ser descarregado do Azure se estiver ligado a um VM em execuç�
 
 Para utilizar o VHD como imagem para criar outros VMs, complete estes passos:
 
-1. Utilize o SSH, o nome da conta e o endereço IP público do VM para ligar e desprovisioná-lo. Pode encontrar o endereço IP público com [o programa público-ip da rede Az](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). O parâmetro +user também remove a última conta de utilizador a provisionada. Se estiver a cozer credenciais de conta no VM, deixe de fora este parâmetro +utilizador. O exemplo a seguir remove a última conta de utilizador a provisionada:
+1. Utilize o SSH, o nome da conta e o endereço IP público do VM para ligar e desprovisioná-lo. Pode encontrar o endereço IP público com [o programa público-ip da rede Az](/cli/azure/network/public-ip#az-network-public-ip-show). O parâmetro +user também remove a última conta de utilizador a provisionada. Se estiver a cozer credenciais de conta no VM, deixe de fora este parâmetro +utilizador. O exemplo a seguir remove a última conta de utilizador a provisionada:
 
     ```bash
     ssh azureuser@<publicIpAddress>
@@ -32,7 +33,7 @@ Para utilizar o VHD como imagem para criar outros VMs, complete estes passos:
     exit 
     ```
 
-2. Inicie sessão na sua conta Azure com [login az](https://docs.microsoft.com/cli/azure/reference-index).
+2. Inicie sessão na sua conta Azure com [login az](/cli/azure/reference-index).
 3. Pare e transloja o VM.
 
     ```azurecli
@@ -56,7 +57,7 @@ Para utilizar o VHD como disco para uma nova instância de um VM ou disco de dad
 
 ## <a name="generate-sas-url"></a>Gerar URL SAS
 
-Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de acesso partilhado (SAS).](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Quando o URL é gerado, um tempo de validade é atribuído ao URL.
+Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de acesso partilhado (SAS).](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) Quando o URL é gerado, um tempo de validade é atribuído ao URL.
 
 1.  No menu da página para o VM, selecione **Discos**.
 2.  Selecione o disco do sistema operativo para o VM e, em seguida, selecione **A Exportação de Discos**.
@@ -78,4 +79,3 @@ Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de a
 
 - Saiba como [carregar e criar um Linux VM a partir de disco personalizado com o Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Gerir discos Azure o Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

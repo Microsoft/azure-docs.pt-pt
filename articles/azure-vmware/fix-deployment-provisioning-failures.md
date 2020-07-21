@@ -3,11 +3,12 @@ title: Obtenha ajuda com a implementação da Solução VMware Azure ou falhas n
 description: Como obter as informações necessárias da sua nuvem privada Azure VMware Solution (AVS) para apresentar um pedido de serviço para implementação avs ou falhas de fornecimento.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 3032c01d48617347c454d71498571b0e6b789e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986917"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514582"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenha ajuda com a implementação da Solução VMware Azure ou falhas no fornecimento
 
@@ -71,7 +72,7 @@ Cole o ID ExpressRoute no campo apropriado no novo pedido de apoio. Para mais in
 
 ## <a name="create-your-support-request"></a>Crie o seu pedido de apoio
 
-Para obter orientações gerais na criação do seu pedido de apoio, consulte [Como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+Para obter orientações gerais na criação do seu pedido de apoio, consulte [Como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Aqui está uma orientação adicional específica para a criação de um SR para a implementação de AVS ou falhas de provisão.
 

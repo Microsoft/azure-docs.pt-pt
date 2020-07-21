@@ -3,12 +3,12 @@ title: Equilibrar a carga de partição em vários casos - Azure Event Hubs Micr
 description: Descreve como equilibrar a carga de partição em várias instâncias da sua aplicação usando um processador de eventos e o Azure Event Hubs SDK.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d5db1e877c1bfa6fac177e1ff8ed137e0301b709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314982"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512321"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Equilibrar a carga de partição em vários casos da sua aplicação
 Para escalar a sua aplicação de processamento de eventos, pode executar várias instâncias da aplicação e fazê-la equilibrar a carga entre si. Nas versões mais antigas, o [EventProcessorHost](event-hubs-event-processor-host.md) permitiu equilibrar a carga entre várias instâncias do seu programa e eventos de checkpoint ao receber. Nas versões mais recentes (5.0 em diante), **EventProcessorClient** (.NET e Java) ou **EventHubConsumerClient** (Python e JavaScript) permite-lhe fazer o mesmo. O modelo de desenvolvimento é simplificado utilizando eventos. Subscreve os eventos que lhe interessam ao registar um manipulador de eventos.
@@ -16,7 +16,7 @@ Para escalar a sua aplicação de processamento de eventos, pode executar vária
 Este artigo descreve um cenário de amostra para usar várias instâncias para ler eventos a partir de um centro de eventos e, em seguida, dar-lhe detalhes sobre as funcionalidades do cliente processador de eventos, que lhe permite receber eventos de várias divisórias ao mesmo tempo e carregar o equilíbrio com outros consumidores que usam o mesmo centro de eventos e grupo de consumidores.
 
 > [!NOTE]
-> A chave para a escala para os Centros de Eventos é a ideia dos consumidores divididos. Em contraste com o padrão [dos consumidores concorrentes,](https://msdn.microsoft.com/library/dn568101.aspx) o padrão de consumidor dividido permite uma escala elevada, removendo o estrangulamento da contenção e facilitando o fim do paralelismo.
+> A chave para a escala para os Centros de Eventos é a ideia dos consumidores divididos. Em contraste com o padrão [dos consumidores concorrentes,](/previous-versions/msp-n-p/dn568101(v=pandp.10)) o padrão de consumidor dividido permite uma escala elevada, removendo o estrangulamento da contenção e facilitando o fim do paralelismo.
 
 ## <a name="example-scenario"></a>Cenário de exemplo
 
@@ -49,7 +49,7 @@ Os registos de propriedade de partição na loja de checkpoint mantêm o registo
 
 
 
-| Espaço de nomes dos Event Hubs               | O nome do hub de eventos | **Grupo de consumidores** | Proprietário                                | ID de Partição | Última hora modificada  |
+| Espaço de nomes dos Event Hubs               | Nome do Hub de Eventos | **Grupo de consumidores** | Proprietário                                | ID de Partição | Última hora modificada  |
 | ---------------------------------- | -------------- | :----------------- | :----------------------------------- | :----------- | :------------------ |
 | mynamespace.servicebus.windows.net | myeventhub     | myconsumergroup    | 3be3f9d3-9d9e-4c50-9491-85ece8334ff6 | 0            | 2020-01-15T01:22:15 |
 | mynamespace.servicebus.windows.net | myeventhub     | myconsumergroup    | f5cc5176-ce96-4bb4-bbaa-a0e3a9054ecf | 1            | 2020-01-15T01:22:17 |
@@ -66,7 +66,7 @@ Quando cria um processador de eventos, especifica as funções que irão process
 
 Recomendamos que faça as coisas relativamente rápido. Ou seja, faça o mínimo de processamento possível. Se você precisa escrever para armazenamento e fazer algum encaminhamento, é melhor usar dois grupos de consumidores e ter dois processadores de eventos.
 
-## <a name="checkpointing"></a>Ponto de verificação
+## <a name="checkpointing"></a>Pontos de verificação
 
 *O checkpointing* é um processo pelo qual um processador de eventos marca ou compromete a posição do último evento processado com sucesso dentro de uma partição. A marcação de um ponto de verificação é normalmente feita dentro da função que processa os eventos e ocorre numa base por partição dentro de um grupo de consumidores. 
 
@@ -75,7 +75,7 @@ Se um processador de eventos se desligar de uma partição, outra instância pod
 Quando o ponto de verificação é realizado para marcar um evento como processado, uma entrada na loja de pontos de verificação é adicionada ou atualizada com o número de compensação e sequência do evento. Os utilizadores devem decidir a frequência da atualização do ponto de verificação. A atualização após cada evento processado com sucesso pode ter implicações de desempenho e custos, uma vez que desencadeia uma operação de escrita para a loja de pontos de verificação subjacente. Além disso, a verificação de cada evento é indicativo de um padrão de mensagens em fila para o qual uma fila de Autocarros de Serviço pode ser uma opção melhor do que um centro de eventos. A ideia por trás do Event Hubs é que você recebe entrega "pelo menos uma vez" em grande escala. Ao tornar os seus sistemas a jusante idempotentes, é fácil recuperar de falhas ou reiniciões que resultam em que os mesmos eventos sejam recebidos várias vezes.
 
 > [!NOTE]
-> Se estiver a utilizar o Azure Blob Storage como loja de checkpoint num ambiente que suporta uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure, terá de utilizar código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar [Os Centros de Eventos numa versão Azure Stack Hub 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte estas amostras no GitHub: 
+> Se estiver a utilizar o Azure Blob Storage como loja de checkpoint num ambiente que suporta uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure, terá de utilizar código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar [Os Centros de Eventos numa versão Azure Stack Hub 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte estas amostras no GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
 > - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)

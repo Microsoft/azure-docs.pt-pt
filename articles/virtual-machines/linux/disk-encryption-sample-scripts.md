@@ -8,14 +8,14 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32d4e709036135a9a88ec36eaafaa176df33fabf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e7b22a8010d7dfbdeeaeae623a55c1aff9c006c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610358"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510502"
 ---
-# <a name="azure-disk-encryption-sample-scripts"></a>Scripts de exemplo do Azure Disk Encryption 
+# <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de encriptação de disco Azure para VMs Linux
 
 Este artigo fornece scripts de amostra para preparar VHDs pré-encriptados e outras tarefas.
 
@@ -186,7 +186,7 @@ Configure a encriptação durante a instalação de distribuição, fazendo os s
 
    ![Configuração Ubuntu 16.04 - Forneça a palavra-passe no arranque](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Prepare o VM para o upload para Azure utilizando [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não corra o último passo (desprovisionando o VM) ainda.
+6. Prepare o VM para o upload para Azure utilizando [estas instruções](./create-upload-ubuntu.md?toc=/azure/virtual-machines/linux/toc.json). Não corra o último passo (desprovisionando o VM) ainda.
 
 Configure a encriptação para trabalhar com o Azure, fazendo os seguintes passos:
 
@@ -262,7 +262,7 @@ Para configurar a encriptação durante a instalação de distribuição, faça 
 
    ![openSUSE 13.2 Configuração - Forneça a palavra-passe no arranque](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Prepare o VM para o upload para Azure seguindo as instruções em [Preparar uma máquina virtual SLES ou abrir Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não corra o último passo (desprovisionando o VM) ainda.
+3. Prepare o VM para o upload para Azure seguindo as instruções em [Preparar uma máquina virtual SLES ou abrir Azure](./suse-create-upload-vhd.md?toc=/azure/virtual-machines/linux/toc.json#prepare-opensuse-131). Não corra o último passo (desprovisionando o VM) ainda.
 
 Para configurar a encriptação para trabalhar com o Azure, faça os seguintes passos:
 1. Editar o /etc/dracut.conf e adicionar a seguinte linha:
@@ -339,7 +339,7 @@ Para configurar a encriptação durante a instalação de distribuição, faça 
 
    ![Configuração CentOS 7 - Introduza a frase de passe no arranque](./media/disk-encryption/centos-encrypt-fig4.png)
 
-5. Prepare o VM para o upload para O Azure utilizando as instruções "CentOS 7.0+" em [Preparar uma máquina virtual baseada em CentOS para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não corra o último passo (desprovisionando o VM) ainda.
+5. Prepare o VM para o upload para O Azure utilizando as instruções "CentOS 7.0+" em [Preparar uma máquina virtual baseada em CentOS para o Azure](./create-upload-centos.md?toc=/azure/virtual-machines/linux/toc.json#centos-70). Não corra o último passo (desprovisionando o VM) ainda.
 
 6. Agora pode desprovisionar o VM e enviar o seu VHD para OZure.
 
@@ -439,7 +439,7 @@ Para configurar o segredo no seu cofre de chaves, utilize [o Set-AzKeyVaultSecre
 Utilize o `$secretUrl` passo seguinte para fixar o disco DE SEM utilizar [KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segredo de encriptação de disco encriptado com um KEK
-Antes de enviar o segredo para o cofre da chave, pode criptografá-lo opcionalmente usando uma chave de encriptação. Utilize a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de embrulho para encriptar primeiro o segredo utilizando a chave de encriptação. A saída desta operação de embrulho é uma cadeia codificada de URL base64, que pode então carregar como um segredo usando o [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Antes de enviar o segredo para o cofre da chave, pode criptografá-lo opcionalmente usando uma chave de encriptação. Utilize a [API](/rest/api/keyvault/wrapkey) de embrulho para encriptar primeiro o segredo utilizando a chave de encriptação. A saída desta operação de embrulho é uma cadeia codificada de URL base64, que pode então carregar como um segredo usando o [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

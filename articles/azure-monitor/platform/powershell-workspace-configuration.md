@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: bf94631c821c8a7ba5e2870af0bf1ecfd268e888
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203592"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515449"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Criar e configurar um espaço de trabalho Log Analytics no Monitor Azure utilizando o PowerShell
 Este artigo fornece duas amostras de código que mostram como criar e configurar um espaço de trabalho Log Analytics no Azure Monitor.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> O formato para o parâmetro **CustomLogRawJson** que define a configuração para um registo personalizado pode ser complexo. Utilize [o Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração de um Registo Personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson.**
+> O formato para o parâmetro **CustomLogRawJson** que define a configuração para um registo personalizado pode ser complexo. Utilize [o Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração de um Registo Personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson.**
 
 No exemplo acima, o regexDelimiter foi definido como " \\ n" para newline. O delimiter de log também pode ser uma estamp de tempo.  Estes são os formatos suportados:
 
@@ -212,14 +212,13 @@ No exemplo acima, o regexDelimiter foi definido como " \\ n" para newline. O del
 | `yyyy-MM-ddTHH:mm:ss` <br> O T é uma letra literal T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
+Quando cria um espaço de trabalho que foi eliminado nos últimos 14 dias e em [estado de eliminação suave,](./delete-workspace.md#soft-delete-behavior)a operação pode ter resultados diferentes dependendo da configuração do seu espaço de trabalho:
 1. Se fornecer o mesmo nome do espaço de trabalho, grupo de recursos, subscrição e região como no espaço de trabalho eliminado, o seu espaço de trabalho será recuperado, incluindo os seus dados, configuração e agentes conectados.
 2. Se utilizar o mesmo nome do espaço de trabalho, mas diferente grupo de recursos, subscrição ou região, obterá um erro *O nome do espaço de trabalho 'workspace-name' não é único*, ou *conflito*. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:
-   * [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho
-   * [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho
+   * [Recupere](./delete-workspace.md#recover-workspace) o seu espaço de trabalho
+   * [Elimine permanentemente](./delete-workspace.md#permanent-workspace-delete) o seu espaço de trabalho
    * Criar um novo espaço de trabalho usando o mesmo nome do espaço de trabalho
 
 
-## <a name="next-steps"></a>Passos seguintes
-* [Rever os cmdlets PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para obter informações adicionais sobre a utilização do PowerShell para a configuração do Log Analytics.
-
+## <a name="next-steps"></a>Próximos passos
+* [Rever os cmdlets PowerShell do Log Analytics](/powershell/module/az.operationalinsights/) para obter informações adicionais sobre a utilização do PowerShell para a configuração do Log Analytics.

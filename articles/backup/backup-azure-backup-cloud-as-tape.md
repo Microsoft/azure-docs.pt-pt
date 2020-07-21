@@ -3,11 +3,12 @@ title: Como substituir a sua infraestrutura de fita
 description: Saiba como o Azure Backup fornece semântica semelhante a fita que lhe permite fazer backup e restaurar dados em Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71bfa86611b3a63fa6a28f60f80608b394cab5a3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425107"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514191"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mova o seu armazenamento a longo prazo da fita para a nuvem Azure
 
@@ -69,5 +70,5 @@ Ao clicar em **Modificar** no ecrã anterior, os clientes têm mais flexibilidad
 
 Para mais informações sobre a Azure Backup, consulte:
 
-* [Introdução ao Azure Backup](backup-introduction-to-azure-backup.md)
-* [Experimentar o Backup do Azure](backup-try-azure-backup-in-10-mins.md)
+* [Introdução ao Azure Backup](./backup-overview.md)
+* [Experimentar o Backup do Azure](./backup-windows-with-mars-agent.md)

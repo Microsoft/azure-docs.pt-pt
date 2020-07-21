@@ -8,11 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: fc460abe65709f90ff22e1ec6f8e47b315db7f67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84555241"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511403"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicione analisadores personalizados a campos de cordas num índice de pesquisa cognitiva Azure
 
@@ -20,7 +21,7 @@ Um *analisador personalizado* é um tipo específico de [analisador](search-anal
 
  Pode definir vários analisadores personalizados para variar a combinação de filtros, mas cada campo só pode usar um analisador para analisar a indexação e um para análise de pesquisa. Para obter uma ilustração do aspeto de um analisador de clientes, consulte [o exemplo do analisador personalizado.](search-analyzers.md#Custom-analyzer-example)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
  O papel de um [motor de pesquisa de texto completo,](search-lucene-query-architecture.md)em termos simples, é processar e armazenar documentos de uma forma que permita uma consulta e recuperação eficientes. A um nível elevado, tudo se resume a extrair palavras importantes de documentos, colocando-as num índice, e depois usando o índice para encontrar documentos que correspondam às palavras de uma determinada consulta. O processo de extrair palavras de documentos e consultas de pesquisa chama-se *análise lexical.* Os componentes que realizam análises lexicais são *chamados de analisadores.*
 
@@ -134,7 +135,7 @@ Definições para filtros de carvão, tokenizers e filtros de fichas só são ad
 
 Pode utilizar a **operação do Analisador de Teste** na [API REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para ver como um analisador quebra o texto dado em fichas.
 
-**Pedir**
+**Pedido**
 ```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
@@ -145,7 +146,7 @@ Pode utilizar a **operação do Analisador de Teste** na [API REST](https://docs
      "text": "Vis-à-vis means Opposite"
   }
 ```
-**Resposta**
+**Response**
 ```
   {
     "tokens": [
@@ -199,17 +200,17 @@ Para os analisadores, os atributos de índice variam dependendo se você está u
 
 #### <a name="predefined-analyzers"></a>Analisadores Predefinidos
 
-|||  
-|-|-|  
-|Name|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
+| Tipo | Descrição |
+| ---- | ----------- |  
+|Nome|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
 |Tipo|Tipo analisador da lista de analisadores suportados. Consulte a coluna **analyzer_type** na tabela [Dos Analisadores](#AnalyzerTable) abaixo.|  
 |Opções|Devem ser opções válidas de um analisador predefinido listado na tabela [dos Analisadores](#AnalyzerTable) abaixo.|  
 
 #### <a name="custom-analyzers"></a>Analisadores personalizados
 
-|||  
-|-|-|  
-|Name|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
+| Tipo | Descrição |
+| ---- | ----------- |  
+|Nome|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
 |Tipo|Deve ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Definir para um dos filtros de carvão predefinidos listados na tabela [Filtros de Char](#char-filters-reference) ou um filtro de carvão personalizado especificado na definição de índice.|  
 |Tokenizer|Necessário. Definir para um dos tokenizers predefinidos listados na tabela [Tokenizers](#Tokenizers) abaixo ou um tokenizer personalizado especificado na definição de índice.|  
@@ -224,9 +225,9 @@ Para os analisadores, os atributos de índice variam dependendo se você está u
 
  Um filtro de carvão é utilizado para preparar o texto de entrada antes de ser processado pelo tokenizer. Por exemplo, podem substituir certos caracteres ou símbolos. Pode ter vários filtros de carvão num analisador personalizado. Os filtros de char funcionam na ordem em que estão listados.  
 
-|||  
-|-|-|  
-|Name|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
+| Tipo | Descrição |
+| ---- | ----------- | 
+|Nome|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
 |Tipo|Tipo de filtro de char da lista de filtros de carvão suportados. Consulte **char_filter_type** coluna na tabela [Filtros de Char](#char-filters-reference) abaixo.|  
 |Opções|Devem ser opções válidas de um determinado tipo [de filtros de char.](#char-filters-reference)|  
 
@@ -237,9 +238,9 @@ Para os analisadores, os atributos de índice variam dependendo se você está u
  Você pode especificar exatamente um tokenizer por analisador personalizado. Se precisar de mais de um tokenizer, pode criar vários analisadores personalizados e atribuí-los numa base de campo a campo no seu esquema de índice.  
 Um analisador personalizado pode usar um tokenizer predefinido com opções padrão ou personalizadas.  
 
-|||  
-|-|-|  
-|Name|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
+| Tipo | Descrição |
+| ---- | ----------- | 
+|Nome|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
 |Tipo|Nome tokenizer da lista de tokenizers suportados. Consulte **tokenizer_type** coluna na tabela [Tokenizers](#Tokenizers) abaixo.|  
 |Opções|Devem ser opções válidas de um dado tipo de tokenizer listado na tabela [Tokenizers](#Tokenizers) abaixo.|  
 
@@ -248,9 +249,9 @@ Um analisador personalizado pode usar um tokenizer predefinido com opções padr
  Um filtro de ficha é utilizado para filtrar ou modificar os tokens gerados por um tokenizer. Por exemplo, pode especificar um filtro minúsculo que converte todos os caracteres em minúsculas.   
 Pode ter vários filtros simbólicos num analisador personalizado. Os filtros token funcionam na ordem em que estão listados.  
 
-|||  
-|-|-|  
-|Name|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
+| Tipo | Descrição |
+| ---- | ----------- |  
+|Nome|Só deve conter letras, dígitos, espaços, traços ou sublinhados, só pode começar e terminar com caracteres alfanuméricos, e está limitado a 128 caracteres.|  
 |Tipo|Nome do filtro token da lista de filtros simbólicos suportados. Consulte **token_filter_type** coluna na tabela de [filtros Token](#TokenFilters) abaixo.|  
 |Opções|Devem ser [filtros Token](#TokenFilters) de um determinado tipo de filtro simbólico.|  
 

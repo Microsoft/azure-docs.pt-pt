@@ -3,12 +3,12 @@ title: AMQP 1.0 no Azure Service Bus and Event Hubs guia de protocolos / Microso
 description: Guia protocolar para expressões e descrição de AMQP 1.0 em Azure Service Bus and Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186916"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511318"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 em Azure Service Bus and Event Hubs guia de protocolo
 
@@ -48,7 +48,7 @@ A fonte mais autoritária para aprender sobre como funciona a AMQP é a especifi
 
 AMQP chama os *recipientes*de programas de comunicação; os que contêm *nós,* que são as entidades comunicantes dentro desses contentores. Uma fila pode ser um nó. AmQP permite multiplexing, para que uma única ligação possa ser usada para muitos caminhos de comunicação entre nós; por exemplo, um cliente de aplicação pode receber simultaneamente de uma fila e enviar para outra fila sobre a mesma ligação de rede.
 
-![][1]
+![Diagrama mostrando Sessões e Ligações entre recipientes.][1]
 
 A ligação à rede está assim ancorada no recipiente. É iniciado pelo contentor na função do cliente fazendo uma ligação de tomada TCP de saída a um recipiente na função recetora, que ouve e aceita ligações TCP de entrada. O aperto de mão de ligação inclui a negociação da versão do protocolo, a declaração ou negociação da utilização da Segurança do Nível de Transporte (TLS/SSL), e um aperto de mão de autenticação/autorização no âmbito de ligação baseado no SASL.
 
@@ -84,7 +84,7 @@ Um cliente .NET falharia com uma SocketException ("Foi feita uma tentativa de ac
 
 AMQP transfere mensagens por links. Um link é uma via de comunicação criada ao longo de uma sessão que permite transferir mensagens numa direção; a negociação do estado de transferência é sobre o link e bid-direcional entre as partes ligadas.
 
-![][2]
+![Screenshot mostrando uma sessão de transporte uma ligação de ligação entre dois recipientes.][2]
 
 Os links podem ser criados por qualquer um dos contentores a qualquer momento e ao longo de uma sessão existente, o que torna a AMQP diferente de muitos outros protocolos, incluindo HTTP e MQTT, onde o início das transferências e trajeto de transferência é um privilégio exclusivo da parte que cria a ligação à tomada.
 
@@ -100,7 +100,7 @@ O cliente de ligação também é obrigado a usar um nome de nó local para cria
 
 Uma vez estabelecida uma ligação, as mensagens podem ser transferidas sobre esse link. Em AMQP, uma transferência é executada com um gesto de protocolo explícito (o *performativo de transferência)* que move uma mensagem do remetente para o recetor por um link. Uma transferência fica completa quando está "resolvida", o que significa que ambas as partes estabeleceram um entendimento partilhado sobre o resultado dessa transferência.
 
-![][3]
+![Um diagrama que mostra a transferência de uma mensagem entre o Remetente e o Recetor e a disposição que resulta do mesmo.][3]
 
 No caso mais simples, o remetente pode optar por enviar mensagens "pré-resolvidas", o que significa que o cliente não está interessado no resultado e o recetor não fornece qualquer feedback sobre o resultado da operação. Este modo é suportado pela Service Bus ao nível do protocolo AMQP, mas não exposto em nenhuma das APIs do cliente.
 
@@ -120,7 +120,7 @@ Para compensar possíveis envios duplicados, o Service Bus suporta a deteção d
 
 Além do modelo de controlo de fluxo de nível de sessão que previamente discutido, cada ligação tem o seu próprio modelo de controlo de fluxo. O controlo de fluxo ao nível da sessão protege o recipiente de ter de manusear demasiados quadros ao mesmo tempo, o controlo de fluxo de nível de ligação encarrega a aplicação de quantas mensagens pretende manusear a partir de um link e quando.
 
-![][4]
+![Screenshot de um registo que mostra Origem, Destino, Porto fonte, Porto de Destino e Nome do Protocolo. Na linha mais fiesta, o Porto de Destino 10401 (0x28 A 1) é delineado em preto.][4]
 
 Num link, as transferências só podem acontecer quando o remetente tem *crédito de ligação*suficiente . O crédito de ligação é um contra-conjunto definido pelo recetor utilizando o *fluxo* performativo, que é telescópio para um link. Quando o remetente é atribuído crédito de ligação, tenta usar esse crédito entregando mensagens. Cada entrega de mensagens diminui o restante crédito de ligação por 1. Quando o crédito de ligação é usado, as entregas param.
 
@@ -404,7 +404,7 @@ Com esta funcionalidade, cria-se um remetente e estabelece-se a ligação com o 
 | anexar;<br/>nome={link name},<br/>role=remetente,<br/>ID de ligação ao cliente source={},<br/>alvo=**{via-entidade}**,<br/>**propriedades=mapa <br/> [(com.microsoft:transfer-destination-address= <br/> {destination-entity} ))** | ------> | |
 | | <------ | anexar;<br/>nome={link name},<br/>role=recetor,<br/>ID de ligação ao cliente source={},<br/>target={via-entidade},<br/>propriedades=mapa [.<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino} )] ) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre AMQP, visite os seguintes links:
 

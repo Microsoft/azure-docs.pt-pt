@@ -1,36 +1,29 @@
 ---
-title: Executar recipiente de reconhecimento de formulário em instâncias de contentores azure
+title: Executar o recipiente do reconhecimento do formulário em instâncias de contentores Azure
 titleSuffix: Azure Cognitive Services
-description: Desloque o recipiente 'Reconhecimento de Formulários' para uma instância de contentores Azure e teste-o num navegador web.
+description: Implemente o recipiente Do Reconhecimento de Formulários para uma Instância de Recipiente Azure e teste-o num navegador web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de81fcb5ee62f9b295c93132b271507c040af46a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879535"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512792"
 ---
-# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Desloque o recipiente de reconhecimento de formulário para as instâncias do contentor de Azure
+# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Implementar o recipiente do Reconhecimento de Formulários para instâncias de contentores Azure
 
-Saiba como implantar o recipiente de reconhecimento de [formulários](form-recognizer-container-howto.md) de serviços cognitivos para as [instâncias](https://docs.microsoft.com/azure/container-instances/)do contentor azure . Este procedimento demonstra a criação de um recurso De Reconhecimento de Formulários Azure. Depois discutimos a imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão da infraestrutura para, em vez disso, concentrar-se no desenvolvimento de aplicações.
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
-> [!IMPORTANT]
-> Os recipientes 'Reconhecimento de Formulários' utilizam atualmente a versão 1.0 da API do Reconhecimento de Formulários. Pode aceder à versão mais recente da API utilizando o serviço gerido.
+Saiba como implantar o recipiente de reconhecimento de [formulários](form-recognizer-container-howto.md) de serviços cognitivos para [instâncias de contentores Azure](https://docs.microsoft.com/azure/container-instances/). Este procedimento demonstra a criação de um recurso Azure Form Recogniser. Depois discutimos a retirada da imagem do contentor associado. Finalmente, destacamos a capacidade de exercer a orquestração dos dois a partir de um browser. A utilização de contentores pode desviar a atenção dos desenvolvedores da gestão das infraestruturas para, em vez disso, concentrarem-se no desenvolvimento de aplicações.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
-
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registo de contentores
-
-Primeiro deve completar e submeter o formulário de pedido de acesso aos recipientes de reconhecimento de formulários de [serviços cognitivos](https://aka.ms/FormRecognizerContainerRequestAccess) para solicitar o acesso ao recipiente. Ao fazê-lo também o inscreve para a Visão Computacional. Não precisa de se inscrever separadamente para o formulário de pedido de visão computacional. 
-
-[!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Create a Cognitive Services Form Recognizer resource](includes/create-resource.md)]
 

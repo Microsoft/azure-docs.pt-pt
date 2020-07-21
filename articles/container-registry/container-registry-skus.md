@@ -3,17 +3,18 @@ title: Níveis e funcionalidades de serviço de registo
 description: Conheça as funcionalidades e limites nos níveis básico, standard e premium (SKUs) do Registo de Contentores Azure.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 35f5d4ebd4a2b427aadc6e82e265a7da9b6409f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83683418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512622"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Níveis de serviço de registo de contentores Azure
 
 O Registo de Contentores Azure está disponível em vários níveis de serviço (também conhecidos como SKUs). Estes níveis fornecem preços previsíveis e várias opções para se alinhar com a capacidade e padrões de utilização do seu registo privado de Docker em Azure.
 
-| Escalão | Descrição |
+| Escalão de serviço | Descrição |
 | --- | ----------- |
 | **Básica** | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Os registos básicos têm as mesmas capacidades programáticas que o Standard e o Premium (como [a integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad)do Azure Ative Directory, [a eliminação de imagens][container-registry-delete]e [os webhooks).][container-registry-webhook] No entanto, o armazenamento incluído e a produção de imagem são mais adequados para cenários de menor utilização. |
 | **Standard** | Os registos padrão oferecem as mesmas capacidades que o Basic, com o aumento do armazenamento incluído e produção de imagem. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
@@ -23,7 +24,7 @@ Os níveis Básico, Standard e Premium fornecem todas as mesmas capacidades prog
 
 ## <a name="service-tier-features-and-limits"></a>Características e limites de nível de serviço
 
-A tabela seguinte detalha as características e limites dos níveis de serviço Basic, Standard e Premium.
+O quadro seguinte detalha as características e os limites de registo dos níveis de serviço Básico, Standard e Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Adicione cabeçalhos de segurança com o motor de regras - Porta frontal Azure
 description: Este artigo ensina-lhe como configurar um cabeçalho de segurança através do Motor de Regras na Porta frontal Azure
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/22/2020
 ms.author: mebeatty
-ms.openlocfilehash: d489186dc1c012fe8c181f17e00bcdb999e230dd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5f07a57e0d41a5e7c546bc89ca7a0b5ac5fce5de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232139"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512236"
 ---
 # <a name="add-security-headers-with-rules-engine"></a>Adicionar Cabeçalhos de Segurança com o Motor de Regras
 
@@ -43,7 +43,7 @@ O exemplo a seguir mostra-lhe como adicionar um cabeçalho de Política de Segur
 > Neste cenário, não acrescentámos [condições de jogo](front-door-rules-engine-match-conditions.md) à regra. Todos os pedidos de entrada que correspondam ao caminho definido na Regra da Rota terão esta regra aplicada. Se quiser que se aplique apenas a um subconjunto desses pedidos, certifique-se de adicionar as suas condições específicas de correspondência a esta regra.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [o MOTOR DE Regras DA AFD](front-door-rules-engine.md). 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

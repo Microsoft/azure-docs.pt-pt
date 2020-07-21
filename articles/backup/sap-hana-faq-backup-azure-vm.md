@@ -3,18 +3,18 @@ title: FAQ - Fazer a cópia de segurança de bases de dados SAP HANA nas VMs do 
 description: Neste artigo, descubra respostas a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 512075a24cf9400415f2367ead16b57f8b31c038
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170331"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513511"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes - Apoiar bases de dados SAP HANA em VMs Azure
 
 Este artigo responde a perguntas comuns sobre o backup das bases de dados SAP HANA utilizando o serviço de backup Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-full-backups-are-supported-per-day"></a>Quantos reforços completos são suportados por dia?
 
@@ -22,11 +22,11 @@ Apoiamos apenas um reforço completo por dia. Não podes ter apoio diferencial e
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](./backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
-O menu Backup Job só mostrará trabalhos de backup ad-hoc. Para trabalhos programados, utilize [o Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+O menu Backup Job só mostrará trabalhos de backup ad-hoc. Para trabalhos programados, utilize [o Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>As bases de dados futuras são adicionadas automaticamente para cópia de segurança?
 
@@ -51,7 +51,7 @@ A execução do script pré-registo define as permissões necessárias para perm
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Os backups funcionarão após a migração do SAP HANA da SDC para a MDC?
 
-Consulte [esta secção](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) do guia de resolução de problemas.
+Consulte [esta secção](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) do guia de resolução de problemas.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>O Backup Azure HANA pode ser configurado contra um IP virtual (balanceador de carga) e não uma máquina virtual?
 
@@ -111,7 +111,7 @@ Em seguida, a cópia de segurança completa será novamente ativada no Nó 1 e, 
 
 ### <a name="why-cant-i-see-the-hana-system-i-want-my-database-to-be-restored-to"></a>Por que não consigo ver o sistema HANA a que quero que a minha base de dados seja restaurada?
 
-Verifique se todos os pré-requisitos para a restauração para a instância SAP HANA alvo são cumpridos. Para obter mais informações, consulte [Pré-requisitos - Restaurar as bases de dados SAP HANA em Azure VM](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
+Verifique se todos os pré-requisitos para a restauração para a instância SAP HANA alvo são cumpridos. Para obter mais informações, consulte [Pré-requisitos - Restaurar as bases de dados SAP HANA em Azure VM](./sap-hana-db-restore.md#prerequisites).
 
 ### <a name="why-is-the-overwrite-db-restore-failing-for-my-database"></a>Porque é que o DB overwrite está a falhar na minha base de dados?
 
@@ -125,6 +125,6 @@ Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148
 
 Sim, pode utilizar cópias de segurança de streaming ativadas numa base de dados HANA em funcionamento no SLES para restaurar para um sistema RHEL HANA e vice-versa. Ou seja, a restauração do sistema operativo transversal é possível utilizando cópias de segurança de streaming. No entanto, terá de garantir que o sistema HANA a que pretende restaurar, e o sistema HANA utilizado para restauro, são ambos compatíveis para restauro de acordo com o SAP. Consulte a Nota [HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para ver quais os tipos de restauro compatíveis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba como [fazer o back bases de dados SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database) em funcionamento em VMs Azure.
+Saiba como [fazer o back bases de dados SAP HANA](./backup-azure-sap-hana-database.md) em funcionamento em VMs Azure.

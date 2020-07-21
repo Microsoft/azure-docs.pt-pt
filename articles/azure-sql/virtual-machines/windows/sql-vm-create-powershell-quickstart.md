@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e821c650bae7694070624aeebe7fcc3482f7a3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: eafbf102c092b180a1f3c882f5ae626e60b80f30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667408"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514616"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Quickstart: Criar o SQL Server numa máquina virtual do Windows com Azure PowerShell
 
@@ -89,7 +89,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
       -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name $PipName
    ```
 
-1. Crie um grupo de segurança de rede. Configure regras para permitir ligações de ambiente de trabalho remoto (RDP) e de SQL Server.
+1. Criar um grupo de segurança de rede. Configure regras para permitir ligações de ambiente de trabalho remoto (RDP) e de SQL Server.
 
    ```powershell
    # Rule to allow remote desktop (RDP)
@@ -147,13 +147,34 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    > [!TIP]
    > Demora alguns minutos a criar a VM.
 
-## <a name="install-the-sql-iaas-agent"></a>Instale o Agente SQL IaaS
+## <a name="register-with-sql-vm-rp"></a>Registo com Fornecedor de Recursos da VM do SQL 
 
-Para obter a integração do portal e as funcionalidades da VM do SQL, tem de instalar a [Extensão do Agente IaaS do SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para instalar o agente no novo VM, executar o seguinte comando após a criação do VM.
+Para obter a integração do portal e as funcionalidades SQL VM, tem de se registar com o [fornecedor de recursos SQL VM.](sql-vm-resource-provider-register.md)
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+Para obter a funcionalidade completa, terá de se registar com o fornecedor de recursos em pleno modo. No entanto, ao fazê-lo reinicia o serviço SQL Server, pelo que a abordagem recomendada é registar-se em modo leve e, em seguida, atualizar para a totalidade durante uma janela de manutenção. 
+
+Primeiro, registe o seu SQL Server VM no modo leve: 
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType PAYG -SqlManagementType LightWeight
+```
+
+Em seguida, durante uma janela de manutenção, atualize para o modo completo: 
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+      
+# Register with SQL VM resource provider in full mode
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+```
+
+
 
 ## <a name="remote-desktop-into-the-vm"></a>Ambiente de trabalho remoto na VM
 

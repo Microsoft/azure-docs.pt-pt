@@ -4,11 +4,12 @@ description: Referência do Azure Monitor Compreenda os serviços suportados e e
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/03/2020
-ms.openlocfilehash: 6156b9d311859534160258256ff6315b037f3a14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceca6b0a230de6d3eeab47e60d90767b33b5ac59
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418765"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515398"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias suportadas para Registos de Recursos Azure
 
@@ -382,7 +383,7 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 |AppPerformanceCounters|Contadores de desempenho|
 |Recorrentes|Pedidos|
 |Eventos AppSystemEvents|Eventos do sistema|
-|AppTraces|Traces|
+|AppTraces|Rastreios|
 
 
 ## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Gráfico
@@ -711,6 +712,6 @@ Se ainda falta alguma coisa, pode abrir um comentário do GitHub na parte inferi
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre registos de recursos](../../azure-monitor/platform/platform-logs-overview.md)
-* [Fluxo de registos de recursos para **Centros de Eventos**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Alterar definições de diagnóstico de registo de recursos utilizando a API do Monitor Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analise os registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Fluxo de registos de recursos para **Centros de Eventos**](./resource-logs.md#send-to-azure-event-hubs)
+* [Alterar definições de diagnóstico de registo de recursos utilizando a API do Monitor Azure](/rest/api/monitor/diagnosticsettings)
+* [Analise os registos do armazenamento do Azure com o Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

@@ -3,11 +3,12 @@ title: Ativar automaticamente a cópia de segurança no momento da criação da 
 description: Um artigo que descreve como usar a Política Azure para permitir automaticamente a cópia de segurança para todos os VMs criados num determinado âmbito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77584273"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514225"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Ativar automaticamente a cópia de segurança no momento da criação da VM com o Azure Policy
 
@@ -17,7 +18,7 @@ Hoje em dia, o Azure Backup fornece uma política incorporada (usando a Polític
 
 ## <a name="supported-scenarios"></a>Cenários Suportados
 
-* Atualmente, a política incorporada é apoiada apenas para os VMs Azure. Os utilizadores devem ter o cuidado de garantir que a política de retenção especificada durante a atribuição é uma política de retenção em VM. Consulte [este](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) documento para ver todos os SKUs VM apoiados por esta política.
+* Atualmente, a política incorporada é apoiada apenas para os VMs Azure. Os utilizadores devem ter o cuidado de garantir que a política de retenção especificada durante a atribuição é uma política de retenção em VM. Consulte [este](./backup-azure-policy-supported-skus.md) documento para ver todos os SKUs VM apoiados por esta política.
 
 * A apólice pode ser atribuída a um único local e subscrição de cada vez. Para permitir a cópia de segurança dos VMs em locais e subscrições, é necessário criar várias instâncias da atribuição de políticas, uma para cada combinação de localização e subscrição.
 
@@ -47,7 +48,7 @@ Para atribuir a apólice ao âmbito exigido, siga os passos abaixo:
 
 > [!NOTE]
 >
-> A Política Azure também pode ser utilizada em VMs existentes, utilizando [a reparação](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+> A Política Azure também pode ser utilizada em VMs existentes, utilizando [a reparação](../governance/policy/how-to/remediate-resources.md).
 
 > [!NOTE]
 >
@@ -55,4 +56,4 @@ Para atribuir a apólice ao âmbito exigido, siga os passos abaixo:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba mais sobre a Política Azure](https://docs.microsoft.com/azure/governance/policy/overview)
+[Saiba mais sobre a Política Azure](../governance/policy/overview.md)

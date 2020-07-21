@@ -12,14 +12,14 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 32347f6d943565eeca7c37a9cdd2cf511e39ddb3
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985314"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514731"
 ---
-# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de dados transparentes Azure SQL com chave gerida pelo cliente
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 A Azure SQL [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) com chave gerida pelo cliente permite trazer a sua própria chave (BYOK) para proteção de dados em repouso, e permite que as organizações implementem a separação de deveres na gestão de chaves e dados. Com a encriptação de dados transparente gerida pelo cliente, o cliente é responsável por e em total controlo de uma gestão chave do ciclo de vida (criação chave, upload, rotação, eliminação), permissões de utilização chave e auditoria de operações em chaves.
@@ -62,7 +62,7 @@ Para que o servidor possa utilizar o protetor TDE armazenado em AKV para encript
 
 - **desembrulhoKey** - para ser capaz de desprotegir (desencriptar) DEK
 
-O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria de cofre chave,](../../azure-monitor/insights/azure-key-vault.md)para que possam ser auditados mais tarde.
+O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria de cofre chave,](../../azure-monitor/insights/key-vault-insights-overview.md)para que possam ser auditados mais tarde.
 
 Quando o servidor está configurado para utilizar um protetor TDE a partir de AKV, o servidor envia o DEK de cada base de dados ativada por TDE para o cofre de chaves para encriptação. O cofre de chaves devolve o DEK encriptado, que é depois armazenado na base de dados do utilizador.
 

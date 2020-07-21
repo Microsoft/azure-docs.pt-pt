@@ -3,12 +3,12 @@ title: Resolução de problemas cópias de segurança lenta de ficheiros e pasta
 description: Fornece orientação de resolução de problemas para ajudá-lo a diagnosticar a causa de problemas de desempenho de backup Azure
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 07f596f0900fbd92391a383678ade99df30592f1
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7bdda02b837cc2312b997b23ba7b714ca7ebb41a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135040"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513843"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 
@@ -95,7 +95,7 @@ Os seguintes indicadores podem ajudá-lo a compreender o estrangulamento e, cons
 * **A UI está a mostrar progressos para a transferência de dados.** Os dados ainda estão a ser transferidos. A largura de banda da rede ou o tamanho dos dados podem estar a causar atrasos.
 * **A UI não está a mostrar progressos para a transferência de dados.** Abra os registos localizados em C:\Program Files\Microsoft Azure Recovery Services Agent\Temp e, em seguida, verifique se o FileProvider::Entrada De Fim nos registos. Esta entrada significa que a transferência de dados terminou e a operação do catálogo está a acontecer. Não cancele os trabalhos de apoio. Em vez disso, aguarde um pouco mais para a operação do catálogo terminar. Se o problema persistir, contacte o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Se estiver a tentar fazer backup de discos grandes, então é aconselhável utilizar a Caixa de [Dados Azure](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box) para a primeira cópia de segurança (Replicação Inicial).  Se não puder utilizar a Data Box, quaisquer problemas transitórios de rede que ocorram no seu ambiente durante longas transferências de dados sobre a rede podem causar falhas de backup.  Para evitar estas falhas, pode adicionar algumas pastas à sua cópia de segurança inicial e continuar a adicionar mais pastas até que todas as pastas sejam apoiadas com sucesso até ao Azure.  As cópias de segurança incrementais subsequentes serão relativamente mais rápidas.
+Se estiver a tentar fazer backup de discos grandes, então é aconselhável utilizar a Caixa de [Dados Azure](./offline-backup-azure-data-box.md) para a primeira cópia de segurança (Replicação Inicial).  Se não puder utilizar a Data Box, quaisquer problemas transitórios de rede que ocorram no seu ambiente durante longas transferências de dados sobre a rede podem causar falhas de backup.  Para evitar estas falhas, pode adicionar algumas pastas à sua cópia de segurança inicial e continuar a adicionar mais pastas até que todas as pastas sejam apoiadas com sucesso até ao Azure.  As cópias de segurança incrementais subsequentes serão relativamente mais rápidas.
 
 ## <a name="next-steps"></a>Próximos passos
 

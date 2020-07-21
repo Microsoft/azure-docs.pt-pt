@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 34d714d1adefbef6572e99c5a98ee968fbb06339
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 348b353d9f7509836007ced70166f6a98bd419c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987395"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512947"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>Quickstart: Analise uma imagem remota utilizando a API de Visão de Computador com Go
 
@@ -64,7 +64,7 @@ func main() {
     const imageUrl =
         "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 
-    const params = "?visualFeatures=Description&details=Landmarks&language=en"
+    const params = "?visualFeatures=Description&details=Landmarks"
     uri := uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
@@ -170,7 +170,7 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
