@@ -4,12 +4,12 @@ description: Aprenda a codificar e configurar funções duráveis para executar 
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82733418"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540303"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar Funções Duradouras como WebJobs
 
@@ -31,7 +31,7 @@ Este artigo pressupõe que está familiarizado com o básico do desenvolvimento 
 
 Para completar os passos deste artigo:
 
-* [Instale o Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) com a carga de trabalho **de desenvolvimento do Azure.**
+* [Instale o Visual Studio 2019](/visualstudio/install/) com a carga de trabalho **de desenvolvimento do Azure.**
 
   Se já tem o Visual Studio, mas não tem essa carga de trabalho, adicione a carga de trabalho selecionando **Ferramentas**  >  **Obter Ferramentas e Funcionalidades**.
 
@@ -269,6 +269,6 @@ A principal alteração introduzida é a utilização de .NET Core em vez de .NE
    }
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o WebJobs SDK, consulte [Como utilizar o WebJobs SDK](../../app-service/webjobs-sdk-how-to.md).

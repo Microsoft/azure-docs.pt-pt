@@ -5,11 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74226729"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540388"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instale a pré-visualização do tempo de execução das funções Azure 2
 
@@ -70,7 +71,7 @@ Para completar a instalação do tempo de execução Azure Functions, tem de com
 
     ![Ferramenta de pré-visualização de tempo de execução de funções Azure Functions][7]
 
-1. Clique no **separador Base de Dados,** introduza os dados de ligação para a sua instância SQL Server, incluindo especificar uma [chave master database](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), e clique em **Aplicar**.  A conectividade com uma instância do SQL Server é necessária para que o tempo de execução das funções Azure crie uma base de dados para suportar o tempo de execução.
+1. Clique no **separador Base de Dados,** introduza os dados de ligação para a sua instância SQL Server, incluindo especificar uma [chave master database](/sql/relational-databases/security/encryption/sql-server-and-database-encryption-keys-database-engine), e clique em **Aplicar**.  A conectividade com uma instância do SQL Server é necessária para que o tempo de execução das funções Azure crie uma base de dados para suportar o tempo de execução.
 
     ![Configuração da base de dados de pré-visualização do tempo de execução Azure Functions][8]
 

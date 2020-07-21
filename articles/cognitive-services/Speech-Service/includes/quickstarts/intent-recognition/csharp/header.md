@@ -5,11 +5,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: d053089c005dfbdaef26c897a5d09d5a4abb1dc7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 15b6b57b21ad851402e8c0fb5e2615b6f31b5a35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422069"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544079"
 ---
-Se preferir saltar para dentro, ver ou baixar todas as <a href="https://aka.ms/speech/github-csharp">amostras do Speech SDK C#</a> no GitHub. Caso contrário, vamos começar.
+Pode visualizar ou baixar todas as <a href="https://aka.ms/speech/github-csharp">amostras do Speech SDK C#</a> no GitHub. 

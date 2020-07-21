@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir discurso a texto, Javascript - Serviço de fala'
+title: 'Quickstart: Traduzir discurso-a-texto, Javascript - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: b362a5ab627714f106a9528e25474c9f3c33b81a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 113bc137a0be657c0920f45a3f1c90ec11ee9e10
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978848"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544766"
 ---
-Se preferir saltar para dentro, ver ou baixar todas as <a href="https://aka.ms/speech/github-javascript">amostras de JavaScript Speech SDK</a> no GitHub. Caso contrário, vamos começar.
+Pode visualizar ou baixar todas as <a href="https://aka.ms/speech/github-javascript">amostras de JavaScript do Discurso no</a> GitHub. 

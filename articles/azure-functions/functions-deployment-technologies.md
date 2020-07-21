@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: glenga
-ms.openlocfilehash: ec5e9da2ab80f4728d342303e1eb08c49f765485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63c52b8b1ee9b9448a1ba6f78873ae6a036e3563
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735305"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540218"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -179,7 +179,7 @@ No editor baseado no portal, pode editar diretamente os ficheiros que estão na 
 
 A tabela a seguir mostra os sistemas operativos e os idiomas que suportam a edição do portal:
 
-| | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
+| Linguagem | Consumo de Janelas | Windows Premium | Windows Dedicado | Consumo de Linux | Linux Premium | Linux Dedicado |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -196,7 +196,7 @@ A tabela a seguir mostra os sistemas operativos e os idiomas que suportam a edi�
 
 Quando implementar a sua aplicação de função para Azure, pode implementar para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre slots de implementação, consulte a documentação das [ranhuras de implantação de funções Azure](../app-service/deploy-staging-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de função: 
 

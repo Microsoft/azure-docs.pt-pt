@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: b0f70fccf3f7f4a6856ae64d0946c2c473fed93c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: abfb4f6ba9452581811db1f462089cbafc771266
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86050218"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544226"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,6 +27,11 @@ Siga estes passos para instalar o CLI do discurso no Windows:
 3. Vá ao diretório de raiz `spx-zips` que extraiu do download e extraa o subdiretor de que necessita ( `spx-net471` para .NET Framework 4.7, ou `spx-netcore-win-x64` para .NET Core 3.0 num CPU x64).
 
 No pedido de comando, altere o diretório para este local e, em seguida, escreva `spx` para ver ajuda para o CLI do discurso.
+
+> [!NOTE]
+> No Windows, o CLI do Discurso só pode mostrar os tipos de letra disponíveis para o pedido de comando no computador local.
+> [O Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) suporta todas as fontes produzidas interativamente pelo Speech CLI.
+> Se você des output para um ficheiro, um editor de texto como o Notepad ou um navegador web como o Microsoft Edge também pode mostrar todos os tipos de letra.
 
 > [!NOTE]
 > Powershell não verifica o diretório local quando procura um comando. Em Powershell, altere o diretório para a localização `spx` e ligue para a ferramenta entrando `.\spx` .

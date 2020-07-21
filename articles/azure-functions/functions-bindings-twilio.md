@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8116abda71ae78b05786ede03256eb9e9bb59345
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76715057"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540269"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação twilio para funções Azure
 
@@ -240,7 +241,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra como utilizar a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) para enviar uma mensagem SMS. Valores para `to` `from` , e são `body` necessários na definição de atributo, mesmo que os substitua programáticamente.
+O exemplo a seguir mostra como utilizar a anotação [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) para enviar uma mensagem SMS. Valores para `to` `from` , e são `body` necessários na definição de atributo, mesmo que os substitua programáticamente.
 
 ```java
 package com.function;
@@ -318,7 +319,7 @@ Os atributos não são suportados pela Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Coloque a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) num [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parâmetro onde possa ser qualquer tipo nativo de `T` Java, `int` `String` como, ou um tipo `byte[]` POJO.
+Coloque a anotação [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) num [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parâmetro onde possa ser qualquer tipo nativo de `T` Java, `int` `String` como, ou um tipo `byte[]` POJO.
 
 ---
 
@@ -333,7 +334,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**nome**|**nome**| Nome variável utilizado no código de função para a mensagem de texto SMS Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Este valor deve ser definido como o nome de uma definição de app que detém o seu Sid conta Twilio `TwilioAccountSid` (). Se não for definido, o nome de definição de aplicação predefinido é "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Este valor deve ser definido como o nome de uma definição de aplicação que detém o seu token de autenticação Twilio ( `TwilioAccountAuthToken` ). Se não for definido, o nome de definição de aplicação padrão é "AzureWebJobsTwilioAuthToken". |
-|**Para**| N/A - especificar em código | **Para**| Este valor é definido para o número de telefone para o qual o texto SMS é enviado.|
+|**para**| N/A - especificar em código | **Para**| Este valor é definido para o número de telefone para o qual o texto SMS é enviado.|
 |**De**|**De** | **De**| Este valor é definido para o número de telefone de onde o texto SMS é enviado.|
 |**corpo**|**corpo** | **Corpo**| Este valor pode ser utilizado para codificar a mensagem de texto SMS se não precisar de a definir dinamicamente no código para a sua função. |  
 

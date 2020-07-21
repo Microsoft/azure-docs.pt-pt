@@ -5,12 +5,12 @@ author: chenyl
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c2ad9b6c4410a62d5652050406e05be4cde5fab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830711"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540235"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Serviço SignalR aciona a ligação para funções Azure
 
@@ -43,7 +43,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="with-traditional-model"></a>Com modelo tradicional
 
-O modelo tradicional obedece à convenção de Azure Function desenvolvida por C#. Se não está familiarizado com isso, pode aprender com [documentos.](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library)
+O modelo tradicional obedece à convenção de Azure Function desenvolvida por C#. Se não está familiarizado com isso, pode aprender com [documentos.](./functions-dotnet-class-library.md)
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -200,7 +200,7 @@ InvocationContext contém todo o conteúdo da mensagem enviada do Serviço Signa
 |Consulta| A consulta do pedido quando os clientes se ligam ao serviço.|
 |Afirmações| As reclamações do cliente.|
 
-## <a name="using-parameternames"></a>Utilizar `ParameterNames`
+## <a name="using-parameternames"></a>Ao utilizar `ParameterNames`
 
 A propriedade `ParameterNames` permite ligar argumentos de `SignalRTrigger` mensagens de invocação aos parâmetros das funções. Isso dá-lhe uma maneira mais conveniente de aceder a argumentos `InvocationContext` de.
 

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45b611144d5a62171061febfd4efa98db69bacb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca8798af83108ca5e8bdfe5918a25423fd934d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84436187"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544954"
 ---
 A azure gere discos atualmente oferece quatro tipos de disco, cada tipo é direcionado para cenários específicos do cliente.
 
@@ -21,10 +21,10 @@ A azure gere discos atualmente oferece quatro tipos de disco, cada tipo é direc
 
 A tabela seguinte fornece uma comparação de discos ultra, unidades de estado sólido premium (SSD), SSD padrão e drives de disco rígido padrão (HDD) para discos geridos para ajudá-lo a decidir o que usar.
 
-|   | Disco Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
-|---------|---------|---------|---------|---------|
+| Detalhe | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)bases de dados de nível superior (por exemplo, SQL, Oráculo) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco utilizadas e dev/test   |Cópia de segurança, acesso pouco frequente e não crítico   |
+|Cenário   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)bases de dados de nível superior (por exemplo, SQL, Oráculo) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco utilizadas e dev/test   |Cópia de segurança, acesso pouco frequente e não crítico   |
 |Tamanho máximo do disco   |65,536 gibibyte (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
 |Débito máximo   |2.000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
 |IOPS Máximo   |160 000    |20 000   |6000   |2.000   |

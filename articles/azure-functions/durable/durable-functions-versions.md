@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3ba190f40d3b9451aec6e86ea69b7d0fe6e66aa3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1dc58bc7c758330c0333a5359622c4e54bb95026
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807851"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540354"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das funções duradouras
 
-*Funções Duradouras* é uma extensão de [Funções Azure](../functions-overview.md) e [WebJobs Azure](../../app-service/web-sites-create-web-jobs.md) que permite escrever funções imponentes num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si. Se ainda não está familiarizado com as Funções Duradouras, consulte a [documentação geral](durable-functions-overview.md).
+*Funções Duradouras* é uma extensão de [Funções Azure](../functions-overview.md) e [WebJobs Azure](../../app-service/webjobs-create.md) que permite escrever funções imponentes num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si. Se ainda não está familiarizado com as Funções Duradouras, consulte a [documentação geral](durable-functions-overview.md).
 
 ## <a name="new-features-in-2x"></a>Novas funcionalidades em 2.x
 

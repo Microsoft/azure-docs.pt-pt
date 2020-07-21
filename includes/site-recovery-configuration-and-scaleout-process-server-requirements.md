@@ -1,20 +1,20 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: c8c51d671cd98a606c11a39b6cf489aa288d71b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85292153"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544028"
 ---
 **Requisitos de configuração e servidor de processo**
 
@@ -60,6 +60,9 @@ time.windows.com | Usado para verificar a sincronização do tempo entre o siste
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.live.com </li><li> https: \/ /graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Opcional) </li><li> https: \/ /www.live.com </li><li> https: \/ /www.microsoft.com </li></ul> | A configuração da OVF precisa de acesso a estes URLs adicionais. São usados para controlo de acesso e gestão de identidade pela Azure Ative Directory.
 https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser redirecionado para o URL CDN. Certifique-se de que o URL CDN também está na lista branca, se necessário.
 |
+
+> [!NOTE]
+> Se tiver [ligações privadas com](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) o cofre de recuperação do local, não necessita de qualquer acesso adicional à Internet para o Servidor de Configuração. Uma exceção a isso é que ao configurar a máquina CS utilizando o modelo OVA, você precisará de acesso a urls para além do acesso de link privado - https://management.azure.com e https://www.live.com https://www.microsoft.com . Se não pretender permitir o acesso a estes URLs, por favor, erre o CS utilizando o Instalador Unificado.
 
 ## <a name="required-software"></a>Software necessário
 

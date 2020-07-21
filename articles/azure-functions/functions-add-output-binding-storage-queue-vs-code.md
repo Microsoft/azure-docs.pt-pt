@@ -5,12 +5,12 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d41c018e07f792fd0af4027229449d8352aa6c55
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 65570674f16e660c4101088cd77db433abab59a2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849990"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540337"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual
 
@@ -29,7 +29,7 @@ Antes de iniciar este artigo, deve cumprir os seguintes requisitos:
 * Instale [o Explorador de Armazenamento Azure](https://storageexplorer.com/). O Storage Explorer é uma ferramenta que utilizará para examinar as mensagens de fila geradas pela sua ligação de saída. O Storage Explorer é suportado em sistemas operativos baseados em macOS, Windows e Linux.
 
 ::: zone pivot="programming-language-csharp"
-* Instale [as ferramentas .NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+* Instale [as ferramentas .NET Core CLI](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
 * Complete os passos na [parte 1 do Quickstart Visual Studio Code](functions-create-first-function-vs-code.md). 
@@ -207,7 +207,7 @@ Criou recursos para concluir estes guias de introdução. Poderá ser-lhe cobrad
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Atualizou a sua função HTTP para escrever dados numa fila de armazenamento. Agora pode aprender mais sobre o desenvolvimento de funções utilizando o Código do Estúdio Visual:
 

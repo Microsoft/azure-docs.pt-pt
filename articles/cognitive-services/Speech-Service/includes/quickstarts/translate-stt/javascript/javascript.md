@@ -4,11 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad3e005f65b1660bd843bf2819f41eddbed44e9c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b6829f52cb8aaac6f243d3a4a1fa7f6bc1b150d7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035526"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544318"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -24,7 +25,7 @@ Crie uma nova pasta vazia. No caso de querer alojar o exemplo num servidor Web, 
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Descompactar o SDK de Voz para JavaScript nessa pasta
 
-Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isto resulta em dois ficheiros a serem desembalados, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map` .
+Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isto resulta em cinco ficheiros a serem desembalados, incluindo `microsoft.cognitiveservices.speech.sdk.bundle.js` `microsoft.cognitiveservices.speech.sdk.bundle.js.map` e .
 Este último ficheiro é opcional e é útil para depurar o código SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html
@@ -72,6 +73,6 @@ Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o 
 
 Para lançar a sua aplicação, abra o seu navegador web favorito e aponte-o para o URL público em que hospeda a pasta, insira a sua [região](../../../../regions.md)e desencadeie a transcrição de texto do discurso de entrada. Se estiver configurado, vai adquirir um token a partir da origem de token.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [footer](./footer.md)]

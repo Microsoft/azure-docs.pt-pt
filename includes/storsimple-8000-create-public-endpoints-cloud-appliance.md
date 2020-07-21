@@ -4,30 +4,30 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5a286753e438b7d65f3d33a82669c4f7e79a282
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184321"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545033"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Para criar pontos finais públicos na aplicação da cloud
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Aceda a **Máquinas Virtuais** e, em seguida, selecione e clique na máquina virtual que está a ser utilizada como a sua aplicação da cloud.
     
 3. Tem de criar uma regra de grupo de segurança de rede (NSG) para controlar o fluxo de tráfego que entra e sai da sua máquina virtual. Execute os seguintes passos para criar uma regra NSG.
     1. Selecione **Grupo de segurança de rede**.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt1.png)
+        ![Screenshot da página da máquina virtual. Na secção Definições, destaca-se o grupo de segurança da rede.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt1.png)
 
     2. Clique no grupo de segurança de rede predefinido que é apresentado.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt2.png)
+        ![Screenshot da página do grupo de segurança da rede. O grupo de segurança da rede padrão é destacado.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt2.png)
 
     3. Selecione **Regras de segurança de entrada**.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt3.png)
+        ![Screenshot de uma página mostrando as propriedades do grupo de segurança de rede padrão. No painel de navegação, destacam-se as regras de segurança de entrada.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt3.png)
 
     4. Clique em **+ Adicionar** para criar uma regra de segurança de entrada.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt4.png)
+        ![Screenshot da página de regras de segurança de entrada. O sinal de mais e a palavra Add estão ao lado um do outro e são destacados.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt4.png)
 
         No painel Adicionar regra de segurança de entrada:
 
@@ -41,17 +41,17 @@ ms.locfileid: "67184321"
 
         5. Clique em **OK** para criar a regra.
 
-            ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt5.png)
+            ![Screenshot da lâmina de regra de segurança de entrada adicionar. Os valores são preenchidos conforme descrito no procedimento, e o botão OK é realçado.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt5.png)
 
 4. O passo final é associar o grupo de segurança de rede a uma sub-rede ou uma interface de rede específica. Execute os passos seguintes para associar o seu grupo de segurança de rede a uma sub-rede.
     1. Aceda a **Sub-redes**.
     2. Clique em **+ Associar**.
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt7.png)
+        ![Screenshot da página subnetas. O sinal de mais e a palavra Associado estão ao lado um do outro e são destacados.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt7.png)
 
     3. Selecione a rede virtual e, em seguida, selecione a sub-rede apropriada.
     4. Clique em **OK** para criar a regra.
 
-        ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt11.png)
+        ![Screenshot da página da sub-rede Associate. A rede virtual é selecionada e o botão OK é realçado.](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt11.png)
 
 Uma vez criada a regra, pode ver os respetivos detalhes para determinar o endereço IP Virtual Público (VIP). Registe esse endereço.
 

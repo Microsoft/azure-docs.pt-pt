@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1cc3bac56e659b9a020880a26fd3d539f987503
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792989"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544307"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2 Atribuir permissões de acesso a uma identidade
 
@@ -92,7 +92,16 @@ Os seguintes conjuntos de permissões são suportados no diretório de raiz de u
 Utilize o comando **de utilização da rede** Windows para montar a partilha de ficheiros Azure. Lembre-se de substituir os valores do espaço reservado no exemplo seguinte pelos seus próprios valores. Para obter mais informações sobre a montagem de ações de ficheiros, consulte [utilizar uma partilha de ficheiros Azure com o Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+ net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+ Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 Se tiver problemas na ligação aos Ficheiros Azure, consulte [a ferramenta de resolução de problemas que publicámos para erros de montagem de Ficheiros Azure no Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Também fornecemos [orientações](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) para trabalhar em torno de cenários quando a porta 445 está bloqueada. 
@@ -130,5 +139,13 @@ Inscreva-se no VM utilizando a identidade Azure AD à qual concedeu permissões,
 Utilize o seguinte comando para montar a partilha de ficheiros Azure. Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores. Como foi autenticado, não precisa de fornecer a chave da conta de armazenamento, as credenciais de DS AD no local ou as credenciais AD DS do Azure. Uma experiência única de inscrição é suportada para autenticação com DS AD ou Azure AD DS. Se encontrar problemas de montagem com credenciais de DS AD, consulte [os problemas de Troubleshoot Azure Files no Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para obter orientação.
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+ net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+ Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
 ```

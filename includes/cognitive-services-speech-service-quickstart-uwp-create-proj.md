@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: a24c0a3129a851eb94c43158424f786b1df5a532
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 8f7723ecaf6587eb61474304b0b5784413ac6f86
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414368"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544015"
 ---
 Para criar um projeto de Estúdio Visual para o desenvolvimento da Universal Windows Platform (UWP), é necessário configurar opções de desenvolvimento do Visual Studio, criar o projeto, selecionar a arquitetura-alvo, configurar a captura de áudio e instalar o Speech SDK.
 
@@ -66,7 +66,7 @@ Em seguida, crie o seu projeto:
 Agora selecione a arquitetura da sua plataforma alvo. Na barra de ferramentas Visual Studio, encontre a caixa de lançamento das **Plataformas de Solução.** (Se não o vir, escolha **Ver**  >  **Barras de ferramentas**  >  **Standard** para exibir a barra de ferramentas que contém **plataformas de solução**.) Se estiver a executar o Windows de 64 bits, escolha **x64** na caixa de entrega. O Windows de 64 bits também pode executar aplicações de 32 bits, por isso pode escolher **x86** se preferir.
 
 > [!NOTE]
-> O Speech SDK suporta apenas processadores compatíveis com a Intel. Atualmente, os processadores ARM não estão suportados.
+> O Speech SDK suporta todos os processadores compatíveis com a Intel, mas **apenas versões x64** de processadores ARM.
 
 ### <a name="set-up-audio-capture"></a>Configurar a captura de áudio
 
@@ -100,7 +100,7 @@ Por fim, instale o [pacote Speech SDK NuGet](https://aka.ms/csspeech/nuget)e ref
 
 1. No painel de estado do pacote ao lado dos resultados da pesquisa, selecione o seu projeto **Helloworld.**
 
-1. Selecione **Instalar**.
+1. Selecione **Install** (Instalar).
 
 1. Na caixa de diálogo **'Alterações de pré-visualização',** selecione **OK**.
 

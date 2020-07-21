@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Reconhecer o discurso a partir de um microfone - Serviço de fala'
+title: 'Quickstart: Reconhecer a fala a partir de um microfone - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 17bc5c6a76a270cac611ed2342ffe9e38d84bd7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f6ea9ea3209e84d365706207db079a400fb7cb6f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75468526"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544389"
 ---
-Se preferir saltar para dentro, ver ou baixar todas as <a href="https://aka.ms/speech/github-python">amostras de SDK Python</a> no GitHub. Caso contrário, vamos começar.
+Você pode ver ou baixar todas as <a href="https://aka.ms/speech/github-python">amostras de Python do Discurso SDK</a> no GitHub. 

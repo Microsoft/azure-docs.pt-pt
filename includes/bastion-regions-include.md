@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b4cdb787fe65c52a77fa4761a65e9108e7927c40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a924cb42ce1c5fccde3d49fa8f9c2d402997df52
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83721380"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544983"
 ---
 >[!NOTE]
 >Estamos a trabalhar arduamente para acrescentar regiões adicionais. Quando uma região é adicionada, vamos adicioná-la a esta lista.
@@ -29,7 +29,7 @@ ms.locfileid: "83721380"
 * E.U.A. Centro-Sul
 * E.U.A. Centro-Oeste
 * E.U.A. Oeste
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 
 **Europa**
 * França Central
@@ -50,8 +50,8 @@ ms.locfileid: "83721380"
 * Oeste do Japão
 * Coreia do Sul Central
 * Sul da Coreia do Sul
-* Ásia Sudeste
-* Índia Central
+* Sudeste Asiático
+* Central India
 * Oeste da Índia
 
 **Médio Oriente e África**
@@ -65,3 +65,6 @@ ms.locfileid: "83721380"
 * US Gov - Iowa
 * US Gov - Texas
 * US Gov - Virginia
+
+**Azure China**
+* China Norte 2

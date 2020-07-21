@@ -1,24 +1,24 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 titleSuffix: Azure
-description: ficheiro de inclusão
+description: incluir ficheiro
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3a5485475e3d8030bf85734faec53b0ff0747499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee071f2cf6e31d46ccd483935f137f16bcacf337
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81678482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544253"
 ---
 Para executar os cmdlets, pode utilizar a Azure Cloud Shell, uma concha interativa gratuita. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Selecione **Copy** para copiar o código e cole-o em Cloud Shell. Em seguida, **selecione Enter** para executá-lo. Há algumas formas de lançar a Cloud Shell:
 
 
-|  |   |
+| Método de Lançamento | Captura de ecrã  |
 |-----------------------------------------------|---|
 | Abrir o Cloud Shell no seu browser. | [![https://shell.azure.com/powershell](../media/launchcloudshell.png)](https://shell.azure.com/powershell) |
 | Selecione o botão **Cloud Shell** na barra de ferramentas no canto superior direito do portal Azure. | [![Cloud Shell no portal](../media/cloud-shell-menu.png)](https://portal.azure.com) |
