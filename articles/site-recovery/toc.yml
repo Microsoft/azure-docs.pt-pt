@@ -62,6 +62,8 @@
           href: tutorial-dr-drill-azure.md
         - name: Ativação pós-falha para o Azure
           href: hyper-v-azure-failover-failback-tutorial.md
+        - name: Ativar a replicação no local com pontos finais privados
+          href: ./hybrid-how-to-enable-replication-private-endpoints.md
     - name: Migrar para o Azure
       items:
         - name: Preparar o Azure para replicação no local
@@ -186,6 +188,8 @@
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: Ativar a replicação para um disco adicionado
               href: azure-to-azure-enable-replication-added-disk.md
+            - name: Ativar a replicação com pontos finais privados
+              href: ./azure-to-azure-how-to-enable-replication-private-endpoints.md
             - name: Excluir discos
               href: azure-to-azure-exclude-disks.md
             - name: Voltar a proteger as VMs do Azure após a ativação pós-falha
@@ -242,6 +246,8 @@
               href: vmware-azure-set-up-target.md
             - name: Configurar as definições de replicação
               href: vmware-azure-set-up-replication.md
+            - name: Ativar a replicação no local com pontos finais privados
+              href: ./hybrid-how-to-enable-replication-private-endpoints.md
             - name: Implementar o serviço de Mobilidade
               items:
                 - name: Descrição geral e instalação do serviço de mobilidade
@@ -308,6 +314,8 @@
               href: physical-azure-set-up-source.md
             - name: Configurar o ambiente de destino
               href: vmware-azure-set-up-target.md
+            - name: Ativar a replicação no local com pontos finais privados
+              href: ./hybrid-how-to-enable-replication-private-endpoints.md
             - name: Implementar o serviço de Mobilidade
               items:
                 - name: Sobre a instalação do serviço de Mobilidade

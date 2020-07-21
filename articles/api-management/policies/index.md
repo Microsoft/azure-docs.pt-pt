@@ -13,20 +13,19 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 252e7b8d13cf53a98ea1f25b207740c0e623f92c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5b8c82aa420b62e3b6e68ee53352eb9f77988f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242972"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506694"
 ---
 # <a name="api-management-policy-samples"></a>Exemplos de políticas de Gestão de API
 
 As [políticas](../api-management-howto-policies.md) são uma funcionalidade poderosa do sistema que permite ao publicador alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. A tabela seguinte inclui ligações para exemplos e fornece uma breve descrição de cada exemplo.
 
-|                                                                                                                                                                      |                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Políticas de entrada**                                                                                                                                                 |                                                                                                                                                                                                                             |
+| Políticas de entrada | Descrição |
+| ---------------- | ----------- |
 | [Adicionar um cabeçalho Reencaminhado para permitir à API de back-end construir URLs corretos](./set-header-to-enable-backend-to-construct-urls.md) | Demonstra como adicionar um cabeçalho Reencaminhado no pedido de entrada para permitir à API de back-end construir URLs corretos.                                                                                                        |
 | [Adicionar um cabeçalho com um ID de correlação](./add-correlation-id.md)                                                             | Demonstra como adicionar um cabeçalho com um ID de correlação ao pedido de entrada.                                                                                                                                        |
 | [Adicionar capacidades para um serviço de back-end e colocar a resposta em cache](./cache-response.md)                                             | Mostra como adicionar capacidades a um serviço de back-end. Por exemplo, aceitar o nome de um local em vez de latitude e longitude numa API de previsão meteorológica.                                                                    |
@@ -40,7 +39,7 @@ As [políticas](../api-management-howto-policies.md) são uma funcionalidade pod
 | [Encaminhar o pedido com base no tamanho do respetivo corpo](./route-requests-based-on-size.md)                                            | Demonstra como encaminhar pedidos com base no tamanho dos respetivos corpos.                                                                                                                                                       |
 | [Enviar informações de contexto do pedido para o serviço de back-end](./send-request-context-info-to-backend-service.md)                    | Mostra como enviar algumas informações de contexto para o serviço de back-end para registo ou processamento.                                                                                                                                |
 | [Definir a duração da cache de resposta](./set-cache-duration.md)                                                                          | Demonstra como definir a duração da cache de resposta através do valor maxAge no cabeçalho Cache-Control enviado pelo back-end.                                                                                                             |
-| **Políticas de saída**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Políticas de saída** | **Descrição** |
 | [Filtrar conteúdo de resposta](./filter-response-content.md)                                                                         | Demonstra como filtrar elementos de dados do payload de resposta com base no produto associado ao pedido.                                                                                                        |
-| **Políticas de erro**                                                                                                                                                |                                                                                                                                                                                                                             |
+| **Políticas de erro** | **Descrição** |
 | [Registar erros no Stackify](./log-errors-to-stackify.md)                                                                           | Mostra como adicionar uma política de registo de erros para enviar erros para o Stackify para registo.                                                                                                                                            |

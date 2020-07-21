@@ -61,6 +61,10 @@
           href: api-management-security-controls.md
     - name: Subscrições
       href: api-management-subscriptions.md
+    - name: Versões
+      href: api-management-versions.md
+    - name: Revisões
+      href: api-management-revisions.md
     - name: Gerir a utilização da automatização
       href: automation-manage-api-management.md
     - name: Processamento de erros
@@ -69,6 +73,8 @@
       href: api-management-api-import-restrictions.md
     - name: Descrição geral do gateway autoalojado
       href: self-hosted-gateway-overview.md
+    - name: Observabilidade
+      href: observability.md
 - name: Guias de procedimentos
   items:
     - name: Definir APIs

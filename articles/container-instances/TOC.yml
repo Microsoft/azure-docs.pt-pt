@@ -16,6 +16,8 @@
     - name: Implementar uma instância de contentor - modelo ARM
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
+    - name: Implementar uma instância de contentor - CLI do Docker
+      href: container-instances-quickstart-docker-cli.md
 - name: Tutoriais
   items:
     - name: Criar e implementar a imagem de contentor
@@ -94,8 +96,10 @@
           href: container-instances-gpu.md
         - name: Ativar o ponto final SSL no sidecar
           href: container-instances-container-group-ssl.md
-        - name: Expor um endereço IP estático
+        - name: Expor um IP estático com o Gateway de Aplicação
           href: container-instances-application-gateway.md
+        - name: Utilizar o Azure Firewall para entrada e saída
+          href: container-instances-egress-ip-address.md
     - name: Montar volumes de dados
       items:
         - name: Partilha de ficheiros do Azure

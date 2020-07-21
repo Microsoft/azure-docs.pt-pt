@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: fe377424c1a10b1356718d3c8c0d90a6a3db4d63
-  ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+  ms.openlocfilehash: 451bbf8f82623fdc20be21b4ffa1699f6c5722cf
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86134347"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86536884"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -767,6 +767,12 @@ productDirectory:
     azureCategories:
     - hybrid
     url: https://docs.microsoft.com/azure-stack/
+  - title: Soluções do Azure Stack HCI
+    summary: Executar máquinas virtuais no local e ligar facilmente ao Azure com uma solução de infraestrutura hiperconvergente (HCI)
+    imageSrc: ./media/index/azure-stack-hci.svg
+    azureCategories:
+    - hybrid
+    url: https://docs.microsoft.com/azure-stack/hci/
   - title: Centro de Segurança
     summary: Unifique a gestão de segurança e ative a proteção contra ameaças avançada em cargas de trabalho na cloud híbrida
     imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg

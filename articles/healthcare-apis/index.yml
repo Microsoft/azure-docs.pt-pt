@@ -12,12 +12,12 @@ metadata:
   author: hansenms
   ms.author: mihansen
   ms.date: 11/06/2019
-  ms.openlocfilehash: f4572a38073a929d00bcccce94d9e73634b92633
-  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.openlocfilehash: 7940d28dc3ad0e77510fc0522224f81190dd0db7
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/24/2020
-  ms.locfileid: "84819760"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86521348"
 landingContent:
 - title: Começar a utilizar o Azure API for FHIR
   linkLists:
@@ -29,6 +29,8 @@ landingContent:
     links:
     - text: Implementar o Servidor de API para FHIR
       url: fhir-paas-portal-quickstart.md
+    - text: Implementar o Conector IoT (pré-visualização)
+      url: iot-fhir-portal-quickstart.md
 - title: Tutoriais de configuração
   linkLists:
   - linkListType: tutorial

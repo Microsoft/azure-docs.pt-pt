@@ -1,0 +1,56 @@
+- name: Documentação do Education Hub do Azure
+  href: ./index.yml
+- name: Descrição geral
+  items:
+    - name: O que é o Education Hub?
+      href: about-education-hub.md
+- name: Guias de Início Rápido
+  items:
+    - name: Aceder ao Education Hub
+      href: access-education-hub.md
+    - name: Introdução ao Education Hub
+      href: get-started-education-hub.md
+    - name: Preparar um curso e criar uma sala de aula
+      href: set-up-course-classroom.md
+- name: Guias de procedimentos
+  items:
+    - name: Gerir a sua Bolsa Académica
+      href: hub-overview-page.md
+    - name: Criar uma tarefa e alocar crédito
+      href: create-assignment-allocate-credit.md
+- name: Suporte
+  items:
+    - name: Serviço de assistência
+      href: educator-service-desk.md
+- name: Azure Dev Tools for Teaching
+  items:
+    - name: Descrição geral
+      items:
+        - name: O que é o Azure Dev Tools for Teaching?
+          href: azure-dev-tools-teaching/about-program.md
+        - name: Azure for Students
+          href: azure-dev-tools-teaching/azure-students-program.md
+        - name: Azure for Students Starter
+          href: azure-dev-tools-teaching/azure-students-starter-program.md
+    - name: Guias de Início Rápido
+      items:
+        - name: Inscrever ou renovar uma subscrição
+          href: azure-dev-tools-teaching/enroll-renew-subscription.md
+        - name: Configurar o acesso
+          href: azure-dev-tools-teaching/set-up-access.md
+    - name: Guias de procedimentos
+      items:
+        - name: Como gerir estudantes
+          href: azure-dev-tools-teaching/manage-students.md
+        - name: Como transferir software
+          href: azure-dev-tools-teaching/download-software.md
+    - name: Resolução de problemas
+      items:
+        - name: Erros de início de sessão
+          href: azure-dev-tools-teaching/troubleshoot-login.md
+- name: Recursos
+  items:
+    - name: FAQ
+      href: azure-dev-tools-teaching/program-faq.md
+    - name: Suporte
+      href: azure-dev-tools-teaching/program-support.md

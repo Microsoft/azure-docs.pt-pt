@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: c2faec6885987a57147cef2f0e9ec50bcf003793
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.openlocfilehash: 096f60773418066557a149b256cfc79acf8b61e2
+  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86259362"
+  ms.lasthandoff: 07/20/2020
+  ms.locfileid: "86496932"
 landingContent:
 - title: Introdução
   linkLists:
@@ -106,10 +106,6 @@ landingContent:
       url: iot-hub-x509ca-concept.md
 - title: Utilizar a CLI do Azure para o Hub IoT
   linkLists:
-  - linkListType: reference
-    links:
-    - text: Referências da CLI para IoT
-      url: /cli/azure/azure-cli-reference-for-IoT
   - linkListType: concept
     links:
     - text: Criar um Hub IoT
@@ -118,5 +114,27 @@ landingContent:
       url: iot-hub-device-management-iot-extension-azure-cli-2-0.md
     - text: Configurar o encaminhamento de mensagens
       url: tutorial-routing-config-message-routing-cli.md
+    - text: Configurar o carregamento de ficheiros
+      url: iot-hub-configure-file-upload-cli.md
     - text: Enviar telemetria e monitorizar
       url: quickstart-send-telemetry-cli.md
+  - linkListType: reference
+    links:
+    - text: Referências da CLI para IoT
+      url: /cli/azure/azure-cli-reference-for-IoT
+- title: Utilizar o PowerShell para o Hub IoT
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Criar um Hub IoT
+      url: iot-hub-create-using-powershell.md
+    - text: Criar um Hub IoT com um modelo do Resource Manager
+      url: iot-hub-rm-template-powershell.md
+    - text: Configurar o encaminhamento de mensagens
+      url: tutorial-routing-config-message-routing-powershell.md
+    - text: Configurar o carregamento de ficheiros
+      url: iot-hub-configure-file-upload-powershell.md
+  - linkListType: reference
+    links:
+    - text: Referências do PowerShell para IoT
+      url: /powershell/module/az.iothub
