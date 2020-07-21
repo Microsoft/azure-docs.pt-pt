@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4863ff0005f09ca325125667062455357687fdd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144347"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521144"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar mensagens em Azure Logic Apps
 
@@ -37,7 +37,7 @@ Ou, [inscreva-se para uma subscrição pay-as-you-go](https://azure.microsoft.co
 * Uma conta de e-mail com qualquer [fornecedor de e-mail suportado pela Azure Logic Apps](../connectors/apis-list.md)
 
   > [!IMPORTANT]
-  > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -117,7 +117,7 @@ Antes de enviar mensagens para um lote, esse lote deve primeiro existir como des
 
      ![Para "Corpo", selecione "Message Id"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
-7.  Guarde a aplicação lógica. Agora criaste um recetor de lote.
+7.  Guarde a sua aplicação lógica. Agora criaste um recetor de lote.
 
     ![Guardar a aplicação lógica](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
@@ -205,7 +205,7 @@ Agora crie uma ou mais aplicações lógicas de remetente de lote que enviam men
       Esta função **rand** gera um número entre um e cinco. 
       Então você está dividindo este lote em cinco divisórias numeradas, que esta expressão define dinamicamente.
 
-5. Guarde a aplicação lógica. A sua aplicação lógica de remetente agora parece semelhante a este exemplo:
+5. Guarde a sua aplicação lógica. A sua aplicação lógica de remetente agora parece semelhante a este exemplo:
 
    ![Guarde o seu aplicativo de lógica remetente](./media/logic-apps-batch-process-send-receive-messages/batch-sender-finished.png)
 
@@ -218,7 +218,7 @@ A sua aplicação lógica de remetente de lote é executado a cada minuto, gera 
 > [!IMPORTANT]
 > Quando terminar os testes, certifique-se de que desativa a aplicação lógica BatchSender para parar de enviar mensagens e evitar sobrecarregar a sua caixa de entrada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Em lote e enviar mensagens EDI](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Baseie-se nas definições de aplicativos lógicos utilizando o JSON](../logic-apps/logic-apps-author-definitions.md)

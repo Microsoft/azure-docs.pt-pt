@@ -5,19 +5,19 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 07/14/2020
+ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955817"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523541"
 ---
-# <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB
 
 O modelo de preços do Azure Cosmos DB simplifica a gestão e o planeamento de custos. Com o Azure Cosmos DB, paga pelo débito aprovisionado e pelo armazenamento consumido.
 
-* **Produção prevista**: A produção proviscizada (também designada por produção reservada) garante um elevado desempenho em qualquer escala. Você especifica a produção (RU/s) que você precisa, e Azure Cosmos DB dedica os recursos necessários para garantir a produção configurada. É cobrado de hora a hora para o rendimento máximo previsto por uma hora.
+* **Produção prevista**: [A produção proviscizada](how-to-choose-offer.md) (também designada por produção reservada) garante um elevado desempenho em qualquer escala. Você especifica a produção (RU/s) que você precisa, e Azure Cosmos DB dedica os recursos necessários para garantir a produção configurada. É cobrado de hora a hora para o rendimento máximo previsto por uma hora. Pode provisões manualmente ou utilizar [a escala automática.](provision-throughput-autoscale.md)
 
    > [!NOTE]
    > Como o modelo de produção a provisionado dedica recursos ao seu contentor ou base de dados, será cobrado pelo rendimento a provisionado, mesmo que não faça nenhuma carga de trabalho.
@@ -41,9 +41,11 @@ Como mostrado na tabela anterior, a produção mínima em Azure Cosmos DB começ
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Experimentar o Azure Cosmos DB gratuitamente
 
-A Azure Cosmos DB oferece várias opções para programadores gratuitamente. As opções incluem:
+A Azure Cosmos DB oferece muitas opções para os desenvolvedores para ele gratuitamente. As opções incluem:
 
-* **Conta gratuita Azure**: A Azure oferece um [nível gratuito](https://azure.microsoft.com/free/) que lhe dá $200 em créditos Azure durante os primeiros 30 dias e uma quantidade limitada de serviços gratuitos por 12 meses. Para obter mais informações, veja [Conta gratuita do Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB faz parte da conta gratuita do Azure. Especificamente para a Azure Cosmos DB, esta conta gratuita oferece armazenamento de 5 GB e 400 RUs de produção provisida para todo o ano. 
+* **Nível livre Azure Cosmos DB**: O nível livre Azure Cosmos DB facilita o início, o desenvolvimento e o teste das suas aplicações, ou até mesmo executar pequenas cargas de trabalho de produção gratuitamente. Quando o nível livre estiver ativado numa conta, obterá os primeiros 400 RU/s e 5 GB de armazenamento na conta gratuitamente, durante o tempo de vida da conta. Pode ter até uma conta de nível livre por subscrição Azure e deve optar pela criação da conta. Para começar, [crie uma nova conta no portal Azure com nível gratuito ou](create-cosmosdb-resources-portal.md) utilize um modelo [ARM](manage-sql-with-resource-manager.md#free-tier).
+
+* **Conta gratuita Azure**: A Azure oferece um [nível gratuito](https://azure.microsoft.com/free/) que lhe dá $200 em créditos Azure durante os primeiros 30 dias e uma quantidade limitada de serviços gratuitos por 12 meses. Para obter mais informações, veja [Conta gratuita do Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB faz parte da conta gratuita do Azure. Especificamente para a Azure Cosmos DB, esta conta gratuita oferece armazenamento de 5 GB e 400 RU/s de produção provisida para todo o ano.
 
 * **Experimente gratuitamente Azure Cosmos DB**: A Azure Cosmos DB oferece uma experiência limitada no tempo, utilizando a tentativa Azure Cosmos DB para contas gratuitas. Pode criar uma conta DB Azure Cosmos, criar base de dados e coleções e executar uma aplicação de amostra utilizando os Quickstarts e tutoriais. Pode executar o pedido de amostra sem subscrever uma conta Azure ou usar o seu cartão de crédito. [Experimente a Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) oferece a Azure Cosmos DB por um mês, com a capacidade de renovar a sua conta várias vezes.
 

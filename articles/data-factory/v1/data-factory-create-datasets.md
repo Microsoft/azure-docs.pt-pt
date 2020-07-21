@@ -11,13 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1865e1a2ff9a01f75b9849fb340dc0d080feabc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13ee8c5166e3b31ec186ca9aa2702d15de36e09f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248289"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522402"
 ---
-# <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
+# <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de dados na Azure Data Factory (versão 1)
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](data-factory-create-datasets.md)
 > * [Versão 2 (versão atual)](../concepts-datasets-linked-services.md)
@@ -30,7 +31,7 @@ Este artigo descreve quais são os conjuntos de dados, como são definidos no fo
 > [!NOTE]
 > Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure](data-factory-introduction.md) para uma visão geral. Se não tiver experiência prática na criação de fábricas de dados, poderá obter uma melhor compreensão lendo o tutorial de transformação de [dados](data-factory-build-your-first-pipeline.md) e o tutorial de [movimento de dados.](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de uma base de dados do SQL Server para o armazenamento de Azure Blob. Em seguida, você pode usar uma atividade de Hive que executa um script hive em um cluster Azure HDInsight para processar dados do armazenamento Blob para produzir dados de saída. Finalmente, poderá utilizar uma segunda atividade de cópia para copiar os dados de saída para o Azure SQL Data Warehouse, além das quais são construídas soluções de reporte de informação de inteligência empresarial (BI). Para obter mais informações sobre os oleodutos e atividades, consulte [Pipelines e atividades na Azure Data Factory.](data-factory-create-pipelines.md)
 
 Uma atividade pode tomar zero ou mais **conjuntos de dados de**entrada , e produzir um ou mais conjuntos de dados de saída. Um conjunto de dados de entrada representa a entrada para uma atividade no pipeline, e um conjunto de dados de saída representa a saída para a atividade. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados Azure Blob especifica o recipiente blob e a pasta no armazenamento blob a partir do qual o pipeline deve ler os dados.
@@ -76,7 +77,7 @@ Um conjunto de dados na Data Factory é definido no formato JSON da seguinte for
 
 A tabela a seguir descreve propriedades no JSON acima:
 
-| Propriedade | Descrição | Necessário | Predefinição |
+| Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
 | name |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Sim |ND |
 | tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais informações, consulte o [tipo dataset](#Type). |Sim |ND |
@@ -188,7 +189,7 @@ structure:
 
 Cada coluna da estrutura contém as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | name |O nome da coluna. |Sim |
 | tipo |Tipo de dados da coluna.  |Não |
@@ -230,7 +231,7 @@ O conjunto de dados de saída é produzido de hora em hora dentro dos tempos de 
 
 A tabela a seguir descreve propriedades que pode utilizar na secção de disponibilidade:
 
-| Propriedade | Descrição | Necessário | Predefinição |
+| Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
 | frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
 | intervalo |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se necessitar que o conjunto de dados seja cortado de hora a hora, define a <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que, se especificar **a frequência** como **Minuto,** deverá definir o intervalo para nada menos do que 15. |Sim |ND |
@@ -313,7 +314,7 @@ Conjuntos de dados externos são os que não são produzidos por um gasoduto em 
 
 A menos que um conjunto de dados seja produzido pela Data Factory, deve ser marcado como **externo**. Esta definição aplica-se geralmente às entradas da primeira atividade num gasoduto, a menos que esteja a ser utilizada atividade ou acorrentamento do gasoduto.
 
-| Name | Descrição | Necessário | Valor predefinido |
+| Nome | Descrição | Obrigatório | Valor predefinido |
 | --- | --- | --- | --- |
 | dataDelaia |É o momento de atrasar a verificação da disponibilidade dos dados externos para a fatia dada. Por exemplo, pode atrasar uma verificação de hora a hora utilizando esta definição.<br/><br/>A regulação aplica-se apenas ao presente momento. Por exemplo, se forem 13:00 pm agora e este valor é de 10 minutos, a validação começa às 13:10.<br/><br/>Note que esta definição não afeta fatias no passado. Fatias com **dados de fim de tempo de**  +  **fatiaDela agora**são  <  **Now** processadas sem demora.<br/><br/>Os tempos superiores às 23:59 horas devem ser especificados utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1:00:00:00. Se utilizar 24:00:00, é tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre um fracasso e a próxima tentativa. Esta definição aplica-se ao tempo presente. Se a tentativa anterior falhar, a próxima tentativa é após o período **de retryInterval.** <br/><br/>Se são 13:00 agora, começamos a primeira tentativa. Se a duração para completar a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima repetição é de 1:00 + 1min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há atraso. A repetição acontece imediatamente. |Não |00:01:00 (1 minuto) |

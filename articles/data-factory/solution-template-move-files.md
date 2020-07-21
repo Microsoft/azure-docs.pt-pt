@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: 81f072822226e4a573cf0086cac7e64ca1cfe45f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6baea73c0c4964bb3937304603a2a92a13d52b2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628168"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522725"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover ficheiros com a Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo descreve um modelo de solução que pode usar para mover ficheiros de uma pasta para outra entre lojas baseadas em ficheiros. Um dos cenários comuns de utilização deste modelo: Os ficheiros são continuamente deixados para uma pasta de aterragem da sua loja de origem. Ao criar um gatilho de horário, o gasoduto ADF pode mover periodicamente esses ficheiros da fonte para a loja de destino.  A forma como o gasoduto ADF consegue "ficheiros em movimento" é obter os ficheiros da pasta de aterragem, copiando cada um deles para outra pasta na loja de destino e, em seguida, eliminando os mesmos ficheiros da pasta de aterragem na loja de origem.
+A atividade de cópia ADF tem suporte incorporado no cenário de "mover" ao copiar ficheiros binários entre lojas de armazenamento.  A forma de o permitir é definir "deleteFilesAfterCompletion" como verdadeiro na atividade de cópia. Ao fazê-lo, a atividade de cópia eliminará ficheiros da loja de fontes de dados após a conclusão do trabalho. 
+
+Este artigo descreve um modelo de solução como outra abordagem alavancando o fluxo de controlo flexível ADF mais a atividade de cópia e eliminando a atividade para alcançar o mesmo cenário. Um dos cenários comuns de utilização deste modelo: Os ficheiros são continuamente deixados para uma pasta de aterragem da sua loja de origem. Ao criar um gatilho de horário, o gasoduto ADF pode mover periodicamente esses ficheiros da fonte para a loja de destino.  A forma como o gasoduto ADF consegue "ficheiros em movimento" é obter os ficheiros da pasta de aterragem, copiando cada um deles para outra pasta na loja de destino e, em seguida, eliminando os mesmos ficheiros da pasta de aterragem na loja de origem.
 
 > [!NOTE]
 > Tenha em atenção que este modelo foi concebido para mover ficheiros em vez de mover pastas.  Se pretender mover a pasta alterando o conjunto de dados para que contenha apenas um caminho de pasta e, em seguida, utilizar a atividade da cópia e eliminar a atividade para fazer referência ao mesmo conjunto de dados que representa uma pasta, tem de ter muito cuidado. É porque tem de se certificar de que não haverá novos ficheiros a chegar à pasta entre a operação de cópia e a eliminação da operação. Se houver novos ficheiros a chegar à pasta no momento em que a sua atividade de cópia acabou de completar a função de cópia, mas a atividade Delete não foi encarada, é possível que a atividade Desaclamar este novo ficheiro que não tenha sido copiado para o destino, eliminando ainda toda a pasta.
@@ -68,7 +70,7 @@ O modelo define quatro parâmetros:
 
     ![Reveja o resultado](media/solution-template-move-files/move-files6.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Copie ficheiros novos e alterados por LastModifiedDate com Azure Data Factory](solution-template-copy-new-files-lastmodifieddate.md)
 

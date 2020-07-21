@@ -4,18 +4,20 @@ description: API para recuperar todas as operações da oferta ou para obter uma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: c0611cb3cbc24e2b105cdef134e30a7c2fbdd445
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: 90ff7c4a85fd9e48ac3aa49ace99f43eb0244603
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113467"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520294"
 ---
 # <a name="retrieve-operations"></a>Obter operações
 
 > [!NOTE]
-> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a funcionar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a migração para o Partner Center.
+> As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
 Recupera todas as operações da oferta ou para obter uma operação específica para a operaçãoId especificada. O cliente pode utilizar parâmetros de consulta para filtrar as operações de funcionamento.
 
@@ -27,26 +29,23 @@ Recupera todas as operações da oferta ou para obter uma operação específica
 
 ```
 
-
 ## <a name="uri-parameters"></a>Parâmetros URI
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador de editor, por exemplo`Contoso`                                                                   |  String       |
-|  offerId           |  Identificar oferta                                                                                              |  String       |
+|  publisherId       |  Identificador de editor, por exemplo`Contoso`                                                                   |  Cadeia       |
+|  offerId           |  Identificar oferta                                                                                              |  Cadeia       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operaçãoId pode ser recuperada utilizando esta API, e também é devolvida no cabeçalho HTTP da resposta para qualquer operação de longa duração, como a [Oferta Editorial](./cloud-partner-portal-api-publish-offer.md) API.  |   GUID   |
 |  api-version       | Última versão da API |    Data      |
 |  |  |  |
 
 ## <a name="header"></a>Cabeçalho
 
-
 |  **Nome**          |  **Valor**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Autorização     | `Bearer YOUR_TOKEN`  |
 |  |  |
-
 
 ## <a name="body-example"></a>Exemplo corporal
 

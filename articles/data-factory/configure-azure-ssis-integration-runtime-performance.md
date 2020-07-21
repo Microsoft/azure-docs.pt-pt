@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255539"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523320"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configure o tempo de execução da integração Azure-SSIS para um alto desempenho
 
@@ -104,11 +104,15 @@ Se não tiver muitos pacotes para executar e quiser que os pacotes corram rapida
 
 Estes dados representam uma única execução de pacote num único nó de trabalhador. O pacote carrega 3 milhões de registos com colunas de nome e apelido do Azure Blob Storage, gera uma coluna de nome completo e escreve os registos que têm o nome completo mais de 20 caracteres para Azure Blob Storage.
 
+O eixo y é o número de pacotes que completaram a execução em uma hora. Por favor, note que este é apenas um resultado de teste de um pacote que consome memória. Se quiser saber a produção do seu pacote, recomenda-se que realize o teste sozinho.
+
 ![Velocidade de execução do pacote de runtime de integração SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Configuração para a produção global
 
 Se tiver muitos pacotes para executar e se importar mais com o rendimento geral, use as informações no gráfico seguinte para escolher um tipo de máquina virtual adequado para o seu cenário.
+
+O eixo y é o número de pacotes que completaram a execução em uma hora. Por favor, note que este é apenas um resultado de teste de um pacote que consome memória. Se quiser saber a produção do seu pacote, recomenda-se que realize o teste sozinho.
 
 ![Funcionação de integração SSIS produção máxima global](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

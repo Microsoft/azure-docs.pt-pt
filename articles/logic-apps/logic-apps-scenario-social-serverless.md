@@ -8,11 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980430"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520754"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Crie um dashboard de informação de clientes em streaming com apps Azure Logic e Funções Azure
 
@@ -21,7 +22,7 @@ O Azure oferece ferramentas [sem servidor](https://azure.microsoft.com/solutions
 Para esta solução, utilize estes componentes Azure chave para aplicações sem servidor: [Funções Azure](https://azure.microsoft.com/services/functions/) e [Apps Azure Logic](https://azure.microsoft.com/services/logic-apps/).
 A Azure Logic Apps fornece um motor de fluxo de trabalho sem servidor na nuvem para que possa criar orquestrações através de componentes sem servidor e ligar-se a mais de 200 serviços e APIs. As Funções Azure fornecem computação sem servidor na nuvem. Esta solução utiliza funções Azure para sinalizar tweets de clientes com base em palavras-chave predefinidas.
 
-Neste cenário, cria-se uma aplicação lógica que desencadeia a procura de feedback dos clientes. Alguns conectores que o ajudam a responder ao feedback do cliente incluem Outlook.com, Office 365, Survey Monkey, Twitter, e um [pedido HTTP de um formulário web.](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/) O fluxo de trabalho que cria monitoriza uma hashtag no Twitter.
+Neste cenário, cria-se uma aplicação lógica que desencadeia a procura de feedback dos clientes. Alguns conectores que o ajudam a responder ao feedback do cliente incluem Outlook.com, Office 365, Survey Monkey, Twitter, e um [pedido HTTP de um formulário web.](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form) O fluxo de trabalho que cria monitoriza uma hashtag no Twitter.
 
 Pode [construir toda a solução no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implementar a solução com o modelo Azure Resource Manager.](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md) Para um vídeo que mostra como criar esta solução, [veja este vídeo do Canal 9](https://aka.ms/logicappsdemo). 
 
@@ -66,7 +67,7 @@ Também pode criar e uma Função Azure para que possa realizar o processamento 
 
 ## <a name="process-data-with-azure-functions"></a>Processar dados com Funções Azure
 
-Antes de criar uma função, crie uma aplicação de função na sua subscrição Azure. Além disso, para que a sua aplicação lógica chame diretamente uma função, a função deve ter uma ligação http trigger, por exemplo, use o modelo **HttpTrigger.** Saiba [como criar a sua primeira aplicação de função e funcionar no portal Azure](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Antes de criar uma função, crie uma aplicação de função na sua subscrição Azure. Além disso, para que a sua aplicação lógica chame diretamente uma função, a função deve ter uma ligação http trigger, por exemplo, use o modelo **HttpTrigger.** Saiba [como criar a sua primeira aplicação de função e funcionar no portal Azure](../azure-functions/functions-create-first-azure-function.md).
 
 Para este cenário, utilize o texto do tweet como o órgão de pedido para a sua Função Azure. No seu código de função, defina a lógica que determina se o texto do tweet contém uma palavra-chave ou uma frase. Mantenha a função tão simples ou complexa quanto necessário para o cenário.
 No final da função, devolva uma resposta à aplicação lógica com alguns dados, por exemplo, um simples valor boolean, como `containsKeyword` ou um objeto complexo.

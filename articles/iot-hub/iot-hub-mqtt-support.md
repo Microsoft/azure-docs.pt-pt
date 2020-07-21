@@ -10,11 +10,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c3fa56daee5d2dba98fa9fd420524a9b7e4c60ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f1f059f3abfd04ae78d9a2a19cff2929e84b8a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83726116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521127"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -303,7 +304,21 @@ Para receber mensagens do IoT Hub, um dispositivo deve subscrever `devices/{devi
 
 O dispositivo não recebe nenhuma mensagem do IoT Hub, até que tenha subscrito com sucesso o seu ponto final específico do dispositivo, representado pelo `devices/{device_id}/messages/devicebound/#` filtro de tópicos. Depois de ter sido estabelecida uma subscrição, o dispositivo recebe mensagens nuvem-dispositivo que foram enviadas para o mesmo após o momento da subscrição. Se o dispositivo ligar-se com a bandeira **CleanSession** definida para **0,** a subscrição é persistiu em diferentes sessões. Neste caso, da próxima vez que o dispositivo ligar-se com **o CleanSession 0** recebe quaisquer mensagens pendentes que lhe tenham sido enviadas enquanto está desligado. No entanto, se o dispositivo utilizar a bandeira **CleanSession** definida para **1,** não recebe nenhuma mensagem do IoT Hub até subscrever o seu ponto final do dispositivo.
 
-O IoT Hub entrega mensagens com o **Nome Tópico,** `devices/{device_id}/messages/devicebound/` ou quando `devices/{device_id}/messages/devicebound/{property_bag}` existem propriedades de mensagens. `{property_bag}`contém url-codificado chave/pars de valor de propriedades de mensagens. Apenas as propriedades da aplicação e as propriedades do sistema de definição de utilizador (como **messageId** ou **correlationId)** estão incluídas no saco de propriedade. Os nomes das propriedades do sistema têm o prefixo, **$** as propriedades da aplicação usam o nome original da propriedade sem prefixo.
+O IoT Hub entrega mensagens com o **Nome Tópico,** `devices/{device_id}/messages/devicebound/` ou quando `devices/{device_id}/messages/devicebound/{property_bag}` existem propriedades de mensagens. `{property_bag}`contém url-codificado chave/pars de valor de propriedades de mensagens. Apenas as propriedades da aplicação e as propriedades do sistema de definição de utilizador (como **messageId** ou **correlationId)** estão incluídas no saco de propriedade. Os nomes das propriedades do sistema têm o prefixo, **$** as propriedades da aplicação usam o nome original da propriedade sem prefixo. Para obter mais detalhes sobre o formato do saco de propriedade, consulte [enviar mensagens de dispositivo para nuvem](#sending-device-to-cloud-messages).
+
+Nas mensagens nuvem-dispositivo, os valores no saco de propriedade são representados como na tabela seguinte:
+
+| Valor patrimonial | Representação | Descrição |
+|----|----|----|
+| `null` | `key` | Apenas a chave aparece no saco da propriedade |
+| corda vazia | `key=` | A chave seguida por um sinal igual sem valor |
+| valor não nulo, não vazio | `key=value` | A chave seguida por um sinal igual e o valor |
+
+O exemplo a seguir mostra um saco de propriedade que contém três propriedades de aplicação: **prop1** com um valor `null` de; **prop2**, uma corda vazia (""); e **prop3** com um valor de "uma corda".
+
+```mqtt
+/?prop1&prop2=&prop3=a%20string
+```
 
 Quando uma aplicação de dispositivo subscreve um tópico com **qoS 2,** o IoT Hub concede o nível QoS máximo 1 no pacote **SUBACK.** Depois disso, o IoT Hub entrega mensagens ao dispositivo utilizando o QoS 1.
 
@@ -333,7 +348,7 @@ Os códigos de estado possíveis são:
 
 |Estado | Descrição |
 | ----- | ----------- |
-| 200 | Êxito |
+| 200 | Success |
 | 429 | Demasiados pedidos (estrangulado), de acordo com [o estrangulamento do IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erros de servidor |
 
@@ -424,7 +439,7 @@ Para saber mais sobre o protocolo MQTT, consulte a [documentação MQTT](https:/
 
 Para saber mais sobre o planeamento da sua implantação no IoT Hub, consulte:
 
-* [Catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
+* [Catálogo de dispositivos do Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
 * [Apoiar protocolos adicionais](iot-hub-protocol-gateway.md)
 * [Compare com centros de eventos](iot-hub-compare-event-hubs.md)
 * [Escala, HA e DR](iot-hub-scaling.md)

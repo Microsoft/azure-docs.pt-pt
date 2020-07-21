@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anbene
 ms.author: mingshen
 ms.date: 06/17/2020
-ms.openlocfilehash: f97692b604408437bc2ee457bb04ad9b855c7290
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 11deb9b8146924d1a493872219ad85556d13c405
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119298"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520277"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace
 
@@ -251,7 +251,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
-1. Name
+1. Nome
 2. Descrição
 3. Ligações úteis
 4. Capturas de ecrã
@@ -286,17 +286,17 @@ Adicione pelo menos um ID de subscrição Azure, individualmente (até 10) ou ca
 
 ### <a name="plan-overview"></a>Visão geral do plano
 
-Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta no Partner Center. Estes planos eram anteriormente referidos como SKUs, ou unidades de armazenamento de stocks. Os planos podem diferir em termos de que nuvens estão disponíveis, como nuvens globais, nuvens do Governo e a imagem referenciada pelo plano. Para listar a sua oferta no mercado, tem de definir pelo menos um plano.
+Este separador permite-lhe fornecer diferentes opções de plano dentro da mesma oferta no Partner Center. Os planos (anteriormente chamados SKUs) podem diferir em termos de que nuvens estão disponíveis, tais como nuvens globais, nuvens do governo, e a imagem referenciada pelo plano. Para listar a sua oferta no mercado, tem de definir pelo menos um plano.
 
 Depois de criar os seus planos, o separador **De visão geral** do Plano mostra:
 
 - Nomes do plano
 - Modelo preços
-- Disponibilidade em nuvem (Global ou Governo)
+- Regiões do Azul (Global ou Governo)
 - Estado atual da publicação
 - Quaisquer ações disponíveis
 
-As ações disponíveis no Resumo do Plano variam consoante o estado atual do seu plano. Os relatórios incluem:
+As ações disponíveis no Resumo do Plano variam consoante o estado atual do seu plano. Estas incluem:
 
 - **Eliminar rascunho**: Se o estado do plano for um Projeto.
 - **Plano de venda**: Se o estado do plano for publicado em direto.
@@ -329,7 +329,7 @@ Selecione a opção [do Governo Azure](../../azure-government/documentation-gove
 
 #### <a name="azure-government-certifications"></a>Certificações do Governo de Azure
 
-Esta opção só é visível se **o Governo Azure** for selecionado sob **disponibilidade cloud**.
+Esta opção só é visível se o **Governo Azure** for selecionado nas **regiões de Azure.**
 
 Os serviços do Governo Azure tratam dados que estão sujeitos a certos regulamentos e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para consciencializar as suas certificações para estes programas, pode fornecer até 100 links que descrevem as suas certificações. Estes podem ser links para as suas listas no programa diretamente ou para o seu próprio site. Estas ligações são visíveis apenas para clientes do Governo Azure.
 
@@ -410,7 +410,7 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 
 #### <a name="call-out-description"></a>Descrição de chamada
 
-1. Utilizador admin
+1. Utilizador administrador
 
 <br>**Palavra-passe para o Registo do Contentor Azure**: Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 

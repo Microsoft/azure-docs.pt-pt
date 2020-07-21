@@ -3,12 +3,12 @@ title: O que são os Hubs de Eventos do Azure? - um serviço de ingestão de Big
 description: Saiba mais sobre Hubs de Eventos do Azure, um serviço de fluxo de Macrodados que ingere milhões de eventos por segundo.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 175f7e249e02d5c85dd38cf49821b2893de159a3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: b442a7e0b10f3f882f12943c642ccdd6feef3114
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314263"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522113"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - Uma plataforma de streaming de big data e serviço de ingestão de eventos
 O Azure Event Hubs é uma plataforma de streaming de dados e serviço de ingestão de eventos. Pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches.
@@ -44,9 +44,9 @@ Ingira, coloque em memória intermédia, armazene e processe a sua transmissão 
 
 [Capture](event-hubs-capture-overview.md) os seus dados em tempo quase real num [armazenamento Azure Blob](https://azure.microsoft.com/services/storage/blobs/) ou [no Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)para   retenção a longo prazo ou processamento de micro-lotes. Pode alcançar este comportamento no mesmo fluxo que usa para obter análises em tempo real. A configuração da captura de dados de eventos é rápida. Não existem custos administrativos para executá-lo, e escala automaticamente com [unidades de produção](event-hubs-scalability.md#throughput-units)de Event Hubs . O Event Hubs permite-lhe focar-se no processamento de dados e não na captura de dados.
 
-Os Hubs de Eventos do Azure também se integram nas [Funções do Azure](/azure/azure-functions/) para uma arquitetura sem servidor.
+Os Hubs de Eventos do Azure também se integram nas [Funções do Azure](../azure-functions/index.yml) para uma arquitetura sem servidor.
 
-## <a name="scalable"></a>Escalável
+## <a name="scalable"></a>Seja dimensionável
 
 Com os Hubs de Eventos, pode começar com fluxos de dados em megabytes e aumentar para gigabytes ou terabytes. A funcionalidade [Ampliação automática](event-hubs-auto-inflate.md) é uma das muitas opções disponíveis para dimensionar o número de unidades de débito para satisfazer as suas necessidades de utilização.
 
@@ -74,10 +74,10 @@ Os Centros de Eventos no Azure Stack Hub permitem-lhe realizar cenários híbrid
 
 As edições do Event Hubs (no Azure Stack Hub e no Azure) oferecem um alto grau de paridade de características. Esta paridade significa SDKs, amostras, PowerShell, CLI e portais oferecem uma experiência semelhante, com poucas diferenças. 
 
-Os Centros de Eventos em Stack são gratuitos durante a pré-visualização pública. Para mais informações, consulte [os Centros de Eventos no Azure Stack Hub.](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)
+Os Centros de Eventos em Stack são gratuitos durante a pré-visualização pública. Para mais informações, consulte [os Centros de Eventos no Azure Stack Hub.](/azure-stack/user/event-hubs-overview)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a usar os Centros de Eventos, consulte os tutoriais **de envio e receber eventos:**
 
@@ -94,5 +94,3 @@ Para saber mais sobre os Hub de Eventos, veja os artigos seguintes:
 
 - [Descrição geral das funcionalidades dos Hubs de Eventos](event-hubs-features.md)
 - [Perguntas frequentes.](event-hubs-faq.md)
-
-

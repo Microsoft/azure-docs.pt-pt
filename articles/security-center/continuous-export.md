@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84299949"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519702"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportar alertas e recomendações de segurança
 
@@ -28,7 +29,6 @@ Utilizando estas ferramentas pode:
 
 
 
-
 ## <a name="availability"></a>Disponibilidade
 
 - Estado de libertação: **Geralmente disponível**
@@ -36,10 +36,7 @@ Utilizando estas ferramentas pode:
     - **Leitor** na assinatura que contém a configuração de exportação
     - **Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**
     - Também deve ter permissões de escrita para o recurso alvo
-- Nuvens: 
-    - nuvens comerciais ✔
-    - ✔ Gov dos EUA
-    - ✘ China Gov, Outro Gov
+- Nuvens: nuvens comerciais ✔ ✔ Gov dos EUA ✘ China Gov, Outros Gov
 
 
 ## <a name="setting-up-a-continuous-export"></a>Criação de uma exportação contínua
@@ -58,7 +55,7 @@ Os passos abaixo são necessários quer esteja a configurar uma exportação con
 
 1. A partir da área "Export target", escolha onde quer que os dados guardados. Os dados podem ser guardados num alvo numa subscrição diferente (por exemplo, numa instância Central do Centro de Eventos ou num espaço de trabalho central do Log Analytics).
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 
 
@@ -142,5 +139,5 @@ Para obter material relacionado, consulte a seguinte documentação:
 
 - [Documentação dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/)
 - [Documentação do Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Documentação do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/)
+- [Documentação do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 - [Automação do fluxo de trabalho e esquemas contínuos de tipos de dados de exportação](https://aka.ms/ASCAutomationSchemas)

@@ -11,18 +11,19 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 25ce99d3dced3caf1ec4bcce13b062b28774642d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c56c7a0d6f0400811d085f60fd71fe72b88bf9ee
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84557489"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520566"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Deep learning e ia frameworks para o Azure Data Science VM
 Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="caffe"></a>[Caffe](https://github.com/BVLC/caffe)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | |
 | Edições DSVM suportadas      | Linux (Ubuntu)     |
@@ -31,7 +32,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | |
 | Edições DSVM suportadas      | Linux (Ubuntu)     |
@@ -40,7 +41,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="chainer"></a>[Chainer](https://chainer.org/)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 5.2 |
 | Edições DSVM suportadas      | Linux (Ubuntu)     |
@@ -49,7 +50,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="cuda-cudnn-nvidia-driver"></a>[Controlador CUDA, cuDNN, NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 10.0.130|
 | Edições DSVM suportadas      | Windows e Linux   |
@@ -59,7 +60,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="horovod"></a>[Horovod](https://github.com/uber/horovod)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 0.16.1|
 | Edições DSVM suportadas      | Linux (Ubuntu)   |
@@ -68,7 +69,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="keras"></a>[Keras](https://keras.io/)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 2.2.4 |
 | Edições DSVM suportadas      | Windows e Linux   |
@@ -77,7 +78,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 2.5.1 |
 | Edições DSVM suportadas      | Windows e Linux   |
@@ -85,7 +86,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 | Como executá-lo      | Terminal: Ative o ambiente correto e executar Python. <br/>Jupyter: Ligue-se ao [Jupyter](provision-vm.md) ou [ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o diretório CNTK para amostras. |
 
 ## <a name="mxnet"></a>[MXNet](https://mxnet.apache.org/)
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 1.3.0 |
 | Edições DSVM suportadas      | Windows e Linux   |
@@ -94,7 +95,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="mxnet-model-server"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 1.0.1 |
 | Edições DSVM suportadas      | Windows e Linux   |
@@ -103,7 +104,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="nvidia-system-management-interface-nvidia-smi"></a>[Interface de Gestão do Sistema NVidia (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas |  |
 | Edições DSVM suportadas      | Windows e Linux   |
@@ -113,7 +114,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 1.2.0 (Ubuntu 16.04, Windows 2016), 1.4.0 (Ubuntu 18.04, Windows 2019) |
 | Edições DSVM suportadas      | Linux |
@@ -122,7 +123,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="tensorflow"></a>[TensorFlow](https://www.tensorflow.org/)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 1.13 |
 | Edições DSVM suportadas      | Windows, Linux |
@@ -131,7 +132,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 1.12 |
 | Edições DSVM suportadas      | Linux |
@@ -141,7 +142,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
 | Versão(s) suportadas | 1.0.3 |
 | Edições DSVM suportadas      | Linux |

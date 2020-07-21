@@ -7,11 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836282"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524170"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector da Oracle Database
 
@@ -57,30 +58,30 @@ Este artigo mostra-lhe como utilizar o conector Oracle Database numa aplicação
 
 2. No início da sua aplicação lógica, selecione o **pedido /resposta - Pedido** de gatilho: 
 
-    ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
+    ![Uma caixa de diálogo tem uma caixa para procurar todos os gatilhos. Há também um único gatilho mostrado, "Pedido/Pedido de Resposta", com um botão de seleção.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
 3. Selecione **Guardar**. Quando se guarda, um URL de pedido é gerado automaticamente. 
 
 4. Selecione **Novo passo** e selecione **Adicionar uma ação**. Digite `oracle` para ver as ações disponíveis: 
 
-    ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
+    ![Uma caixa de pesquisa contém "oráculo". A pesquisa produz um sucesso com o rótulo "Oracle Database". Há uma página com separador, um separador que mostra "TRIGGERS (0)", outro mostrando "AÇÕES (6)". Seis ações estão listadas. A primeira delas é "Get row Preview".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > Esta é também a forma mais rápida de ver os gatilhos e ações disponíveis para qualquer conector. Digite parte do nome do conector, tal como `oracle` . O designer lista quaisquer gatilhos e ações. 
 
 5. Selecione uma das ações, como **Oracle Database - Get row**. Selecione **Connect via gateway de dados no local.** Introduza o nome do servidor Oracle, método de autenticação, nome de utilizador, senha e selecione o gateway:
 
-    ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
+    ![A caixa de diálogo é intitulada "Oracle Database - Get row". Há uma caixa, verificada, com a etiqueta "Connect via on-in data gateway". Abaixo estão as outras cinco caixas de texto.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
 6. Uma vez ligado, selecione uma tabela da lista e introduza o ID da linha na sua mesa. Precisa saber o identificador da mesa. Se não souber, contacte o administrador da Oracle DB e obtenha a saída de `select * from yourTableName` . Isto dá-lhe a informação identificável que precisa para prosseguir.
 
     No exemplo seguinte, os dados do trabalho estão a ser devolvidos a partir de uma base de dados de Recursos Humanos: 
 
-    ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![A caixa de diálogo intitulada "Get row (Preview)" tem duas caixas de texto: "Nome de tabela", que contém "HRJOBS" e tem uma lista de down-down, e "Row id", que contém "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Neste próximo passo, pode utilizar qualquer um dos outros conectores para construir o seu fluxo de trabalho. Se quiser testar a obtenção de dados da Oracle, envie um e-mail com os dados da Oracle utilizando um dos conectores de e-mail de envio, tal o Office 365 Outlook. Use os tokens dinâmicos da mesa Oráculo para construir o `Subject` e `Body` do seu e-mail:
+7. Neste próximo passo, pode utilizar qualquer um dos outros conectores para construir o seu fluxo de trabalho. Se quiser testar a obtenção de dados da Oracle, envie um e-mail com os dados da Oracle utilizando um dos conectores de e-mail de envio, como o Office 365 Outlook. Use os tokens dinâmicos da mesa Oráculo para construir o `Subject` e `Body` do seu e-mail:
 
-    ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
+    ![Há duas caixas de diálogo. O endereço "Enviar uma caixa de e-mail" tem caixas para especificar o endereço "Corpo", "Assunto" e "To" do e-mail. A caixa de diálogo "Adicionar conteúdo dinâmico" proporciona uma pesquisa de conteúdo dinâmico a partir das aplicações e serviços do fluxo.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
 8. **Guarde** a sua aplicação lógica e, em seguida, selecione **Executar**. Feche o designer, e olhe para a história das corridas para o estado. Se falhar, selecione a linha de mensagem falhada. O designer abre e mostra-lhe qual passo falhou, e também mostra a informação de erro. Se for bem sucedido, deverá receber um e-mail com a informação que adicionou.
 
@@ -89,11 +90,11 @@ Este artigo mostra-lhe como utilizar o conector Oracle Database numa aplicação
 
 * Você quer monitorizar a hashtag #oracle, e colocar os tweets em uma base de dados para que eles possam ser questionados, e usados dentro de outras aplicações. Numa aplicação lógica, adicione o `Twitter - When a new tweet is posted` gatilho e introduza a **hashtag #oracle.** Em seguida, adicione a `Oracle Database - Insert row` ação e selecione a sua tabela:
 
-    ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
+    ![A caixa de diálogo "Quando um novo tweet é publicado" mostra "hashtag oráculo" como texto de pesquisa e permite especificar a frequência de verificação. Esta caixa de diálogo leva à caixa de diálogo "Oracle Database" que permite selecionar a ação.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
 * As mensagens são enviadas para uma fila de autocarros de serviço. Queres receber estas mensagens e colocá-las numa base de dados. Numa aplicação lógica, adicione o `Service Bus - when a message is received in a queue` gatilho e selecione a fila. Em seguida, adicione a `Oracle Database - Insert row` ação e selecione a sua tabela:
 
-    ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
+    ![O "Quando uma mensagem é recebida..." a caixa de diálogo mostra "encomendas" como "nome da fila" e permite especificar a frequência de verificação. Esta caixa leva à caixa de diálogo "Inserir linha (pré-visualização)", que permite selecionar "Nome de tabela".](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## <a name="common-errors"></a>Erros comuns
 

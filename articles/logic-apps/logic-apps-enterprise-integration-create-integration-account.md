@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a0d3c344d19d0831dd8525ddf3311e0ce7cd682
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691763"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520822"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerir contas de integração para integrações empresariais B2B no Azure Logic Apps.
 
@@ -38,7 +39,7 @@ Este tópico mostra-lhe como executar estas tarefas:
 
 ## <a name="create-integration-account"></a>Criar uma conta de integração
 
-Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure PowerShell,](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)ou [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
+Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure PowerShell,](/powershell/module/Az.LogicApp/New-AzIntegrationAccount)ou [Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
@@ -59,7 +60,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção
    | **Nome** | Sim | <*integração-nome de conta*> | O nome da sua conta de integração, que pode conter apenas letras, números, hífenes `-` (), sublinhantes `_` (), parênteses `(` e `)` períodos `.` (). Este exemplo usa "Fabrikam-Integration". |
    | **Subscrição** | Sim | <*Nome de subscrição Azure*> | O nome para a subscrição do Azure |
    | **Grupo de recursos** | Sim | <*Nome de grupo Azure-recursos*> | O nome para o [grupo de recursos Azure](../azure-resource-manager/management/overview.md) usar para organizar recursos relacionados. Para este exemplo, crie um novo grupo de recursos com o nome "FabrikamIntegration-RG". |
-   | **Nível de preços** | Sim | <*nível de preços*> | O nível de preços da conta de integração, que pode alterar mais tarde. Para este exemplo, selecione **Grátis**. Para obter mais informações, veja estes tópicos: <p>- [Modelo de preços de Apps Lógicas](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limites e configuração de Apps lógicas](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Preços de Apps lógicas](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Escalão de Preço** | Sim | <*nível de preços*> | O nível de preços da conta de integração, que pode alterar mais tarde. Para este exemplo, selecione **Grátis**. Para obter mais informações, veja estes tópicos: <p>- [Modelo de preços de Apps Lógicas](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limites e configuração de Apps lógicas](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Preços de Apps lógicas](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Localização** | Sim | <*Região de Azure*> | A região onde armazenar os metadados da sua conta de integração. Selecione o mesmo local que a sua aplicação lógica ou crie as suas aplicações lógicas no mesmo local que a sua conta de integração. Para este exemplo, use "West US". <p>**Nota:** Para criar uma conta de integração dentro de um [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)selecione o ISE como local. Para obter mais informações, consulte [Criar contas de integração num ISE.](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment) |
    | **Log Analytics** | Não | Off, On | Mantenha a definição **Off** para este exemplo. |
    |||||
@@ -131,13 +132,13 @@ Para escoar esta alteração, pode utilizar o portal Azure seguindo os passos de
 
 #### <a name="azure-cli"></a>CLI do Azure
 
-1. Se ainda não o fez, [instale os pré-requisitos do Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+1. Se ainda não o fez, [instale os pré-requisitos do Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
-1. No portal Azure, abra o ambiente Azure [**Cloud Shell.**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)
+1. No portal Azure, abra o ambiente Azure [**Cloud Shell.**](../cloud-shell/overview.md?view=azure-cli-latest)
 
    ![Abrir o Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. Na pronta do comando, insira o comando [ **de recursos az,** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update)e desaprote `skuName` o nível mais alto que deseja.
+1. Na pronta do comando, insira o comando [ **de recursos az,** ](/cli/azure/resource?view=azure-cli-latest#az-resource-update)e desaprote `skuName` o nível mais alto que deseja.
 
    ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
@@ -153,15 +154,15 @@ Para escoar esta alteração, pode utilizar o portal Azure seguindo os passos de
 
 ### <a name="downgrade-pricing-tier"></a>Nível de preços de downgrade
 
-Para fazer esta alteração, utilize o [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+Para fazer esta alteração, utilize o [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
-1. Se ainda não o fez, [instale os pré-requisitos do Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+1. Se ainda não o fez, [instale os pré-requisitos do Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
-1. No portal Azure, abra o ambiente Azure [**Cloud Shell.**](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)
+1. No portal Azure, abra o ambiente Azure [**Cloud Shell.**](../cloud-shell/overview.md?view=azure-cli-latest)
 
    ![Abrir o Azure Cloud Shell](./media/logic-apps-enterprise-integration-create-integration-account/open-azure-cloud-shell-window.png)
 
-1. Na pronta do comando, insira o comando [ **de recursos az** ](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update) e `skuName` coloque-o no nível inferior que deseja.
+1. Na pronta do comando, insira o comando [ **de recursos az** ](/cli/azure/resource?view=azure-cli-latest#az-resource-update) e `skuName` coloque-o no nível inferior que deseja.
 
    ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
@@ -221,7 +222,7 @@ Se pretender ligar a sua aplicação lógica a outra conta de integração, ou d
 
 Pode mover a sua conta de integração para outro grupo de recursos Azure ou subscrição do Azure. Ao mover recursos, o Azure cria novos IDs de recursos, por isso certifique-se de que utiliza os novos IDs e atualiza quaisquer scripts ou ferramentas associados aos recursos movidos. Se quiser alterar a subscrição, também deve especificar um grupo de recursos existente ou novo.
 
-Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção ou o [CLI Azure](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move).
+Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção ou o [CLI Azure](/cli/azure/resource?view=azure-cli-latest#az-resource-move).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
@@ -253,7 +254,7 @@ Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção
 
 ## <a name="delete-integration-account"></a>Eliminar conta de Integração
 
-Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete)ou [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
+Para esta tarefa, pode utilizar o portal Azure seguindo os passos desta secção, [Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-delete)ou [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 

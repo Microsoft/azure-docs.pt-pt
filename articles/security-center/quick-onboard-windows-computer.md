@@ -1,6 +1,6 @@
 ---
 title: Carregar computadores Windows para o Centro de Segurança do Azure
-description: Este quickstart mostra-lhe como fornecer o agente Log Analytics num computador Windows.
+description: Este quickstart mostra-lhe como providenciar o agente Log Analytics num computador Windows.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80435934"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519767"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
-Depois de embarcar nas suas subscrições do Azure, pode ativar o Security Center para os recursos que correm fora do Azure, por exemplo no local ou noutras nuvens, ao fornecer o agente Log Analytics.
+Depois de embarcar nas suas subscrições Azure, pode ativar o Security Center para recursos que correm fora de Azure, por exemplo, no local ou noutras nuvens, fornecendo o agente Log Analytics.
 
 Este arranque rápido mostra-lhe como instalar o agente Log Analytics num computador Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode tentar o Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Deve estar no nível de preços padrão do Security Center antes de iniciar este arranque rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode tentar o Standard do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Adicionar novo computador Windows
 
-1. Assine no [portal Azure.](https://azure.microsoft.com/features/azure-portal/)
-2. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - Descrição Geral** é aberto.
+1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+2. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - A visão geral** abre.
 
    ![Descrição geral do Centro de Segurança][2]
 
@@ -72,7 +72,7 @@ Agora tem de instalar o ficheiro transferido no computador de destino.
 9. Na página **Pronto para Instalar**, reveja as suas opções e selecione **Instalar**.
 10. Na página **Configuração concluída com êxito**, selecione **Concluir**
 
-Quando estiver concluído, o **agente Log Analytics** aparece no Painel de **Controlo**. Pode rever a configuração e confirmar que o agente está ligado.
+Quando concluído, o **agente Log Analytics** aparece no Painel de **Controlo**. Pode rever a configuração e confirmar que o agente está ligado.
 
 Para obter mais informações sobre como instalar e configurar o agente, veja [Ligar computadores Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -91,12 +91,12 @@ Quando já não for necessário, pode remover o agente do computador Windows.
 
 Para remover o agente:
 
-1. **Painel de Controlo**Aberto .
+1. **Painel de controlo aberto**.
 2. Abra **Programas e Funcionalidades**.
-3. Em **Programas e Funcionalidades,** selecione **o agente Log Analytics** e clique em **Desinstalar**.
+3. Em **Programas e Funcionalidades**, selecione **o agente Log Analytics** e clique em **Desinstalar**.
 
-## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, você forprovisionou o agente Log Analytics num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
+## <a name="next-steps"></a>Próximos passos
+Neste arranque rápido, ateou o agente Log Analytics num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)

@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 98c86d839868eb0714c7106d5267d1c55e6e99d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48e2697cb4793f10e7694aa26e29c48a397fe3a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83739316"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521603"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica num domínio do Azure Front Door?
+# <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Geo-filtração em um domínio para Azure Front Door
 
 Por predefinição, a Porta Frontal Azure responde às solicitações do utilizador, independentemente da localização do utilizador que es faz o pedido. No entanto, em alguns casos, poderá querer restringir o acesso às suas aplicações web por país/região. O serviço de firewall de aplicação web (WAF) na Porta frontal permite-lhe definir uma política usando regras de acesso personalizado para uma trajetória específica no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
 

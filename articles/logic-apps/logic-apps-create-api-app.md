@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834497"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520805"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode chamar a partir de Azure Logic Apps
 
@@ -53,8 +54,8 @@ Também pode nomear conectores registados para a certificação microsoft. Este 
 Para obter mais informações sobre conectores personalizados, consulte 
 
 * [Visão geral dos conectores personalizados](../logic-apps/custom-connector-overview.md)
-* [Criar conectores personalizados a partir de APIs web](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Registar conectores personalizados em Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
+* [Criar conectores personalizados a partir de APIs web](/connectors/custom-connectors/create-web-api-connector)
+* [Registar conectores personalizados em Azure Logic Apps](/connectors/custom-connectors/)
 
 ## <a name="helpful-tools"></a>Ferramentas úteis
 
@@ -227,7 +228,7 @@ Para disponibilizar os seus APIs personalizados a todos os utilizadores em Aplic
 
 * Para obter ajuda específica com APIs personalizados, [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com) contacte.
 
-* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 
 * Para ajudar a melhorar o Logic Apps, vote ou submeta ideais no [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish). 
 

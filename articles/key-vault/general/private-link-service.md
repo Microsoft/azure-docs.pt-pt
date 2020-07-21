@@ -7,14 +7,14 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610156"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521093"
 ---
-# <a name="integrate-key-vault-with-azure-private-link"></a>Integre o Cofre de Chaves com Ligação Privada Azure
+# <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault no Azure Private Link
 
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Key Vault, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um Ponto Final Privado na sua rede virtual.
 
@@ -66,7 +66,7 @@ Agora poderá ver o ponto final privado configurado. Tem agora a opção de elim
 
 Se já tiver um cofre chave, pode criar uma ligação de ligação privada seguindo estes passos:
 
-1. Inicie sessão no Portal do Azure. 
+1. Inicie sessão no portal do Azure. 
 1. Na barra de pesquisa, escreva em "cofres-chave"
 1. Selecione o cofre de chaves da lista à qual pretende adicionar um ponto final privado.
 1. Selecione o separador "Networking" em Definições
@@ -125,6 +125,17 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ### <a name="link-private-dns-zone-to-virtual-network"></a>Ligue a Zona Privada de DNS à Rede Virtual 
 ```console
 az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+```
+### <a name="add-private-dns-records"></a>Adicionar registos dns privados
+```console
+# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+az network private-dns zone list -g $rg_name
+az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
+az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
+
+# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
+nslookup $vault_name.vault.azure.net
+nslookup $vault_name.privatelink.vaultcore.azure.net
 ```
 ### <a name="create-a-private-endpoint-automatically-approve"></a>Criar um ponto final privado (aprovar automaticamente) 
 ```console

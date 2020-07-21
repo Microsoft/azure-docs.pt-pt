@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: Azure Front Door Rules Engine actions
 description: Este artigo fornece uma lista das várias ações que pode fazer com o Motor das Regras da Porta Frontal Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: e11555e883a323bcb5b0be1c62b2825bce77524e
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 74c0a2617a01e8c24cd93a015b667081250657ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313994"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521501"
 ---
-# <a name="azure-front-door-rules-engine-actions"></a>Azure Front Door Rules Engine Actions
+# <a name="azure-front-door-rules-engine-actions"></a>Ações do Motor de Regras do Azure Front Door
 
 No [MOTOR de Regras AFD](front-door-rules-engine.md) uma regra consiste em zero ou mais condições e ações de correspondência. Este artigo fornece descrições detalhadas das ações que pode usar no MOTOR de Regras DA AFD.
 
@@ -35,9 +35,9 @@ Utilize esta ação para modificar os cabeçalhos que estão presentes nos pedid
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | String
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | Cadeia
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | Cadeia
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | Cadeia
 
 ## <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -47,11 +47,11 @@ Utilize esta ação para modificar cabeçalhos que estão presentes nas resposta
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | String
-Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | String
+Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | Cadeia
+Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | Cadeia
+Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | Cadeia
 
-## <a name="route-configuration-overrides"></a>Sobreposições de configuração de rota 
+## <a name="route-configuration-overrides"></a>Substituições da configuração de rotas 
 
 ### <a name="route-type-redirect"></a>Tipo de rota: Redirecionamento
 
@@ -95,7 +95,7 @@ Utilize estas definições para controlar a forma como os ficheiros são cached 
 Comportamento da cache |  Descrição              
 ---------------|----------------
 Ignorar cadeias de consulta | Uma vez que o ativo esteja em cache, todos os pedidos subsequentes ignoram as cordas de consulta até que o ativo em cache expire.
-Colocar em cache todos os URL exclusivos | Cada pedido com um URL único, incluindo a cadeia de consulta, é tratado como um ativo único com a sua própria cache.
+Colocar em cache todos os URLs exclusivos | Cada pedido com um URL único, incluindo a cadeia de consulta, é tratado como um ativo único com a sua própria cache.
 Ignore as cadeias de consulta especificadas | Solicitam que as cadeias de consulta de URL listadas na definição "Parâmetros de consulta" sejam ignoradas para caching.
 Incluir cadeias de consulta especificadas | Solicitam cadeias de consulta de URL listadas na definição "Parâmetros de consulta" para o caching.
 
@@ -105,7 +105,7 @@ Compressão dinâmica | A Porta frontal pode comprimir dinamicamente o conteúdo
 Parâmetros de consulta | Uma lista separada de vírgula de parâmetros permitidos (ou não autorizados) para usar como base para o caching.
 Duração da cache | Duração de validade da cache em Dias, Horas, Minutos, Segundos. Todos os valores devem ser Int. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como configurar a sua primeira [configuração do Motor de Regras](front-door-tutorial-rules-engine.md). 
 - Saiba mais sobre [as condições de jogo do Motor de Regras](front-door-rules-engine-match-conditions.md)

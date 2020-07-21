@@ -4,20 +4,20 @@ description: A API para cancelar uma operação em curso na oferta
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: anbene
+author: emuench
 ms.author: mingshen
-ms.date: 06/16/2020
-ms.openlocfilehash: e65f0a8ee0a5dfafab681010006fe190cb5bad70
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 462ca525be9cf46c87acdf4025223a98afaf8e3b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102757"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520379"
 ---
 # <a name="cancel-operation"></a>Cancelar operação
 
 > [!NOTE]
-> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a funcionar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a migração para o Partner Center.
+> As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
 Esta API cancela uma operação em curso na oferta. Utilize a [API de operações de Recuperação](./cloud-partner-portal-api-retrieve-operations.md) para obter um `operationId` passe para esta API. O cancelamento é geralmente uma operação sincronizada, no entanto, em alguns cenários complexos, uma nova operação pode ser necessária para cancelar uma existente. Neste caso, o organismo de resposta HTTP contém a localização da operação que deve ser utilizada para o estado de consulta.
 
@@ -29,8 +29,8 @@ Esta API cancela uma operação em curso na oferta. Utilize a [API de operaçõe
 
 |  **Nome**    |      **Descrição**                                  |    **Tipo de dados**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador de editor, por exemplo,`contoso`         |   String          |
-| offerId      |  Identificar oferta                                     |   String          |
+| publisherId  |  Identificador de editor, por exemplo,`contoso`         |   Cadeia          |
+| offerId      |  Identificar oferta                                     |   Cadeia          |
 | api-version  |  Versão atual da API                               |    Data           |
 |  |  |  |
 
@@ -46,7 +46,7 @@ Esta API cancela uma operação em curso na oferta. Utilize a [API de operaçõe
 ## <a name="body-example"></a>Exemplo corporal
 ------------
 
-### <a name="request"></a>Pedir
+### <a name="request"></a>Pedido
 
 ``` json
 {

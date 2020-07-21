@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: f3eed03c585ba6b48a21b36c21cb77585456fc2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c64a38295754e4754326dec126bfbc36e1bef61
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523337"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços IP do Azure Integration Runtime
 
@@ -24,7 +25,7 @@ ms.locfileid: "84660262"
 O IP endereça que o Tempo de Execução da Integração Azure depende da região onde o seu tempo de integração Azure está localizado. *Todos os* Os tempos de integração do Azure que estão na mesma região utilizam os mesmos intervalos de endereços IP.
 
 > [!IMPORTANT]  
-> Os fluxos de dados não suportam a utilização de gamas IP fixas.
+> Fluxos de dados e Tempo de execução de integração Azure que permitem rede virtual gerida não suportam a utilização de gamas IP fixas.
 >
 > Pode utilizar estas gamas IP para execuções de movimento de dados, pipeline e atividades externas. Estas gamas IP podem ser utilizadas para a whitelisting em lojas de dados/ Grupo de Segurança de Rede (NSG)/ Firewalls para acesso à entrada a partir do tempo de funcionamento da Integração Azure. 
 

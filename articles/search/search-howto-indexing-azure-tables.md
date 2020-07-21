@@ -8,13 +8,13 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d6670966b4cf74510df5dd26c994e0c53b219ba9
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/11/2020
+ms.openlocfilehash: a57232853284dad6f363797c009b1c38738d5b37
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145249"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519784"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas a partir do armazenamento da Tabela Azure com Azure Cognitive Search
 
@@ -156,7 +156,7 @@ Para indicar que certos documentos devem ser removidos do índice, pode utilizar
 ```
 
 <a name="Performance"></a>
-## <a name="performance-considerations"></a>Considerações sobre desempenho
+## <a name="performance-considerations"></a>Considerações de desempenho
 
 Por predefinição, a Azure Cognitive Search utiliza o seguinte filtro de consulta: `Timestamp >= HighWaterMarkValue` . Como as tabelas Azure não têm um índice secundário no `Timestamp` campo, este tipo de consulta requer uma varredura completa da tabela e, portanto, é lento para grandes tabelas.
 

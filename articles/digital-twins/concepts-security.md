@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0f1f9e17646c4432d9c1103b3c579fc6bb0d2f13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833169"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522266"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Secure Azure Digital Twins com controlo de acesso baseado em funções
 
@@ -58,7 +58,7 @@ Pode atribuir funções de duas formas:
 * através do painel de controlo de acesso (IAM) para Azure Digital Twins no portal Azure (ver [Adicionar ou remover atribuições de funções utilizando o RBAC Azure e o portal Azure)](../role-based-access-control/role-assignments-portal.md)
 * através de comandos CLI para adicionar ou remover uma função
 
-Para passos mais detalhados sobre como fazê-lo, experimente-o no [tutorial Azure Digital Twins: Conecte uma solução de ponta a ponta](tutorial-end-to-end.md).
+Para passos mais detalhados sobre como fazê-lo, experimente-o no [tutorial Azure Digital Twins: *Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Âmbitos de permissão
 
@@ -73,6 +73,6 @@ A lista que se segue descreve os níveis em que pode aceder aos recursos da Azur
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Veja como caminhar por estes passos com uma aplicação de cliente de amostra em [Como-a-: Autenticar uma aplicação ao cliente.](how-to-authenticate-client.md)
+* Veja como caminhar por estes passos com uma aplicação de cliente de amostra em [*Como-a-: Autenticar uma aplicação ao cliente.*](how-to-authenticate-client.md)
 
 * Leia mais sobre [o RBAC para Azure.](../role-based-access-control/overview.md)

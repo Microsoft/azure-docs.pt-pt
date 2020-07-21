@@ -8,11 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836163"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522861"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Resolver Problemas do Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -122,6 +123,14 @@ Para problemas de conector, tais como um erro de encontro utilizando a atividade
 - **Causa:** As mensagens de erro indicam vários problemas, tais como um estado de agrupamento inesperado ou uma atividade específica. Muitas vezes, não aparece nenhuma mensagem de erro.
 
 - **Recomendação**: N/A
+
+### <a name="error-code-3208"></a>Código de erro: 3208
+
+- **Mensagem:**`An error occurred while sending the request.`
+
+- **Causa**: A ligação de rede ao serviço Databricks foi interrompida.
+
+- **Recomendação**: Se estiver a utilizar um tempo de integração auto-organizado, certifique-se de que a ligação da rede é fiável a partir dos nós de tempo de integração. Se estiver a utilizar o tempo de integração do Azure, o retraimento geralmente funciona.
  
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 
@@ -1037,7 +1046,7 @@ Utilizar **o Fiddler** para criar uma sessão HTTP da aplicação web monitoriza
  
    1. Se necessário, adicione cabeçalhos e um corpo de pedido.
 
-   1. Selecione **Executar**.
+   1. Selecione **Execute** (Executar).
 
 1. Ligue a captura de tráfego novamente e complete a transação problemática na sua página.
 
@@ -1053,5 +1062,5 @@ Para obter mais ajuda para resolver problemas, experimente estes recursos:
 * [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

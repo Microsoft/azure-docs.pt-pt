@@ -1,21 +1,22 @@
 ---
-title: Formatos de ficheiros suportados na Azure Data Factory
-description: Este tópico descreve os formatos de ficheiros e os códigos de compressão que são suportados por conectores baseados em ficheiros na Azure Data Factory.
+title: Formatos de ficheiros suportados por atividade de cópia na Azure Data Factory
+description: Este tópico descreve os formatos de ficheiros e os códigos de compressão que são suportados pela atividade de cópia na Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 07/16/2020
 ms.author: jingwang
-ms.openlocfilehash: 24edeb686136a1264d75e81fd9527feff3d17c48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c044208699bf5bebb6383cfef00bf53b744369d0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84191095"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522449"
 ---
-# <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiros suportados e codecs de compressão na Azure Data Factory
+# <a name="supported-file-formats-and-compression-codecs-by-copy-activity-in-azure-data-factory"></a>Formatos de ficheiros suportados e codecs de compressão por atividade de cópia na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Este artigo aplica-se aos seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), Azure File Storage Gen2 , [Azure File Storage](connector-azure-file-storage.md), File [System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP](connector-sftp.md).*

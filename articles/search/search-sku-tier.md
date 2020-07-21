@@ -7,12 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84119211"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519739"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
@@ -22,14 +23,17 @@ A maioria dos clientes começa com o nível Free para que possam avaliar o servi
 
 ## <a name="feature-availability-by-tier"></a>Disponibilidade de recursos por nível
 
-Quase todas as funcionalidades estão disponíveis em todos os níveis, incluindo o Free, mas uma funcionalidade ou fluxo de trabalho intensivo pode não funcionar bem a menos que lhe dê capacidade suficiente. Por exemplo, [o enriquecimento](cognitive-search-concept-intro.md) de IA tem habilidades de longa duração que o tempo de serviço gratuito, a menos que o conjunto de dados seja pequeno.
-
 A tabela a seguir descreve restrições de características relacionadas com o nível.
 
 | Funcionalidade | Limitações |
 |---------|-------------|
 | [indexadores](search-indexer-overview.md) | Os indexantes não estão disponíveis no S3 HD. |
+| [Melhoramento de IA](search-security-manage-encryption-keys.md) | Funciona no nível Livre, mas não é recomendado. |
 | [Chaves de encriptação geridas pelo cliente](search-security-manage-encryption-keys.md) | Não disponível no nível Livre. |
+| [Acesso a firewall IP](service-configure-firewall.md) | Não disponível no nível Livre. |
+| [Integração com Azure Private Link](service-create-private-endpoint.md) | Não disponível no nível Livre. |
+
+A maioria das funcionalidades estão disponíveis em todos os níveis, incluindo funcionalidades gratuitas, mas funcionalidades intensivas de recursos podem não funcionar bem a menos que lhe dê capacidade suficiente. Por exemplo, [o enriquecimento](cognitive-search-concept-intro.md) de IA tem habilidades de longa duração que o tempo de serviço livre, a menos que o conjunto de dados seja pequeno.
 
 ## <a name="tiers-skus"></a>Níveis (SKUs)
 
@@ -56,10 +60,10 @@ Pode saber mais sobre os vários níveis na [página de preços,](https://azure.
 
 Uma solução construída na Azure Cognitive Search pode incorrer em custos das seguintes formas:
 
-+ Custo fixo do próprio serviço, com execução 24x7, na configuração mínima (uma partição e réplica)
-+ Custo incremental ao escalonar (adicionar réplicas ou divisórias)
++ Custo do próprio serviço, com execução 24x7, na configuração mínima (uma partição e réplica)
++ Capacidade de adição (réplicas ou divisórias)
 + Taxas de largura de banda (transferência de dados de saída) 
-+ Pesquisa cognitiva (anexar serviços cognitivos para enriquecimento de IA, ou usar armazenamento Azure para loja de conhecimento)
++ Serviços adicionais como o enriquecimento de IA (anexando Serviços Cognitivos em skillsets que definem o processamento de IA, ou usando o armazenamento de Azure para a loja de conhecimento) ou implantando um serviço de pesquisa numa rede virtual privada
 
 ### <a name="service-costs"></a>Custos de serviço
 
@@ -71,7 +75,7 @@ Quando estimar o custo de uma solução de pesquisa, lembre-se que os preços e 
 
 ### <a name="bandwidth-charges"></a>Taxas de largura de banda
 
-A utilização [de indexantes de Pesquisa Cognitiva Azure](search-indexer-overview.md) pode afetar a faturação, dependendo da localização dos seus serviços. Pode eliminar totalmente as taxas de saída de dados se criar o serviço de Pesquisa Cognitiva Azure na mesma região que os seus dados. Aqui estão algumas informações da página de preços da [largura de banda:](https://azure.microsoft.com/pricing/details/bandwidth/)
+A utilização [de indexantes](search-indexer-overview.md) pode afetar a faturação, dependendo da localização dos seus serviços. Pode eliminar totalmente as taxas de saída de dados se criar o serviço de Pesquisa Cognitiva Azure na mesma região que os seus dados. Aqui estão algumas informações da página de preços da [largura de banda:](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 + A Microsoft não cobra por quaisquer dados de entrada a qualquer serviço no Azure, nem por quaisquer dados de saída da Azure Cognitive Search.
 + Em soluções multiserviços, não há qualquer custo para os dados que cruzam o fio quando todos os serviços estão na mesma região.
@@ -107,7 +111,7 @@ A maioria dos clientes traz apenas uma parte da capacidade total on-line, manten
 
 ## <a name="how-to-manage-costs"></a>Como gerir os custos
 
-As seguintes sugestões podem ajudá-lo a manter os custos no mínimo:
+As seguintes sugestões podem ajudá-lo a baixar os custos ou gerir os custos de forma mais eficaz:
 
 + Criar todos os recursos na mesma região, ou no menor tempo possível, para minimizar ou eliminar as taxas de largura de banda.
 
@@ -140,7 +144,7 @@ A capacidade e os custos de funcionamento do serviço andam de mãos dadas. Os n
 
 Os requisitos de negócio normalmente ditam o número de índices que você precisa. Por exemplo, pode precisar de um índice global para um grande repositório de documentos. Ou pode precisar de vários índices baseados na região, aplicação ou nicho de negócio.
 
-Para determinar o tamanho de um índice, tem que [construir um.](search-create-index-portal.md) O seu tamanho basear-se-á em dados importados e na configuração do índice, tais como se permite sugestivos, filtragem e triagem. Para obter mais informações sobre o impacto da configuração no tamanho, consulte [Criar um índice básico ](search-what-is-an-index.md).
+Para determinar o tamanho de um índice, tem que [construir um.](search-what-is-an-index.md) O seu tamanho basear-se-á em dados importados e na configuração do índice, tais como se permite sugestivos, filtragem e triagem.
 
 Para a pesquisa completa de texto, a estrutura de dados primários é uma estrutura [de índice invertida,](https://en.wikipedia.org/wiki/Inverted_index) que tem características diferentes dos dados de origem. Para um índice invertido, o tamanho e a complexidade são determinados pelo conteúdo, não necessariamente pela quantidade de dados que se alimenta nele. Uma grande fonte de dados com alta redundância poderia resultar num índice menor do que um conjunto de dados menor que contém conteúdo altamente variável. Portanto, raramente é possível inferir o tamanho do índice com base no tamanho do conjunto de dados original.
 
@@ -154,7 +158,7 @@ Uma abordagem para estimar a capacidade é começar com o nível Livre. Lembre-s
 
 + [Crie um serviço gratuito.](search-create-service-portal.md)
 + Prepare um conjunto de dados pequeno e representativo.
-+ [Construa um índice inicial no portal](search-create-index-portal.md) e note o seu tamanho. Funcionalidades e atributos têm impacto no armazenamento. Por exemplo, adicionar sugestivos (consultas de pesquisa como você do tipo) aumentará os requisitos de armazenamento. Utilizando o mesmo conjunto de dados, pode tentar criar várias versões de um índice, com diferentes atributos em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["Implicações de armazenamento" na Criação de um índice básico.](search-what-is-an-index.md#index-size)
++ [Construa um índice inicial no portal](search-get-started-portal.md) e note o seu tamanho. Funcionalidades e atributos têm impacto no armazenamento. Por exemplo, adicionar sugestivos (consultas de pesquisa como você do tipo) aumentará os requisitos de armazenamento. Utilizando o mesmo conjunto de dados, pode tentar criar várias versões de um índice, com diferentes atributos em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["Implicações de armazenamento" na Criação de um índice básico.](search-what-is-an-index.md#index-size)
 
 Com uma estimativa aproximada na mão, você pode duplicar esse montante para orçamento para dois índices (desenvolvimento e produção) e, em seguida, escolher o seu nível em conformidade.
 
@@ -170,7 +174,7 @@ Os recursos dedicados podem acomodar tempos de amostragem e processamento maiore
     + Comece alto, no S2 ou mesmo no S3, se souber que vai ter cargas de indexação e consulta em larga escala.
     + Comece com o Storage Otimizado, em L1 ou L2, se estiver a indexar uma grande quantidade de dados e a carga de consulta é relativamente baixa, como acontece com uma aplicação de negócio interna.
 
-1. [Construa um índice inicial](search-create-index-portal.md) para determinar como os dados de origem se traduzem num índice. Esta é a única maneira de estimar o tamanho do índice.
+1. [Construa um índice inicial](search-what-is-an-index.md) para determinar como os dados de origem se traduzem num índice. Esta é a única maneira de estimar o tamanho do índice.
 
 1. [Monitorize o armazenamento, os limites de serviço, o volume de consulta e](search-monitor-usage.md) a latência no portal. O portal mostra-lhe consultas por segundo, consultas estranguladas e latência de pesquisa. Todos estes valores podem ajudá-lo a decidir se selecionou o nível certo. 
 

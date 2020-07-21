@@ -1,5 +1,5 @@
 ---
-title: 'Regressão florestal de decisão: Referência do módulo'
+title: 'Perceptron médio de duas classes: referência do módulo'
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar o módulo Perceptron Averaged de duas classes em Azure Machine Learning para criar um modelo de aprendizagem automática baseado no algoritmo perceptron médio.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 53e40726a5745263ee2b3cb4ada8671bf65da963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daa0cfdedfe634acd2039cd4ec87606d30f7e76f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137676"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520583"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
 
@@ -67,6 +67,6 @@ Os modelos perceptron mais simples são adequados para aprender padrões linearm
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

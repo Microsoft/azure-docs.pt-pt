@@ -3,12 +3,12 @@ title: Leia os Azure Event Hubs capturados dados de uma aplicação Python (mais
 description: Este artigo mostra-lhe como escrever código Python para capturar dados enviados para um centro de eventos e ler os dados do evento capturados a partir de uma conta de armazenamento Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 752a582e59b438f7449d6722b222969dc641880c
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: eb7e8a2c1e567e474ad7d0766d9b12e5b43de3ae
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315293"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521875"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capture os dados do Event Hubs no Azure Storage e leia-os utilizando python (versão azure-eventhub 5)
 
@@ -35,7 +35,7 @@ Neste início rápido, irá:
 - Um espaço de nomes e centro de eventos do Event Hubs ativo.
 [Crie um espaço de nomes de Event Hubs e um centro de eventos no espaço de nomes.](event-hubs-create.md) Grave o nome do espaço de nomes do Event Hubs, o nome do centro de eventos e a chave de acesso primária para o espaço de nome. Para obter a chave de acesso, consulte [obter uma cadeia de conexão Event Hubs](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). O nome-chave predefinido é *RootManageSharedAccessKey*. Para este arranque rápido, só precisas da chave primária. Não precisas da corda de ligação.  
 - Uma conta de armazenamento Azure, um recipiente blob na conta de armazenamento e um fio de ligação à conta de armazenamento. Se não tiver estes itens, faça o seguinte:  
-    1. [Criar uma conta de armazenamento Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
+    1. [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Criar um contentor de blobs na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [Obtenha o fio de ligação para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
@@ -173,7 +173,7 @@ Neste exemplo, os dados capturados são armazenados no armazenamento da Azure Bl
 
    Este processador de captura utiliza o diretório local para descarregar todas as bolhas da conta de armazenamento e do contentor. Processa qualquer um que não esteja vazio, e escreve os resultados como ficheiros CSV no diretório local.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Confira [as amostras de Python no GitHub.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) 
 
 
@@ -182,4 +182,4 @@ Confira [as amostras de Python no GitHub.](https://github.com/Azure/azure-sdk-fo
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

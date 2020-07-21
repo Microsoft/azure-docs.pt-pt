@@ -3,11 +3,12 @@ title: Configurar o acesso ao registo público
 description: Configurar regras IP para permitir o acesso a um registo de contentores Azure a partir de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83702085"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523830"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras públicas de rede IP
 
@@ -100,6 +101,13 @@ az acr update --name myContainerRegistry --public-network-enabled true
 1. No separador **de acesso público,** em **Permitir o acesso à rede pública,** selecione **Todas as redes**. Em seguida, selecione **Guardar**.
 
 ![Acesso público de todas as redes][acr-access-all-networks]
+
+## <a name="troubleshoot"></a>Resolver Problemas
+
+Se uma regra de rede pública for definida, ou o acesso público ao registo for negado, as tentativas de login no registo a partir de uma rede pública não permitida falharão. O acesso ao cliente por trás de um representante HTTPS também falhará se não for definida uma regra de acesso para o proxy. Verá uma mensagem de erro semelhante a `Error response from daemon: login attempt failed with status: 403 Forbidden` ou `Looks like you don't have access to registry` .
+
+Estes erros também podem ocorrer se utilizar um proxy HTTPS que é permitido por uma regra de acesso à rede, mas o proxy não está devidamente configurado no ambiente do cliente. Verifique se tanto o seu cliente Docker como o daemon do Docker estão configurados para comportamento de procuração. Para mais informações, consulte [http/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) na documentação do Docker.
+
 
 ## <a name="next-steps"></a>Próximos passos
 

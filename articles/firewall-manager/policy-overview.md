@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 88b7dc60b865325ef7dcd9e79015fdee10b4f9a2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563708"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521654"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Visão geral da política do Azure Firewall Manager
 
@@ -47,8 +47,8 @@ Com a herança, quaisquer alterações à política dos pais são automaticament
 O Azure Firewall apoia as regras e políticas tradicionais. O quadro que se segue compara as políticas e as regras:
 
 
-|         |Política  |Regras  |
-|---------|---------|---------|
+| Assunto | Política  | Regras |
+| ------- | ------- | ----- |
 |Contains     |NAT, Rede, Regras de aplicação, definições personalizadas de DNS e DNS proxy, configurações de Grupos IP e Inteligência de Ameaças (incluindo lista de autorizações)|Regras de NAT, Rede e Aplicação, definições personalizadas de DNS e DNS proxy, configurações de Grupos IP e Inteligência de Ameaças (incluindo lista de autorizações)|
 |Protege     |Centros virtuais e Redes Virtuais|Apenas redes virtuais|
 |Experiência do portal     |Gestão central usando Firewall Manager|Experiência de firewall autónoma|
@@ -60,6 +60,6 @@ O Azure Firewall apoia as regras e políticas tradicionais. O quadro que se segu
 
 As políticas são faturadas com base em associações de firewall. Uma política com zero ou uma associação de firewall é gratuita. Uma política com várias associações de firewall é cobrada a uma taxa fixa. Para obter mais informações, consulte o Preço do Gestor de Firewall da [Azure.](https://azure.microsoft.com/pricing/details/firewall-manager/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender a implementar uma Firewall Azure, consulte [Tutorial: Fixe a sua rede de nuvem com o Azure Firewall Manager utilizando o portal Azure](secure-cloud-network.md).

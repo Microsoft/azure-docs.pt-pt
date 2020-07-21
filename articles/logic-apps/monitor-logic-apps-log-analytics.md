@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708047"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520737"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic
 
-Para obter informações mais ricas sobre as suas aplicações lógicas durante o tempo de execução, pode configurar e utilizar [registos do Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para gravar e armazenar informações sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num [espaço de trabalho do Log Analytics.](../azure-monitor/platform/resource-logs-collect-workspace.md) [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode criar [consultas de registo](../azure-monitor/log-query/log-query-overview.md) que o ajudam a recolher e rever estas informações. Também pode [utilizar estes dados de diagnóstico com outros serviços Azure](#extend-data), como o Azure Storage e o Azure Event Hubs.
+Para obter informações mais ricas sobre as suas aplicações lógicas durante o tempo de execução, pode configurar e utilizar [registos do Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para gravar e armazenar informações sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num [espaço de trabalho do Log Analytics.](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode criar [consultas de registo](../azure-monitor/log-query/log-query-overview.md) que o ajudam a recolher e rever estas informações. Também pode [utilizar estes dados de diagnóstico com outros serviços Azure](#extend-data), como o Azure Storage e o Azure Event Hubs.
 
 Para configurar o registo para a sua aplicação lógica, pode [ativar o Log Analytics quando criar a sua aplicação lógica](#logging-for-new-logic-apps), ou pode [instalar a solução De Gestão de Aplicações Lógicas](#install-management-solution) no seu espaço de trabalho Log Analytics para aplicações lógicas existentes. Esta solução fornece informações agregadas para a sua aplicação lógica e inclui detalhes específicos como estado, tempo de execução, estado de resubmissão e IDs de correlação. Em seguida, para permitir o registo e a criação de consultas para esta informação, [crie registos do Azure Monitor](#set-up-resource-logs).
 
@@ -22,7 +23,7 @@ Este artigo mostra como ativar o Log Analytics quando cria aplicações lógicas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, precisa de um espaço de [trabalho log analytics](../azure-monitor/platform/resource-logs-collect-workspace.md). Se não tiver um espaço de trabalho, aprenda [a criar um espaço](../azure-monitor/learn/quick-create-workspace.md)de trabalho log analytics .
+Antes de começar, precisa de um espaço de [trabalho log analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Se não tiver um espaço de trabalho, aprenda [a criar um espaço](../azure-monitor/learn/quick-create-workspace.md)de trabalho log analytics .
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -175,15 +176,15 @@ Depois de a sua aplicação lógica ser executado, pode ver os dados sobre essas
 
 Juntamente com os registos do Azure Monitor, pode estender a forma como utiliza os dados de diagnóstico da sua aplicação lógica com outros serviços Azure, por exemplo:
 
-* [Registos de recursos do Archive Azure para a conta de armazenamento](../azure-monitor/platform/resource-logs-collect-storage.md)
-* [Stream Azure plataforma registro para Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+* [Registos de recursos do Archive Azure para a conta de armazenamento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [Stream Azure plataforma registro para Azure Event Hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
 Em seguida, pode obter monitorização em tempo real utilizando telemetria e análise de outros serviços, como [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md). Por exemplo:
 
 * [Transmitir dados de Centros de Eventos para Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analise os dados de streaming com o Stream Analytics e crie um dashboard de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-Com base nos locais onde pretende enviar dados de diagnóstico, certifique-se de que cria primeiro [uma conta de armazenamento Azure](../storage/common/storage-create-storage-account.md) ou cria um centro de [eventos Azure](../event-hubs/event-hubs-create.md). Em seguida, pode selecionar os destinos para onde pretende enviar esses dados. Os períodos de retenção aplicam-se apenas quando se utiliza uma conta de armazenamento.
+Com base nos locais onde pretende enviar dados de diagnóstico, certifique-se de que cria primeiro [uma conta de armazenamento Azure](../storage/common/storage-account-create.md) ou cria um centro de [eventos Azure](../event-hubs/event-hubs-create.md). Em seguida, pode selecionar os destinos para onde pretende enviar esses dados. Os períodos de retenção aplicam-se apenas quando se utiliza uma conta de armazenamento.
 
 ![Enviar dados para a conta de armazenamento da Azure ou centro de eventos](./media/monitor-logic-apps-log-analytics/diagnostics-storage-event-hub-log-analytics.png)
 
@@ -191,7 +192,7 @@ Com base nos locais onde pretende enviar dados de diagnóstico, certifique-se de
 
 ## <a name="azure-monitor-diagnostics-events"></a>Eventos de diagnóstico do Azure Monitor
 
-Cada evento de diagnóstico tem detalhes sobre a sua aplicação lógica e esse evento, por exemplo, o estado, hora de início, tempo de fim, e assim por diante. Para configurar programáticamente monitorização, rastreio e registo, pode utilizar esta informação com a [API REST para Apps Lógicas Azure](https://docs.microsoft.com/rest/api/logic) e a [API REST para O Monitor Azure.](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) Você também pode usar as `clientTrackingId` `trackedProperties` propriedades e propriedades, que aparecem em 
+Cada evento de diagnóstico tem detalhes sobre a sua aplicação lógica e esse evento, por exemplo, o estado, hora de início, tempo de fim, e assim por diante. Para configurar programáticamente monitorização, rastreio e registo, pode utilizar esta informação com a [API REST para Apps Lógicas Azure](/rest/api/logic) e a [API REST para O Monitor Azure.](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) Você também pode usar as `clientTrackingId` `trackedProperties` propriedades e propriedades, que aparecem em 
 
 * `clientTrackingId`: Se não for fornecido, o Azure gera automaticamente este ID e correlaciona eventos através de uma aplicação lógica executada, incluindo quaisquer fluxos de trabalho aninhados que são chamados da aplicação lógica. Pode especificar manualmente este ID num gatilho passando um `x-ms-client-tracking-id` cabeçalho com o seu valor de ID personalizado no pedido do gatilho. Pode utilizar um gatilho de pedido, um gatilho HTTP ou um gatilho webhook.
 

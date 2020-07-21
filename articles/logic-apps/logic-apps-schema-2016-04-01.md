@@ -8,11 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792872"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520720"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de Schema para Azure Logic Apps - 1 de junho de 2016
 
@@ -28,7 +29,7 @@ Para atualizar as suas aplicações lógicas a partir do esquema de pré-visuali
 
 ## <a name="scopes"></a>Âmbitos
 
-Este esquema inclui âmbitos, que permitem agrupar ações em conjunto, ou ações de ninho dentro umas das outras. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [a sintaxe de âmbito,](../logic-apps/logic-apps-loops-and-scopes.md)ou reveja este exemplo básico de âmbito:
+Este esquema inclui âmbitos, que permitem agrupar ações em conjunto, ou ações de ninho dentro umas das outras. Por exemplo, uma condição pode conter outra condição. Saiba mais sobre [a sintaxe de âmbito,](./logic-apps-control-flow-loops.md)ou reveja este exemplo básico de âmbito:
 
 ```json
 {
@@ -54,7 +55,7 @@ Este esquema inclui âmbitos, que permitem agrupar ações em conjunto, ou açõ
 
 ## <a name="conditions-and-loops-changes"></a>Alterações de condições e loops
 
-Em versões de esquema anteriores, as condições e os loops eram parâmetros associados a uma única ação. Este esquema levanta esta limitação, pelo que as condições e os laços estão agora disponíveis como tipos de ação. Saiba mais sobre [loops e âmbitos,](../logic-apps/logic-apps-loops-and-scopes.md) [condições,](../logic-apps/logic-apps-control-flow-conditional-statement.md)ou reveja este exemplo básico que mostra uma ação de condição:
+Em versões de esquema anteriores, as condições e os loops eram parâmetros associados a uma única ação. Este esquema levanta esta limitação, pelo que as condições e os laços estão agora disponíveis como tipos de ação. Saiba mais sobre [loops e âmbitos,](./logic-apps-control-flow-loops.md) [condições,](../logic-apps/logic-apps-control-flow-conditional-statement.md)ou reveja este exemplo básico que mostra uma ação de condição:
 
 ```json
 {
@@ -130,7 +131,7 @@ Na definição atualizada, a ferramenta faz o melhor esforço para agrupar açõ
 
 #### <a name="foreach-loop-with-condition"></a>'foreach' loop com condição
 
-No novo esquema, pode utilizar a ação do filtro para replicar o padrão que utiliza um **Loop para cada** loop com uma condição por item. No entanto, a alteração ocorre automaticamente quando faz a atualização. A condição torna-se uma ação de filtro que aparece antes do **For cada** loop, devolvendo apenas uma série de itens que correspondem à condição, e passando essa matriz para **Para cada** ação. Por exemplo, consulte [Loops e scopes](../logic-apps/logic-apps-loops-and-scopes.md).
+No novo esquema, pode utilizar a ação do filtro para replicar o padrão que utiliza um **Loop para cada** loop com uma condição por item. No entanto, a alteração ocorre automaticamente quando faz a atualização. A condição torna-se uma ação de filtro que aparece antes do **For cada** loop, devolvendo apenas uma série de itens que correspondem à condição, e passando essa matriz para **Para cada** ação. Por exemplo, consulte [Loops e scopes](./logic-apps-control-flow-loops.md).
 
 ### <a name="resource-tags"></a>Etiquetas de recursos
 

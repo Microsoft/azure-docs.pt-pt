@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0484bc393ac97dc88fed5858f736f01fc41b507a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367398"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521071"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configure as regras de equilíbrio e saída de carga no Balanceador de Carga Padrão utilizando o portal Azure
 
@@ -111,7 +111,7 @@ Na seguinte secção, cria-se um:
     | Nome | Insira **myHTTPRule**. |
     | Protocolo | Selecione **TCP**. |
     | Porta | Insira **80**.|
-    | Porto backend | Insira **80**. |
+    | Porta de back-end | Insira **80**. |
     | Conjunto de back-end | Selecione **myBackendPool**.|
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
     | Criar regras implícitas de saída | Selecione **Não**. Criaremos regras de saída numa secção posterior usando um IP público dedicado. |
@@ -132,8 +132,8 @@ As regras de saída do balançador de carga configuram sNAT de saída para VMs n
     | ------- | ----- |
     | Nome | Insira **LoadBalancerFrontEndOutbound**. |
     | Versão do IP | Selecione **IPv4**. |
-    | Tipo IP | Selecione **o endereço IP**.|
-    | Endereço IP público | Selecione **Criar novo**. No **endereço IP público Adicionar,** insira **o myPublicIPOutbound**.  Selecione **OK**. |
+    | Tipo IP | Selecione **endereço IP** ou **prefixo IP**.|
+    | Endereço IP público | Selecione **Criar novo**. </br> No **endereço IP público Adicionar,** insira **o myPublicIPOutbound**. </br> Se utilizar o prefixo IP, em **Adicionar um prefixo IP público,** insira **o myPublicIPPrefixOutbound**. Escolha um **prefixo para** o prefixo IP público </br> Selecione **OK**.  |
 
 4. Selecione **Adicionar**.
 
@@ -156,8 +156,8 @@ As regras de saída do balançador de carga configuram sNAT de saída para VMs n
     | Definição | Valor |
     | ------- | ----- |
     | Nome | Introduza **o meu OutboundRule**. |
-    | Endereço IP de front-end | Selecione **LoadBalancerFrontEndOutbound**. |
-    | Tempo de 20 minutos (minutos) | Mova o slider para **15 minutos.|
+    | Endereço IP frontend | Selecione **LoadBalancerFrontEndOutbound**. |
+    | Tempo de 20 minutos (minutos) | Mova o slider para **15 minutos**.|
     | TCP Reset | Selecione **Ativado**.|
     | Conjunto de back-end | Selecione **myBackendPoolOutbound** |
     | Dotação portuária -> Dotação portuária | Selecione **Manualmente o número de portas de saída** |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: 24ce0ff2fa5e0b023f2a0d6b92e657299518c044
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 723690c29cd6ce77d7615fc613e50740ef2a45c7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120505"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520158"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Como migrar a sua conta do Portal do Parceiro Cloud para o Partner Center
 
@@ -27,7 +27,7 @@ Se for um utilizador com a função Proprietário em CPP para uma determinada co
 
 ### <a name="your-account-has-been-migrated-to-partner-center"></a>A sua conta foi migrada para o Partner Center
 
-Para todas as contas que tenham concluído a migração do CPP para Partner Center, a gestão da conta acontecerá no Partner Center. Alterações como a adição/eliminação do utilizador serão sincronizadas de volta ao CPP.
+Agora gere a sua conta no Partner Center. Alterações como a adição/eliminação do utilizador serão sincronizadas de volta ao CPP.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Ainda não emigrou a sua conta para o Partner Center
 
@@ -45,7 +45,7 @@ Clique no banner para iniciar o processo de migração da sua conta. Espera-se q
 
 ## <a name="publishers-moving-from-cpp"></a>Editores que se movem do CPP
 
-Se a sua conta tiver sido migrada do Portal do [Parceiro Cloud (CPP),](https://cloudpartner.azure.com)não precisa de criar uma nova conta Partner Center. Deverá ter recebido um link personalizado para a sua nova conta Partner Center em e-mail e numa notificação de banner depois de iniciar sessão na sua conta CPP existente.
+Se a sua conta foi migrada do CPP, não precisa de criar uma nova conta do Partner Center. Deverá ter recebido um link personalizado para a sua nova conta Partner Center em e-mail e numa notificação de banner depois de iniciar sessão na sua conta CPP existente.
 
 Depois de ter ativado a sua nova conta Partner Center visitando este link personalizado, pode voltar à sua conta visitando o [painel de instrumentos de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
 

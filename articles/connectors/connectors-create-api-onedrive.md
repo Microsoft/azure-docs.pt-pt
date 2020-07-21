@@ -7,11 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75378437"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524216"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Aceda e gere ficheiros no conector OneDrive utilizando apps Azure Logic
 
@@ -39,11 +40,11 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 1. No Logic App Designer, `onedrive` escreva para obter uma lista dos gatilhos:  
 
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Uma caixa de diálogo intitulada "Show Microsoft managed APIs" tem uma caixa que contém "onedrive". Abaixo está uma lista de quatro gatilhos. A primeira delas é "OneDrive - Quando um ficheiro é criado". O segundo, "OneDrive - Quando um ficheiro é modificado", foi selecionado.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Selecione **Quando um ficheiro for modificado**. Se já existir uma ligação, selecione o botão 'Show Picker' para selecionar uma pasta.
 
-   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+   ![Uma caixa de diálogo intitulada "Quando um ficheiro é modificado" tem uma caixa intitulada "FOLDER" com um botão de navegação associado.](./media/connectors-create-api-onedrive/sample-folder.png)
 
    Se for solicitado que faça o seu sessão, insira o sinal em detalhes para criar a ligação. [Crie a ligação](connectors-create-api-onedrive.md#create-the-connection) neste artigo que lista os passos.
 
@@ -51,7 +52,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 3. Selecione o botão **Editar** e desa um modo de definir os valores **de Frequência** e **Intervalo.** Por exemplo, se quiser que o gatilho faça sondagens a cada 15 minutos, em seguida, desaccione a **Frequência** ao **Minuto**, e desaccione o **Intervalo** para **15**. 
 
-   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+   ![Uma caixa de diálogo intitulada "Quando um ficheiro é modificado" mostra cinco caixas rotuladas: "FOLDER", "FREQUÊNCIA", "INTERVALO", "TIMEZONE" e "START TIME". Existem listas de espera para os campos "FREQUÊNCIA" e "FUSo HORÁRIO".](./media/connectors-create-api-onedrive/trigger-properties.png)
 
 4. **Guarde** as alterações (canto superior esquerdo da barra de ferramentas). A sua aplicação lógica é guardada e pode ser automaticamente ativada.
 
@@ -61,23 +62,23 @@ Uma ação é uma operação realizada pelo fluxo de trabalho definido numa apli
 
 1. Selecione o sinal de mais. Você vê várias escolhas: **Adicionar uma ação**, **Adicionar uma condição**, ou uma das opções **Mais.**
 
-   ![](./media/connectors-create-api-onedrive/add-action.png)
+   ![Uma imagem mostra quatro botões: "+ Novo Passo", "Adicionar uma ação", "Adicionar uma condição", e "... Mais".](./media/connectors-create-api-onedrive/add-action.png)
 
 2. Escolha **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, `onedrive` escreva para obter uma lista de todas as ações disponíveis.
 
-   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![Uma caixa de diálogo intitulada "Show Microsoft managed APIs" tem uma caixa que contém "onedrive". Abaixo está uma lista de oito ações. O primeiro é "OneDrive - Criar ficheiro", e é selecionado.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. No nosso exemplo, escolha **OneDrive - Criar ficheiro**. Se já existir uma ligação, então selecione o Caminho da **Pasta** para colocar o ficheiro, introduza o **Nome do Ficheiro**e escolha o Conteúdo de **Ficheiro** que pretende:  
 
-   ![](./media/connectors-create-api-onedrive/sample-action.png)
+   ![Uma caixa de diálogo intitulada "Criar ficheiro" mostra três caixas com a etiqueta "FOLDER PATH", "FILE NAME" e "FOLDER CONTENT". Existe um botão de navegação de diretório ao lado da caixa "FOLDER PATH".](./media/connectors-create-api-onedrive/sample-action.png)
 
    Se for solicitado para obter as informações de ligação, insira os detalhes para [criar a ligação tal como descrito](#create-the-connection) neste tópico.
 
    Neste exemplo, cria-se um novo ficheiro numa pasta OneDrive. Pode utilizar a saída de outro gatilho para criar o ficheiro OneDrive. Por exemplo, adicione o Outlook do Office 365 *Quando um novo e-mail chegar.* Em seguida, adicione a ação de ficheiro OneDrive *Create* que utiliza os campos de anexos e de tipo de conteúdo dentro de um ForEach para criar o novo ficheiro no OneDrive.
 
-   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+   ![Uma caixa de diálogo intitulada "Para cada um" tem uma caixa com a etiqueta "SELECT AN OUTPUT FROM PREVIOUS STEPS" que contém "Anexos". Existe uma caixa de diálogo "Criar ficheiro" que cobre o restante da caixa "Para cada", com caixas com a etiqueta "CAMINHO DA PASTA", "NOME DE FICHEIRO" e "CONTEÚDO DE FICHEIRO". ](./media/connectors-create-api-onedrive/foreach-action.png)
 
 5. **Guarde** as alterações (canto superior esquerdo da barra de ferramentas). A sua aplicação lógica é guardada e pode ser automaticamente ativada.
 
@@ -87,4 +88,4 @@ Ver quaisquer gatilhos e ações definidos no swagger, e também ver quaisquer l
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Conectores para Azure Logic Apps](apis-list.md)
+* [Conectores para o Azure Logic Apps](apis-list.md)

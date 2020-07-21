@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831590"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520906"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo utilizando âmbitos em Azure Logic Apps
 
@@ -70,18 +71,18 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
 
       ![Configurar ação "Bing Maps - Get route"](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      Para obter mais informações sobre estes parâmetros, veja [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular um percurso).
+      Para obter mais informações sobre estes parâmetros, veja [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route) (Calcular um percurso).
 
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*começar*> | Insira a origem da sua rota. | 
       | **Waypoint 2** | <*fim*> | Entre no destino da sua rota. | 
-      | **Avoid** | Nenhuma | Insira itens para evitar no seu percurso, como autoestradas, portagens, e assim por diante. Para obter valores possíveis, consulte [Calcular uma rota.](https://msdn.microsoft.com/library/ff701717.aspx) | 
+      | **Evitar** | Nenhum | Insira itens para evitar no seu percurso, como autoestradas, portagens, e assim por diante. Para obter valores possíveis, consulte [Calcular uma rota.](/bingmaps/rest-services/routes/calculate-a-route) | 
       | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar o seu percurso, como distância, tempo com informações de tráfego correntes, e assim por diante. Este exemplo usa este valor: "timeWithTraffic" | 
       | **Distance unit** | <*sua preferência*> | Introduza a unidade de distância para calcular o seu percurso. Este exemplo usa este valor: "Mile" | 
       | **Travel mode** | Driving | Insira o modo de viagem para a sua rota. Este exemplo usa este valor "Driving" | 
-      | **Transit Date-Time** | Nenhuma | Aplica-se apenas ao modo de trânsito. | 
-      | **Tipo de data de trânsito** | Nenhuma | Aplica-se apenas ao modo de trânsito. | 
+      | **Transit Date-Time** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
+      | **Tipo de data de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
       ||||  
 
 1. [Adicione uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifique se o tempo de viagem atual com tráfego excede um tempo especificado. 
@@ -149,7 +150,7 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
        ![Campo "Corpo" acabado](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
 Em seguida, adicione um âmbito para que possa agrupar ações específicas e avaliar o seu estado.
 
@@ -219,7 +220,7 @@ Em seguida, adicione um âmbito para que possa agrupar ações específicas e av
 
    ![Adicionar ações a tomar com base no estado de âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
 A sua aplicação lógica acabada agora parece este exemplo:
 
@@ -387,7 +388,7 @@ Se estiver a trabalhar na visão de código, pode definir uma estrutura de âmbi
 
 ## <a name="get-support"></a>Obter suporte
 
-* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do [utilizador do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximos passos

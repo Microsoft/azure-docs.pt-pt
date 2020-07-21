@@ -3,12 +3,12 @@ title: Escalaability - Azure Event Hubs / Microsoft Docs
 description: Este artigo fornece informações sobre como escalar os Hubs de Eventos Azure utilizando divisórias e unidades de produção.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6d1c7bc5a0206b634e5a85243f25b2c926762d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dacb24ace2332f590db54959cbf1f06694b982b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315487"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521960"
 ---
 # <a name="scaling-with-event-hubs"></a>Escalando com centros de eventos
 
@@ -23,7 +23,7 @@ A capacidade de débito do Event Hubs é controlada por *unidades de débito*. A
 * Ingress: Até 1 MB por segundo ou 1000 eventos por segundo (o que vier primeiro).
 * Egress: Até 2 MB por segundo ou 4096 eventos por segundo.
 
-Além da capacidade das unidades de débito adquiridas, a entrada é limitada e é devolvida uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). A saída não produz exceções de limitação, mas continua a ser limitada à capacidade das unidades de débito adquiridas. Se receber exceções da taxa de publicação ou estiver à espera de ver uma saída superior, não se esqueça de verificar quantas unidades de débito adquiriu para o espaço de nomes. Pode gerir as unidades de débito no painel **Dimensionamento** dos espaços de nomes no [portal do Azure](https://portal.azure.com). Também pode gerir unidades de produção programáticas utilizando as [APIs dos Centros de Eventos.](event-hubs-api-overview.md)
+Além da capacidade das unidades de débito adquiridas, a entrada é limitada e é devolvida uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). A saída não produz exceções de limitação, mas continua a ser limitada à capacidade das unidades de débito adquiridas. Se receber exceções da taxa de publicação ou estiver à espera de ver uma saída superior, não se esqueça de verificar quantas unidades de débito adquiriu para o espaço de nomes. Pode gerir as unidades de débito no painel **Dimensionamento** dos espaços de nomes no [portal do Azure](https://portal.azure.com). Também pode gerir unidades de produção programáticas utilizando as [APIs dos Centros de Eventos.](./event-hubs-samples.md)
 
 As unidades de produção são pré-compradas e são cobradas por hora. Assim que forem adquiridas, as unidades de débito são faturadas por um mínimo de uma hora. Até 20 unidades de produção podem ser compradas para um espaço de nomes de Event Hubs e são partilhadas em todos os centros de eventos nesse espaço de nome.
 
@@ -50,4 +50,4 @@ O publicador de eventos apenas tem conhecimento da respetiva chave de partição
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 - [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md)
-- [Visão geral do serviço do Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Visão geral do serviço do Event Hubs](./event-hubs-about.md)

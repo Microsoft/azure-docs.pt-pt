@@ -8,15 +8,15 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738248"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521671"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolver problemas de desempenho da rede
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure fornece formas estáveis e rápidas para se ligar ao Azure a partir da rede no local. Métodos como VPN Site a Site e ExpressRoute são utilizados com êxito por clientes grandes e pequenos para a gestão dos seus negócios no Azure. Mas o que acontece quando o desempenho não corresponde às suas expectativas ou experiência anteriores? Este documento pode ajudar a normalizar a forma como testa e faz a linha de base do seu ambiente específico.
 
 Este documento mostra como pode testar facilmente e de forma consistente a latência da rede e a largura de banda entre dois anfitriões. Este documento também fornece alguns conselhos sobre formas de olhar para a rede Azure e ajudar a isolar pontos problemáticos. O script e as ferramentas do PowerShell discutidos requerem dois anfitriões na rede (em cada extremidade da ligação que está a ser testada). Um dos anfitriões deve ser um Servidor do Windows ou um Ambiente de Trabalho, o outro pode ser Windows ou Linux. 
@@ -177,10 +177,9 @@ Configuração do teste:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Localização|Azure<br/>Região|Estimado<br/>Distância (km)|Latência|1 Sessão<br/>Largura de banda|Máximo<br/>Largura de banda|
-| Seattle | E.U.A.Oeste 2        |    191 km |   5 ms | 262,0 Mbits/seg |  3,74 Gbits/seg |
+| ExpressRoute<br/>Localização|Azure<br/>Região | Estimado<br/>Distância (km) | Latência|1 Sessão<br/>Largura de banda | Máximo<br/>Largura de banda |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
+| Seattle | E.U.A. Oeste 2        |    191 km |   5 ms | 262,0 Mbits/seg |  3,74 Gbits/seg |
 | Seattle | E.U.A. Oeste          |  1.094 km |  18 ms |  82,3 Mbits/seg |  3,70 Gbits/seg |
 | Seattle | E.U.A. Central       |  2.357 km |  40 ms |  38,8 Mbits/seg |  2,55 Gbits/seg |
 | Seattle | E.U.A. Centro-Sul |  2.877 km |  51 ms |  30,6 Mbits/seg |  2.49 Gbits/seg |
@@ -191,7 +190,7 @@ Configuração do teste:
 | Seattle | Sul do Reino Unido         |  7.708 km | 146 ms |  10,6 Mbits/seg |   896 Mbits/seg |
 | Seattle | Europa Ocidental      |  7.834 km | 153 ms |  10,2 Mbits/seg |   761 Mbits/seg |
 | Seattle | Leste da Austrália   | 12.484 km | 165 ms |   9,4 Mbits/seg |   794 Mbits/seg |
-| Seattle | Ásia Sudeste   | 12.989 km | 170 ms |   9,2 Mbits/seg |   756 Mbits/seg |
+| Seattle | Sudeste Asiático   | 12.989 km | 170 ms |   9,2 Mbits/seg |   756 Mbits/seg |
 | Seattle | Brasil Sul *   | 10.930 km | 189 ms |   8,2 Mbits/seg |   699 Mbits/seg |
 | Seattle | Sul da Índia      | 12.918 km | 202 ms |   7,7 Mbits/seg |   634 Mbits/seg |
 

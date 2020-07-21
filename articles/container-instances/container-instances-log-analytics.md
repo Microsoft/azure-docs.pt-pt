@@ -2,14 +2,14 @@
 title: Colete & analisar registos de recursos
 description: Saiba como enviar registos de recursos e dados de eventos de grupos de contentores em instâncias de contentores Azure para registos do Azure Monitor
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259603"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524017"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Grupo de contentores e registo de casos com registos do Monitor Azure
 
@@ -38,11 +38,10 @@ O Azure Container Instances necessita de permissão para enviar dados para a sua
 Para obter o ID do espaço de trabalho de análise de registo e a chave primária:
 
 1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
-1. Em **Definições**, selecione **Definições Avançadas**
-1. Selecione Servidores Windows **de fontes**  >  **conectadas** (ou **Servidores Linux**-- o ID e as teclas são os mesmos para ambos)
+1. Em **Definições**, selecione **Gestão de Agentes**
 1. Tome nota de:
-   * **ID DO ESPAÇO DE TRABALHO**
-   * **CHAVE PRIMÁRIA**
+   * **ID da Área de Trabalho**
+   * **Chave primária**
 
 ## <a name="create-container-group"></a>Criar grupo de contentores
 
@@ -102,7 +101,9 @@ Deverá receber uma resposta do Azure com detalhes de implementação poucos ins
 
 ## <a name="view-logs"></a>Ver registos
 
-Após implementar o grupo de contentores, pode demorar vários minutos (até 10) para as primeiras entradas do registo aparecerem no portal do Azure. Para ver os registos do grupo de contentores na `ContainerInstanceLog_CL` tabela:
+Após implementar o grupo de contentores, pode demorar vários minutos (até 10) para as primeiras entradas do registo aparecerem no portal do Azure. 
+
+Para ver os registos do grupo de contentores na `ContainerInstanceLog_CL` tabela:
 
 1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
 1. Em **Geral**, selecione **Registos**  
@@ -147,7 +148,7 @@ ContainerInstanceLog_CL
 | where (TimeGenerated > ago(1h))
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 

@@ -6,19 +6,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/10/2020
-ms.openlocfilehash: d2567a5a0374fd05f17e1153c3b2d7f3df50e0d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/15/2020
+ms.openlocfilehash: 238ede3e79b7d7c5a22d24dfc52530fe391b600b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247001"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519631"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
 Saiba o que há de novo no serviço. Marque esta página para manter-se atualizado com o serviço.
 
-## <a name="feature-announcements"></a>Anúncios de recursos
+## <a name="feature-announcements-in-2020"></a>Anúncios de recursos em 2020
+
+### <a name="july-2020"></a>Julho de 2020
+
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
+|---------|------------------|-------------|---------------|
+| [**Biblioteca de cliente .NET**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK | Uma nova biblioteca de clientes lançada pela equipa da Azure SDK, projetada para a consistência com outras bibliotecas de clientes .NET. Versão 11. | Geralmente disponível. </br> Instale o [pacoteAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) da NuGet. |
+| [**Biblioteca de cliente Python**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK | Uma nova biblioteca de clientes lançada pela equipa da Azure SDK, projetada para a consistência com outras bibliotecas de clientes Python. Versão 11. | Geralmente disponível. </br> Instale o [pacote de documentos de pesquisa de azul](https://pypi.org/project/azure-search-documents/) a partir de PyPI. |
+| [**Biblioteca de clientes JavaScript**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html)  | Azure SDK | Uma nova biblioteca de clientes lançada pela equipa Azure SDK, projetada para a consistência com outras bibliotecas de clientes JavaScript. Versão 11. | Geralmente disponível. </br> Instale a [ @azure/search-documents embalagem](https://www.npmjs.com/package/@azure/search-documents) a partir da npm. |
 
 ### <a name="june-2020"></a>Junho de 2020
 

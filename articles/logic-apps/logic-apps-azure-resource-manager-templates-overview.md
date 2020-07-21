@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641820"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520974"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: Automatizar a implementação para apps Azure Logic utilizando modelos de Gestor de Recursos Azure
 
@@ -38,7 +39,7 @@ Para modelos de aplicativos de lógica de amostra, consulte estes exemplos:
 * [Modelo completo](#full-example-template) que é usado para os exemplos deste tópico
 * [Modelo de aplicativo de lógica quickstart de amostra](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) no GitHub
 
-Para obter informações sobre recursos de modelo específicas de aplicações lógicas, contas de integração e artefactos de conta de integração, consulte [os tipos de recursos microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Para obter informações sobre recursos de modelo específicas de aplicações lógicas, contas de integração e artefactos de conta de integração, consulte [os tipos de recursos microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -318,16 +319,16 @@ A definição de recursos da sua aplicação lógica começa com o `properties` 
 
 Aqui estão os atributos específicos da definição de recursos de aplicação lógica:
 
-| Atributo | Necessário | Tipo | Description |
+| Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| `state` | Sim | String | O estado da sua aplicação lógica em implementação onde `Enabled` significa que a sua aplicação lógica está ao vivo e significa que a sua `Disabled` aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto mas quiser implementar uma versão de projeto, pode usar a `Disabled` opção. |
+| `state` | Sim | Cadeia | O estado da sua aplicação lógica em implementação onde `Enabled` significa que a sua aplicação lógica está ao vivo e significa que a sua `Disabled` aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto mas quiser implementar uma versão de projeto, pode usar a `Disabled` opção. |
 | `integrationAccount` | Não | Objeto | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários business-to-business (B2B), este objeto inclui o `id` atributo, que especifica o ID para a conta de integração. |
 | `definition` | Sim | Objeto | A definição subjacente do fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na visão de código e está totalmente descrito na referência de Schema para o tópico [de Linguagem de Definição de Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte [a definição e os parâmetros do Fluxo de Trabalho.](#workflow-definition-parameters) <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "design view" para "code view" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Não | Objeto | Os [valores do parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho.](#workflow-definition-parameters) Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um `$connections` objeto que define os valores de ligação a utilizar no tempo de execução. |
 | `accessControl` | Não | Objeto | Para especificar atributos de segurança para a sua aplicação lógica, como restringir o acesso IP a gatilhos de pedido ou executar entradas e saídas de histórico. Para obter mais informações, consulte [acesso seguro a aplicações lógicas.](../logic-apps/logic-apps-securing-a-logic-app.md) |
 ||||
 
-Para obter informações sobre recursos de modelo específicas de aplicações lógicas, contas de integração e artefactos de conta de integração, consulte [os tipos de recursos microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+Para obter informações sobre recursos de modelo específicas de aplicações lógicas, contas de integração e artefactos de conta de integração, consulte [os tipos de recursos microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
@@ -909,7 +910,7 @@ Aqui está um exemplo que fornece o nome da conta e a chave de acesso para uma l
 
 ### <a name="authenticate-connections"></a>Autenticar ligações
 
-Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, deve ainda autorizar quaisquer ligações OAuth para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-scenarios.md). Para mais informações, consulte [as ligações autoriteiras](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, deve ainda autorizar quaisquer ligações OAuth para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-vs-authorization.md). Para mais informações, consulte [as ligações autoriteiras](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Algumas ligações suportam a utilização de um diretor de [serviço](../active-directory/develop/app-objects-and-service-principals.md) Azure Ative (Azure AD) para autorizar ligações para uma aplicação lógica [registada em Azure AD](../active-directory/develop/quickstart-register-app.md). Por exemplo, esta definição de recurso de ligação Azure Data Lake mostra como referenciar os parâmetros do modelo que lidam com as informações do principal do serviço e como o modelo declara estes parâmetros:
 
@@ -1005,7 +1006,7 @@ O objeto de nível superior do modelo `parameters` declara estes parâmetros par
 Para obter mais informações sobre o trabalho com os principais serviços, consulte estes tópicos:
 
 * [Criar um principal de serviço utilizando o portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Criar um principal de serviço Azure utilizando a Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Criar um principal de serviço Azure utilizando a Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 * [Criar um principal de serviço com um certificado utilizando a Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>

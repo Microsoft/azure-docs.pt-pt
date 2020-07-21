@@ -11,43 +11,31 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84610241"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522912"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verificação da consistência dos dados na atividade de cópia (Pré-visualização)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Ao mover dados de origem para loja de destino, a atividade de cópia da Azure Data Factory fornece uma opção para que você faça uma verificação adicional de consistência de dados para garantir que os dados não são apenas copiados com sucesso de fonte para loja de destino, mas também verificado como consistente entre a loja de origem e destino. Uma vez encontrados dados inconsistentes durante o movimento de dados, pode abortar a atividade da cópia ou continuar a copiar o resto, permitindo que a definição de tolerância a falhas salte dados inconsistentes. Pode obter os nomes de objetos ignorados, permitindo a definição de registo de sessão na atividade de cópia. 
+Ao mover dados de origem para loja de destino, a atividade de cópia da Azure Data Factory fornece uma opção para que você faça uma verificação adicional de consistência de dados para garantir que os dados não são apenas copiados com sucesso de fonte para loja de destino, mas também verificado como consistente entre a loja de origem e destino. Uma vez encontrados ficheiros inconsistentes durante o movimento de dados, pode abortar a atividade da cópia ou continuar a copiar o resto, permitindo que a definição de tolerância a falhas ignore ficheiros inconsistentes. Pode obter os nomes de ficheiros ignorados, permitindo a definição de registo de sessão na atividade de cópia. 
 
 > [!IMPORTANT]
 > Esta funcionalidade está atualmente em pré-visualização com as seguintes limitações em que estamos a trabalhar ativamente:
->- A verificação da consistência dos dados só está disponível em ficheiros binários que copiam entre lojas baseadas em ficheiros com o comportamento 'PreserveHierarchy' na atividade de cópia. Para a cópia de dados tabulares, a verificação da consistência dos dados ainda não está disponível na atividade de cópia.
 >- Quando ativa a definição de registo de sessão na atividade de cópia para registar os ficheiros inconsistentes que estão a ser ignorados, a pôr em prática o ficheiro de registo não pode ser 100% garantida se a atividade da cópia falhar.
 >- O registo de sessão contém apenas ficheiros inconsistentes, onde os ficheiros copiados com sucesso não são registados até ao momento.
 
-## <a name="supported-data-stores"></a>Arquivos de dados suportados
+## <a name="supported-data-stores-and-scenarios"></a>Lojas e cenários de dados suportados
 
-### <a name="source-data-stores"></a>Lojas de dados de origem
-
--   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
--   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2)
--   [Armazenamento de Ficheiros do Azure](connector-azure-file-storage.md)
--   [Amazon S3](connector-amazon-simple-storage-service.md)
--   [Sistema de Ficheiros](connector-file-system.md)
--   [HDFS](connector-hdfs.md)
-
-### <a name="destination-data-stores"></a>Lojas de dados de destino
-
--   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
--   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2)
--   [Armazenamento de Ficheiros do Azure](connector-azure-file-storage.md)
--   [Sistema de Ficheiros](connector-file-system.md)
+-   A verificação da consistência dos dados é suportada por todos os conectores, exceto FTP, sFTP e HTTP. 
+-   A verificação da consistência dos dados não é suportada no cenário de cópia de encenação.
+-   Ao copiar ficheiros binários, a verificação da consistência dos dados só está disponível quando o comportamento 'PreserveHierarchy' é definido na atividade de cópia.
+-   Ao copiar vários ficheiros binários na atividade de cópia única com verificação de consistência de dados ativada, tem a opção de abortar a atividade da cópia ou continuar a copiar os restantes, permitindo que a definição de tolerância a falhas salte ficheiros inconsistentes. 
+-   Ao copiar uma tabela na atividade de cópia única com verificação de consistência de dados ativada, a atividade de cópia falha se o número de linhas lidas a partir da fonte for diferente do número de linhas copiadas para o destino mais o número de linhas incompatíveis que foram ignoradas.
 
 
 ## <a name="configuration"></a>Configuração
@@ -84,16 +72,15 @@ O exemplo a seguir fornece uma definição JSON para permitir a verificação da
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | -------- 
-validarDataConsistency | Se for definido como verdadeiro para esta propriedade, a atividade de cópia verificará o tamanho do ficheiro, o último Exemplo de Filme e a caixa de verificação MD5 para cada objeto copiado de fonte para loja de destino para garantir a consistência dos dados entre a loja de origem e destino. Esteja ciente de que o desempenho da cópia será afetado ativando esta opção.  | Verdadeiro<br/>Falso (predefinição) | Não
-dataInconsistency | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar os dados inconsistentes.<br/> -Verdade: quer copiar o resto ignorando dados inconsistentes.<br/> - Falso: pretende abortar a atividade de cópia uma vez encontrados dados inconsistentes.<br/>Esteja ciente de que esta propriedade só é válida quando definir validar DataConsistency como True.  | Verdadeiro<br/>Falso (predefinição) | Não
-logStorageSettings | Um grupo de propriedades que podem ser especificadas para permitir o registo de sessão para registar objetos ignorados. | | Não
+validarDataConsistency | Se se definir como verdadeiro para esta propriedade, ao copiar ficheiros binários, a atividade de cópia verificará o tamanho do ficheiro, o último TermodifiedDate e a caixa de verificação MD5 para cada ficheiro binário copiado da fonte para a loja de destino para garantir a consistência dos dados entre a loja de origem e destino. Ao copiar dados tabulares, a atividade de cópia verificará a contagem total de filas após o cumprimento do trabalho para garantir que o número total de linhas lidas a partir da fonte é o mesmo que o número de linhas copiadas para o destino mais o número de linhas incompatíveis que foram ignoradas. Esteja ciente de que o desempenho da cópia será afetado ativando esta opção.  | Verdadeiro<br/>Falso (predefinição) | Não
+dataInconsistency | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar os ficheiros inconsistentes. <br/> -Verdade: quer copiar o resto ignorando ficheiros inconsistentes.<br/> - Falso: pretende abortar a atividade de cópia uma vez encontrado um ficheiro inconsistente.<br/>Esteja ciente de que esta propriedade só é válida quando estiver a copiar ficheiros binários e definir validar aDataConsistency como True.  | Verdadeiro<br/>Falso (predefinição) | Não
+logStorageSettings | Um grupo de propriedades que podem ser especificadas para permitir o registo de sessão para registar ficheiros ignorados. | | Não
 linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um ou tipo de `AzureBlobStorage` `AzureBlobFS` serviço ligado, que se refere à instância que utiliza para armazenar os ficheiros de registo. | Não
-path | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
+caminho | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
 
 >[!NOTE]
->- A consistência dos dados não é suportada no cenário de cópia de encenação. 
->- Ao copiar ficheiros de, ou para Azure Blob ou Azure Data Lake Storage Gen2, a ADF bloqueia a verificação de verificação de nível MD5 alavancando [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Se o ContentMD5 em ficheiros existir no Azure Blob ou no Azure Data Lake Storage Gen2 como fontes de dados, a ADF faz verificação de nível de ficheiro MD5 após a leitura dos ficheiros também. Depois de copiar ficheiros para Azure Blob ou Azure Data Lake Storage Gen2 como destino de dados, a ADF escreve ConteúdoMD5 a Azure Blob ou Azure Data Lake Storage Gen2 que podem ser ainda mais consumidos por aplicações a jusante para verificação da consistência de dados.
->- A ADF faz verificação do tamanho do ficheiro ao copiar ficheiros entre quaisquer armazéns.
+>- Ao copiar ficheiros binários de, ou para Azure Blob ou Azure Data Lake Storage Gen2, a ADF faz o nível de verificação de verificação MD5 alavancando [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Se o ContentMD5 em ficheiros existir no Azure Blob ou no Azure Data Lake Storage Gen2 como fontes de dados, a ADF faz verificação de nível de ficheiro MD5 após a leitura dos ficheiros também. Depois de copiar ficheiros para Azure Blob ou Azure Data Lake Storage Gen2 como destino de dados, a ADF escreve ConteúdoMD5 a Azure Blob ou Azure Data Lake Storage Gen2 que podem ser ainda mais consumidos por aplicações a jusante para verificação da consistência de dados.
+>- A ADF faz verificação do tamanho do ficheiro ao copiar ficheiros binários entre quaisquer armazéns.
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -137,8 +124,8 @@ O esquema de um ficheiro de registo é o seguinte:
 
 Coluna | Descrição 
 -------- | -----------  
-Carimbo de data/hora | A marca de tempo quando a ADF ignora os ficheiros inconsistentes.
-Nível | O nível de registo deste item. Estará no nível 'Aviso' para o item que mostra o salto do ficheiro.
+Timestamp | A marca de tempo quando a ADF ignora os ficheiros inconsistentes.
+Level | O nível de registo deste item. Estará no nível 'Aviso' para o item que mostra o salto do ficheiro.
 OperationName | ADF copia comportamento operacional da atividade em cada ficheiro. Será 'FileSkip' para especificar o ficheiro a ser ignorado.
 OperaçãoItem | O nome do ficheiro a ser ignorado.
 Mensagem | Mais informações para ilustrar por que os ficheiros estão a ser ignorados.

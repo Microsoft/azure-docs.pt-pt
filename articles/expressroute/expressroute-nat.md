@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79272971"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521926"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos do NAT do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir os NATs. Alguns fornecedores de conectividade oferecem a configuração e a gestão do NAT como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece tal serviço. Se não for possível, terá de cumprir os requisitos descritos abaixo. 
@@ -21,7 +22,7 @@ Reveja a página [Circuitos ExpressRoute e domínios de encaminhamento](expressr
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos do NAT para peering da Microsoft
 O caminho de peering da Microsoft permite-lhe ligar aos serviços em nuvem da Microsoft que não são suportados através do caminho de peering público do Azure. A lista de serviços inclui serviços do Office 365, tais como Exchange Online, SharePoint Online e Skype for Business. A Microsoft espera suportar uma conetividade bidirecional no peering da Microsoft. O tráfego destinado aos serviços em nuvem da Microsoft tem de realizar um SNAT para endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft. O tráfego destinado à sua rede a partir dos serviços cloud da Microsoft tem de realizar um SNAT no intervalo de Internet para prevenir o [encaminhamento assimétrico](expressroute-asymmetric-routing.md). A figura abaixo fornece uma imagem de alto nível de como o NAT deve ser configurado para o espreitar da Microsoft.
 
-![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
+![Diagrama de alto nível de como o NAT deve ser configurado para o espreitar da Microsoft.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 ### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Tráfego com origem na sua rede destinado à Microsoft
 * Deve garantir que o tráfego está a entrar no caminho de peering da Microsoft com um endereço IPv4 público válido. A Microsoft deve conseguir validar o proprietário do conjunto de endereços IPv4 NAT num registo de Internet de encaminhamento regional (RIR) ou num registo de encaminhamento de Internet (IRR). Será efetuada uma verificação com base no número AS com o qual está a ser emparelhado e os endereços IP utilizados para o NAT. Veja a página [Requisitos do encaminhamento do ExpressRoute](expressroute-routing.md) para obter informações sobre os registos do encaminhamento.
@@ -52,7 +53,7 @@ O caminho de peering público Azure permite-lhe ligar a todos os serviços aloja
 
 O tráfego destinado ao Microsoft Azure em peering público tem de realizar um SNAT para endereços IPv4 públicos válidos antes de serem introduzidos na rede da Microsoft. A figura abaixo fornece uma imagem de alto nível da forma como o NAT foi configurado para cumprir o requisito acima.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
+![Diagrama de alto nível de como o NAT poderia ser configurado para ser SNATed para endereços IPv4 públicos válidos antes de entrarem na rede microsoft.](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### <a name="nat-ip-pool-and-route-advertisements"></a>Conjunto IP do NAT e anúncios de rota
 Deve garantir que o tráfego está a entrar no caminho de peering público Azure com um endereço IPv4 público válido. A Microsoft deve conseguir validar a propriedade do conjunto de endereços IPv4 NAT num registo de Internet de encaminhamento regional (RIR) ou num registo de encaminhamento de Internet (IRR). Será efetuada uma verificação com base no número AS com o qual está a ser emparelhado e os endereços IP utilizados para o NAT. Veja a página [Requisitos do encaminhamento do ExpressRoute](expressroute-routing.md) para obter informações sobre os registos do encaminhamento.

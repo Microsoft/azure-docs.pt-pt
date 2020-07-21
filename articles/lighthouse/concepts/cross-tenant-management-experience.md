@@ -1,18 +1,18 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 05/12/2020
+ms.date: 07/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5e8a678530d9cf334d89091e7f23191ae8613737
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1b3aa15dd968b4cded831934103a02420d020b9a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135482"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521042"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
-Como prestador de serviços, pode utilizar [o Azure Lighthouse](../overview.md) para gerir recursos para vários clientes dentro do seu próprio inquilino no [portal Azure.](https://portal.azure.com) Muitas tarefas e serviços podem ser realizados em recursos delegados da Azure através de inquilinos geridos, utilizando [a gestão de recursos delegados da Azure.](../concepts/azure-delegated-resource-management.md)
+Como prestador de serviços, pode utilizar [o Azure Lighthouse](../overview.md) para gerir recursos para vários clientes dentro do seu próprio inquilino no [portal Azure.](https://portal.azure.com) Muitas tarefas e serviços podem ser realizados através de inquilinos geridos, utilizando [a gestão de recursos delegada da Azure.](../concepts/azure-delegated-resource-management.md)
 
 > [!NOTE]
 > A gestão de recursos delegados Azure também pode ser usada [dentro de uma empresa que tem vários inquilinos AD Azure próprios](enterprise.md) para simplificar a administração de inquilinos cruzados.
@@ -23,7 +23,7 @@ Um inquilino do Azure Ative Directory (Azure AD) é uma representação de uma o
 
 Normalmente, para gerir os recursos da Azure para um cliente, os prestadores de serviços teriam de se inscrever no portal Azure utilizando uma conta associada ao inquilino desse cliente, exigindo que um administrador no arrendatário do cliente criasse e gerisse contas de utilizador para o prestador de serviços.
 
-Com o Azure Lighthouse, o processo de embarque especifica os utilizadores dentro do inquilino do prestador de serviços que poderão aceder e gerir subscrições, grupos de recursos e recursos no inquilino do cliente. Estes utilizadores podem então iniciar seduca no portal Azure usando as suas próprias credenciais. Dentro do portal Azure, podem gerir recursos pertencentes a todos os clientes a que têm acesso. Isto pode ser feito visitando a página [dos Meus clientes](../how-to/view-manage-customers.md) no portal Azure, ou trabalhando diretamente no contexto da subscrição desse cliente, seja no portal Azure ou através de APIs.
+Com o Azure Lighthouse, o processo de embarque especifica os utilizadores dentro do inquilino do prestador de serviços que poderão trabalhar em assinaturas delegadas e grupos de recursos no arrendatário do cliente. Estes utilizadores podem então iniciar seduca no portal Azure usando as suas próprias credenciais. Dentro do portal Azure, podem gerir recursos pertencentes a todos os clientes a que têm acesso. Isto pode ser feito visitando a página [dos Meus clientes](../how-to/view-manage-customers.md) no portal Azure, ou trabalhando diretamente no contexto da subscrição desse cliente, seja no portal Azure ou através de APIs.
 
 O Farol Azure permite uma maior flexibilidade na gestão de recursos para vários clientes sem ter de se inscrever em contas diferentes em diferentes inquilinos. Por exemplo, um prestador de serviços pode ter dois clientes com responsabilidades diferentes e níveis de acesso. Utilizando o Farol Azure, os utilizadores autorizados podem inscrever-se no inquilino do prestador de serviços para aceder a estes recursos.
 
@@ -33,7 +33,7 @@ O Farol Azure permite uma maior flexibilidade na gestão de recursos para vário
 
 Pode executar tarefas de gestão em recursos delegados, quer diretamente no portal, quer utilizando APIs e ferramentas de gestão (como Azure CLI e Azure PowerShell). Todas as APIs existentes podem ser utilizadas quando trabalham com recursos delegados, desde que a funcionalidade seja suportada para a gestão de inquilinos cruzados e o utilizador tenha as permissões adequadas.
 
-O cmdlet Azure PowerShell [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) mostra o **inquilinoID** para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino prestador de serviços ou a um inquilino de cliente gerido.
+O cmdlet Azure PowerShell [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) mostra o `tenantID` para cada subscrição, permitindo-lhe identificar se uma subscrição devolvida pertence ao seu inquilino prestador de serviços ou a um inquilino de cliente gerido.
 
 Da mesma forma, os comandos Azure CLI, tais como [a lista de conta az](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **geridos PorTenants.**
 
@@ -46,10 +46,17 @@ Também fornecemos APIs que são específicas para executar tarefas do Farol Azu
 
 A maioria das tarefas e serviços podem ser realizados em recursos delegados entre inquilinos geridos. Abaixo estão alguns dos cenários-chave onde a gestão inter-inquilino pode ser especialmente eficaz.
 
-[Azure Arc para servidores (pré-visualização)](../../azure-arc/servers/overview.md):
+[Arco azul:](../../azure-arc/index.yml)
 
-- [Ligue máquinas windows server ou Linux fora do Azure](../../azure-arc/servers/onboard-portal.md) a subscrições delegadas e/ou grupos de recursos em Azure
-- Gerir máquinas conectadas utilizando construções Azure, tais como Azure Policy e marcação
+- Gerir servidores híbridos em escala - [Azure Arc para servidores (pré-visualização)](../../azure-arc/servers/overview.md):
+  - [Ligue máquinas windows server ou Linux fora do Azure](../../azure-arc/servers/onboard-portal.md) a subscrições delegadas e/ou grupos de recursos em Azure
+  - Gerir máquinas conectadas utilizando construções Azure, tais como Azure Policy e marcação
+  - Garantir que o mesmo conjunto de políticas são aplicadas em todos os ambientes híbridos dos clientes
+  - Utilize o Azure Security Center para monitorizar a conformidade entre os ambientes híbridos dos clientes
+- Gerir clusters híbridos de Kubernetes em escala - [Azure Arc for Kubernetes (pré-visualização)](../../azure-arc/kubernetes/overview.md):
+  - [Ligue um cluster Kubernetes ao Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) a subscrições delegadas e/ou grupos de recursos em Azure
+  - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para clusters conectados
+  - Impor políticas em todos os clusters conectados
 
 [Azure Automation:](../../automation/index.yml)
 
@@ -63,7 +70,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 [Gestão de Custos Azure + Faturação:](../../cost-management-billing/index.yml)
 
-- A partir do inquilino gestor, os parceiros da CSP podem ver, gerir e analisar os custos de consumo antes de impostos (não incluindo as compras) para clientes que estão ao abrigo do plano Azure. O custo basear-se-á nas tarifas de retalho e no acesso rbac Azure que o parceiro tem para a subscrição do cliente.
+- A partir do inquilino gerente, os parceiros da CSP podem ver, gerir e analisar os custos de consumo antes de impostos (não incluindo as compras) para clientes que estão ao abrigo do plano Azure. O custo basear-se-á nas tarifas de retalho e no acesso ao controlo de acesso baseado em funções (RBAC) da Azure que o parceiro tem para a subscrição do cliente.
 
 [Serviço Azure Kubernetes (AKS)](../../aks/index.yml):
 
@@ -78,7 +85,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 [Rede Azure:](../../networking/networking-overview.md)
 
-- Implementar e gerir cartões [de interface de rede virtual (VNet)](../../virtual-network/index.yml) e de rede virtual (vNICs) dentro dos inquilinos do cliente
+- Implementar e gerir [a Rede Virtual Azure](../../virtual-network/index.yml) e cartões de interface de rede virtual (vNICs) dentro dos inquilinos do cliente
 - Implementar e configurar [a Azure Firewall](../../firewall/overview.md) para proteger os recursos da Rede Virtual dos clientes
 - Gerir serviços de conectividade como [Azure Virtual WAN,](../../virtual-wan/virtual-wan-about.md) [ExpressRoute](../../expressroute/expressroute-introduction.md)e [VPN Gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) para clientes
 - Utilize o Farol Azure para apoiar cenários-chave para o [Programa MSP de rede Azure](../../networking/networking-partners-msp.md)
@@ -126,27 +133,27 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 [Recuperação do local de Azure:](../../site-recovery/index.yml)
 
-- Gerir opções de recuperação de desastres para máquinas virtuais Azure em inquilinos de clientes (note que não pode usar contas RunAs para copiar extensões VM)
+- Gerir opções de recuperação de desastres para máquinas virtuais Azure em inquilinos de clientes (note que não pode usar `RunAs` contas para copiar extensões VM)
 
 [Máquinas Virtuais Azure:](../../virtual-machines/index.yml)
 
 - Utilize extensões de máquinas virtuais para fornecer tarefas de configuração e automatização pós-implantação em VMs Azure em inquilinos de clientes
 - Use diagnósticos de boot para resolver problemas Azure VMs em inquilinos de clientes
 - Acesso VMs com consola em série em inquilinos de clientes
-- Integre VMs com Azure KeyVault para senhas, segredos ou chaves criptográficas para encriptação de discos utilizando [a identidade gerida através da política,](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret)garantindo que os segredos são armazenados num Cofre-Chave em inquilinos de clientes
+- Integre VMs com Azure Key Vault para senhas, segredos ou chaves criptográficas para encriptação de discos utilizando [a identidade gerida através da política,](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret)garantindo que os segredos são armazenados num Cofre-Chave em inquilinos de clientes
 - Note que não pode usar o Azure Ative Directory para login remoto em VMs em inquilinos de clientes
 
 Pedidos de apoio:
 
-- Pedidos de apoio abertos para recursos delegados a partir da lâmina de **suporte Help +** no portal Azure (selecionando o plano de apoio disponível para o âmbito delegado)
+- [Aberto pedidos de apoio da **Ajuda + suporte** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal Azure para recursos delegados (selecionando o plano de apoio disponível para o âmbito delegado)
 
 ## <a name="current-limitations"></a>Limitações atuais
 Com todos os cenários, esteja atento às seguintes limitações atuais:
 
-- Os pedidos tratados pelo Azure Resource Manager podem ser realizados utilizando a gestão de recursos delegada da Azure. A operação URIs para estes pedidos começa com `https://management.azure.com` . No entanto, os pedidos que são tratados por um tipo de recurso (como o acesso a segredos KeyVault ou o acesso a dados de armazenamento) não são suportados com a gestão de recursos delegados da Azure. A operação URIs para estes pedidos normalmente começa com um endereço exclusivo do seu caso, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/` . Estes últimos são também operações de dados em vez de operações de gestão. 
-- As atribuições de funções devem utilizar funções de controlo de acesso [baseados em funções](../../role-based-access-control/built-in-roles.md)(RBAC). Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para o Proprietário ou quaisquer funções incorporadas com permissão [DataActions.](../../role-based-access-control/role-definitions.md#dataactions) A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na [atribuição de funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
+- Os pedidos tratados pelo Azure Resource Manager podem ser realizados utilizando a gestão de recursos delegada da Azure. A operação URIs para estes pedidos começa com `https://management.azure.com` . No entanto, os pedidos que são tratados por uma instância de um tipo de recurso (como o acesso de segredos key Vault ou o acesso a dados de armazenamento) não são suportados com a gestão de recursos delegados da Azure. A operação URIs para estes pedidos normalmente começa com um endereço exclusivo do seu caso, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/` . Estes últimos são também operações de dados em vez de operações de gestão.
+- As atribuições de funções devem utilizar funções de controlo de acesso [baseados em funções](../../role-based-access-control/built-in-roles.md)(RBAC). Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para o Proprietário ou quaisquer funções incorporadas com [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permissão. A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na [atribuição de funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
 - Enquanto você pode a bordo subscrições que usam Azure Databricks, os utilizadores no inquilino gerente não podem lançar espaços de trabalho Azure Databricks em uma subscrição delegada neste momento.
-- Embora possa embarcar subscrições e grupos de recursos para a Azure delegada gestão de recursos que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
+- Embora possa embarcar subscrições e grupos de recursos que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
 
 ## <a name="next-steps"></a>Próximos passos
 
