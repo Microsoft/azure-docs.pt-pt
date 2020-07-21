@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar e gerir um conjunto de escala de máquina virtual Azure
+title: 'Tutorial: Criar & gerir um conjunto de escala Azure VM – Azure CLI'
 description: Saiba como utilizar a CLI do Azure para criar um conjunto de dimensionamento de máquinas virtuais, juntamente com algumas tarefas de gestão comuns, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 57b24c7703ac8c0095fa4aaf24b9fbebdac33533
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736446"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503120"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e gerir um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Neste tutorial, ficará a saber como:
@@ -188,14 +188,14 @@ Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de 
 ### <a name="vm-instance-sizes"></a>Tamanhos de instância de VM
 A tabela seguinte categoriza tamanhos de VM comuns em casos de utilização.
 
-| Tipo                     | Tamanhos comuns           |    Description       |
+| Tipo                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
-| [Com otimização de computação](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
-| [Com otimização de memória](../virtual-machines/linux/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
-| [Com otimização de armazenamento](../virtual-machines/linux/sizes-storage.md)      | Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
-| [GPU](../virtual-machines/linux/sizes-gpu.md)          | NV, NC            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
-| [Elevado desempenho](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. 
+| [Fins gerais](../virtual-machines/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU para memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
+| [Com otimização de computação](../virtual-machines/sizes-compute.md)   | Fs, F             | CPU para memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
+| [Com otimização de memória](../virtual-machines/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Com otimização de armazenamento](../virtual-machines/sizes-storage.md)      | Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
+| [GPU](../virtual-machines/sizes-gpu.md)          | NV, NC            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
+| [Elevado desempenho](../virtual-machines/sizes-hpc.md) | H, A8-11          | As nossas mais avançadas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. 
 
 ### <a name="find-available-vm-instance-sizes"></a>Localizar tamanhos de instâncias de VM disponíveis
 Para ver uma lista de tamanhos de instâncias de VM disponíveis numa região específica, utilize o comando [az vm list-sizes](/cli/azure/vm).
@@ -298,7 +298,7 @@ az group delete --name myResourceGroup --no-wait --yes
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, aprendeu a executar algumas tarefas básicas de criação e gestão de conjuntos de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]

@@ -1,16 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela
+title: Executar uma carga de trabalho paralela usando a API Python
 description: Tutorial – Processar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente Python para o Batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 63515012d10739bb018de34e040465fbe337aa02
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d9f84d90c8c06cd00999b0764419fdb1c4cbe95
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497901"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API Python
 
@@ -194,7 +194,7 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool)
 ```
 
-### <a name="create-a-job"></a>Criar uma tarefa
+### <a name="create-a-job"></a>Criar um trabalho
 
 Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Esta função definida utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) submete o conjunto para o serviço Batch. Inicialmente, o trabalho não tem tarefas.
 
@@ -266,7 +266,7 @@ Depois de executar as tarefas, a aplicação elimina automaticamente o contentor
 
 Quando já não forem necessários, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para tal, no portal do Azure, selecione o grupo de recursos da conta do Batch e clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, ficou a saber como:
 

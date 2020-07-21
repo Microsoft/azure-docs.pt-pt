@@ -1,5 +1,5 @@
 ---
-title: Criar um disco gerido a partir de um instantâneo - PowerShell Sample
+title: Criar disco gerido a partir de snapshot (Windows) - Amostra PowerShell
 description: Exemplo do Script do Azure PowerShell – Criar um disco gerido a partir de um instantâneo
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 5758e31fc24d366479cbebb139f1a8376330b397
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d14f78b361c0b66b86886df7ffd7abbfc72cff35
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459326"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500995"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Criar um disco gerido a partir de um instantâneo com o PowerShell
+# <a name="create-a-managed-disk-from-a-snapshot-with-powershell-windows"></a>Criar um disco gerido a partir de um instantâneo com PowerShell (Windows)
 
 Este script cria um disco gerido a partir de um instantâneo. Utiliza-o para restaurar uma máquina virtual a partir de instantâneos do SO e discos de dados. Crie discos do SO e discos geridos de dados a partir dos respetivos instantâneos e, em seguida, crie uma nova máquina virtual ao anexar discos geridos. Também pode restaurar discos de dados de uma VM existente ao anexar discos de dados criados a partir de instantâneos.
 
@@ -39,12 +39,12 @@ Este script utiliza os seguintes comandos para criar um disco gerido a partir de
 
 | Comando | Notas |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | Obtém as propriedades do instantâneo.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Cria a configuração de disco que é utilizada para a criação do disco. Inclui o Id de recurso do instantâneo principal, a localização que seja a mesma que a localização do instantâneo principal e o tipo de armazenamento.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Cria um disco com a configuração de disco, o nome do disco e o nome do grupo de recursos transmitidos como parâmetros. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Obtém as propriedades do instantâneo.  |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Cria a configuração de disco que é utilizada para a criação do disco. Inclui o Id de recurso do instantâneo principal, a localização que seja a mesma que a localização do instantâneo principal e o tipo de armazenamento.  |
+| [Novo AzDisco](/powershell/module/az.compute/new-azdisk) | Cria um disco com a configuração de disco, o nome do disco e o nome do grupo de recursos transmitidos como parâmetros. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar uma máquina virtual a partir de um disco gerido](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 

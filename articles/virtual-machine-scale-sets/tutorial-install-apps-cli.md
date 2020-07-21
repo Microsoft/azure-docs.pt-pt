@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Instale aplicações num conjunto de escala com o Azure CLI
+title: Tutorial - Instalar aplicações em escala definida com Azure CLI
 description: Saiba como utilizar a CLI do Azure para instalar aplicações nos conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 56aa67750a4ec51704a440424bfeef15e8806163
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a2335ae285ca68eb6b6deb58bb3b0e8ff4a6bb57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197110"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495041"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -24,7 +24,7 @@ Para executar aplicações em instâncias de máquina virtual (VM) num conjunto 
 > * Utilizar a Extensão de Script Personalizado do Azure
 > * Atualizar uma aplicação em execução num conjunto de dimensionamento
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 ## <a name="what-is-the-azure-custom-script-extension"></a>O que é a Extensão de Script Personalizado do Azure?
 A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão.
 
-A extensão de Script Personalizado é integrada em modelos do Azure Resource Manager e pode também ser utilizada com a CLI do Azure, o Azure PowerShell, o portal do Azure ou a API REST. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
+A extensão de Script Personalizado é integrada em modelos do Azure Resource Manager e pode também ser utilizada com a CLI do Azure, o Azure PowerShell, o portal do Azure ou a API REST. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-linux.md).
 
 Para utilizar a Extensão de Script Personalizado com a CLI do Azure, crie um ficheiro JSON que defina que ficheiros obter e comandos executar. Estas definições de JSON podem ser reutilizadas em implementações de conjuntos de dimensionamento para aplicar instalações de aplicações consistentes.
 
@@ -53,7 +53,7 @@ Na shell atual, crie um ficheiro com o nome *customConfig.json* e cole a seguint
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -123,7 +123,7 @@ Deixe o seu browser aberto para que possa ver uma versão atualizada no próximo
 
 
 ## <a name="update-app-deployment"></a>Atualizar a implementação da aplicação
-Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de escala foi criado num passo anterior, o `--upgrade-policy-mode` foi definido para *automático*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
+Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de escala foi criado num passo anterior, o `--upgrade-policy-mode` foi definido como *automático*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
 
 Na shell atual, crie um ficheiro com o nome *customConfigv2.json* e cole a seguinte configuração. Esta definição executa uma versão *v2* atualizada do script de instalação da aplicação:
 
@@ -159,7 +159,7 @@ az group delete --name myResourceGroup --no-wait --yes
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, aprendeu a instalar e atualizar automaticamente aplicações no seu conjunto de dimensionamento com a CLI do Azure:
 
 > [!div class="checklist"]

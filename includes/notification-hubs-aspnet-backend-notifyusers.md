@@ -1,5 +1,5 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 description: Inclua o ficheiro que contém o código para criar um projeto de back-end de ASP.NET WebAPI.
 services: notification-hubs
 author: spelluru
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77192541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530182"
 ---
 ## <a name="create-the-webapi-project"></a>Criar o Projeto WebAPI
 
@@ -30,7 +30,7 @@ Crie o novo back-end de ASP.NET WebAPI através das seguintes ações:
 >
 >Para confirmar, inicie o Visual Studio. No menu **Ferramentas**, selecione **Extensões e Atualizações**. Procure o **Gestor de Pacotes de NuGet** na sua versão do Visual Studio e verifique se tem a versão mais recente. Se a sua versão não for a versão mais recente, desinstale-a e, em seguida, reinstale o Gestor de Pacotes de NuGet.
 
-![][B4]
+![Screenshot da caixa de diálogo extensões e atualizações com o pacote NuGet gerido para pacote Visual Studios em destaque.][B4]
 
 > [!NOTE]
 > Certifique-se de que instalou o Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) para implementação do site.

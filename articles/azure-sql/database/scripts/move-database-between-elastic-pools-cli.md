@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 85b78ad92997344ff6ea0f30da25205790d90eef
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7da5e25624a0e3a323e60cdf91660b29f58f31d7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196767"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514752"
 ---
 # <a name="use-the-azure-cli-to-move-a-database-in-sql-database-in-a-sql-elastic-pool"></a>Utilize o CLI Azure para mover uma base de dados na Base de Dados SQL numa piscina elástica SQL
 
@@ -46,13 +46,13 @@ az group delete --name $resource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos do servidor. |
 | [az sql elástico-piscinas](/cli/azure/sql/elastic-pool) | Comandos elásticos da piscina. |
 | [az sql db](/cli/azure/sql/db) | Comandos de base de dados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

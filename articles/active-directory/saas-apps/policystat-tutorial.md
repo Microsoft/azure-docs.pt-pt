@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e0e220467c8c16deb413f6c70f236f6de67f980
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 739e4fa45987f33b3a32503eaedf9aae74a7e000
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142049"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Diretório Ativo Azure com PolicyStat
 
@@ -40,6 +40,9 @@ Para configurar a integração AD da Azure com o PolicyStat, precisa dos seguint
 
 * Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
 * Assinatura ativada por PolicyStat
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -143,7 +146,7 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
     
     f. Da lista **do Parâmetro 1,** digite o valor do atributo indicado para esta linha.
 
-    g. Clique em **Guardar**.
+    exemplo, Clique em **Save** (Guardar).
 
 7. Na secção **Configurar PolicyStat,** copie os URL(s) apropriados de acordo com o seu requisito.
 

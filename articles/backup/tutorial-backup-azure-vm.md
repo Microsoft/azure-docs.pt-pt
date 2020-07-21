@@ -1,30 +1,30 @@
 ---
-title: 'Tutorial: Multi-Azure VM backup com PowerShell'
-description: Este tutorial detalha o backup de vários VMs Azure para um cofre dos Serviços de Recuperação usando o Azure PowerShell.
+title: 'Tutorial: Backup VM Murúltiplo Azure com PowerShell'
+description: Este tutorial detalha o backup de vários VMs Azure para um cofre de Serviços de Recuperação usando a Azure PowerShell.
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc
-ms.openlocfilehash: 154238eae78ce44b9fc91058e58d9a11e254c0f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171788"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513222"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer cópias de segurança de VMs do Azure com o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este tutorial descreve como implantar um cofre [azure backup](backup-overview.md) serviços para fazer backup vários VMs Azure usando powerShell.  
+Este tutorial descreve como implantar um cofre [Azure Backup](backup-overview.md) Recovery Services para apoiar vários VMs Azure usando PowerShell.  
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
-> * Crie um cofre de Serviços de Recuperação e detetete o contexto do cofre.
+> * Crie um cofre dos Serviços de Recuperação e desemote o contexto do cofre.
 > * Definir uma política de cópias de segurança
 > * Aplicar a política de cópia de segurança para proteger várias máquinas virtuais
-> * Desencadeie um trabalho de backup a pedido para as máquinas virtuais protegidas Antes de poder fazer backup (ou proteger) uma máquina virtual, deve completar os [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o seu ambiente para proteger os seus VMs.
+> * Desempate um trabalho de backup a pedido para as máquinas virtuais protegidas Antes de poder fazer backup (ou proteger) uma máquina virtual, tem de completar os [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o seu ambiente para proteger os seus VMs.
 
 > [!IMPORTANT]
 > Este tutorial parte do princípio de que já criou um grupo de recursos e uma máquina virtual do Azure.
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
     Connect-AzAccount
     ```
 
-2. A primeira vez que utilizar o Azure Backup, deve registar o prestador do Serviço de Recuperação Azure na sua subscrição com o [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider). Se já se registou, ignore este passo.
+2. A primeira vez que utilizar o Azure Backup, tem de registar o prestador do Serviço de Recuperação Azure na sua assinatura com [o Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider). Se já se registou, ignore este passo.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -45,14 +45,14 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-Um [cofre dos Serviços](backup-azure-recovery-services-vault-overview.md) de Recuperação é um recipiente lógico que armazena dados de backup para recursos protegidos, como os VMs Azure. Quando um trabalho de reserva funciona, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
+Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um recipiente lógico que armazena dados de backup para recursos protegidos, como os VMs Azure. Quando um trabalho de reserva funciona, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
-* Neste tutorial, você cria o cofre no mesmo grupo de recursos e localização que o VM que você quer apoiar.
-* A Azure Backup trata automaticamente o armazenamento de dados com cópia supérum. Por defeito, o cofre utiliza [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy-grs.md). A georedundgarante que os dados apoiados sejam replicados para uma região secundária de Azure, a centenas de quilómetros da região primária.
+* Neste tutorial, cria-se o cofre no mesmo grupo de recursos e local que o VM que pretende fazer.
+* O Azure Backup lida automaticamente com o armazenamento para dados com cópia de segurança. Por predefinição, o cofre utiliza [o Armazenamento Geo-Redundante (GRS)](../storage/common/storage-redundancy.md). A geo-redundância garante que os dados com cópias de segurança são replicados numa região secundária de Azure, a centenas de quilómetros da região primária.
 
 Crie o cofre da seguinte forma:
 
-1. Use o [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)para criar o cofre. Especifique o nome do grupo de recursos e a localização do VM que pretende fazer o apoio.
+1. Utilize o [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)para criar o cofre. Especifique o nome do grupo de recursos e a localização do VM que pretende fazer o back up.
 
     ```powershell
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
@@ -64,7 +64,7 @@ Crie o cofre da seguinte forma:
     $vault1 = Get-AzRecoveryServicesVault –Name myRSVault
     ```
 
-3. Desloque o contexto do cofre com [set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext).
+3. Desaperte o contexto do cofre com [Set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext).
 
    * O contexto do cofre é o tipo de dados protegidos no cofre.
    * Uma vez definido o contexto, aplica-se a todos os cmdlets subsequentes
@@ -75,17 +75,17 @@ Crie o cofre da seguinte forma:
 
 ## <a name="back-up-azure-vms"></a>Fazer uma cópia de segurança de VMs do Azure
 
-Os backups funcionam de acordo com o calendário especificado na política de backup. Quando cria um cofre dos Serviços de Recuperação, aquele inclui políticas de proteção e retenção predefinidas.
+As cópias de segurança são executadas de acordo com o horário especificado na política de backup. Quando cria um cofre dos Serviços de Recuperação, aquele inclui políticas de proteção e retenção predefinidas.
 
-* A política de proteção padrão desencadeia um trabalho de reserva uma vez por dia num momento especificado.
+* A política de proteção predefinida desencadeia um trabalho de backup uma vez por dia, numa hora especificada.
 * A política de retenção predefinida retém o ponto de recuperação diária durante 30 dias.
 
-Para ativar e fazer backup o Azure VM neste tutorial, fazemos o seguinte:
+Para ativar e fazer o backup do Azure VM neste tutorial, fazemos o seguinte:
 
 1. Especifique um recipiente no cofre que detenha os seus dados de backup com [o Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Cada VM para cópia de segurança é um item. Para iniciar um trabalho de backup, obtém informações sobre o VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
-3. Faça uma cópia de segurança a pedido com[backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
-    * O primeiro trabalho inicial de backup cria um ponto de recuperação total.
+2. Cada VM para cópia de segurança é um item. Para iniciar um trabalho de backup, obtém informações sobre o VM com [a Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Faça uma cópia de segurança a pedido com[o Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
+    * O primeiro trabalho inicial de backup cria um ponto de recuperação completo.
     * Após o backup inicial, cada trabalho de backup cria pontos de recuperação incrementais.
     * Os pontos de recuperação incrementais são eficientes em termos de armazenamento e tempo, uma vez que só transferem as alterações feitas desde a última cópia de segurança.
 
@@ -99,11 +99,11 @@ $job = Backup-AzRecoveryServicesBackupItem -Item $item
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se tiver problemas enquanto apoia a sua máquina virtual, reveja este artigo de resolução de [problemas.](backup-azure-vms-troubleshoot.md)
+Se tiver problemas enquanto faz backup da sua máquina virtual, reveja este [artigo de resolução de problemas](backup-azure-vms-troubleshoot.md).
 
 ### <a name="deleting-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
-Se precisar de apagar um cofre, primeiro elimine os pontos de recuperação no cofre e, em seguida, desregilhe o cofre, da seguinte forma:
+Se precisar de apagar um cofre, primeiro apague os pontos de recuperação no cofre e, em seguida, desagrega o cofre, da seguinte forma:
 
 ```powershell
 $Cont = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered
@@ -113,8 +113,8 @@ Unregister-AzRecoveryServicesBackupContainer -Container $namedContainer
 Remove-AzRecoveryServicesVault -Vault $vault1
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Reveja](backup-azure-vms-automation.md) uma passagem mais detalhada de backup e restauro de VMs Azure com PowerShell.
-* [Gerir e monitorizar VMs Azure](backup-azure-manage-vms.md)
+* [Gerir e monitorizar os VMs do Azure](backup-azure-manage-vms.md)
 * [Restaurar as VMs do Azure](backup-azure-arm-restore-vms.md)

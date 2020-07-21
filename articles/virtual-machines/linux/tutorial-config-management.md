@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: cac17d15d792622d9a26ff7c228ce1f0ba76bbc4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fe53f400c1e03f0f3bb9d5e85891769d58320d84
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027601"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501998"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual Linux em Azure
 
@@ -76,7 +77,7 @@ Ativar a Gestão de atualizações para a VM:
 A validação é executada para determinar se a Gestão de atualizações está ativada para esta VM.
 A validação inclui a verificação da existência de uma área de trabalho do Log Analytics e da conta de Automatização ligada, e se a solução está na área de trabalho.
 
-A área de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md) serve para recolher dados gerados pelas funcionalidades e serviços, tais como a Gestão de atualizações.
+A área de trabalho do [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) serve para recolher dados gerados pelas funcionalidades e serviços, tais como a Gestão de atualizações.
 A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 Para executar ações adicionais em VMs que necessitam de atualizações, a Automatização do Azure permite executar runbooks nas VMs, tais como transferir e aplicar atualizações.
 
@@ -86,8 +87,8 @@ Escolha o espaço de trabalho do Log Analytics e a conta de automatização e se
 
 Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
 
-* [Log Analytics](../../log-analytics/log-analytics-overview.md) espaço de trabalho
-* [Conta de automação](../../automation/automation-offering-get-started.md)
+* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) espaço de trabalho
+* [Conta de automação](../../automation/index.yml)
 * Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
 
 O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, log Analytics espaço de trabalho e conta de automação para utilizar e selecionar **Enable**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
@@ -112,7 +113,7 @@ Para criar uma nova implementação de atualização, selecione **a implementaç
 
 | Propriedade | Descrição |
 | --- | --- |
-| Name |O nome exclusivo para identificar a implementação de atualizações. |
+| Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Linux ou Windows|
 | Grupos a atualizar |Para máquinas Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e tags para construir um grupo dinâmico de VMs Azure para incluir na sua implementação. </br></br>Para máquinas não-Azure, selecione uma pesquisa guardada existente para selecionar um grupo de máquinas não-Azure para incluir na implementação. </br></br>Para saber mais, consulte [Grupos Dinâmicos](../../automation/automation-update-management-groups.md)|
 | Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do drop-down e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |

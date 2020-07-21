@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41f42b053181f4115770cd9973621706b248baab
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a09cc83259a6fbb07b8c88e1d8f82b720400c0d1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168308"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507748"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
 
@@ -43,6 +43,9 @@ Para começar, precisa dos seguintes itens:
 * O inquilino do ServiceNow deve ter o [sinal único de fornecedor múltiplo no plugin.](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) Pode fazê-lo [enviando um pedido de serviço.](https://hi.service-now.com)
 * Para a configuração automática, ative o plugin multi-fornecedor para o ServiceNow.
 * Para instalar a aplicação ServiceNow Classic (Mobile), vá à loja apropriada e procure a aplicação ServiceNow Classic. Então, descarregue.
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -101,8 +104,10 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Para **URL de resposta**, insira um dos seguintes URL:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | URL de Resposta|
+    |----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
     > Estes valores não são reais. Você precisa atualizar estes valores com o URL e identificador de assinatura real, que é explicado mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -171,8 +176,10 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     c. Para **URL de resposta**, insira um dos seguintes URL:
 
-    - `https://instancename.service-now.com/navpage.do`
-    - `https://instancename.service-now.com/customer.do`
+    | URL de Resposta |
+    |-----------|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
     > Estes valores não são reais. Você precisa atualizar estes valores com o URL e identificador de assinatura real, que é explicado mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -243,7 +250,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     1. Inscreva-se na sua aplicação ServiceNow como administrador.
 
-       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por padrão. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos.
+       * Na configuração automática, todas as definições necessárias estão configuradas no lado **do ServiceNow,** mas o **Certificado X.509** não é ativado por padrão. Tem de mapear manualmente o seu fornecedor de identidade no ServiceNow. Siga estes passos:
 
          1. No painel esquerdo, procure a secção **SSO multi-fornecedor** da caixa de pesquisa e selecione **Fornecedores de Identidade**.
 

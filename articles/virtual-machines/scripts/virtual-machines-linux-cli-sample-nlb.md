@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5765c2e7335183734c86f1ddd11e4fa61576740c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 600d4bdab4c7f7038cafbb8605fa2490f3bc6788
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977554"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501386"
 ---
 # <a name="create-a-highly-available-vm"></a>Criar uma VM de elevada disponibilidade
 
@@ -48,22 +48,22 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Cria um Balanceador de Carga da Rede do Azure (NLB). |
-| [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) | Cria uma pesquisa NLB. É utilizada uma pesquisa NLB para monitorizar cada VM no conjunto do NLB. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria uma regra do NLB. Neste exemplo, é criada uma regra para a porta 80. À medida que o tráfego HTTP chega ao NLB, é encaminhado para o porto 80 de um dos VMs no conjunto NLB. |
-| [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | Cria uma regra de Tradução de Endereços de Rede (NAT) do NLB.  As regras NAT mapeiam uma porta do NLB para uma porta numa VM. Neste exemplo, é criada uma regra NAT para o tráfego SSH para cada VM no conjunto do NLB.  |
-| [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
-| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra NSG para permitir tráfego de entrada. Neste exemplo, a porta 22 está aberta para o tráfego SSH. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Cria a placa da rede virtual e liga-a à rede virtual, à sub-rede e ao NSG. |
-| [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
+| [az network lb create](/cli/azure/network/lb) | Cria um Balanceador de Carga da Rede do Azure (NLB). |
+| [az network lb probe create](/cli/azure/network/lb/probe) | Cria uma pesquisa NLB. É utilizada uma pesquisa NLB para monitorizar cada VM no conjunto do NLB. Se qualquer VM ficar inacessível, o tráfego não é encaminhado para a VM. |
+| [az network lb rule create](/cli/azure/network/lb/rule) | Cria uma regra do NLB. Neste exemplo, é criada uma regra para a porta 80. À medida que o tráfego HTTP chega ao NLB, é encaminhado para o porto 80 de um dos VMs no conjunto NLB. |
+| [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) | Cria uma regra de Tradução de Endereços de Rede (NAT) do NLB.  As regras NAT mapeiam uma porta do NLB para uma porta numa VM. Neste exemplo, é criada uma regra NAT para o tráfego SSH para cada VM no conjunto do NLB.  |
+| [az network nsg create](/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) | Cria uma regra NSG para permitir tráfego de entrada. Neste exemplo, a porta 22 está aberta para o tráfego SSH. |
+| [az network nic create](/cli/azure/network/nic) | Cria a placa da rede virtual e liga-a à rede virtual, à sub-rede e ao NSG. |
+| [az vm availability-set create](/cli/azure/network/lb/rule) | Cria um conjunto de disponibilidade. Os conjuntos de disponibilidade garantem o tempo de atividade das aplicações ao propagar as máquinas virtuais nos recursos físicos de modo a que, se ocorrer uma falha, o conjunto completo não seja afetado. |
+| [az vm create](/cli/azure/vm/availability-set) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
+| [az group delete](/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos do script da CLI da máquina virtual adicionais na [Documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

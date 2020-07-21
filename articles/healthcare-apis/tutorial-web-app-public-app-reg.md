@@ -9,12 +9,12 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 58e21e46edfe1d03d42bf2202bcf1f22282631a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8414a84190659ff31596bc202d29fe45eefdc588
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "84872642"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536712"
 ---
 # <a name="client-application-registration"></a>Registo de inscrição de cliente
 No tutorial anterior, implementou e montou a sua API Azure para fHIR. Agora que tem a sua AZure API para a configuração do FHIR, vamos registar uma aplicação de cliente público. Pode ler através do registo completo [de uma aplicação de cliente público](register-public-azure-ad-client-app.md) como orientar para mais detalhes ou resolução de problemas, mas nós chamamos os principais passos para este tutorial abaixo.
@@ -23,22 +23,37 @@ No tutorial anterior, implementou e montou a sua API Azure para fHIR. Agora que 
 1. Selecione **registo de**  -->  **aplicações novo registo**
 1. Nomeie a sua aplicação e crie o URI de redirecionamento parahttps://www.getpostman.com/oauth2/callback
 
-
-![Inscrição de pedido de cliente](media/tutorial-web-app/reg-public-app.png)
+   :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Screenshot do Painel de Aplicação Registro e um nome de aplicação de exemplo e URL de redirecionamento.":::
 
 ## <a name="client-application-settings"></a>Definições de aplicação de cliente
-Assim que o seu pedido de cliente estiver registado, copie o ID da Aplicação (cliente) da Página geral. Vai precisar deste valor mais tarde ao aceder ao cliente.
 
-![ID de aplicativo de cópia](media/tutorial-web-app/app-id.png)
+Assim que o seu pedido de cliente estiver registado, copie o ID da Aplicação (cliente) e o ID do Inquilino na Página geral. Vai precisar destes dois valores mais tarde ao aceder ao cliente.
 
-Em seguida, desa estale as opções de autenticação corretas. Selecione **autenticação** do lado esquerdo. Verifique as caixas **de token de acesso** e **identificação.** Também pode configurar o URI de redirecionamento em preparação para quando criar a sua aplicação web na quarta parte deste tutorial. Para isso, adicione https:// \< WEB-APP-NAME>.azurewebsites.net à lista URI de redirecionamento. Se escolher um nome diferente durante o passo em que escreve a [sua aplicação web,](tutorial-web-app-write-web-app.md)terá de voltar e atualizá-lo.
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Screenshot do painel de configurações da aplicação do cliente, com os IDs de aplicação e diretório em destaque.":::
 
-![Definições de autenticação de aplicativos](media/tutorial-web-app/app-authentication.png)
+### <a name="connect-with-web-app"></a>Conecte-se com a aplicação web
 
-Agora que configurar a autenticação correta, desa estale as permissões API. 
-1. Selecione **permissões API** e clique **Em Adicionar uma permissão**
-1. Sob **APIs a minha organização usa,** pesquisa por APIs de Cuidados de Saúde Azure
-1. Selecione **user_impersonation** e clique **em adicionar permissões**
+Se escreveu [a sua aplicação web](tutorial-web-app-write-web-app.md) para se conectar com a API Azure para FHIR, também precisa definir as opções de autenticação corretas. 
+
+1. No menu esquerdo, em **Manage,** **selecione Autenticação.** 
+
+1. Para adicionar uma nova configuração da plataforma, selecione **Web**.
+
+1. Configurar o URI de redirecionamento em preparação para quando criar a sua aplicação web na quarta parte deste tutorial. Para isso, adicione `https://\<WEB-APP-NAME>.azurewebsites.net` à lista URI de redirecionamento. Se escolher um nome diferente durante o passo em que escreve a [sua aplicação web,](tutorial-web-app-write-web-app.md)terá de voltar e atualizá-lo.
+
+1. Selecione as caixas de verificação **de token de acesso** e **id.**
+
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Screenshot da app A imagem de configurações de autenticação lâmina, com os passos para adicionar uma plataforma realçada.":::
+
+## <a name="add-api-permissions"></a>Adicionar permissões de APIs
+
+Agora que configurar a autenticação correta, desa um conjunto das permissões da API:
+
+1. Selecione **permissões API** e clique **em Adicionar uma permissão.**
+1. Segundo **as APIs, a minha organização usa,** procure apis de cuidados de saúde Azure.
+1. Selecione **user_impersonation** e clique **em adicionar permissões**.
+
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Screenshot da lâmina de permissões Add API, com os passos para adicionar permissões API realçadas.":::
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora tem uma aplicação de cliente público. No próximo tutorial, vamos percorrer testes e ter acesso a esta aplicação através do Carteiro.

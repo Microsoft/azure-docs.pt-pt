@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 347f5d84968fc2a5b04eb51206b2000d76c35895
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 966fd5a3c89fb794b270a9cce6c45c43f4da7354
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554086"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494989"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu e utiliza as métricas baseadas no anfitrião para dimensionar automaticamente à medida que a carga de CPU muda.
@@ -44,5 +44,5 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings) | Cria e aplica regras de dimensionamento automático a um conjunto de dimensionamento de máquinas virtuais. |
 | [az group delete](/cli/azure/ad/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+## <a name="next-steps"></a>Próximos passos
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure/overview).

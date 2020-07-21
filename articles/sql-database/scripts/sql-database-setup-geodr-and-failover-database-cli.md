@@ -1,6 +1,6 @@
 ---
-title: ClI exemplo-activo geo-replicação-single Azure SQL Base de dados
-description: Script de exemplo Azure CLI para configurar geo-replicação ativa para uma única base de dados em Base de Dados SQL Azure e falhar.
+title: CLI exemplo-activo geo-replicação-single Azure SQL Database
+description: Azure CLI exemplo script para configurar a geo-replicação ativa para uma única base de dados em Azure SQL Database e falhar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 93afb5b52df7ac3ff638ff5fc180c3c4774880b8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 48ebf87a732380188b1c5f03954385b61bc765f9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020392"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528830"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Utilize o CLI para configurar a geo-replicação ativa para uma única base de dados na Base de Dados Azure SQL
 
-Este exemplo de script Azure CLI configura geo-replicação ativa para uma única base de dados e falha-o numa réplica secundária da base de dados.
+Este exemplo de script do Azure CLI configura a geo-replicação ativa para uma única base de dados e falha-a numa réplica secundária da base de dados.
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -42,7 +42,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql db réplica](/cli/azure/sql/db/replica) | Comandos de réplica de base de dados. |
 

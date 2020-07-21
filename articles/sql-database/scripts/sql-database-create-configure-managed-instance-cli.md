@@ -1,6 +1,6 @@
 ---
 title: 'Azure CLI: Criar um caso gerido'
-description: Roteiro de exemplo Azure CLI para criar uma instância gerida em 1º PqL Managed Instance
+description: Azure CLI exemplo script para criar um exemplo gerido em Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: fd2c7a33c0747aa21a8bda53ad5437c9e79a6557
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 9d0058fd90590b10a0d5745bce1875db9ad35745
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115416"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518899"
 ---
-# <a name="use-cli-to-create-an-azure-sql-managed-instance"></a>Utilize o CLI para criar uma instância gerida azure SQL
+# <a name="use-cli-to-create-an-azure-sql-managed-instance"></a>Utilize o CLI para criar uma instância gerida Azure SQL
 
-Este exemplo de script Azure CLI cria um Azure SQL Managed Instance numa subnet dedicada dentro de uma nova rede virtual. Também configura uma tabela de rotas e um grupo de segurança de rede para a rede virtual. Uma vez que o script tenha sido executado com sucesso, a instância gerida pode ser acedida a partir da rede virtual ou de um ambiente no local. Consulte [Configure Azure VM para ligar a uma instância gerida azure SQL].. /.. /azure-sql/managed-instance/connect-vm-instance-configure.md) e [Configure uma ligação ponto-a-local a um Caso Gerido Azure SQL a partir do local](../../azure-sql/managed-instance/point-to-site-p2s-configure.md).
+Este exemplo de script Azure CLI cria uma Instância Gerida Azure SQL numa sub-rede dedicada dentro de uma nova rede virtual. Também configura uma tabela de rotas e um grupo de segurança de rede para a rede virtual. Uma vez que o script tenha sido executado com sucesso, a instância gerida pode ser acedida a partir da rede virtual ou de um ambiente no local. Consulte [Configure Azure VM para ligar a um Azure SQL Managed Instance].. /.. /azure-sql/managed-instance/connect-vm-instance-configure.md) e [Configure uma ligação ponto-a-local a uma Instância Gerida Azure SQL a partir do local](../../azure-sql/managed-instance/point-to-site-p2s-configure.md).
 
 > [!IMPORTANT]
-> Para limitações, consulte [regiões apoiadas](../../azure-sql/managed-instance/resource-limits.md#supported-regions) e [tipos de subscrição suportados.](../../azure-sql/managed-instance/resource-limits.md#supported-subscription-types)
+> Para limitações, consulte [regiões apoiadas](../../azure-sql/managed-instance/resource-limits.md#supported-regions) e [tipos de assinaturas suportados.](../../azure-sql/managed-instance/resource-limits.md#supported-subscription-types)
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -39,7 +39,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -49,12 +49,12 @@ az group delete --name $resource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
-| [az rede vnet](/cli/azure/network/vnet) | Comandos de rede virtuais. |
-| [az rede vnet subnet](/cli/azure/network/vnet/subnet) | Comandos de sub-rede de rede virtual. |
-| [az rede route-table](/cli/azure/network/route-table) | Comandos de mesa de rota de rede. |
-| [az sql mi](/cli/azure/sql/mi) | Comandos SQL Managed Instance. |
+| [vnet de rede az](/cli/azure/network/vnet) | Comandos de rede virtual. |
+| [sub-rede vnet de rede az](/cli/azure/network/vnet/subnet) | Comandos de sub-rede de rede virtual. |
+| [az rede rota-mesa](/cli/azure/network/route-table) | Comandos de tabela de rota de rede. |
+| [az sql mi](/cli/azure/sql/mi) | Comandos sql Gestd Instance. |
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Crie e gerencie VMs Linux com o Azure CLI
+title: Tutorial - Criar e gerir Os VMs do Linux com o Azure CLI
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e gerir VMs do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e559be82fc7c3d6b25b99319785d49e30f56287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c233ef9cfb6ded6f3d4e96b893970d4282dfc22e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460006"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526984"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -32,13 +32,13 @@ As máquinas virtuais do Azure proporcionam um ambiente informático totalmente 
 > * Redimensionar uma VM
 > * Visualizar e compreender o estado de uma VM
 
-Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group). 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. Neste exemplo, é criado um grupo de recursos chamado *myResourceGroupVM* na região *eastus*. 
 
@@ -50,7 +50,7 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, o que pode ser
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm). 
+Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm). 
 
 Quando cria uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. O exemplo seguinte cria uma VM chamada *myVM* que executa o Ubuntu Server. Uma conta de utilizador chamada *azureuser* é criada na VM, as chaves SSH são geradas caso não existam na localização predefinida da chave (*~/.ssh*):
 
@@ -155,12 +155,12 @@ A tabela seguinte categoriza tamanhos em casos de utilização.
 
 | Tipo                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
-| [Com otimização de computação](sizes-compute.md)   | Fsv2          | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
-| [Com otimização de memória](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
-| [Com otimização de armazenamento](sizes-storage.md)      | Lsv2, Ls              | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
-| [Elevado desempenho](sizes-hpc.md) | H        | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. |
+| [Fins gerais](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU para memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
+| [Com otimização de computação](../sizes-compute.md)   | Fsv2          | CPU para memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
+| [Com otimização de memória](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Com otimização de armazenamento](../sizes-storage.md)      | Lsv2, Ls              | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
+| [Elevado desempenho](../sizes-hpc.md) | H        | As nossas mais avançadas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. |
 
 
 ### <a name="find-available-vm-sizes"></a>Localizar todos os tamanhos de VM disponíveis
@@ -254,7 +254,7 @@ Uma VM do Azure pode ter um de vários estados de energia. Este estado represent
 | Estado de Energia | Descrição
 |----|----|
 | A iniciar | Indica que a máquina virtual está a iniciar. |
-| A executar | Indica que a máquina virtual está em execução. |
+| Em Execução | Indica que a máquina virtual está em execução. |
 | A parar | Indica que a máquina virtual está a ser parada. | 
 | Parada | Indica que a máquina virtual está parada. As máquinas virtuais no estado de paragem continuam a incorrer em custos de computação.  |
 | A desalocar | Indica que a máquina virtual está a ser desalocada. |
@@ -312,7 +312,7 @@ Eliminar um grupo de recursos também elimina todos os recursos nele contidos, c
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu sobre a criação e gestão básica de VMs, como:
 
@@ -326,4 +326,4 @@ Neste tutorial, aprendeu sobre a criação e gestão básica de VMs, como:
 Avance para o próximo tutorial para saber mais sobre os discos de VM.  
 
 > [!div class="nextstepaction"]
-> [Criar e gerir discos VM](./tutorial-manage-disks.md)
+> [Criar e Gerir discos VM](./tutorial-manage-disks.md)

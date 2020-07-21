@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar uma aplicação de localização de loja utilizando o Azure Maps Microsoft Azure Maps'
-description: Neste tutorial, você vai aprender a criar uma aplicação web de localização de loja usando o Microsoft Azure Maps web SDK.
+title: 'Tutorial: Criar uma aplicação de localizador de loja usando Azure Maps Microsoft Azure Maps'
+description: Neste tutorial, você vai aprender como criar uma aplicação web localizador de loja usando microsoft Azure Maps web SDK.
 author: philmea
 ms.author: philmea
 ms.date: 01/14/2020
@@ -9,103 +9,103 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5caeb9ff5c289343e1869a55808bde7fbe035479
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746051"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517557"
 ---
-# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja utilizando o Azure Maps
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
-Este tutorial guia-o através do processo de criação de um simples localizador de loja utilizando o Azure Maps. Os localizadores de loja são comuns. Muitos dos conceitos que são utilizados neste tipo de aplicações aplicam-se a muitos outros tipos de aplicações. Oferecer um localizador de loja aos clientes é uma obrigação para a maioria das empresas que vendem diretamente aos consumidores. Neste tutorial, vai aprender a:
+Este tutorial guia-o através do processo de criação de um localizador de loja simples utilizando o Azure Maps. Os localizadores da loja são comuns. Muitos dos conceitos que são usados neste tipo de aplicação são aplicáveis a muitos outros tipos de aplicações. Oferecer um localizador de loja aos clientes é uma obrigação para a maioria das empresas que vendem diretamente aos consumidores. Neste tutorial, ficará a saber como:
     
 > [!div class="checklist"]
 > * Crie uma nova página web utilizando a API de Controlo de Mapas Azure.
-> * Carregue os dados personalizados de um ficheiro e exiba-os num mapa.
-> * Utilize o serviço de pesquisa do Azure Maps para encontrar um endereço ou introduzir uma consulta.
-> * Obtenha a localização do utilizador do navegador e mostre-a no mapa.
+> * Carregue os dados personalizados a partir de um ficheiro e exiba-os num mapa.
+> * Utilize o serviço de pesquisa Azure Maps para encontrar um endereço ou inserir uma consulta.
+> * Obtenha a localização do utilizador no navegador e mostre-o no mapa.
 > * Combine várias camadas para criar símbolos personalizados no mapa.  
 > * Pontos de dados do cluster.  
 > * Adicione controlos de zoom ao mapa.
 
 <a id="Intro"></a>
 
-Salte para o exemplo do [localizador da loja ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) ou código [fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
+Salte para a frente para o [exemplo do localizador](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) da loja ao vivo ou [código fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar os passos neste tutorial, primeiro é necessário criar uma conta Azure Maps e obter a sua chave principal (chave de subscrição). Siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma subscrição de conta Azure Maps com o nível de preços S1 e siga os passos para obter a [chave](quick-demo-map-app.md#get-the-primary-key-for-your-account) principal para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps](how-to-manage-authentication.md).
+Para completar os passos neste tutorial, primeiro precisa de criar uma conta Azure Maps e obter a sua chave primária (chave de subscrição). Siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma subscrição de conta Azure Maps com nível de preços S1 e siga os passos na chave [principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
 ## <a name="design"></a>Design
 
-Antes de entrar no código, é uma boa ideia começar com um desenho. O seu localizador de loja pode ser tão simples ou complexo como quiser. Neste tutorial, criamos um simples localizador de loja. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se assim o desejar. Criamos um localizador de loja para uma empresa fictícia chamada Contoso Coffee. A figura que se segue mostra uma estrutura de arame do layout geral do localizador de loja que construímos neste tutorial:
+Antes de entrar no código, é uma boa ideia começar com um desenho. O localizador da sua loja pode ser tão simples ou complexo como pretende. Neste tutorial, criamos um simples localizador de lojas. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se assim o desejar. Criamos um localizador de lojas para uma empresa fictícia chamada Contoso Coffee. A seguinte figura mostra uma estrutura de arame do layout geral do localizador da loja que construímos neste tutorial:
 
 <center>
 
-![Arame de uma aplicação de localizador de loja para locais da Loja Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe de uma aplicação de localizador de loja para locais do café Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
-Para maximizar a utilidade deste localizador de loja, incluímos um layout responsivo que se ajusta quando a largura do ecrã de um utilizador é inferior a 700 pixels de largura. Um layout responsivo facilita a utilização do localizador da loja num pequeno ecrã, como num dispositivo móvel. Aqui está uma moldura de arame de um layout de pequeno ecrã:  
+Para maximizar a utilidade deste localizador de loja, incluímos um layout responsivo que se ajusta quando a largura do ecrã de um utilizador é inferior a 700 pixels de largura. Um layout responsivo facilita a utilização do localizador da loja num pequeno ecrã, como num dispositivo móvel. Aqui está uma moldura de um layout de pequeno ecrã:  
 
 <center>
 
-![Wireframe da aplicação do localizador de loja de café Contoso num dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe da aplicação de localizador de café Contoso em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-As molduras de arame mostram uma aplicação bastante simples. A aplicação tem uma caixa de pesquisa, uma lista de lojas próximas, e um mapa que tem alguns marcadores, como símbolos. E tem uma janela pop-up que exibe informações adicionais quando o utilizador seleciona um marcador. Com mais detalhes, aqui estão as características que construímos neste localizador de loja neste tutorial:
+Os cabos mostram uma aplicação bastante simples. A aplicação tem uma caixa de pesquisa, uma lista de lojas próximas, e um mapa que tem alguns marcadores, como símbolos. E tem uma janela pop-up que exibe informações adicionais quando o utilizador seleciona um marcador. Mais detalhadamente, eis as funcionalidades que construímos neste localizador de loja neste tutorial:
 
-* Todas as localizações do ficheiro de dados delimitado por separadores importados são carregadas no mapa.
-* O utilizador pode fazer pan e zoom no mapa, realizar uma pesquisa e selecionar o botão My Location GPS.
+* Todas as localizações do ficheiro de dados delimitado importados são carregadas no mapa.
+* O utilizador pode fazer o painel e ampliar o mapa, efetuar uma pesquisa e selecionar o botão GPS da minha localização.
 * O layout da página ajusta-se com base na largura do ecrã do dispositivo.  
 * Um cabeçalho mostra o logotipo da loja.  
-* O utilizador pode utilizar uma caixa de pesquisa e um botão de pesquisa para procurar um local, como um endereço, código postal ou cidade. 
-* Um evento adicionado à caixa de `keypress` pesquisa desencadeia uma pesquisa se o utilizador premir O Enter. Esta funcionalidade é muitas vezes negligenciada, mas cria uma melhor experiência do utilizador.
-* Quando o mapa se move, a distância até cada local a partir do centro do mapa é calculada. A lista de resultados é atualizada para exibir os locais mais próximos na parte superior do mapa.  
+* O utilizador pode usar uma caixa de pesquisa e um botão de pesquisa para procurar uma localização, como um endereço, código postal ou cidade. 
+* Um `keypress` evento adicionado à caixa de pesquisa desencadeia uma pesquisa se o utilizador premir Enter. Esta funcionalidade é muitas vezes negligenciada, mas cria uma melhor experiência do utilizador.
+* Quando o mapa se move, a distância para cada local a partir do centro do mapa é calculada. A lista de resultados é atualizada para mostrar os locais mais próximos no topo do mapa.  
 * Quando seleciona um resultado na lista de resultados, o mapa está centrado na localização selecionada e as informações sobre a localização aparecem numa janela pop-up.  
-* A seleção de uma localização específica no mapa também despoleta uma janela pop-up.
-* Quando o utilizador faz zoom, as localizações são agrupadas em clusters. Os aglomerados são representados por um círculo com um número dentro do círculo. Os clusters formam-se e separam-se à medida que o utilizador altera o nível de zoom.
-* Selecionando um cluster zooms no mapa dois níveis e centros sobre a localização do cluster.
+* Selecionar uma localização específica no mapa também despoleta uma janela pop-up.
+* Quando o utilizador faz zoom para fora, as localizações são agrupadas em clusters. Os aglomerados são representados por um círculo com um número dentro do círculo. Os clusters formam-se e separam-se à medida que o utilizador altera o nível de zoom.
+* Selecionando um cluster zooms no mapa dois níveis e centra-se sobre a localização do cluster.
 
 <a id="create a data-set"></a>
 
 ## <a name="create-the-store-location-dataset"></a>Criar o conjunto de dados de localização da loja
 
-Antes de desenvolvermos uma aplicação de localização de loja, precisamos de criar um conjunto de dados das lojas que queremos exibir no mapa. Neste tutorial, usamos um conjunto de dados para um café fictício chamado Café Contoso. O conjunto de dados para este simples localizador de loja é gerido num livro do Excel. O conjunto de dados contém 10.213 cafés Contoso, distribuídos por nove países/regiões: Estados Unidos, Canadá, Reino Unido, França, Alemanha, Itália, Países Baixos, Dinamarca e Espanha. Aqui está uma imagem do que os dados parecem:
+Antes de desenvolvermos uma aplicação de localizador de loja, precisamos de criar um conjunto de dados das lojas que queremos exibir no mapa. Neste tutorial, usamos um conjunto de dados para um café fictício chamado Contoso Coffee. O conjunto de dados deste simples localizador de loja é gerido num livro do Excel. O conjunto de dados contém 10.213 locais de café Contoso, distribuídos por nove países/regiões: Estados Unidos, Canadá, Reino Unido, França, Alemanha, Itália, Países Baixos, Dinamarca e Espanha. Aqui está uma imagem de como os dados parecem:
 
 <center>
 
-![Screenshot dos dados do localizador da loja em um livro excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+![Screenshot dos dados do localizador da loja num livro do Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
-Pode [baixar o livro excel.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) 
+Pode [descarregar o livro excel.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) 
 
 Olhando para a imagem dos dados, podemos fazer as seguintes observações:
     
-* As informações de localização são armazenadas utilizando as colunas **AddressLine**, **City**, **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e **Colunas Country.**  
-* As colunas **Latitude** e **Longitude** contêm as coordenadas para cada local de café Contoso Coffee. Se não tiver informações coordenadas, pode utilizar os serviços de pesquisa no Azure Maps para determinar as coordenadas de localização.
-* Algumas colunas adicionais contêm metadados relacionados com os cafés: um número de telefone, colunas Boolean, e horários de abertura e fecho de loja em formato 24 horas. As colunas Boolean são para Wi-Fi e acessibilidade em cadeira de rodas. Pode criar as suas próprias colunas que contenham metadados mais relevantes para os seus dados de localização.
+* As informações de localização são armazenadas utilizando as **colunas AddressLine**, **City**, **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e colunas **country.**  
+* As colunas **Latitude** e **Longitude** contêm as coordenadas para cada café Contoso. Se não tiver informações de coordenadas, pode utilizar os serviços de Pesquisa no Azure Maps para determinar as coordenadas de localização.
+* Algumas colunas adicionais contêm metadados relacionados com os cafés: um número de telefone, colunas Boolean e horários de abertura e fecho de loja em formato 24 horas. As colunas Boolean são para acesso wi-fi e cadeira de rodas. Pode criar as suas próprias colunas que contenham metadados mais relevantes para os seus dados de localização.
 
 > [!Note]
-> O Azure Maps dá dados na projeção esférica do Mercator "EPSG:3857" mas lê os dados do "EPSG:4325" que utilizam o datum WGS84. 
+> O Azure Maps produz dados na projeção esférica do Mercator "EPSG:3857" mas lê dados em "EPSG:4325" que usam o datum WGS84. 
 
-Existem muitas formas de expor o conjunto de dados à aplicação. Uma abordagem é colocar os dados numa base de dados e expor um serviço web que questiona os dados. Em seguida, pode enviar os resultados para o navegador do utilizador. Esta opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados frequentemente. No entanto, esta opção requer mais trabalho de desenvolvimento e tem um custo mais elevado. 
+Existem muitas formas de expor o conjunto de dados à aplicação. Uma abordagem é carregar os dados numa base de dados e expor um serviço web que questione os dados. Em seguida, pode enviar os resultados para o navegador do utilizador. Esta opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados frequentemente. No entanto, esta opção requer mais trabalho de desenvolvimento e tem um custo mais elevado. 
 
 Outra abordagem é converter este conjunto de dados num ficheiro de texto plano que o navegador pode facilmente analisar. O ficheiro em si pode ser hospedado com o resto da aplicação. Esta opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados mais pequenos porque o utilizador descarrega todos os dados. Utilizamos o ficheiro de texto plano para este conjunto de dados porque o tamanho do ficheiro de dados é inferior a 1 MB.  
 
-Para converter o livro num ficheiro de texto plano, guarde o livro como ficheiro delimitado por separadores. Cada coluna é delimitada por um caracteres de separador, o que torna as colunas fáceis de analisar no nosso código. Pode utilizar o formato de valor separado da vírce (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírem à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista **de reparação do tipo,** selecione **Texto (Separador delimitado)(*.txt)**. Nomeie o ficheiro *ContosoCoffee.txt*. 
+Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)**. Diga o nome do *ficheiroContosoCoffee.txt*. 
 
 <center>
 
 ![Screenshot do Save como caixa de diálogo tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
-Se abrir o ficheiro de texto no Bloco de Notas, parece semelhante ao seguinte figura:
+Se abrir o ficheiro de texto no Bloco de Notas, este é semelhante ao seguinte valor:
 
 <center>
 
-![Screenshot de um ficheiro DoBloco que mostra um conjunto de dados delimitado por separador](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+![Screenshot de um ficheiro Notepad que mostra um conjunto de dados delimitado por separador](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Configurar o projeto
 
-Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código à sua escolha. Na pasta do projeto, crie três ficheiros: *index.html,* *index.css*, e *index.js*. Estes ficheiros definem o layout, estilo e lógica para a aplicação. Crie uma pasta com *dados* nomeados e adicione *ContosoCoffee.txt* à pasta. Crie outra pasta com *imagens.* Utilizamos 10 imagens nesta aplicação para ícones, botões e marcadores no mapa. Pode [descarregar estas imagens.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) A pasta do projeto deve agora parecer a seguinte figura:
+Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código à sua escolha. Na sua pasta de projeto, crie três ficheiros: *index.html,* *index.css*e *index.js*. Estes ficheiros definem o layout, o estilo e a lógica para a aplicação. Crie uma pasta com o nome *de dados* e adicione *ContosoCoffee.txt* à pasta. Criar outra pasta nomeada *imagens*. Usamos 10 imagens nesta aplicação para ícones, botões e marcadores no mapa. Pode [baixar estas imagens.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) A sua pasta de projeto deve agora parecer-se com a seguinte figura:
 
 <center>
 
@@ -113,9 +113,9 @@ Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.micro
 
 ## <a name="create-the-user-interface"></a>Criar a interface de utilizador
 
-Para criar a interface do utilizador, adicione código para *indexar.html:*
+Para criar a interface do utilizador, adicione código a *index.html:*
 
-1. Adicione as `meta` seguintes etiquetas ao `head` *índice.html*. A etiqueta define o conjunto de `charset` caracteres (UTF-8). O valor diz `http-equiv` ao Internet Explorer e microsoft Edge para usar as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
+1. Adicione as `meta` seguintes etiquetas à `head`index.htm*l*. A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor dos `http-equiv` indicações ao Internet Explorer e Microsoft Edge para utilizarem as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
 
     ```HTML
     <meta charset="utf-8">
@@ -123,27 +123,27 @@ Para criar a interface do utilizador, adicione código para *indexar.html:*
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-1. Adicione referências aos ficheiros JavaScript e CSS de controlo web do Azure Maps:
+1. Adicione referências aos ficheiros JavaScript e CSS do controlo web do Azure Maps:
 
     ```HTML
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
-1. Adicione uma referência ao módulo Deserviços Azure Maps. O módulo é uma biblioteca JavaScript que envolve os serviços De REST do Azure Maps e os facilita a sua utilização no JavaScript. O módulo é útil para alimentar a funcionalidade de pesquisa.
+1. Adicione uma referência ao módulo Azure Maps Services. O módulo é uma biblioteca JavaScript que envolve os serviços Azure Maps REST e torna-os fáceis de usar no JavaScript. O módulo é útil para alimentar a funcionalidade de pesquisa.
 
     ```HTML
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Adicione referências ao *index.js* e *index.css:*
+1. Adicione referências a *index.js* e *index.css:*
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
     <script src="index.js"></script>
     ```
 
-1. No corpo do documento, adicione uma `header` etiqueta. Dentro da `header` etiqueta, adicione o logótipo e o nome da empresa.
+1. No corpo do documento, adicione uma `header` etiqueta. Dentro da `header` etiqueta, adicione o logotipo e o nome da empresa.
 
     ```HTML
     <header>
@@ -152,7 +152,7 @@ Para criar a interface do utilizador, adicione código para *indexar.html:*
     </header>
     ```
 
-1. Adicione uma etiqueta e crie um painel de `main` pesquisa que tenha uma caixa de texto e um botão de pesquisa. Além disso, adicione `div` referências para o mapa, o painel de listas e o botão DE GPS my location.
+1. Adicione uma `main` etiqueta e crie um painel de pesquisa que tenha uma caixa de texto e um botão de pesquisa. Além disso, adicione `div` referências para o mapa, o painel de listas e o botão GPS my location.
 
     ```HTML
     <main>
@@ -168,9 +168,9 @@ Para criar a interface do utilizador, adicione código para *indexar.html:*
     </main>
     ```
 
-Quando terminar, *o index.html* deve parecer [este exemplo index.html ficheiro](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
+Quando terminar, *index.htmdevo* parecer este exemplo index.htm[ficheiro l.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
 
-O próximo passo é definir os estilos CSS. Os estilos CSS definem como os componentes da aplicação são definidos e a aparência da aplicação. Abra *o index.css* e adicione-lhe o seguinte código. O estilo define opções de `@media` estilo alternativas para usar quando a largura do ecrã é inferior a 700 pixels.  
+O próximo passo é definir os estilos CSS. Os estilos CSS definem como os componentes da aplicação são definidos e a aparência da aplicação. Abra *index.css* e adicione-lhe o seguinte código. O `@media` estilo define opções de estilo alternativo para usar quando a largura do ecrã é menor que 700 pixels.  
 
    ```CSS
     html, body {
@@ -375,13 +375,13 @@ O próximo passo é definir os estilos CSS. Os estilos CSS definem como os compo
     }
    ```
 
-Executar a aplicação agora, verá o cabeçalho, caixa de pesquisa e botão de pesquisa. Mas o mapa não é visível porque ainda não foi carregado. Se tentar esponsar, nada acontece. Precisamos de configurar a lógica JavaScript, que é descrita na secção seguinte. Esta lógica acede a toda a funcionalidade do localizador da loja.
+Faça a aplicação agora, verá o cabeçalho, a caixa de pesquisa e o botão de pesquisa. Mas o mapa não é visível porque ainda não foi carregado. Se tentares fazer uma busca, nada acontece. Precisamos de configurar a lógica JavaScript, que é descrita na secção seguinte. Esta lógica acede a todas as funcionalidades do localizador da loja.
 
 ## <a name="wire-the-application-with-javascript"></a>Ligue a aplicação com JavaScript
 
-Tudo está agora configurado na interface do utilizador. Ainda precisamos adicionar o JavaScript para carregar e analisar os dados e, em seguida, renderizar os dados no mapa. Para começar, abra *o index.js* e adicione-lhe código, conforme descrito nos seguintes passos.
+Tudo está agora configurado na interface do utilizador. Ainda precisamos adicionar o JavaScript para carregar e analisar os dados, e depois renderizar os dados no mapa. Para começar, abra *index.js* e adicione-lhe código, conforme descrito nos passos seguintes.
 
-1. Adicione opções globais para facilitar a atualização das configurações. Defina as variáveis para o mapa, janela pop-up, fonte de dados, camada de ícone e marcador HTML. Delineie o marcador HTML para indicar o centro de uma área de pesquisa. E, defina uma instância do cliente de serviço de pesquisa do Azure Maps.
+1. Adicione opções globais para facilitar a atualização das definições. Defina as variáveis para o mapa, janela pop-up, fonte de dados, camada de ícone e marcador HTML. Desa estale o marcador HTML para indicar o centro de uma área de pesquisa. E, defina uma instância do serviço de pesquisa Azure Maps.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -395,14 +395,14 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Adicione código ao *index.js*. O código seguinte inicializa o mapa. Adicionámos um [ouvinte](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para esperar até que a página termine de carregar. Depois, ligámos eventos para monitorizar o carregamento do mapa e dar funcionalidade ao botão de pesquisa e ao botão de localização My.
+1. Adicione código a *index.js*. O seguinte código rubrica o mapa. Adicionámos um [ouvinte do evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para esperar até que a página termine de carregar. Em seguida, ligamos eventos para monitorizar o carregamento do mapa, e dar funcionalidade ao botão de pesquisa e ao botão de localização.
 
-   Quando o utilizador seleciona o botão de pesquisa ou escreve uma localização na caixa de pesquisa, em seguida, pressiona a entrada, inicia-se uma pesquisa confusa contra a consulta do utilizador. Passar num conjunto de valores ISO 2 país/região para a opção de `countrySet` limitar os resultados de pesquisa a esses países/regiões. Limitar os países/regiões à procura ajuda a aumentar a precisão dos resultados que são devolvidos. 
+   Quando o utilizador seleciona o botão de pesquisa ou escreve uma localização na caixa de pesquisa e, em seguida, pressiona a entrada, é iniciada uma pesquisa difusa contra a consulta do utilizador. Passe num conjunto de valores ISO 2 de país/região à `countrySet` opção de limitar os resultados de pesquisa a esses países/regiões. Limitar os países/regiões à procura ajuda a aumentar a precisão dos resultados que são devolvidos. 
   
-   Uma vez terminada a pesquisa, pegue o primeiro resultado e coloque a câmara do mapa sobre essa área. Quando o utilizador selecionar o botão My Location, recupere a localização do utilizador utilizando a API de Geolocalização HTML5. Esta API está incorporada no navegador. Então, centro o mapa sobre a sua localização.  
+   Uma vez terminada a pesquisa, pegue o primeiro resultado e coloque a câmara do mapa sobre essa área. Quando o utilizador selecionar o botão 'Localização' O utilizador, recupere a localização do utilizador utilizando a API de Geolocalização HTML5. Esta API está integrada no navegador. Então, centra o mapa sobre a sua localização.  
 
    > [!Tip]
-   > Quando se usa janelas pop-up, o melhor é criar uma única `Popup` instância e reutilizar a instância atualizando o seu conteúdo e posição. Para cada `Popup` caso que adiciona ao seu código, vários elementos DOM são adicionados à página. Quanto mais elementos DOM existem numa página, mais coisas o navegador tem de acompanhar. Se houver muitos itens, o navegador pode tornar-se lento.
+   > Quando utiliza janelas pop-up, o melhor é criar uma única `Popup` instância e reutilizar o caso atualizando o seu conteúdo e posição. Por cada `Popup` exemplo que adiciona ao seu código, vários elementos DOM são adicionados à página. Quanto mais elementos DOM existem numa página, mais coisas o navegador tem de acompanhar. Se houver muitos itens, o navegador pode tornar-se lento.
 
     ```JavaScript
     function initialize() {
@@ -510,7 +510,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     window.onload = initialize;
     ```
 
-1. No ouvinte do mapa, adicione um controlo de `ready` zoom e um marcador HTML para exibir o centro de uma área de pesquisa.
+1. No ouvinte do `ready` mapa, adicione um controlo de zoom e um marcador HTML para exibir o centro de uma área de pesquisa.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -527,7 +527,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     map.markers.add(centerMarker);
     ```
 
-1. No ouvinte do mapa, adicione uma fonte de `ready` dados. Em seguida, faça uma chamada para carregar e analisar o conjunto de dados. Ativar o agrupamento na fonte de dados. Agrupamento sinuoso nos grupos de fonte de dados que se sobrepõem a pontos num cluster. Os clusters separam-se em pontos individuais à medida que o utilizador faz zoom. Este comportamento proporciona uma melhor experiência do utilizador e melhora o desempenho.
+1. No ouvinte do `ready` mapa, adicione uma fonte de dados. Em seguida, faça uma chamada para carregar e analisar o conjunto de dados. Ativar o agrupamento na fonte de dados. Agrupar-se nos grupos de origem de dados sobrepõe-se pontos num cluster. Os clusters separam-se em pontos individuais à medida que o utilizador faz zoom. Este comportamento proporciona uma melhor experiência do utilizador e melhora o desempenho.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -542,9 +542,9 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     loadStoreData();
     ```
 
-1. Depois de carregar o conjunto de dados no ouvinte do `ready` mapa, defina um conjunto de camadas para renderizar os dados. Uma camada de bolha é usada para renderizar pontos de dados agrupados. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolha. Uma segunda camada de símbolo torna um ícone personalizado para localizações individuais no mapa.
+1. Depois de carregar o conjunto de dados no ouvinte do `ready` mapa, defina um conjunto de camadas para renderizar os dados. Uma camada de bolha é usada para tornar pontos de dados agrupados. Uma camada de símbolo é usada para tornar o número de pontos em cada aglomerado acima da camada de bolha. Uma segunda camada de símbolo torna um ícone personalizado para locais individuais no mapa.
 
-   Adicione `mouseover` e `mouseout` eventos às camadas de bolha e ícone para alterar o cursor do rato quando o utilizador paira sobre um cluster ou ícone no mapa. Adicione um `click` evento à camada de bolha de cluster. Este `click` evento amplia no mapa dois níveis e centra o mapa sobre um cluster quando o utilizador seleciona qualquer cluster. Adicione um `click` evento à camada de ícone. Este `click` evento exibe uma janela pop-up que mostra os detalhes de um café quando um utilizador seleciona um ícone de localização individual. Adicione um evento ao mapa para monitorizar quando o mapa estiver terminado de movimento. Quando este evento disparar, atualize os itens no painel da lista.  
+   Adicione `mouseover` e `mouseout` eventos às camadas de bolha e ícone para alterar o cursor do rato quando o utilizador pairar sobre um cluster ou ícone no mapa. Adicione um `click` evento à camada de bolha de cluster. Este `click` evento amplia no mapa dois níveis e centra o mapa sobre um cluster quando o utilizador seleciona qualquer cluster. Adicione um `click` evento à camada de ícone. Este `click` evento exibe uma janela pop-up que mostra os detalhes de um café quando um utilizador seleciona um ícone de localização individual. Adicione um evento ao mapa para monitorizar quando o mapa terminar de se mover. Quando este evento disparar, atualize os itens no painel de listas.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -627,7 +627,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     });
     ```
 
-1. Quando o conjunto de dados da cafetaria é carregado, deve primeiro ser descarregado. Em seguida, o ficheiro de texto deve ser dividido em linhas. A primeira linha contém a informação do cabeçalho. Para tornar o código mais fácil de seguir, analisamos o cabeçalho num objeto, que podemos usar para procurar o índice celular de cada propriedade. Depois da primeira linha, passe as linhas restantes e crie uma característica de ponto. Adicione a função de ponto à fonte de dados. Finalmente, atualize o painel da lista.
+1. Quando o conjunto de dados do café estiver carregado, este deve ser descarregado primeiro. Em seguida, o ficheiro de texto deve ser dividido em linhas. A primeira linha contém a informação do cabeçalho. Para tornar o código mais fácil de seguir, analisamos o cabeçalho num objeto, que podemos usar para procurar o índice celular de cada propriedade. Após a primeira linha, passe pelas linhas restantes e crie uma função de ponto. Adicione a função de ponto à fonte de dados. Finalmente, atualize o painel de listas.
 
     ```JavaScript
     function loadStoreData() {
@@ -686,7 +686,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     }
     ```
 
-1. Quando o painel da lista é atualizado, a distância é calculada. Esta distância é do centro do mapa para todas as características do ponto na vista do mapa atual. As características são então classificadas à distância. O HTML é gerado para mostrar cada local no painel da lista.
+1. Quando o painel de listas é atualizado, a distância é calculada. Esta distância é do centro do mapa até todas as características do ponto na vista atual do mapa. As características são então ordenadas à distância. O HTML é gerado para exibir cada local no painel de listas.
 
     ```JavaScript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';
@@ -824,7 +824,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     }
     ```
 
-1. Quando o utilizador seleciona um item no painel da lista, a forma a que o item está relacionado é recuperada a partir da fonte de dados. Uma janela pop-up é gerada que é baseada na informação da propriedade armazenada na forma. O mapa está centrado sobre a forma. Se o mapa tiver menos de 700 pixels de largura, a vista do mapa é compensada para que a janela pop-up seja visível.
+1. Quando o utilizador seleciona um item no painel de listas, a forma a que o item está relacionado é recuperada a partir da fonte de dados. Uma janela pop-up é gerada com base nas informações da propriedade armazenadas no formato. O mapa está centrado sobre a forma. Se o mapa tiver menos de 700 pixels de largura, a vista do mapa é compensada para que a janela pop-up seja visível.
 
     ```JavaScript
     //When a user selects a result in the side panel, look up the shape by its ID value and display the pop-up window.
@@ -920,15 +920,15 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     }
     ```
 
-Agora, tem um localizador de loja totalmente funcional. Num navegador web, abra o ficheiro *index.html* para o localizador da loja. Quando os clusters aparecem no mapa, pode procurar um local utilizando a caixa de pesquisa, selecionando o botão My Location, selecionando um cluster ou fazendo zoom no mapa para ver localizações individuais.
+Agora, tem um localizador de loja totalmente funcional. Num navegador web, abra o *ficheiroindex.html* para o localizador da loja. Quando os clusters aparecem no mapa, pode procurar uma localização utilizando a caixa de pesquisa, selecionando o botão 'Localização' , selecionando um cluster ou fazendo zoom no mapa para ver as localizações individuais.
 
-A primeira vez que um utilizador seleciona o botão My Location, o navegador apresenta um aviso de segurança que pede permissão para aceder à localização do utilizador. Se o utilizador concordar em partilhar a sua localização, o mapa faz zoom na localização do utilizador e os cafés próximos são mostrados. 
+A primeira vez que um utilizador seleciona o botão 'Localização' o navegador apresenta um aviso de segurança que pede permissão para aceder à localização do utilizador. Se o utilizador concordar em partilhar a sua localização, o mapa faz zooms na localização do utilizador e nas cafetarias próximas são mostrados. 
 
 <center>
 
 ![Screenshot do pedido do navegador para aceder à localização do utilizador](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-Quando se aproxima o suficiente numa área que tem localizações de café, os clusters separam-se em locais individuais. Selecione um dos ícones do mapa ou selecione um item no painel lateral para ver uma janela pop-up. O pop-up mostra informações para o local selecionado.
+Quando se faz zoom perto o suficiente numa área que tem localizações de café, os clusters separam-se em locais individuais. Selecione um dos ícones no mapa ou selecione um item no painel lateral para ver uma janela pop-up. O pop-up mostra informações para o local selecionado.
 
 <center>
 
@@ -940,18 +940,18 @@ Se redimensionar a janela do navegador para menos de 700 pixels de largura ou ab
 
 ![Screenshot da versão de pequeno ecrã do localizador da loja](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, você aprende a criar um localizador de loja básico usando O Azure Maps. O localizador de loja que cria neste tutorial pode ter toda a funcionalidade de que necessita. Pode adicionar funcionalidades ao seu localizador de loja ou utilizar funcionalidades mais avançadas para uma experiência mais personalizada do utilizador: 
+Neste tutorial, aprende-se a criar um localizador de lojas básicas utilizando o Azure Maps. O localizador de loja que cria neste tutorial pode ter toda a funcionalidade de que necessita. Pode adicionar funcionalidades ao localizador da sua loja ou utilizar funcionalidades mais avançadas para uma experiência mais personalizada do utilizador: 
 
 > [!div class="checklist"]
-> * Ative [sugestões à medida que escreve](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) na caixa de pesquisa.  
-> * Adicione [suporte para várias línguas](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Permita ao utilizador [filtrar as localizações ao longo de um percurso](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+> * Ative [as sugestões à medida que digita](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) na caixa de pesquisa.  
+> * Adicione [suporte para vários idiomas.](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization) 
+> * Deixe o utilizador [filtrar as localizações ao longo de uma rota](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
 > * Adicione a capacidade de [definir filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Adicione suporte para especificar um valor de pesquisa inicial utilizando uma corda de consulta. Quando inclui esta opção no seu localizador de loja, os utilizadores podem marcar e partilhar pesquisas. Também fornece um método fácil para você passar pesquisas para esta página a partir de outra página.  
-> * Implemente o seu localizador de loja como uma Aplicação Web do Serviço de [Aplicações Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-> * Guarde os seus dados numa base de dados e procure locais próximos. Para saber mais, consulte os tipos de [dados espaciais do SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e os [dados espaciais da Consulta para o vizinho mais próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Adicione suporte para especificar um valor inicial de pesquisa utilizando uma cadeia de consulta. Quando incluir esta opção no localizador da sua loja, os utilizadores podem marcar e partilhar pesquisas. Também fornece um método fácil para que você passe pesquisas para esta página a partir de outra página.  
+> * Implemente o localizador da sua loja como uma [Aplicação Web do Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Guarde os seus dados numa base de dados e procure locais próximos. Para saber mais, consulte os [tipos de dados espaciais sql server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e os [dados espaciais de consulta para o vizinho mais próximo.](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)
 
 > [!div class="nextstepaction"]
 > [Ver código fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)

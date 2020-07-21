@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 285245e499cfe8a5d7e365044c188191325e4267
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782862"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519648"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a sua conformidade regulamentar
 ---
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para analisar as funcionalidades abrangidas por este tutorial, tem de ter o nível de preços standard do Security Center. Pode tentar o Security Center Standard sem custos.
+Para analisar as funcionalidades abrangidas por este tutorial, você deve ter o nível de preços padrão do Centro de Segurança. Pode tentar o Security Center Standard sem custos.
 Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Avalie a sua conformidade regulamentar
@@ -85,7 +85,7 @@ Tendo em conta as informações no painel de conformidade regulamentar, pode mel
     > [!NOTE]
     > As avaliações são executadas aproximadamente a cada 12 horas, portanto, verá o impacto nos dados de conformidade apenas depois da execução das avaliações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a usar o painel de conformidade regulamentar do Centro de Segurança para:
 

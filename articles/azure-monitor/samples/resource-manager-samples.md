@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: e71cd5f3989a175f883f3a08b4f55d36a154dcee
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 4446eef481e8370f7457311f6eae6ce40f9e6727
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753481"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86539266"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Amostras de modelo de gestor de recursos para monitor Azure
 
@@ -37,7 +37,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 ```azurecli
 az login
 az deployment group create \
-    --name AlertDeployment \
+    --name AzureMonitorDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file azure-monitor-deploy.json \
     --parameters azure-monitor-deploy.parameters.json
@@ -59,6 +59,6 @@ az deployment group create \
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [os modelos do Gestor de Recursos](../../azure-resource-manager/templates/overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Back up Windows máquinas virtuais no portal Azure
+title: Tutorial - Apoiar máquinas virtuais do Windows no portal Azure
 description: Neste tutorial, irá aprender a utilizar o portal do Azure para proteger as máquinas virtuais do Windows com o Azure Backup.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5b3d1240c621a1bcdc135825e70fe164452a428
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100435"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500400"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Windows no Azure
 
@@ -27,7 +27,7 @@ Pode criar cópias de segurança em intervalos regulares para manter os seus dad
 
 ## <a name="backup-overview"></a>Descrição geral da Cópia de Segurança
 
-Quando o serviço Azure Backup inicia uma tarefa de cópia de segurança, aciona a extensão de cópia de segurança para criar um instantâneo de um ponto anterior no tempo. O serviço de backup Azure utiliza a [extensão VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). A extensão é instalada durante a primeira cópia de segurança da VM se a VM estiver em execução. Se a VM não estiver em execução, o serviço Backup cria um instantâneo do armazenamento subjacente (uma vez que não ocorrem escritas da aplicação enquanto a VM está parada).
+Quando o serviço Azure Backup inicia uma tarefa de cópia de segurança, aciona a extensão de cópia de segurança para criar um instantâneo de um ponto anterior no tempo. O serviço Azure Backup utiliza a [extensão VMSnapshot](../extensions/vmsnapshot-windows.md). A extensão é instalada durante a primeira cópia de segurança da VM se a VM estiver em execução. Se a VM não estiver em execução, o serviço Backup cria um instantâneo do armazenamento subjacente (uma vez que não ocorrem escritas da aplicação enquanto a VM está parada).
 
 Quando criar um instantâneo de VMs do Windows, o serviço Backup é coordenado com o Serviço de Cópia Sombra de Volumes (VSS) para obter um instantâneo consistente dos discos da máquina virtual. Assim que o serviço Azure Backup tira o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior.
 
@@ -39,12 +39,12 @@ Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Rec
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 1. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
-1. Na lâmina VM, na secção **Operações,** clique em **Backup**. A lâmina **de reserva Ativa** abre-se.
+1. Na lâmina VM, na secção **Operações,** clique em **Backup**. A lâmina **de reserva Ativada** abre-se.
 1. Em **Cofre dos Serviços de Recuperação**, clique em **Criar novo** e indique o nome do cofre novo. Um novo cofre é criado no mesmo grupo de recursos e localização que a máquina virtual.
-1. Em 'Escolha a política de **backup',** mantenha o padrão **(Novo) DailyPolicy**, e, em seguida, clique em **Ativar a Cópia de Segurança**.
+1. Na **política de backup**, mantenha o padrão **(Novo) DailyPolicy**e, em seguida, clique em **Enable Backup**.
 1. Para criar um ponto de recuperação inicial, no painel **Cópia de segurança**, clique em **Fazer cópia de segurança agora**.
-1. Na lâmina **'Backup Now',** clique no ícone do calendário, use o controlo de calendário para escolher quanto tempo o ponto de restauro é mantido e clique em **OK**.
-1. Na lâmina **de backup** para o seu VM, verá o número de pontos de restauro que estão completos.
+1. Na lâmina **Backup Now,** clique no ícone do calendário, use o controlo do calendário para escolher quanto tempo o ponto de restauro é mantido e clique **em OK**.
+1. Na lâmina **de reserva** para o seu VM, verá o número de pontos de restauro que estão completos.
 
 
     ![Pontos de recuperação](./media/tutorial-backup-vms/backup-complete.png)
@@ -72,14 +72,14 @@ Neste exemplo, mostramos como recuperar o ficheiro de imagem utilizado na págin
 1. Na lâmina VM, na secção **Operações,** clique em **Backup**. O painel **Cópia de Segurança** abre. 
 1. No menu na parte superior do painel, selecione **Recuperação de Ficheiros**. O painel **Recuperação de Ficheiros** abre.
 1. Em **Passo 1: selecionar o ponto de recuperação**, selecione um ponto de recuperação na lista pendente.
-1. Em **Passo 2: descarregar o script para procurar e recuperar ficheiros**, clique no botão **Transferir Executável**. Copie a palavra-passe para o ficheiro e guarde-a em algum lugar seguro.
+1. Em **Passo 2: descarregar o script para procurar e recuperar ficheiros**, clique no botão **Transferir Executável**. Copie a palavra-passe para o ficheiro e guarde-a num local seguro.
 1. No computador local, abra **Explorador de Ficheiros**, navegue até à pasta **Transferências** pasta e copie o ficheiro .exe transferido. O nome de ficheiro tem como prefixo o nome da VM. 
-1. No seu VM (utilizando a ligação RDP), cola o ficheiro .exe ao Ambiente de Trabalho do seu VM. 
-1. Navegue para o ambiente de trabalho da VM e faça duplo clique no ficheiro .exe. Um pedido de comando vai começar. O programa monta o ponto de recuperação como uma partilha de ficheiros a que pode aceder. Quando terminar de criar a partilha, escreva **q** para fechar a linha de comandos.
+1. No seu VM (utilizando a ligação RDP), cole o ficheiro .exe para o ambiente de trabalho do seu VM. 
+1. Navegue para o ambiente de trabalho da VM e faça duplo clique no ficheiro .exe. Um pedido de comando começará. O programa monta o ponto de recuperação como uma partilha de ficheiros a que pode aceder. Quando terminar de criar a partilha, escreva **q** para fechar a linha de comandos.
 1. Na VM, abra **Explorador de Ficheiros** e navegue para a letra de unidade utilizada na partilha de ficheiros.
 1. Navegue para \inetpub\wwwroot e copie **iisstart.png** da partilha de ficheiros e cole em \inetpub\wwwroot. Por exemplo, copie F:\inetpub\wwwroot\iisstart.png e cole em C:\inetpub\wwwroot para recuperar o ficheiro.
 1. No computador local, abra o separador do browser onde está ligado ao endereço IP da VM, que mostra a página predefinida do IIS. Prima CTRL + F5 para atualizar a página do browser. Deverá ver agora que a imagem foi restaurada.
-1. No seu computador local, volte ao separador do browser relativo ao portal do Azure e, em **Passo 3: desmontar os discos depois da recuperação**, clique no botão **Desmontar Discos**. Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Após essas 12 horas, precisa de descarregar um novo script para criar um novo ponto de montagem.
+1. No seu computador local, volte ao separador do browser relativo ao portal do Azure e, em **Passo 3: desmontar os discos depois da recuperação**, clique no botão **Desmontar Discos**. Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Depois dessas 12 horas, precisa de descarregar um novo script para criar um novo ponto de montagem.
 
 
 
@@ -98,12 +98,3 @@ Avance para o tutorial seguinte para saber mais sobre a monitorização de máqu
 
 > [!div class="nextstepaction"]
 > [Governar máquinas virtuais](tutorial-govern-resources.md)
-
-
-
-
-
-
-
-
-

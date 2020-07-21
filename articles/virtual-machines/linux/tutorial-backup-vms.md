@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Back up Máquinas virtuais Linux no portal Azure
+title: Tutorial - Apoiar máquinas virtuais Linux no portal Azure
 description: Neste tutorial, irá aprender a utilizar o portal do Azure para proteger as máquinas virtuais do Linux com o Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460075"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527001"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Linux no Azure
 
@@ -34,7 +34,7 @@ Pode criar cópias de segurança em intervalos regulares para manter os seus dad
 
 Quando o serviço Azure Backup inicia uma cópia de segurança, aciona a extensão de cópia de segurança para criar um instantâneo de um ponto anterior no tempo. O serviço Azure Backup utiliza a extensão _VMSnapshotLinux_ no Linux. A extensão é instalada durante a primeira cópia de segurança da VM se a VM estiver em execução. Se a VM não estiver em execução, o serviço Backup cria um instantâneo do armazenamento subjacente (uma vez que não ocorrem escritas da aplicação enquanto a VM está parada).
 
-Por predefinição, o serviço Azure Backup faz uma cópia de segurança consistente do sistema de ficheiros para a VM Linux, mas pode ser configurado para fazer uma [cópia de segurança consistente da aplicação com a arquitetura pré-script e pós-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Assim que o serviço Azure Backup tira o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior.
+Por predefinição, o serviço Azure Backup faz uma cópia de segurança consistente do sistema de ficheiros para a VM Linux, mas pode ser configurado para fazer uma [cópia de segurança consistente da aplicação com a arquitetura pré-script e pós-script](../../backup/backup-azure-linux-app-consistent.md). Assim que o serviço Azure Backup tira o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde a cópia de segurança anterior.
 
 Quando a transferência de dados estiver concluída, o instantâneo é removido e é criado um ponto de recuperação.
 
@@ -45,12 +45,12 @@ Crie uma cópia de segurança diária agendada para um Cofre dos Serviços de Re
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
-4. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. A lâmina **de reserva Ativa** abre-se.
+4. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. A lâmina **de reserva Ativada** abre-se.
 5. Em **Cofre dos Serviços de Recuperação**, clique em **Criar novo** e indique o nome do cofre novo. É criado um cofre novo no mesmo Grupo de Recursos e na mesma localização que a máquina virtual.
 6. Clique em **Política de cópia de segurança**. Para este exemplo, mantenha as predefinições e clique em **OK**.
 7. No painel **Ativar cópia de segurança**, clique em **Ativar Cópia de Segurança**. Esta ação cria uma cópia de segurança diária, com base na agenda predefinida.
 10. Para criar um ponto de recuperação inicial, no painel **Cópia de segurança**, clique em **Fazer cópia de segurança agora**.
-11. Na lâmina **'Backup Now',** clique no ícone do calendário, use o controlo de calendário para selecionar o último dia em que este ponto de recuperação é mantido e clique em **Backup**.
+11. Na lâmina **Backup Now,** clique no ícone do calendário, use o controlo do calendário para selecionar o último dia em que este ponto de recuperação é mantido e clique em **Backup**.
 12. No painel **Cópia de Segurança** para a VM, vê o número de pontos de recuperação que estão concluídos.
 
     ![Pontos de recuperação](./media/tutorial-backup-vms/backup-complete.png)
@@ -171,4 +171,3 @@ Avance para o tutorial seguinte para saber mais sobre a monitorização de máqu
 
 > [!div class="nextstepaction"]
 > [Governar máquinas virtuais](tutorial-govern-resources.md)
-

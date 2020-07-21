@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 0ea5c11254d8dba050fe63a4cd915240c8270dd1
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: bd4da23ed3f4b2dc92652493c77efbcbc0542066
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324577"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510128"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure
 
@@ -29,11 +29,11 @@ As imagens personalizadas são como imagens do marketplace, mas são criadas por
 > * Partilhar uma galeria de imagens
 
 
-Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.4.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Uma [Galeria de Imagens Partilhadas](shared-image-galleries.md) simplifica a partilha de imagens personalizadas em toda a sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
 
@@ -43,7 +43,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos:
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Os passos abaixo detalham como tornar uma VM existente numa imagem personalizada reutilizável que pode utilizar para criar novas instâncias da VM.
 
@@ -90,11 +90,11 @@ As definições de imagem criam um agrupamento lógico para imagens. São utiliz
 
 Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. 
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./shared-image-galleries.md#image-definitions).
 
 Crie uma definição de imagem na galeria utilizando [a az sig definição de imagem criar](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e [destina-se a](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) uma imagem especializada do Linux OS. 
+Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e [destina-se a](./shared-image-galleries.md#generalized-and-specialized-images) uma imagem especializada do Linux OS. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -134,11 +134,11 @@ az sig image-version create \
 > [!NOTE]
 > É necessário esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
 >
-> Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `--storage-account-type  premium_lrs` , ou [Armazenamento Redundante zona,](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type  standard_zrs` quando cria a versão de imagem.
+> Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `--storage-account-type  premium_lrs` , ou [Armazenamento Redundante zona,](../../storage/common/storage-redundancy.md) adicionando `--storage-account-type  standard_zrs` quando cria a versão de imagem.
 >
 
  
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Crie o VM utilizando [a az vm criar](/cli/azure/vm#az-vm-create) usando o parâmetro --especializado para indicar que a imagem é uma imagem especializada. 
 
@@ -176,11 +176,11 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Para obter mais informações sobre como partilhar recursos usando o RBAC, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+Para obter mais informações sobre como partilhar recursos usando o RBAC, consulte [Gerir o acesso utilizando o RBAC e o Azure CLI.](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="azure-image-builder"></a>Azure Image Builder
 
-A Azure também oferece um serviço, construído sobre Packer, [Azure VM Image Builder.](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview) Basta descrever as suas personalizações num modelo, e lidará com a criação de imagem. 
+A Azure também oferece um serviço, construído sobre Packer, [Azure VM Image Builder.](./image-builder-overview.md) Basta descrever as suas personalizações num modelo, e lidará com a criação de imagem. 
 
 ## <a name="next-steps"></a>Próximos passos
 
@@ -197,4 +197,3 @@ Avance para o próximo tutorial para saber mais sobre máquinas virtuais de elev
 
 > [!div class="nextstepaction"]
 > [Criar VMs de elevada disponibilidade](tutorial-availability-sets.md)
-

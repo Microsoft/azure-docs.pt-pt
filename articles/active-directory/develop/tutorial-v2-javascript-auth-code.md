@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 3e6f94c3b44cd3316a25c356dc5e33835f8c9337
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 4de555f823abe5414bf117a6709e67676571c833
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553807"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518169"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
-
-> [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são disponibilizadas a si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem mudar antes da disponibilidade geral (GA).
 
 Este tutorial mostra-lhe como criar uma aplicação de página única JavaScript (SPA) que utiliza a Biblioteca de Autenticação do Microsoft (MSAL) para JavaScript v2.0 para:
 
@@ -59,7 +56,7 @@ Para continuar com o tutorial e construir a aplicação por si mesmo, passe para
 * [Node.js](https://nodejs.org/en/download/) para gerir um webserver local
 * [Código de Estúdio Visual](https://code.visualstudio.com/download) ou outro editor de código
 
-## <a name="create-your-project"></a>Crie o seu projeto
+## <a name="create-your-project"></a>Criar o seu projeto
 
 Uma vez instalada [Node.js,](https://nodejs.org/en/download/) crie uma pasta para hospedar a sua aplicação, por *exemplo, msal-spa-tutorial*.
 
@@ -289,7 +286,7 @@ msal-spa-tutorial/
     }
     ```
 
-## <a name="register-your-application"></a>Registar a sua aplicação
+## <a name="register-your-application"></a>Registar a aplicação
 
 Siga os passos na [aplicação de página única: Registo de aplicação](scenario-spa-app-registration.md) para criar um registo de aplicações para o seu SPA.
 
@@ -611,7 +608,7 @@ Se uma API de back-end não necessitar de um âmbito, o que não é recomendado,
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma aplicação de página única JavaScript (SPA) que utiliza a Biblioteca de Autenticação do Microsoft (MSAL) para JavaScript v2.0 para:
 

@@ -1,6 +1,6 @@
 ---
-title: 'Az CLI: Configure geo-replicação ativa para uma piscina elástica'
-description: Script de exemplo Azure CLI para configurar geo-replicação ativa para uma base de dados agrupada na Base de Dados Azure SQL e falhar.
+title: 'Az CLI: Configurar a geo-replicação ativa para uma piscina elástica'
+description: Azure CLI exemplo script para configurar a geo-replicação ativa para uma base de dados agamada na Base de Dados Azure SQL e falhar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a272564684671e38100e5390e95129121fcbd0f8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8d0860cc5a4ee60cbf60d7b55789c518049dfb90
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019388"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86528779"
 ---
-# <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Utilize o CLI para configurar a geo-replicação ativa para uma base de dados pooled na Base de Dados Azure SQL
+# <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Utilize o CLI para configurar a geo-replicação ativa para uma base de dados agimiuada na Base de Dados Azure SQL
 
-Este exemplo de script Azure CLI configura geo-replicação ativa para uma base de dados agrofada na Base de Dados Azure SQL e falha-a na réplica secundária da base de dados.
+Este exemplo de script do Azure CLI configura a geo-replicação ativa para uma base de dados agupada na Base de Dados Azure SQL e falha-a na réplica secundária da base de dados.
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -42,7 +42,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -53,10 +53,10 @@ az group delete --name $secondaryResource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
-| [az sql elástico-piscina](/cli/azure/sql/elastic-pool) | Comandos de piscina elástica |
-| [az sql db réplica](/cli/azure/sql/db/replica) | Comandos de replicação de base de dados. |
+| [az sql elástico piscina elástica](/cli/azure/sql/elastic-pool) | Comandos de piscina elástica |
+| [az sql db réplica](/cli/azure/sql/db/replica) | Comandos de replicação da base de dados. |
 
 ## <a name="next-steps"></a>Próximos passos
 

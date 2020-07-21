@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,23 +8,23 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ac23912b12bc6c7fcd40d7433cb4e2d257eeb5d0
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562990"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86525184"
 ---
 1. Na página do portal para o seu wan virtual, na secção **Conectividade,** selecione **sites VPN** para abrir a página de sites VPN.
 2. Na página **Sites de VPN**, clique em **+Criar site**.
 
-   ![Noções básicas](./media/virtual-wan-tutorial-site-include/basics.png "Noções básicas")
+   ![Informações básicas](./media/virtual-wan-tutorial-site-include/basics.png "Informações básicas")
 3. Na página **do Site Create VPN,** no separador **Básicos,** complete os seguintes campos:
 
     * **Região** - Anteriormente referida como localização. Esta é a localização em que pretende criar este recurso do site.
     * **Nome** - O nome pelo qual pretende consultar o seu site no local.
     * **Fornecedor de dispositivos** - O nome do fornecedor de dispositivos VPN (por exemplo: Citrix, Cisco, Barracuda). Ao fazê-lo, a Equipa Azure pode compreender melhor o seu ambiente para adicionar possibilidades de otimização adicionais no futuro ou para ajudá-lo a resolver problemas.
-    * **Protocolo border gateway** - Enable implica que todas as ligações do site estarão ativadas no BGP. Irá eventualmente configurar as informações do BGP para cada link a partir do Site VPN na secção Links. Configurar o BGP num WAN virtual equivale a configurar o BGP numa VPN de gateway de rede virtual Azure. O seu endereço de pares BGP no local não deve ser o mesmo que o endereço IP público do seu VPN para dispositivo ou o espaço de endereço VNet do site VPN. Utilize um endereço IP diferente no dispositivo VPN para o seu IP de pares BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo. No entanto, não pode ser um endereço APIPA (169.254.x.x). Especifique este endereço no site VPN correspondente que representa a localização. Para pré-requisitos BGP, consulte [Sobre o BGP com o Azure VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Pode sempre editar uma ligação VPN para atualizar os seus parâmetros BGP (Peering IP no link e o AS #) uma vez que a definição de VPN Site BGP esteja ativada.
+    * **Protocolo border gateway** - Enable implica que todas as ligações do site estarão ativadas no BGP. Irá eventualmente configurar as informações do BGP para cada link a partir do Site VPN na secção Links. Configurar o BGP num WAN virtual equivale a configurar o BGP numa VPN de gateway de rede virtual Azure. O seu endereço de pares BGP no local não deve ser o mesmo que o endereço IP público do seu VPN para dispositivo ou o espaço de endereço VNet do site VPN. Utilize um endereço IP diferente no dispositivo VPN para o seu IP de pares BGP. Pode ser um endereço atribuído à interface loopback do dispositivo. Especifique este endereço no site VPN correspondente que representa a localização. Para pré-requisitos BGP, consulte [Sobre o BGP com o Azure VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Pode sempre editar uma ligação VPN para atualizar os seus parâmetros BGP (Peering IP no link e o AS #) uma vez que a definição de VPN Site BGP esteja ativada.
     * **Espaço de endereço privado** - O espaço de endereço IP localizado no seu site no local. O tráfego destinado a este espaço de endereços é encaminhado para o site local. Isto é necessário quando o BGP não está ativado para o site.
     * **Hubs** - O hub ao que pretende que o seu Site se conecte. Um site só pode ser conectado aos centros que têm um Gateway VPN. Se não vir um hub, crie uma porta de entrada VPN naquele centro primeiro.
 4. Selecione **Links** para adicionar informações sobre as ligações físicas no ramo. Se tiver um dispositivo CPE parceiro virtual, consulte com eles para ver se esta informação é trocada com o Azure como parte do upload de informações da sucursal configurados a partir dos seus sistemas.

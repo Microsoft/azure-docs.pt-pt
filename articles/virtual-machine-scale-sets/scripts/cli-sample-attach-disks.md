@@ -1,6 +1,6 @@
 ---
 title: Amostras Azure CLI - Anexar e utilizar discos de dados
-description: Este script cria um conjunto de escala de máquina virtual Azure e anexa e prepara discos de dados com o Azure CLI.
+description: Este script cria um conjunto de escala de máquina virtual Azure e anexa e prepara discos de dados com Azure CLI.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e60e4cc907dd96d85d45978cb914e6dd8db39141
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 0d1bf55c7ddf186ab0f39b7a5d6884ac6b8e609f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700010"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495012"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Anexar e utilizat discos de dados com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara discos de dados.
@@ -45,4 +45,4 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | [az group delete](/cli/azure/ad/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximos passos
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure/overview).

@@ -1,6 +1,6 @@
 ---
-title: Export/Copy snapshot como VHD para uma conta de armazenamento em diferentes regiões - PowerShell Sample
-description: Amostra de script Azure PowerShell - Export/Copy snapshot como VHD para uma conta de armazenamento na mesma região diferente
+title: Instantâneo de exportação/cópia como VHD para uma conta de armazenamento em diferentes regiões - Amostra PowerShell
+description: Amostra de script Azure PowerShell - Amostra de exportação/cópia instantânea como VHD para uma conta de armazenamento na mesma região diferente
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 760b6ae2d791267053acdb1e216ab5daeab7c061
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9b8510d3eb66cc63a0c9c660b34514a83a35d25c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459360"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509585"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Export/Copy gerido snapshots como VHD para uma conta de armazenamento em diferente região com PowerShell
+# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Exportação/Cópia geriu instantâneos como VHD para uma conta de armazenamento em diferentes regiões com PowerShell
 
 Este script exporta um instantâneo gerido para uma conta de armazenamento numa região diferente. Gera primeiro o URI de SAS do instantâneo e, em seguida, utiliza-o para o copiar para uma conta de armazenamento numa região diferente. Utilize este script para manter a cópia de segurança dos discos geridos numa região diferente para recuperação após desastre.  
 
@@ -41,11 +41,11 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS para um instan
 
 | Comando | Notas |
 |---|---|
-| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Gera SAS URI para um instantâneo que é usado para copiá-lo para uma conta de armazenamento. |
-| [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) | Cria um contexto de conta de armazenamento com o nome e a chave da conta. Este contexto pode ser utilizado para executar operações de leitura/escrita na conta de armazenamento. |
-| [Start-AzStorageBlobCopy](https://docs.microsoft.com/powershell/module/az.storage/start-azstorageblobcopy) | Copia o VHD subjacente de um instantâneo para uma conta de armazenamento |
+| [Grant-AzSnapshotAccess](/powershell/module/az.compute/new-azdisk) | Gera SAS URI para um instantâneo que é usado para copiá-lo para uma conta de armazenamento. |
+| [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) | Cria um contexto de conta de armazenamento com o nome e a chave da conta. Este contexto pode ser utilizado para executar operações de leitura/escrita na conta de armazenamento. |
+| [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) | Copia o VHD subjacente de um instantâneo para uma conta de armazenamento |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um disco gerido a partir de um VHD](virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 

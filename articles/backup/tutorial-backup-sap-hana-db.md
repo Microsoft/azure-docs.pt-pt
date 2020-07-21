@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 123f27a6e2114ed17cbb5e11b34202c17ba69a2d
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 8f6fa00f65a99798ee105852a269247d717ad75d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84770735"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513273"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -23,7 +23,7 @@ Este tutorial mostra-lhe como fazer backup das bases de dados SAP HANA que estã
 [Aqui](sap-hana-backup-support-matrix.md#scenario-support) estão todos os cenários que apoiamos atualmente.
 
 >[!NOTE]
->[Começa](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) com a pré-visualização de backup SAP HANA para RHEL (7.4, 7.6, 7.7 ou 8.1). Para mais perguntas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>[Começa]() com a pré-visualização de backup SAP HANA para RHEL (7.4, 7.6, 7.7 ou 8.1). Para mais perguntas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,13 +53,13 @@ Esta opção permite que os [intervalos de IP](https://www.microsoft.com/downloa
 
 ### <a name="allow-access-using-nsg-tags"></a>Permitir o acesso usando tags NSG
 
-Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço AzureBackup para permitir o acesso de saída à Azure Backup. Além disso, deve também permitir a conectividade para a autenticação e transferência de dados utilizando [regras](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para AZure AD e Azure Storage. Isto pode ser feito a partir do portal Azure ou via PowerShell.
+Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço AzureBackup para permitir o acesso de saída à Azure Backup. Além disso, deve também permitir a conectividade para a autenticação e transferência de dados utilizando [regras](../virtual-network/security-overview.md#service-tags) para AZure AD e Azure Storage. Isto pode ser feito a partir do portal Azure ou via PowerShell.
 
 Para criar uma regra utilizando o portal:
 
   1. Em **Todos os Serviços,** vá aos **grupos de segurança da Rede** e selecione o grupo de segurança da rede.
   2. Selecione **regras de segurança de saída** em **Definições**.
-  3. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço **de serviço** e de **destino** está definida para **AzureBackup**.
+  3. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço **de serviço** e de **destino** está definida para **AzureBackup**.
   4. Clique **em Adicionar**, para guardar a regra de segurança de saída recém-criada.
 
 Para criar uma regra utilizando o PowerShell:
@@ -85,7 +85,7 @@ Para criar uma regra utilizando o PowerShell:
  7. Salvar o NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 
-**Permitir o acesso utilizando tags Azure Firewall**. Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup . Isto permite o acesso de saída ao Azure Backup.
+**Permitir o acesso utilizando tags Azure Firewall**. Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN](../firewall/fqdn-tags.md)AzureBackup . Isto permite o acesso de saída ao Azure Backup.
 
 **Implementar um servidor de procuração HTTP para encaminhar o tráfego**. Quando faz uma cópia de segurança de uma base de dados SAP HANA num Azure VM, a extensão de backup no VM utiliza as APIs HTTPS para enviar comandos de gestão para a Azure Backup e dados para o Azure Storage. A extensão de backup também utiliza Azure AD para autenticação. Encaminhe o tráfego de extensão de backup para estes três serviços através do representante HTTP. As extensões são o único componente configurado para acesso à internet pública.
 
@@ -153,7 +153,7 @@ Para criar um cofre dos Serviços de Recuperação:
    * **Nome**: O nome é usado para identificar o cofre dos serviços de recuperação e deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes. Para este tutorial, usamos o nome **SAPHanaVault.**
    * **Assinatura**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição padrão (sugerida). Só existem múltiplas escolhas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição do Azure. Aqui, usamos a assinatura de assinatura de **laboratório de solução SAP HANA.**
    * **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Aqui, usamos **SAPHANADemo.**<br>
-   Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
    * **Localização**: Selecione a região geográfica para o cofre. O cofre deve estar na mesma região que a Máquina Virtual que funciona SAP HANA. Usamos **o Leste DOS 2.**
 
 5. Selecione **Review + Criar**.

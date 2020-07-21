@@ -1,18 +1,18 @@
 ---
-title: PowerShell Script - Eliminar uma partilha de ficheiros eliminada
-description: Aprenda a usar um script Azure PowerShell para desapagar uma partilha de Ficheiros acidentalmente eliminada.
+title: PowerShell Script - Desdelete uma partilha de ficheiros eliminada
+description: Aprenda a usar um script Azure PowerShell para desempacoar uma partilha de ficheiros acidentalmente eliminada.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 2eb89735a8327e782d8d8a712f4f0d59911540cc
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122785"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513239"
 ---
-# <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script PowerShell para desapagar uma partilha de Ficheiro acidentalmente eliminada
+# <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script PowerShell para desembrulhá-lo de uma partilha de ficheiro acidentalmente eliminada
 
-Este script ajuda-o a desapagar uma parte de ficheiro, se o eliminar acidentalmente. A funcionalidade de segurança soft delete para ações de ficheiros fornece-lhe a opção de desativar uma parte de ficheiro no prazo de 14 dias de retenção, permitindo a recuperação de todos os conteúdos, instantâneos e pontos de recuperação da partilha de ficheiros. Para saber mais sobre o soft delete, visite este [link](../soft-delete-azure-file-share.md).
+Este script ajuda-o a desempacoar uma partilha de ficheiros, se o eliminar acidentalmente. A funcionalidade de segurança de exclusão suave para ações de ficheiros proporciona-lhe a opção de desatar uma partilha de ficheiros dentro do período de retenção de 14 dias, permitindo a recuperação de todos os conteúdos, instantâneos e pontos de recuperação da sua partilha de ficheiros. Para saber mais sobre a eliminação suave, visite este [link.](../soft-delete-azure-file-share.md)
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -154,24 +154,24 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale os mais recentes módulos Azure PowerShell Az a partir [deste link](https://docs.microsoft.com//powershell/azure/install-az-ps?view=azps-3.3.0) antes de executar o script.
+1. Instale os mais recentes módulos Azure PowerShell Az a partir [deste link](//powershell/azure/install-az-ps) antes de executar o script.
 2. Mantenha os seguintes detalhes à mão, pois terá de os passar como valores para diferentes parâmetros do script:
 
-    * **-SubscriçãoId** - ID da subscrição onde a parte do ficheiro está presente.
-    * **-ResourceGroupName** - Grupo de Recursos da Conta de Armazenamento que acolhe a parte do ficheiro.
-    * **-StorageAccountName** - Nome da conta de armazenamento que acolhe a parte do ficheiro.
-    * **-FileShareName** - Nome da parte do ficheiro a não ser eliminado
+    * **-SubscriptionId** - ID da subscrição onde a partilha de ficheiros está presente.
+    * **-Grupo de RecursosName** - Grupo de Recursos da Conta de Armazenamento que hospeda a parte do ficheiro.
+    * **-StorageAccountName** - Nome da conta de armazenamento que alberga a parte do ficheiro.
+    * **-FileShareName** - Nome da partilha de ficheiros a não ser desescolhido
 
 ### <a name="execution-steps"></a>Etapas de execução
 
-1. Guarde o guião acima na sua máquina com um nome à sua escolha. Neste exemplo, guardámo-lo como *Undelete.ps1*
+1. Guarde o script acima na sua máquina com um nome à sua escolha. Neste exemplo, guardámo-lo como *Undelete.ps1*
 2. Execute o script de acordo com o cenário que se adequa às suas necessidades.
 
 #### <a name="scenario-1"></a>Cenário 1
 
-Não existem múltiplas versões apagadas com o mesmo nome que a partilha de ficheiros que estás a tentar eliminar.
+Não existem várias versões apagadas com o mesmo nome que a partilha de ficheiros que está a tentar desempacotar.
 
-O exemplo que se segue não elimina a partilha de ficheiros *1* presente na conta de armazenamento *afsshare*.
+O exemplo a seguir não desdeleta a parte de ações *de ficheiro1* presente na conta de armazenamento *afsshare*.
 
 ```powershell
    .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1
@@ -181,13 +181,13 @@ A saída deve mostrar a mensagem`Completed:Restore File Share`
 
 #### <a name="scenario-2"></a>Cenário 2
 
-Existem várias versões apagadas com o mesmo nome que a partilha de ficheiros que está a tentar eliminar.
+Existem várias versões apagadas com o mesmo nome que o ficheiro que está a tentar desfazer-se.
 
-O exemplo seguinte não elimina uma versão da partilha de *ficheiros1*
+O exemplo a seguir desativa uma versão da partilha de ações de *ficheiro1*
 
-##### <a name="step-1"></a>Passo 1
+##### <a name="step-1"></a>Passo 1
 
-Execute o script da seguinte forma, fornecendo o nome da partilha do ficheiro.
+Execute o script da seguinte forma, fornecendo o nome da partilha de ficheiros.
 
 ```PowerShell
    .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1
@@ -202,11 +202,10 @@ Restore-DeletedFileShare : More than one share with the specified name was found
 
 ##### <a name="step-2"></a>Passo 2
 
-Escolha a versão a partir da saída do passo 1 que pretende desapagar e passá-la como um valor para o parâmetro **-DeletedShareVersion.**
+Escolha a versão a partir da saída do passo 1 que pretende desempacoá-la e passá-la como um valor para o parâmetro **-DeletedShareVersion.**
 
-O exemplo seguinte não elimina a versão *01D5D7F77ACC7864* da partilha de ficheiros *share1.*
+O exemplo a seguir não desativa a versão *01D5D7F7ACC7864* da partilha de *ficheiros.*
 
 ```powershell
    .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
 ```
-

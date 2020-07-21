@@ -5,24 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202548"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518492"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Permitir que a palavra-passe de autosserviço do Azure Ative Directory reponha a gravação para um ambiente no local
 
 Com o Azure Ative Directory (Azure AD) a redefinir a palavra-passe de autosserviço (SSPR), os utilizadores podem atualizar a sua palavra-passe ou desbloquear a sua conta através de um navegador web. Num ambiente híbrido onde o Azure AD está ligado a um ambiente no local Ative Directory Domain Services (AD DS), este cenário pode fazer com que as palavras-passe sejam diferentes entre os dois diretórios.
 
 A writeback de palavra-passe pode ser usada para sincronizar alterações de palavra-passe no AZure AD de volta ao ambiente AD DS no local. O Azure AD Connect fornece um mecanismo seguro para enviar estas alterações de senha de volta para um diretório existente no local a partir de Azure AD.
+
+> [!IMPORTANT]
+> Este tutorial mostra a um administrador como permitir que a palavra-passe de autosserviço seja reposta para um ambiente no local. Se é um utilizador final já registado para redefinição da palavra-passe de autosserviço e precisa de voltar à sua conta, vá a https://aka.ms/sspr .
+>
+> Se a sua equipa de TI não tiver ativado a capacidade de redefinir a sua própria palavra-passe, contacte o seu helpdesk para obter assistência adicional.
 
 Neste tutorial, ficará a saber como:
 
@@ -35,7 +40,7 @@ Neste tutorial, ficará a saber como:
 
 Para completar este tutorial, precisa dos seguintes recursos e privilégios:
 
-* Um inquilino Azure AD em funcionamento com pelo menos uma licença de julgamento Azure AD Premium P1 ou P2 habilitado.
+* Um inquilino Azure AD em funcionamento com pelo menos uma licença de julgamento Azure AD Premium P1 habilitado.
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
     * Para obter mais informações, consulte [os requisitos de licenciamento para Azure AD SSPR](concept-sspr-licensing.md).
 * Uma conta com privilégios *de administrador global.*
@@ -43,7 +48,7 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se necessário, [complete o tutorial anterior para ativar a Azure AD SSPR](tutorial-enable-sspr.md).
 * Um ambiente AD DS existente no local configurado com uma versão atual do Azure AD Connect.
     * Se necessário, configufique o Azure AD Connect utilizando as definições [Express](../hybrid/how-to-connect-install-express.md) ou [Custom.](../hybrid/how-to-connect-install-custom.md)
-    * Para utilizar a Writeback de Palavra-Passe, os seus Controladores de Domínio devem ser o Windows Server 2012 ou mais tarde.
+    * Para utilizar a gravação de palavra-passe, os seus Controladores de Domínio devem ser o Windows Server 2012 ou mais tarde.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configure permissões de conta para Azure AD Connect
 
@@ -54,11 +59,9 @@ Para trabalhar corretamente com a gravação do SSPR, a conta especificada no Az
 * **Repor palavra-passe**
 * **Escrever permissões** em`lockoutTime`
 * **Escrever permissões** em`pwdLastSet`
-* **Direitos alargados** para "Unexpire Password" em:
-   * O objeto raiz de *cada domínio* naquela floresta
-   * As unidades organizacionais do utilizador (OUs) que pretende estar no âmbito da SSPR
+* **Direitos alargados** para "Unexpire Password" no objeto raiz de *cada domínio* naquela floresta, se não já definido.
 
-Se não atribuir estas permissões, o writeback parece estar configurado corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem. As permissões devem ser aplicadas a **este objeto e a todos os objetos descendentes** para que apareçam "Unexpire Password".  
+Se não atribuir estas permissões, o writeback pode parecer configurado corretamente, mas os utilizadores encontram erros quando gerem as suas palavras-passe no local a partir da nuvem. As permissões devem ser aplicadas a **este objeto e a todos os objetos descendentes** para que apareçam "Unexpire Password".  
 
 > [!TIP]
 >
@@ -74,7 +77,7 @@ Para configurar as permissões adequadas para a gravação da palavra-passe, com
 1. Na lista **Aplica-se à** lista de drop-down, selecione **objetos de utilizador descendentes**.
 1. Em *Permissões,* selecione a caixa para a seguinte opção:
     * **Repor palavra-passe**
-1. Em *Propriedades*, selecione as caixas para as seguintes opções. É necessário percorrer a lista para encontrar estas opções, que podem já estar definidas por padrão:
+1. Em *Propriedades*, selecione as caixas para as seguintes opções. Percorra a lista para encontrar estas opções, que podem já estar definidas por padrão:
     * **Escrever lockoutTime**
     * **Escrever pwdLastSet**
 
@@ -89,13 +92,13 @@ As políticas de palavra-passe no ambiente AD DS no local podem impedir que os r
 Se atualizar a política de grupo, aguarde que a política atualizada se reproduza ou utilize o `gpupdate /force` comando.
 
 > [!Note]
-> Para que as palavras-passe sejam alteradas imediatamente, a descodução da palavra-passe deve ser definida para 0. No entanto, se os utilizadores aderirem às políticas no local, e a *idade mínima* de senha for definida para um valor superior a zero, a writeback de palavra-passe continuará a funcionar após a avaliação das políticas no local. 
+> Para que as palavras-passe sejam alteradas imediatamente, a descodução da palavra-passe deve ser definida para 0. No entanto, se os utilizadores aderirem às políticas no local, e a *idade mínima* de senha for definida para um valor superior a zero, a writeback de palavra-passe ainda funciona após a avaliação das políticas no local.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Ativar a gravação de palavra-passe no Azure AD Connect
 
 Uma das opções de configuração no Azure AD Connect é para a gravação de palavras-passe. Quando esta opção está ativada, os eventos de alteração de palavra-passe fazem com que o Azure AD Connect sincronize as credenciais atualizadas de volta ao ambiente AD DS no local.
 
-Para ativar a gravação de redefinição da palavra-passe de autosserviço, primeiro ative a opção de writeback no Azure AD Connect. A partir do seu servidor Azure AD Connect, complete os seguintes passos:
+Para ativar a gravação de SSPR, primeiro ative a opção de writeback no Azure AD Connect. A partir do seu servidor Azure AD Connect, complete os seguintes passos:
 
 1. Inicie sedumento no seu servidor AZure AD Connect e inicie o assistente de configuração **AZure AD Connect.**
 1. Na página de **Boas-vindas**, selecione **Configurar**.
@@ -124,7 +127,7 @@ Para ativar a gravação de palavra-passe em SSPR, complete os seguintes passos:
 
 1. Quando estiver pronto, **selecione Guardar**.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não pretender utilizar a funcionalidade de writeback SSPR que configuraste como parte deste tutorial, complete os seguintes passos:
 
@@ -144,7 +147,7 @@ Se já não pretender utilizar qualquer funcionalidade de palavra-passe, complet
 1. Na página **Pronto a configurar**, selecione **Configurar** e aguarde que o processo termine.
 1. Quando vir a configuração a concluir, selecione **Sair**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, permitiu que o Azure AD SSPR fosse retratado para um ambiente AD DS no local. Aprendeu a:
 

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para máquinas virtuais Azure
 description: Lista definições de políticas incorporadas para máquinas virtuais Azure. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 07/10/2020
+ms.date: 07/13/2020
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 7402e1f034c6fb4e9d6816bb71cdf3826a5ffc88
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 7e3e125017313686d85974ca425d4c219963ca4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276928"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509856"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Definições incorporadas da Política Azure para máquinas virtuais Azure
 
@@ -23,6 +23,10 @@ O nome de cada definição de política incorporada liga-se à definição de po
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 [!INCLUDE [azure-policy-samples-rp-compute](../../includes/policy/samples/byrp/microsoft.compute.md)]
+
+## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
+
+[!INCLUDE [azure-policy-samples-rp-vmimages](../../includes/policy/samples/byrp/microsoft.virtualmachineimages.md)]
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 

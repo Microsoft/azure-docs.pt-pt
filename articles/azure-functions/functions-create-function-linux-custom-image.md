@@ -5,18 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 57468a4b4234809ca6293ca39ed54a3934f9a4fc
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560923"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506388"
 ---
-# <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um recipiente personalizado
+# <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
 Neste tutorial, cria e implementa o seu código para Azure Functions como um recipiente personalizado do Docker utilizando uma imagem base linux. Normalmente usa uma imagem personalizada quando as suas funções requerem uma versão específica do idioma ou têm uma dependência ou configuração específica que não é fornecida pela imagem incorporada.
 
-Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](functions-create-first-azure-function-azure-cli-linux.md). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
+Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 Neste tutorial, ficará a saber como:
 
@@ -36,7 +36,7 @@ Pode seguir este tutorial em qualquer computador que execute Windows, macOS ou L
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
-+ [Estivador](https://docs.docker.com/install/)  
++ [Docker](https://docs.docker.com/install/)  
 
 + Uma [ID docker](https://hub.docker.com/signup)
 
@@ -96,7 +96,7 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 A Maven pede-lhe valores necessários para terminar a geração do projeto na implantação.   
 Fornecer os seguintes valores quando solicitado:
 
-| Mensagem | Valor | Description |
+| Prompt | Valor | Descrição |
 | ------ | ----- | ----------- |
 | **groupId** | `com.fabrikam` | Um valor que identifica exclusivamente o seu projeto em todos os projetos, seguindo as [regras de nomeação](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) de pacotes para a Java. |
 | **artefactoId** | `fabrikam-functions` | Um valor que é o nome do jarro, sem um número de versão. |
@@ -121,7 +121,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new`criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração chamado *function.json*.
+Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new`criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração denominado *function.jsem*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -173,7 +173,7 @@ docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Uma vez que a imagem esteja a ser em execução num recipiente local, abra um browser para `http://localhost:8080` , que deve exibir a imagem do espaço reservado abaixo mostrada. A imagem aparece neste ponto porque a sua função está a funcionar no contentor local, como faria em Azure, o que significa que está protegida por uma chave de acesso, tal como definida em *função.json* com a `"authLevel": "function"` propriedade. O contentor ainda não foi publicado numa aplicação de função em Azure, no entanto, por isso a chave ainda não está disponível. Se quiser testar contra o contentor local, pare o estivador, altere a propriedade de autorização para `"authLevel": "anonymous"` reconstruir a imagem e reinicie o estivador. Em seguida, reinicie `"authLevel": "function"` em *função.json*. Para mais informações, consulte [as teclas de autorização.](functions-bindings-http-webhook-trigger.md#authorization-keys)
+Uma vez que a imagem esteja a ser em execução num recipiente local, abra um browser para `http://localhost:8080` , que deve exibir a imagem do espaço reservado abaixo mostrada. A imagem aparece neste ponto porque a sua função está a funcionar no contentor local, como faria em Azure, o que significa que está protegida por uma chave de acesso, tal como definida em *function.js* com a `"authLevel": "function"` propriedade. O contentor ainda não foi publicado numa aplicação de função em Azure, no entanto, por isso a chave ainda não está disponível. Se quiser testar contra o contentor local, pare o estivador, altere a propriedade de autorização para `"authLevel": "anonymous"` reconstruir a imagem e reinicie o estivador. Em seguida, reinicie `"authLevel": "function"` *function.js.* Para mais informações, consulte [as teclas de autorização.](functions-bindings-http-webhook-trigger.md#authorization-keys)
 
 ![Imagem de espaço reservado indicando que o recipiente está funcionando localmente](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -289,7 +289,7 @@ Uma aplicação de função no Azure gere a execução das suas funções no seu
 
 ## <a name="verify-your-functions-on-azure"></a>Verifique as suas funções no Azure
 
-Com a imagem implantada na aplicação de função no Azure, pode agora invocar a função através de pedidos HTTP. Como a definição *de função.json* inclui a `"authLevel": "function"` propriedade, primeiro deve obter a chave de acesso (também chamada de "chave de função") e incluí-la como parâmetro URL em quaisquer pedidos para o ponto final.
+Com a imagem implantada na aplicação de função no Azure, pode agora invocar a função através de pedidos HTTP. Como o *function.jsna* definição inclui a `"authLevel": "function"` propriedade, primeiro deve obter a chave de acesso (também chamada de "chave de função") e incluí-la como parâmetro URL em quaisquer pedidos para o ponto final.
 
 1. Recupere o URL de função com a tecla de acesso (função) utilizando o portal Azure, ou utilizando o CLI Azure com o `az rest` comando.)
 
@@ -409,9 +409,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Com o SSH 
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    As diferenças entre as imagens base são descritas no tutorial de [App Services - Custom Docker Images](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
-
+    
 1. Reconstrua a imagem utilizando novamente o `docker build` comando, `<docker_id>` substituindo-a pelo seu Estivador ID:
 
     ```
@@ -515,7 +513,7 @@ Para evitar custos contínuos, elimine o `AzureFunctionsContainer-rg` grupo de r
 az group delete --name AzureFunctionsContainer-rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + [Funções de monitorização](functions-monitoring.md)
 + [Opções de escala e hospedagem](functions-scale.md)

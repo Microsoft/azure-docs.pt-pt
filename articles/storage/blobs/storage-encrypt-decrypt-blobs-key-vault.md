@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: 21771fb1bb041dd2f09f5d82d9def4cfe91794f6
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 82131ab4e1f990af25c669131e20c789a0f74dcf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808384"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518662"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial - Criptografe e desencriptar bolhas usando cofre de chave Azure
 
@@ -210,7 +210,7 @@ A forma de usar um segredo com encriptação do lado do cliente é através da c
 Aqui está um exemplo no PowerShell de criar um segredo em Key Vault que pode ser usado como uma Chave Simétrica.
 Por favor, note que o valor codificado, $key, é apenas para fins de demonstração. No seu próprio código, vai querer gerar esta chave.
 
-```csharp
+```powershell
 // Here we are making a 128-bit key so we have 16 characters.
 //     The characters are in the ASCII range of UTF8 so they are
 //    each 1 byte. 16 x 8 = 128.
@@ -233,7 +233,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 
 Já está! Divirta-se!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre a utilização do Microsoft Azure Storage com C#, consulte [a Microsoft Azure Storage Client Library para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 

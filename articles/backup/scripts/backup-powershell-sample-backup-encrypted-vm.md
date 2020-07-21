@@ -1,19 +1,19 @@
 ---
-title: PowerShell Script Sample - Back up a Azure VM
-description: Neste artigo, aprenda a usar uma amostra de Script PowerShell Azure para fazer o apoio a uma máquina virtual Azure.
+title: Amostra de script PowerShell - Ressalta um VM Azure
+description: Neste artigo, aprenda a usar uma amostra do Azure PowerShell Script para apoiar uma máquina virtual Azure.
 ms.topic: sample
 ms.date: 03/05/2019
 ms.custom: mvc
-ms.openlocfilehash: ad4d290961bd39659283795f6a58ccb815b639b0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a60320c165499ed1fb02fa544deec0e304d447df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171793"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513647"
 ---
-# <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Volte a montar uma máquina virtual Azure encriptada com powerShell
+# <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Fazer o back up de uma máquina virtual Azure encriptada com PowerShell
 
-Este script cria um cofre de Serviços de Recuperação com armazenamento geo-redundante (GRS) para uma máquina virtual Azure encriptada. A política de proteção padrão é aplicada ao cofre. A política gera um backup diário para a máquina virtual, e retém cada backup por 30 dias. O script também despoleta o ponto de recuperação inicial para a máquina virtual e mantém esse ponto de recuperação por 365 dias.
+Este script cria um cofre de Serviços de Recuperação com armazenamento geo-redundante (GRS) para uma máquina virtual Azure encriptada. A política de proteção por defeito é aplicada ao cofre. A política gera uma cópia de segurança diária para a máquina virtual e mantém cada backup durante 30 dias. O script também aciona o ponto de recuperação inicial da máquina virtual e mantém esse ponto de recuperação durante 365 dias.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -40,16 +40,16 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | Comando | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) | Cria um cofre de serviços de recuperação para armazenar backups. |
-| [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) | Define propriedades de armazenamento de reserva no cofre dos Serviços de Recuperação. |
-| [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| Cria uma política de proteção utilizando a política de horários e a política de retenção no cofre dos Serviços de Recuperação. |
+| [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) | Cria um cofre de serviços de recuperação para armazenar backups. |
+| [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) | Define propriedades de armazenamento de backup no cofre dos Serviços de Recuperação. |
+| [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| Cria uma política de proteção utilizando a política de agendamento e a política de retenção no cofre dos Serviços de Recuperação. |
 | [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) | Define as permissões no Key Vault para conceder ao principal do serviço acesso às chaves de encriptação. |
-| [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) | Permite a cópia de segurança de um item com uma política de proteção de backup especificada. |
-| [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| Modifica uma política de proteção de backup existente. |
-| [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) | Inicia uma cópia de segurança para um item de backup azure protegido que não está ligado ao horário de backup. |
-| [Wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) | Espera que um trabalho de reforço azure termine. |
+| [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) | Permite a cópia de segurança de um item com uma política de proteção de cópia de segurança especificada. |
+| [Set-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| Modifica uma política de proteção de backup existente. |
+| [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) | Inicia uma cópia de segurança para um item de backup Azure protegido que não está ligado ao horário de reserva. |
+| [Wait-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) | Espera que um trabalho de reserva do Azure termine. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/new-azureps-module-az).

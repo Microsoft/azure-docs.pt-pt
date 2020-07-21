@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 25df5f37f8aef55bc025b579ec48a2fab7dd6b72
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 0ad3e6dbb63d7c89919d6d341bd62c5d57960a43
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080179"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511658"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesmável gerado pela IA a partir de bolhas Azure usando o .NET SDK
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ [Storage do Azure](https://azure.microsoft.com/services/storage/)
++ [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 + [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -63,7 +63,7 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. No separador Básicos, são necessários os seguintes itens. Aceite os incumprimentos para tudo o resto.
 
-   + **Grupo de recursos.** Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
+   + **Grupo de recursos**. Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
 
    + **Nome da conta de armazenamento**. Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus*. 
 
@@ -560,10 +560,13 @@ Nesta secção, pode definir o esquema de índice ao especificar os campos a inc
 
 Neste exercício, utiliza os seguintes campos e tipos de campo:
 
-| nomes de campo: | `id`       | conteúdo   | languageCode | keyPhrases         | organizações     |
-|--------------|----------|-------|----------|--------------------|-------------------|
-| tipos de campo: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
-
+| Nomes de campo | Tipos de campo |
+| --- | --- |
+| ID | Edm.String |
+| conteúdo | Edm.String |
+| languageCode | Edm.String |
+| keyPhrases | List<Edm.String> |
+| organizações | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>Criar Classe DemoIndex
 
@@ -842,7 +845,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Adicione o seguinte código a `Main`. A primeira captura retorna a definição de índice, com o nome, tipo e atributos de cada campo. A segunda é uma consulta parametrizada, onde `Select` especifica quais os campos a incluir nos resultados, por exemplo `organizations` . Uma série de pesquisas `"*"` devolve todos os conteúdos de um único campo.
+Adicione o seguinte código a `Main` . A primeira captura retorna a definição de índice, com o nome, tipo e atributos de cada campo. A segunda é uma consulta parametrizada, onde `Select` especifica quais os campos a incluir nos resultados, por exemplo `organizations` . Uma série de pesquisas `"*"` devolve todos os conteúdos de um único campo.
 
 ```csharp
 //Verify content is returned after indexing is finished
@@ -901,7 +904,7 @@ Quando se está a trabalhar na sua própria subscrição, no final de um projeto
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação de todos os recursos ou grupos de recursos no painel de navegação à esquerda.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que está familiarizado com todos os objetos num oleoduto de enriquecimento de IA, vamos olhar mais de perto as definições de skillset e habilidades individuais.
 

@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: deb69f6ca8f1499f43c12d606434719571a1f400
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027888"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537428"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs de Gémeos Digitais Azure
 
@@ -46,7 +47,7 @@ Isto irá criar vários ficheiros dentro do seu diretório, incluindo um chamado
 Em seguida, adicione duas dependências necessárias para trabalhar com a Azure Digital Twins:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -173,7 +174,7 @@ No diretório onde criou o seu projeto, crie um novo ficheiro *.json* chamado *S
 > Se estiver a utilizar o Visual Studio para este tutorial, poderá querer selecionar o ficheiro JSON recém-criado e definir a propriedade *Copy to Output Directory* no inspetor de propriedade para *copiar se Newer* ou *Copy Always*. Isto permitirá ao Visual Studio encontrar o ficheiro JSON com o caminho predefinido quando executar o programa com **F5** durante o resto do tutorial.
 
 > [!TIP] 
-> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [Como-a: Parse e validar modelos.](how-to-use-parser.md)
+> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-use-parser.md)
 
 Em seguida, adicione mais um código para *Program.cs* para carregar o modelo que acabou de criar na sua instância Azure Digital Twins.
 
@@ -184,7 +185,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Em seguida, prepare-se para utilizar os métodos assíncronos no serviço C# SDK, alterando a assinatura do `Main` método para permitir a execução de async. 
@@ -530,7 +530,7 @@ namespace minimal
 ```
 ## <a name="clean-up-resources"></a>Limpar recursos
  
-O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [Tutorial: Explore o básico com uma aplicação de cliente de amostra.](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
+O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
  
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los.
 
@@ -560,8 +560,8 @@ Neste tutorial, criou uma aplicação de cliente de consola .NET de raiz. Escrev
 Continue até ao próximo tutorial para explorar as coisas que pode fazer com uma aplicação de cliente de amostra: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore o básico com uma aplicação de cliente de amostra](tutorial-command-line-app.md)
+> [*Tutorial: Explore o básico com uma aplicação de cliente de amostra*](tutorial-command-line-app.md)
 
 Também pode adicionar ao código que escreveu neste tutorial aprendendo mais operações de gestão nos artigos de como fazer, ou começar a olhar para a documentação do conceito para saber mais sobre os elementos com que trabalhou no tutorial.
-* [Como fazer: Gerir modelos personalizados](how-to-manage-model.md)
-* [Conceitos: Modelos personalizados](concepts-models.md)
+* [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)
+* [*Conceitos: Modelos personalizados*](concepts-models.md)

@@ -1,5 +1,5 @@
 ---
-title: Mover VMs Azure para outra região com recuperação do local de Azure
+title: Mover VMs Azure IaaS para outra região com recuperação do local de Azure
 description: Utilize a Recuperação do Sítio azul para mover os VMs Azure IaaS de uma região de Azure para outra.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 198e07b80788629030b621dd3c5e235a91baaba3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134426"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518916"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -99,7 +99,7 @@ A Recuperação do Site recupera uma lista dos VMs que estão associados ao grup
 
 1. No passo seguinte, selecione o VM que pretende mover e, em seguida, selecione **OK**.
 1. Em **Definições**, selecione **Recuperação de Desastres**.
-1. Na região de **Configure a recuperação de**  >  **desastres,** selecione a região alvo para a qual irá replicar.
+1. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar.
 1. Para este tutorial, aceite as outras predefinições.
 1. Selecione **Ativar replicação**. Este passo inicia um trabalho para permitir a replicação para o VM.
 
@@ -140,7 +140,7 @@ Se não tiver planos para reutilizar nenhum dos recursos de origem, complete est
 1. Elimine todos os recursos de rede relevantes na região de origem que identificou em [pré-requisitos.](#prerequisites)
 1. Eliminar a conta de armazenamento correspondente na região de origem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, mudou um Azure VM para uma região de Azure diferente. Agora pode configurar a recuperação de desastres para o VM que mudou.
 

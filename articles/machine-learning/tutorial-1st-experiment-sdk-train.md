@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+ms.author: sgilley
+author: sdgilley
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 2a65579ea7ea1a8e1611b604fa64f6b108c88784
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 821b11dc89a3479f7310770db84d0947390a3109
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025153"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86520549"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treine o seu primeiro modelo ML
 

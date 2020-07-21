@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Balance de carga Máquinas virtuais Linux em Azure
+title: Tutorial - Load balance máquinas virtuais Linux em Azure
 description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar um balanceador de carga para uma aplicação segura de elevada disponibilidade em três máquinas virtuais do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 89ed39d1cd18fc97cec06dce4313271731b23b90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1bd6e9280acdbde105876a6c0e8e0bc45735a558
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460040"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86510145"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI do Azure
 
@@ -35,7 +35,7 @@ O balanceamento de carga fornece um nível mais elevado de disponibilidade ao pr
 > * Ver um balanceador de carga em ação
 > * Adicionar e remover VMs de um balanceador de carga
 
-Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
@@ -217,7 +217,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 Para melhorar a elevada disponibilidade da aplicação, coloque as VMs num conjunto de disponibilidade. Para obter mais informações sobre conjuntos de disponibilidade, veja o tutorial anterior [Como criar máquinas virtuais de elevada disponibilidade](tutorial-availability-sets.md).
 
-Criar um conjunto de disponibilidade com [az vm disponibilidade-set criar](/cli/azure/vm/availability-set). O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
+Crie um conjunto de disponibilidade com [a criação de disponibilidade de az vm](/cli/azure/vm/availability-set). O exemplo seguinte cria um conjunto de disponibilidade com o nome *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -313,7 +313,7 @@ az network nic ip-config address-pool add \
 Para verificar se a NIC virtual está ligada ao conjunto de endereços de back-end, utilize novamente [az network lb address-pool show](/cli/azure/network/lb/address-pool) do passo anterior.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, criou um balanceador de carga e anexou VMs ao mesmo. Aprendeu a:
 
 > [!div class="checklist"]

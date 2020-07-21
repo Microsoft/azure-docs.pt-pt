@@ -6,12 +6,12 @@ ms.topic: sample
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/08/2020
-ms.openlocfilehash: 82032c6a5ac8ec65265ffb44f896be6cea8fe4ce
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d7a8a7b7fa75d7d9bb4dc45a3432370bac4cb4d6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86210492"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86498649"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Amostras de modelo de gestor de recursos para criar recursos de Insights de Aplicação
 
@@ -21,7 +21,7 @@ Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-ma
 
 ## <a name="classic-application-insights-resource"></a>Recurso Clássico de Insights de Aplicações
 
-A amostra a seguir cria um [recurso clássico de Insights de Aplicação.](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 
+A amostra a seguir cria um [recurso clássico de Insights de Aplicação.](../app/create-new-resource.md) 
 
 ### <a name="template-file"></a>Arquivo de modelo
 
@@ -107,7 +107,7 @@ A amostra a seguir cria um [recurso clássico de Insights de Aplicação.](https
 
 ## <a name="workspace-based-application-insights-resource"></a>Recurso de Insights de Aplicação baseado em espaço de trabalho 
 
-A amostra a seguir cria um [recurso de Insights de Aplicação baseado em espaço de trabalho.](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) Os Insights de Aplicação baseados no espaço de trabalho estão atualmente em **pré-visualização.** 
+A amostra a seguir cria um [recurso de Insights de Aplicação baseado em espaço de trabalho.](../app/create-workspace-resource.md) Os Insights de Aplicação baseados no espaço de trabalho estão atualmente em **pré-visualização.** 
 
 
 ### <a name="template-file"></a>Arquivo de modelo
@@ -202,7 +202,7 @@ A amostra a seguir cria um [recurso de Insights de Aplicação baseado em espaç
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
 * [Saiba mais sobre os recursos clássicos da Application Insights.](../app/create-new-resource.md)

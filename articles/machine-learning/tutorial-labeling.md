@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 1665bc42578c189ed27208eb31cc4bdb2e27bbb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628400"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536169"
 ---
-# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem (pré-visualização) para classificação de imagem multi-classes 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classes 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial mostra-lhe como gerir o processo de rotulagem (também referido como marcação) para ser usado como dados para construir modelos de machine learning. A rotulagem de dados em Azure Machine Learning está em pré-visualização pública.
@@ -71,7 +71,7 @@ As lojas de dados Azure Machine Learning são usadas para armazenar informaçõe
     Método de seleção de conta | Selecione **Introduza manualmente**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Tipo de autenticação | Selecione **o token SAS**.
-    Chave de conta | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
+    Chave da conta | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
 
 1. Selecione **Criar** para criar a datastore.
 
@@ -130,7 +130,7 @@ Selecione **Seguinte** para continuar.
 
 1. Selecione **Seguinte**.
 
-1. No formulário **de rotulagem assistida ML,** deixe a caixa de verificação descontrolada. A rotulagem assistida mL requer mais dados do que você vai usar neste tutorial.
+1. Se estiver a utilizar um espaço de trabalho da Enterprise, verá uma secção **de rotulagem assistida ML.**  Deixe a caixa de verificação desmarcada. A rotulagem assistida mL requer mais dados do que você vai usar neste tutorial.
 
 1. Selecione **Create project** (Criar projeto).
 

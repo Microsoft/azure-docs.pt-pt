@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119176"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523490"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar uma aplicação angular com API da Azure Cosmos DB para a MongoDB - Criar uma aplicação Node.js Express
 
@@ -147,11 +147,11 @@ Este tutorial também requer:
 
 7. Guarde todos os seus ficheiros modificados. 
 
-8. No Visual Studio Code, clique no botão **Depurar**![Ícone depurar no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), clique no botão de engrenagem ![Botão de engrenagem no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). O novo ficheiro launch.json é aberto no Visual Studio Code.
+8. No Código do Estúdio Visual, clique no botão **Debug,** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: clique no botão 'Engrenagem'. :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png"::: O novo ficheiro launch.json é aberto no Visual Studio Code. 
 
 8. Na linha 11 do ficheiro launch.json, altere `"${workspaceFolder}\\server"` para `"program": "${workspaceRoot}/src/server/index.js"` e guarde-o.
 
-9. Clique no botão **Iniciar Depuração**![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para executar a aplicação.
+9. Clique no botão **Iniciar depuração** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: para executar a aplicação.
 
     A aplicação deverá ser executada sem erros.
 
@@ -166,7 +166,7 @@ Este tutorial também requer:
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="O Postman mostra o pedido e a resposta":::
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Nesta parte do tutorial, fez o seguinte:
 

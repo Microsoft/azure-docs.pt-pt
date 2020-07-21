@@ -1,6 +1,6 @@
 ---
-title: Copie um instantâneo para uma conta de armazenamento em outra região - amostra CLI
-description: Amostra de script Azure CLI - Exportação/Cópia snapshot como VHD para uma conta de armazenamento na mesma ou região diferente.
+title: Copie um instantâneo para uma conta de armazenamento em outra região - amostra linux CLI
+description: Amostra de script Azure CLI - Exportar/Copiar instantâneo como VHD para uma conta de armazenamento na mesma região ou na mesma região.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 42a516f3c52d7548d08f72687e9f233620a39287
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42785cdb6fd866ccf7eafbd802552ea9cb2c93a4
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458625"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86509766"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>Exportar/Copiar um instantâneo para uma conta de armazenamento em diferentes regiões com CLI
 
@@ -42,15 +42,15 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS para um instan
 
 | Comando | Notas |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | Gera o SAS só de leitura utilizado para copiar o ficheiro VHD subjacente para uma conta de armazenamento ou transferi-lo para o local  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copia um blob de forma assíncrona de uma conta de armazenamento para outra |
+| [az snapshot grant-access](/cli/azure/snapshot) | Gera o SAS só de leitura utilizado para copiar o ficheiro VHD subjacente para uma conta de armazenamento ou transferi-lo para o local  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Copia um blob de forma assíncrona de uma conta de armazenamento para outra |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um disco gerido a partir de um VHD](virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 [Criar uma máquina virtual a partir de um disco gerido](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos do script da CLI da máquina virtual e discos geridos adicionais na [Documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

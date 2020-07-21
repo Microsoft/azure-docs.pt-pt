@@ -1,13 +1,14 @@
 ---
 title: Implementar amostra de projeto iso 27001 serviços partilhados
 description: Implementar etapas para a amostra de planta de serviços partilhados ISO 27001, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 19e394f115c87c499f7839c6ef63921e68f4d357
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0f2fa71e56deadba1188ab0fa69898c261861eb5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521467"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar a amostra de projeto iso 27001 serviços partilhados
 
@@ -61,7 +62,7 @@ Uma vez publicada com **sucesso**a cópia da amostra de plantas, pode ser atribu
 
 1. Fornecer os valores dos parâmetros para a atribuição do projeto:
 
-   - Noções básicas
+   - Informações básicas
 
      - **Subscrições**: Selecione uma ou mais das subscrições que estão no grupo de gestão a que guardou a sua cópia da amostra de planta. Se selecionar mais de uma subscrição, será criada uma atribuição para cada um utilizando os parâmetros introduzidos.
      - **Nome da atribuição**: O nome é pré-povoado para si com base no nome da planta.
@@ -102,17 +103,17 @@ A tabela a seguir fornece uma lista dos parâmetros do artefacto da planta:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
-|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
-|Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos autorizados a ser implantados. Esta lista é composta por todos os tipos de recursos implantados em Serviços Partilhados.|
-|SKUs de contas de armazenamento permitidos|Atribuição de política|SKUs de armazenamento permitido|Lista de registos de diagnóstico de conta de armazenamento SKUs permitida. O valor predefinido é _["Standard_LRS"]_.|
-|SKUs de máquina virtual permitida|Atribuição de política|Lista de máquinas virtuais SKUs permitidas para ser implantada. O valor predefinido é _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
-|Iniciativa de planta para a ISO 27001|Atribuição de política|Tipos de recursos para auditar registos de diagnóstico|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de políticas|Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux|Atribuição de políticas|Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)|Atribuição de políticas|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows|Atribuição de políticas|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|(Opcional) O valor predefinido é _["nenhum"]_.|
+|Tipos de recursos permitidos|Atribuição de políticas|Tipos de recursos permitidos|Lista de tipos de recursos autorizados a ser implantados. Esta lista é composta por todos os tipos de recursos implantados em Serviços Partilhados.|
+|SKUs de contas de armazenamento permitidos|Atribuição de políticas|SKUs de armazenamento permitido|Lista de registos de diagnóstico de conta de armazenamento SKUs permitida. O valor predefinido é _["Standard_LRS"]_.|
+|SKUs de máquina virtual permitida|Atribuição de políticas|Lista de máquinas virtuais SKUs permitidas para ser implantada. O valor predefinido é _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
+|Iniciativa de planta para a ISO 27001|Atribuição de políticas|Tipos de recursos para auditar registos de diagnóstico|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
 |Grupo de recursos Log Analytics|Grupo de recursos|Name|**Locked** - Concatenates o **nome da Organização** para tornar o grupo de recursos `-sharedsvsc-log-rg` único.|
 |Grupo de recursos Log Analytics|Grupo de recursos|Localização|**Bloqueado** - Usa o parâmetro da planta.|
-|Modelo de Analítica de Log|Modelo do Resource Manager|Camada de serviços|Define o nível do espaço de trabalho Log Analytics. O valor predefinido é _PerNode_.|
+|Modelo de Analítica de Log|Modelo do Resource Manager|Escalão de serviço|Define o nível do espaço de trabalho Log Analytics. O valor predefinido é _PerNode_.|
 |Modelo de Analítica de Log|Modelo do Resource Manager|Retenção de registos em dias|Retenção de dados em dias. O valor predefinido é _de 365_.|
 |Modelo de Analítica de Log|Modelo do Resource Manager|Localização|Região utilizada para criar o espaço de trabalho Log Analytics. O valor predefinido é _West US 2_.|
 |Grupo de recursos de rede|Grupo de recursos|Name|**Locked** - Concatenates o **nome da Organização** para tornar o grupo de recursos `-sharedsvcs-net-rg` único.|

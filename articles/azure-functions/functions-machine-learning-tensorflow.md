@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 44aa7bdcaa77ba0865f17e2781e2a0521afe16df
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 89b2fc9ffe05853e34670b6f33ed665240d59457
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555421"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540201"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de aprendizagem automática em funções Azure com Python e TensorFlow
 
@@ -122,21 +122,21 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     func init --worker-runtime python
     ```
 
-    Após a inicialização, a pasta *inicial* contém vários ficheiros para o projeto, incluindo ficheiros de configurações [denominados local.settings.json](functions-run-local.md#local-settings-file) e [host.json](functions-host-json.md). Uma vez *que as definições locais.json* podem conter segredos descarregados do Azure, o ficheiro é excluído do controlo de origem por padrão no ficheiro *.gitignore.*
+    Após a inicialização, a pasta *inicial* contém vários ficheiros para o projeto, incluindo ficheiros de configurações nomeados [local.settings.jse](functions-run-local.md#local-settings-file) [host.jsem](functions-host-json.md). Como *local.settings.jspode* conter segredos descarregados do Azure, o ficheiro é excluído do controlo de origem por padrão no ficheiro *.gitignore.*
 
     > [!TIP]
     > Como um projeto de função está ligado a um tempo de execução específico, todas as funções do projeto devem ser escritas com a mesma língua.
 
-1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new`criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração chamado *function.json*.
+1. Adicione uma função ao seu projeto utilizando o seguinte comando, onde o `--name` argumento é o nome único da sua função e o argumento especifica o gatilho da `--template` função. `func new`criar uma sub-dobradeira que corresponda ao nome da função que contém um ficheiro de código adequado à língua escolhida do projeto e um ficheiro de configuração denominado *function.jsem*.
 
     ```
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: * \_ \_ init \_ \_ .py*, que contém o código de função, e *function.json*, que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido do Python.
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: * \_ \_ init \_ \_ .py*, que contém o código de função, e *function.jsligados*, que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido do Python.
 
 
-## <a name="run-the-function-locally"></a>Executar localmente a função
+## <a name="run-the-function-locally"></a>Executar a função localmente
 
 1. Inicie a função iniciando o hospedeiro local de tempo de funcionamento do Azure Functions na pasta *inicial:*
 
@@ -180,7 +180,7 @@ Para construir o seu próprio modelo utilizando o nível gratuito do Serviço de
     
     ---
     
-1. Verifique se a pasta *de classificação* contém ficheiros nomeados *modelo.pb* e *etiquetas.txt*. Caso contrário, verifique se executou o comando na pasta *inicial.*
+1. Verifique se a pasta *de classificação* contém ficheiros nomeados *model.pb* e *labels.txt*. Caso contrário, verifique se executou o comando na pasta *inicial.*
 
 1. Na pasta *inicial,* executar o seguinte comando para copiar um ficheiro com código auxiliar na pasta *de classificação:*
 
@@ -206,7 +206,7 @@ Para construir o seu próprio modelo utilizando o nível gratuito do Serviço de
 
 1. Verifique se a pasta *de classificação* agora contém um ficheiro nomeado *predict.py*.
 
-1. Abrir *start/requirements.txt* num editor de texto e adicionar as seguintes dependências exigidas pelo código de ajuda:
+1. Abrir *o início/requirements.txt* num editor de texto e adicionar as seguintes dependências exigidas pelo código de ajuda:
 
     ```txt
     tensorflow==1.14
@@ -214,7 +214,7 @@ Para construir o seu próprio modelo utilizando o nível gratuito do Serviço de
     requests
     ```
     
-1. Guardar *requisitos.txt*.
+1. Salve *requirements.txt. *
 
 1. Instale as dependências executando o seguinte comando na pasta *inicial.* A instalação pode demorar alguns minutos, durante o qual pode proceder à modificação da função na secção seguinte.
 
@@ -306,7 +306,7 @@ Para testar a invocação do ponto final da função a partir de outra aplicaç�
 
 Como todo este tutorial funciona localmente na sua máquina, não existem recursos ou serviços Azure para limpar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a construir e personalizar um ponto final http API com Funções Azure para classificar as imagens utilizando um modelo TensorFlow. Também aprendeu a chamar a API de uma aplicação web. Você pode usar as técnicas neste tutorial para construir APIs de qualquer complexidade, tudo enquanto executa no modelo de computação sem servidor fornecido pela Azure Functions.
 

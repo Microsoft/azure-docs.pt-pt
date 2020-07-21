@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar e utilizar discos para conjuntos de escala com A PowerShell Azure
+title: Tutorial - Criar e utilizar discos para conjuntos de escala com Azure PowerShell
 description: Saiba como utilizar o Azure PowerShell para criar e utilizar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b3b57cd2a2e5d5502f3865eddcdddfac67460dc7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198247"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86495040"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e utilizar discos com um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -27,7 +27,7 @@ Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armaz
 > * Desempenho do disco
 > * Anexar e preparar discos de dados
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -44,12 +44,12 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 ### <a name="temporary-disk-sizes"></a>Tamanhos dos discos temporários
 | Tipo | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
 |----|----|----|
-| [Fins gerais](../virtual-machines/windows/sizes-general.md) | Séries A, B e D | 1600 |
-| [Com otimização de computação](../virtual-machines/windows/sizes-compute.md) | Série F | 576 |
-| [Com otimização de memória](../virtual-machines/windows/sizes-memory.md) | Séries D, E, G e M | 6144 |
-| [Com otimização de armazenamento](../virtual-machines/windows/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 1440 |
-| [Elevado desempenho](../virtual-machines/windows/sizes-hpc.md) | Séries A e H | 2000 |
+| [Fins gerais](../virtual-machines/sizes-general.md) | Séries A, B e D | 1600 |
+| [Com otimização de computação](../virtual-machines/sizes-compute.md) | Série F | 576 |
+| [Com otimização de memória](../virtual-machines/sizes-memory.md) | Séries D, E, G e M | 6144 |
+| [Com otimização de armazenamento](../virtual-machines/sizes-storage.md) | Série L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 1440 |
+| [Elevado desempenho](../virtual-machines/sizes-hpc.md) | Séries A e H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
@@ -58,12 +58,12 @@ Podem ser adicionados mais discos de dados se precisar de instalar aplicações 
 ### <a name="max-data-disks-per-vm"></a>Discos de dados máximos por VM
 | Tipo | Tamanhos comuns | Discos de dados máximos por VM |
 |----|----|----|
-| [Fins gerais](../virtual-machines/windows/sizes-general.md) | Séries A, B e D | 64 |
-| [Com otimização de computação](../virtual-machines/windows/sizes-compute.md) | Série F | 64 |
-| [Com otimização de memória](../virtual-machines/windows/sizes-memory.md) | Séries D, E, G e M | 64 |
-| [Com otimização de armazenamento](../virtual-machines/windows/sizes-storage.md) | Série L | 64 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 64 |
-| [Elevado desempenho](../virtual-machines/windows/sizes-hpc.md) | Séries A e H | 64 |
+| [Fins gerais](../virtual-machines/sizes-general.md) | Séries A, B e D | 64 |
+| [Com otimização de computação](../virtual-machines/sizes-compute.md) | Série F | 64 |
+| [Com otimização de memória](../virtual-machines/sizes-memory.md) | Séries D, E, G e M | 64 |
+| [Com otimização de armazenamento](../virtual-machines/sizes-storage.md) | Série L | 64 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 64 |
+| [Elevado desempenho](../virtual-machines/sizes-hpc.md) | Séries A e H | 64 |
 
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
@@ -89,7 +89,7 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 Pode criar e anexar discos quando cria um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos durante a criação do conjunto de dimensionamento
-Crie um conjunto de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando lhe for pedido, forneça um nome de utilizador e palavra-passe para as instâncias de VM. Para distribuir o tráfego pelas instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985.
+Crie um conjunto de escala de máquina virtual com [New-AzVmss](/powershell/module/az.compute/new-azvmss). Quando lhe for pedido, forneça um nome de utilizador e palavra-passe para as instâncias de VM. Para distribuir o tráfego pelas instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985.
 
 São criados dois discos com o parâmetro `-DataDiskSizeGb`. O primeiro disco tem *64* GB de tamanho e o segundo disco é *de 128* GB. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
@@ -135,10 +135,10 @@ Update-AzVmss `
 ## <a name="prepare-the-data-disks"></a>Preparar os discos de dados
 Os discos criados e anexados às instâncias de VM do conjunto de dimensionamento são discos não processados. Antes de poder utilizá-los com os seus dados e aplicações, os discos têm de ser preparados. Para preparar os discos, crie uma partição e um sistema de ficheiros, e monte-os.
 
-Para automatizar o processo em múltiplas instâncias de VM num conjunto de dimensionamento, pode utilizar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/windows/extensions-customscript.md).
+Para automatizar o processo em múltiplas instâncias de VM num conjunto de dimensionamento, pode utilizar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-windows.md).
 
 
-O exemplo seguinte executa um script de um repo de amostra GitHub em cada instância VM com [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) que prepara todos os discos de dados anexados em bruto:
+O exemplo a seguir executa um script a partir de uma amostra de GitHub repo em cada instância VM com [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) que prepara todos os discos de dados em anexo bruto:
 
 
 ```azurepowershell-interactive
@@ -170,7 +170,7 @@ Update-AzVmss `
 
 Para confirmar que os discos foram preparados corretamente, execute o protocolo RDP numa das instâncias de VM. 
 
-Primeiro, obtenha o objeto de equilíbrio de carga com [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Em seguida, veja as regras nat de entrada com [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). As regras NAT listam a *FrontendPort* para cada instância de VM escutada por RDP. Por fim, obtenha o endereço IP público do equilibrador de carga com [Get-AzPublicIpAddress:](/powershell/module/az.network/Get-AzPublicIpAddress)
+Primeiro, obtenha o objeto de balançador de carga com [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Em seguida, veja as regras NAT de entrada com [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig). As regras NAT listam a *FrontendPort* para cada instância de VM escutada por RDP. Finalmente, obtenha o endereço IP público do equilibrista de carga com [Get-AzPublicIpAddress:](/powershell/module/az.network/Get-AzPublicIpAddress)
 
 
 ```azurepowershell-interactive
@@ -242,7 +242,7 @@ Feche a sessão da ligação de ambiente de trabalho remoto à instância de VM.
 
 
 ## <a name="list-attached-disks"></a>Listar os discos anexados
-Para visualizar informações sobre discos anexados a um conjunto de escala, utilize [o Get-AzVmss](/powershell/module/az.compute/get-azvmss) da seguinte forma:
+Para visualizar informações sobre discos ligados a um conjunto de escala, utilize [o Get-AzVmss](/powershell/module/az.compute/get-azvmss) da seguinte forma:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
@@ -298,14 +298,14 @@ Update-AzVmss `
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o seu conjunto de escala e discos, elimine o grupo de recursos e todos os seus recursos com [remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
+Para remover o seu conjunto de escalas e discos, elimine o grupo de recursos e todos os seus recursos com [o Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste tutorial, aprendeu a criar e utilizar discos com conjuntos de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]

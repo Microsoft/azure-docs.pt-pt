@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 8e37876e0e9666097c3cf16589e64929c670b14a
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390283"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86540286"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
 
@@ -68,7 +68,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
     | [_Grupo de recursos_](../azure-resource-manager/management/overview.md) | myResourceGroup | Escolha o grupo de recursos para conter todos os recursos para este tutorial.  A utilização do mesmo grupo de recursos facilita a limpeza dos recursos quando termina este tutorial. |
     | _Nome da máquina virtual_ | myVM | O nome VM tem de ser único no grupo de recursos |
     | [_Região_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
-    | _Portos de entrada pública_ | Nenhuma | **Selecione Nenhum** para garantir que não existe conectividade de entrada para o VM a partir da internet. O acesso remoto ao VM será configurado através do serviço Azure Bastion. |
+    | _Portas de entrada públicas_ | Nenhum | **Selecione Nenhum** para garantir que não existe conectividade de entrada para o VM a partir da internet. O acesso remoto ao VM será configurado através do serviço Azure Bastion. |
 
 1. Escolha o _separador 'Rede'_ e selecione **Criar novo** para configurar uma nova rede virtual.
 
@@ -108,7 +108,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
     | _Nome_ | myBastion | O nome do novo recurso Bastion |
-    | _Região_ | E.U.A. Centro-Norte | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. |
+    | _Região_ | E.U.A. Centro-Norte | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
     | _Rede virtual_ | myResourceGroup-vnet | A rede virtual em que o recurso Bastião será criado em |
     | _Sub-rede_ | AzureBastionSubnet | A sub-rede da sua rede virtual para a qual será implantado o novo recurso do hospedeiro Bastion. Tem de criar uma sub-rede utilizando o valor do nome **AzureBastionSubnet**. Este valor permite ao Azure saber a que sub-rede deve implantar os recursos do Bastião. Deve utilizar uma sub-rede de pelo menos **/27** ou maior (/27, /26, e assim por diante). |
 
@@ -139,21 +139,21 @@ O próximo passo é criar uma aplicação de função em Azure utilizando o [pla
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
     | _Grupo de Recursos_ | myResourceGroup | Escolha o grupo de recursos para conter todos os recursos para este tutorial.  A utilização do mesmo grupo de recursos para a aplicação de função e vM facilita a limpeza de recursos quando termina este tutorial. |
-    | _Nome da app de função_ | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os caracteres válidos são a-z (caso insensível), 0-9, e -. |
+    | _Nome da Aplicação de Funções_ | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os caracteres válidos são a-z (caso insensível), 0-9, e -. |
     | _Publicar_ | Código | Opção para publicar ficheiros de código ou um contentor de Docker. |
-    | _Pilha de tempo de execução_ | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. |
-    | _Região_ | E.U.A. Centro-Norte | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. |
+    | _Pilha de runtime_ | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. |
+    | _Região_ | E.U.A. Centro-Norte | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
 
     Selecione o **seguinte: Hospedar >** botão.
 1. Para a secção _de Hospedagem,_ selecione a _conta de armazenamento_adequada, o sistema _operativo_e o _Plano_ conforme descrito na tabela seguinte.
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](./functions-scale.md#storage-account-requirements) |
+    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas de armazenamento têm de ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, que deve satisfazer os requisitos da [conta de armazenamento.](./functions-scale.md#storage-account-requirements) |
     | _Sistema operativo_ | Sistema operativo preferido | Um sistema operativo é pré-selecionado para si com base na seleção da sua pilha de tempo de execução, mas pode alterar a definição se necessário. |
     | _Planear_ | Consumo | O [plano de hospedagem](./functions-scale.md) dita como a aplicação de função é dimensionada e os recursos disponíveis para cada instância. |
 1. Selecione **Review + Criar** para rever as seleções de configuração da aplicação.
-1. Selecione **Criar** para aprovisionar e implementar a aplicação de função.
+1. Selecione **Criar** para aprovisionar e implementar a aplicação de funções.
 
 ## <a name="configure-access-restrictions"></a>Configurar restrições de acesso
 
@@ -197,7 +197,7 @@ O próximo passo neste tutorial é criar uma Função Azure acionada por HTTP. I
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Linha de comandos](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-java-maven.md)
+    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
 
 1. Ao publicar o seu projeto Azure Functions, escolha o recurso de aplicação de função que criou anteriormente neste tutorial.
 1. Verifique se a função está implantada.
@@ -223,7 +223,7 @@ Aceder à função através de um navegador web (utilizando o serviço Azure Bas
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 
 > [!div class="nextstepaction"]

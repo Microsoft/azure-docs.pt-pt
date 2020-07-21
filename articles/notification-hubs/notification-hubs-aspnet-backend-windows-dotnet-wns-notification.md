@@ -17,18 +17,18 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: a8a939f0d0c3575adec147c1942ddbbef334cb65
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e13e7c1057d5a01867b561fc7ee7d1eed1a97ca3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220155"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530495"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: enviar notificações para utilizadores específicos com Hubs de Notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end de ASP.NET WebAPI é utilizado para autenticar clientes. Quando o back-end autentica um utilizador de aplicação de cliente, adiciona automaticamente uma etiqueta ao registo de notificação. O back-end utiliza esta etiqueta para enviar notificações para o utilizador específico.
 
@@ -51,7 +51,7 @@ Neste tutorial, siga os seguintes passos:
 Este tutorial baseia-se no projeto do Visual Studio e no Hub de Notificação que criou no [Tutorial: enviar notificações para aplicações de Plataforma Universal do Windows com Hubs de Notificação do Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Por isso, conclua-o antes de iniciar este tutorial.
 
 > [!NOTE]
-> Se estiver a utilizar Aplicações Móveis no Serviço de Aplicações do Azure como o seu serviço de back-end, veja a secção [Versão para Aplicações Móveis](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) deste tutorial.
+> Se estiver a utilizar Aplicações Móveis no Serviço de Aplicações do Azure como o seu serviço de back-end, veja a secção [Versão para Aplicações Móveis](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push) deste tutorial.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -224,7 +224,7 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
     ```
 13. Clique com o botão direito do rato no projeto **WindowsApp**, clique em **Adicionar** e em **Classe**. Nomeie a classe `RegisterClient.cs` e, em seguida, clique **em OK** para gerar a classe.
 
-    Esta classe encapsula as chamadas REST necessárias para contactar o back-end da aplicação, para se registar para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](https://msdn.microsoft.com/library/dn743807.aspx). Utiliza um token de autorização guardado no armazenamento local quando clica no botão **Iniciar sessão e registar**.
+    Esta classe encapsula as chamadas REST necessárias para contactar o back-end da aplicação, para se registar para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Utiliza um token de autorização guardado no armazenamento local quando clica no botão **Iniciar sessão e registar**.
 14. Adicione as seguintes declarações `using` na parte superior do ficheiro RegisterClient.cs:
 
     ```csharp
@@ -337,7 +337,7 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
 
     ![Screenshot da aplicação 'Centros de Notificação' mostrando a mensagem que foi empurrada.][15]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a enviar notificações push para utilizadores específicos que têm etiquetas associadas aos respetivos registos. Para saber como enviar notificações push com base na localização, avance para o seguinte tutorial:
 
@@ -357,4 +357,4 @@ Neste tutorial, aprendeu a enviar notificações push para utilizadores específ
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)

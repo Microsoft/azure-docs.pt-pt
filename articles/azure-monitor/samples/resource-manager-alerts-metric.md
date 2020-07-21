@@ -1,40 +1,40 @@
 ---
-title: Criar um alerta de métrica com um modelo do Resource Manager
-description: Aprenda a usar um modelo de Gestor de Recursos para criar um alerta métrico.
+title: Amostras de modelo de gestor de recursos para alertas métricos
+description: Este artigo fornece modelos de gestor de recursos de amostra usados para criar alertas métricos no Azure Monitor.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 27d592a2702f9e2e8fda9094796cf2e37400621b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 793a4b3e8ea0dde2e4ad755cbff5a07a36c44cb9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854553"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86515381"
 ---
-# <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo do Gestor de Recursos para regras de alerta métrica sintetizar no Monitor Azure
+# <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para regras de alerta métrico no Azure Monitor
 
-Este artigo fornece amostras da utilização de modelos do Gestor de [Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar [regras de alerta métrica](../platform/alerts-metric-near-real-time.md) sintetizar no Monitor Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+Este artigo fornece amostras de utilização de [modelos do Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar regras de [alerta métrica no](../platform/alerts-metric-near-real-time.md) Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Consulte [os recursos suportados para alertas métricos no Monitor Azure](../platform/alerts-metric-near-real-time.md) para obter uma lista de recursos que podem ser usados com regras de alerta métrico. Uma explicação do esquema e propriedades para uma regra de alerta está disponível em [Alertas Métricos - Criar ou Atualizar](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+Consulte [recursos suportados para alertas métricos no Azure Monitor](../platform/alerts-metric-near-real-time.md) para obter uma lista de recursos que podem ser usados com regras de alerta métrico. Uma explicação do esquema e propriedades para uma regra de alerta está disponível em [Alertas Métricos - Criar ou Atualizar](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Modelo de recurso para criar alertas métricos para o tipo de recurso: Azure Log Analytics Workspace (isto é, `Microsoft.OperationalInsights/workspaces` Para mais detalhes, consulte [Alerta Métrico para Registos - Modelo de Recurso](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> O modelo de recursos para a criação de alertas métricos para o tipo de recurso: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces` , requer passos adicionais. Para mais detalhes, consulte [o Alerta métrico para Registos - Modelo de Recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
 
-## <a name="template-references"></a>Referências do modelo
+## <a name="template-references"></a>Referências de modelo
 
 - [Microsoft.Insights metricAlerts](/azure/templates/microsoft.insights/2018-03-01/metricalerts)
 
 ## <a name="single-criteria-static-threshold"></a>Critérios únicos, limiar estático
-A amostra seguinte cria uma regra de alerta métrica utilizando um único critério e um limiar estático.
+A amostra a seguir cria uma regra de alerta métrico utilizando um único critério e um limiar estático.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -204,7 +204,7 @@ A amostra seguinte cria uma regra de alerta métrica utilizando um único crité
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -246,10 +246,10 @@ A amostra seguinte cria uma regra de alerta métrica utilizando um único crité
 
 
 ## <a name="single-criteria-dynamic-threshold"></a>Critérios únicos, limiar dinâmico
-A amostra seguinte cria uma regra de alerta métrico utilizando um único critério e um limiar dinâmico.
+A amostra a seguir cria uma regra de alerta métrico utilizando um único critério e um limiar dinâmico.
 
-### <a name="template-file"></a>Ficheiro de modelo
-Guarde o json abaixo como simpledynamicmetricalert.json para o propósito desta passagem.
+### <a name="template-file"></a>Arquivo de modelo
+Guarde o json abaixo como simpledynamicmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -443,7 +443,7 @@ Guarde o json abaixo como simpledynamicmetricalert.json para o propósito desta 
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -495,16 +495,16 @@ Guarde o json abaixo como simpledynamicmetricalert.json para o propósito desta 
 
 
 
-## <a name="multiple-criteria-static-threshold"></a>Múltiplos critérios, limiar estático
-Alertas métricos suportam alertas em métricas multidimensionais e até 5 critérios por regra de alerta. A amostra seguinte cria uma regra de alerta métrico sobre métricas dimensionais e especifica múltiplos critérios.
+## <a name="multiple-criteria-static-threshold"></a>Critérios múltiplos, limiar estático
+Alertas métricos de suporte alertando em métricas multidimensionais e até 5 critérios por regra de alerta. A amostra a seguir cria uma regra de alerta métrico sobre métricas dimensionais e especifica vários critérios.
 
-Aplicam-se os seguintes constrangimentos quando se utilizam dimensões numa regra de alerta que contém múltiplos critérios:
+Aplicam-se os seguintes constrangimentos ao utilizar dimensões numa regra de alerta que contém vários critérios:
 - Só é possível selecionar um valor por dimensão dentro de cada critério.
-- Não pode usar \* como valor de dimensão.
-- Quando as métricas configuradas em diferentes critérios suportam a mesma dimensão, então um valor de dimensão configurado deve ser explicitamente definido da mesma forma para todas essas métricas nos critérios relevantes.
-    - No exemplo abaixo, porque tanto as **métricas De Transações** como **successE2ELatency** têm uma dimensão **ApiName,** e o *critério1* especifica o valor *"GetBlob"* para a dimensão **ApiName,** então o *critério2* também deve definir um valor *"GetBlob"* para a dimensão **ApiName.**
+- Não pode usar \* " " como um valor de dimensão.
+- Quando as métricas configuradas em critérios diferentes suportam a mesma dimensão, então um valor de dimensão configurado deve ser explicitamente definido da mesma forma para todas essas métricas nos critérios relevantes.
+    - No exemplo abaixo, porque tanto as **métricas de Transações** como **de SucessoE2EAtenência** têm uma dimensão **ApiName,** e o *critério1* especifica o valor *"GetBlob"* para a dimensão **ApiName,** então o *critério2* também deve definir um valor *"GetBlob"* para a dimensão **ApiName.**
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -637,7 +637,7 @@ Aplicam-se os seguintes constrangimentos quando se utilizam dimensões numa regr
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -705,19 +705,19 @@ Aplicam-se os seguintes constrangimentos quando se utilizam dimensões numa regr
 
 
 ## <a name="multiple-dimensions-static-threshold"></a>Múltiplas dimensões, limiar estático
-Uma única regra de alerta pode monitorizar várias séries de tempo métricas de cada vez, o que resulta em menos regras de alerta para gerir. A amostra seguinte cria uma regra de alerta métrica estática sobre métricas dimensionais.
+Uma regra de alerta único pode monitorizar várias séries de tempo métricas de cada vez, o que resulta em menos regras de alerta para gerir. A amostra a seguir cria uma regra de alerta métrico estático em métricas dimensionais.
 
-Nesta amostra, a regra de alerta monitoriza as dimensões das dimensões das dimensões **Do Tipo** de Resposta e do **Nome ApiName** para a métrica **de Transações:**
-1. **ResponsType** - A utilização do \* " wildcard significa que para cada valor da dimensão Do Tipo de **Resposta,** incluindo valores futuros, uma série de tempo diferente é monitorizada individualmente.
-2. **ApiName** - Uma série de tempo diferente é monitorizada apenas para os valores de dimensão **GetBlob** e **PutBlob.**
+Nesta amostra, a regra de alerta monitoriza as combinações de valor de dimensões das dimensões **ResponseType** e **ApiName** para a métrica **de Transações:**
+1. **ResponsType** - A utilização do \* " " wildcard significa que para cada valor da dimensão **ResponseType,** incluindo valores futuros, uma série de tempo diferente é monitorizada individualmente.
+2. **ApiName** - Uma série de tempo diferente é monitorizada apenas para os valores da dimensão **GetBlob** e **PutBlob.**
 
-Por exemplo, algumas das séries temporais potenciais que são monitorizadas por esta regra de alerta são:
-- Métrica = *Transações*, Tipo de Resposta = *Sucesso*, ApiName = *GetBlob*
-- Métrica = *Transações*, ResponseType = *Sucesso*, ApiName = *PutBlob*
-- Métrica = *Transações*, Tipo de Resposta = *Tempo limite do servidor*, ApiName = *GetBlob*
-- Métrica = *Transações*, Tipo de Resposta = *Tempo limite do servidor*, ApiName = *PutBlob*
+Por exemplo, algumas das séries de tempo potenciais que são monitorizadas por esta regra de alerta são:
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -842,7 +842,7 @@ Por exemplo, algumas das séries temporais potenciais que são monitorizadas por
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -895,24 +895,24 @@ Por exemplo, algumas das séries temporais potenciais que são monitorizadas por
 
 
 ## <a name="multiple-dimensions-dynamic-thresholds"></a>Múltiplas dimensões, limiares dinâmicos
-Uma regra de alerta de limiares dinâmicos único pode criar limiares personalizados para centenas de séries métricas (mesmo diferentes) de cada vez, o que resulta em menos regras de alerta para gerir. A amostra seguinte cria uma regra de alerta métrica de limiares dinâmicos em métricas dimensionais.
+Uma regra de alerta de limiares dinâmicos pode criar limiares adaptados para centenas de séries de tempo métricas (mesmo tipos diferentes) de cada vez, o que resulta em menos regras de alerta para gerir. A amostra a seguir cria uma regra de alerta métrica de limiares dinâmicos em métricas dimensionais.
 
 
-Nesta amostra, a regra de alerta monitoriza as dimensões das dimensões das dimensões **Do Tipo** de Resposta e do **Nome ApiName** para a métrica **de Transações:**
-1. **ResponsType** - Para cada valor da dimensão Do Tipo de **Resposta,** incluindo valores futuros, uma série de tempo diferente é monitorizada individualmente.
-2. **ApiName** - Uma série de tempo diferente é monitorizada apenas para os valores de dimensão **GetBlob** e **PutBlob.**
+Nesta amostra, a regra de alerta monitoriza as combinações de valor de dimensões das dimensões **ResponseType** e **ApiName** para a métrica **de Transações:**
+1. **ResponsType** - Por cada valor da dimensão **ResponseType,** incluindo valores futuros, uma série de tempo diferente é monitorizada individualmente.
+2. **ApiName** - Uma série de tempo diferente é monitorizada apenas para os valores da dimensão **GetBlob** e **PutBlob.**
 
-Por exemplo, algumas das séries temporais potenciais que são monitorizadas por esta regra de alerta são:
-- Métrica = *Transações*, Tipo de Resposta = *Sucesso*, ApiName = *GetBlob*
-- Métrica = *Transações*, ResponseType = *Sucesso*, ApiName = *PutBlob*
-- Métrica = *Transações*, Tipo de Resposta = *Tempo limite do servidor*, ApiName = *GetBlob*
-- Métrica = *Transações*, Tipo de Resposta = *Tempo limite do servidor*, ApiName = *PutBlob*
+Por exemplo, algumas das séries de tempo potenciais que são monitorizadas por esta regra de alerta são:
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Sucesso,* ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *GetBlob*
+- Métrica = *Transações*, ResponseType = *Tempo de servidor,* ApiName = *PutBlob*
 
 >[!NOTE]
 > Atualmente, não são suportados múltiplos critérios para regras de alerta métricos que utilizam limiares dinâmicos.
 
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 
 ```json
@@ -1033,7 +1033,7 @@ Por exemplo, algumas das séries temporais potenciais que são monitorizadas por
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -1092,15 +1092,15 @@ Por exemplo, algumas das séries temporais potenciais que são monitorizadas por
 
 ## <a name="custom-metric-static-threshold"></a>Métrica personalizada, limiar estático
 
-Pode usar o seguinte modelo para criar uma regra de alerta métrica estática mais avançada numa métrica personalizada.
+Pode utilizar o modelo seguinte para criar uma regra de alerta métrica de limiar estático mais avançada numa métrica personalizada.
 
-Para saber mais sobre métricas personalizadas no Monitor Azure, consulte [métricas personalizadas no Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Para saber mais sobre métricas personalizadas no Azure Monitor, consulte [métricas personalizadas no Azure Monitor.](../platform/metrics-custom-overview.md)
 
-Ao criar uma regra de alerta numa métrica personalizada, precisa especificar tanto o nome métrico como o espaço de nomemétrico. Deve também certificar-se de que a métrica personalizada já está a ser reportada, uma vez que não pode criar uma regra de alerta sobre uma métrica personalizada que ainda não existe.
+Ao criar uma regra de alerta sobre uma métrica personalizada, é necessário especificar tanto o nome métrico como o espaço de nome métrico. Também deve certificar-se de que a métrica personalizada já está a ser reportada, uma vez que não pode criar uma regra de alerta sobre uma métrica personalizada que ainda não existe.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
-Guarde o json abaixo como customstaticstaticalert.json para efeitos desta passagem.
+Guarde o json abaixo como customstaticmetricalert.jspara o propósito desta passagem.
 
 ```json
 {
@@ -1278,7 +1278,7 @@ Guarde o json abaixo como customstaticstaticalert.json para efeitos desta passag
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -1325,32 +1325,32 @@ Guarde o json abaixo como customstaticstaticalert.json para efeitos desta passag
 
 >[!NOTE]
 >
-> Você pode encontrar o espaço de nome métrico de uma métrica personalizada específica [navegando suas métricas personalizadas através do portal Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Pode encontrar o espaço de nome métrico de uma métrica personalizada específica [navegando nas suas métricas personalizadas através do portal Azure](../platform/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## <a name="multiple-resources"></a>Múltiplos recursos
 
-O Azure Monitor suporta a monitorização de múltiplos recursos do mesmo tipo com uma regra de alerta métrica única, para os recursos que existem na mesma região do Azure. Esta funcionalidade é atualmente suportada apenas na nuvem pública do Azure e apenas para máquinas Virtuais, bases de dados de servidores SQL, piscinas elásticas de servidor SQL e dispositivos Data Box Edge. Além disso, esta funcionalidade está disponível apenas para métricas de plataforma, e não é suportada para métricas personalizadas.
+O Azure Monitor apoia a monitorização de múltiplos recursos do mesmo tipo com uma única regra de alerta métrico, para os recursos que existem na mesma região de Azure. Atualmente, esta funcionalidade é suportada apenas em nuvem pública Azure e apenas para máquinas Virtuais, bases de dados de servidores SQL, piscinas elásticas de servidor SQL e dispositivos Data Box Edge. Além disso, esta funcionalidade apenas está disponível para métricas da plataforma, e não é suportada para métricas personalizadas.
 
-A regra dos alertas Dynamic Thresholds também pode ajudar a criar limiares personalizados para centenas de séries métricas (mesmo diferentes tipos) de cada vez, o que resulta em menos regras de alerta para gerir.
+A regra dos alertas Dynamic Thresholds também pode ajudar a criar limiares adaptados para centenas de séries métricas (mesmo tipos diferentes) de cada vez, o que resulta em menos regras de alerta para gerir.
 
-Esta secção descreverá os modelos do Gestor de Recursos Azure para três cenários para monitorizar múltiplos recursos com uma única regra.
+Esta secção descreverá modelos do Gestor de Recursos Azure para três cenários para monitorizar múltiplos recursos com uma única regra.
 
-- Monitorização de todas as máquinas virtuais (numa região do Azure) em um ou mais grupos de recursos.
-- Monitorização de todas as máquinas virtuais (numa região do Azure) numa subscrição.
-- Monitorização de uma lista de máquinas virtuais (numa região do Azure) numa subscrição.
+- Monitorização de todas as máquinas virtuais (numa região de Azure) em um ou mais grupos de recursos.
+- Monitorização de todas as máquinas virtuais (numa região de Azure) numa subscrição.
+- Monitorização de uma lista de máquinas virtuais (numa região de Azure) numa subscrição.
 
 > [!NOTE]
 >
-> Numa regra de alerta métrico que monitoriza vários recursos, apenas uma condição é permitida.
+> Numa regra de alerta métrico que monitoriza múltiplos recursos, apenas é permitida uma condição.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de limiar estático em todas as máquinas virtuais em um ou mais grupos de recursos
 
-Este modelo criará uma regra de alerta métrico de limiar estática que monitoriza a Percentagem cpU para todas as máquinas virtuais (numa região do Azure) em um ou mais grupos de recursos.
+Este modelo criará uma regra de alerta métrica estática que monitoriza a Percentagem cpU para todas as máquinas virtuais (numa região de Azure) em um ou mais grupos de recursos.
 
-Guarde o json abaixo como all-vms-in-resource-group-static.json para o propósito deste walk-through.
+Guarde o json abaixo como all-vms-in-resource-group-static.jspara o propósito deste walk-through.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -1582,7 +1582,7 @@ Guarde o json abaixo como all-vms-in-resource-group-static.json para o propósit
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -1634,10 +1634,10 @@ Guarde o json abaixo como all-vms-in-resource-group-static.json para o propósit
 
 
 
-### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Limiares Dinâmicos alertam para todas as máquinas virtuais em um ou mais grupos de recursos
-Esta amostra cria uma regra de alerta métrico de limiares dinâmicos que monitoriza a Percentagem de CPU para todas as máquinas virtuais de uma região do Azure em um ou mais grupos de recursos.
+### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de Limiares Dinâmicos em todas as máquinas virtuais em um ou mais grupos de recursos
+Esta amostra cria uma regra de alerta métrica de limiares dinâmicos que monitoriza a Percentagem cpU para todas as máquinas virtuais de uma região de Azure em um ou mais grupos de recursos.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -1886,7 +1886,7 @@ Esta amostra cria uma regra de alerta métrico de limiares dinâmicos que monito
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -1944,9 +1944,9 @@ Esta amostra cria uma regra de alerta métrico de limiares dinâmicos que monito
 
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-a-subscription"></a>Alerta de limiar estático em todas as máquinas virtuais numa subscrição
-Esta amostra cria uma regra de alerta métrico de limiar estática que monitoriza a Percentagem cpU para todas as máquinas virtuais de uma região do Azure numa subscrição.
+Esta amostra cria uma regra de alerta métrico estático que monitoriza a Percentagem cpU para todas as máquinas virtuais de uma região de Azure numa subscrição.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -2179,7 +2179,7 @@ Esta amostra cria uma regra de alerta métrico de limiar estática que monitoriz
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -2226,8 +2226,8 @@ Esta amostra cria uma regra de alerta métrico de limiar estática que monitoriz
 }
 ```
 
-### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-a-subscription"></a>Limiares Dinâmicos alertam para todas as máquinas virtuais numa subscrição
-Esta amostra cria uma regra de alerta métrico Dynamic Thresholds que monitoriza a Percentagem de CPU para todas as máquinas virtuais (numa região do Azure) numa subscrição.
+### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-a-subscription"></a>Alerta de Limiares Dinâmicos em todas as máquinas virtuais numa subscrição
+Esta amostra cria uma regra de alerta métrica Dynamic Thresholds que monitoriza a Percentagem cpU para todas as máquinas virtuais (numa região de Azure) numa subscrição.
 
 
 ```json
@@ -2477,7 +2477,7 @@ Esta amostra cria uma regra de alerta métrico Dynamic Thresholds que monitoriza
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -2532,9 +2532,9 @@ Esta amostra cria uma regra de alerta métrico Dynamic Thresholds que monitoriza
 
 
 ### <a name="static-threshold-alert-on-a-list-of-virtual-machines"></a>Alerta de limiar estático numa lista de máquinas virtuais
-Esta amostra cria uma regra de alerta métrico de limiar estática que monitoriza a Percentagem cpU para uma lista de máquinas virtuais numa região do Azure numa subscrição.
+Esta amostra cria uma regra de alerta métrico estático que monitoriza a Percentagem CPU para uma lista de máquinas virtuais numa região de Azure numa subscrição.
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -2766,7 +2766,7 @@ Esta amostra cria uma regra de alerta métrico de limiar estática que monitoriz
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -2817,10 +2817,10 @@ Esta amostra cria uma regra de alerta métrico de limiar estática que monitoriz
 ```
 
 
-### <a name="dynamic-thresholds-alert-on-a-list-of-virtual-machines"></a>Limiares Dinâmicos alertam numa lista de máquinas virtuais
-Esta amostra cria uma regra de alerta métrico de limiares dinâmicos que monitoriza a Percentagem cpU para uma lista de máquinas virtuais numa região do Azure numa subscrição.
+### <a name="dynamic-thresholds-alert-on-a-list-of-virtual-machines"></a>Alerta de Limiares Dinâmicos numa lista de máquinas virtuais
+Esta amostra cria uma regra de alerta métrica de limiares dinâmicos que monitoriza a Percentagem CPU para uma lista de máquinas virtuais numa região de Azure numa subscrição.
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -3069,7 +3069,7 @@ Esta amostra cria uma regra de alerta métrico de limiares dinâmicos que monito
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -3127,12 +3127,12 @@ Esta amostra cria uma regra de alerta métrico de limiares dinâmicos que monito
 
 
 ## <a name="availability-test-with-metric-alert"></a>Teste de disponibilidade com alerta métrico
-Os testes de disponibilidade de Insights de [aplicação](../../azure-monitor/app/monitor-web-app-availability.md) ajudam-no a monitorizar a disponibilidade do seu web site/aplicação de vários locais do mundo. Os alertas de teste de disponibilidade notificam-no quando os testes de disponibilidade falham a partir de um determinado número de locais. Alertas de teste de disponibilidade do mesmo tipo de recurso que os alertas métricos (Microsoft.Insights/metricAlerts). A amostra seguinte cria um simples teste de disponibilidade e alerta associado.
+[Os testes de disponibilidade de Insights](../../azure-monitor/app/monitor-web-app-availability.md) de Aplicação ajudam-no a monitorizar a disponibilidade do seu site/aplicação de vários locais em todo o mundo. Os alertas de teste de disponibilidade notificam-no quando os testes de disponibilidade falham a partir de um determinado número de locais. Alertas de teste de disponibilidade do mesmo tipo de recurso que os alertas métricos (Microsoft.Insights/metricAlerts). A amostra a seguir cria um simples teste de disponibilidade e alerta associado.
 
 > [!NOTE]
-> `&amp`; é a referência da entidade HTML para &. Os parâmetros de URL ainda são separados por um único &, mas se mencionar o URL em HTML, precisa de codificar. Por isso, se tiver algum "&" no seu valor de parâmetro pingURL, tem de escapar com " `&amp` ";"
+> `&amp`; é a referência da entidade HTML para &. Os parâmetros url ainda estão separados por uma única &, mas se mencionar o URL em HTML, precisa de o codificar. Por isso, se tiver algum "&" no seu valor de parâmetro pingURL, tem de escapar com " `&amp` "."
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -3236,7 +3236,7 @@ Os testes de disponibilidade de Insights de [aplicação](../../azure-monitor/ap
 
 
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -3261,8 +3261,8 @@ Os testes de disponibilidade de Insights de [aplicação](../../azure-monitor/ap
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
+- [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
 - [Saiba mais sobre alertas.](../platform/alerts-overview.md)
-- [Obtenha uma amostra para criar um grupo de ação com modelo de Gestor de Recursos](resource-manager-action-groups.md)
+- [Obtenha uma amostra para criar um grupo de ação com o modelo de Gestor de Recursos](resource-manager-action-groups.md)
