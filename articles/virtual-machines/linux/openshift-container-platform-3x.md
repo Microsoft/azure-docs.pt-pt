@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 7d6cd4c6ce7991ae83f6f4a1dd6d8b86fe7eedbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc30275b2ee24af7bb526b3b43618c706bc027ca
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81757895"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502100"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementar plataforma de contentores openshift 3.11 em Azure
 
@@ -294,9 +295,9 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 | `existingInfraSubnetReference` | Referência completa à sub-rede existente para os nós infra. Não é necessário se criar novo vNet / Subnet |  |  |
 | `existingCnsSubnetReference` | Referência completa à sub-rede existente para nós DE SNC. Não é necessário se criar novo vNet / Subnet |  |  |
 | `existingNodeSubnetReference` | Referência completa à sub-rede existente para nós computacional. Não é necessário se criar novo vNet / Subnet |  |  |
-| `masterClusterType` | Especificar se o cluster utiliza nós de mestres privados ou públicos. Se forem escolhidos em privado, os nós principais não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no`masterPrivateClusterIp` | público <br> privado | público |
+| `masterClusterType` | Especificar se o cluster utiliza nós de mestres privados ou públicos. Se forem escolhidos em privado, os nós principais não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no`masterPrivateClusterIp` | public <br> privado | public |
 | `masterPrivateClusterIp` | Se forem selecionados nós-mestre privados, um endereço IP privado deve ser especificado para utilização pelo equilibrador de carga interno para os nós principais. Este IP estático deve estar dentro do bloco CIDR para a sub-rede principal e ainda não está a ser utilizado. Se os nosdes de mestre público forem selecionados, este valor não será usado, mas ainda deve ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especificar se o cluster utiliza nóns de infravermelhos privados ou públicos. Se forem escolhidos em privado, os nós de infravermelhos não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no`routerPrivateClusterIp` | público <br> privado | público |
+| `routerClusterType` | Especificar se o cluster utiliza nóns de infravermelhos privados ou públicos. Se forem escolhidos em privado, os nós de infravermelhos não serão expostos à Internet através de um IP público. Em vez disso, utilizará o IP privado especificado no`routerPrivateClusterIp` | public <br> privado | public |
 | `routerPrivateClusterIp` | Se forem selecionados os nós de infravermelhos privados, deve então ser especificado um endereço IP privado para utilização pelo balançador interno de carga para os nós infra. Este IP estático deve estar dentro do bloco CIDR para a sub-rede e ainda não está a ser utilizado. Se os nosmos de infravermelhos públicos forem selecionados, este valor não será usado, mas ainda deve ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Use certificado personalizado para o domínio de encaminhamento ou o certificado auto-assinado por defeito - siga as instruções na secção **de Certificados Personalizados** | auto-assinado <br> personalizadas | auto-assinado |
 | `masterCertType` | Use certificado personalizado para domínio principal ou o certificado auto-assinado por defeito - siga as instruções na secção **de Certificados Personalizados** | auto-assinado <br> personalizadas | auto-assinado |
@@ -306,7 +307,7 @@ Diferentes versões podem ter diferentes parâmetros, por isso verifique os par�
 ### <a name="deploy-using-azure-cli"></a>Implementar com a CLI do Azure
 
 > [!NOTE] 
-> O seguinte comando requer Azure CLI 2.0.8 ou mais tarde. Pode verificar a versão CLI com o `az --version` comando. Para atualizar a versão CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> O seguinte comando requer Azure CLI 2.0.8 ou mais tarde. Pode verificar a versão CLI com o `az --version` comando. Para atualizar a versão CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 O exemplo seguinte implementa o cluster OpenShift e todos os recursos relacionados num grupo de recursos chamado openshiftrg, com um nome de implantação do myOpenShiftCluster. O modelo é referenciado diretamente a partir do repo GitHub, e um ficheiro de parâmetros locais nomeado azuredeploy.parameters.jsno ficheiro é usado.
 

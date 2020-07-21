@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124469"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505368"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envie métricas de SO para a loja métrica Azure Monitor clássico Cloud Services 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Com a extensão Azure Monitor [Diagnostics,](diagnostics-extension-overview.md)pode recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Com a extensão Azure Monitor [Diagnostics,](diagnostics-extension-overview.md)pode recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para a Azure classic Cloud Services para a loja métrica Azure Monitor. A partir da versão 1.11 do Diagnostics, pode escrever métricas diretamente na loja de métricas do Azure Monitor, onde já são recolhidas métricas padrão da plataforma. 
 
@@ -30,9 +30,9 @@ O processo que está delineado neste artigo funciona apenas para contadores de d
 
 - Deve ser [administrador de serviço ou coadministrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) na sua assinatura Azure. 
 
-- A sua subscrição deve estar registada no [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- A sua subscrição deve estar registada no [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instaladas.
+- Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](../../cloud-shell/overview.md) instaladas.
 
 - O seu Serviço cloud deve estar numa [região que suporte métricas personalizadas.](metrics-custom-overview.md#supported-regions)
 
@@ -46,7 +46,7 @@ O processo que está delineado neste artigo funciona apenas para contadores de d
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço 
 
-Crie um diretor de serviço no seu inquilino Azure Ative Directory utilizando as instruções no [portal Use para criar uma aplicação e um diretor de serviço azure ative que possa aceder aos recursos.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) Note o seguinte enquanto está a passar por este processo: 
+Crie um diretor de serviço no seu inquilino Azure Ative Directory utilizando as instruções no [portal Use para criar uma aplicação e um diretor de serviço azure ative que possa aceder aos recursos.](../../active-directory/develop/howto-create-service-principal-portal.md) Note o seguinte enquanto está a passar por este processo: 
 
 - Pode colocar qualquer URL para a URL de inscrição.  
 - Crie um novo segredo de cliente para esta aplicação.  
@@ -192,4 +192,3 @@ Utiliza-se a capacidade de filtragem e divisão de dimensões para visualizar a 
 ## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
-

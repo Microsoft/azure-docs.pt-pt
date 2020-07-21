@@ -7,11 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: dee3da6b6aa38a60ed1109009ba5a292a131ce97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c084583ce32351096b2c5e3bfcd95a4cbaf93e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500774"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Metas de escalabilidade e desempenho para discos VM no Windows
 
@@ -32,4 +33,4 @@ Os tamanhos denotados com um asterisco estão atualmente em pré-visualização.
 
 ## <a name="see-also"></a>Veja também
 
-[Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+[Subscrição do Azure e limites, quotas e restrições do serviço](../../azure-resource-manager/management/azure-subscription-service-limits.md)

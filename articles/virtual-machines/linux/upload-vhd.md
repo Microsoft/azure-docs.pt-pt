@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 854421452228a54833da4b0f05669c6d5f1c842f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81460431"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501743"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar um Linux VM a partir de um disco personalizado com o Azure CLI
 
@@ -34,16 +34,16 @@ Tem duas opções para criar um disco personalizado:
 * Copiar um Azure VM existente
 
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 Para completar os seguintes passos, você precisará:
 
 - Uma máquina virtual Linux que foi preparada para ser utilizada em Azure. A secção [VM](#prepare-the-vm) deste artigo abrange como encontrar informações específicas sobre a instalação do Agente Azure Linux (waagent), que é necessário para que possa ligar-se a um VM com SSH.
 - O ficheiro VHD de uma [distribuição Linux existente endossada pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou ver [informações para distribuições não endossadas)](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)para um disco virtual no formato VHD. Existem várias ferramentas para criar um VM e VHD:
   - Instale e configuure [o QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [o KVM,](https://www.linux-kvm.org/page/RunningKVM)tendo o cuidado de utilizar o VHD como formato de imagem. Se necessário, pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) com `qemu-img convert` .
-  - Também pode utilizar o Hyper-V [no Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [no Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+  - Também pode utilizar o Hyper-V [no Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) ou [no Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> O novo formato VHDX não é suportado no Azure. Quando criar um VM, especifique o VHD como o formato. Se necessário, pode converter discos VHDX em VHD com [conversão qemu-img](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou o [cmdlet Converte-VHD](https://technet.microsoft.com/library/hh848454.aspx) PowerShell. O Azure não suporta o upload de VHDs dinâmicos, por isso terás de converter esses discos em VHDs estáticos antes de carregar. Pode utilizar ferramentas como [Azure VHD Utilities para GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter discos dinâmicos durante o processo de upload para Azure.
+> O novo formato VHDX não é suportado no Azure. Quando criar um VM, especifique o VHD como o formato. Se necessário, pode converter discos VHDX em VHD com [conversão qemu-img](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou o [cmdlet Converte-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps) PowerShell. O Azure não suporta o upload de VHDs dinâmicos, por isso terás de converter esses discos em VHDs estáticos antes de carregar. Pode utilizar ferramentas como [Azure VHD Utilities para GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter discos dinâmicos durante o processo de upload para Azure.
 > 
 > 
 
@@ -117,7 +117,7 @@ az disk create \
     --source $snapshotId
 ```
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Crie o seu VM com [az vm criar](/cli/azure/vm#az-vm-create) e fixar (--attach-os-disk) o disco gerido como o disco DE. O exemplo a seguir cria um VM chamado *myNewVM* utilizando o disco gerido que criou a partir do seu VHD carregado:
 
@@ -132,5 +132,5 @@ az vm create \
 
 Você deve ser capaz de SSH no VM com as credenciais da fonte VM. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de ter preparado e carregado o seu disco virtual personalizado, pode ler mais sobre [a utilização de Gestor de Recursos e modelos.](../../azure-resource-manager/management/overview.md) Também pode querer [adicionar um disco de dados](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aos seus novos VMs. Se tiver aplicações em execução nos seus VMs a que necessita de aceder, certifique-se de [abrir portas e pontos finais](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

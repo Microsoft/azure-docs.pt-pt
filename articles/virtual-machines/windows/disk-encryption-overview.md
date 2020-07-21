@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5648dc1a915f2d38dc7811e6fe23ec76d0aa6f23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1934470413ef1b0c757820e6539adcd43783acd2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857277"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500655"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Encriptação do disco Azure para VMs windows 
 
@@ -32,7 +33,7 @@ Pode aprender os fundamentos da Encriptação do Disco Azure para windows em ape
 
 ### <a name="supported-vms"></a>VMs suportados
 
-Os VMs do Windows estão disponíveis numa [gama de tamanhos.](sizes-general.md) A Encriptação do Disco Azure não está disponível em [VMs básicos, série A,](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais com menos de 2 GB de memória.
+Os VMs do Windows estão disponíveis numa [gama de tamanhos.](../sizes-general.md) A Encriptação do Disco Azure não está disponível em [VMs básicos, série A,](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais com menos de 2 GB de memória.
 
 A Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
@@ -78,7 +79,7 @@ A tabela a seguir define alguns dos termos comuns utilizados na documentação d
 | --- | --- |
 | Azure Key Vault | Key Vault é um serviço de gestão criptográfico e chave que é baseado em módulos de segurança de hardware validados (FIPS) federais de processamento de informação. Estes padrões ajudam a salvaguardar as suas chaves criptográficas e segredos sensíveis. Para obter mais informações, consulte a documentação do [Cofre da Chave Azure](https://azure.microsoft.com/services/key-vault/) e [criando e configurando um cofre chave para encriptação do disco Azure](disk-encryption-key-vault.md). |
 | CLI do Azure | [O CLI Azure](/cli/azure/install-azure-cli) está otimizado para gerir e administrar recursos Azure a partir da linha de comando.|
-| BitLocker |[O BitLocker](https://technet.microsoft.com/library/hh831713.aspx) é uma tecnologia de encriptação de volume do Windows reconhecida pela indústria que é usada para permitir a encriptação de discos em VMs do Windows. |
+| BitLocker |[O BitLocker](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831713(v=ws.11)) é uma tecnologia de encriptação de volume do Windows reconhecida pela indústria que é usada para permitir a encriptação de discos em VMs do Windows. |
 | Chave de encriptação (KEK) | A chave assimétrica (RSA 2048) que pode usar para proteger ou embrulhar o segredo. Pode fornecer uma chave protegida por hardware (HSM) ou uma chave protegida por software. Para obter mais informações, consulte a documentação do [Cofre da Chave Azure](https://azure.microsoft.com/services/key-vault/) e [criando e configurando um cofre chave para encriptação do disco Azure](disk-encryption-key-vault.md). |
 | Cmdlets do PowerShell | Para obter mais informações, consulte [os cmdlets Azure PowerShell](/powershell/azure/overview). |
 
@@ -91,5 +92,3 @@ A tabela a seguir define alguns dos termos comuns utilizados na documentação d
 - [Encriptação de disco Azure pré-requisitos do script CLI](https://github.com/ejarvi/ade-cli-getting-started)
 - [Encriptação de disco Azure pré-requisitos PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - [Criar e configurar um cofre de chaves para o Azure Disk Encryption](disk-encryption-key-vault.md)
-
-

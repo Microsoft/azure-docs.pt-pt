@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a648fd7f2835ca23285b69d5fed7156507b2ace
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085387"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500570"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
 Quando cria um VM em Azure utilizando o portal ou o PowerShell, um modelo de Gestor de Recursos é automaticamente criado para si. Pode utilizar este modelo para duplicar rapidamente uma implementação. O modelo contém informações sobre todos os recursos de um grupo de recursos. Para uma máquina virtual, isto significa que o modelo contém tudo o que é criado em suporte ao VM nesse grupo de recursos, incluindo os recursos de networking.
@@ -32,12 +32,11 @@ Quando cria um VM em Azure utilizando o portal ou o PowerShell, um modelo de Ges
 O template.jsno ficheiro é o modelo.
 
 ## <a name="download-the-template-using-powershell"></a>Descarregue o modelo usando PowerShell
-Também pode descarregar o ficheiro de modelo .json utilizando o cmdlet [Export-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) Pode utilizar o `-path` parâmetro para fornecer o nome de ficheiro e o caminho para o ficheiro .json. Este exemplo mostra como descarregar o modelo para o grupo de recursos denominado **myResourceGroup** para a pasta **C:\users\public\downloads** no seu computador local.
+Também pode descarregar o ficheiro de modelo .json utilizando o cmdlet [Export-AzResourceGroup.](/powershell/module/az.resources/export-azresourcegroup) Pode utilizar o `-path` parâmetro para fornecer o nome de ficheiro e o caminho para o ficheiro .json. Este exemplo mostra como descarregar o modelo para o grupo de recursos denominado **myResourceGroup** para a pasta **C:\users\public\downloads** no seu computador local.
 
 ```powershell
     Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre a implementação de recursos usando modelos, consulte [o modelo do Gestor de Recursos através do walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
-
+## <a name="next-steps"></a>Próximos passos
+Para saber mais sobre a implementação de recursos usando modelos, consulte [o modelo do Gestor de Recursos através do walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).

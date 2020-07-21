@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: e87f2436f69abed4c0d0ee415226f99b52f2e804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 20236ccf1ec8e1f8d8113f0597d37c20e2788987
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085370"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500434"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Faça o download de um Windows VHD a partir de Azure
 
@@ -22,7 +22,7 @@ Neste artigo, aprende-se a descarregar um ficheiro virtual do Windows (VHD) a pa
 
 ## <a name="optional-generalize-the-vm"></a>Opcional: Generalizar o VM
 
-Se pretender utilizar o VHD como [imagem](tutorial-custom-images.md) para criar outros VMs, deve utilizar [o Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar o sistema operativo. 
+Se pretender utilizar o VHD como [imagem](tutorial-custom-images.md) para criar outros VMs, deve utilizar [o Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar o sistema operativo. 
 
 Para utilizar o VHD como imagem para criar outros VMs, generalize o VM.
 
@@ -45,7 +45,7 @@ Um VHD não pode ser descarregado do Azure se estiver ligado a um VM em execuç�
 
 ## <a name="generate-download-url"></a>Gerei URL de descarregamento
 
-Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de acesso partilhado (SAS).](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Quando o URL é gerado, um tempo de validade é atribuído ao URL.
+Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de acesso partilhado (SAS).](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) Quando o URL é gerado, um tempo de validade é atribuído ao URL.
 
 1. Na página para o VM, clique em **Discos** no menu esquerdo.
 1. Selecione o disco do sistema operativo para o VM.
@@ -63,9 +63,8 @@ Para descarregar o ficheiro VHD, é necessário gerar um URL [de assinatura de a
 1. Sob o URL que foi gerado, clique em Baixar o ficheiro VHD.
 1. Pode ter de clicar em **Guardar** no seu browser para iniciar o download. O nome predefinido para o ficheiro VHD é *abcd*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [enviar um ficheiro VHD para o Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Criar discos geridos a partir de discos não geridos numa conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Gerir discos Azure com PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

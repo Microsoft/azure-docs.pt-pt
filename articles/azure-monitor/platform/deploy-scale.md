@@ -4,11 +4,12 @@ description: Implementar as funcionalidades do Monitor Azure em escala utilizand
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4be403f8efc8e328548b6ef38b36be78a8fb96d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbfc0cafe83f53bd7cab2b93899e9c2cb02d52e3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678703"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505215"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementar monitor de Azure em escala usando a política Azure
 Enquanto algumas funcionalidades do Azure Monitor são configuradas uma ou um número limitado de vezes, outras devem ser repetidas para cada recurso que deseja monitorizar. Este artigo descreve métodos para usar a Política Azure para implementar o Azure Monitor em escala para garantir que a monitorização é configurada de forma consistente e precisa para todos os seus recursos Azure.
@@ -30,7 +31,7 @@ A Política Azure consiste nos objetos da tabela seguinte. Consulte [os objetos 
 | Atribuição | Uma definição ou iniciativa política não faz efeito até que seja atribuída a um âmbito. Por exemplo, atribuir uma política a um grupo de recursos para aplicá-la a todos os recursos criados nesse recurso, ou aplicá-la a uma subscrição para aplicá-la a todos os recursos dessa subscrição.  Para mais detalhes, consulte [a estrutura de atribuição da Política Azure.](../../governance/policy/concepts/assignment-structure.md) |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definições políticas incorporadas para o Azure Monitor
-A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](../policy-samples.md).
+A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](../samples/policy-samples.md).
 
 Para visualizar as definições de política incorporadas relacionadas com a monitorização, execute o seguinte:
 
@@ -59,7 +60,7 @@ Para tipos de recursos que não têm uma política incorporada, você precisa cr
 O script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) cria ficheiros de política para um determinado tipo de recurso que pode instalar usando PowerShell ou CLI. Utilize o seguinte procedimento para criar uma definição de política personalizada para configurações de diagnóstico.
 
 
-1. Certifique-se de que tem [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalada.
+1. Certifique-se de que tem [a Azure PowerShell](/powershell/azure/install-az-ps) instalada.
 2. Instale o script com o seguinte comando:
   
     ```azurepowershell
@@ -106,7 +107,7 @@ Consulte [Criar e atribuir uma definição de iniciativa](../../governance/polic
 ### <a name="assignment"></a>Atribuição 
 Atribua a iniciativa a um grupo de gestão, subscrição ou grupo de recursos da Azure, dependendo do âmbito dos seus recursos para monitorizar. Um [grupo de gestão](../../governance/management-groups/overview.md) é particularmente útil para a política de deteção, especialmente se a sua organização tiver várias subscrições.
 
-![Atribuição de iniciativa](media/deploy-scale/initiative-assignment.png)
+![Atribuição de iniciativas](media/deploy-scale/initiative-assignment.png)
 
 Ao utilizar parâmetros de iniciativa, pode especificar o espaço de trabalho ou quaisquer outros detalhes uma vez para todas as definições políticas da iniciativa. 
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 40d028ade5429c89ce40b718c90c601dfcb0e470
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85308159"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502185"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens Linux em Azure
 
@@ -25,7 +25,7 @@ Este artigo falará através dos pontos e requisitos de decisão de imagem, expl
 ## <a name="difference-between-managed-disks-and-images"></a>Diferença entre discos geridos e imagens
 
 
-O Azure permite-lhe trazer um VHD para a plataforma, para usar como [disco gerido,](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#managed-disks)ou usar como fonte para uma imagem. 
+O Azure permite-lhe trazer um VHD para a plataforma, para usar como [disco gerido,](../windows/faq-for-disks.md#managed-disks)ou usar como fonte para uma imagem. 
 
 Os discos geridos Azure são VHDs únicos. Pode pegar num VHD existente e criar um disco gerido a partir dele, ou criar um disco gerido vazio a partir do zero. Pode criar VMs a partir de discos geridos, fixando o disco ao VM, mas só pode utilizar um VHD com um VM. Não é possível modificar nenhuma propriedade de SO, o Azure tentará apenas ligar o VM e iniciar a utilização desse disco. 
 
@@ -49,16 +49,16 @@ O Azure oferece dois tipos principais de imagem, generalizados e especializados.
 Uma imagem generalizada é uma imagem que requer que a configuração seja concluída na primeira bota. Por exemplo, na primeira bota, definiu o nome de anfitrião, o utilizador administrativo e outras configurações específicas de VM. Isto é útil quando se quer que a imagem seja reutilizada várias vezes, e quando pretende passar em parâmetros durante a criação. Se a imagem generalizada contiver o agente Azure, o agente processará os parâmetros e sinalizará de volta para a plataforma que a configuração inicial completou. Este processo chama-se **provisionamento.** 
 
 O provisionamento requer que um provisionador seja incluído na imagem. Há dois provisionadores:
-- [Agente Azure Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)
-- [nuvem-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+- [Agente Azure Linux](../extensions/agent-linux.md)
+- [nuvem-init](./using-cloud-init.md)
 
-Estes são [pré-requisitos](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) para criar uma imagem.
+Estes são [pré-requisitos](./create-upload-generic.md) para criar uma imagem.
 
 
 ### <a name="specialized-images"></a>Imagens especializadas
 Estas são imagens que estão completamente configuradas e não requerem VM e parâmetros especiais, a plataforma vai apenas ligar o VM, você precisa lidar com a singularidade dentro do VM, como definir um nome de hospedeiro, para evitar conflitos DNS no mesmo VNET. 
 
-Os agentes de provisionamento não são necessários para estas imagens, no entanto, é melhor que seja necessário ter capacidades de tratamento de extensões. Pode instalar o Agente Linux, mas desativar a opção de provisionamento. Mesmo que não precise de um agente de provisionamento, a imagem deve cumprir [os requisitos pré-requisitos](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) para a Azure Images.
+Os agentes de provisionamento não são necessários para estas imagens, no entanto, é melhor que seja necessário ter capacidades de tratamento de extensões. Pode instalar o Agente Linux, mas desativar a opção de provisionamento. Mesmo que não precise de um agente de provisionamento, a imagem deve cumprir [os requisitos pré-requisitos](./create-upload-generic.md) para a Azure Images.
 
 
 ## <a name="image-storage-options"></a>Opções de armazenamento de imagem
@@ -94,22 +94,20 @@ A um nível elevado, cria-se um SIG, e é composto por:
 
 ## <a name="hyper-v-generation"></a>Geração Hiper-V
 
-Azure suporta Hiper-V Geração 1 (Gen1) e Geração 2 (Gen2), a Gen2 é a última geração, e oferece funcionalidades adicionais sobre a Gen1. Por exemplo: memória aumentada, extensões de guarda de software Intel (Intel SGX) e memória persistente virtualizada (vPMEM). Os VMs de geração 2 que estão no local, têm algumas funcionalidades que ainda não foram suportadas no Azure. Para mais informações, consulte a secção Funcionalidades e Capacidades. Para mais informações consulte este [artigo.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) Crie imagens Gen2 se necessitar da funcionalidade adicional.
+Azure suporta Hiper-V Geração 1 (Gen1) e Geração 2 (Gen2), a Gen2 é a última geração, e oferece funcionalidades adicionais sobre a Gen1. Por exemplo: memória aumentada, extensões de guarda de software Intel (Intel SGX) e memória persistente virtualizada (vPMEM). Os VMs de geração 2 que estão no local, têm algumas funcionalidades que ainda não foram suportadas no Azure. Para mais informações, consulte a secção Funcionalidades e Capacidades. Para mais informações consulte este [artigo.](../windows/generation-2.md) Crie imagens Gen2 se necessitar da funcionalidade adicional.
 
-Se ainda precisar de criar a sua própria imagem, certifique-se de que cumpre os [pré-requisitos](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)de imagem e faça o upload para Azure. Requisitos específicos de distribuição:
+Se ainda precisar de criar a sua própria imagem, certifique-se de que cumpre os [pré-requisitos](./create-upload-generic.md)de imagem e faça o upload para Azure. Requisitos específicos de distribuição:
 
 
 - [Distribuições baseadas em CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
+- [Contentor Flatcar Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES e openSUSE](suse-create-upload-vhd.md)
 - [Ubuntu](create-upload-ubuntu.md)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como criar uma [Galeria de Imagens Partilhadas.](tutorial-custom-images.md)
-
-
-

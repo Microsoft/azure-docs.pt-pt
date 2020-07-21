@@ -4,11 +4,12 @@ description: Saiba como usar ações de autoescalação para ligar para URLs web
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77120700"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505524"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilize ações de autoescalação para enviar notificações de alerta de email e webhook no Azure Monitor
 Este artigo mostra-lhe como configurar os gatilhos para que possa ligar para URLs web específicos ou enviar e-mails com base em ações de autoescala em Azure.  
@@ -28,7 +29,7 @@ Pode optar pelo portal Azure para serviços em nuvem e quintas de servidores (Se
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
 Para máquinas virtuais mais recentes criadas com Gestor de Recursos (conjuntos de escala de máquina virtual), pode configurar isto usando API REST, modelos de Gestor de Recursos, PowerShell e CLI. Ainda não existe uma interface de portal.
-Ao utilizar o modelo REST API ou Resource Manager, inclua o elemento de notificações nas suas [definições automáticas](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) com as seguintes opções.
+Ao utilizar o modelo REST API ou Resource Manager, inclua o elemento de notificações nas suas [definições automáticas](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) com as seguintes opções.
 
 ```
 "notifications": [
@@ -116,4 +117,3 @@ Quando a notificação de escala automática é gerada, os seguintes metadados s
 | oldCapacity |Sim |A contagem de instâncias (antiga) atual quando a Autoscale tomou uma ação de escala |
 | nova capacidade |Sim |A nova contagem de exemplos que Autoscale dimensionou o recurso para |
 | propriedades |Não |Opcional. Conjunto de <Tecla, Pares de valor> (por exemplo, Dicionário <String, String>). O campo de propriedades é opcional. Numa interface personalizada de utilizador ou fluxo de trabalho baseado em aplicações lógicas, pode introduzir teclas e valores que podem ser passados usando a carga útil. Uma forma alternativa de passar propriedades personalizadas de volta para a chamada webhook de saída é usar o webhook URI em si (como parâmetros de consulta) |
-

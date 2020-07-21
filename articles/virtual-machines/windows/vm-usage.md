@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 62880542e2cc4a93585011837b4cc962c8e79c0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d480b9309c9028d8f55ab50c72a86889f320810b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500120"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Compreender o uso da máquina virtual Azure
 Ao analisar os seus dados de utilização do Azure, podem obter-se informações de consumo poderosas – insights que podem permitir uma melhor gestão e alocação de custos em toda a sua organização. Este documento fornece um mergulho profundo nos detalhes do consumo do Azure Compute. Para obter mais detalhes sobre o uso geral do Azure, navegue para [compreender a sua conta](../../cost-management-billing/understand/review-individual-bill.md).
@@ -37,7 +38,7 @@ Para começar, [descarregue os seus dados de utilização](../../cost-management
 | Etiquetas               | Marque o que atribuir ao recurso. Utilize etiquetas para agrupar os registos de faturação. Aprenda a [etiquetar as suas Máquinas Virtuais.](tag.md) Isto está disponível apenas para VMs do Gestor de Recursos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
 | Informações Adicionais    | Metadados específicos do serviço. Para os VMs, povoamos o seguinte no campo de informações adicionais: <ul><li>Imagem tipo- imagem específica que correu. Encontre a lista completa de cordas suportadas abaixo em Tipos de Imagem.</li><li>Tipo de serviço: o tamanho que implementou.</li><li>VMName: nome do seu VM. Isto só é preenchido para VMs definidos em escala. Se precisar do seu VM Name para vMs definidos em escala, pode encontrá-lo na cadeia de identificação de instância acima.</li><li>UseType: Isto especifica o tipo de utilização que isto representa.<ul><li>ComputeHR é o uso da Hora de Cálculo para o VM subjacente, como Standard_D1_v2.</li><li>ComputeHR_SW é a taxa de software premium se o VM estiver a usar software premium, como o Microsoft R Server.</li></ul></li></ul>    | Máquinas virtuais {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Conjuntos de escala de máquina virtual {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Software premium {"ImageType":"""ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
 
-## <a name="image-type"></a>Tipo de Imagem
+## <a name="image-type"></a>Tipo de imagem
 Para algumas imagens na galeria Azure, o tipo de imagem é povoado no campo Informação Adicional. Isto permite que os utilizadores compreendam e rastreiem o que implementaram na sua Máquina Virtual. Os valores que são povoados neste campo com base na imagem que implementou são os seguintes:
   - BitRock 
   - Canónico 
@@ -85,7 +86,7 @@ O nome da região preenchido no campo de Localização de Recursos nos detalhes 
 |    northcentralus        |    E.U.A. Centro-Norte                      |
 |    northeurope           |    Europa do Norte                          |
 |    southcentralus        |    E.U.A. Centro-Sul                      |
-|    southeastasia         |    Ásia Sudeste                        |
+|    southeastasia         |    Sudeste Asiático                        |
 |    SouthIndia            |    IN Sul                              |
 |    UKNorth               |    Norte dos EUA                              |
 |    uksouth               |    Sul do Reino Unido                              |
@@ -137,10 +138,9 @@ Os VMs capazes de armazenamento premium são faturados ao mesmo ritmo que os VMs
 
 Existem 3 locais possíveis nas APIs que podem devolver o sistema operativo em funcionamento no VM:
 
-1) Os VMs em execução que incluem o agente convidado (todos os VMs Linux e a maioria dos VMs do Windows) mostrarão o nome do OS e a versão OS na vista VM Instances. Isto é sempre exato, mas devido ao facto de que a informação vem do agente convidado, não estará disponível para todos os VMs. Documentação da API [aqui.](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview)
-2) Os VMs implantados a partir de uma imagem da plataforma conterão os detalhes de imagem que podem indicar a versão OS nos nomes selecionados pela editora para Offer ou SKU. No entanto, estes são selecionados por um editor, pelo que não há garantias de que o SO seja detetável no nome. Documentação da API [aqui.](https://docs.microsoft.com/rest/api/compute/images/get#operatingsystemtypes)
-3) Cada disco OS terá um valor especificado de Windows ou Linux. Este valor é herdado da imagem quando o disco OS foi criado a partir de uma imagem. Quando um disco DE É carregado diretamente para a plataforma, o valor de SO é definido quando o disco DE é criado. Este valor está sempre presente, mas a plataforma Azure não garante que esteja correta. Documentação da API [aqui.](https://docs.microsoft.com/rest/api/compute/virtualmachineimages/get#operatingsystemtypes)
+1) Os VMs em execução que incluem o agente convidado (todos os VMs Linux e a maioria dos VMs do Windows) mostrarão o nome do OS e a versão OS na vista VM Instances. Isto é sempre exato, mas devido ao facto de que a informação vem do agente convidado, não estará disponível para todos os VMs. Documentação da API [aqui.](/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview)
+2) Os VMs implantados a partir de uma imagem da plataforma conterão os detalhes de imagem que podem indicar a versão OS nos nomes selecionados pela editora para Offer ou SKU. No entanto, estes são selecionados por um editor, pelo que não há garantias de que o SO seja detetável no nome. Documentação da API [aqui.](/rest/api/compute/images/get#operatingsystemtypes)
+3) Cada disco OS terá um valor especificado de Windows ou Linux. Este valor é herdado da imagem quando o disco OS foi criado a partir de uma imagem. Quando um disco DE É carregado diretamente para a plataforma, o valor de SO é definido quando o disco DE é criado. Este valor está sempre presente, mas a plataforma Azure não garante que esteja correta. Documentação da API [aqui.](/rest/api/compute/virtualmachineimages/get#operatingsystemtypes)
 
 ## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre os seus dados de utilização, consulte [a sua conta para o Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)
-

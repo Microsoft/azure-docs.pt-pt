@@ -11,11 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 65331136b5b137c44577fd09f3914e8869cc2dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1567d38f8e582c062aa024b40cf0ede1d8b691f6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042800"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504341"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único inquilino com uma aplicação SaaS de base de dados por inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +29,7 @@ Neste tutorial, aprende-se dois padrões de recuperação de dados:
 > * Restaurar uma base de dados numa base de dados paralela (lado a lado).
 > * Restaurar uma base de dados no lugar, substituindo a base de dados existente.
 
-|||
+| Padrão | Descrição |
 |:--|:--|
 | Restaurar numa base de dados paralela | Este padrão pode ser usado para tarefas como revisão, auditoria e conformidade para permitir que um inquilino inspecione os seus dados a partir de um ponto anterior. A base de dados atual do inquilino permanece on-line e inalterada. |
 | Restaurar no lugar | Este padrão é normalmente usado para recuperar um inquilino para um ponto anterior, depois de um inquilino acidentalmente apagar ou corromper dados. A base de dados original é retirada da linha e substituída pela base de dados restaurada. |

@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f8d181194328725c2e7c02f6e73752cf568ef4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce08ebeba6ad09ec4cba063d787c510dce6e1e2f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759182"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501993"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
@@ -56,8 +57,8 @@ Premium Storage Managed Disks                  5    10000
 ## <a name="reserved-vm-instances"></a>Instâncias de VM Reservada
 As instâncias VM reservadas, que são procuradas numa única subscrição sem flexibilidade do tamanho de VM, adicionarão um novo aspeto às quotas vCPU. Estes valores descrevem o número de casos do tamanho indicado que devem ser implantáveis na subscrição. Trabalham como espaço reservado no sistema de quotas para garantir que a quota é reservada para garantir que as reservas do Azure sejam implantas na subscrição. Por exemplo, se uma subscrição específica tiver 10 Standard_D1 reservas, o limite de utilização para Standard_D1 reservas será de 10. Isto fará com que a Azure garanta que existem sempre pelo menos 10 vCPUs disponíveis na quota total regional de vCPUs para Standard_D1 casos e existem pelo menos 10 vCPUs disponíveis no contingente vCPU da família D a utilizar para Standard_D1 casos.
 
-Se for necessário um aumento de quota para adquirir um RI de assinatura única, pode [solicitar um aumento de quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) na sua subscrição.
+Se for necessário um aumento de quota para adquirir um RI de assinatura única, pode [solicitar um aumento de quota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) na sua subscrição.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre faturação e quotas, consulte [os limites de subscrição e serviços, quotas e restrições de subscrição da Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json)
+Para obter mais informações sobre faturação e quotas, consulte [os limites de subscrição e serviços, quotas e restrições de subscrição da Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)

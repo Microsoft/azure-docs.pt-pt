@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186446"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505351"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Colete métricas personalizadas para um Linux VM com o agente InfluxData Telegraf
 
@@ -25,7 +25,7 @@ Ao utilizar o Azure Monitor, pode recolher métricas personalizadas através da 
  ![Visão geral do agente de telégrafo](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> As métricas personalizadas não são suportadas em todas as regiões. Regiões apoiadas estão listadas [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
+> As métricas personalizadas não são suportadas em todas as regiões. Regiões apoiadas estão listadas [aqui](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Enviar métricas personalizadas 
 
@@ -111,7 +111,7 @@ Agora, o agente recolherá métricas de cada um dos plug-ins de entrada especifi
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Defina as suas métricas Telegraf no portal Azure 
 
-1. Abra o [portal Azure](https://portal.azure.com). 
+1. Abra o [portal do Azure](https://portal.azure.com). 
 
 1. Navegue para o novo **separador Monitor.** Em seguida, selecione **Métricas**.  
 
@@ -135,8 +135,5 @@ Além disso, nesta passagem, usou o agente Telegraf para emitir métricas sobre 
 
 Quando já não são necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual e selecione **Delete**. Em seguida, confirme o nome do grupo de recursos para apagar. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
-
-
-

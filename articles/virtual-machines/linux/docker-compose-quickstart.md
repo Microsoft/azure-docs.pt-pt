@@ -6,16 +6,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 434a3ef8c9bc1738252d59a5dca5bec16d85e45e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56ad3fd5999600dfc576f0a0e34ff7221267934
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970311"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502457"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Começa com o Docker e o Compose para definir e executar uma aplicação multi-contentor em Azure
 Com [a Compose,](https://github.com/docker/compose)utiliza-se um ficheiro de texto simples para definir uma aplicação composta por vários recipientes Docker. Em seguida, gira a sua aplicação num único comando que faz tudo para implantar o seu ambiente definido. Como exemplo, este artigo mostra-lhe como configurar rapidamente um blog WordPress com uma base de dados MariaDB SQL de backend num Ubuntu VM. Também pode usar o Compose para configurar aplicações mais complexas.
 
-Este artigo foi testado pela última vez em 2/14/2019 usando a [Azure Cloud Shell](https://shell.azure.com/bash) e a versão [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 2.0.58.
+Este artigo foi testado pela última vez em 2/14/2019 usando a [Azure Cloud Shell](https://shell.azure.com/bash) e a versão [Azure CLI](/cli/azure/install-azure-cli) 2.0.58.
 
 ## <a name="create-docker-host-with-azure-cli"></a>Criar anfitrião Docker com Azure CLI
 Instale o mais recente [Azure CLI](/cli/azure/install-az-cli2) e faça login numa conta Azure utilizando [o login az](/cli/azure/reference-index).
@@ -108,7 +109,7 @@ Creating wordpress_wordpress_1...
 ```
 
 
-Para verificar se os recipientes estão de pé, escreva `sudo docker-compose ps` . Deverá ver algo semelhante ao seguinte:
+Para verificar se os recipientes estão de pé, escreva `sudo docker-compose ps` . Deverá ver algo como:
 
 ```
         Name                       Command               State         Ports
@@ -125,4 +126,3 @@ Agora pode ligar-se ao WordPress diretamente no VM na porta 80. Abra um navegado
 * Consulte a [referência da linha de comando Compose](https://docs.docker.com/compose/reference/) e o guia do [utilizador](https://docs.docker.com/compose/) para obter mais exemplos de construção e implementação de aplicações multi-contentores.
 * Use um modelo de Gestor de Recursos Azure, o seu próprio ou um contribuído da [comunidade,](https://azure.microsoft.com/documentation/templates/)para implementar um VM Azure com Docker e uma aplicação configurada com Compose. Por exemplo, o [blog Implementar um wordPress com](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) o modelo Docker usa Docker e Compose para implementar rapidamente o WordPress com um backend MySQL num Ubuntu VM.
 * Tente integrar Docker Compose com um cluster Docker Swarm. Consulte [a Utilização de Compose com Enxame](https://docs.docker.com/compose/swarm/) para cenários.
-

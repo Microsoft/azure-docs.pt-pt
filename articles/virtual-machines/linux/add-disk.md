@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eb18207c15007820bf93254886ab38a43bc5b48f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1791d33627f04f69d10916c8ff0a154f7d8b967b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658328"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502831"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente ao seu VM para que possa preservar os seus dados - mesmo que o seu VM seja reprovisionado devido à manutenção ou redimensionamento.
@@ -96,7 +97,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Imprima a tabela de partição digitando `p` e, em seguida, use `w` para escrever a tabela para o disco e para a saída. A saída deve ser semelhante ao seguinte exemplo:
+Imprima a tabela de partição digitando `p` e, em seguida, use `w` para escrever a tabela para o disco e para a saída. O resultado deverá ter um aspeto semelhante ao seguinte exemplo:
 
 ```bash
 Command (m for help): p
@@ -197,9 +198,9 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > [!NOTE]
 > Posteriormente, remover um disco de dados sem editar o fstab pode fazer com que o VM não arranque. A maioria das distribuições fornece ou as opções *de nofail* e/ou *nobootwait* fstab. Estas opções permitem o arranque de um sistema mesmo que o disco não consiga montar na hora do arranque. Consulte a documentação da sua distribuição para obter mais informações sobre estes parâmetros.
 >
-> A *opção nofalil* garante que o VM começa mesmo que o sistema de ficheiros seja corrupto ou o disco não exista no momento do arranque. Sem esta opção, poderá encontrar comportamento como descrito em [Não SSH a Linux VM devido a erros do FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> A *opção nofalil* garante que o VM começa mesmo que o sistema de ficheiros seja corrupto ou o disco não exista no momento do arranque. Sem esta opção, poderá encontrar comportamento como descrito em [Não SSH a Linux VM devido a erros do FSTAB](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 >
-> A Consola Em Série Azure VM pode ser utilizada para o acesso à consola ao seu VM se modificar o fstab resultou numa falha no arranque. Mais detalhes estão disponíveis na [documentação da Consola Em Série.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+> A Consola Em Série Azure VM pode ser utilizada para o acesso à consola ao seu VM se modificar o fstab resultou numa falha no arranque. Mais detalhes estão disponíveis na [documentação da Consola Em Série.](../troubleshooting/serial-console-linux.md)
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte TRIM/UNMAP para Linux em Azure
 Alguns núcleos Linux suportam operações TRIM/UNMAP para descartar blocos não reutilizados no disco. Esta funcionalidade é principalmente útil no armazenamento padrão para informar a Azure que as páginas eliminadas já não são válidas e podem ser descartadas, e pode economizar dinheiro se criar ficheiros grandes e depois eliminá-las.

@@ -9,11 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443751ee974dae3c426f36cbc262bc1a3af65bd0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658035"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504942"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizações de livros do Azure Monitor
 
@@ -50,7 +51,7 @@ Os livros de trabalho suportam gráficos tanto para registos como para fontes de
 1. Mude o livro para editar o modo clicando no item da barra de ferramentas **Editar.**
 2. Utilize o link **de consulta Adicionar** para adicionar um controlo de consulta de registo ao livro de trabalho.
 3. Selecione o tipo de consulta como **Log**, tipo de recurso (por exemplo, Insights de Aplicação) e os recursos a direcionar.
-4. Utilize o editor de consulta para introduzir o [KQL](https://docs.microsoft.com/azure/kusto/query/) para a sua análise (por exemplo, tendência de pedidos).
+4. Utilize o editor de consulta para introduzir o [KQL](/azure/kusto/query/) para a sua análise (por exemplo, tendência de pedidos).
 5. Coloque a visualização numa das: **Área,** **Bar,** **Bar (categórica)**, **Linha,** **Tarte,** **Dispersão,** ou **Hora**.
 6. Desa ajuste outros parâmetros se necessário - como intervalo de tempo, visualização, tamanho, paleta de cores e lenda.
 

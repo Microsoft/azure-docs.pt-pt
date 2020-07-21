@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7baabe455128bf420a3c3e11ea83bb5357ed35c8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83655912"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505164"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](../../azure-monitor/platform/itsmc-overview.md)
@@ -38,7 +39,7 @@ Assegurar que os seguintes pré-requisitos sejam cumpridos:
 - A aplicação Web do Gestor de Serviços (web app) está implantada e configurada. A informação sobre a aplicação Web está [aqui.](#create-and-deploy-service-manager-web-app-service)
 - Ligação híbrida criada e configurada. Mais informações: [Configurar a Ligação Híbrida](#configure-the-hybrid-connection).
 - Versões suportadas do Service Manager: 2012 R2 ou 2016.
-- Função de utilizador: [Operador avançado](https://technet.microsoft.com/library/ff461054.aspx).
+- Função de utilizador: [Operador avançado](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>Procedimento de ligação
 
@@ -158,7 +159,7 @@ Utilize o seguinte procedimento para configurar a configuração do ouvinte para
 
 3. Faça login com as suas credenciais Azure e selecione a sua subscrição onde foi criada a ligação Híbrida.
 
-4. Clique em **Guardar**.
+4. Clique em **Save** (Guardar).
 
 A sua ligação híbrida está ligada com sucesso.
 
@@ -200,7 +201,7 @@ Assegurar que os seguintes pré-requisitos sejam cumpridos:
 > No final, clique em atualização.
 > 2) **Recomendamos estabelecer um procedimento interno para garantir que a ligação permanece viva:** De acordo com o Refresh Token Lifespan para refrescar o token. Certifique-se de realizar as seguintes operações antes do prazo de validade esperado do token (dois dias antes do prazo de vida do Refresh Token expirar recomendamos):
 >
-> 1. [Complete um processo de sincronização manual para a configuração do conector ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 1. [Complete um processo de sincronização manual para a configuração do conector ITSM](./itsmc-resync-servicenow.md)
 > 2. Revogue o velho token de atualização, uma vez que não é recomendado manter as chaves antigas por razões de segurança. Na pesquisa da lâmina ServiceNow para OAuth do sistema do que selecionar Gerir Tokens. Escolha o símbolo antigo da lista de acordo com o nome OAuth e data de validade.
 > ![Definição de OAuth do sistema SNOW](media/itsmc-connections/snow-system-oauth.png)
 > 3. Clique no Acesso De Revogar e do que no Revogar.
@@ -229,7 +230,7 @@ Utilize o seguinte procedimento para criar uma ligação ServiceNow:
 | --- | --- |
 | **Nome de conexão**   | Digite um nome para a instância ServiceNow que pretende ligar com o ITSMC.  Utilize este nome mais tarde no Log Analytics quando configurar itens de trabalho neste ITSM/ ver análises detalhadas de registos. |
 | **Tipo de parceiro**   | Selecione **ServiceNow**. |
-| **Nome de utilizador**   | Digite o nome de utilizador de integração que criou na aplicação ServiceNow para suportar a ligação ao ITSMC. Mais informações: [Criar função de utilizador de aplicações ServiceNow](#create-integration-user-role-in-servicenow-app).|
+| **Nome de Utilizador**   | Digite o nome de utilizador de integração que criou na aplicação ServiceNow para suportar a ligação ao ITSMC. Mais informações: [Criar função de utilizador de aplicações ServiceNow](#create-integration-user-role-in-servicenow-app).|
 | **Palavra-passe**   | Digite a palavra-passe associada a este nome de utilizador. **Nota:** O nome de utilizador e a palavra-passe são utilizados apenas para gerar fichas de autenticação e não são armazenados em qualquer parte dentro do serviço ITSMC.  |
 | **URL do servidor**   | Digite o URL da instância ServiceNow que pretende ligar ao ITSMC. O URL deve apontar para uma versão SaaS suportada com sufixo ".servicenow.com".|
 | **ID do cliente**   | Digite o ID do cliente que pretende utilizar para a Autenticação OAuth2, que gerou anteriormente.  Mais informações sobre a geração de identificação do cliente e segredo: [OAuth Setup](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
@@ -247,6 +248,10 @@ Utilize o seguinte procedimento para criar uma ligação ServiceNow:
 - Pode criar incidentes a partir de alertas de Log Analytics ou de registos de registos, ou a partir de alertas Azure neste caso ServiceNow.
 
 Saiba mais: [Crie itens de trabalho ITSM a partir de alertas Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+
+
+> [!NOTE]
+> No ServiceNow existe um limite de taxa para pedidos por hora. Para configurar o limite, utilize-o definindo "Taxa de API de entrada de entrada" na instância ServiceNow.
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Criar papel de utilizador de integração na aplicação ServiceNow
 
@@ -324,7 +329,7 @@ Utilize o seguinte procedimento para criar uma ligação à Provance:
 | --- | --- |
 | **Nome de conexão**   | Digite um nome para a instância Provance que pretende ligar com o ITSMC.  Utilize este nome mais tarde quando configurar itens de trabalho neste ITSM/ ver análises detalhadas de registo. |
 | **Tipo de parceiro**   | Selecione **Provance**. |
-| **Nome de utilizador**   | Digite o nome de utilizador que pode ligar-se ao ITSMC.    |
+| **Nome de Utilizador**   | Digite o nome de utilizador que pode ligar-se ao ITSMC.    |
 | **Palavra-passe**   | Digite a palavra-passe associada a este nome de utilizador. **Nota:** O nome de utilizador e a palavra-passe são utilizados apenas para gerar fichas de autenticação e não são armazenados em qualquer parte do serviço ITSMC._|
 | **URL do servidor**   | Digite o URL da sua instância provance que pretende ligar ao ITSMC. |
 | **ID do cliente**   | Digite o ID do cliente para autenticar esta ligação, que gerou no seu caso Provance.  Mais informações sobre o ID do cliente, veja [como configurar a autenticação ativa do diretório.](../../app-service/configure-authentication-provider-aad.md) |
@@ -375,7 +380,7 @@ Utilize o seguinte procedimento para criar uma ligação à Provance:
 | --- | --- |
 | **Nome de conexão**   | Digite um nome para a instância Cherwell que pretende ligar ao ITSMC.  Utilize este nome mais tarde quando configurar itens de trabalho neste ITSM/ ver análises detalhadas de registo. |
 | **Tipo de parceiro**   | Selecione **Cherwell.** |
-| **Nome de utilizador**   | Digite o nome de utilizador Cherwell que pode ligar-se ao ITSMC. |
+| **Nome de Utilizador**   | Digite o nome de utilizador Cherwell que pode ligar-se ao ITSMC. |
 | **Palavra-passe**   | Digite a palavra-passe associada a este nome de utilizador. **Nota:** O nome de utilizador e a palavra-passe são utilizados apenas para gerar fichas de autenticação e não são armazenados em qualquer parte dentro do serviço ITSMC.|
 | **URL do servidor**   | Digite o URL da sua instância Cherwell que pretende ligar ao ITSMC. |
 | **ID do cliente**   | Digite o ID do cliente para autenticar esta ligação, que gerou no seu caso Cherwell.   |

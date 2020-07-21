@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/27/2020
-ms.openlocfilehash: d41affc55134ad34c325c12ab4a14f4013c58f9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 2fda9c41efd4c6765681d98011d8fb890b09d19f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371652"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502061"
 ---
 Quando se compromete com uma instância VM reservada ao Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao âmbito e atributos da reserva. Não precisa de atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional da sua utilização em VM. Para os VMs do Windows, o medidor de utilização é dividido em dois metros separados. Há um medidor de cálculo, que é o mesmo que o medidor Linux, e um medidor IP do Windows. As despesas que vê quando faz a compra são apenas para os custos de cálculo. Os encargos não incluem os custos do software do Windows. Para obter mais informações sobre os custos de software, consulte [os custos de Software não incluídos com Azure Reserved VM Instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
@@ -84,7 +84,7 @@ Estes requisitos aplicam-se à compra de uma instância VM reservada:
 - Para as assinaturas EA, a opção **Add Reserved Instances** deve ser ativada no [portal EA](https://ea.azure.com/). Em alternativa, se essa definição estiver desativada, terá de ser o Administrador EA da subscrição.
 - Para o programa Cloud Solution Provider (CSP), apenas os agentes administrativos ou agentes de vendas podem comprar reservas.
 
-Para comprar um caso:
+Para comprar uma instância:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **Todos os serviços** > **Reservas**.
@@ -97,11 +97,11 @@ Se tiver um acordo EA, pode utilizar a **opção Adicionar mais** rapidamente pa
 | Campo      | Descrição|
 |------------|--------------|
 |Subscrição|A assinatura usada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos da reserva. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os encargos são deduzidos do saldo de compromissos monetários, se disponíveis, ou cobrados como excesso. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.|    
-|Âmbito       |O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>**Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li>**Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li>**Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>|
+|Âmbito       |O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>**Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li>**Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li>**Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas de pay as you go, o âmbito da faturação corresponde a todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>|
 |Região    |A região de Azure que está coberta pela reserva.|    
 |Tamanho da VM     |O tamanho das instâncias VM.|
 |Otimizar para     |A flexibilidade do tamanho da instância VM é selecionada por padrão. Clique **em definições avançadas** para alterar o valor de flexibilidade do tamanho da instância para aplicar o desconto de reserva a outros VMs no mesmo [grupo de tamanho VM](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). A prioridade de capacidade prioriza a capacidade de datacenter das implementações. Oferece confiança adicional na sua capacidade de lançar as instâncias VM quando precisa delas. A prioridade da capacidade só está disponível quando o âmbito de reserva é uma subscrição única. |
-|Termo        |Um ano ou três anos.|
+|Termo        |Um ano ou três anos. Há também um prazo de 5 anos disponível apenas para HBv2 VMs.|
 |Quantidade    |O número de casos a serem comprados dentro da reserva. A quantidade é o número de casos de VM em execução que podem obter o desconto de faturação. Por exemplo, se estiver a executar 10 VMs Standard_D2 nos EUA Orientais, então especificaria a quantidade como 10 para maximizar o benefício para todos os VMs em execução. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]

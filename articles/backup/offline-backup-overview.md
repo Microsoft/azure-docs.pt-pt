@@ -3,11 +3,13 @@ title: Visão geral do backup offline
 description: Saiba mais sobre os componentes da cópia de segurança offline. Incluem cópias de segurança offline baseadas na Caixa de Dados Azure e cópias de segurança offline baseadas no serviço Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: c5e0f4e722e2dd15b7277a484af2a101844344e6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628336"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503630"
 ---
 # <a name="overview-of-offline-backup"></a>Visão geral do backup offline
 
@@ -43,7 +45,7 @@ Para utilizar a cópia de segurança offline com base na Caixa de Dados Azure, c
 
 ## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Backup offline baseado no serviço Azure Import/Export
 
-Esta opção é suportada pelo Microsoft Azure Backup Server (MABS), pelo System Center Data Protection Manager (DPM) DPM-A e pelo Agente MARS. Utiliza o [serviço de importação/exportação Azure.](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) Pode transferir dados de cópia de segurança iniciais para o Azure utilizando os seus próprios discos e conectores compatíveis com o Azure. Esta abordagem requer que você provisa armazenamento temporário conhecido como localização de localização de localização e use utilitários pré-construídos para formatar e copiar os dados de backup em discos propriedade do cliente.
+Esta opção é suportada pelo Microsoft Azure Backup Server (MABS), pelo System Center Data Protection Manager (DPM) DPM-A e pelo Agente MARS. Utiliza o [serviço de importação/exportação Azure.](../storage/common/storage-import-export-service.md) Pode transferir dados de cópia de segurança iniciais para o Azure utilizando os seus próprios discos e conectores compatíveis com o Azure. Esta abordagem requer que você provisa armazenamento temporário conhecido como localização de localização de localização e use utilitários pré-construídos para formatar e copiar os dados de backup em discos propriedade do cliente.
 
 Uma arquitetura que descreve o movimento de dados de backup com esta opção é mostrada aqui.
 
@@ -57,9 +59,9 @@ Aqui está um resumo da arquitetura:
 4. No datacenter Azure, os dados dos discos são copiados para uma conta de armazenamento Azure.
 5. A Azure Backup copia os dados de reserva da conta de armazenamento para o cofre dos Serviços de Recuperação. Estão agendadas cópias de segurança incrementais.
 
-Para utilizar cópias de segurança offline baseadas no serviço Azure Import/Export com o agente MARS, consulte o [fluxo de trabalho de backup offline em Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
+Para utilizar cópias de segurança offline baseadas no serviço Azure Import/Export com o agente MARS, consulte o [fluxo de trabalho de backup offline em Azure Backup](./backup-azure-backup-import-export.md).
 
-Para utilizar o mesmo juntamente com mABS ou DPM-A, consulte o [fluxo de trabalho de backup offline para DPM e Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+Para utilizar o mesmo juntamente com mABS ou DPM-A, consulte o [fluxo de trabalho de backup offline para DPM e Azure Backup Server](./backup-azure-backup-server-import-export.md).
 
 ## <a name="offline-backup-support-summary"></a>Resumo de suporte de backup offline
 
@@ -68,10 +70,10 @@ A tabela seguinte compara as duas opções disponíveis para que possa fazer as 
 | **Consideração**                                            | **Backup offline baseado na Caixa de Dados Azure**                     | **Backup offline baseado no serviço Azure Import/Export**                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Modelos de implementação de backup Azure                              | Agente MARS (pré-visualização)                                              | AGENTE MARS, MABS, DPM-A                                           |
-| Dados de backup máximos por servidor (MARS) ou por grupo de proteção (MABS, DPM-A) | [Disco Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview) - 7.2 TB <br> [Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-overview) - 80 TB       | 80 TB (até 10 discos de 8 TB cada)                          |
-| Segurança (dados, dispositivo e serviço)                           | [Dados](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) - AES 256 bits encriptados <br> [Dispositivo](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) - Caso acidentado, interface proprietária e credencial para copiar dados <br> [Serviço](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) - Protegido por funcionalidades de segurança Azure | Dados - BitLocker encriptado                                 |
-| Provisão temporária de localização                     | Não é necessária                                                | Mais ou igual ao tamanho estimado dos dados de backup        |
-| Regiões suportadas                                           | [Regiões de disco Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Regiões da Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Regiões de serviços de importação/exportação de Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
+| Dados de backup máximos por servidor (MARS) ou por grupo de proteção (MABS, DPM-A) | [Disco Azure Data Box](../databox/data-box-disk-overview.md) - 7.2 TB <br> [Caixa de Dados Azure](../databox/data-box-overview.md) - 80 TB       | 80 TB (até 10 discos de 8 TB cada)                          |
+| Segurança (dados, dispositivo e serviço)                           | [Dados](../databox/data-box-security.md#data-box-data-protection) - AES 256 bits encriptados <br> [Dispositivo](../databox/data-box-security.md#data-box-device-protection) - Caso acidentado, interface proprietária e credencial para copiar dados <br> [Serviço](../databox/data-box-security.md#data-box-service-protection) - Protegido por funcionalidades de segurança Azure | Dados - BitLocker encriptado                                 |
+| Provisão temporária de localização                     | não é necessário                                                | Mais ou igual ao tamanho estimado dos dados de backup        |
+| Regiões suportadas                                           | [Regiões de disco Azure Data Box](../databox/data-box-disk-overview.md#region-availability) <br> [Regiões da Caixa de Dados Azure](../databox/data-box-disk-overview.md#region-availability) | [Regiões de serviços de importação/exportação de Azure](../storage/common/storage-import-export-service.md#region-availability) |
 | Envio cross-country                                     | Não suportado  <br>    Endereço de origem e destino O centro de dados Azure deve estar no mesmo país/região* | Suportado                                                    |
 | Transporte logístico (entrega, transporte, recolha)           | Totalmente a Microsoft geriu                                     | Gerido pelo cliente                                            |
 | Preços                                                      | [Preços da Caixa de Dados Azure](https://azure.microsoft.com/pricing/details/databox/) <br> [Preços do disco Azure Data Box](https://azure.microsoft.com/pricing/details/databox/disk/) | [Preços dos serviços de importação/exportação da Azure](https://azure.microsoft.com/pricing/details/storage-import-export/) |

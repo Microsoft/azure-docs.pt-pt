@@ -8,22 +8,23 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: a8531ec2a3284eac64cb900f2d95ec02b9ffdd45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3c4c4ea25a8f8057a5830ad2207bb674d9cc011
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678091"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501556"
 ---
-# <a name="save-costs-with-a-reserved-instance-of-azure-dedicated-hosts"></a>Economize custos com uma Instância Reservada de Anfitriões Dedicados Azure
+# <a name="save-costs-with-azure-dedicated-host-reservations"></a>Poupe custos com reservas de anfitriões dedicados Azure
 
-Quando se comprometer com uma instância reservada de Anfitriões Dedicados Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de anfitriões dedicados em execução que correspondem ao âmbito e atributos da reserva. Você não precisa atribuir uma reserva a um anfitrião dedicado para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. Consulte a [visão geral dos anfitriões dedicados a Azure para máquinas virtuais.](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+Quando se comprometer com uma instância reservada de Anfitriões Dedicados Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de anfitriões dedicados em execução que correspondem ao âmbito e atributos da reserva. Você não precisa atribuir uma reserva a um anfitrião dedicado para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. Consulte a [visão geral dos anfitriões dedicados a Azure para máquinas virtuais.](./windows/dedicated-hosts.md)
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Determine o anfitrião dedicado direito SKU antes de comprar
 
 
 Antes de comprar uma reserva, deverá determinar qual o anfitrião dedicado que precisa. Um SKU é definido para um anfitrião dedicado que representa a série e tipo VM. 
 
-Comece por ver os tamanhos suportados para [a máquina virtual do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) ou [linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para identificar a série VM.
+Comece por ver os tamanhos suportados para [a máquina virtual do Windows](./windows/sizes.md) ou [linux](./linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para identificar a série VM.
 
 Em seguida, verifique se é suportado em Azure Dedicados Anfitriões. [A página de preços dos anfitriões dedicados Azure](https://aka.ms/ADHPricing) tem a lista completa de anfitriões dedicados SKUs, suas informações de CPU, e várias opções de preços (incluindo instâncias reservadas).
 
@@ -39,7 +40,7 @@ Os descontos de reserva não se aplicam ao seguinte:
 
 - **Nuvens**   - As reservas não estão disponíveis para compra nas regiões da Alemanha ou da China.
 
-- **Quota**   insuficiente - Uma reserva que seja atribuída a uma única subscrição deve ter a quota vCPU disponível na subscrição para o novo caso reservado. Por exemplo, se a subscrição-alvo tiver um limite de quota de 10 vCPUs para dSv3-Series, então não pode comprar uma reserva dedicada a anfitriões que apoiem esta série. O controlo de quotas para reservas inclui os VMs e os anfitriões dedicados já implantados na subscrição. Pode [criar um pedido de aumento de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)para resolver esta   questão.
+- **Quota**   insuficiente - Uma reserva que seja atribuída a uma única subscrição deve ter a quota vCPU disponível na subscrição para o novo caso reservado. Por exemplo, se a subscrição-alvo tiver um limite de quota de 10 vCPUs para dSv3-Series, então não pode comprar uma reserva dedicada a anfitriões que apoiem esta série. O controlo de quotas para reservas inclui os VMs e os anfitriões dedicados já implantados na subscrição. Pode [criar um pedido de aumento de quota](../azure-portal/supportability/resource-manager-core-quotas-request.md)para resolver esta   questão.
 
 - Restrições de **capacidade**   - Em circunstâncias raras, o Azure limita a compra de novas reservas para o subconjunto de SKUs de acolhimento dedicado, devido à baixa capacidade de uma região.
 
@@ -47,7 +48,7 @@ Os descontos de reserva não se aplicam ao seguinte:
 
 Você pode comprar um exemplo reservado de um Azure Dedicado Ao Anfitrião no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Pague a reserva [adiantadamente ou com pagamentos mensais.](https://docs.microsoft.com/azure/billing/billing-monthly-payments-reservations) Estes requisitos aplicam-se à compra de um anfitrião dedicado reservado:
+Pague a reserva [adiantadamente ou com pagamentos mensais.](../cost-management-billing/reservations/prepare-buy-reservation.md) Estes requisitos aplicam-se à compra de um anfitrião dedicado reservado:
 
 - Você deve estar numa função proprietário para pelo menos uma subscrição EA ou uma subscrição com uma taxa de pagamento como você-go.
 
@@ -55,7 +56,7 @@ Pague a reserva [adiantadamente ou com pagamentos mensais.](https://docs.micros
 
 - Para o programa Cloud Solution Provider (CSP), apenas os agentes administrativos ou agentes de vendas podem comprar reservas.
 
-Para comprar um caso:
+Para comprar uma instância:
 
 1. Inicie sessão no  [portal do Azure](https://portal.azure.com/).
 
@@ -80,13 +81,13 @@ Se tiver um acordo EA, pode utilizar a **opção Adicionar mais**   rapidament
 
 - **Âmbito de subscrição**   único — Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
 
-- **Âmbito compartilhado**   — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto da faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
+- **Âmbito compartilhado**   — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto da faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas de pay as you go, o âmbito da faturação corresponde a todas as subscrições elegíveis criadas pelo administrador de conta.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Dados de utilização e utilização de reservas
 
 Os dados de utilização têm um preço efetivo de zero pela utilização que obtém um desconto de reserva. Pode ver qual a instância VM que recebeu o desconto de reserva para cada reserva.
 
-Para obter mais informações sobre como os descontos de reserva aparecem nos dados de utilização, consulte [o uso da reserva Understand Azure para a sua inscrição na Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)se for cliente da   EA. Se tiver uma subscrição individual, consulte [o uso da reserva Understand Azure para a sua subscrição Pay-As-You-Go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Para obter mais informações sobre como os descontos de reserva aparecem nos dados de utilização, consulte [o uso da reserva Understand Azure para a sua inscrição na Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)se for cliente da   EA. Se tiver uma subscrição individual, consulte [o uso da reserva Understand Azure para a sua subscrição Pay-As-You-Go](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Alterar uma reserva após a compra
 
@@ -114,7 +115,7 @@ No entanto, pode *trocar*   uma reserva se quiser fazer alterações.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure.](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para mais informações, consulte [trocas de self-service e reembolsos para Reservas Azure.](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
@@ -122,26 +123,24 @@ Se tiver dúvidas ou precisar de ajuda,  [crie um pedido de suporte](https://po
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a gerir uma reserva, consulte [Manage Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance).
+Para aprender a gerir uma reserva, consulte [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-- [O que são as reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Utilizar o Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Utilizar o Azure Dedicated Host](./windows/dedicated-hosts.md)
 
 - [Preços do Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Gerir Reservas no Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Gerir Reservas no Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 
-- [Compreender como o desconto das reservas é aplicado](https://docs.microsoft.com/azure/billing/billing-understand-vm-reservation-charges)
+- [Compreender como o desconto das reservas é aplicado](../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
-- [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Compreender a utilização de reservas para uma subscrição com tarifas pay as you go](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
-- [Compreender a utilização de reservas na inscrição Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 
-- [Custos de software Windows não incluídos nas reservas](https://docs.microsoft.com/azure/billing/billing-reserved-instance-windows-software-costs)
+- [Custos de software Windows não incluídos nas reservas](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
-- [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](https://docs.microsoft.com/partner-center/azure-reservations)
-
-
+- [Azure Reservations no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros](/partner-center/azure-reservations)

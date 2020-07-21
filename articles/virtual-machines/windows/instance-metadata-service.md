@@ -11,21 +11,21 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 102808d716c080102cce4c02921637101da9fab7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 071baacd375cb5595bc99eeead7e818a35c4539b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553087"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500417"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
 O Azure Instance Medata Service (IMDS) fornece informações sobre casos de máquinas virtuais atualmente em funcionamento e pode ser usado para gerir e configurar as suas máquinas virtuais.
 Esta informação inclui o SKU, armazenamento, configurações de rede e eventos de manutenção futuros. Para obter uma lista completa dos dados disponíveis, consulte [as APIs de metadados](#metadata-apis).
-O Serviço de Metadados de Exemplo está disponível tanto para o conjunto de escala de VM como para a escala de máquina virtual. Só está disponível para executar VMs criados/geridos utilizando [o Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
+O Serviço de Metadados de Exemplo está disponível tanto para o conjunto de escala de VM como para a escala de máquina virtual. Só está disponível para executar VMs criados/geridos utilizando [o Azure Resource Manager](/rest/api/resources/).
 
 O IMDS do Azure é um ponto final de REST que está disponível num endereço IP não-roteado bem conhecido ( `169.254.169.254` ), que só pode ser acedido a partir do VM. A comunicação entre o VM e o IMDS nunca sai do Hospedeiro.
-É prática ser prática ter os seus clientes HTTP a contornar os proxies web dentro do VM ao consultar o IMDS e tratar `169.254.169.254` o mesmo que [`168.63.129.16`](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) .
+É prática ser prática ter os seus clientes HTTP a contornar os proxies web dentro do VM ao consultar o IMDS e tratar `169.254.169.254` o mesmo que [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
 
 ## <a name="security"></a>Segurança
 
@@ -39,18 +39,18 @@ Os pedidos devem igualmente conter um `Metadata: true` cabeçalho para garantir 
 
 ### <a name="accessing-azure-instance-metadata-service"></a>Aceder ao Serviço de Metadados de Exemplo de Azure
 
-Para aceder ao Serviço de Metadados de Exemplo, crie um VM do [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) ou do [portal Azure](https://portal.azure.com), e siga as amostras abaixo.
+Para aceder ao Serviço de Metadados de Exemplo, crie um VM do [Azure Resource Manager](/rest/api/resources/) ou do [portal Azure](https://portal.azure.com), e siga as amostras abaixo.
 Mais exemplos de como consultar o IMDS podem ser encontrados em [amostras de metadados de instância Azure](https://github.com/microsoft/azureimds).
 
 Abaixo está o código de amostra para recuperar todos os metadados para um exemplo, para aceder a fonte de dados específica, ver secção [API de metadados.](#metadata-apis) 
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
 ```
 
-**Resposta**
+**Response**
 
 > [!NOTE]
 > A resposta é uma corda JSON. A resposta de exemplo a seguir é bastante impressa para a legibilidade.
@@ -203,13 +203,13 @@ Quando nenhuma versão é especificada, um erro é devolvido com uma lista das v
 > [!NOTE]
 > A resposta é uma corda JSON. O exemplo a seguir indica a condição de erro quando a versão não é especificada, a resposta é bastante impressa para a legibilidade.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance
 ```
 
-**Resposta**
+**Response**
 
 ```json
 {
@@ -246,14 +246,14 @@ name | Nome do VM | 2017-04-02
 oferta | Oferecer informações para a imagem VM e só está presente para imagens implementadas a partir da galeria de imagens Azure | 2017-04-02
 osTipos | Linux ou Windows | 2017-04-02
 placementGroupId | Grupo de [colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu conjunto de escala de máquina virtual | 2017-08-01
-plano | [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e editor para um VM se for uma Imagem de Mercado Azure | 2018-04-02
+plano | [Plano](/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e editor para um VM se for uma Imagem de Mercado Azure | 2018-04-02
 plataformaUpdateDomain |  [Atualização](manage-availability.md) do domínio em que o VM está a funcionar | 2017-04-02
 plataformaFaultDomain | [Domínio de avaria](manage-availability.md) em que o VM está a funcionar | 2017-04-02
 provedor | Provedor do VM | 2018-10-01
-publicKeys | [Coleção de Chaves Públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas ao VM e caminhos | 2018-04-02
+publicKeys | [Coleção de Chaves Públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas ao VM e caminhos | 2018-04-02
 publicador | Editor da imagem VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para a sua Máquina Virtual | 2017-08-01
-resourceId | O ID [totalmente qualificado](https://docs.microsoft.com/rest/api/resources/resources/getbyid) do recurso | 2019-03-11
+resourceId | O ID [totalmente qualificado](/rest/api/resources/resources/getbyid) do recurso | 2019-03-11
 sku | SKU específico para a imagem VM | 2017-04-02
 armazenamentoProfile | Ver [Perfil de Armazenamento](#storage-metadata) | 2019-06-01
 subscriptionId | Assinatura Azure para a Máquina Virtual | 2017-08-01
@@ -261,7 +261,7 @@ etiquetas | [Etiquetas](../../azure-resource-manager/management/tag-resources.md
 tagsList | Tags formatadas como uma matriz JSON para uma análise programática mais fácil  | 2019-06-04
 versão | Versão da imagem VM | 2017-04-02
 vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para o VM | 2017-04-02
-vmScaleSetName | [Conjunto de escala de máquina virtual Nome](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) do seu conjunto de escala de máquina virtual | 2017-12-01
+vmScaleSetName | [Conjunto de escala de máquina virtual Nome](../../virtual-machine-scale-sets/overview.md) do seu conjunto de escala de máquina virtual | 2017-12-01
 vmSize | [Tamanho VM](sizes.md) | 2017-04-02
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01
 
@@ -269,13 +269,13 @@ zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua
 
 Como prestador de serviços, poderá ser necessário rastrear o número de VMs que executam o seu software ou ter agentes que precisam de rastrear a singularidade do VM. Para conseguir obter um ID único para um VM, utilize o `vmId` campo do Serviço de Metadados de Exemplo.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
-**Resposta**
+**Response**
 
 ```text
 5c08b38e-4d57-4c23-ac45-aca61037f084
@@ -287,13 +287,13 @@ Para certos cenários, a colocação de diferentes réplicas de dados é de prim
 Também pode utilizar [Zonas de Disponibilidade](../../availability-zones/az-overview.md) para as instâncias para tomar estas decisões.
 Pode consultar estes dados diretamente através do Serviço de Metadados de Exemplo.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
-**Resposta**
+**Response**
 
 ```text
 0
@@ -303,13 +303,13 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 Como prestador de serviços, poderá receber uma chamada de apoio onde gostaria de saber mais informações sobre o VM. Pedir ao cliente que partilhe os metadados do cálculo pode fornecer informações básicas para que o profissional de suporte saiba sobre o tipo de VM no Azure.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01
 ```
 
-**Resposta**
+**Response**
 
 > [!NOTE]
 > A resposta é uma corda JSON. A resposta de exemplo a seguir é bastante impressa para a legibilidade.
@@ -403,13 +403,13 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 Azure tem várias nuvens soberanas como [o Governo de Azure.](https://azure.microsoft.com/overview/clouds/government/) Às vezes é preciso o Ambiente Azure para tomar algumas decisões de tempo de execução. A amostra que se segue mostra como pode alcançar este comportamento.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
-**Resposta**
+**Response**
 
 ```text
 AzurePublicCloud
@@ -442,13 +442,13 @@ macAddress | Endereço de mac VM | 2017-04-02
 
 #### <a name="sample-1-retrieving-network-information"></a>Amostra 1: Recuperar informações sobre a rede
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/network?api-version=2017-08-01
 ```
 
-**Resposta**
+**Response**
 
 > [!NOTE]
 > A resposta é uma corda JSON. A resposta de exemplo a seguir é bastante impressa para a legibilidade.
@@ -537,13 +537,13 @@ writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disc
 
 O exemplo a seguir mostra como consultar as informações de armazenamento do VM.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01
 ```
 
-**Resposta**
+**Response**
 
 > [!NOTE]
 > A resposta é uma corda JSON. A resposta de exemplo a seguir é bastante impressa para a legibilidade.
@@ -609,13 +609,13 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 As tags VM estão incluídas no ponto final da API de instância/compute/tags.
 As etiquetas podem ter sido aplicadas ao seu Azure VM para organizar logicamente uma taxonomia. As etiquetas atribuídas a um VM podem ser recuperadas utilizando o pedido abaixo.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
-**Resposta**
+**Response**
 
 ```text
 Department:IT;Environment:Test;Role:WebRole
@@ -623,13 +623,13 @@ Department:IT;Environment:Test;Role:WebRole
 
 O `tags` campo é uma corda com as etiquetas delimitadas por pontos-e-vírguis. Esta saída pode ser um problema se os e-tím9is forem utilizados nas próprias etiquetas. Se um analisador for escrito para extrair programáticamente as etiquetas, deve confiar no `tagsList` campo. O `tagsList` campo é uma matriz JSON sem delimiters, e consequentemente, mais fácil de analisar.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04
 ```
 
-**Resposta**
+**Response**
 
 ```json
 [
@@ -657,7 +657,7 @@ Parte do cenário servido pelo Serviço de Metadados de Exemplo é fornecer gara
 > [!NOTE]
 > Todas as respostas da API são cordas JSON. As respostas de exemplo a seguir são bastante impressas para a legibilidade.
 
-**Pedir**
+**Pedido**
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
@@ -669,7 +669,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 A versão Api é um campo obrigatório. Consulte a [secção de utilização](#usage) para versões API suportadas.
 Nonce é uma corda opcional de 10 dígitos. Se não for fornecida, o IMDS devolve o atual calendário utc no seu lugar.
 
-**Resposta**
+**Response**
 
 > [!NOTE]
 > A resposta é uma corda JSON. A resposta de exemplo a seguir é bastante impressa para a legibilidade.
@@ -686,7 +686,7 @@ O documento contém os seguintes campos:
 Dados | Descrição
 -----|------------
 nonce | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não for fornecido nenhum nonce, o atual calendário UTC é usado
-plano | O [plano Azure Marketplace Image](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan). Contém o id do plano (nome), imagem ou oferta do produto (produto) e id editor (editor).
+plano | O [plano Azure Marketplace Image](/rest/api/compute/virtualmachines/createorupdate#plan). Contém o id do plano (nome), imagem ou oferta do produto (produto) e id editor (editor).
 timestamp/createdOn | O calendário utc para quando o documento assinado foi criado
 timetamp/expiraOn | O calendário utc para quando o documento assinado expirar
 vmId |  [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para o VM
@@ -834,7 +834,7 @@ Se houver um elemento de dados não encontrado ou um pedido mal formado, o Servi
 Código de Estado HTTP | Razão
 -----------------|-------
 200 OK |
-400 Mau Pedido | Cabeçalho em `Metadata: true` falta ou parâmetro em falta ao consultar um nó de `format=json` folha
+400 Pedido Incorreto | Cabeçalho em `Metadata: true` falta ou parâmetro em falta ao consultar um nó de `format=json` folha
 404 Não Encontrado  | O elemento solicitado não existe
 405 Método Não Permitido | Apenas `GET` os pedidos são suportados
 410 Desaparecidos | Reda o tempo após algum tempo por um máximo de 70 segundos
@@ -852,7 +852,7 @@ Erro de serviço 500     | Redando depois de algum tempo
 1. Não estou a ver todos os dados preenchidos para a nova versão
    * Para quaisquer VMs criados após setembro de 2016, adicione uma [Tag](../../azure-resource-manager/management/tag-resources.md) para começar a ver metadados compute. Para os VMs mais antigos (criados antes de setembro de 2016), adicione/remova extensões ou discos de dados para os(s) instâncias VM(s) para atualizar metadados.
 1. Porque é que estou a cometer o erro `500 Internal Server Error` `410 Resource Gone` ou?
-   * Repreita o seu pedido com base no sistema de retrocesso exponencial ou em outros métodos descritos no [manuseamento de falhas transitórias](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). Se o problema persistir, crie um problema de suporte no portal Azure para o VM.
+   * Repreita o seu pedido com base no sistema de retrocesso exponencial ou em outros métodos descritos no [manuseamento de falhas transitórias](/azure/architecture/best-practices/transient-faults). Se o problema persistir, crie um problema de suporte no portal Azure para o VM.
 1. Isto funcionaria para instâncias de conjunto de escala de máquina virtual?
    * O serviço Yes Metadata está disponível para instâncias de definição de escala.
 1. Atualizei as minhas etiquetas em Conjuntos de Escala de Máquina Virtual, mas não aparecem nos casos, ao contrário dos VMs de exemplo único?
@@ -894,7 +894,7 @@ Erro de serviço 500     | Redando depois de algum tempo
                Subnet Mask . . . . . . . . . . . : 255.255.255.0
             ... (continues) ...
             ```
-        1. Confirme que a interface corresponde ao NIC primário do VM e ao IP primário. Pode encontrar o NIC/IP primário olhando para a configuração da rede no Portal Azure ou [olhando-o para cima com o Azure CLI](https://docs.microsoft.com/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Observe os IPs públicos e privados (e o endereço MAC se utilizar o cli). Exemplo do PowerShell CLI:
+        1. Confirme que a interface corresponde ao NIC primário do VM e ao IP primário. Pode encontrar o NIC/IP primário olhando para a configuração da rede no Portal Azure ou [olhando-o para cima com o Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Observe os IPs públicos e privados (e o endereço MAC se utilizar o cli). Exemplo do PowerShell CLI:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
@@ -922,4 +922,4 @@ Utilize o Tipo de Problema `Management` e selecione `Instance Metadata Service` 
 
 Saiba mais sobre:
 1.  [Adquirir um símbolo de acesso para o VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
-2.  [Eventos Agendados](scheduled-events.md)
+2.  [Scheduled Events](scheduled-events.md)

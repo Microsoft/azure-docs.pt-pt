@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 17536f49e24da8c508da17c4c2ff5fb2f9bead62
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200889"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505282"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -41,10 +41,10 @@ A tabela que se segue lista as diferentes formas de utilização de Logs no Azur
 
 |  | Descrição |
 |:---|:---|
-| **Analisar** | Utilize [o Log Analytics](../log-query/get-started-portal.md) no portal Azure para escrever consultas de [registo](../log-query/log-query-overview.md) e analisar interativamente dados de registo utilizando o poderoso motor de análise do Data Explorer.<br>Utilize a [consola de análise de Insights de Aplicação](../app/analytics.md) no portal Azure para escrever consultas de registo e analisar interativamente dados de registo a partir de Insights de Aplicação. |
-| **Visualizar** | Resultados da consulta de pinos renderizados como tabelas ou gráficos para um [painel de instrumentos Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie um [livro para](../platform/workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exporte os resultados de uma consulta ao [Power BI](powerbi.md) para utilizar diferentes visualizações e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados.|
+| **Análise** | Utilize [o Log Analytics](../log-query/get-started-portal.md) no portal Azure para escrever consultas de [registo](../log-query/log-query-overview.md) e analisar interativamente dados de registo utilizando o poderoso motor de análise do Data Explorer.<br>Utilize a [consola de análise de Insights de Aplicação](../log-query/log-query-overview.md) no portal Azure para escrever consultas de registo e analisar interativamente dados de registo a partir de Insights de Aplicação. |
+| **Visualização** | Resultados da consulta de pinos renderizados como tabelas ou gráficos para um [painel de instrumentos Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crie um [livro para](../platform/workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exporte os resultados de uma consulta ao [Power BI](powerbi.md) para utilizar diferentes visualizações e partilhar com utilizadores fora do Azure.<br>Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados.|
 | **Alerta** | Configure uma [regra de alerta de registo](alerts-log.md) que envia uma notificação ou toma [medidas automatizadas](action-groups.md) quando os resultados da consulta correspondem a um resultado específico.<br>Configure uma [regra de alerta métrico](alerts-metric-logs.md) em certos registos de dados extraídos como métricas. |
-| **Recuperar** | Consulta de registo de acesso resulta de uma linha de comando utilizando [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>A consulta de registo de acesso resulta de uma linha de comando utilizando [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>A consulta de registo de acesso resulta de uma aplicação personalizada utilizando [a API REST](https://dev.loganalytics.io/). |
+| **Recuperar** | Consulta de registo de acesso resulta de uma linha de comando utilizando [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>A consulta de registo de acesso resulta de uma linha de comando utilizando [cmdlets PowerShell](/powershell/module/az.operationalinsights).<br>A consulta de registo de acesso resulta de uma aplicação personalizada utilizando [a API REST](https://dev.loganalytics.io/). |
 | **Exportar** | Construa um fluxo de trabalho para recuperar dados de registo e copiá-los para um local externo usando [As Aplicações Lógicas.](~/articles/logic-apps/index.yml) |
 
 
@@ -58,11 +58,11 @@ As consultas de registo utilizarão dados de um espaço de trabalho do Log Analy
 ![Áreas de trabalho](media/data-platform-logs/workspaces.png)
 
 ## <a name="log-queries"></a>Registar consultas
-Os dados em Azure Monitor Logs são recuperados usando uma [consulta de log](../log-query/log-query-overview.md) escrita com o [idioma de consulta Kusto](../log-query/get-started-queries.md), que permite recuperar, consolidar e analisar rapidamente os dados recolhidos. Utilize [o Log Analytics](../log-query/portals.md) para escrever e testar consultas de registo no portal Azure. Permite-lhe trabalhar com resultados interativamente ou fixá-los a um dashboard para vê-los com outras visualizações.
+Os dados em Azure Monitor Logs são recuperados usando uma [consulta de log](../log-query/log-query-overview.md) escrita com o [idioma de consulta Kusto](../log-query/get-started-queries.md), que permite recuperar, consolidar e analisar rapidamente os dados recolhidos. Utilize [o Log Analytics](../log-query/log-query-overview.md) para escrever e testar consultas de registo no portal Azure. Permite-lhe trabalhar com resultados interativamente ou fixá-los a um dashboard para vê-los com outras visualizações.
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
-Abrir [o Registo Analytics a partir de Insights de Aplicação](../app/analytics.md) para analisar os dados de Insights de Aplicação.
+Abrir [o Registo Analytics a partir de Insights de Aplicação](../log-query/log-query-overview.md) para analisar os dados de Insights de Aplicação.
 
 ![Aplicações Insights Analytics](media/data-platform-logs/app-insights-analytics.png)
 
@@ -77,15 +77,15 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes, tanto
 | Dados | Descrição |
 |:---|:---|
 | Registos de auditoria do Azure Ative Directory | Configurado através das definições de Diagnóstico para cada diretório. Consulte [registos AD integrados com registos do Monitor Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Registos de atividade | Armazenado separadamente por padrão e pode ser usado para alertas em tempo real. Instalar solução de Análise de registo de atividade para escrever no log analytics. Consulte [recolher e analisar registos de atividades do Azure no Log Analytics](activity-log-collect.md). |
+| Registos de atividade | Armazenado separadamente por padrão e pode ser usado para alertas em tempo real. Instalar solução de Análise de registo de atividade para escrever no log analytics. Consulte [recolher e analisar registos de atividades do Azure no Log Analytics](./activity-log.md). |
 
 ### <a name="azure-resources"></a>Recursos do Azure
 
 | Dados | Descrição |
 |:---|:---|
-| Diagnóstico de recursos | Configure as definições de Diagnóstico para escrever para dados de diagnóstico, incluindo métricas para um espaço de trabalho Log Analytics. Consulte [os registos de recursos stream Azure para registar analíticos.](resource-logs-collect-workspace.md) |
-| Soluções de monitorização | As soluções de monitorização escrevem dados que recolhem para o seu espaço de trabalho Log Analytics. Consulte [os detalhes da recolha de dados para soluções de gestão em Azure](../insights/solutions-inventory.md) para obter uma lista de soluções. Consulte [as soluções de monitorização no Azure Monitor](../insights/solutions.md) para obter mais informações sobre a instalação e utilização de soluções. |
-| Métricas | Envie métricas da plataforma para os recursos do Azure Monitor para um espaço de trabalho log Analytics para reter dados de registo por períodos mais longos e realizar análises complexas com outros tipos de dados utilizando a [linguagem de consulta Kusto](/azure/kusto/query/). Consulte [os registos de recursos stream Azure para registar analíticos.](resource-logs-collect-storage.md) |
+| Diagnóstico de recursos | Configure as definições de Diagnóstico para escrever para dados de diagnóstico, incluindo métricas para um espaço de trabalho Log Analytics. Consulte [os registos de recursos stream Azure para registar analíticos.](./resource-logs.md#send-to-log-analytics-workspace) |
+| Soluções de monitorização | As soluções de monitorização escrevem dados que recolhem para o seu espaço de trabalho Log Analytics. Consulte [os detalhes da recolha de dados para soluções de gestão em Azure](../monitor-reference.md) para obter uma lista de soluções. Consulte [as soluções de monitorização no Azure Monitor](../insights/solutions.md) para obter mais informações sobre a instalação e utilização de soluções. |
+| Métricas | Envie métricas da plataforma para os recursos do Azure Monitor para um espaço de trabalho log Analytics para reter dados de registo por períodos mais longos e realizar análises complexas com outros tipos de dados utilizando a [linguagem de consulta Kusto](/azure/kusto/query/). Consulte [os registos de recursos stream Azure para registar analíticos.](./resource-logs.md#send-to-azure-storage) |
 | Armazenamento de tabelas do Azure | Recolher dados do armazenamento da Azure onde alguns recursos da Azure escrevem dados de monitorização. Consulte [o armazenamento de blob Azure para o armazenamento de mesa IIS e Azure para eventos com Log Analytics](diagnostics-extension-logs.md). |
 
 ### <a name="virtual-machines"></a>Máquinas Virtuais
@@ -93,7 +93,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes, tanto
 | Dados | Descrição |
 |:---|:---|
 |  Origens de dados do agente | As fontes de dados recolhidas a partir de agentes do [Windows](agent-windows.md) e [do Linux](../learn/quick-collect-linux-computer.md) incluem eventos, dados de desempenho e registos personalizados. Consulte [as fontes de dados do Agente no Azure Monitor](data-sources.md) para obter uma lista de fontes de dados e detalhes sobre a configuração. |
-| Soluções de monitorização | As soluções de monitorização escrevem dados que recolhem dos agentes para o seu espaço de trabalho Log Analytics. Consulte [os detalhes da recolha de dados para soluções de gestão em Azure](../insights/solutions-inventory.md) para obter uma lista de soluções. Consulte [as soluções de monitorização no Azure Monitor](../insights/solutions.md) para obter mais informações sobre a instalação e utilização de soluções. |
+| Soluções de monitorização | As soluções de monitorização escrevem dados que recolhem dos agentes para o seu espaço de trabalho Log Analytics. Consulte [os detalhes da recolha de dados para soluções de gestão em Azure](../monitor-reference.md) para obter uma lista de soluções. Consulte [as soluções de monitorização no Azure Monitor](../insights/solutions.md) para obter mais informações sobre a instalação e utilização de soluções. |
 | System Center Operations Manager | Connect Operations Manager grupo de gestão ao Azure Monitor para recolher dados de eventos e desempenho de agentes no local em registos. Consulte [o Gestor de Operações de Ligação para registar o Analytics](om-agents.md) para obter mais detalhes sobre esta configuração. |
 
 
@@ -124,11 +124,11 @@ O Azure Monitor pode recolher dados de registo de uma variedade de fontes, tanto
 
 | Dados | Descrição |
 |:---|:---|
-| Centro de Segurança do Azure | [O Azure Security Center](/azure/security-center/) armazena dados que recolhe num espaço de trabalho do Log Analytics onde podem ser analisados com outros dados de registo. Consulte [a recolha de dados no Azure Security Center](../../security-center/security-center-enable-data-collection.md) para obter detalhes sobre a configuração do espaço de trabalho. |
-| Azure Sentinel | [O Azure Sentinel](/azure/sentinel/) armazena dados de fontes de dados num espaço de trabalho log analytics. Consulte [as fontes de dados do Connect](/azure/sentinel/connect-data-sources).  |
+| Centro de Segurança do Azure | [O Azure Security Center](../../security-center/index.yml) armazena dados que recolhe num espaço de trabalho do Log Analytics onde podem ser analisados com outros dados de registo. Consulte [a recolha de dados no Azure Security Center](../../security-center/security-center-enable-data-collection.md) para obter detalhes sobre a configuração do espaço de trabalho. |
+| Azure Sentinel | [O Azure Sentinel](../../sentinel/index.yml) armazena dados de fontes de dados num espaço de trabalho log analytics. Consulte [as fontes de dados do Connect](../../sentinel/connect-data-sources.md).  |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [plataforma de dados do Azure Monitor.](data-platform.md)
 - Saiba mais [sobre as métricas no Azure Monitor](data-platform-metrics.md).

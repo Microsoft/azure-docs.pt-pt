@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 3caf8b63cbd86338bbef653e9be9916907578627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5dcf4ad7acb3becd2ca04407bc8e5b3ac45701f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675884"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501709"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção de máquinas virtuais no Azure
 
@@ -76,7 +77,7 @@ Se decidir esperar pela fase de manutenção programada, há algumas coisas que 
 
 #### <a name="paired-regions"></a>Regiões emparelhadas
 
-Cada região de Azure é emparelhada com outra região nas mesmas proximidades geográficas. Juntos, fazem um par de regiões. Durante a fase de manutenção programada, o Azure atualiza apenas os VMs numa única região de um par de regiões. Por exemplo, ao atualizar o VM nos EUA, o Azure não atualiza nenhum VM nos EUA do Centro Sul ao mesmo tempo. No entanto, outras regiões, como a Europa do Norte, podem estar sob manutenção em simultâneo como os E.U.A. Leste. Compreender como os pares de regiões funcionam pode ajudá-lo a distribuir melhor os seus VMs por regiões. Para mais informações, consulte [os pares da região de Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+Cada região de Azure é emparelhada com outra região nas mesmas proximidades geográficas. Juntos, fazem um par de regiões. Durante a fase de manutenção programada, o Azure atualiza apenas os VMs numa única região de um par de regiões. Por exemplo, ao atualizar o VM nos EUA, o Azure não atualiza nenhum VM nos EUA do Centro Sul ao mesmo tempo. No entanto, outras regiões, como a Europa do Norte, podem estar sob manutenção em simultâneo como os E.U.A. Leste. Compreender como os pares de regiões funcionam pode ajudá-lo a distribuir melhor os seus VMs por regiões. Para mais informações, consulte [os pares da região de Azure.](../best-practices-availability-paired-regions.md)
 
 #### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidade e conjuntos de escala
 

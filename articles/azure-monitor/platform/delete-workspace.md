@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: c93ba19cc70aa6b5df054dcc2e7e06885b02d661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ecd40d34233ba6f0b886f4b55aedf4339bf6de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367959"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505198"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Apagar e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -41,7 +41,7 @@ A operação de eliminação do espaço de trabalho remove o recurso do Gestor d
 > [!NOTE] 
 > As soluções instaladas e os serviços ligados como a sua conta Azure Automation são permanentemente removidos do espaço de trabalho em tempo de eliminação e não podem ser recuperados. Estes devem ser reconfigurados após a operação de recuperação para levar o espaço de trabalho ao seu estado previamente configurado.
 
-Pode eliminar um espaço de trabalho utilizando [o PowerShell,](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0) [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)ou no [portal Azure](https://portal.azure.com).
+Pode eliminar um espaço de trabalho utilizando [o PowerShell,](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0) [REST API](/rest/api/loganalytics/workspaces/delete)ou no [portal Azure](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -64,10 +64,10 @@ O método de eliminação suave pode não se encaixar em alguns cenários, tais 
 > [!IMPORTANT]
 > Utilize o espaço de trabalho permanente para eliminar com cuidado uma vez que é irreversível e não poderá recuperar o seu espaço de trabalho e os seus dados.
 
-Adicione a etiqueta "força" para eliminar permanentemente o seu espaço de trabalho:
+Adicione a etiqueta 'forceDelete' para eliminar permanentemente o seu espaço de trabalho:
 
 ```powershell
-PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
 ```
 
 ## <a name="recover-workspace"></a>Recuperar espaço de trabalho
@@ -112,6 +112,6 @@ Deve ter pelo menos permissões *do Log Analytics Contributor* para eliminar um 
 * Se receber uma mensagem de erro *Este nome do espaço de trabalho já está em uso* ou em *conflito* ao criar um espaço de trabalho, pode ser desde:
   * O nome do espaço de trabalho não está disponível e é usado por alguém da sua organização, ou por outro cliente.
   * O espaço de trabalho foi apagado nos últimos 14 dias e o seu nome manteve-se reservado para o período de eliminação suave. Para anular o soft-delete e eliminar permanentemente o seu espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estes passos para recuperar primeiro o espaço de trabalho e realizar a eliminação permanente:<br>
-     1. [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) o seu espaço de trabalho.
-     2. [Elimine permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) o seu espaço de trabalho.
+     1. [Recupere](#recover-workspace) o seu espaço de trabalho.
+     2. [Elimine permanentemente](#permanent-workspace-delete) o seu espaço de trabalho.
      3. Crie um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.

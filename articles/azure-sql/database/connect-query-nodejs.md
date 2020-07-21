@@ -1,6 +1,6 @@
 ---
-title: Use node.js para consultar uma base de dados
-description: Como utilizar o Node.js para criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance, e questioná-lo utilizando declarações T-SQL.
+title: Utilize Node.js para consultar uma base de dados
+description: Como utilizar Node.js criar um programa que se conecta a uma base de dados na Base de Dados Azure SQL ou na Azure SQL Managed Instance, e questioná-lo utilizando declarações T-SQL.
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
-ms.openlocfilehash: 6860aa07d7547df6eeebf5d35fa9a921f0f9dada
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7135b3630d7b780d2c5d18f22b2a05ee6aedf8ed
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267380"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86504547"
 ---
-# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use node.js para consultar uma base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL
+# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Utilize Node.js para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Neste arranque rápido, utiliza-se Node.js para ligar a uma base de dados e consultar dados.
@@ -30,7 +30,7 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-  || SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
+  | Ação | SQL Database | Instância Gerida do SQL | SQL Server numa VM do Azure |
   |:--- |:--- |:---|:---|
   | Criar| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -42,19 +42,19 @@ Para concluir este guia de início rápido, necessita de:
   |||
 
 
-- Software relacionado com [node.js](https://nodejs.org)
+- [Node.js-relacionado ](https://nodejs.org)com o software
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Instale homebrew e Node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** em [aplicações Create Node.js utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+  Instale o Homebrew e o Node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** em [Apps Create Node.js utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
   # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  Instale no node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** nas [aplicações Create Node.js utilizando o SQL Server em Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+  Instale Node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** em [aplicações Create Node.js utilizando o SQL Server em Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
   # <a name="windows"></a>[Windows](#tab/windows)
 
-  Instale chocolatey e node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** em [aplicações Create Node.js utilizando o SQL Server no Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+  Instale chocolate e Node.js e, em seguida, instale o controlador ODBC e o SQLCMD utilizando os passos **1.2** e **1.3** em [Aplicações Create Node.js utilizando](https://www.microsoft.com/sql-server/developer-get-started/node/windows/)o SQL Server no Windows .
 
   ---
 
@@ -92,7 +92,7 @@ Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Abra a pasta q
 
 ## <a name="add-code-to-query-the-database"></a>Adicionar código para consultar a base de dados
 
-1. No seu editor de texto favorito, crie um novo ficheiro, *sqltest.js.*
+1. No seu editor de texto favorito, crie um novo ficheiro, *sqltest.js*.
 
 1. Substitua o seu conteúdo pelo seguinte código. Em seguida, adicione os valores adequados para o seu servidor, base de dados, utilizador e senha.
 
@@ -167,7 +167,7 @@ Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Abra a pasta q
 
 1. Verifique se as 20 linhas superiores são devolvidas e feche a janela de aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Controlador Microsoft Node.js para SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server)
 

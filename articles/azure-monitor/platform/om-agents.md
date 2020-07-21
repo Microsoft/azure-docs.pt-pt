@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62d16bc9ca6c4238ff7c6304c5e1964c2956c898
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847400"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505300"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connect Operations Manager ao Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Para manter o investimento existente no Gestor de [Operações do System Center](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e utilizar capacidades estendidas com o Azure Monitor, pode integrar o Gestor de Operações com o seu espaço de trabalho Log Analytics. Isto permite-lhe aproveitar as oportunidades de registos no Azure Monitor, enquanto continua a utilizar o Gestor de Operações para:
+Para manter o investimento existente no Gestor de [Operações do System Center](/system-center/scom/key-concepts?view=sc-om-1807) e utilizar capacidades estendidas com o Azure Monitor, pode integrar o Gestor de Operações com o seu espaço de trabalho Log Analytics. Isto permite-lhe aproveitar as oportunidades de registos no Azure Monitor, enquanto continua a utilizar o Gestor de Operações para:
 
 * Monitorizar o estado de funcionamento dos serviços de TI com o Operations Manager
 * Manter a integração com as soluções ITSM que suportam a gestão de incidentes e problemas
@@ -51,9 +51,9 @@ Antes de começar, reveja os seguintes requisitos.
     - Ásia Sudeste
     - Leste do Japão
     - Sul do Reino Unido
-    - Índia Central
+    - Central India
     - Canadá Central
-    - E.U.A.Oeste 2
+    - E.U.A. Oeste 2
 
 >[!NOTE]
 >As recentes alterações às APIs do Azure impedirão que os clientes possam configurar com sucesso a integração entre o seu grupo de gestão e o Azure Monitor pela primeira vez. Para clientes que já integraram o seu grupo de gestão com o serviço, não é impactado a menos que precise de reconfigurar a sua ligação existente.  
@@ -154,7 +154,7 @@ Se o seu servidor proxy necessitar de autenticação, execute os seguintes passo
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 1. Em **Configuração RunAs**, selecione **Perfis**.
 1. Abra o perfil **System Center Advisor Run As Profile Proxy**.
-1. No Assistente do Perfil Run As, clique em Adicionar para utilizar uma conta Run As. Pode criar uma [conta Run As](https://technet.microsoft.com/library/hh321655.aspx) ou utilizar uma existente. Esta conta tem de ter permissões suficientes para passar através do servidor proxy.
+1. No Assistente do Perfil Run As, clique em Adicionar para utilizar uma conta Run As. Pode criar uma [conta Run As](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) ou utilizar uma existente. Esta conta tem de ter permissões suficientes para passar através do servidor proxy.
 1. Para configurar a conta a gerir, escolha **Uma classe, um grupo ou um objeto selecionado**, clique em **Selecionar...** e, em seguida, clique em **Grupo...** para abrir a caixa **Pesquisa de Grupo**.
 1. Pesquise e, em seguida, selecione **Microsoft System Center Advisor Monitoring Server Group**. Clique em **OK** depois de selecionar o grupo para fechar a caixa **Pesquisa de Grupo**.
 1. Clique **em OK** para fechar a caixa de conta Add a Run **As.**
@@ -173,7 +173,7 @@ Após a conclusão da configuração, o grupo de gestão do Gestor de Operaçõe
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - Atualiza os pacotes de gestão base Azure Monitor. Por predefinição, é executada a cada 12 horas.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** – Atualiza os pacotes de gestão de soluções ativadas na sua área de trabalho. Por predefinição, é executada a cada cinco (5) minutos.
 
-Pode anular estas duas regras para evitar o descarregamento automático desativando-as ou modificar a frequência com que o servidor de gestão sincroniza com o Azure Monitor para determinar se um novo pacote de gestão está disponível e deve ser descarregado. Siga os passos em [Como Substituir uma Regra ou um Monitor](https://technet.microsoft.com/library/hh212869.aspx) para modificar o parâmetro **Frequência** por um valor em segundos, para alterar a agenda de sincronização ou modificar o parâmetro **Ativada** para desativar as regras. Escolha as substituições para todos os objetos da classe do Grupo de Gestão do Operations Manager.
+Pode anular estas duas regras para evitar o descarregamento automático desativando-as ou modificar a frequência com que o servidor de gestão sincroniza com o Azure Monitor para determinar se um novo pacote de gestão está disponível e deve ser descarregado. Siga os passos em [Como Substituir uma Regra ou um Monitor](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) para modificar o parâmetro **Frequência** por um valor em segundos, para alterar a agenda de sincronização ou modificar o parâmetro **Ativada** para desativar as regras. Escolha as substituições para todos os objetos da classe do Grupo de Gestão do Operations Manager.
 
 Para continuar a seguir o seu processo de controlo de alterações existente para controlar as versões de pacotes de gestão no seu grupo de gestão de produção, pode desativar as regras e capacitá-las durante os momentos específicos em que as atualizações são permitidas. Se tiver um grupo de desenvolvimento ou de gestão de QA no seu ambiente e este tiver conetividade à Internet, poderá configurar esse grupo de gestão com uma área de trabalho do Log Analytics para suportar este cenário. Isto permite-lhe rever e avaliar os lançamentos iterativos dos pacotes de gestão do Azure Monitor antes de os lançar no seu grupo de gestão de produção.
 

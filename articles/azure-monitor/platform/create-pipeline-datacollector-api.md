@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac2b79046718fe45ad0dad0396b6f7653efbb779
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055116"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505334"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API do Colecionador de Dados
 
@@ -43,7 +43,7 @@ Este artigo não abrange como criar dados ou [carregá-lo para uma conta de Arma
 
 Embora a configuração detalhada do armazenamento do blob, Da Aplicação Lógica ou da Função Azure não esteja delineada neste artigo, estão disponíveis instruções detalhadas nas páginas específicas dos produtos.
 
-Para monitorizar este pipeline, utilizamos o Application Insights para monitorizar [os nossos detalhes](../../azure-functions/functions-monitoring.md)da Função Azure aqui , e o Azure Monitor para monitorizar os detalhes da nossa App Lógica [aqui.](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md) 
+Para monitorizar este pipeline, utilizamos o Application Insights para monitorizar [os nossos detalhes](../../azure-functions/functions-monitoring.md)da Função Azure aqui , e o Azure Monitor para monitorizar os detalhes da nossa App Lógica [aqui.](../../logic-apps/monitor-logic-apps-log-analytics.md) 
 
 ## <a name="setting-up-the-pipeline"></a>Criação do oleoduto
 Para definir o gasoduto, certifique-se primeiro de que tem o seu recipiente de bolhas criado e configurado. Da mesma forma, certifique-se de que o espaço de trabalho Log Analytics para onde pretende enviar os dados é criado.
@@ -165,5 +165,5 @@ Este artigo apresentou um protótipo de trabalho, a lógica por trás da qual po
 * Se estiver a carregar vários tipos de dados diferentes, segrega-os em pastas individuais dentro do seu recipiente blob e cria lógica para abasar a lógica com base no tipo de dados. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre a [API do Colecionador de Dados](data-collector-api.md) para escrever dados para registar o espaço de trabalho do Log Analytics a partir de qualquer cliente da API REST.

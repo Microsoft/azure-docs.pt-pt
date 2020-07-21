@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221646"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501968"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
 
@@ -83,7 +83,7 @@ Os VM especializados não passaram por um processo para remover informações e 
 
 ## <a name="regional-support"></a>Apoio Regional
 
-Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição whitelist. Para solicitar a whitelisting, vá a:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas as regiões públicas podem ser regiões-alvo, mas para replicar para a Austrália Central e Austrália Central 2 você precisa ter a sua subscrição adicionada à lista de permitis. Para solicitar que uma subscrição seja adicionada à lista de autorizações, aceda a:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Limites 
 
@@ -179,7 +179,7 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM a partir de uma Versão de Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes 
 
 * [Como posso listar todos os recursos da Galeria de Imagem Partilhada através de subscrições?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [Posso mover a minha imagem existente para a galeria de imagens partilhada?](#can-i-move-my-existing-image-to-the-shared-image-gallery)

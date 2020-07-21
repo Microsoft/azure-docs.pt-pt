@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: cda729779c333064c91152e8427ce1a05227396e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 09f34eec84deeaf76d62ae0aff881e53bf5dd13f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201976"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502406"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais Linux
 Este artigo aborda algumas questões comuns sobre máquinas virtuais Linux criadas em Azure usando o modelo de implementação do Gestor de Recursos. Para a versão Windows deste tópico, consulte [perguntas frequentes sobre máquinas virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -30,13 +30,13 @@ As contas de armazenamento Azure também podem fornecer armazenamento para o dis
 ## <a name="how-can-i-access-my-virtual-machine"></a>Como posso aceder à minha máquina virtual?
 Estabeleça uma ligação remota para iniciar snúm na máquina virtual, utilizando Secure Shell (SSH). Consulte as instruções sobre como ligar a [partir do Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou do [Linux e Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
 
-Se tiver problemas, consulte as [ligações Troubleshoot Secure Shell (SSH).](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Se tiver problemas, consulte as [ligações Troubleshoot Secure Shell (SSH).](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)
 
 ## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>Posso utilizar o disco temporário (/dev/sdb1) para armazenar dados?
 Não utilize o disco temporário (/dev/sdb1) para armazenar dados. Só existe para armazenamento temporário. Arrisca-se a perder dados que não podem ser recuperados.
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Posso copiar ou clonar um Azure VM existente?
-Sim. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual Linux no modelo de implementação do Gestor de Recursos](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Yes. Para obter instruções, consulte [como criar uma cópia de uma máquina virtual Linux no modelo de implementação do Gestor de Recursos](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Porque é que não estou a ver as regiões do Canadá Central e do Canadá do Leste através do Azure Resource Manager?
 As duas novas regiões do Canadá Central e Do Leste do Canadá não estão automaticamente registadas para a criação de máquinas virtuais para as assinaturas Azure existentes. Este registo é feito automaticamente quando uma máquina virtual é implantada através do portal Azure para qualquer outra região usando O Gestor de Recursos Azure. Depois de uma máquina virtual ser implantada em qualquer outra região de Azure, as novas regiões devem estar disponíveis para máquinas virtuais subsequentes.
@@ -45,10 +45,10 @@ As duas novas regiões do Canadá Central e Do Leste do Canadá não estão auto
 Sim, isto agora é possível. O VM primeiro precisa de ser interrompido. Em seguida, pode adicionar ou remover um NIC (a menos que seja o último NIC no VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Há algum requisito de nome de computador?
-Sim. O nome do computador pode ter um comprimento máximo de 64 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre o nome dos seus recursos.
+Yes. O nome do computador pode ter um comprimento máximo de 64 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre o nome dos seus recursos.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Existem requisitos de nome de grupo de recursos?
-Sim. O nome do grupo de recursos pode ter um comprimento máximo de 90 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre grupos de recursos.
+Yes. O nome do grupo de recursos pode ter um comprimento máximo de 90 caracteres. Consulte [as regras e restrições das convenções](/azure/architecture/best-practices/resource-naming) de nomeação para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos do nome de utilizador ao criar um VM?
 

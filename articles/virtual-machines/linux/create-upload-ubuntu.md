@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: c70a6049596aa38e9ae6118517fc471becbc1676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7a0d4d0a1c36f901ea38c5c73d3aa7a2cf49e02f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134629"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502695"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Prepare an Ubuntu virtual machine for Azure (Preparar uma máquina virtual Ubuntu para o Azure)
 
@@ -22,7 +22,7 @@ Ubuntu publica agora VHDs oficiais Azure para download em [https://cloud-images.
 * Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd, por exemplo uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [instalar a função Hiper-V e configurar uma máquina virtual.](https://technet.microsoft.com/library/hh846766.aspx)
+Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num disco rígido virtual. Existem várias ferramentas para criar ficheiros .vhd, por exemplo uma solução de virtualização como o Hyper-V. Para obter instruções, consulte [instalar a função Hiper-V e configurar uma máquina virtual.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))
 
 **Notas de instalação Ubuntu**
 
@@ -176,9 +176,8 @@ Este artigo pressupõe que já instalou um sistema operativo Ubuntu Linux num di
 
 13. Clique em **Ação -> Desligar** em Hyper-V Manager.
 
-14. O Azure só aceita VHDs de tamanho fixo. Se o disco de oss do VM não for um VHD de tamanho fixo, utilize o `Convert-VHD` cmdlet PowerShell e especifique a `-VHDType Fixed` opção. Por favor, dê uma olhada nos docs para `Convert-VHD` aqui: [Converte-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. O Azure só aceita VHDs de tamanho fixo. Se o disco de oss do VM não for um VHD de tamanho fixo, utilize o `Convert-VHD` cmdlet PowerShell e especifique a `-VHDType Fixed` opção. Por favor, dê uma olhada nos docs para `Convert-VHD` aqui: [Converte-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
 
 
 ## <a name="next-steps"></a>Próximos passos
 Está agora pronto para usar o seu disco rígido virtual Ubuntu Linux para criar novas máquinas virtuais em Azure. Se esta for a primeira vez que está a enviar o ficheiro .vhd para a Azure, consulte [Create a Linux VM a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
-

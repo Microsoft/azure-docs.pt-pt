@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ce816aba6bee36cd20eed6d31b0642dc8931e0b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783611"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503035"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamanhos Azure VM sem disco temporário local 
 Este artigo fornece respostas a perguntas frequentes (FAQ) sobre tamanhos Azure VM que não têm um disco temporário local (ou seja, nenhum balcão temporário local). Para obter mais informações sobre estes tamanhos VM, consulte [especificações para séries Dv4 e Dsv4 (Cargas de trabalho de finalidade geral)](dv4-dsv4-series.md) ou [especificações para sérieS Ev4 e Esv4 (Trabalhos de Trabalho Otimizados de Memória)](ev4-esv4-series.md).
@@ -22,7 +23,7 @@ Este artigo fornece respostas a perguntas frequentes (FAQ) sobre tamanhos Azure 
 ## <a name="what-does-no-local-temp-disk-mean"></a>O que significa nenhum disco temporário local? 
 Tradicionalmente, temos tido tamanhos VM (por exemplo, Standard_D2s_v3, Standard_E48_v3) que incluem um pequeno disco local (ou seja, um D: Drive). Agora com estes novos tamanhos VM, esse pequeno disco local já não existe; no entanto, ainda pode anexar Standard HDD, Premium SSD ou Ultra SSD.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>E se eu ainda quiser o disco temporário local?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>E se eu ainda quiser um disco temporário local?
 Se a sua carga de trabalho necessitar de um disco temporário local, também temos novos [tamanhos Ddv4 e Ddsv4](ddv4-ddsv4-series.md) ou [Edv4 e Edsv4](edv4-edsv4-series.md) VM disponíveis. Estes tamanhos oferecem um disco temporário 50% maior em comparação com os tamanhos v3 anteriores.
 
 > [!NOTE]
@@ -46,7 +47,7 @@ Não. As únicas combinações permitidas para a redimensionamento são:
 > Se uma imagem depender do disco de recursos, ou de existir um ficheiro de página ou de um ficheiro de troca no disco temporário local, as imagens sem disco não funcionarão — em vez disso, utilize a alternativa 'com disco'. 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>Estes tamanhos VM suportam sistemas operativos Linux e Windows (OS)?
-Sim.
+Yes.
 
 ## <a name="will-this-break-my-custom-scripts-custom-images-or-os-images-that-have-scratch-files-or-page-files-on-a-local-temp-disk"></a>Será que isto quebrará os meus scripts personalizados, imagens personalizadas ou imagens de SO que têm ficheiros de riscas ou ficheiros de página num disco temporário local?
 Se a imagem personalizada do SO aponta para o disco temporário local, a imagem pode não funcionar corretamente com este tamanho sem disco.

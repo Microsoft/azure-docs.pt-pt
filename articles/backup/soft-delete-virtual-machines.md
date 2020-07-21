@@ -1,16 +1,17 @@
 ---
-title: Excluir suave para máquinas virtuais
+title: Eliminação recuperável para máquinas virtuais
 description: Saiba como a eliminação suave para máquinas virtuais torna as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: ba00b235ea70bcc2dabbd5a91a3f7003f9bbed49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82765776"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503545"
 ---
-# <a name="soft-delete-for-virtual-machines"></a>Excluir suave para máquinas virtuais
+# <a name="soft-delete-for-virtual-machines"></a>Eliminação recuperável para máquinas virtuais
 
 A eliminação suave para VMs protege as cópias de segurança dos seus VMs de eliminação não intencional. Mesmo depois de as cópias de segurança serem eliminadas, são preservadas em estado de eliminação suave por mais 14 dias.
 
@@ -67,7 +68,7 @@ Como descrito acima para o portal Azure, a sequência de passos é a mesma enqua
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Elimine o item de backup usando a Azure PowerShell
 
-Elimine o item de cópia de segurança utilizando o cmdlet PS [de Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS.
+Elimine o item de cópia de segurança utilizando o cmdlet PS [de Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -94,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, efetue a operação de eliminação utilizando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS.
+Em seguida, efetue a operação de eliminação utilizando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -104,7 +105,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Mas a proteção ainda está parada. [Retomar a cópia](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) de segurança para voltar a ativar a proteção.
+O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Mas a proteção ainda está parada. [Retomar a cópia](./backup-azure-vms-automation.md#change-policy-for-backup-items) de segurança para voltar a ativar a proteção.
 
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Excluir suave para VMs usando REST API
 
@@ -115,7 +116,7 @@ O 'DeleteState' do item de cópia de segurança reverterá para 'NotDeleted'. Ma
 
 Desativar esta funcionalidade não é recomendado. A única circunstância em que deve considerar a desativação de apagamento suave é se estiver a planear mover os seus itens protegidos para um novo cofre, e não pode esperar os 14 dias necessários antes de apagar e reprotecer (como num ambiente de teste).) Para obter instruções sobre como desativar a eliminação suave, consulte [ativar e desativar a eliminação suave](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia as [perguntas frequentes](backup-azure-security-feature-cloud.md#frequently-asked-questions) sobre apagar suaves
 - Leia sobre todos os [recursos de segurança no Azure Backup](security-overview.md)

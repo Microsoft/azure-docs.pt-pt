@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443588"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500927"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Windows reinicia loop em um Azure VM
 Este artigo descreve o loop de reinicialização que pode experimentar numa Máquina Virtual Do Windows (VM) no Microsoft Azure.
@@ -49,7 +50,7 @@ Corrupção no sistema de ficheiros pode causar isto. No entanto, é difícil di
 
 ## <a name="solution"></a>Solução
 
-Para resolver este problema, [faça uma lavagem ao disco de so](../windows/snapshot-copy-managed-disk.md), e ligue o disco de SO a um [VM de resgate](../windows/troubleshoot-recovery-disks-portal.md), e, em seguida, siga as opções de solução em conformidade, ou experimente as soluções uma a uma.
+Para resolver este problema, [faça uma lavagem ao disco de so](../windows/snapshot-copy-managed-disk.md), e ligue o disco de SO a um [VM de resgate](./troubleshoot-recovery-disks-portal-windows.md), e, em seguida, siga as opções de solução em conformidade, ou experimente as soluções uma a uma.
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
@@ -93,7 +94,7 @@ Para resolver este problema, [faça uma lavagem ao disco de so](../windows/snaps
 
 16. [Criar um novo VM a partir do disco oss.](../windows/create-vm-specialized.md)
 
-17. Se o problema for corrigido, poderá ter de reinstalar o [RDAgent](https://blogs.msdn.microsoft.com/mast/2014/04/07/install-the-vm-agent-on-an-existing-azure-vm/) (WaAppAgent.exe).
+17. Se o problema for corrigido, poderá ter de reinstalar o [RDAgent](/archive/blogs/mast/install-the-vm-agent-on-an-existing-azure-vm) (WaAppAgent.exe).
 
 ### <a name="solution-for-cause-2"></a>Solução para o motivo 2
 
@@ -112,5 +113,3 @@ Restaurar o VM até à última boa configuração conhecida, siga os passos em [
 4. Retire o disco do VM de resolução de problemas e aguarde cerca de 2 minutos para que o Azure liberte este disco.
 
 5. [Criar um novo VM a partir do disco oss.](../windows/create-vm-specialized.md)
-
-

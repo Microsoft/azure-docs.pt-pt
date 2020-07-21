@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1349052488cb520f5866b5b0d238a223f2ceb68
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 274dda338fca1dae1940dd4a0fe66df617195544
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135093"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502627"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Ativar encriptação do disco Azure com Azure AD em VMs Linux (versão anterior)
 
@@ -209,7 +209,7 @@ Recomendamos uma configuração LVM-on-crypt. Para todos os exemplos a seguir, s
 - Adicione os discos de dados que compõem o VM.
 - Formato, montagem e adicione estes discos ao ficheiro fstab.
 
-    1. Formate o disco recém-adicionado. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte [problemas de nomes de dispositivos de resolução de problemas](troubleshoot-device-names-problems.md).
+    1. Formate o disco recém-adicionado. Usamos symlinks gerados pelo Azure aqui. A utilização de symlinks evita problemas relacionados com a alteração de nomes de dispositivos. Para obter mais informações, consulte [problemas de nomes de dispositivos de resolução de problemas](../troubleshooting/troubleshoot-device-names-problems.md).
     
         ```console
         mkfs -t ext4 /dev/disk/azure/scsi1/lun0
@@ -265,7 +265,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 Pode adicionar um novo disco de dados utilizando [o discope Az vm](add-disk.md) ou [através do portal Azure](attach-disk-portal.md). Antes de conseguir encriptar, primeiro tem de montar o disco de dados recentemente anexado. Tem de solicitar a encriptação da unidade de dados porque a unidade será inutilizável enquanto a encriptação estiver em curso. 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-the-azure-cli"></a>Ativar a encriptação num disco recém-adicionado com o Azure CLI
- Se o VM foi previamente encriptado com "All", então o parâmetro do tipo volume deve permanecer All. Tudo inclui os discos de SO e de dados. Se o VM foi previamente encriptado com um tipo de volume de "SO", então o parâmetro do tipo volume deve ser alterado para All de modo que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer dados como demonstrado aqui. Adicionar e anexar um novo disco de dados a um VM não é preparação suficiente para encriptação. O disco recém-ligado também deve ser formatado e montado corretamente dentro do VM antes de permitir a encriptação. No Linux, o disco deve ser montado em /etc/fstab com um [nome persistente do dispositivo de bloqueio](troubleshoot-device-names-problems.md). 
+ Se o VM foi previamente encriptado com "All", então o parâmetro do tipo volume deve permanecer All. Tudo inclui os discos de SO e de dados. Se o VM foi previamente encriptado com um tipo de volume de "SO", então o parâmetro do tipo volume deve ser alterado para All de modo que tanto o SISTEMA como o novo disco de dados sejam incluídos. Se o VM foi encriptado apenas com o tipo de volume de "Dados", então pode permanecer dados como demonstrado aqui. Adicionar e anexar um novo disco de dados a um VM não é preparação suficiente para encriptação. O disco recém-ligado também deve ser formatado e montado corretamente dentro do VM antes de permitir a encriptação. No Linux, o disco deve ser montado em /etc/fstab com um [nome persistente do dispositivo de bloqueio](../troubleshooting/troubleshoot-device-names-problems.md). 
 
 Em contraste com a sintaxe PowerShell, o CLI não requer que forneça uma versão de sequência única quando ativa a encriptação. O CLI gera e utiliza automaticamente o seu próprio valor exclusivo de versão de sequência.
 

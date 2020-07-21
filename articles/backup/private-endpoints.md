@@ -3,16 +3,16 @@ title: Pontos Finais Privados
 description: Compreenda o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8ce767073e9acfe271e6e57f9e6d1237910b33e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9c8f142e9781946f572f6f3a744d8bc2736a3de
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124260"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503766"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos finais privados para backup Azure
 
-O Azure Backup permite-lhe fazer o backup seguro e restaurar os seus dados a partir dos cofres dos Serviços de Recuperação utilizando [pontos finais privados.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) Os pontos finais privados utilizam um ou mais endereços IP privados do seu VNet, efetivamente trazendo o serviço para o seu VNet.
+O Azure Backup permite-lhe fazer o backup seguro e restaurar os seus dados a partir dos cofres dos Serviços de Recuperação utilizando [pontos finais privados.](../private-link/private-endpoint-overview.md) Os pontos finais privados utilizam um ou mais endereços IP privados do seu VNet, efetivamente trazendo o serviço para o seu VNet.
 
 Este artigo irá ajudá-lo a entender o processo de criação de pontos finais privados para o Azure Backup e os cenários em que a utilização de pontos finais privados ajuda a manter a segurança dos seus recursos.
 
@@ -45,7 +45,7 @@ Esta secção fala sobre os passos envolvidos na criação e utilização de pon
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-Consulte [esta secção](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para aprender a criar um cofre utilizando o cliente Azure Resource Manager. Isto cria um cofre com a sua identidade gerida já ativada. Saiba mais sobre os cofres dos Serviços de Recuperação [aqui.](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)
+Consulte [esta secção](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) para aprender a criar um cofre utilizando o cliente Azure Resource Manager. Isto cria um cofre com a sua identidade gerida já ativada. Saiba mais sobre os cofres dos Serviços de Recuperação [aqui.](./backup-azure-recovery-services-vault-overview.md)
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Ativar identidade gerida para o seu cofre
 
@@ -90,8 +90,8 @@ Existem duas zonas de DNS obrigatórias que precisam de ser criadas:
 
     | **Zona**                           | **Serviço** | **Detalhes do Grupo de Assinatura e Recursos (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blobs        | **Assinatura**: O mesmo que onde é necessário criar um ponto final privado **RG**: Ou o RG do VNET ou o do Ponto Final Privado |
-    | `privatelink.queue.core.windows.net` | Filas       | **RG**: Ou o RG do VNET ou o do Ponto Final Privado |
+    | `privatelink.blob.core.windows.net`  | Blob        | **Assinatura**: O mesmo que onde é necessário criar um ponto final privado **RG**: Ou o RG do VNET ou o do Ponto Final Privado |
+    | `privatelink.queue.core.windows.net` | Fila       | **RG**: Ou o RG do VNET ou o do Ponto Final Privado |
 
     ![Criar zona privada de DNS](./media/private-endpoints/create-private-dns-zone.png)
 
@@ -111,9 +111,9 @@ Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e0
 
 Para as convenções de nomeação de URL nas regiões nacionais:
 
-- [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Alemanha](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Alemanha](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Ligando zonas privadas de DNS com a sua rede virtual
 
@@ -498,8 +498,8 @@ Precisa de criar três zonas privadas de DNS e ligá-las à sua rede virtual.
 | **Zona**                                                     | **Serviço** |
 | ------------------------------------------------------------ | ----------- |
 | `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
-| `privatelink.blob.core.windows.net`                            | Blobs        |
-| `privatelink.queue.core.windows.net`                           | Filas       |
+| `privatelink.blob.core.windows.net`                            | Blob        |
+| `privatelink.queue.core.windows.net`                           | Fila       |
 
 >[!NOTE]
 >No texto acima, *geo* refere-se ao código da região. Por exemplo, *wcus* e *ne* para os EUA e a Europa do Norte, respectivamente.
@@ -546,25 +546,25 @@ Zona DNS para o serviço de fila `privatelink.queue.core.windows.net` ( ):
 ## <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
 P. Posso criar um ponto final privado para um cofre de reserva existente?<br>
-R. Não, os pontos finais privados só podem ser criados para novos cofres de reserva. Então o cofre nunca deve ter protegido nenhum objeto. Na verdade, nenhuma tentativa de proteger quaisquer itens no cofre pode ser feita antes de criar pontos finais privados.
+A. Não, os pontos finais privados só podem ser criados para novos cofres de reserva. Então o cofre nunca deve ter protegido nenhum objeto. Na verdade, nenhuma tentativa de proteger quaisquer itens no cofre pode ser feita antes de criar pontos finais privados.
 
 P. Tentei proteger um objeto para o meu cofre, mas falhou e o cofre ainda não contém nenhum objeto protegido. Posso criar pontos finais privados para este cofre?<br>
-R. Não, o cofre não deve ter tido nenhuma tentativa de proteger quaisquer objetos no passado.
+A. Não, o cofre não deve ter tido nenhuma tentativa de proteger quaisquer objetos no passado.
 
 P. Tenho um cofre que está a usar pontos finais privados para reforços e restauros. Posso adicionar ou remover mais tarde pontos finais privados para este cofre, mesmo que eu tenha itens de reserva protegidos?<br>
-R. Sim. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
+A. Yes. Se já criou pontos finais privados para um cofre e itens de reserva protegidos, pode adicionar ou remover os pontos finais privados conforme necessário.
 
 P. O ponto final privado do Azure Backup também pode ser usado para a recuperação do local de Azure?<br>
-R. Não, o ponto final privado para cópia de segurança só pode ser utilizado para o Azure Backup. Terá de criar um novo ponto final privado para a Recuperação do Site Azure, se for suportado pelo serviço.
+A. Não, o ponto final privado para cópia de segurança só pode ser utilizado para o Azure Backup. Terá de criar um novo ponto final privado para a Recuperação do Site Azure, se for suportado pelo serviço.
 
 P. Perdi um dos passos deste artigo e fui proteger a minha fonte de dados. Ainda posso usar pontos finais privados?<br>
-R. Não seguir os passos do artigo e continuar a proteger os itens pode levar a que o cofre não possa utilizar pontos finais privados. Por isso, recomenda-se que consulte esta lista de verificação antes de continuar a proteger os itens.
+A. Não seguir os passos do artigo e continuar a proteger os itens pode levar a que o cofre não possa utilizar pontos finais privados. Por isso, recomenda-se que consulte esta lista de verificação antes de continuar a proteger os itens.
 
 P. Posso usar o meu próprio servidor DNS em vez de usar a zona de DNS privada Azure ou uma zona de DNS privada integrada?<br>
-R. Sim, podes usar os teus próprios servidores DNS. No entanto, certifique-se de que todos os registos DNS necessários são adicionados como sugerido nesta secção.
+A. Sim, podes usar os teus próprios servidores DNS. No entanto, certifique-se de que todos os registos DNS necessários são adicionados como sugerido nesta secção.
 
 P. Preciso de fazer mais passos no meu servidor depois de ter seguido o processo neste artigo?<br>
-R. Depois de seguir o processo detalhado neste artigo, não precisa de fazer trabalho adicional para usar pontos finais privados para fazer backup e restauro.
+A. Depois de seguir o processo detalhado neste artigo, não precisa de fazer trabalho adicional para usar pontos finais privados para fazer backup e restauro.
 
 ## <a name="next-steps"></a>Próximos passos
 

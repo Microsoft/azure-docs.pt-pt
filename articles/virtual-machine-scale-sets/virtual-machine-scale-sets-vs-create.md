@@ -9,11 +9,12 @@ ms.subservice: visual-studio
 ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124368"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503086"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um conjunto de escala de máquina virtual com estúdio visual
 
@@ -21,7 +22,7 @@ Este artigo mostra-lhe como implementar um Conjunto de Escala de Máquina Virtua
 
 [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) é um recurso Azure Compute para implementar e gerir uma coleção de máquinas virtuais semelhantes com autoescala e equilíbrio de carga. Pode providenciar e implementar conjuntos de escala de máquinas virtuais utilizando [modelos de gestor de recursos Azure.](https://github.com/Azure/azure-quickstart-templates) Os modelos Azure Resource Manager podem ser implementados usando Azure CLI, PowerShell, REST e também diretamente do Visual Studio. O Visual Studio fornece um conjunto de modelos de exemplo, que pode implementar como parte de um projeto de implementação do Grupo de Recursos Azure.
 
-As implementações do Azure Resource Group são uma forma de agrupar e publicar um conjunto de recursos Azure relacionados numa única operação de implantação. Para obter mais informações, consulte [criar e implementar grupos de recursos Azure através do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+As implementações do Azure Resource Group são uma forma de agrupar e publicar um conjunto de recursos Azure relacionados numa única operação de implantação. Para obter mais informações, consulte [criar e implementar grupos de recursos Azure através do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

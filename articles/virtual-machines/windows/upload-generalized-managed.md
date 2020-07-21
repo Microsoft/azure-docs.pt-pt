@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d8e48e393f006c05e0a17b80e6f8cfe7e1d6ea
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82096415"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86500281"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-lo para criar VMs novas no Azure
 
@@ -20,7 +20,7 @@ Este artigo acompanha-o usando o PowerShell para carregar um VHD de um VM genera
 
 Para obter um script de amostra, consulte [o script sample para carregar um VHD para Azure e criar um novo VM](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 - Antes de enviar qualquer VHD para Azure, deve seguir [Preparar um VHD ou VHDX do Windows para fazer o upload para Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Plano de revisão [da migração para Discos Geridos](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a sua migração para [Discos Geridos.](managed-disks-overview.md)
@@ -28,9 +28,9 @@ Para obter um script de amostra, consulte [o script sample para carregar um VHD 
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalize a fonte VM utilizando o Sysprep
 
-Se ainda não o fez, precisa de Sysprep o VM antes de enviar o VHD para Azure. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para mais detalhes sobre a Sysprep, consulte a [Visão Geral da Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Se ainda não o fez, precisa de Sysprep o VM antes de enviar o VHD para Azure. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para mais detalhes sobre a Sysprep, consulte a [Visão Geral da Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para obter mais informações, consulte [o Suporte Sysprep para funções de servidor.](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para obter mais informações, consulte [o Suporte Sysprep para funções de servidor.](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Se planeia executar o Sysprep antes de enviar o seu VHD para Azure pela primeira vez, certifique-se de que [preparou o seu VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -53,7 +53,7 @@ Agora pode enviar um VHD diretamente para um disco gerido. Para obter instruçõ
 
 
 
-Uma vez que o VHD é carregado para o disco gerido, você precisa usar [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) para obter o disco gerido.
+Uma vez que o VHD é carregado para o disco gerido, você precisa usar [Get-AzDisk](/powershell/module/az.compute/get-azdisk) para obter o disco gerido.
 
 ```azurepowershell-interactive
 $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
@@ -91,7 +91,7 @@ $image = New-AzImage `
    -Image $imageConfig
 ```
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Este exemplo cria um VM chamado *myVM* da *myImage*, no *myResourceGroup*.
 
@@ -110,7 +110,6 @@ New-AzVm `
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Inscreva-se na sua nova máquina virtual. Para obter mais informações, consulte [Como ligar e iniciar sessão numa máquina virtual Azure que executa o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-

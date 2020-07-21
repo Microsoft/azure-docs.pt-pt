@@ -7,21 +7,22 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 406eda6902ae451c7fdf79e1bd1215c035a66750
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8532c0da7d9977b12a4d1099e430584de1e17fe0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792229"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502746"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Crie uma cópia de um Linux VM utilizando discos Azure CLI e Managed
 
-Este artigo mostra-lhe como criar uma cópia da sua máquina virtual Azure (VM) executando o Linux utilizando o CLI Azure. Para copiar, criar, armazenar e partilhar imagens VM em escala, consulte [Galerias de Imagem Partilhadas.](shared-images.md)
+Este artigo mostra-lhe como criar uma cópia da sua máquina virtual Azure (VM) executando o Linux utilizando o CLI Azure. Para copiar, criar, armazenar e partilhar imagens VM em escala, consulte [Galerias de Imagem Partilhadas.](../shared-images-cli.md)
 
 Também pode [fazer upload e criar um VM a partir de um VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--   Instale a [CLI do Azure](/cli/azure/install-az-cli2).
+-   Instale o [Azure CLI](/cli/azure/install-az-cli2).
 
 -   Inscreva-se numa conta Azure com [login az](/cli/azure/reference-index#az-login).
 
@@ -125,4 +126,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para aprender a usar uma [galeria de imagens partilhada](shared-images.md) para gerir imagens VM.
+Para aprender a usar uma [galeria de imagens partilhada](../shared-images-cli.md) para gerir imagens VM.

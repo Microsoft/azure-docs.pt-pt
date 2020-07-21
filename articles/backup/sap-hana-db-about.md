@@ -3,15 +3,16 @@ title: Sobre a base de dados SAP HANA em VMs Azure
 description: Neste artigo, saiba como fazer backup das bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 52c235c95cea73a0c51c62fcb55f7f711d2eff21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980278b3cdb9c97a5a483354a004a8278a745b3b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79476462"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503511"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Sobre a base de dados SAP HANA em VMs Azure
 
-As bases de dados SAP HANA são cargas de trabalho críticas de missão que requerem um objetivo de ponto de recuperação baixo (RPO) e um objetivo de tempo de recuperação rápida (RTO). Agora pode [fazer backup das bases de dados SAP HANA em execução em VMs Azure](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) usando [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+As bases de dados SAP HANA são cargas de trabalho críticas de missão que requerem um objetivo de ponto de recuperação baixo (RPO) e um objetivo de tempo de recuperação rápida (RTO). Agora pode [fazer backup das bases de dados SAP HANA em execução em VMs Azure](./tutorial-backup-sap-hana-db.md) usando [Azure Backup](./backup-overview.md).
 
 A Azure Backup é [o Backint certificado](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) pela SAP, para fornecer suporte de reserva nativo, aproveitando as APIs nativas da SAP HANA. Esta oferta da Azure Backup alinha-se com o mantra da Azure Backup de backups **de infraestruturas zero,** eliminando a necessidade de implantar e gerir a infraestrutura de backup. Agora pode fazer backup e restaurar as bases de dados SAP HANA em execução em VMs Azure[(VMs série M](../virtual-machines/m-series.md) também suportados agora!) e aproveitar as capacidades de gestão da empresa que o Azure Backup fornece.
 
@@ -24,18 +25,18 @@ A utilização do Azure Backup para fazer backup e restaurar as bases de dados S
 * **Retenção a longo prazo**: Para rigorosa conformidade e necessidades de auditoria. Mantenha as suas cópias de segurança durante anos, com base na duração da retenção, para além da qual os pontos de recuperação serão automaticamente podados pela capacidade de gestão do ciclo de vida incorporado.
 * **Gestão de Backup da Azure**: Use as capacidades de gestão e monitorização da Azure Backup para uma melhor experiência de gestão. O Azure CLI também é apoiado.
 
-Para ver os cenários de backup e restauro que apoiamos hoje, consulte a matriz de suporte do [cenário SAP HANA.](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)
+Para ver os cenários de backup e restauro que apoiamos hoje, consulte a matriz de suporte do [cenário SAP HANA.](./sap-hana-backup-support-matrix.md#scenario-support)
 
 ## <a name="backup-architecture"></a>Arquitetura da cópia de segurança
 
 ![Diagrama de arquitetura de reserva](./media/sap-hana-db-about/backup-architecture.png)
 
-* O processo de backup começa por [criar um cofre de serviços de recuperação](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#create-a-recovery-service-vault) em Azure. Este cofre será usado para armazenar os backups e os pontos de recuperação criados ao longo do tempo.
-* O servidor Azure VM que executa o servidor SAP HANA está registado no cofre e as bases de dados a serem apoiadas são [descobertas](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#discover-the-databases). Para permitir que o serviço de Backup Azure descubra bases de dados, um [script de pré-registo](https://aka.ms/scriptforpermsonhana) deve ser executado no servidor HANA como um utilizador de raiz.
+* O processo de backup começa por [criar um cofre de serviços de recuperação](./tutorial-backup-sap-hana-db.md#create-a-recovery-service-vault) em Azure. Este cofre será usado para armazenar os backups e os pontos de recuperação criados ao longo do tempo.
+* O servidor Azure VM que executa o servidor SAP HANA está registado no cofre e as bases de dados a serem apoiadas são [descobertas](./tutorial-backup-sap-hana-db.md#discover-the-databases). Para permitir que o serviço de Backup Azure descubra bases de dados, um [script de pré-registo](https://aka.ms/scriptforpermsonhana) deve ser executado no servidor HANA como um utilizador de raiz.
 * Este script cria o utilizador **DB AZUREWLBACKUPHANAUSER** e uma chave correspondente com o mesmo nome na **hdbuserstore**. Consulte a secção [O que o script de pré-registo faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) para saber mais sobre o que o script faz.
 * O Azure Backup Service instala agora o **Plugin Azure Backup para HANA** no servidor SAP HANA registado.
 * O utilizador **AZUREWLUPHANAUSER** DB criado pelo script de pré-registo é utilizado pelo **Plugin de Backup Azure para a HANA** realizar todas as operações de backup e restauro. Se tentar configurar a cópia de segurança para DBs SAP HANA sem executar este script, poderá receber o seguinte erro: **UserErrorHanaScriptNotRun**.
-* Para [configurar a cópia de segurança](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#configure-backup) nas bases de dados descobertas, escolha a política de backup necessária e permita cópias de segurança.
+* Para [configurar a cópia de segurança](./tutorial-backup-sap-hana-db.md#configure-backup) nas bases de dados descobertas, escolha a política de backup necessária e permita cópias de segurança.
 
 * Uma vez configurada a cópia de segurança, o serviço de backup Azure configura os seguintes parâmetros backint no nível BASE de base no servidor SAP HANA protegido:
   * [catalog_backup_using_backint:verdade]
@@ -73,5 +74,5 @@ Para restaurar um VM em execução SAP HANA, siga estes passos:
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Saiba como [restaurar uma base de dados SAP HANA em execução num Azure VM](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Saiba como [gerir as bases de dados SAP HANA que são apoiadas através do Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Saiba como [restaurar uma base de dados SAP HANA em execução num Azure VM](./sap-hana-db-restore.md)
+* Saiba como [gerir as bases de dados SAP HANA que são apoiadas através do Azure Backup](./sap-hana-db-manage.md)

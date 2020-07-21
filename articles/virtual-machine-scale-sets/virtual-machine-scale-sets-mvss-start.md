@@ -9,14 +9,15 @@ ms.subservice: template
 ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: af2f000b9f9a7bf64898c46b3126cf180802b445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f47e07dcffd977121b4142924a77bdb93de3fc3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198129"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86503052"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos de conjunto de escala de máquina virtual
-Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série tutorial mostra como criar um modelo de conjunto de escala básica e como modificar este modelo para se adequar a vários cenários. Todos os exemplos vêm deste [repositório GitHub.](https://github.com/gatneil/mvss)
+Os [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md#template-deployment-process) são uma ótima maneira de implementar grupos de recursos relacionados. Esta série tutorial mostra como criar um modelo de conjunto de escala básica e como modificar este modelo para se adequar a vários cenários. Todos os exemplos vêm deste [repositório GitHub.](https://github.com/gatneil/mvss)
 
 Este modelo destina-se a ser simples. Para obter exemplos mais completos de modelos de conjunto de escala, consulte o [repositório gitHub dos modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) e procure pastas que contenham a cadeia `vmss` .
 
@@ -114,7 +115,7 @@ Neste caso, existe apenas um elemento na lista, a rede virtual do exemplo anteri
 ## <a name="specify-scale-set-properties"></a>Especifique propriedades definidas de escala
 Os conjuntos de escala têm muitas propriedades para personalizar os VMs no conjunto de escala. Para obter uma lista completa destas propriedades, consulte a [referência do modelo](/azure/templates/microsoft.compute/virtualmachinescalesets). Para este tutorial, apenas algumas propriedades comumente usadas são definidas.
 ### <a name="supply-vm-size-and-capacity"></a>Tamanho e capacidade de fornecimento de VM
-O conjunto de escala precisa de saber qual o tamanho de VM para criar ("sku name") e quantos VMs para criar ("capacidade sku"). Para ver quais os tamanhos VM disponíveis, consulte a [documentação VM Sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+O conjunto de escala precisa de saber qual o tamanho de VM para criar ("sku name") e quantos VMs para criar ("capacidade sku"). Para ver quais os tamanhos VM disponíveis, consulte a [documentação VM Sizes](../virtual-machines/windows/sizes.md).
 
 ```json
        "sku": {

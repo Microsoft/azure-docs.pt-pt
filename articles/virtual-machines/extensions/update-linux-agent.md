@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: ab846eeb09c4f3d2db71abf58ef5d55dc74962a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b13dca7f4a33a7fb9ea55a1505c26a97160d0d8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82112053"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502950"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o Agente Azure Linux num VM
 
@@ -31,7 +31,7 @@ Para atualizar o seu [Agente Azure Linux](https://github.com/Azure/WALinuxAgent)
 Deve sempre verificar se há um pacote no repositório de distro Linux primeiro. É possível que o pacote disponível possa não ser a versão mais recente, no entanto, permitir a data de auto-data garantirá que o Agente Linux receberá sempre a mais recente atualização. Caso tenha problemas instalados nos gestores de pacotes, deverá procurar apoio do fornecedor de distro.
 
 > [!NOTE]
-> Para mais informações consulte [as distribuições de Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
+> Para mais informações consulte [as distribuições de Linux endossadas no Azure](../linux/endorsed-distros.md)
 
 ## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Suporte mínimo de agente de máquinas virtuais em Azure
 Verifique o [suporte mínimo de versão para agentes de máquinas virtuais em Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) antes de prosseguir.
