@@ -2,18 +2,19 @@
 title: Como garantir o dispositivo restrito de entrada com Azure AD e Azure Maps REST APIs
 titleSuffix: Azure Maps
 description: Como configurar uma aplicação sem navegador que suporta o sismo no AD AZure e chama APIs de REST Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b9e75a25237a76c7fa6d300e01bb4d42db75fe08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d73ad14cac77e4b00e90ec11791ef141436b7e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988631"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126754"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteja um dispositivo restrito de entrada com Azure AD e Azure Maps REST APIs
 
@@ -111,7 +112,7 @@ Corpo:
 
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre as métricas de utilização da API para a sua conta Azure Maps:
 > [!div class="nextstepaction"]

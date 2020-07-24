@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f5ad0b493f925ce34ffe19892fa432322995a9c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258003"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125212"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
 
@@ -44,7 +44,7 @@ O DTDL é utilizado para modelos de dados em outros serviços Azure IoT, incluin
 
 Os modelos digitais em Azure Digital Twins são representações ao vivo e atualizadas do mundo real. Utilizando as relações nos seus modelos DTDL personalizados, irá ligar gémeos a um **gráfico ao vivo** que representa o seu ambiente.
 
-Pode ver uma visualização do seu gráfico Azure Digital Twins através da ajuda de uma aplicação de amostra, [**explorador de Gémeos Digitais Azure.**](https://github.com/Azure-Samples/digital-twins-explorer)
+Pode ver uma visualização do seu gráfico Azure Digital Twins através da ajuda de uma aplicação de amostra, [**explorador de Gémeos Digitais Azure.**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
 
 Aqui está uma visão de como a visualização da amostra parece:
 
@@ -94,16 +94,16 @@ O diagrama que se segue mostra onde a Azure Digital Twins se encontra no context
 
 > [!IMPORTANT]
 > A Azure Digital Twins está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [*termos de utilização suplementares para pré-visualizações do Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Para obter uma lista dos limites das Gémeas Digitais Azure durante a pré-visualização pública, consulte [Referência: Limites de serviço de pré-visualização do público](reference-service-limits.md).
+Para obter uma lista dos limites das Gémeas Digitais Azure durante a pré-visualização pública, consulte [*Referência: Limites de serviço de pré-visualização do público*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Se já trabalhou com o lançamento anterior da Azure Digital Twins, saiba o que mudou:
-* [Visão geral: Diferenças em relação ao lançamento anterior](overview-differences.md)
+* [*Visão geral: Diferenças em relação ao lançamento anterior*](overview-differences.md)
 
 Ou, vá em frente e mergulhe em trabalhar com a Azure Digital Twins com o primeiro tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Código de uma aplicação de cliente](tutorial-code.md)
+> [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

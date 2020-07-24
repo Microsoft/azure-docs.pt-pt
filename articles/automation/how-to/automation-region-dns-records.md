@@ -3,14 +3,14 @@ title: Registos DNS do Azure Datacenter utilizados pela Azure Automation Microso
 description: Este artigo fornece os registos DNS exigidos pela Azure Automation ao restringir a comunicação a uma região específica do Azure que alberga essa conta Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44d70db195850b3f87806c69755095b521078b2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117176"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registos dns para regiões Azure utilizadas pela Azure Automation
 
@@ -46,7 +46,7 @@ A tabela seguinte fornece o registo de DNS para cada região.
 | US Gov - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 | E.U.A. Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| E.U.A.Oeste 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
+| E.U.A. Oeste 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
 
 ### <a name="support-for-private-link"></a>Suporte para Ligação Privada
 
@@ -56,7 +56,7 @@ Para suportar o [Private Link](../../private-link/private-link-overview.md) in A
 | --- | --- |
 | E.U.A. Centro-Oeste |`https://<accountId>.webhook.wcus.azure-automation.net`<br>`https://<accountId>.agentsvc.wcus.azure-automation.net`<br>`https://<accountId>.jrds.wcus.azure-automation.net` |
 | E.U.A. Oeste |`https://<accountId>.webhook.wus.azure-automation.net`<br>`https://<accountId>.agentsvc.wus.azure-automation.net`<br>`https://<accountId>.jrds.wus.azure-automation.net` |
-| E.U.A.Oeste 2 |`https://<accountId>.webhook.wus2.azure-automation.net`<br>`https://<accountId>.agentsvc.wus2.azure-automation.net`<br>`https://<accountId>.jrds.wus2.azure-automation.net` |
+| E.U.A. Oeste 2 |`https://<accountId>.webhook.wus2.azure-automation.net`<br>`https://<accountId>.agentsvc.wus2.azure-automation.net`<br>`https://<accountId>.jrds.wus2.azure-automation.net` |
 | E.U.A. Central |`https://<accountId>.webhook.cus.azure-automation.net`<br>`https://<accountId>.agentsvc.cus.azure-automation.net`<br>`https://<accountId>.jrds.cus.azure-automation.net` |
 | E.U.A. Centro-Sul |`https://<accountId>.webhook.scus.azure-automation.net`<br>`https://<accountId>.agentsvc.scus.azure-automation.net`<br>`https://<accountId>.jrds.scus.azure-automation.net` |
 | E.U.A. Centro-Norte |`https://<accountId>.webhook.ncus.azure-automation.net`<br>`https://<accountId>.agentsvc.ncus.azure-automation.net`<br>`https://<accountId>.jrds.ncus.azure-automation.net` |
@@ -84,6 +84,12 @@ Para suportar o [Private Link](../../private-link/private-link-overview.md) in A
 | US Gov - Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov - Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
+Substitua `<accountId>` no registo DNS pelo GUID representando o seu ID de Conta de Automação a partir do **URL**de valor . Pode obter o ID necessário a partir de **Chaves** em **Definições** de Conta no portal Azure.
+
+![Página chave primária da conta de automação](./media/automation-region-dns-records/automation-account-keys.png)
+
+Copiar o valor após *contas/* a partir do campo **URL** -`https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+
 Recomendamos que utilize os endereços listados ao definir [exceções](../automation-runbook-execution.md#exceptions). Para obter uma lista de endereços IP da região em vez de nomes de região, descarregue o ficheiro JSON do Microsoft Download Center para os seguintes ambientes em nuvem:
 
 * [Gamas Azure IP e Tags de Serviço - Público Azure](https://www.microsoft.com/download/details.aspx?id=56519)
@@ -98,7 +104,7 @@ O ficheiro de endereço IP lista os intervalos de endereços IP utilizados nos d
 > [!NOTE]
 > Se estiver a utilizar o Azure ExpressRoute, lembre-se que o ficheiro de endereço IP é utilizado para atualizar o anúncio do Border Gateway Protocol (BGP) do espaço Azure na primeira semana de cada mês.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a resolver problemas com os seus Trabalhadores de Runbook Híbridos, consulte problemas de trabalho híbrido de [resolução de problemas.](../troubleshoot/hybrid-runbook-worker.md#general)
 

@@ -1,5 +1,5 @@
 ---
-title: Linha de segurança de máquinas virtuais Linux para referência de segurança Azure
+title: Linha de segurança Azure para Máquinas Virtuais Linux
 description: A linha de segurança Linux Virtual Machines fornece orientações e recursos processuais para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2d8c4d67ed9b268bae55711fae8c4def33b967fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532010"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124719"
 ---
-# <a name="linux-virtual-machines-security-baseline-for-azure-security-benchmark"></a>Linha de segurança de máquinas virtuais Linux para referência de segurança Azure
+# <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais Linux
 
 A Linha de Base de Segurança Azure para Máquinas Virtuais Linux contém recomendações que o ajudarão a melhorar a postura de segurança da sua implementação.
 
@@ -568,7 +568,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 * [Controlo de acesso baseado em funções (RBAC) dos recursos do Azure](../../role-based-access-control/overview.md)
 
-* [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) (Funções incorporadas para recursos do Azure)
+* [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Monitorização do Centro de Segurança Azure**: Não Disponível
 
@@ -1190,7 +1190,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../../security/benchmarks/security-baselines-overview.md)

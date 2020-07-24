@@ -3,18 +3,16 @@ title: Gerir a Análise do Azure Data Lake com o Azure PowerShell
 description: Este artigo descreve como usar a Azure PowerShell para gerir contas data lake analytics, fontes de dados, utilizadores, & empregos.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: matt1883
-ms.author: mahi
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: a197ef645b4b3ba2cb656e93778d6546462f431a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 70a251db6c08f353f9c50512c41551e7a909a059
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121338"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125654"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -243,9 +241,9 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Utilize o `-Result` parâmetro para detetar se os trabalhos terminados terminaram com sucesso. Tem estes valores:
 
 * Cancelada
-* Falhou
-* Nenhuma
-* Bem-sucedido
+* Com falhas
+* Nenhum
+* Com êxito
 
 ``` powershell
 # List Successful jobs.
@@ -439,7 +437,7 @@ New-AdlCatalogCredential -AccountName $adla `
           -Uri $dbUri
 ```
 
-## <a name="manage-firewall-rules"></a>Gerir regras de firewall
+## <a name="manage-firewall-rules"></a>Gerir regras da firewall
 
 ### <a name="list-firewall-rules"></a>Listar regras de firewall
 
@@ -555,7 +553,7 @@ foreach ($sub in $subs)
 
 Também pode utilizar um modelo do Grupo de Recursos Azure utilizando a seguinte amostra: [Criar uma conta Data Lake Analytics utilizando um modelo](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Começar com data lake analytics usando o [portal Azure](data-lake-analytics-get-started-portal.md)  |  [PowerShell](data-lake-analytics-get-started-powershell.md)  |  [Azure CLI](data-lake-analytics-get-started-cli.md)
 * Gerir a Azure Data Lake Analytics usando [o portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md) 

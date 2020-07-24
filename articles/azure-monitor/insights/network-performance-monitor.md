@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68be8d08939464d200da588c481447f8206c9117
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498971"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117205"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução monitor de desempenho de rede em Azure
 
@@ -56,7 +56,7 @@ O NPM pode monitorizar a conectividade entre redes e aplicações em qualquer pa
 * Reino Unido do Sul
 * Ásia Leste
 * Coreia do Sul Central
-* Central India
+* Índia Central
 * Governo dos EUA Virgínia
 * China Leste 2
 
@@ -65,6 +65,9 @@ A lista de regiões apoiadas para o ExpressRoute Monitor está disponível na [d
 
 
 ## <a name="set-up-and-configure"></a>Configurar e configurar
+
+> [!NOTE]
+> Também pode ver o agente Log Analytics referido como o Agente de Monitorização da Microsoft (MMA) ou o agente OMS Linux.
 
 ### <a name="install-and-configure-agents"></a>Instalar e configurar agentes 
 
@@ -286,5 +289,5 @@ A informação sobre os preços está disponível [online.](network-performance-
 
 * **Junte-se ao nosso grupo:** Estamos sempre interessados em que novos clientes se juntem à nossa coorte. Como parte dele, obtém acesso antecipado a novas funcionalidades e uma oportunidade para nos ajudar a melhorar o Network Performance Monitor. Se estiver interessado em aderir, preencha esta [pesquisa rápida.](https://aka.ms/npmcohort) 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 Saiba mais sobre [o Monitor de Desempenho,](network-performance-monitor-performance-monitor.md) [Monitor de Conectividade de Serviços](network-performance-monitor-performance-monitor.md)e [Monitor ExpressRoute](network-performance-monitor-expressroute.md). 

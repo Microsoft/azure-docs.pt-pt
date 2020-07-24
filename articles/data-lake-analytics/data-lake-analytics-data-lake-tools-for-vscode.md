@@ -3,18 +3,16 @@ title: Utilizar Azure Data Lake Tools for Visual Studio Code
 description: Aprenda a usar ferramentas do Lago de Dados Azure para o Código do Estúdio Visual para criar, testar e executar scripts U-SQL.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: Jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: 53e0628256ad37d87c260c762c2c5a5c824666b0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117666"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126487"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utilizar Azure Data Lake Tools for Visual Studio Code
 
@@ -497,7 +495,7 @@ Data Lake Tools for VS Code suporta as seguintes funcionalidades:
 > [!NOTE]
 > Recomendamos que atualize para Azure Data Lake Tools para a versão 2.3.3000.4 ou posterior. As versões anteriores já não estão disponíveis para transferência e foram preteridas.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenvolver U-SQL com Python, R e C Sharp para Azure Data Lake Analytics em CÓDIGO VS](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [U-SQL corrida local e depurar local com Código de Estúdio Visual](data-lake-tools-for-vscode-local-run-and-debug.md)

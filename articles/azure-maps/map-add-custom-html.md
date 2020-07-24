@@ -1,19 +1,20 @@
 ---
 title: Adicione um marcador HTML para mapear ! Microsoft Azure Maps
 description: Neste artigo, você aprenderá sobre como adicionar um marcador HTML a um mapa usando o Microsoft Azure Maps Web SDK.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 30d9cf9848a8d99505bf9f9c97bef5aaa31065ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fae7c2e24eb10ffb2a36a0af1052be2694b0693c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83119279"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126334"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicione marcadores HTML ao mapa
 
@@ -97,7 +98,7 @@ Estas amostras mostram como adicionar eventos de rato e arrastar a um marcador H
 <iframe height='500' scrolling='no' title='Adicionar eventos de rato a marcadores HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte os <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>eventos de adicionar rato à HTML Markers</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

@@ -2,13 +2,13 @@
 title: Use a Powershell para definir alertas em Insights de Aplicação Microsoft Docs
 description: Automatizar a configuração do Application Insights para obter e-mails sobre alterações métricas.
 ms.topic: conceptual
-ms.date: 10/31/2016
-ms.openlocfilehash: 3a3d614ec57242a2ea4b29a86d6365a2efe56f94
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/23/2016
+ms.openlocfilehash: 00212aa8783a6bfc8e46d325a882781e33b7de51
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117171"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 
@@ -30,7 +30,7 @@ Instale o módulo Azure Powershell na máquina onde pretende executar os scripts
 * Use-o para instalar o Microsoft Azure Powershell
 
 ## <a name="connect-to-azure"></a>Ligar ao Azure
-Inicie a Azure PowerShell e [ligue-se à sua subscrição:](/powershell/azure/overview)
+Inicie a Azure PowerShell e [ligue-se à sua subscrição:](/powershell/azure/)
 
 ```azurepowershell
 Add-AzAccount
@@ -51,7 +51,7 @@ Get-AzAlertRule -ResourceGroup "Fabrikam" `
 Add-AzMetricAlertRule -Name "{ALERT NAME}" `
   -Description "{TEXT}" `
   -ResourceGroup "{GROUP NAME}" `
-  -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
+  -TargetResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
   -MetricName "{METRIC NAME}" `
   -Operator GreaterThan `
   -Threshold {NUMBER}  `
@@ -71,7 +71,7 @@ O GUID é o ID de subscrição (não a chave de instrumentação da aplicação)
 ```azurepowershell
 Add-AzMetricAlertRule -Name "slow responses" `
   -ResourceGroup "Fabrikam" `
-  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -TargetResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
   -MetricName "request.duration" `
   -Operator GreaterThan `
   -Threshold 1 `
@@ -88,7 +88,7 @@ Tenho uma aplicação na qual uso [trackMetric](../../azure-monitor/app/api-cust
 Add-AzMetricAlertRule -Name "poor sales" `
   -Description "slow sales alert" `
   -ResourceGroup "Fabrikam" `
-  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -TargetResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
   -MetricName "salesPerHour" `
   -Operator LessThan `
   -Threshold 100 `
@@ -138,7 +138,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 ## <a name="webhooks"></a>Webhooks
 Pode [automatizar a sua resposta a um alerta.](../../azure-monitor/platform/alerts-webhooks.md) O Azure irá ligar para um endereço web à sua escolha quando um alerta for levantado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Script para configurar insights de aplicações](./create-new-resource.md#creating-a-resource-automatically)
 * [Criar Insights de Aplicação e recursos de teste web a partir de modelos](powershell.md)
 * [Automatizar o acoplamento do Microsoft Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)

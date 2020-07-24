@@ -1,20 +1,20 @@
 ---
 title: Solicitar dados de trânsito / Microsoft Azure Maps
 description: Neste artigo, você aprenderá a solicitar dados de trânsito público usando o Microsoft Azure Maps Mobility Service.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 135da2102b77f1d6a94b4458e10fba8c4f2b8534
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c50a3cee3cf4d0ac7aa55eb4e9d80e97e5248876
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517506"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126555"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público utilizando o Serviço de Mobilidade Azure Maps 
 
@@ -779,7 +779,7 @@ O serviço Azure Maps [Get Transit Itinerário](https://aka.ms/AzureMapsMobility
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como solicitar dados em tempo real utilizando o Serviço de Mobilidade:
 

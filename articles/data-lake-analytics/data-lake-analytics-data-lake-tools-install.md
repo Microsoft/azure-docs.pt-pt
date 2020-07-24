@@ -3,18 +3,16 @@ title: Instalar as Ferramentas do Azure Data Lake para Visual Studio
 description: Este artigo descreve como instalar ferramentas do Lago de Dados Azure para o Estúdio Visual.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: d153ba1d00c0e43a5809503e047fb66713b7fb7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: df3bf715f8571659d0e622729562055428ab5c97
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104933"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125943"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Instalar as Ferramentas do Data Lake para Visual Studio
 
@@ -51,7 +49,7 @@ Descarregue e instale ferramentas de análise do [Microsoft Azure Data Lake e st
 * O **nó**  >  **Azure** do Explorador do Servidor contém um nó **Data Lake Analytics.**
 * O menu **Ferramentas** inclui um item do **Data Lake**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para registar informações de diagnóstico, consulte [aceder aos registos de diagnósticos do Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * Para ver uma consulta mais complexa, consulte [Analisar registos de site através da Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).

@@ -1,19 +1,19 @@
 ---
 title: Operações core IO / Microsoft Azure Maps
 description: Aprenda a ler e escrever de forma eficiente XML e dados delimitados utilizando bibliotecas principais a partir do módulo IO espacial.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e142fe348a339e4903d692cad569015edb69f75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80371447"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124481"
 ---
 # <a name="core-io-operations"></a>Operações core IO
 
@@ -30,7 +30,7 @@ A `atlas.io.core.CsvReader` classe lê cordas que contêm conjuntos de dados del
 
 Por predefinição, o leitor usará o carácter de vírgula como o delimiter. No entanto, o delimiter pode ser alterado para qualquer personagem ou definido para `'auto'` . Quando `'auto'` programado, o leitor analisará a primeira linha de texto na cadeia. Em seguida, irá selecionar o personagem mais comum da tabela abaixo para usar como o delimiter.
 
-| | |
+| Delimitador | Caráter |
 | :-- | :-- |
 | Ponto | `,` |
 | Tecla de Tabulação | `\t` |

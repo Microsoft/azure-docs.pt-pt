@@ -2,20 +2,20 @@
 title: Executar scripts U-SQL do Lago de Dados Azure na sua máquina local
 description: Saiba como usar o Azure Data Lake Tools para o Visual Studio para executar trabalhos U-SQL na sua máquina local.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+author: liudan66
+ms.author: liud
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 49d8918fc0f17431ae5bbca87f1157b571220840
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24f1156fa4a97adb500033034bc7396fd1badbeb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120148"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125739"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Executar scripts U-SQL na sua máquina local
 
@@ -106,7 +106,7 @@ Você pode executar scripts U-SQL localmente em Visual Studio e também usar o A
 
 Saiba mais sobre o [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como configurar um pipeline CI/CD para a Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md).
 - [Como testar o seu código Azure Data Lake Analytics](data-lake-analytics-cicd-test.md).

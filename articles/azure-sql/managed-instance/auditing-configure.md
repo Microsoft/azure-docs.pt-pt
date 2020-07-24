@@ -13,11 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 6599963b216409103f72b4e46a30961c6d60e32c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 213a4fdb0e064e1c36a04f7190f14fab80cb4daa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695560"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117351"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Começar com a auditoria da Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,7 +32,7 @@ ms.locfileid: "84695560"
 
 A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
-1. Vá ao [portal Azure.](https://portal.azure.com)
+1. Aceda ao [portal do Azure](https://portal.azure.com).
 2. Crie um **recipiente** de armazenamento Azure onde os registos de auditoria são armazenados.
 
    1. Navegue para a conta de armazenamento Azure onde pretende guardar os seus registos de auditoria.
@@ -113,7 +114,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
-        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        TO URL ( PATH ='<container_url>' , RETENTION_DAYS =  integer )
         GO
         ```
 
@@ -176,7 +177,7 @@ Os registos de auditoria de uma instância gerida podem ser enviados para os cen
 
 5. Selecione um destino para os eventos de auditoria: Centros de Eventos, registos do Azure Monitor ou ambos. Configure para cada alvo os parâmetros necessários (por exemplo, log analytics espaço de trabalho).
 
-6. Clique em **Guardar**.
+6. Clique em **Save** (Guardar).
 
     ![Configurar configurações de diagnóstico](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -243,7 +244,7 @@ As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazena
 - A opção de encerramento não é **suportada**.
 - `queue_delay`de 0 não é **suportado**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma lista completa dos métodos de consumo de registos de auditoria, consulte a [Get start with Azure SQL Database auditing](../../azure-sql/database/auditing-overview.md).
 - Para obter mais informações sobre os programas Azure que suportam o cumprimento das normas, consulte o [Azure Trust Center,](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)onde pode encontrar a lista mais atual de certificações de conformidade.

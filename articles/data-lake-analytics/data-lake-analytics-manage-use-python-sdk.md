@@ -3,19 +3,17 @@ title: Gerir a Azure Data Lake Analytics usando Python
 description: Este artigo descreve como usar python para gerir contas data lake analytics, fontes de dados, utilizadores, & empregos.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: matt1883
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 23c2560d44dfeaa871c88d40175d60b3b29dc1b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5d107a94fde7627188bcd040a5c647fc32c163d1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121270"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125586"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerir a Azure Data Lake Analytics usando Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -260,7 +258,7 @@ adlaAccountClient.computePolicies.createOrUpdate(
     rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para ver o mesmo tutorial, utilizando outras ferramentas, clique nos seletores de separador no topo da página.
 - Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

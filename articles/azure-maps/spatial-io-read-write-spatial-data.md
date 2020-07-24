@@ -1,19 +1,19 @@
 ---
 title: Ler e escrever dados espaciais Microsoft Azure Maps
 description: Saiba ler e escrever dados utilizando o módulo Spatial IO, fornecido pela Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4c47335689401ebce98224992c74c3396821a1dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 633af1475266e39e9c8dd278a018316c36e6491b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334163"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124413"
 ---
 # <a name="read-and-write-spatial-data"></a>Ler e escrever dados espaciais
 
@@ -40,7 +40,7 @@ Ao ler um ficheiro comprimido, seja como um fecho ou um KMZ, será desapertado e
 
 O resultado da função de leitura é um `SpatialDataSet` objeto. Este objeto estende a classe GeoJSON FeatureCollection. Pode facilmente ser passado para um `DataSource` as-é para tornar as suas características num mapa. O `SpatialDataSet` não só contém informações sobre as características, como também pode incluir sobreposições de terra KML, métricas de processamento e outros detalhes, tal como descritos no quadro seguinte.
 
-| Nome da propriedade | Tipo | Description | 
+| Nome da propriedade | Tipo | Descrição | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Caixa de limitação de todos os dados do conjunto de dados. |
 | `features` | `Feature[]` | GeoJSON possui dentro do conjunto de dados. |

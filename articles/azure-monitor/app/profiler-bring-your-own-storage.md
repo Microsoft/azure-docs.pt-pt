@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 50dcd3f438645c99e0ed3cfdded7a101ee5f1852
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539861"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117381"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure Traga o seu próprio armazenamento (BYOS) para perfis de aplicações e debugger snapshot
 
@@ -63,7 +63,7 @@ _ ![ Figura 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 Se também estiver a utilizar o Private Link, é necessária uma configuração adicional para permitir a ligação ao nosso Serviço Microsoft Fidedigno a partir da sua Rede Virtual. Consulte a [documentação de segurança da rede de armazenamento.](../../storage/common/storage-network-security.md#trusted-microsoft-services)
 
 ### <a name="link-your-storage-account-with-your-application-insights-resource"></a>Ligue a sua Conta de Armazenamento com o seu recurso Application Insights
-Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugger), existem duas opções:
+Para configurar o BYOS para diagnósticos de nível de código (Profiler/Debugger), existem três opções:
 
 * Usando cmdlets Azure PowerShell
 * Utilizando interface de linha de comando Azure (CLI)

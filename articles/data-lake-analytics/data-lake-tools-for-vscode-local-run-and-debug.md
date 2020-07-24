@@ -3,18 +3,16 @@ title: Empregos de Debug U-SQL - Azure Data Lake Tools for Visual Studio Code
 description: Aprenda a usar ferramentas do Lago de Dados Azure para o Código do Estúdio Visual para executar e depurar empregos U-SQL localmente.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 07/14/2017
-ms.openlocfilehash: 141be5c2747ae5d0a812b1301b6af7203fe24351
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4b8285281119121b509c62b11bf48a5f70a9f0f0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110611"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125705"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Executar U-SQL e depurar localmente no Código do Estúdio Visual
 Este artigo descreve como executar trabalhos U-SQL numa máquina de desenvolvimento local para acelerar as fases de codificação precoce ou depurar código localmente no Código do Estúdio Visual. Para obter instruções sobre a ferramenta Azure Data Lake Tool para código de estúdio visual, consulte [Azure Data Lake Tools para Código de Estúdio Visual](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -83,7 +81,7 @@ Siga os passos abaixo para realizar o depurg local:
    ![Ferramentas do Lago de Dados para o resultado do depurg local do Código do Estúdio Visual](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-debug-result.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Utilizar as Ferramentas do Azure Data Lake para o Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [Desenvolver U-SQL com Python, R e CSharp para Azure Data Lake Analytics em VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 * [Começar com data lake analytics usando PowerShell](data-lake-analytics-get-started-powershell.md)

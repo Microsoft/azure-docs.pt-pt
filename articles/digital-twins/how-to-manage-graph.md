@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258103"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125537"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
 O coração de Azure Digital Twins é o [gráfico gémeo](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico gémeo é composto por gémeos digitais individuais ligados através de **relacionamentos.**
 
-Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance.md) em funcionamento e tenha configurado a [autenticação](how-to-authenticate-client.md) para a sua aplicação de clientes, pode utilizar as [**APIs DigitalTwins**](how-to-use-apis-sdks.md) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance-scripted.md) em funcionamento e tenha configurado código de [autenticação](how-to-authenticate-client.md) na sua aplicação de cliente, pode utilizar as [**APIs digitalTwins**](how-to-use-apis-sdks.md) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
-Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [Como-a- Gerir gémeos digitais.](how-to-manage-twin.md)
+Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [*Como-a- Gerir gémeos digitais.*](how-to-manage-twin.md)
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -62,7 +62,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Para obter mais informações sobre a classe de `BasicRelationship` ajudante, consulte [Como-a-fazer: Use as APIs e SDKs de gémeos digitais Azure](how-to-use-apis-sdks.md).
+Para obter mais informações sobre a classe de `BasicRelationship` ajudante, consulte [*Como-a-fazer: Use as APIs e SDKs de gémeos digitais Azure*](how-to-use-apis-sdks.md).
 
 ## <a name="list-relationships"></a>Relações de lista
 
@@ -108,7 +108,7 @@ A Azure Digital Twins também tem uma API para encontrar todas as relações rec
 
 A amostra de código anterior focava-se em encontrar relações de saída. O exemplo a seguir é semelhante, mas encontra relações recebidas. Também os apaga assim que forem encontrados.
 
-Note que as chamadas incomingRelationship não devolvem a totalidade
+Note que as `IncomingRelationship` chamadas não devolvem todo o corpo da relação.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
@@ -229,7 +229,7 @@ Em casos práticos de utilização, as hierarquias gémeas serão muitas vezes c
 
 Considere a seguinte tabela de dados, descrevendo um conjunto de gémeos digitais e relações a criar.
 
-| Modelo    | ID | Principal | Nome da relação | Outros dados |
+| Modelação    | ID | Principal | Nome da relação | Outros dados |
 | --- | --- | --- | --- | --- |
 | chão    | Piso01 | | | … |
 | sala    | Sala10 | Piso01 | contains | … |
@@ -301,10 +301,10 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## <a name="manage-relationships-with-cli"></a>Gerir relações com o CLI
 
-As gémeas e as suas relações também podem ser geridas usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+As gémeas e as suas relações também podem ser geridas usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [*Como-a-: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a consulta de um gráfico gémeo Azure Digital Twins:
-* [Conceitos: Linguagem de consulta](concepts-query-language.md)
-* [Como fazer: Consulta do gráfico gémeo](how-to-query-graph.md)
+* [*Conceitos: Linguagem de consulta*](concepts-query-language.md)
+* [*Como fazer: Consulta do gráfico gémeo*](how-to-query-graph.md)

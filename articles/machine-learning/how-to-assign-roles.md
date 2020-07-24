@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: f289be1b3432d9c62b4841c513088afa16e0e447
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff8d532bf1c19ded9567e8c1e4b63e674c01d0d8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609253"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125178"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a um espaço de trabalho de aprendizagem automática Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,18 +25,18 @@ Neste artigo, aprende-se a gerir o acesso a um espaço de trabalho de Aprendizag
 
 ## <a name="default-roles"></a>Funções predefinidos
 
-Um espaço de trabalho de aprendizagem automática Azure é um recurso Azure. Como outros recursos Azure, quando um novo espaço de trabalho Azure Machine Learning é criado, ele vem com três papéis padrão. Pode adicionar utilizadores ao espaço de trabalho e atribuí-los a uma destas funções incorporadas.
+Uma área de trabalho do Azure Machine Learning é um recurso do Azure. Tal como outros recursos do Azure, quando cria uma nova área de trabalho do Azure Machine Learning, esta inclui três funções por predefinição. Pode adicionar utilizadores ao espaço de trabalho e atribuí-los a uma destas funções incorporadas.
 
 | Função | Nível de acesso |
 | --- | --- |
 | **Leitor** | Ações só de leitura no espaço de trabalho. Os leitores podem listar e visualizar ativos (incluindo credenciais [de datastore)](how-to-access-data.md) num espaço de trabalho, mas não podem criar ou atualizar esses ativos. |
-| **Contribuinte** | Ver, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Por exemplo, os contribuintes podem criar uma experiência, criar ou anexar um cluster de computação, submeter uma execução e implementar um serviço web. |
-| **Proprietário** | Acesso total ao espaço de trabalho, incluindo a capacidade de visualizar, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Além disso, pode alterar atribuições de funções. |
+| **Contribuinte** | Ver, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Por exemplo, os contribuidores podem criar uma experimentação, criar ou anexar um cluster de cálculo, submeter uma execução e implementar um serviço Web. |
+| **Proprietário** | Acesso total ao espaço de trabalho, incluindo a capacidade de visualizar, criar, editar ou apagar (se aplicável) ativos num espaço de trabalho. Além disso, pode alterar as atribuições de funções. |
 
 > [!IMPORTANT]
 > O acesso a funções pode ser alargado a vários níveis em Azure. Por exemplo, alguém com acesso ao proprietário a um espaço de trabalho pode não ter acesso ao grupo de recursos que contém o espaço de trabalho. Para mais informações, consulte [como funciona o RBAC.](/azure/role-based-access-control/overview#how-rbac-works)
 
-Para obter mais informações sobre funções específicas incorporadas, consulte [as funções incorporadas para o Azure.](/azure/role-based-access-control/built-in-roles)
+Para obter mais informações sobre funções específicas incorporadas, consulte [as funções incorporadas do Azure.](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="manage-workspace-access"></a>Gerir o acesso ao espaço de trabalho
 
@@ -45,7 +45,7 @@ Se você é proprietário de um espaço de trabalho, você pode adicionar e remo
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
 - [API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Modelos do Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Modelos de gestor de recursos Azure](/azure/role-based-access-control/role-assignments-template)
 
 Se instalou o [CLI de Aprendizagem de Máquinas Azure,](reference-azure-machine-learning-cli.md)também pode utilizar um comando CLI para atribuir funções aos utilizadores.
 
@@ -69,7 +69,7 @@ Azure Machine Learning em ações incorporadas para muitas operações e tarefas
 
 ## <a name="create-custom-role"></a>Criar função personalizada
 
-Se os papéis incorporados forem insuficientes, pode criar papéis personalizados. As funções personalizadas podem ter lido, escrito, apagado e computado permissões de recursos nesse espaço de trabalho. Pode disponibilizar a função a um nível específico do espaço de trabalho, a um nível específico do grupo de recursos ou a um nível de subscrição específico.
+Se as funções incorporadas forem insuficientes, poderá criar funções personalizadas. As funções personalizadas podem ter lido, escrito, apagado e computado permissões de recursos nesse espaço de trabalho. Pode disponibilizar a função a um nível específico do espaço de trabalho, a um nível específico do grupo de recursos ou a um nível de subscrição específico.
 
 > [!NOTE]
 > Você deve ser um proprietário do recurso a esse nível para criar funções personalizadas dentro desse recurso.
@@ -117,9 +117,9 @@ Após a implementação, esta função fica disponível no espaço de trabalho e
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Para obter mais informações sobre funções personalizadas, consulte [as funções personalizadas para recursos Azure](/azure/role-based-access-control/custom-roles).
+Para obter mais informações sobre funções personalizadas, consulte [as funções personalizadas Azure](/azure/role-based-access-control/custom-roles).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>P. Quais são as permissões necessárias para realizar várias ações no serviço de Aprendizagem automática Azure?
@@ -128,11 +128,11 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 
 | Atividade | Âmbito de nível de subscrição | Âmbito de grupo de recursos | Âmbito ao nível do espaço de trabalho |
 |---|---|---|---|
-| Criar novo espaço de trabalho | Não é necessária | Proprietário ou colaborador | N/A (torna-se Proprietário ou herda um papel de âmbito superior após a criação) |
-| Criar novo cluster computacional | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
-| Criar novo VM de Caderno | Não é necessária | Proprietário ou colaborador | Não é possível |
-| Criar nova instância computacional | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
-| Atividade de plano de dados como submeter, aceder a dados, implementar modelo ou publicar pipeline | Não é necessária | Não é necessária | Função de proprietário, colaborador ou personalizado que permite:`workspaces/*/write` <br/> Também precisa de uma datastore registada no espaço de trabalho para permitir que a MSI aceda aos dados na sua conta de armazenamento. |
+| Criar novo espaço de trabalho | não é necessário | Proprietário ou colaborador | N/A (torna-se Proprietário ou herda um papel de âmbito superior após a criação) |
+| Criar novo cluster computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
+| Criar novo VM de Caderno | não é necessário | Proprietário ou colaborador | Não é possível |
+| Criar nova instância computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`workspaces/computes/write` |
+| Atividade de plano de dados como submeter, aceder a dados, implementar modelo ou publicar pipeline | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite:`workspaces/*/write` <br/> Também precisa de uma datastore registada no espaço de trabalho para permitir que a MSI aceda aos dados na sua conta de armazenamento. |
 
 
 ### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>P. Como posso listar todas as funções personalizadas na minha assinatura?
@@ -174,7 +174,7 @@ Sim, pode definir um papel que impede a atualização da edição do espaço de 
 Precisa de permissões de nível de subscrição para realizar qualquer operação relacionada com quotas no espaço de trabalho. Isto significa que definir a quota de nível de subscrição ou a quota de nível de espaço de trabalho para os seus recursos de computação geridos só pode acontecer se tiver permissões de escrita no âmbito de subscrição. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da segurança empresarial](concept-enterprise-security.md)
 - [Executar de forma segura experiências e inferência/pontuação dentro de uma rede virtual](how-to-enable-virtual-network.md)

@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1440bf2b8af85b81355dbc43b695a85994e4b8d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565898"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124141"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade Azure
 
@@ -90,10 +91,15 @@ Saiba mais:
 
 O RBAC é um sistema de autorização criado com base no Azure Resource Manager que fornece gestão pormenorizada de acesso de recursos no Azure. O RBAC permite-lhe controlar granulivelmente o nível de acesso que os utilizadores têm. Por exemplo, pode limitar um utilizador a gerir apenas redes virtuais e outro utilizador para gerir todos os recursos num grupo de recursos. O Azure inclui várias funções incorporadas que pode utilizar. São apresentadas em seguida quatro funções incorporadas fundamentais. As três primeiras aplicam-se a todos os tipos de recursos.
 
+- [Proprietário](/azure/role-based-access-control/built-in-roles.md#owner) - Tem acesso total a todos os recursos, incluindo o direito de delegar o acesso a outros. 
+- [Contribuinte](/azure/role-based-access-control/built-in-roles.md#contributor) - Pode criar e gerir todos os tipos de recursos Azure, mas não pode conceder acesso a outros.
+- [Leitor](/azure/role-based-access-control/built-in-roles.md#reader) - Pode ver os recursos Azure existentes.
+- [Administrador de Acesso ao Utilizador](/azure/role-based-access-control/built-in-roles.md#administrator) - Permite-lhe gerir o acesso do utilizador aos recursos do Azure.
+
 Saiba mais:
 
-* [O que é o controlo de acesso baseado em funções (RBAC)?](/azure/role-based-access-control/overview)
-* [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles) (Funções incorporadas para recursos do Azure)
+* [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Funções incorporadas do Azure](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios de monitorização de segurança, alertas e aprendizagem automática
 

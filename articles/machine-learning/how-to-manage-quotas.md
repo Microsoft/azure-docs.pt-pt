@@ -11,11 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8be4169a44b2ef57db8aa49b96f6c5fe85ded1c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430460"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125093"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +72,7 @@ Recursos disponíveis:
 | Nós máximos num único recurso Azure Machine Learning Compute (AmlCompute) | 100 nosdes |
 | Processos máximos de MPI da GPU por nó | 1-4 |
 | Trabalhadores máximos da GPU por nó | 1-4 |
-| Vida útil máxima | 90 dias<sup>1</sup> |
+| Vida útil máxima | 21 dias<sup>1</sup> |
 | Vida útil máxima num nó de baixa prioridade | 7 dias<sup>2</sup> |
 | Servidores de parâmetros máximos por nó | 1 |
 
@@ -146,7 +147,7 @@ Ao solicitar um aumento de quota, precisa de selecionar o serviço que está a s
 > [!NOTE]
 > [As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou de quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [upgrade Azure Free Trial para Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) e [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais com estes artigos:
 

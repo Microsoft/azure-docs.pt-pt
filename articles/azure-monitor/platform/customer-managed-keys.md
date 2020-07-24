@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: ad2e6a05fa8459d8e5a53d9bb8b8e08790a7d8ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3835046e50180e1d1091f5083f276c7c1ad56612
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539419"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117372"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente Azure Monitor 
 
@@ -194,7 +194,7 @@ Estas definições podem ser atualizadas através do CLI e do PowerShell:
 
 Este recurso é utilizado como uma ligação de identidade intermédia entre o seu Cofre chave e os seus espaços de trabalho Log Analytics. Depois de receber a confirmação de que as suas subscrições foram permitidas, crie um recurso Log Analytics *Cluster* na região onde os seus espaços de trabalho estão localizados.
 
-Tem de especificar o nível *de reserva de capacidade* (sku) ao criar um recurso *Cluster.* O nível *de reserva* de capacidade pode estar entre 1.000 e 2.000 GB por dia e pode atualizá-lo em passos de 100 mais tarde. Se necessitar de um nível de reserva superior a 2.000 GB por dia, contacte-nos em LAIngestionRate@microsoft.com . [Saiba mais](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+Tem de especificar o nível *de reserva de capacidade* (sku) ao criar um recurso *Cluster.* O nível *de reserva* de capacidade pode estar entre 1000 e 3000 GB por dia e pode atualizá-lo em passos de 100. Se necessitar de um nível de reserva superior a 3000 GB por dia, contacte-nos em LAIngestionRate@microsoft.com . [Saiba mais](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 A propriedade *de faturaçãoType* determina a atribuição de faturação para o recurso *Cluster* e seus dados:
 - *Cluster* (predefinido) -- Os custos de Reserva de Capacidade do seu Cluster são atribuídos ao recurso *Cluster.*
@@ -467,9 +467,9 @@ Todos os seus dados permanecem acessíveis após a operação de rotação da ch
 A linguagem de consulta utilizada no Log Analytics é expressiva e pode conter informações sensíveis nos comentários que adiciona às consultas ou na sintaxe de consulta. Algumas organizações exigem que tais informações são mantidas protegidas como parte da política da CMK e você precisa salvar as suas consultas encriptadas com a sua chave. O Azure Monitor *permite-lhe* armazenar pesquisas guardadas e *consultas de alerta de registo* encriptadas com a sua chave na sua própria conta de armazenamento quando ligada ao seu espaço de trabalho. 
 
 > [!NOTE]
-> CMK para consultas usadas em livros de trabalho e dashboards Azure ainda não está suportado. Estas consultas permanecem encriptadas com a chave microsoft.  
+> As consultas de Log Analytics podem ser guardadas em várias lojas, dependendo do cenário utilizado. As consultas permanecem encriptadas com a tecla microsoft (MMK) nos seguintes cenários, independentemente da configuração CMK: Workbooks in Azure Monitor, Dashboards Azure, Azure Logic App, Azure Notebooks e Automation Runbooks.
 
-Quando [traz o seu próprio armazenamento](./private-storage.md) (BYOS) e o associa ao seu espaço de trabalho, o serviço faz uploads de pesquisas *guardadas* e *consultas de alerta de registo* na sua conta de armazenamento. Isto significa que controla a conta de armazenamento e a [política de encriptação em repouso,](../../storage/common/encryption-customer-managed-keys.md) utilizando a mesma chave que utiliza para encriptar dados no cluster Log Analytics, ou numa chave diferente. No entanto, será responsável pelos custos associados a essa conta de armazenamento. 
+Quando traz o seu próprio armazenamento (BYOS) e o associa ao seu espaço de trabalho, o serviço faz uploads *de pesquisas guardadas* e *consultas de alerta de registo* na sua conta de armazenamento. Isto significa que controla a conta de armazenamento e a [política de encriptação em repouso,](../../storage/common/encryption-customer-managed-keys.md) utilizando a mesma chave que utiliza para encriptar dados no cluster Log Analytics, ou numa chave diferente. No entanto, será responsável pelos custos associados a essa conta de armazenamento. 
 
 **Considerações antes de definir CMK para consultas**
 * Precisa de ter permissões de 'escrever' tanto para o seu espaço de trabalho como para a conta de armazenamento
@@ -599,7 +599,7 @@ Após a configuração, qualquer nova consulta de alerta será guardada no seu a
 
 - **Atualização *da reserva de capacidade* no recurso *Cluster***
 
-  Quando o volume de dados para os seus espaços de trabalho associados mudar ao longo do tempo e pretende atualizar adequadamente o nível de reserva de capacidade. Acompanhe o [recurso *cluster* ](#update-cluster-resource-with-key-identifier-details) de atualização e forneça o seu novo valor de capacidade. Pode estar entre 1.000 e 2.000 GB por dia e em degraus de 100. Para um nível superior a 2.000 GB por dia, contacte o seu contacto microsoft para o ativar. Note que não tem de fornecer todo o corpo de pedido de REST e deve incluir o sku:
+  Quando o volume de dados para os seus espaços de trabalho associados mudar ao longo do tempo e pretende atualizar adequadamente o nível de reserva de capacidade. Acompanhe o [recurso *cluster* ](#update-cluster-resource-with-key-identifier-details) de atualização e forneça o seu novo valor de capacidade. Pode estar entre 1000 e 3000 GB por dia e em degraus de 100. Para um nível superior a 3000 GB por dia, contacte o seu contacto microsoft para o ativar. Note que não tem de fornecer todo o corpo de pedido de REST, mas deve incluir o sku:
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"

@@ -1,19 +1,19 @@
 ---
 title: Ver detalhes de autenticação do Azure Maps
 description: Utilize o portal Azure para ver detalhes de autenticação do Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/17/2020
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9146844a6b83f78ad99ef7cd1aec4b028daf3ff6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6ffcbf5a8c36958dd3ea74de4d826fe25a1139c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988616"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126465"
 ---
 Pode ver os detalhes da autenticação da conta Azure Maps no portal Azure. Ali, na sua conta, no menu **Definições,** selecione **Autenticação**.
 

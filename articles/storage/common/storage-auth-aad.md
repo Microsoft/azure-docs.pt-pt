@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e4e64a022a8cb071eb1b3447995c1e91b910fe2d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4eb3173700a0907f8195466b9e0d7ab1903cf93e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519206"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124787"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a bolhas e filas utilizando o Azure Ative Directory
 
@@ -57,7 +57,7 @@ Para aprender a atribuir um papel RBAC incorporado a um diretor de segurança, c
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC através da CLI do Azure)
 - [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC através do PowerShell)
 
-Para obter mais informações sobre como as funções incorporadas são definidas para o Armazenamento Azure, consulte [definições de funções de entender](../../role-based-access-control/role-definitions.md#management-and-data-operations). Para obter informações sobre a criação de funções RBAC personalizadas, consulte [criar funções personalizadas para o Controlo de Acesso Baseado em Funções Azure.](../../role-based-access-control/custom-roles.md)
+Para obter mais informações sobre como as funções incorporadas são definidas para o Armazenamento Azure, consulte [definições de funções de entender](../../role-based-access-control/role-definitions.md#management-and-data-operations). Para obter informações sobre a criação de funções personalizadas [Azure, consulte os papéis personalizados da Azure](../../role-based-access-control/custom-roles.md).
 
 ### <a name="access-permissions-for-data-operations"></a>Permissões de acesso para operações de dados
 
@@ -85,7 +85,7 @@ O portal Azure indica qual o sistema de autorização que está a ser utilizado 
 
 Suporte Azure CLI e PowerShell assinando com credenciais AZure AD. Depois de assinar, a sua sessão passa por baixo dessas credenciais. Para saber mais, consulte os [comandos Run Azure CLI ou PowerShell com credenciais AD AD para aceder a dados de blob ou fila](authorize-active-directory-powershell.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autorizar o acesso a blobs e filas com o Azure Ative Directory e identidades geridas para a Azure Resources](storage-auth-aad-msi.md)
 - [Autorizar com o Azure Ative Directory a partir de um pedido de acesso a bolhas e filas](storage-auth-aad-app.md)

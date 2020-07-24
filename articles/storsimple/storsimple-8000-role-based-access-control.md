@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: a6dc55138977727dc5399ec9653340225bcc3901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec98060a09a1fad4f851689daff3f4b578c164f5
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514637"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124107"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controlo de acesso baseado em funções para StorSimple
 
-Este artigo fornece uma breve descrição de como o Controlo de Acesso Baseado em Funções (RBAC) pode ser usado para o seu dispositivo StorSimple. O RBAC oferece uma gestão de acessos finos para o Azure. Utilize o RBAC para conceder a quantidade certa de acesso aos utilizadores StorSimple para fazer o seu trabalho em vez de dar a todos acesso ilimitado. Para obter mais informações sobre os fundamentos da gestão de acessos em Azure, consulte [Começar com o Controlo de Acesso baseado em Fun no portal Azure.](../role-based-access-control/overview.md)
+Este artigo fornece uma breve descrição de como o controlo de acesso baseado em funções Azure (Azure RBAC) pode ser usado para o seu dispositivo StorSimple. O RBAC oferece uma gestão de acessos finos para o Azure. Utilize o RBAC para conceder a quantidade certa de acesso aos utilizadores StorSimple para fazer o seu trabalho em vez de dar a todos acesso ilimitado. Para obter mais informações sobre os fundamentos da gestão de acessos em Azure, consulte [Começar com o Controlo de Acesso baseado em Fun no portal Azure.](../role-based-access-control/overview.md)
 
 Este artigo aplica-se aos dispositivos da série StorSimple 8000 que executam a Atualização 3.0 ou mais tarde no portal Azure.
 
@@ -34,7 +35,7 @@ O RBAC pode ser atribuído com base nas funções. As funções garantem certos 
 
 * **Funções incorporadas** - As funções incorporadas podem ser proprietárias, contribuintes, leitor ou administrador de acesso ao utilizador. Para obter mais informações, consulte [as funções incorporadas para o Controlo de Acesso baseado em funções Azure.](../role-based-access-control/built-in-roles.md)
 
-* **Funções personalizadas** - Se as funções incorporadas não se adequarem às suas necessidades, pode criar funções RBAC personalizadas para StorSimple. Para criar um papel RBAC personalizado, comece com um papel incorporado, edite-o e, em seguida, importe-o de volta no ambiente. O download e o upload da função são geridos usando a Azure PowerShell ou o Azure CLI. Para obter mais informações, consulte [Criar funções personalizadas para controlo de acesso baseado em funções.](../role-based-access-control/custom-roles.md)
+* **Funções personalizadas** - Se as funções incorporadas não se adequarem às suas necessidades, pode criar funções personalizadas Azure para storSimple. Para criar um papel personalizado Azure, comece com um papel incorporado, edite-o e, em seguida, importe-o de volta no ambiente. O download e o upload da função são geridos usando a Azure PowerShell ou o Azure CLI. Para obter mais informações, consulte [Criar funções personalizadas para controlo de acesso baseado em funções.](../role-based-access-control/custom-roles.md)
 
 Para visualizar as diferentes funções disponíveis para um utilizador de dispositivo StorSimple no portal Azure, vá ao seu serviço StorSimple Device Manager e, em seguida, vá para **o Controle de Acesso (IAM) > Roles**.
 
@@ -101,7 +102,7 @@ No exemplo seguinte, começamos com a função incorporada **Reader** que permit
     }
     ```
 
-6. Importe o papel personalizado da RBAC de volta para o ambiente.
+6. Importe o papel personalizado Azure de volta para o ambiente.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
@@ -193,6 +194,6 @@ Uma vez criada esta função, pode ver as permissões associadas a este papel no
     ![Ver utilizadores na função de Infra Administrador StorSimple](./media/storsimple-8000-role-based-access-control/rbac-infra-admin-permissions1.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [atribuir funções personalizadas para utilizadores internos e externos.](../role-based-access-control/role-assignments-external-users.md)
