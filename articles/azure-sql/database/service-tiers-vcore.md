@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/27/2019
-ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/21/2020
+ms.openlocfilehash: c54979efbbd164a11614b92d9a337a86e2f221fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985555"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007746"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ O modelo de compra de núcleo virtual (vCore) utilizado pela Azure SQL Database 
 - Computação mais alta, memória, E.I., e limites de armazenamento.
 - Controle a geração de hardware para melhor combinar os requisitos de computação e memória da carga de trabalho.
 - Descontos de preços para [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) e [Instância Reservada (RI)](reserved-capacity-overview.md).
-- Maior transparência nos detalhes de hardware que alimentam o cálculo; facilita o planeamento das migrações a partir de implantações no local.
+- Maior transparência nos detalhes do hardware que alimentam o computação, o que facilita o planeamento das migrações a partir de implementações no local.
 
 ## <a name="service-tiers"></a>Escalões de serviço
 
@@ -69,7 +69,7 @@ O [nível de cálculo sem servidor](serverless-tier-overview.md) calcula os recu
 
 ## <a name="hardware-generations"></a>Gerações de hardware
 
-As opções de geração de hardware no modelo vCore incluem Gen 4/5, Série M (pré-visualização) e série Fsv2 (pré-visualização). A geração de hardware define geralmente os limites de cálculo e memória e outras características que impactam o desempenho da carga de trabalho.
+As opções de geração de hardware no modelo vCore incluem a série Gen 4/5, M-series e Fsv2. A geração de hardware define geralmente os limites de cálculo e memória e outras características que impactam o desempenho da carga de trabalho.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -77,21 +77,21 @@ As opções de geração de hardware no modelo vCore incluem Gen 4/5, Série M (
 
 Para as regiões onde a Gen4/Gen5 está disponível, consulte [a disponibilidade da Gen4/Gen5](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Série Fsv2 (pré-visualização)
+### <a name="fsv2-series"></a>Série Fsv2
 
 - Fsv2-series é uma opção de hardware otimizada computacional que oferece baixa latência de CPU e alta velocidade do relógio para as cargas de trabalho mais exigentes do CPU.
 - Dependendo da carga de trabalho, a série Fsv2 pode oferecer mais desempenho cpU por vCore do que a Gen5, e o tamanho de 72 vCore pode fornecer mais desempenho cpU por menos custos do que 80 vCores na Gen5. 
 - O Fsv2 fornece menos memória e temperatura por vCore do que outros hardware, pelo que cargas de trabalho sensíveis a esses limites podem querer considerar a série Gen5 ou M.  
 
-Série Fsv2 apenas suportada no nível de Finalidade Geral.  Para as regiões onde a série Fsv2 está disponível, consulte [a disponibilidade da série Fsv2](#fsv2-series).
+Série Fsv2 apenas suportada no nível de Finalidade Geral. Para as regiões onde a série Fsv2 está disponível, consulte [a disponibilidade da série Fsv2](#fsv2-series).
 
 
-### <a name="m-seriespreview"></a>Série M (pré-visualização)
+### <a name="m-series"></a>Série M
 
 - A série M é uma opção de hardware otimizada pela memória para cargas de trabalho que exigem mais memória e limites de computação mais elevados do que os fornecidos pela Gen5.
-- A série M fornece 29 GB por vCore e 128 vCores, o que aumenta o limite de memória em relação à Gen5 em 8x para quase 4 TB.
+- A série M fornece 29 GB por vCore e até 128 vCores, o que aumenta o limite de memória em relação à Gen5 em 8x para quase 4 TB.
 
-A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.  A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA).  Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series).
+A série M só é suportada no nível Business Critical e não suporta o despedimento de zona.  A subscrição deve ser um tipo de oferta paga, incluindo Pay-As-You-Go ou Enterprise Agreement (EA). Para as regiões onde a série M está disponível, consulte [a disponibilidade da série M](#m-series).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -104,8 +104,8 @@ To enable M-series hardware for a subscription and region, a support request mus
 |:---------|:---------|:---------|
 |Gen4     |- Processadores Intel E5-2673 v3 (Haswell) 2.4 GHz<br>- Provisão até 24 vCores (1 vCore = 1 núcleo físico)  |- 7 GB por vCore<br>- Provisão até 168 GB|
 |Gen5     |**Cálculo provisionado**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz e Processadores Intel SP-8160 (Skylake)*<br>- Provisão até 80 vCores (1 vCore = 1 hiper-thread)<br><br>**Computação sem servidor**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz e Processadores Intel SP-8160 (Skylake)*<br>- Escala automática até 16 vCores (1 vCore = 1 hiper-thread)|**Cálculo provisionado**<br>- 5,1 GB por vCore<br>- Provisão até 408 GB<br><br>**Computação sem servidor**<br>- Escala automática até 24 GB por vCore<br>- Escala automática até 48 GB max|
-|Série Fsv2     |- Processadores Intel Xeon Platinum 8168 (SkyLake)<br>- Com uma velocidade do relógio turbo de 3,4 GHz e uma velocidade máxima máxima de 3,7 GHz.<br>- Provisão 72 vCores (1 vCore = 1 hiper-thread)|- 1,9 GB por vCore<br>- Provisão 136 GB|
-|Série M     |- Processadores Intel Xeon E7-8890 v3 2,5 GHz e Intel Xeon Platinum 8280M 2.7 GHz (Lago cascata)<br>- Provisão 128 vCores (1 vCore = 1 hiper-thread)|- 29 GB por vCore<br>- Provisão 3.7 TB|
+|Série Fsv2     |- Processadores Intel Xeon Platinum 8168 (Skylake)<br>- Com uma velocidade do relógio turbo de 3,4 GHz e uma velocidade máxima máxima de 3,7 GHz.<br>- Provisão até 72 vCores (1 vCore = 1 hiper-thread)|- 1,9 GB por vCore<br>- Provisão até 136 GB|
+|Série M     |- Processadores Intel Xeon E7-8890 v3 2,5 GHz e Intel Xeon Platinum 8280M 2.7 GHz (Lago cascata)<br>- Provisão até 128 vCores (1 vCore = 1 hiper-thread)|- 29 GB por vCore<br>- Provisão até 3,7 TB|
 
 \*Na visão dinâmica de gestão [sys.dm_user_db_resource_governance,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) a geração de hardware para bases de dados da Gen5 utilizando processadores Intel SP-8160 (Skylake) aparece como Gen6. Os limites de recursos para todas as bases de dados da Gen5 são os mesmos, independentemente do tipo de processador (Broadwell ou Skylake).
 
@@ -148,13 +148,13 @@ No **separador Básicos,** selecione o link **de base de dados Configure** na se
   
 **Para alterar a geração de hardware de uma sql existente Exemplo gerido**
 
-# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
 
 A partir da página SQL Managed Instance, selecione o link **de nível de preços** colocado na secção Definições
 
 ![alterar hardware de instância gerida SQL](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
-Na página **de nível de preços** poderá alterar a geração de hardware como descrito nos passos anteriores.
+Na página de nível de preços, poderá alterar a geração de hardware como descrito nos passos anteriores.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -166,7 +166,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Para mais detalhes, consulte o comando [Set-AzSqlInstance.](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Utilize o seguinte comando CLI:
 
@@ -222,7 +222,7 @@ On the **Details** page, provide the following:
 Approved support requests are typically fulfilled within 5 business days.
 -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte: 
 - [Criação de uma Base de Dados SQL utilizando o portal Azure](single-database-create-quickstart.md)
