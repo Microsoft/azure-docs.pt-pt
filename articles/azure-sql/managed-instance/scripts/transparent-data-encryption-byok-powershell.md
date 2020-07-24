@@ -12,11 +12,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
-ms.openlocfilehash: eba53254d58ddfa2577212723b7234bbb5939a6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34d91b23b0383f4128b7f03619ad0e2b07496f33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014155"
 ---
 # <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>Encriptação de dados transparente em SQL Caso gerido usando a sua própria chave a partir do Cofre de Chaves Azure
 
@@ -42,8 +43,8 @@ Se estiver a executar localmente o PowerShell, também terá de executar o `Conn
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.ps1 "Set up BYOK TDE for SQL Managed Instance")]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a Azure PowerShell, consulte [a documentação da Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre a Azure PowerShell, consulte [a documentação da Azure PowerShell](/powershell/azure/).
 
 As amostras adicionais de script powerShell para sql Managed Instance podem ser encontradas em [scripts PowerShell de instância gerida de Azure SQL](../../database/powershell-script-content-guide.md).

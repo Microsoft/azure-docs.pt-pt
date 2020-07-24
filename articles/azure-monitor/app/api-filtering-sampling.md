@@ -3,12 +3,12 @@ title: Filtragem e pré-processamento no SDK application Insights Microsoft Docs
 description: Escreva processadores de telemetria e iniciais de telemetria para o SDK filtrar ou adicionar propriedades aos dados antes de a telemetria ser enviada para o portal Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: adaada3589fd0db1c7d47b788ad50d570defe780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075795"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014631"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrar e pré-processar telemetria no SDK Application Insights
 
@@ -498,7 +498,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Adicionar informações do HttpContext
 
-O seguinte inicializador da amostra lê [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) dados e anexa-os a um `RequestTelemetry` exemplo. O `IHttpContextAccessor` é fornecido automaticamente através da injeção de dependência do construtor.
+O seguinte inicializador da amostra lê [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) dados e anexa-os a um `RequestTelemetry` exemplo. O `IHttpContextAccessor` é fornecido automaticamente através da injeção de dependência do construtor.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -543,7 +543,7 @@ Qual é a diferença entre processadores de telemetria e inicializadores de tele
 ## <a name="reference-docs"></a>Documentos de referência
 
 * [Descrição geral da API](../../azure-monitor/app/api-custom-events-metrics.md)
-* [referência ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [referência ASP.NET](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>Código do SDK 
 
@@ -551,7 +551,7 @@ Qual é a diferença entre processadores de telemetria e inicializadores de tele
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 * [Eventos de pesquisa e registos](../../azure-monitor/app/diagnostic-search.md)
 * [Amostragem](../../azure-monitor/app/sampling.md)
-* [Resolução de problemas](../../azure-monitor/app/troubleshoot-faq.md)
+* [Resolução de problemas](../faq.md)

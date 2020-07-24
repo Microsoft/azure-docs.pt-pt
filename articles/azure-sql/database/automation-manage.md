@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3d785edb82e62363dd96d9fd67447f1be7ffe8f5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: b90acafb9146ec6cd796a0916ad46bf880398b22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982624"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013985"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Gerir bases de dados na Base de Dados Azure SQL utilizando a Azure Automation
 
@@ -34,13 +34,13 @@ Baixar a sobrecarga operacional e libertar pessoal de TI/DevOps para se concentr
 
 ## <a name="how-azure-automation-can-help-manage-your-databases"></a>Como a Azure Automation pode ajudar a gerir as suas bases de dados
 
-Com a Azure Automation, pode gerir bases de dados na Base de Dados Azure SQL utilizando [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) que estão disponíveis nas [ferramentas Azure PowerShell](/powershell/azure/overview). A Azure Automation tem estes cmdlets Azure SQL Database PowerShell disponíveis fora da caixa, para que possa executar todas as suas tarefas de gestão da Base de Dados SQL dentro do serviço. Pode também emparelhar estes cmdlets na Azure Automation com os cmdlets para outros serviços Azure, para automatizar tarefas complexas em todos os serviços da Azure e em sistemas de terceiros.
+Com a Azure Automation, pode gerir bases de dados na Base de Dados Azure SQL utilizando [cmdlets PowerShell](/powershell/module/servicemanagement/azure.service/#sql) que estão disponíveis nas [ferramentas Azure PowerShell](/powershell/azure/). A Azure Automation tem estes cmdlets Azure SQL Database PowerShell disponíveis fora da caixa, para que possa executar todas as suas tarefas de gestão da Base de Dados SQL dentro do serviço. Pode também emparelhar estes cmdlets na Azure Automation com os cmdlets para outros serviços Azure, para automatizar tarefas complexas em todos os serviços da Azure e em sistemas de terceiros.
 
 A Azure Automation também tem a capacidade de comunicar diretamente com os servidores SQL, através da emissão de comandos SQL utilizando o PowerShell.
 
 As galerias de runbook e módulos da [Azure Automation](../../automation/automation-runbook-gallery.md) oferecem uma variedade de runbooks da Microsoft e da comunidade que você pode importar para a Azure Automation. Para utilizar um, faça o download de um livro de contas da galeria, ou pode importar diretamente livros de execução da galeria ou da sua conta Automation no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu os fundamentos da Azure Automation e como pode ser usado para gerir a Azure SQL Database, siga estes links para saber mais sobre a Azure Automation.
 

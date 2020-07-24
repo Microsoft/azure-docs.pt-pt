@@ -3,12 +3,12 @@ title: Adicione um repositório de artefactos ao seu laboratório em Azure DevTe
 description: Aprenda a adicionar um repositório de artefactos ao seu laboratório em laboratórios Azure DevTest.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d823f437cddef0a33c7d7ea3b4c4fbdaad90fb8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013482"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicione um repositório de artefactos ao seu laboratório em Laboratórios DevTest
 A DevTest Labs permite especificar um artefacto a ser adicionado a um VM no momento da criação do VM ou após a criação do VM. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar no VM. Os artefactos são definidos num ficheiro JSON carregado de um repositório GitHub ou Azure DevOps Git.
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Após a execução do New-AzResourceGroupDeployment com sucesso, o comando produz informações importantes como o estado de provisionamento (deve ser bem sucedido) e quaisquer saídas para o modelo.
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
-Esta secção fornece-lhe uma amostra do script PowerShell que pode ser usado para adicionar um repositório de artefactos a um laboratório. Se não tiver Azure PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) para obter instruções detalhadas para a sua instalação.
+Esta secção fornece-lhe uma amostra do script PowerShell que pode ser usado para adicionar um repositório de artefactos a um laboratório. Se não tiver Azure PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/?view=azps-1.2.0) para obter instruções detalhadas para a sua instalação.
 
 ### <a name="full-script"></a>Script completo
 Aqui está o roteiro completo, incluindo algumas mensagens verbosas e comentários:
@@ -381,7 +381,7 @@ $resourceName = $LabName + '/' + $ArtifactRepositoryName
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Especifique artefactos obrigatórios para o seu laboratório em Azure DevTest Labs](devtest-lab-mandatory-artifacts.md)
 - [Crie artefactos personalizados para a sua máquina virtual DevTest Labs](devtest-lab-artifact-author.md)
 - [Diagnosticar falhas de artefactos no laboratório](devtest-lab-troubleshoot-artifact-failure.md)

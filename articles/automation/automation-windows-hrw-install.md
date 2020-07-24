@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6913ae8cbd8c73bd2763bd89172280feee9df973
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 31c769039009889559b6aa05bb76139d63c42feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185624"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015022"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
@@ -173,7 +173,7 @@ Nos resultados da pesquisa, deverá consultar os registos de batimentos cardíac
 
 2. Para confirmar a versão do Trabalhador de Runbook Híbrido, navegue `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` e note a subpasta da **versão.**
 
-### <a name="step-3---install-the-runbook-environment-and-connect-to-azure-automation"></a>Passo 3 - Instale o ambiente do livro de correr e ligue-se à Azure Automation
+### <a name="step-2---install-the-runbook-environment-and-connect-to-azure-automation"></a>Passo 2 - Instale o ambiente do livro de correr e ligue-se à Azure Automation
 
 Quando configura um agente para reportar a um espaço de trabalho log Analytics, a função Azure Automation empurra para baixo o `HybridRegistration` módulo PowerShell, que contém o `Add-HybridRunbookWorker` cmdlet. Utilize este cmdlet para instalar o ambiente do livro de recortes na máquina e registá-lo com a Azure Automation.
 
@@ -202,7 +202,7 @@ Pode obter as informações necessárias para os parâmetros `Url` e a partir da
 
 * Se necessário, desa estale o `Verbose` parâmetro para receber detalhes sobre a instalação.
 
-### <a name="step-4----install-powershell-modules"></a>Passo 4 - Instalar módulos PowerShell
+### <a name="step-3----install-powershell-modules"></a>Passo 3 - Instalar módulos PowerShell
 
 Os runbooks podem utilizar qualquer uma das atividades e cmdlets definidos nos módulos instalados no seu ambiente Azure Automation. Uma vez que estes módulos não são automaticamente implantados em máquinas no local, deve instalá-los manualmente. A exceção é o módulo Azure. Este módulo é instalado por predefinição e fornece acesso a cmdlets para todos os serviços e atividades da Azure Automation.
 

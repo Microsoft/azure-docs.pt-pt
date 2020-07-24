@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013968"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
@@ -149,7 +149,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ### <a name="log-alerts"></a>Alertas de registo
 
 > [!NOTE]
-> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitir que o esquema comum reverte o sujeito de e-mail e/ou esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta ultrapasse este limiar. Pode determinar isto verificando a `IncludeSearchResults` bandeira. Quando os resultados da pesquisa não estiverem incluídos, deverá utilizar a consulta de pesquisa em conjunto com a [API do Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
+> Para alertas de registo que tenham um sujeito de e-mail personalizado e/ou carga útil JSON definida, permitir que o esquema comum reverte o sujeito de e-mail e/ou esquema de carga útil para o descrito da seguinte forma. Os alertas com o esquema comum ativado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não estão incorporados na carga útil dos alertas de registo se fizerem com que o tamanho do alerta ultrapasse este limiar. Pode determinar isto verificando a `IncludeSearchResults` bandeira. Quando os resultados da pesquisa não estiverem incluídos, deverá utilizar a consulta de pesquisa em conjunto com a [API do Log Analytics](/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -220,7 +220,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
                     "Heartbeat"
                 ]
             }
-        ]
+        ],
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
     }
@@ -497,8 +497,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [esquema de alerta comum.](https://aka.ms/commonAlertSchemaDocs)
-- Saiba [como criar uma aplicação lógica que utilize o esquema de alerta comum para lidar com todos os seus alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
-
+- Saiba [como criar uma aplicação lógica que utilize o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md) 

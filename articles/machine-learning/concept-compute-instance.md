@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 06/22/2020
-ms.openlocfilehash: b53a2c0cb3c709a6f22b57b45bef8b2894594a4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3edb8da6d535ac7817c29db254aa84efd92321b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012982"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -30,7 +30,7 @@ Para a formação de modelos de produção, utilize um [cluster de cálculo Azur
 
 Um caso computacional é uma estação de trabalho totalmente gerida baseada em nuvem otimizada para o seu ambiente de desenvolvimento de aprendizagem automática. Proporciona os seguintes benefícios:
 
-|Principais vantagens||
+|Principais vantagens|Descrição|
 |----|----|
 |Produtividade|Pode construir e implementar modelos utilizando cadernos integrados e as seguintes ferramentas no estúdio Azure Machine Learning:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio (pré-visualização)<br/>A instância compute está totalmente integrada com o espaço de trabalho e estúdio Azure Machine Learning. Pode partilhar cadernos e dados com outros cientistas de dados no espaço de trabalho. Também pode configurar o desenvolvimento remoto do Código VS utilizando [o SSH](how-to-set-up-vs-code-remote.md) |
 |Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computacional fornecem políticas de gestão robustas e configurações seguras de rede, tais como:<br/><br/>- Fornecimento automático a partir de modelos de gestores de recursos ou SDK de aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções (RBAC)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política SSH para permitir/desativar o acesso ao SSH<br/>TLS 1.2 habilitado |
@@ -39,8 +39,11 @@ Um caso computacional é uma estação de trabalho totalmente gerida baseada em 
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Ferramentas e ambientes
 
-O exemplo de computação Azure Machine Learning permite-lhe autorizar, treinar e implementar modelos numa experiência de caderno totalmente integrada no seu espaço de trabalho.
+> [!IMPORTANT]
+> As ferramentas marcadas (pré-visualização) abaixo estão atualmente em visualização pública.
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+O exemplo de computação Azure Machine Learning permite-lhe autorizar, treinar e implementar modelos numa experiência de caderno totalmente integrada no seu espaço de trabalho.
 
 Estas ferramentas e ambientes são instalados no caso do cálculo: 
 
@@ -182,6 +185,6 @@ Quaisquer ficheiros de portátil armazenados na partilha de ficheiros do espaço
 Não é possível criar novos VMs de caderno. No entanto, ainda pode aceder e utilizar VMs de portátil que criou, com plena funcionalidade. Os casos de cálculo podem ser criados no mesmo espaço de trabalho que os VMs de caderno existentes.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * [Tutorial: Treine o seu primeiro modelo ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância computacional com um caderno integrado.

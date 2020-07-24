@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 248e4e6966004ee70cd2c84a1f526bdad06cfa26
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005264"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Quickstart: Criar uma aplicação Java no Azure App Service no Windows
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Início Rápido: Criar uma aplicação Java no Serviço de Aplicações do Azure no Windows
 
 > [!NOTE]
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar no Serviço de Aplicações em _Linux,_ consulte [a aplicação Web Create Java no Linux](./containers/quickstart-java.md).
@@ -25,7 +25,7 @@ ms.locfileid: "85249470"
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este quickstart mostra como usar o [CLI Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Azure Web App Plugin para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) implementar um ficheiro java web archive (WAR).
 
 > [!NOTE]
-> O mesmo também pode ser feito usando IDEs populares como IntelliJ e Eclipse. Consulte os nossos documentos semelhantes no [Azure Toolkit para IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Azure Toolkit para Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> O mesmo também pode ser feito usando IDEs populares como IntelliJ e Eclipse. Consulte os nossos documentos semelhantes no [Azure Toolkit para IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) ou [Azure Toolkit para Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 >
 ![App de amostra em execução no Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 

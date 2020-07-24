@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/18/2020
-ms.openlocfilehash: ae3179f388fa6aa2cc8f98899f525a3b3e7251ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc1aef1f25be8d65dbd4f34bfc728335dc7a90f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014461"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e pela Análise de Registos
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utiliza vários endereços IP. Poderá necessitar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
@@ -18,8 +19,7 @@ O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-ove
 > Embora estes endereços sejam estáticos, é possível que tenhamos que mudá-los de vez em quando. Todo o tráfego de Informações de Aplicação representa tráfego de saída, com exceção da monitorização da disponibilidade e webhooks que requerem regras de firewall de entrada.
 
 > [!TIP]
-> Pode utilizar [tags de serviço de rede](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
-) Azure para gerir o acesso se estiver a utilizar grupos de segurança da rede Azure. Se estiver a gerir o acesso a recursos híbridos/em instalações, pode descarregar as listas de endereços IP equivalentes como [ficheiros JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) que são atualizados todas as semanas: . Para cobrir todas as exceções neste artigo, você precisaria de usar as tags de serviço: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
+> Pode utilizar [tags de serviço de rede](../../virtual-network/service-tags-overview.md) Azure para gerir o acesso se estiver a utilizar grupos de segurança da rede Azure. Se estiver a gerir o acesso a recursos híbridos/em instalações, pode descarregar as listas de endereços IP equivalentes como [ficheiros JSON](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) que são atualizados todas as semanas: . Para cobrir todas as exceções neste artigo, você precisaria de usar as tags de serviço: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
 
 Em alternativa, pode subscrever esta página como um feed RSS adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom ao seu leitor RSS/ATOM favorito para ser notificado das últimas alterações.
 
@@ -32,10 +32,6 @@ Em alternativa, pode subscrever esta página como um feed RSS adicionando https:
 | Telemetria |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64  | 443 |
 | Live Metrics Stream (Leste dos EUA) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
 | Live Metrics Stream (South Central US) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
-| Live Metrics Stream (Norte da Europa) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
-| Live Metrics Stream (Europa Ocidental) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| Live Metrics Stream (Leste da Ásia) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| Live Metrics Stream (Sudeste Asiático) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>Monitor de Estado
 Configuração do Monitor de Estado - necessária apenas para escamar alterações.
@@ -224,7 +220,6 @@ Nota: *.loganalytics.io domínio é propriedade da equipa log Analytics.
 | Objetivo | URI | IP | Portas |
 | --- | --- | --- | --- |
 | Insights de Aplicação JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
-| Insights de Aplicação Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
 ## <a name="action-group-webhooks"></a>Webhooks do Grupo de Ação
 

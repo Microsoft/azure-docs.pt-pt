@@ -6,11 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2b9f705c73e667f34e46fdeed3c80af1e65fb12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61aec3936ffef488b989f54894568d206c759b12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83830111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014988"
 ---
 # <a name="automation-account-authentication-overview"></a>Descrição geral da autenticação da conta de Automatização
 
@@ -44,8 +45,8 @@ O controlo de acesso baseado em funções está disponível com o Azure Resource
 
 Os runbooks que funcionam num Trabalhador De Runbook Híbrido no seu datacenter ou contra serviços de computação em outros ambientes em nuvem como o AWS, não podem usar o mesmo método que é normalmente usado para livros de execução autenticando recursos Azure. Isto acontece porque esses recursos estão a ser executados fora do Azure e, como tal, precisam das suas próprias credenciais de segurança definidas na Automatização para autenticar em recursos que acedem localmente. Para obter mais informações sobre a autenticação de runbook com trabalhadores de runbook, consulte [runbooks runbooks em um Trabalhador de Runbook Híbrido.](automation-hrw-run-runbooks.md) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para criar uma conta Automation a partir do portal Azure, consulte [Criar uma conta Azure Automation autónoma.](automation-create-standalone-account.md)
-* Se preferir criar a sua conta utilizando um modelo, consulte [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure.](automation-create-account-template.md)
+* Se preferir criar a sua conta utilizando um modelo, consulte [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure.](quickstart-create-automation-account-template.md)
 * Para autenticação utilizando os Serviços Web da Amazon, consulte [os livros de autenticação com os Serviços Web da Amazon.](automation-config-aws-account.md)

@@ -4,11 +4,12 @@ description: Começa com a Application Insights. Analise a utilização, disponi
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b93e7f0fdb909a40667b001fa99929b3cfe27ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014170"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorizar o desempenho nas aplicações Web
 
@@ -25,7 +26,7 @@ Se ainda não adicionou Application Insights ao seu projeto (isto é, se não ti
 * [Aplicações Web do ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Adicionar monitorização de exceções](../../azure-monitor/app/asp-net-exceptions.md)
   * [Adicionar monitorização de dependência](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicativos web Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Aplicativos web Java EE](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Explorando métricas de desempenho
 No [portal Azure,](https://portal.azure.com)consulte o recurso Application Insights que configura para a sua aplicação. A lâmina de visão geral mostra dados básicos de desempenho:
@@ -60,15 +61,15 @@ Procure picos incomuns. Em geral, espere que o tempo de resposta suba com um aum
 
 Clique no azulejo para obter tempos para URLs específicos.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![Screenshot do painel de saúde da Aplicação, que exibe gráficos de linha ao longo do tempo de médias móveis de pedidos e tempo de resposta.](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>Pedidos mais lentos
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![Screenshot de uma lista dos pedidos mais lentos e dos seus tempos de resposta.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 Mostra quais os pedidos que podem necessitar de afinação de desempenho.
 
-### <a name="failed-requests"></a>Pedidos falhados
-![](./media/web-monitor-performance/appinsights-46failed.png)
+### <a name="failed-requests"></a>Pedidos com falhas
+![Screenshot de um gráfico de linha ao longo do tempo do número de pedidos falhados; isto é, pedidos que lançaram exceções sem falhas.](./media/web-monitor-performance/appinsights-46failed.png)
 
 Uma contagem de pedidos que atirou exceções sem falhas.
 
@@ -86,7 +87,7 @@ A seleção de qualquer métrica desativa as outras que não podem aparecer no m
 ## <a name="set-alerts"></a>Definir alertas
 Para ser notificado por e-mail de valores incomuns de qualquer métrica, adicione um alerta. Pode escolher o envio do e-mail para os administradores da conta ou para endereços de e-mail específicos.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![Screenshot da caixa de diálogo 'Adicionar uma Regra de Alerta', juntamente com imagens ligadas por setas que mostram como chegar à caixa de diálogo do Metrics Explorer.](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 Desaprote o recurso antes das outras propriedades. Não escolha os recursos do webtest se quiser definir alertas sobre métricas de desempenho ou utilização.
 
@@ -128,7 +129,7 @@ A experiência de investigação de desempenho mostra insights relevantes juntam
 ![GET Clientes/Detalhes três picos de duração em 7 dias de intervalo com uma janela de tempo](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 [Testes web][availability] - Tenha pedidos web enviados para a sua aplicação em intervalos regulares de todo o mundo.
 
 [Capturar e pesquisar vestígios de diagnóstico][diagnostic] - Insira as chamadas de traços e penetre nos resultados para identificar problemas.
@@ -144,12 +145,9 @@ A experiência de investigação de desempenho mostra insights relevantes juntam
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
 [usage]: usage-overview.md
 [livestream]: ../../azure-monitor/app/live-stream.md
 [snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
-

@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015226"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Implementar no Azure Kubernetes Service
 
@@ -29,7 +29,7 @@ Este artigo fornece os passos para a implementação do componente de gateway au
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>Implemente a porta de entrada auto-hospedada para a AKS
 
-1. Selecione **Gateways** a partir de **Definições**.
+1. Selecione **Gateways** a partir de **implementação e infraestrutura**.
 2. Selecione o recurso de gateway auto-hospedado que pretende implementar.
 3. Selecione **Implantação**.
 4. Note que um novo token na caixa de texto **Token** foi autogerido para si usando os valores padrão **de Expiração** e **Chave Secreta.** Ajuste ou ambos se desejar e **selecione Gerar** para criar um novo token.

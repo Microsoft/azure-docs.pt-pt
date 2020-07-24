@@ -4,12 +4,12 @@ description: Visão geral da pré-visualização da bancada de trabalho Azure Bl
 ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 384fa553204a5a86ad479f2cc623ebb70a9a6f5f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: fbd6be3907dbd10b003d065dfb14031a0e378478
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003157"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>O que é o Azure Blockchain Workbench?
 
@@ -55,7 +55,7 @@ Para fornecer feedback do produto ou para solicitar novas funcionalidades, publi
 
 Envolva-se com engenheiros da Microsoft e especialistas da comunidade Azure Blockchain.
 
-* [Microsoft Q&Uma página de perguntas para a bancada de trabalho do Azure Blockchain](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)
+* [Microsoft Q&Uma página de perguntas para a bancada de trabalho do Azure Blockchain](/answers/topics/azure-blockchain-workbench.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

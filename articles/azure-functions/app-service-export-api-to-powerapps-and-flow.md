@@ -4,11 +4,12 @@ description: Visão geral de como expor uma API hospedada no Serviço de Aplica�
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015090"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportação de um API azure hospedado para PowerApps e Microsoft Flow
 
@@ -57,7 +58,7 @@ Para completar a exportação em modo **Express,** siga estes passos:
 
 2. Utilize as definições conforme especificado na tabela.
 
-    |Definição|Descrição|
+    |Definições|Descrição|
     |--------|------------|
     |**Ambiente**|Selecione o ambiente para o quais o conector personalizado deve ser guardado. Para obter mais informações, veja [Descrição geral de ambientes](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Nome API personalizado**|Introduza um nome, que os powerApps e os construtores do Microsoft Flow verão na sua lista de conectores.|
@@ -145,9 +146,9 @@ Ao utilizar a Azure AD, necessita de dois registos de candidaturas AZure AD: um 
 
 - Para configurar o registo para a API, utilize a [função de Autenticação/Autorização do Serviço de Aplicações.](../app-service/configure-authentication-provider-aad.md)
 
-- Para configurar o registo para o conector, siga os passos na [adição de uma aplicação AD Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). O registo deve ter delegado acesso à sua API e um URL de resposta de `https://msmanaged-na.consent.azure-apim.net/redirect` . 
+- Para configurar o registo para o conector, siga os passos na [adição de uma aplicação AD Azure](../active-directory/develop/quickstart-register-app.md). O registo deve ter delegado acesso à sua API e um URL de resposta de `https://msmanaged-na.consent.azure-apim.net/redirect` . 
 
-Para obter mais informações, consulte os exemplos de registo AD AZure para [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) e [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). Estes exemplos utilizam o Gestor de Recursos Azure como API; substitua a sua API se seguir os passos.
+Para obter mais informações, consulte os exemplos de registo AD AZure para [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) e [Microsoft Flow](/connectors/custom-connectors/azure-active-directory-authentication). Estes exemplos utilizam o Gestor de Recursos Azure como API; substitua a sua API se seguir os passos.
 
 São necessários os seguintes valores de configuração:
 - **ID do cliente** - a iD do cliente do seu registo AD do conector Azure
@@ -168,5 +169,3 @@ São necessários os seguintes valores de configuração:
 - **URL de autorização** - o URL de autorização OAuth 2.0
 - **TOKen URL** - o URL simbólico OAuth 2.0
 - **REFRESH URL** - o URL de atualização OAuth 2.0
-
-

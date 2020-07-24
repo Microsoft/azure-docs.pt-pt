@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8a951a4920f2f80a4b9738317bdb2da96c613d53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013050"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -174,7 +174,7 @@ Considere estes prós e contras ao optar por utilizar local vs. remoto.
 
  Mais funcionalidades estão disponíveis quando utiliza o cálculo remoto, como mostra a tabela abaixo. Algumas destas funcionalidades estão disponíveis apenas num espaço de trabalho da Enterprise.
 
-| Funcionalidade                                                    | Remote | Localização | Requer <br>Espaço de trabalho da empresa |
+| Funcionalidade                                                    | Remoto | Local | Requer <br>Espaço de trabalho da empresa |
 |------------------------------------------------------------|--------|-------|-------------------------------|
 | Streaming de dados (Grande suporte a dados, até 100 GB)          | ✓      |       | ✓                             |
 | A participação e formação de texto baseados em DNN-BERT             | ✓      |       | ✓                             |
@@ -289,7 +289,7 @@ Como fornecer artigos fornecem detalhes adicionais sobre a funcionalidade que o 
 
 ### <a name="jupyter-notebook-samples"></a>Amostras de caderno jupyter 
 
-Reveja exemplos de código detalhados e use casos no [repositório de cadernos Github para amostras automatizadas de aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)de máquinas .
+Reveja exemplos de código detalhados e use casos no [repositório de cadernos GitHub para amostras automatizadas de aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)de máquinas .
 
 ### <a name="python-sdk-reference"></a>Referência Python SDK 
 

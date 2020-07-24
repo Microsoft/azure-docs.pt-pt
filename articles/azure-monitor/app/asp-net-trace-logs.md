@@ -3,12 +3,12 @@ title: Explore registos de traços .NET em Insights de Aplicação
 description: Registos de pesquisa gerados por Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d010fe4389e22c9909800f5329911b6b5619d7b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aad81855b58ee96789d097fbfbd3e7f9b17f6900
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829538"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014580"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore registos de traços .NET/.NET e Python em Insights de Aplicação
 
@@ -84,7 +84,7 @@ Se preferir log4net ou NLog, use:
 ```
 
 ## <a name="use-eventsource-events"></a>Use eventos EventSource
-Pode configurar [os eventos System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) a enviar para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EventSourceListener` pacote NuGet. Em seguida, edite a `TelemetryModules` secção do ficheiro [ApplicationInsights.config.](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+Pode configurar [os eventos System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) a enviar para o Application Insights como vestígios. Primeiro, instale o `Microsoft.ApplicationInsights.EventSourceListener` pacote NuGet. Em seguida, edite a `TelemetryModules` secção do ficheiro [ApplicationInsights.config.](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -190,7 +190,7 @@ Pode, por exemplo:
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="how-do-i-do-this-for-java"></a>Como faço isto pela Java?
-Na instrumentação sem código de Java (recomendada) os troncos são recolhidos fora da caixa, utilize o [agente Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+Na instrumentação sem código de Java (recomendada) os troncos são recolhidos fora da caixa, utilize o [agente Java 3.0](./java-in-process-agent.md).
 
 Se estiver a utilizar o Java SDK, utilize os [adaptadores de registo Java](../../azure-monitor/app/java-trace-logs.md).
 
@@ -200,7 +200,7 @@ Se estiver a utilizar o Java SDK, utilize os [adaptadores de registo Java](../..
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Não há opção de adaptador de registo na ferramenta de configuração
 * Instale primeiro a estrutura de registo.
-* Se estiver a utilizar o System.Diagnostics.Trace, certifique-se de que o tem [configurado em *web.config* ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* Se estiver a utilizar o System.Diagnostics.Trace, certifique-se de que o tem [configurado em *web.config* ](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Certifique-se de que tem a versão mais recente do Application Insights. No Estúdio Visual, **Tools**vá a  >  **Extensões e Atualizações de Ferramentas**e abra o **separador Atualizações.** Se **o Desenvolvedor Analytics Tools** estiver lá, selecione-o para atualizá-lo.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Recebo a mensagem de erro "Instrumentação não pode ser vazia"
@@ -215,7 +215,7 @@ Vários fatores afetam a quantidade de dados que são retidos. Para mais informa
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>Não vejo algumas entradas de registo que esperava.
 Se a sua aplicação enviar quantidades volumosas de dados e estiver a utilizar o SDK Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, a função de amostragem adaptativa pode funcionar e enviar apenas uma parte da sua telemetria. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
 
-## <a name="next-steps"></a><a name="add"></a>Próximos passos
+## <a name="next-steps"></a><a name="add"></a>Passos seguintes
 
 * [Diagnosticar falhas e exceções em ASP.NET][exceptions]
 * [Saiba mais sobre pesquisar][diagnostic]
@@ -228,5 +228,5 @@ Se a sua aplicação enviar quantidades volumosas de dados e estiver a utilizar 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a2074b1ecd37fd18a9a0ac9091f05e734765e40b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012948"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -90,7 +90,7 @@ Para alguma ajuda na navegação através da biblioteca de algoritmos de machine
 
 Utilize recursos compute do seu espaço de trabalho para executar o seu pipeline e hospedar os seus modelos implantados como pontos finais em tempo real ou pontos finais do gasoduto (para inferência do lote). Os objetivos de computação suportados são:
 
-| Destino de computação | Training (Em preparação) | Implementação |
+| Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
 | Exemplo de computação de aprendizagem automática Azure | ✓ | |
@@ -98,7 +98,7 @@ Utilize recursos compute do seu espaço de trabalho para executar o seu pipeline
 
 Os alvos computacional estão ligados ao seu [espaço de trabalho Azure Machine Learning](concept-workspace.md). Gere os seus alvos de computação no seu espaço de trabalho no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para realizar inferenculação em tempo real, tem de implantar um gasoduto como ponto final em **tempo real**. O ponto final em tempo real cria uma interface entre uma aplicação externa e o seu modelo de pontuação. Uma chamada para um ponto final em tempo real devolve os resultados da previsão à aplicação em tempo real. Para fazer uma chamada para um ponto final em tempo real, você passa a chave API que foi criada quando implementou o ponto final. O ponto final é baseado no REST, uma escolha popular de arquitetura para projetos de programação web.
 
@@ -115,25 +115,6 @@ Os oleodutos publicados são flexíveis, podem ser usados para treinar ou retrei
 Um oleoduto publicado funciona nos recursos computacional que define no projeto do pipeline para cada módulo.
 
 O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que o SDK.
-
-
-## <a name="moving-from-the-visual-interface-to-the-designer"></a>Passando da interface visual para o designer
-
-A interface visual (pré-visualização) foi atualizada e é agora designer de Aprendizagem automática Azure (pré-visualização). O designer foi rearchitado para usar um backend baseado em pipeline que se integra totalmente com as outras características do Azure Machine Learning. 
-
-Como resultado destas atualizações, alguns conceitos e termos para a interface visual foram alterados ou renomeados. Veja a tabela abaixo para ver as mudanças conceptuais mais importantes. 
-
-| Conceito no designer | Anteriormente na interface visual |
-| ---- |:----:|
-| Projeto de gasoduto | Experimentação |
-| Ponto final em tempo real | Serviço Web |
-
-### <a name="migrating-to-the-designer"></a>Migrar para o designer
-
-Pode converter experiências de interface visual existentes e serviços web em oleodutos e pontos finais em tempo real no designer. Utilize os seguintes passos para migrar os ativos da interface visual:
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

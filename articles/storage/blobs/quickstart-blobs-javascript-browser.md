@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f884e6d3cbc2e1f3127b251818f4617fccb6a999
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833422"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011333"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,7 +20,12 @@ ms.locfileid: "85833422"
 
 O armazenamento Azure Blob está otimizado para armazenar grandes quantidades de dados não estruturados. As bolhas são objetos que podem conter dados de texto ou binários, incluindo imagens, documentos, meios de streaming e dados de arquivo. Neste arranque rápido, aprende-se a gerir as bolhas utilizando o JavaScript num browser. Você vai carregar e listar bolhas, e você vai criar e apagar recipientes.
 
-[Documentação de](/javascript/api/@azure/storage-blob)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Recursos adicionais:
+
+* [Documentação de referência da API](/javascript/api/@azure/storage-blob)
+* [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+* [Pacote (npm)](https://www.npmjs.com/package/@azure/storage-blob)
+* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 > [!NOTE]
 > Para começar com a versão SDK anterior, consulte [Quickstart: Gerir blobs com JavaScript v10 SDK em Node.js](storage-quickstart-blobs-nodejs-legacy.md).
@@ -71,7 +76,7 @@ No portal Azure, selecione a sua conta de armazenamento. Para definir uma nova r
 
 A tabela seguinte descreve cada definição de CORS e explica os valores utilizados para definir a regra.
 
-|Definição  |Valor  | Description |
+|Definição  |Valor  | Descrição |
 |---------|---------|---------|
 | **ORIGENS PERMITIDAS** | **\*** | Aceita uma lista delimitada por vírgulas de domínios definidos como origens aceitáveis. Definir o valor como `*` permite que todos os domínios acedam à conta de armazenamento. |
 | **MÉTODOS PERMITIDOS** | **EXCLUIR,** **GET,** **CABEÇA,** **FUSÃO,** **POST,** **OPÇÕES,** e **PUT** | Apresenta uma lista dos verbos HTTP que podem ser executados na conta de armazenamento. Para efeitos deste início rápido, selecione todas as opções disponíveis. |
@@ -267,7 +272,7 @@ No [portal Azure,](https://portal.azure.com)pode verificar os resultados das cha
 #### <a name="step-1---create-a-container"></a>Passo 1 - Criar um recipiente
 
 1. Na aplicação web, selecione **Criar o recipiente.** O estado indica que um contentor foi criado.
-2. Para verificar no portal Azure, selecione a sua conta de armazenamento. Sob **o serviço Blob**, selecione **Containers**. Verifique se o novo recipiente aparece. (Pode ter de selecionar **Refresh**.)
+2. Para verificar no portal Azure, selecione a sua conta de armazenamento. Em **Serviço Blob**, selecione **Contentores**. Verifique se o novo recipiente aparece. (Pode ter de selecionar **Refresh**.)
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>Passo 2 - Carre faça o upload de uma bolha para o recipiente
 

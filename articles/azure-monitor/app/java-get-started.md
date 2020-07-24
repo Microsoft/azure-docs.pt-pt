@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: e56ba304d197984110de5127a0f163ac0accf1aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3835f88eb581693d10f68a9a495329466a657a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537513"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014495"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Começa com a Application Insights num projeto web da Java
 
@@ -171,7 +172,7 @@ Clique num tipo de pedido específico para ver instâncias individuais.
 ![Perfurar numa visão específica da amostra](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Análise: linguagem de consulta poderosa
-À medida que se acumulam mais dados, pode executar consultas para agregar dados e localizar instâncias individuais.  A [análise](../../azure-monitor/app/analytics.md) é uma ferramenta poderosa para compreender o desempenho e a utilização, e para fins de diagnóstico.
+À medida que se acumulam mais dados, pode executar consultas para agregar dados e localizar instâncias individuais.  A [análise](../log-query/log-query-overview.md) é uma ferramenta poderosa para compreender o desempenho e a utilização, e para fins de diagnóstico.
 
 ![Exemplo de Análise](./media/java-get-started/0025.png)
 
@@ -263,7 +264,7 @@ Pode especificar contadores de desempenho adicionais para recolha.
   * `tabular`: os dados de contador de desempenho estão no formato de uma linha de tabela
 
 #### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
-Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) é membro de uma categoria (da mesma forma que um campo é membro de uma classe). As categorias podem ser globais ou podem ter instâncias numeradas ou nomeadas.
+Cada [contador de desempenho do Windows](/windows/win32/perfctrs/performance-counters-portal) é membro de uma categoria (da mesma forma que um campo é membro de uma classe). As categorias podem ser globais ou podem ter instâncias numeradas ou nomeadas.
 
 ```XML
     <PerformanceCounters>
@@ -302,12 +303,12 @@ O Application Insights pode testar o seu site em intervalos regulares para verif
 ## <a name="questions-problems"></a>Perguntas? Problemas?
 [Resolução de problemas de Java](java-troubleshoot.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Chamadas de dependência do monitor](java-agent.md)
 * [Contadores de desempenho Unix do monitor](java-collectd.md)
 * Adicione [monitorização das suas páginas Web](javascript.md), para monitorizar os tempos de carregamento da página, as chamadas AJAX e as exceções de browser.
 * Escreva [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md) para controlar a utilização no browser ou no servidor.
-* Use [Analytics](../../azure-monitor/app/analytics.md) para consultas poderosas sobre telemetria a partir da sua app
+* Use [Analytics](../log-query/log-query-overview.md) para consultas poderosas sobre telemetria a partir da sua app
 * Para obter mais informações, visite [Azure para programadores Java](/java/azure).
 
 <!--Link references-->

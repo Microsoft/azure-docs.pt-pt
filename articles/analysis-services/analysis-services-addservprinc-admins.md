@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4ce23e9da84d01a288c1c37c6a6d884db2ed3969
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077563"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015413"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicione um principal de serviço à função de administrador do servidor 
 
@@ -44,7 +44,7 @@ Pode configurar administradores de servidores utilizando o SQL Server Management
 
 ## <a name="using-a-resource-manager-template"></a>Utilizar um modelo do Resource Manager
 
-Também pode configurar administradores de servidores implantando o servidor Serviços de Análise utilizando um modelo de Gestor de Recursos Azure. A identidade que executa a implantação deve pertencer ao papel **de Contribuinte** para o recurso no [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
+Também pode configurar administradores de servidores implantando o servidor Serviços de Análise utilizando um modelo de Gestor de Recursos Azure. A identidade que executa a implantação deve pertencer ao papel **do Contribuinte** para o recurso no controlo de acesso baseado em [funções Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > O diretor de serviço deve ser adicionado utilizando o formato `app:{service-principal-client-id}@{azure-ad-tenant-id}` .
@@ -119,5 +119,3 @@ Em seguida, pode utilizar este ID do cliente em conjunto com o ID do inquilino p
 
 * [Baixar módulo PowerShell do servidor SQL](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Baixar SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-

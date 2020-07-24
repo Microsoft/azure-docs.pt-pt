@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81454208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015277"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
@@ -41,10 +42,10 @@ Ao adicionar um **grupo de segurança,** utilize `obj:groupid@tenantid` .
   
 4.  Selecione uma das seguintes permissões:  
   
-    |Permissão|Description|  
+    |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**Nenhum**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar dados.|  
-    |**Leitura**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
+    |**Nenhuma**|Os membros não podem ler ou modificar o esquema do modelo e não podem consultar dados.|  
+    |**Ler**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
     |**Ler e Processar**|Os membros podem consultar dados (com base em filtros de nível de linha) e executar processo e processo Todas as operações, mas não podem modificar o esquema do modelo.|  
     |**Processo**|Os membros podem executar Processo e Processo Todas as operações. Não é possível ler ou modificar o esquema do modelo e não pode consultar dados.|  
     |**Administrador**|Os membros podem modificar o esquema do modelo e consultar todos os dados.|   
@@ -70,11 +71,11 @@ Para adicionar funções e utilizadores a uma base de dados de modelos implement
 
 3. Selecione uma permissão.
 
-   |Permissão|Description|  
+   |Permissão|Descrição|  
    |----------------|-----------------|  
    |**Controlo total (Administrador)**|Os membros podem modificar o esquema do modelo, processar e consultar todos os dados.| 
    |**Process database**|Os membros podem executar Processo e Processo Todas as operações. Não é possível modificar o esquema do modelo e não pode consultar dados.|  
-   |**Leitura**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
+   |**Ler**|Os membros podem consultar dados (com base em filtros de linha) mas não podem modificar o esquema do modelo.|  
   
 4. Clique **em Adesão**e, em seguida, insira um utilizador ou grupo no seu inquilino Azure AD por endereço de e-mail.
 
@@ -120,7 +121,7 @@ Nesta amostra, um utilizador externo B2B e um grupo são adicionados à função
 
 O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gestão de bases de dados específicos de tarefas e o cmdlet Invoke-ASCmd de propósito geral que aceita uma consulta ou script de script de script de modelo tabular (TMSL). Os cmdlets seguintes são utilizados para gerir funções de base de dados e utilizadores.
   
-|Cmdlet|Description|
+|Cmdlet|Descrição|
 |------------|-----------------| 
 |[Membro do Add-Role](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicione um membro a uma função de base de dados.| 
 |[Membro de remoção de rolemember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remova um membro de uma função de base de dados.|   

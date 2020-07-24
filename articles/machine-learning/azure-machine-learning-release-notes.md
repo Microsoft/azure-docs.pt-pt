@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 4f1e8602c55329f88460921446ebaa05ed640e39
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4a89816202953a15c4ad4586692dacd3f12993fa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013033"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -22,6 +22,45 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
 
+## <a name="2020-07-20"></a>2020-07-20
+
+### <a name="azure-machine-learning-sdk-for-python-v1100"></a>Azure Machine Learning SDK para Python v1.10.0
+
++ **Correções e melhorias de bugs**
+  + **azureml-automl-core**
+    + Ao utilizar o AutoML, se um caminho for passado para o objeto AutoMLConfig e já não existir, será automaticamente criado.
+    + Os utilizadores podem agora especificar uma frequência de série sonora para as tarefas de previsão utilizando o `freq` parâmetro.
+  + **azureml-automl-runtime**
+    + Ao utilizar o AutoML, se um caminho for passado para o objeto AutoMLConfig e já não existir, será automaticamente criado.
+    + Os utilizadores podem agora especificar uma frequência de série sonora para as tarefas de previsão utilizando o `freq` parâmetro.
+    + A AutoML Forecasting suporta agora a avaliação de rolamento, que se aplica ao caso de utilização de que o comprimento de um conjunto de teste ou validação é mais longo do que o horizonte de entrada, e conhecido y_pred valor é usado como contexto de previsão.
+  + **azureml-core**
+    + As mensagens de aviso serão impressas se nenhum ficheiro for descarregado da datastore numa corrida.
+    + Documento adicional `skip_validation` para o `Datastore.register_azure_sql_database method` .
+    + Os utilizadores são obrigados a fazer upgrade para o Sdk v1.10.0 ou superior para criar um ponto final privado aprovado por automático. Isto inclui o recurso Notebook que é utilizável por trás do VNet.
+    + Expor NotebookInfo na resposta do get workspace.
+    + As alterações para ter chamadas para listar alvos de computação e obter o alvo do cálculo têm sucesso numa execução remota. As funções do Sdk para obter metas de computação e listar alvos de computação de espaço de trabalho vão agora funcionar em execuções remotas.
+    + Adicione mensagens de depreciação às descrições da classe para aulas azureml.core.image.
+    + Atire a exceção e limpe o espaço de trabalho e os recursos dependentes se a criação de ponto final privado do espaço de trabalho falhar.
+    + Suporte a atualização do sku do espaço de trabalho no método de atualização do espaço de trabalho.
+  + **azureml-datadrift**
+    + Atualize a versão matplotlib de 3.0.2 a 3.2.1 para suportar a pitão 3.8.
+  + **azureml-dataprep**
+    + Suporte adicionado de fontes de dados de url web com `Range` ou `Head` solicitar. 
+    + Melhoria da estabilidade para o conjunto de dados de ficheiros e para o download.
+  + **azureml-train-automl-client**
+    + Questões fixas relacionadas com a remoção dos `RequirementParseError` instalações.
+    + Use estivador em vez de conda para corridas locais submetidas usando "compute_target='local'"
+    + A duração da iteração impressa na consola foi corrigida. Anteriormente, a duração da iteração era por vezes impressa como tempo final de execução menos tempo de criação de execução. Foi corrigido para igual prazo de fim de tempo menos tempo de início de execução.
+    + Ao utilizar o AutoML, se um caminho for passado para o objeto AutoMLConfig e já não existir, será automaticamente criado.
+    + Os utilizadores podem agora especificar uma frequência de série sonora para as tarefas de previsão utilizando o `freq` parâmetro.
+  + **azureml-train-automl-runtime**
+    + Melhor produção da consola quando as melhores explicações do modelo falham.
+    + Renomeado parâmetro de entrada "backlist_models" para "blocked_models".
+      + Renomeado parâmetro de entrada "whitelist_models" para "allowed_models".
+    + Os utilizadores podem agora especificar uma frequência de série sonora para as tarefas de previsão utilizando o `freq` parâmetro.
+
+  
 ## <a name="2020-07-06"></a>2020-07-06
 
 ### <a name="azure-machine-learning-sdk-for-python-v190"></a>Azure Machine Learning SDK para Python v1.9.0
@@ -386,7 +425,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Permitindo que a opção regenerate_outputs ao utilizar um módulo que está incorporado num ModuleStep.
   + **azureml-train-automl-client**
     + Modelos de tensorflow precados para AutoML.
-    + Corrigir utilizadores que whitelisting algoritmos não suportados em modo local
+    + Os utilizadores de correção permitem a listagem de algoritmos não suportados em modo local
     + Doc corre para AutoMLConfig.
     + A aplicação do tipo de dados verifica cv_split_indices entrada no AutoMLConfig.
     + Problema fixo com a execução autoML falhando na show_output
@@ -539,7 +578,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     + Última versão para apoiar python 2.7
 
 + **Alterações interruptivas**
-  + **Versão semântica 2.0.0**
+  + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
 
 + **Correções e melhorias de bugs**
@@ -702,7 +741,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK para Python v1.1.0rc0 (Pré-lançamento)
 
 + **Alterações interruptivas**
-  + **Versão semântica 2.0.0**
+  + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
   
 + **Correções e melhorias de bugs**
@@ -972,7 +1011,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
   + Também fizemos melhorias no Azure Machine Learning Compute - agora pode ver métricas para os seus clusters (como nós totais, nós de corrida, quota de núcleo total) no Azure Monitor, além de visualizar registos de diagnóstico para depuração. Além disso, também pode ver corridas em execução ou fila no seu cluster e detalhes como os IPs dos vários nós no seu cluster. Pode vê-las no portal ou utilizando funções correspondentes no SDK ou CLI.
 
   + **Funcionalidades de pré-visualização**
-    + Estamos a lançar suporte de pré-visualização para encriptação de disco do seu SSD local no Azure Machine Learning Compute. Por favor, crie um bilhete de suporte técnico para obter a sua subscrição whitelist para usar esta funcionalidade.
+    + Estamos a lançar suporte de pré-visualização para encriptação de disco do seu SSD local no Azure Machine Learning Compute. Por favor, crie um bilhete de suporte técnico para obter a sua subscrição, permita que a sua inscrição utilize esta funcionalidade.
     + Pré-visualização pública da inferência do lote de aprendizagem da máquina Azure. A azure Machine Learning Batch Inference visa grandes inferências que não são sensíveis ao tempo. A Inferência do Lote proporciona uma escala de cálculo de inferência rentável, com uma produção inigualável para aplicações assíncronos. Está otimizado para inferência de alta produção, fogo-e-esquecimento sobre grandes recolhas de dados.
     + [**azureml-contrib-dataset**](https://docs.microsoft.com/python/api/azureml-contrib-dataset)
         + Funcionalidades ativadas para conjunto de dados rotulado
@@ -1443,7 +1482,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1609,7 +1648,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.
@@ -1652,7 +1691,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Corrigiu o bug sobre a perda de tipos de colunas após a transformação.
     + Corrigiu o erro para permitir que y_query seja um tipo de objeto que contenha nenhum(s) no início.
     + Corrigiu o problema no processo de seleção do Ensemble que estava a crescer desnecessariamente o conjunto resultante, mesmo que as pontuações permanecessem constantes.
-    + Corrigiu o problema com as definições whitelist_models e blacklist_models no AutoMLStep.
+    + Corrigiu o problema com permitir list_models e bloquear as definições de list_models em AutoMLStep.
     + Corrigiu o problema que impedia a utilização do pré-processamento quando a AutoML teria sido utilizada no contexto dos Gasodutos Azure ML.
   + **azureml-opendatasets**
     + Moveu osdatas azureml-contrib-open para conjuntos de dados abertos azureml.
@@ -2354,7 +2393,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
   * log_table() e log_row() são suportados em detalhes do Run.
   * Crie automaticamente gráficos para tabelas e linhas com colunas numéricas 1, 2 ou 3 e uma coluna categórica opcional.
 
-+ **Machine Learning Automatizado**
++ **Aprendizagem automática de máquinas**
   * Melhor manuseamento de erros e documentação
   * Problemas de desempenho de recuperação de propriedade de execução fixa.
   * Problema de execução de continuidade fixo.
@@ -2387,6 +2426,6 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
 Um novo e renovado lançamento de Azure Machine Learning: Leia mais sobre este lançamento:https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a descrição geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

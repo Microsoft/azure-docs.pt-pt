@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma piscina Apache Spark (pré-visualização) utilizando o portal Azure'
+title: 'Quickstart: Criar uma piscina Apache Spark utilizando o portal Azure'
 description: Crie uma nova piscina Apache Spark utilizando o portal Azure seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006080"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark (pré-visualização) utilizando o portal Azure
+# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark utilizando o portal Azure
 
 O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar, analisar e distribuir os seus dados. Um conjunto Apache Spark fornece capacidades de computação de dados de código aberto. Depois de criar uma piscina Apache Spark no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e distribuídos para uma visão analítica mais rápida.
 
@@ -80,7 +80,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 9. Neste momento, não há recursos em execução, nem encargos para a Spark, criaste metadados sobre as instâncias Spark que queres criar.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Siga os passos abaixo para eliminar a piscina Apache Spark do espaço de trabalho.
 > [!WARNING]

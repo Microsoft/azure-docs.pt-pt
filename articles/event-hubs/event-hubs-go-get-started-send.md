@@ -3,12 +3,12 @@ title: 'Quickstart: Enviar e receber eventos usando Go - Azure Event Hubs'
 description: 'Quickstart: Este artigo fornece uma passagem para a criação de uma aplicação Go que envia eventos a partir de Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 18b139db32e806ac2bdbf440a9dfa8a10ab1ecf3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85320357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002459"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Quickstart: Enviar eventos para ou receber eventos de Centros de Eventos usando Go
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -126,7 +126,7 @@ Parabéns! Enviou agora mensagens para um hub de eventos.
 
 ### <a name="create-a-storage-account-and-container"></a>Criar uma conta de armazenamento e um recipiente
 
-Estados como as locações em divisórias e postos de controlo no fluxo de eventos são partilhados entre recetores usando um recipiente de armazenamento Azure. Pode criar uma conta de armazenamento e um recipiente com o Go SDK, mas também pode criar uma seguindo as instruções nas [contas de armazenamento About Azure](../storage/common/storage-create-storage-account.md).
+Estados como as locações em divisórias e postos de controlo no fluxo de eventos são partilhados entre recetores usando um recipiente de armazenamento Azure. Pode criar uma conta de armazenamento e um recipiente com o Go SDK, mas também pode criar uma seguindo as instruções nas [contas de armazenamento About Azure](../storage/common/storage-account-create.md).
 
 As amostras para a criação de artefactos de armazenamento com o Go SDK estão disponíveis no repo de [amostras Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) e na amostra correspondente a este tutorial.
 

@@ -3,12 +3,12 @@ title: Monitorize aplicações java em qualquer lugar - Azure Monitor Applicatio
 description: Monitorização de desempenho de aplicações sem código para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Encontre a causa principal dos problemas d usando o mapa de rastreio e aplicação distribuídos.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a01f2e9339f3ba4f8f50fc41617fabf9da9d8cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014206"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração - Java agente autónomo para Azure Monitor Application Insights
 
@@ -115,8 +115,8 @@ Estes são os `threshold` valores válidos que pode especificar no `ApplicationI
 | `threshold`  | Log4j  | Logback | JUL     |
 |--------------|--------|---------|---------|
 | OFF          | OFF    | OFF     | OFF     |
-| FATAL        | FATAL  | ERROR   | SEVERO  |
-| ERRO/GRAVE | ERROR  | ERROR   | SEVERO  |
+| FATAL        | FATAL  | ERROR   | Grave  |
+| ERRO/GRAVE | ERROR  | ERROR   | Grave  |
 | WARN/WARNING | ATENÇÃO   | ATENÇÃO    | AVISO |
 | INFO         | INFO   | INFO    | INFO    |
 | CONFIG       | DEPURAR  | DEPURAR   | CONFIG  |
@@ -216,7 +216,7 @@ Aqui está um exemplo de como definir a amostragem para **10% de todas as transa
 
 ## <a name="http-proxy"></a>HTTP Proxy
 
-Se a sua aplicação estiver por detrás de uma firewall e não puder ligar-se diretamente aos Insights de Aplicação (ver [endereços IP utilizados pelo Application Insights),](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)pode configurar a pré-visualização do Pedido Desconsejamento Java 3.0 para utilizar um proxy HTTP:
+Se a sua aplicação estiver por detrás de uma firewall e não puder ligar-se diretamente aos Insights de Aplicação (ver [endereços IP utilizados pelo Application Insights),](./ip-addresses.md)pode configurar a pré-visualização do Pedido Desconsejamento Java 3.0 para utilizar um proxy HTTP:
 
 ```json
 {

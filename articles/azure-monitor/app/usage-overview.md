@@ -3,11 +3,12 @@ title: Análise de utilização com Azure Application Insights / Docs da Microso
 description: Compreenda os seus utilizadores e o que fazem com a sua aplicação.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1acc803d66bef29a77266d4e38e1605ffd75f36f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014070"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -33,7 +34,7 @@ A melhor experiência obtém-se através da instalação de Application Insights
     </script>
     ```
 
-    Para obter configurações mais avançadas para monitorizar websites, consulte o [artigo de referência javaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Para obter configurações mais avançadas para monitorizar websites, consulte o [artigo de referência javaScript SDK](./javascript.md).
 
 3. **Código de aplicativo móvel:** Utilize o App Center SDK para recolher eventos da sua aplicação e, em seguida, envie cópias destes eventos para a Aplicação Insights para [análise, seguindo este guia.](../../azure-monitor/learn/mobile-center-quickstart.md)
 
@@ -44,7 +45,7 @@ A melhor experiência obtém-se através da instalação de Application Insights
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Inclua o ID do utilizador e da sessão na sua telemetria
 Para rastrear os utilizadores ao longo do tempo, o Application Insights requer uma forma de os identificar. A ferramenta Eventos é a única ferramenta de utilização que não requer um ID do utilizador ou um ID de sessão.
 
-Comece a enviar iDs de utilizador e de sessão utilizando [este processo.](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)
+Comece a enviar iDs de utilizador e de sessão utilizando [este processo.](./usage-send-user-context.md)
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Explorar a demografia de utilização e as estatísticas
 Descubra quando as pessoas usam a sua app, quais as páginas em que estão mais interessados, onde os seus utilizadores estão localizados, quais os navegadores e sistemas operativos que utilizam. 
@@ -169,7 +170,7 @@ Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) 
 
 Todos os novos TelemetriaClients adicionam automaticamente o valor da propriedade que especifica. Os eventos individuais de telemetria podem sobrepor-se aos valores predefinidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
    - [Utilizadores, Sessões, Eventos](usage-segmentation.md)
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)

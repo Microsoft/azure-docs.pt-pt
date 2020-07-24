@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este quickstart mostra-lhe como usar Azure Dev Spaces e Visual Studio Code para depurar e iterar rapidamente uma aplicação .NET Core no Serviço Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 104e812cc9e792ce71f263085ba1a3474cc2226b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002782"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Quickstart: Debug e iterate em Kubernetes: Visual Studio Code e .NET Core - Azure Dev Spaces
 
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Guarde o ficheiro. Clique em *Debug* e *reinicie depuração* ou na *barra de ferramentas Debug,* clique no botão *Restart Debugging.*
 
-![A barra de ferramentas Debug é uma pequena vidraça no centro superior da página (logo abaixo do título da página). O botão Reiniciar exibe uma seta circular e é realçado. A imagem do botão hover é "Restart (Ctrl+Shift+F5)".](media/common/debug-action-refresh.png)
+![A barra de ferramentas Debug é uma pequena vidraça no centro superior da página (logo abaixo do título da página). O botão Reiniciar exibe uma seta circular e é realçado. A imagem do botão hover é "Reiniciar (controlo + turno + f 5)".](media/common/debug-action-refresh.png)
 
 Abra o seu serviço num browser e note que a sua mensagem atualizada está exposta.
 
@@ -167,7 +167,7 @@ Em vez de reconstruir e redistribuir uma nova imagem de recipiente cada vez que 
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como o Azure Dev Spaces o ajuda a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou ramos do seu código em diferentes espaços. 
 

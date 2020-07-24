@@ -7,16 +7,16 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 26594486e1d98c0349fd41470c749109faf71b0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711872"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011418"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Quickstart: Azure Blob storage client library v12 for .NET
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Início Rápido: biblioteca de cliente do armazenamento de blobs do Azure v12 para .NET
 
-Começa com a biblioteca de clientes de armazenamento Azure Blob v12 para .NET. O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O Armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
+Começa com a biblioteca de clientes de armazenamento Azure Blob v12 para .NET. O Armazenamento de blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Siga as medidas para instalar a embalagem e experimente o código de exemplo para tarefas básicas. O armazenamento de blobs está otimizado para armazenar quantidades em grande escala de dados não estruturados.
 
 > [!NOTE]
 > Para começar com a versão SDK anterior, consulte [a biblioteca de clientes de armazenamento Quickstart: Azure Blob para .NET](storage-quickstart-blobs-dotnet-legacy.md).
@@ -29,7 +29,12 @@ Utilize a biblioteca de clientes de armazenamento Azure Blob v12 para .NET para:
 * Descarregue a bolha para o seu computador local
 * Eliminar um contentor
 
-[Documentação de](/dotnet/api/azure.storage.blobs)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Recursos adicionais:
+
+* [Documentação de referência da API](/dotnet/api/azure.storage.blobs)
+* [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

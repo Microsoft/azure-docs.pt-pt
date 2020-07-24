@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81e27c0f62e921eb468c78521e426c8917da250a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014143"
 ---
 # <a name="connection-strings"></a>Cadeias de ligação
 
@@ -25,18 +25,18 @@ Os pares de valor chave proporcionam uma maneira fácil para os utilizadores def
 > Não recomendamos a definição da tecla de ligação e instrumentação. No caso de um utilizador definir ambos, o que for que tenha sido definido por último terá precedência. 
 
 
-## <a name="scenario-overview"></a>Descrição geral do cenário 
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário) 
 
 Cenários de clientes onde visualizamos isto tendo mais impacto:
 
 - Exceções de firewall ou redirecionamentos de procuração 
 
-    Nos casos em que é necessária monitorização para o servidor web intranet, a nossa solução anterior pediu aos clientes que adicionassem pontos finais de serviço individuais à sua configuração. Para mais informações, consulte [aqui.](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server) 
+    Nos casos em que é necessária monitorização para o servidor web intranet, a nossa solução anterior pediu aos clientes que adicionassem pontos finais de serviço individuais à sua configuração. Para mais informações, consulte [aqui.](../faq.md#can-i-monitor-an-intranet-web-server) 
     As cordas de ligação oferecem uma alternativa melhor reduzindo este esforço a uma única configuração. Um simples prefixo, alteração de sufixo permite a população automática e a reorientação de todos os pontos finais para os serviços certos. 
 
 - Ambientes de nuvem soberana ou híbrida
 
-    Os utilizadores podem enviar dados para uma [Região governamental do Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definida.
+    Os utilizadores podem enviar dados para uma [Região governamental do Azure](../../azure-government/compare-azure-government-global-azure.md#application-insights)definida.
     As cadeias de ligação permitem definir definições de ponto final para os seus servidores intranet ou definições de nuvem híbrida. 
 
 ## <a name="getting-started"></a>Introdução
@@ -53,7 +53,7 @@ A sua cadeia de ligação é exibida na lâmina de visão geral do seu recurso A
 
 A ligação tem um comprimento máximo suportado de 4096 caracteres.
 
-#### <a name="key-value-pairs"></a>Pares valor-chave
+#### <a name="key-value-pairs"></a>Pares chave-valor
 
 A cadeia de ligação consiste numa lista de configurações representadas como pares de valor-chave separados por pontos e vírgulas:`key1=value1;key2=value2;key3=value3`
 
@@ -270,7 +270,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Introdução ao tempo de execução com:
 

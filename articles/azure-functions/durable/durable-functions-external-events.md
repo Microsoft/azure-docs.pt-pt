@@ -2,14 +2,14 @@
 title: Lidar com eventos externos em Funções Duradouras - Azure
 description: Saiba como lidar com eventos externos na extensão de Funções Duradouras para Funções Azure.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 387b5d920de4a295366cc7e948862a12cea901d3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014944"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidar com eventos externos em Funções Duradouras (Funções Azure)
 
@@ -20,7 +20,7 @@ As funções orquestradoras têm a capacidade de esperar e ouvir eventos externo
 
 ## <a name="wait-for-events"></a>Aguarde os eventos
 
-Os métodos [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) e `waitForExternalEvent` (JavaScript) da ligação do gatilho da [orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função orquestradora aguarde assíncronamente e ouça um evento externo. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
+Os métodos [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET), `waitForExternalEvent` (JavaScript) e `wait_for_external_event` (Python) da [ligação](durable-functions-bindings.md#orchestration-trigger) do gatilho da orquestração permitem que uma função orquestradora aguarde assíncronamente e ouça um evento externo. A função de orquestrador de escuta declara o *nome* do evento e a *forma dos dados* que espera receber.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -57,6 +57,22 @@ module.exports = df.orchestrator(function*(context) {
         // approval denied - send a notification
     }
 });
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    approved = context.wait_for_external_event('Approval')
+    if approved:
+        # approval granted - do the approved action
+    else:
+        # approval denied - send a notification
+
+main = df.Orchestrator.create(orchestrator_function)
 ```
 
 ---
@@ -116,6 +132,28 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    event1 = context.wait_for_external_event('Event1')
+    event2 = context.wait_for_external_event('Event2')
+    event3 = context.wait_for_external_event('Event3')
+
+    winner = context.task_any([event1, event2, event3])
+    if winner == event1:
+        # ...
+    elif winner == event2:
+        # ...
+    elif winner == event3:
+        # ...
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 O exemplo anterior ouve *qualquer um* dos múltiplos eventos. Também é possível esperar por *todos os* eventos.
@@ -164,12 +202,31 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    application_id = context.get_input()
+    
+    gate1 = context.wait_for_external_event('CityPlanningApproval')
+    gate2 = context.wait_for_external_event('FireDeptApproval')
+    gate3 = context.wait_for_external_event('BuildingDeptApproval')
+
+    yield context.task_all([gate1, gate2, gate3])
+    yield context.call_activity('IssueBuildingPermit', application_id)
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 `WaitForExternalEvent`espera indefinidamente por alguma entrada.  A aplicação de função pode ser descarregada com segurança enquanto espera. Se e quando um evento chega para esta instância de orquestração, é despertado automaticamente e processa imediatamente o evento.
 
 > [!NOTE]
-> Se a sua aplicação de função utilizar o Plano de Consumo, não são incorridos encargos de faturação enquanto uma função de orquestrador aguarda uma tarefa de `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript), não importa quanto tempo espere.
+> Se a sua aplicação de função utilizar o Plano de Consumo, não são incorridos encargos de faturação enquanto uma função de orquestrador aguarda uma tarefa de `WaitForExternalEvent` (.NET), `waitForExternalEvent` (JavaScript) ou `wait_for_external_event` (Python), não importa quanto tempo espere.
 
 ## <a name="send-events"></a>Enviar eventos
 
@@ -210,9 +267,20 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(instance_id:str, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    await client.raise_event(instance_id, 'Approval', True)
+```
+
 ---
 
-Internamente, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) encoste uma mensagem que é captada pela função de orquestrador de espera. Se a instância não estiver à espera do nome especificado do *evento,* a mensagem do evento é adicionada a uma fila de memória. Se a instância de orquestração começar mais tarde a ouvir o nome do *evento,* verificará a fila para obter mensagens de evento.
+Internamente, `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript) ou `raise_event` (Python) encoste uma mensagem que é captada pela função de orquestrador de espera. Se a instância não estiver à espera do nome especificado do *evento,* a mensagem do evento é adicionada a uma fila de memória. Se a instância de orquestração começar mais tarde a ouvir o nome do *evento,* verificará a fila para obter mensagens de evento.
 
 > [!NOTE]
 > Se não houver qualquer instância de orquestração com o *ID de instância*especificado, a mensagem do evento é descartada.

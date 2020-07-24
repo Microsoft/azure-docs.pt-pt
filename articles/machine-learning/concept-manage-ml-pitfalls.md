@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147101"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012727"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Prevenir a sobremontagem e os dados desequilibrados com a aprendizagem automática de máquinas
 
@@ -27,7 +27,7 @@ A adaptação excessiva na aprendizagem automática ocorre quando um modelo se e
 
 Considere os seguintes modelos treinados e as respetivas precisões de comboio e teste.
 
-| Modelo | Precisão do comboio | Precisão do teste |
+| Modelação | Precisão do comboio | Precisão do teste |
 |-------|----------------|---------------|
 | A | 99,9% | 95% |
 | B | 87% | 87% |
@@ -101,7 +101,7 @@ As seguintes técnicas são opções adicionais para lidar com dados desequilibr
 
 - Resampling até mesmo o desequilíbrio de classe, quer através da amostragem das classes mais pequenas, quer diminuindo a amostragem das classes maiores. Estes métodos requerem conhecimentos especializados para processar e analisar.
 
-- Rever métricas de desempenho para dados desequilibrados. Por exemplo, a pontuação F1 é uma média ponderada de precisão e recordação. A precisão mede a exatidão de um classificador- a baixa precisão indica um elevado número de falsos positivos--, enquanto a recuperação mede a completude de um classificador-- a baixa recuperação indica um elevado número de falsos negativos.
+- Rever métricas de desempenho para dados desequilibrados. Por exemplo, a pontuação F1 é a média harmónica de precisão e recordação. A precisão mede a exatidão de um classificador, onde uma maior precisão indica menos falsos positivos, enquanto a recuperação mede a completude de um classificador, onde uma recolha mais elevada indica menos falsos negativos.
 
 ## <a name="next-steps"></a>Passos seguintes
 

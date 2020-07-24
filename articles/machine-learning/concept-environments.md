@@ -6,39 +6,42 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: trbye
-author: trevorbye
+ms.author: larryfr
+author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 437db3e1ad367a75d6c8d3a77b138bce79b5f61e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012812"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes de aprendizagem automática Azure?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Ambientes de aprendizagem automática Azure especificam os pacotes Python, variáveis ambientais e configurações de software em torno dos seus scripts de treino e pontuação. Também especificam os tempos de execução (Python, Spark ou Docker). Os ambientes são entidades geridas e versadas dentro do seu espaço de trabalho machine learning que permitem fluxos de trabalho de aprendizagem automática reprodutível, auditáveis e portáteis através de uma variedade de alvos computacional.
+Os ambientes de aprendizagem automática Azure são uma encapsulação do ambiente onde o seu treino de aprendizagem automática acontece. Especificam os pacotes Python, variáveis ambientais e configurações de software em torno dos seus scripts de treino e pontuação. Também especificam os tempos de execução (Python, Spark ou Docker). Os ambientes são entidades geridas e versadas dentro do seu espaço de trabalho machine learning que permitem fluxos de trabalho de aprendizagem automática reprodutível, auditáveis e portáteis através de uma variedade de alvos computacional.
 
 Pode utilizar um `Environment` objeto no seu cálculo local para:
 * Desenvolva o seu roteiro de treino.
 * Reutilizar o mesmo ambiente no Azure Machine Learning Compute para a formação de modelos à escala.
 * Desdobre o seu modelo com o mesmo ambiente.
+* Reveja o ambiente em que um modelo existente foi treinado.
 
-O diagrama que se segue ilustra como pode utilizar um único `Environment` objeto tanto na configuração de execução, como na configuração da sua inferência e implementação, para implementações de serviço web.
+O diagrama que se segue ilustra como pode utilizar um único `Environment` objeto tanto na configuração de execução (para treino) como na configuração de inferência e implementação (para implementações de serviço web).
 
 ![Diagrama de um ambiente em fluxo de trabalho de aprendizagem automática](./media/concept-environments/ml-environment.png)
+
+O ambiente, o alvo do cálculo e o roteiro de treino em conjunto formam a configuração de execução: a especificação completa de uma corrida de treino.
 
 ## <a name="types-of-environments"></a>Tipos de ambientes
 
 Os ambientes podem ser amplamente divididos em três categorias: *curado,* *gerido pelo utilizador*e gerido pelo *sistema.*
 
-Ambientes curados são fornecidos pela Azure Machine Learning e estão disponíveis no seu espaço de trabalho por padrão. Eles contêm coleções de pacotes e configurações Python para ajudá-lo a começar com várias estruturas de aprendizagem automática. 
+Ambientes curados são fornecidos pela Azure Machine Learning e estão disponíveis no seu espaço de trabalho por padrão. Destinados a ser usados como está, eles contêm coleções de pacotes python e configurações para ajudá-lo a começar com várias estruturas de aprendizagem automática. Estes ambientes pré-criados também permitem um tempo de implantação mais rápido. Para obter uma lista completa, consulte o [artigo ambientes curados.](resource-curated-environments.md)
 
 Em ambientes geridos pelo utilizador, é responsável por configurar o seu ambiente e instalar todos os pacotes que o seu script de treino necessita no alvo do cálculo. A Conda não verifica o seu ambiente nem instala nada para si. Se está a definir o seu próprio ambiente, tem de listar `azureml-defaults` com a versão como uma dependência de `>= 1.0.45` pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web.
 
-Usa ambientes geridos pelo sistema quando quer que a [Conda](https://conda.io/docs/) gere o ambiente Python e as dependências do script para si. O serviço assume este tipo de ambiente por padrão, devido à sua utilidade em alvos de computação remota que não são manualmente configuráveis.
+Usa ambientes geridos pelo sistema quando quer que a [Conda](https://conda.io/docs/) gere o ambiente Python e as dependências do script para si. Um novo ambiente conda é construído com base no objeto das dependências conda. O serviço Azure Machine Learning assume este tipo de ambiente por padrão, devido à sua utilidade em alvos de computação remota que não são manualmente configuráveis.
 
 ## <a name="create-and-manage-environments"></a>Criar e gerir ambientes
 
@@ -50,29 +53,33 @@ Pode criar ambientes através de:
 * Utilização do CLI de Aprendizagem da Máquina azul
 * [Utilização da extensão do Código VS](how-to-manage-resources-vscode.md#create-environment)
 
-Para obter amostras de código específicas, consulte a secção "Criar um ambiente" de ambientes de [reutilização para treino e implantação](how-to-use-environments.md#create-an-environment). Os ambientes também são facilmente geridos através do seu espaço de trabalho. Incluem a seguinte funcionalidade:
+Para obter amostras de código específicas, consulte a secção "Criar um ambiente" de [como utilizar ambientes](how-to-use-environments.md#create-an-environment). Os ambientes também são facilmente geridos através do seu espaço de trabalho. Incluem a seguinte funcionalidade:
 
 * Os ambientes são automaticamente registados no seu espaço de trabalho quando submete uma experiência. Também podem ser registados manualmente.
 * Você pode buscar ambientes do seu espaço de trabalho para usar para treino ou implantação, ou para fazer edições para a definição de ambiente.
 * Com a versão, pode ver alterações nos seus ambientes ao longo do tempo, o que garante a reprodutibilidade.
 * Podes construir imagens Docker automaticamente a partir dos teus ambientes.
 
-Para obter amostras de código, consulte a secção "Gerir ambientes" de ambientes de [reutilização para treino e implantação](how-to-use-environments.md#manage-environments).
+Para obter amostras de código, consulte a secção "Gerir ambientes" de [como utilizar ambientes](how-to-use-environments.md#manage-environments).
 
 ## <a name="environment-building-caching-and-reuse"></a>Construção do ambiente, caching e reutilização
 
-O serviço Azure Machine Learning constrói definições ambientais em imagens e ambientes conda e estivadores. Também caches os ambientes para que possam ser reutilizados em treinos subsequentes e implementações de pontos finais de serviço.
+O serviço Azure Machine Learning constrói definições ambientais em imagens e ambientes conda e estivadores. Também caches os ambientes para que possam ser reutilizados em treinos subsequentes e implementações de pontos finais de serviço. Executar um script de treino remotamente requer a criação de uma imagem de Docker, enquanto que, uma corrida local pode usar um ambiente Conda diretamente. 
+
+### <a name="submitting-a-run-using-an-environment"></a>Submeter uma corrida usando um ambiente
+
+Quando submete pela primeira vez uma execução remota utilizando um ambiente, o serviço de Aprendizagem automática Azure invoca uma [Tarefa de Construção de ACR](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) no Registo de Contentores Azure (ACR) associado ao espaço de trabalho. A imagem de Docker construída é então em cache no Espaço de Trabalho ACR. Ambientes curados são apoiados por imagens de Docker que estão em cache no ACR Global. No início da execução, a imagem é recuperada pelo alvo do cálculo a partir do ACR relevante.
+
+Para as corridas locais, um ambiente Docker ou Conda é criado com base na definição ambiental. Os scripts são então executados no cálculo alvo - um ambiente local de tempo de execução ou motor local Docker.
 
 ### <a name="building-environments-as-docker-images"></a>Construindo ambientes como imagens docker
 
-Normalmente, quando se submete uma corrida através de um ambiente, o serviço de Aprendizagem automática Azure invoca uma [Tarefa de Construção ACR](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) no Registo de Contentores Azure (ACR) associado ao espaço de trabalho. A imagem de Docker construída é então em cache no Espaço de Trabalho ACR. No início da execução, a imagem é recuperada pelo alvo do cálculo.
-
-A construção de imagens consiste em dois passos:
+Se a definição de ambiente já não existir no espaço de trabalho ACR, uma nova imagem será construída. A construção de imagens consiste em dois passos:
 
  1. Descarregar uma imagem base e executar quaisquer passos do Docker
  2. Construção de um ambiente conda de acordo com as dependências da conda especificadas na definição ambiental.
 
-O segundo passo é omitido se especificar [as dependências geridas pelo utilizador](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). Neste caso, você é responsável por instalar quaisquer pacotes Python, incluindo-os na sua imagem base, ou especificando passos personalizados do Docker dentro do primeiro passo. Também é responsável por especificar a localização correta para o Python executável.
+O segundo passo é omitido se especificar [as dependências geridas pelo utilizador](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). Neste caso, você é responsável por instalar quaisquer pacotes Python, incluindo-os na sua imagem base, ou especificando passos personalizados do Docker dentro do primeiro passo. Também é responsável por especificar a localização correta para o Python executável. Também é possível usar uma [imagem base personalizada do Docker.](how-to-deploy-custom-docker-image.md)
 
 ### <a name="image-caching-and-reuse"></a>Caching e reutilização de imagens
 
@@ -87,16 +94,18 @@ Para determinar se reutilizar uma imagem em cache ou construir uma nova, o servi
  * Lista de pacotes Python na definição de Conda
  * Lista de pacotes na definição de Faísca 
 
-O haxixe não depende do nome ou versão do ambiente. As alterações na definição do ambiente, tais como adicionar ou remover um pacote Python ou alterar a versão do pacote, fazem com que o valor do haxixe mude e desencadeie uma reconstrução de imagem. No entanto, se simplesmente mudar o nome do seu ambiente ou criar um novo ambiente com as propriedades e pacotes exatos de um existente, então o valor do haxixe permanece o mesmo e a imagem em cache é usada.
+O haxixe não depende do nome ou versão do ambiente - se mudar o nome do seu ambiente ou criar um novo ambiente com as propriedades exatas e pacotes de um existente, então o valor do haxixe permanece o mesmo. No entanto, as alterações na definição do ambiente, tais como adicionar ou remover um pacote Python ou alterar a versão do pacote, fazem com que o valor do haxixe mude. É importante notar que qualquer alteração a um ambiente curado invalidará o haxixe e resultará num novo ambiente "não curado".
 
-Consulte o diagrama que mostra três definições ambientais. Dois deles têm nome e versão diferentes, mas imagem base idêntica e pacotes Python. Têm o mesmo haxixe e, portanto, correspondem à mesma imagem em cache. O terceiro ambiente tem diferentes pacotes e versões Python, e, portanto, corresponde a uma imagem em cache diferente.
+O valor do haxixe calculado é comparado com o do Espaço de Trabalho e do ACR Global (ou no alvo de computação para corridas locais). Se houver uma correspondência, então a imagem em cache é puxada, caso contrário, uma construção de imagem é desencadeada. A duração para puxar uma imagem em cache inclui o tempo de download, enquanto a duração para puxar uma imagem recém-construída inclui tanto o tempo de construção como o tempo de descarregamento. 
+
+O diagrama a seguir mostra três definições ambientais. Dois deles têm nomes e versões diferentes, mas imagem base idêntica e pacotes Python. Mas têm o mesmo haxixe e, portanto, correspondem à mesma imagem em cache. O terceiro ambiente tem diferentes pacotes e versões Python, e, portanto, corresponde a uma imagem em cache diferente.
 
 ![Diagrama de ambiente caching como imagens Docker](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
 > Se criar um ambiente com uma dependência de pacotes não pinados, por ```numpy``` exemplo, esse ambiente continuará a utilizar a versão pacote instalada _no momento da criação do ambiente_. Além disso, qualquer ambiente futuro com definição correspondente continuará a usar a versão antiga. 
 
-Para atualizar o pacote, especifique um número de versão para forçar a reconstrução da imagem, por exemplo ```numpy==1.18.1``` . Note que novas dependências, incluindo as aninhadas serão instaladas que podem quebrar um cenário de trabalho anterior.
+Para atualizar o pacote, especifique um número de versão para forçar a reconstrução da imagem, por exemplo ```numpy==1.18.1``` . Serão instaladas novas dependências, incluindo as aninhadas, que poderão quebrar um cenário de trabalho anterior.
 
 > [!WARNING]
 >  O método [Ambiente.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não pinned e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.

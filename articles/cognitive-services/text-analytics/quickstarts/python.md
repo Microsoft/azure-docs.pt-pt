@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/06/2020
+ms.date: 07/20/2020
 ms.author: aahi
 ms.custom: tracking-python
-ms.openlocfilehash: feababd3d6f6845142a13ccb3b2b31b78315704b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 99c22edac7acefe3ec34ff40e892a7071b932ada
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027940"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013815"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Quickstart: Utilização da API Python REST para chamar o Serviço Cognitivo text Analytics 
 <a name="HOLTop"></a>
@@ -218,7 +219,7 @@ A pontuação de sentimento para um documento é entre 0.0 e 1.0, com uma pontua
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair expressões-chave
+## <a name="extract-key-phrases"></a>Extrair Expressões-Chave
  
 Para extrair as frases-chave de um conjunto de documentos, `/text/analytics/v3.0/keyPhrases` apencha-se ao ponto final base text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
     
@@ -297,7 +298,7 @@ pprint(key_phrases)
 Para identificar entidades conhecidas (pessoas, lugares e coisas) em documentos de texto, `/text/analytics/v3.0/entities/recognition/general` anexa-se ao ponto final base text Analytics para formar o URL de deteção de idiomas. Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
     
 ```python
-entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general/recognition/general"
+entities_url = endpoint + "/text/analytics/v3.0/entities/recognition/general"
 ```
 
 Crie uma coleção de documentos, como nos exemplos anteriores. 
@@ -355,5 +356,5 @@ pprint(entities)
 
 ## <a name="see-also"></a>Ver também 
 
- [Descrição Geral da Análise de Texto](../overview.md)  
+ [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
