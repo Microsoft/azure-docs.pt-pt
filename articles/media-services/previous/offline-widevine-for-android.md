@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: f3bd7bc78eeb62cc33a01ed31bb04d94078cae4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294343"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065501"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Transmissão offline em fluxo de Widevine para Android  
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
-> * [Versão 3](../latest/offline-widevine-for-android.md)
+> * [Versão 3](../latest/offline-widevine-for-android.md)
 > * [Versão 2](offline-widevine-for-android.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Além de proteger conteúdos para streaming online, a subscrição de conteúdos de mídia e os serviços de aluguer oferecem conteúdo transferível que funciona quando não está ligado à internet. Pode ser necessário transferir conteúdo para o seu telemóvel ou tablet para reprodução no modo avião quando voar desligado da rede. Cenários adicionais, nos quais poderá querer descarregar conteúdo:
 
@@ -181,7 +181,7 @@ Isto significa que o Serviço DeKen Seguro (STS) precisa de ter a lógica de neg
 
 ### <a name="question"></a>Pergunta
 
-Para os níveis de segurança widevine, na documentação geral do doc de [arquitetura DRM da](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) Google, define três níveis de segurança diferentes. No entanto, na [documentação do Azure Media Services sobre o modelo de licença widevine,](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)são delineados cinco níveis de segurança diferentes. Qual é a relação ou mapeamento entre os dois diferentes conjuntos de níveis de segurança?
+Para os níveis de segurança widevine, na documentação geral do doc de [arquitetura DRM da](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) Google, define três níveis de segurança diferentes. No entanto, na [documentação do Azure Media Services sobre o modelo de licença widevine,](./media-services-widevine-license-template-overview.md)são delineados cinco níveis de segurança diferentes. Qual é a relação ou mapeamento entre os dois diferentes conjuntos de níveis de segurança?
 
 ### <a name="answer"></a>Resposta
 
@@ -191,7 +191,7 @@ Na visão geral da [arquitetura drm widevine](https://storage.googleapis.com/wvd
 2.  Nível de Segurança 2: Executa a criptografia (mas não o processamento de vídeo) dentro do TEE: os amortecedores desencriptados são devolvidos ao domínio da aplicação e processados através de hardware ou software de vídeo separados. No nível 2, no entanto, a informação criptográfica ainda é processada apenas dentro do TEE.
 3.  Segurança Nível 3 Não tem um TEE no dispositivo. Podem ser tomadas medidas adequadas para proteger as informações criptográficas e o conteúdo desencriptado no sistema operativo hospedeiro. Uma implementação de Nível 3 também pode incluir um motor criptográfico de hardware, mas que apenas aumenta o desempenho, não a segurança.
 
-Ao mesmo tempo, na documentação do [Azure Media Services sobre o modelo de licença Widevine,](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)a propriedade security_level de content_key_specs pode ter os seguintes cinco valores diferentes (requisitos de robustez do cliente para reprodução):
+Ao mesmo tempo, na documentação do [Azure Media Services sobre o modelo de licença Widevine,](./media-services-widevine-license-template-overview.md)a propriedade security_level de content_key_specs pode ter os seguintes cinco valores diferentes (requisitos de robustez do cliente para reprodução):
 
 1.  É necessário cripto de caixa branca baseado em software.
 2.  É necessário cripto de software e um descodificador obfuscado.

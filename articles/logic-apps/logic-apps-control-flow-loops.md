@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831624"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066348"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 
@@ -74,7 +75,7 @@ Esta aplicação lógica de exemplo envia um resumo diário para um feed RSS do 
 
    ![Adicione passos ao laço "Foreach"](media/logic-apps-control-flow-loops/for-each-loop-with-step.png)
 
-5. Guarde a aplicação lógica. Para testar manualmente a sua aplicação lógica, na barra de ferramentas do designer, escolha **Executar**.
+5. Guarde a sua aplicação lógica. Para testar manualmente a sua aplicação lógica, na barra de ferramentas do designer, escolha **Executar**.
 
 <a name="for-each-json"></a>
 
@@ -161,7 +162,7 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
 
 > [!NOTE]
 > Estes passos utilizam o Office 365 Outlook, mas pode utilizar qualquer fornecedor de e-mail que a Logic Apps suporte. 
-> [Consulte aqui a lista de conectores.](https://docs.microsoft.com/connectors/) Se utilizar outra conta de e-mail, os passos gerais permanecem os mesmos, mas a sua UI pode parecer ligeiramente diferente. 
+> [Consulte aqui a lista de conectores.](/connectors/) Se utilizar outra conta de e-mail, os passos gerais permanecem os mesmos, mas a sua UI pode parecer ligeiramente diferente. 
 
 1. Criar uma aplicação lógica em branco. No Logic App Designer, sob a caixa de pesquisa, escolha **Todos.** Procure por "recorrência". 
    A partir da lista de gatilhos, selecione este gatilho: **Recorrência - Agenda**
@@ -191,7 +192,7 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
    | Propriedade | Valor | Descrição |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | O nome da sua variável | 
-   | **Tipo** | Número inteiro | O tipo de dados da sua variável | 
+   | **Tipo** | Integer (Número inteiro) | O tipo de dados da sua variável | 
    | **Valor** | 0 | O valor inicial da sua variável | 
    |||| 
 
@@ -236,7 +237,7 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
       | **Corpo** | <*conteúdo de e-mail*> | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Para este exemplo, insira o texto que quiser. | 
       |||| 
 
-1. Guarde a aplicação lógica. Para testar manualmente a sua aplicação lógica, na barra de ferramentas do designer, escolha **Executar**.
+1. Guarde a sua aplicação lógica. Para testar manualmente a sua aplicação lógica, na barra de ferramentas do designer, escolha **Executar**.
 
       Depois de a sua lógica começar a funcionar, recebe um e-mail com o conteúdo especificado:
 
@@ -249,7 +250,7 @@ Um ciclo "Até" tem limites predefinidos que impedem a execução se alguma dest
 | Propriedade | Valor predefinido | Descrição | 
 | -------- | ------------- | ----------- | 
 | **Contagem** | 60 | O maior número de loops que correm antes da saída do loop. O padrão é de 60 ciclos. | 
-| **Tempo Limite** | PT1H | A maior quantidade de tempo para dar um loop antes da saída do circuito. O padrão é de uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no circuito demorar mais do que o limite de tempo, o ciclo atual não para. No entanto, o próximo ciclo não começa porque a condição limite não está cumprida. | 
+| **Intervalo de tempo** | PT1H | A maior quantidade de tempo para dar um loop antes da saída do circuito. O padrão é de uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no circuito demorar mais do que o limite de tempo, o ciclo atual não para. No entanto, o próximo ciclo não começa porque a condição limite não está cumprida. | 
 |||| 
 
 Para alterar estes limites predefinidos, escolha **Mostrar opções avançadas** na forma de ação do loop.
@@ -334,10 +335,10 @@ Este exemplo "Até" chama um ponto final HTTP, que cria um recurso. O loop para 
 
 ## <a name="get-support"></a>Obter suporte
 
-* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, [o site de feedback do utilizador da Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)

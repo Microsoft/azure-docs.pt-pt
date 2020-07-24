@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437706"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066527"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade de negócios e recuperação de desastres para Azure Logic Apps
 
@@ -100,7 +100,7 @@ O recurso de gateway de dados está associado a uma localização ou região de 
 
 Pode configurar as suas localizações primárias e secundárias para que as instâncias de aplicações lógicas nestes locais possam desempenhar estes papéis:
 
-| Papel primário-secundário | Description |
+| Papel primário-secundário | Descrição |
 |------------------------|-------------|
 | *Ativo ativo* | As instâncias de aplicações lógicas primárias e secundárias em ambos os locais lidam ativamente com os pedidos seguindo qualquer um destes padrões: <p><p>- *Equilíbrio de carga*: Pode fazer com que ambas as instâncias ouçam um ponto final e carreguem o tráfego de equilíbrio para cada instância, se necessário. <p>- *Consumidores concorrentes*: Pode fazer com que ambas as instâncias atuem como consumidores concorrentes para que os casos concorram por mensagens de uma fila. Se um caso falhar, o outro caso assume a carga de trabalho. |
 | *Ativo-passivo* | A instância da aplicação lógica primária lida ativamente com toda a carga de trabalho, enquanto a instância secundária é passiva (desativada ou inativa). O secundário aguarda um sinal de que o primário está indisponível ou não funciona devido a perturbação ou falha e assume a carga de trabalho como o caso ativo. |
@@ -157,7 +157,7 @@ Quando a sua aplicação lógica é ativada e começa a funcionar, o estado da a
 
 Para minimizar o número de casos de fluxo de trabalho abandonados em curso, pode escolher entre vários padrões de mensagem que pode implementar, por exemplo:
 
-* [Padrão de deslizamento de encaminhamento fixo](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [Padrão de deslizamento de encaminhamento fixo](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   Este padrão de mensagem da empresa que divide um processo de negócio em estágios menores. Para cada etapa, cria-se uma aplicação lógica que trata da carga de trabalho para esse palco. Para comunicar uns com os outros, as suas aplicações lógicas usam um protocolo de mensagens assíncronas, como filas de autocarros da Azure Service Ou tópicos. Quando se divide um processo em fases mais pequenas, reduz-se o número de processos de negócio que podem ficar presos numa instância de aplicação lógica falhada. Para obter informações mais gerais sobre este padrão, consulte [os padrões de integração da Enterprise - Deslize de encaminhamento](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
@@ -165,7 +165,7 @@ Para minimizar o número de casos de fluxo de trabalho abandonados em curso, pod
 
   ![Divida um processo de negócio em estágios representados por apps lógicas, que comunicam entre si usando as filas do Azure Service Bus](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  Se as instâncias de aplicações lógicas primárias e secundárias seguirem o mesmo padrão de deslizamento de encaminhamento nas suas localizações, pode implementar o [padrão de consumidores concorrentes,](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) criando [papéis ativos](#roles) para esses casos.
+  Se as instâncias de aplicações lógicas primárias e secundárias seguirem o mesmo padrão de deslizamento de encaminhamento nas suas localizações, pode implementar o [padrão de consumidores concorrentes,](/azure/architecture/patterns/competing-consumers) criando [papéis ativos](#roles) para esses casos.
 
 * [Padrão de gestor de processo (corretor)](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ Do ponto de vista da recuperação de desastres, quando configurar as instância
   Por exemplo, a leitura de uma fila de mensagens, como uma fila de autocarros do Serviço Azure, utiliza o estado do lado do servidor porque o serviço de fila mantém bloqueios em mensagens para evitar que outros clientes leiam as mesmas mensagens.
 
   > [!NOTE]
-  > Se a sua aplicação lógica precisar de ler mensagens numa ordem específica, por exemplo, a partir de uma fila de Autocarros de Serviço, pode utilizar o padrão de consumidor concorrente, mas apenas quando combinado com sessões de Service Bus, que também é conhecido como o [padrão *de comboio sequencial.* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) Caso contrário, deve configurar as suas instâncias de aplicações lógicas com as funções activa-passivas.
+  > Se a sua aplicação lógica precisar de ler mensagens numa ordem específica, por exemplo, a partir de uma fila de Autocarros de Serviço, pode utilizar o padrão de consumidor concorrente, mas apenas quando combinado com sessões de Service Bus, que também é conhecido como o [padrão *de comboio sequencial.* ](/azure/architecture/patterns/sequential-convoy) Caso contrário, deve configurar as suas instâncias de aplicações lógicas com as funções activa-passivas.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ Do ponto de vista da recuperação de desastres, o gatilho Request é um recetor
 
 * [Active-pass:](#roles)Apenas a instância primária está ativa e trata de todo o trabalho, enquanto a instância secundária aguarda até que as primeiras experiências se disrupções ou falhas. O chamador ou router determina quando deve ligar para a instância secundária.
 
-Como uma arquitetura recomendada, você pode usar a Azure API Management como um proxy para as aplicações lógicas que usam triggers request. A API Management proporciona [resiliência trans-regional incorporada e a capacidade de encaminhar o tráfego através de vários pontos finais.](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region)
+Como uma arquitetura recomendada, você pode usar a Azure API Management como um proxy para as aplicações lógicas que usam triggers request. A API Management proporciona [resiliência trans-regional incorporada e a capacidade de encaminhar o tráfego através de vários pontos finais.](../api-management/api-management-howto-deploy-multi-region.md)
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ Para esta tarefa, na localização secundária, crie uma aplicação lógica de 
 
 ### <a name="activate-your-secondary-instance"></a>Ativar a sua instância secundária
 
-Para ativar automaticamente a instância secundária, pode criar uma aplicação lógica que ligue para a API de gestão, como o [conector Azure Resource Manager](https://docs.microsoft.com/connectors/arm/) para ativar as aplicações lógicas apropriadas na localização secundária. Pode expandir a sua aplicação watchdog para chamar esta aplicação lógica de ativação depois de um número específico de falhas acontecerem.
+Para ativar automaticamente a instância secundária, pode criar uma aplicação lógica que ligue para a API de gestão, como o [conector Azure Resource Manager](/connectors/arm/) para ativar as aplicações lógicas apropriadas na localização secundária. Pode expandir a sua aplicação watchdog para chamar esta aplicação lógica de ativação depois de um número específico de falhas acontecerem.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -348,9 +348,9 @@ Pode configurar o registo para a sua aplicação lógica e enviar os dados de di
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Visão geral da resiliência para Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Lista de verificação de resiliência para serviços específicos do Azure](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Gestão de dados para a resiliência em Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Backup e recuperação de desastres para aplicações da Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Recupere de uma interrupção de serviço ao nível da região](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Visão geral da resiliência para Azure](/azure/architecture/framework/resiliency/overview)
+* [Lista de verificação de resiliência para serviços específicos do Azure](/azure/architecture/checklist/resiliency-per-service)
+* [Gestão de dados para a resiliência em Azure](/azure/architecture/framework/resiliency/data-management)
+* [Backup e recuperação de desastres para aplicações da Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Recupere de uma interrupção de serviço ao nível da região](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Microsoft Service Level Agreements (SLAs) para serviços Azure](https://azure.microsoft.com/support/legal/sla/)

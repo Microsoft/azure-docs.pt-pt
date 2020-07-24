@@ -3,17 +3,17 @@ title: Utilize o módulo Azure Maps Indoor Maps
 description: Aprenda a utilizar o módulo Microsoft Azure Maps Indoor Maps para renderizar mapas incorporando as bibliotecas JavaScript do módulo.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f7bca363e22524546e7ee46bf44ddb18dacf00d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064234"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utilize o módulo Azure Maps Indoor Maps
 
@@ -42,16 +42,14 @@ Para utilizar a versão global da Rede de Entrega de Conteúdos Azure do módulo
 
  Ou, você pode baixar o módulo *Azure Maps Indoor.* O módulo *Azure Maps Indoor* contém uma biblioteca de clientes para aceder aos serviços do Azure Maps. Siga os passos abaixo para instalar e carregar o módulo *Interior* na sua aplicação web.  
   
-  1. Descarregue o [pacote azure-maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
+  1. Instale o [pacote azure-maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
   
-  2. Instale o pacote NPM. Certifique-se de que utiliza privilégios de administrador na consola:
-
       ```powershell
       >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
-  3. Faça referência ao módulo *Interior Azure Maps* JavaScript e Style Sheet no `<head>` elemento do ficheiro HTML:
+  2. Faça referência ao módulo *Interior Azure Maps* JavaScript e Style Sheet no `<head>` elemento do ficheiro HTML:
 
       ```html
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
@@ -71,7 +69,7 @@ const map = new atlas.Map("map-id", {
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
-  authOptions: { 
+  authOptions: {
       authType: 'subscriptionKey',
       subscriptionKey: subscriptionKey
   },
@@ -245,7 +243,7 @@ Para ver o seu mapa interior, carregue-o num navegador web. Deve parecer a image
 
   ![imagem de mapa interior](media/how-to-use-indoor-module/indoor-map-graphic.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre as APIs que estão relacionadas com o módulo *Interior Azure Maps:*
 

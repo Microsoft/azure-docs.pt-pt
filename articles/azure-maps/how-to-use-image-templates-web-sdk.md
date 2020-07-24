@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 28fee67ccfc1e67d89d0151c8e14bd7c0b688749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12c407ecacdce6b9052ca70ef70a2ae87928b6c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064689"
 ---
 # <a name="how-to-use-image-templates"></a>Como utilizar modelos de imagem
 
@@ -148,44 +148,337 @@ Esta tabela lista todos os modelos de imagem atualmente disponíveis dentro da w
 
 **Modelos de ícone de símbolo**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| marcador | marcador de espessura | marcador-círculo | marcador-plano |
-|![ícone marcador](./media/image-templates/marker.png)|![ícone de espessura marcador](./media/image-templates/marker-thick.png)|![ícone marcador-círculo](./media/image-templates/marker-circle.png)|![ícone marcador-plano](./media/image-templates/marker-flat.png)|
-||||
-| marcador quadrado | marcador-quadrado-cluster | marcador-seta | marcador-bola-pin | 
-|![ícone marcador quadrado](./media/image-templates/marker-square.png)|![ícone de marcador-quadrado cluster](./media/image-templates/marker-square-cluster.png)|![ícone marcador-seta](./media/image-templates/marker-arrow.png)|![ícone marcador-bola-pin](./media/image-templates/marker-ball-pin.png)|
-||||
-| marcador-quadrado arredondado | marcador-quadrado arredondado-aglomerado | flag | triângulo bandeira |
-| ![ícone de marcador quadrado arredondado](./media/image-templates/marker-square-rounded.png) | ![marcador-quadrado-arredondado-cluster ícone](./media/image-templates/marker-square-rounded-cluster.png) | ![ícone de bandeira](./media/image-templates/flag.png) | ![ícone triângulo bandeira](./media/image-templates/flag-triangle.png) |
-||||
-| triângulo | triângulo-grosso | triângulo-seta-se | triângulo-seta-esquerda |
-| ![ícone triângulo](./media/image-templates/triangle.png) | ![ícone triângulo-grosso](./media/image-templates/triangle-thick.png) | ![triângulo-seta-up ícone](./media/image-templates/triangle-arrow-up.png) | ![triângulo-seta-esquerda ícone](./media/image-templates/triangle-arrow-left.png) |
-||||
-| hexágono | hexágono-grosso | hexágono arredondado | hexágono arredondado de espessura |
-| ![ícone hexágono](./media/image-templates/hexagon.png) | ![ícone hexágono-grosso](./media/image-templates/hexagon-thick.png) | ![ícone arredondado hexágono](./media/image-templates/hexagon-rounded.png) | ![ícone hexágono arredondado de espessura](./media/image-templates/hexagon-rounded-thick.png) |
-||||
-| afixar | pin-round | arredondado quadrado | arredondado quadrado-grosso |
-| ![ícone afixar](./media/image-templates/pin.png) | ![ícone redondo pin-round](./media/image-templates/pin-round.png) | ![ícone quadrado arredondado](./media/image-templates/rounded-square.png) | ![ícone arredondado de espessura quadrada](./media/image-templates/rounded-square-thick.png) |
-||||
-| seta-se | seta-para-cima-fino | car ||
-| ![ícone de seta-up](./media/image-templates/arrow-up.png) | ![seta-up-thin ícone](./media/image-templates/arrow-up-thin.png) | ![ícone de carro](./media/image-templates/car.png) | |
+:::row:::
+   :::column span="":::
+      marcador
+   :::column-end:::
+   :::column span="":::
+      marcador de espessura
+   :::column-end:::
+   :::column span="":::
+      marcador-círculo
+   :::column-end:::
+   :::column span="":::
+      marcador-plano
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone marcador](./media/image-templates/marker.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de espessura marcador](./media/image-templates/marker-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone marcador-círculo](./media/image-templates/marker-circle.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone marcador-plano](./media/image-templates/marker-flat.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      marcador quadrado
+   :::column-end:::
+   :::column span="":::
+      marcador-quadrado-cluster
+   :::column-end:::
+   :::column span="":::
+      marcador-seta
+   :::column-end:::
+   :::column span="":::
+      marcador-bola-pin
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone marcador quadrado](./media/image-templates/marker-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de marcador-quadrado cluster](./media/image-templates/marker-square-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone marcador-seta](./media/image-templates/marker-arrow.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone marcador-bola-pin](./media/image-templates/marker-ball-pin.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      marcador-quadrado arredondado
+   :::column-end:::
+   :::column span="":::
+      marcador-quadrado arredondado-aglomerado
+   :::column-end:::
+   :::column span="":::
+      flag
+   :::column-end:::
+   :::column span="":::
+      triângulo bandeira
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone de marcador quadrado arredondado](./media/image-templates/marker-square-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![marcador-quadrado-arredondado-cluster ícone](./media/image-templates/marker-square-rounded-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de bandeira](./media/image-templates/flag.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone triângulo bandeira](./media/image-templates/flag-triangle.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      triângulo
+   :::column-end:::
+   :::column span="":::
+      triângulo-grosso
+   :::column-end:::
+   :::column span="":::
+      triângulo-seta-se
+   :::column-end:::
+   :::column span="":::
+      triângulo-seta-esquerda
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone triângulo](./media/image-templates/triangle.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone triângulo-grosso](./media/image-templates/triangle-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![triângulo-seta-up ícone](./media/image-templates/triangle-arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![triângulo-seta-esquerda ícone](./media/image-templates/triangle-arrow-left.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      hexágono
+   :::column-end:::
+   :::column span="":::
+      hexágono-grosso
+   :::column-end:::
+   :::column span="":::
+      hexágono arredondado
+   :::column-end:::
+   :::column span="":::
+      hexágono arredondado de espessura
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone hexágono](./media/image-templates/hexagon.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone hexágono-grosso](./media/image-templates/hexagon-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone arredondado hexágono](./media/image-templates/hexagon-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone hexágono arredondado de espessura](./media/image-templates/hexagon-rounded-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      afixar
+   :::column-end:::
+   :::column span="":::
+      pin-round
+   :::column-end:::
+   :::column span="":::
+      arredondado quadrado
+   :::column-end:::
+   :::column span="":::
+      arredondado quadrado-grosso
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone afixar](./media/image-templates/pin.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone redondo pin-round](./media/image-templates/pin-round.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone quadrado arredondado](./media/image-templates/rounded-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone arredondado de espessura quadrada](./media/image-templates/rounded-square-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      seta-se
+   :::column-end:::
+   :::column span="":::
+      seta-para-cima-fino
+   :::column-end:::
+   :::column span="":::
+      car
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone de seta-up](./media/image-templates/arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![seta-up-thin ícone](./media/image-templates/arrow-up-thin.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de carro](./media/image-templates/car.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+
 
 **Modelos de padrões de preenchimento de polígono**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| verificador | verificador-rodado | círculos | círculos espaçados |
-| ![ícone de checker](./media/image-templates/checker.png) | ![ícone rotativo de checker](./media/image-templates/checker-rotated.png) | ![ícone de círculos](./media/image-templates/circles.png) | ![ícone espaçado de círculos](./media/image-templates/circles-spaced.png) |
-|||||
-| diagonal-line-up | diagonal-linhas para baixo | diagonal-listras-up | diagonal-listras para baixo |
-| ![diagonal-line-up ícone](./media/image-templates/diagonal-lines-up.png) | ![diagonal-line-down ícone](./media/image-templates/diagonal-lines-down.png) | ![diagonal-listras-up ícone](./media/image-templates/diagonal-stripes-up.png) | ![diagonal-listras-para baixo ícone](./media/image-templates/diagonal-stripes-down.png) |
-|||||
-| linhas de grelha | linhas de grelha rotativas | listras rotativas | x-fill |
-| ![ícone de linhas de grelha](./media/image-templates/grid-lines.png) | ![ícone de linhas de grelha rotativa](./media/image-templates/rotated-grid-lines.png) | ![ícone de riscas de grelha rotada](./media/image-templates/rotated-grid-stripes.png) | ![ícone x-preenchimento](./media/image-templates/x-fill.png) |
-|||||
-| zig-zag | zig-zag-vertical | pontos |  |
-| ![ícone zig-zag](./media/image-templates/zig-zag.png) | ![zig-zag-vertical ícone](./media/image-templates/zig-zag-vertical.png) | ![ícone de pontos](./media/image-templates/dots.png) | |
+:::row:::
+   :::column span="":::
+      verificador
+   :::column-end:::
+   :::column span="":::
+      verificador-rodado
+   :::column-end:::
+   :::column span="":::
+      círculos
+   :::column-end:::
+   :::column span="":::
+      círculos espaçados
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone de checker](./media/image-templates/checker.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone rotativo de checker](./media/image-templates/checker-rotated.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de círculos](./media/image-templates/circles.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone espaçado de círculos](./media/image-templates/circles-spaced.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      diagonal-line-up
+   :::column-end:::
+   :::column span="":::
+      diagonal-linhas para baixo
+   :::column-end:::
+   :::column span="":::
+      diagonal-listras-up
+   :::column-end:::
+   :::column span="":::
+      diagonal-listras para baixo
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![diagonal-line-up ícone](./media/image-templates/diagonal-lines-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![diagonal-line-down ícone](./media/image-templates/diagonal-lines-down.png)
+   :::column-end:::
+   :::column span="":::
+      ![diagonal-listras-up ícone](./media/image-templates/diagonal-stripes-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![diagonal-listras-para baixo ícone](./media/image-templates/diagonal-stripes-down.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      linhas de grelha
+   :::column-end:::
+   :::column span="":::
+      linhas de grelha rotativas
+   :::column-end:::
+   :::column span="":::
+      listras rotativas
+   :::column-end:::
+   :::column span="":::
+      x-fill
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone de linhas de grelha](./media/image-templates/grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de linhas de grelha rotativa](./media/image-templates/rotated-grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de riscas de grelha rotada](./media/image-templates/rotated-grid-stripes.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone x-preenchimento](./media/image-templates/x-fill.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      zig-zag
+   :::column-end:::
+   :::column span="":::
+      zig-zag-vertical
+   :::column-end:::
+   :::column span="":::
+      pontos
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![ícone zig-zag](./media/image-templates/zig-zag.png)
+   :::column-end:::
+   :::column span="":::
+      ![zig-zag-vertical ícone](./media/image-templates/zig-zag-vertical.png)
+   :::column-end:::
+   :::column span="":::
+      ![ícone de pontos](./media/image-templates/dots.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+<br>
 
 **Ícones de imagem pré-carregados**
 
@@ -216,7 +509,7 @@ Com a seguinte ferramenta, pode tornar os diferentes modelos de imagem incorpora
 Consulte as <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>opções do modelo do ícone</a> da caneta por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

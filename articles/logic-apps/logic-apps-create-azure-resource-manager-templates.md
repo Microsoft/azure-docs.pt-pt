@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: a9e6e8276733eeed88561ed39a6702aec76286a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07fb91f081719a2e51cff45be67bbe9f362123f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066072"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Criar modelos do Azure Resource Manager para automatizar a implementação do Azure Logic Apps
 
@@ -49,14 +49,14 @@ Por exemplo, suponha que tem uma aplicação lógica que recebe uma mensagem de 
 
 Estas amostras mostram como criar e implementar aplicações lógicas utilizando modelos de Gestor de Recursos Azure, Pipelines Azure em Azure DevOps e Azure PowerShell:
 
-* [Amostra: Ligue-se às filas de autocarros da Azure Service de Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Ligue-se às contas de armazenamento Azure de Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Crie uma ação de aplicação de função para apps Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Conecte-se a uma conta de integração da Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Amostra: Ligue-se às filas de autocarros da Azure Service de Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Amostra: Ligue-se às contas de armazenamento Azure de Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Amostra: Crie uma ação de aplicação de função para apps Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Amostra: Conecte-se a uma conta de integração da Azure Logic Apps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Instalar módulos PowerShell
 
-1. Se ainda não o fez, instale [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+1. Se ainda não o fez, instale [a Azure PowerShell](/powershell/azure/install-az-ps).
 
 1. Para a forma mais fácil de instalar o módulo LogicAppTemplate a partir da [PowerShell Gallery,](https://www.powershellgallery.com/packages/LogicAppTemplate)execute este comando:
 
@@ -80,7 +80,7 @@ Quando executar o `Get-LogicAppTemplate` comando com esta ferramenta, o comando 
 
 ### <a name="generate-template-with-powershell"></a>Gerar modelo com PowerShell
 
-Para gerar o seu modelo após a instalação do módulo LogicAppTemplate e [do Azure CLI,](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)executar este comando PowerShell:
+Para gerar o seu modelo após a instalação do módulo LogicAppTemplate e [do Azure CLI,](/cli/azure/?view=azure-cli-latest)executar este comando PowerShell:
 
 ```text
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -106,11 +106,11 @@ PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $f
 
 | Parâmetros | Obrigatório | Descrição |
 |------------|----------|-------------|
-| ModeloFile | Sim | O caminho do arquivo para o seu arquivo de modelo |
-| KeyVault | Não | Um enum que descreve como lidar com possíveis valores do cofre chave. A predefinição é `None`. |
+| ModeloFile | Yes | O caminho do arquivo para o seu arquivo de modelo |
+| KeyVault | No | Um enum que descreve como lidar com possíveis valores do cofre chave. A predefinição é `None`. |
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Implementar modelos de aplicação lógica](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)

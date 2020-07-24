@@ -3,12 +3,12 @@ title: Restaurar chave do cofre & segredo para VM encriptado
 description: Saiba como restaurar a chave do Cofre e o segredo em Azure Backup usando PowerShell
 ms.topic: conceptual
 ms.date: 08/28/2017
-ms.openlocfilehash: 826b3917fda820ed02cde425ca5a394bffec0df1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49628697b7a271fed55c752026026ab57b17cd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067213"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar a chave do Key Vault e o segredo para VMs encriptadas utilizando o Azure Backup
 
@@ -19,7 +19,7 @@ Este artigo fala sobre a utilização do Azure VM Backup para executar a restaur
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **VMs encriptados de backup** - VMs Azure encriptados foram apoiados usando Azure Backup. Consulte o artigo [Gerencie a cópia de segurança e a restauração dos VMs Azure utilizando o PowerShell](backup-azure-vms-automation.md) para obter detalhes sobre como fazer backup de VMs Azure encriptados.
-* **Configure Azure Key Vault** – Certifique-se de que o cofre-chave para o qual as chaves e segredos precisam de ser restaurados já está presente. Consulte o artigo [Começar com o Azure Key Vault](../key-vault/key-vault-get-started.md) para obter detalhes sobre a gestão do cofre chave.
+* **Configure Azure Key Vault** – Certifique-se de que o cofre-chave para o qual as chaves e segredos precisam de ser restaurados já está presente. Consulte o artigo [Começar com o Azure Key Vault](../key-vault/general/overview.md) para obter detalhes sobre a gestão do cofre chave.
 * **Restaurar o disco** - Certifique-se de que desencadeou o trabalho de restauro para restaurar discos para VM encriptados utilizando [passos PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Isto porque este trabalho gera um ficheiro JSON na sua conta de armazenamento contendo chaves e segredos para que o VM encriptado seja restaurado.
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>Obtenha a chave e o segredo do Azure Backup

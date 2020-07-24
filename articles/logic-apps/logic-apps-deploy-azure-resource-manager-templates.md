@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 814cc1116ca8ac924beaaea8c7bb3dbb8d6ae1ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066033"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementar modelos do Azure Resource Manager para o Azure Logic Apps
 
@@ -64,8 +64,8 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 
 Para obter mais informações, veja estes tópicos:
 
-* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [`New-AzResourceGroupDeployment`](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
 
 <a name="cli"></a>
 
@@ -80,23 +80,23 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 Para obter mais informações, veja estes tópicos:
 
 * [Implementar recursos com modelos do Resource Manager e do CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [`az group deployment create`](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
 
 ## <a name="deploy-with-azure-devops"></a>Implementar com Azure DevOps
 
-Para implementar modelos de aplicativos lógicos e gerir ambientes, as equipas geralmente usam uma ferramenta como [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) em [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). A Azure Pipelines fornece uma [tarefa de implementação do Grupo de Recursos Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) que pode adicionar a qualquer oleoduto de construção ou libertação. Para autorização para implantar e gerar o gasoduto de libertação, também precisa de um diretor de [serviço Azure](../active-directory/develop/app-objects-and-service-principals.md)Ative (AD). Saiba mais sobre [a utilização de princípios de serviço com a Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure).
+Para implementar modelos de aplicativos lógicos e gerir ambientes, as equipas geralmente usam uma ferramenta como [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) em [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops-services). A Azure Pipelines fornece uma [tarefa de implementação do Grupo de Recursos Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) que pode adicionar a qualquer oleoduto de construção ou libertação. Para autorização para implantar e gerar o gasoduto de libertação, também precisa de um diretor de [serviço Azure](../active-directory/develop/app-objects-and-service-principals.md)Ative (AD). Saiba mais sobre [a utilização de princípios de serviço com a Azure Pipelines](/azure/devops/pipelines/library/connect-to-azure).
 
 Para obter mais informações sobre integração contínua e implementação contínua (CI/CD) para modelos Azure Resource Manager com Pipelines Azure, consulte estes tópicos e amostras:
 
 * [Integrar modelos de Gestor de Recursos com Pipelines Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
 * [Tutorial: Integração contínua de modelos do Gestor de Recursos Azure com Pipelines Azure](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
-* [Amostra: Ligue-se às filas de autocarros da Azure Service de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Ligue-se às contas de armazenamento Azure a partir de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Crie uma ação de aplicação de função para apps Azure Logic e implemente com a Azure Pipelines em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Amostra: Ligue-se a uma conta de integração a partir de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
-* [Amostra: Orquestrar gasodutos Azure usando apps Azure Logic](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
+* [Amostra: Ligue-se às filas de autocarros da Azure Service de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Amostra: Ligue-se às contas de armazenamento Azure a partir de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Amostra: Crie uma ação de aplicação de função para apps Azure Logic e implemente com a Azure Pipelines em Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Amostra: Ligue-se a uma conta de integração a partir de Azure Logic Apps e implemente com a Azure Pipelines em Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Amostra: Orquestrar gasodutos Azure usando apps Azure Logic](/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
 Aqui estão os passos gerais de alto nível para a utilização de Gasodutos Azure:
 
@@ -108,7 +108,7 @@ Aqui estão os passos gerais de alto nível para a utilização de Gasodutos Azu
 
    ![Adicionar a tarefa "Azure Resource Group Deployment"](./media/logic-apps-deploy-azure-resource-manager-templates/add-azure-resource-group-deployment-task.png)
 
-1. Configure com um [diretor de serviço.](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure)
+1. Configure com um [diretor de serviço.](/azure/devops/pipelines/library/connect-to-azure)
 
 1. Adicione referências ao seu modelo de aplicação lógica e ficheiros de parâmetros de modelo.
 
@@ -118,7 +118,7 @@ Aqui estão os passos gerais de alto nível para a utilização de Gasodutos Azu
 
 ## <a name="authorize-oauth-connections"></a>Autorizar ligações OAuth
 
-Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, deve ainda autorizar quaisquer ligações OAuth para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-scenarios.md). Aqui estão as formas de autorizar ligações OAuth:
+Após a implementação, a sua aplicação lógica funciona de ponta a ponta com parâmetros válidos. No entanto, deve ainda autorizar quaisquer ligações OAuth para gerar fichas de acesso válidas para [autenticar as suas credenciais](../active-directory/develop/authentication-vs-authorization.md). Aqui estão as formas de autorizar ligações OAuth:
 
 * Para implementações automatizadas, pode utilizar um script que forneça o consentimento para cada ligação OAuth. Aqui está um roteiro de exemplo no GitHub no projeto [LogicAppConnectionAuth.](https://github.com/logicappsio/LogicAppConnectionAuth)
 

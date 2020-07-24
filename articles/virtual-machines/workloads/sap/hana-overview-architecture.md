@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39fcf5d0fe2273c4debd3ae5ebe5fd1190ddc959
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d413b2babda4c73f9f29ce3750bf7d0461db43c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616959"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065098"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA nas Instâncias Grandes do Azure?
 
@@ -53,8 +54,8 @@ Os diferentes documentos da orientação hana large instance abrangem as seguint
 - [Instalar e configurar SAP HANA (Grandes Instâncias) em Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (Grandes Instâncias) alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (Grandes Instâncias) resolução de problemas e monitorização em Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Alta disponibilidade configurada em SUSE utilizando o STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Backup de SO e restauro para SKUs tipo II de revisão 3 selos](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Alta disponibilidade configurada em SUSE utilizando o STONITH](./ha-setup-with-stonith.md)
+- [Backup de SO e restauro para SKUs tipo II de revisão 3 selos](./os-backup-type-ii-skus.md)
 
 **Próximos passos**
 - Consulte [Conheça os termos](hana-know-terms.md)

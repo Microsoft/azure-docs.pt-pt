@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 7e8f34f3d68a957dbd5bb13b69f751184d224e2c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 785054222dc3281b11b5e6abe1b82f67e2fc5ace
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066657"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno com um modelo
 
@@ -40,7 +40,7 @@ O modelo de exemplo disponível no repositório público utiliza um ficheiro de 
 
 Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo.
 
-1. Se nunca utilizou a Azure PowerShell, consulte [Como Instalar e Configurar a Azure PowerShell](/powershell/azure/overview) e siga as instruções até ao fim para iniciar súmula e selecionar a sua subscrição.
+1. Se nunca utilizou a Azure PowerShell, consulte [Como Instalar e Configurar a Azure PowerShell](/powershell/azure/) e siga as instruções até ao fim para iniciar súmula e selecionar a sua subscrição.
 2. Transfira o ficheiro de parâmetros para o disco local.
 3. Edite o ficheiro e guarde-o.
 4. Executar o **cmdlet New-AzResourceGroupDeployment** para criar um grupo de recursos utilizando o modelo.
@@ -75,7 +75,7 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar um modo de distribuição de balanceador de carga com a afinidade do IP de origem](load-balancer-distribution-mode.md)
 

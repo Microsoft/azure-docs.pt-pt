@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: a7f9ab478067cecbac6f01a5a969bf48653b6dd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 796558c2579504b673fd15c468ce635c6b1cca8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066364"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar declarações condicionais que controlam as ações de fluxo de trabalho em Azure Logic Apps
 
-Para executar ações específicas na sua aplicação lógica apenas após a passagem de uma condição especificada, adicione uma *declaração condicional*. Esta estrutura de controlo compara os dados do seu fluxo de trabalho com valores ou campos específicos. Em seguida, pode especificar diferentes ações que são executadas com base no facto de os dados cumprirem ou não a condição. Podem nidificar as condições dentro umas das outras.
+Para executar ações específicas na sua aplicação lógica apenas após a passagem de uma condição especificada, adicione uma *declaração condicional*. Esta estrutura de controlo compara os dados no seu fluxo de trabalho face a valores ou campos específicos. Em seguida, pode especificar diferentes ações que são executadas com base no facto de os dados cumprirem ou não a condição. Podem nidificar as condições dentro umas das outras.
 
 Por exemplo, suponha que tem uma aplicação lógica que envia muitos e-mails quando novos itens aparecem no feed RSS de um site. Pode adicionar uma declaração condicional para enviar e-mail apenas quando o novo item inclui uma cadeia específica. 
 
@@ -75,7 +76,7 @@ Por exemplo, suponha que tem uma aplicação lógica que envia muitos e-mails qu
    > [!TIP]
    > Pode arrastar as ações existentes para o **"Se verdadeiro"** e **"Se forem caminhos** falsos".
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
 Esta aplicação lógica envia agora correio apenas quando os novos itens no feed RSS cumprem a sua condição.
 
@@ -109,10 +110,10 @@ Aqui está a definição de código de alto nível por trás de uma declaração
 
 ## <a name="get-support"></a>Obter suporte
 
-* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do [utilizador do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar e repetir passos (laços)](../logic-apps/logic-apps-control-flow-loops.md)

@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c350b10fb3db82af47551591d95e87cacd63a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321501"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065010"
 ---
 # <a name="network-security-groups"></a>Grupos de segurança de rede
 <a name="network-security-groups"></a>
 
-Pode utilizar o grupo de segurança da rede Azure para filtrar o tráfego da rede de e para os recursos Azure numa rede virtual Azure. Os grupos de segurança de rede contêm [regras de segurança](#security-rules) que permitem ou negam o tráfego de entrada ou de saída de e para vários tipos de recursos do Azure. Para cada regra, pode especificar a origem e o destino, a porta e o protocolo.
+Pode utilizar um grupo de segurança da rede Azure para filtrar o tráfego da rede de e para os recursos Azure numa rede virtual Azure. Os grupos de segurança de rede contêm [regras de segurança](#security-rules) que permitem ou negam o tráfego de entrada ou de saída de e para vários tipos de recursos do Azure. Para cada regra, pode especificar a origem e o destino, a porta e o protocolo.
 
 Este artigo descreve propriedades de uma regra de grupo de segurança de rede, [as regras de segurança padrão](#default-security-rules) que são aplicadas, e as propriedades de regra que você pode modificar para criar uma [regra de segurança aumentada](#augmented-security-rules).
 
@@ -32,7 +33,7 @@ Os grupos de segurança de rede contêm zero ou tantas regras conforme pretender
 
 |Propriedade  |Explicação  |
 |---------|---------|
-|Name|Um nome exclusivo no grupo de segurança de rede.|
+|Nome|Um nome exclusivo no grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas por ordem de prioridade, sendo os números mais baixos processados antes dos mais elevados, uma vez que têm uma prioridade superior. Quando o tráfego corresponder a uma regra, o processamento para. Como resultado, qualquer regra que exista com prioridades inferiores (números mais elevados) e que tenham os mesmos atributos das regras com prioridades superiores não é processada.|
 |Origem ou destino| Qualquer endereço IP ou um endereço IP individual, um bloco CIDR (Classless Inter-domain Routing) (por exemplo, 10.0.0.0/24), uma etiqueta de serviço ou um grupo de segurança de aplicação. Se especificar um endereço para um recurso do Azure, indique o endereço IP privado atribuído ao mesmo. Os grupos de segurança de rede são processados depois de o Azure traduzir um endereço IP público num privado para tráfego de entrada e antes de traduzir um endereço IP privado num público para tráfego de saída. . Especificar um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos de endereços IP (não pode indicar etiquetas de serviço ou grupos de aplicações) numa regra é denominada [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede gerados através do modelo de implementação do Resource Manager. Não pode especificar vários endereços IP nem intervalos de endereços IP em grupos de segurança de rede criados com o modelo de implementação clássica.|
 |Protocolo     | TCP, UDP, ICMP ou Qualquer outro.|
@@ -41,6 +42,7 @@ Os grupos de segurança de rede contêm zero ou tantas regras conforme pretender
 |Ação     | Permitir ou negar        |
 
 As regras de segurança dos grupos de segurança de rede são avaliadas por prioridade, utilizando as informações de cinco cadeias de identificação (origem, porta de origem, destino, porta de destino e protocolo) para permitir ou negar o tráfego. É criado um registo de fluxo para as ligações existentes. A comunicação é permitida ou negada com base no estado da ligação do registo do fluxo. O registo do fluxo permite que um grupo de segurança de rede tenha monitoração de estado. Se especificar uma regra de segurança de saída para qualquer endereço através da porta 80, por exemplo, não é necessário especificar uma regra de segurança de entrada para a resposta ao tráfego de saída. Só tem de especificar uma regra de segurança de entrada se a comunicação for iniciada externamente. O oposto também se aplica. Se o tráfego de entrada for permitido numa porta, não é necessário especificar uma regra de segurança de saída para responder ao tráfego através da porta.
+
 As ligações existentes não podem ser interrompidas quando remover uma regra de segurança que ativou o fluxo. Os fluxos de tráfego são interrompidos quando as ligações são paradas e não há qualquer tráfego a fluir em qualquer direção, pelo menos, durante alguns minutos.
 
 Há limites ao número de regras de segurança que pode criar num grupo de segurança de rede. Para obter mais detalhes, veja [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -103,7 +105,7 @@ Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um d
 
 Para mais informações, consulte [as etiquetas de serviço da Azure.](service-tags-overview.md) Para um exemplo sobre como utilizar a etiqueta de serviço de Armazenamento para restringir o acesso à rede, consulte [restringir o acesso da rede aos recursos paaS](tutorial-restrict-network-access-to-resources.md).
 
-#### <a name="application-security-groups"></a>Grupos de segurança de aplicações
+#### <a name="application-security-groups"></a>Grupos de segurança de aplicação
 
 Os grupos de segurança de aplicações permitem-lhe configurar a segurança de rede como uma extensão natural da estrutura de uma aplicação, possibilitando o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos. Pode reutilizar a política de segurança em escala sem a manutenção manual de endereços IP explícitos. Para saber mais, consulte [os grupos de segurança da Aplicação.](application-security-groups.md)
 
@@ -140,9 +142,7 @@ Relativamente ao tráfego de saída, o Azure processa primeiro as regras num gru
 
 É importante notar que as regras de segurança numa NSG associada a uma sub-rede podem afetar a conectividade entre os VM's dentro dela. Por exemplo, se for adicionada uma regra ao *NSG1* que negue todo o tráfego de entrada e saída, *o VM1* e o *VM2* deixarão de poder comunicar entre si. Outra regra teria de ser acrescentada especificamente para o permitir. 
 
-
-
-Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md#view-effective-security-rules) numa interface de rede para ver facilmente as regras agregadas que estão aplicadas à mesma. Também pode utilizar a capacidade [Verificação de fluxo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede do Azure para saber se a comunicação é permitida de ou para uma interface de rede. O fluxo de IP indica se a comunicação é permitida ou negada e que regra de segurança de rede permite ou nega o tráfego.
+Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md#view-effective-security-rules) numa interface de rede para ver facilmente as regras agregadas que estão aplicadas à mesma. Também pode utilizar a capacidade [Verificação de fluxo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede do Azure para saber se a comunicação é permitida de ou para uma interface de rede. Verificação do fluxo IP indica se uma comunicação é permitida ou negada, e qual regra de segurança de rede permite ou nega o tráfego.
 
 > [!NOTE]
 > Os grupos de segurança da rede estão associados a sub-redes ou a máquinas virtuais e serviços de nuvem implantados no modelo de implementação clássico, e a sub-redes ou interfaces de rede no modelo de implementação do Gestor de Recursos. Para saber mais sobre os modelos de implementação do Azure, veja [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Compreender os modelos de implementação do Azure).
@@ -160,14 +160,14 @@ Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md
 
   Se tiver criado a sua subscrição do Azure antes de 15 de novembro de 2017, para além de poder utilizar os serviços de reencaminhamento de SMTP, também pode enviar e-mails diretamente através da porta TCP 25. Se tiver criado a sua subscrição após 15 de novembro de 2017, poderá não conseguir enviar e-mails diretamente através da porta 25. O comportamento da comunicação de saída através da porta 25 depende do seu tipo de subscrição, da seguinte forma:
 
-     - **Contrato Enterprise**: a comunicação de saída através da porta 25 é permitida. Pode enviar e-mails de saída diretamente a partir de máquinas virtuais para fornecedores de e-mail externos, sem restrições impostas pela plataforma do Azure. 
+     - **Contrato Enterprise**: a comunicação de saída através da porta 25 é permitida. É possível enviar um e-mail de saída diretamente de máquinas virtuais para fornecedores de e-mail externos, sem restrições da plataforma Azure. 
      - **Pay as you go:** a comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Se tiver de enviar e-mails a partir de uma máquina virtual diretamente para fornecedores de e-mail externos (sem utilizar um reencaminhamento de SMTP autenticado), pode fazer um pedido para remover a restrição. Os pedidos são analisados e aprovados à discrição da Microsoft, apenas sendo concedidos após as verificações contra fraudes. Para fazer um pedido, abra um processo de suporte com o tipo de problema *Técnico*, *Conectividade da Rede Virtual*, *Não é possível enviar e-mails (SMTP/Porta 25)*. No processo de suporte, inclua detalhes sobre o motivo pelo qual a subscrição tem de enviar e-mails diretamente para fornecedores de e-mail, em vez de utilizar um reencaminhamento de SMTP autenticado. Se a sua subscrição for isenta, apenas as máquinas virtuais criadas após a data de isenção conseguem realizar comunicações de saída através da porta 25.
      - **MSDN, Azure Pass, Azure no Open, Education, BizSpark e Avaliação gratuita**: a comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Não pode fazer pedidos para remover a restrição, porque os pedidos não são concedidos. Se tiver de enviar e-mails a partir da sua máquina virtual, tem de utilizar um serviço de reencaminhamento de SMTP.
      - **Fornecedor de serviços cloud**: Os clientes que consomem recursos do Azure através de um fornecedor de serviços cloud podem criar um pedido de suporte no respetivo fornecedor de serviços cloud e pedir que o fornecedor crie um pedido de desbloqueio em seu nome, se não for possível utilizar uma transmissão SMTP segura.
 
   Se o Azure lhe permitir enviar e-mails através da porta 25, a Microsoft não pode garantir que os fornecedores de e-mail aceitarão e-mails enviados a partir da sua máquina virtual. Se um fornecedor específico rejeitar e-mails da sua máquina virtual, trabalhe diretamente com o fornecedor para resolver quaisquer problemas relacionados com a entrega de mensagens ou com a filtragem de spam, ou tem de utilizar um serviço de reencaminhamento de SMTP autenticado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber quais os recursos Azure que podem ser implantados numa rede virtual e ter grupos de segurança de rede associados a eles, consulte a [integração da rede Virtual para serviços Azure](virtual-network-for-azure-services.md)
 * Se nunca tiver criado um grupo de segurança de rede, pode seguir um [tutorial](tutorial-filter-network-traffic.md) rápido para ganhar experiência na criação de um. 

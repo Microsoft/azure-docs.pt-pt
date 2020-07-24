@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: c9b6c915fe986e0a953a4e5c503e79f39f3d40ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54fe4486d43a40e54a0aeae36963c0271fae6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064517"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Excluir um gateway de rede virtual usando o PowerShell
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Existem algumas abordagens diferentes que pode tomar quando pretende eliminar um
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Descarregue os mais recentes cmdlets powerShell do Gestor de Recursos Azure.
 
-Descarregue e instale a versão mais recente do Azure Resource Manager PowerShell cmdlets. Para obter mais informações sobre o download e instalação de cmdlets PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+Descarregue e instale a versão mais recente do Azure Resource Manager PowerShell cmdlets. Para obter mais informações sobre o download e instalação de cmdlets PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Ligue-se à sua conta Azure.
 

@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 999a7386ee7c5b3ef76f87280cc2d0cd45f143cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 924aff8f2ba3d796b65f52494845f3b10018065c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063986"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI elemento
 
@@ -17,7 +18,7 @@ Um controlo que agrupe um ou mais elementos sob um título.
 
 ## <a name="ui-sample"></a>Amostra de UI
 
-![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
+![Microsoft.Common.Section](./media/managed-application-elements/microsoft-common-section.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -48,7 +49,7 @@ Um controlo que agrupe um ou mais elementos sob um título.
 - Este elemento não suporta a `toolTip` propriedade.
 
 ## <a name="sample-output"></a>Resultado da amostra
-Para aceder aos valores de saída dos `elements` elementos, utilize as [funções básicas()](create-uidefinition-functions.md#basics) ou [passos()](create-uidefinition-functions.md#steps) e a notação de pontos:
+Para aceder aos valores de saída dos `elements` elementos, utilize as [funções básicas()](create-ui-definition-referencing-functions.md#basics) ou [passos()](create-ui-definition-referencing-functions.md#steps) e a notação de pontos:
 
 ```json
 steps('configuration').section1.text1
@@ -56,7 +57,7 @@ steps('configuration').section1.text1
 
 Os elementos do tipo não têm valores de `Microsoft.Common.Section` saída em si.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

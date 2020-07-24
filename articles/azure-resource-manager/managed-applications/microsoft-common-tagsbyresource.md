@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e730201812005a9b469a964e4acd081ebe86b100
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063927"
 ---
 # <a name="microsoftcommontagsbyresource-ui-element"></a>Microsoft.Common.TagsByResource UI elemento
 
@@ -17,7 +18,7 @@ Um controlo para associar [etiquetas](../management/tag-resources.md) com os rec
 
 ## <a name="ui-sample"></a>Amostra de UI
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.tagsbyresource.png)
+![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft-common-tagsbyresource.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -70,7 +71,7 @@ Um controlo para associar [etiquetas](../management/tag-resources.md) com os rec
 
 - Utilize a função [se](../templates/template-functions-logical.md#if) tiver acesso ao parâmetro TagsByResource. Permite-lhe atribuir um objeto vazio quando não são atribuídas tags ao tipo de recurso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 - Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

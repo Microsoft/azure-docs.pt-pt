@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbfb50b40b4705cae55ba6e4f1ef950b586b5fb5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064450"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
@@ -49,7 +49,7 @@ Não precisa de configurar permissões se for um Contribuinte na subscrição e 
 
 ### <a name="permissions-for-pre-existing-automation-account-and-log-analytics-workspace"></a>Permissões para conta de Automação pré-existente e espaço de trabalho Log Analytics
 
-Para ativar os VMs para os VMs iniciar/parar durante o período de folga utilizando uma conta de Automação existente e espaço de trabalho Log Analytics, necessita das seguintes permissões no âmbito do Grupo de Recursos. Para saber mais sobre papéis, consulte [papéis personalizados para recursos Azure.](../role-based-access-control/custom-roles.md)
+Para ativar os VMs para os VMs iniciar/parar durante o período de folga utilizando uma conta de Automação existente e espaço de trabalho Log Analytics, necessita das seguintes permissões no âmbito do Grupo de Recursos. Para saber mais sobre papéis, consulte [os papéis personalizados da Azure.](../role-based-access-control/custom-roles.md)
 
 | Permissão | Âmbito|
 | --- | --- |

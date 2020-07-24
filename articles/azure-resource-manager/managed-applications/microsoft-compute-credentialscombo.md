@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: baee83e08505ddabb4680b5bbb4101479010ea47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c88e08e5d2eac09fbcd5b60a8ccd73b46c9616
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063778"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsDi elemento UI
 
@@ -19,15 +20,15 @@ Um grupo de controlos com validação incorporada para senhas Windows e Linux e 
 
 Para windows, os utilizadores vêem:
 
-![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft-compute-credentialscombo-windows.png)
 
 Para Linux com senha selecionada, os utilizadores vêem:
 
-![Microsoft.Compute.CredentialsCombo Linux password](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Microsoft.Compute.CredentialsCombo Linux password](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-password.png)
 
 Para Linux com chave pública SSH selecionada, os utilizadores vêem:
 
-![Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -116,7 +117,7 @@ Se `osPlatform` for **o Linux** e o utilizador fornecer uma chave pública SSH, 
 - Se `options.hidePassword` estiver definido como **verdadeiro,** então a opção de utilização da autenticação de palavra-passe está oculta. Só pode ser utilizado quando `osPlatform` é **Linux.** O valor predefinido é **falso**.
 - Constrangimentos adicionais nas palavras-passe permitidas podem ser implementados usando a `customPasswordRegex` propriedade. O string in `customValidationMessage` é apresentado quando uma palavra-passe falha na validação personalizada. O valor predefinido para ambas as propriedades é **nulo.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

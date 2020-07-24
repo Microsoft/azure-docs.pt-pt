@@ -9,11 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3977bd13d0d3300126e06626e33fde753acc964f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117551"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065790"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Módulos PowerShell para Azure Machine Learning Studio (clássico)
 
@@ -50,7 +51,7 @@ O clássico PowerShell pode ser instalado ao lado de Az ou AzureRM para cobrir o
 ## <a name="powershell-support-table"></a><a name="support-table"></a>Tabela de suporte PowerShell
 
 
-| | **Rio Az** |  **Clássico da PowerShell** |
+|  **Rio Az** |  **Clássico da PowerShell** |
 | --- | --- | --- |
 | Criar/apagar espaços de trabalho | [Modelos do Resource Manager](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Gerir planos de compromisso do espaço de trabalho | [Plano de Novos Compromissos](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
@@ -62,7 +63,7 @@ O clássico PowerShell pode ser instalado ao lado de Az ou AzureRM para cobrir o
 | Gerir módulos personalizados | | [Novo-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte a documentação completa destes módulos PowerShell:
 * [Clássico da PowerShell](https://aka.ms/amlps)
 * [Az do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

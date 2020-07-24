@@ -2,16 +2,17 @@
 title: Transição para OpenVPN ou IKEv2 da SSTP Azure VPN Gateway
 description: Este artigo ajuda-o a compreender as formas de ultrapassar o limite de ligação simultânea de 128 SSTP.
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1531bca6c56c159b7535536fb31a577f0d7253ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064683"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para protocolo OpenVPN ou IKEv2 da SSTP
 
@@ -62,7 +63,7 @@ Uma vez configurado o gateway, os clientes existentes não poderão ligar-se at�
 Se estiver a utilizar o Windows 10, também pode utilizar o [Cliente Azure VPN para windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 ### <a name="what-are-the-client-configuration-requirements"></a>What are the client configuration requirements? (Quais são os requisitos de configuração do cliente?)
 
 >[!NOTE]
@@ -159,7 +160,7 @@ Uma configuração P2S requer alguns passos específicos. Os seguintes artigos c
 
 * [Configurar o OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configure uma ligação P2S - autenticação RADIUS](point-to-site-how-to-radius-ps.md)
 

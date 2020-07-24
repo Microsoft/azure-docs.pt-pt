@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: 2d615e81891d68327b3225138495262d4eab9aa3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065649"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guia de publicação para ofertas de máquinas virtuais
 
@@ -47,7 +47,7 @@ Utilize o tipo de oferta *de máquina virtual* quando colocar um aparelho virtua
 > Neste momento, os compromissos monetários associados a um Acordo de Empresa podem ser usados contra o uso do Azure do seu VM, mas não contra as suas taxas de licenciamento de software.  
 > 
 > [!NOTE]
-> Pode restringir a descoberta e implantação do seu VM a um conjunto específico de clientes, publicando a imagem e o preço como Oferta Privada. As Ofertas Privadas desbloqueiam a capacidade de criar ofertas exclusivas para os seus clientes mais próximos e oferecer software e termos personalizados. Os termos personalizados permitem-lhe destacar uma variedade de cenários, incluindo acordos liderados por campo com preços e termos especializados, bem como acesso precoce a software de lançamento limitado. As Ofertas Privadas permitem-lhe dar preços ou produtos específicos a um conjunto limitado de clientes, criando um novo SKU com esses detalhes.  
+> Pode restringir a descoberta e implantação do seu VM a um conjunto específico de clientes, publicando a imagem e o preço como Oferta Privada. As Ofertas Privadas desbloqueiam a capacidade de criar ofertas exclusivas para os seus clientes mais próximos e oferecer software e termos personalizados. Os termos personalizados permitem-lhe destacar uma variedade de cenários, incluindo acordos liderados por campo com preços e termos especializados, bem como acesso precoce a software de lançamento limitado. As Ofertas Privadas permitem-lhe dar preços ou produtos específicos a um conjunto limitado de clientes, criando um novo plano com esses detalhes.  
 >
 > Para mais informações, consulte [Ofertas Privadas no Azure Marketplace.](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace)  
 
@@ -59,7 +59,7 @@ Utilize o tipo de oferta *de máquina virtual* quando colocar um aparelho virtua
 >[!Note]
 >O opt-in do canal parceiro Cloud Solution Provider (CSP) já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [os Fornecedores de Soluções Cloud.](./cloud-solution-providers.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, aprenda a [fazer crescer o seu negócio na nuvem com o Azure Marketplace.](https://azuremarketplace.microsoft.com/sell)
 

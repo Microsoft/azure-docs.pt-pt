@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: 999ab77538a145189e0576c920216fa55d8508f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eed53725507325351dcf51fbe368331c2a4fd2f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85366832"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065137"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuração do Pacemaker na Red Hat Enterprise Linux em Azure
 
@@ -120,7 +120,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    </code></pre>
 
    > [!IMPORTANT]
-   > Se precisar de atualizar o agente da Cerca Azure e, se utilizar a função personalizada, certifique-se de atualizar a função personalizada para incluir o **powerOff de**ação . Para mais detalhes, [crie um papel personalizado para o agente da cerca.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)  
+   > Se precisar de atualizar o agente da Cerca Azure e, se utilizar a função personalizada, certifique-se de atualizar a função personalizada para incluir o **powerOff de**ação . Para mais detalhes, [crie um papel personalizado para o agente da cerca.](#1-create-a-custom-role-for-the-fence-agent)  
 
 1. **[A]** Resolução do nome do anfitrião da configuração
 
@@ -220,7 +220,7 @@ O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Mic
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Criar um papel personalizado para o agente da cerca
 
-O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por padrão. Você precisa dar ao Service Principal permissões para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo utilizando [o PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou [o Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por padrão. Você precisa dar ao Service Principal permissões para iniciar e parar (desligar) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo utilizando [o PowerShell](../../../role-based-access-control/role-assignments-powershell.md) ou [o Azure CLI](../../../role-based-access-control/role-assignments-cli.md)
 
 Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar o conteúdo às suas subscrições, ou seja, substituir c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os IDs da sua assinatura. Se tiver apenas uma subscrição, remova a segunda entrada em 'AtribuableScopes'.
 
@@ -291,9 +291,9 @@ op monitor interval=3600
 </code></pre>
 
 > [!TIP]
->O Agente de Cercas Azure requer conectividade de saída para pontos finais públicos como documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs utilizando iLB padrão](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>O Agente de Cercas Azure requer conectividade de saída para pontos finais públicos como documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs utilizando iLB padrão](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]
 * [Implantação de máquinas virtuais Azure para SAP][deployment-guide]

@@ -2,13 +2,13 @@
 title: Pontos finais de serviço de Rede Virtual - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.EventHub a uma rede virtual.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 134e310e0859bb6c0a50630f467513e07e6ff390
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315424"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066708"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilize pontos finais de serviço de rede virtual com hubs de eventos Azure
 
@@ -24,7 +24,6 @@ O resultado é uma relação privada e isolada entre as cargas de trabalho ligad
 > Os serviços da Microsoft fidedignos não são suportados quando as Redes Virtuais são implementadas.
 >
 > Cenários de Azure comuns que não funcionam com redes virtuais (note que a lista **NÃO** é exaustiva) -
-> - Monitor Azure (definição de diagnóstico)
 > - Azure Stream Analytics
 > - Integração com a grelha de eventos Azure
 > - Rotas do Hub Azure IoT
@@ -205,7 +204,7 @@ Parâmetros do modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre redes virtuais, consulte os seguintes links:
 

@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066219"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar declarações de switch que executam ações de fluxo de trabalho com base em valores específicos em Azure Logic Apps
 
@@ -66,12 +67,12 @@ Por exemplo, suponha que quer uma aplicação lógica que tome diferentes passos
    |--------|--------------------|--------|
    | Caso 1 | **Aprovar** | Adicionar o Outlook Enviar por email o artigo **Enviar por email** o artigo RSS apenas quando o aprovador selecionado **aprovar.** |
    | Caso 2 | **Rejeitar** | Adicionar o Outlook Enviar por email uma ação por **e-mail** para notificar outros aprovadores de que o item RSS foi rejeitado. |
-   | Predefinição | Nenhuma | Não é necessária ação. Neste exemplo, o caso **Padrão** está vazio porque **a SelectOption** tem apenas duas opções. |
+   | Predefinição | Nenhum | Não é necessária ação. Neste exemplo, o caso **Padrão** está vazio porque **a SelectOption** tem apenas duas opções. |
    |||
 
    ![Declaração de switch terminada](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
-1. Guarde a aplicação lógica. 
+1. Guarde a sua aplicação lógica. 
 
    Para testar manualmente este exemplo, escolha **Executar** até que a aplicação lógica encontre um novo item RSS e envie um e-mail de aprovação. 
    **Selecione Aprovar** para observar os resultados.
@@ -120,10 +121,10 @@ Agora que criou uma aplicação lógica usando uma declaração de comutação, 
 
 ## <a name="get-support"></a>Obter suporte
 
-* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades ou sugestões, visite o site de feedback do [utilizador do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar e repetir passos (laços)](../logic-apps/logic-apps-control-flow-loops.md)

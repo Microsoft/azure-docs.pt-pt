@@ -1,5 +1,5 @@
 ---
-title: Crie um ponto final privado gerido para ligar aos resultados da sua fonte de dados.
+title: Crie um ponto final privado gerido para ligar aos resultados da sua fonte de dados
 description: Este artigo irá ensiná-lo a criar um ponto final privado gerido para as suas fontes de dados a partir de um espaço de trabalho Azure Synapse.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6f0054364e5bbfb80fc4c1b9db6a4c15f365a81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065478"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Crie um ponto final privado gerido para a sua fonte de dados (pré-visualização)
 
@@ -46,6 +46,6 @@ Depois de submeter o pedido, verá o seu estado. Para verificar o sucesso da cri
 Pode também ver que o *Estado de Aprovação* está *pendente.* O proprietário do recurso-alvo pode aprovar ou negar o pedido de ligação de ponto final privado. Se o proprietário aprovar o pedido de ligação de ponto final privado, então é estabelecido um link privado. Se for negado, então não está estabelecida uma ligação privada.
 ![Estado do pedido de criação de ponto final privado gerido](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [os pontos finais privados geridos](./synapse-workspace-managed-private-endpoints.md)

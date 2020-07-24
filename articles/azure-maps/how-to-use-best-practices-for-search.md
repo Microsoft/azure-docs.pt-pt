@@ -1,18 +1,19 @@
 ---
 title: Boas práticas para o Azure Maps Search Service Microsoft Azure Maps
 description: Saiba como aplicar as melhores práticas ao utilizar o Serviço de Pesquisa do Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84264371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064277"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Melhores práticas para O Serviço de Pesquisa de Mapas Azure
 
@@ -27,7 +28,7 @@ Este artigo explica como aplicar práticas sonoras quando liga para os dados do 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs do serviço Azure Maps, precisa de uma conta Azure Maps e uma chave. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e obter uma chave [primária.](quick-demo-map-app.md#get-the-primary-key-for-your-account) 
+Para fazer chamadas para as APIs do serviço Azure Maps, precisa de uma conta Azure Maps e uma chave. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) e obter uma chave [primária.](quick-demo-map-app.md#get-the-primary-key-for-your-account) 
 
 Para obter informações sobre a autenticação em Azure Maps, consulte [a autenticação Manage no Azure Maps.](./how-to-manage-authentication.md)
 
@@ -84,7 +85,7 @@ Recomendamos que utilize a Azure Maps [Search Fuzzy API](https://docs.microsoft.
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Reverse-geocódigo e filtro para um tipo de entidade de geografia
 
-Quando faz uma pesquisa de geocódigo invertido na [API reversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)do Endereço de Pesquisa, o serviço pode devolver polígonos para áreas administrativas. Por exemplo, yoi pode querer buscar o polígono da área para uma cidade.Para reduzir a pesquisa a tipos específicos de entidades de geografia, inclua o `entityType` parâmetro nos seus pedidos. 
+Quando faz uma pesquisa de geocódigo invertido na [API reversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)do Endereço de Pesquisa, o serviço pode devolver polígonos para áreas administrativas. Por exemplo, talvez queira ir buscar o polígono da área para uma cidade.Para reduzir a pesquisa a tipos específicos de entidades de geografia, inclua o `entityType` parâmetro nos seus pedidos. 
 
 A resposta resultante contém o ID de geografia e o tipo de entidade que foi combinado. Se fornecer mais do que uma entidade, então o ponto final devolve a *menor entidade disponível*. Você pode usar o ID de geometria devolvido para obter a geometria da geografia através do [serviço Search Polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -964,7 +965,7 @@ As respostas para a API [do Endereço de Pesquisa](https://docs.microsoft.com/re
 } 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte:
 

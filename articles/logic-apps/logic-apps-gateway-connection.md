@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b216fa668483ef6fc30c1054dd4f65361ad17934
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657141"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065955"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
@@ -47,7 +48,7 @@ Nas Aplicações Lógicas Azure, o gateway de dados no local suporta os [conecto
 * SQL Server
 * Teradata
 
-A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)útil. Embora o gateway em si não incorra em custos adicionais, o [modelo de preços de Aplicações Lógicas](../logic-apps/logic-apps-pricing.md) aplica-se a estes conectores e outras operações em Azure Logic Apps.
+A Azure Logic Apps suporta operações de leitura e escrita através do portal de dados. No entanto, estas operações têm [limites no seu tamanho de carga](/data-integration/gateway/service-gateway-onprem#considerations)útil. Embora o gateway em si não incorra em custos adicionais, o [modelo de preços de Aplicações Lógicas](../logic-apps/logic-apps-pricing.md) aplica-se a estes conectores e outras operações em Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -82,7 +83,7 @@ Depois de instalar o gateway num computador local, crie o recurso Azure para o s
 
    | Propriedade | Descrição |
    |----------|-------------|
-   | **Nome de recursos** | Forneça um nome para o seu recurso gateway que contenha apenas letras, números, hífenes `-` (), sublinhados `_` (, parênteses ( `(` , ) ou `)` períodos `.` (). |
+   | **Nome do Recurso** | Forneça um nome para o seu recurso gateway que contenha apenas letras, números, hífenes `-` (), sublinhados `_` (, parênteses ( `(` , ) ou `)` períodos `.` (). |
    | **Subscrição** | Selecione a subscrição Azure para a conta Azure que foi utilizada para a instalação gateway. A subscrição por defeito baseia-se na conta Azure que usou para iniciar scontabilidade. |
    | **Grupo de recursos** | O [grupo de recursos Azure](../azure-resource-manager/management/overview.md) que pretende utilizar |
    | **Localização** | A mesma região ou local que foi selecionado para o serviço de nuvem gateway durante a [instalação gateway](../logic-apps/logic-apps-gateway-install.md). Caso contrário, a instalação do gateway não aparecerá na lista **de Nomes de Instalação.** A localização da aplicação lógica pode diferir da localização do seu recurso gateway. |
@@ -158,7 +159,7 @@ Para criar um recurso de gateway diferente, ligue a instalação do gateway a um
 
 <a name="faq"></a>
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P:** Porque é que a minha instalação gateway não aparece quando crio o meu recurso de gateway em Azure? <br/>
 **R**: Esta questão pode acontecer por estas razões:
@@ -171,7 +172,7 @@ Para criar um recurso de gateway diferente, ligue a instalação do gateway a um
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger as suas aplicações lógicas](./logic-apps-securing-a-logic-app.md)
 * [Exemplos e cenários comuns para apps lógicas](./logic-apps-examples-and-scenarios.md)

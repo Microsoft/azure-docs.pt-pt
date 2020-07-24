@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/23/2020
+ms.date: 07/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127a83bbe29a5e102a82cf169919a44f52532228
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 228a24fbc4fb68a72f2cb8abb7d4382127be2147
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064423"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -98,7 +98,7 @@ A tabela que se segue lista os sistemas operativos não suportados:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e o Windows 10) não são suportados.<br> Para O Azure Windows Virtual Desktop (WVD), o método recomendado<br> para gerir atualizações é [o Windows Update for Business](/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 client machine patch management. |
+|Cliente Windows     | Os sistemas operativos dos clientes (como o Windows 7 e o Windows 10) não são suportados.<br> Para O Azure Windows Virtual Desktop (WVD), o método recomendado<br> para gerir atualizações é [o Gestor de Configuração do Microsoft Endpoint](../virtual-desktop/configure-automatic-updates.md) para a gestão de correção de máquinas de clientes do Windows 10. |
 |Windows Server 2016 Nano Server     | Não suportado.       |
 |Azure Kubernetes Service Nodes | Não suportado. Utilize o processo de remendos descrito em [Aplicação de atualizações de segurança e kernel aos nós Linux no Serviço Azure Kubernetes (AKS)](../aks/node-updates-kured.md)|
 
@@ -168,9 +168,9 @@ A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão supo
 
 | Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -182,7 +182,7 @@ A Atualização Gestão verifica máquinas geridas para dados utilizando as segu
 
 A utilização média de dados por registos do Azure Monitor para uma máquina que utiliza a Atualização é de aproximadamente 25 MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que monitorize o seu ambiente para acompanhar a sua utilização exata. Para obter mais informações para analisar a utilização dos dados, consulte [Gerir o uso e o custo.](../azure-monitor/platform/manage-cost-storage.md)
 
-## <a name="network-planning"></a><a name="ports"></a>Planeamento da rede
+## <a name="network-planning"></a><a name="ports"></a>Planeamento de rede
 
 São necessários os seguintes endereços especificamente para a Gestão de Atualização. A comunicação a estes endereços ocorre sobre o porto 443.
 
@@ -193,15 +193,15 @@ São necessários os seguintes endereços especificamente para a Gestão de Atua
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
+Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
 Para as máquinas Windows, também deve permitir o tráfego para quaisquer pontos finais exigidos pelo Windows Update. Pode encontrar uma lista atualizada de pontos finais necessários em [Questões relacionadas com HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se tiver um servidor local [de Atualização do Windows,](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)também deve permitir o tráfego para o servidor especificado na sua [tecla WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 Para máquinas Red Hat Linux, consulte [os IPs para os servidores de entrega de conteúdos RHUI](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) para obter pontos finais necessários. Para outras distribuições Linux, consulte a documentação do seu fornecedor.
 
 Para obter mais informações sobre as portas necessárias para o Trabalhador de Runbook Híbrido, consulte [os endereços de Gestão de Atualização para Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-Recomendamos que utilize os endereços listados ao definir exceções. Para endereços IP, pode baixar [as gamas IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente, e reflete as gamas atualmente implementadas e quaisquer alterações futuras nas gamas IP.
-
-Siga as instruções em [computadores Connect sem acesso](../azure-monitor/platform/gateway.md) à Internet a máquinas de configuração que não tenham acesso à Internet.
+Se as suas políticas de segurança informática não permitirem que as máquinas da rede se conectem à internet, pode configurar um [gateway Log Analytics](../azure-monitor/platform/gateway.md) e, em seguida, configurar a máquina para ligar através do gateway para Azure Automation e Azure Monitor.
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
