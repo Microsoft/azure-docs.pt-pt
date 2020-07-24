@@ -6,14 +6,14 @@ manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 044786d6a6aa4f9f3d163090c0edfa3832023b10
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560156"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116956"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure
 
@@ -42,7 +42,7 @@ Os livros de trabalho fornecem um rico conjunto de capacidades para visualizar o
 * [Texto](workbooks-visualizations.md#text)
 * [Gráficos](workbooks-visualizations.md#charts)
 * [Grelhas](workbooks-visualizations.md#grids)
-* [Mosaicos](workbooks-visualizations.md#tiles)
+* [Azulejos](workbooks-visualizations.md#tiles)
 * [Árvores](workbooks-visualizations.md#trees)
 * [Gráficos](workbooks-visualizations.md#graphs)
 
@@ -52,9 +52,9 @@ Os livros de trabalho fornecem um rico conjunto de capacidades para visualizar o
 
 Para explorar a experiência dos livros de trabalho, navegue primeiro para o serviço Azure Monitor. Isto pode ser feito digitando **o Monitor** na caixa de pesquisa no portal Azure.
 
-Em seguida, selecione **Livros de Trabalho (pré-visualização)**.
+Em **seguida,** selecione Livros de Trabalho .
 
-![Screenshot do botão de pré-visualização de livros de trabalho realçado numa caixa vermelha](./media/workbooks-overview/workbooks-preview.png)
+![Screenshot do botão de livros de trabalho realçado em uma caixa vermelha](./media/workbooks-overview/workbooks.png)
 
 ### <a name="gallery"></a>Galeria
 

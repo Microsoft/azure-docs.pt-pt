@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar a visão em tempo real dos tro
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116701"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
@@ -42,7 +42,7 @@ O portal Azure solicita-lhe que valide as suas credenciais de login para um clus
 >A autorização para o seu cluster é gerida pela Kubernetes e o modelo de segurança com o qual está configurado. Os utilizadores que acedam a esta funcionalidade requerem permissão para descarregar a configuração kubernetes *(kubeconfig),* semelhante à `az aks get-credentials -n {your cluster name} -g {your resource group}` execução. Este ficheiro de configuração contém a autorização e o símbolo de autenticação para **a Azure Kubernetes Service Cluster User Role**, no caso dos clusters Azure RBAC e AKS sem autorização RBAC ativada. Contém informações sobre a Azure AD e os dados de registo do cliente quando a AKS está ativada com o Azure Ative Directory (AD) com base em um único sinal baseado em SAML.
 
 >[!IMPORTANT]
->Os utilizadores destas funcionalidades requerem [a Azure Kubernetes Cluster Cluster User Role](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) para o cluster de forma a descarregar e utilizar esta `kubeconfig` funcionalidade. Os utilizadores **não** necessitam de acesso dos contribuintes ao cluster para utilizar esta funcionalidade.
+>Os utilizadores destas funcionalidades requerem [a Azure Kubernetes Cluster Cluster User Role](../../role-based-access-control/built-in-roles.md) para o cluster de forma a descarregar e utilizar esta `kubeconfig` funcionalidade. Os utilizadores **não** necessitam de acesso dos contribuintes ao cluster para utilizar esta funcionalidade.
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Utilização de clusterMonitoringUser com clusters ativados por RBAC
 
@@ -138,6 +138,6 @@ Cada conta AZure AD deve ser autorizada às APIs apropriadas em Kubernetes para 
 
 Para obter ajuda adicional para configurar o cluster AKS **ClusterRoleBinding**, consulte [criar a ligação RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem a autenticação de configuração, pode ver [métricas,](container-insights-livedata-metrics.md) [Implementações](container-insights-livedata-deployments.md)e [eventos e registos](container-insights-livedata-overview.md) em tempo real a partir do seu cluster.

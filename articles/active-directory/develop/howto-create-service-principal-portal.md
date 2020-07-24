@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115927"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
@@ -29,7 +29,7 @@ Este artigo mostra-lhe como usar o portal para criar o principal serviço no por
 > Em vez de criar um principal de serviço, considere usar identidades geridas para recursos Azure para a sua identidade de aplicação. Se o seu código funciona num serviço que suporta identidades geridas e acede a recursos que suportam a autenticação AD do Azure, as identidades geridas são uma opção melhor para si. Para saber mais sobre identidades geridas para os recursos da Azure, incluindo quais os serviços que atualmente o suportam, veja [o que é gerida identidades para os recursos do Azure?](../managed-identities-azure-resources/overview.md)
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Registo de aplicativos, objetos de aplicativos e diretores de serviço
-Não há forma de criar diretamente um diretor de serviço utilizando o portal Azure.  Quando regista uma aplicação através do portal Azure, um objeto de aplicação e um diretor de serviço são automaticamente criados o seu diretório de casa ou inquilino.  Para obter mais informações sobre a relação entre o registo de aplicações, objetos de aplicação e princípios de serviço, leia [os objetos principais de aplicação e serviço no Diretório Ativo Azure.](app-objects-and-service-principals.md)
+Não há forma de criar diretamente um diretor de serviço utilizando o portal Azure.  Quando regista uma aplicação através do portal Azure, um objeto de aplicação e um diretor de serviço são automaticamente criados no seu diretório de casa ou inquilino.  Para obter mais informações sobre a relação entre o registo de aplicações, objetos de aplicação e princípios de serviço, leia [os objetos principais de aplicação e serviço no Diretório Ativo Azure.](app-objects-and-service-principals.md)
 
 ## <a name="permissions-required-for-registering-an-app"></a>Permissões necessárias para o registo de uma aplicação
 
@@ -55,7 +55,7 @@ Para verificar as permissões de subscrição:
 
 1. Procure e selecione **Subscrições**ou selecione **Subscrições** na página **inicial.**
 
-   ![Pesquisa](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a subscrição em que pretende criar o principal serviço em.
 
@@ -77,7 +77,7 @@ Vamos saltar diretamente para criar a identidade. Se tiver algum problema, verif
 
 1. Inscreva-se na sua Conta Azure através do [portal Azure](https://portal.azure.com).
 1. Selecione **Azure Active Directory**.
-1. Selecione **Registos das aplicações**.
+1. Selecione **Registos de aplicações**.
 1. Selecione **Novo registo**.
 1. Diga o nome do pedido. Selecione um tipo de conta suportado, que determina quem pode usar a aplicação. Em **Redirect URI**, selecione **Web** para o tipo de aplicação que pretende criar. Insira o URI para onde o token de acesso é enviado. Não é possível criar credenciais para uma [aplicação nativa.](../manage-apps/application-proxy-configure-native-client-application.md) Não podes usar esse tipo para uma aplicação automatizada. Depois de definir os valores, **selecione Registar- se**.
 
@@ -185,7 +185,7 @@ Tenha em mente que poderá ter de configurar permissões adicionais sobre recurs
 1. **Selecione Adicionar** para adicionar a política de acesso e, em seguida, **guardar** para cometer as suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como utilizar o [Azure PowerShell para criar um principal de serviço.](howto-authenticate-service-principal-powershell.md)
 * Para saber especificar políticas de segurança, consulte [o Controlo de Acesso baseado em funções Azure.](../../role-based-access-control/role-assignments-portal.md)  
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas aos utilizadores, consulte [as operações do Fornecedor de Recursos do Gestor de Recursos da Azure.](../../role-based-access-control/resource-provider-operations.md)

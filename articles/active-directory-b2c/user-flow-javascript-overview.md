@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cbc0f607af31d0e3b3715e73ddbde19143bd1599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca9c36b0f8df6651c12d3e94279ad557e67d7487
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115997"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versões javaScript e layout de página em Azure Ative Directory B2C
 
@@ -48,6 +49,6 @@ Para obter informações sobre as diferentes versões de layout de página, cons
 
 [!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar exemplos de utilização do JavaScript em [amostras JavaScript para utilização no Azure Ative Directory B2C](javascript-samples.md).

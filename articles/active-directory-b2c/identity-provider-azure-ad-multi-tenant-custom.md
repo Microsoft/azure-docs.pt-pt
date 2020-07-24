@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37d2864fa272a2f5504c0274655b0f12abdd494e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388396"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116298"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de inscrição para o Diretório Ativo Azure multi-inquilino utilizando políticas personalizadas no Azure Ative Directory B2C
 
@@ -215,7 +215,7 @@ Atualize o ficheiro do grupo de cdações (RP) que inicia a jornada do utilizado
 1. Atualize o valor da **PublicPolicyUri** com o URI para a apólice. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Atualize o valor do atributo **ReferenceId** no **DefaultUserJourney** para corresponder ao ID da jornada do utilizador que criou anteriormente. Por exemplo, *SignUpSignInContoso*.
 1. Guarde as suas alterações e carrete o ficheiro.
-1. De acordo com **as políticas personalizadas,** selecione a nova política da lista.
+1. A partir das **políticas personalizadas carregadas,** selecione a política recém-criada da lista.
 1. No drop-down da **aplicação Select,** selecione a aplicação Azure AD B2C que criou anteriormente. Por exemplo, *testapp1*.
 1. Copie o **ponto final do Run e** abra-o numa janela de navegador privado, por exemplo, Modo Incógnito no Google Chrome ou uma janela InPrivate no Microsoft Edge. A abertura numa janela de navegador privada permite-lhe testar toda a viagem do utilizador não utilizando quaisquer credenciais AZure AD atualmente em cache.
 1. Selecione o sinal AZure AD no botão, por exemplo, *Empregado contoso,* e, em seguida, insira as credenciais para um utilizador em um dos seus inquilinos organizacionais AZure AD. É-lhe pedido que autorize o pedido e, em seguida, introduza informações para o seu perfil.
@@ -224,7 +224,7 @@ Se o sinal em processo for bem sucedido, o seu navegador é redirecionado para `
 
 Para testar a capacidade de inscrição de vários inquilinos, execute os dois últimos passos usando as credenciais para um utilizador que existe outro inquilino AD AZure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ao trabalhar com políticas personalizadas, pode por vezes precisar de informações adicionais quando se trata de resolver problemas de uma política durante o seu desenvolvimento.
 

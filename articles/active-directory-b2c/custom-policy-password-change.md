@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c159e78d0aa065b53b1164e01309e770302fb1ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116366"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a mudança de senha usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -65,6 +65,7 @@ Complete os passos em [Começar com políticas personalizadas no Ative Directory
               <Item Key="response_types">id_token</Item>
               <Item Key="response_mode">query</Item>
               <Item Key="scope">email openid</Item>
+              <Item Key="grant_type">password</Item>
               <Item Key="UsePolicyInRedirectUri">false</Item>
               <Item Key="HttpBinding">POST</Item>
               <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
@@ -180,6 +181,6 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil ter o token AD B2
 2. Para **Candidatura**, selecione a sua candidatura que já se registou anteriormente. Para ver o símbolo, a **URL de resposta** deve mostrar `https://jwt.ms` .
 3. Clique em **Executar agora**. Inscreva-se com o acouunt que criou anteriormente. Deve agora ter a oportunidade de alterar a palavra-passe.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como pode [configurar a complexidade da palavra-passe utilizando políticas personalizadas no Azure Ative Directory B2C](custom-policy-password-complexity.md).

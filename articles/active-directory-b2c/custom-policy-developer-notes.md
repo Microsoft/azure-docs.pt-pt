@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/19/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7defc33f8e3e2daca60fa5c15c41c62333ffc2d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 255e0e38d8dc434843452308d2eebc2fd4774c50
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389263"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116528"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -155,7 +156,7 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 | [Registos de eventos do Application Insights](application-insights-technical-profile.md) |  | X |  | Usado para monitorizar os fluxos de produção dos utilizadores. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as operações do [Microsoft Graph disponíveis para Azure AD B2C](microsoft-graph-operations.md)
 - Saiba mais sobre [as políticas personalizadas e as diferenças com os fluxos dos utilizadores.](custom-policy-overview.md)

@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 28f4e3a99b7241711e46ce92fdfd2d7689b4527b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971118"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116998"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -186,7 +186,7 @@ Esta amostra refere o parâmetro **permitido delocalização** que foi demonstra
 
 ### <a name="strongtype"></a>ForteType
 
-Dentro da `metadata` propriedade, você pode usar **o StrongType** para fornecer uma lista multi-selecionada de opções dentro do portal Azure. **StrongType** pode ser um tipo de _recurso_ suportado ou um valor permitido. Para determinar se um _tipo de recurso_ é válido para o **StrongType,** utilize [o Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+Dentro da `metadata` propriedade, você pode usar **o StrongType** para fornecer uma lista multi-selecionada de opções dentro do portal Azure. **StrongType** pode ser um tipo de _recurso_ suportado ou um valor permitido. Para determinar se um _tipo de recurso_ é válido para o **StrongType,** utilize [o Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). O formato para um _tipo de recurso_ **forteType** é `<Resource Provider>/<Resource Type>` . Por exemplo, `Microsoft.Network/virtualNetworks/subnets`.
 
 Alguns tipos de _recursos_ não devolvidos pela **Get-AzResourceProvider** são suportados. Estes são:
 
@@ -430,7 +430,7 @@ Em vez disso, utilize a função [se()](../../../azure-resource-manager/template
 
 Com a regra da política revista, `if()` verifica o comprimento do **nome** antes de tentar obter um valor com menos de `substring()` três caracteres. Se o **nome** for demasiado curto, o valor "não começando pelo ABC" é devolvido e comparado com **o ABC**. Um recurso com um nome curto que não começa com o **ABC** ainda falha a regra da política, mas já não causa um erro durante a avaliação.
 
-### <a name="count"></a>Contagem
+### <a name="count"></a>de palavras
 
 As condições que contam quantos membros de uma matriz na carga útil do recurso satisfazem uma expressão da condição podem ser formadas usando a expressão **da contagem.** Cenários comuns estão a verificar se "pelo menos um", "exatamente um dos", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia cada membro da matriz [ \[ \* \] de pseudónimo para](#understanding-the--alias) uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão. **As** expressões de contagem podem ser adicionadas até três vezes a uma única definição **de regra de política.**
 
@@ -513,37 +513,7 @@ Exemplo 4: Verifique se todos os membros da matriz de objeto satisfazem a expres
 }
 ```
 
-Exemplo 5: Verifique se todos os membros da matriz de cordas cumprem a expressão da condição
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-            "like": "*@contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Exemplo 6: Use o **valor** interior do **campo** para verificar se todos os membros da matriz cumprem a expressão da condição
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
-            "equals": "contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Exemplo 7: Verifique se pelo menos um membro da matriz corresponde a várias propriedades na expressão da condição
+Exemplo 5: Verifique se pelo menos um membro da matriz corresponde a várias propriedades na expressão da condição
 
 ```json
 {
@@ -734,7 +704,7 @@ Esta regra da amostra verifica quaisquer correspondências de **ipRules \[ \* \]
 
 Para mais informações, consulte [a avaliação do \* pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

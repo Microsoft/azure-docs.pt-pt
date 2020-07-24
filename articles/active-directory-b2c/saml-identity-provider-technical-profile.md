@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 724178f71befbe4eace0d3d5615871c21253c1f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0c30d5c072c66e04b97cae2f88e4c8ef96b32779
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116207"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do fornecedor de identidade SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -146,19 +146,19 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Entidade De Parceiros | Sim | URL dos metadados do fornecedor de identidade SAML. Copie os metadados do fornecedor de identidade e adicione-os dentro do elemento CDATA`<![CDATA[Your IDP metadata]]>` |
-| Quer Requesigned | Não | Indica se o perfil técnico requer que todos os pedidos de autenticação de saída sejam assinados. Valores possíveis: `true` ou `false` . O valor predefinido é `true`. Quando o valor é `true` definido, a tecla criptográfica **SamlMessageSigning** precisa de ser especificada e todos os pedidos de autenticação de saída são assinados. Se o valor for definido para `false` , os parâmetros **SigAlg** e **Signature** (linha de consulta ou parâmetro pós)são omitidos do pedido. Estes metadados também controlam os metadados **AuthnRequestsSigned** atributo, que é a saída nos metadados do perfil técnico Azure AD B2C que é partilhado com o fornecedor de identidade. O Azure AD B2C não assina o pedido se o valor dos **QuerSignedRequests** nos metadados de perfil técnico for definido `false` e os metadados do fornecedor de identidade **WantAuthnRequestsSigned** forem definidos ou `false` não. |
-| XmlSignatureAlgorithm | Não | O método que a Azure AD B2C utiliza para assinar o pedido DAL. Estes metadados controlam o valor do parâmetro **SigAlg** (cadeia de consulta ou parâmetro de pós) no pedido DEL. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. |
-| Quer As SesignedAssertions | Não | Indica se o perfil técnico requer que todas as afirmações recebidas sejam assinadas. Valores possíveis: `true` ou `false` . O valor predefinido é `true`. Se o valor for definido para `true` , todas as afirmações `saml:Assertion` enviadas pelo fornecedor de identidade para Azure AD B2C devem ser assinadas. Se o valor for definido para `false` , o fornecedor de identidade não deve assinar as afirmações, mas mesmo que o faça, a Azure AD B2C não validará a assinatura. Estes metadados também controlam a bandeira de metadados **WantAssertionsSigned**, que é a saída nos metadados do perfil técnico Azure AD B2C que é partilhado com o fornecedor de identidade. Se desativar a validação das afirmações, também poderá querer desativar a validação da assinatura de resposta (para mais informações, consulte **RespostasSS Assinadas).** |
-| RespostasSSInsignitado | Não | Valores possíveis: `true` ou `false` . O valor predefinido é `true`. Se o valor for definido para `false` , o fornecedor de identidade não deve assinar a resposta SAML, mas mesmo que o faça, a Azure AD B2C não validará a assinatura. Se o valor for definido para `true` , a resposta SAML enviada pelo fornecedor de identidade ao Azure AD B2C é assinada e deve ser validada. Se desativar a validação de resposta SAML, também poderá querer desativar a validação da assinatura de afirmação (para mais informações, consulte **QuerSignedAssertions).** |
-| Quer AcordosEncripted | Não | Indica se o perfil técnico requer que todas as afirmações recebidas sejam encriptadas. Valores possíveis: `true` ou `false` . O valor predefinido é `false`. Se o valor for definido para `true` , as afirmações enviadas pelo fornecedor de identidade para Azure AD B2C devem ser assinadas e a chave criptográfica **SamlAssertionDecryption** deve ser especificada. Se o valor for definido para `true` , os metadados do perfil técnico Azure AD B2C incluem a secção **de encriptação.** O fornecedor de identidade lê os metadados e encripta a afirmação de resposta SAML com a chave pública que é fornecida nos metadados do perfil técnico Azure AD B2C. Se ativar a encriptação das afirmações, também poderá ter de desativar a validação da assinatura de resposta (para mais informações, consulte **RespostasSS Assinadas).** |
-| IdpInitiatedProfileEnabled | Não | Indica se está ativado um único perfil de sessão de sessão de início que foi iniciado por um perfil de fornecedor de identidade SAML. Valores possíveis: `true` ou `false` . A predefinição é `false`. No fluxo iniciado pelo fornecedor de identidade, o utilizador é autenticado externamente e uma resposta não solicitada é enviada para Azure AD B2C, que depois consome o token, executa etapas de orquestração e, em seguida, envia uma resposta à aplicação do partido. |
-| NameIdPolicyFormat | Não | Especifica os constrangimentos no identificador de nome a utilizar para representar o sujeito solicitado. Se omitido, qualquer tipo de identificador apoiado pelo fornecedor de identidade para o sujeito solicitado pode ser utilizado. Por exemplo, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** pode ser usado com **NameIdPolicyAllowCreate**. Veja a documentação do seu fornecedor de identidade para obter orientações sobre quais as políticas de identificação de nomes que são apoiadas. |
-| NameIdPolicyAllowCreate | Não | Ao utilizar **o NameIdPolicyFormat,** também pode especificar a `AllowCreate` propriedade da **NameIDPolicy**. O valor destes metadados é `true` ou indicar se o fornecedor de identidade é autorizado a criar uma nova conta durante o fluxo de `false` entrada. Veja a documentação do seu fornecedor de identidade para obter orientações sobre como fazê-lo. |
-| AutenticaçãoRequestExtensions | Não | Elementos de extensão de mensagem de protocolo opcional acordados entre a Azure AD BC e o fornecedor de identidade. A extensão é apresentada em formato XML. Adicione os dados XML dentro do elemento CDATA `<![CDATA[Your IDP metadata]]>` . Consulte a documentação do seu fornecedor de identidade para ver se o elemento de extensão está suportado. |
-| Incluir Conferências DeAuthnContextClassReferences | Não | Especifica uma ou mais referências URI identificando classes de contexto de autenticação. Por exemplo, para permitir que um utilizador faça seduca apenas com nome de utilizador e senha, descreva o valor para `urn:oasis:names:tc:SAML:2.0:ac:classes:Password` . Para permitir o acesso através do nome de utilizador e da palavra-passe através de uma sessão protegida (SSL/TLS), especifique `PasswordProtectedTransport` . Veja a documentação do seu fornecedor de identidade para obter orientações sobre os URIs **AuthnContextClassRef** que são suportados. Especifique vários URIs como uma lista delimitada por vírgula. |
-| IncluirKeyInfo | Não | Indica se o pedido de autenticação SAML contém a chave pública do certificado quando a ligação está definida para `HTTP-POST` . Valores possíveis: `true` ou `false` . |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| Entidade De Parceiros | Yes | URL dos metadados do fornecedor de identidade SAML. Copie os metadados do fornecedor de identidade e adicione-os dentro do elemento CDATA`<![CDATA[Your IDP metadata]]>` |
+| Quer Requesigned | No | Indica se o perfil técnico requer que todos os pedidos de autenticação de saída sejam assinados. Valores possíveis: `true` ou `false` . O valor predefinido é `true`. Quando o valor é `true` definido, a tecla criptográfica **SamlMessageSigning** precisa de ser especificada e todos os pedidos de autenticação de saída são assinados. Se o valor for definido para `false` , os parâmetros **SigAlg** e **Signature** (linha de consulta ou parâmetro pós)são omitidos do pedido. Estes metadados também controlam os metadados **AuthnRequestsSigned** atributo, que é a saída nos metadados do perfil técnico Azure AD B2C que é partilhado com o fornecedor de identidade. O Azure AD B2C não assina o pedido se o valor dos **QuerSignedRequests** nos metadados de perfil técnico for definido `false` e os metadados do fornecedor de identidade **WantAuthnRequestsSigned** forem definidos ou `false` não. |
+| XmlSignatureAlgorithm | No | O método que a Azure AD B2C utiliza para assinar o pedido DAL. Estes metadados controlam o valor do parâmetro **SigAlg** (cadeia de consulta ou parâmetro de pós) no pedido DEL. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. |
+| Quer As SesignedAssertions | No | Indica se o perfil técnico requer que todas as afirmações recebidas sejam assinadas. Valores possíveis: `true` ou `false` . O valor predefinido é `true`. Se o valor for definido para `true` , todas as afirmações `saml:Assertion` enviadas pelo fornecedor de identidade para Azure AD B2C devem ser assinadas. Se o valor for definido para `false` , o fornecedor de identidade não deve assinar as afirmações, mas mesmo que o faça, a Azure AD B2C não validará a assinatura. Estes metadados também controlam a bandeira de metadados **WantAssertionsSigned**, que é a saída nos metadados do perfil técnico Azure AD B2C que é partilhado com o fornecedor de identidade. Se desativar a validação das afirmações, também poderá querer desativar a validação da assinatura de resposta (para mais informações, consulte **RespostasSS Assinadas).** |
+| RespostasSSInsignitado | No | Valores possíveis: `true` ou `false` . O valor predefinido é `true`. Se o valor for definido para `false` , o fornecedor de identidade não deve assinar a resposta SAML, mas mesmo que o faça, a Azure AD B2C não validará a assinatura. Se o valor for definido para `true` , a resposta SAML enviada pelo fornecedor de identidade ao Azure AD B2C é assinada e deve ser validada. Se desativar a validação de resposta SAML, também poderá querer desativar a validação da assinatura de afirmação (para mais informações, consulte **QuerSignedAssertions).** |
+| Quer AcordosEncripted | No | Indica se o perfil técnico requer que todas as afirmações recebidas sejam encriptadas. Valores possíveis: `true` ou `false` . O valor predefinido é `false`. Se o valor for definido para `true` , as afirmações enviadas pelo fornecedor de identidade para Azure AD B2C devem ser assinadas e a chave criptográfica **SamlAssertionDecryption** deve ser especificada. Se o valor for definido para `true` , os metadados do perfil técnico Azure AD B2C incluem a secção **de encriptação.** O fornecedor de identidade lê os metadados e encripta a afirmação de resposta SAML com a chave pública que é fornecida nos metadados do perfil técnico Azure AD B2C. Se ativar a encriptação das afirmações, também poderá ter de desativar a validação da assinatura de resposta (para mais informações, consulte **RespostasSS Assinadas).** |
+| IdpInitiatedProfileEnabled | No | Indica se está ativado um único perfil de sessão de sessão de início que foi iniciado por um perfil de fornecedor de identidade SAML. Valores possíveis: `true` ou `false` . A predefinição é `false`. No fluxo iniciado pelo fornecedor de identidade, o utilizador é autenticado externamente e uma resposta não solicitada é enviada para Azure AD B2C, que depois consome o token, executa etapas de orquestração e, em seguida, envia uma resposta à aplicação do partido. |
+| NameIdPolicyFormat | No | Especifica os constrangimentos no identificador de nome a utilizar para representar o sujeito solicitado. Se omitido, qualquer tipo de identificador apoiado pelo fornecedor de identidade para o sujeito solicitado pode ser utilizado. Por exemplo, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** pode ser usado com **NameIdPolicyAllowCreate**. Veja a documentação do seu fornecedor de identidade para obter orientações sobre quais as políticas de identificação de nomes que são apoiadas. |
+| NameIdPolicyAllowCreate | No | Ao utilizar **o NameIdPolicyFormat,** também pode especificar a `AllowCreate` propriedade da **NameIDPolicy**. O valor destes metadados é `true` ou indicar se o fornecedor de identidade é autorizado a criar uma nova conta durante o fluxo de `false` entrada. Veja a documentação do seu fornecedor de identidade para obter orientações sobre como fazê-lo. |
+| AutenticaçãoRequestExtensions | No | Elementos de extensão de mensagem de protocolo opcional acordados entre a Azure AD BC e o fornecedor de identidade. A extensão é apresentada em formato XML. Adicione os dados XML dentro do elemento CDATA `<![CDATA[Your IDP metadata]]>` . Consulte a documentação do seu fornecedor de identidade para ver se o elemento de extensão está suportado. |
+| Incluir Conferências DeAuthnContextClassReferences | No | Especifica uma ou mais referências URI identificando classes de contexto de autenticação. Por exemplo, para permitir que um utilizador faça seduca apenas com nome de utilizador e senha, descreva o valor para `urn:oasis:names:tc:SAML:2.0:ac:classes:Password` . Para permitir o acesso através do nome de utilizador e da palavra-passe através de uma sessão protegida (SSL/TLS), especifique `PasswordProtectedTransport` . Veja a documentação do seu fornecedor de identidade para obter orientações sobre os URIs **AuthnContextClassRef** que são suportados. Especifique vários URIs como uma lista delimitada por vírgula. |
+| IncluirKeyInfo | No | Indica se o pedido de autenticação SAML contém a chave pública do certificado quando a ligação está definida para `HTTP-POST` . Valores possíveis: `true` ou `false` . |
+| IncluirClaimResolvingInClaimsHandling  | No | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -166,9 +166,41 @@ O elemento **CryptographicKeys** contém os seguintes atributos:
 
 | Atributo |Obrigatório | Descrição |
 | --------- | ----------- | ----------- |
-| SamlMessageSigning |Sim | O certificado X509 (conjunto de teclas RSA) para usar para assinar mensagens SAML. A Azure AD B2C utiliza esta chave para assinar os pedidos e enviá-los para o fornecedor de identidade. |
-| SamlAssertionDecryption |Sim | O certificado X509 (conjunto de teclas RSA) para utilizar para desencriptar mensagens SAML. Este certificado deve ser fornecido pelo fornecedor de identidade. A Azure AD B2C utiliza este certificado para desencriptar os dados enviados pelo fornecedor de identidade. |
-| MetadadosSigning |Não | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados.  |
+| SamlMessageSigning |Yes | O certificado X509 (conjunto de teclas RSA) para usar para assinar mensagens SAML. A Azure AD B2C utiliza esta chave para assinar os pedidos e enviá-los para o fornecedor de identidade. |
+| SamlAssertionDecryption |Yes | O certificado X509 (conjunto de teclas RSA) para utilizar para desencriptar mensagens SAML. Este certificado deve ser fornecido pelo fornecedor de identidade. A Azure AD B2C utiliza este certificado para desencriptar os dados enviados pelo fornecedor de identidade. |
+| MetadadosSigning |No | O certificado X509 (conjunto de teclas RSA) para usar para assinar metadados SAML. Azure AD B2C utiliza esta chave para assinar os metadados.  |
+
+## <a name="saml-entityid-customization"></a>Personalização DEID de entidade SAML
+
+Se tiver várias aplicações SAML que dependem de diferentes valores DEID de entidades diferentes, pode sobrepor-se ao `issueruri` valor no seu ficheiro de festa de confiança. Para tal, copie o perfil técnico com o ID "Saml2AssertionIssuer" do ficheiro base e sobreponha o `issueruri` valor.
+
+> [!TIP]
+> Copie a `<ClaimsProviders>` secção da base e preserve estes elementos dentro do fornecedor de sinistros: , e `<DisplayName>Token Issuer</DisplayName>` `<TechnicalProfile Id="Saml2AssertionIssuer">` `<DisplayName>Token Issuer</DisplayName>` .
+ 
+Exemplo:
+
+```xml
+   <ClaimsProviders>   
+    <ClaimsProvider>
+      <DisplayName>Token Issuer</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Saml2AssertionIssuer">
+          <DisplayName>Token Issuer</DisplayName>
+          <Metadata>
+            <Item Key="IssuerUri">customURI</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+  </ClaimsProviders>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpInSAML" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2" />
+      <Metadata>
+     …
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

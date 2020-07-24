@@ -9,23 +9,24 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fada393dcab61cf00a0a3befcf4af3660bf625dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0a75aecde13abebe4f343d336e2554fc7e31c429
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116030"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Linux virtual
 
 Teste a Azure IoT Edge neste arranque rápido implantando código contentorizado num dispositivo virtual Linux IoT Edge. O IoT Edge permite-lhe gerir remotamente código nos seus dispositivos para que possa enviar mais cargas de trabalho para a borda. Para este arranque rápido, recomendamos a utilização de uma máquina virtual Azure para o seu dispositivo IoT Edge, que lhe permite criar rapidamente uma máquina de teste com o serviço IoT Edge instalado e, em seguida, eliminá-la quando terminar.
 
 Neste início rápido, vai aprender a:
-
-1. Criar um Hub IoT.
-2. Registar um dispositivo IoT Edge no seu hub IoT.
-3. Instale e inicie o tempo de funcionaamento do IoT Edge no seu dispositivo virtual.
-4. Implementar remotamente um módulo num dispositivo IoT Edge.
+> [!div class="checklist"]
+>
+> * Criar um Hub IoT.
+> * Registar um dispositivo IoT Edge no seu hub IoT.
+> * Instale e inicie o tempo de funcionaamento do IoT Edge no seu dispositivo virtual.
+> * Implementar remotamente um módulo num dispositivo IoT Edge.
 
 ![Diagrama - Arquitetura quickstart para dispositivo e nuvem](./media/quickstart-linux/install-edge-full.png)
 
@@ -248,7 +249,7 @@ Pode confirmar que o grupo de recursos é removido visualizando a lista de grupo
 az group list
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um dispositivo IoT Edge e utilizou a interface de nuvem Azure IoT Edge para implementar código no dispositivo. Agora tem um dispositivo de teste a gerar dados não processados sobre o seu ambiente.
 

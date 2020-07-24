@@ -1,143 +1,112 @@
 ---
-title: Registos de diagnóstico Azure / Microsoft Docs
+title: Registos de diagnósticos
+titleSuffix: Azure Content Delivery Network
 description: O cliente pode ativar a análise de registo para a Azure CDN.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
+manager: KumudD
 ms.assetid: ''
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/06/2018
+ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: 2c432b28250dca382f69a992de73d633b5ea45b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84883977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116987"
 ---
-# <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
+# <a name="diagnostic-logs---azure-content-delivery-network"></a>Registos de diagnóstico - Rede de Entrega de Conteúdos Azure
 
 Com registos de diagnóstico Azure, pode ver análises fundamentais e guardá-las em um ou mais destinos, incluindo:
 
- - Conta de armazenamento do Azure
- - Azure Event Hubs
- - [Área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
- 
+* Conta de armazenamento do Azure
+* Área de trabalho do Log Analytics
+* Azure Event Hubs
+
 Esta funcionalidade está disponível nos pontos finais da CDN para todos os níveis de preços. 
 
-Os registos de diagnóstico azure permitem exportar métricas básicas de utilização do seu ponto final CDN para uma variedade de fontes para que possa consumi-las de forma personalizada. Por exemplo, pode fazer os seguintes tipos de exportação de dados:
+Os registos de diagnóstico permitem exportar métricas básicas de utilização do seu ponto final CDN para diferentes tipos de fontes para que possa consumi-las de forma personalizada. Pode fazer os seguintes tipos de exportação de dados:
 
-- Os dados de exportação para o armazenamento de bolhas, exportação para CSV e gerar gráficos no Excel.
-- Os dados de exportação para os Centros de Eventos e correlacionam-se com dados de outros serviços da Azure.
-- Dados de exportação para registos do Azure Monitor e visualizar dados no seu próprio espaço de trabalho Log Analytics
+* Os dados de exportação para o armazenamento de bolhas, exportação para CSV e gerar gráficos no Excel.
+* Os dados de exportação para os Centros de Eventos e correlacionam-se com dados de outros serviços da Azure.
+* Dados de exportação para registos do Azure Monitor e visualizar dados no seu próprio espaço de trabalho Log Analytics
 
-O diagrama seguinte mostra uma visão típica de análise do núcleo cdN dos dados.
-
-![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/01_OMS-workspace.png)
-
-*Figura 1 - Vista de análise do núcleo da CDN*
-
-Para obter mais informações sobre registos de diagnóstico, consulte [Registos de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+É necessário um perfil Azure CDN para os seguintes passos. Consulte para [criar um perfil Estrotivo Azure CDN e ponto final](cdn-create-new-endpoint.md) antes de continuar.
 
 ## <a name="enable-logging-with-the-azure-portal"></a>Ativar o registo com o portal do Azure
 
-Siga estes passos para ativar com a análise do núcleo cdN:
+Siga estes passos para ativar o seu ponto final Azure CDN:
 
-Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver ativado a CDN para o seu fluxo de trabalho, [crie um perfil e um ponto final Azure CDN](cdn-create-new-endpoint.md) antes de continuar.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-1. No portal Azure, navegue para o **perfil cdn**.
+2. No portal Azure, navegue para **Todos os recursos**o seu perfil de  ->  **cdn**
 
-2. No portal Azure, procure um perfil CDN ou selecione um no seu painel de instrumentos. Em seguida, selecione o ponto final cdn para o qual deseja ativar registos de diagnóstico.
+2. Selecione o ponto final cdn para o qual deseja ativar registos de diagnóstico:
 
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
+    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Selecione o ponto final do CDN." border="true":::
 
-3. Selecione **registos de diagnóstico** na secção MONITOR.
+3. Selecione **registos de diagnóstico** na secção **de Monitorização:**
 
-   Aparece a página **de registos de diagnóstico.**
-
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selecione registos de diagnóstico." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Ativar o registo com o armazenamento Azure
 
 Para utilizar uma conta de armazenamento para armazenar os registos, siga estes passos:
+
+ >[!NOTE] 
+ >É necessária uma conta de armazenamento para completar estes passos. Consulte a: **[Criar uma conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** para obter mais informações.
     
-1. Para **nome,** insira um nome para as definições de registo de diagnóstico.
+1. Para **o nome de definição de diagnóstico,** insira um nome para as definições de registo de diagnóstico.
  
 2. Selecione **Archive para uma conta de armazenamento**e, em seguida, selecione **CoreAnalytics**. 
 
-2. Para **retenção (dias)**, escolha o número de dias de retenção. Uma retenção de zero dias armazena os registos indefinidamente. 
+3. Para **retenção (dias)**, escolha o número de dias de retenção. Uma retenção de zero dias armazena os registos indefinidamente. 
 
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
+4. Selecione a conta de subscrição e armazenamento para os registos.
 
-3. Selecione **a conta de Armazenamento**.
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Registos de diagnóstico - Armazenamento." border="true":::
 
-    Aparece a página **De conservação de uma conta de armazenamento.**
+3. Selecione **Guardar**.
 
-4. Selecione uma conta de armazenamento da lista de drop-down e, em seguida, selecione **OK**.
+### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/cdn-select-storage-account.png)
+Para utilizar o Log Analytics para os registos, siga estes passos:
 
-5. Depois de ter terminado as definições de registo de diagnóstico, **selecione Save**.
+>[!NOTE] 
+>É necessário um espaço de trabalho de análise de registo para completar estes passos. Consulte: **[Criar um espaço de trabalho Log Analytics no portal Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** para obter mais informações.
+    
+1. Para **o nome de definição de diagnóstico,** insira um nome para as definições de registo de diagnóstico.
 
-### <a name="logging-with-azure-monitor"></a>Criar registos com o Azure Monitor
+2. Selecione **Enviar para Registar Análise**e, em seguida, selecione **CoreAnalytics**. 
 
-Para utilizar o Azure Monitor para armazenar os registos, siga estes passos:
+3. Selecione a subscrição e log Analytics espaço de trabalho para os registos.
 
-1. A partir da página **de registos de diagnóstico,** selecione **Enviar para Registar Análise**. 
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Registos de diagnóstico - Log Analytics." border="true":::
 
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
+4. Selecione **Guardar**.
 
-2. Selecione **Configurar** para configurar a registo do Monitor Azure. 
+### <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
 
-   Aparece a página **de espaços de trabalho Log Analytics.**
+Para utilizar um centro de eventos para os registos, siga estes passos:
 
-    >[!NOTE] 
-    >As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+>[!NOTE] 
+>É necessário um centro de eventos para completar estes passos. Consulte: **[Quickstart: Crie um centro de eventos utilizando o portal Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** para obter mais informações.
+    
+1. Para **o nome de definição de diagnóstico,** insira um nome para as definições de registo de diagnóstico.
 
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
+2. Selecione **Stream para um centro de eventos**e, em seguida, selecione **CoreAnalytics**. 
 
-3. Selecione **Criar novo espaço de trabalho.**
+3. Selecione o espaço de nome de subscrição e de centro de eventos para os registos.
 
-    Aparece a página **do espaço de trabalho Log Analytics.**
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Registos de diagnóstico - Centro de eventos." border="true":::
 
-    >[!NOTE] 
-    >As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+4. Selecione **Guardar**.
 
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
-
-4. Para **log analytics espaço de trabalho,** insira um nome de espaço de trabalho Log Analytics. O nome do espaço de trabalho Log Analytics deve ser único e conter apenas letras, números e hífenes; espaços e sublinhados não são permitidos. 
-
-5. Para **Subscrição**, selecione uma subscrição existente da lista de drop-down. 
-
-6. Para **o grupo de recursos,** crie um novo grupo de recursos ou selecione um existente.
-
-7. Para **localização,** selecione uma localização da lista.
-
-8. Selecione **Pin para painel de instrumentos** se quiser guardar a configuração do registo para o seu painel de instrumentos. 
-
-9. Selecione **OK** para completar a configuração.
-
-10. Após a criação do seu espaço de trabalho, é devolvido à página **de registos de Diagnóstico.** Confirme o nome do seu novo espaço de trabalho Log Analytics.
-
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/09_Return-to-logging.png)
-
-11. Selecione **CoreAnalytics**e, em seguida, **selecione Guardar**.
-
-12. Para ver o novo espaço de trabalho do Log Analytics, selecione **Core analytics** da sua página de ponto final CDN.
-
-    ![portal - Registos de diagnóstico](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
-
-    O seu espaço de trabalho Log Analytics está agora pronto para registar dados. Para consumir esses dados, deve utilizar uma [solução de registos Azure Monitor,](#consuming-diagnostics-logs-from-a-log-analytics-workspace)abrangida posteriormente neste artigo.
-
-Para obter mais informações sobre atrasos nos dados de registo, consulte [os atrasos dos dados do Registo](#log-data-delays).
 
 ## <a name="enable-logging-with-powershell"></a>Ativar registo com o PowerShell
 
@@ -145,32 +114,78 @@ O exemplo a seguir mostra como ativar os registos de diagnóstico através dos C
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Ativar registos de diagnóstico numa conta de armazenamento
+### <a name="enable-diagnostic-logs-in-a-storage-account"></a>Ativar registos de diagnóstico numa conta de armazenamento
 
-1. Faça login e selecione uma subscrição:
+1. Inscreva-se no Azure PowerShell:
 
+    ```azurepowershell-interactive
     Connect-AzAccount 
-
-    Select-AzureSubscription -SubscriptionId 
-
-2. Para ativar registos de diagnóstico numa conta de Armazenamento, insira este comando:
-
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. Para ativar os registos de diagnóstico num espaço de trabalho do Log Analytics, insira este comando:
+2. Para ativar os Registos de Diagnóstico numa conta de armazenamento, insira estes comandos. Substitua as variáveis pelos seus valores:
 
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
-    .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $storageacct = <your-storage-account-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $storage.id -Enabled $true -Categories CoreAnalytics
+    ```
+
+### <a name="enable-diagnostics-logs-for-log-analytics-workspace"></a>Ativar registos de diagnóstico para log analytics espaço de trabalho
+
+1. Inscreva-se no Azure PowerShell:
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. Para ativar registos de diagnóstico para um espaço de trabalho log analytics, insira estes comandos. Substitua as variáveis pelos seus valores:
+
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $workspacename = <your-log-analytics-workspace-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    $workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rsg -Name $workspacename
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -WorkspaceId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
+    ```
+### <a name="enable-diagnostics-logs-for-event-hub-namespace"></a>Ativar registos de diagnóstico para o espaço de nome do centro de eventos
+
+1. Inscreva-se no Azure PowerShell:
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+    ```
+2. Para ativar registos de diagnóstico para um espaço de trabalho log analytics, insira estes comandos. Substitua as variáveis pelos seus valores:
+
+    ```azurepowershell-interactive
+    $rsg = <your-resource-group-name>
+    $cdnprofile = <your-cdn-profile-name>
+    $cdnendpoint = <your-cdn-endpoint-name>
+    $eventhubname = <your-event-hub-namespace-name>
+    $diagname = <your-diagnostic-setting-name>
+
+    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhubname -Enabled $true -Categories CoreAnalytics
     ```
 
 ## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Consumir registos de diagnóstico do Armazenamento do Microsoft Azure
-Esta secção descreve o esquema da análise do núcleo da CDN, como é organizado dentro de uma conta de armazenamento Azure, e fornece código de amostra para descarregar os registos num ficheiro CSV.
+Esta secção descreve o esquema de análise de núcleo cdN, organização numa conta de armazenamento Azure, e fornece código de amostra para descarregar os registos num ficheiro CSV.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Utilizando o Microsoft Azure Storage Explorer
-Antes de poder aceder aos dados de análise de base a partir de uma conta de armazenamento Azure, primeiro precisa de uma ferramenta para aceder ao conteúdo numa conta de armazenamento. Apesar de existirem várias ferramentas disponíveis no mercado, a que recomendamos é o Microsoft Azure Storage Explorer. Para descarregar a ferramenta, consulte o [Azure Storage Explorer](https://storageexplorer.com/). Depois de descarregar e instalar o software, configure-o para utilizar a mesma conta de armazenamento Azure que foi configurada como um destino para os Registos de Diagnósticos CDN.
+Para descarregar a ferramenta, consulte o [Azure Storage Explorer](https://storageexplorer.com/). Depois de descarregar e instalar o software, configure-o para utilizar a mesma conta de armazenamento Azure que foi configurada como um destino para os Registos de Diagnósticos CDN.
 
 1.  Abrir **o Microsoft Azure Storage Explorer**
 2.  Localizar a conta de armazenamento
@@ -183,7 +198,7 @@ Antes de poder aceder aos dados de análise de base a partir de uma conta de arm
 
 #### <a name="blob-path-format"></a>Formato do caminho blob
 
-Os registos de análise do núcleo são gerados a cada hora e os dados são recolhidos e armazenados dentro de uma única bolha de Azure como uma carga útil JSON. Como a ferramenta exploradora de armazenamento interpreta '/' como um separador de diretório e mostra a hierarquia, o caminho para a bolha Azure aparece como se houvesse uma estrutura hierárquica e representa o nome blob. O nome da bolha segue a seguinte convenção de nomeação:   
+Os registos de análise do núcleo são gerados a cada hora e os dados são recolhidos e armazenados dentro de uma única bolha de Azure como uma carga útil JSON. A ferramenta de explorador de armazenamento interpreta '/' como separador de diretório e mostra a hierarquia. O caminho para a bolha de Azure aparece como se houvesse uma estrutura hierárquica e representasse o nome blob. O nome da bolha segue a seguinte convenção de nomeação:    
 
 ```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
@@ -202,7 +217,7 @@ Os registos de análise do núcleo são gerados a cada hora e os dados são reco
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportação dos dados de análise de base para um ficheiro CSV
 
-Para facilitar o acesso ao core analytics, é fornecido um código de amostra para uma ferramenta. Esta ferramenta permite descarregar os ficheiros JSON num formato de ficheiro separado por vírgula plana, que pode ser usado para criar gráficos ou outras agregações.
+Para aceder à análise do núcleo, é fornecido um código de amostra para uma ferramenta. Esta ferramenta permite descarregar os ficheiros JSON num formato de ficheiro separado por vírgula plana, que pode ser usado para criar gráficos ou outras agregações.
 
 Eis como pode usar a ferramenta:
 
@@ -212,101 +227,6 @@ Eis como pode usar a ferramenta:
 4.  Executar a ferramenta.
 5.  O ficheiro CSV resultante mostra os dados de análise numa hierarquia simples e plana.
 
-## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir registos de diagnóstico de uma área de trabalho do Log Analytics
-O Azure Monitor é um serviço Azure que monitoriza os ambientes da sua nuvem e ambientes no local para manter a sua disponibilidade e desempenho. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens. 
-
-Para utilizar o Azure Monitor, deve [ativar](#enable-logging-with-azure-storage) o registo no espaço de trabalho Azure Log Analytics, que é discutido anteriormente neste artigo.
-
-### <a name="using-the-log-analytics-workspace"></a>Utilizando o espaço de trabalho Log Analytics
-
- O diagrama a seguir mostra a arquitetura das entradas e saídas do repositório:
-
-![Área de trabalho do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
-
-*Figura 3 - Repositório de Log Analytics*
-
-Pode exibir os dados de várias formas utilizando Soluções de Gestão. Pode obter Soluções de Gestão do [Mercado Azure.](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions)
-
-Pode instalar soluções de monitorização a partir do mercado Azure selecionando a ligação **Get-it agora** na parte inferior de cada solução.
-
-### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Adicione uma solução de monitorização Azure Monitor CDN
-
-Siga estes passos para adicionar uma solução de monitorização do Azure Monitor:
-
-1.   Inscreva-se no portal Azure utilizando a sua assinatura Azure e vá ao seu painel de instrumentos.
-    ![Dashboard do Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
-
-2. Na página **Novo,** no **Marketplace,** selecione **Monitor + management**.
-
-    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
-
-3. Na página **de monitorização + gestão,** selecione **Ver tudo.**
-
-    ![Ver todos](./media/cdn-diagnostics-log/15_See-all.png)
-
-4. Procure cdn na caixa de pesquisa.
-
-    ![Ver todos](./media/cdn-diagnostics-log/16_Search-for.png)
-
-5. Selecione **Azure CDN Core Analytics**. 
-
-    ![Ver todos](./media/cdn-diagnostics-log/17_Core-analytics.png)
-
-6. Depois de selecionar **Criar,** é-lhe pedido que crie um novo espaço de trabalho log Analytics ou utilize um existente. 
-
-    ![Ver todos](./media/cdn-diagnostics-log/18_Adding-solution.png)
-
-7. Selecione o espaço de trabalho que criou anteriormente. Em seguida, precisa adicionar uma conta de automação.
-
-    ![Ver todos](./media/cdn-diagnostics-log/19_Add-automation.png)
-
-8. O ecrã que se segue mostra o formulário de conta de automatização que deve preencher. 
-
-    ![Ver todos](./media/cdn-diagnostics-log/20_Automation.png)
-
-9. Uma vez criada a conta de automação, está pronto para adicionar a sua solução. Selecione o botão **Criar**.
-
-    ![Ver todos](./media/cdn-diagnostics-log/21_Ready.png)
-
-10. A sua solução foi agora adicionada ao seu espaço de trabalho. Volte ao painel do portal Azure.
-
-    ![Ver todos](./media/cdn-diagnostics-log/22_Dashboard.png)
-
-    Selecione o espaço de trabalho Log Analytics criado para ir ao seu espaço de trabalho. 
-
-11. Selecione o **azulejo do Portal OMS** para ver a sua nova solução.
-
-    ![Ver todos](./media/cdn-diagnostics-log/23_workspace.png)
-
-12. O seu portal deve agora parecer o seguinte ecrã:
-
-    ![Ver todos](./media/cdn-diagnostics-log/24_OMS-solution.png)
-
-    Selecione um dos azulejos para ver várias vistas nos seus dados.
-
-    ![Ver todos](./media/cdn-diagnostics-log/25_Interior-view.png)
-
-    Pode deslocar-se para a esquerda ou para a direita para ver mais azulejos que representam as opiniões individuais nos dados. 
-
-    Selecione um dos azulejos para ver mais detalhes sobre os seus dados.
-
-     ![Ver todos](./media/cdn-diagnostics-log/26_Further-detail.png)
-
-### <a name="offers-and-pricing-tiers"></a>Ofertas e preços
-
-Pode ver ofertas e preços para soluções de gestão [aqui.](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)
-
-### <a name="customizing-views"></a>Personalizar vistas
-
-Pode personalizar a vista nos seus dados utilizando o **View Designer.** Para começar a desenhar, vá ao seu espaço de trabalho Log Analytics e selecione o azulejo **do View Designer.**
-
-![Estruturador de Vista](./media/cdn-diagnostics-log/27_Designer.png)
-
-Arraste e deixe cair os tipos de gráficos e preencha os dados que pretende analisar.
-
-![Estruturador de Vista](./media/cdn-diagnostics-log/28_Designer.png)
-
-    
 ## <a name="log-data-delays"></a>Registar atrasos nos dados
 
 A tabela seguinte mostra atrasos de dados de registo para **Azure CDN Standard da Microsoft**, **Azure CDN Standard da Akamai**, e **Azure CDN Standard/Premium da Verizon**.
@@ -320,10 +240,16 @@ Adiado por 1 hora. | Adiado por 1 hora e pode levar até 2 horas para começar a
 A Microsoft oferece atualmente apenas registos de análise de núcleo, que contêm métricas que mostram estatísticas de resposta HTTP e estatísticas de saída vistas pelos POPs/edges do CDN.
 
 ### <a name="core-analytics-metrics-details"></a>Detalhes das métricas de análise do núcleo
-A tabela seguinte mostra uma lista de métricas disponíveis nos registos de análise de núcleo para **Azure CDN Standard da Microsoft**, **Azure CDN Standard da Akamai**, e **Azure CDN Standard/Premium da Verizon**. Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais diferenças sejam mínimas. A tabela também mostra se uma determinada métrica está disponível de um fornecedor. As métricas estão disponíveis apenas para os pontos finais da CDN que têm tráfego sobre eles.
+A tabela a seguir mostra uma lista de métricas disponíveis nos registos de análise do núcleo para:
+
+* **Azure CDN Standard da Microsoft**
+* **Azure CDN Standard da Akamai**
+* **Azure CDN Standard/Premium de Verizon**
+
+Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais diferenças sejam mínimas. A tabela também mostra se uma determinada métrica está disponível de um fornecedor. As métricas estão disponíveis apenas para os pontos finais da CDN que têm tráfego sobre eles.
 
 
-|Metric                     | Descrição | Microsoft | Verizon | Akamai |
+|Métrica                     | Descrição | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | PedidoCountTotal         | O número total de pedidos é atingido durante este período. | Sim | Sim |Sim |
 | PedidoCountHttpStatus2xx | Contagem de todos os pedidos que resultaram num código HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |
@@ -331,16 +257,16 @@ A tabela seguinte mostra uma lista de métricas disponíveis nos registos de an�
 | PedidoCountHttpStatus4xx | Contagem de todos os pedidos que resultaram num código HTTP 4xx (por exemplo, 400, 404). | Sim | Sim |Sim |
 | PedidoCountHttpStatus5xx | Contagem de todos os pedidos que resultaram num código HTTP 5xx (por exemplo, 500,504). | Sim | Sim |Sim |
 | PedidoCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora de 2xx-5xx). | Sim | Sim |Sim |
-| PedidoCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código 200 HTTP. | Sim | Não  |Sim |
-| PedidoCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 206. | Sim | Não  |Sim |
-| PedidoCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código 302 HTTP. | Sim | Não  |Sim |
-| PedidoCountHttpStatus304 | Contagem de todos os pedidos que resultaram numa resposta de código 304 HTTP. | Sim | Não  |Sim |
-| PedidoCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código 404 HTTP. | Sim | Não  |Sim |
+| PedidoCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código 200 HTTP. | Yes | Não  |Yes |
+| PedidoCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 206. | Yes | Não  |Yes |
+| PedidoCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código 302 HTTP. | Yes | Não  |Yes |
+| PedidoCountHttpStatus304 | Contagem de todos os pedidos que resultaram numa resposta de código 304 HTTP. | Yes | Não  |Yes |
+| PedidoCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código 404 HTTP. | Yes | Não  |Yes |
 | PedidoCountCacheHit | Contagem de todos os pedidos que resultaram num ataque cache. O ativo foi servido diretamente do POP para o cliente. | Sim | Sim | Não  |
-| PedidoCountCacheMiss | Contagem de todos os pedidos que resultaram numa falha cache. Uma falha cache significa que o ativo não foi encontrado no POP mais próximo do cliente, e, portanto, foi recuperado da Origem. | Sim | Sim | Não |
-| PedidoCountCacheNoCache | Conte todos os pedidos a um ativo que esteja impedido de ser cached devido a uma configuração do utilizador na borda. | Sim | Sim | Não |
-| PedidoCountCacheUncacheable | Contar todos os pedidos a ativos que sejam impedidos de serem cacheed pelos cabeçalhos Cache-Control e Expires do ativo, que indicam que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
-| PedidoCountCacheOthers | Contagem de todos os pedidos com estatuto de cache não coberto por acima. | Não | Sim | Não  |
+| PedidoCountCacheMiss | Contagem de todos os pedidos que resultaram numa falha cache. Uma falha cache significa que o ativo não foi encontrado no POP mais próximo do cliente, e foi recuperado da origem. | Sim | Sim | Não |
+| PedidoCountCacheNoCache | Conte todos os pedidos a um ativo que seja impedido de ser em cache devido a uma configuração do utilizador na borda. | Sim | Sim | Não |
+| PedidoCountCacheUncacheable | Conte de todos os pedidos a ativos que são impedidos de serem cacheed pelos cabeçalhos Cache-Control e Expires do ativo. Esta contagem indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| PedidoCountCacheOthers | Contagem de todos os pedidos com estatuto de cache não coberto por acima. | Não | Yes | Não  |
 | EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
 | EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de estado 2xx HTTP em GB. | Sim | Sim | Não  |
 | EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de estado 3xx HTTP em GB. | Sim | Sim | Não  |
@@ -350,8 +276,8 @@ A tabela seguinte mostra uma lista de métricas disponíveis nos registos de an�
 | EgressCacheHit | Transferência de dados de saída para respostas que foram entregues diretamente a partir da cache CDN nos POPs/Edges do CDN. | Sim | Sim | Não |
 | EgressCacheMiss. | Transferência de dados de saída para respostas que não foram encontradas no servidor POP mais próximo, e recuperadas do servidor de origem. | Sim | Sim | Não |
 | EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de ser em cache devido a uma configuração do utilizador no limite. | Sim | Sim | Não |
-| EgressCacheUncache | Transferência de dados de saída para ativos que são impedidos de ser cacheed pelos cabeçalhos Cache-Control e/ou Expira do ativo. Indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
-| EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Sim | Não |
+| EgressCacheUncache | Transferência de dados de saída para ativos que são impedidos de ser cacheed pelo Cache-Control do ativo e, ou cabeçalhos expira. Indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Yes | Não |
 
 *Transferência de dados de saída refere-se ao tráfego entregue dos servidores CDN POP ao cliente.
 
@@ -403,7 +329,7 @@ Todos os registos são armazenados no formato JSON e cada entrada tem campos de 
 }
 ```
 
-Onde o *tempo* representa a hora de início do limite de horas para o qual as estatísticas são reportadas. Quando uma métrica não é suportada por um provedor de CDN, em vez de um valor duplo ou inteiro, há um valor nulo. Este valor nulo indica a ausência de uma métrica, e é diferente de um valor de 0. Há um conjunto destas métricas por domínio configurado no ponto final.
+Onde o *tempo* representa a hora de início do limite de horas para o qual as estatísticas são reportadas. Uma métrica não suportada por um fornecedor de CDN, em vez de um valor duplo ou inteiro, resulta num valor nulo. Este valor nulo indica a ausência de uma métrica, e é diferente de um valor de 0. Um conjunto destas métricas por domínio é configurado no ponto final.
 
 Propriedades de exemplo:
 
@@ -445,7 +371,7 @@ Propriedades de exemplo:
 
 * [Registos de diagnóstico Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise de núcleo via portal suplementar Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Registos do Monitor Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
 
 

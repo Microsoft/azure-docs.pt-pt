@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 11/04/2019
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fad29c32731ee2470354a51acf32e350eb0c4cfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384877"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116073"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
@@ -102,7 +103,7 @@ As entradas podem ser longas. Exportar para CSV para um olhar mais atento.
 
 Para obter mais informações sobre consultas, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A comunidade desenvolveu um espectador de viagem de utilizador para ajudar os desenvolvedores de identidade. Lê a partir da sua instância Application Insights e fornece uma visão bem estruturada dos eventos de viagem do utilizador. Obtém o código fonte e implanta-o na sua própria solução.
 

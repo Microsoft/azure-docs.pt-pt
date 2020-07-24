@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: fcdcf563cd88cbf6604877636432a406c1960cff
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117050"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utilize scripts de implementação em modelos (Pré-visualização)
 
@@ -138,7 +138,7 @@ Detalhes do valor da propriedade:
 - **Identidade**: O serviço de scripts de implementação utiliza uma identidade gerida atribuída pelo utilizador para executar os scripts. Atualmente, apenas a identidade gerida atribuída pelo utilizador é suportada.
 - **tipo**: Especificar o tipo de script. Atualmente, os scripts Azure PowerShell e Azure CLI são suporte. Os valores são **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: Alterar este valor entre as implementações do modelo força o script de implantação a ser re-executado. Utilize a função newGuid() ou utcNow() que precisa de ser definida como o padrãoValue de um parâmetro. Para saber mais, consulte [o roteiro run mais de uma vez](#run-script-more-than-once).
-- **configurações de contentores**: Especifique as definições para personalizar a instância do recipiente Azure.  **containerGroupName** destina-se a especificar o nome do grupo do contentor.  Se não for especificado, o nome do grupo será gerado automaticamente.
+- **configurações de contentores**: Especifique as definições para personalizar a instância do recipiente Azure.  **containerGroupName** destina-se a especificar o nome do grupo do contentor.  Se não for especificado, o nome do grupo é gerado automaticamente.
 - **armazenamentoCotascos**: Especifique as definições para utilizar uma conta de armazenamento existente. Se não for especificada, uma conta de armazenamento é criada automaticamente. Ver [Utilizar uma conta de armazenamento existente.](#use-existing-storage-account)
 - **azPowerShellVersion** / **azCliVersion**: Especifique a versão do módulo a utilizar. Para obter uma lista de versões PowerShell e CLI suportadas, consulte [Pré-requisitos](#prerequisites).
 - argumentos : Especificar os **valores**dos parâmetros. Os valores são separados por espaços.
@@ -601,7 +601,35 @@ Também é necessário configurar a partilha de ficheiros para montar o diretór
 
 Depois de o script ser testado com sucesso, pode usá-lo como um script de implementação nos seus modelos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="deployment-script-error-codes"></a>Códigos de erro de script de implementação
+
+| Código de erro | Descrição |
+|------------|-------------|
+| ImplementaçãoScriptInvalidOperação | A definição de recursos de script de implementação no modelo contém nomes de propriedade inválidos. |
+| ImplementaçãoScriptResourceConflict | Não é possível eliminar um recurso de script de implantação que esteja em estado não terminal e a execução não tenha excedido 1 hora. Ou não pode re-executar o mesmo script de implementação com o mesmo identificador de recursos (mesma subscrição, nome de grupo de recursos e nome de recurso), mas diferentes conteúdos corporais de script ao mesmo tempo . |
+| ImplementaçãoScriptOperationFailed | A operação do script de implantação falhou internamente. Por favor contacte o suporte da Microsoft. |
+| ImplementaçãoScriptStorageAccountAccessKeyNotSpecified | A chave de acesso não foi especificada para a conta de armazenamento existente.|
+| ImplementaçãoScriptContainerGroupContainsInvalidContainers | Um grupo de contentores criado pelo serviço de scripts de implantação foi modificado externamente, e os recipientes inválidos foram adicionados. |
+| ImplementaçãoScriptContainerGroupInNonterminalState | Dois ou mais recursos de script de implantação usam o mesmo nome de instância de contentores Azure no mesmo grupo de recursos, e um deles ainda não terminou a sua execução. |
+| ImplementaçãoScriptstorageAccountInvalidKind | A conta de armazenamento existente do tipo BlobBlobStorage ou BlobStorage não suporta ações de ficheiros e não pode ser utilizada. |
+| ImplementaçãoScriptstorageAccountInvalidKindAndsku | A conta de armazenamento existente não suporta ações de ficheiros. Para obter uma lista de tipos de conta de armazenamento suportados, consulte [a conta de armazenamento existente](#use-existing-storage-account). |
+| ImplementaçãoScriptstorageAccountNotFound | A conta de armazenamento não existe ou foi eliminada por um processo ou ferramenta externa. |
+| ImplementaçãoScriptStorageAccountWithServiceEndpointEnabled | A conta de armazenamento especificada tem um ponto final de serviço. Uma conta de armazenamento com um ponto final de serviço não é suportada. |
+| ImplementaçãoScriptStorageAccountInvalidAccessKey | Chave de acesso inválida especificada para a conta de armazenamento existente. |
+| ImplementaçãoScriptStorageAccountInvalidAccessKeyFormat | Formato chave da conta de armazenamento inválido. Consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md). |
+| ImplementaçãoScriptExceededMaxAllowedTime | O tempo de execução do script de implementação excedeu o valor de tempo limite especificado na definição de recursos de script de implementação. |
+| ImplementaçãoScriptInvalidOutputs | As saídas de scripts de implementação não são um objeto JSON válido. |
+| ImplementaçãoScriptContainerInstancesServiceLoginFailure | A identidade gerida atribuída pelo utilizador não foi capaz de iniciar sessão após 10 tentativas com intervalo de 1 minuto. |
+| ImplementaçãoScriptContainerGroupNotFound | Um grupo de contentores criado pelo serviço de scripts de implantação foi eliminado por uma ferramenta ou processo externo. |
+| ImplementaçãoScriptDownloadFailure | Falhou em descarregar um script de suporte. Ver [Utilizar o script de suporte .](#use-supporting-scripts)|
+| ImplementaçãoScriptError | O script do utilizador atirou um erro. |
+| ImplementaçãoScriptBootstrapScriptExecutionFailed | O guião da bota atirou um erro. O script bootstrap é o script do sistema que orquestra a execução do script de implementação. |
+| ImplementaçãoScriptExecutionFailed | Erro desconhecido durante a execução do script de implementação. |
+| ImplementaçãoScriptContainerInstancesServiceUn disponível | Ao criar a instância do contentor Azure (ACI), a ACI lançou um erro indisponíveis de serviço. |
+| ImplementaçãoScriptContainerGroupInNonterminalState | Ao criar a instância do recipiente Azure (ACI), outro script de implantação está a utilizar o mesmo nome ACI no mesmo âmbito (mesma subscrição, nome de grupo de recursos e nome de recurso). |
+| ImplementaçãoScriptContainerGroupNameInvalid | O nome de instância do contentor Azure (ACI) especificado não satisfaz os requisitos de ACI. Consulte [questões comuns de resolução de problemas em instâncias de contentores Azure](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar scripts de implantação. Para percorrer um tutorial de script de implementação:
 

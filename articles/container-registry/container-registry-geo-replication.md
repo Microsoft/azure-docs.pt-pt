@@ -3,14 +3,14 @@ title: Georreplicação de um registo
 description: Começa a criar e gerir um registo geo-replicado de contentores Azure, que permite ao registo servir várias regiões com réplicas regionais multi-master. A geo-replicação é uma característica do nível de serviço Premium.
 author: stevelas
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 315de5151547c4339255639cb65d1be30f7213ff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247137"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116791"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo do Contentor de Azure
 
@@ -95,7 +95,7 @@ O ACR começa a sincronizar imagens através das réplicas configuradas. Uma vez
 * Ao empurrar ou retirar imagens de um registo geo-replicado, o Azure Traffic Manager em segundo plano envia o pedido para o registo localizado na região que lhe é mais próximo em termos de latência da rede.
 * Depois de empurrar uma atualização de imagem ou etiqueta para a região mais próxima, leva algum tempo para o Registo do Contentor de Azure replicar os manifestos e camadas para as restantes regiões em que optou. Imagens maiores demoram mais tempo a replicar-se do que as mais pequenas. As imagens e tags são sincronizadas nas regiões de replicação com um modelo de consistência eventual.
 * Para gerir fluxos de trabalho que dependem de atualizações push para um registo geo-replicado, recomendamos que configures [webhooks](container-registry-webhook.md) para responder aos eventos push. Você pode configurar webhooks regionais dentro de um registro geo-replicado para rastrear eventos push à medida que eles completam em todas as regiões geo-replicadas.
-* Para servir bolhas que representam camadas de conteúdo, o Registo do Contentor Azure utiliza pontos finais de dados. Pode ativar [pontos finais de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para o seu registo em cada uma das regiões geo-replicadas do seu registo. Estes pontos finais permitem a configuração de regras de acesso a firewall rigorosamente rigorosamente ateadas.
+* Para servir bolhas que representam camadas de conteúdo, o Registo do Contentor Azure utiliza pontos finais de dados. Pode ativar [pontos finais de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para o seu registo em cada uma das regiões geo-replicadas do seu registo. Estes pontos finais permitem a configuração de regras de acesso a firewall rigorosamente rigorosamente ateadas. Para efeitos de resolução de problemas, pode [desativar opcionalmente o encaminhamento para uma replicação,](#temporarily-disable-routing-to-replication) mantendo os dados replicados.
 * Se configurar um [link privado](container-registry-private-link.md) para o seu registo utilizando pontos finais privados numa rede virtual, os pontos finais de dados dedicados em cada uma das regiões geo-replicadas são ativados por padrão. 
 
 ## <a name="delete-a-replica"></a>Eliminar réplicas
@@ -127,9 +127,36 @@ Se este problema ocorrer, uma solução é aplicar uma cache DNS do lado do clie
 
 Para otimizar a resolução de DNS à réplica mais próxima ao empurrar imagens, configurar um registo geo-replicado nas mesmas regiões do Azure como a fonte das operações push, ou a região mais próxima quando trabalha fora de Azure.
 
+### <a name="temporarily-disable-routing-to-replication"></a>Desativar temporariamente o encaminhamento para a replicação
+
+Para resolver problemas com um registo geo-replicado, é melhor desativar temporariamente o encaminhamento do Gestor de Tráfego para uma ou mais replicações. A partir da versão 2.8 do Azure CLI, pode configurar uma `--region-endpoint-enabled` opção (pré-visualização) quando criar ou atualizar uma região replicada. Quando define a opção de uma replicação para, o Gestor de `--region-endpoint-enabled` Tráfego já não `false` encaminha o docker push ou puxa os pedidos para aquela região. Por predefinição, o encaminhamento para todas as replicações está ativado e a sincronização de dados em todas as replicações ocorre se o encaminhamento está ativado ou desativado.
+
+Para desativar o encaminhamento para uma replicação existente, primeiro executar [a lista de replicações az acr][az-acr-replication-list] para listar as replicações no registo. Em seguida, executar [a atualização de replicação az acr][az-acr-replication-update] e definir `--region-endpoint-enabled false` para uma replicação específica. Por exemplo, para configurar o cenário para a replicação *do westus* no *miogresso:*
+
+```azurecli
+# Show names of existing replications
+az acr replication list --registry --output table
+
+# Disable routing to replication
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled false
+```
+
+Para restaurar o encaminhamento para uma replicação:
+
+```azurecli
+az acr replication update update --name westus \
+  --registry myregistry --resource-group MyResourceGroup \
+  --region-endpoint-enabled true
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Confira a série tutorial em três partes, [geo-replicação no Registo de Contentores Azure.](container-registry-tutorial-prepare-registry.md) Caminhe através da criação de um registo geo-replicado, construindo um contentor e, em seguida, implantando-o com um único `docker push` comando para várias aplicações web regionais para instâncias de contentores.
 
 > [!div class="nextstepaction"]
 > [Geo-replicação no Registo do Contentor de Azure](container-registry-tutorial-prepare-registry.md)
+
+[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
+[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
