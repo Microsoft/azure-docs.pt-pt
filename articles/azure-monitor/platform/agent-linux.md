@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: accd7c3ad82853c1f2af0b632326b2798f85b36b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637513"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073657"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Ligue os computadores Linux ao Azure Monitor
 
@@ -155,11 +156,23 @@ Se for necessária a autenticação em qualquer dos casos, tem de especificar o 
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
 
+## <a name="supported-linux-hardening"></a>Endurecimento de Linux apoiado
+O Agente OMS tem um suporte limitado de personalização para o Linux. 
+
+Neste momento, são apoiados: 
+- FIPs
+
+Estão previstos, mas ainda não apoiados:
+- CIS -SELINUX
+
+Outros métodos de endurecimento e personalização não são suportados nem planeados para o agente OMS.  
+
+
 ## <a name="upgrade-from-a-previous-release"></a>Upgrade de um lançamento anterior
 
 O upgrade a partir de uma versão anterior, a começar pela versão 1.0.0-47, é suportado em cada versão. Execute a instalação com o `--upgrade` parâmetro para atualizar todos os componentes do agente para a versão mais recente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja a gestão e manutenção do agente Log Analytics para Windows e Linux](agent-manage.md) para aprender como reconfigurar, atualizar ou remover o agente da máquina virtual.
 

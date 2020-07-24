@@ -1,21 +1,25 @@
 ---
-title: Utilize o emulador de armazenamento Azure para desenvolvimento e testes Microsoft Docs
+title: Utilize o emulador de armazenamento Azure para desenvolvimento e teste
 description: O emulador de armazenamento Azure proporciona um ambiente de desenvolvimento local gratuito para desenvolver e testar as suas aplicações de Armazenamento Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd179160ad6796da40a5b98e89a10999ad0445d1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512177"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070564"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilize o emulador de armazenamento Azure para desenvolvimento e teste
 
 O emulador de armazenamento Microsoft Azure é uma ferramenta que imita os serviços de Azure Blob, Queue e Table para fins de desenvolvimento local. Pode testar a sua aplicação contra os serviços de armazenamento localmente sem criar uma subscrição Azure ou incorrer em quaisquer custos. Quando estiver satisfeito com o funcionamento da sua aplicação no emulador, mude para a utilização de uma conta de armazenamento Azure na nuvem.
+
+> [!IMPORTANT]
+> O Emulador de Armazenamento Azure já não está a ser desenvolvido ativamente. [**Azurite**](storage-use-azurite.md) é a plataforma de emulador de armazenamento que vai para a frente. Azurite substitui o Emulador de Armazenamento Azure. O Azurite continuará a ser atualizado para suportar as versões mais recentes das APIs de Armazenamento Azure. Para obter mais informações, consulte [**o emulador Azurite para o desenvolvimento local do armazenamento Azure.**](storage-use-azurite.md)
 
 ## <a name="get-the-storage-emulator"></a>Pegue o emulador de armazenamento
 
@@ -74,7 +78,7 @@ Pode utilizar a ferramenta de linha de comando do emulador de armazenamento para
 
    `AzureStorageEmulator.exe init /server .`
 
-   Ou, pode utilizar o seguinte comando, que reinitializa a base de dados para a instância localDB padrão:
+   Ou, pode utilizar o seguinte comando, que inicializa a base de dados para a instância localDB padrão:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -322,8 +326,12 @@ Não existem diferenças específicas para o armazenamento da fila no emulador.
 * A interface gráfica do utilizador do emulador de armazenamento está depreciada. Foi substituído por uma interface de linha de comando scriptável. Para obter mais informações sobre a interface da linha de comando, consulte a referência da ferramenta da linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só pode ser acedida quando o Emulador Compute estiver instalado clicando à direita no ícone da bandeja do sistema e selecionando a UI do Emulator de Armazenamento de Espetáculos.
 * A versão 2013-08-15 dos serviços de armazenamento Azure está agora totalmente suportada. (Anteriormente, esta versão só foi suportada pela versão 2.2.1 preview do Emulador de Armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Avaliar o emulador de armazenamento de código aberto, mantido pela [comunidade, Azurite.](https://github.com/azure/azurite) 
 * [As amostras de armazenamento Azure que utilizam .NET](../storage-samples-dotnet.md) contêm ligações a várias amostras de código que pode utilizar ao desenvolver a sua aplicação.
 * Pode utilizar o [Microsoft Azure Storage Explorer](https://storageexplorer.com) para trabalhar com recursos na sua conta de Armazenamento em nuvem e no emulador de armazenamento.
+
+## <a name="see-also"></a>Consulte também
+
+* [Desenvolvimento local de armazenamento Azure com Azurite, Azure SDKs e Azure Storage Explorer](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

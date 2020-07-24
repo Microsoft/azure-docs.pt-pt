@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960474"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072020"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conceção de um sistema de proteção de conteúdos com controlo de acesso usando a Azure Media Services 
 
@@ -147,7 +148,7 @@ A tabela a seguir mostra o mapeamento.
 
 | **Bloco de construção** | **Tecnologia** |
 | --- | --- |
-| **Leitor** |[Media Player do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Jogador** |[Media Player do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Fornecedor de identidade (IDP)** |Azure Active Directory (Azure AD) |
 | **Serviço de ficha de segurança (STS)** |Azure AD |
 | **Fluxo de trabalho de proteção DRM** |Proteção dinâmica dos Serviços de Mídia |
@@ -226,7 +227,7 @@ Para obter mais informações, consulte [a autenticação simbólica JWT nos Ser
 Para obter informações sobre a Azure AD:
 
 * Pode encontrar informações sobre o desenvolvedor no [guia do programador Azure Ative Directory](../../active-directory/azuread-dev/v1-overview.md).
-* Você pode encontrar informações de administrador em [Administrar o seu diretório de inquilinos Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Você pode encontrar informações de administrador em [Administrar o seu diretório de inquilinos Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Algumas questões em implementação
 Utilize as seguintes informações de resolução de problemas para obter ajuda com problemas de implementação.
@@ -295,7 +296,7 @@ A assinatura da chave de capotamento é um ponto importante a ter em conta na su
 
 A Azure AD usa padrões da indústria para estabelecer confiança entre si e aplicações que usam Azure AD. Especificamente, a Azure AD usa uma chave de assinatura que consiste num par de chaves público e privado. Quando o Azure AD cria um símbolo de segurança que contém informações sobre o utilizador, é assinado pela Azure AD com uma chave privada antes de ser devolvido à aplicação. Para verificar se o token é válido e originário da Azure AD, o pedido deve validar a assinatura do token. A aplicação utiliza a chave pública exposta pela Azure AD que está contida no documento de metadados da federação do arrendatário. Esta chave pública, e a chave de assinatura de onde provém, é a mesma usada para todos os inquilinos em Azure AD.
 
-Para obter mais informações sobre a capotagem da chave Azure, consulte [informações importantes sobre a assinatura da chave de capotamento em Azure AD](../../active-directory/active-directory-signing-key-rollover.md).
+Para obter mais informações sobre a capotagem da chave Azure, consulte [informações importantes sobre a assinatura da chave de capotamento em Azure AD](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Entre o [par de chaves público-privado:](https://login.microsoftonline.com/common/discovery/keys/)
 
@@ -328,7 +329,7 @@ Se olhar como uma aplicação web chama uma aplicação API sob identidade de ap
 * O Azure AD autentica a aplicação e devolve um token de acesso JWT que é usado para chamar a API web.
 * Em HTTPS, a aplicação web utiliza o token de acesso JWT devolvido para adicionar a cadeia JWT com uma designação "Portador" no cabeçalho "Autorização" do pedido à API web. A API web valida então o JWT. Se a validação for bem sucedida, devolve o recurso pretendido.
 
-Neste fluxo de identidade de aplicação, a API web confia que a aplicação web autenticou o utilizador. Por esta razão, este padrão é chamado de subsistema de confiança. O [diagrama de fluxo](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) de autorização descreve como funciona o fluxo de concessão de código de autorização.
+Neste fluxo de identidade de aplicação, a API web confia que a aplicação web autenticou o utilizador. Por esta razão, este padrão é chamado de subsistema de confiança. O [diagrama de fluxo](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) de autorização descreve como funciona o fluxo de concessão de código de autorização.
 
 A aquisição de licença com restrição simbólica segue o mesmo padrão de subsistema fidedignos. O serviço de entrega de licenças nos Media Services é o recurso API web, ou o "recurso back-end" a que uma aplicação web precisa de aceder. Então, onde está o símbolo de acesso?
 
@@ -405,7 +406,7 @@ Apesar de o Azure ter sido inicialmente autorizado a aceder apenas pelos utiliza
 
 Uma vez que a Azure AD confia no domínio da conta da Microsoft, pode adicionar quaisquer contas de qualquer um dos seguintes domínios ao inquilino AD AD personalizado e utilizar a conta para iniciar scontabilidade:
 
-| **Nome de domínio** | **Domain** |
+| **Nome de domínio** | **Domínio** |
 | --- | --- |
 | **Domínio de inquilino azure ad personalizado** |somename.onmicrosoft.com |
 | **Domínio corporativo** |microsoft.com |

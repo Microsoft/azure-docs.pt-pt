@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 17ba8f5bbbf0ac17e0ccb6881379a511afc7c1c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a7bc70bd782f9b684cb48672147f5009e4a08f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833277"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073867"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
@@ -288,7 +288,7 @@ Procure e selecione a sua aplicação. Selecione **Slots**  >  *\<slot to delete
 
 Azure PowerShell é um módulo que fornece cmdlets para gerir o Azure através do Windows PowerShell, incluindo suporte para gerir slots de implementação no Azure App Service.
 
-Para obter informações sobre a instalação e configuração do Azure PowerShell e sobre a autenticação do Azure PowerShell com a sua subscrição Azure, consulte [Como instalar e configurar o Microsoft Azure PowerShell](/powershell/azure/overview).  
+Para obter informações sobre a instalação e configuração do Azure PowerShell e sobre a autenticação do Azure PowerShell com a sua subscrição Azure, consulte [Como instalar e configurar o Microsoft Azure PowerShell](/powershell/azure/).  
 
 ---
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
@@ -427,5 +427,5 @@ Aqui estão alguns erros de troca comuns:
 
 - Após trocas de slot, a aplicação pode experimentar recomeços inesperados. Isto porque depois de uma troca, a configuração de ligação do nome anfitrião sai de sincronização, o que por si só não causa recomeços. No entanto, certos eventos de armazenamento subjacentes (tais como falhas no volume de armazenamento) podem detetar estas discrepâncias e forçar todos os processos dos trabalhadores a reiniciar. Para minimizar este tipo de reinícios, defina a definição da [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` aplicação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todas as ranhuras*. No entanto, esta configuração da aplicação *não* funciona com aplicações da Windows Communication Foundation (WCF).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Bloquear o acesso a faixas horárias não produção](app-service-ip-restrictions.md)

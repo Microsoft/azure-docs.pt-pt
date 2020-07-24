@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: b22ce64e7058f093a102aebec8b00842c8a41cb5
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: a2292dc789938b8bde709728f5bbffe661529cc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849410"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072638"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -64,7 +64,7 @@ Alterar o tamanho da sua piscina de backend pode afetar alguns dos seus fluxos e
 
 ## <a name="outbound-connections-scenario-overview"></a><a name="scenarios"></a>Visão geral do cenário de conexões de saída
 
-| Scenario | Método | Protocolos IP | Descrição |
+| Cenário | Método | Protocolos IP | Descrição |
 |  --- | --- | --- | --- |
 |  1. VM com endereço IP público (com ou sem Balançador de Carga Azure | SNAT, porta disfarçada não utilizada | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído à configuração IP do NIC da instância para todos os fluxos de saída. O caso tem todas as portas efémeras disponíveis. Não importa se o VM é equilibrado ou não. Este cenário tem precedência sobre os outros. Um IP público atribuído a um VM é uma relação 1:1 (em vez de 1: muitos) e implementado como um APÁtrida 1:1 NAT. |
 | 2. Balanceador de Carga Pública associado a um VM (sem endereço IP público no VM/instância) | SNAT com máscara de porta (PAT) usando os frontends do balanceador de carga | TCP, UDP | Neste cenário, o recurso Balanceador de Carga deve ser configurado com uma regra do balançador de carga para criar uma ligação entre o frontend IP público com o pool de backend. Se não completar esta configuração de regra, o comportamento é descrito no cenário 3. Não é necessário que a regra tenha um ouvinte a trabalhar na piscina de backend para que a sonda de saúde tenha sucesso. Quando o VM cria um fluxo de saída, o Azure traduz o endereço IP de origem privada do fluxo de saída para o endereço IP público do frontend do Balancer de Carga público via SNAT. As portas efémeras do endereço IP público frontend do balançador de carga são utilizadas para distinguir os fluxos individuais originados pelo VM. O SNAT utiliza dinamicamente [portas efémeras pré-alitadas](#preallocatedports) quando os fluxos de saída são criados. Neste contexto, as portas efémeras utilizadas para o SNAT são chamadas portas SNAT. As portas SNAT são pré-atribuídas conforme descrito na tabela atribuída pelas [portas SNAT predefinidas](#snatporttable). |
@@ -121,7 +121,7 @@ Se um NSG bloquear pedidos de sonda de saúde a partir da etiqueta padrão AZURE
 
 ## <a name="scenarios-with-outbound-rules"></a>Cenários com regras de saída
 
-| # | Scenario| Detalhes|
+| # | Cenário| Detalhes|
 |---|---|---|
 | I | Ligações de saída do noivo a um conjunto específico de endereços IP públicos| Você pode usar uma regra de saída para preparar ligações de saída para preparar ligações de saída para parecer ter origem de um conjunto específico de endereços IP públicos para facilitar cenários de whitelisting.  Este endereço IP público de origem pode ser o mesmo que usado por uma regra de equilíbrio de carga ou um conjunto diferente de endereços IP públicos do que o usado por uma regra de equilíbrio de carga.  1. Criar [prefixo IP público](https://aka.ms/lbpublicipprefix) (ou endereços IP públicos a partir do prefixo IP público) 2. Criar um Balanceador de Carga Padrão público 3. Crie frontends referentes ao prefixo IP público (ou endereços IP públicos) que pretende utilizar 4. Reutilizar uma piscina de backend ou criar uma piscina de backend e colocar os VMs numa piscina de backend do balanceador de carga pública 5. Configure uma regra de saída sobre o Balanceador de Carga público para programar NAT de saída para estes VMs usando os frontends. Se não desejar que a regra de equilíbrio de carga seja utilizada para a saída, tem de desativar o SNAT de saída na regra de equilíbrio de carga.
 | II | Modificar a atribuição de porta SNAT| Pode utilizar as regras de saída para sintonizar a atribuição automática da [porta SNAT com base no tamanho da piscina de backend](load-balancer-outbound-connections.md#preallocatedports). Por exemplo, se tiver duas máquinas virtuais que partilham um único endereço IP público para o NAT de saída, pode desejar aumentar o número de portas SNAT atribuídas a partir das portas padrão de 1024 se estiver a sentir exaustão do SNAT. Cada endereço IP público pode contribuir com até 64.000 portos efémeros.  Se configurar uma regra de saída com um único endereço IP público, pode distribuir um total de 64.000 portas SNAT para VMs na piscina de backend.  Para dois VMs, um máximo de 32.000 portas SNAT podem ser atribuídas com uma regra de saída (2x 32.000 = 64.000). Pode utilizar regras de saída para sintonizar as portas SNAT atribuídas por padrão. Aloca mais ou menos do que a alocação portuária padrão do SNAT proporciona. Cada endereço IP público de todas as frentes de uma regra de saída contribui com até 64.000 portas efémeras para utilização como portas SNAT.  O Balancer de Carga aloca portas SNAT em múltiplos de 8. Se fornecer um valor não divisível até 8, a operação de configuração é rejeitada.  Se tentar alocar mais portas SNAT do que as disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se alocar 10.000 portas por VM e 7 VMs num pool de backend partilharia um único endereço IP público, a configuração é rejeitada (7 x 10.000 portas SNAT > 64.000 portas SNAT).  Pode adicionar mais endereços IP públicos à parte frontal da regra de saída para ativar o cenário. Pode voltar à [atribuição predefinida da porta SNAT com base no tamanho da piscina de backend,](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas. Nesse caso, as primeiras 50 instâncias VM terão 1024 portas, 51-100 VM casos obterão 512 e assim por diante, de acordo com a [tabela](#snatporttable).|
@@ -139,7 +139,7 @@ Se um NSG bloquear pedidos de sonda de saúde a partir da etiqueta padrão AZURE
 - As regras de saída só podem ser aplicadas à configuração ip primária de um NIC.  Vários NICs são suportados.
 - As funções do Web Worker roles sem um VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando apenas um Balancer de Carga Standard interno é usado devido a um efeito colateral da forma como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie neste efeito colateral, uma vez que o próprio serviço ou a plataforma subjacente podem mudar sem aviso prévio. Deve sempre assumir que precisa de criar conectividade de saída explicitamente se desejar quando utilizar apenas um Balanceador de Carga Padrão interno. O cenário 3 descrito neste artigo não está disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Balancer de Carga Padrão](load-balancer-standard-overview.md).
 - Consulte [as nossas perguntas frequentes sobre o Azure Load Balancer](load-balancer-faqs.md).

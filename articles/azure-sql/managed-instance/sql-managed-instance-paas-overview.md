@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: 43fad6249d5c6f528353a819e03dd7401440e05d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073356"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -53,15 +53,15 @@ As principais características da SQL Managed Instance são mostradas na tabela 
 |Funcionalidade | Descrição|
 |---|---|
 | Versão/construção do SQL Server | Motor de base de dados SQL Server (mais recente estável) |
-| Backups automatizados geridos | Sim |
-| Caso incorporado e monitorização e métricas de bases de dados | Sim |
-| Patching automático de software | Sim |
-| As mais recentes funcionalidades do motor da base de dados | Sim |
+| Backups automatizados geridos | Yes |
+| Caso incorporado e monitorização e métricas de bases de dados | Yes |
+| Patching automático de software | Yes |
+| As mais recentes funcionalidades do motor da base de dados | Yes |
 | Número de ficheiros de dados (ROWS) por base de dados | Vários |
 | Número de ficheiros de registo (LOG) por base de dados | 1 |
-| VNet - Implementação do Gestor de Recursos Azure | Sim |
-| VNet - Modelo de implementação clássico | Não |
-| Suporte ao portal | Sim|
+| VNet - Implementação do Gestor de Recursos Azure | Yes |
+| VNet - Modelo de implementação clássico | No |
+| Suporte ao portal | Yes|
 | Serviço de Integração Incorporada (SSIS) | No - SSIS faz parte da [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de Análise Incorporada (SSAS) | No - SSAS é [paaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) separado |
 | Serviço de Reporte Incorporado (SSRS) | Não - utilize [relatórios paginados power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospedeiro SSRS num Azure VM. Embora a SQL Managed Instance não possa executar o SSRS como um serviço, pode hospedar [bases de dados de catálogo SSRS](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para um servidor de relatório instalado na Máquina Virtual Azure, utilizando a autenticação do SQL Server. |
@@ -115,105 +115,7 @@ Encontre mais informações sobre as diferenças entre os níveis de serviço no
 
 ## <a name="management-operations"></a>Operações de gestão
 
-A Azure SQL Managed Instance fornece operações de gestão que pode utilizar para implementar automaticamente novos casos geridos, atualizar propriedades de instância e apagar casos quando já não é necessário. Esta secção fornece informações sobre operações de gestão e suas durações típicas.
-
-Para suportar [implementações dentro de redes virtuais Azure](../../virtual-network/virtual-network-for-azure-services.md) e fornecer isolamento e segurança para os clientes, a SQL Managed Instance conta com [clusters virtuais,](connectivity-architecture-overview.md#high-level-connectivity-architecture)que representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede virtual do cliente. Essencialmente, cada implementação de instâncias geridas numa sub-rede vazia resulta numa nova construção de cluster virtual.
-
-As operações subsequentes em casos geridos implantados podem também ter efeitos no cluster virtual subjacente. Isto afeta a duração das operações de gestão, uma vez que a implementação de máquinas virtuais adicionais vem com uma sobrecarga que precisa de ser considerada quando planeia novas implementações ou atualizações para instâncias geridas existentes.
-
-Todas as operações de gestão podem ser categorizadas da seguinte forma:
-
-- Implantação de instância (criação de novos casos).
-- Atualização de instâncias (alterar propriedades de instância, tais como vCores ou armazenamento reservado.
-- Eliminação de exemplos.
-
-Normalmente, as operações em aglomerados virtuais demoram mais tempo. A duração das operações em clusters virtuais varia – abaixo estão os valores que normalmente se pode esperar, com base nos dados de telemetria de serviço existentes:
-
-- **Criação de cluster virtual**: Este é um passo sincronizado nas operações de gestão de casos. **90% das operações terminam em 4 horas.**
-- **Redimensionamento de cluster virtual (expansão ou redução)**: A expansão é um passo sincronizado, enquanto a redução é realizada de forma assíncronea (sem impacto na duração das operações de gestão de instância). **90% das expansões de cluster terminam em menos de 2,5 horas**.
-- **Eliminação virtual do agrupamento**: A eliminação é um passo assíncronos, mas também pode ser [iniciado manualmente](virtual-cluster-delete.md) num aglomerado virtual vazio, caso em que executa sincronizadamente. **90% das eliminações de clusters virtuais terminam em 1,5 horas**.
-
-Além disso, a gestão de casos pode igualmente incluir uma das operações em bases de dados hospedadas, o que resulta em durações mais longas:
-
-- **Anexar ficheiros de base de dados do Azure Storage**: Trata-se de um passo sincronizado, como o cálculo (vCore), ou o armazenamento a escalonar ou a descer no nível de serviço Final geral. **90% destas operações terminam em 5 minutos**.
-- **Sempre Na sementeira do grupo de disponibilidade : Trata-se**de um passo sincronizado, como o cálculo (vCore), ou a escala de armazenamento no nível de serviço Business Critical, bem como na alteração do nível de serviço de Propósito Geral para Business Critical (ou vice-versa). A duração desta operação é proporcional ao tamanho total da base de dados, bem como à atividade atual da base de dados (número de transações ativas). A atividade da base de dados ao atualizar uma instância pode introduzir uma variação significativa da duração total. **90% destas operações executam a 220 GB/hora ou superior**.
-
-O quadro que se segue resume as operações e as durações globais típicas:
-
-|Categoria  |Operação  |Segmento de longa duração  |Duração estimada  |
-|---------|---------|---------|---------|
-|**Implementação** |Primeira instância numa sub-rede vazia|Criação de cluster virtual|90% das operações terminam em 4 horas.|
-|Implementação |Primeira instância de outra geração de hardware numa sub-rede não vazia (por exemplo, primeira instância da Gen 5 numa sub-rede com instâncias da Gen 4)|Criação de cluster virtual*|90% das operações terminam em 4 horas.|
-|Implementação |Criação de 4 vCores em primeira instância, numa sub-rede vazia ou não vazia|Criação de cluster virtual**|90% das operações terminam em 4 horas.|
-|Implementação |Criação de instância subsequente dentro da sub-rede não vazia (2º, 3º, etc. instância)|Redimensionamento de cluster virtual|90% das operações terminam em 2,5 horas.|
-|**Atualizar** |Mudança de propriedade de exemplo (senha de administração, login Azure AD, bandeira de Benefício Híbrido Azure)|N/D|Até 1 minuto.|
-|Atualizar |Armazenamento de instâncias para cima/para baixo (nível de serviço para fins gerais)|Anexação de ficheiros de base de dados|90% das operações terminam em 5 minutos.|
-|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (nível de serviço Critical empresarial)|- Redimensionamento de cluster virtual<br>- Sempre na sementeira de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para semear todas as bases de dados (220 GB/hora).|
-|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral)|- Redimensionamento de cluster virtual<br>- Anexação de ficheiros de base de dados|90% das operações terminam em 2,5 horas.|
-|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical)|- Redimensionamento de cluster virtual<br>- Sempre na sementeira de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para semear todas as bases de dados (220 GB/hora).|
-|Atualizar |Escala de instância para 4 vCores (Final geral)|- Redimensionamento de cluster virtual (se feito pela primeira vez, pode exigir criação de cluster virtual**)<br>- Anexação de ficheiros de base de dados|90% das operações terminam em 4 h 5 min.**|
-|Atualizar |Escala de exemplo para 4 vCores (Business Critical)|- Redimensionamento de cluster virtual (se feito pela primeira vez, pode exigir criação de cluster virtual**)<br>- Sempre na sementeira de grupo de disponibilidade|90% das operações terminam em 4 horas + tempo para semear todas as bases de dados (220 GB/hora).|
-|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa)|- Redimensionamento de cluster virtual<br>- Sempre na sementeira de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para semear todas as bases de dados (220 GB/hora).|
-|**Eliminação**|Eliminação da instância|Registar backup de cauda para todas as bases de dados|90% das operações terminam em até 1 minuto.<br>Nota: se a última instância na sub-rede for eliminada, esta operação irá agendar a eliminação do cluster virtual após 12 horas.***|
-|Eliminação|Eliminação de clusters virtuais (como operação iniciada pelo utilizador)|Eliminação de clusters virtuais|90% das operações terminam em até 1,5 horas.|
-
-\*O cluster virtual é construído por geração de hardware.
-
-\*\*A opção 4-vCores foi lançada em junho de 2019 e requer uma nova versão de cluster virtual. Se tiver casos na sub-rede alvo que foram todos criados antes de 12 de junho, um novo cluster virtual será implantado automaticamente para hospedar 4 instâncias vCore.
-
-\*\*\*12 horas é a configuração atual, mas isso pode mudar no futuro, por isso não tenhas uma dependência difícil. Se precisar de eliminar um cluster virtual mais cedo (para lançar a sub-rede, por exemplo), consulte [Eliminar uma sub-rede depois de eliminar uma instância gerida](virtual-cluster-delete.md).
-
-### <a name="instance-availability-during-management-operations"></a>Disponibilidade de instâncias durante operações de gestão
-
-SQL Managed Instance **está disponível durante as operações de atualização**, exceto um curto tempo de inatividade causado pela falha que ocorre no final da atualização. Normalmente dura até 10 segundos, mesmo em caso de transações interrompidas a longo prazo, graças à [recuperação acelerada](../accelerated-database-recovery.md)da base de dados.
-
-> [!IMPORTANT]
-> Não é recomendado escalar o cálculo ou armazenamento de Azure SQL Managed Instance ou alterar o nível de serviço ao mesmo tempo com as transações de longo prazo (importação de dados, trabalhos de processamento de dados, reconstrução de índices, etc.). A falha na base de dados que será realizada no final da operação irá cancelar todas as transações em curso.
-
-A SQL Managed Instance não está disponível para aplicações de clientes durante operações de implantação e eliminação.
-
-### <a name="management-operations-cross-impact"></a>Impacto transversal das operações de gestão
-
-As operações de gestão num caso gerido podem afetar outras operações de gestão das instâncias colocadas dentro do mesmo cluster virtual. Isto inclui o seguinte:
-
-- **As operações de restauro de longa duração** num cluster virtual colocarão em espera outras operações de criação ou escala na mesma sub-rede.<br/>**Exemplo:** Se houver uma operação de restauro a longo prazo e houver um pedido de criação ou escala na mesma sub-rede, este pedido demorará mais tempo a ser concluído, uma vez que aguardará que a operação de restauro esteja concluída antes de continuar.
-    
-- **Uma operação de criação ou escalonamento subsequente** é posta em espera por uma escala de criação ou instância de instância iniciada anteriormente que iniciou o redimensionamento do cluster virtual.<br/>**Exemplo:** Se houver múltiplos pedidos de criação e/ou escala na mesma sub-rede sob o mesmo cluster virtual, e um deles iniciar um redimensionado cluster virtual, todos os pedidos que foram submetidos 5+ minutos após o que exigia o redimensionado cluster virtual durará mais do que o esperado, uma vez que estes pedidos terão de esperar que o redimensionar seja concluído antes de retomar.
-
-- **As operações de criação/escala submetidas numa janela de 5 minutos** serão em loteadas e executadas em paralelo.<br/>**Exemplo:** Apenas um redimensionamento de cluster virtual será realizado para todas as operações submetidas numa janela de 5 minutos (medindo a partir do momento da execução do primeiro pedido de operação). Se outro pedido for apresentado mais de 5 minutos após a primeira ser submetida, aguardará que o cluster virtual seja reensitado antes do início da execução.
-
-> [!IMPORTANT]
-> As operações de gestão que forem postas em suspenso por causa de uma outra operação em curso serão automaticamente retomadas assim que as condições para proceder forem satisfeitas. Não é necessária qualquer ação do utilizador para retomar as operações de gestão temporariamente interrompidas.
-
-### <a name="canceling-management-operations"></a>Cancelamento de operações de gestão
-
-O quadro que se segue resume a capacidade de cancelar operações de gestão específicas e as durações globais típicas:
-
-Categoria  |Operação  |Cancelável  |Duração estimada do cancelamento  |
-|---------|---------|---------|---------|
-|Implementação |Criação de exemplos |Não |  |
-|Atualizar |Armazenamento de instâncias para cima/para baixo (Final geral) |Não |  |
-|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral) |Sim |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
-|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa) |Sim |90% das operações terminam em 5 minutos. |
-|Eliminar |Eliminação da instância |Não |  |
-|Eliminar |Eliminação de clusters virtuais (como operação iniciada pelo utilizador) |Não |  |
-
-Para cancelar a operação de gestão, vá à lâmina de visão geral e clique na caixa de notificação da operação em curso. Do lado direito, aparecerá um ecrã com a operação em curso e haverá botão para cancelar a operação. Após o primeiro clique, ser-lhe-á pedido que clique novamente e confirme que pretende cancelar a operação.
-
-[![Cancelar operação](./media/sql-managed-instance-paas-overview/canceling-operation.png)](./media/sql-managed-instance-paas-overview/canceling-operation.png#lightbox)
-
-Depois de um pedido de cancelamento ter sido submetido e processado, receberá uma notificação se a submissão do cancelamento tiver sido bem sucedida ou não.
-
-Em caso de cancelamento de sucesso, a operação de gestão será cancelada em alguns minutos, resultando em uma falha.
-
-![Cancelamento do resultado da operação](./media/sql-managed-instance-paas-overview/canceling-operation-result.png)
-
-Se o pedido de cancelamento falhar ou o botão de cancelamento não estiver ativo, significa que a operação de gestão entrou em estado não cancelável e que terminará em alguns minutos. A operação de gestão continuará a sua execução até que esteja concluída.
-
-> [!IMPORTANT]
-> Atualmente, as operações de cancelamento são suportadas apenas no portal.
+A Azure SQL Managed Instance fornece operações de gestão que pode utilizar para implementar automaticamente novos casos geridos, atualizar propriedades de instância e apagar casos quando já não é necessário. Uma explicação detalhada das operações de gestão pode ser encontrada na página geral de [operações de gestão de instâncias geridas.](management-operations-overview.md)
 
 ## <a name="advanced-security-and-compliance"></a>Segurança e conformidade avançadas
 
@@ -288,7 +190,7 @@ A abordagem de migração aproveita os backups do SQL para o armazenamento da Az
 > [!IMPORTANT]
 > Cópias de segurança de uma instância gerida só podem ser restauradas para outra instância gerida. Não podem ser restaurados numa instância do SQL Server ou na Base de Dados Azure SQL.
 
-### <a name="database-migration-service"></a>Serviço de Migração de Bases de Dados
+### <a name="database-migration-service"></a>Database Migration Service
 
 O Azure Database Migration Service é um serviço totalmente gerido projetado para permitir migrações sem emenda de múltiplas fontes de base de dados para plataformas de dados Azure com tempo de inatividade mínimo. Este serviço simplifica as tarefas necessárias para mover as bases de dados existentes de servidores de terceiros e SQL para Azure SQL Database, Azure SQL Managed Instance e SQL Server em Azure VM. Veja [como migrar a sua base de dados no local para SQL Managed Instance usando o Serviço de Migração de Bases de Dados](https://aka.ms/migratetoMIusingDMS).
 
@@ -332,7 +234,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através da Transact-
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica exclusivamente um caso gerido.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato: `<instanceName>` `<dnsPrefix>` . . database.windows.net, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto é `<dnsPrefix>` autogerido parte do nome que garante a singularidade global do nome DNS ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a criar o seu primeiro exemplo gerido, consulte o [guia Quickstart](instance-create-quickstart.md).
 - Para obter uma lista de funcionalidades e comparação, consulte [as características comuns sql](../database/features-comparison.md).

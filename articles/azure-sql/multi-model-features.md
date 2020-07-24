@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: d50a9a064e6fa279d65f196c0f031e60081d86bf
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980003"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073321"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Capacidades multi-modelo da Base de Dados Azure SQL & SQL Gestd Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -96,10 +96,7 @@ Os modelos documentais podem ser utilizados em vez dos modelos relacionais em al
 
 Os dados espaciais representam informações sobre a localização física e a forma dos objetos geométricos. Estes objetos podem ser locais de ponto ou objetos mais complexos, tais como países/regiões, estradas ou lagos.
 
-A família de produtos Azure SQL permite analisar e consultar dados representados no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exportar os seus dados relacionais como texto JSON.
-
-
- Os dois apoiaram dois tipos de dados espaciais: 
+ Os dois tipos de dados espaciais suportados: 
 
 - O tipo de geometria representa dados num sistema de coordenadas euclidídeos (plano).
 - O tipo de geografia representa dados num sistema de coordenadas de terra redonda.
@@ -132,7 +129,7 @@ Os modelos documentais podem ser utilizados em vez dos modelos relacionais em al
 - É necessário simplificar o seu modelo de dados des normalizando as tabelas de crianças ou os padrões de Valor-Objecto de Entidade.
 - É necessário carregar ou exportar dados armazenados em formato XML sem uma ferramenta adicional que analise os dados.
 
-## <a name="key-value-pairs"></a>Pares valor-chave
+## <a name="key-value-pairs"></a>Pares chave-valor
 
 A família de produtos Azure SQL não tem tipos ou estruturas especializados que suportem pares de valor-chave, uma vez que as estruturas de valor-chave podem ser representadas de forma nativa como tabelas relacionais padrão:
 
@@ -147,7 +144,7 @@ Pode personalizar esta estrutura de valor-chave para se adaptar às suas necessi
 
 Veja [como a BWin está a usar o OLTP de memória para alcançar um desempenho e escala sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para a sua solução de caching ASP.NET que alcançou 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par de valor-chave na prática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 As capacidades multi-modelo na família de produtos Azure SQL são também as principais funcionalidades do motor de base de dados SQL Server que são partilhadas entre a família de produtos Azure SQL. Para obter mais detalhes sobre estas funcionalidades, visite as páginas de documentação da base de dados relacional SQL:
 

@@ -3,11 +3,12 @@ title: Tipos de Recursos Suportados através da Azure Resource Health Microsoft 
 description: Tipos de Recursos Suportados através da Saúde dos Recursos Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 38c7e0754649d650521cc510bcac326496bcec38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4d622ac6d37059731b51a679e13f824670b9dc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83816103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071298"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos Azure
 Abaixo está uma lista completa de todos os cheques executados através da saúde de recursos por tipos de recursos.
@@ -231,4 +232,4 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 ## <a name="next-steps"></a>Passos Seguintes
 -  Consulte [o painel de saúde do serviço Azure](service-health-overview.md) e a [Introdução à Azure Resource Health](resource-health-overview.md) para saber mais sobre eles. 
 -  [Perguntas frequentes sobre Azure Resource Health](resource-health-faq.md)
-- Adasse alertas para que você é notificado de problemas de saúde. Para mais informações, consulte alertas de configuração [para eventos de saúde de serviço.](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+- Adasse alertas para que você é notificado de problemas de saúde. Para mais informações, consulte alertas de configuração [para eventos de saúde de serviço.](./alerts-activity-log-service-notifications-portal.md) 

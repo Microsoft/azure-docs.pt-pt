@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072434"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam XML entre formatos no Azure Logic Apps com o Enterprise Integration Pack
 
@@ -37,11 +38,11 @@ Agora que já tratou dos pré-requisitos, está na hora de criar a sua aplicaç�
 
 1. Crie uma aplicação Lógica e [ligue-a à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a ligar uma conta de integração a uma aplicação Logic") que contenha o mapa.
 2. Adicione um gatilho **de pedido** à sua aplicação Logic  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
+   ![Screenshot do dropdown "Show Microsoft managed APIs" com o gatilho Request selecionado. O dropdown está numa aplicação Lógica criada usando o Visual Studio Enterprise Integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Adicione a ação **Transform XML** selecionando pela primeira vez **Adicione uma ação**   
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
+   ![Screenshot mostrando o botão "Adicionar uma ação" selecionado no ecrã de gatilho 'Pedido'.](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. Introduza a palavra *transformar* na caixa de pesquisa para filtrar todas as ações para a que pretende usar  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
+   ![Screenshot mostrando como procurar a ação Transform XML no dropdown "Show Microsoft managed APIs" para que possa ser adicionado ao gatilho Request.](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Selecione a ação **Transform XML**   
 6. Adicione o **conteúdo** XML que transforma. Pode utilizar todos os dados XML que receber no pedido HTTP como **conteúdo.** Neste exemplo, selecione o corpo do pedido HTTP que desencadeou a aplicação Logic.
 
@@ -50,9 +51,9 @@ Agora que já tratou dos pré-requisitos, está na hora de criar a sua aplicaç�
  
 
 7. Selecione o nome do **MAP** que pretende utilizar para realizar a transformação. O mapa já deve estar na sua conta de integração. Num passo anterior, já deu acesso à sua app Logic à sua conta de integração que contém o seu mapa.      
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
+   ![Screenshot mostrando os campos de Conteúdo e Mapa no ecrã Transform XML para o gatilho Request.](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Guardar o trabalho  
-    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+    ![Screenshot mostrando o botão Guardar no Design de Aplicações Lógicas.](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 Neste momento, já terminou de preparar o seu mapa. Numa aplicação real, poderá querer armazenar os dados transformados numa aplicação LOB como a SalesForce. Pode facilmente como uma ação para enviar a saída da transformação para a Salesforce. 
 

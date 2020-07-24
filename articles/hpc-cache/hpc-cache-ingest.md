@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: ac963fd01016506193aae0fab5582224b3957de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: 0da8a4fc1b59976c50cd96f2155715a4cb178cc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072763"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Mover dados para o armazenamento da Azure Blob
 
@@ -81,7 +81,7 @@ As estratégias para a ingestão de dados paralelos com a Cache Azure HPC inclue
 
 * Cópia escrita com ``parallelcp`` - Aprenda a criar e executar um script de cópia paralelo em [Azure HPC Cache data ingeste - método de script de cópia paralelo](hpc-cache-ingest-parallelcp.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar o seu armazenamento, saiba como os clientes podem montar a cache.
 

@@ -3,16 +3,16 @@ title: Gerir a Azure File partilhar backup com a Rest API
 description: Saiba como utilizar a REST API para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073249"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Gerir a Azure File partilhar backup com a REST API
 
-Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiros Azure que são apoiadas pela [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+Este artigo explica como executar tarefas de gestão e monitorização das ações de ficheiros Azure que são apoiadas pela [Azure Backup](./backup-overview.md).
 
 ## <a name="monitor-jobs"></a>Monitorizar trabalhos
 
@@ -38,7 +38,7 @@ Por exemplo, a resposta final de uma operação [de backup de backup de gatilho 
 }
 ```
 
-O trabalho de backup de partilha de ficheiros Azure é identificado pelo campo **jobId** e pode ser rastreado como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando um pedido GET.
+O trabalho de backup de partilha de ficheiros Azure é identificado pelo campo **jobId** e pode ser rastreado como mencionado [aqui](/rest/api/backup/jobdetails/) usando um pedido GET.
 
 ### <a name="tracking-the-job"></a>A acompanhar o trabalho
 
@@ -54,7 +54,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 #### <a name="response"></a>Resposta
 
-Name  | Tipo  |  Description
+Nome  | Tipo  |  Descrição
 --- | --- | ----
 200 OK |  JobResource  | OK
 
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Parar a proteção e apagar dados
 
-Para remover a proteção de uma partilha de ficheiros protegida e eliminar os dados de cópia de segurança também, execute uma operação de eliminação conforme detalhado [aqui](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Para remover a proteção de uma partilha de ficheiros protegida e eliminar os dados de cópia de segurança também, execute uma operação de eliminação conforme detalhado [aqui](/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

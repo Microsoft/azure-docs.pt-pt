@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: allensu
-ms.openlocfilehash: 819b6af0d336e454aeeb67a9be62109cb6b08bb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cd050c88fbc954a211c3a75cdabcb557ae998c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073929"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o PowerShell
 
@@ -33,7 +34,7 @@ Este artigo explica como criar uma máquina virtual (VM) através do modelo de i
 
 Os passos que se seguem explicam como criar um VM exemplo com vários endereços IP, conforme descrito no cenário. Altere os valores variáveis conforme necessário para a sua implementação.
 
-1. Abra uma pronta de comando PowerShell e complete os passos restantes nesta secção numa única sessão PowerShell. Se ainda não tiver o PowerShell instalado e configurado, complete os passos no artigo Como instalar e configurar o artigo [Azure PowerShell.](/powershell/azure/overview)
+1. Abra uma pronta de comando PowerShell e complete os passos restantes nesta secção numa única sessão PowerShell. Se ainda não tiver o PowerShell instalado e configurado, complete os passos no artigo Como instalar e configurar o artigo [Azure PowerShell.](/powershell/azure/)
 2. Faça login na sua conta com o `Connect-AzAccount` comando.
 3. Substitua *o myResourceGroup* e *o Westus* por um nome e localização à sua escolha. Crie um grupo de recursos. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -195,7 +196,7 @@ Os passos que se seguem explicam como criar um VM exemplo com vários endereços
 
 Pode adicionar endereços IP privados e públicos à interface de rede Azure, completando os passos que se seguem. Os exemplos nas secções seguintes assumem que já tem um VM com as três configurações IP descritas no [cenário](#scenario) neste artigo, mas não é necessário que o faça.
 
-1. Abra uma pronta de comando PowerShell e complete os passos restantes nesta secção numa única sessão PowerShell. Se ainda não tiver o PowerShell instalado e configurado, complete os passos no artigo Como instalar e configurar o artigo [Azure PowerShell.](/powershell/azure/overview)
+1. Abra uma pronta de comando PowerShell e complete os passos restantes nesta secção numa única sessão PowerShell. Se ainda não tiver o PowerShell instalado e configurado, complete os passos no artigo Como instalar e configurar o artigo [Azure PowerShell.](/powershell/azure/)
 2. Altere os "valores" do seguinte $Variables para o nome do NIC a que pretende adicionar o endereço IP e o grupo de recursos e a localização em que o NIC existe em:
 
    ```powershell

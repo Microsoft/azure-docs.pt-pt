@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: radeltch
-ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28e53c5ca53f5be4aafc685445e67dcf4d558773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368260"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073997"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server em Azure
 
@@ -41,7 +41,7 @@ O agente da Azure Fence não necessita de implantação de máquinas virtuais ad
 ![Pacemaker na visão geral do SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Ao planear e implantar os nós agrupados linux pacemaker e dispositivos SBD, é essencial para a fiabilidade global da configuração completa do cluster que o encaminhamento entre os VMs envolvidos e os VM(s) que hospedam os dispositivos SBD não está a passar por outros dispositivos como [os NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com a NVA podem ter um impacto negativo na estabilidade e fiabilidade da configuração global do cluster. Para evitar tais obstáculos, não defina regras de encaminhamento de NVAs ou regras de [encaminhamento definidos](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) pelo utilizador que encaminham o tráfego entre nós agrupados e dispositivos SBD através de NVAs e dispositivos similares ao planear e implantar nós agrupados Linux Pacemaker e dispositivos SBD. 
+> Ao planear e implantar os nós agrupados linux pacemaker e dispositivos SBD, é essencial para a fiabilidade global da configuração completa do cluster que o encaminhamento entre os VMs envolvidos e os VM(s) que hospedam os dispositivos SBD não está a passar por outros dispositivos como [os NVAs](https://azure.microsoft.com/solutions/network-appliances/). Caso contrário, problemas e eventos de manutenção com a NVA podem ter um impacto negativo na estabilidade e fiabilidade da configuração global do cluster. Para evitar tais obstáculos, não defina regras de encaminhamento de NVAs ou regras de [encaminhamento definidos](../../../virtual-network/virtual-networks-udr-overview.md) pelo utilizador que encaminham o tráfego entre nós agrupados e dispositivos SBD através de NVAs e dispositivos similares ao planear e implantar nós agrupados Linux Pacemaker e dispositivos SBD. 
 >
 
 ## <a name="sbd-fencing"></a>Esgrima SBD
@@ -583,7 +583,7 @@ O dispositivo STONITH utiliza um Diretor de Serviço para autorizar contra o Mic
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Criar um papel personalizado para o agente da cerca
 
-O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por defeito. Você precisa dar ao Service Principal permissões para iniciar e parar (deallocate) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo utilizando [o PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) ou [o Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
+O Diretor de Serviço não tem permissões para aceder aos seus recursos Azure por defeito. Você precisa dar ao Service Principal permissões para iniciar e parar (deallocate) todas as máquinas virtuais do cluster. Se ainda não criou o papel personalizado, pode criá-lo utilizando [o PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) ou [o Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
 Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar o conteúdo às suas subscrições, ou seja, substituir c276fc76-9cd4-44c9-99a7-4fd71546436e e e91d47c4-76f3-4271-a796-21b4ecfe3624 com os IDs da sua assinatura. Se tiver apenas uma subscrição, remova a segunda entrada em 'AtribuableScopes'.
 
@@ -616,7 +616,7 @@ Utilize o seguinte conteúdo para o ficheiro de entrada. É necessário adaptar 
 
 Atribua o papel personalizado "Linux Fence Agent Role" que foi criado no último capítulo ao Diretor de Serviço. Não use mais o papel de Proprietário!
 
-1. Ir para[https://portal.azure.com](https://portal.azure.com)
+1. aceda a [https://portal.azure.com](https://portal.azure.com)
 1. Abra a lâmina de todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
 1. Clique no controlo de acesso (IAM)
@@ -647,11 +647,11 @@ sudo crm configure property stonith-timeout=900
 > As operações de monitorização e esgrima são des serializadas. Como resultado, se houver uma operação de monitorização mais longa e evento de esgrima simultânea, não há atrasos no cluster failover, devido à operação de monitorização já em funcionamento.
 
 > [!TIP]
->O Agente de Cercas Azure requer conectividade de saída para pontos finais públicos como documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs utilizando iLB padrão](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>O Agente de Cercas Azure requer conectividade de saída para pontos finais públicos como documentado, juntamente com possíveis soluções, na [conectividade de ponto final público para VMs utilizando iLB padrão](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuração de Pacemaker para eventos agendados do Azure
 
-A Azure oferece [eventos agendados.](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events) Os eventos regulares são fornecidos através do serviço de meta-dados e permitem tempo para a aplicação se preparar para eventos como encerramento de VM, redistribuição de VM, etc. O agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitores para eventos Azure programados. Se os eventos forem detetados, o agente tentará parar todos os recursos no VM impactado e movê-los para outro nó no cluster. Para conseguir esse tal, é necessário configurar os recursos adicionais do Pacemaker. 
+A Azure oferece [eventos agendados.](../../linux/scheduled-events.md) Os eventos regulares são fornecidos através do serviço de meta-dados e permitem tempo para a aplicação se preparar para eventos como encerramento de VM, redistribuição de VM, etc. O agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitores para eventos Azure programados. Se os eventos forem detetados, o agente tentará parar todos os recursos no VM impactado e movê-los para outro nó no cluster. Para conseguir esse tal, é necessário configurar os recursos adicionais do Pacemaker. 
 
 1. **[A]** Certifique-se de que o pacote para o agente **de eventos azure** já está instalado e atualizado. 
 
@@ -679,7 +679,7 @@ sudo crm configure property maintenance-mode=false
      AVISO: opções cib-bootstrap: atributo desconhecido 'hostName_ <strong>nome de anfitrião'</strong>  
    > Estas mensagens de aviso podem ser ignoradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]
 * [Implantação de máquinas virtuais Azure para SAP][deployment-guide]

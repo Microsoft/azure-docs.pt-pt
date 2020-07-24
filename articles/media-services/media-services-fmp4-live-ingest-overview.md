@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3ff356ef67630429b72208107541b1696e4eceac
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958570"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072040"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services fragmentou a especificação de ingestão ao vivo mp4 
 
@@ -48,7 +48,7 @@ A lista que se segue descreve definições de formato especial que se aplicam à
 1. A secção 3.3.2 em [1] define uma caixa opcional chamada **StreamManifestBox** para ingerir ao vivo. Devido à lógica de encaminhamento do equilibrador de carga Azure, a utilização desta caixa é depreciada. A caixa NÃO deve estar presente ao ingerir nos Serviços de Comunicação Social. Se esta caixa estiver presente, os Serviços de Comunicação social ignoram-na silenciosamente.
 1. A caixa **TrackFragmentExtendedHeaderBox** definida em 3.2.3.2 em [1] MUST está presente para cada fragmento.
 1. A versão 2 da caixa **TrackFragmentExtendedHeaderBox** deve ser utilizada para gerar segmentos de mídia que tenham URLs idênticos em vários centros de dados. O campo de índice de fragmento é necessário para o failover de formatos de streaming baseados em índices como o Apple HLS e o MPEG-DASH baseado em índices. Para permitir a falha do centro de dados cruzados, o índice de fragmentoS DEVE ser sincronizado em vários codificadores e ser aumentado em 1 para cada fragmento de mídia sucessiva, mesmo através de reinícios ou falhas do codificador.
-1. A secção 3.3.6 em [1] define uma caixa chamada **MovieFragmentRandomAccessBox** **(mfra)** que pode ser enviada no final da ingestão ao vivo para indicar o fim do fluxo (EOS) para o canal. Devido à lógica de ingestão de Serviços de Mídia, a utilização do EOS é depreciada, e a caixa **de mfra** para ingestão ao vivo NÃO deve ser enviada. Se for enviado, os Serviços de Comunicação ignoram-no silenciosamente. Para repor o estado do ponto de ingestão, recomendamos que utilize [o Channel Reset](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). Recomendamos também que utilize [o Program Stop](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para terminar uma apresentação e transmitir.
+1. A secção 3.3.6 em [1] define uma caixa chamada **MovieFragmentRandomAccessBox** **(mfra)** que pode ser enviada no final da ingestão ao vivo para indicar o fim do fluxo (EOS) para o canal. Devido à lógica de ingestão de Serviços de Mídia, a utilização do EOS é depreciada, e a caixa **de mfra** para ingestão ao vivo NÃO deve ser enviada. Se for enviado, os Serviços de Comunicação ignoram-no silenciosamente. Para repor o estado do ponto de ingestão, recomendamos que utilize [o Channel Reset](/rest/api/media/operations/channel#reset_channels). Recomendamos também que utilize [o Program Stop](/rest/api/media/operations/program#stop_programs) para terminar uma apresentação e transmitir.
 1. A duração do fragmento MP4 deve ser constante, para reduzir o tamanho dos manifestos do cliente. Uma duração constante do fragmento mp4 também melhora a heurística do download do cliente através da utilização de tags repetidas. A duração DE MAIO flutua para compensar as taxas de fotogramas não-inteiros.
 1. A duração do fragmento MP4 deve estar entre aproximadamente 2 e 6 segundos.
 1. Os índices e os índices de tempo de fragmentos MP4 **(TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` e ) devem chegar em ordem `fragment_index` crescente. Embora os Serviços de Comunicação Social sejam resistentes a duplicar fragmentos, tem capacidade limitada de reordenar fragmentos de acordo com a linha temporal dos meios de comunicação.
@@ -58,7 +58,7 @@ A ingeria ao vivo fragmentada da MP4 para serviços de mídia utiliza um pedido 
 
 `http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 Aqui estão os requisitos detalhados:
 
 1. O codificante DEVE iniciar a transmissão enviando um pedido HTTP POST com um "corpo" vazio (comprimento de conteúdo zero) utilizando o mesmo URL de ingestão. Isto pode ajudar o codificador a detetar rapidamente se o ponto final de ingestão ao vivo é válido, e se existem alguma autenticação ou outras condições necessárias. Por protocolo HTTP, o servidor não pode enviar uma resposta HTTP até que todo o pedido, incluindo o corpo POST, seja recebido. Dada a natureza de longo prazo de um evento ao vivo, sem este passo, o codificadora pode não ser capaz de detetar qualquer erro até que termine de enviar todos os dados.
@@ -70,7 +70,7 @@ Aqui estão os requisitos detalhados:
 1. Se o pedido HTTP POST terminar ou sair com um erro TCP antes do fim do fluxo, o codificante MUST emitiu um novo pedido DEM utilizando uma nova ligação e segue os requisitos anteriores. Adicionalmente, o codificante MUST reencamina os dois fragmentos de MP4 anteriores para cada faixa no fluxo, e retoma sem introduzir uma descontinuidade na linha temporal dos meios de comunicação. Reencaendendo os dois últimos fragmentos de MP4 para cada faixa garante que não há perda de dados. Por outras palavras, se um fluxo contiver tanto um áudio como uma faixa de vídeo, e o atual pedido de POST falhar, o codificante deve voltar a ligar e reenexá-los os dois últimos fragmentos para a faixa de áudio, que foram previamente enviados com sucesso, e os dois últimos fragmentos para a pista de vídeo, que foram previamente enviados com sucesso, para garantir que não há perda de dados. O codificader MUST mantém um tampão "para a frente" de fragmentos de mídia, que reencaminha quando reconecta.
 
 ## <a name="5-timescale"></a>5. Calendário
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descreve a utilização da escala de tempo para **SmoothStreamingMedia** (Secção 2.2.2.1), **StreamElement** (Secção 2.2.2.3), **StreamFragmentElement** (Secção 2.2.2.6) e **LiveSMIL** (Secção 2.2.7.3.1). Se o valor do calendário não estiver presente, o valor predefinido utilizado é de 10.000.000 (10 MHz). Embora a especificação do formato De Streaming Suave não bloqueie o uso de outros valores de escala de tempo, a maioria das implementações codificadores usam este valor padrão (10 MHz) para gerar dados de ingestão de streaming suave. Devido à funcionalidade [Azure Media Dynamic Packaging,](media-services-dynamic-packaging-overview.md) recomendamos que utilize um calendário de 90 KHz para streams de vídeo e 44.1 KHz ou 48.1 KHz para streams de áudio. Se forem utilizados valores de calendário diferentes para diferentes fluxos, o calendário de nível de fluxo DEVE ser enviado. Para mais informações, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descreve a utilização da escala de tempo para **SmoothStreamingMedia** (Secção 2.2.2.1), **StreamElement** (Secção 2.2.2.3), **StreamFragmentElement** (Secção 2.2.2.6) e **LiveSMIL** (Secção 2.2.7.3.1). Se o valor do calendário não estiver presente, o valor predefinido utilizado é de 10.000.000 (10 MHz). Embora a especificação do formato De Streaming Suave não bloqueie o uso de outros valores de escala de tempo, a maioria das implementações codificadores usam este valor padrão (10 MHz) para gerar dados de ingestão de streaming suave. Devido à funcionalidade [Azure Media Dynamic Packaging,](./previous/media-services-dynamic-packaging-overview.md) recomendamos que utilize um calendário de 90 KHz para streams de vídeo e 44.1 KHz ou 48.1 KHz para streams de áudio. Se forem utilizados valores de calendário diferentes para diferentes fluxos, o calendário de nível de fluxo DEVE ser enviado. Para mais informações, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. Definição de "fluxo"
 Stream é a unidade básica de operação em ingestão ao vivo para compor apresentações ao vivo, lidar com o streaming failover, e cenários de redundância. O fluxo é definido como um bitstream mp4 único e fragmentado que pode conter uma única faixa ou várias faixas. Uma apresentação ao vivo completa pode conter um ou mais streams, dependendo da configuração dos codificadores ao vivo. Os exemplos a seguir ilustram várias opções de utilização de streams para compor uma apresentação ao vivo completa.

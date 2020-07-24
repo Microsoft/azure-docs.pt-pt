@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071910"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como construir uma aplicação de loja de Windows de streaming suave  
 
@@ -53,7 +53,7 @@ Nesta lição, irá criar uma aplicação Windows Store com um controlo MediaEle
 
 ![Exemplo de aplicação do Windows Store de streaming liso][PlayerApplication]
 
-Para obter mais informações sobre o desenvolvimento da aplicação Windows Store, consulte [Desenvolver Grandes Aplicações para o Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). Esta lição contém os seguintes procedimentos:
+Para obter mais informações sobre o desenvolvimento da aplicação Windows Store, consulte [Desenvolver Grandes Aplicações para o Windows 8](https://developer.microsoft.com/en-us/windows/). Esta lição contém os seguintes procedimentos:
 
 1. Criar um projeto windows store
 2. Desenhe a interface do utilizador (XAML)
@@ -1045,4 +1045,3 @@ Completou a lição 4.  Nesta lição, adiciona-se a funcionalidade para escolhe
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

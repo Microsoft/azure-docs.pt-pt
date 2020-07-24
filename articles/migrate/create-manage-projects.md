@@ -2,13 +2,13 @@
 title: Criar e gerir projetos de migrações do Azure Migrate
 description: Localizar, criar, gerir e apagar projetos em Azure Migrate.
 ms.topic: how-to
-ms.date: 04/19/2020
-ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071800"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerir projetos de migrações do Azure Migrate
 
@@ -65,7 +65,6 @@ Eliminar da seguinte forma:
     - O tipo de recurso é **Microsoft.Migrate/migrateprojects**.
     - Se o grupo de recursos for utilizado exclusivamente pelo projeto Azure Migrate, pode eliminar todo o grupo de recursos.
 
-
 Tenha em atenção que:
 
 - Quando elimina, tanto o projeto como os metadados sobre máquinas descobertas são eliminados.
@@ -73,6 +72,7 @@ Tenha em atenção que:
 - Se estiver a utilizar a análise de dependência com um espaço de trabalho Azure Log Analytics:
     - Se tiver anexado um espaço de trabalho do Log Analytics à ferramenta de Avaliação do Servidor, o espaço de trabalho não é automaticamente eliminado. O mesmo espaço de trabalho log Analytics pode ser usado para vários cenários.
     - Se pretender eliminar o espaço de trabalho do Log Analytics, faça-o manualmente.
+- A supressão do projeto é irreversível. Os objetos apagados não podem ser recuperados.
 
 ### <a name="delete-a-workspace-manually"></a>Excluir um espaço de trabalho manualmente
 
@@ -85,6 +85,6 @@ Tenha em atenção que:
        
 2. [Siga as instruções](../azure-monitor/platform/delete-workspace.md) para eliminar o espaço de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Adicione ferramentas de [avaliação](how-to-assess.md) ou [migração](how-to-migrate.md) a projetos da Azure Migrate.

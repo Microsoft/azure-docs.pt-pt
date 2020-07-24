@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070698"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clone a partir de uma cópia de segurança do seu StorSimple Virtual Array
 
@@ -127,7 +127,7 @@ Cada ação tem uma pasta *.backups* que contém as cópias de segurança mais r
    * **Backups programados nomeados** como &lt; nome de dispositivo &gt; DailySchedule-YYYYMMDD-HHMMSS-UTC.
    * **Cópias de segurança manuais** chamadas Ad-hoc-YYYMMDD-HHMMSS-UTC.
      
-     ![](./media/storsimple-virtual-array-clone/image14.png)
+     ![Screenshot do Explorador de Ficheiros mostrando a pasta .backups. No interior desta pasta, é selecionada a pasta de cópias de segurança manual.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. Identifique a cópia de segurança que contém a versão mais recente do ficheiro eliminado. Embora o nome da pasta contenha um relógio UTC em cada um dos casos anteriores, o momento em que a pasta foi criada é a hora real do dispositivo quando a cópia de segurança começou. Utilize o tempo de tempo da pasta para localizar e identificar as cópias de segurança.
 
@@ -135,7 +135,7 @@ Cada ação tem uma pasta *.backups* que contém as cópias de segurança mais r
 
 4. Copie o ficheiro ou a pasta para a parte apropriada no seu servidor de ficheiros StorSimple.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [administrar o seu StorSimple Virtual Array utilizando a UI web local.](storsimple-ova-web-ui-admin.md)
 

@@ -4,15 +4,15 @@ description: Saiba como se integrar com o Azure Firewall para garantir o tráfeg
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 8e63c0678967a21a6b2763574e594a1a6c2ba25b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9407e388a44ec78fa1e089542fc5ea3ef9387d60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073753"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente de Serviço de Aplicações
 
@@ -114,7 +114,7 @@ As seguintes informações só são necessárias se desejar configurar um aparel
 
 #### <a name="service-endpoint-capable-dependencies"></a>Dependências capazes de Endpoint de serviço 
 
-| Ponto Final |
+| Ponto final |
 |----------|
 | SQL do Azure |
 | Storage do Azure |
@@ -122,7 +122,7 @@ As seguintes informações só são necessárias se desejar configurar um aparel
 
 #### <a name="ip-address-dependencies"></a>Dependências de endereços IP
 
-| Ponto Final | Detalhes |
+| Ponto final | Detalhes |
 |----------| ----- |
 | \*:123 | Verificação do relógio NTP. O trânsito é verificado em vários pontos finais na porta 123 |
 | \*:12000 | Esta porta é utilizada para alguma monitorização do sistema. Se estiver bloqueado, então alguns problemas serão mais difíceis de triagem, mas o seu ASE continuará a operar |
@@ -139,7 +139,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 
 #### <a name="fqdn-httphttps-dependencies"></a>DEPENDÊNCIAS FQDN HTTP/HTTPS 
 
-| Ponto Final |
+| Ponto final |
 |----------|
 |graph.microsoft.com:443 |
 |login.live.com:443 |
@@ -225,7 +225,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 
 #### <a name="wildcard-httphttps-dependencies"></a>Dependências de WILDCARD HTTP/HTTPS 
 
-| Ponto Final |
+| Ponto final |
 |----------|
 |gr-Prod- \* .cloudapp.net:443 |
 | \*.management.azure.com:443 |
@@ -237,7 +237,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 
 #### <a name="linux-dependencies"></a>Dependências de Linux 
 
-| Ponto Final |
+| Ponto final |
 |----------|
 |wawsinfraprodbay063.blob.core.windows.net:443 |
 |registry-1.docker.io:443 |
@@ -248,6 +248,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
+|oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |
@@ -280,7 +281,7 @@ O Linux não está disponível nas regiões gov dos EUA e, portanto, não está 
 
 #### <a name="service-endpoint-capable-dependencies"></a>Dependências capazes de Endpoint de serviço ####
 
-| Ponto Final |
+| Ponto final |
 |----------|
 | SQL do Azure |
 | Storage do Azure |
@@ -288,7 +289,7 @@ O Linux não está disponível nas regiões gov dos EUA e, portanto, não está 
 
 #### <a name="ip-address-dependencies"></a>Dependências de endereços IP
 
-| Ponto Final | Detalhes |
+| Ponto final | Detalhes |
 |----------| ----- |
 | \*:123 | Verificação do relógio NTP. O trânsito é verificado em vários pontos finais na porta 123 |
 | \*:12000 | Esta porta é utilizada para alguma monitorização do sistema. Se estiver bloqueado, então alguns problemas serão mais difíceis de triagem, mas o seu ASE continuará a operar |
@@ -303,7 +304,7 @@ O Linux não está disponível nas regiões gov dos EUA e, portanto, não está 
 
 #### <a name="dependencies"></a>Dependências ####
 
-| Ponto Final |
+| Ponto final |
 |----------|
 | \*.ctldl.windowsupdate.com:80 |
 | \*.management.usgovcloudapi.net:80 |

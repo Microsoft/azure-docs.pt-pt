@@ -8,16 +8,20 @@ ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 174c11ba65ccba6389bf3e62d233b1ee56943b97
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 9bb94ee63873dea321af252a4380a7aab10df6ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560942"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071474"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
 Neste arranque rápido, você trabalha com uma Base de Dados Azure para PostgreSQL usando Python em macOS, Ubuntu Linux ou Windows. O quickstart mostra como ligar à base de dados e usar declarações SQL para consultar, inserir, atualizar e apagar dados. O artigo assume que está familiarizado com python, mas novo a trabalhar com a Azure Database for PostgreSQL.
+
+> [!TIP]
+> Se procura construir uma Aplicação Django com PostgreSQL, então check-out do tutorial, [implemente uma aplicação web Django com tutorial PostgreSQL.](../app-service/containers/tutorial-python-postgresql-app.md)
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,7 +64,7 @@ Para cada exemplo de código neste artigo:
 1. Para executar o ficheiro, altere a pasta do projeto numa interface de linha de comando e `python` escreva seguido pelo nome de ficheiro, por exemplo `python postgres-insert.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Criar uma tabela e inserir dados
-O exemplo de código a seguir liga-se à sua Base de Dados Azure para base de dados PostgreSQL utilizando a função [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) e carrega dados com uma declaração **DE INSERÇÃO** SQL. A função [cursor.executo](http://initd.org/psycopg/docs/cursor.html#execute) executa a consulta SQL na base de dados. 
+O exemplo de código a seguir liga-se à sua Base de Dados Azure para base de dados PostgreSQL utilizando a função [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) e carrega dados com uma declaração **DE INSERÇÃO** SQL. A função [cursor.exefofo](http://initd.org/psycopg/docs/cursor.html#execute) executa a consulta SQL na base de dados. 
 
 ```Python
 import psycopg2
@@ -104,7 +108,7 @@ Quando o código funciona com sucesso, produz a seguinte saída:
 ![Saída da linha de comandos](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Ler dados
-O exemplo de código a seguir liga-se à sua Base de Dados Azure para base de dados PostgreSQL e utiliza [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) com a declaração SQL **SELECT** para ler dados. Esta função aceita uma consulta e devolve um resultado definido para iterar através da [utilização de cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
+O exemplo de código a seguir liga-se à sua Base de Dados Azure para a base de dados PostgreSQL e utiliza [cursor.exefofo](http://initd.org/psycopg/docs/cursor.html#execute) com a declaração SQL **SELECT** para ler dados. Esta função aceita uma consulta e devolve um resultado definido para iterar através da [utilização de cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
 
 ```Python
 import psycopg2
@@ -138,7 +142,7 @@ conn.close()
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-O exemplo de código a seguir liga-se à sua Base de Dados Azure para base de dados PostgreSQL e utiliza [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) com a declaração SQL **UPDATE** para atualizar dados. 
+O exemplo de código a seguir liga-se à sua Base de Dados Azure para a base de dados PostgreSQL e utiliza [cursor.exefofo](http://initd.org/psycopg/docs/cursor.html#execute) com a declaração SQL **UPDATE** para atualizar dados. 
 
 ```Python
 import psycopg2
@@ -168,7 +172,7 @@ conn.close()
 ```
 
 ## <a name="delete-data"></a>Eliminar dados
-O exemplo de código que se segue liga-se à sua Base de Dados Azure para a base de dados PostgreSQL e utiliza [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) com a declaração SQL **DELETE** para eliminar um item de inventário que inseriu anteriormente. 
+O exemplo de código que se segue liga-se à sua Base de Dados Azure para a base de dados PostgreSQL e utiliza [cursor.exefofo](http://initd.org/psycopg/docs/cursor.html#execute) com a declaração SQL **DELETE** para eliminar um item de inventário que inseriu anteriormente. 
 
 ```Python
 import psycopg2

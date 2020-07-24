@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99e0a78ea1aed0ecf08618c919e7949c5645de5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72392192"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072070"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Faixas de áudio descritivas de sinal
 
@@ -27,14 +27,14 @@ Este artigo mostra como codificar um vídeo, carregar um ficheiro MP4 (código A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.
-- Siga os passos na [Access Azure Media Services API com o Azure CLI](access-api-cli-how-to.md) e guarde as credenciais. Terá de usá-los para aceder à API.
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
+- Siga os passos na [Access Azure Media Services API com o Azure CLI](./access-api-howto.md) e guarde as credenciais. Terá de usá-los para aceder à API.
 - Rever [embalagem dinâmica.](dynamic-packaging-overview.md)
 - Reveja o [tutorial de upload, codificação e stream](stream-files-tutorial-with-api.md) de vídeos.
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um elemento de entrada e carregar um ficheiro local para ele 
 
-A função **CreateInputAsset** cria um novo [Elemento](https://docs.microsoft.com/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este **Ativo** é utilizado como entrada para o seu trabalho de codificação. Nos Serviços de Comunicação social v3, a entrada para um **Job** pode ser um **Ativo,** ou pode ser conteúdo que disponibiliza à sua conta de Media Services através de URLs HTTPS. 
+A função **CreateInputAsset** cria um novo [Elemento](/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este **Ativo** é utilizado como entrada para o seu trabalho de codificação. Nos Serviços de Comunicação social v3, a entrada para um **Job** pode ser um **Ativo,** ou pode ser conteúdo que disponibiliza à sua conta de Media Services através de URLs HTTPS. 
 
 Se quiser aprender a codificar a partir de um URL HTTPS, consulte [este artigo](job-input-from-http-how-to.md) .  
 
@@ -43,7 +43,7 @@ Nos Serviços de Multimédia v3, deverá utilizar as APIs do Armazenamento do A
 A função seguinte executa estes passos:
 
 * Cria um **Ativo** 
-* Obtém um [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) writable para o contentor do ativo [no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Obtém um [URL SAS](../../storage/common/storage-sas-overview.md) writable para o contentor do ativo [no armazenamento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Carrega o ficheiro para o contentor de armazenamento através do URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -52,7 +52,7 @@ Se precisar de passar o nome do ativo de entrada criado para outros métodos, ce
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Criar um ativo de saída para armazenar o resultado do trabalho de codificação
 
-A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação. A seguinte função mostra como criar um ativo de saída.
+A saída [Asset](/rest/api/media/assets) armazena o resultado da tarefa de codificação. A seguinte função mostra como criar um ativo de saída.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
@@ -62,7 +62,7 @@ No caso deste artigo, passe o `outputAsset.Name` valor para as `SubmitJobAsync` 
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Crie uma transformação e um trabalho que codifica o ficheiro carregado
 
-Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
+Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](./transforms-jobs-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
 
 O exemplo a seguir cria uma transformação (se não existir).
 
@@ -202,14 +202,14 @@ Quando o seu trabalho de codificação estiver feito, o ativo de saída conterá
 
 ## <a name="get-a-streaming-locator"></a>Obtenha um localizador de streaming
 
-Depois de concluída a codificação, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode fazê-lo em dois passos: primeiro, criar um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)e, em segundo lugar, construir os URLs de streaming que os clientes podem usar. 
+Depois de concluída a codificação, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode fazê-lo em dois passos: primeiro, criar um [Localizador de Streaming](/rest/api/media/streaminglocators)e, em segundo lugar, construir os URLs de streaming que os clientes podem usar. 
 
 O processo de criação de um **Localizador de Streaming** chama-se publicação. Por predefinição, o **Localizador de Streaming** é válido imediatamente após a edição da API e dura até ser eliminado, a menos que configuure os tempos de início e fim opcionais. 
 
-Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), terá de especificar o **StreamingPolicyName** pretendido. Neste exemplo, estará a transmitir conteúdo limpo (ou não encriptado) para que seja utilizada a política de streaming clara**predefinida (PredefinedStreamingPolicy.ClearStreamingOnly).**
+Ao criar um [StreamingLocator](/rest/api/media/streaminglocators), terá de especificar o **StreamingPolicyName** pretendido. Neste exemplo, estará a transmitir conteúdo limpo (ou não encriptado) para que seja utilizada a política de streaming clara**predefinida (PredefinedStreamingPolicy.ClearStreamingOnly).**
 
 > [!IMPORTANT]
-> Ao utilizar uma [Política de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. A sua conta de Media Service tem uma quota para o número de entradas na Política de Streaming. Não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
+> Ao utilizar uma [Política de Streaming](/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. A sua conta de Media Service tem uma quota para o número de entradas na Política de Streaming. Não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
 
 O código seguinte parte do princípio de que está a chamar a função com um locatorName exclusivo.
 
@@ -219,7 +219,7 @@ Enquanto a amostra deste tópico discute o streaming, você pode usar a mesma ch
 
 ### <a name="get-streaming-urls"></a>Obter os URLs de transmissão
 
-Agora que o [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostrado no **GetStreamingURLs**. Para construir um URL, é necessário concatenar o nome do anfitrião [streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
+Agora que o [Localizador de Streaming](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostrado no **GetStreamingURLs**. Para construir um URL, é necessário concatenar o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
 
 > [!NOTE]
 > Neste método, você precisa do nome localizador que foi usado ao criar o **Localizador de Streaming** para o Ativo de saída.

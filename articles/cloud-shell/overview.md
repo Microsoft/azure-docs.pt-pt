@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: 513c3da8031774f5f111ee357b5a3c43e1d09d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0cfd428e1bd380d17049cbc229bb8850793056e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832491"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073019"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 O Azure Cloud Shell é uma shell interativa, autenticada e compatível com browsers para gerir recursos do Azure.
@@ -60,15 +61,15 @@ A Cloud Shell oferece um editor de texto gráfico integrado baseado no editor de
 
 ### <a name="integrated-with-docsmicrosoftcom"></a>Integrado com docs.microsoft.com
 
-Pode utilizar a Cloud Shell diretamente a partir da documentação hospedada no [docs.microsoft.com](https://docs.microsoft.com). Está integrado na documentação [do Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) e [Azure CLI](https://docs.microsoft.com/cli/azure) - clique no botão "Try It" num corte de código para abrir a experiência imersiva da concha. 
+Pode utilizar a Cloud Shell diretamente a partir da documentação hospedada no [docs.microsoft.com](https://docs.microsoft.com). Está integrado na documentação [do Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) e [Azure CLI](https://docs.microsoft.com/cli/azure) - clique no botão "Try It" num corte de código para abrir a experiência imersiva da concha. 
 
-### <a name="multiple-access-points"></a>Vários pontos de acesso
+### <a name="multiple-access-points"></a>Múltiplos pontos de acesso
 Cloud Shell é uma ferramenta flexível que pode ser usada a partir de:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure)
-* [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Aplicativo móvel Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
+* [Aplicação móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão da conta visual Studio Code Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Ligue o armazenamento do Microsoft Azure Files
@@ -93,6 +94,6 @@ Saiba mais sobre as funcionalidades em [Bash em Cloud Shell](features.md) e [Pow
 ## <a name="pricing"></a>Preços
 A máquina que hospeda a Cloud Shell é gratuita, com um pré-requisito de uma partilha de Ficheiros Azure montados. Aplicam-se custos regulares de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Bash em Cloud Shell quickstart](quickstart.md) <br>
 [PowerShell em Cloud Shell quickstart](quickstart-powershell.md)

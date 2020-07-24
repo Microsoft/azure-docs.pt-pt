@@ -4,11 +4,12 @@ description: Route Azure Monitor e Application Insights dados para que possa vê
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672213"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073464"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorize os seus serviços Azure em Grafana
 Agora pode monitorizar os serviços e aplicações da Azure a partir de [Grafana](https://grafana.com/) utilizando o [plugin de fonte de dados Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plugin recolhe dados de desempenho da aplicação recolhidos pelo Azure Monitor, incluindo vários registos e métricas. Em seguida, pode apresentar estes dados no seu painel grafana.
@@ -23,7 +24,7 @@ Para configurar um servidor Grafana local, [descarregue e instale Grafana no seu
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Instale Grafana em Azure através do Azure Marketplace
 1. Vá ao Azure Marketplace e escolha Grafana pela Grafana Labs.
 
-2. Preencha os nomes e detalhes. Crie um novo grupo de recursos. Acompanhe os valores que escolhe para o nome de utilizador VM, palavra-passe VM e senha de administração do servidor Grafana.  
+2. Preencha os nomes e detalhes. Criar um novo grupo de recursos. Acompanhe os valores que escolhe para o nome de utilizador VM, palavra-passe VM e senha de administração do servidor Grafana.  
 
 3. Escolha o tamanho VM e uma conta de armazenamento.
 
@@ -58,9 +59,9 @@ Uma vez iniciado o login com sucesso, deve ver se o plugin de fonte de dados do 
 2. Escolha um nome para a fonte de dados e selecione **O Monitor Azure** como o tipo a partir do dropdown.
 
 3. Criar um principal de serviço - Grafana usa um diretor de serviço Azure Ative Directory para ligar às APIs do Monitor Azure e recolher dados. Deve criar, ou utilizar um principal de serviço existente, para gerir o acesso aos seus recursos Azure.
-    * Consulte [estas instruções](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar um principal de serviço. Copie e guarde o seu ID do inquilino (ID de diretório), ID do cliente (ID de aplicação) e segredo do cliente (valor chave de aplicação).
-    * Consulte [a aplicação de atribuir a função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) de atribuir a função Reader à aplicação Azure Ative Directory na subscrição, grupo de recursos ou recursos que pretende monitorizar. 
-    A API do Log Analytics requer a [função De Leitor de Log Analytics,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)que inclui as permissões da função Reader e acrescenta-lhe.
+    * Consulte [estas instruções](../../active-directory/develop/howto-create-service-principal-portal.md) para criar um principal de serviço. Copie e guarde o seu ID do inquilino (ID de diretório), ID do cliente (ID de aplicação) e segredo do cliente (valor chave de aplicação).
+    * Consulte [a aplicação de atribuir a função](../../active-directory/develop/howto-create-service-principal-portal.md) de atribuir a função Reader à aplicação Azure Ative Directory na subscrição, grupo de recursos ou recursos que pretende monitorizar. 
+    A API do Log Analytics requer a [função De Leitor de Log Analytics,](../../role-based-access-control/built-in-roles.md#log-analytics-reader)que inclui as permissões da função Reader e acrescenta-lhe.
 
 4. Forneça os detalhes da ligação às APIs que gostaria de usar. Pode ligar-se a todos ou a alguns deles. 
     * Se ligar a ambas as métricas e registos no Azure Monitor, pode reutilizar as mesmas credenciais selecionando os **mesmos detalhes que a API do Monitor Azure**.
@@ -156,6 +157,5 @@ Se configurar um ambiente Grafana no Azure, é cobrado quando os VMs estão a fu
 1. A partir do menu à esquerda no portal Azure, clique em **grupos de recursos** e, em seguida, clique em **Grafana**.
 2. Na sua página de grupo de recursos, clique em **Eliminar**, **digite Grafana** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Visão geral das métricas do monitor Azure](data-platform.md)
-

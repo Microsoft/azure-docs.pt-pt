@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 39a92dbdc0bdcd0fdd2bb06efe3fbd4bfe33069d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133773"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071193"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Erros de resolução de problemas ao falhar em VMware VMware VM ou máquina física para Azure
 
@@ -54,9 +54,11 @@ Para alterar manualmente o tipo de arranque de controladores para **o Windows Gu
 
     Dá o seguinte resultado se for necessária hidratação:
 
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system doesn't meet no-hydration requirement.
+    This system doesn't meet no-hydration requirement.
+    ```
 
     Caso o VM cumpra o requisito de não hidratação, o script dará o resultado "Este sistema não cumpre os requisitos de não hidratação". Neste caso, todos os motoristas e serviços estão no estado conforme exigido pelo Azure e a hidratação no VM não é necessária.
 
@@ -65,12 +67,14 @@ Para alterar manualmente o tipo de arranque de controladores para **o Windows Gu
     `.\Script-no-hydration.ps1 -set`
     
     Isto converterá o tipo de arranque de motoristas e dará o resultado como abaixo:
-    
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
-        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system is now no-hydration compatible. 
+    Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0
+
+    This system is now no-hydration compatible.
+    ```
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Incapaz de ligar/RDP/SSH à máquina virtual falhada devido ao botão de ligação acinzentado na máquina virtual
 
@@ -116,11 +120,15 @@ Se conseguir ligar-se à máquina utilizando RDP mas não conseguir abrir a cons
 
 * Se a máquina OS for Red Hat ou Oracle Linux 7.*/8.0, executar o seguinte comando no Failover Azure VM com permissões de raiz. Reinicie o VM após o comando.
 
-        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```
 
 * Se a máquina OS for CentOS 7.*, executar o seguinte comando no Azure VM de failover com permissões de raiz. Reinicie o VM após o comando.
 
-        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```
 
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensagem de encerramento inesperada (ID do evento 6008)
 
@@ -173,7 +181,7 @@ Para resolver o problema:
      - Desative o representante no servidor Target Principal. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Resolução de problemas [ligação RDP ao Windows VM](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
 - Resolução de [problemas Ligação SSH ao Linux VM](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 

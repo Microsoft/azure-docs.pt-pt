@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: tracking-python
-ms.openlocfilehash: 07708de1326e0aba6485b2cf1fb0610d9710cdf7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9a3ffd633fc45f054cf335d91e399204d5dda8e4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070739"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use python para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
@@ -196,6 +196,8 @@ def manage_directory_permissions():
      print(e) 
 ```
 
+Você também pode obter e definir o ACL do diretório de raiz de um recipiente. Para obter o diretório de raiz, ligue para o método **FileSystemClient._get_root_directory_client.**
+
 ## <a name="upload-a-file-to-a-directory"></a>Faça o upload de um ficheiro para um diretório 
 
 Em primeiro lugar, crie uma referência de ficheiro no directório-alvo criando uma instância da classe **DataLakeFileClient.** Faça o upload de um ficheiro ligando para o método **DataLakeFileClient.append_data.** Certifique-se de completar o upload ligando para o método **DataLakeFileClient.flush_data.**
@@ -331,7 +333,7 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Documentação de referência da API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-storage-file-datalake/)

@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b18c34f8c0378d22d138b865d72fa4f351d7b8f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77665159"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073636"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão de Conector de Insights de Aplicação (Deprecada)
 
@@ -43,10 +44,10 @@ Ao contrário da maioria das outras soluções de Log Analytics, os dados não s
 
 | Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações dos agentes linux. |
-| [Grupo de gestão SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
-| [Conta de armazenamento Azure](collect-azure-metrics-logs.md) | Não | A solução não ressoou informações do armazenamento da Azure. |
+| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | No | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | A solução não recolhe informações dos agentes linux. |
+| [Grupo de gestão SCOM](../../azure-monitor/platform/om-agents.md) | No | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
+| [Conta de armazenamento Azure](./resource-logs.md#send-to-log-analytics-workspace) | No | A solução não ressoou informações do armazenamento da Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +60,7 @@ Ao contrário da maioria das outras soluções de Log Analytics, os dados não s
 1. Ativar a solução Azure Web Apps Analytics a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou utilizando o processo descrito nas [soluções Add Log Analytics da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
 2. Navegue pelo [portal Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir Insights de Aplicação. Em seguida, procure por Insights de Aplicação. 
 3. Em **Subscrições**, selecione uma subscrição que tenha recursos de Insights de Aplicação e, em seguida, em **Nome**, selecione uma ou mais aplicações.
-4. Clique em **Guardar**.
+4. Clique em **Save** (Guardar).
 
 Em aproximadamente 30 minutos, os dados ficam disponíveis e o azulejo application Insights é atualizado com dados, como a seguinte imagem:
 
@@ -186,7 +187,7 @@ Os dados são recebidos pelo Log Analytics a partir de Application Insights à m
 | Continente | Continente onde o pedido teve origem |
 | País | País/região de origem do pedido |
 | Província | Província, estado ou localidade de onde o pedido teve origem |
-| Localidade | Cidade ou cidade onde o pedido teve origem |
+| Cidade | Cidade ou cidade onde o pedido teve origem |
 | isSynthetic | Indica se o pedido foi criado por um utilizador ou por método automatizado. Verdadeiro = método automatizado ou falso = utilizador gerado |
 | AmostragemRate | Percentagem de telemetria gerada pelo SDK que é enviado para o portal. Intervalo 0.0-100.0. |
 | Contas amostradas | 100/(SamplingRate). Por exemplo, 4 = &gt; 25% |
@@ -244,7 +245,7 @@ Os dados são recebidos pelo Log Analytics a partir de Application Insights à m
 | Propriedade | Descrição |
 | --- | --- |
 | Tipo | ApplicationInsights |
-| TelemetriaType | Pedir |
+| TelemetriaType | Pedido |
 | Código de Resposta | Resposta HTTP enviada ao cliente |
 | PedidoSSuccess | Indica sucesso ou fracasso. True ou false. |
 | RequestID | ID para identificar exclusivamente o pedido |
@@ -303,7 +304,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Este script requer um símbolo de autenticação ao portador para autenticação contra o Azure Ative Directory. Uma forma de recuperar este token é usar um artigo no [site de documentação da API](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate)REST. Clique em **Tentar** e inicie sessão na subscrição do Azure. Pode copiar o token do portador da **pré-visualização** do pedido, como mostrado na imagem seguinte.
+Este script requer um símbolo de autenticação ao portador para autenticação contra o Azure Ative Directory. Uma forma de recuperar este token é usar um artigo no [site de documentação da API](/rest/api/loganalytics/datasources/createorupdate)REST. Clique em **Tentar** e inicie sessão na subscrição do Azure. Pode copiar o token do portador da **pré-visualização** do pedido, como mostrado na imagem seguinte.
 
 
 ![Ficha de portador](media/app-insights-connector/bearer-token.png)
@@ -315,6 +316,6 @@ Também pode obter uma lista de aplicações que utilizem uma consulta de regist
 ApplicationInsights | summarize by ApplicationName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Utilize [a Pesquisa de Registo](../../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas para as suas aplicações Application Insights.

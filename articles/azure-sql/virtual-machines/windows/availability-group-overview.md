@@ -14,11 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3c7009e5ecb43a809b9a3f703fc5ba289a2fd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50be33bf0cb89c7baff58e5f8e4a2a23b9a1ecef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073278"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduzindo o SQL Server Sempre em grupos de disponibilidade em Máquinas Virtuais Azure
 
@@ -40,10 +41,9 @@ Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server d
 
 |  | Versão do Servidor do Windows | Versão do servidor SQL | Edição do Servidor SQL | WSFC Quorum Config | DR com Multi-região | Suporte multi-sub-redes | Apoio a um AD existente | DR com a mesma região de várias zonas | Suporte Dist-AG sem domínio AD | Suporte Dist-AG sem cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [SQL VM CLI](availability-group-az-cli-configure.md) | 2016 | 2017 </br>2016   | Ent | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
-| [Modelos de arranque rápido](availability-group-quickstart-template-configure.md) | 2016 | 2017</br>2016  | Ent | Testemunha de cloud | Não | Sim | Sim | Sim | Não | Não |
-| [Manual](availability-group-manually-configure-prerequisites-tutorial.md) | Todos | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
-| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+| **[SQL VM CLI](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Testemunha de cloud | No | Sim | Sim | Sim | Não | Não |
+| **[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Testemunha de cloud | No | Sim | Sim | Sim | Não | Não |
+| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | Todos | Todos | Todos | Todos | Sim | Sim | Sim | Sim | Sim | Sim |
 
 O modelo **SQL Server AlwaysOn Cluster (pré-visualização)** foi removido do Mercado Azure e já não está disponível. 
 
@@ -75,6 +75,6 @@ Também pode criar as máquinas virtuais sem o modelo. Primeiro, complete os pr�
 
 - [Criar Grupo De Disponibilidade Sempre Para Melhorar a disponibilidade e recuperação de desastres](availability-group-manually-configure-tutorial.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configure um servidor SQL sempre no grupo de disponibilidade em máquinas virtuais Azure em diferentes regiões](availability-group-manually-configure-multiple-regions.md)

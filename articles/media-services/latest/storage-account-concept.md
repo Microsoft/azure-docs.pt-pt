@@ -12,11 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072001"
 ---
 # <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
@@ -31,7 +32,7 @@ Recomendamos que utilize O GPv2, para que possa tirar partido das funcionalidade
 > [!NOTE]
 > Apenas o nível de acesso a quente é suportado para uso com a Azure Media Services, embora os outros níveis de acesso possam ser usados para reduzir os custos de armazenamento em conteúdos que não estão a ser utilizados ativamente.
 
-Existem diferentes SKUs que pode escolher para a sua conta de armazenamento. Para mais informações, consulte [as contas de armazenamento.](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest) Se quiser experimentar contas de armazenamento, use `--sku Standard_LRS` . No entanto, ao escolher um SKU para produção, deve `--sku Standard_RAGRS` considerar, que fornece replicação geográfica para a continuidade do negócio.
+Existem diferentes SKUs que pode escolher para a sua conta de armazenamento. Para mais informações, consulte [as contas de armazenamento.](/cli/azure/storage/account?view=azure-cli-latest) Se quiser experimentar contas de armazenamento, use `--sku Standard_LRS` . No entanto, ao escolher um SKU para produção, deve `--sku Standard_RAGRS` considerar, que fornece replicação geográfica para a continuidade do negócio.
 
 ## <a name="assets-in-a-storage-account"></a>Ativos numa conta de armazenamento
 
@@ -47,8 +48,8 @@ Para proteger os seus ativos em repouso, os ativos devem ser encriptados pela en
 |Opção de encriptação|Descrição|Serviços de Multimédia v3|
 |---|---|---|
 |Encriptação de armazenamento de serviços de mídia| Encriptação AES-256, chave gerida pelos Media Services. |Não apoiado. <sup>(1)</sup>|
-|[Encriptação do serviço de armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado.|
-|[Encriptação do lado do cliente do armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault.|Não suportado.|
+|[Encriptação do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado.|
+|[Encriptação do lado do cliente do armazenamento](../../storage/common/storage-client-side-encryption.md)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault.|Não suportado.|
 
 <sup>1</sup> Nos Serviços de Media v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para retrocompatibilidade quando os seus ativos foram criados com os Media Services v2, o que significa que a V3 funciona com ativos encriptados de armazenamento existentes, mas não permite a criação de novos.
 
@@ -65,8 +66,8 @@ Seguem-se os cenários principais que poderão resultar numa conta de Serviços 
 
 ## <a name="azure-storage-firewall"></a>Firewall de armazenamento Azure
 
-A Azure Media Services não suporta contas de armazenamento com a firewall de armazenamento Azure ou [private endpoints](https://docs.microsoft.com/azure/storage/common/storage-network-security) ativados.
+A Azure Media Services não suporta contas de armazenamento com a firewall de armazenamento Azure ou [private endpoints](../../storage/common/storage-network-security.md) ativados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber como anexar uma conta de armazenamento na sua conta de Serviços de Mídia, consulte [Criar uma conta](create-account-cli-quickstart.md).
+Para saber como anexar uma conta de armazenamento na sua conta de Serviços de Mídia, consulte [Criar uma conta](./create-account-howto.md).

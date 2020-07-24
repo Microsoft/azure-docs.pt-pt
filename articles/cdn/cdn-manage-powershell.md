@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: ba67ea9455c8d7f077eae87f582f05b5c2672735
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7ad3034ff3730cdadcfd55765af01c97df78028
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887615"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073060"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gerir a Azure CDN com a PowerShell
 O PowerShell fornece um dos métodos mais flexíveis para gerir os seus perfis e pontos finais do Azure CDN.  Pode utilizar o PowerShell de forma interativa ou escrevendo scripts para automatizar tarefas de gestão.  Este tutorial demonstra várias das tarefas mais comuns que pode realizar com o PowerShell para gerir os seus perfis e pontos finais do Azure CDN.
@@ -28,7 +28,7 @@ O PowerShell fornece um dos métodos mais flexíveis para gerir os seus perfis e
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para utilizar o PowerShell para gerir os perfis e pontos finais do Azure CDN, tem de ter o módulo Azure PowerShell instalado.  Para aprender a instalar a Azure PowerShell e ligar-se ao Azure utilizando o `Connect-AzAccount` cmdlet, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+Para utilizar o PowerShell para gerir os perfis e pontos finais do Azure CDN, tem de ter o módulo Azure PowerShell instalado.  Para aprender a instalar a Azure PowerShell e ligar-se ao Azure utilizando o `Connect-AzAccount` cmdlet, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > Tem de iniciar sessão `Connect-AzAccount` antes de poder executar cmdlets Azure PowerShell.

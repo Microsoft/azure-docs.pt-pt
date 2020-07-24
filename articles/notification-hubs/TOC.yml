@@ -6,7 +6,7 @@
       href: notification-hubs-push-notification-overview.md
     - name: Integração com as Aplicações Móveis do Serviço de Aplicações
       href: notification-hubs-app-service.md
-- name: Guias de Início Rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar hub de notificação - Portal do Azure
@@ -54,8 +54,6 @@
               href: ios-sdk-300.md
             - name: Objetivo C (versão 2.0.4)
               href: ios-sdk-204.md
-            - name: Swift
-              href: ios-sdk-swift-rest.md
         - name: Enviar notificações push para dispositivos específicos
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Enviar notificações push para utilizadores específicos
@@ -64,16 +62,6 @@
           href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
         - name: Enviar notificações push localizadas para dispositivos iOS
           href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Várias Plataformas
-      items:
-        - name: Enviar notificações push através de um serviço de back-end
-          items:
-            - name: Xamarin.Forms
-              href: notification-hubs-backend-service-xamarin-forms.md
-            - name: Flutter
-              href: notification-hubs-backend-service-flutter.md
-            - name: React Native
-              href: notification-hubs-backend-service-react-native.md
     - name: Windows Phone
       items:
         - name: Enviar notificações push para as aplicações
@@ -188,7 +176,7 @@
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/notification-hubs/'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-notification-hubs.html'
+      href: /answers/topics/azure-notification-hubs.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-notificationhub'
     - name: Pedir uma funcionalidade

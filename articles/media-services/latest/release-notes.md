@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: d09fba2130dc302378a59200349a569cc248234b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072140"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -36,6 +36,20 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 >
 > Para mais detalhes, consulte: [as limitações do portal Azure para os Serviços de Comunicação Social v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="july-2020"></a>Julho de 2020
+
+### <a name="live-transcriptions"></a>Transcrições ao vivo
+
+As transcrições ao vivo suportam agora 19 línguas e 8 regiões.
+
+## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Proteger o seu conteúdo com serviços de media e Azure AD
+
+Publicámos um tutorial chamado [proteção de conteúdo de ponta a ponta usando a Azure AD](./azure-ad-content-protection.md).
+
+### <a name="high-availablity"></a>Alta availablidade
+
+Publicámos uma [visão geral](./media-services-high-availability-encoding.md) e uma amostra de Alta Disponibilidade com Serviços de Comunicação Social e [Vídeo](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming)a Pedido (VOD).
+
 ## <a name="june-2020"></a>Junho de 2020
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Vídeo ao vivo analítico no lançamento da pré-estreia do IoT Edge
@@ -43,16 +57,6 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 A pré-estreia de Live Video Analytics no IoT Edge tornou-se pública. Para obter mais informações, consulte [as notas de lançamento.](../live-video-analytics-edge/release-notes.md)
 
 Live Video Analytics on IoT Edge é uma expansão para a família Media Service. Permite-lhe analisar vídeo ao vivo com modelos de IA à sua escolha nos seus próprios dispositivos de borda, e capturar e gravar opcionalmente esse vídeo. Agora pode construir aplicativos com análise de vídeo em tempo real no limite sem se preocupar com a complexidade de construir e operar um pipeline de vídeo ao vivo.
-
-### <a name="search-by-topics"></a>Pesquisar por tópicos
-
-Agora pode utilizar a API de pesquisa para procurar vídeos com tópicos específicos (apenas API).
-
-Os tópicos são adicionados como parte do `textScope` (parâmetro opcional). Consulte [a API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) para mais detalhes.  
-
-### <a name="labels-enhancement"></a>Melhoria dos rótulos
-
-O tagger da etiqueta foi atualizado e agora inclui mais etiquetas visuais que podem ser identificadas.
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -137,7 +141,7 @@ A Media Services v3 está anunciando a pré-estreia de 24 hrs x 365 dias de codi
 
 #### <a name="deprecation-of-media-processors"></a>Depreciação dos processadores de meios de comunicação
 
-Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui estes processadores de mídia legado.
+Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui estes processadores de mídia legado.
 
 Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -171,9 +175,9 @@ A partir de julho, a funcionalidade de pré-visualização só estava disponíve
 
 ### <a name="video-subclipping"></a>Vídeo subclipping
 
-Agora pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). 
+Agora pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](/rest/api/media/jobs). 
 
-Esta funcionalidade funciona com qualquer [Transform](https://docs.microsoft.com/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 
+Esta funcionalidade funciona com qualquer [Transform](/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](/rest/api/media/transforms/createorupdate#standardencoderpreset) 
 
 Ver exemplos:
 
@@ -212,8 +216,8 @@ Atualizações adicionadas que incluem melhorias no desempenho dos Serviços de 
 
 ### <a name="new-presets"></a>Novas predefinições
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador incorporado.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições codificadoras incorporadas. Para obter mais informações, consulte [codificação consciente do conteúdo.](content-aware-encoding.md) 
+* [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador incorporado.
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições codificadoras incorporadas. Para obter mais informações, consulte [codificação consciente do conteúdo.](content-aware-encoding.md) 
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -246,21 +250,21 @@ As atualizações da versão GA da API V3 incluem:
 
 ## <a name="november-2018"></a>Novembro de 2018
 
-O módulo CLI 2.0 já está disponível para [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+O módulo CLI 2.0 já está disponível para [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
 
 ### <a name="new-commands"></a>Novos comandos
 
-- [conta az ams](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams filtro de conta](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams ativo](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams filtro de ativos](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams conteúdo chave-chave-política](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [trabalho az ams](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-localizador](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - permite-lhe gerir Unidades Reservadas de Mídia. Para mais informações, consulte [as Unidades Reservadas para Os Meios de Escala.](media-reserved-units-cli-how-to.md)
+- [conta az ams](/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams filtro de conta](/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams ativo](/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams filtro de ativos](/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams conteúdo chave-chave-política](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [trabalho az ams](/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-localizador](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) - permite-lhe gerir Unidades Reservadas de Mídia. Para mais informações, consulte [as Unidades Reservadas para Os Meios de Escala.](media-reserved-units-cli-how-to.md)
 
 ### <a name="new-features-and-breaking-changes"></a>Novas funcionalidades e mudanças de rutura
 
@@ -351,7 +355,7 @@ CMAF e suporte de encriptação 'cbcs' para os jogadores Apple HLS (iOS 11+) e M
 
 ### <a name="video-indexer"></a>Video Indexer
 
-O lançamento do Video Indexer GA foi anunciado em agosto. Para obter novas informações sobre funcionalidades atualmente suportadas, consulte [O Que é Indexer de Vídeo](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
+O lançamento do Video Indexer GA foi anunciado em agosto. Para obter novas informações sobre funcionalidades atualmente suportadas, consulte [O Que é Indexer de Vídeo](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 
 ### <a name="plans-for-changes"></a>Planos para alterações
 
@@ -386,11 +390,11 @@ As seguintes funcionalidades estão presentes no .NET SDK:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral](media-services-overview.md)
 - [Atualizações de documentação v3 dos Serviços de Comunicação Social](docs-release-notes.md)

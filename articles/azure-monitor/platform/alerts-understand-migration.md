@@ -6,11 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114311"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073623"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Compreender como funciona a ferramenta de migração
 
@@ -63,7 +64,7 @@ Todos os alertas clássicos nas contas de armazenamento podem ser migrados, exce
 - SASThrottlingError
 - ThrottlingError
 
-As regras clássicas de alerta sobre as métricas por cento devem ser migradas com base no [mapeamento entre métricas antigas e novas de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Os limiares terão de ser modificados adequadamente, uma vez que a nova métrica disponível é absoluta.
+As regras clássicas de alerta sobre as métricas por cento devem ser migradas com base no [mapeamento entre métricas antigas e novas de armazenamento](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Os limiares terão de ser modificados adequadamente, uma vez que a nova métrica disponível é absoluta.
 
 As regras clássicas de alerta em AnonymousThrottlingError, SASThrottlingError e ThrottlingError devem ser divididas em dois novos alertas porque não existe uma métrica combinada que forneça a mesma funcionalidade. Os limiares terão de ser adaptados adequadamente.
 
@@ -160,7 +161,7 @@ Para serviços de conta de armazenamento como bolha, tabela, arquivo e fila, as 
 | SASSuccess | Métrica de transações com dimensões "ResponseType"="Sucesso" e "Autenticação" = "SAS" | |
 | ServerOtherError | Métrica de transações com dimensões "ResponseType"="ServerOtherError" | |
 | ServerTimeOutError | Métrica de transações com dimensões "ResponseType"="ServerTimeOutError"  | |
-| Êxito | Métrica de transações com dimensões "ResponseType"="Sucesso" | |
+| Success | Métrica de transações com dimensões "ResponseType"="Sucesso" | |
 | TotalBillableRequests| Transações | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |
@@ -269,7 +270,7 @@ Como parte da migração, serão criados novos alertas métricos e novos grupos 
 - Excluindo as subscrições ou grupos de recursos durante a duração do processo de migração da atribuição de políticas. [Saiba mais sobre a gestão do âmbito de exclusão de políticas.](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion)
 - Remover ou alterar o efeito para "auditoria" ou "apêndice" (o que, por exemplo, pode resolver problemas relacionados com as etiquetas em falta). [Saiba mais sobre a gestão do efeito políticas.](../../governance/policy/concepts/definition-structure.md#policy-rule)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

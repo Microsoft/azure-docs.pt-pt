@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: ea9865d35b25b5691f702b91c6255f0f703c3e90
-  ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+  ms.openlocfilehash: 778d697f5c84f99da6974b9d689ddfe35930cd33
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84310041"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87072909"
 landingContent:
 - title: Acerca do Azure Dev Spaces
   linkLists:
@@ -65,6 +65,6 @@ landingContent:
     - text: Utilizar o GitHub Actions com o Azure Dev Spaces
       url: how-to/github-actions.md
     - text: Utilizar o Processo Local com o Kubernetes com o Visual Studio Code
-      url: how-to/local-process-kubernetes-vs-code.md
+      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
     - text: Utilizar o Processo Local com o Kubernetes com o Visual Studio
-      url: how-to/local-process-kubernetes-visual-studio.md
+      url: /visualstudio/containers/local-process-kubernetes

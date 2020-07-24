@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75979412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072658"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas em Azure Logic Apps com Enterprise Integration Pack
 
@@ -42,7 +43,7 @@ Para limites relacionados com contas de integração e artefactos como mapas, co
     | [Explorador do Storage do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Esta ferramenta ajuda-o a gerir mais facilmente as contas de armazenamento e os recipientes blob. Para utilizar o Storage Explorer, [descarregue e instale o Azure Storage Explorer](https://www.storageexplorer.com/). Em seguida, ligue o Storage Explorer à sua conta de armazenamento seguindo os passos em [Começar com o Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para saber mais, consulte [Quickstart: Crie uma bolha no armazenamento de objetos com o Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Ou, no portal Azure, encontre e selecione a sua conta de armazenamento. A partir do menu da sua conta de armazenamento, selecione **Storage Explorer**. |
     |||
 
-  * Para mapas, pode atualmente adicionar mapas maiores utilizando as [aplicações lógicas AZure REST API - Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * Para mapas, pode atualmente adicionar mapas maiores utilizando as [aplicações lógicas AZure REST API - Mapas](/rest/api/logic/maps/createorupdate).
 
 Não precisa de uma aplicação lógica ao criar e adicionar mapas. No entanto, para usar um mapa, a sua aplicação lógica precisa de ser linkdeira a uma conta de integração onde armazena esse mapa. Saiba [como ligar aplicações lógicas a contas de integração.](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) Se ainda não tem uma aplicação lógica, aprenda [a criar aplicações lógicas.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -219,7 +220,7 @@ Depois de fazer o upload de quaisquer conjuntos que o seu mapa se refere, pode a
 
 ### <a name="add-maps-more-than-2-mb"></a>Adicionar mapas mais de 2 MB
 
-Atualmente, para adicionar mapas maiores, use as [Aplicações AZure Logic REST API - Mapas](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+Atualmente, para adicionar mapas maiores, use as [Aplicações AZure Logic REST API - Mapas](/rest/api/logic/maps/createorupdate).
 
 <!--
 
@@ -343,7 +344,7 @@ Para atualizar um mapa existente, tem de carregar um novo ficheiro de mapa que t
 
 1. Para confirmar que pretende apagar o mapa, escolha **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o Pacote de Integração Empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)  
 * [Saiba mais sobre esquemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)

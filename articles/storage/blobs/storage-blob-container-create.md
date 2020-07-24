@@ -5,14 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/17/2019
+ms.date: 07/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24e754a583125c962e67f849edcec8f8609746a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abf4cb33fa953ec9a257397551b3d17752fe67f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070737"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Criar ou apagar um recipiente em Azure Storage com .NET
 
@@ -24,7 +25,7 @@ Um nome de recipiente deve ser um nome DNS válido, uma vez que faz parte do URI
 
 - Os nomes dos contentores podem ter entre 3 e 63 caracteres de comprimento.
 - Os nomes dos recipientes devem começar com uma letra ou número, e podem conter apenas letras minúsculas, números e o caráter (-) do painel.
-- Dois ou mais caracteres de traços consecutivos não são permitidos em nomes de recipientes.
+- Dois ou mais caracteres de traços consecutivos não são permitidos em nomes de contentores.
 
 O URI para um recipiente está neste formato:
 
@@ -34,18 +35,34 @@ O URI para um recipiente está neste formato:
 
 Para criar um recipiente, ligue para um dos seguintes métodos:
 
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+- [Criar](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
+- [Criar Async](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
+- [CriarExistsIfNotExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
+- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
 - [Criar](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [Criar Async](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CriarExistsIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
+---
 
 Os métodos **Criar** e **CriarAync** lançam uma exceção se já existir um recipiente com o mesmo nome.
 
-Os **métodos CreateIfNotExists** e **CreateIfNotExistsAsync** devolvem um valor Boolean que indica se o recipiente foi criado. Se um recipiente com o mesmo nome já existe, então estes métodos devolvem **Falso** para indicar que um novo recipiente não foi criado.
+Os **métodos CreateIfNotExists** e **CreateIfNotExistsAsync** devolvem um valor Boolean que indica se o recipiente foi criado. Se um recipiente com o mesmo nome já existe, estes métodos devolvem **Falso** para indicar que um novo recipiente não foi criado.
 
 Os contentores são criados imediatamente por baixo da conta de armazenamento. Não é possível nidificar um contentor debaixo de outro.
 
 O exemplo a seguir cria um recipiente assíncronamente:
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateSampleContainerAsync":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
@@ -77,16 +94,23 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
     return container;
 }
 ```
+---
 
 ## <a name="create-the-root-container"></a>Criar o recipiente raiz
 
-Um recipiente de raiz serve como recipiente padrão para a sua conta de armazenamento. Cada conta de armazenamento pode ter um recipiente de raiz, que deve ser nomeado *$root.*. . Deve criar ou eliminar explicitamente o recipiente de raiz.
+Um recipiente de raiz serve como recipiente padrão para a sua conta de armazenamento. Cada conta de armazenamento pode ter um recipiente de raiz, que deve ser nomeado *$root*. O recipiente de raiz deve ser explicitamente criado ou eliminado.
 
-Pode fazer referência a uma bolha armazenada no recipiente de raiz sem incluir o nome do recipiente raiz. O recipiente de raiz permite-lhe fazer referência a uma bolha no nível superior da hierarquia da conta de armazenamento. Por exemplo, pode fazer referência a uma bolha que reside no recipiente de raiz da seguinte forma:
+Pode fazer referência a uma bolha armazenada no recipiente de raiz sem incluir o nome do recipiente raiz. O recipiente de raiz permite-lhe fazer referência a uma bolha no nível superior da hierarquia da conta de armazenamento. Por exemplo, pode fazer referência a uma bolha que se encontra no recipiente raiz da seguinte forma:
 
 `https://myaccount.blob.core.windows.net/default.html`
 
 O exemplo a seguir cria o recipiente raiz sincronizado:
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateRootContainer":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -113,23 +137,40 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
     }
 }
 ```
+---
 
 ## <a name="delete-a-container"></a>Eliminar um contentor
 
 Para eliminar um recipiente em .NET, utilize um dos seguintes métodos:
 
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+- [Eliminar](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
+- [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
+- [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
 - [Eliminar](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
+---
 
 Os métodos **Eliminar** e **EliminarAsync** lançam uma exceção se o recipiente não existir.
 
-Os **métodos DeleteIfExists** e **DeleteIfExistsAsync** devolvem um valor Boolean que indica se o recipiente foi eliminado. Se o recipiente especificado não existir, então estes métodos devolvem **Falso** para indicar que o recipiente não foi eliminado.
+Os **métodos DeleteIfExists** e **DeleteIfExistsAsync** devolvem um valor Boolean que indica se o recipiente foi eliminado. Se o recipiente especificado não existir, então estes métodos retornam **Falso** para indicar que o recipiente não foi apagado.
 
-Depois de apagar um recipiente, não pode criar um recipiente com o mesmo nome durante pelo menos 30 segundos e, possivelmente, mais tempo. Enquanto o recipiente está a ser apagado, uma tentativa de criar um recipiente com o mesmo nome falhará com o código de erro HTTP 409 (Conflito). Quaisquer outras operações no contentor ou nas bolhas que contém falharão com o código de erro HTTP 404 (Não Encontrado) enquanto o recipiente estiver a ser apagado.
+Depois de apagar um recipiente, não pode criar um recipiente com o mesmo nome durante *pelo menos* 30 segundos. A tentativa de criar um recipiente com o mesmo nome falhará com o código de erro HTTP 409 (Conflito). Quaisquer outras operações no recipiente ou nas bolhas que contém falharão com o código de erro HTTP 404 (Não Encontrado).
 
-O exemplo a seguir elimina o recipiente especificado e trata da exceção se o contentor não existir:
+O exemplo a seguir elimina o recipiente especificado e trata da exceção se o recipiente não existir:
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteSampleContainerAsync":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient, string containerName)
@@ -151,8 +192,15 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
     }
 }
 ```
+---
 
-O exemplo a seguir mostra como eliminar todos os recipientes que começam com um prefixo especificado. O exemplo quebra o arrendamento se houver um arrendamento existente no contentor.
+O exemplo a seguir mostra como eliminar todos os recipientes que começam com um prefixo especificado.
+
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteContainersWithPrefixAsync":::
+
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
@@ -163,11 +211,6 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
         foreach (var container in blobClient.ListContainers(prefix))
         {
             Console.WriteLine("\tContainer:" + container.Name);
-            if (container.Properties.LeaseState == LeaseState.Leased)
-            {
-                await container.BreakLeaseAsync(null);
-            }
-
             await container.DeleteAsync();
         }
 
@@ -181,10 +224,11 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
     }
 }
 ```
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Criar operação de contentores](/rest/api/storageservices/create-container)
 - [Operação Eliminar Contentor](/rest/api/storageservices/delete-container)

@@ -4,11 +4,12 @@ description: Saiba quais métricas são comumente usadas para automatizar os seu
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57bffede3b6c6c137da2feea32ad467a13f71a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76845574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073520"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling métricas comuns
 
@@ -16,7 +17,7 @@ ms.locfileid: "76845574"
 
 A autoscalagem do Azure Monitor permite escalar o número de casos em execução para cima ou para baixo, com base em dados de telemetria (métricas). Este documento descreve métricas comuns que pode querer usar. No portal Azure, pode escolher a métrica do recurso à escala. No entanto, também pode escolher qualquer métrica de um recurso diferente para escala por.
 
-A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de Gestão API.](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Outros serviços Azure utilizam diferentes métodos de escala.
+A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicações - Web Apps](https://azure.microsoft.com/services/app-service/web/)e [serviços de Gestão API.](../../api-management/api-management-key-concepts.md) Outros serviços Azure utilizam diferentes métodos de escala.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Métricas de cálculo para VMs baseados em gestores de recursos
 Por predefinição, máquinas virtuais baseadas em recursos e conjuntos de balança de máquinas virtuais emitem métricas básicas (nível de hospedeiro). Além disso, ao configurar a recolha de dados de diagnóstico para um Azure VM e VMSS, a extensão de diagnóstico Azure também emite contadores de desempenho guest-OS (vulgarmente conhecidos como "métricas de guest-OS").  Usas todas estas métricas em regras de autoescala.
@@ -51,10 +52,10 @@ Pode criar um alerta para as seguintes métricas:
 | \Processor(_Total)\% Processor Time |Percentagem |
 | \Tempo privilegiado do processador (_Total) \% |Percentagem |
 | \Tempo de utilizador do processador (_Total) \% |Percentagem |
-| \Informação do processador (_Total)\Frequência do processador |Contagem |
-| \Sistema\Processos |Contagem |
-| \Processo (_Total)\Contagem de fios |Contagem |
-| \Processo (_Total)\Contagem de manuseação |Contagem |
+| \Informação do processador (_Total)\Frequência do processador |de palavras |
+| \Sistema\Processos |de palavras |
+| \Processo (_Total)\Contagem de fios |de palavras |
+| \Processo (_Total)\Contagem de manuseação |de palavras |
 | \%\Bytes comprometidos com a memória em uso |Percentagem |
 | \Memory\Available Bytes |Bytes |
 | \Memory\Bytes comprometidos |Bytes |
@@ -70,11 +71,11 @@ Pode criar um alerta para as seguintes métricas:
 | \PhysicalDisk (_Total)\Disk Bytes/sec |BytesPerSecond |
 | \PhysicalDisk (_Total)\Disk Read Bytes/sec |BytesPerSecond |
 | \PhysicalDisk (_Total)\Disk Write Bytes/sec |BytesPerSecond |
-| \PhysicalDisk (_Total)\Avg. Comprimento da fila do disco |Contagem |
-| \PhysicalDisk (_Total)\Avg. Disco leia o comprimento da fila |Contagem |
-| \PhysicalDisk (_Total)\Avg. Disco escrever comprimento da fila |Contagem |
+| \PhysicalDisk (_Total)\Avg. Comprimento da fila do disco |de palavras |
+| \PhysicalDisk (_Total)\Avg. Disco leia o comprimento da fila |de palavras |
+| \PhysicalDisk (_Total)\Avg. Disco escrever comprimento da fila |de palavras |
 | \LogicalDisk (_Total) \% Espaço Livre |Percentagem |
-| \LogicalDisk(_Total)\Megabytes grátis |Contagem |
+| \LogicalDisk(_Total)\Megabytes grátis |de palavras |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO convidados Linux VMs
 Quando cria um VM em Azure, o diagnóstico é ativado por padrão utilizando a extensão de Diagnóstico.
@@ -118,15 +119,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageReadTime |Segundos |
 | \PhysicalDisk\AverageWriteTime |Segundos |
 | \PhysicalDisk\AverageTransferTime |Segundos |
-| \PhysicalDisk\AverageDiskQueueLength |Contagem |
+| \PhysicalDisk\AverageDiskQueueLength |de palavras |
 | \NetworkInterface\BytesTransmitted |Bytes |
 | \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |Contagem |
-| \NetworkInterface\PacketsReceived |Contagem |
+| \NetworkInterface\PacketsTransmitted |de palavras |
+| \NetworkInterface\PacketsReceived |de palavras |
 | \NetworkInterface\BytesTotal |Bytes |
-| \NetworkInterface\TotalRxErrors |Contagem |
-| \NetworkInterface\TotalTxErrors |Contagem |
-| \NetworkInterface\TotalCollisions |Contagem |
+| \NetworkInterface\TotalRxErrors |de palavras |
+| \NetworkInterface\TotalTxErrors |de palavras |
+| \NetworkInterface\TotalCollisions |de palavras |
 
 ## <a name="commonly-used-app-service-server-farm-metrics"></a>Métricas do Serviço de Aplicações (Server Farm) comumente utilizadas
 Também pode realizar uma escala automática com base em métricas comuns do servidor web, como o comprimento da fila http. O seu nome métrico é **HttpQueueLength.**  A secção seguinte lista as métricas disponíveis da fazenda de servidores (App Service).
@@ -144,8 +145,8 @@ Pode alertar ou escalar por estas métricas.
 | --- | --- |
 | CpuPercentage |Percentagem |
 | MemóriaPercentage |Percentagem |
-| DiskQueueLength |Contagem |
-| HttpQueueLength |Contagem |
+| DiskQueueLength |de palavras |
+| HttpQueueLength |de palavras |
 | BytesReceived |Bytes |
 | BytesSent |Bytes |
 
@@ -185,4 +186,3 @@ Para conjuntos de escala VM, pode atualizar a definição de Autoescala no model
 > Para o Service Bus, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos predefinido por região. O grupo de recursos encontra-se normalmente no formato 'Default-ServiceBus-[região]. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 >
 >
-

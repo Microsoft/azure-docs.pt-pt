@@ -4,16 +4,17 @@ description: Autoescala no Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4403c2957cb2d2d9d4af98d64cdb5177ae3d0726
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828989"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073487"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Visão geral da autoescala no Microsoft Azure
 Este artigo descreve o que é a escala automática da Microsoft Azure, os seus benefícios e como começar a usá-lo.  
 
-A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de cloud,](https://azure.microsoft.com/services/cloud-services/) [serviços de aplicações - Aplicações Web,](https://azure.microsoft.com/services/app-service/web/) [serviços de gestão API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)e [Clusters Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/).
+A autoescala do Azure Monitor aplica-se apenas a [conjuntos de escalas de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de cloud,](https://azure.microsoft.com/services/cloud-services/) [serviços de aplicações - Aplicações Web,](https://azure.microsoft.com/services/app-service/web/) [serviços de gestão API](../../api-management/api-management-key-concepts.md)e [Clusters Azure Data Explorer](/azure/data-explorer/).
 
 > [!NOTE]
 > Azure tem dois métodos de autoescala. Uma versão mais antiga de autoescala aplica-se a Máquinas Virtuais (conjuntos de disponibilidade). Esta funcionalidade tem suporte limitado e recomendamos migrar para conjuntos de escala de máquinas virtuais para suportes de autoescala mais rápidos e fiáveis. Neste artigo está incluído um link sobre como utilizar a tecnologia mais antiga.  
@@ -73,12 +74,12 @@ Utilize automaticamente a seguinte terminologia e estrutura.
 
 ![Definição de autoescala azul, perfil e estrutura de regras](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-A lista completa de campos e descrições configuráveis está disponível na [API autoescala REST](https://msdn.microsoft.com/library/dn931928.aspx).
+A lista completa de campos e descrições configuráveis está disponível na [API autoescala REST](/rest/api/monitor/autoscalesettings).
 
 Para exemplos de código, ver
 
 * [Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM](autoscale-virtual-machine-scale-sets.md)  
-* [API de REPOUSO de Autoescala](https://msdn.microsoft.com/library/dn931953.aspx)
+* [API de REPOUSO de Autoescala](/rest/api/monitor/autoscalesettings)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Escala horizontal vs vertical
 A escala automática apenas horizontalmente, o que é um aumento ("out") ou diminuição ("in") no número de instâncias VM.  Horizontal é mais flexível numa situação de nuvem, pois permite-lhe executar potencialmente milhares de VMs para manusear a carga.
@@ -89,29 +90,28 @@ Em contraste, a escala vertical é diferente. Mantém o mesmo número de VMs, ma
 Pode configurar a autoescala através
 
 * [Portal do Azure](autoscale-get-started.md)
-* [PowerShell](powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+* [PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 * [Interface de Linha de Comandos (CLI) de várias plataformas](../samples/cli-samples.md#autoscale)
-* [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [API REST do Azure Monitor](/rest/api/monitor/autoscalesettings)
 
 ## <a name="supported-services-for-autoscale"></a>Serviços apoiados para autoescala
 | Serviço | Schema & Docs |
 | --- | --- |
 | Aplicações Web |[Aplicativos Web de escala](autoscale-get-started.md) |
 | Serviços Cloud |[Autoescala um Serviço de Nuvem](../../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Máquinas Virtuais: Clássico |[Conjuntos clássicos de disponibilidade de máquinas virtuais](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Máquinas Virtuais: Clássico |[Conjuntos clássicos de disponibilidade de máquinas virtuais](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Máquinas virtuais: conjuntos de escala de windows |[Escala de conjuntos de escala de máquina virtual de escala no Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas virtuais: conjuntos de escala de linux |[Conjuntos de escala de máquina virtual de escala em Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas virtuais: Exemplo do Windows |[Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM](autoscale-virtual-machine-scale-sets.md) |
-| Serviço de Gestão da API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
-| Aglomerados de exploradores de dados Azure|[Gerir clusters Azure Data Explorer escalando para acomodar a procura em mudança](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Serviço de Aplicações do Azure |[Dimensione uma aplicação no serviço Azure App](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
-| Aplicações Lógicas |[Adicionar capacidade de ambiente de serviço de integração (ISE)](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
-## <a name="next-steps"></a>Próximos passos
+| Serviço de Gestão da API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](../../api-management/api-management-howto-autoscale.md)
+| Aglomerados de exploradores de dados Azure|[Gerir clusters Azure Data Explorer escalando para acomodar a procura em mudança](/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Serviço de Aplicações do Azure |[Dimensione uma aplicação no serviço Azure App](../../app-service/manage-scale-up.md)|
+| Logic Apps |[Adicionar capacidade de ambiente de serviço de integração (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a autoescala, utilize as Imagens auto-escala listadas anteriormente ou consulte os seguintes recursos:
 
 * [Azure Monitor autoescala métricas comuns](autoscale-common-metrics.md)
 * [Melhores práticas para o dimensionamento automático do Azure Monitor](autoscale-best-practices.md)
 * [Utilize ações de escala automática para enviar notificações de alerta de email e webhook](autoscale-webhook-email.md)
-* [API de REPOUSO de Autoescala](https://msdn.microsoft.com/library/dn931953.aspx)
+* [API de REPOUSO de Autoescala](/rest/api/monitor/autoscalesettings)
 * [Resolução de problemas escala de máquina virtual define autoescala](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

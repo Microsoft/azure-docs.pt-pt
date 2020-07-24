@@ -7,17 +7,18 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca8aa62c4119b9b0b7bbed53cf722c694696ef5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073568"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas baseadas em registos de insights de aplicação
 
 As métricas baseadas em registos do Application Insights permitem analisar a saúde das suas aplicações monitorizadas, criar painéis de instrumentos poderosos e configurar alertas. Existem dois tipos de métricas:
 
-* [As métricas baseadas em log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por detrás da cena são traduzidas em [consultas de Kusto](https://docs.microsoft.com/azure/kusto/query/) de eventos armazenados.
+* [As métricas baseadas em log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por detrás da cena são traduzidas em [consultas de Kusto](/azure/kusto/query/) de eventos armazenados.
 * [As métricas padrão](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) são armazenadas como séries temporizadas pré-agregadas.
 
 Uma vez que *as métricas padrão* são pré-agregadas durante a recolha, têm um melhor desempenho no tempo de consulta. Isto faz deles uma escolha melhor para o dashboarding e em alerta em tempo real. As *métricas baseadas em log* têm mais dimensões, o que os torna a opção superior para análise de dados e diagnósticos ad-hoc. Utilize o [seletor de espaço](metrics-getting-started.md#create-your-first-metric-chart) de nome para alternar entre métricas baseadas em registos e métricas padrão no explorador de [métricas](metrics-getting-started.md).
@@ -78,7 +79,7 @@ A métrica *dos testes de Disponibilidade* reflete a contagem dos testes web rea
 
 |Unidade de medida|Agregações apoiadas|Dimensões suportadas|
 |---|---|---|---|---|---|
-|Contagem|Contagem|Localização de execução, nome de teste, resultado do teste|
+|de palavras|de palavras|Localização de execução, nome de teste, resultado do teste|
 
 ```Kusto
 availabilityResults
@@ -97,7 +98,7 @@ As métricas do navegador são recolhidas pela Aplicação Insights JavaScript S
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhuma|
+|Milissegundos|Média, Min, Max|Nenhum|
 
 ```Kusto
 browserTimings
@@ -113,7 +114,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhuma|
+|Milissegundos|Média, Min, Max|Nenhum|
 
 ```Kusto
 browserTimings
@@ -129,7 +130,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhuma|
+|Milissegundos|Média, Min, Max|Nenhum|
 
 ```Kusto
 browserTimings
@@ -145,7 +146,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhuma|
+|Milissegundos|Média, Min, Max|Nenhum|
 
 ```Kusto
 browserTimings
@@ -161,7 +162,7 @@ browserTimings
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|
 |---|---|---|
-|Milissegundos|Média, Min, Max|Nenhuma|
+|Milissegundos|Média, Min, Max|Nenhum|
 
 ```Kusto
 browserTimings
@@ -183,7 +184,7 @@ Esta métrica reflete o número de exceções lançadas do seu código de aplica
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nenhuma|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -198,7 +199,7 @@ O número de chamadas de dependência falhadas.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nenhuma|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nenhum|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 dependencies
@@ -213,7 +214,7 @@ Sempre que regista uma exceção ao Application Insights, há uma chamada para o
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nome de função em nuvem, instância de função em nuvem, tipo de dispositivo|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nome de função em nuvem, instância de função em nuvem, tipo de dispositivo|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions
@@ -227,7 +228,7 @@ A contagem de pedidos de servidor rastreados que foram marcados como *falhados*.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Instância de função em nuvem, nome de função cloud, tráfego real ou sintético, Desempenho do pedido, código de resposta|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Instância de função em nuvem, nome de função cloud, tráfego real ou sintético, Desempenho do pedido, código de resposta|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 requests
@@ -242,7 +243,7 @@ Esta métrica mostra o número de exceções do servidor.
 
 |Unidade de medida|Agregações apoiadas|Dimensões pré-agregadas|Notas|
 |---|---|---|---|
-|Contagem|Contagem|Nome de papel em nuvem, instância de papel em nuvem|A versão baseada em log utiliza a agregação **de Soma**|
+|de palavras|de palavras|Nome de papel em nuvem, instância de papel em nuvem|A versão baseada em log utiliza a agregação **de Soma**|
 
 ```Kusto
 exceptions

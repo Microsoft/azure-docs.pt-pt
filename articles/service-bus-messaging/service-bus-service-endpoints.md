@@ -3,17 +3,19 @@ title: Configurar pontos finais de serviço de rede virtual para Azure Service B
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.ServiceBus a uma rede virtual.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2b3e7d23dcfd3f932aefa3809ebd13b9cfee0c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340986"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071329"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurar pontos finais de serviço de rede virtual para Azure Service Bus
 
 A integração do Service Bus com [os pontos finais de serviço da Rede Virtual (VNet)][vnet-sep] permite o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
 
-Uma vez configurado para ser ligado a pelo menos um ponto final de serviço de sub-rede de rede virtual, o respetivo espaço de nome do Service Bus deixará de aceitar o tráfego de qualquer lugar, mas sim de redes virtuais autorizadas. Do ponto de vista da rede virtual, a ligação de um espaço de nomes de Service Bus a um ponto final de serviço configura um túnel de rede isolado da sub-rede de rede virtual para o serviço de mensagens.
+Uma vez configurado para ser ligado a pelo menos um ponto final de serviço de sub-rede de rede virtual, o respetivo espaço de nome do Service Bus deixará de aceitar o tráfego de qualquer lugar, mas sim endereços IP de rede virtual autorizados e, opcionalmente, endereços IP específicos da Internet. Do ponto de vista da rede virtual, a ligação de um espaço de nomes de Service Bus a um ponto final de serviço configura um túnel de rede isolado da sub-rede de rede virtual para o serviço de mensagens.
 
 O resultado é uma relação privada e isolada entre as cargas de trabalho ligadas à sub-rede e o respetivo espaço de nomes do Service Bus, apesar do endereço de rede observável do ponto final do serviço de mensagens estar numa gama pública de IP.
 
@@ -202,7 +204,7 @@ Modelo:
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre redes virtuais, consulte os seguintes links:
 

@@ -2,12 +2,13 @@
 title: Guia de resolução de problemas para a Azure Service Bus Microsoft Docs
 description: Este artigo fornece uma lista de exceções de mensagens Azure Service Bus e sugeriu ações a serem tomadas quando a exceção ocorre.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b2759916e1f9ef0cec660157f577ff54cd39928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340451"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071301"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
 Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus. 
@@ -15,7 +16,7 @@ Este artigo fornece dicas e recomendações de resolução de problemas para alg
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problemas de conectividade, certificado ou timeout
 Os seguintes passos podem ajudá-lo com problemas de conectividade/certificado/timeout para todos os serviços sob *.servicebus.windows.net. 
 
-- Navegue para ou [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Ajuda a verificar se tem problemas de filtragem IP ou rede virtual ou cadeia de certificados (o mais comum na utilização de java SDK).
+- Navegue para ou [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/` . Ajuda a verificar se tem problemas de filtragem IP ou rede virtual ou cadeia de certificados, que são comuns quando se utiliza java SDK.
 
     Um exemplo de mensagem bem sucedida:
     
@@ -53,27 +54,50 @@ Os seguintes passos podem ajudá-lo com problemas de conectividade/certificado/t
 - Obtenha um rastreio de rede se os passos anteriores não ajudarem e analisá-lo usando ferramentas como [o Wireshark](https://www.wireshark.org/). Contacte [o Microsoft Support](https://support.microsoft.com/) se necessário. 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que podem ocorrer com atualizações de serviço/reinícios
-As atualizações e reiniciões do serviço backend podem causar o seguinte impacto nas suas aplicações:
 
+### <a name="symptoms"></a>Sintomas
 - Os pedidos podem ser momentaneamente estrangulados.
 - Pode haver uma queda nas mensagens/pedidos de entrada.
 - O ficheiro de registo pode conter mensagens de erro.
 - As aplicações podem ser desligadas do serviço durante alguns segundos.
 
+### <a name="cause"></a>Causa
+As atualizações e reiniciões do serviço backend podem causar estes problemas nas suas aplicações.
+
+### <a name="resolution"></a>Resolução
 Se o código de aplicação utilizar o SDK, a política de retíria já está incorporada e ativa. A aplicação reconectará-se sem impacto significativo na aplicação/fluxo de trabalho.
 
 ## <a name="unauthorized-access-send-claims-are-required"></a>Acesso não autorizado: São necessárias reclamações de envio
+
+### <a name="symptoms"></a>Sintomas 
 Pode ver este erro ao tentar aceder a um tópico de Service Bus a partir do Visual Studio num computador no local, utilizando uma identidade gerida atribuída pelo utilizador com permissões de envio.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
+### <a name="cause"></a>Causa
+A identidade não tem permissões para aceder ao tema do Service Bus. 
+
+### <a name="resolution"></a>Resolução
 Para resolver este erro, instale a biblioteca [Microsoft.Azure.Services.AppAuthentication.](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)  Para mais informações, consulte [a autenticação de desenvolvimento local.](..\key-vault\service-to-service-authentication.md#local-development-authentication) 
 
 Para aprender a atribuir permissões a funções, consulte [Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus](service-bus-managed-service-identity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="service-bus-exception-put-token-failed"></a>Exceção do autocarro de serviço: Colocar o símbolo falhou
+
+### <a name="symptoms"></a>Sintomas
+Quando tentar enviar mais de 1000 mensagens utilizando a mesma ligação Service Bus, receberá a seguinte mensagem de erro: 
+
+`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+
+### <a name="cause"></a>Causa
+Há um limite no número de fichas que são usadas para enviar e receber mensagens usando uma única ligação a um espaço de nomes de Service Bus. São mil. 
+
+### <a name="resolution"></a>Resolução
+Abra uma nova ligação ao espaço de nomes do Service Bus para enviar mais mensagens.
+
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
 - [Exceções do Gestor de Recursos Azure](service-bus-resource-manager-exceptions.md). Lista exceções geradas ao interagir com o Azure Service Bus utilizando o Azure Resource Manager (através de modelos ou chamadas diretas).

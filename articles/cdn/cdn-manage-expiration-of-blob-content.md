@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: c41e14490842068895aea383d384007f308e9e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49748b3d77d097e655ee6ec5777022c038841a6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887679"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073128"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerir a expiração do armazenamento da Azure Blob na Azure CDN
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ O método preferido para definir o cabeçalho de uma bolha `Cache-Control` é us
 
 1. De acordo com **as regras de caching personalizado,** crie duas condições de jogo:
 
-     R. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/blobcontainer1/*` **introduza o valor de Match**. **Desentuê-lo** para **substituir** e introduza 4 na caixa **Horas.**
+     A. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/blobcontainer1/*` **introduza o valor de Match**. **Desentuê-lo** para **substituir** e introduza 4 na caixa **Horas.**
 
     B. Para a segunda condição de jogo, desacordo **a condição de jogo** para **Path** e `/blobcontainer1/blob1.txt` **introduza o valor do Match**. **Desentuê-lo** para **substituir** e introduza 2 na caixa **Horas.**
 
@@ -91,7 +91,7 @@ O método preferido para definir o cabeçalho de uma bolha `Cache-Control` é us
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[A Azure PowerShell](/powershell/azure/overview) é uma das formas mais rápidas e poderosas de administrar os seus serviços Azure. Use o `Get-AzStorageBlob` cmdlet para obter uma referência à bolha e, em seguida, definir a `.ICloudBlob.Properties.CacheControl` propriedade. 
+[A Azure PowerShell](/powershell/azure/) é uma das formas mais rápidas e poderosas de administrar os seus serviços Azure. Use o `Get-AzStorageBlob` cmdlet para obter uma referência à bolha e, em seguida, definir a `.ICloudBlob.Properties.CacheControl` propriedade. 
 
 Por exemplo:
 

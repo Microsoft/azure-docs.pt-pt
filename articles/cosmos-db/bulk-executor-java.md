@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 6e283ff140e02d604fdf5e20d69fff96aab94f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5158bbb32635ebf030879f4d0290a1feba0ec93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072932"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Atualmente, a biblioteca de executor a granel é suportada apenas por contas AZu
 
 Agora vamos mudar para trabalhar com código, descarregando uma aplicação java de amostra do GitHub. Esta aplicação realiza operações a granel nos dados da Azure Cosmos DB. Para clonar a aplicação, abra um pedido de comando, navegue para o diretório onde pretende copiar a aplicação e executar o seguinte comando:
 
-```
+```bash
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
@@ -123,13 +123,13 @@ O repositório clonado contém duas amostras "bulkimport" e "bulkupdate" relativ
 
 5. Depois de ter a aplicação de importação a granel pronta, construa a ferramenta de linha de comando a partir da fonte utilizando o comando 'mvn clean package'. Este comando gera um ficheiro de frasco na pasta alvo:  
 
-   ```java
+   ```bash
    mvn clean package
    ```
 
 6. Após a geração das dependências-alvo, pode invocar a aplicação do importador a granel utilizando o seguinte comando:  
 
-   ```java
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
@@ -186,13 +186,13 @@ Pode atualizar os documentos existentes utilizando a API BulkUpdateAsync. Neste 
 
 3. Depois de ter a aplicação de atualização a granel pronta, construa a ferramenta de linha de comando a partir da fonte utilizando o comando 'mvn clean package'. Este comando gera um ficheiro de frasco na pasta alvo:  
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 4. Após a geração das dependências-alvo, pode invocar a aplicação de atualização em massa utilizando o seguinte comando:
 
-   ```
+   ```bash
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
@@ -211,7 +211,7 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 * Uma vez que uma única operação a granel a execução API consome uma grande parte do CPU da máquina cliente e iO de rede. Isto acontece desovando várias tarefas internamente, evite desovar várias tarefas simultâneas dentro do seu processo de aplicação cada uma das chamadas de operação a granel API. Se uma única chamada de API de operação a granel em funcionamento numa única máquina virtual não for capaz de consumir toda a produção do seu contentor (se a produção do seu contentor > de 1 milhão de RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente chamadas API de operação a granel.
 
     
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para conhecer os detalhes do pacote maven e lançar notas da biblioteca Java do executor a granel, consulte[detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-java.md).
 
 

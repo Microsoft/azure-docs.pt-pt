@@ -10,11 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90ad8cc87f1d6a1893b96f6201a4260c03c94fee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560164"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072208"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e eliminar recursos Azure ML usando REST
 
@@ -47,7 +48,7 @@ Os pedidos de REST Administrativos são autenticados com um fluxo implícito OAu
 - ID do seu cliente (que será associado com o token criado)
 - Segredo do seu cliente (que deve salvaguardar)
 
-Deverá ter estes valores desde a resposta à criação do seu principal serviço, conforme discutido na [Configuração de autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho.](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) Se estiver a utilizar a subscrição da empresa, poderá não ter permissão para criar um principal de serviço. Nesse caso, deve utilizar uma [subscrição pessoal gratuita ou paga.](https://aka.ms/AMLFree)
+Deverá ter estes valores desde a resposta à criação do seu diretor de serviço. A obtenção destes valores é discutida na [Configuração de autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho.](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) Se estiver a utilizar a subscrição da empresa, poderá não ter permissão para criar um principal de serviço. Nesse caso, deve utilizar uma [subscrição pessoal gratuita ou paga.](https://aka.ms/AMLFree)
 
 Para recuperar um símbolo:
 
@@ -199,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Note que para listar experiências o caminho começa com `history/v1.0` enquanto lista modelos, o caminho começa com `modelmanagement/v1.0` . A API REST está dividida em vários grupos operacionais, cada um com um caminho distinto. Os documentos de referência da API nos links abaixo listam as operações, parâmetros e códigos de resposta para as várias operações.
+Note que para listar experiências o caminho começa com `history/v1.0` enquanto lista modelos, o caminho começa com `modelmanagement/v1.0` . A API REST está dividida em vários grupos operacionais, cada um com um caminho distinto. 
 
-|Área|Caminho|Referência|
-|-|-|-|
-|Artefactos|artefacto/v2.0/|[Referência API DE REPOUSO](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Arquivos de dados|datastore/v1.0/|[Referência API DE REPOUSO](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Otimização de hiperparâmetros|hiperdrive/v1.0/|[Referência API DE REPOUSO](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modelos|gestão modelo/v1.0/|[Referência API DE REPOUSO](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Histórico de execuções|execução/v1.0/ e história/v1.0/|[Referência API DE REPOUSO](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Área|Caminho|
+|-|-|
+|Artefactos|artefacto/v2.0/|
+|Arquivos de dados|datastore/v1.0/|
+|Otimização de hiperparâmetros|hiperdrive/v1.0/|
+|Modelos|gestão modelo/v1.0/|
+|Histórico de execuções|execução/v1.0/ e história/v1.0/|
 
 Você pode explorar a API REST usando o padrão geral de:
 
@@ -419,7 +420,7 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Explore a referência completa da [AzureML REST API](https://docs.microsoft.com/rest/api/azureml/).
 - Saiba como utilizar o Studio & Designer para [prever o preço do automóvel com o designer (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).

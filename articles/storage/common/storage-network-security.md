@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e8857da1410ca68a695a9d7995aeb375fb154cd2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080028"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070666"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configure Firewalls de armazenamento Azure e redes virtuais
 
@@ -376,7 +376,7 @@ Quando ativa os **serviços da Microsoft fidedignos...** definição, os recurso
 | Azure Data Box           | Microsoft.DataBox          | Permite a importação de dados para a Azure usando a Data Box. [Saiba mais](/azure/databox/data-box-overview). |
 | Azure DevTest Labs       | Microsoft.DevTestLab       | Criação de imagem personalizada e instalação de artefactos. [Saiba mais](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | Microsoft.EventGrid        | Permitir a publicação do evento Blob Storage e permitir que a Grade de Eventos publique para as filas de armazenamento. Saiba mais sobre [eventos de armazenamento de bolhas](/azure/event-grid/event-sources) e [publicação em filas.](/azure/event-grid/event-handlers) |
-| Azure Event Hubs         | Microsoft.EventHub         | Arquivar dados com a captura de centros de eventos. [Saiba mais.](/azure/event-hubs/event-hubs-capture-overview) |
+| Azure Event Hubs         | Microsoft.EventHub         | Arquivar dados com a captura de centros de eventos. [Saiba Mais](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure File Sync          | Microsoft.StorageSync      | Permite-lhe transformar o seu servidor de ficheiros on-prem para um cache para ações do Ficheiro Azure. Permitindo sincronização multi-site, rápida recuperação de desastres e backup do lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Fornecendo o conteúdo inicial do sistema de ficheiros predefinidos para um novo cluster HDInsight. [Saiba mais](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Exportação de Importação de Azure      | Microsoft.ImportExport     | Permite a importação de dados para a Azure e a exportação de dados da Azure utilizando o serviço de importação/exportação. [Saiba mais](/azure/storage/common/storage-import-export-service).  |
@@ -388,6 +388,7 @@ A **definição de Permitir serviços da Microsoft fidedignos...** a definição
 
 | Serviço                        | Nome do fornecedor de recursos                 | Objetivo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
+| Gestão de API do Azure           | Microsoft.ApiManagement/service        | Permite o acesso do serviço Api Management às contas de armazenamento por trás do firewall utilizando políticas. [Saiba mais](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Permite que os serviços de Pesquisa Cognitiva acedam a contas de armazenamento para indexar, processar e consultar. |
 | Tarefas do Azure Container Registry | Microsoft.ContainerRegistry/registries | As tarefas ACR podem aceder às contas de armazenamento ao construir imagens de contentores. |
 | Azure Data Factory             | Microsoft.DataFactory/fábricas        | Permite o acesso às contas de armazenamento através do tempo de execução da ADF. |
@@ -471,7 +472,7 @@ Pode gerir exceções de regras de rede através do portal Azure, PowerShell ou 
 > [!IMPORTANT]
 > Certifique-se de [que define a regra de incumprimento](#change-the-default-network-access-rule) para **negar,** ou remover exceções não tem efeito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os pontos finais do serviço Azure Network nos [pontos finais do Serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
 

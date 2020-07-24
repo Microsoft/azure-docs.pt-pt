@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81867967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073906"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Quickstart - Configurar um ambiente private Cloud
 
@@ -57,7 +58,7 @@ Nuvens Privadas são geridas através do portal CloudSimple. Têm o seu próprio
 
 11. Clique **em seguida: Reveja e crie**.
 12. Reveja as definições. Se precisar de alterar quaisquer definições, clique em **Anterior**.
-13. Clique em **Criar**.
+13. Clique em **Create** (Criar).
 
 O processo de provisionamento de nuvens privadas começa.  Pode levar até duas horas para que a Nuvem Privada seja a provisionada.
 
@@ -147,7 +148,7 @@ A VLAN/sub-rede será criada.  Agora pode utilizar este ID VLAN para criar um gr
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Ligue o seu ambiente a uma rede virtual Azure
 
-O CloudSimple fornece-lhe um circuito ExpressRoute para a sua Nuvem Privada. Pode ligar a sua rede virtual em Azure ao circuito ExpressRoute. Para obter todos os detalhes sobre a configuração da ligação, siga os passos na [Ligação da Rede Virtual Azure utilizando o ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection).
+O CloudSimple fornece-lhe um circuito ExpressRoute para a sua Nuvem Privada. Pode ligar a sua rede virtual em Azure ao circuito ExpressRoute. Para obter todos os detalhes sobre a configuração da ligação, siga os passos na [Ligação da Rede Virtual Azure utilizando o ExpressRoute](./cloudsimple-azure-network-connection.md).
 
 ## <a name="sign-in-to-vcenter"></a>Inscreva-se no vCenter
 
@@ -206,7 +207,7 @@ Para criar um grupo portuário distribuído na vSphere:
 1. Siga as instruções em "Adicionar um grupo de portas distribuído" no [guia de rede vSphere](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
 2. Ao configurar o grupo portuário distribuído, forneça o ID VLAN criado na [Create a VLAN para os seus VMs de carga de trabalho](#create-a-vlan-for-your-workload-vms).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs de VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * [Ligue-se à rede de instalações utilizando a Azure ExpressRoute](on-premises-connection.md)

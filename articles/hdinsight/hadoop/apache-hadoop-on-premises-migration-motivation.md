@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: b975ee8cebdac3855c3fca88b20c01145d11baeb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080198"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072782"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar para as instalações apache Hadoop clusters para Azure HDInsight - motivação e benefícios
 
@@ -59,7 +59,7 @@ Azure HDInsight é uma distribuição em nuvem de componentes Hadoop. O Azure HD
 
     - Fábrica de Dados Azure (ADF)
     - Armazenamento de Blobs do Azure
-    - Azure Data Lake Storage Gen2
+    - Armazenamento do Azure Data Lake Ger2
     - Azure Cosmos DB
     - Base de Dados SQL do Azure
     - Azure Analysis Services
@@ -101,7 +101,7 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |Configuração do nó mestre|m/y, cpu, disco, etc.|
 |Configuração de nó de dados|m/y, cpu, disco, etc.|
 |Configuração de nó de borda|m/y, cpu, disco, etc.|
-|Encriptação HDFS?|Sim|
+|Encriptação HDFS?|Yes|
 |Elevada Disponibilidade|HDFS HA, Metasteiros HA|
 |Recuperação de desastres / Backup|Aglomerado de reserva?|  
 |Sistemas dependentes do Cluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -111,7 +111,7 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |Autenticação de agrupamento & autorização|Diretório Ativo, Ambari, Gestor Cloudera, Sem autenticação|
 |Controlo de Acesso HDFS|  Utilizadores manuais e ssh|
 |Autorização de autenticação & de colmeia|Sentry, LDAP, AD com Kerberos, Ranger|
-|Auditoria|Ambari, Cloudera Navigator, Ranger|
+|Auditing (Auditoria)|Ambari, Cloudera Navigator, Ranger|
 |Monitorização|Grafite, colecionada, estatísticas, Telegraf, InfluxDB|
 |Alertas|Kapacitor, Prometeu, Datadog|
 |Duração da retenção de dados| 3 anos, 5 anos|
@@ -163,12 +163,12 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 
 ### <a name="azure-requirements-questionnaire"></a>Questionário sobre requisitos Azure
 
-|**Tópico**: **Infraestrutura** |||
-|---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
+|---|---|---|
+|**Tópico**: **Infraestrutura** |||
 | Região Preferida|E.U.A Leste||
-|VNet preferido?|Sim||
-|HA / DR Necessário?|Sim||
+|VNet preferido?|Yes||
+|HA / DR Necessário?|Yes||
 |Integração com outros serviços em nuvem?|ADF||
 |**Tópico**: **Movimento de Dados**  |||
 |Preferência inicial de carga|DistCp, Caixa de Dados, ADF, WANDisco||
@@ -177,25 +177,25 @@ Esta secção fornece questionários de modelo para ajudar a recolher informaç�
 |**Tópico**: **Alerta de & de monitorização** |||
 |Utilize & de monitorização do Azure alertando vs Integrar monitorização de terceiros|Utilizar alerta de & de monitorização Azure||
 |**Tópico**: **Preferências de segurança** |||
-|Oleoduto de dados privado e protegido?|Sim||
-|Cluster de domínios unidos (ESP)?|     Sim||
-|Sincronização de anúncios no local para cloud?|     Sim||
+|Oleoduto de dados privado e protegido?|Yes||
+|Cluster de domínios unidos (ESP)?|     Yes||
+|Sincronização de anúncios no local para cloud?|     Yes||
 |Número de utilizadores de AD para sincronizar?|          100||
-|Ok para sincronizar senhas para a nuvem?|    Sim||
-|Cloud apenas Utilizadores?|                 Sim||
-|MFA necessária?|                       Não|| 
-|Requisitos de autorização de dados?|  Sim||
-|Controlo de Acesso baseado em funções?|        Sim||
-|Auditoria necessária?|                  Sim||
-|Encriptação de dados em repouso?|          Sim||
-|Encriptação de dados em trânsito?|       Sim||
+|Ok para sincronizar senhas para a nuvem?|    Yes||
+|Cloud apenas Utilizadores?|                 Yes||
+|MFA necessária?|                       No|| 
+|Requisitos de autorização de dados?|  Yes||
+|Controlo de Acesso baseado em funções?|        Yes||
+|Auditoria necessária?|                  Yes||
+|Encriptação de dados em repouso?|          Yes||
+|Encriptação de dados em trânsito?|       Yes||
 |**Tópico**: **Preferências de re-arquitetura** |||
 |Cluster único vs Tipos específicos de cluster|Tipos específicos de cluster||
 |Armazenamento cotado vs armazenamento remoto?|Armazenamento remoto||
 |O tamanho do cluster menor à medida que os dados são armazenados remotamente?|Tamanho menor do cluster||
 |Utilizar múltiplos aglomerados menores em vez de um único aglomerado grande?|Use vários aglomerados menores||
-|Usar uma metásta remota?|Sim||
-|Partilhar metas-lojas entre diferentes clusters?|Sim||
+|Usar uma metásta remota?|Yes||
+|Partilhar metas-lojas entre diferentes clusters?|Yes||
 |Desconstruir cargas de trabalho?|Substitua os empregos de Colmeia por empregos de faíscas||
 |Utilizar a ADF para orquestração de dados?|Não||
 

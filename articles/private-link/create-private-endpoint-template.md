@@ -1,6 +1,6 @@
 ---
 title: Criar um ponto final privado em Azure Private Link
-description: Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para criar um ponto final privado.
+description: Neste arranque rápido, utilize um modelo de Gestor de Recursos Azure (modelo ARM) para criar um ponto final privado.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a60edde222a6200a0378cd8c9c4f4774da9c2e50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817975"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071502"
 ---
-# <a name="quickstart-create-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Quickstart: Criar um ponto final privado utilizando um modelo de Gestor de Recursos Azure
+# <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Quickstart: Criar um ponto final privado usando um modelo ARM
 
-Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure para criar um ponto final privado.
+Neste arranque rápido, utilize um modelo de Gestor de Recursos Azure (modelo ARM) para criar um ponto final privado.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Também pode completar este quickstart utilizando o [portal Azure](create-private-endpoint-portal.md), [Azure PowerShell,](create-private-endpoint-powershell.md)ou o [Azure CLI](create-private-endpoint-cli.md).
 
-## <a name="prerequisite"></a>Pré-requisito
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Precisa de uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-## <a name="create-a-private-endpoint"></a>Criar um ponto final privado
+## <a name="review-the-template"></a>Rever o modelo
 
 Este modelo cria um ponto final privado para um exemplo de Azure SQL Database.
 
-### <a name="review-the-template"></a>Rever o modelo
-
-O modelo utilizado neste arranque rápido é de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
+O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
@@ -50,9 +52,9 @@ Os recursos Azure múltiplos são definidos no modelo:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): A interface de rede para a máquina virtual.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): A máquina virtual utilizada para testar a ligação privada com o ponto final privado ao exemplo da Base de Dados SQL.
 
-### <a name="deploy-the-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-Aqui está como implementar o modelo do Gestor de Recursos Azure para Azure:
+Aqui está como implementar o modelo ARM para Azure:
 
 1. Para iniciar súm na Azure e abrir o modelo, **selecione Implementar para Azure**. O modelo cria o ponto final privado, a instância da Base de Dados SQL, a infraestrutura de rede e uma máquina virtual para validar.
 
@@ -66,7 +68,7 @@ Aqui está como implementar o modelo do Gestor de Recursos Azure para Azure:
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
 > [!NOTE]
-> O modelo Azure Resource Manager gera um nome único para o recurso myVm<b>{uniqueid}</b> da máquina virtual e para o sql Database sqlserver<b>{uniqueid}</b> . Substitua o seu valor gerado por **{uniqueid}**.
+> O modelo ARM gera um nome único para o recurso myVm<b>{uniqueid}</b> da máquina virtual e para o recurso SQL Database sqlserver<b>{uniqueid}.</b> Substitua o seu valor gerado por **{uniqueid}**.
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
@@ -76,7 +78,7 @@ Ligue-se ao VM _myVm{uniqueid}_ da internet da seguinte forma:
 
 2. Selecione **Ligar**. **Ligue-se à máquina virtual.**
 
-3. Selecione **Download RDP File**. O Azure cria um ficheiro Remote Desktop Protocol _(.rdp)_ e transfere-o para o computador.
+3. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol _(.rdp)_ e transfere-o para o computador.
 
 4. Abra o ficheiro .rdp transferido.
 

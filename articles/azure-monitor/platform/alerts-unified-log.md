@@ -6,20 +6,21 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0e81d48f4e709a9a0bb8ebb33c7029d3841167b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d080c18a1af9549373750b787093fec03b32006
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609051"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073605"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Monitor Azure
 
 Os alertas de registo são um dos tipos de alerta que são suportados em [Alertas Azure](../../azure-monitor/platform/alerts-overview.md). Os alertas de registo permitem que os utilizadores utilizem a plataforma Azure Analytics como base para alertar.
 
-O Alerta de Registo consiste em regras de Pesquisa de Registos criadas para [Registos de Monitores Azure](../../azure-monitor/learn/tutorial-viewdata.md) ou [Insights de Aplicações](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre o seu uso, consulte [a criação de alertas de registo em Azure](../../azure-monitor/platform/alerts-log.md)
+O Alerta de Registo consiste em regras de Pesquisa de Registos criadas para [Registos de Monitores Azure](../log-query/get-started-portal.md) ou [Insights de Aplicações](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre o seu uso, consulte [a criação de alertas de registo em Azure](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
-> Os dados de registo populares do [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) também estão agora disponíveis na plataforma métrica no Azure Monitor. Para visualização de detalhes, [Alerta métrico para Registos](../../azure-monitor/platform/alerts-metric-logs.md)
+> Os dados de registo populares do [Azure Monitor Logs](../log-query/get-started-portal.md) também estão agora disponíveis na plataforma métrica no Azure Monitor. Para visualização de detalhes, [Alerta métrico para Registos](../../azure-monitor/platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regra de alerta de pesquisa de registo - definição e tipos
@@ -40,7 +41,7 @@ As regras de pesquisa de registo são definidas pelos seguintes detalhes:
 
 - **Limiar**.  Os resultados da pesquisa de registo são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alerta de pesquisa de registo.
 
-As regras de pesquisa de registo, seja para [Registos monitores Azure](../../azure-monitor/learn/tutorial-viewdata.md) ou Insights de [Aplicação,](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)podem ser de dois tipos. Cada um destes tipos é descrito em detalhe nas secções que se seguem.
+As regras de pesquisa de registo, seja para [Registos monitores Azure](../log-query/get-started-portal.md) ou Insights de [Aplicação,](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)podem ser de dois tipos. Cada um destes tipos é descrito em detalhe nas secções que se seguem.
 
 - **[Número de resultados.](#number-of-results-alert-rules)** Único alerta criado quando os registos de números devolvidos pela pesquisa de registo excedem um número especificado.
 - **[Medição métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de registo com valores que excedam o limiar especificado.
@@ -89,7 +90,7 @@ As regras de alerta **de medição métrica** criam um alerta para cada objeto n
     
 - **Limiar**: O limiar das regras de alerta de medição métrica é definido por um valor agregado e por uma série de infrações.  Se algum ponto de dados na pesquisa de registo exceder este valor, é considerado uma violação.  Se o número de infrações para qualquer objeto nos resultados exceder o valor especificado, então é criado um alerta para esse objeto.
 
-A configuração errada da opção *Aggregate On* ou *metricColumn* pode causar erros de alerta. Para obter mais informações, consulte [a resolução de problemas quando a regra de alerta de medição métrica estiver incorreta](alert-log-troubleshoot.md#metric-measurement-alert-rule-is-incorrect).
+A configuração errada da opção *Aggregate On* ou *metricColumn* pode causar erros de alerta. Para obter mais informações, consulte [a resolução de problemas quando a regra de alerta de medição métrica estiver incorreta](./alerts-troubleshoot-log.md#metric-measurement-alert-rule-is-incorrect).
 
 #### <a name="example-of-metric-measurement-type-log-alert"></a>Exemplo do alerta de registo do tipo de medição métrica
 
@@ -149,7 +150,7 @@ Usando o caso anterior como exemplo:
 Os preços aplicáveis aos Alertas de Registo estão indicados na página [de Preços do Monitor Azure.](https://azure.microsoft.com/pricing/details/monitor/) Nas notas do Azure, os Alertas de Registo são representados como tipo `microsoft.insights/scheduledqueryrules` com:
 
 - Alertas de registo em Informações de aplicações mostrados com nome de alerta exato, juntamente com o grupo de recursos e propriedades de alerta
-- Alertas de registo no Log Analytics mostrados com o nome de alerta exato, juntamente com as propriedades do grupo de recursos e de alerta; quando criado usando [a API deQueryRules programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
+- Alertas de registo no Log Analytics mostrados com o nome de alerta exato, juntamente com as propriedades do grupo de recursos e de alerta; quando criado usando [a API deQueryRules programada](/rest/api/monitor/scheduledqueryrules)
 
 O [legado Log Analytics API](../../azure-monitor/platform/api-alerts.md) tem ações e horários de alerta como parte da Pesquisa Salva de Log Analytics e não recursos [Azure adequados](../../azure-resource-manager/management/overview.md). Assim, para permitir a faturação de tais alertas de registo legado criados para o Log Analytics usando o portal Azure **sem** [mudar para a nova API](../../azure-monitor/platform/alerts-log-api-switch.md) ou através do [legado Log Analytics API](../../azure-monitor/platform/api-alerts.md) - são criadas regras de pseudo-alerta escondidas `microsoft.insights/scheduledqueryrules` para faturação no Azure. As regras de alerta pseudo-pseudo escondidas criadas para `microsoft.insights/scheduledqueryrules` faturação, conforme `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` mostrado, juntamente com o grupo de recursos e propriedades de alerta.
 
@@ -158,15 +159,15 @@ O [legado Log Analytics API](../../azure-monitor/platform/api-alerts.md) tem aç
 
 Para remover o horário ocultoQueryRules recursos criados para faturação de regras de alerta usando [o legado Log Analytics API,](api-alerts.md)o utilizador pode fazer qualquer um dos seguintes:
 
-- Qualquer utilizador pode [mudar a preferência da API pelas regras de alerta no espaço](../../azure-monitor/platform/alerts-log-api-switch.md) de trabalho do Log Analytics e sem perda das suas regras de alerta ou movimento de monitorização para a Azure Resource Manager em conformidade com a [API.](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) Assim, eliminar a necessidade de fazer pseudo regras de alerta escondido para a faturação.
+- Qualquer utilizador pode [mudar a preferência da API pelas regras de alerta no espaço](../../azure-monitor/platform/alerts-log-api-switch.md) de trabalho do Log Analytics e sem perda das suas regras de alerta ou movimento de monitorização para a Azure Resource Manager em conformidade com a [API.](/rest/api/monitor/scheduledqueryrules) Assim, eliminar a necessidade de fazer pseudo regras de alerta escondido para a faturação.
 - Ou se o utilizador não quiser mudar a preferência da API, o utilizador terá de **eliminar** o horário original e alertar a ação utilizando a [API do log api](api-alerts.md) legado ou eliminar no [portal Azure a regra original do alerta de registo](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-Adicionalmente para o calendário ocultoQueryRules recursos criados para faturação de regras de alerta usando [o legado Log Analytics API](api-alerts.md), qualquer operação de modificação como PUT falhará. Como as `microsoft.insights/scheduledqueryrules` regras pseudo tipo destinam-se a faturar as regras de alerta criadas utilizando [o legado Log Analytics API](api-alerts.md). Qualquer modificação da regra de alerta deve ser feita usando [o legado Log Analytics API](api-alerts.md) (ou) o utilizador pode mudar a preferência da [API pelas regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md) para usar a [API de Regras Desígradas programadas.](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
+Adicionalmente para o calendário ocultoQueryRules recursos criados para faturação de regras de alerta usando [o legado Log Analytics API](api-alerts.md), qualquer operação de modificação como PUT falhará. Como as `microsoft.insights/scheduledqueryrules` regras pseudo tipo destinam-se a faturar as regras de alerta criadas utilizando [o legado Log Analytics API](api-alerts.md). Qualquer modificação da regra de alerta deve ser feita usando [o legado Log Analytics API](api-alerts.md) (ou) o utilizador pode mudar a preferência da [API pelas regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md) para usar a [API de Regras Desígradas programadas.](/rest/api/monitor/scheduledqueryrules)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [criar em alertas de registo em Azure](../../azure-monitor/platform/alerts-log.md).
 * Compreenda [os webhooks em alertas de registo em Azure](alerts-log-webhook.md).
 * Saiba mais sobre [alertas Azure](../../azure-monitor/platform/alerts-overview.md).
-* Saiba mais sobre [a Aplicação Insights](../../azure-monitor/app/analytics.md).
+* Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md).
 * Saiba mais sobre [o Log Analytics.](../../azure-monitor/log-query/log-query-overview.md)

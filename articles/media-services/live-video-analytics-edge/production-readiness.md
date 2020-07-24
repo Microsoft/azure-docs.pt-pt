@@ -3,15 +3,16 @@ title: Prontidão de produção e boas práticas - Azure
 description: Este artigo fornece orientações sobre como configurar e implementar o módulo Live Video Analytics em ambientes de produção.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071944"
 ---
 # <a name="production-readiness-and-best-practices"></a>Prontidão de produção e boas práticas
 
-Este artigo fornece orientações sobre como configurar e implementar o módulo Live Video Analytics em ambientes de produção. Também deve rever [Prepare-se para implementar a sua solução IoT Edge em](https://docs.microsoft.com/azure/iot-edge/production-checklist) artigo de produção sobre a preparação da sua solução IoT Edge. 
+Este artigo fornece orientações sobre como configurar e implementar o módulo Live Video Analytics em ambientes de produção. Também deve rever [Prepare-se para implementar a sua solução IoT Edge em](../../iot-edge/production-checklist.md) artigo de produção sobre a preparação da sua solução IoT Edge. 
 
 > [!NOTE]
 > Deve consultar os departamentos de TI das suas organizações sobre aspetos relacionados com a segurança.
@@ -159,6 +160,6 @@ O Linux VM que está a utilizar como dispositivo de borda pode tornar-se sem res
 
     À medida que as atualizações acontecem no módulo de borda, o seu docker pode ter versões mais antigas do módulo de borda ainda presente. Neste caso, é aconselhável utilizar o comando rmi do docker para remover imagens específicas identificadas pela etiqueta da versão de imagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

@@ -3,15 +3,16 @@ title: Gerir cópias de segurança de partilha de ficheiros do Azure
 description: Este artigo descreve tarefas comuns para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela Azure Backup.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712093"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073303"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gerir cópias de segurança de partilha de ficheiros do Azure
 
-Este artigo descreve tarefas comuns para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). Você vai aprender a fazer tarefas de gestão no cofre dos Serviços de Recuperação.
+Este artigo descreve tarefas comuns para gerir e monitorizar as ações de ficheiros Azure que são apoiadas pela [Azure Backup](./backup-overview.md). Você vai aprender a fazer tarefas de gestão no cofre dos Serviços de Recuperação.
 
 ## <a name="monitor-jobs"></a>Monitorizar trabalhos
 
@@ -162,6 +163,6 @@ Para desregistralmente a conta de armazenamento:
 
    ![Selecione Unregister](./media/manage-afs-backup/select-unregister.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte [a Troubleshoot Azure file shares backup](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).
+Para obter mais informações, consulte [a Troubleshoot Azure file shares backup](./troubleshoot-azure-files.md).
