@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Instale aplicativos num conjunto de escala com modelos Azure
+title: Tutorial - Instale aplicativos em uma escala definida com modelos Azure
 description: Saiba como utilizar os modelos do Azure Resource Manager para instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com a Extensão de Script Personalizado
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: a497b8c6e237f2476ecce9422a6328725b22eeb6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197490"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059262"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com um modelo do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -24,7 +24,7 @@ Para executar aplicações em instâncias de máquina virtual (VM) num conjunto 
 > * Utilizar a Extensão de Script Personalizado do Azure
 > * Atualizar uma aplicação em execução num conjunto de dimensionamento
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +34,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 ## <a name="what-is-the-azure-custom-script-extension"></a>O que é a Extensão de Script Personalizado do Azure?
 A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão.
 
-A extensão de Script Personalizado é integrada em modelos do Azure Resource Manager e pode também ser utilizada com a CLI do Azure, o Azure PowerShell, o portal do Azure ou a API REST. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
+A extensão de Script Personalizado é integrada em modelos do Azure Resource Manager e pode também ser utilizada com a CLI do Azure, o Azure PowerShell, o portal do Azure ou a API REST. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-linux.md).
 
 Para ver a Extensão de Script Personalizado em ação, crie um conjunto de dimensionamento que instala o servidor Web NGINX e dá como resultado o nome de anfitrião da instância de VM do conjunto de dimensionamento. A seguinte definição da Extensão de Script Personalizado transfere um script de exemplo do GitHub, instala os pacotes necessários e escreve o nome de anfitrião da instância de VM numa página HTML simples.
 
@@ -66,11 +66,11 @@ A propriedade *fileUris* é utilizada para definir os scripts ou pacotes de inst
 }
 ```
 
-Para um exemplo completo de um modelo Azure que implementa um conjunto de escala e a extensão do script personalizado, ver [https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json) . Este modelo de exemplo é utilizado na secção seguinte.
+Para um exemplo completo de um modelo Azure que implementa um conjunto de escala e a extensão de script personalizado, consulte [https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json) . Este modelo de exemplo é utilizado na secção seguinte.
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Vamos utilizar o modelo de exemplo para criar um conjunto de dimensionamento e aplicar a Extensão de Script Personalizado. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
+Vamos utilizar o modelo de exemplo para criar um conjunto de dimensionamento e aplicar a Extensão de Script Personalizado. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -108,7 +108,7 @@ Deixe o seu browser aberto para que possa ver uma versão atualizada no próximo
 
 
 ## <a name="update-app-deployment"></a>Atualizar a implementação da aplicação
-Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de escala foi criado num passo anterior, a *atualização Política* foi definida para *Automática*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
+Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de escala foi criado num passo anterior, a *actualizaçãoPolicy* foi definida como *Automática*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
 
 Para atualizar a definição da Extensão de Script Personalizado, edite o modelo para fazer referência a um novo script de instalação. Deve ser utilizado um novo nome de ficheiro para que a Extensão de Script Personalizado reconheça a alteração. A Extensão de Script Personalizado não examina o conteúdo do script para determinar as alterações. A definição seguinte utiliza um script de instalação atualizado com *_v2* anexado ao respetivo nome:
 

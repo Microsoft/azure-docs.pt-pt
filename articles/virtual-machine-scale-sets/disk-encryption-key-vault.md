@@ -1,6 +1,6 @@
 ---
 title: Criar e configurar um cofre de chaves para o Azure Disk Encryption
-description: Este artigo fornece passos para criar e configurar um cofre chave para uso com encriptação de disco azure
+description: Este artigo fornece passos para criar e configurar um cofre chave para uso com encriptação de disco Azure
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
@@ -9,34 +9,34 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6350e85552a6c92592dbe2b1a9cf48a35f86a7be
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: acd2ae54d81fb508d5f8c02262cf8c2f0f071fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198452"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080612"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para o Azure Disk Encryption
+# <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre chave para encriptação de disco Azure
 
-A Encriptação azure Disk usa o Cofre de Chave Azure para controlar e gerir chaves e segredos de encriptação do disco.  Para mais informações sobre os cofres chave, consulte [Start start with Azure Key Vault](../key-vault/key-vault-get-started.md) e Secure your key [vault](../key-vault/general/secure-your-key-vault.md).
+A Azure Disk Encryption usa o Cofre da Chave Azure para controlar e gerir chaves e segredos de encriptação de discos.  Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../key-vault/general/overview.md) e Proteger o cofre da [chave.](../key-vault/general/secure-your-key-vault.md)
 
-Criar e configurar um cofre chave para utilização com encriptação de disco azure envolve três passos:
+Criar e configurar um cofre chave para uso com encriptação de disco Azure envolve três passos:
 
 1. Criar um grupo de recursos, se necessário.
-2. A criar um cofre chave. 
-3. Definindo políticas de acesso avançados do cofre chave.
+2. Criando um cofre de chaves. 
+3. Definição de políticas avançadas de acesso ao cofre de chaves.
 
-Estes passos são ilustrados nos seguintes arranques rápidos:
+Estes passos são ilustrados nos seguintes quickstarts:
 
-Também pode, se desejar, gerar ou importar uma chave de encriptação (KEK).
+Pode também, se desejar, gerar ou importar uma chave de encriptação chave (KEK).
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instale ferramentas e ligue-se ao Azure
 
-Os passos deste artigo podem ser concluídos com o [Azure CLI,](/cli/azure/)o [módulo Azure PowerShell Az,](/powershell/azure/overview)ou o [portal Azure](https://portal.azure.com).
+Os passos deste artigo podem ser preenchidos com o [Azure CLI,](/cli/azure/)o [módulo Azure PowerShell Az,](/powershell/azure/)ou o [portal Azure](https://portal.azure.com).
 
 ### <a name="connect-to-your-azure-account"></a>Ligar à sua conta do Azure
 
-Antes de utilizar o Azure CLI ou o Azure PowerShell, tem de se ligar primeiro à subscrição do Azure. Faça-o assinando com o [Azure CLI,](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)assinando com o [Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)ou fornecendo as suas credenciais ao portal Azure quando solicitado.
+Antes de utilizar o Azure CLI ou a Azure PowerShell, tem primeiro de ligar-se à sua subscrição Azure. Fá-lo [assinando com a Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [assinando com a Azure PowerShell,](/powershell/azure/authenticate-azureps?view=azps-2.5.0)ou fornecendo as suas credenciais ao portal Azure quando solicitado.
 
 ```azurecli-interactive
 az login
@@ -50,6 +50,6 @@ Connect-AzAccount
  
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral da encriptação do disco azure](disk-encryption-overview.md)
-- [Criptografe um conjunto de escala de máquina virtual usando o Azure CLI](disk-encryption-cli.md)
-- [Criptografe um conjunto de escala de máquina virtual usando o Azure PowerShell](disk-encryption-powershell.md)
+- [Visão geral da encriptação do disco Azure](disk-encryption-overview.md)
+- [Criptografe conjuntos de escala de máquina virtual usando o Azure CLI](disk-encryption-cli.md)
+- [Criptografe conjuntos de escala de máquina virtual usando o Azure PowerShell](disk-encryption-powershell.md)

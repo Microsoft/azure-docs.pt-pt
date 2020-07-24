@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1070230d968a6239a5a4aab5ac412280393d17da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: bcc0651bace15280127bb725c21b32673f8cdb6e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071210"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -115,7 +115,7 @@ Na página do seu cofre no portal do Azure, na secção **Introdução**, seleci
 
 Na página **Objetivo da proteção**, selecione os seguintes valores:
 
-|    |  |
+| Passo | Seleção |
 |---------|-----------|
 | Onde estão localizadas as máquinas? |Escolha **no local**.|
 | Para onde pretende replicar as máquinas? |Selecionar **Para o Azure**.|
@@ -181,7 +181,7 @@ Ative a replicação em cada VM que quer migrar. Quando a replicação for ativa
 2. Sob **Em máquinas no local e em VMs do Azure**, selecione **Passo 1: Replicar aplicação**. Conclua as páginas do assistente com as seguintes informações. Selecione **OK** em cada página quando tiver terminado:
    - 1: Configurar origem
 
-     |  |  |
+     | Parâmetro | Valor |
      |-----|-----|
      | Origem: | Selecione **No Local**.|
      | Localização da origem:| Introduza o nome da sua instância do EC2 do servidor de configuração.|
@@ -190,7 +190,7 @@ Ative a replicação em cada VM que quer migrar. Quando a replicação for ativa
 
    - 2: Configurar destino
 
-     |  |  |
+     | Parâmetro | Valor |
      |-----|-----|
      | Destino: | Deixe a predefinição.|
      | Subscrição: | Selecione a subscrição que tem estado a utilizar.|

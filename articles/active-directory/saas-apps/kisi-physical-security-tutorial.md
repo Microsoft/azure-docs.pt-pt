@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 65062b886000a9a0e19dec7d72bf27ab1e1790eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85605037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Segurança Física de Kisi
 
@@ -85,9 +85,12 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://identity.kms.kisi.io/saml/<DOMAIN>`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://api.kisi.io/saml/metadata`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://identity.kms.kisi.io/saml/<DOMAIN>`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://api.kisi.io/saml/consume/<DOMAIN>`
+
+    > [!NOTE] 
+    > `DOMAIN`é um identificador alfanumérico minúsculo atribuído à organização por Kisi, **não** é o mesmo que o nome de domínio DNS da organização.*
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
@@ -101,7 +104,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     ![image](common/default-attributes.png)
 
 1. Além de acima, a aplicação Kisi Physical Security espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
-    
+
     | Name | Atributo de origem|
     | ---------------| --------- |
     | FirstName | user.givenname |
@@ -119,10 +122,10 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -150,7 +153,7 @@ Para configurar um único sinal no lado **de Segurança Física de Kisi,** você
 
 Nesta secção, um utilizador chamado Britta Simon é criado na Kisi Physical Security. A Kisi Physical Security suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Segurança Física de Kisi, um novo é criado após a autenticação.
 
-## <a name="test-sso"></a>Teste SSO 
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 

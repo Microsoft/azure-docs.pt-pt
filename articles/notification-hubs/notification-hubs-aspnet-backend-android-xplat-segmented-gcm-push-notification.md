@@ -1,5 +1,5 @@
 ---
-title: Envie notificações para dispositivos Android específicos utilizando hubs de notificação do Azure e mensagens Google Cloud / Microsoft Docs
+title: Envie notificações para dispositivos Android específicos usando Hubs de Notificação Azure e Mensagens Google Cloud Microsoft Docs
 description: Saiba como utilizar os Hubs de Notificação para enviar notificações push para dispositivos Android específicos através dos Hubs de Notificação do Microsoft Azure e do Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
@@ -17,17 +17,17 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e4517adb0e8fb623864076b6ab2ffde9f92698d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80127293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022247"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Tutorial: Envie notificações push para dispositivos Android específicos usando google Cloud Messaging (depreciado)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Tutorial: Enviar notificações push para dispositivos Android específicos usando mensagens Google Cloud (depreciadas)
 
 > [!WARNING]
-> A partir de 10 de abril de 2018, a Google deprecou o Google Cloud Messaging (GCM). O servidor GCM e as APIs clientes são depreciadas e serão removidas logo a 29 de maio de 2019. Para mais informações, consulte [gcm e FCM Perguntas Frequentes.](https://developers.google.com/cloud-messaging/faq)
+> A partir de 10 de abril de 2018, a Google depreifou o Google Cloud Messaging (GCM). O servidor GCM e as APIs do cliente são depreciadas e serão removidas logo a 29 de maio de 2019. Para obter mais informações, consulte [GCM e FCM Perguntas Frequentes.](https://developers.google.com/cloud-messaging/faq)
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -41,7 +41,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Adicionar a seleção de categorias à aplicação móvel.
-> * Registado para notificações com etiquetas.
+> * Registrado para notificações com etiquetas.
 > * Enviar notificações com etiquetas.
 > * Testar a aplicação
 
@@ -53,7 +53,7 @@ Este tutorial baseia-se na aplicação que criou em [Tutorial: Enviar notificaç
 
 O primeiro passo consiste em adicionar os elementos de IU à sua atividade principal existente, para permitir que o utilizador selecione categorias a registar. As categorias selecionadas por um utilizador são armazenadas no dispositivo. Quando a aplicação é iniciada, é criado um registo do dispositivo no seu hub de notificação com as categorias selecionadas como etiquetas.
 
-1. Abra `res/layout/activity_main.xml file`o , e substitua o conteúdo pelo seguinte:
+1. Abra o `res/layout/activity_main.xml file` , e substitua o conteúdo pelo seguinte:
 
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -106,7 +106,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
             />
     </LinearLayout>
     ```
-2. Abra `res/values/strings.xml` o ficheiro e adicione as seguintes linhas:
+2. Abra o `res/values/strings.xml` ficheiro e adicione as seguintes linhas:
 
     ```xml
     <string name="button_subscribe">Subscribe</string>
@@ -118,10 +118,10 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     <string name="label_sports">Sports</string>
     ```
 
-    O `main_activity.xml` seu layout gráfico deve parecer na seguinte imagem:
+    O seu `main_activity.xml` layout gráfico deve parecer-se com a seguinte imagem:
 
-    ![][A1]
-3. Crie `Notifications` uma aula no `MainActivity` mesmo pacote que a sua classe.
+    ![Screenshot de um ambiente de desenvolvimento, com um ecrã de aplicativo visível. A aplicação lista as categorias de notícias que foram adicionadas ao código.][A1]
+3. Crie uma aula `Notifications` no mesmo pacote que a sua `MainActivity` turma.
 
     ```java
     import java.util.HashSet;
@@ -196,14 +196,14 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     ```
 
     Esta classe utiliza o armazenamento local para armazenar as categorias de notícias que este dispositivo tem de receber. Contém também métodos para se registar nestas categorias.
-4. Na `MainActivity` sua aula, remova `NotificationHub` `GoogleCloudMessaging`os seus campos `Notifications`privados para e, e adicione um campo para:
+4. Na sua `MainActivity` classe remova os seus campos privados para `NotificationHub` `GoogleCloudMessaging` e, e adicione um campo `Notifications` para:
 
     ```java
     // private GoogleCloudMessaging gcm;
     // private NotificationHub hub;
     private Notifications notifications;
     ```
-5. Em seguida, `onCreate` no método, remova `hub` a inicialização do campo e do `registerWithNotificationHubs` método. Em seguida, adicione as seguintes linhas, que inicializam uma instância da `Notifications` classe.
+5. Em seguida, no `onCreate` método, remova a inicialização do `hub` campo e do `registerWithNotificationHubs` método. Em seguida, adicione as seguintes linhas, que inicializam um exemplo da `Notifications` classe.
 
     ```java
     protected void onCreate(Bundle savedInstanceState) {
@@ -261,7 +261,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     }
     ```
 
-    Este método cria uma lista de `Notifications` categorias e utiliza a classe para armazenar a lista no armazenamento local e registar as etiquetas correspondentes com o seu centro de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
+    Este método cria uma lista de categorias e utiliza a `Notifications` classe para armazenar a lista no armazenamento local e registar as etiquetas correspondentes com o seu centro de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
 
 A sua aplicação pode agora armazenar um conjunto de categorias no armazenamento local do dispositivo e ficar registada no Hub de Notificação sempre que o utilizador alterar a seleção das categorias.
 
@@ -272,7 +272,7 @@ Estes passos efetuam o registo através do hub de notificação no arranque medi
 > [!NOTE]
 > Como o registrationId atribuído pelo Google Cloud Messaging (GCM) pode mudar em qualquer altura, deve registar-se para receber notificações frequentemente para evitar falhas de notificação. Este exemplo regista-se em notificações sempre que a aplicação é iniciada. Relativamente às aplicações executadas com frequência, ou seja, mais do que uma vez por dia, pode provavelmente ignorar o registo de modo a preservar a largura de banda caso tenha passado menos de um dia desde o registo anterior.
 
-1. Adicione o seguinte código no `onCreate` final `MainActivity` do método da classe:
+1. Adicione o seguinte código no final do `onCreate` método na `MainActivity` classe:
 
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());
@@ -338,8 +338,8 @@ Neste tutorial, enviou notificações de transmissões para dispositivos Android
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253

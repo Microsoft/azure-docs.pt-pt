@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Security Center para VMs Linux em Azure
+title: Tutorial - Use O Centro de Segurança Azure para Os VMs Linux em Azure
 description: Neste tutorial, vai aprender sobre as funcionalidades do Centro de Segurança do Azure para ajudar a proteger as suas máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6711075ba3a58e526733c3a18cab03084edc067e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460108"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080102"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Linux
 
@@ -57,13 +57,13 @@ O agente de recolha de dados do Centro de Segurança é então instalado em toda
 
 ## <a name="set-up-a-security-policy"></a>Configurar uma política de segurança
 
-As políticas de segurança são utilizadas para definir os itens para os quais o Centro de Segurança recolhe dados e faz recomendações. Pode aplicar políticas de segurança diferentes a diferentes conjuntos de recursos do Azure. Embora, por predefinição, os recursos do Azure sejam avaliados em relação a todos os itens de política, pode desativar os itens de política individuais para todos os recursos do Azure ou para um grupo de recursos. Para obter informações aprofundadas sobre as políticas de segurança do Centro de Segurança, veja [Definir políticas de segurança no Centro de Segurança do Azure](../../security-center/security-center-policies.md). 
+As políticas de segurança são utilizadas para definir os itens para os quais o Centro de Segurança recolhe dados e faz recomendações. Pode aplicar políticas de segurança diferentes a diferentes conjuntos de recursos do Azure. Embora, por predefinição, os recursos do Azure sejam avaliados em relação a todos os itens de política, pode desativar os itens de política individuais para todos os recursos do Azure ou para um grupo de recursos. Para obter informações aprofundadas sobre as políticas de segurança do Centro de Segurança, veja [Definir políticas de segurança no Centro de Segurança do Azure](../../security-center/tutorial-security-policy.md). 
 
 Para configurar uma política de segurança para toda a subscrição:
 
 1. No dashboard Centro de Segurança, selecione **Política de Segurança** e, em seguida, selecione a sua subscrição.
 2. No painel **Política de Segurança**, selecione **Política de segurança**. 
-3. Sobre a política de segurança - Lâmina de política de **segurança,** ligue ou desligue itens de política que pretende aplicar à subscrição.
+3. Sobre a **política de segurança - Lâmina de política de** segurança, ligue ou desligue os itens de política que pretende aplicar à subscrição.
 4. Quando tiver terminado de selecionar as definições, selecione **Guardar** na parte superior do painel. 
 
 ![Política exclusiva](./media/tutorial-azure-security/unique-policy.png)
@@ -102,14 +102,14 @@ Em muitos casos, o Centro de Segurança fornece passos acionáveis que pode segu
 
 ## <a name="view-detected-threats"></a>Ver as ameaças detetadas
 
-Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações aprofundadas sobre as capacidades de deteção de ameaças do Centro de Segurança, veja como é que o Centro de [Segurança deteta ameaças?](../../security-center/security-center-alerts-overview.md#detect-threats)
+Além das recomendações de configuração de recursos, o Centro de Segurança apresenta os alertas de deteção de ameaças. A funcionalidade de alertas de segurança agrega os dados recolhidos de cada VM, os registos de rede do Azure e as soluções de parceiros ligadas para detetar ameaças de segurança relativamente aos recursos do Azure. Para obter informações aprofundadas sobre as capacidades de deteção de ameaças do Security Center, veja [como é que o Centro de Segurança deteta ameaças?](../../security-center/security-center-alerts-overview.md#detect-threats)
 
-A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Um **teste gratuito** está disponível quando você se muda para este nível de preços mais alto. 
+A funcionalidade de alertas de segurança requer que o escalão de preço do Centro de Segurança seja aumentado de *Gratuito* para *Standard*. Um **teste gratuito** está disponível quando se muda para este nível de preços mais elevado. 
 
 Para alterar o escalão de preço:  
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição.
-2. Selecione **o nível de preços**.
+2. **Selecione o nível de preços**.
 3. Selecione **Standard** e, em seguida, clique em **Guardar** na parte superior do painel.
 
 
@@ -134,4 +134,3 @@ Avance para o próximo tutorial para saber mais sobre como criar um pipeline de 
 
 > [!div class="nextstepaction"]
 > [Criar uma infraestrutura de CI/CD com Jenkins, GitHub, e Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-

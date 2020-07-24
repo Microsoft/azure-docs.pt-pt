@@ -1,5 +1,5 @@
 ---
-title: Peer duas redes virtuais - Amostra de script Azure CLI
+title: Peer duas redes virtuais - amostra de script Azure CLI
 description: Exemplo de script da CLI do Azure - Peering de redes virtuais.
 services: virtual-network
 documentationcenter: virtual-network
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 2dd5336d66872cc8c56fd372e89b67ce9c892f3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 329f976d57a0a214cd18857dd60f832aa0128bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74083831"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073963"
 ---
-# <a name="peer-two-virtual-networks-script-sample"></a>Exemplo de script de peering de duas redes virtuais
+# <a name="peer-two-virtual-networks-with-an-azure-cli-script-sample"></a>Peer duas redes virtuais com uma amostra de script Azure CLI
 
 Este exemplo de script cria e liga duas redes virtuais na mesma região através da rede do Azure. Depois de executar o script, tem um peering entre duas redes virtuais.
 

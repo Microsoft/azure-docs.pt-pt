@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 21cb7133bad27013895a5e717cb7729b71795ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078964"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer autenticação key vault com uma política de controlo de acesso
 
@@ -39,7 +39,7 @@ Para obter todos os detalhes sobre o controlo de acesso ao Cofre chave, consulte
    - [Crie um cofre-chave com o Azure CLI](../secrets/quick-create-cli.md)
    - [Crie um cofre com Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Crie um cofre-chave com o portal Azure](../secrets/quick-create-portal.md).
-- [A Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Em alternativa, pode utilizar o [portal Azure](https://portal.azure.com).
+- [A Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/). Em alternativa, pode utilizar o [portal Azure](https://portal.azure.com).
 
 ## <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
 

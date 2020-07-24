@@ -1,5 +1,5 @@
 ---
-title: Exportar/Copiar o VHD de um disco gerido para uma conta de armazenamento em diferentes regiões - Amostra PowerShell
+title: VHD de disco gerido para conta de outra região (Windows) - PowerShell
 description: Exemplo de script do Azure PowerShell - exportar/copiar o VHD de um disco gerido para uma conta de armazenamento na mesma região ou numa região diferente
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: 8388863bb88e3e97d16ad7c80aad6387cf9e03b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3476dd671c6ee536c3f85408c328f55ba83a47b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010075"
 ---
-# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Exportar/copiar o VHD de um disco gerido para uma conta de armazenamento numa região diferente com o PowerShell
+# <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>Exportar/Copiar o VHD de um disco gerido para uma conta de armazenamento em diferentes regiões com o PowerShell (Windows)
 
 Este script exporta o VHD de um disco gerido para uma conta de armazenamento numa região diferente. Gera primeiro o URI de SAS do disco gerido e, em seguida, utiliza-o para copiar o VHD subjacente para uma conta de armazenamento numa região diferente. Utilize este script para copiar discos geridos para outra região, para expansão a nível regional.  
 
@@ -41,9 +41,9 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS de um disco ge
 
 | Comando | Notas |
 |---|---|
-| [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | Gera o URI de SAS para um disco gerido, que é utilizado para copiar o VHD subjacente para uma conta de armazenamento. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Cria um contexto de conta de armazenamento com o nome e a chave da conta. Este contexto pode ser utilizado para executar operações de leitura/escrita na conta de armazenamento. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Copia o VHD subjacente de um instantâneo para uma conta de armazenamento |
+| [Grant-AzDiskAccess](/powershell/module/az.compute/grant-azdiskaccess) | Gera o URI de SAS para um disco gerido, que é utilizado para copiar o VHD subjacente para uma conta de armazenamento. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext) | Cria um contexto de conta de armazenamento com o nome e a chave da conta. Este contexto pode ser utilizado para executar operações de leitura/escrita na conta de armazenamento. |
+| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) | Copia o VHD subjacente de um instantâneo para uma conta de armazenamento |
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -51,6 +51,6 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS de um disco ge
 
 [Criar uma máquina virtual a partir de um disco gerido](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver exemplos adicionais de scripts do PowerShell da máquina virtual na [Documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

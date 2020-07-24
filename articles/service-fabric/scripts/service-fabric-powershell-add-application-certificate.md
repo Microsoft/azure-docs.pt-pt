@@ -1,5 +1,5 @@
 ---
-title: Adicione a aplicação cert a um cluster em Powershell
+title: Adicione cert de aplicação a um cluster em Powershell
 description: Exemplo do Script do Azure PowerShell - Adicionar o certificado de aplicação a um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: ''
@@ -14,22 +14,22 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: d657ef8d28b36d93bc923036254e446c7be4c2c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0093aa2a058621981eb0e42d8b1a2220d4578979
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769524"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076193"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação a um cluster do Service Fabric
 
-Este script de amostra salta através de como criar um certificado no Cofre chave e, em seguida, implantá-lo para uma das escalas de máquina virtual que o seu cluster funciona. Este cenário não utiliza o Tecido de Serviço diretamente, mas depende do Cofre chave e dos conjuntos de escala de máquinas virtuais.
+Este script de amostra sai como criar um certificado no Key Vault e, em seguida, implantá-lo para uma das escalas de máquinas virtuais que o seu cluster funciona. Este cenário não utiliza o Service Fabric diretamente, mas depende do Cofre de Chaves e dos conjuntos de escala de máquinas virtuais.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Se necessário, instale o Azure PowerShell utilizando as instruções `Connect-AzAccount` encontradas no [guia Azure PowerShell](/powershell/azure/overview) e, em seguida, corra para criar uma ligação com o Azure. 
+Se necessário, instale o Azure PowerShell utilizando as instruções encontradas no [guia Azure PowerShell](/powershell/azure/) e, em seguida, corra `Connect-AzAccount` para criar uma ligação com a Azure. 
 
-## <a name="create-a-certificate-in-key-vault"></a>Criar um certificado no Cofre chave
+## <a name="create-a-certificate-in-key-vault"></a>Criar um certificado em Key Vault
 
 ```powershell
 $VaultName = ""
@@ -40,7 +40,7 @@ $policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName 
 Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
 ```
 
-## <a name="or-upload-an-existing-certificate-into-key-vault"></a>Ou enviar um certificado existente para o Cofre chave
+## <a name="or-upload-an-existing-certificate-into-key-vault"></a>Ou enviar um certificado existente para o Cofre de Chaves
 
 ```powershell
 $VaultName= ""
@@ -65,7 +65,7 @@ $Secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValu
 
 ```
 
-## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Atualizar a escala de máquina virtual define o perfil com certificado
+## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Atualizar escala de máquina virtual define perfil com certificado
 
 ```powershell
 $ResourceGroupName = ""
@@ -87,12 +87,12 @@ $VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConf
 $VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
 ```
 
-## <a name="update-the-virtual-machine-scale-set"></a>Atualizar o conjunto de escala de máquina virtual
+## <a name="update-the-virtual-machine-scale-set"></a>Atualize o conjunto de escala de máquina virtual
 ```powershell
 Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMSS -VMScaleSetName $VMSSName
 ```
 
-> Se quiser que o certificado colocado em vários tipos de nós no seu cluster, a segunda e terceira partes deste script devem ser repetidas para cada tipo de nó que deve ter o certificado.
+> Se quiser o certificado colocado em vários tipos de nó no seu cluster, a segunda e terceira partes deste script devem ser repetidas para cada tipo de nó que deve ter o certificado.
 
 ## <a name="script-explanation"></a>Explicação do script
 
@@ -100,16 +100,16 @@ Este script utiliza os seguintes comandos: cada comando na tabela está ligado a
 
 | Comando | Notas |
 |---|---|
-| [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Cria uma política de memória que representa o certificado |
+| [Política new-AzKeyVaultCertificate](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Cria uma política de memória que representa o certificado |
 | [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Implementa a política para certificados de cofre chave |
-| [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/Set-AzKeyVaultSecret)| Implementa a política para segredos de cofre chave |
-| [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Cria um config em memória que representa o certificado num VM |
+| [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/Set-AzKeyVaultSecret)| Implementa a política para key vault secrets |
+| [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Cria um config na memória representando o certificado num VM |
 | [Get-AzVmss](/powershell/module/az.compute/Get-AzVmss) |  |
-| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Adiciona o certificado à definição de memória do conjunto de escala de máquina virtual |
+| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Adiciona o certificado à definição na memória do conjunto de escala de máquina virtual |
 | [Atualização-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Implementa a nova definição do conjunto de escala de máquina virtual |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver os exemplos do Azure Powershell adicionais para o Azure Service Fabric em [Exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).

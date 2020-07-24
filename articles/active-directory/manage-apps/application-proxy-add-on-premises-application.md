@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b225b6471dd59275b3963bc2de09607c97a21465
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 7fd1b815a56a21e502decb440806040c626c13d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019646"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -32,7 +32,7 @@ Este tutorial permite:
 > * Adiciona um pedido no local ao seu inquilino Azure AD
 > * Verifica que um utilizador de teste pode inscrever-se na aplicação utilizando uma conta AD Azure
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Para adicionar uma aplicação no local à Azure AD, você precisa:
 
@@ -47,7 +47,7 @@ Para utilizar o Proxy da aplicação, precisa de um servidor Windows com o Windo
 Para uma elevada disponibilidade no seu ambiente de produção, recomendamos ter mais de um servidor Windows. Para este tutorial, um servidor Windows é suficiente.
 
 > [!IMPORTANT]
-> Se estiver a instalar o conector no Windows Server 2019, tem de desativar o suporte ao protocolo HTTP2 no componente WinHttp. Isto é desativado por padrão em versões anteriores de sistemas operativos suportados. Adicionar a seguinte chave de registo e reiniciar o servidor desativa-a no Windows Server 2019. Note que esta é uma chave de registo em toda a máquina.
+> Se estiver a instalar o conector no Windows Server 2019, tem de desativar o suporte ao protocolo HTTP2 no componente WinHttp para a Delegação Restrita Kerberos funcionar corretamente. Isto é desativado por padrão em versões anteriores de sistemas operativos suportados. Adicionar a seguinte chave de registo e reiniciar o servidor desativa-a no Windows Server 2019. Note que esta é uma chave de registo em toda a máquina.
 >
 > ```
 > Windows Registry Editor Version 5.00
@@ -95,6 +95,9 @@ Para ativar o TLS 1.2:
 
 Comece por permitir a comunicação aos centros de dados Azure para preparar o seu ambiente para o Azure AD Application Proxy. Se houver uma firewall no caminho, certifique-se de que está aberta. Uma firewall aberta permite ao conector fazer pedidos HTTPS (TCP) ao Application Proxy.
 
+> [!IMPORTANT]
+> Se estiver a instalar o conector para a nuvem do Governo Azure, siga os [passos de pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e [de instalação](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Isto requer permitir o acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
+
 ### <a name="open-ports"></a>Abrir portas
 
 Abra as seguintes portas para o tráfego **de saída.**
@@ -121,6 +124,7 @@ Pode permitir ligações a \* .msappproxy.net e \* .servicebus.windows.net se a 
 ## <a name="install-and-register-a-connector"></a>Instalar e registar um conector
 
 Para utilizar o Application Proxy, instale um conector em cada servidor do Windows que está a utilizar com o serviço Application Proxy. O conector é um agente que gere a ligação de saída dos servidores de aplicações no local para o Application Proxy em Azure AD. Pode instalar um conector em servidores que também têm outros agentes de autenticação instalados, como o Azure AD Connect.
+
 
 Para instalar o conector:
 
@@ -196,7 +200,7 @@ Agora que preparou o seu ambiente e instalou um conector, está pronto para adic
 
 6. Se necessário, configurar **definições adicionais**. Para a maioria das aplicações, deve manter estas definições nos seus estados predefinidos. 
 
-    | Campo | Description |
+    | Campo | Descrição |
     | :---- | :---------- |
     | **Tempo de tempo da aplicação backend** | Desaça este valor **apenas** para Long se a sua aplicação for lenta a autenticar e a ligar. Por predefinição, o tempo limite de tempo da aplicação backend tem um comprimento de 85 segundos. Quando definido para longo, o tempo de reencaminhar é aumentado para 180 segundos. |
     | **Use cookie apenas HTTP** | Desaprote este valor para **Sim** para ter cookies Proxy de aplicação incluem a bandeira HTTPOnly no cabeçalho de resposta HTTP. Se utilizar serviços de ambiente de trabalho remoto, desa um valor para **O**.|

@@ -1,5 +1,5 @@
 ---
-title: Crie um instantâneo de um VHD para criar vários discos geridos idênticos - PowerShell Sample
+title: Foto de VHD para fazer muitos discos geridos idênticos (Windows) - PowerShell
 description: Exemplo de Script do Azure PowerShell - Criar um instantâneo de um VHD para criar vários discos geridos idênticos num pequeno período de tempo
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 9da8adb786baebcb2e798c7ffb5998aca0f68265
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0625c968a3c60d38ca2bbe2f13318ccd85d61a61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81459258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082380"
 ---
-# <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>Criar um instantâneo de um VHD para criar vários discos geridos idênticos num pequeno período de tempo com o PowerShell
+# <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell-windows"></a>Crie um instantâneo a partir de um VHD para criar vários discos geridos idênticos em pouco tempo com PowerShell (Windows)
 
 Este script cria um instantâneo a partir de um ficheiro VHD numa conta de armazenamento numa mesma subscrição ou numa subscrição diferente. Utilize este script para importar um VHD especializado (não generalizado/processado pelo Sysprep) para um instantâneo e, em seguida, utilize o instantâneo para criar vários discos geridos idênticos num pequeno período de tempo. Além disso, utilize-o para importar um VHD de dados para um instantâneo e, em seguida, utilize o instantâneo para criar vários discos geridos num pequeno período de tempo. 
 
@@ -41,6 +41,6 @@ Este script cria um instantâneo a partir de um ficheiro VHD numa conta de armaz
 
 [Criar uma máquina virtual ao anexar um disco gerido como disco do SO](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver exemplos adicionais de scripts do PowerShell da máquina virtual na [Documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

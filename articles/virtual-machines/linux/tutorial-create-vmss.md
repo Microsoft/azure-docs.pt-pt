@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Crie um conjunto de escala de máquina virtual Linux'
-description: Aprenda a usar o Azure CLI para criar e implementar uma aplicação altamente disponível em VMs Linux usando um conjunto de escala de máquina virtual
+title: 'Tutorial: Criar um conjunto de escala de máquina virtual Linux'
+description: Saiba como utilizar o CLI Azure para criar e implementar uma aplicação altamente disponível em VMs Linux usando um conjunto de escala de máquina virtual
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
@@ -9,12 +9,12 @@ ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e97611cdfdca28b2c2b22f21d3aedcc79c4ee6d0
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d005cf64089abee07c44f584366fee9cd26c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085423"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implementar uma aplicação de elevada disponibilidade no Linux com a CLI do Azure
 
@@ -28,7 +28,7 @@ Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir
 > * Ver informações de ligação para instâncias de conjunto de dimensionamento
 > * Utilizar discos de dados num conjunto de dimensionamento
 
-Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 

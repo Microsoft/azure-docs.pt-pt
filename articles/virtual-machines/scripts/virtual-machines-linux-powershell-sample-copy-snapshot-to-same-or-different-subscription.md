@@ -1,6 +1,6 @@
 ---
-title: Foto de foto de um disco gerido para uma subscrição - PowerShell Sample
-description: Amostra de script Azure PowerShell - Copiar (ou mover) instantâneo de um disco gerido para a mesma ou diferente subscrição
+title: Snapshot do disco gerido para subscrição (Linux) - PowerShell
+description: Amostra de script Azure PowerShell - Copiar (ou mover) instantâneo de um disco gerido para a mesma subscrição ou diferente
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: a86f3e443abc86075fa0f5ff4cc129f871e5e6a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 54fbdc86ecd035593960eaa57187fbf9e35393fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460873"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069312"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Copiar o instantâneo de um disco gerido na mesma subscrição ou numa subscrição diferente com a CLI
+# <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell-linux"></a>Copiar instantâneo de um disco gerido na mesma subscrição ou subscrição diferente com PowerShell (Linux)
 
-Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Utilize este guião para os seguintes cenários:
+Este script copia um instantâneo de um disco gerido para uma subscrição idêntica ou diferente. Utilize este script para os seguintes cenários:
 
-1. Migrar uma foto no armazenamento Premium (Premium_LRS) para o armazenamento Standard (Standard_LRS ou Standard_ZRS) para reduzir o seu custo.
-1. Migrar um instantâneo do armazenamento localmente redundante (Premium_LRS, Standard_LRS) para armazenamento redundante de zona (Standard_ZRS) para beneficiar da maior fiabilidade do armazenamento zRS.
-1. Mova um instantâneo para uma subscrição diferente na mesma região para uma retenção mais longa.
+1. Migrar um instantâneo em armazenamento Premium (Premium_LRS) para o armazenamento Standard (Standard_LRS ou Standard_ZRS) para reduzir o seu custo.
+1. Migrar um instantâneo do armazenamento localmente redundante (Premium_LRS, Standard_LRS) para a zona de armazenamento redundante (Standard_ZRS) para beneficiar da maior fiabilidade do armazenamento ZRS.
+1. Mover um instantâneo para diferentes subscrições na mesma região para uma retenção mais longa.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -44,13 +44,13 @@ Este script utiliza os seguintes comandos para criar um instantâneo na subscri�
 
 | Comando | Notas |
 |---|---|
-| [Novo AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Cria a configuração de instantâneo que é utilizada para a criação do instantâneo. Inclui o Id de recurso do instantâneo principal e a localização que é a mesma que o instantâneo principal.  |
-| [Novo AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Cria um instantâneo com a configuração de instantâneo, o nome do instantâneo e o nome do grupo de recursos transmitidos como parâmetros. |
+| [New-AzSnapshotConfig](/powershell/module/az.compute/new-azsnapshotconfig) | Cria a configuração de instantâneo que é utilizada para a criação do instantâneo. Inclui o Id de recurso do instantâneo principal e a localização que é a mesma que o instantâneo principal.  |
+| [New-AzSnapshot](/powershell/module/az.compute/new-azdisk) | Cria um instantâneo com a configuração de instantâneo, o nome do instantâneo e o nome do grupo de recursos transmitidos como parâmetros. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual a partir de um instantâneo](./virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver exemplos adicionais de scripts do PowerShell da máquina virtual na [Documentação da VM Linux do Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

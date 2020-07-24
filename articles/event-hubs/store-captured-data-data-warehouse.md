@@ -4,16 +4,16 @@ description: 'Tutorial: Este tutorial mostra-lhe como capturar dados do seu cent
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: b5f38c1a5b60dc8c8f0d9e8710c5dbc95434fe78
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 8d45681b53aa2dd8df8c2288fecdde1b45fb7bd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322498"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039502"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrar dados de Centros de Eventos capturados para um Armazém de Dados SQL usando grade de eventos e funções de Azure
 
-A [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) de Hubs de Eventos é a forma mais simples de entregar dados transmitidos nos Hubs de Eventos para um armazenamento de Blobs do Azure ou o arquivo do Azure Data Lake. Pode, em seguida, processar e entregar os dados para outros destinos de armazenamento à sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, irá aprender a capturar dados do seu hub de eventos para um armazém de dados SQL, através de uma função do Azure acionada por uma [grelha de eventos](https://docs.microsoft.com/azure/event-grid/overview).
+A [Captura](./event-hubs-capture-overview.md) de Hubs de Eventos é a forma mais simples de entregar dados transmitidos nos Hubs de Eventos para um armazenamento de Blobs do Azure ou o arquivo do Azure Data Lake. Pode, em seguida, processar e entregar os dados para outros destinos de armazenamento à sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, irá aprender a capturar dados do seu hub de eventos para um armazém de dados SQL, através de uma função do Azure acionada por uma [grelha de eventos](../event-grid/overview.md).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -130,7 +130,7 @@ Depois de publicar a função, está pronto para subscrever o evento de captura 
 
 ## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Criar uma subscrição do Event Grid a partir da aplicação de Funções
  
-1. Vá ao [portal Azure.](https://portal.azure.com/) Selecione o grupo de recursos e a aplicação de funções.
+1. Aceda ao [portal do Azure](https://portal.azure.com/). Selecione o grupo de recursos e a aplicação de funções.
 
    ![Ver aplicação de funções](./media/store-captured-data-data-warehouse/view-function-app.png)
 
@@ -178,7 +178,4 @@ Após alguns minutos, consulte a tabela no seu armazém de dados SQL. Observe qu
 ## <a name="next-steps"></a>Passos seguintes 
 Pode utilizar ferramentas de visualização de dados avançadas com o armazém de dados para obter informações acionáveis.
 
-Este artigo mostra como utilizar o [Power BI com o SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
-
-
-
+Este artigo mostra como utilizar o [Power BI com o SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)

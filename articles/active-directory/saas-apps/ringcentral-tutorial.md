@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 33548df0b8eb73d28dfe6348f057266cca4c0290
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 15dc4ee8a5c1021587bb5c37e634070a76b3f05d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168546"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058237"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integrar RingCentral com Diretório Ativo Azure
 
@@ -38,6 +38,9 @@ Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 * Assinatura ativada por RingCentral (SSO).
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -91,14 +94,18 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Se não tiver **um ficheiro de metadados do Fornecedor de Serviços,** insira os valores para os seguintes campos:
 
     a. Na caixa de texto **identifier,** digite um URL:
-
-    - `https://sso.ringcentral.com`
-    - `https://ssoeuro.ringcentral.com`
+  
+    | Identificador |
+    |--|
+    |  `https://sso.ringcentral.com` |
+    | `https://ssoeuro.ringcentral.com` |
 
     b. Na caixa de texto **URL de resposta,** digite um URL:
 
-    - `https://sso.ringcentral.com/sp/ACS.saml2`
-    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
+    | URL de Resposta |
+    |--|
+    | `https://sso.ringcentral.com/sp/ACS.saml2` |
+    | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
 1. Na **configuração de um único sinal com página SAML,** na secção certificado de assinatura **SAML,** clique no botão de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
 
@@ -114,7 +121,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado Britta
    1. No campo **Nome**, introduza `Britta Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `BrittaSimon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -168,7 +175,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
     c. Na secção **de Mapeamento de Atributos,** selecione **Map Email Attribute para** como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. Clique em **Guardar**.
+    d. Clique em **Save** (Guardar).
 
     e. A partir do **passo 2** clique **em baixar** o ficheiro **de metadados do Fornecedor de Serviço** e carregá-lo na secção de **Configuração Sudeste SAML** para preencher automaticamente os valores **de URL** de **identificação** e resposta no portal Azure.
 
@@ -182,7 +189,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
     * Selecione **Permitir que os utilizadores iniciem sessão com credencial SSO ou RingCentral**.
 
-    * Clique em **Guardar**.
+    * Clique em **Save** (Guardar).
 
 ### <a name="create-ringcentral-test-user"></a>Criar utilizador de teste RingCentral
 

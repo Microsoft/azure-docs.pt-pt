@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bd1c41f23164d8dda2712ef2c361498cdaed6105
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032306"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Construir uma solução de ponta a ponta
 
@@ -26,6 +26,9 @@ Neste tutorial, vai...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="set-up-cloud-shell-session"></a>Configurar a sessão Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -407,7 +410,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Gráfico do cenário de construção completo. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), em seguida, através da Grade de Evento para outra função Azure para o processamento (seta C)":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 
@@ -433,7 +436,7 @@ Por fim, elimine a pasta de amostras de projeto que descarregou da sua máquina 
 Neste tutorial, criou um cenário de ponta a ponta que mostra as Gémeas Digitais Azure a serem impulsionadas por dados de dispositivos ao vivo.
 
 Em seguida, comece a olhar para a documentação do conceito para saber mais sobre os elementos com que trabalhou no tutorial:
-* [Conceitos: Modelos personalizados](concepts-models.md)
+* [*Conceitos: Modelos personalizados*](concepts-models.md)
 
 Ou, vá mais aprofundado sobre os processos neste tutorial iniciando os artigos de como fazer:
-* [Como fazer: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md)
+* [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)

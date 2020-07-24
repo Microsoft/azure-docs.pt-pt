@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use uma identidade gerida para aceder ao Cofre chave Azure - Windows - Azure AD
+title: Tutorial `:` Utilize uma identidade gerida para aceder ao Cofre da Chave Azure - Windows - Azure AD
 description: Um tutorial que explica o processo de utilização de uma identidade gerida atribuída pelo sistema numa VM do Windows, para aceder ao Azure Key Vault.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75971834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018779"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Azure Key Vault 
 
@@ -48,11 +48,11 @@ Saiba como:
 
 ## <a name="grant-access"></a>Conceder acesso  
  
-Esta secção mostra como conceder ao seu VM acesso a um Secret armazenado num cofre de chaves. Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação perante recursos que suportem a Autenticação do Azure AD.No entanto, nem todos os serviços do Azure suportam a autenticação do Azure AD.Para utilizar identidades geridas para recursos do Azure com esses serviços, armazene as credenciais do serviço no Azure Key Vault e utilize a identidade gerida da VM para aceder ao Key Vault para obter as credenciais. 
+Esta secção mostra como conceder o acesso ao seu VM a um Segredo armazenado num Cofre de Chaves. Com as identidades geridas para recursos do Azure, o seu código pode obter tokens de acesso para autenticação perante recursos que suportem a Autenticação do Azure AD.No entanto, nem todos os serviços do Azure suportam a autenticação do Azure AD.Para utilizar identidades geridas para recursos do Azure com esses serviços, armazene as credenciais do serviço no Azure Key Vault e utilize a identidade gerida da VM para aceder ao Key Vault para obter as credenciais. 
 
 Primeiro, é preciso criar um Key Vault e conceder o acesso de identidade gerida atribuída pelo sistema da nossa VM ao Key Vault.   
 
-1. No topo da barra de navegação esquerda, selecione **Criar um recurso** > Segurança +**Cofre de Chave****de Identidade** > .  
+1. Na parte superior da barra de navegação esquerda, **selecione Criar um**cofre de segurança de recursos + chave de  >  **identidade**  >  **Key Vault**.  
 2. Indique um **Nome** para o novo Key Vault. 
 3. Localize o Key Vault na mesma subscrição e grupo de recursos da VM que criou anteriormente. 
 4. Selecione **Políticas de acesso** e clique em **Adicionar novo**. 
@@ -75,13 +75,13 @@ Em seguida, adicione um segredo ao Key Vault para que possa mais tarde obter o s
  
 ## <a name="access-data"></a>Aceder a dados  
 
-Esta secção mostra como obter um sinal de acesso usando a identidade VM e usá-lo para recuperar o segredo do Cofre chave. Se não tiver o PowerShell 4.3.1 ou posterior instalado, terá de [transferir e instalar a versão mais recente](https://docs.microsoft.com/powershell/azure/overview).
+Esta secção mostra como obter um token de acesso usando a identidade VM e usá-lo para recuperar o segredo do Cofre de Chaves. Se não tiver o PowerShell 4.3.1 ou posterior instalado, terá de [transferir e instalar a versão mais recente](https://docs.microsoft.com/powershell/azure/).
 
 Primeiro, utilizamos a identidade gerida atribuída pelo sistema da VM para obter um token de acesso para autenticação no Key Vault:
  
 1. No portal, navegue para **Máquinas Virtuais**, aceda à sua máquina virtual do Windows e, em **Descrição Geral**, clique em **Ligar**.
-2. Introduza no seu nome de **utilizador** e **palavra-passe** para o qual adicionou quando criou o **Windows VM**.  
-3. Agora que criou uma **Ligação remota de ambiente** de trabalho com a máquina virtual, abra a PowerShell na sessão remota.  
+2. Introduza o seu **nome de utilizador** e **palavra-passe** para o qual adicionou quando criou o **Windows VM**.  
+3. Agora que criou uma **Ligação de Ambiente de Trabalho Remoto** com a máquina virtual, abra o PowerShell na sessão remota.  
 4. No PowerShell, invoca o pedido Web no inquilino para obter o token para o anfitrião local na porta específica para a VM.  
 
     O pedido do PowerShell:

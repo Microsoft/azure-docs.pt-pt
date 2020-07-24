@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 1857d3ee8b607d91b6fdd13b4499518d06fb9913
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 6263e18ae541dd60dcd3455a00cdf58e371485f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834548"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023556"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Leia o artigo [Descrição Geral do Tutorial](data-factory-build-your-first-pipeline.md) e conclua os passos de **pré-requisitos**.
-* Siga as instruções no artigo [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) para instalar a versão mais recente do Azure PowerShell no computador.
+* Siga as instruções no artigo [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/) para instalar a versão mais recente do Azure PowerShell no computador.
 * (opcional) Este artigo não abrange todos os cmdlets do Data Factory. Veja [Referência dos Cmdlets do Data Factory](/powershell/module/az.datafactory) para obter a documentação completa sobre os cmdlets do Data Factory.
 
 ## <a name="create-data-factory"></a>Criar fábrica de dados
@@ -69,7 +69,7 @@ Neste passo, utiliza o Azure PowerShell para criar um Azure Data Factory com o n
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     Alguns dos passos deste tutorial pressupõe que utiliza o grupo de recursos com o nome ADFTutorialResourceGroup. Se utiliza um grupo de recursos diferente, terá de utilizá-lo em vez de ADFTutorialResourceGroup neste tutorial.
-3. Executar o **cmdlet New-AzDataFactory** que cria uma fábrica de dados chamada **FirstDataFactoryPSH**.
+3. Executar o cmdlet **New-AzDataFactory** que cria uma fábrica de dados chamada **FirstDataFactoryPSH**.
 
     ```PowerShell
     New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
@@ -115,24 +115,24 @@ Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dado
         }
     }
     ```
-    Substitua o nome da **conta** pelo nome da sua conta de Armazenamento Azure e chave de **conta** pela chave de acesso da conta De armazenamento Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
+    Substitua o nome da **conta** pelo nome da sua conta de Armazenamento Azure e **chave de conta** pela chave de acesso da conta Azure Storage. Para aprender a obter a chave de acesso ao armazenamento, consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 2. No Azure PowerShell, mude para a pasta ADFGetStarted.
-3. Pode utilizar o cmdlet **New-AzDataFactoryLinkedService** que cria um serviço ligado. Este cmdlet e outros cmdlets de Fábrica de Dados que utiliza neste tutorial exige que passe valores para os parâmetros *ResourceGroupName* e *DataFactoryName.* Em alternativa, pode utilizar o **Get-AzDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *O Nome* do Grupo de Recursos e *DataFactoryName* cada vez que executa um cmdlet. Executar o seguinte comando para atribuir a saída do cmdlet **Get-AzDataFactory** a uma variável **$df.**
+3. Pode utilizar o **cmdlet New-AzDataFactoryLinkedService** que cria um serviço ligado. Este cmdlet e outros cmdlets da Data Factory que utiliza neste tutorial requer que você passe valores para os parâmetros *DataGroupName* e *DataFactoryName.* Em alternativa, pode utilizar **o Get-AzDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *o ResourceGroupName* e *DataFactoryName* cada vez que executar um cmdlet. Executar o seguinte comando para atribuir a saída do cmdlet **Get-AzDataFactory** a uma variável **$df.**
 
     ```PowerShell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
-4. Agora, execute o **cmdlet New-AzDataFactoryLinkedService** que cria o serviço de **ArmazenamentoLinkedService** ligado.
+4. Agora, gere o **cmdlet New-AzDataFactoryLinkedService** que cria o serviço **de StorageLinkedService** ligado.
 
     ```PowerShell
     New-AzDataFactoryLinkedService $df -File .\StorageLinkedService.json
     ```
-    Se não tivesse executado o cmdlet **Get-AzDataFactory** e atribuído a saída à **variável $df,** teria de especificar os valores para os parâmetros *ResourceGroupName* e *DataFactoryName* da seguinte forma.
+    Se não tivesse executado o cmdlet **Get-AzDataFactory** e atribuído a saída à variável **$df,** teria de especificar os valores para os parâmetros *Do Nome do Grupo de Recursos* e *dataFactoryName* da seguinte forma.
 
     ```PowerShell
     New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
     ```
-    Se fechar o Azure PowerShell no meio do tutorial, tem de executar o **cmdlet Get-AzDataFactory** da próxima vez que iniciar o Azure PowerShell para completar o tutorial.
+    Se fechar o Azure PowerShell no meio do tutorial, terá de executar o cmdlet **Get-AzDataFactory** da próxima vez que iniciar o Azure PowerShell para completar o tutorial.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Criar o serviço ligado do Azure HDInsight
 Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dados. O cluster do HDInsight é criado automaticamente no tempo de execução e eliminado depois de ter sido processado e ficado inativo pelo período de tempo especificado. Também pode utilizar o seu próprio cluster do HDInsight em vez de utilizar um cluster do HDInsight a pedido. Veja [Compute Linked Services (Serviços Ligados de Computação)](data-factory-compute-linked-services.md) para obter detalhes.
@@ -165,10 +165,10 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
     Tenha em atenção os seguintes pontos:
 
    * O Data Factory cria um cluster do HDInsight **baseado no Linux** com o JSON. Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
-   * Pode utilizar **o seu próprio cluster HDInsight** em vez de utilizar um cluster HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
-   * O cluster HDInsight cria um **recipiente predefinido** no armazenamento blob especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado ao HDInsight a pedido, é criado um cluster HDInsight sempre que uma fatia é processada, a menos que exista um cluster ao vivo existente **(timeToLive).** O cluster é eliminado automaticamente quando o processamento é concluído.
+   * Você poderia usar **o seu próprio cluster HDInsight** em vez de usar um cluster HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
+   * O cluster HDInsight cria um **recipiente predefinido** no armazenamento de bolhas especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com um serviço on-demand HDInsight ligado, um cluster HDInsight é criado sempre que uma fatia é processada, a menos que exista um cluster vivo existente **(timeToLive**). O cluster é eliminado automaticamente quando o processamento é concluído.
 
-       À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf**your datafactoryname** - **linkedname**-datetimestamp". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
+       À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes recipientes seguem um padrão: "adf**yourdatafactoryname** - **linkedservicename**-datetimestamp". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
 
      Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 2. Executar o **cmdlet New-AzDataFactoryLinkedService** que cria o serviço ligado chamado HDInsightOnDemandLinkedService.
@@ -263,7 +263,7 @@ Neste passo, irá criar o seu primeiro pipeline com uma atividade **HDInsightHiv
 1. Crie um ficheiro JSON com o nome MyFirstPipelinePSH.json na pasta C:\ADFGetStarted com o seguinte conteúdo:
 
    > [!IMPORTANT]
-   > Substitua o nome da conta de **armazenamento** pelo nome da sua conta de armazenamento no JSON.
+   > Substitua o **nome do número de armazenamento** pelo nome da sua conta de armazenamento no JSON.
    >
    >
 
@@ -313,7 +313,7 @@ Neste passo, irá criar o seu primeiro pipeline com uma atividade **HDInsightHiv
     ```
     No fragmento JSON, está a criar um pipeline que consiste numa única atividade que utiliza o Ramo de Registo para processar Dados num cluster do HDInsight.
 
-    O ficheiro de script da Hive, **partitionweblogs.hql,** é armazenado na conta De armazenamento Azure (especificado pelo scriptLinkedService, chamado **StorageLinkedService),** e na pasta de **scripts** no contentor **adfgetstarted**.
+    O ficheiro de scripts Da Colmeia, **partitionweblogs.hql,** está armazenado na conta de Armazenamento Azure (especificada pelo scriptLinkedService, chamado **StorageLinkedService),** e na pasta de **scripts** no recipiente **adfgetstared**.
 
     A secção **define** é utilizada para especificar as definições do tempo de execução que são transmitidas ao script do Hive como valores de configuração do Hive(por exemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -334,7 +334,7 @@ Neste passo, irá criar o seu primeiro pipeline com uma atividade **HDInsightHiv
 ## <a name="monitor-pipeline"></a>Monitorizar o pipeline
 Neste passo, irá utilizar o Azure PowerShell para monitorizar os acontecimentos de uma fábrica de dados do Azure.
 
-1. Executar **Get-AzDataFactory** e atribuir a saída a uma **variável $df.**
+1. Executar **Get-AzDataFactory** e atribuir a saída a uma variável **$df.**
 
     ```PowerShell
     $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
@@ -358,7 +358,7 @@ Neste passo, irá utilizar o Azure PowerShell para monitorizar os acontecimentos
     LatencyStatus     :
     LongRetryCount    : 0
     ```
-3. Executar **Get-AzDataFactoryRun** para obter os detalhes da atividade corre para uma fatia específica.
+3. Executar **Get-AzDataFactoryRun** para obter os detalhes da atividade funciona para uma fatia específica.
 
     ```PowerShell
     Get-AzDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
@@ -390,7 +390,7 @@ Neste passo, irá utilizar o Azure PowerShell para monitorizar os acontecimentos
     ![dados de saída](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 > [!IMPORTANT]
-> A criação de um cluster do HDInsight a pedido demora, por norma, algum tempo (cerca de 20 minutos). Por isso, espere que o gasoduto leve **aproximadamente 30 minutos** para processar a fatia.
+> A criação de um cluster do HDInsight a pedido demora, por norma, algum tempo (cerca de 20 minutos). Por isso, espere que o gasoduto desemque **aproximadamente 30 minutos** para processar a fatia.
 >
 > O ficheiro de entrada é eliminado quando o setor é processado com êxito. Por conseguinte, se pretender voltar a executar o setor ou repetir o tutorial, carregue o ficheiro de entrada (input.log) na pasta inputdata do contentor adfgetstarted.
 >
@@ -403,13 +403,13 @@ Neste tutorial, criou uma fábrica de dados do Azure para processar dados execut
 2. Criar dois **serviços ligados**:
    1. O serviço ligado do **Storage do Azure** para ligar o seu armazenamento de blobs do Azure que contém ficheiros de entrada/saída da fábrica de dados.
    2. O serviço ligado do **Azure HDInsight** a pedido para ligar um cluster de Hadoop do HDInsight a pedido à fábrica de dados. O Azure Data Factory cria um cluster de Hadoop do HDInsight para processar os dados de entrada e produzir dados de saída.
-3. Criou dois **conjuntos**de dados , que descrevem dados de entrada e de saída para a atividade da Hive HDInsight no pipeline.
+3. Criei dois **conjuntos de dados**, que descrevem dados de entrada e saída para a atividade da Colmeia HDInsight no pipeline.
 4. Criar um **pipeline** com uma atividade do **Ramo de Registo do HDInsight**.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um pipeline com uma atividade de transformação (Atividade do HDInsight) que executa um Script de ramo de registo num cluster do Azure HDInsight a pedido. Para ver como utilizar uma Atividade de Cópia para copiar dados de um Blob do Azure para o Azure SQL, veja o [Tutorial: Copiar dados de um Blob do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 | Tópico | Descrição |
 |:--- |:--- |

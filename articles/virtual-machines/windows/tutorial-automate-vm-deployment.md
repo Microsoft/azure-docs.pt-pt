@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Instale aplicações num Windows VM em Azure
+title: Tutorial - Instalar aplicações num Windows VM em Azure
 description: Neste tutorial, vai aprender a utilizar a Extensão de Script Personalizado para executar scripts e implementar aplicações em máquinas virtuais do Windows no Azure
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c576ac1f56a29fc73f92e2292b457262828c5046
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d0190a97c22a805065ceaf41dcd655b9e8182b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065297"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Tutorial – Implementar aplicações numa máquina virtual do Windows no Azure com a Extensão de Script Personalizado
 
-Para configurar as máquinas virtuais (VMs) de forma rápida e consistente, pode utilizar a [extensão](extensions-customscript.md)do script personalizado para windows . Neste tutorial, ficará a saber como:
+Para configurar máquinas virtuais (VMs) de forma rápida e consistente, pode utilizar a [Extensão de Script Personalizada para Windows](../extensions/custom-script-windows.md). Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Utilizar a Extensão de Script Personalizado para instalar o IIS
@@ -28,7 +28,7 @@ Para configurar as máquinas virtuais (VMs) de forma rápida e consistente, pode
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/powershell)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="custom-script-extension-overview"></a>Visão geral da extensão de script personalizado
 A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Os scripts podem ser transferidos a partir do armazenamento do Azure ou do GitHub, ou fornecidos para o portal do Azure no runtime da extensão.
@@ -39,13 +39,13 @@ Pode utilizar a Extensão de Script Personalizado com VMs do Windows e do Linux.
 
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
-Detete o nome de utilizador e a palavra-passe do administrador para o VM com [get-credential:](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)
+Desajuste o nome de utilizador e a palavra-passe do administrador para o VM com [o Get-Credential:](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Agora pode criar o VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se ainda não existirem, serão criados os grupos de recursos *myResourceGroupAutomate* e recursos de rede de apoio. Para permitir um tráfego Web, o cmdlet também abre a porta *80*.
+Agora pode criar o VM com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se ainda não existirem, serão criados os grupos de recursos *myResourceGroupAutomate* e recursos de rede de apoio. Para permitir um tráfego Web, o cmdlet também abre a porta *80*.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -64,7 +64,7 @@ Demora alguns minutos até que os recursos e a VM sejam criados.
 
 
 ## <a name="automate-iis-install"></a>Automatizar a instalação do IIS
-Utilize a [extensão set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) para instalar a extensão do script personalizado. A extensão executa o `powershell Add-WindowsFeature Web-Server` para instalar o servidor Web IIS e, em seguida, atualiza a página *Default.htm* para mostrar o nome do anfitrião da VM:
+Utilize [a Configuração AzVMExtension](/powershell/module/az.compute/set-azvmextension) para instalar a extensão de script personalizada. A extensão executa o `powershell Add-WindowsFeature Web-Server` para instalar o servidor Web IIS e, em seguida, atualiza a página *Default.htm* para mostrar o nome do anfitrião da VM:
 
 ```azurepowershell-interactive
 Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
@@ -79,7 +79,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
 
 
 ## <a name="test-web-site"></a>Site de teste
-Obtenha o endereço IP público do seu balanceor de carga com [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIPAddress*, criado anteriormente:
+Obtenha o endereço IP público do seu equilibrador de carga com [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIPAddress*, criado anteriormente:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `

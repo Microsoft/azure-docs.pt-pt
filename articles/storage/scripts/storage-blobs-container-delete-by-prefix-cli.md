@@ -9,14 +9,14 @@ ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 391cc4c08b7067ef388c2130cb340fb5597c843f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 71bffe004ae8f2ac2060c1bfc12c4fff0be95c34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067027"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006216"
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Eliminar contentores com base no prefixo do nome do contentor
+# <a name="use-an-azure-cli-script-to-delete-containers-based-on-container-name-prefix"></a>Utilize um script Azure CLI para apagar contentores com base no prefixo do nome do recipiente
 
 Este script cria primeiro alguns contentores de exemplo no armazenamento do Blob do Azure e, em seguida, elimina alguns dos contentores com base num prefixo no nome do contentor.
 

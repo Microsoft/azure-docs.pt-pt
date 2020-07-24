@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Criar pacote de acesso - Gestão de direitos da Azure AD
-description: Tutorial passo a passo para como criar o seu primeiro pacote de acesso na gestão de direitos do Diretório Ativo Azure.
+title: Tutorial - Criar pacote de acesso - Gestão de direitos AZure AD
+description: Tutorial passo a passo para como criar o seu primeiro pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,31 +12,31 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/30/2020
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2d31ef46dfba31a8f217f68e8d5f98b67d58da5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034581"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos da AD Azure
+# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
 
-Gerir o acesso a todos os recursos que os colaboradores precisam, como grupos, aplicações e sites, é uma função importante para as organizações. Pretende-se conceder aos colaboradores o nível de acesso adequado, precisam de ser produtivos e remover o seu acesso quando já não é necessário.
+Gerir o acesso a todos os recursos de que os colaboradores precisam, como grupos, aplicações e sites, é uma função importante para as organizações. Pretende-se conceder aos colaboradores o nível de acesso adequado de que precisam para serem produtivos e remover o seu acesso quando já não é necessário.
 
-Neste tutorial, trabalha para o Woodgrove Bank como administrador de TI. Foi-lhe pedido que criasse um pacote de recursos para uma campanha de marketing que os utilizadores internos possam solicitar autosserviço. Os pedidos não requerem aprovação e o acesso do utilizador expira após 30 dias. Para este tutorial, os recursos da campanha de marketing são apenas membros de um único grupo, mas pode ser uma coleção de grupos, aplicações ou sites SharePoint Online.
+Neste tutorial, trabalha para o Woodgrove Bank como administrador de TI. Foi-lhe pedido que criasse um pacote de recursos para uma campanha de marketing que os utilizadores internos podem pedir por si próprios. Os pedidos não requerem aprovação e o acesso do utilizador expira após 30 dias. Para este tutorial, os recursos da campanha de marketing são apenas membros de um único grupo, mas pode ser uma coleção de grupos, aplicações ou sites SharePoint Online.
 
-![Descrição geral do cenário](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Scenario overview (Descrição geral do cenário)](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um pacote de acesso com um grupo como recurso
 > * Permitir que um utilizador no seu diretório solicite acesso
-> * Demonstre como um utilizador interno pode solicitar o pacote de acesso
+> * Demonstrar como um utilizador interno pode solicitar o pacote de acesso
 
 Para uma demonstração passo a passo do processo de implementação da gestão de direitos do Azure Ative Directory, incluindo a criação do seu primeiro pacote de acesso, veja o seguinte vídeo:
 
@@ -44,141 +44,141 @@ Para uma demonstração passo a passo do processo de implementação da gestão 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a gestão de direitos da Azure AD, deve ter uma das seguintes licenças:
+Para utilizar a gestão de direitos AD da Azure, deve ter uma das seguintes licenças:
 
 - Azure AD Premium P2
-- Licença de Mobilidade Empresarial + Segurança (EMS) E5
+- Licença E5 de Mobilidade Empresarial + Segurança (EMS)
 
 Para mais informações, consulte [os requisitos da Licença.](entitlement-management-overview.md#license-requirements)
 
-## <a name="step-1-set-up-users-and-group"></a>Passo 1: Configurar utilizadores e grupo
+## <a name="step-1-set-up-users-and-group"></a>Passo 1: Criar utilizadores e grupo
 
-Um diretório de recursos tem um ou mais recursos para partilhar. Neste passo, cria-se um grupo chamado **Marketing resources** no diretório do Woodgrove Bank que é o recurso-alvo para a gestão de direitos. Também criou um solicitador interno.
+Um diretório de recursos tem um ou mais recursos para partilhar. Neste passo, você cria um grupo chamado **recursos de marketing** no diretório do Woodgrove Bank que é o recurso alvo para a gestão de direitos. Também criou um solicitador interno.
 
-**Papel pré-requisito:** Administrador global ou administrador de utilizador
+**Papel pré-requisito:** Administrador global ou administrador de utilizadores
 
 ![Criar utilizadores e grupos](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global ou administrador de utilizador.  
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global ou administrador do Utilizador.  
 
 1. Na navegação à esquerda, clique no **Diretório Ativo Azure**.
 
-1. Crie ou configure os seguintes dois utilizadores. Pode usar estes nomes ou nomes diferentes. **O Admin1** pode ser o utilizador em que está atualmente inscrito.
+1. Criar ou configurar os dois utilizadores seguintes. Pode usar estes nomes ou nomes diferentes. **ADmin1** pode ser o utilizador em que está atualmente inscrito como.
 
-    | Nome | Função de diretório |
+    | Name | Função de diretório |
     | --- | --- |
     | **Administrador1** | Administrador global<br/>-ou-<br/>Administrador de utilizadores |
     | **Requestor1** | Utilizador |
 
-1. Crie um grupo de segurança Azure AD chamado **Recursos de Marketing** com um tipo de membro atribuído . **Assigned**
+1. Criar um grupo de segurança Azure AD chamado **Recursos de Marketing** com um tipo de membro de **Atribuídos**.
 
     Este grupo será o recurso-alvo para a gestão de direitos. O grupo deve estar vazio de membros para começar.
 
 ## <a name="step-2-create-an-access-package"></a>Passo 2: Criar um pacote de acesso
 
-Um pacote de *acesso* é um conjunto de recursos que uma equipa ou projeto precisa e é regido com políticas. Os pacotes de acesso são definidos em contentores *chamados catálogos.* Neste passo, cria-se um pacote de acesso à Campanha de **Marketing** no catálogo **Geral.**
+Um pacote de *acesso* é um pacote de recursos que uma equipa ou projeto precisa e é governado com políticas. Os pacotes de acesso são definidos em contentores *chamados catálogos.* Neste passo, você cria um pacote de acesso **à Campanha de Marketing** no catálogo **geral.**
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
 
 ![Criar um pacote de acesso](./media/entitlement-management-access-package-first/elm-access-package.png)
 
-1. No portal Azure, na navegação à esquerda, clique no **Diretório Ativo Azure.**
+1. No portal Azure, na navegação à esquerda, clique no **Diretório Ativo Azure**.
 
-2. No menu esquerdo, clique em **Governança de Identidade**
+2. No menu à esquerda, clique em **Governança de Identidade**
 
-3. No menu esquerdo, clique em **pacotes de acesso**.  Se vir o **Access negado,** certifique-se de que está presente no seu diretório uma licença Azure AD Premium P2.
+3. No menu esquerdo, clique em **pacotes de Acesso**.  Se vir **Access negado,** certifique-se de que uma licença Azure AD Premium P2 está presente no seu diretório.
 
-4. Clique em **Novo pacote de acesso**.
+4. Clique **em Novo pacote de acesso**.
 
     ![Gestão de direitos no portal Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-5. No separador **Basics,** digite o pacote de acesso à Campanha de **Marketing** e descrição **O acesso aos recursos para a campanha**.
+5. No **separador Básicos,** escreva o pacote de acesso **da campanha de marketing** e descrição Acesso aos recursos para a **campanha.**
 
-6. Deixe a lista de abandono do **Catálogo** definida para **o General**.
+6. Deixe a lista de entrega do **catálogo** definida para **o General**.
 
-    ![Novo pacote de acesso - Separador Basics](./media/entitlement-management-access-package-first/basics.png)
+    ![Novo pacote de acesso - Separador básico](./media/entitlement-management-access-package-first/basics.png)
 
-7. Clique em **Seguir** para abrir o separador de **funções de Recurso.**
+7. Clique **em seguida** para abrir o separador **Funções de Recurso.**
 
-    Neste separador, seleciona os recursos e a função de recurso a incluir no pacote de acesso.
+    Neste separador, selecione os recursos e a função de recurso a incluir no pacote de acesso.
 
-8. Clique **em Grupos e Equipas**.
+8. Clique **em Grupos e Equipas.**
 
-9. No painel de grupos Select, encontre e selecione o grupo de **recursos de Marketing** que criou anteriormente.
+9. No painel de grupos Select, encontre e selecione o grupo **de recursos de Marketing** que criou anteriormente.
 
-    Por padrão, vê-se grupos dentro e fora do catálogo **geral.** Quando selecionar um grupo fora do catálogo **Geral,** será adicionado ao catálogo **Geral.**
+    Por predefinição, vê grupos dentro e fora do catálogo **Geral.** Quando selecionar um grupo fora do catálogo **Geral,** este será adicionado ao catálogo **Geral.**
 
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-10. Clique em **Selecionar** para adicionar o grupo à lista.
+10. Clique **em Selecionar** para adicionar o grupo à lista.
 
-11. Na lista de abandono do **papel,** selecione **Member**.
+11. Na lista de drop-down **role,** selecione **Member**.
 
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles.png)
 
     >[!NOTE]
-    > Ao utilizar [grupos dinâmicos](../users-groups-roles/groups-create-rule.md) não verá outras funções disponíveis além do proprietário. Esta ação é propositada.
-    > ![Descrição geral do cenário](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    > Ao utilizar [grupos dinâmicos,](../users-groups-roles/groups-create-rule.md) não verá outras funções disponíveis para além do proprietário. Esta ação é propositada.
+    > ![Scenario overview (Descrição geral do cenário)](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
 
-12. Clique em **Seguir** para abrir o separador **Pedidos.**
+12. Clique **ao lado** para abrir o separador **Pedidos.**
 
     Neste separador, cria-se uma política de pedidos. Uma *política* define as regras ou guarda-costas para aceder a um pacote de acesso. Cria uma política que permite a um utilizador específico no diretório de recursos solicitar este pacote de acesso.
 
-13. Nos **Utilizadores que podem solicitar** a secção de acesso, clique **para utilizadores no seu diretório** e, em seguida, clique em **utilizadores e grupos específicos**.
+13. Nos **Utilizadores que podem solicitar a** secção de acesso, clique **em Para utilizadores no seu diretório** e, em seguida, clique em **utilizadores e grupos específicos**.
 
-    ![Novo pacote de acesso - Separador de pedidos](./media/entitlement-management-access-package-first/requests.png)
+    ![Novo pacote de acesso - Separador de Pedidos](./media/entitlement-management-access-package-first/requests.png)
 
-14. Clique em **Adicionar utilizadores e grupos**.
+14. Clique **em Adicionar utilizadores e grupos**.
 
-15. No painel De utilizadores e grupos Select, selecione o utilizador **Requestor1** que criou anteriormente.
+15. No painel de grupos Select, selecione o utilizador **Requestor1** que criou anteriormente.
 
-    ![Novo pacote de acesso - Separador de pedidos - Selecione utilizadores e grupos](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
+    ![Novo pacote de acesso - Separador de Pedidos - Selecione utilizadores e grupos](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
 16. Clique em **Selecionar**.
 
-17. Desloque-se para as secções **de Aprovação** e Ativação de **Pedidos.**
+17. Percorra para baixo para as secções **de aprovação** e ative as secções **de pedidos.**
 
-18. Licença **Exigir aprovação** definida para **Nº**.
+18. Deixar **Requerer a aprovação** definida para **o nº**.
 
-19. Para **ativar pedidos,** clique **em Sim** para permitir que este pacote de acesso seja solicitado assim que for criado.
+19. Para **ativar pedidos**, clique em **Sim** para permitir que este pacote de acesso seja solicitado assim que for criado.
 
-    ![Novo pacote de acesso - Separador de pedidos - Aprovação e Solicitações de Habilitação](./media/entitlement-management-access-package-first/requests-approval-enable.png)
+    ![Novo pacote de acesso - Separador de Pedidos - Aprovação e Ativação de pedidos](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-20. Clique em **seguida** para abrir o separador **Lifecycle.**
+20. Clique **ao lado** para abrir o **separador Ciclo de Vida.**
 
-21. Na secção **Expiração,** as atribuições do pacote de **acesso expiram** até **ao número de dias**.
+21. Na secção **Expiração,** definir **as atribuições de pacotes** de acesso expiram para **o Número de dias**.
 
-22. Definir **As atribuições expiram após** **30** dias.
+22. **As atribuições de definição expiram após** **30** dias.
 
-    ![Novo pacote de acesso - Separador lifecycle](./media/entitlement-management-access-package-first/lifecycle.png)
+    ![Novo pacote de acesso - Separador de ciclo de vida](./media/entitlement-management-access-package-first/lifecycle.png)
 
-23. Clique em **Seguir** para abrir o **separador Rever + Criar.**
+23. Clique em **Seguida** para abrir o **separador 'Rever + Criar'.**
 
-    ![Novo pacote de acesso - Review + Criar separador](./media/entitlement-management-access-package-first/review-create.png)
+    ![Novo pacote de acesso - Rever + Criar separador](./media/entitlement-management-access-package-first/review-create.png)
 
-    Após alguns momentos, deve ver uma notificação de que o pacote de acesso foi criado com sucesso.
+    Após alguns momentos, deverá ver uma notificação de que o pacote de acesso foi criado com sucesso.
 
-24. No menu esquerdo do pacote de acesso da Campanha de Marketing, clique em **Visão Geral**.
+24. No menu esquerdo do pacote de acesso à Campanha de Marketing, clique **em Visão Geral.**
 
 25. Copie o **link do portal My Access**.
 
     Vais usar este link para o próximo passo.
 
-    ![Visão geral do pacote de acesso - My Access portal link](./media/entitlement-management-shared/my-access-portal-link.png)
+    ![Visão geral do pacote de acesso - O link do portal Do Meu Acesso](./media/entitlement-management-shared/my-access-portal-link.png)
 
 ## <a name="step-3-request-access"></a>Passo 3: Solicitar acesso
 
-Neste passo, executa os passos como **solicitador interno** e solicita o acesso ao pacote de acesso. Os solicitores submetem os seus pedidos usando um site chamado portal My Access. O portal My Access permite aos solicitantes submeter pedidos de pacotes de acesso, ver os pacotes de acesso a que já têm acesso e ver o seu histórico de pedidos.
+Neste passo, executa as etapas como **solicitador interno** e solicita o acesso ao pacote de acesso. Os solicitadores submetem os seus pedidos através de um site chamado portal My Access. O portal My Access permite aos solicitadores submeterem pedidos de pacotes de acesso, verem os pacotes de acesso a que já têm acesso e visualizarem o histórico de pedidos.
 
 **Papel pré-requisito:** Solicitador interno
 
-1. Assine pelo portal Azure.
+1. Assine fora do portal Azure.
 
-1. Numa nova janela de navegador, navegue para o portal My Access link que copiou no passo anterior.
+1. Numa nova janela do navegador, navegue para o link do portal My Access copiado no passo anterior.
 
-1. Inscreva-se no portal My Access como **Requestor1**.
+1. Inscreva-se no portal 'O Acesso' como **Requestor1**.
 
-    Você deve ver o pacote de acesso da Campanha de **Marketing.**
+    Devia ver o pacote de acesso **à Campanha de Marketing.**
 
 1. Se necessário, na coluna **Descrição,** clique na seta para ver detalhes sobre o pacote de acesso.
 
@@ -186,37 +186,37 @@ Neste passo, executa os passos como **solicitador interno** e solicita o acesso 
 
 1. Clique na marca de verificação para selecionar o pacote.
 
-1. Clique em **Solicitar acesso** para abrir o painel de acesso do Pedido.
+1. Clique **em Pedir acesso** para abrir o painel de acesso do Pedido.
 
-    ![Meu portal de acesso - Solicitar botão de acesso](./media/entitlement-management-access-package-first/my-access-request-access-button.png)
+    ![O meu portal de acesso - Solicite o botão de acesso](./media/entitlement-management-access-package-first/my-access-request-access-button.png)
 
-1. Na caixa de justificação do **Negócio,** escreva a justificação que estou a trabalhar na nova campanha de **marketing.**
+1. Na caixa **de justificação do Negócio,** escreva a justificação **que estou a trabalhar na nova campanha de marketing.**
 
-    ![Meu portal de acesso - Solicitar acesso](./media/entitlement-management-shared/my-access-request-access.png)
+    ![O meu portal de Acesso - Solicitar acesso](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. Clique em **Submeter**.
+1. Clique **em Submeter.**
 
-1. No menu esquerdo, clique no **histórico de solicitar** para verificar se o seu pedido foi submetido.
+1. No menu esquerdo, clique em **Pedir histórico** para verificar se o seu pedido foi submetido.
 
 ## <a name="step-4-validate-that-access-has-been-assigned"></a>Passo 4: Validar que o acesso foi atribuído
 
-Neste passo, confirma que o **solicitador interno** foi atribuído ao pacote de acesso e que agora são membros do grupo de **recursos de Marketing.**
+Neste passo, confirma-se que o **solicitador interno** foi designado o pacote de acesso e que agora são membros do grupo de **recursos de Marketing.**
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário do catálogo ou gestor de pacotes de acesso
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
 
-1. Assine pelo portal My Access.
+1. Assine fora do portal 'O Acesso'.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como **Admin1**.
 
-1. Clique em **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
+1. Clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu esquerdo, clique em **pacotes de acesso**.
+1. No menu esquerdo, clique em **pacotes de Acesso**.
 
-1. Encontre e clique no pacote de acesso da Campanha de **Marketing.**
+1. Encontre e clique no pacote de acesso **à campanha de marketing.**
 
-1. No menu esquerdo, clique em **Pedidos.**
+1. No menu esquerdo, clique em **Pedidos**.
 
-    Deve consultar o Requestor1 e a política inicial com um estatuto de **Entregue**.
+    Deverá consultar o Requestor1 e a política inicial com um estatuto de **Entrega**.
 
 1. Clique no pedido para ver os detalhes do pedido.
 
@@ -226,42 +226,42 @@ Neste passo, confirma que o **solicitador interno** foi atribuído ao pacote de 
 
 1. Clique **em Grupos** e abra o grupo **de recursos de Marketing.**
 
-1. Clique em **Membros**.
+1. Clique **em Membros**.
 
-    Devia ver o **Requestor1** listado como membro.
+    Devia ver **o Requestor1** listado como membro.
 
     ![Membros de recursos de marketing](./media/entitlement-management-access-package-first/group-members.png)
 
-## <a name="step-5-clean-up-resources"></a>Passo 5: Limpar os recursos
+## <a name="step-5-clean-up-resources"></a>Passo 5: Limpar recursos
 
-Neste passo, remove as alterações que efez e elimina o pacote de acesso à Campanha de **Marketing.**
+Neste passo, remove as alterações que esou e elimina o pacote de acesso **à Campanha de Marketing.**
 
-**Papel pré-requisito:**  Administrador global ou administrador de utilizador
+**Papel pré-requisito:**  Administrador global ou administrador de utilizadores
 
-1. No portal Azure, clique em **Azure Ative Directory** e, em seguida, clique em **Governança de Identidade**.
+1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
-1. Abra o pacote de acesso à Campanha de **Marketing.**
+1. Abra o pacote de acesso **à Campanha de Marketing.**
 
-1. Clique em **Tarefas**.
+1. Clique **em Atribuições**.
 
-1. Para **Requestor1,** clique na elipse (**...**) e, em seguida, clique em Remover **o acesso**. Na mensagem que aparece, clique **em Sim**.
+1. Para **Requestor1,** clique na elipse **(...)** e clique em **Remover o acesso**. Na mensagem que aparece, clique em **Sim.**
 
-    Após alguns momentos, o estado passará de Entregue para Expirado.
+    Após alguns momentos, o estado passará de Entregue a Expirado.
 
-1. Clique nas **funções de Recurso**.
+1. Clique **em funções de recurso.**
 
-1. Para **os recursos de Marketing,** clique na elipse **(...**) e clique em Remover a **função de recurso**. Na mensagem que aparece, clique **em Sim**.
+1. Para **os recursos de Marketing,** clique na elipse **(...**) e, em seguida, clique em **Remover a função de recurso**. Na mensagem que aparece, clique em **Sim.**
 
 1. Abra a lista de pacotes de acesso.
 
-1. Para **campanha de marketing,** clique na elipse**e,** em seguida, clique em **Apagar**. Na mensagem que aparece, clique **em Sim**.
+1. Para **campanha de marketing,** clique na elipse **(...**) e clique em **Apagar**. Na mensagem que aparece, clique em **Sim.**
 
-1. No Diretório Ativo Azure, elimine todos os utilizadores que tenha criado, tais como **Requestor1** e **Admin1**.
+1. No Azure Ative Directory, elimine quaisquer utilizadores que tenha criado, como **o Requestor1** e **o Admin1**.
 
 1. Eliminar o grupo **de recursos de Marketing.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Avançar para o próximo artigo para conhecer os passos de cenário comum na gestão de direitos.
+Avance para o próximo artigo para conhecer os passos comuns do cenário na gestão de direitos.
 > [!div class="nextstepaction"]
 > [Cenários comuns](entitlement-management-scenarios.md)

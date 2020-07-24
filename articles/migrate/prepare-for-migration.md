@@ -4,12 +4,12 @@ description: Saiba como preparar máquinas no local para migração com a Azure 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223623"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077974"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar máquinas no local para migração para Azure
 
@@ -59,7 +59,7 @@ Verifique os sistemas operativos suportados para a migração:
 
 Rever quais URLs e portos são acedidos durante a migração.
 
-**Cenário** | **Detalhes** |  **URLs** | **Portos**
+**Cenário** | **Detalhes** |  **URLs** | **Portas**
 --- | --- | --- | ---
 **VMware migração sem agente** | Utiliza o [aparelho Azure Migrate](migrate-appliance-architecture.md) para migração. Nada está instalado em VMware VMs. | Reveja a nuvem pública e [os URLs governamentais necessários](migrate-appliance.md#url-access) para a descoberta, avaliação e migração com o aparelho. | [Reveja](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) os requisitos portuários para a migração sem agentes.
 **Migração baseada em agentes VMware** | Utiliza o [aparelho de replicação](migrate-replication-appliance.md) para a migração. O agente de serviço de mobilidade está instalado em VMs. | Reveja a [nuvem pública](migrate-replication-appliance.md#url-access) e os URLs [do Governo Azure](migrate-replication-appliance.md#azure-government-url-access) que o aparelho de replicação precisa de aceder. | [Reveja](migrate-replication-appliance.md#port-access) as portas utilizadas durante a migração baseada em agentes.
@@ -127,6 +127,18 @@ Para outras versões, prepare as máquinas como resumido na tabela.
 **Remover a regra udev** | Remova quaisquer regras udev que reservam nomes de interface com base no endereço mac, etc. | Remova manualmente para todas as versões, exceto as chamadas acima.
 **Atualizar interfaces de rede** | Atualizar interfaces de rede para receber endereço IP com base em DHCP.nst | Atualize manualmente para todas as versões, exceto as chamadas acima.
 **Ativar ssh** | Certifique-se de que o ssh está ativado e que o serviço sshd está programado para iniciar automaticamente no reboot.<br/><br/> Certifique-se de que os pedidos de ligação ssh de entrada não são bloqueados pela firewall do SISTEMA ou regras scriptáveis.| Ativar manualmente todas as versões, exceto as chamadas acima.
+
+O quadro seguinte resume os passos realizados automaticamente para os sistemas operativos acima indicados.
+
+| Ação                                      | Migração \- VMware baseada em agente | Migração de VMware sem agente | Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Instalar serviços de integração Hyper \- V Linux | Sim                           | Sim                        | Não necessário |
+| Ativar o registo da consola em série do Azure         | Sim                           | Sim                        | No         |
+| Atualizar o ficheiro do mapa do dispositivo                      | Yes                           | Não                         | Não         |
+| Atualizar entradas fstab                        | Sim                           | Sim                        | No         |
+| Remover a regra udev                            | Sim                           | Sim                        | No         |
+| Atualizar interfaces de rede                   | Sim                           | Sim                        | No         |
+| Ativar ssh                                  | Não                            | Não                         | Não         |
 
 Saiba mais sobre os passos para [executar um Linux VM em Azure,](../virtual-machines/linux/create-upload-generic.md)e obtenha instruções para algumas das populares distribuições do Linux.
 

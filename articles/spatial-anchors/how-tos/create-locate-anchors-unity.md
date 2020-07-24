@@ -8,17 +8,17 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 72d25582d15e745b0bdefcde5f68af94eab49293
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: a455da1de984b5394b1bf0aafbd29b61fb6b8dfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071343"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Como criar e localizar âncoras usando âncoras espaciais Azure em Unidade
 
 > [!div  class="op_single_selector"]
-> * [Unidade](create-locate-anchors-unity.md)
+> * [Unity](create-locate-anchors-unity.md)
 > * [Objective-C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
 > * [Android Java](create-locate-anchors-java.md)
@@ -198,7 +198,7 @@ Saiba mais sobre a aula [cloudSpatialAnchor.](https://docs.microsoft.com/dotnet/
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor();
-    cloudAnchor.LocalAnchor = this.localAnchor.GetNativeAnchorPointer();
+    cloudAnchor.LocalAnchor = this.localAnchor.GetNativeSpatialAnchorPtr();
     await this.cloudSession.CreateAnchorAsync(cloudAnchor);
     this.feedback = $"Created a cloud anchor with ID={cloudAnchor.Identifier}");
 ```

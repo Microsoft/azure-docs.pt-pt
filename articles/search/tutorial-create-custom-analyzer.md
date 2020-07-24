@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 8d04099f2835102b8fdf63b26bd19b43b206cf6a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021890"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -38,7 +38,7 @@ São necessários os seguintes serviços e ferramentas para este tutorial.
 
 ## <a name="download-files"></a>Transferir ficheiros
 
-O código-fonte para este tutorial está na pasta [de analisadores personalizados](https://github.com/Azure-Samples/azure-search-postman-samples/custom-analyzers) no repositório [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub.
+O código-fonte para este tutorial está na pasta [de analisadores personalizados](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/custom-analyzers) no repositório [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) GitHub.
 
 ## <a name="1---create-azure-cognitive-search-service"></a>1 - Criar serviço de Pesquisa Cognitiva Azure
 
@@ -160,7 +160,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
 
 Com os dados no índice, estamos prontos para começar a procurar.
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Pesquisar
 
 Para tornar a pesquisa intuitiva, o melhor é não esperar que os utilizadores formatem consultas de uma forma específica. Um utilizador pode pesquisar `(425) 555-0100` em qualquer um dos formatos que mostramos acima e ainda espera que os resultados sejam devolvidos. Neste passo, vamos testar algumas consultas de amostra para ver como se comportam.
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplo CLI - Grupo Failover - Piscina elástica Azure SQL Database
-description: Script de exemplo Azure CLI para criar um conjunto elástico Azure SQL Database, adicioná-lo a um grupo failover, e testar falha.
+title: CLI exemplo - Grupo Failover - Piscina elástica Azure SQL Database
+description: Azure CLI exemplo script para criar uma piscina elástica Azure SQL Database, adicioná-lo a um grupo de failover, e testar failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,16 +11,16 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 965e6fe3546630713f3fee2774c70aebd1ed2ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086086"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Use o CLI para adicionar uma piscina elástica Azure SQL Database a um grupo de failover
+# <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Utilize o CLI para adicionar uma piscina elástica Azure SQL Database a um grupo de failover
 
-Este exemplo de script Azure CLI cria uma única base de dados, adiciona-o a uma piscina elástica, cria um grupo de failover, e testa falha.
+Este exemplo de script do Azure CLI cria uma única base de dados, adiciona-a a uma piscina elástica, cria um grupo de failover e testa o failover.
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -42,7 +42,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -52,13 +52,13 @@ az group delete --name $resource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
-| [az sql elástico-piscina](/cli/azure/sql/elastic-pool) | Comandos de piscina elástica. |
-| [az sql failover-grupo](/cli/azure/sql/failover-group) | Falha de comandos de grupo. |
+| [az sql elástico piscina elástica](/cli/azure/sql/elastic-pool) | Comandos elásticos da piscina. |
+| [az sql failover grupo](/cli/azure/sql/failover-group) | Comandos de grupo de failover. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure/overview).
 
-Amostras adicionais de script sQL Database Azure CLI podem ser encontradas nos [scripts Azure CLI](../../azure-sql/database/az-cli-script-samples-content-guide.md)da Base de Dados Azure Azure .
+Amostras adicionais de scripts SQL Azure CLI podem ser encontradas nos [scripts Azure SQL Database Azure CLI](../../azure-sql/database/az-cli-script-samples-content-guide.md).

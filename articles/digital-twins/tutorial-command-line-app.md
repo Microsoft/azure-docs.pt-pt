@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fcedec126c925ff218b8a0fb17b81dbf5ac1d769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044228"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
-Este tutorial introduz uma aplicação de amostra que implementa uma aplicação de cliente de linha de comando, para interagir com uma instância Azure Digital Twins. A aplicação do cliente é semelhante à escrita em [Tutorial: Código uma aplicação de cliente](tutorial-code.md).
+Este tutorial introduz uma aplicação de amostra que implementa uma aplicação de cliente de linha de comando, para interagir com uma instância Azure Digital Twins. A aplicação do cliente é semelhante à escrita em [*Tutorial: Código uma aplicação de cliente*](tutorial-code.md).
 
 Você pode usar esta amostra para executar ações essenciais da Azure Digital Twins, como carregar modelos, criar e modificar gémeos e criar relacionamentos. Você também pode olhar para o código da amostra para aprender sobre as APIs das Gémeas Digitais Azure, e praticar implementar os seus próprios comandos modificando o projeto da amostra como quiser.
 
@@ -129,7 +129,7 @@ CreateModels Room
 ```
 
 Como os modelos não podem ser substituídos, isto irá agora devolver um erro de serviço.
-Para obter os detalhes sobre como eliminar os modelos existentes, consulte [Como-a-fazer: Gerir modelos personalizados](how-to-manage-model.md).
+Para obter os detalhes sobre como eliminar os modelos existentes, consulte [*Como-a-fazer: Gerir modelos personalizados*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -285,7 +285,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-O projeto neste tutorial constitui a base para o próximo tutorial, [Tutorial: Conecte uma solução de ponta a ponta](tutorial-end-to-end.md). Se pretender continuar para o próximo tutorial, pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e uma aplicação de amostra configurada.
+O projeto neste tutorial constitui a base para o próximo tutorial, [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). Se pretender continuar para o próximo tutorial, pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e uma aplicação de amostra configurada.
 * Neste caso, pode utilizar a aplicação da amostra `DeleteAllTwins` e `DeleteAllModels` os comandos para limpar os gémeos e modelos no seu caso, respectivamente. Isto vai dar-lhe uma ficha limpa para o próximo tutorial.
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los.
@@ -316,10 +316,10 @@ Neste tutorial, começou com a Azure Digital Twins, criando uma instância e uma
 Continue até ao próximo tutorial para utilizar a aplicação da linha de comando da amostra em combinação com outros serviços Azure para completar um cenário de ponta a ponta orientado por dados:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conecte uma solução de ponta a ponta](tutorial-end-to-end.md)
+> [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md)
 
 Ou, comece a olhar para a documentação do conceito para saber mais sobre os elementos com que trabalhou no tutorial:
-* [Conceitos: Modelos personalizados](concepts-models.md)
+* [*Conceitos: Modelos personalizados*](concepts-models.md)
 
 Você também pode ir mais aprofundado sobre os processos neste tutorial iniciando os artigos de como-a-fazer:
-* [Como fazer: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md)
+* [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)

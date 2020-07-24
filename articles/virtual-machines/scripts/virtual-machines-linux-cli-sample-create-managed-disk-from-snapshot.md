@@ -1,5 +1,5 @@
 ---
-title: Criar um disco gerido a partir de um instantâneo - Amostra CLI
+title: Criar disco gerido a partir de snapshot (Linux) - Amostra CLI
 description: Exemplo do Script da CLI do Azure – Criar um disco gerido a partir de um instantâneo
 services: virtual-machines-linux
 documentationcenter: storage
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c0c009573393a65d901634fca8de3cf03df6b874
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c5e9e16b81c0befb6524a284d63fb2e106bff7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085321"
 ---
-# <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Criar um disco gerido a partir de um instantâneo com a CLI
+# <a name="create-a-managed-disk-from-a-snapshot-with-cli-linux"></a>Criar um disco gerido a partir de um instantâneo com CLI (Linux)
 
 Este script cria um disco gerido a partir de um instantâneo. Utiliza-o para restaurar uma máquina virtual a partir de instantâneos do SO e discos de dados. Crie discos do SO e discos geridos de dados a partir dos respetivos instantâneos e, em seguida, crie uma nova máquina virtual ao anexar discos geridos. Também pode restaurar discos de dados de uma VM existente ao anexar discos de dados criados a partir de instantâneos.
 
@@ -42,13 +42,13 @@ Este script utiliza os seguintes comandos para criar um disco gerido a partir de
 
 | Comando | Notas |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Obtém todas as propriedades de um instantâneo através do nome e das propriedades do grupo de recursos do instantâneo. A propriedade do ID é utilizada para criar o disco gerido.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Cria um disco gerido com o ID de um instantâneo gerido |
+| [az snapshot show](/cli/azure/snapshot) | Obtém todas as propriedades de um instantâneo através do nome e das propriedades do grupo de recursos do instantâneo. A propriedade do ID é utilizada para criar o disco gerido.  |
+| [az disk create](/cli/azure/disk) | Cria um disco gerido com o ID de um instantâneo gerido |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual ao anexar um disco gerido como disco do SO](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
 Pode ver exemplos do script da CLI da máquina virtual e discos geridos adicionais na [Documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

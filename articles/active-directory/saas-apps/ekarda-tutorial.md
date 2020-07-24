@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3790da8674732c50d55a85c84367f0d2fe3e08f5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: aacaec5ff632385a1f1686610370bb92eb63c349
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85256172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017556"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Azure Ative Directory integração única (SSO) com Ekarda
 
@@ -125,7 +125,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -151,12 +151,12 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique em **Admin**  ->  **A Minha Conta.**
 
-    ![Configuração Ekarda](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Configuração Ekarda](./media/ekarda-tutorial/ekarda.png)    
 
 1. Na parte inferior da página encontrará a secção **DEFINIÇÕES SAML** onde irá configurar essa integração SAML.
 1. Na página seguinte, execute os seguintes passos:
 
-    ![Configuração Ekarda](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Configuração Ekarda](./media/ekarda-tutorial/ekarda1.png)
 
     a. Clique na ligação **de metadados do Fornecedor de Serviço** e guarde-o como ficheiro no seu computador.
 
@@ -188,13 +188,14 @@ Quando clicar no azulejo Ekarda no Painel de Acesso, deverá ser automaticamente
 
 - [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente Ekarda com Azure AD](https://aad.portal.azure.com/)
 
+- Utilize a [solução eCard da empresa da Ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) para providenciar qualquer número de colaboradores para enviar eCards que sejam marcados com o logótipo da sua empresa para os seus clientes e colegas. Saiba mais sobre o fornecimento de [Ekarda como solução SSO](https://support.ekarda.com/#SSO-Implementation).
+
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Como proteger Ekarda com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

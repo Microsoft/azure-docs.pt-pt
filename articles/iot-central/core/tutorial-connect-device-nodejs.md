@@ -1,19 +1,19 @@
 ---
-title: Tutorial - Ligue uma aplicação genérica de clientes Node.js à Azure IoT Central Microsoft Docs
-description: Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar um dispositivo que executa uma aplicação de cliente Node.js à sua aplicação Azure IoT Central. Cria um modelo de dispositivo importando um modelo de capacidade do dispositivo e adiciona vistas que lhe permitem interagir com um dispositivo conectado
+title: Tutorial - Ligue uma app genérica Node.js ao Azure IoT Central Microsoft Docs
+description: Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar um dispositivo que executa uma aplicação Node.js cliente à sua aplicação Azure IoT Central. Cria um modelo de dispositivo importando um modelo de capacidade do dispositivo e adiciona vistas que lhe permitem interagir com um dispositivo conectado
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mqtt
-ms.openlocfilehash: 65f441425113d89010cc2d282758c5a042be9300
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 08df3bce9d1ecce4d4b0cdfc3034355feef6a4ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417910"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003377"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutorial: Criar e ligar uma aplicação de cliente à sua aplicação Azure IoT Central (Node.js)
 
@@ -21,9 +21,9 @@ ms.locfileid: "84417910"
 
 *Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
-Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar uma aplicação de cliente Node.js à sua aplicação Azure IoT Central. A aplicação Node.js simula o comportamento de um dispositivo de sensor ambiental. Utilize um _modelo de capacidade do dispositivo_ de amostra para criar um modelo de _dispositivo_ na IoT Central. Adiciona vistas ao modelo do dispositivo para permitir que um operador interaja com um dispositivo.
+Este tutorial mostra-lhe como, como desenvolvedor de dispositivos, ligar uma aplicação Node.js cliente à sua aplicação Azure IoT Central. A aplicação Node.js simula o comportamento de um dispositivo sensor ambiental. Utilize um _modelo de capacidade do dispositivo_ de amostra para criar um modelo de _dispositivo_ na IoT Central. Adiciona vistas ao modelo do dispositivo para permitir que um operador interaja com um dispositivo.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Importe um modelo de capacidade do dispositivo para criar um modelo de dispositivo.
@@ -38,18 +38,18 @@ Neste tutorial, vai aprender a:
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-* Uma aplicação Azure IoT Central criada usando o modelo **de aplicação personalizado.** Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
-* Uma máquina de desenvolvimento com a versão [Node.js](https://nodejs.org/) 10.0.0 ou posteriormente instalada. Pode correr `node --version` na linha de comando para verificar a sua versão. As instruções neste tutorial assumem que está a executar o comando do **nó** na pronta do comando do Windows. No entanto, pode utilizar Node.js em muitos outros sistemas operativos.
+* Uma aplicação Azure IoT Central criada usando o modelo **de aplicação personalizado.** Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md). A aplicação deve ter sido criada em ou depois de 07/14/2020.
+* Uma máquina de desenvolvimento com [Node.js](https://nodejs.org/) versão 10.0.0 ou posteriormente instalada. Pode correr `node --version` na linha de comando para verificar a sua versão. As instruções neste tutorial assumem que está a executar o comando do **nó** na pronta do comando do Windows. No entanto, pode utilizar Node.js em muitos outros sistemas operativos.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
 
 ### <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 
-Os passos seguintes mostram-lhe como criar uma aplicação de cliente Node.js que se conecta ao dispositivo real que adicionou à aplicação. Esta aplicação Node.js simula o comportamento de um dispositivo real.
+Os passos seguintes mostram-lhe como criar uma aplicação Node.js do cliente que se conecta ao dispositivo real que adicionou à aplicação. Esta aplicação Node.js simula o comportamento de um dispositivo real.
 
 1. No seu ambiente de linha de comando, navegue para a `environmental-sensor` pasta que criou anteriormente.
 
-1. Para rubricar o seu projeto Node.js e instalar as dependências necessárias, executar os seguintes comandos - aceite todas as opções predefinidas quando `npm init` executar:
+1. Para rubricar o seu projeto Node.js e instalar as dependências necessárias, executar os seguintes comandos - aceite todas as opções padrão quando `npm init` executar:
 
     ```cmd/sh
     npm init
@@ -58,7 +58,7 @@ Os passos seguintes mostram-lhe como criar uma aplicação de cliente Node.js qu
 
 1. Crie um ficheiro chamado **environmentalSensor.js** na `environmental-sensor` pasta.
 
-1. Adicione as `require` seguintes declarações no início do ficheiro **EnvironmentalSensor.js:**
+1. Adicione as `require` seguintes declarações no início do ficheiro **environmentalSensor.js:**
 
     ```javascript
     "use strict";
@@ -121,7 +121,7 @@ Os passos seguintes mostram-lhe como criar uma aplicação de cliente Node.js qu
 
     A IoT Central utiliza gémeos de dispositivos para sincronizar os valores de propriedade entre o dispositivo e a aplicação IoT Central. Os valores de propriedade do dispositivo usam propriedades reportadas pelo dispositivo twin. As propriedades escritas utilizam ambas as propriedades reportadas e desejadas pelo dispositivo.
 
-1. Para definir e manusear as propriedades escritas a que o seu dispositivo responde, adicione o seguinte código:
+1. Para definir e manusear as propriedades escritas a que o seu dispositivo responde, adicione o seguinte código. A mensagem que o dispositivo envia em resposta à [atualização de propriedade escrita](concepts-telemetry-properties-commands.md#writeable-property-types) deve incluir os `av` campos e `ac` campos. O `ad` campo é opcional:
 
     ```javascript
     // Add any writeable properties your device supports,
@@ -130,12 +130,12 @@ Os passos seguintes mostram-lhe como criar uma aplicação de cliente Node.js qu
     var writeableProperties = {
       'name': (newValue, callback) => {
           setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
           }, 1000);
       },
       'brightness': (newValue, callback) => {
         setTimeout(() => {
-            callback(newValue, 'completed');
+            callback(newValue, 'completed', 200);
         }, 5000);
       }
     };
@@ -145,13 +145,14 @@ Os passos seguintes mostram-lhe como criar uma aplicação de cliente Node.js qu
       twin.on('properties.desired', function (desiredChange) {
         for (let setting in desiredChange) {
           if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
-            writeableProperties[setting](desiredChange[setting].value, (newValue, status) => {
+            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
+            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
               var patch = {
                 [setting]: {
                   value: newValue,
-                  status: status,
-                  desiredVersion: desiredChange.$version
+                  ad: status,
+                  ac: code,
+                  av: desiredChange.$version
                 }
               }
               sendDeviceProperties(twin, patch);
@@ -280,7 +281,9 @@ Os passos seguintes mostram-lhe como criar uma aplicação de cliente Node.js qu
           } else {
             // Send device properties once on device start up.
             var properties = {
-              state: 'true'
+              state: 'true',
+              processorArchitecture: 'ARM',
+              swVersion: '1.0.0'
             };
             sendDeviceProperties(twin, properties);
 
@@ -326,9 +329,13 @@ Pode ver como o dispositivo responde a comandos e atualizações de propriedade:
 
 ![Observar a aplicação do cliente](media/tutorial-connect-device-nodejs/run-application-2.png)
 
+## <a name="view-raw-data"></a>Ver dados brutos
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Como desenvolvedor de dispositivos, agora que aprendeu o básico de como criar um dispositivo usando Node.js, alguns passos sugeridos são:
+Como desenvolvedor de dispositivos, agora que aprendeu o básico de como criar um dispositivo usando Node.js, alguns dos próximos passos sugeridos são:
 
 * Saiba como ligar um dispositivo real à IoT Central no [dispositivo Connect a MXChip IoT DevKit ao seu artigo de aplicação Azure IoT Central.](./howto-connect-devkit.md)
 * Leia [Quais são os modelos do dispositivo para](./concepts-device-templates.md) saber mais sobre o papel dos modelos do dispositivo quando estiver a implementar o código do dispositivo.

@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 57701218186266e897e8312d01372fd36ddee715
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: a1fdc9e37084b1e8064bf642ff84646149c32ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050677"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Tutorial: Implementar uma app ASP.NET para a Azure com base de dados Azure SQL
 
@@ -19,7 +19,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 
 ![Publicado ASP.NET aplicação no Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -108,7 +108,7 @@ Pode manter o nome da aplicação Web gerado ou alterá-lo para outro nome exclu
 
    | Definição  | Valor sugerido | Para obter mais informações: |
    | ----------------- | ------------ | ----|
-   |**Plano de Serviço de Aplicações**| myAppServicePlan | [Planos do Serviço de Aplicações](../app-service/overview-hosting-plans.md) |
+   |**Plano do Serviço de Aplicações**| myAppServicePlan | [Planos do Serviço de Aplicações](../app-service/overview-hosting-plans.md) |
    |**Localização**| Europa Ocidental | [Regiões do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Tamanho**| Gratuito | [Escalões de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -145,7 +145,7 @@ Antes de criar uma base de dados, precisa de um [servidor SQL lógico.](../azure
 
     ![Base de dados configure](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. A caixa de diálogo **Criar Serviço de Aplicações** mostra os recursos que configurou. Clique em **Criar**.
+2. A caixa de diálogo **Criar Serviço de Aplicações** mostra os recursos que configurou. Clique em **Create** (Criar).
 
    ![os recursos que criou](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -353,7 +353,7 @@ Para alterar os níveis de rastreio para produzir outras mensagens de rastreio, 
 
 Clique com o botão direito na sua aplicação Azure novamente e selecione **Ver Definições**.
 
-No menu pendente **Registo da Aplicação (Sistema de Ficheiros)**, selecione **Verboso**. Clique em **Guardar**.
+No menu pendente **Registo da Aplicação (Sistema de Ficheiros)**, selecione **Verboso**. Clique em **Save** (Guardar).
 
 ![Alterar o nível de rastreio para Verboso](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -415,3 +415,8 @@ Mais recursos:
 
 > [!div class="nextstepaction"]
 > [Configurar ASP.NET app](configure-language-dotnet-framework.md)
+
+Quer otimizar e economizar nos gastos na nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

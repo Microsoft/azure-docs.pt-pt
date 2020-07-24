@@ -14,30 +14,30 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 08caf4b78b1042d5753dba2bc73e93fa3a250a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b9d9f66b638eba2503f1650ba64fcd6b4652dc24
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71122379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023421"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: Criar e submeter uma tarefa
 
-Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar os seus vídeos, terá de informar os Serviços de Multimédia do Azure sobre onde se encontra o vídeo de entrada. Uma das opções é especificar um URL HTTPS como entrada de trabalho (como mostrado neste artigo). 
+Nos Serviços de Multimédia do Azure v3, quando submete tarefas para processar os seus vídeos, terá de informar os Serviços de Multimédia do Azure sobre onde se encontra o vídeo de entrada. Uma das opções é especificar um URL HTTPS como uma entrada de trabalho (como mostrado neste artigo). 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Criar uma conta de Media Services.](create-account-cli-how-to.md)
+[Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 
-Quando correr, `az ams job start`pode definir um rótulo na saída do trabalho. A etiqueta pode ser usada mais tarde para identificar para que é este ativo de saída. 
+Quando `az ams job start` correr, pode definir uma etiqueta na saída do trabalho. A etiqueta pode ser usada mais tarde para identificar para que é este ativo de saída. 
 
-- Se atribuir um valor ao rótulo, desloque os "ativos de saída" para "assetname=label"
-- Se não atribuir um valor ao rótulo, desloque os "ativos de saída" para "assetname=".
-  Note que adiciona "=" ao `output-assets`. 
+- Se atribuir um valor à etiqueta, desaprote de "-ativos de saída" para "nome de ativos=rótulo"
+- Se não atribuir um valor à etiqueta, desaprote de "--ativos de saída" para "nome de ativos=".
+  Note que adiciona "=" ao `output-assets` . . 
 
 ```azurecli
 az ams job start \
@@ -87,4 +87,4 @@ Obtém-se uma resposta semelhante a esta:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[az ams trabalho (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)

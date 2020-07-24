@@ -1,5 +1,5 @@
 ---
-title: Configurar alertas de serviço para Windows Virtual Desktop - Azure
+title: Configurar alertas de serviço para Windows Virtual Desktop – outono 2019 – Azure
 description: Como configurar o Azure Service Health para receber notificações de serviço para o Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2eead8dfd1f4d88d28de1f70134dcfcad8471d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5b3a29e97fbdf2579e2ef6a86b8dadf91f679366
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085831"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Tutorial: Configurar alertas de serviço
+# <a name="tutorial-set-up-service-alerts---fall-2019"></a>Tutorial: Configurar alertas de serviço - outono 2019
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../set-up-service-alerts.md).

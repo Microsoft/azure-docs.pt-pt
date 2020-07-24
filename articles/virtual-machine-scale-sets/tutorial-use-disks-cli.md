@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar e utilizar discos para conjuntos de escala com O CLI Azure
+title: Tutorial - Criar e utilizar discos para conjuntos de escala com Azure CLI
 description: Saiba como utilizar a CLI do Azure para criar e utilizar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1aa87d72bf2b73b1fa616d7ff7535dac4da9b7fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029633"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e utilizar discos com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armazenar o sistema operativo, as aplicações e os dados da instância de VM. Ao criar e gerir um conjunto de dimensionamento, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange como criar e gerir discos de VM. Neste tutorial, ficará a saber como:
@@ -26,7 +26,7 @@ Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armaz
 > * Desempenho do disco
 > * Anexar e preparar discos de dados
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,12 +43,12 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 ### <a name="temporary-disk-sizes"></a>Tamanhos dos discos temporários
 | Tipo | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
 |----|----|----|
-| [Fins gerais](../virtual-machines/linux/sizes-general.md) | Séries A, B e D | 1600 |
-| [Com otimização de computação](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
-| [Com otimização de memória](../virtual-machines/linux/sizes-memory.md) | Séries D, E, G e M | 6144 |
-| [Com otimização de armazenamento](../virtual-machines/linux/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 1440 |
-| [Elevado desempenho](../virtual-machines/linux/sizes-hpc.md) | Séries A e H | 2000 |
+| [Fins gerais](../virtual-machines/sizes-general.md) | Séries A, B e D | 1600 |
+| [Com otimização de computação](../virtual-machines/sizes-compute.md) | Série F | 576 |
+| [Com otimização de memória](../virtual-machines/sizes-memory.md) | Séries D, E, G e M | 6144 |
+| [Com otimização de armazenamento](../virtual-machines/sizes-storage.md) | Série L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 1440 |
+| [Elevado desempenho](../virtual-machines/sizes-hpc.md) | Séries A e H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
@@ -77,13 +77,13 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 Pode criar e anexar discos quando cria um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos durante a criação do conjunto de dimensionamento
-Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos chamado *myResourceGroup* é criado na região *oriental.*
+Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, um grupo de recursos chamado *myResourceGroup* é criado na região *leste.*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de escala chamado *myScaleSet*, e gera teclas SSH se não existirem. São criados dois discos com o parâmetro `--data-disk-sizes-gb`. O primeiro disco tem *64* GB de tamanho e o segundo disco tem *128* GB:
+Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss). O exemplo a seguir cria um conjunto de escala chamado *myScaleSet*, e gera teclas SSH se não existirem. São criados dois discos com o parâmetro `--data-disk-sizes-gb`. O primeiro disco tem *64* GB de tamanho e o segundo disco tem *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -112,7 +112,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>Preparar os discos de dados
 Os discos criados e anexados às instâncias de VM do conjunto de dimensionamento são discos não processados. Antes de poder utilizá-los com os seus dados e aplicações, os discos têm de ser preparados. Para preparar os discos, crie uma partição e um sistema de ficheiros, e monte-os.
 
-Para automatizar o processo em múltiplas instâncias de VM num conjunto de dimensionamento, pode utilizar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
+Para automatizar o processo em múltiplas instâncias de VM num conjunto de dimensionamento, pode utilizar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-linux.md).
 
 O exemplo seguinte executa um script a partir de um repositório de exemplo do GitHub em cada instância de VM com [az vmss extension set](/cli/azure/vmss/extension) que prepara todos os discos de dados não processados anexados:
 

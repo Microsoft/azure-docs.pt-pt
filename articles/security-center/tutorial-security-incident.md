@@ -1,6 +1,6 @@
 ---
 title: Tutorial de resposta a incidentes - Centro de Segurança Azure
-description: Neste tutorial, você vai aprender a triagem de alertas de segurança, determinar a causa principal & âmbito de um incidente, e pesquisar dados de segurança.
+description: Neste tutorial, você vai aprender como triagem de alertas de segurança, determinar a causa principal & âmbito de um incidente, e pesquisar dados de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80585775"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076397"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
@@ -29,10 +29,10 @@ O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud
 > * Fazer investigações mais aprofundadas para determinar a origem e o âmbito dos incidentes de segurança
 > * Procurar dados de segurança para ajudar à investigação
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para analisar as funcionalidades abrangidas por este tutorial, deve estar no nível de preços Standard do Security Center. Pode tentar o Nível Padrão do Centro de Segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para analisar as funcionalidades abrangidas por este tutorial, você deve estar no nível de preços padrão do Security Center. Pode tentar o Security Center Standard sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
 ## <a name="scenario"></a>Cenário
 A Contoso migrou recentemente alguns dos recursos no local para o Azure, incluindo algumas cargas de trabalho de linha de negócio baseadas em máquinas virtuais e bases de dados SQL. De momento, a CSIRT (Equipa de Resposta a Incidentes de Segurança Informática) da Contoso tem dificuldade em investigar problemas de segurança porque as informações de segurança não estão integradas com as respetivas ferramentas atuais de resposta a incidentes. Esta falta de integração apresenta um problema durante a fase de Deteção (demasiados falsos positivos), bem como durante as fases de Avaliação e Diagnóstico. Como parte desta migração, eles decidem se pretendem que o Centro de Segurança os ajude a resolver este problema.
@@ -98,23 +98,24 @@ Pode utilizar as funcionalidades de pesquisa do Centro de Segurança para locali
 Para fazer uma pesquisa, abra o dashboard do **Centro de Segurança**, clique em **Pesquisar** no painel de navegação do lado esquerdo, selecione a área de trabalho que contém as entidades que pretende pesquisar, escreva a consulta de pesquisa e clique no botão de pesquisa.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
+
+Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com os quickstarts e tutoriais subsequentes, continue a executar o nível padrão e mantenha o provisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
 
 1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
 2. Selecione a subscrição ou a política para a qual pretende voltar como Gratuita. **Política de segurança** abre-se.
 3. Em **COMPONENTES DA POLÍTICA**, selecione **Escalão de preço**.
-4. Selecione **Gratuito** para alterar a subscrição, do Escalão standard para o Escalão gratuito.
+4. Selecione **Livre** para alterar a subscrição do nível padrão para o nível Livre.
 5. Selecione **Guardar**.
 
 Se pretender desativar aprovisionamento automático:
 
-1. Volte ao menu principal do Centro de Segurança e selecione a política de **segurança.**
+1. Volte ao menu principal do Centro de Segurança e selecione **a política de segurança.**
 2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
 3. Em **Política de segurança – Recolha de Dados**, selecione **Desativar** em **Inclusão** para desativar o aprovisionamento automático.
 4. Selecione **Guardar**.
 
 >[!NOTE]
-> A desativação automática não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
+> A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
 ## <a name="next-steps"></a>Passos seguintes

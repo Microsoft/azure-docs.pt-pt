@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798260"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075337"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Começar com consultas de Log Analytics
 
@@ -90,7 +90,7 @@ Para utilizar o controlo de **intervalo de tempo,** selecione-o na barra superio
 ### <a name="run-a-query"></a>Run a query (Executar uma consulta)
 Para executar uma consulta, coloque o cursor algures dentro da consulta e selecione **Executar** na barra superior ou **Shift** + **pressione**Shift Enter . A consulta vai até encontrar uma linha em branco.
 
-## <a name="filter-results"></a>Filtrar os resultados
+## <a name="filter-results"></a>Resultados da filtragem
 Log Analytics limita os resultados a um máximo de 10.000 registos. Uma consulta geral como `Event` devolve demasiados resultados para ser útil. Pode filtrar os resultados da consulta, quer restringindo os elementos de tabela na consulta, quer adicionando explicitamente um filtro aos resultados. A filtragem através dos elementos de tabela devolve um novo conjunto de resultados, enquanto um filtro explícito se aplica ao conjunto de resultados existente.
 
 ### <a name="filter-by-restricting-table-elements"></a>Filtrar restringindo elementos de mesa
@@ -189,7 +189,7 @@ Para salvar uma consulta:
    
    Para guardar uma consulta em função, forneça um **Alias de Função,** que é um nome curto para outras consultas a utilizar para chamar esta consulta.
    
-1. Forneça uma **categoria** para **que o explorador de consultasa** utilize para a consulta.
+1. Se estiver num espaço de trabalho log analytics, forneça uma **categoria** para que o **explorador de consultas** utilize para a consulta. (As categorias não estão disponíveis para consultas de Insights de Aplicações)
    
 1. Selecione **Guardar**.
    
@@ -202,6 +202,10 @@ Para carregar uma consulta guardada, selecione **o explorador de consultas** na 
 
 ### <a name="export-and-share-queries"></a>Consultas de exportação e de partilha
 Para exportar uma consulta, selecione **Export** on the top bar e, em seguida, selecione **Export to CSV - todas as colunas**, **Export to CSV - colunas apresentadas**, ou **Export to Power BI (consulta M)** da lista de abandono.
+
+O vídeo que se segue mostra-lhe como integrar o Log Analytics com o Excel.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 Para partilhar um link para uma consulta, selecione **Copy link** na barra superior e, em seguida, selecione Copy link **para consulta**, Copy **consulta text**, ou Copy **consulta resultados** para copiar para a área de transferência. Pode enviar o link de consulta a outros que tenham acesso ao mesmo espaço de trabalho.
 

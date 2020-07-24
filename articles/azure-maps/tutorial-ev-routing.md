@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 8c78913486610b171b7577d0bc239e0e7060038e
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 32a3ec0caae303c37cad771b2bbbd1b7840512a9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560385"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075441"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Encaminhe veículos elétricos utilizando cadernos Azure (Python)
 
@@ -39,7 +39,7 @@ Neste tutorial, irá:
 
 Para completar este tutorial, primeiro precisa de criar uma conta Azure Maps e obter a sua chave primária (chave de subscrição). 
 
-Para criar uma subscrição de conta Azure Maps, siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps). Precisa de uma subscrição de conta Azure Maps com o nível de preço S1. 
+Para criar uma subscrição de conta Azure Maps, siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account). Precisa de uma subscrição de conta Azure Maps com o nível de preço S1. 
 
 Para obter a chave de subscrição primária da sua conta, siga as instruções na [chave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 

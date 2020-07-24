@@ -2,18 +2,18 @@
 title: Tutorial para encomendar Caixa de Dados Azure / Microsoft Docs
 description: Aprenda os pré-requisitos de implementação e como encomendar um Azure Data Box
 services: databox
-author: alkohli
+author: priestlg
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/23/2019
-ms.author: alkohli
-ms.openlocfilehash: cfb95f2fb02544197f9b2796a705844e33eca201
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.date: 07/21/2020
+ms.author: v-grpr
+ms.openlocfilehash: fd841dee5f3a845d793255f5e13b416fb1add4f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007390"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -49,11 +49,15 @@ Pode entrar no Azure e executar os comandos Azure CLI de uma de duas maneiras:
 
 Utilizamos o Azure CLI através do Windows PowerShell para o tutorial, mas é livre de escolher qualquer uma das opções.
 
-### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
+### <a name="for-azure-cli"></a>Para Azure CLI
+
+Antes de começar, certifique-se de que:
+
+#### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
 * Instale a versão [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 2.0.67 ou posterior. Em alternativa, pode [instalar-se utilizando o MSI.](https://aka.ms/installazurecliwindows)
 
-#### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+**Iniciar sessão no Azure**
 
 Abra uma janela de comando Windows PowerShell e inicie sessão no Azure com o comando [de login az:](/cli/azure/reference-index#az-login)
 
@@ -83,7 +87,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 ]
 ```
 
-#### <a name="install-the-azure-data-box-cli-extension"></a>Instale a extensão CLI da Caixa de Dados Azure
+**Instale a extensão CLI da Caixa de Dados Azure**
 
 Antes de poder utilizar os comandos CLI da Caixa de Dados Azure, tem de instalar a extensão. As extensões Azure CLI dão-lhe acesso a comandos experimentais e pré-lançamento que ainda não foram enviados como parte do núcleo CLI. Para obter mais informações sobre extensões, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
@@ -115,82 +119,90 @@ Se a extensão for instalada com sucesso, verá a seguinte saída:
         Please let us know how we are doing: https://aka.ms/clihats
 ```
 
-### <a name="use-azure-cloud-shell"></a>Utilizar o Azure Cloud Shell
+#### <a name="use-azure-cloud-shell"></a>Utilizar o Azure Cloud Shell
 
-Você pode usar [Azure Cloud Shell](https://shell.azure.com/), um ambiente de concha interativa azure hospedado, através do seu navegador para executar comandos CLI. A Azure Cloud Shell suporta os serviços Bash ou Windows PowerShell com os serviços Azure. O Azure CLI está pré-instalado e configurado para ser utilizado com a sua conta. Clique no botão Cloud Shell no menu na secção superior direita do portal Azure:
+Você pode usar [Azure Cloud Shell](https://shell.azure.com/), um ambiente de concha interativa azure hospedado, através do seu navegador para executar comandos CLI. A Azure Cloud Shell suporta os serviços Bash ou Windows PowerShell com os serviços Azure. O Azure CLI está pré-instalado e configurado para ser utilizado com a sua conta. Selecione o botão Cloud Shell no menu na secção superior direita do portal Azure:
 
 ![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 O botão lança uma concha interativa que pode usar para executar os passos descritos neste artigo de como fazer.
 
-<!-- To start Azure Cloud Shell:
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
 
-| Option | Example/Link |
-|-----------------------------------------------|---|
-| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
-| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-To run the code in this article in Azure Cloud Shell:
+### <a name="for-azure-powershell"></a>Para Azure PowerShell
 
-1. Start Cloud Shell.
+Antes de começar, certifique-se de que:
 
-2. Select the **Copy** button on a code block to copy the code.
+* Instale o Windows PowerShell 6.2.4 ou superior.
+* Instale o módulo Azure PowerShell (AZ).
+* Instale o módulo Azure Data Box (Az.DataBox).
+* Inscreva-se no Azure.
 
-3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+#### <a name="install-azure-powershell-and-modules-locally"></a>Instale a Azure PowerShell e módulos localmente
 
-4. Select **Enter** to run the code.
+**Instalar ou atualizar o Windows PowerShell**
 
-For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. -->
+Terá de ter a versão 6.2.4 do Windows PowerShell ou superior. Para saber que versão do PowerShell instalou, corra: `$PSVersionTable` .
 
-<!-- This goes away, we'll show this later when we show how to order a Data Box. -->
-<!-- ## Change the output format type
+Verá a saída seguinte:
 
-All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. -->
-
-<!-- ```azurecli
-
-az databox job <command> --output <output-format>
-
+```azurepowershell
+    PS C:\users\gusp> $PSVersionTable
+    
+    Name                           Value
+    ----                           -----
+    PSVersion                      6.2.3
+    PSEdition                      Core
+    GitCommitId                    6.2.3
+    OS                             Microsoft Windows 10.0.18363
+    Platform                       Win32NT
+    PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+    PSRemotingProtocolVersion      2.3
+    SerializationVersion           1.1.0.1
+    WSManStackVersion              3.0
 ```
 
-Azure Data Box CLI commands support the following output formats:
+Se a sua versão for inferior a 6.2.4, tem de atualizar a sua versão do Windows PowerShell. Para instalar a versão mais recente do Windows PowerShell, consulte [instalar a Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7).
 
-* json (default setting)
-* jsonc
-* table
-* tsv
-* yaml
-* yamlc
-* none
+**Instalar módulos Azure PowerShell e Data Box**
 
-You can use the parameter `--output` with all Azure Data Box CLI commands. -->
+Terá de instalar os módulos Azure PowerShell para utilizar o Azure PowerShell para encomendar uma Caixa de Dados Azure. Para instalar os módulos Azure PowerShell:
 
-<!-- To set the output format to yaml: -->
+1. Instale o [módulo Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+2. Em seguida, instale a Az.DataBox utilizando o comando `Install-Module -Name Az.DataBox` .
 
-<!-- ```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+```azurepowershell
+PS C:\PowerShell\Modules> Install-Module -Name Az.DataBox
+PS C:\PowerShell\Modules> Get-InstalledModule -Name "Az.DataBox"
 
-``` -->
-<!-- 
-To set the out format to tabular form (easier to read):
+Version              Name                                Repository           Description
+-------              ----                                ----------           -----------
+0.1.1                Az.DataBox                          PSGallery            Microsoft Azure PowerShell - DataBox ser…
+```
 
-```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
+#### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-``` -->
+Abra uma janela de comando Windows PowerShell e inscreva-se no Azure com o comando [Connect-AzAccount:](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount)
 
-<!-- Here's the example output of `az databox job show` after changing the output format to table:
+```azurepowershell
+PS C:\Windows> Connect-AzAccount
+```
 
-```azurecli
-PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
-Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+Aqui está a saída de um sucesso de sindesção:
 
-DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
---------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
-NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+```output
+WARNING: To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FSBFZMBKC to authenticate.
 
-``` -->
+Account              SubscriptionName                          TenantId                             Environment
+-------              ----------------                          --------                             -----------
+gusp@contoso.com     MySubscription                            aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa AzureCloud
+
+PS C:\Windows\System32>
+```
+
+Para obter informações detalhadas sobre como iniciar seduca no Azure usando o Windows PowerShell, consulte [Iniciar sôs-in com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 ---
 
@@ -201,61 +213,87 @@ NonScheduled    True             True                       False          True 
 Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
 1. Utilize as suas credenciais do Microsoft Azure para iniciar sessão neste URL: [https://portal.azure.com](https://portal.azure.com).
-2. Clique em **+ Criar um recurso** e procure *Azure Data Box*. Clique em **Azure Data Box**.
+2. Selecione **+ Criar um recurso** e procure *Azure Data Box*. Selecione **Azure Data Box**.
 
-   [![Procurar Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
+   ![Selecione caixa de dados Azure](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Clique em **Criar**.
+3. Selecione **Criar**.
+
+   ![Selecione caixa de dados Azure](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Verifique se o serviço Data Box está disponível na sua região. Introduza ou selecione as seguintes informações e selecione **Aplicar**.
 
     |Definição  |Valor  |
     |---------|---------|
-    |Subscrição     | Selecione uma subscrição EA, CSP ou Azure Sponsorship para o serviço Data Box. <br> A subscrição está ligada à sua conta de faturação.       |
     |Tipo de transferência     | Selecione **Importar para o Azure**.        |
+    |Subscrição     | Selecione uma subscrição EA, CSP ou Azure Sponsorship para o serviço Data Box. <br> A subscrição está ligada à sua conta de faturação.       |
+    |Grupo de Recursos | Selecione um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. |
     |País/região de origem    |    Selecione o país/região onde os dados residem atualmente.         |
-    |Região do Azure de destino     |     Selecione a região do Azure para onde pretende transferir os dados.        |
+    |Região do Azure de destino     |     Selecione a região do Azure para onde pretende transferir os dados. <br> Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).            |
+
+    [![Pedido de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Selecione **Data Box**. A capacidade máxima utilizável para uma única encomenda é de 80 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 
-      [![Selecione a opção Caixa de Dados 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
+    ![Selecione Data Box opção 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. Em **Encomenda**, especifique os **Detalhes da encomenda**. Introduza ou selecione as seguintes informações e selecione **Seguinte**.
+6. Em **Ordem**, vá ao separador **Básicos.** Insira ou selecione as seguintes informações e selecione **Seguinte: Destino de dados>**.
 
     |Definição  |Valor  |
     |---------|---------|
-    |Nome     |  Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.      |
-    |Grupo de recursos     |    Utilize um grupo de recursos existente ou crie um novo. <br> Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto.         |
-    |Região do Azure de destino     | Selecione uma região para a sua conta de armazenamento. <br> Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).        |
-    |Destino de armazenamento     | Escolha entre a conta de armazenamento ou os discos geridos ou ambos. <br> Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. <br> Também pode criar uma nova conta de **Fins gerais v1**, **Fins gerais v2** ou **Conta de armazenamento de blobs**. <br>As contas de armazenamento com redes virtuais são suportadas. Para permitir que o serviço Data Box funcione com contas de armazenamento protegidas, ative os serviços fidedignos nas definições de firewall de rede da conta de armazenamento. Para mais informações, consulte como [adicionar a Azure Data Box como um serviço de confiança](../storage/common/storage-network-security.md#exceptions).|
+    |Subscrição      | A subscrição é automaticamente povoada com base na sua seleção anterior.|
+    |Grupo de recursos    | O grupo de recursos que selecionou anteriormente. |
+    |Nome da ordem de importação | Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.    |
 
-    Se estiver a utilizar a conta de armazenamento como o destino de armazenamento, verá a seguinte captura de ecrã:
+    ![Selecione Data Box opção 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    ![Pedido de caixa de dados para conta de armazenamento](media/data-box-deploy-ordered/order-storage-account.png)
+    Por predefinição, a palavra-passe desbloqueada do dispositivo é encriptada utilizando uma chave gerida pela Microsoft. Depois de completar a encomenda, pode adicionar uma chave gerida pelo cliente. Uma chave gerida pelo cliente permite-lhe utilizar a sua própria chave a partir de uma chave de cofre Azure Key para proteger o seu dispositivo desbloquear a palavra-passe. Para obter mais informações, consulte [as teclas geridas pelo cliente no Cofre de Chaves Azure para a Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-    Se utilizar a Data Box para criar discos geridos a partir dos discos rígidos virtuais (VHDs) no local, também terá de fornecer as seguintes informações:
+7. No separador **data destination,** selecione **Data destination**.
+
+    Se utilizar **a conta de armazenamento** como destino de armazenamento, vê a seguinte imagem:
+
+    ![Destino de dados da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-07.png)
+
+    Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1**, **Fins gerais v2** ou **Conta de armazenamento de blobs**.
+
+    As contas de armazenamento com redes virtuais são suportadas. Para permitir que o serviço Data Box funcione com contas de armazenamento protegidas, ative os serviços fidedignos nas definições de firewall de rede da conta de armazenamento. Para mais informações, consulte como [adicionar a Azure Data Box como um serviço de confiança](../storage/common/storage-network-security.md#exceptions).
+
+    Se utilizar a Caixa de Dados para criar **discos geridos** a partir dos discos rígidos virtuais (VHDs) no local, também terá de fornecer as seguintes informações:
 
     |Definição  |Valor  |
     |---------|---------|
     |Grupos de recursos     | Crie novos grupos de recursos se quiser criar discos geridos a partir dos VHDs no local. Só pode utilizar um grupo de recursos existente se o grupo de recursos tiver sido criado anteriormente ao criar uma encomenda de Caixa de Dados para o disco gerido pelo serviço Data Box. <br> Especifique vários grupos de recursos separados por ponto e vírgula. É suportado um máximo de 10 grupos de recursos.|
 
-    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/order-managed-disks.png)
+    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de teste antes de os converter em discos geridos e de os mover para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
+    Selecione **Seguinte: Contacte os dados** para continuar.
+
+8. Em **detalhes de contato**, selecione **+ Adicionar endereço de envio**.
+
+    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+
+9. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Selecione **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
+
+   ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Se selecionar o envio auto-gerido, receberá uma notificação de e-mail após a encomenda ser feita com sucesso. Para obter mais informações sobre o transporte auto-gerido, consulte [use o envio auto-gerido](data-box-portal-customer-managed-shipping.md).
 
-8. Clique **em seguida** assim que os detalhes do envio tiverem sido validados com sucesso.
+10. Selecione **Adicionar Endereço de Envio** assim que os dados de envio tenham sido validados com sucesso. Regressará ao separador **Dados de Contacto.**
 
-9. Em **Detalhes de notificação**, especifique os endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
+11. Depois de voltar aos **dados de contato** adicione um ou mais endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
 
     Recomendamos que utilize um e-mail de grupo para continuar a receber notificações se um administrador sair do grupo.
 
-10. Reveja o **Resumo** das informações relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
+    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
-11. Clique em **Encomendar**. A encomenda demora alguns minutos a ser criada.
+12. Reveja as informações em **Review + Order** relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
+
+13. Selecione **Encomendar**. A encomenda demora alguns minutos a ser criada.
+
+    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -263,7 +301,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
 
 1. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando CLI para criar a ordem Caixa de Dados. A tabela a seguir mostra as definições de parâmetros utilizadas `az databox job create` para:
 
-   | Definição (parâmetro) | Description |  Valor da amostra |
+   | Definição (parâmetro) | Descrição |  Valor da amostra |
    |---|---|---|
    |resource-group| Utilize um grupo de recursos existente ou crie um novo. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |name| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -287,13 +325,13 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
    |consulta| A cadeia de consulta JMESPath. Para mais informações, consulte [o JMESPath.](http://jmespath.org/) | -consulta<string>|
    |verbose| Inclua a registo verboso. | -verbose |
 
-2. No seu pedido de comando de escolha ou terminal, utilize o [trabalho az databox criado](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) para criar a sua encomenda Azure Data Box.
+2. No seu pedido de comando de escolha ou terminal, utilize o trabalho de caixa de [dados az criar](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) para criar a sua encomenda Azure Data Box.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
    ```
 
-   Aqui está um exemplo de uso do comando:
+   Aqui está um exemplo de utilização do comando:
 
    ```azurecli
    az databox job create --resource-group "myresourcegroup" \
@@ -369,6 +407,64 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
     NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
 
     ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispositivo:
+
+1. Antes de criar a ordem de importação, precisa de obter a sua conta de armazenamento e guardar o objeto da conta de armazenamento numa variável.
+
+   ```azurepowershell
+    $storAcct = Get-AzStorageAccount -Name "mystorageaccount" -ResourceGroup "myresourcegroup"
+   ```
+
+2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
+
+    | Definição (parâmetro) | Descrição |  Valor da amostra |
+    |---|---|---|
+    |Nome do Grupo de Recursos [Obrigatório]| Utilize um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
+    |Nome [Obrigatório]| O nome da ordem que está a criar. | "mydataboxorder"|
+    |Nome de contacto [Obrigatório]| O nome associado ao endereço de envio. | "Gus Polónia"|
+    |Número de telefone [Obrigatório]| O número de telefone da pessoa ou empresa que receberá a encomenda.| "14255551234"
+    |Localização [Necessária]| A região de Azure mais próxima para si que irá enviar o seu dispositivo.| "Westus"|
+    |DataBoxType [Obrigatório]| O dispositivo específico da Caixa de Dados que está a encomendar. Os valores válidos são: "DataBox", "DataBoxDisk" e "DataBoxHeavy"| "DataBox" |
+    |EmailId [Obrigatório]| Os endereços de e-mail associados à encomenda.| "gusp@contoso.com" |
+    |StreetAddress1 [Obrigatório]| O endereço da rua para onde a encomenda será enviada. | "15700 NE 39th St" |
+    |StreetAddress2| A informação de endereço secundário, como o número de apartamento ou o número de edifício. | "Bld 123" |
+    |StreetAddress3| A informação do endereço terciário. | |
+    |Cidade [Necessária]| A cidade para onde o dispositivo será enviado. | "Redmond" |
+    |StateOrProvinceCode [Obrigatório]| O estado onde o dispositivo será enviado.| "WA" |
+    |CountryCode [Obrigatório]| O país em que o dispositivo será enviado. | "Estados Unidos" |
+    |Código Postal [Obrigatório]| O código postal ou código postal associado ao endereço de envio.| "98052"|
+    |CompanyName| O nome da sua empresa para quem trabalha.| "Contoso, LTD" |
+    |ArmazenamentoAccountResourceId [Obrigatório]| O ID da conta Azure Storage de onde pretende importar dados.| <AzStorageAccount>.id |
+
+3. No seu pedido de comando de escolha ou terminal, utilize o [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob) para criar a sua encomenda Azure Data Box.
+
+   ```azurepowershell
+    PS> $storAcct = Get-AzureStorageAccount -StorageAccountName "mystorageaccount"
+    PS> New-AzDataBoxJob -Location "WestUS" \
+                         -StreetAddress1 "15700 NE 39th St" \
+                         -PostalCode "98052" \
+                         -City "Redmond" \
+                         -StateOrProvinceCode "WA" \
+                         -CountryCode "US" \
+                         -EmailId "gusp@contoso.com" \
+                         -PhoneNumber 4255551234 \
+                         -ContactName "Gus Poland" \
+                         -StorageAccount $storAcct.id \
+                         -DataBoxType DataBox \
+                         -ResourceGroupName "myresourcegroup" \
+                         -Name "myDataBoxOrderPSTest"
+   ```
+
+   Aqui está a saída de executar o comando:
+
+   ```output
+    jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+    ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+    myDataBoxOrderPSTest DataBox              DeviceOrdered      07-06-2020 05:25:30   westus               myresourcegroup
+   ```
 
 ---
 
@@ -469,13 +565,77 @@ A tabela a seguir mostra as informações do parâmetro `az databox job list` pa
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
    ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
-   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
-   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
-   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
-                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
-                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        MyResGrp         2020-05-26T23:20:57.464075+00:00  Cancelled
+   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  MyResGrp         2020-05-27T00:04:16.640397+00:00  Cancelled
+   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       MyResGrp         2020-06-10T16:54:23.509181+00:00  Cancelled
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       MyResGrp         2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       MyResGrp         2020-06-18T03:48:00.905893+00:00  DeviceOrdered
    PS C:\WINDOWS\system32>
    ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+### <a name="track-a-single-order"></a>Acompanhe uma única encomenda
+
+Para obter informações de rastreio sobre uma única encomenda existente da Caixa de Dados Azure, execute [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob). O comando apresenta informações sobre a ordem, como, mas não se limitando a: nome, grupo de recursos, informações de rastreio, ID de subscrição, informações de contacto, tipo de envio e sku do dispositivo.
+
+> [!NOTE]
+> `Get-AzDataBoxJob`é utilizado para exibir encomendas individuais e múltiplas. A diferença é que você especifica o nome da encomenda para encomendas individuais.
+
+   ```azurepowershell
+    Get-AzDataBoxJob -ResourceGroupName <String> -Name <String>
+   ```
+
+   A tabela a seguir mostra as informações do parâmetro `Get-AzDataBoxJob` para:
+
+   | Parâmetro | Descrição |  Valor da amostra |
+   |---|---|---|
+   |Grupo de Recursos [Obrigatório]| O nome do grupo de recursos associado à ordem. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
+   |Nome [Obrigatório]| O nome da ordem para obter informações para. | "mydataboxorder"|
+   |ResourceId| A identificação do recurso associado à ordem. |  |
+
+   Aqui está um exemplo do comando com saída:
+
+   ```azurepowershell
+    PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup" -Name "myDataBoxOrderPSTest"
+   ```
+
+   Aqui está a saída de executar o comando:
+
+   ```output
+   jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+   ----------------     -------------------- ------------------ --------------------- -------------------- -------------
+   myDataBoxOrderPSTest DataBox              DeviceOrdered      7/7/2020 12:37:16 AM  WestUS               myResourceGroup
+   ```
+
+### <a name="list-all-orders"></a>Listar todas as encomendas
+
+Se encomendou vários dispositivos, pode executar [o Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob) para visualizar todas as suas encomendas da Caixa de Dados Azure. O comando lista todas as ordens que pertencem a um grupo de recursos específicos. Também apresentado na saída: nome da encomenda, estado do envio, região Azure, tipo de entrega, estado da encomenda. As encomendas canceladas também estão incluídas na lista.
+O comando também apresenta selos temporais de cada ordem.
+
+```azurepowershell
+Get-AzDataBoxJob -ResourceGroupName <String>
+```
+
+Eis um exemplo do comando:
+
+```azurepowershell
+PS C:\WINDOWS\system32> Get-AzDataBoxJob -ResourceGroupName "myResourceGroup"
+```
+
+Aqui está a saída de executar o comando:
+
+```output
+jobResource.Name     jobResource.Sku.Name jobResource.Status jobResource.StartTime jobResource.Location ResourceGroup
+----------------     -------------------- ------------------ --------------------- -------------------- -------------
+guspImportTest       DataBox              Cancelled          5/26/2020 11:20:57 PM WestUS               myResourceGroup
+mydataboxExportTest  DataBox              Cancelled          5/27/2020 12:04:16 AM WestUS               myResourceGroup
+mydataboximport1     DataBox              Cancelled          6/26/2020 11:00:34 PM WestUS               myResourceGroup
+myDataBoxOrderPSTest DataBox              Cancelled          7/07/2020 12:37:16 AM WestUS               myResourceGroup
+mydataboxtest2       DataBox              Cancelled          6/10/2020 4:54:23  PM WestUS               myResourceGroup
+mydataboxtest4       DataBox              DeviceOrdered      6/18/2020 3:48:00  AM WestUS               myResourceGroup
+PS C:\WINDOWS\system32>
+```
 
 ---
 
@@ -564,6 +724,74 @@ Aqui está um exemplo do comando com saída:
    command ran in 1.142 seconds.
    PS C:\Windows>
    ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-ps)
+
+### <a name="cancel-an-order"></a>Cancelar uma encomenda
+
+Para cancelar uma encomenda da Caixa de Dados Azure, execute [Stop-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/stop-azdataboxjob). É-lhe exigido que especifique a sua razão para cancelar a encomenda.
+
+```azurepowershell
+Stop-AzDataBoxJob -ResourceGroup <String> -Name <String> -Reason <String>
+```
+
+A tabela a seguir mostra as informações do parâmetro `Stop-AzDataBoxJob` para:
+
+| Parâmetro | Descrição |  Valor da amostra |
+|---|---|---|
+|Grupo de Recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a ser cancelado. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
+|Nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
+|Razão [Necessária]| O motivo para cancelar a encomenda. | "Inseri informações erradas e precisei de cancelar a encomenda." |
+|Force | Força o cmdlet a funcionar sem confirmação do utilizador. | -Force |
+
+Aqui está um exemplo do comando com saída:
+
+```azurepowershell
+PS C:\PowerShell\Modules> Stop-AzDataBoxJob -ResourceGroupName myResourceGroup \
+                                            -Name "myDataBoxOrderPSTest" \
+                                            -Reason "I entered erroneous information and had to cancel."
+```
+
+Aqui está a saída de executar o comando:
+
+```output
+Confirm
+"Cancelling Databox Job "myDataBoxOrderPSTest
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\WINDOWS\system32>
+```
+
+### <a name="delete-an-order"></a>Apagar uma encomenda
+
+Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [Remove-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/remove-azdataboxjob) para apagar a encomenda.
+
+```azurepowershell
+Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>
+```
+
+A tabela a seguir mostra as informações do parâmetro `Remove-AzDataBoxJob` para:
+
+| Parâmetro | Descrição |  Valor da amostra |
+|---|---|---|
+|Grupo de Recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
+|Nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
+|Force | Força o cmdlet a funcionar sem confirmação do utilizador. | -Force |
+
+Aqui está um exemplo do comando com saída:
+
+```azurepowershell
+PS C:\Windows> Remove-AzDataBoxJob -ResourceGroup "myresourcegroup" \
+                                   -Name "mydataboxtest3"
+```
+
+Aqui está a saída de executar o comando:
+
+```output
+Confirm
+"Removing Databox Job "mydataboxtest3
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+PS C:\Windows>
+```
 
 ---
 

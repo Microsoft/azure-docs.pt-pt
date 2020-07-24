@@ -1,37 +1,37 @@
 ---
-title: Amostras de modelo de gestor de recursos para espaços de trabalho log Analytics
-description: Modelos de Gestor de Recursos Azure da amostra para implantar espaços de trabalho de Log Analytics e configurar fontes de dados no Monitor Azure.
+title: Amostras de modelo de gestor de recursos para espaços de trabalho do Log Analytics
+description: Experimente modelos de Gestor de Recursos Azure para implantar espaços de trabalho do Log Analytics e configurar fontes de dados no Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 66c62156cec79a65b856a6f4c8f2ad34aa687b05
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d5af288ea564c4118e010c8d0f0f86c5337ce170
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024058"
 ---
-# <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para espaços de trabalho log Analytics no Monitor Azure
-Este artigo inclui modelos de gestor de [recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho de Log Analytics no Monitor Azure. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para espaços de trabalho log analytics no Monitor Azure
+Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho log analytics no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="template-references"></a>Referências do modelo
+## <a name="template-references"></a>Referências de modelo
 
 - [Microsoft.OperationalInsights espaços de trabalho](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces) 
-- [Microsoft.OperationalInsights espaços de trabalho/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
+- [Microsoft.OperationalInsights workspaces/dataSources](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
-A amostra seguinte cria um novo espaço de trabalho vazio log Analytics.
+A amostra a seguir cria um novo espaço de trabalho vazio do Log Analytics.
 
 ### <a name="notes"></a>Notas
 
-- Se especificar um nível de preços do **Free,** então remova o elemento **retençãoInDays.**
+- Se especificar um nível de preços **de Free,** retire o elemento **RetençõesInDays.**
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -130,7 +130,7 @@ A amostra seguinte cria um novo espaço de trabalho vazio log Analytics.
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -153,14 +153,14 @@ A amostra seguinte cria um novo espaço de trabalho vazio log Analytics.
 }
 ```
 
-## <a name="collect-windows-events"></a>Recolher eventos windows
-A amostra seguinte adiciona a recolha de [eventos windows](../platform/data-sources-windows-events.md) a um espaço de trabalho existente.
+## <a name="collect-windows-events"></a>Recolher eventos do Windows
+A amostra seguinte adiciona a recolha de [eventos do Windows](../platform/data-sources-windows-events.md) a um espaço de trabalho existente.
 
 ### <a name="notes"></a>Notas
 
-- Adicione um elemento **de fontes** de dados para cada registo de eventos a recolher. Pode especificar diferentes tipos de eventos para cada registo.
+- Adicione um elemento **de fontes de dados** para cada registo de eventos para recolher. Pode especificar diferentes tipos de eventos para cada registo.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -231,7 +231,7 @@ A amostra seguinte adiciona a recolha de [eventos windows](../platform/data-sour
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -248,14 +248,14 @@ A amostra seguinte adiciona a recolha de [eventos windows](../platform/data-sour
 }
 ```
 
-## <a name="collect-syslog"></a>Colete syslog
+## <a name="collect-syslog"></a>Coletar syslog
 A amostra seguinte adiciona a recolha de [eventos syslog](../platform/data-sources-syslog.md) a um espaço de trabalho existente.
 
 ### <a name="notes"></a>Notas
 
-- Adicione um elemento **de fontes** de dados para cada instalação recolher. Pode especificar diferentes severidades para cada instalação.
+- Adicione um elemento **de fontes de dados** para cada facilidade a recolher. Pode especificar diferentes gravidades para cada instalação.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -369,7 +369,7 @@ A amostra seguinte adiciona a recolha de [eventos syslog](../platform/data-sourc
 ```
 
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -386,14 +386,14 @@ A amostra seguinte adiciona a recolha de [eventos syslog](../platform/data-sourc
 }
 ```
 
-## <a name="collect-windows-performance-counters"></a>Colete contadores de desempenho do Windows
-A amostra seguinte adiciona a recolha de contadores de [desempenho do Windows](../platform/data-sources-performance-counters.md) a um espaço de trabalho existente.
+## <a name="collect-windows-performance-counters"></a>Recolha os contadores de desempenho do Windows
+A amostra seguinte adiciona a recolha de [contadores](../platform/data-sources-performance-counters.md) de desempenho do Windows a um espaço de trabalho existente.
 
 ### <a name="notes"></a>Notas
 
-- Adicione um elemento **de fontes** de dados para cada contador e instância para recolher. Pode especificar uma taxa de cobrança diferente para cada contador e combinação de exemplos.
+- Adicione um elemento **de fontes de dados** para cada contador e instância para recolher. Pode especificar uma taxa de recolha diferente para cada combinação de contador e instância.
   
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -472,7 +472,7 @@ A amostra seguinte adiciona a recolha de contadores de [desempenho do Windows](.
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -490,14 +490,14 @@ A amostra seguinte adiciona a recolha de contadores de [desempenho do Windows](.
 ```
 
 
-## <a name="collect-linux-performance-counters"></a>Colete contadores de desempenho Linux
+## <a name="collect-linux-performance-counters"></a>Colete balcões de desempenho Linux
 A amostra seguinte adiciona a recolha de contadores de [desempenho Linux](../platform/data-sources-performance-counters.md) a um espaço de trabalho existente.
 
 ### <a name="notes"></a>Notas
 
-- Adicione um elemento **de fontes** de dados para cada objeto e, por exemplo, para recolher. Pode especificar diferentes conjuntos de contadores para cada combinação de objetos e instâncias, mas só pode especificar uma única tarifa para todos os contadores.
+- Adicione um elemento **de fontes de dados** para cada objeto e instância para recolher. Pode especificar diferentes conjuntos de contadores para cada combinação de objetos e instâncias, mas só pode especificar uma taxa única para todos os contadores.
   
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -586,7 +586,7 @@ A amostra seguinte adiciona a recolha de contadores de [desempenho Linux](../pla
 }
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -604,15 +604,15 @@ A amostra seguinte adiciona a recolha de contadores de [desempenho Linux](../pla
 ```
 
 
-## <a name="collect-custom-logs"></a>Recolher registos personalizados
-A amostra seguinte adiciona a recolha de [registos personalizados](../platform/data-sources-custom-logs.md) a um espaço de trabalho existente.
+## <a name="collect-custom-logs"></a>Colete registos personalizados
+A amostra seguinte adiciona a recolha de [troncos personalizados](../platform/data-sources-custom-logs.md) a um espaço de trabalho existente.
 
 ### <a name="notes"></a>Notas
 
-- A configuração de delimitadores e extrações pode ser complexa. Para ajuda, pode definir um registo personalizado utilizando o portal Azure e recuperar a sua configuração utilizando [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) com **-Kind** set to **CustomLog**.
+- A configuração de delimiters e extrações pode ser complexa. Para obter ajuda, pode definir um registo personalizado utilizando o portal Azure e recuperar a sua configuração utilizando [o Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) com **-Kind** set to **CustomLog**.
 
   
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -736,7 +736,7 @@ A amostra seguinte adiciona a recolha de [registos personalizados](../platform/d
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -754,10 +754,10 @@ A amostra seguinte adiciona a recolha de [registos personalizados](../platform/d
 ```
 
 
-## <a name="collect-iis-log"></a>Recolher log IIS
+## <a name="collect-iis-log"></a>Recolher registo IIS
 A amostra seguinte adiciona a recolha de [registos IIS](../platform/data-sources-iis-logs.md) a um espaço de trabalho existente.
 
-### <a name="template-file"></a>Ficheiro de modelo
+### <a name="template-file"></a>Arquivo de modelo
 
 ```json
 {
@@ -803,7 +803,7 @@ A amostra seguinte adiciona a recolha de [registos IIS](../platform/data-sources
 
 ```
 
-### <a name="parameter-file"></a>Arquivo parâmetro
+### <a name="parameter-file"></a>Arquivo de parâmetros
 
 ```json
 {
@@ -824,6 +824,6 @@ A amostra seguinte adiciona a recolha de [registos IIS](../platform/data-sources
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para o Monitor Azure](resource-manager-samples.md).
-* Saiba mais sobre os espaços de [trabalho do Log Analytics.](../learn/quick-create-workspace.md)
-* [Saiba mais sobre as fontes](../platform/agent-data-sources.md)de dados do agente .
+* [Obtenha outros modelos de amostra para Azure Monitor](resource-manager-samples.md).
+* [Saiba mais sobre os espaços de trabalho do Log Analytics.](../learn/quick-create-workspace.md)
+* [Saiba mais sobre fontes de dados de agentes.](../platform/agent-data-sources.md)

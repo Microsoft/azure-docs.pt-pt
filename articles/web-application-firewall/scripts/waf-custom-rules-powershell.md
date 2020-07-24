@@ -1,31 +1,31 @@
 ---
-title: Amostra de script Azure PowerShell - Crie regras personalizadas WAF
-description: Amostra de script Azure PowerShell - Crie firewall de aplicação web em regras personalizadas de Gateway de aplicação
+title: Amostra de script Azure PowerShell que usa regras personalizadas waf
+description: Amostra de script Azure PowerShell - Crie firewall de aplicação web nas regras personalizadas do Gateway de aplicações
 author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: sample
 ms.date: 09/30/2019
 ms.author: victorh
-ms.openlocfilehash: 950f71c284268a9aa2773eb57213e266622d85bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b73b15e7f174868fa4c0a9518725a4585cf3dffe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73501576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035592"
 ---
-# <a name="create-waf-custom-rules-with-azure-powershell"></a>Crie regras personalizadas WAF com a Azure PowerShell
+# <a name="create-waf-custom-rules-with-azure-powershell"></a>Crie regras personalizadas waf com Azure PowerShell
 
-Este script cria uma Firewall de aplicação web de gateway de aplicação que utiliza regras personalizadas. A regra personalizada bloqueia o tráfego se o cabeçalho de pedido contiver *evilbot*user-agent .
+Este script cria uma Firewall de Aplicação Gateway Web que utiliza regras personalizadas. A regra personalizada bloqueia o tráfego se o cabeçalho de pedido contiver *o evilbot*do Agente utilizador .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="azure-powershell-module"></a>Módulo do Azure PowerShell
 
-Se optar por instalar e utilizar o Azure PowerShell localmente, este script requer a versão 2.1.0 ou mais tarde do módulo PowerShell.
+Se optar por instalar e utilizar o Azure PowerShell localmente, este script requer a versão 2.1.0 ou posterior do módulo Azure PowerShell.
 
 1. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps).
-2. Para criar uma ligação `Connect-AzAccount`com o Azure, corra.
+2. Para criar uma ligação com a Azure, corra `Connect-AzAccount` .
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,26 +49,26 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria a configuração de sub-rede. |
-| [Rede Nova AzVirtual](/powershell/module/az.network/new-azvirtualnetwork) | Cria a rede virtual com as configurações de sub-rede. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria a rede virtual com as configurações de sub-rede. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Cria o endereço IP público do gateway de aplicação. |
-| [Configuração IPIP new-AzApplicationGatewayIP](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) | Cria a configuração que associa uma sub-rede ao gateway de aplicação. |
+| [Nova-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) | Cria a configuração que associa uma sub-rede ao gateway de aplicação. |
 | [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) | Cria a configuração que atribui um endereço IP público ao gateway de aplicação. |
 | [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) | Atribui uma porta que vai ser utilizada para aceder ao gateway de aplicação. |
 | [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) | Cria um conjunto de back-end para um gateway de aplicação. |
 | [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) | Configura as definições para um conjunto de back-end. |
 | [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) | Cria um serviço de escuta. |
-| [Nova AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | Cria uma regra de encaminhamento. |
-| [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | Especifica a camada e a capacidade para um gateway de aplicação. |
+| [New-AzApplicationGatewayRequestroutingrule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | Cria uma regra de encaminhamento. |
+| [New-AzApplicationGatewaysku](/powershell/module/az.network/new-azapplicationgatewaysku) | Especifica a camada e a capacidade para um gateway de aplicação. |
 | [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) | Cria um gateway de aplicação. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
-|[Configuração de escala new-AzApplicationGatewayAuto](/powershell/module/az.network/New-AzApplicationGatewayAutoscaleConfiguration)|Cria uma configuração de escala automática para o Gateway de Aplicação.|
-|[Nova AzApplicationGatewayFirewallMatchVariable](/powershell/module/az.network/New-AzApplicationGatewayFirewallMatchVariable)|Cria uma variável de correspondência para a condição de firewall.|
-|[Nova AzApplicationGatewayFirewallFirewallCondition](/powershell/module/az.network/New-AzApplicationGatewayFirewallCondition)|Cria uma condição de correspondência para a regra personalizada.|
-|[New-AzApplicationGatewayFirewallCustomRule](/powershell/module/az.network/New-AzApplicationGatewayFirewallCustomRule)|Cria uma nova regra personalizada para a política de firewall de gateway de aplicação.|
-|[New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/New-AzApplicationGatewayFirewallPolicy)|Cria uma política de firewall de porta de entrada de aplicação.|
-|[Nova AzApplicationGatewayApplicationApplicationFirewallConfiguration](/powershell/module/az.network/New-AzApplicationGatewayWebApplicationFirewallConfiguration)|Cria uma configuração WAF para um gateway de aplicação.|
+|[Nova-AzApplicationGatewayAutoscaleConfiguration](/powershell/module/az.network/New-AzApplicationGatewayAutoscaleConfiguration)|Cria uma configuração de escala automática para o Gateway de Aplicações.|
+|[New-AzApplicationGatewayFirewallMatchVariable](/powershell/module/az.network/New-AzApplicationGatewayFirewallMatchVariable)|Cria uma variável de correspondência para a condição de firewall.|
+|[New-AzApplicationGatewayFirewallCondition](/powershell/module/az.network/New-AzApplicationGatewayFirewallCondition)|Cria uma condição de correspondência para regras personalizadas.|
+|[New-AzApplicationGatewayFirewallCustomrule](/powershell/module/az.network/New-AzApplicationGatewayFirewallCustomRule)|Cria uma nova regra personalizada para a política de firewall de gateway de aplicação.|
+|[New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/New-AzApplicationGatewayFirewallPolicy)|Cria uma política de firewall de gateway de aplicação.|
+|[New-AzApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/az.network/New-AzApplicationGatewayWebApplicationFirewallConfiguration)|Cria uma configuração WAF para um gateway de aplicação.|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para mais informações sobre as regras personalizadas da WAF, consulte [regras personalizadas para firewall](../ag/custom-waf-rules-overview.md) de aplicação web
-- Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+- Para obter mais informações sobre as regras personalizadas da WAF, consulte [as regras personalizadas para firewall de aplicações web](../ag/custom-waf-rules-overview.md)
+- Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).

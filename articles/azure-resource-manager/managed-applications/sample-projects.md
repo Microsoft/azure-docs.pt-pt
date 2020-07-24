@@ -1,26 +1,25 @@
 ---
-title: Projetos de amostragem
-description: Fornece um resumo dos projetos de amostra que estão disponíveis para aplicações geridas pelo Azure.
+title: Projetos de amostra
+description: Fornece um resumo dos projetos de amostra que estão disponíveis para aplicações geridas azure.
 author: tfitzmac
 ms.topic: sample
 ms.date: 09/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7c04f5d78f742eda70e71d9bee9ce4482c48f0f4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2ce9ac925cce96af8a0017a5e97b3f52dc8e5669
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75650052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040977"
 ---
-# <a name="sample-projects-for-azure-managed-applications"></a>Projetos de amostragem para aplicações geridas pelo Azure
+# <a name="sample-projects-for-azure-managed-applications"></a>Projetos de amostra para aplicações geridas pela Azure
 
-As seguintes ligações de tabela para amostrar aplicações geridas pelo Azure no GitHub.
+A tabela seguinte liga-se à amostra de aplicações geridas pela Azure no GitHub.
 
-|  |  |
+| Exemplo | Descrição |
 | --- | --- |
-| **Exemplos** | |
-| [Aplicação Gerida (Trial or Production) numa rede virtual nova ou existente](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet) | Demonstra como pode criar opções de implementação flexíveis para os clientes. Esta aplicação gerida pode ser implantada para uma nova rede virtual ou uma rede virtual existente. Os clientes podem especificar a versão experimental ou de produção das aplicações geridas. |
+| [Aplicação gerida (Trial ou Produção) numa rede virtual nova ou existente](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet) | Demonstra como pode criar opções de implementação flexíveis para os clientes. Esta aplicação gerida pode ser implementada para uma nova rede virtual ou uma rede virtual existente. Os clientes podem especificar a versão experimental ou de produção das aplicações geridas. |
 | [Conta de Armazenamento Azure gerida](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account) | Implementa uma única conta de armazenamento. Utilize este projeto de amostra como introdução à criação de aplicações geridas. |
-| [Tecido de serviço gerido com serviços de gestão Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-service-fabric) | Implementa um cluster de tecido de serviço e conjuntos de escala de máquina virtual. Inclui contas de armazenamento para registo e diagnóstico. |
-| [Aplicação Web Gerida (IaaS) com serviços de gestão Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app) | Implementa uma máquina virtual que acolhe uma aplicação web. |
-| [SQL 2017 IaaS gerido com patching automatizado e backup](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-sql-iaas) | Implementa uma máquina virtual que acolhe o SQL 2017. |
+| [Tecido de serviço gerido com serviços de gestão Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-service-fabric) | Implementa um conjunto de tecido de serviço e conjuntos de balanças de máquinas virtuais. Inclui contas de armazenamento para registo e diagnóstico. |
+| [Aplicação Web gerida (IaaS) com serviços de gestão Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app) | Implementa uma máquina virtual que acolhe uma aplicação web. |
+| [Gerido SQL 2017 IaaS com patching automatizado e backup](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-sql-iaas) | Implementa uma máquina virtual que acolhe o SQL 2017. |

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: b8fcef13fbe41ac26b2a31d6871896428649eaa1
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f7f16093074b48610c1db8fec7f05ee01e7ab1ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920850"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078777"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-standard-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrar carga de tráfego interno com um balanceador de carga Standard no portal Azure
 
@@ -32,25 +32,23 @@ Se preferir, pode fazer estes passos utilizando o [Azure CLI](load-balancer-get-
 
 Para fazer os passos usando este tutorial, inscreva-se no portal Azure em [https://portal.azure.com](https://portal.azure.com) .
 
-## <a name="create-a-vnet-back-end-servers-and-a-test-vm"></a>Crie um VNet, servidores de back-end e um VM de teste
+## <a name="virtual-network-and-parameters"></a>Rede virtual e parâmetros
+Nesta secção, deverá substituir os seguintes parâmetros nos passos pelas informações abaixo:
 
-Primeiro, criar uma rede virtual (VNet). No VNet, crie dois VMs para utilizar para o pool de backend do seu balanceador de carga Standard e um terceiro VM para utilizar para testar o equilibrador de carga. 
+| Parâmetro                   | Valor                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | E.U.A. Leste 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-
-1. No lado superior esquerdo do portal, **selecione Criar uma**rede virtual  >  **de rede de rede de**recursos  >  **Virtual network**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
    
-1. No painel **de rede virtual Create,** escreva ou selecione estes valores:
-   
-   - **Nome**: Tipo **MyVNet**.
-   - **Grupo de Recursos**: Selecione **Criar novo,** em seguida, insira **o MyResourceGroupLB**e selecione **OK**. 
-   - **Sub-rede**  >  **Nome**: **Digite MyBackendSubnet**.
-   
-1. Selecione **Criar**.
 
-   ![Criar uma rede virtual](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
-### <a name="create-virtual-machines"></a>Criar máquinas virtuais
+## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
 1. No lado superior esquerdo do portal, selecione **Criar um**  >  **datacenter Compute**  >  **Windows Server 2016**. 
    

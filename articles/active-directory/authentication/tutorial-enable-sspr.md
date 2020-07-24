@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983154"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035031"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
 O Azure Ative Directory (Azure AD) redefiniu a palavra-passe de autosserviço (SSPR) dá aos utilizadores a capacidade de alterar ou redefinir a sua palavra-passe, sem qualquer administrador ou envolvimento do balcão de ajuda. Se a conta de um utilizador estiver bloqueada ou se esquecerem da sua palavra-passe, podem seguir as instruções para se desbloquearem e voltarem ao trabalho. Esta capacidade reduz as chamadas de secretária de ajuda e a perda de produtividade quando um utilizador não pode iniciar sômata ao seu dispositivo ou a uma aplicação.
 
 > [!IMPORTANT]
-> Este quickstart mostra a um administrador como ativar o reset da palavra-passe de autosserviço. Se é um utilizador final já registado para redefinição da palavra-passe de autosserviço e precisa de voltar à sua conta, vá a https://aka.ms/sspr .
+> Este tutorial mostra a um administrador como ativar o reset da palavra-passe de autosserviço. Se é um utilizador final já registado para redefinição da palavra-passe de autosserviço e precisa de voltar à sua conta, vá a https://aka.ms/sspr .
 >
 > Se a sua equipa de TI não tiver ativado a capacidade de redefinir a sua própria palavra-passe, contacte o seu helpdesk para obter assistência adicional.
 
@@ -41,9 +41,9 @@ Para completar este tutorial, precisa dos seguintes recursos e privilégios:
     * Se necessário, [crie um de graça.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Uma conta com privilégios *de Administrador Global.*
 * Um utilizador não administrador com uma palavra-passe que conhece, como *testuser.* Você testa a experiência SSPR do utilizador final usando esta conta neste tutorial.
-    * Se precisar de criar um utilizador, consulte [Quickstart: Adicione novos utilizadores ao Azure Ative Directory](../add-users-azure-active-directory.md).
+    * Se precisar de criar um utilizador, consulte [Quickstart: Adicione novos utilizadores ao Azure Ative Directory](../fundamentals/add-users-azure-active-directory.md).
 * Um grupo do qual o utilizador não administrador é membro, como o *SSPR-Test-Group*. Você ativa A SSPR para este grupo neste tutorial.
-    * Se precisar de criar um grupo, veja como [criar um grupo e adicione membros no Azure Ative Directory](../active-directory-groups-create-azure-portal.md).
+    * Se precisar de criar um grupo, veja como [criar um grupo e adicione membros no Azure Ative Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Ativar a reposição de palavras-passe self-service
 
@@ -74,12 +74,12 @@ Quando os utilizadores precisam de desbloquear a sua conta ou redefinir a sua pa
 
 1. Escolha os **Métodos disponíveis para os utilizadores** que a sua organização quer permitir. Para este tutorial, verifique as caixas para ativar os seguintes métodos:
 
-    * *Notificação de aplicação móvel*
+    * *Notificação da aplicação móvel*
     * *Código da aplicação móvel*
     * *E-mail*
     * *Número de telemóvel*
-    * *Telefone do emprego*
-    * *Questões de segurança*
+
+    Métodos de autenticação adicionais, como *telefone do Office* ou *questões de Segurança,* podem ser ativados conforme necessário para se adaptarem às suas necessidades comerciais.
 
 1. Para aplicar os métodos de autenticação, **selecione Guardar**.
 
@@ -95,7 +95,7 @@ Um administrador pode fornecer manualmente estas informações de contacto, ou o
 
 ## <a name="configure-notifications-and-customizations"></a>Configure notificações e personalizações
 
-Para manter os utilizadores informados sobre a atividade da conta, pode configurar notificações de e-mail a serem enviadas quando um evento SSPR acontecer. Estas notificações podem abranger contas de utilizador regulares e contas de administração. Para as contas de administração, esta notificação fornece uma camada adicional de consciência quando uma palavra-passe de conta de administrador privilegiado é reposta usando SSPR.
+Para manter os utilizadores informados sobre a atividade da conta, pode configurar notificações de e-mail a serem enviadas quando um evento SSPR acontecer. Estas notificações podem abranger contas de utilizador regulares e contas de administração. Para as contas de administração, esta notificação fornece uma camada adicional de consciência quando uma palavra-passe de conta de administrador privilegiado é reposta usando SSPR. Todos os administradores globais seriam notificados quando a SSPR for utilizada numa conta administrada.
 
 1. Na página **de Notificações** do menu do lado esquerdo, configuure as seguintes opções:
 

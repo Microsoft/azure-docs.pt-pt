@@ -6,19 +6,19 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 5433eeff4c01c136e62cb71a53fafcae3a81859b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945295"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081377"
 ---
 # <a name="azure-monitor-cli-samples"></a>Amostras de CLI monitor Azure
 Este artigo mostra que você experimenta comandos de interface de linha de comando (CLI) para ajudá-lo a aceder às funcionalidades do Azure Monitor. O Azure Monitor permite-lhe serviços de nuvem de escala automática, máquinas virtuais e aplicações web e enviar notificações de alerta ou chamar URLs web com base em valores de dados de telemetria configurados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não instalou o Azure CLI, siga as instruções para [instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode usar [a Azure Cloud Shell](/azure/cloud-shell) para executar o CLI como uma experiência interativa no seu navegador. Consulte uma referência completa de todos os comandos disponíveis na referência CLI do [Monitor Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Se ainda não instalou o Azure CLI, siga as instruções para [instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode usar [a Azure Cloud Shell](/azure/cloud-shell) para executar o CLI como uma experiência interativa no seu navegador. Consulte uma referência completa de todos os comandos disponíveis na referência CLI do [Monitor Azure](/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 O primeiro passo é iniciar sessão na sua conta Azure.
@@ -206,4 +206,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

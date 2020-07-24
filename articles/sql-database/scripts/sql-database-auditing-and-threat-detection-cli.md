@@ -1,6 +1,6 @@
 ---
-title: Exemplo cli de auditoria e proteção avançada de ameaças - Base de Dados Azure SQL
-description: Script de exemplo Azure CLI para configurar auditoria e Proteção Avançada de Ameaças numa Base de Dados Azure SQL
+title: Exemplo CLI de auditoria e Proteção Avançada de Ameaças - Base de Dados Azure SQL
+description: Azure CLI exemplo script para configurar auditoria e proteção avançada de ameaças em uma base de dados Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 34cbba15f5798286be63171da0173f6214fe7822
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac945b14091ae01cfad66c3776c84406583e491f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037122"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Utilize o CLI para configurar a auditoria da Base de Dados SQL e a Proteção Avançada de Ameaças
 
@@ -42,7 +42,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -52,12 +52,12 @@ az group delete --name $resource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql db auditoria-política](/cli/azure/sql/db/audit-policy) | Define a política de auditoria para uma base de dados. |
-| [az sql db política de ameaça](/cli/azure/sql/db/threat-policy) | Estabelece uma política avançada de proteção contra ameaças numa base de dados. |
+| [az sql db ameaça-política](/cli/azure/sql/db/threat-policy) | Define uma política avançada de proteção de ameaças numa base de dados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

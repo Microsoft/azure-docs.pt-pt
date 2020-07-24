@@ -1,23 +1,23 @@
 ---
 title: 'PowerShell: Ligue-se a uma conta de armazenamento'
-description: Aprenda a usar o Azure PowerShell para automatizar a implementação e gestão do App Service. Esta amostra mostra como ligar uma aplicação a uma conta de armazenamento.
+description: Saiba como utilizar o Azure PowerShell para automatizar a implementação e gestão do Serviço de Aplicações. Esta amostra mostra como ligar uma aplicação a uma conta de armazenamento.
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: d1c8951445c0be6a3d4b9c4763d719fc7d79d2d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2377c8536fa307f670e28f5ff3cf04f03b88325e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74685336"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083322"
 ---
-# <a name="connect-an-app-service-app-to-a-storage-account"></a>Ligue uma aplicação do Serviço de Aplicações a uma conta de armazenamento
+# <a name="connect-an-app-service-app-to-a-storage-account"></a>Conecte uma aplicação do Serviço de Aplicações a uma conta de armazenamento
 
-Neste cenário, aprenderá a criar uma conta de armazenamento Azure e uma app app App Service. Em seguida, irá ligar a conta de armazenamento à aplicação utilizando as definições da aplicação.
+Neste cenário, você vai aprender como criar uma conta de armazenamento Azure e uma app App Service. Em seguida, ligará a conta de armazenamento à aplicação utilizando as definições de aplicações.
 
-Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
+Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/) e, em seguida, execute `Connect-AzAccount` para criar uma ligação ao Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -41,13 +41,13 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Novo AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
-| [Novo AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação de Serviço de Aplicações. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação de Serviço de Aplicações. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Cria uma Conta de armazenamento. |
 | [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtém as chaves de acesso para uma conta de Armazenamento do Azure. |
-| [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de uma aplicação do App Service. |
+| [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de uma aplicação do Serviço de Aplicações. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
-Amostras adicionais da Azure Powershell para o Serviço de Aplicações Azure podem ser encontradas nas [amostras Azure PowerShell](../samples-powershell.md).
+Amostras adicionais de Azure Powershell para o Azure App Service podem ser encontradas nas [amostras Azure PowerShell](../samples-powershell.md).

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d281b8a438710cc98307e41210c3435b26483acd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013373"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 
@@ -27,7 +27,7 @@ A funcionalidade de eliminação suave do Azure Key Vault permite a recuperaçã
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 ou mais tarde - Se ainda não tiver esta configuração, instale a Azure PowerShell e associe-a à sua subscrição Azure, veja [como instalar e configurar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+- Azure PowerShell 1.0.0 ou mais tarde - Se ainda não tiver esta configuração, instale a Azure PowerShell e associe-a à sua subscrição Azure, veja [como instalar e configurar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/). 
 
 >[!NOTE]
 > Existe uma versão desatualizada do nosso ficheiro formatação de saída Key Vault PowerShell que **pode** ser carregado para o seu ambiente em vez da versão correta. Estamos a antecipar uma versão atualizada do PowerShell para conter a correção necessária para a formatação de saída e atualizaremos este tópico nessa altura. A solução atual, caso se depare com este problema de formatação, é:

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Desloque a LÂMPADA numa máquina virtual Linux em Azure
+title: Tutorial - Desdobre a LÂMPADA numa máquina virtual Linux em Azure
 description: Neste tutorial, vai aprender a instalar a pilha LAMP numa máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 2a636ae5609d9cb5c81782af5a419a27d7880106
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5a3b3d7c0bf61ea0aa9b85965c11e572e9e2d999
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80154377"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085406"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web da LAMP numa máquina virtual do Linux no Azure
 
-Este artigo explica como implementar um servidor Web Apache, o MySQL e o PHP (pilha LAMP) numa VM do Ubuntu no Azure. Se preferir o servidor Web NGINX, veja o tutorial [Pilha LEMP](tutorial-lemp-stack.md). Para ver o servidor LAMP em ação, opcionalmente, pode instalar e configurar um site do WordPress. Neste tutorial, ficará a saber como:
+Este artigo explica como implementar um servidor Web Apache, o MySQL e o PHP (pilha LAMP) numa VM do Ubuntu no Azure. Se preferir o servidor Web NGINX, veja o tutorial [Pilha LEMP](). Para ver o servidor LAMP em ação, opcionalmente, pode instalar e configurar um site do WordPress. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma VM do Ubuntu (o “L” na pilha LAMP)
@@ -35,7 +35,7 @@ Este artigo explica como implementar um servidor Web Apache, o MySQL e o PHP (pi
 
 Esta configuração é para testes rápidos ou uma prova de conceito. Para obter mais informações sobre a pilha LAMP, incluindo as recomendações para um ambiente de produção, veja a [Documentação do Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
-Este tutorial utiliza o CLI dentro da [Cloud Shell Azure,](https://docs.microsoft.com/azure/cloud-shell/overview)que é constantemente atualizada para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente a** partir do topo de qualquer bloco de código.
+Este tutorial utiliza o CLI dentro da [Azure Cloud Shell](../../cloud-shell/overview.md), que é constantemente atualizado para a versão mais recente. Para abrir a Cloud Shell, selecione **Experimente-a** a partir da parte superior de qualquer bloco de código.
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
 
@@ -55,7 +55,7 @@ sudo apt update && sudo apt install lamp-server^
 ## <a name="verify-installation-and-configuration"></a>Verificar a instalação e a configuração
 
 
-### <a name="verify-apache"></a>Verifique apache
+### <a name="verify-apache"></a>Verificar Apache
 
 Verifique a versão do Apache com o seguinte comando:
 ```bash
@@ -67,7 +67,7 @@ Com o Apache instalado e a porta 80 aberta para a VM, torna-se possível aceder 
 ![Página predefinida do Apache][3]
 
 
-### <a name="verify-and-secure-mysql"></a>Verificar e proteger o MySQL
+### <a name="verify-and-secure-mysql"></a>Verifique e proteja o MySQL
 
 Verifique a versão do MySQL com o seguinte comando (tenha em atenção o parâmetro `V` em maiúscula):
 
@@ -75,13 +75,13 @@ Verifique a versão do MySQL com o seguinte comando (tenha em atenção o parâm
 mysql -V
 ```
 
-Para ajudar a proteger a instalação do MySQL, incluindo a definição de uma palavra-passe de raiz, executar o `mysql_secure_installation` script. 
+Para ajudar a garantir a instalação do MySQL, incluindo a definição de uma palavra-passe de raiz, execute o `mysql_secure_installation` script. 
 
 ```bash
 sudo mysql_secure_installation
 ```
 
-Pode configurar opcionalmente o Validar Password Plugin (recomendado). Em seguida, detete uma palavra-passe para o utilizador raiz MySQL e configure as restantes definições de segurança para o seu ambiente. Recomendamos que responda "Y" (sim) a todas as perguntas.
+Pode configurar opcionalmente o Plugin de senha validado (recomendado). Em seguida, defina uma palavra-passe para o utilizador raiz MySQL e configufique as definições de segurança restantes para o seu ambiente. Recomendamos que responda "Y" (sim) a todas as perguntas.
 
 Se pretender experimentar funcionalidades do MySQL (criar uma base de dados MySQL, adicionar utilizadores ou alterar as definições de configuração), inicie sessão no MySQL. Este passo não é necessário para concluir este tutorial.
 

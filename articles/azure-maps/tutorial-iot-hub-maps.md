@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 1f0668a897f5bc88fbaeb770bc045e56dae2d48f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075489"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT usando mapas Azure
 
@@ -91,7 +91,7 @@ Para completar os passos neste tutorial, primeiro precisa criar um grupo de recu
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **Grupos de recursos**.
+2. Selecione **grupos de recursos**.
     
    ![Grupos de recursos](./media/tutorial-iot-hub-maps/resource-group.png)
 
@@ -110,7 +110,7 @@ Para completar os passos neste tutorial, primeiro precisa criar um grupo de recu
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps 
 
-Para implementar a lógica de negócio baseada na análise espacial Azure Maps, precisamos de criar uma conta Azure Maps no grupo de recursos que criámos. Siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma subscrição de conta Azure Maps com nível de preços S1. Siga os passos na [chave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
+Para implementar a lógica de negócio baseada na análise espacial Azure Maps, precisamos de criar uma conta Azure Maps no grupo de recursos que criámos. Siga as instruções na [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) para criar uma subscrição de conta Azure Maps com nível de preços S1. Siga os passos na [chave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal para a sua conta. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
 
 
@@ -241,7 +241,7 @@ Todas as informações relevantes do evento são então mantidas na loja blob. P
 
 6. Copie o [código C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) para a sua função.
  
-7. No script C# substitua os seguintes parâmetros. Clique em **Guardar**. Não clique em **Executar** ainda
+7. No script C# substitua os seguintes parâmetros. Clique em **Save** (Guardar). Não clique em **Executar** ainda
     * Substitua o **SUBSCRIPTION_KEY** pela chave de subscrição primária da conta Azure Maps.
     * Substitua o **UDID** pelo udId da geofence que carregou, 
     * A função **CreateBlobAsync** no script cria uma bolha por evento na conta de armazenamento de dados. Substitua o **ACCESS_KEY**, **ACCOUNT_NAME**, e **STORAGE_CONTAINER_NAME** pela chave de acesso da sua conta de armazenamento, nome da conta e recipiente de armazenamento de dados.

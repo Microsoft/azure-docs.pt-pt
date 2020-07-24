@@ -15,12 +15,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: be2a52f1a9071e9d4bb77ab4439291fd58cd828b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c9165d1f539ea585ae1370b7651cda4b9336f85f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82129375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069428"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
@@ -49,7 +49,7 @@ Para instalar aplicações e armazenar dados, podem ser adicionados mais discos 
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
-O Azure fornece dois tipos de discos, standard e Premium.
+A Azure fornece dois tipos de discos, standard e Premium.
 
 ### <a name="standard-disk"></a>Disco Standard
 
@@ -66,9 +66,9 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-A Azure Cloud Shell é uma concha interativa gratuita que pode suster para executar os passos deste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
+Azure Cloud Shell é uma concha interativa gratuita que pode usar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
-Para abrir a Cloud Shell, selecione **Experimente** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/powershell](https://shell.azure.com/bash)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir a Cloud Shell, selecione **Experimente-a** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/powershell](https://shell.azure.com/bash) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="create-and-attach-disks"></a>Criar e expor discos
 
@@ -178,11 +178,11 @@ exit
 
 ## <a name="take-a-disk-snapshot"></a>Tire uma foto do disco
 
-Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de um ponto no tempo do disco. Os instantâneos de VM do Azure são úteis para guardar rapidamente o estado de uma VM antes de efetuar alterações de configuração. Em caso de problema ou erro, a VM pode ser restaurada com um instantâneo. Quando uma VM tiver mais do que um disco, é tirado um instantâneo de cada disco independentemente dos outros. Para fazer cópias de segurança da aplicação, considere parar a VM antes de tirar instantâneos do disco. Em alternativa, utilize o [Serviço Azure Backup](/azure/backup/), que permite efetuar cópias de segurança automatizadas enquanto a VM está em execução.
+Quando tira um instantâneo de disco, o Azure cria uma cópia só de leitura de um ponto no tempo do disco. Os instantâneos de VM do Azure são úteis para guardar rapidamente o estado de uma VM antes de efetuar alterações de configuração. Em caso de problema ou erro, o VM pode ser restaurado com um instantâneo. Quando uma VM tiver mais do que um disco, é tirado um instantâneo de cada disco independentemente dos outros. Para fazer cópias de segurança da aplicação, considere parar a VM antes de tirar instantâneos do disco. Em alternativa, utilize o [Serviço Azure Backup](../../backup/index.yml), que permite efetuar cópias de segurança automatizadas enquanto a VM está em execução.
 
 ### <a name="create-snapshot"></a>Criar instantâneo
 
-Antes de criar um instantâneo do disco da máquina virtual, é necessário o ID ou o nome do disco. Use o comando de [show az vm](/cli/azure/vm#az-vm-show) para devolver o ID do disco. Neste exemplo, o ID do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
+Antes de criar um instantâneo do disco da máquina virtual, é necessário o ID ou o nome do disco. Utilize o comando [de exibição az vm](/cli/azure/vm#az-vm-show) para devolver o ID do disco. Neste exemplo, o ID do disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \

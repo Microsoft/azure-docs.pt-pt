@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 549c85f92434504b931f0325959beb17ae92afba
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 831da4153eebc798265493441ee72c041901904f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85254893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053906"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo do Azure Resource Manager para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -48,13 +48,13 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Leia o artigo [Descrição Geral do Tutorial e Pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua os passos de **pré-requisitos**.
-* Siga as instruções no artigo [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) para instalar a versão mais recente do Azure PowerShell no computador. Neste tutorial, utiliza o PowerShell para implementar entidades do Data Factory. 
+* Siga as instruções no artigo [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/) para instalar a versão mais recente do Azure PowerShell no computador. Neste tutorial, utiliza o PowerShell para implementar entidades do Data Factory. 
 * (opcional) Veja [Authoring Azure Resource Manager Templates (Criação de Modelos Azure Resource Manager)](../../azure-resource-manager/templates/template-syntax.md) para saber mais sobre os modelos Azure Resource Manager.
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
 Neste tutorial, cria uma fábrica de dados com as entidades do Data Factory seguintes:
 
-| Entidade | Description |
+| Entidade | Descrição |
 | --- | --- |
 | Serviço ligado do Storage do Azure |Liga a sua conta de Armazenamento do Azure à fábrica de dados. O Azure Storage é a loja de dados de origem e a Base de Dados Azure SQL é a loja de dados da pia para a atividade de cópia no tutorial. Especifica a conta de armazenamento que contém os dados de entrada para a atividade de cópia. |
 | Serviço ligado da Base de Dados SQL do Azure |Liga a nossa base de dados na Base de Dados Azure SQL à fábrica de dados. Especifica a base de dados que detém os dados de saída para a atividade da cópia. |

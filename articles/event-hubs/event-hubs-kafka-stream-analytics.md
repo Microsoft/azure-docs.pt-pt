@@ -3,12 +3,12 @@ title: Azure Event Hubs - Processa eventos Apache Kafka
 description: 'Tutorial: Este artigo mostra como processar eventos kafka que são ingeridos através de centros de eventos usando Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313262"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074917"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processa Apache Kafka para eventos de Centros de Eventos usando análise de stream 
 Este artigo mostra como transmitir dados para os Centros de Eventos e processá-lo com a Azure Stream Analytics. Acompanha-o pelos seguintes passos: 
@@ -27,7 +27,7 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário Maven.
-* [Git](https://www.git-scm.com/)
+* [Rio Git](https://www.git-scm.com/)
 * Uma **conta de Armazenamento Azure.** Se não tiver um, [crie um](../storage/common/storage-account-create.md) antes de prosseguir. O trabalho stream Analytics neste walkthrough armazena os dados de saída num armazenamento de bolhas Azure. 
 
 
@@ -90,7 +90,7 @@ A consulta no trabalho stream Analytics passa através dos dados sem realizar qu
 2. Selecione **Analytics** no menu **Azure Marketplace** e selecione **o trabalho stream Analytics**. 
 3. Na página **New Stream Analytics,** faça as seguintes ações: 
     1. Insira um **nome** para o trabalho. 
-    2. Selecione a sua **subscrição**.
+    2. Selecione a **subscrição**.
     3. Selecione **Criar novo** para o **grupo de recursos** e insira o nome. Também pode utilizar um grupo de recursos **existente.** 
     4. Selecione um **local** para o trabalho.
     5. Selecione **Criar** para criar o trabalho. 
@@ -120,7 +120,7 @@ A consulta no trabalho stream Analytics passa através dos dados sem realizar qu
 2. **Selecione + Adicione** na barra de ferramentas e selecione o armazenamento **blob**
 3. Na página de definições de saída de armazenamento Blob, faça as seguintes ações: 
     1. Especifique **um pseudónimo** para a saída. 
-    2. Selecione a sua **subscrição** do Azure. 
+    2. Selecione a sua **subscrição Azure**. 
     3. Selecione a sua **conta de Armazenamento Azure**. 
     4. Introduza um **nome para o recipiente** que armazena os dados de saída da consulta Stream Analytics.
     5. Selecione **Guardar**.
@@ -129,7 +129,7 @@ A consulta no trabalho stream Analytics passa através dos dados sem realizar qu
  
 
 ### <a name="define-a-query"></a>Definir uma consulta
-Depois de ter uma tarefa do Stream Analytics configurada para ler um fluxo de dados de entrada, o passo seguinte consiste em criar uma transformação que analisa os dados em tempo real. Para definir a consulta de transformação, vai utilizar a [Linguagem de Consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Nesta passagem, define-se uma consulta que passa pelos dados sem realizar qualquer transformação.
+Depois de ter uma tarefa do Stream Analytics configurada para ler um fluxo de dados de entrada, o passo seguinte consiste em criar uma transformação que analisa os dados em tempo real. Para definir a consulta de transformação, vai utilizar a [Linguagem de Consulta do Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference). Nesta passagem, define-se uma consulta que passa pelos dados sem realizar qualquer transformação.
 
 1. Selecione **Consulta**.
 2. Na janela de consulta, `[YourOutputAlias]` substitua-a pelo pseudónimo de saída que criou anteriormente.

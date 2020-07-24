@@ -1,6 +1,6 @@
 ---
 title: 'Azure CLI: Restaurar uma cópia de segurança'
-description: Script de exemplo Azure CLI para restaurar uma base de dados em Azure SQL Database para um ponto mais cedo no tempo a partir de cópias automáticas de backups.
+description: Azure CLI exemplo script para restaurar uma base de dados em Azure SQL Database para um ponto mais cedo no tempo a partir de backups automáticos.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a03dd719dfeebfaf76a3f33748715d8c31df8ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070827"
 ---
-# <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Utilize o CLI para restaurar uma única base de dados na Base de Dados Azure SQL para um ponto mais cedo no tempo
+# <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Utilize o CLI para restaurar uma única base de dados na Base de Dados Azure SQL para um ponto anterior no tempo
 
-Este exemplo Azure CLI restaura uma única base de dados na Base de Dados Azure SQL para um ponto específico no tempo.  
+Este exemplo do Azure CLI restaura uma única base de dados na Base de Dados Azure SQL a um ponto específico no tempo.  
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -42,7 +42,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Limpar a implementação
 
-Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos que lhe estão associados.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -52,11 +52,11 @@ az group delete --name $resource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| | |
+| Comando | Descrição |
 |---|---|
 | [az sql db restaurar](/cli/azure/sql/db#az-sql-db-restore) | Restaurar o comando da base de dados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

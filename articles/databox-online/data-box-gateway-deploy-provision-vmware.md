@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 64a33b12da0e9b90eaeb7039f65b2493a839a0c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564201"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054116"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Provision Azure Data Box Gateway em VMware
 
@@ -93,7 +93,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
   
 3. Carregue o VMDK para o servidor ESXi. No painel Navigator (Navegador), selecione **Storage** (Armazenamento).
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Screenshot de uma página no site do servidor ESXi que mostra o painel do Navegador com a opção de Armazenamento selecionada.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. No painel da direita, em **Datastores** (Arquivos de dados), selecione o arquivo de dados onde pretende carregar o VMDK. 
 
@@ -120,7 +120,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 
     ![Selecione ficheiro para carregar](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
-10. Clique em **Open** (Abrir). O carregamento do ficheiro VMDK para o arquivo de dados especificado é iniciado. O carregamento do ficheiro pode demorar alguns minutos.
+10. Clique em **Abrir**. O carregamento do ficheiro VMDK para o arquivo de dados especificado é iniciado. O carregamento do ficheiro pode demorar alguns minutos.
 11. Depois de concluído o carregamento, verá o ficheiro no arquivo de dados na pasta que criou. Agora, carregue o segundo ficheiro VMDK para o mesmo arquivo de dados. Quando os dois ficheiros estiverem carregados, são intercalados num único ficheiro. Em seguida, verá um único ficheiro no diretório.
 
     ![Dois ficheiros VMDK são fundidos num único ficheiro](./media/data-box-gateway-deploy-provision-vmware/image8.png)

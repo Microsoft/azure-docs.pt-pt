@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013271"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma App Web Azure com .NET
 
@@ -28,7 +28,7 @@ Para concluir este guia de início rápido:
 
 * Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * O [Núcleo .NET 3.1 SDK ou mais tarde](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -51,7 +51,7 @@ Para criar um cofre chave, use o comando [de criação de chave az:](/cli/azure/
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Tome nota do devolvido `vaultUri` , que estará no formato "https://<o seu nome keyvault>.vault.azure.net/". Será utilizado na [Atualização do](#update-the-code) passo de código.
+Tome nota da devolvição `vaultUri` , que estará no formato "https:// o seu nome de teclado &lt; &gt; .vault.azure.net/". Será utilizado na [Atualização do](#update-the-code) passo de código.
 
 Agora pode colocar um segredo no seu cofre com o comando [secreto az keyvault.](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) Desemconda o nome do seu segredo para "MySecret" e o valor para "Sucesso!".
 
@@ -113,7 +113,7 @@ A saída JSON mostra a palavra-passe como `null` . Se obtiver o erro `'Conflict'
 
 Grave o seu nome de utilizador e palavra-passe para usar para implementar as suas aplicações web.
 
-### <a name="create-an-app-service-plan"></a>Criar um plano do serviço de aplicações
+### <a name="create-an-app-service-plan"></a>Criar um plano de serviço de aplicações
 
 Crie um plano de Serviço de Aplicações com o [plano de serviço de app azure](/cli/azure/appservice/plan?view=azure-cli-latest) CLI az criar comando. Este exemplo a seguir cria um plano de Serviço de Aplicações nomeado `myAppServicePlan` no nível de preços **gratuitos:**
 
@@ -310,7 +310,7 @@ await context.Response.WriteAsync(secretValue);
 
 Certifique-se de guardar as suas alterações antes de avançar para o próximo passo.
 
-### <a name="redeploy-your-web-app"></a>Reimplantar a sua aplicação web
+### <a name="redeploy-your-web-app"></a>Reimplementar a aplicação Web
 
 Depois de atualizar o seu código, pode reenfectá-lo para Azure com os seguintes comandos Git:
 

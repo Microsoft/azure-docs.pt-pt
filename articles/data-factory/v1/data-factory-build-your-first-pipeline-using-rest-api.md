@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9d8b05a2268a122289c529050c75fd27dd73245b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15c388336efc92381ac5ebd84df9145c1890cfcc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75438954"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007219"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar a primeira fábrica de dados do Azure com a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -53,12 +53,12 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
   2. Obter o **ID de cliente** e a **chave secreta**.
   3. Obter o **ID de inquilino**.
   4. Atribuir a aplicação **ADFGetStartedApp** à função para o **Contribuinte do Data Factory**.
-* Instale [o Azure PowerShell](/powershell/azure/overview).
+* Instalar [a Azure PowerShell](/powershell/azure/).
 * Inicie o **PowerShell** e execute o comando seguinte. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
-  1. Executar **Connect-AzAccount** e introduzir o nome de utilizador e palavra-passe que utiliza para iniciar sessão no portal Azure.
-  2. Executar **Get-AzSubscription** para visualizar todas as subscrições desta conta.
-  3. Executar **Get-AzSubscription -SubscriptionNameOfAzureSubscription [ Assinatura] Set-AzContext** para selecionar a subscrição com que pretende trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua subscrição do Azure.
-* Criar um grupo de recursos Azure chamado **ADFTutorialResourceGroup** executando o seguinte comando na PowerShell:
+  1. Executar **Connect-AzAccount** e inserir o nome de utilizador e a palavra-passe que utiliza para iniciar seduca no portal Azure.
+  2. Executar **Get-AzSubscription** para ver todas as subscrições desta conta.
+  3. Executar **Get-AzSubscription -SubscriptionName NameOfAzureSubscription / Set-AzContext** para selecionar a subscrição com a quais pretende trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua subscrição do Azure.
+* Criar um grupo de recursos Azure chamado **ADFTutorialResourceGroup** executando o seguinte comando no PowerShell:
 
     ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -84,7 +84,7 @@ Crie os seguintes ficheiros JSON na pasta onde está localizado curl.exe.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Substitua **accountname** e **accountkey** pelo nome e chave da sua conta de armazenamento do Azure. Para aprender como obter a sua chave de acesso ao armazenamento, consulte [Gerir as chaves](../../storage/common/storage-account-keys-manage.md)de acesso à conta de armazenamento .
+> Substitua **accountname** e **accountkey** pelo nome e chave da sua conta de armazenamento do Azure. Para aprender a obter a chave de acesso ao armazenamento, consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 >
 >
 
@@ -129,10 +129,10 @@ A tabela que se segue fornece descrições para as propriedades JSON utilizadas 
 Tenha em atenção os seguintes pontos:
 
 * O Data Factory cria um cluster do HDInsight **baseado no Linux** com o JSON anterior. Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
-* Pode utilizar **o seu próprio cluster HDInsight** em vez de utilizar um cluster HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
-* O cluster HDInsight cria um **recipiente predefinido** no armazenamento blob especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que é processado um setor, exceto se houver um cluster em direto (**timeToLive**), que será eliminado no fim do processamento.
+* Você poderia usar **o seu próprio cluster HDInsight** em vez de usar um cluster HDInsight a pedido. Veja [HDInsight Linked Service (Serviço Ligado do HDInsight)](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) para obter detalhes.
+* O cluster HDInsight cria um **recipiente predefinido** no armazenamento de bolhas especificado no JSON **(linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que é processado um setor, exceto se houver um cluster em direto (**timeToLive**), que será eliminado no fim do processamento.
 
-    À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: "adf**your datafactoryname**-**linkedname**-datetimestamp". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
+    À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes recipientes seguem um padrão: "adf**yourdatafactoryname** - **linkedservicename**-datetimestamp". Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
 
 Veja [On-demand HDInsight Linked Service (Serviço Ligado do HDInsight a Pedido)](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 
@@ -458,7 +458,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 ```
 
 > [!IMPORTANT]
-> A criação de um cluster do HDInsight a pedido demora, por norma, algum tempo (cerca de 20 minutos). Por isso, espere que o gasoduto leve **aproximadamente 30 minutos** para processar a fatia.
+> A criação de um cluster do HDInsight a pedido demora, por norma, algum tempo (cerca de 20 minutos). Por isso, espere que o gasoduto desemque **aproximadamente 30 minutos** para processar a fatia.
 >
 >
 
@@ -480,13 +480,13 @@ Neste tutorial, criou uma fábrica de dados do Azure para processar dados execut
 2. Criar dois **serviços ligados**:
    1. O serviço ligado do **Storage do Azure** para ligar o seu armazenamento de blobs do Azure que contém ficheiros de entrada/saída da fábrica de dados.
    2. O serviço ligado do **Azure HDInsight** a pedido para ligar um cluster de Hadoop do HDInsight a pedido à fábrica de dados. O Azure Data Factory cria um cluster de Hadoop do HDInsight para processar os dados de entrada e produzir dados de saída.
-3. Criou dois **conjuntos**de dados , que descrevem dados de entrada e de saída para a atividade da Hive HDInsight no pipeline.
+3. Criei dois **conjuntos de dados**, que descrevem dados de entrada e saída para a atividade da Colmeia HDInsight no pipeline.
 4. Criar um **pipeline** com uma atividade do **Ramo de Registo do HDInsight**.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um pipeline com uma atividade de transformação (Atividade do HDInsight) que executa um Script de ramo de registo num cluster do Azure HDInsight a pedido. Para ver como utilizar uma Atividade de Cópia para copiar dados de um Blob do Azure para o Azure SQL, veja o [Tutorial: Copiar dados de um Blob do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 | Tópico | Descrição |
 |:--- |:--- |
 | [Referência da API REST do Data Factory](/rest/api/datafactory/) |Consulte a documentação abrangente sobre os cmdlets do Data Factory |

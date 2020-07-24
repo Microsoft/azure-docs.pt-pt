@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: 3311a9a92cc5e63a6fa20e4dd0d2af00fdacc95c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ac3e163ffefcb7b164860b0c4fa42edc866227e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065630"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar definição de emprego apache spark no Estúdio Synapse
 
@@ -24,7 +24,7 @@ Este tutorial abrange as seguintes tarefas:
 
 * Crie uma definição de trabalho apache spark para PySpark (Python)
 * Criar uma definição de emprego apache spark para Spark (Scala)
-* Crie uma definição de trabalho apache spark para .NET Spark(C#)
+* Crie uma definição de trabalho apache spark para .NET Spark(C#/F#)
 * Submeta uma definição de trabalho apache spark como um trabalho de lote
 * Adicione uma definição de trabalho apache spark em pipeline
 
@@ -42,7 +42,7 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para PySpark
 
 1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Pode recorrer a [ficheiros Sample para criar definições de emprego apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) para baixar **wordcount.jar** e **shakespear.txt**. E, em seguida, faça o upload destes ficheiros para o Azure Storage: Clique em **Dados,** selecione contas de Armazenamento e carreve **ficheiros relacionados**para o seu sistema de ficheiros ADLS Gen2. Ignore este passo se os seus ficheiros já estiverem no armazenamento do Azure. 
+2. Pode recorrer a [ficheiros Sample para criar definições de emprego apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) para descarregar **wordcount.py** e **shakespear.txt**. E, em seguida, faça o upload destes ficheiros para o Azure Storage: Clique em **Dados,** selecione contas de Armazenamento e carreve **ficheiros relacionados**para o seu sistema de ficheiros ADLS Gen2. Ignore este passo se os seus ficheiros já estiverem no armazenamento do Azure. 
 
      ![carregar arquivo python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -57,9 +57,9 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para PySpark
      |  Propriedade   | Descrição   |  
      | ----- | ----- |  
      |Nome da definição de emprego| Insira um nome para a definição de emprego apache spark. Este nome pode ser atualizado a qualquer momento até ser publicado. Amostra:`job definition sample`|
-     |Ficheiro de definição principal| O ficheiro principal usado para o trabalho. Selecione um ficheiro PY do seu armazenamento. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. Amostra:`abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/fileexists.py`|
-     |Argumentos de linha de comando| Argumentos opcionais para o trabalho. Amostra:`shakespeare.txt`|
-     |Ficheiros de referência| Ficheiros adicionais utilizados para referência no ficheiro de definição principal. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. Amostra:`abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/shakespeare.txt`|
+     |Ficheiro de definição principal| O ficheiro principal usado para o trabalho. Selecione um ficheiro PY do seu armazenamento. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. Amostra:`abfss://…/path/to/wordcount.py`|
+     |Argumentos de linha de comando| Argumentos opcionais para o trabalho. Amostra:`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Ficheiros de referência| Ficheiros adicionais utilizados para referência no ficheiro de definição principal. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. |
      |Piscina de faíscas| O trabalho será submetido à piscina apache spark selecionada.|
      |Versão spark| Versão do Apache Spark que a piscina Apache Spark está a funcionar.|
      |Executores| Número de executores a serem administrados na piscina apache spark especificada para o trabalho.|
@@ -92,9 +92,9 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
      |  Propriedade   | Descrição   |  
      | ----- | ----- |  
      |Nome da definição de emprego| Insira um nome para a definição de emprego apache spark. Este nome pode ser atualizado a qualquer momento até ser publicado. Amostra:`job definition sample`|
-     |Ficheiro de definição principal| O ficheiro principal usado para o trabalho. Selecione um ficheiro JAR do seu armazenamento. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. Amostra:`abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/wordcount.jar`|
+     |Ficheiro de definição principal| O ficheiro principal usado para o trabalho. Selecione um ficheiro JAR do seu armazenamento. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. Amostra:`abfss://…/path/to/wordcount.jar`|
      |Nome da classe principal| O identificador totalmente qualificado ou a classe principal que está no ficheiro de definição principal. Amostra:`WordCount`|
-     |Argumentos de linha de comando| Argumentos opcionais para o trabalho. Amostra:`abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/result`|
+     |Argumentos de linha de comando| Argumentos opcionais para o trabalho. Amostra:`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
      |Ficheiros de referência| Ficheiros adicionais utilizados para referência no ficheiro de definição principal. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento.|
      |Piscina de faíscas| O trabalho será submetido à piscina apache spark selecionada.|
      |Versão spark| Versão do Apache Spark que a piscina Apache Spark está a funcionar.|
@@ -109,9 +109,9 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
      ![publicar a definição de scala](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
 
-## <a name="create-an-apache-spark-job-definition-for-net-sparkc"></a>Crie uma definição de trabalho apache spark para .NET Spark(C#)
+## <a name="create-an-apache-spark-job-definition-for-net-sparkcf"></a>Crie uma definição de trabalho apache spark para .NET Spark(C#/F#)
 
-Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Spark(C#).
+Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Spark (C#/F#).
  1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
  2. Pode recorrer a [ficheiros Sample para criar definições de emprego apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) para descarregar **wordcount.zip** e **shakespear.txt**. E, em seguida, faça o upload destes ficheiros para o Azure Storage: Clique em **Dados,** selecione contas de Armazenamento e carreve **ficheiros relacionados**para o seu sistema de ficheiros ADLS Gen2. Ignore este passo se os seus ficheiros já estiverem no armazenamento do Azure. 
@@ -125,13 +125,14 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Sp
  4. Selecione **.NET Spark(C#/F#)** da lista de drop down da linguagem na janela principal da Definição de Emprego de Faísca Apache.
 
  5. Preencha informações para a Definição de Emprego de Apache Spark. Pode copiar a informação da amostra.
+    
      |  Propriedade   | Descrição   |  
      | ----- | ----- |  
      |Nome da definição de emprego| Insira um nome para a definição de emprego apache spark. Este nome pode ser atualizado a qualquer momento até ser publicado. Amostra:`job definition sample`|
-     |Ficheiro de definição principal| O ficheiro principal usado para o trabalho. Selecione um ficheiro ZIP que contenha a sua aplicação .NET para a aplicação Apache Spark (ou seja, o ficheiro executável principal, DLLs que contenham funções definidas pelo utilizador e outros ficheiros necessários) a partir do seu armazenamento. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. Amostra:`abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/wordcount.zip`|
+     |Ficheiro de definição principal| O ficheiro principal usado para o trabalho. Selecione um ficheiro ZIP que contenha a sua aplicação .NET para Apache Spark (isto é, o ficheiro executável principal, DLLs que contenham funções definidas pelo utilizador e outros ficheiros necessários) a partir do seu armazenamento. Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento. Amostra:`abfss://…/path/to/wordcount.zip`|
      |Arquivo executável principal| O ficheiro executável principal no ficheiro ZIP de definição principal. Amostra:`WordCount`|
-     |Argumentos de linha de comando| Argumentos opcionais para o trabalho. Amostra:`abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/result`|
-     |Ficheiros de referência| Ficheiros adicionais necessários para a execução da aplicação .NET para Apache Spark que não esteja incluída na definição principal de ficheiro ZIP (isto é, frascos dependentes, DLLs de função adicional definidos pelo utilizador e outros ficheiros config). Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento.|
+     |Argumentos de linha de comando| Argumentos opcionais para o trabalho. Amostra:`abfss://…/path/to/shakespeare.txt abfss://…/path/to/result`|
+     |Ficheiros de referência| Ficheiros adicionais necessários para a execução da aplicação .NET para Apache Spark que não está incluída na definição principal do ficheiro ZIP (isto é, frascos dependentes, DLLs de função adicional definidos pelo utilizador e outros ficheiros config). Pode selecionar **o ficheiro Upload** para fazer o upload do ficheiro para uma conta de armazenamento.|
      |Piscina de faíscas| O trabalho será submetido à piscina apache spark selecionada.|
      |Versão spark| Versão do Apache Spark que a piscina Apache Spark está a funcionar.|
      |Executores| Número de executores a serem administrados na piscina apache spark especificada para o trabalho.|  

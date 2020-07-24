@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a9c9dee94dd50462109a8864ffb413ce991c8dbd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072395"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -65,6 +65,10 @@ O Azure ativa o botão **Enviar** quando tiver marcado todas as imagens na pági
 Depois de submeter tags para os dados em questão, o Azure atualiza a página com um novo conjunto de imagens da fila de trabalho.
 
 ### <a name="assisted-machine-learning-preview"></a>Aprendizagem assistida de máquinas (pré-visualização) 
+
+> [!IMPORTANT]
+> A aprendizagem de máquinas assistida está atualmente em visualização pública.
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algoritmos estiverem ativados no seu projeto, poderá ver o seguinte:
 

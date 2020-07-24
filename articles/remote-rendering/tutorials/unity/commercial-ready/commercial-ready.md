@@ -1,16 +1,16 @@
 ---
-title: Criação de uma aplicação de renderização remota Azure
+title: Criar uma aplicação do Azure Remote Rendering pronta para comercialização
 description: Estratégias e considerações para a criação de uma aplicação pronta comercial utilizando a renderização remota Azure
-author: m-the-hoff
-ms.author: v-michof
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: fa1a49aeef8b86230dc1d5ea898832cfb1cee852
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e827f7eff707f5a7c467f53eacab6973bff2ef2f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076424"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Tutorial: Criação de uma aplicação de renderização remota Azure
 
@@ -263,7 +263,7 @@ Para obter mais informações:
 
 * Estratégias de autenticação
 * Gestão de acessos - grupos, políticas e permissões
-* Multi-inquilinos
+* Arquitetura multi-inquilino
 * Encriptação de armazenamento e transferência de dados
 * Fichas de utilização temporária
 * Ataques de negação de serviço distribuídos (DDoS)

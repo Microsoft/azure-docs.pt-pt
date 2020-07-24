@@ -2,17 +2,17 @@
 title: Utilizar a WAN Virtual do Azure para criar uma ligação ponto a site ao Azure | Microsoft Docs
 description: Neste tutorial, vai aprender a utilizar uma WAN Virtual do Azure para criar uma ligação VPN ponto a site ao Azure.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 06/29/2020
 ms.author: alzam
-ms.openlocfilehash: 9c93ad0357011008c45b2898260a655509b02dc2
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 27bb252b857fea2548e89471adcedcbd38b9f8ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077363"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação VPN do utilizador utilizando a Azure Virtual WAN
 
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwanp2s.png)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 

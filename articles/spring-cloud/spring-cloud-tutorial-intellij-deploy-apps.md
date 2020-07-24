@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: ec78b62f15851c41a3b9759f32d9c35c189f72c4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-java
+ms.openlocfilehash: 77b105fd5bbc6cc88411379e79522562ebce3677
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083757"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Utilizar o IntelliJ para implementar aplicações do Azure Spring Cloud
 O plug-in IntelliJ para Azure Spring Cloud suporta a implementação da aplicação a partir do IntelliJ IDEA.  
@@ -28,7 +29,7 @@ Pode adicionar o Kit de Ferramentas Azure para IntelliJ IDEA 3.35.0 da UI Intell
 
     ![Selecione Configurar](media/spring-cloud-intellij-howto/configure-plugin-1.png)
 
-1. Procure por Azure Toolkit para IntelliJ.  Clique **em Instalar**.
+1. Procure por Azure Toolkit para IntelliJ.  Clique em **Install** (Instalar).
 
     ![Instalar plugin](media/spring-cloud-intellij-howto/install-plugin.png)
 

@@ -1,16 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela
+title: Executar uma carga de trabalho paralela utilizando a API .NET
 description: Tutorial – Transcodificar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente .NET para o Batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: d8a5db6c6c63d680514e21bef0e5a8bc6b3ea550
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: afa660a7138f3b69b2a6f7c478550095f357e29b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733078"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062583"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API .NET
 
@@ -31,7 +31,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017 ou mais tarde](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows.
+* [Visual Studio 2017 ou posteriormente](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows.
 
 * Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md).
 
@@ -45,8 +45,8 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 Utilize o portal do Azure para adicionar o ffmpeg à sua conta do Batch como um [pacote de aplicação](batch-application-packages.md). Os pacotes de aplicação ajudam a gerir aplicações de tarefas e a respetiva implementação em nós de computação do conjunto. 
 
-1. No portal Azure, clique em mais contas de lote de > **serviços,** e clique no nome da sua conta Batch. **More services**
-3. Clique em **Aplicações** > **Adicionar**.
+1. No portal Azure, clique em **Mais**  >  **serviços Contas Lote**e clique no nome da sua conta Batch.
+3. Clique **em Aplicações**  >  **Adicionar**.
 4. Para **ID da Aplicação** introduza *ffmpeg* e uma versão de pacote de *3.4*. Selecione o ficheiro zip do ffmpeg que transferiu anteriormente e, em seguida, clique em **OK**. O pacote de aplicação do ffmpeg é adicionado à sua conta do Batch.
 
 ![Adicionar pacote de aplicação](./media/tutorial-parallel-dotnet/add-application.png)
@@ -91,7 +91,7 @@ const string appPackageVersion = "3.4";
 
 Crie e execute a aplicação no Visual Studio ou na linha de comandos com os comandos `dotnet build` e `dotnet run`. Depois de executar a aplicação, reveja o código para saber o que faz cada parte da aplicação. Por exemplo, no Visual Studio:
 
-* Clique à direita na solução no Solution Explorer e clique em **Build Solution**. 
+* Clique com o botão direito na solução no Solution Explorer e clique em **Build Solution**. 
 
 * Confirme o restauro de quaisquer pacotes NuGet, se lhe for pedido. Se precisar de transferir pacotes em falta, certifique-se de que o [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) está instalado.
 
@@ -118,7 +118,7 @@ Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Aceda à conta do Batch no portal do Azure para monitorizar o conjunto, os nós de computação, o trabalho e as tarefas. Por exemplo, para ver um mapa de calor dos nós de computação na sua piscina, clique em **Pools** > *WinFFmpegPool*.
+Aceda à conta do Batch no portal do Azure para monitorizar o conjunto, os nós de computação, o trabalho e as tarefas. Por exemplo, para ver um mapa de calor dos nós de computação na sua piscina, clique em **Pools**  >  *WinFFmpegPool*.
 
 Quando as tarefas estiverem em execução, o mapa térmico é semelhante ao seguinte:
 
@@ -147,7 +147,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-A aplicação cria um objeto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) para criar e gerir conjuntos, trabalhos e tarefas no serviço Batch. O cliente Batch no exemplo utiliza a autenticação de chave partilhada. O lote também suporta a autenticação através do [Diretório Ativo Azure](batch-aad-auth.md) para autenticar utilizadores individuais ou uma aplicação sem supervisão.
+A aplicação cria um objeto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) para criar e gerir conjuntos, trabalhos e tarefas no serviço Batch. O cliente Batch no exemplo utiliza a autenticação de chave partilhada. O Batch também suporta a autenticação através [do Azure Ative Directory](batch-aad-auth.md) para autenticar utilizadores individuais ou uma aplicação sem supervisão.
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -190,10 +190,10 @@ Para obter mais informações sobre como carregar ficheiros como blobs para uma 
 
 Em seguida, o exemplo cria um conjunto de nós de computação na conta do Batch, com uma chamada para `CreatePoolIfNotExistAsync`. Este método definido utiliza o método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica uma [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) para uma imagem do Windows Server publicada no Azure Marketplace. O Batch suporta inúmeras imagens da VM no Azure Marketplace, bem como imagens da VM personalizadas.
 
-O número de nós e o tamanho da VM são definidos através de constantes definidas. O lote suporta nós dedicados e [nós de baixa prioridade,](batch-low-pri-vms.md)e você pode usar ou ambos nas suas piscinas. Os nós dedicados estão reservados para o conjunto. Os nós de prioridade baixa são disponibilizados a um preço reduzido a partir da capacidade excedente da VM no Azure. Os nós de prioridade baixa ficam indisponíveis se o Azure não tiver capacidade suficiente. Por predefinição, o exemplo cria um conjunto com apenas 5 nós de prioridade baixa no tamanho *Standard_A1_v2*.
+O número de nós e o tamanho da VM são definidos através de constantes definidas. O lote suporta nós dedicados e [nós de baixa prioridade,](batch-low-pri-vms.md)e você pode usar qualquer um ou ambos nas suas piscinas. Os nós dedicados estão reservados para o conjunto. Os nós de prioridade baixa são disponibilizados a um preço reduzido a partir da capacidade excedente da VM no Azure. Os nós de prioridade baixa ficam indisponíveis se o Azure não tiver capacidade suficiente. Por predefinição, o exemplo cria um conjunto com apenas 5 nós de prioridade baixa no tamanho *Standard_A1_v2*.
 
 >[!Note]
->Certifique-se de verificar as suas quotas de nó. Consulte [as quotas de serviço do Lote e os limites](batch-quota-limit.md#increase-a-quota) para instruções sobre como criar um pedido de quota."
+>Certifique-se de verificar as suas quotas de nó. Consulte [as quotas de serviço do Batch e os limites](batch-quota-limit.md#increase-a-quota) para instruções sobre como criar um pedido de quota."
 
 A aplicação ffmpeg é implementada nos nós de computação ao adicionar [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) à configuração do conjunto.
 
@@ -227,7 +227,7 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await pool.CommitAsync();  
 ```
 
-### <a name="create-a-job"></a>Criar uma tarefa
+### <a name="create-a-job"></a>Criar um trabalho
 
 Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `CreateJobAsync`. Este método definido utiliza o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho no seu conjunto.
 
@@ -245,7 +245,7 @@ await job.CommitAsync();
 
 O exemplo cria tarefas no trabalho com uma chamada para o método `AddTasksAsync`, que cria uma lista de objetos [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Cada `CloudTask` executa o ffmpeg para processar um objeto de entrada `ResourceFile` através de uma propriedade [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). O ffmpeg foi instalado anteriormente em cada nó quando o conjunto foi criado. Aqui, a linha de comandos executa o ffmpeg para converter cada ficheiro MP4 (vídeo) de entrada num ficheiro MP3 (áudio).
 
-O exemplo cria um objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para o ficheiro MP3 depois de executar a linha de comandos. Os ficheiros de saída de cada tarefa (um, neste caso) são carregados para um contentor na conta de armazenamento associada através da propriedade [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) da tarefa. Anteriormente na amostra de código, foi`outputContainerSasUrl`obtido um URL de assinatura de acesso partilhado para fornecer acesso por escrito ao recipiente de saída. Note as condições `outputFile` definidas no objeto. Um ficheiro de saída de uma tarefa só é enviado para`OutputFileUploadCondition.TaskSuccess`o recipiente depois de a tarefa ter sido concluída com sucesso ( ). Consulte a amostra completa de [código](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) no GitHub para mais detalhes de implementação.
+O exemplo cria um objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para o ficheiro MP3 depois de executar a linha de comandos. Os ficheiros de saída de cada tarefa (um, neste caso) são carregados para um contentor na conta de armazenamento associada através da propriedade [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) da tarefa. Anteriormente na amostra de código, foi obtido um URL de assinatura de acesso partilhado `outputContainerSasUrl` para fornecer acesso por escrito ao recipiente de saída. Note as condições definidas no `outputFile` objeto. Um ficheiro de saída de uma tarefa só é enviado para o recipiente depois de a tarefa ter sido concluída com sucesso ( `OutputFileUploadCondition.TaskSuccess` ). Consulte a amostra de [código](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) completa no GitHub para mais detalhes de implementação.
 
 Em seguida, o exemplo adiciona tarefas ao trabalho com o método [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), o que as coloca em fila para serem executadas nos nós de computação.
 
@@ -334,4 +334,4 @@ Para obter mais exemplos de utilização da API .NET para agendar e processar ca
 > [Exemplos de C# para o Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
 
 
-Definindo a variável de definição LowPriorityNodeCount=0 e o DedicadoNodeCount=5 fixou o problema e permitiu que o trabalho completasse.
+Definir a variável de instância LowPriorityNodeCount=0 e o DedicadoNodeCount=5 corrigiu o problema e permitiu que o trabalho terminasse.

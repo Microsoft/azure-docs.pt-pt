@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 198e07b80788629030b621dd3c5e235a91baaba3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076111"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -82,8 +82,9 @@ Os passos a seguir mostram como preparar a máquina virtual para o movimento uti
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Crie o cofre em qualquer região, exceto na região de origem
 
-1. Inscreva-se nos Serviços de Recuperação [do portal Azure.](https://portal.azure.com)  >  **Recovery Services**
-1. Selecione **Criar uma**cópia de segurança das  >  **ferramentas de gestão**de recursos  >  **e recuperação do site.**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Em busca, tipo Serviços de Recuperação > clique em cofres dos Serviços de Recuperação
+1. No menu de cofres dos Serviços de Recuperação, clique em +Adicionar.
 1. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie o grupo de recursos **ContosoRG**.
 1. Selecione uma região do Azure. Para verificar as regiões apoiadas, consulte a disponibilidade geográfica nos [detalhes dos preços de recuperação do local de Azure](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -140,7 +141,7 @@ Se não tiver planos para reutilizar nenhum dos recursos de origem, complete est
 1. Elimine todos os recursos de rede relevantes na região de origem que identificou em [pré-requisitos.](#prerequisites)
 1. Eliminar a conta de armazenamento correspondente na região de origem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, mudou um Azure VM para uma região de Azure diferente. Agora pode configurar a recuperação de desastres para o VM que mudou.
 

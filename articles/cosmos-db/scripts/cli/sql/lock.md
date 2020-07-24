@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 06/03/2020
-ms.openlocfilehash: 5a44376e0039e2783081785b06191f7c36c19f60
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 6c1795c5db84fbd8f8278534520234159caea33a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84514707"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048994"
 ---
 # <a name="create-resource-lock-for-a-azure-cosmos-db-core-sql-api-database-and-container-using-azure-cli"></a>Criar bloqueio de recursos para uma base de dados ESPI AZure Cosmos DB (SQL) usando Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "84514707"
 Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
-> As fechaduras de recursos não funcionam para alterações efetuadas pelos utilizadores que se ligam utilizando qualquer Cosmos DB SDK, quaisquer ferramentas que se conectem através de chaves de conta, ou o Portal Azure, a menos que a conta Cosmos DB seja bloqueada pela primeira vez com a `disableKeyBasedMetadataWriteAccess` propriedade ativada. Para saber mais sobre como ativar esta propriedade ver, [Prevenindo alterações de SDKs.](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk)
+> As fechaduras de recursos não funcionam para alterações efetuadas pelos utilizadores que se ligam utilizando qualquer Cosmos DB SDK, quaisquer ferramentas que se conectem através de chaves de conta, ou o Portal Azure, a menos que a conta Cosmos DB seja bloqueada pela primeira vez com a `disableKeyBasedMetadataWriteAccess` propriedade ativada. Para saber mais sobre como ativar esta propriedade ver, [Prevenindo alterações de SDKs.](../../../role-based-access-control.md#prevent-sdk-changes)
 
 ## <a name="sample-script"></a>Script de exemplo
 

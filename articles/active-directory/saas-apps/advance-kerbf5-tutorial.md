@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com F5 / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única com F5 / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o F5.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fc56fe040528df5b4bd5e9217bd614c4a640c15
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e9a112f3f8cb7ba22201f4e5f05f21af30df039
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608057"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018657"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
+# <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory (AD) integração única (SSO) com F5
 
 Neste tutorial, você vai aprender a integrar F5 com Azure Ative Directory (Azure AD). Quando integrar o F5 com AZure AD, pode:
 
@@ -118,7 +118,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -307,7 +307,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 | eb46b6b6.session.saml.last.responseIssueInstant | `<ID>` |
 | eb46b6b6.session.saml.last.responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6.session.saml.last.result | 1 |
-| eb46b6b6.session.saml.last.samlVersion | 2.0 |
+| eb46b6b6.session.saml.last.samlVersion | 2,0 |
 | eb46b6b6.session.saml.last.sessionIndex | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.statusValue | urn:oasis:nomes:tc:SAML:2.0:status:Sucesso |
 | eb46b6b6.session.saml.last.subjectConfirmDataNotOnOrAfter | `<ID>` |

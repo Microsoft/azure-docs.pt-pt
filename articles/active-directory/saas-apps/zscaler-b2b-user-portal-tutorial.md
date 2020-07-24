@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Ative Directory integração de um único signo (SSO) com o Portal de Utilizador Zscaler B2B [ Portal de Utilizadores] Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Diretório Ativo Azure e o Portal de Utilizador Zscaler B2B.
+title: 'Tutorial: Azure Ative Directy integração única (SSO) com o Portal do Utilizador Zscaler B2B / Microsoft Docs'
+description: Saiba como configurar um único sinal de acesso entre o Azure Ative Directory e o Zscaler B2B User Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,165 +15,168 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28af94c92fa56d5217aee91053521d2c12b0aef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fda294bccb3c73c0d26184f03860f4dd1277b940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80668931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016247"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-b2b-user-portal"></a>Tutorial: Azure Ative Diretório integração de um único sign-on (SSO) com o Portal de Utilizador Zscaler B2B
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-b2b-user-portal"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Portal do Utilizador Zscaler B2B
 
-Neste tutorial, você vai aprender a integrar o Portal de Utilizadores Zscaler B2B com o Diretório Ativo Azure (Azure AD). Quando integrar o Portal de Utilizador Zscaler B2B com a AD Azure, pode:
+Neste tutorial, você vai aprender a integrar o Portal do Utilizador Zscaler B2B com o Azure Ative Directory (Azure AD). Quando integrar o Portal do Utilizador Zscaler B2B com Azure AD, pode:
 
-* Controlo em Azure AD que tem acesso ao Portal de Utilizador Zscaler B2B.
-* Ative que os seus utilizadores sejam automaticamente inscritos no Portal de Utilizador Zscaler B2B com as suas contas Azure AD.
-* Gerencie as suas contas num local central - o portal Azure.
+* Controlo em Azure AD que tem acesso ao Portal do Utilizador Zscaler B2B.
+* Ative os seus utilizadores a serem automaticamente inscritos no Portal do Utilizador Zscaler B2B com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração de apps SaaS com a Azure AD, consulte [o que é o acesso à aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* A subscrição ativada pelo Portal do Utilizador Zscaler B2B (SSO) permitiu a subscrição.
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Sscaler B2B User Portal única sign-on (SSO) ativada.
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o Azure AD SSO num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Portal de Utilizador Zscaler B2B suporta **IDP** iniciado
+* Portal do Utilizador Zscaler B2B suporta **IDP** iniciado SSO
 
-* Portal de utilizador Zscaler B2B suporta o fornecimento de utilizadores **justo no tempo**
+* O Portal do Utilizador Zscaler B2B suporta o fornecimento do utilizador **just in time**
 
-* Assim que configurar o Portal de Utilizador Zscaler B2B, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Controlo de Sessão estende-se a partir de Acesso Condicional. [Saiba como impor o controlo de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Uma vez configurado o Portal do Utilizador Zscaler B2B, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-zscaler-b2b-user-portal-from-the-gallery"></a>Adicionar portal de utilizador Zscaler B2B da galeria
 
-Para configurar a integração do Portal de Utilizador Zscaler B2B no Azure AD, é necessário adicionar o Portal de Utilizador Zscaler B2B da galeria à sua lista de aplicações geridas saaS.
+Para configurar a integração do Portal do Utilizador Zscaler B2B em AD AZure, é necessário adicionar o Portal do Utilizador Zscaler B2B da galeria à sua lista de aplicações geridas para o SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure.**
-1. Navegue para **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
-1. No Add da secção **galeria,** digite o Portal do **Utilizador Zscaler B2B** na caixa de pesquisa.
-1. Selecione O Portal do **Utilizador Zscaler B2B** a partir do painel de resultados e, em seguida, adicione a aplicação. Espere alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite Zscaler B2B User Portal** na caixa de pesquisa.
+1. Selecione **o Portal do Utilizador Zscaler B2B** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-b2b-user-portal"></a>Configure e teste de entrada única do Azure AD para o Portal do Utilizador Zscaler B2B
+## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-b2b-user-portal"></a>Configurar e testar o Azure AD um único sinal para o Portal do Utilizador Zscaler B2B
 
-Configure e teste Azure AD SSO com zscaler B2B User Portal utilizando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado no Portal de Utilizador Zscaler B2B.
+Configure e teste Azure AD SSO com zscaler B2B User Portal usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Portal do Utilizador Zscaler B2B.
 
 Para configurar e testar o Azure AD SSO com o Portal do Utilizador Zscaler B2B, complete os seguintes blocos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-    1. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com b.Simon.
-    1. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de AD Azure.
-1. Configure o Portal do **[Utilizador Zscaler B2B SSO](#configure-zscaler-b2b-user-portal-sso)** - para configurar as definições de início de sessão individuais no lado da aplicação.
-    1. Crie o utilizador do Portal do **[Utilizador Zscaler B2B](#create-zscaler-b2b-user-portal-test-user)** - para ter uma contraparte de B.Simon no Portal de Utilizador Zscaler B2B que esteja ligado à representação do utilizador da AD Azure.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure o Portal do Utilizador SSO do Zscaler B2B](#configure-zscaler-b2b-user-portal-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. Criar utilizador de **[teste do Portal do Utilizador Zscaler B2B](#create-zscaler-b2b-user-portal-test-user)** - para ter uma contraparte de B.Simon no Portal do Utilizador Zscaler B2B que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estes passos para permitir o Azure AD SSO no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **zscaler B2B User Portal,** encontre a secção **Gerir** e selecione **um único sinal.**
-1. Na página **de método de inscrição, selecione** **SAML**.
-1. No **set single sign-on com** a página SAML, clique no ícone de edição/caneta para **configuração Básica sAML** para editar as definições.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zscaler B2B User Portal,** encontre a secção **Gerir** e selecione um único sinal de **sing**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-   ![Editar Configuração Básica do SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-1. Na configuração de um único sessão com a página **SAML,** introduza os valores para os seguintes campos:
+1. No **set-on único com** a página SAML, insira os valores para os seguintes campos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://samlsp.private.zscaler.com/auth/metadata/<UniqueID>`
 
     b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:`https://samlsp.private.zscaler.com/auth/login?domain=EXAMPLE`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte a equipa de suporte do Portal do [Utilizador Zscaler B2B](https://help.zscaler.com/) para obter estes valores. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Zscaler B2B User Portal cliente](https://help.zscaler.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na configuração de um único sessão com a página **SAML,** na secção Certificado de **Assinatura SAML,** encontre **metadados da Federação XML** e selecione **Descarregar** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre o **Metadados XML da Federação** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
-1. Na secção De configurar o Portal do **Utilizador Zscaler B2B,** copie os URL(s) adequados com base na sua exigência.
+1. Na secção **Configurar O Portal do Utilizador Zscaler B2B,** copie os URL(s) apropriados com base no seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Nesta secção, você vai criar um utilizador de teste no portal Azure chamado B.Simon.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, **selecione Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. No campo de nome username@companydomain.extensiondo **Utilizador,** introduza o . Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione a caixa de verificação de **palavra-passe do Show** e, em seguida, escreva o valor que está apresentado na caixa **password.**
-   1. Clique em **Criar**.
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Create** (Criar).
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permitirá que a B.Simon utilize um único sinal de Acesso Azure, concedendo acesso ao Portal de Utilizadores Zscaler B2B.
+Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, concedendo acesso ao Portal do Utilizador Zscaler B2B.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de aplicações, selecione Portal de **Utilizador Zscaler B2B**.
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, selecione **Zscaler B2B User Portal**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
-   ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. Selecione **Adicionar utilizador**e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Atribuição adicionar'.**
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![Ligação Adicionar Utilizador](common/add-assign-user.png)
+    ![O link do utilizador adicionar](common/add-assign-user.png)
 
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de algum valor de papel na afirmação do SAML, no diálogo **Select Role,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. No diálogo **Adicionar Atribuição,** clique no botão **Atribuir.**
+1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-zscaler-b2b-user-portal-sso"></a>Configure Zscaler B2B Portal de Utilizador SSO
+## <a name="configure-zscaler-b2b-user-portal-sso"></a>Configure Zscaler B2B User Portal SSO
 
-1. Abra uma nova janela do navegador web e inscreva-se no seu site da empresa Zscaler B2B User Portal como administrador e execute os seguintes passos:
+1. Abra uma nova janela do navegador web e inscreva-se no site da empresa Zscaler B2B User Portal como administrador e execute os seguintes passos:
 
-1. Do lado esquerdo do menu, clique em **Administração** e navegue até à secção **DE AUTENTICAÇÃO** clique na **configuração idp**.
+1. A partir do lado esquerdo do menu, clique em **Administração** e navegue para a secção **autenticação** clique na **configuração IdP**.
 
-    ![Administração de Administrador de Acesso Privado Zscaler](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-administration.png)
+    ![Administração do Administrador de Acesso Privado Zscaler](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-administration.png)
 
 1. No canto superior direito, clique em **Adicionar Configuração IdP**. 
 
-    ![Zscaler Private Access Administrator IDP](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-idp.png)
+    ![Administrador de Acesso Privado Zscaler idd](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-idp.png)
 
-1. Na página **de Configuração Add IDP** efetuar os seguintes passos:
+1. Na página **de Configuração Do Add IdP** execute os seguintes passos:
  
-    ![Selecionador de Acesso Privado Zscaler](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-select.png)
+    ![Selecione Zscaler Private Access Administrator](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-select.png)
 
-    a. Clique em **Selecionar Ficheiro** para fazer o upload do ficheiro Metadados descarregado a partir do Azure AD no campo de upload de **ficheiros idp metadados.**
+    a. Clique **em Select File** para fazer o upload do ficheiro metadados descarregado a partir do Ad AD do Azure no campo de upload de **ficheiros de metadados IdP.**
 
-    b. Lê os **metadados idp** da AD Azure e povoa todas as informações dos campos, como mostrado abaixo.
+    b. Lê os **metadados IdP** da Azure AD e povoa todas as informações dos campos, conforme mostrado abaixo.
 
-    ![Administrador de Acesso Privado Zscaler config](./media/zscaler-b2b-user-tutorial/config.png)
+    ![Zscaler Private Access Administrator config](./media/zscaler-b2b-user-tutorial/config.png)
 
-    c. Selecione o seu domínio a partir do campo **Domínios.**
+    c. Selecione o seu domínio no campo **Domínios.**
     
-    d. Clique em **Guardar**.
+    d. Clique em **Save** (Guardar).
 
-### <a name="create-zscaler-b2b-user-portal-test-user"></a>Criar o utilizador do portal de teste do Portal do Utilizador Zscaler B2B
+### <a name="create-zscaler-b2b-user-portal-test-user"></a>Criar utilizador de teste do Portal do Utilizador Zscaler B2B
 
-Nesta secção, um utilizador chamado Britta Simon é criado no Portal de Utilizador Zscaler B2B. O Portal do Utilizador Zscaler B2B suporta o fornecimento de utilizadores just-in-time, que está ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Portal do Utilizador Zscaler B2B, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado no Portal do Utilizador Zscaler B2B. O Portal do Utilizador Zscaler B2B suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Portal do Utilizador Zscaler B2B, um novo é criado após a autenticação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no portal do portal de utilizador Zscaler B2B no Painel de Acesso, deverá ser automaticamente inscrito no Portal de Utilizador Zscaler B2B para o qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo do Portal do Utilizador Zscaler B2B no Painel de Acesso, deverá ser automaticamente inscrito no Portal do Utilizador Zscaler B2B para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso à aplicação e a inscrição única com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o Portal de Utilizador Zscaler B2B com a AD Azure](https://aad.portal.azure.com/)
+- [Experimente o Portal do Utilizador Zscaler B2B com Azure AD](https://aad.portal.azure.com/)
 
 - [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

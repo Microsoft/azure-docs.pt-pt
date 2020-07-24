@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/09/2020
 ms.author: juliako
-ms.openlocfilehash: 3c75c5074e8c75a7b2d5b7f141d5104c5cb59726
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5f8fb98b1032111eb55197fa5b7d561019be9de3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074490"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutorial: Carregar, codificar e transmitir vídeos com o Media Services v3
 
 > [!NOTE]
-> Mesmo que este tutorial utilize exemplos [.NET SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](https://docs.microsoft.com/rest/api/media/liveevents) [CLI,](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
+> Mesmo que este tutorial utilize exemplos [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](/rest/api/media/liveevents) [CLI,](/cli/azure/ams/live-event?view=azure-cli-latest)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
 
 O Azure Media Services permite-lhe codificar os seus ficheiros de mídia em formatos que reproduzem uma grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter ajuda na codificação, consulte [o conceito de Codificação.](encoding-concept.md) Este tutorial carrega um ficheiro de vídeo local e codifica o ficheiro carregado. Também pode codificar conteúdo que torna acessível através de um URL HTTPS. Para obter mais informações, veja [Criar uma entrada de tarefa a partir de um URL HTTP(s)](job-input-from-http-how-to.md).
 
@@ -43,8 +43,8 @@ Este tutorial mostrar-lhe como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver o Visual Studio instalado, pode obter [Visual Studio Community 2019.](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta dos Media Services.
-- Siga os passos na [Access Azure Media Services API com o Azure CLI](access-api-cli-how-to.md) e guarde as credenciais. Terá de usá-los para aceder à API.
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta dos Media Services.
+- Siga os passos na [Access Azure Media Services API com o Azure CLI](./access-api-howto.md) e guarde as credenciais. Terá de usá-los para aceder à API.
 
 ## <a name="download-and-set-up-the-sample"></a>Faça o download e crie a amostra
 
@@ -56,7 +56,7 @@ Clone um repositório GitHub que tenha a amostra de streaming .NET para a sua m�
 
 O exemplo está localizado na pasta [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
 
-Abra [appsettings.jsno](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) seu projeto descarregado. Substitua os valores por credenciais que obteve ao [aceder às APIs.](access-api-cli-how-to.md)
+Abra [appsettings.jsno](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) seu projeto descarregado. Substitua os valores por credenciais que obteve ao [aceder às APIs.](./access-api-howto.md)
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Examinar o código que carrega, codifica e transmite
 
@@ -80,43 +80,43 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um elemento de entrada e carregar um ficheiro local para ele
 
-A função **CreateInputAsset** cria um novo [Elemento](https://docs.microsoft.com/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este **Ativo** é utilizado como entrada para o seu trabalho de codificação. Nos Serviços de Comunicação social v3, a entrada para um **Job** pode ser um **Ativo** ou conteúdo que disponibiliza à sua conta de Media Services através de URLs HTTPS. Para aprender a codificar a partir de um URL HTTPS, consulte [este](job-input-from-http-how-to.md) artigo.
+A função **CreateInputAsset** cria um novo [Elemento](/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este **Ativo** é utilizado como entrada para o seu trabalho de codificação. Nos Serviços de Comunicação social v3, a entrada para um **Job** pode ser um **Ativo** ou conteúdo que disponibiliza à sua conta de Media Services através de URLs HTTPS. Para aprender a codificar a partir de um URL HTTPS, consulte [este](job-input-from-http-how-to.md) artigo.
 
 Nos Serviços de Multimédia v3, deverá utilizar as APIs do Armazenamento do Azure para carregar os ficheiros. O seguinte fragmento de .NET mostra como.
 
 A função seguinte executa estes passos:
 
 * Cria um **Ativo**.
-* Obtém um [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) writable para o contentor do ativo [no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
+* Obtém um [URL SAS](../../storage/common/storage-sas-overview.md) writable para o contentor do ativo [no armazenamento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container).
 
-    Se utilizar a função [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) do ativo para obter URLs SAS, note que a função devolve vários URLs SAS, uma vez que existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas teclas porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, altere uma enquanto utiliza a outra e, em seguida, comece a usar a nova chave e rode a outra tecla). O 1º URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento 2.
+    Se utilizar a função [ListContainerSas](/rest/api/media/assets/listcontainersas) do ativo para obter URLs SAS, note que a função devolve vários URLs SAS, uma vez que existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas teclas porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, altere uma enquanto utiliza a outra e, em seguida, comece a usar a nova chave e rode a outra tecla). O 1º URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento 2.
 * Envia o ficheiro para o contentor armazenado utilizando o URL SAS.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Criar um elemento de saída para armazenar o resultado de uma tarefa
 
-A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação. O projeto define a função **DownloadResults** que transfere os resultados deste elemento de saída para a pasta "saída", para que possa ver o que recebeu.
+A saída [Asset](/rest/api/media/assets) armazena o resultado da tarefa de codificação. O projeto define a função **DownloadResults** que transfere os resultados deste elemento de saída para a pasta "saída", para que possa ver o que recebeu.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Criar uma Transformação e uma Tarefa que codifica o ficheiro carregado
 
-Ao codificar ou processar conteúdos em Media Services, é um padrão comum configurar as definições de codificação como receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Media chama-se **Transform.** Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android.
+Ao codificar ou processar conteúdos em Media Services, é um padrão comum configurar as definições de codificação como receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao apresentar novos empregos para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Media chama-se **Transform.** Para obter mais informações, veja [Transforms and Jobs](./transforms-jobs-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android.
 
 #### <a name="transform"></a>Transformação
 
-Ao criar uma nova instância [Transformação](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**, conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
+Ao criar uma nova instância [Transformação](/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**, conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
 
 Pode utilizar um EncoderNamedPreset incorporadi ou utilizar as predefinições personalizadas. Para obter mais informações, veja [Como personalizar as predefinições do codificador](customize-encoder-presets-how-to.md).
 
-Ao criar uma [Transformação](https://docs.microsoft.com/rest/api/media/transforms), primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue. Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
+Ao criar uma [Transformação](/rest/api/media/transforms), primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue. Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
 #### <a name="job"></a>Tarefa
 
-Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização da saída.
+Conforme mencionado acima, o objeto [Transformação](/rest/api/media/transforms) é a receita e uma [Tarefa](/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização da saída.
 
 Neste exemplo, o vídeo de entrada foi carregado do computador local. Se quiser aprender a codificar a partir de um URL HTTPS, consulte [este](job-input-from-http-how-to.md) artigo.
 
@@ -124,7 +124,7 @@ Neste exemplo, o vídeo de entrada foi carregado do computador local. Se quiser 
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguardar a conclusão da Tarefa
 
-A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da [Tarefa](https://docs.microsoft.com/rest/api/media/jobs). As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
+A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da [Tarefa](/rest/api/media/jobs). As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
 
 O Event Grid foi concebido para ter uma elevada disponibilidade, um desempenho consistente e um dimensionamento dinâmico. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. O processamento de eventos simples, reativo e baseado em HTTP ajuda-o a criar soluções eficientes através da filtragem e do encaminhamento inteligente de eventos.  Veja [Route events to a custom web endpoint](job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
 
@@ -134,18 +134,18 @@ Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila
 
 ### <a name="job-error-codes"></a>Códigos de erro das tarefas
 
-Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Ver [códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="get-a-streaming-locator"></a>Obtenha um localizador de streaming
 
-Depois de concluída a codificação, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode disponibilizá-lo em dois passos: primeiro, criar um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)e, em segundo lugar, construir os URLs de streaming que os clientes podem usar.
+Depois de concluída a codificação, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode disponibilizá-lo em dois passos: primeiro, criar um [Localizador de Streaming](/rest/api/media/streaminglocators)e, em segundo lugar, construir os URLs de streaming que os clientes podem usar.
 
 O processo de criação de um **Localizador de Streaming** chama-se publicação. Por predefinição, o **Localizador de Streaming** é válido imediatamente após a edição da API e dura até ser eliminado, a menos que configuure os tempos de início e fim opcionais.
 
-Ao criar um [StreamingLocator,](https://docs.microsoft.com/rest/api/media/streaminglocators)terá de especificar o **nome streamingPolicyName**desejado. Neste exemplo, estará a transmitir conteúdo limpo (ou não encriptado) para que seja utilizada a política de streaming clara**predefinida (PredefinedStreamingPoliingPolicy.ClearStreamingOnly).**
+Ao criar um [StreamingLocator,](/rest/api/media/streaminglocators)terá de especificar o **nome streamingPolicyName**desejado. Neste exemplo, estará a transmitir conteúdo limpo (ou não encriptado) para que seja utilizada a política de streaming clara**predefinida (PredefinedStreamingPoliingPolicy.ClearStreamingOnly).**
 
 > [!IMPORTANT]
-> Ao utilizar uma [Política de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. A sua conta de Media Service tem uma quota para o número de entradas na Política de Streaming. Não devias estar a criar uma nova Política de Streaming para cada Localizador de Streaming.
+> Ao utilizar uma [Política de Streaming](/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. A sua conta de Media Service tem uma quota para o número de entradas na Política de Streaming. Não devias estar a criar uma nova Política de Streaming para cada Localizador de Streaming.
 
 O seguinte código pressupõe que está a ligar para a função com um nome localizador único.
 
@@ -155,7 +155,7 @@ Enquanto a amostra deste tópico discute o streaming, você pode usar a mesma ch
 
 ### <a name="get-streaming-urls"></a>Obter os URLs de transmissão
 
-Agora que o [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostrado no **GetStreamingURLs**. Para construir um URL, é necessário concatenar o nome do anfitrião [streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
+Agora que o [Localizador de Streaming](/rest/api/media/streaminglocators) foi criado, pode obter os URLs de streaming, como mostrado no **GetStreamingURLs**. Para construir um URL, é necessário concatenar o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **ponto final de streaming** *predefinido* estará num estado parado, pelo que tem de ligar para **o Start**.
 
 > [!NOTE]
 > Neste método, você precisa do nome localizador que foi usado ao criar o **Localizador de Streaming** para o Ativo de saída.
@@ -190,7 +190,7 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 
 O Azure Media Player pode ser usado para testes, mas não deve ser usado num ambiente de produção.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e8d68e5f2eeeb7363469535c027f258fbc9d7ed1
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: cf8fc9916384c9eef24c4c50f7647632c0e6b7a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480495"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077463"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutorial: Criar imagens VM do Windows com Azure PowerShell
 
@@ -29,7 +29,7 @@ As imagens podem ser usadas para implantar botas e garantir consistência em vá
 
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Os passos abaixo detalham como tomar um VM existente e transformá-lo numa imagem personalizada reutilizável que pode usar para criar novos VMs.
 
@@ -54,7 +54,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior dir
 
 ## <a name="get-the-vm"></a>Pegue o VM
 
-Pode ver uma lista de VMs que estão disponíveis num grupo de recursos usando [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Assim que conhecer o nome VM e que grupo de recursos, pode usar `Get-AzVM` novamente para obter o objeto VM e armazená-lo numa variável para usar mais tarde. Este exemplo obtém um VM nomeado *fonteVM* do grupo de recursos "myResourceGroup" e atribui-o à variável *$sourceVM*. 
+Pode ver uma lista de VMs que estão disponíveis num grupo de recursos usando [o Get-AzVM](/powershell/module/az.compute/get-azvm). Assim que conhecer o nome VM e que grupo de recursos, pode usar `Get-AzVM` novamente para obter o objeto VM e armazená-lo numa variável para usar mais tarde. Este exemplo obtém um VM nomeado *fonteVM* do grupo de recursos "myResourceGroup" e atribui-o à variável *$sourceVM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -64,7 +64,7 @@ $sourceVM = Get-AzVM `
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um grupo de recursos com o comando [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+Criar um grupo de recursos com o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. No exemplo seguinte, um grupo de recursos chamado *myGalleryRG* é criado na região *eastus:*
 
@@ -78,7 +78,7 @@ $resourceGroup = New-AzResourceGroup `
 
 Uma galeria de imagens é o principal recurso utilizado para permitir a partilha de imagens. Os caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e períodos. O nome da galeria não pode conter traços. Os nomes das galerias devem ser únicos dentro da sua subscrição. 
 
-Crie uma galeria de imagens utilizando [a New-AzGallery.](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery) O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *myGalleryRG.*
+Crie uma galeria de imagens utilizando [a New-AzGallery.](/powershell/module/az.compute/new-azgallery) O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *myGalleryRG.*
 
 ```azurepowershell-interactive
 $gallery = New-AzGallery `
@@ -91,9 +91,9 @@ $gallery = New-AzGallery `
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informações sobre as versões de imagem que são criadas dentro delas. Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+As definições de imagem criam um agrupamento lógico para imagens. São utilizados para gerir informações sobre as versões de imagem que são criadas dentro delas. Os nomes da definição de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./shared-image-galleries.md#image-definitions).
 
-Crie a definição de imagem utilizando [a Definição de Imagem de Nova AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem da galeria chama-se *myGalleryImage* e é criada para uma imagem especializada. 
+Crie a definição de imagem utilizando [a Definição de Imagem de Nova AzGallery](/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem da galeria chama-se *myGalleryImage* e é criada para uma imagem especializada. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -111,7 +111,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
-Crie uma versão de imagem a partir de um VM utilizando [a Versão Nova-AzGalleryImage .](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 
+Crie uma versão de imagem a partir de um VM utilizando [a Versão Nova-AzGalleryImage .](/powershell/module/az.compute/new-azgalleryimageversion) 
 
 Os caracteres permitidos para a versão de imagem são números e períodos. Os números devem estar dentro do alcance de um inteiro de 32 bits. Formato: *MajorVersion*. *Menorversão.* *Patch*.
 
@@ -140,7 +140,7 @@ Pode demorar um pouco a replicar a imagem em todas as regiões-alvo.
 
 ## <a name="create-a-vm"></a>Criar uma VM 
 
-Uma vez que tenha uma imagem especializada, pode criar um ou mais VMs novos. Utilizando o [cmdlet New-AzVM.](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) Para utilizar a imagem, utilize `Set-AzVMSourceImage` e desate o `-Id` ID de definição de imagem ($galleryImage.Id neste caso) para utilizar sempre a versão de imagem mais recente. 
+Uma vez que tenha uma imagem especializada, pode criar um ou mais VMs novos. Utilizando o [cmdlet New-AzVM.](/powershell/module/az.compute/new-azvm) Para utilizar a imagem, utilize `Set-AzVMSourceImage` e desate o `-Id` ID de definição de imagem ($galleryImage.Id neste caso) para utilizar sempre a versão de imagem mais recente. 
 
 Substitua os nomes de recursos necessários neste exemplo. 
 
@@ -195,7 +195,7 @@ New-AzRoleAssignment `
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados:
+Quando já não for necessário, pode utilizar o cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos relacionados:
 
 ```azurepowershell-interactive
 # Delete the gallery 
@@ -207,7 +207,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 ## <a name="azure-image-builder"></a>Azure Image Builder
 
-A Azure também oferece um serviço, construído sobre Packer, [Azure VM Image Builder.](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) Basta descrever as suas personalizações num modelo, e lidará com a criação de imagem. 
+A Azure também oferece um serviço, construído sobre Packer, [Azure VM Image Builder.](./image-builder-overview.md) Basta descrever as suas personalizações num modelo, e lidará com a criação de imagem. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -224,6 +224,3 @@ Avance para o próximo tutorial para aprender como criar máquinas virtuais alta
 
 > [!div class="nextstepaction"]
 > [Criar VMs de elevada disponibilidade](tutorial-availability-sets.md)
-
-
-

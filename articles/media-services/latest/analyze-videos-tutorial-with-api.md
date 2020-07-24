@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ab87990981f08164bb47cef9eaa1876514f1ad6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e5c74f6356c8b07cfef923dfb5e12547aa4693ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202846"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053561"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Analisar vídeos com Serviços de Comunicação Social v3
 
 > [!NOTE]
-> Mesmo que este tutorial utilize os exemplos [.NET SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](https://docs.microsoft.com/rest/api/media/liveevents) [CLI,](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
+> Mesmo que este tutorial utilize os exemplos [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) os passos gerais são os mesmos para [REST API,](/rest/api/media/liveevents) [CLI,](/cli/azure/ams/live-event?view=azure-cli-latest)ou [outros SDKs suportados.](media-services-apis-overview.md#sdks)
 
 Este tutorial mostra-lhe como analisar vídeos com os Serviços de Multimédia do Microsoft Azure. Existem muitos cenários em que pode querer obter mais informações sobre conteúdos de áudio ou vídeos gravados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem executar o processamento de voz em texto para converter gravações de suporte de clientes num catálogo pesquisável, com índices e dashboards. Depois, podem obter informações sobre os seus negócios. Estes insights incluem uma lista de queixas comuns, fontes de tais queixas, e outras informações úteis.
 
@@ -45,8 +45,8 @@ Como um lembrete importante, deve cumprir todas as leis aplicáveis na sua utili
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver o Visual Studio instalado, obtenha [o Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta dos Media Services.
-- Siga os passos na [Access Azure Media Services API com o Azure CLI](access-api-cli-how-to.md) e guarde as credenciais. Terá de usá-los para aceder à API.
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.<br/>Lembre-se dos valores que utilizou para o nome do grupo de recursos e nome da conta dos Media Services.
+- Siga os passos na [Access Azure Media Services API com o Azure CLI](./access-api-howto.md) e guarde as credenciais. Terá de usá-los para aceder à API.
 
 ## <a name="download-and-configure-the-sample"></a>Descarregue e configuure a amostra
 
@@ -58,7 +58,7 @@ Clone o repositório do GitHub que contém o exemplo de .NET para o seu computad
 
 O exemplo está localizado na pasta [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
 
-Abra [appsettings.jsno](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) seu projeto descarregado. Substitua os valores pelas credenciais que obteve de [aceder às APIs.](access-api-cli-how-to.md)
+Abra [appsettings.jsno](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) seu projeto descarregado. Substitua os valores pelas credenciais que obteve de [aceder às APIs.](./access-api-howto.md)
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Examinar o código que analisa o vídeo especificado
 
@@ -84,33 +84,33 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um elemento de entrada e carregar um ficheiro local para ele 
 
-A função **CreateInputAsset** cria um novo [Elemento](https://docs.microsoft.com/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este Elemento é utilizado como entrada para a Tarefa de codificação. Nos Serviços de Multimédia v3, a entrada para uma Tarefa pode ser um Elemento ou pode ser conteúdo que tenha disponibilizado na sua conta dos Serviços de Multimédia através de URLs HTTPS. Para aprender a codificar a partir de um URL HTTPS, consulte [este](job-input-from-http-how-to.md) artigo.  
+A função **CreateInputAsset** cria um novo [Elemento](/rest/api/media/assets) de entrada e carrega o ficheiro de vídeo local especificado para ele. Este Elemento é utilizado como entrada para a Tarefa de codificação. Nos Serviços de Multimédia v3, a entrada para uma Tarefa pode ser um Elemento ou pode ser conteúdo que tenha disponibilizado na sua conta dos Serviços de Multimédia através de URLs HTTPS. Para aprender a codificar a partir de um URL HTTPS, consulte [este](job-input-from-http-how-to.md) artigo.  
 
 Nos Serviços de Multimédia v3, deverá utilizar as APIs do Armazenamento do Azure para carregar os ficheiros. O seguinte fragmento de .NET mostra como.
 
 A seguinte função completa estas ações:
 
 * Cria um Ativo.
-* Obtém um [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) writable para o contentor do Ativo [no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
+* Obtém um [URL SAS](../../storage/common/storage-sas-overview.md) writable para o contentor do Ativo [no armazenamento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container).
 
-    Se utilizar a função [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) do ativo para obter URLs SAS, note que a função devolve vários URLs SAS, uma vez que existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas teclas porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, altere uma enquanto utiliza a outra e, em seguida, comece a usar a nova chave e rode a outra tecla). O 1º URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento 2.
+    Se utilizar a função [ListContainerSas](/rest/api/media/assets/listcontainersas) do ativo para obter URLs SAS, note que a função devolve vários URLs SAS, uma vez que existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas teclas porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, altere uma enquanto utiliza a outra e, em seguida, comece a usar a nova chave e rode a outra tecla). O 1º URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento 2.
 * Envia o ficheiro para o contentor armazenado utilizando o URL SAS.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Criar um elemento de saída para armazenar o resultado da tarefa
 
-O [Elemento](https://docs.microsoft.com/rest/api/media/assets) de saída armazena o resultado da sua tarefa. O projeto define a função **DownloadResults** que transfere os resultados deste elemento de saída para a pasta "saída", para que possa ver o que recebeu.
+O [Elemento](/rest/api/media/assets) de saída armazena o resultado da sua tarefa. O projeto define a função **DownloadResults** que transfere os resultados deste elemento de saída para a pasta "saída", para que possa ver o que recebeu.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>Criar uma transformação e uma tarefa que analisa vídeos
 
-Ao codificar ou processar conteúdos em Media Services, é um padrão comum configurar as definições de codificação como receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novos Jobs para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Media chama-se **Transform.** Para mais informações, consulte [Transforms e jobs.](transform-concept.md) O exemplo descrito neste tutorial define uma receita que analisa o vídeo especificado.
+Ao codificar ou processar conteúdos em Media Services, é um padrão comum configurar as definições de codificação como receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novos Jobs para cada novo vídeo, está a aplicar essa receita em todos os vídeos da sua biblioteca. Uma receita nos Serviços de Media chama-se **Transform.** Para mais informações, consulte [Transforms e jobs.](./transforms-jobs-concept.md) O exemplo descrito neste tutorial define uma receita que analisa o vídeo especificado.
 
 #### <a name="transform"></a>Transformação
 
-Ao criar uma nova instância [Transformação](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. **TransformOutput** é um parâmetro necessário. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, é utilizada a predefinição **do VideoAnalyzerPreset** e a língua ("en-US") é passada para o seu construtor `new VideoAnalyzerPreset("en-US")` . Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo.
+Ao criar uma nova instância [Transformação](/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. **TransformOutput** é um parâmetro necessário. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, é utilizada a predefinição **do VideoAnalyzerPreset** e a língua ("en-US") é passada para o seu construtor `new VideoAnalyzerPreset("en-US")` . Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo.
 
 Ao criar um **Transform,** verifique primeiro se já existe um utilizando o método **Get,** como mostra o código que se segue. Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 
@@ -118,7 +118,7 @@ Ao criar um **Transform,** verifique primeiro se já existe um utilizando o mét
 
 #### <a name="job"></a>Tarefa
 
-Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia.
+Conforme mencionado acima, o objeto [Transformação](/rest/api/media/transforms) é a receita e uma [Tarefa](/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia.
 
 Neste exemplo, a entrada da tarefa é um vídeo local.  
 
@@ -126,7 +126,7 @@ Neste exemplo, a entrada da tarefa é um vídeo local.
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguarde até que a tarefa termine
 
-O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser notificado. Existem algumas opções diferentes para ser notificado sobre a conclusão da [Tarefa](https://docs.microsoft.com/rest/api/media/jobs). A opção mais simples (que é mostrada aqui) é usar as sondagens.
+O trabalho leva algum tempo para ser concluído. Quando acontecer, quer ser notificado. Existem algumas opções diferentes para ser notificado sobre a conclusão da [Tarefa](/rest/api/media/jobs). A opção mais simples (que é mostrada aqui) é usar as sondagens.
 
 As sondagens não são uma das melhores práticas recomendadas para aplicações de produção devido à latência potencial. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
 
@@ -138,11 +138,11 @@ Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila
 
 ### <a name="job-error-codes"></a>Códigos de erro das tarefas
 
-Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Ver [códigos de erro](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="download-the-result-of-the-job"></a>Transferir o resultado da tarefa
 
-A seguinte função descarrega os resultados da saída [O Ativo](https://docs.microsoft.com/rest/api/media/assets) para a pasta "saída" para que possa examinar os resultados do trabalho.
+A seguinte função descarrega os resultados da saída [O Ativo](/rest/api/media/assets) para a pasta "saída" para que possa examinar os resultados do trabalho.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
@@ -160,9 +160,9 @@ Quando executa o programa, a tarefa produz miniaturas para cada rosto que encont
 
 ## <a name="examine-the-output"></a>Examinar o ficheiro de saída
 
-O ficheiro de saída para analisar vídeos chama-se insights.json. Este ficheiro contém informações sobre o seu vídeo. Encontrará a descrição dos elementos contidos no ficheiro json no artigo [Informações de multimédia](intelligence-concept.md).
+O ficheiro de saída para analisar vídeos chama-se insights.json. Este ficheiro contém informações sobre o seu vídeo. Encontrará a descrição dos elementos contidos no ficheiro json no artigo [Informações de multimédia](./analyzing-video-audio-files-concept.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 

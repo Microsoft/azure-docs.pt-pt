@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com F5 / Microsoft Docs'
+title: 'Tutorial: Azure AD integração única com F5 / Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o F5.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017453"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
 
@@ -179,7 +179,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -282,45 +282,45 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 Configura um servidor AAA do Diretório Ativo no Access Policy Manager (APM) para especificar controladores de domínio e credenciais para APM para utilizar para autenticar utilizadores.
 
-1.    No separador Principal, clique em **Política de Acesso > servidores AAA > Ative Directory**. O ecrã da lista de servidores de diretório ativo abre.
+1. No separador Principal, clique em **Política de Acesso > servidores AAA > Ative Directory**. O ecrã da lista de servidores de diretório ativo abre.
 
-2.    Clique em **Criar**. O ecrã de propriedades do Novo Servidor abre.
+2. Clique em **Create** (Criar). O ecrã de propriedades do Novo Servidor abre.
 
-3.    No campo **Nome,** escreva um nome único para o servidor de autenticação.
+3. No campo **Nome,** escreva um nome único para o servidor de autenticação.
 
-4.    No campo **Nome de Domínio,** digite o nome do domínio Windows.
+4. No campo **Nome de Domínio,** digite o nome do domínio Windows.
 
-5.    Para a definição **de Ligação do Servidor,** selecione uma destas opções:
+5. Para a definição **de Ligação do Servidor,** selecione uma destas opções:
 
-    * Selecione **Use Pool** para configurar uma alta disponibilidade para o servidor AAA.
+   * Selecione **Use Pool** para configurar uma alta disponibilidade para o servidor AAA.
 
-    * Selecione **Diretamente** para configurar o servidor AAA para uma funcionalidade autónoma.
+   * Selecione **Diretamente** para configurar o servidor AAA para uma funcionalidade autónoma.
 
-6.    Se selecionar **Diretamente,** digite um nome no campo **Controlador de Domínio.**
+6. Se selecionar **Diretamente,** digite um nome no campo **Controlador de Domínio.**
 
-7.    Se selecionou Use **Pool,** configuure a piscina:
+7. Se selecionou Use **Pool,** configuure a piscina:
 
-    * Digite um nome no campo **Nome do Conjunto do Controlador de Domínio.**
+   * Digite um nome no campo **Nome do Conjunto do Controlador de Domínio.**
 
-    * Especifique os **controladores de domínio** na piscina digitando o endereço IP e o nome de anfitrião para cada um, e clicando no botão **Adicionar.**
+   * Especifique os **controladores de domínio** na piscina digitando o endereço IP e o nome de anfitrião para cada um, e clicando no botão **Adicionar.**
 
-    * Para monitorizar a saúde do servidor AAA, tem a opção de selecionar um monitor de saúde: apenas o monitor **gateway_icmp** é adequado neste caso; pode selecioná-lo na lista do **Monitor do Pool do Servidor.**
+   * Para monitorizar a saúde do servidor AAA, tem a opção de selecionar um monitor de saúde: apenas o monitor **gateway_icmp** é adequado neste caso; pode selecioná-lo na lista do **Monitor do Pool do Servidor.**
 
-8.    No campo **Nome Admin,** o tipo a é nome sensível a casos para um administrador que tenha permissões administrativas do Diretório Ativo. A APM utiliza as informações nos campos **nome de administração** e **palavra-passe** de administrador para consulta de AD. Se o Ative Directory estiver configurado para consultas anónimas, não precisa de fornecer um Nome Dedmin. Caso contrário, a APM necessita de uma conta com privilégio suficiente para se ligar a um servidor ative Directory, recolher informações do grupo de utilizador e obter políticas de palavra-passe do Ative Directory para suportar funcionalidades relacionadas com palavras-passe. (APM deve obter políticas de palavra-passe, por exemplo, se selecionar o utilizador Prompt para alterar a palavra-passe antes da opção de expiração numa ação de consulta de AD.) Se não fornecer informações sobre a conta de Administra nesta configuração, a APM utiliza a conta de utilizador para obter informações. Isto funciona se a conta de utilizador tiver privilégios suficientes.
+8. No campo **Nome Admin,** o tipo a é nome sensível a casos para um administrador que tenha permissões administrativas do Diretório Ativo. A APM utiliza as informações nos campos **nome de administração** e **palavra-passe** de administrador para consulta de AD. Se o Ative Directory estiver configurado para consultas anónimas, não precisa de fornecer um Nome Dedmin. Caso contrário, a APM necessita de uma conta com privilégio suficiente para se ligar a um servidor ative Directory, recolher informações do grupo de utilizador e obter políticas de palavra-passe do Ative Directory para suportar funcionalidades relacionadas com palavras-passe. (APM deve obter políticas de palavra-passe, por exemplo, se selecionar o utilizador Prompt para alterar a palavra-passe antes da opção de expiração numa ação de consulta de AD.) Se não fornecer informações sobre a conta de Administra nesta configuração, a APM utiliza a conta de utilizador para obter informações. Isto funciona se a conta de utilizador tiver privilégios suficientes.
 
-9.    No campo **palavra-passe** de administrador, digite a palavra-passe do administrador associada ao Nome do Domínio.
+9. No campo **palavra-passe** de administrador, digite a palavra-passe do administrador associada ao Nome do Domínio.
 
-10.    No campo **Palavra-Passe De Administração Verificar,** retipe a palavra-passe do administrador associada à definição **de Nome de Domínio.**
+10. No campo **Palavra-Passe De Administração Verificar,** retipe a palavra-passe do administrador associada à definição **de Nome de Domínio.**
 
-11.    No campo **Grupo Cache Lifetime,** digite o número de dias. A vida útil padrão é de 30 dias.
+11. No campo **Grupo Cache Lifetime,** digite o número de dias. A vida útil padrão é de 30 dias.
 
-12.    No campo **Cache Lifetime do Objeto de Segurança palavra-passe,** digite o número de dias. A vida útil padrão é de 30 dias.
+12. No campo **Cache Lifetime do Objeto de Segurança palavra-passe,** digite o número de dias. A vida útil padrão é de 30 dias.
 
-13.    A partir da lista **do Tipo de Encriptação pré-autorização de Kerberos,** selecione um tipo de encriptação. O padrão é **Nenhum**. Se especificar um tipo de encriptação, o sistema BIG-IP inclui dados de pré-autorização kerberos dentro do primeiro pacote de pedido de serviço de autenticação (AS-REQ).
+13. A partir da lista **do Tipo de Encriptação pré-autorização de Kerberos,** selecione um tipo de encriptação. O padrão é **Nenhum**. Se especificar um tipo de encriptação, o sistema BIG-IP inclui dados de pré-autorização kerberos dentro do primeiro pacote de pedido de serviço de autenticação (AS-REQ).
 
-14.    No campo **Timeout,** digite um intervalo de tempo (em segundos) para o servidor AAA. (Esta definição é opcional.)
+14. No campo **Timeout,** digite um intervalo de tempo (em segundos) para o servidor AAA. (Esta definição é opcional.)
 
-15.    Clique **em Terminado**. O novo servidor aparece na lista. Isto adiciona o novo servidor Ative Directory à lista de Servidores de Diretório Ativo.
+15. Clique **em Terminado**. O novo servidor aparece na lista. Isto adiciona o novo servidor Ative Directory à lista de Servidores de Diretório Ativo.
 
     ![Configuração F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 

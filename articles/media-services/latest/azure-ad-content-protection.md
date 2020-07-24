@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dbd75748d30a67c22ac729a8a2130a2d43aef9b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81c83cd8dcea5f8746b67a7bd52ea52a09c8a711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205165"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001405"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
 
@@ -48,13 +48,13 @@ São utilizadas as versões e conceitos mais recentes da tecnologia. Recomenda-s
 É opcional, mas recomenda-se que esteja familiarizado com os seguintes conceitos antes de iniciar este tutorial:
 
 * Gestão de Direitos Digitais (DRM)
-* [Azure Media Services (AMS) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Azure Media Services (AMS) v3](./media-services-overview.md)
 * [Políticas-chave de conteúdo](content-key-policy-concept.md) AMS utilizando a ferramenta AMS API v3, Azure portal ou a ferramenta [Azure Media Services Explorer (AMSE)](https://github.com/Azure/Azure-Media-Services-Explorer)
-* Pontos finais Azure AD v2 na [Plataforma de Identidade](https://docs.microsoft.com/azure/active-directory/develop/) da Microsoft
-* Autenticação em nuvem moderna como [OAuth 2.0 e OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols)
-  * [Fluxo de código de autorização em OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) e por que o PKCE é necessário
-  * [Permissão delegada vs permissão de candidatura](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#permissions)
-* [JWT token](https://docs.microsoft.com/azure/active-directory/develop/access-tokens), suas alegações, e assinatura de capotamento de chave (incluído na amostra.)
+* Pontos finais Azure AD v2 na [Plataforma de Identidade](../../active-directory/develop/index.yml) da Microsoft
+* Autenticação em nuvem moderna como [OAuth 2.0 e OpenID Connect](../../active-directory/develop/active-directory-v2-protocols.md)
+  * [Fluxo de código de autorização em OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md) e por que o PKCE é necessário
+  * [Permissão delegada vs permissão de candidatura](../../active-directory/develop/developer-glossary.md#permissions)
+* [JWT token](../../active-directory/develop/access-tokens.md), suas alegações, e assinatura de capotamento de chave (incluído na amostra.)
 
 ### <a name="prerequisite-code-and-installations"></a>Código e instalações pré-requisitos
 
@@ -63,7 +63,7 @@ São utilizadas as versões e conceitos mais recentes da tecnologia. Recomenda-s
 * Uma instalação de Node.js. Faça o download Node.js [https://nodejs.org](https://nodejs.org) aqui. A NPM vem com a instalação.
 * Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 * Uma conta Azure Media Services (AMS).
-* @azure/msal-browserv2.0, um dos membros da [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) SDK família para diferentes plataformas de clientes
+* @azure/msal-browserv2.0, um dos membros da [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) SDK família para diferentes plataformas de clientes
 * A versão mais recente do [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(incluído na amostra.)
 * Credenciais FPS da Apple se quiser incluir FairPlay DRM e o certificado de aplicação alojado com CORS que é acessível através do JavaScript do lado do cliente.
 
@@ -98,7 +98,7 @@ O desenho do subsistema é mostrado no diagrama seguinte.  Tem três camadas:
 
 ![tela para analisar tokens JWT](media/aad-ams-content-protection/subsystem.svg)
 
-Leia [Design de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](https://docs.microsoft.com/azure/media-services/latest/design-multi-drm-system-with-access-control) para mais detalhes sobre o subsistema.
+Leia [Design de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](./design-multi-drm-system-with-access-control.md) para mais detalhes sobre o subsistema.
 
 ## <a name="understand-the-single-page-app"></a>Compreender a aplicação de página única
 
@@ -158,7 +158,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
 1. Selecione **Manifesto** no menu. A vista manifesto aparecerá.
 1. Alterar o valor do `accessTokenAcceptedVersion` para *2* (sem cotações).
 1. Alterar o valor do `groupMembershipClaims` *"SecurityGroup"* (com cotações).
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 1. Selecione **Expor uma API** do menu. Aparecerá a vista De âmbito adicionar. (O Azure fornece um ID URI de aplicação, mas se quiser alterá-lo, pode editar no campo ID URI da aplicação.)
 1. Clique **em Guardar e continuar.** A vista vai mudar. Para cada uma das definições na coluna Definição na tabela abaixo, introduza o valor na coluna Valor e, em seguida, clique em **Adicionar âmbito**.
 
@@ -206,7 +206,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
     > [!NOTE]
     > Neste momento, ainda não tem o URL para a sua aplicação de jogador.  Se estiver a executar a aplicação a partir do seu webserver local, pode usar apenas o par de valor local. Assim que implementar a aplicação do jogador, pode adicionar a entrada aqui com o URL implantado.  Se se esquecer de o fazer, verá uma mensagem de erro no sinal AZure AD.
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 1. Finalmente para verificar se a sua configuração está correta, selecione **Autenticação**.  Aparecerá a vista de autenticação. A sua aplicação ao cliente será listada como uma App de Página Única (SPA), o URI de redirecionamento será listado, e o tipo de subvenção será O Fluxo de Código de Autorização com PKCE.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Criar a política-chave de conteúdos de conta dos Media Services e as políticas de streaming
@@ -339,7 +339,7 @@ if (tokenClaims != null && tokenClaims.Length > 0)
 }
 ```
 
-Os *grupos* afirmam ser membro de um Conjunto de [Reclamações Restritas](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claim-sets) em Azure AD.
+Os *grupos* afirmam ser membro de um Conjunto de [Reclamações Restritas](../../active-directory/develop/active-directory-claims-mapping.md#claim-sets) em Azure AD.
 
 #### <a name="test"></a>Teste
 
@@ -371,7 +371,7 @@ O seu cliente pode então navegar na sua configuração, iniciar sôr-se na cont
 
 A sua solução de amostra pode ser configurada num inquilino da Microsoft com subscrição da Microsoft ou inquilino personalizado com subscrição da Microsoft. A instância do Azure Media Service pode ser de outra subscrição com o seu inquilino.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 > [!WARNING]
 > Se não vai continuar a utilizar esta aplicação, elimine os recursos que criou enquanto segue este tutorial. Caso contrário, serás cobrado por eles.

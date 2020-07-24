@@ -3,12 +3,12 @@ title: PowerShell Script - Desdelete uma partilha de ficheiros eliminada
 description: Aprenda a usar um script Azure PowerShell para desempacoar uma partilha de ficheiros acidentalmente eliminada.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007637"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script PowerShell para desembrulhá-lo de uma partilha de ficheiro acidentalmente eliminada
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale os mais recentes módulos Azure PowerShell Az a partir [deste link](//powershell/azure/install-az-ps) antes de executar o script.
+1. Instale os mais recentes módulos Azure PowerShell Az a partir [deste link](/powershell/azure/install-az-ps) antes de executar o script.
 2. Mantenha os seguintes detalhes à mão, pois terá de os passar como valores para diferentes parâmetros do script:
 
     * **-SubscriptionId** - ID da subscrição onde a partilha de ficheiros está presente.

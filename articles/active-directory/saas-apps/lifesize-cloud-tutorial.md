@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com a Cloud Lifesize [ Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Lifesize Cloud.
+title: 'Tutorial: Integração do Azure Ative Directory com Lifesize Cloud Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Lifesize Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,47 +16,50 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e886a1fa3f590ac94dbf088520e6770690ee21ac
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a41fe75975537a54ae142034f74a613731736525
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73159570"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051252"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração de Diretório Ativo Azure com nuvem de tamanho real
+# <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com a Nuvem Lifesize
 
-Neste tutorial, aprende-se a integrar a Cloud Lifesize com o Azure Ative Directory (Azure AD).
-Integrar a Nuvem de Tamanho Real com a AD Azure proporciona-lhe os seguintes benefícios:
+Neste tutorial, aprende-se a integrar a Lifesize Cloud com o Azure Ative Directory (Azure AD).
+Integrar a Lifesize Cloud com Azure AD proporciona-lhe os seguintes benefícios:
 
 * Você pode controlar em Azure AD que tem acesso a Lifesize Cloud.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Lifesize Cloud (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Lifesize Cloud (Single Sign-On) com as suas contas AD Azure.
+* Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com a Cloud Lifesize, precisa dos seguintes itens:
+Para configurar a integração AZure AD com a Lifesize Cloud, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Subscrição ativada por sinal único lifesize Cloud
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Subscrição ativada por Lifesize Cloud
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Lifesize Cloud suporta **SP** iniciado SSO
+* Lifesize Cloud suporta **SSO** iniciado sp
 
 * Lifesize Cloud suporta fornecimento **automatizado** de utilizadores
 
-## <a name="adding-lifesize-cloud-from-the-gallery"></a>Adicionando nuvem de tamanho real da galeria
+## <a name="adding-lifesize-cloud-from-the-gallery"></a>Adicionando Lifesize Cloud da galeria
 
-Para configurar a integração da Lifesize Cloud em Azure AD, você precisa adicionar Lifesize Cloud da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração da Lifesize Cloud em AZure AD, é necessário adicionar a Lifesize Cloud da galeria à sua lista de aplicações geridas pelo SaaS.
 
 **Para adicionar Lifesize Cloud da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -64,119 +67,119 @@ Para configurar a integração da Lifesize Cloud em Azure AD, você precisa adic
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite a **Cloud lifesize**, selecione **Lifesize Cloud** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
+4. Na caixa de pesquisa, **digite Lifesize Cloud**, selecione **Lifesize Cloud** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
-     ![Nuvem de tamanho real na lista de resultados](common/search-new-app.png)
+     ![Nuvem de Tamanho Vivo na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa um único sign-on azure com lifesize Cloud com base num utilizador de teste chamado **Britta Simon**.
-Para um único início de sessão funcionar, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na Lifesize Cloud.
+Nesta secção, você configura e testa Azure AD single sign-on com Lifesize Cloud com base em um utilizador de teste chamado **Britta Simon**.
+Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Lifesize Cloud.
 
-Para configurar e testar o único sign-on azure ad com lifesize Cloud, você precisa completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com uma única placatura com a Nuvem de Tamanho Real, é necessário completar os seguintes blocos de construção:
 
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure](#configure-lifesize-cloud-single-sign-on)** o sinal único da nuvem de vida - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Create Lifesize Cloud test user](#create-lifesize-cloud-test-user)** - para ter uma contrapartida de Britta Simon em Lifesize Cloud que está ligada à representação do utilizador da AD Azure.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure o sign-on único em nuvem lifesize](#configure-lifesize-cloud-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+5. **[Create Lifesize Cloud test user](#create-lifesize-cloud-test-user)** - para ter uma contraparte de Britta Simon em Lifesize Cloud que está ligada à representação AD AD do utilizador.
+6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
+Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
-Para configurar o único sign-on azure com a Lifesize Cloud, execute os seguintes passos:
+Para configurar o Azure AD single sign-on com Lifesize Cloud, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **lifesize Cloud,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Lifesize Cloud,** selecione **Single sign-on**.
 
-    ![Configurar um único link de sinalização](common/select-sso.png)
+    ![Configurar link único de inscrição](common/select-sso.png)
 
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
+2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
 
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
+    ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
+4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    ![Lifesize Cloud Domain e URLs informações únicas de inscrição](common/sp-identifier-relay.png)
+    ![Informações de súmis de nuvem e URLs de tamanho real](common/sp-identifier-relay.png)
 
-    a. Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://login.lifesizecloud.com/ls/?acs`
+    a. Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://login.lifesizecloud.com/ls/?acs`
 
     b. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:`https://login.lifesizecloud.com/<companyname>`
 
-    c. Clique em **definir URLs adicionais**.
+    c. Clique **em URLs adicionais .**
 
-    d. Na caixa de texto **do Estado relé,** digite um URL utilizando o seguinte padrão:`https://webapp.lifesizecloud.com/?ent=<identifier>`
+    d. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão:`https://webapp.lifesizecloud.com/?ent=<identifier>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL, Identificador e Estado de Retransmissão. Contacte a equipa de suporte do [Cliente Lifesize Cloud](https://www.lifesize.com/en/support) para obter url de inscrição e valores de identificador e poderá obter o valor do Estado de Retransmissão a partir da Configuração SSO que é explicado mais tarde no tutorial. Também pode consultar os padrões mostrados na secção **de Configuração SAML Básica** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de inscrição real, o Estado de identificação e retransmissão. Contacte a equipa de [suporte do Cliente Lifesize Cloud](https://www.lifesize.com/en/support) para obter os valores de URL de Inscrição e Identifier e pode obter o valor do Estado de Retransmissão a partir da Configuração SSO que é explicada mais tarde no tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na configuração de um único sinal com página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
-    ![O link de descarregamento do Certificado](common/certificatebase64.png)
+    ![O link de descarregamento de certificado](common/certificatebase64.png)
 
-6. Na secção **'Nuvem de Tamanho Real',** copie os URL(s) adequados de acordo com o seu requisito.
+6. Na secção **'Configurar a Nuvem de Tamanho Vivo',** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de Inicio de Sessão
 
-    b. Identificador de anúncio sinuoso
+    b. Identificador Azure Ad
 
     c. Logout URL
 
-### <a name="configure-lifesize-cloud-single-sign-on"></a>Configure Lifesize Cloud Single Sign-On
+### <a name="configure-lifesize-cloud-single-sign-on"></a>Configurar a nuvem de suporte único de nuvem
 
-1. Para obter SSO configurado para a sua aplicação, inicie sessão na aplicação Lifesize Cloud com privilégios Admin.
+1. Para obter SSO configurado para a sua aplicação, inicie sessão na aplicação Lifesize Cloud com privilégios de Administração.
 
-2. No canto superior direito clique no seu nome e, em seguida, clique nas **Definições de Adiantamento**.
+2. No canto superior direito clique no seu nome e, em seguida, clique nas **Definições De Avanço**.
 
-    ![Configurar um único sinal](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Configurar um único sign-on](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
-3. Nas Definições de Adiantamento, clique agora no link **de configuração SSO.** Abrirá a página de Configuração SSO para a sua instância.
+3. Nas Definições Avançadas clique agora no link **de configuração SSO.** Abrirá a página de Configuração SSO para o seu exemplo.
 
-    ![Configurar um único sinal](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Configurar um único sign-on](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
-4. Agora configure os seguintes valores na UI de configuração SSO.
+4. Agora, configuure os seguintes valores na UI de configuração SSO.
 
-    ![Configurar um único sinal](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Configurar um único sign-on](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
-    a. Na caixa de texto **emitentes** de fornecedor de identidade, colhe o valor do **Identificador Azure Ad** que copiou do portal Azure.
+    a. Na caixa de texto **do Fornecedor de Identidade,** cole o valor do **Identificador Ad Azure** que copiou do portal Azure.
 
-    b.  Na caixa de texto **LOGIN URL,** colá o valor do URL de **Login** que copiou do portal Azure.
+    b.  Na caixa de texto **URL de login,** cole o valor do URL de **login** que copiou do portal Azure.
 
-    c. Abra o seu certificado codificado base-64 no bloco de notas descarregado do portal Azure, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o na caixa de texto **x.509 Certificate.**
+    c. Abra o certificado codificado base-64 no bloco de notas descarregado do portal Azure, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o para a caixa de texto **do Certificado X.509.**
   
-    d. Nos mapeamentos de atributo SAML para a caixa de texto de primeiro nome insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    d. Nos mapeamentos do atributo SAML para a caixa de texto do primeiro nome insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    e. No mapeamento do atributo SAML para a caixa de texto **de apelido** insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    e. No mapeamento do atributo SAML para a caixa de texto **do último nome** insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 
-    f. No mapeamento do Atributo SAML para a caixa de texto **de e-mail** insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    f. No mapeamento do atributo SAML para a caixa de texto **de email** insira o valor como`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-5. Para verificar a configuração, pode clicar no botão **Teste.**
+5. Para verificar a configuração pode clicar no botão **Teste.**
 
     >[!NOTE]
-    >Para testes bem sucedidos, é necessário completar o assistente de configuração em Azure AD e também fornecer acesso a utilizadores ou grupos que possam realizar o teste.
+    >Para testes bem sucedidos, é necessário completar o assistente de configuração em AZure AD e também fornecer acesso a utilizadores ou grupos que possam realizar o teste.
 
-6. Ative o SSO verificando o botão **Enable SSO.**
+6. Ativar o SSO verificando o botão **Enable SSO.**
 
-7. Agora clique no botão **'Actualizar'** para que todas as definições sejam guardadas. Isto gerará o valor do RelayState. Copie o valor RelayState, que é gerado na caixa de texto, cole-o na caixa de texto **do Estado relé** sob o domínio da nuvem de **tamanho real e urLs** de tamanho real.
+7. Agora clique no botão **'Actualizar',** para que todas as definições sejam guardadas. Isto gerará o valor relayState. Copie o valor RelayState, que é gerado na caixa de texto, cole-o na caixa de texto **do Estado de Retransmissão** sob a secção **Lifesize Cloud Domain e URLs.**
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
 2. Selecione **Novo utilizador** na parte superior do ecrã.
 
@@ -184,59 +187,59 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+    ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entrar **BrittaSimon.**
+    a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No **tipo** de campo de nome utilizador **brittasimon\@yourcompanydomain.extension**  
+    b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
+    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Create** (Criar).
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Cloud Lifesize.
+Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Lifesize Cloud.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações**e, em seguida, selecione **Lifesize Cloud**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Lifesize Cloud**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Lifesize Cloud**.
 
-    ![O link Cloud tamanho real na lista de aplicações](common/all-applications.png)
+    ![A ligação Lifesize Cloud na lista de Aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
+    ![O painel de atribuição de adição](common/add-assign-user.png)
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
+7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-lifesize-cloud-test-user"></a>Criar o utilizador de teste lifesize Cloud
+### <a name="create-lifesize-cloud-test-user"></a>Criar utilizador de teste lifesize Cloud
 
-Nesta secção, cria-se uma utilizadora chamada Britta Simon em Lifesize Cloud. A nuvem de tamanho real suporta o fornecimento automático de utilizadores. Após autenticação bem sucedida na Azure AD, o utilizador será automaticamente aprovisionado na aplicação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in Lifesize Cloud. A nuvem lifesize suporta o fornecimento automático do utilizador. Após a autenticação bem sucedida no Azure AD, o utilizador será automaticamente a provisionado na aplicação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Lifesize Cloud no Painel de Acesso, deverá obter uma página de login da aplicação Lifesize Cloud. Aqui tem de introduzir o seu nome de utilizador e, depois disso, será redirecionado para a página inicial da aplicação.
+Quando clicar no azulejo da Nuvem Lifesize no Painel de Acesso, deverá obter a página de login da aplicação Lifesize Cloud. Aqui precisa introduzir o seu nome de utilizador e, depois disso, será redirecionado para a página inicial da aplicação.
 
-Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

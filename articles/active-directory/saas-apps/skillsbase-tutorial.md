@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Diretório Ativo Azure com Base de Competências [ Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Diretório Ativo azure e a Base de Competências.
+title: 'Tutorial: Integração do Azure Ative Directory com a Skills Base Microsoft Docs'
+description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a Skills Base.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,46 +15,49 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a088675bc1610daf275bac77ae222f0e664afd67
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60f8e4408a3a7d4f05bc820f0c0a825106b47009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67090548"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017118"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração de Diretório Ativo Azure com Base de Competências
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Diretório Ativo Azure com Base de Competências
 
-Neste tutorial, aprende-se a integrar a Skills Base com o Azure Ative Directory (Azure AD).
+Neste tutorial, aprende-se a integrar a Base de Competências com o Azure Ative Directory (Azure AD).
 Integrar a Base de Competências com a AD Azure proporciona-lhe os seguintes benefícios:
 
-* Você pode controlar em Azure AD que tem acesso à Base de Habilidades.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Skills Base (Single Sign-On) com as suas contas Azure AD.
-* Você pode gerir suas contas em um local central - o portal Azure.
+* Você pode controlar em Azure AD que tem acesso à Base de Competências.
+* Pode permitir que os seus utilizadores sejam automaticamente inscritos na Base de Competências (Sign-on Único) com as suas contas AD Azure.
+* Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração de apps saaS com a Azure AD, consulte [o que é o acesso à aplicação e o único registo com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração da AD Azure com a Skills Base, precisa dos seguintes itens:
+Para configurar a integração AZure AD com a Skills Base, precisa dos seguintes itens:
 
-* Uma subscrição da AD Azure. Se não tiver um ambiente de AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura ativada por um único sign-on da Base de Competências
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
+* Subscrição ativada por base de competências
+
+> [!NOTE]
+> Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa o único sinal de Azure AD num ambiente de teste.
+Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
-* Skills Base suporta **SP** iniciado SSO
-* Skills Base suporta o provisionamento de utilizadores **justo no tempo**
+* Skills Base suporta **SSO** iniciado SP
+* Skills Base suporta **provisão de** utilizadores just in time
 
 ## <a name="adding-skills-base-from-the-gallery"></a>Adicionar Base de Competências da galeria
 
-Para configurar a integração da Skills Base em Azure AD, você precisa adicionar Skills Base da galeria à sua lista de aplicações saaS geridas.
+Para configurar a integração da Skills Base no AD Azure, precisa adicionar Skills Base da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Skills Base da galeria, execute os seguintes passos:**
+**Para adicionar a Base de Competências da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, clique no ícone **do Diretório Ativo Azure.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -62,99 +65,99 @@ Para configurar a integração da Skills Base em Azure AD, você precisa adicion
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em novo botão de **aplicação** na parte superior do diálogo.
+3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **a Base de Habilidades,** selecione **Skills Base** do painel de resultados e, em seguida, clique em **Adicionar** o botão para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **Skills Base**, selecione **Skills Base** a partir do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
 
      ![Base de Competências na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configure e teste Azure AD único signo
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o único sign-on azure ad com base em Skills Base com base num utilizador de teste chamado **Britta Simon**.
-Para que o único início de sessão funcione, é necessário estabelecer uma relação de ligação entre um utilizador da AD Azure e o utilizador relacionado na Skills Base.
+Nesta secção, você configura e testa Azure AD single sign-on with Skills Base com base em um utilizador de teste chamado **Britta Simon**.
+Para um único s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Base de Competências.
 
-Para configurar e testar o único sign-on azure ad com a Skills Base, você precisa completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com base de competências, é necessário completar os seguintes blocos de construção:
 
-1. **[Configure O Único Sinal do Azure AD](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On single](#configure-skills-base-single-sign-on)** base de habilidades - para configurar as definições de início de sessão simples no lado da aplicação.
-3. **[Crie um utilizador de teste Azure AD](#create-an-azure-ad-test-user)** - para testar o único sign-on da Azure AD com Britta Simon.
-4. Atribuir o utilizador de **[teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de AD Azure.
-5. **[Create Skills Base test user](#create-skills-base-test-user)** - para ter uma contrapartida de Britta Simon em Skills Base que está ligada à representação azure AD do utilizador.
-6. **[Teste o único sinal para](#test-single-sign-on)** verificar se a configuração funciona.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+2. **[Configure as competências Base de Assinatura Única](#configure-skills-base-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+5. **[Create Skills Base test user](#create-skills-base-test-user)** - para ter uma contrapartida de Britta Simon na Base de Competências que está ligada à representação AD AD do utilizador.
+6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configure Azure AD único sign-on
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
 
-Nesta secção, permite o único sinal de entrada do Azure AD no portal Azure.
+Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
-Para configurar o único sign-on azure ad com a Skills Base, execute os seguintes passos:
+Para configurar o Azure AD com base de competências, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações da **Base de Competências,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Skills Base,** selecione **Single sign-on**.
 
-    ![Configurar um único link de sinalização](common/select-sso.png)
+    ![Configurar link único de inscrição](common/select-sso.png)
 
-2. No diálogo **Select a Single sign-on,** selecione o modo **SAML/WS-Fed** para ativar um único sinal.
+2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
 
-    ![Modo de seleção de sinal único](common/select-saml-option.png)
+    ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. No **set single sign-on com** a página SAML, clique no ícone **Editar** para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
 
-    ![Editar Configuração Básica do SAML](common/edit-urls.png)
+    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na secção **Basic SAML Configuration,** execute os seguintes passos:
+4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    ![Skills Base Domain e URLs informações únicas de inscrição](common/sp-signonurl.png)
+    ![Skills Base Domain e URLs informações únicas de súming](common/sp-signonurl.png)
 
-    Na caixa de texto **de URL sign-on,** escreva um URL utilizando o seguinte padrão:`https://app.skills-base.com/o/<customer-unique-key>`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:`https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE]
-    > Pode obter o URL de Inscrição a partir da aplicação Skills Base. Faça login como Administrador e para ir aos detalhes > definições da Administra >ção -> link de atalho. Copie o URL de Início de Sinal e cole-o em caixa de texto acima.
+    > Pode obter o URL de inscrição na base de competências. Faça login como Administrador e vá para detalhes > de > De Definições > Dedmin-> - > atalho. Copie o URL de inscrição e cole-o na caixa de texto acima.
 
-5. Na configuração de um único sign-on com a página **SAML,** na secção Certificado de **Assinatura SAML,** clique em **Baixar** para descarregar o **Federation Metadata XML** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
 
-    ![O link de descarregamento do Certificado](common/metadataxml.png)
+    ![O link de descarregamento de certificado](common/metadataxml.png)
 
-6. Na secção **'Base de Competências' configurar,** copie os URL(s) adequados de acordo com o seu requisito.
+6. Na secção **Base de Competências configurada,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de Inicio de Sessão
 
-    b. Identificador Azure AD
+    b. Identificador de Azure Ad
 
     c. Logout URL
 
-### <a name="configure-skills-base-single-sign-on"></a>Configure Skills Base Single Sign-On
+### <a name="configure-skills-base-single-sign-on"></a>Configure competências base único sign-on
 
-1. Numa janela de navegador web diferente, inicie sessão na Skills Base como Administrador de Segurança.
+1. Numa janela diferente do navegador web, faça login na Base de Competências como Administrador de Segurança.
 
-2. Do lado esquerdo do menu, sob o clique **ADMIN** **Autenticação**.
+2. Do lado esquerdo do menu, em **ADMIN** clique em **Autenticação.**
 
     ![O administrador](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
 
-3. Na página de **Autenticação,** selecione Single Sign-On como **SAML 2**.
+3. Na página de **autenticação,** selecione Single Sign-On como **SAML 2**.
 
-    ![O único](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![O single](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
-4. Na página de **autenticação,** execute os seguintes passos:
+4. Na Página de **Autenticação,** Execute os seguintes passos:
 
-    ![O único](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![O single](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
-    a. Clique no botão de **metadados IdP update** ao lado da opção **Status** e colhe o conteúdo do Metadata XML que descarregou do portal Azure na caixa de texto especificada.
+    a. Clique no botão **de metadados IdP** de atualização ao lado da opção **Status** e cole o conteúdo do Metadadata XML que descarregou a partir do portal Azure na caixa de texto especificada.
 
     > [!Note]
-    > Também pode validar metadados IDP através da ferramenta **validadora metadados,** conforme realçado em screenshot acima.
+    > Também pode validar metadados de idp através da ferramenta **validador de metadados,** como realçado na imagem acima.
 
-    b. Clique em **Guardar**.
+    b. Clique em **Save** (Guardar).
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
-    ![As ligações "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
+    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
 2. Selecione **Novo utilizador** na parte superior do ecrã.
 
@@ -162,22 +165,22 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 3. Nas propriedades do Utilizador, execute os seguintes passos.
 
-    ![A caixa de diálogo do Utilizador](common/user-properties.png)
+    ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entrar **BrittaSimon.**
+    a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No tipo de campo de **nome do utilizador****brittasimon@yourcompanydomain.extension**  
+    b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione Mostrar a caixa de verificação de **palavra-passe** e, em seguida, anote o valor que está apresentado na caixa password.
+    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Create** (Criar).
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, permite que Britta Simon utilize um único sign-on Azure, concedendo acesso à Skills Base.
+Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Base de Competências.
 
-1. No portal Azure, selecione **Aplicações Empresariais,** selecione **Todas as aplicações,** em seguida, selecione **Skills Base**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Skills Base**.
 
     ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
 
@@ -187,35 +190,35 @@ Nesta secção, permite que Britta Simon utilize um único sign-on Azure, conced
 
 3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
-    ![O link "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique no botão **adicionar** utilizador e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
 
-    ![O painel de atribuição adicionar](common/add-assign-user.png)
+    ![O painel de atribuição de adição](common/add-assign-user.png)
 
-5. Nos **utilizadores e grupos** de diálogo selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-6. Se estiver à espera de algum valor de papel na afirmação do SAML, então no diálogo **Select Role** selecione a função apropriada para o utilizador da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-7. No diálogo **adicionar atribuição** clique no botão **Atribuir.**
+7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
-### <a name="create-skills-base-test-user"></a>Criar o utilizador de teste de Base de Competências
+### <a name="create-skills-base-test-user"></a>Criar utilizador de teste base de competências
 
-Nesta secção, um utilizador chamado Britta Simon é criado na Skills Base. A Skills Base suporta o fornecimento de utilizadores just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Skills Base, um novo é criado após a autenticação.
+Nesta secção, um utilizador chamado Britta Simon é criado na Skills Base. A Skills Base suporta o fornecimento de utilizadores just-in-time, o que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir na Base de Competências, um novo é criado após a autenticação.
 
 > [!Note]
-> Se precisar de criar um utilizador manualmente, siga as instruções [aqui](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
+> Se necessitar de criar um utilizador manualmente, siga as instruções [aqui](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, testa a configuração de um único sinal do Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Skills Base no Painel de Acesso, deve ser automaticamente inscrito na Base de Competências para a qual configura o SSO. Para mais informações sobre o Painel de Acesso, consulte [introdução ao Painel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)de Acesso .
+Quando clicar no azulejo Skills Base no Painel de Acesso, deverá ser automaticamente inscrito na Base de Competências para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de Tutoriais sobre Como Integrar Apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

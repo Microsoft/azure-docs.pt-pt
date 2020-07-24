@@ -1,5 +1,5 @@
 ---
-title: Amostra de script Azure PowerShell - Eliminar recipientes por prefixo Microsoft Docs
+title: Amostra de script Azure PowerShell - Eliminar contentores por prefixo Microsoft Docs
 description: Elimine contentores de blobs do Armazenamento do Azure com base num prefixo do nome do contentor.
 services: storage
 author: tamram
@@ -9,16 +9,16 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 73c2f221d2ac0b3ceb76e3db0fdc6379a6dd330a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6069c51b27d7f8f11155a72613c04566d1c7b64d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80060887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006097"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminar contentores com base no prefixo do nome do contentor
 
-Este script elimina os recipientes no armazenamento do Azure Blob com base num prefixo no nome do recipiente.
+Este script elimina os recipientes no armazenamento Azure Blob com base num prefixo no nome do recipiente.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -44,10 +44,10 @@ Este script utiliza os seguintes comandos para eliminar contentores com base no 
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtém uma conta de Armazenamento especificada ou todas as contas de Armazenamento num grupo de recursos ou na subscrição. |
 | [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Lista os recipientes de armazenamento associados a uma conta de armazenamento. |
-| [Recipiente de armazenamento remove-Az](/powershell/module/az.storage/Remove-AzStorageContainer) | Remove o recipiente de armazenamento especificado. |
+| [Remover-AzStorageContainer](/powershell/module/az.storage/Remove-AzStorageContainer) | Remove o recipiente de armazenamento especificado. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver exemplos adicionais de scripts de armazenamento do PowerShell em [PowerShell samples for Azure Blob storage](../blobs/storage-samples-blobs-powershell.md) (Exemplos do PowerShell para o armazenamento de Blobs do Azure).

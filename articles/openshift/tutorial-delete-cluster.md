@@ -2,16 +2,17 @@
 title: Tutorial - Apagar um aglomerado Azure Red Hat OpenShift
 description: Neste tutorial, aprenda a apagar um cluster Azure Red Hat OpenShift usando o Azure CLI
 author: sakthi-vetrivel
+ms.custom: fasttrack-edit
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fdc36dbf270be61457dcd00dd1988808a80d062
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82232143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030101"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Apagar um aglomerado de chapéu vermelho Azure OpenShift 4
 
@@ -21,7 +22,7 @@ Neste tutorial, parte três de três, é eliminado um cluster Azure Red Hat Open
 > * Eliminar um cluster do Azure Red Hat OpenShift
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Em tutoriais anteriores, um cluster Azure Red Hat OpenShift foi criado e ligado à utilização da consola web OpenShift. Se não tiver feito estes passos, e gostaria de seguir em frente, comece com [Tutorial 1 - Crie um Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
 
@@ -49,7 +50,7 @@ RESOURCE_GROUP=yourresourcegroup
 Utilizando estes valores, elimine o seu cluster:
 
 ```bash
-az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
+az aro delete --resource-group $RESOURCE_GROUP --name $CLUSTER
 ```
 
 Em seguida, será solicitado que confirme se deseja eliminar o cluster. Depois de `y` confirmar, levará vários minutos para apagar o cluster. Quando o comando terminar, todo o grupo de recursos e todos os recursos dentro dele - incluindo o cluster - serão eliminados.
