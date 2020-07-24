@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
-ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fa7fe6b16b7ba97b8ce5e6697f1aaaf88aa294
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67305218"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091900"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclip um vídeo ao codificar com os Media Services - .NET
 
-Pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidade funciona com qualquer [Transform](https://docs.microsoft.com/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)
+Pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](/rest/api/media/jobs). Esta funcionalidade funciona com qualquer [Transform](/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](/rest/api/media/transforms/createorupdate#standardencoderpreset)
 
 O exemplo C# a seguir cria um trabalho que apara um vídeo num Ativo à medida que apresenta um trabalho de codificação. 
 
@@ -30,7 +30,7 @@ O exemplo C# a seguir cria um trabalho que apara um vídeo num Ativo à medida q
 
 Para completar os passos descritos neste tópico, tem de:
 
-- [Criar uma conta Azure Media Services](create-account-cli-how-to.md)
+- [Criar uma conta Azure Media Services](./create-account-howto.md)
 - Criar uma Transformação e uma entrada e saída Ativos. Pode ver como criar um Transform e inserir e produzir Ativos no [Upload, codificar e transmitir vídeos usando o tutorial .NET.](stream-files-tutorial-with-api.md)
 - Reveja o tópico do [conceito de codificação.](encoding-concept.md)
 

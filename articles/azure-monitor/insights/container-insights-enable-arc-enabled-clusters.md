@@ -3,12 +3,12 @@ title: Configure Azure Arc permitiu o agrupamento kubernetes com monitor Azure p
 description: Este artigo descreve como configurar a monitorização com o Azure Monitor para contentores em Azure Arc ativados aglomerados kubernetes.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261057"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092886"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Permitir a monitorização do cluster Kubernetes habilitado pelo Arco Azure
 
@@ -63,7 +63,7 @@ Antes de começar, certifique-se de que tem o seguinte:
     >[!IMPORTANT]
     >A versão de agente mínimo suportada para monitorizar os clusters Kubernetes ativados pelo Arco é ciprod04162020 ou mais tarde.
 
-- [O PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) é necessário se ativar a monitorização utilizando o método scripted PowerShell.
+- [O PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) é necessário se ativar a monitorização utilizando o método scripted PowerShell.
 
 - [A versão bash 4](https://www.gnu.org/software/bash/) é necessária se ativar a monitorização utilizando o método de escrita Bash.
 
@@ -232,7 +232,7 @@ Especifique o nome de utilizador e a palavra-passe, o endereço IP ou fQDN e o n
 export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster Kubernetes ativado pelo Arco e cargas de trabalho em execução, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
 

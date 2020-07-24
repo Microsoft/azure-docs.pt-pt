@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: 44095cb85c62fd40032263d96ad678bdeb5effc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4c60d6a3facd49f08749b2b3f4b01242d3844c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091798"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido dos subsistemas DRM 
 
 Este tópico discute o design híbrido dos subsistemas DRM utilizando os Azure Media Services.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Azure Media Services presta suporte para os seguintes três sistemas DRM:
 
@@ -95,7 +95,7 @@ Através da configuração de uma política de entrega de ativos, pode controlar
 
 Com base nas explicações na secção anterior, os **Content key**seguintes cinco cenários híbridos utilizam as - respetivas combinações de configuração da política de**entrega de ativos** (as amostras mencionadas na última coluna seguem a tabela):
 
-|**Conteúdo que hospeda & origem**|**Encriptação DRM**|**Entrega de licença DRM**|**Chave de conteúdo de configuração**|**Configure a política de entrega de ativos**|**Amostra**|
+|**Conteúdo que hospeda & origem**|**Encriptação DRM**|**Entrega de licença DRM**|**Chave de conteúdo de configuração**|**Configure a política de entrega de ativos**|**Sample**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Sim|Sim|Exemplo 1|
 |AMS|AMS|Terceiros|Sim|Sim|Exemplo 2|
@@ -103,7 +103,7 @@ Com base nas explicações na secção anterior, os **Content key**seguintes cin
 |AMS|Terceiros|Lá fora|Não|Não|Exemplo 4|
 |Terceiros|Terceiros|AMS|Yes|No|    
 
-Nas amostras, a proteção PlayReady funciona tanto para o DASH como para o streaming suave. Os URLs de vídeo abaixo são URLs de streaming suaves. Para obter os URLs DASH correspondentes, basta anexar "(formato=mpd-time-csf)". Você poderia usar o leitor [de teste de mídia azul](https://aka.ms/amtest) para testar em um navegador. Permite-lhe configurar qual o protocolo de streaming a utilizar, segundo o qual a tecnologia. IE11 e Microsoft Edge no Suporte do Windows 10 PlayReady através do EME. Para mais informações, consulte [detalhes sobre a ferramenta de teste.](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/)
+Nas amostras, a proteção PlayReady funciona tanto para o DASH como para o streaming suave. Os URLs de vídeo abaixo são URLs de streaming suaves. Para obter os URLs DASH correspondentes, basta anexar "(formato=mpd-time-csf)". Você poderia usar o leitor [de teste de mídia azul](https://aka.ms/amtest) para testar em um navegador. Permite-lhe configurar qual o protocolo de streaming a utilizar, segundo o qual a tecnologia. IE11 e Microsoft Edge no Suporte do Windows 10 PlayReady através do EME. Para mais informações, consulte [detalhes sobre a ferramenta de teste.](/azure/media-services/previous/offline-playready-streaming-windows-10)
 
 ### <a name="sample-1"></a>Exemplo 1
 
@@ -142,4 +142,3 @@ Ver caminhos de aprendizagem dos Serviços de Comunicação Social.
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

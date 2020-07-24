@@ -4,11 +4,12 @@ description: Introdução rápida aos cmdlets do Azure PowerShell que pode utili
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6108ac9c9f5f10de69369d7aed31cd0ce317044e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c80da92c7acad5180c763d259357f5369f225f7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83779613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092784"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerir os recursos do Batch com os cmdlets do PowerShell
 
@@ -20,7 +21,7 @@ Este artigo baseia-se em cmdlets no módulo Az Batch 1.0.0. Recomendamos que atu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instale e configure o módulo do Azure PowerShell](/powershell/azure/overview). Para instalar um módulo específico do Azure Batch, como um módulo de pré-lançamento, veja a [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+* [Instale e configure o módulo do Azure PowerShell](/powershell/azure/). Para instalar um módulo específico do Azure Batch, como um módulo de pré-lançamento, veja a [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
 * Executar o cmdlet **Connect-AzAccount** para ligar à sua subscrição (o navio cmdlets Azure Batch no módulo Azure Resource Manager):
 
@@ -292,7 +293,7 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 > [!TIP]
 > Pode implementar vários pacotes de aplicações nos nós de computação num conjunto. Se pretender *adicionar* um pacote de aplicação ao invés de substituir os pacotes implementados atualmente, omita a linha `$pool.ApplicationPackageReferences.Clear()` acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter exemplos e a sintaxe detalhada dos cmdlets, veja a [Referência de cmdlets do Azure Batch](/powershell/module/az.batch).
 * Para obter mais informações sobre as aplicações e os pacotes de aplicações no Batch, veja [Implementar aplicações em nós de computação com pacotes de aplicações do Batch](batch-application-packages.md).

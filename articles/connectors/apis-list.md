@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 48d9990115a0e786d12915acf1eaadc196a00b0b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c9ece4860f8babba110da8536e5028f337fbc772
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092954"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps
 
@@ -235,7 +235,7 @@ Conecte-se aos servidores SFTP que pode aceder a partir da internet utilizando o
 
 Ligue-se ao SharePoint Online para que possa gerir ficheiros, anexos, pastas e muito mais.
 
-[![Ícone API ][dynamics-365-icon]<br> **Dynamics 365 <br> **][dynamics-365-doc]
+[! [Ícone da API] [dinâmico-365 ícone]<br>**Dinâmica 365 <br> **] [dinâmica-365-doc]
 
 Ligue-se à sua conta Dynamics 365 para que possa criar e gerir registos, itens e muito mais.
 
@@ -259,14 +259,9 @@ Consumir e publicar eventos através de um Centro de Eventos. Por exemplo, utili
 
 Monitorize eventos publicados por uma Grade de Eventos, por exemplo, quando os recursos do Azure ou recursos de terceiros mudam.
 
-
 [![Ícone da API ][salesforce-icon]<br> **Salesforce**][salesforce-doc]
 
 Ligue-se à sua conta Salesforce para que possa criar e gerir itens como registos, empregos, objetos e muito mais.
-
-[![Twitter ícone da API ][twitter-icon]<br> **Twitter**][twitter-doc]
-
-Ligue-se à sua conta de Twitter para que possa gerir tweets, seguidores, a sua linha temporal e muito mais. Guarde os tweets no SQL, Excel ou SharePoint.
 
 <a name="on-premises-connectors"></a>
 
@@ -400,7 +395,7 @@ Para obter mais informações, veja estes tópicos:
 
 ## <a name="triggers-and-action-types"></a>Gatilhos e tipos de ação
 
-Os conectores podem fornecer *gatilhos,* *ações,* ou ambos. Um *gatilho* é o primeiro passo em qualquer aplicação lógica, especificando normalmente o evento que dispara o gatilho e começa a executar a sua aplicação lógica. Por exemplo, o conector FTP tem um gatilho que inicia a sua aplicação lógica "quando um ficheiro é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou dados especificados e depois disparam quando detetam o evento ou dados especificados. Outros gatilhos esperam, mas disparam instantaneamente quando um evento específico acontece ou quando novos dados estão disponíveis. Os gatilhos também transmitem todos os dados necessários para a sua aplicação lógica. A sua aplicação lógica pode ler e usar esses dados em todo o fluxo de trabalho. Por exemplo, o conector do Twitter tem um gatilho, "Quando um novo tweet é publicado", que transmite o conteúdo do tweet para o fluxo de trabalho da sua aplicação lógica.
+Os conectores podem fornecer *gatilhos,* *ações,* ou ambos. Um *gatilho* é o primeiro passo em qualquer aplicação lógica, especificando normalmente o evento que dispara o gatilho e começa a executar a sua aplicação lógica. Por exemplo, o conector FTP tem um gatilho que inicia a sua aplicação lógica "quando um ficheiro é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou dados especificados e depois disparam quando detetam o evento ou dados especificados. Outros gatilhos esperam, mas disparam instantaneamente quando um evento específico acontece ou quando novos dados estão disponíveis. Os gatilhos também transmitem todos os dados necessários para a sua aplicação lógica. A sua aplicação lógica pode ler e usar esses dados em todo o fluxo de trabalho. Por exemplo, o conector do Office 365 Outlook tem um gatilho, "Quando um novo e-mail chega", que pode passar o conteúdo desse e-mail para o fluxo de trabalho da sua aplicação lógica.
 
 Depois de um gatilho, a Azure Logic Apps cria uma instância da sua aplicação lógica e começa a executar as *ações* no fluxo de trabalho da sua aplicação lógica. As ações são os passos que seguem o gatilho e executam tarefas no fluxo de trabalho da sua aplicação lógica. Por exemplo, pode criar uma aplicação lógica que obtém dados do cliente a partir de uma base de dados SQL e processar esses dados em ações posteriores.
 
@@ -416,7 +411,7 @@ Aqui estão os tipos gerais de gatilhos que a Azure Logic Apps fornece:
 
 ## <a name="connector-configuration"></a>Configuração do conector
 
-Os gatilhos e ações de cada conector fornecem as suas próprias propriedades para que possa configurar. Muitos conectores também exigem que crie primeiro uma *ligação* ao serviço ou sistema alvo e forneça credenciais de autenticação ou outros detalhes de configuração antes de poder usar um gatilho ou ação na sua aplicação lógica. Por exemplo, deve autorizar uma ligação a uma conta do Twitter para aceder a dados ou para publicar em seu nome.
+Os gatilhos e ações de cada conector fornecem as suas próprias propriedades para que possa configurar. Muitos conectores também exigem que crie primeiro uma *ligação* ao serviço ou sistema alvo e forneça credenciais de autenticação ou outros detalhes de configuração antes de poder usar um gatilho ou ação na sua aplicação lógica. Por exemplo, antes de poder aceder e trabalhar com a sua conta de e-mail office 365 Outlook, tem de autorizar uma ligação a essa conta.
 
 Para conectores que utilizam OAuth Azure Ative Directory (Azure AD), criar uma ligação significa iniciar sessão no serviço, como o Office 365, Salesforce ou GitHub, onde o seu token de acesso é [encriptado](../security/fundamentals/encryption-overview.md) e armazenado de forma segura numa loja secreta Azure. Outros conectores, como FTP e SQL, requerem uma ligação que tenha detalhes de configuração, tais como o endereço do servidor, nome de utilizador e senha. Estes detalhes de configuração de ligação também são encriptados e armazenados de forma segura. Saiba mais sobre [encriptação em Azure.](../security/fundamentals/encryption-overview.md)
 
@@ -479,6 +474,7 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [azure-cognitive-services-text-analytics-icon]: ./media/apis-list/azure-cognitive-services-text-analytics.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-devops-icon]: ./media/apis-list/azure-devops.png
 [azure-document-db-icon]: ./media/apis-list/azure-document-db.png
 [azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
 [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
@@ -497,15 +493,11 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [bitly-icon]: ./media/apis-list/bitly.png
 [biztalk-server-icon]: ./media/apis-list/biztalk.png
 [blogger-icon]: ./media/apis-list/blogger.png
-[box-icon]: ./media/apis-list/box.png
 [campfire-icon]: ./media/apis-list/campfire.png
 [common-data-service-icon]: ./media/apis-list/common-data-service.png
-[dropbox-icon]: ./media/apis-list/dropbox.png
-[dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
 [dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
 [dynamics-365-operations-icon]: ./media/apis-list/dynamics-365-operations.png
 [easy-redmine-icon]: ./media/apis-list/easyredmine.png
-[facebook-icon]: ./media/apis-list/facebook.png
 [file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [github-icon]: ./media/apis-list/github.png
@@ -522,11 +514,9 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [instagram-icon]: ./media/apis-list/instagram.png
 [instapaper-icon]: ./media/apis-list/instapaper.png
 [jira-icon]: ./media/apis-list/jira.png
-[mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
 [mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office-365.png
-[office-365-users-icon]: ./media/apis-list/office-365-users.png
 [onedrive-icon]: ./media/apis-list/onedrive.png
 [onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
 [oracle-db-icon]: ./media/apis-list/oracle-db.png
@@ -536,7 +526,6 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [postgre-sql-icon]: ./media/apis-list/postgre-sql.png
 [project-online-icon]: ./media/apis-list/projecton-line.png
 [redmine-icon]: ./media/apis-list/redmine.png
-[rss-icon]: ./media/apis-list/rss.png
 [salesforce-icon]: ./media/apis-list/salesforce.png
 [sap-icon]: ./media/apis-list/sap.png
 [send-grid-icon]: ./media/apis-list/sendgrid.png
@@ -550,13 +539,9 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [sql-server-icon]: ./media/apis-list/sql.png
 [teradata-icon]: ./media/apis-list/teradata.png
 [todoist-icon]: ./media/apis-list/todoist.png
-[trello-icon]: ./media/apis-list/trello.png
 [twilio-icon]: ./media/apis-list/twilio.png
-[twitter-icon]: ./media/apis-list/twitter.png
 [vimeo-icon]: ./media/apis-list/vimeo.png
-[visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
 [wordpress-icon]: ./media/apis-list/wordpress.png
-[yammer-icon]: ./media/apis-list/yammer.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
 <!-- Enterprise Integration Pack icons -->
@@ -614,15 +599,10 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Ligue-se ao Armazém de Dados Azure SQL para que possa ver os seus dados"
 [azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Conecte-se à sua conta de Armazenamento Azure para que possa criar, atualizar e consultar tabelas e muito mais"
 [biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Conecte-se ao seu Servidor BizTalk para que possa executar aplicações baseadas no BizTalk lado a lado com apps Azure Logic"
-[box-doc]: ./connectors-create-api-box.md "Ligue-se ao Box. Carregar, obter, eliminar, listar os seus ficheiros e muito mais"
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Ligue-se ao Dropbox. Carregar, obter, eliminar, listar os seus ficheiros e muito mais"
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Ligue-se à Dynamics CRM Online para que possa trabalhar com dados CRM Online"
-[facebook-doc]: ./connectors-create-api-facebook.md "Ligue-se ao Facebook. Poste para uma linha do tempo, obtenha um feed de página, e muito mais"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Ligue a um sistema de ficheiros no local"
 [ftp-doc]: ./connectors-create-api-ftp.md "Ligue a um servidor FTP / FTPS e para tarefas de FTP, como carregar, obter, eliminar ficheiros, entre outras"
 [github-doc]: ./connectors-create-api-github.md "Ligue o GitHub e controle problemas"
 [google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Conecta-se ao Calendário do Google e pode gerir calendário"
-[google-drive-doc]: ./connectors-create-api-googledrive.md "Ligue-se ao GoogleDrive para que possa trabalhar com os seus dados"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Ligue-se ao Google Sheets para que possa modificar as suas folhas"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Conecta-se às Tarefas do Google para que possa gerir as suas tarefas"
 [ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Ligue-se a 3270 aplicações em mainframes da IBM"
@@ -630,18 +610,14 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Ligue-se ao Informix na nuvem ou no local. Leia uma linha, liste as tabelas, e muito mais"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Ligue-se à IBM MQ no local ou em Azure para enviar e receber mensagens"
 [instagram-doc]: ./connectors-create-api-instagram.md "Ligue-se ao Instagram. Desencadear ou agir em eventos"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Ligue-se à sua conta MailChimp. Gerir e automatizar e-mails"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Ligue ao Mandrill para comunicação"
 [mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Ligue-se à base de dados MySQL no local para que possa ler e escrever dados"
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conecte-se à sua conta Office 365 para que possa enviar e receber e-mails, gerir o seu calendário e contactos, entre outros"
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Conecte-se ao seu Microsoft OneDrive pessoal para que possa carregar, eliminar, listar ficheiros e muito mais"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Conecte-se ao seu negócio Microsoft OneDrive para que possa carregar, eliminar, listar os seus ficheiros e muito mais"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Ligue-se a uma base de dados Oráculo para que possa adicionar, inserir, eliminar linhas e muito mais"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "Conecte-se à sua caixa de correio do Outlook para que possa gerir o seu email, calendários, contactos e muito mais"
 [postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Ligue-se à sua base de dados PostgreSQL para que possa ler dados a partir de tabelas"
-[project-online-doc]: ./connectors-create-api-projectonline.md "Conecte-se ao Microsoft Project Online para que possa gerir os seus projetos, tarefas, recursos e muito mais"
-[rss-doc]: ./connectors-create-api-rss.md "Publicar e recuperar itens de alimentação, desencadear operações quando um novo item é publicado num feed RSS"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Ligue-se à sua conta Salesforce. Gerir contas, leads, oportunidades e muito mais"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Ligue a um sistema SAP no local"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "Ligue-se a SendGrid. Enviar e-mail e gerir listas de destinatários"
@@ -653,10 +629,7 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Ligue ao SparkPost para comunicação"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Ligue-se à Base de Dados Azure SQL ou ao SQL Server. Criar, atualizar, obter e apagar entradas numa tabela de base de dados SQL"
 [teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Ligue-se à sua base de dados Teradata para ler dados a partir de tabelas"
-[trello-doc]: ./connectors-create-api-trello.md "Ligue-se a Trello. Gerencie os seus projetos e organize qualquer coisa com qualquer um"
 [twilio-doc]: ./connectors-create-api-twilio.md "Ligue-se a Twilio. Enviar e receber mensagens, obter números disponíveis, gerir números de telefone de entrada, e muito mais"
-[twitter-doc]: ./connectors-create-api-twitter.md "Ligue-se ao Twitter. Obtenha cronologias, post tweets e muito mais"
-[yammer-doc]: ./connectors-create-api-yammer.md "Liga-te ao Yammer. Poste mensagens, receba novas mensagens, e muito mais"
 [youtube-doc]: ./connectors-create-api-youtube.md "Ligue-se ao YouTube. Gerencie os seus vídeos e canais"
 
 <!--Enterprise Intregation Pack doc links-->

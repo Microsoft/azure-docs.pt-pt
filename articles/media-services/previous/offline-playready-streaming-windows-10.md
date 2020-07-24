@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 001d408eaa7ce637bd7cc1f1183dd8748cddf539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d8e637cd3691e7b1acf1988efe40fc80561a183
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189527"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091679"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Offline PlayReady Streaming for Windows 10 (Transmissão em Fluxo Offline do PlayReady para Windows 10)  
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
-> * [Versão 3](../latest/offline-plaready-streaming-for-windows-10.md)
+> * [Versão 3](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [Versão 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services suporta descarregamento/reprodução offline com proteção DRM. Este artigo abrange suporte offline da Azure Media Services para clientes Windows 10/PlayReady. Pode ler sobre o suporte ao modo offline para dispositivos iOS/FairPlay e Android/Widevine nos seguintes artigos:
 
 - [Offline FairPlay Streaming for iOS](media-services-protect-hls-with-offline-fairplay.md) (Transmissão Offline do FairPlay para iOS)
 - [Streaming de Widevine offline para Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Esta secção dá algum fundo na reprodução do modo offline, especialmente por que:
 
@@ -48,7 +48,7 @@ O desafio que enfrentamos na implementação do modo offline é o seguinte:
 * O MP4 é suportado por muitos intervenientes, ferramentas codificantes, mas não existe ligação entre o contentor MP4 e o DRM;
 * A longo prazo, cff com CENC é o caminho a seguir. No entanto, hoje em dia, o ecossistema de suporte de ferramentas/jogador ainda não está lá. Precisamos de uma solução, hoje.
  
-A ideia é: o formato de ficheiro de streaming suave[(PIFF)](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)com H264/AAC tem uma ligação com o PlayReady (AES-128 CTR). O ficheiro de streaming suave individual .ismv (assumindo que o áudio é usado em vídeo) é em si um fMP4 e pode ser usado para reprodução. Se um conteúdo de streaming suave passar pela encriptação PlayReady, cada ficheiro .ismv torna-se um MP4 fragmentado protegido do PlayReady. Podemos escolher um ficheiro .ismv com o bitrate preferido e renomeá-lo como .mp4 para download.
+A ideia é: o formato de ficheiro de streaming suave[(PIFF)](/iis/media/smooth-streaming/protected-interoperable-file-format)com H264/AAC tem uma ligação com o PlayReady (AES-128 CTR). O ficheiro de streaming suave individual .ismv (assumindo que o áudio é usado em vídeo) é em si um fMP4 e pode ser usado para reprodução. Se um conteúdo de streaming suave passar pela encriptação PlayReady, cada ficheiro .ismv torna-se um MP4 fragmentado protegido do PlayReady. Podemos escolher um ficheiro .ismv com o bitrate preferido e renomeá-lo como .mp4 para download.
 
 Existem duas opções para hospedar o MP4 protegido do PlayReady para download progressivo:
 

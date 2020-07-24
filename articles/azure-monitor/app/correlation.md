@@ -7,11 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: tracking-python
-ms.openlocfilehash: ca186fa62605953bfb90c1a4669fc8283eb78469
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 432ff655ef072d491227d297e620612203f73d3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092988"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -301,15 +302,15 @@ Quando este código é executado, as seguintes impressões na consola:
 ```
 Note que há um `spanId` presente para a mensagem de registo que está dentro do intervalo. Isto é o mesmo `spanId` que pertence ao período chamado `hello` .
 
-Pode exportar os dados de registo utilizando `AzureLogHandler` . Para obter mais informações, consulte [este artigo](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs).
+Pode exportar os dados de registo utilizando `AzureLogHandler` . Para obter mais informações, consulte [este artigo](./opencensus-python.md#logs).
 
 ## <a name="telemetry-correlation-in-net"></a>Correlação de telemetria em .NET
 
 Ao longo do tempo, .NET definiu várias formas de correlacionar registos de telemetria e diagnósticos:
 
-- `System.Diagnostics.CorrelationManager`permite o rastreio da [LogicalOperationStack e activityId.](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx)
-- `System.Diagnostics.Tracing.EventSource`e O Rastreio de Eventos para Windows (ETW) define o método [SetCurrentThreadActivityId.](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx)
-- `ILogger`utiliza [miras de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes).
+- `System.Diagnostics.CorrelationManager`permite o rastreio da [LogicalOperationStack e activityId.](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1)
+- `System.Diagnostics.Tracing.EventSource`e O Rastreio de Eventos para Windows (ETW) define o método [SetCurrentThreadActivityId.](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads)
+- `ILogger`utiliza [miras de log](/aspnet/core/fundamentals/logging#log-scopes).
 - A Windows Communication Foundation (WCF) e a HTTP ligam a propagação do contexto "atual".
 
 Mas esses métodos não permitiram o suporte automático de rastreio distribuído. `DiagnosticSource`suporta a correlação automática entre máquinas. .NET as bibliotecas `DiagnosticSource` suportam e permitem a propagação automática do contexto de correlação através do transporte, tais como HTTP.
@@ -327,7 +328,7 @@ A Aplicação Insights SDK, a começar pela versão 2.4.0-beta1, utiliza `Diagno
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Correlação de telemetria em Java
 
-[O agente Java,](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) bem como a versão [Java SDK](../../azure-monitor/app/java-get-started.md) 2.0.0 ou posteriormente suportam a correlação automática de telemetria. Ele povoa automaticamente `operation_id` para toda a telemetria (como vestígios, exceções e eventos personalizados) emitidos no âmbito de um pedido. Também propaga os cabeçalhos de correlação (descritos anteriormente) para chamadas de serviço-a-serviço via HTTP, se o [agente Java SDK](../../azure-monitor/app/java-agent.md) estiver configurado.
+[O agente Java,](./java-in-process-agent.md) bem como a versão [Java SDK](../../azure-monitor/app/java-get-started.md) 2.0.0 ou posteriormente suportam a correlação automática de telemetria. Ele povoa automaticamente `operation_id` para toda a telemetria (como vestígios, exceções e eventos personalizados) emitidos no âmbito de um pedido. Também propaga os cabeçalhos de correlação (descritos anteriormente) para chamadas de serviço-a-serviço via HTTP, se o [agente Java SDK](../../azure-monitor/app/java-agent.md) estiver configurado.
 
 > [!NOTE]
 > Application Insights Java agente coleta automaticamente pedidos e dependências para JMS, Kafka, Netty/Webflux, e muito mais. Para Java SDK apenas as chamadas feitas via Apache HttpClient são suportadas para a função de correlação. A propagação automática do contexto através de tecnologias de mensagens (como Kafka, RabbitMQ e Azure Service Bus) não é suportada no SDK. 
@@ -369,7 +370,7 @@ A Aplicação Insights SDK, a começar pela versão 2.4.0-beta1, utiliza `Diagno
 
   O Arranque de Arranque de Mola atribui automaticamente `cloudRoleName` ao valor que introduz para a `spring.application.name` propriedade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Escreva [telemetria personalizada.](../../azure-monitor/app/api-custom-events-metrics.md)
 - Para cenários de correlação avançados em ASP.NET Core e ASP.NET, consulte [as operações personalizadas track](custom-operations-tracking.md).

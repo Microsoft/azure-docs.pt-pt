@@ -8,11 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092733"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
 Quando cria um Serviço cloud, o Azure atribui-o a um subdomínio de **cloudapp.net**. Por exemplo, se o seu Serviço cloud estiver nomeado "contoso", os seus utilizadores poderão aceder à sua aplicação num URL como `http://contoso.cloudapp.net` . O Azure também atribui um endereço IP virtual.
@@ -42,7 +43,7 @@ Um registo CNAME mapeia um domínio *específico,* como **contoso.com** ou **www
 > [!NOTE]
 > Alguns registradores de domínio só permitem mapear subdomínios quando utilizar um registo CNAME, como www \. contoso.com, e não nomes de raiz, como contoso.com. Para obter mais informações sobre os registos cname, consulte a documentação fornecida pelo seu registo, [a entrada na Wikipédia no registo CNAME](https://en.wikipedia.org/wiki/CNAME_record), ou o [documento IETF Domain Names - Implementation and Specification.](https://tools.ietf.org/html/rfc1035)
 
-### <a name="a-record"></a>Um recorde
+### <a name="a-record"></a>Um registo
 Um registo *A* mapeia um domínio, como **contoso.com** ou **www \. contoso.com**, *ou um domínio wildcard* como ** \* .contoso.com**, para um endereço IP. No caso de um Azure Cloud Service, o IP virtual do serviço. Assim, o principal benefício de um registo A sobre um registo CNAME é que você pode ter uma entrada que usa um wildcard, como \* **.contoso.com**, que lidaria com pedidos de vários sub-domínios como **mail.contoso.com**, **login.contoso.com**, ou **www \. contso.com**.
 
 > [!NOTE]
@@ -62,7 +63,7 @@ Para criar um registo CNAME, deve adicionar uma nova entrada na tabela DNS para 
        ![secção de olhar rápido mostrando o URL do site][csurl]
 
        **OU**
-   * Instale e configuure [Azure Powershell](/powershell/azure/overview), e, em seguida, use o seguinte comando:
+   * Instale e configuure [Azure Powershell](/powershell/azure/), e, em seguida, use o seguinte comando:
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -95,7 +96,7 @@ Para criar um registo A, tem primeiro de encontrar o endereço IP virtual do seu
        ![secção de olhar rápido mostrando o VIP][vip]
 
        **OU**
-   * Instale e configuure [Azure Powershell](/powershell/azure/overview), e, em seguida, use o seguinte comando:
+   * Instale e configuure [Azure Powershell](/powershell/azure/), e, em seguida, use o seguinte comando:
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -122,7 +123,7 @@ Este exemplo demonstra a criação de um registo A para o domínio raiz. Se dese
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Como Mapear Conteúdo da CDN para um Domínio Personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do seu serviço na nuvem](cloud-services-how-to-configure-portal.md).

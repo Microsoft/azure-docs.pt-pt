@@ -13,15 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b112b3844ddb3758b79a086b624a227127e65ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76514328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091883"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclip um vídeo ao codificar com os Media Services - REST
 
-Pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidade funciona com qualquer [Transform](https://docs.microsoft.com/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 
+Pode aparar ou subclipar um vídeo ao codificar o vídeo usando um [Trabalho](/rest/api/media/jobs). Esta funcionalidade funciona com qualquer [Transform](/rest/api/media/transforms) que seja construído utilizando as predefinições Predefinidas [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](/rest/api/media/transforms/createorupdate#standardencoderpreset) 
 
 O exemplo REST neste tópico cria um trabalho que apara um vídeo à medida que apresenta um trabalho de codificação. 
 
@@ -29,7 +30,7 @@ O exemplo REST neste tópico cria um trabalho que apara um vídeo à medida que 
 
 Para completar os passos descritos neste tópico, tem de:
 
-- [Criar uma conta Azure Media Services](create-account-cli-how-to.md).
+- [Criar uma conta Azure Media Services](./create-account-howto.md).
 - [Configure Carteiro para Azure Media Services REST Chamadas API](media-rest-apis-with-postman.md).
     
     Certifique-se de seguir o último passo do tema [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
@@ -83,6 +84,6 @@ Para completar os passos descritos neste tópico, tem de:
 
     Vê a **Resposta** com a informação sobre o trabalho que foi criado e submetido e o estado do trabalho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Como codificar com uma transformação personalizada](custom-preset-rest-howto.md) 

@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57839c82af71f7cedfe1b3c77095210d273be4a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705773"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091849"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Faça upload de ficheiros para uma conta de Media Services v3 usando REST
 
-Nos Serviços de Comunicação Social, você envia os seus ficheiros digitais para um recipiente de bolhas associado a um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros). Uma vez que os ficheiros são enviados para o recipiente do ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
+Nos Serviços de Comunicação Social, você envia os seus ficheiros digitais para um recipiente de bolhas associado a um ativo. A entidade [Asset](/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros). Uma vez que os ficheiros são enviados para o recipiente do ativo, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 
 Este artigo mostra-lhe como fazer o upload de um ficheiro local utilizando REST.
 
@@ -60,6 +61,6 @@ Vê a **Resposta** com a informação sobre os URLs do ativo. Copie o primeiro U
 
 Utilize as APIs ou SDKs de armazenamento Azure (por exemplo, o [Rest API](../../storage/common/storage-rest-api-auth.md) de Armazenamento ou [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
+[Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)

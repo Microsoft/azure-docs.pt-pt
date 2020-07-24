@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4a3516d96e397944adcd31628a561a243e178c2d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 433768ddea6e250c66483ec3da4c7737b3538a1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092053"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos de licença e configuração do Apple FairPlay 
 
@@ -84,7 +84,7 @@ Pode utilizar a API dos Serviços de Comunicação Social para configurar licen�
 > [!NOTE]
 > Normalmente, gostaria de configurar as opções de política do FairPlay apenas uma vez, porque só terá um conjunto de certificação e um ASK.
 
-O exemplo a seguir utiliza [os Serviços de Comunicação Social .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) para configurar a licença.
+O exemplo a seguir utiliza [os Serviços de Comunicação Social .NET SDK](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) para configurar a licença.
 
 ```csharp
 private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOptions()

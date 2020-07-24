@@ -3,15 +3,16 @@ title: Utilize métodos diretos em Live Video Analytics em IoT Edge - Azure
 description: Live Video Analytics on IoT Edge expõe vários métodos diretos. Os métodos diretos baseiam-se nas convenções descritas neste tópico.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: b87452de6b12b0335afca5e28abb3ef6adb29157
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091832"
 ---
 # <a name="direct-methods"></a>Métodos diretos
 
-Live Video Analytics on IoT Edge expõe vários métodos diretos que podem ser invocados a partir do IoT Hub. Os métodos diretos representam uma interação de resposta de pedido com um dispositivo semelhante a uma chamada HTTP na medida em que eles sucedem ou falham imediatamente (após um tempo limite especificado pelo utilizador). Esta abordagem é útil para cenários em que o curso de ação imediata é diferente dependendo se o dispositivo foi capaz de responder. Para mais informações, consulte [Compreender e invocar métodos diretos do IoT Hub.](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods)
+Live Video Analytics on IoT Edge expõe vários métodos diretos que podem ser invocados a partir do IoT Hub. Os métodos diretos representam uma interação de resposta de pedido com um dispositivo semelhante a uma chamada HTTP na medida em que eles sucedem ou falham imediatamente (após um tempo limite especificado pelo utilizador). Esta abordagem é útil para cenários em que o curso de ação imediata é diferente dependendo se o dispositivo foi capaz de responder. Para mais informações, consulte [Compreender e invocar métodos diretos do IoT Hub.](../../iot-hub/iot-hub-devguide-direct-methods.md)
 
 Este tópico descreve estes métodos e convenções.
 
@@ -111,7 +112,7 @@ Erro de validações detalhadas, como validações de módulos de gráfico, são
 
 Este método direto recupera uma topologia de gráfico único.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -159,7 +160,7 @@ Aspectos-chave:
     * Os parâmetros removidos não são referenciados por nenhum gráfico
 * Atualizações de topologia não são permitidas se houver gráficos ativos
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -203,7 +204,7 @@ Erros gerais do servidor   |Gama 500  ||
 
 Elimina uma topologia de um único gráfico.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -238,7 +239,7 @@ Elimina uma topologia de um único gráfico.
 
 Recupera uma lista de todas as topologias de gráficos que correspondem aos critérios do filtro.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -286,7 +287,7 @@ Recupera uma lista de todas as topologias de gráficos que correspondem aos crit
 
 |Condição  |Código de estado    |Código de erro detalhado|
 |---|---|---|
-|Êxito|   200 |N/D|
+|Success|   200 |N/D|
 |Erros gerais do utilizador|   Gama 400   ||
 |Erros gerais do servidor| Gama 500   ||
 
@@ -294,7 +295,7 @@ Recupera uma lista de todas as topologias de gráficos que correspondem aos crit
 
 Recupera uma única instância de gráfico:
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -341,7 +342,7 @@ Aspectos-chave:
 * As atualizações de instâncias de gráfico são parcialmente restritas enquanto o gráfico não está no estado "Inativo".
 * As atualizações de instâncias de gráfico não são permitidas em gráficos ativos.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -390,7 +391,7 @@ Aspectos-chave:
 
 * Apenas gráficos desativados podem ser eliminados.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -426,7 +427,7 @@ Aspectos-chave:
 Isto é semelhante ao GraphTopologyList. Permite a utilização para enumerar as instâncias do gráfico.
 Recupera uma lista de todos os casos de gráficos que correspondem aos critérios do filtro.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -473,7 +474,7 @@ Recupera uma lista de todos os casos de gráficos que correspondem aos critério
 
 |Condição  |Código de estado    |Código de erro detalhado|
 |---|---|---|
-|Êxito    |200    |N/D|
+|Success    |200    |N/D|
 |Erros gerais do utilizador|   Gama 400   ||
 |Erros gerais do servidor| Gama 500   ||
 
@@ -492,7 +493,7 @@ Aspectos-chave
     * Iniciar um gráfico no estado de "Ativação" comporta-se da mesma forma que se o gráfico foi desativado (isto é: blocos de chamadas até que o gráfico seja ativado)
     * Ativar um gráfico no estado "Ative" regressa imediatamente com sucesso.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -541,7 +542,7 @@ Aspectos-chave:
     * Desativar um gráfico sobre o estado de "Desativar" comporta-se da mesma forma que se o gráfico fosse desativado (isto é: blocos de chamadas até que o gráfico seja desativado)
     * Desativar um gráfico no estado "Inativo" regressa imediatamente com sucesso.
 
-#### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedido
 
 ```
 {
@@ -572,6 +573,6 @@ Aspectos-chave:
 |O gráfico está em estado de ativação   |409|   OperaçãoNotAllowedInState|
 |Erros gerais do servidor  |Gama 500  ||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Esquema de configuração de Módulo Duplo](module-twin-configuration-schema.md)

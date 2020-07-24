@@ -10,11 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
-ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7522df94a0055af398f1fdbf2050e132f5519eb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77469770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092699"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitar diagnósticos Azure em Serviços cloud Azure
 Consulte [a visão geral do Azure Diagnostics](../azure-diagnostics.md) para obter um fundo sobre O Diagnóstico Azure.
@@ -26,7 +27,7 @@ Este walkthrough descreve como implementar um papel de trabalhador Azure que emi
 Este artigo pressupõe que tem uma subscrição do Azure e está a usar o Visual Studio com o Azure SDK. Se não tiver uma subscrição do Azure, pode inscrever-se no [Teste Gratuito.][Free Trial] Certifique-se de [instalar e configurar a versão Azure PowerShell 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Passo 1: Criar um papel de trabalhador
-1. Inicie o **Visual Studio**.
+1. Lançamento **Visual Studio**.
 2. Crie um projeto **Azure Cloud Service** a partir do modelo **Cloud** que visa .NET Framework 4.5.  Nomeie o projeto "WadExample" e clique em Ok.
 3. Selecione **Função de Trabalhador** e clique em Ok. O projeto será criado.
 4. No **Solution Explorer,** clique duas vezes no ficheiro **propriedades WorkerRole1.**
@@ -199,7 +200,7 @@ Se tiver problemas, consulte [o Troubleshooting Azure Diagnostics](../azure-diag
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/
 
 
 

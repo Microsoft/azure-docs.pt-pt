@@ -3,15 +3,16 @@ title: Guia de inclusão do Programa Microsoft Business Applications Independent
 description: Aqui está como embarcar no Programa isv connect aplicações empresariais.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 6/25/2020
+ms.topic: article
+author: qianw211
 ms.author: dsindona
-ms.openlocfilehash: 37d8c26bd41f06a39d4404c142aef5faa0bf199c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 7/14/2020
+ms.openlocfilehash: 65d18bca4f8f7b5d655d91ece1c9d966311b701b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170246"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092223"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guia de inclusão do Programa Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -38,7 +39,7 @@ A participação neste programa requer que reveja e aceite a [Adenda aplicaçõe
 
 1.  Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard).
 2.  Selecione **Definições** (ícone de engrenagem) e selecione **Definições de programação**.
-3.  Selecione **Acordos**. 
+3.  Selecione **Acordos**.
 4.  Selecione o link de versão e veja o acordo.
 5.  Para concordar e aceitar o acordo, **selecione Aceitar Acordo**.
 
@@ -69,15 +70,14 @@ O passo final para a inscrição no programa IsV Connect aplicações empresaria
 - [Para a Dinâmica 365 para Finanças e Operações](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> Precisa de retificar as suas apps a cada 6 meses para as manter ao vivo no AppSource. Para mais detalhes, consulte a política de [mercado Política de Certificação do Mercado Comercial.](https://docs.microsoft.com/legal/marketplace/certification-policies) 
+> Precisa de recertificar as suas apps a cada 6 meses para as manter ao vivo no AppSource. Para mais detalhes, consulte a política de [mercado Política de Certificação do Mercado Comercial.](https://docs.microsoft.com/legal/marketplace/certification-policies) 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Pergunte ao seu Gestor de Conta ou contacte [o Microsoft Partner Support](https://aka.ms/marketplacepublishersupport) para obter assistência na sua conta. Para obter informações gerais sobre o Programa de Ligação isv de aplicações empresariais, consulte:
 
-- **[Aplicações empresariais para ISVs (artigo online)](https://aka.ms/bizappsisvweb)**
-
-- **[Visão geral do Novo Programa para Aplicações Empresariais ISVs (PDF)](https://aka.ms/bizappsisvprogram)**
-
-- **[Políticas do programa ISV Connect](https://aka.ms/bizappsisvpolicies)**
-
+- [Aplicações empresariais para ISVs](https://partner.microsoft.com/solutions/business-applications/isv-overview) (artigo online)
+- [Visão geral do Novo Programa para Aplicações Empresariais ISVs](https://aka.ms/BizAppsISVProgram) (PDF)
+- [Aplicações empresariais ISV Connect Program FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Próximo programa para Aplicações Empresariais ISVs](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (blog post)
+- [Políticas do programa ISV Connect](https://aka.ms/bizappsisvpolicies) (PDF)

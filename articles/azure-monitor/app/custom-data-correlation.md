@@ -6,11 +6,12 @@ author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 121e4699bd6a72f6865d3a6ffdef58c1b3806047
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17de697686485d695586ffa798196efb4a34c251
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79082766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092920"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionar dados de Insights de Aplicações com fontes de dados personalizadas
 
@@ -34,15 +35,15 @@ Se ainda não tiver um, provisa um novo espaço de trabalho do Log Analytics seg
 
 Para começar a enviar dados de registo para o Azure Monitor. Existem várias opções:
 
-- Para um mecanismo sincronizado, pode ligar diretamente para a [API do colecionador de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) ou utilizar o nosso conector Logic App – basta procurar "Azure Log Analytics" e escolher a opção "Enviar Dados":
+- Para um mecanismo sincronizado, pode ligar diretamente para a [API do colecionador de dados](../platform/data-collector-api.md) ou utilizar o nosso conector Logic App – basta procurar "Azure Log Analytics" e escolher a opção "Enviar Dados":
 
   ![Screenshot escolha e ação](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- Para uma opção assíncrono, utilize a API do Coletor de Dados para construir um gasoduto de processamento. Consulte [este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) para mais detalhes.
+- Para uma opção assíncrono, utilize a API do Coletor de Dados para construir um gasoduto de processamento. Consulte [este artigo](../platform/create-pipeline-datacollector-api.md) para mais detalhes.
 
 ## <a name="correlating-data"></a>Correlacionar dados
 
-O Application Insights baseia-se na plataforma de registo do Monitor Azure. Por isso, [podemos usar juntas de recursos cruzados](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar quaisquer dados que ingerimos no Azure Monitor com os nossos dados de Insights de Aplicação.
+O Application Insights baseia-se na plataforma de registo do Monitor Azure. Por isso, [podemos usar juntas de recursos cruzados](../log-query/cross-workspace-query.md) para correlacionar quaisquer dados que ingerimos no Azure Monitor com os nossos dados de Insights de Aplicação.
 
 Por exemplo, podemos ingerir o nosso inventário de laboratório e localizações numa mesa chamada "LabLocations_CL" num espaço de trabalho do Log Analytics chamado "myLA". Se quiséssemos então rever os nossos pedidos rastreados na app Application Insights chamada "myAI" e correlacionar os nomes das máquinas que serviam os pedidos para as localizações destas máquinas armazenadas na tabela personalizada anteriormente mencionada, podemos executar a seguinte consulta a partir do contexto Application Insights ou Azure Monitor:
 
@@ -56,5 +57,5 @@ app('myAI').requests
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte a referência [da API do Colecionador de Dados.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
-- Para mais informações sobre [a junção de recursos cruzados.](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)
+- Consulte a referência [da API do Colecionador de Dados.](../platform/data-collector-api.md)
+- Para mais informações sobre [a junção de recursos cruzados.](../log-query/cross-workspace-query.md)

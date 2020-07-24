@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092767"
 ---
 # <a name="rendering-using-azure"></a>Composição com o Azure
 
@@ -79,7 +79,7 @@ Existem várias formas de usar o Azure Batch, que também se aplicam à renderiz
 * APIs:
   * Escreva código utilizando as [APis REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python,](/python/api/overview/azure/batch) [Java,](/java/api/overview/azure/batch)ou outras APIs suportadas.  Os desenvolvedores podem integrar as capacidades do Azure Batch nas suas aplicações ou fluxo de trabalho existentes, seja em nuvem ou com base nas instalações.  Por exemplo, o [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza a API de Batch Python para invocar o Batch, criar e gerir piscinas, apresentar empregos e tarefas e monitorizar o estado.
 * Ferramentas de linha de comando:
-  * A [linha de comando Azure](/cli/azure/) ou [Azure PowerShell](/powershell/azure/overview) pode ser usada para script Batch.
+  * A [linha de comando Azure](/cli/azure/) ou [Azure PowerShell](/powershell/azure/) pode ser usada para script Batch.
   * Em particular, o suporte ao modelo do Grupo CLI facilita muito a criação de piscinas e a apresentação de empregos.
 * UIs:
   * [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta de clientes de plataforma cruzada que também permite que as contas do Batch sejam geridas e monitorizadas, mas fornece algumas capacidades mais ricas em comparação com o portal Azure UI.  Um conjunto de modelos de piscina e de trabalho são fornecidos à medida de cada aplicação suportada e podem ser usados para criar facilmente piscinas e para apresentar empregos.
@@ -98,6 +98,6 @@ Consulte os seguintes tutoriais introdutórios para experimentar a renderizaçã
 * [Use o Batch Explorer para tornar uma cena de liquidificador](./tutorial-rendering-batchexplorer-blender.md)
 * [Utilize o Lote CLI para tornar uma cena Autodesk 3ds Max](./tutorial-rendering-cli.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Determine a lista de aplicações e versões de renderização incluídas nas imagens VM do Azure Marketplace [neste artigo](./batch-rendering-applications.md).

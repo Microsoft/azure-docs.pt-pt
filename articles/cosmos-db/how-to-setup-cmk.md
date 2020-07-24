@@ -4,13 +4,14 @@ description: Saiba como configurar chaves geridas pelo cliente para a sua conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 07/16/2020
 ms.author: thweiss
-ms.openlocfilehash: 443e037f89508b0fc3b01ba90f884c139f4c64be
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092622"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves geridas pelo cliente para a sua conta do Azure Cosmos com o Azure Key Vault
 
@@ -227,7 +228,15 @@ A rotação da chave gerida pelo cliente utilizada pela sua conta Azure Cosmos p
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Criar uma nova versão chave":::
 
-- Troque a chave atualmente utilizada por uma totalmente diferente, atualizando a `keyVaultKeyUri` propriedade da sua conta. Eis como fazê-lo no PowerShell:
+- Troque a chave atualmente utilizada por uma totalmente diferente, atualizando a chave URI na sua conta. A partir do portal Azure, aceda à sua conta Azure Cosmos e selecione Encriptação de **Dados** a partir do menu esquerdo:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="A entrada do menu de encriptação de dados":::
+
+    Em seguida, substitua o **Key URI** pela nova chave que pretende utilizar e selecione **Guardar**:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Atualizar a chave URI":::
+
+    Aqui está como fazer para obter o mesmo resultado em PowerShell:
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -248,7 +257,7 @@ A versão chave ou chave anterior pode ser desativada após 24 horas, ou depois 
 
 Ao utilizar chaves geridas pelo cliente (CMK) em Azure Cosmos DB, se houver algum erro, a Azure Cosmos DB devolve os detalhes de erro juntamente com um código de sub-estado HTTP na resposta. Pode utilizar este código de sub-estado para depurar a causa principal do problema. Consulte os códigos de estado HTTP para o artigo [DB da Azure Cosmos](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) para obter a lista de códigos de sub-estado HTTP suportados.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="is-there-an-additional-charge-to-enable-customer-managed-keys"></a>Existe um custo adicional para ativar as chaves geridas pelo cliente?
 
@@ -286,7 +295,11 @@ Atualmente não, mas as chaves ao nível do contentor estão a ser consideradas.
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>Como posso saber se as chaves geridas pelo cliente estão ativadas na minha conta Azure Cosmos?
 
-Você pode programáticamente buscar os detalhes da sua conta Azure Cosmos e procurar a presença da `keyVaultKeyUri` propriedade. Veja acima as formas de o fazer [em PowerShell](#using-powershell) e [utilizando o Azure CLI](#using-azure-cli).
+A partir do portal Azure, vá à sua conta Azure Cosmos e assista à entrada de Encriptação de **Dados** no menu esquerdo; se esta entrada existir, as chaves geridas pelo cliente estão ativadas na sua conta:
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="A entrada do menu de encriptação de dados":::
+
+Você também pode buscar programáticamente os detalhes da sua conta Azure Cosmos e procurar a presença da `keyVaultKeyUri` propriedade. Veja acima as formas de o fazer [em PowerShell](#using-powershell) e [utilizando o Azure CLI](#using-azure-cli).
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Como é que as chaves geridas pelo cliente afetam uma cópia de segurança?
 
@@ -306,7 +319,7 @@ Em alternativa, para revogar todas as chaves de uma instância do Cofre da Chave
 
 A única operação possível quando a chave de encriptação foi revogada é a eliminação da conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [encriptação de dados em Azure Cosmos DB](./database-encryption-at-rest.md).
 - Obtenha uma visão geral do [acesso seguro aos dados em Cosmos DB](secure-access-to-data.md).

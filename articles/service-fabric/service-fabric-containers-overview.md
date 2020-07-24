@@ -2,13 +2,13 @@
 title: Visão geral do Tecido de Serviço e dos contentores
 description: Uma visão geral do Tecido de Serviço e a utilização de contentores para implantar aplicações de microserviços. Este artigo fornece uma visão geral de como os recipientes podem ser usados e as capacidades disponíveis no Tecido de Serviço.
 ms.topic: conceptual
-ms.date: 8/8/2018
-ms.openlocfilehash: 7c92910a92c8fa3061a1a0d53611734cf681484f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 7/9/2020
+ms.openlocfilehash: cd0ec7dd2247fdd791df362fa34542178c17df4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091662"
 ---
 # <a name="service-fabric-and-containers"></a>Tecido de serviço e contentores
 
@@ -53,7 +53,7 @@ Para um tutorial baseado em Linux, consulte Criar a sua primeira aplicação de 
 
 #### <a name="windows-server-containers"></a>Contentores do Windows Server
 
-O Windows Server 2016 fornece dois tipos diferentes de recipientes que diferem por nível de isolamento. Os contentores do Windows Server e dos contentores do Docker são semelhantes porque ambos têm espaço de nome e isolamento do sistema de ficheiros, enquanto partilham o núcleo com o hospedeiro em que estão a funcionar. No Linux, este isolamento tem sido tradicionalmente fornecido por grupos e espaços de nome, e os contentores do Windows Server comportam-se da mesma forma.
+O Windows Server 2016 e mais tarde fornece dois tipos diferentes de recipientes que diferem por nível de isolamento. Os contentores do Windows Server e dos contentores do Docker são semelhantes porque ambos têm espaço de nome e isolamento do sistema de ficheiros, enquanto partilham o núcleo com o hospedeiro em que estão a funcionar. No Linux, este isolamento tem sido tradicionalmente fornecido por grupos e espaços de nome, e os contentores do Windows Server comportam-se da mesma forma.
 
 Os recipientes windows com suporte Hyper-V proporcionam mais isolamento e segurança porque nenhum recipiente partilha o núcleo do sistema operativo com qualquer outro recipiente, ou com o hospedeiro. Com este maior nível de isolamento de segurança, os contentores ativados pelo Hiper-V são direcionados para cenários potencialmente hostis e multi-inquilinos.
 Para um tutorial baseado no Windows, consulte [criar a sua primeira aplicação de recipiente de tecido de serviço no Windows](service-fabric-get-started-containers.md).
@@ -73,7 +73,10 @@ Aqui estão exemplos típicos onde um recipiente é uma boa escolha:
 
 ## <a name="service-fabric-support-for-containers"></a>Suporte do Service Fabric para contentores
 
-O Service Fabric suporta a colocação de contentores Docker no Linux e nos contentores do Windows Server no Windows Server 2016, juntamente com suporte ao modo de isolamento Hyper-V. 
+O Service Fabric suporta a colocação de contentores Docker em linux e servidor do Windows server no Windows Server 2016 e mais tarde, juntamente com o suporte para o modo de isolamento Hyper-V.
+
+> [!NOTE]
+> Os contentores não são suportados em clusters locais de tecido de serviço de nó único (nem clusters Linux na OneBox, nem agrupamentos Windows em instalações locais de Tecido de Serviço).
 
 O Service Fabric fornece um [modelo de aplicação](service-fabric-application-model.md) no qual um recipiente representa um hospedeiro de aplicação no qual são colocadas várias réplicas de serviço. O Service Fabric também suporta um [cenário executável de hóspedes](service-fabric-guest-executables-introduction.md) no qual não utiliza os modelos de programação do Tecido de Serviço incorporado, mas em vez disso embala uma aplicação existente, escrita utilizando qualquer idioma ou estrutura, dentro de um recipiente. Este cenário é o caso comum de utilização dos contentores.
 

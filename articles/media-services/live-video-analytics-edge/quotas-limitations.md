@@ -3,11 +3,12 @@ title: Análise de vídeo ao vivo nas quotas IoT Edge - Azure
 description: Este artigo descreve live video analytics em quotas e limitações IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091815"
 ---
 # <a name="quotas-and-limitations"></a>Quotas e limitações
 
@@ -46,11 +47,8 @@ Com o lançamento da pré-visualização, existem limitações em diferentes nó
 * Processador do portão de sinal
    * Deve ser imediatamente a jusante da fonte RTSP.
 * Pia de ativos 
-   * Pode haver no máximo um nó por gráfico topologia.
-      * Se for utilizado um lavatório de ativos, então uma pia de ficheiro não pode estar presente, ou vice-versa.
    * Deve ser imediatamente a jusante da fonte RTSP ou do processador do portão de sinal.
 * Pia de arquivo
-   * Pode haver no máximo um tal nó por topologia de gráfico (ver nota acima sobre o lavatório de ativos).
    * Deve ser imediatamente a jusante do processador do portão de sinalização.
    * Não pode ser imediatamente a jusante do processador de extensão HTTP ou processador de deteção de movimentos
 * Pia IoT Hub
@@ -66,6 +64,6 @@ No momento do lançamento da pré-visualização, o Live Video Analytics no IoT 
 * A capacidade de utilizar mais do que uma conta de Armazenamento na conta do Media Service.
 * A capacidade de alterar a informação principal do serviço nas propriedades desejadas do módulo dinamicamente, sem um reinício.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral](overview.md)

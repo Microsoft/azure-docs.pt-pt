@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: aed35ec583af83e6ee6cb81c4e59e694cef493e1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 18ded2713ec89a9a0666cd00221d437c1c9ef090
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092427"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Mover dados de uma base de dados do SQL Server para a Base de Dados SQL com Azure Data Factory
 
@@ -50,10 +50,10 @@ Criamos um oleoduto ADF que compõe duas atividades de migração de dados. Junt
 ## <a name="prerequisites"></a><a name="prereqs"></a>Pré-requisitos
 Este tutorial pressupõe que tem:
 
-* Uma **assinatura Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento Azure.** Utilize uma conta de armazenamento Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 * Acesso a uma **Base de Dados Azure SQL**. Se tiver de configurar uma Base de Dados Azure SQL, o tópico ["Começar com a Base de Dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornece informações sobre como fornecer uma nova instância de uma Base de Dados SQL Azure."
-* Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+* Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 > [!NOTE]
 > Este procedimento utiliza o [portal Azure.](https://portal.azure.com/)
@@ -87,7 +87,7 @@ O procedimento passo a passo para a criação de serviços ligados é prestado n
 Criar tabelas que especifiquem a estrutura, localização e disponibilidade dos conjuntos de dados com os seguintes procedimentos baseados em scripts. Os ficheiros JSON são usados para definir as tabelas. Para obter mais informações sobre a estrutura destes ficheiros, consulte [Datasets](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Deverá executar o `Add-AzureAccount` cmdlet antes de executar o cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que a subscrição Azure certa está selecionada para a execução do comando. Para documentação deste cmdlet, consulte [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0).
+> Deverá executar o `Add-AzureAccount` cmdlet antes de executar o cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que a subscrição Azure certa está selecionada para a execução do comando. Para documentação deste cmdlet, consulte [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 

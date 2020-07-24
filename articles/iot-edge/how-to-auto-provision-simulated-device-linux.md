@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d6e60329f3c61811aa8a42528244b2883ff4b685
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb1511736b993032df8ca52fac01243f1feafdf4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834102"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092393"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e providenciar um dispositivo IoT Edge com um TPM no Linux
 
-Este artigo mostra como testar o provisionamento automático num dispositivo Linux IoT Edge utilizando um Módulo de Plataforma Fidedigna (TPM). Pode automaticamente atear dispositivos Azure IoT Edge o [Serviço de Provisionamento de Dispositivos](../iot-dps/index.yml). Se não estiver familiarizado com o processo de provisão automática, reveja os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Este artigo mostra como testar o provisionamento automático num dispositivo Linux IoT Edge utilizando um Módulo de Plataforma Fidedigna (TPM). Pode automaticamente a provisionar dispositivos Azure IoT Edge com o [Serviço de Provisionamento de Dispositivos](../iot-dps/index.yml). Se não estiver familiarizado com o processo de provisão automática, reveja os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
 
 As tarefas são as seguintes:
 
@@ -283,6 +283,6 @@ iotedge list
 
 Pode verificar se foi utilizada a inscrição individual que criou no Serviço de Provisionamento de Dispositivos. Navegue para a sua instância de Serviço de Provisionamento de Dispositivos no portal Azure. Abra os detalhes das inscrições para a inscrição individual que criou. Note que o estado da inscrição é **atribuído** e o ID do dispositivo está listado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O processo de inscrição DPS permite definir o ID do dispositivo e as etiquetas gémeas do dispositivo ao mesmo tempo que fornece o novo dispositivo. Pode utilizar esses valores para direcionar dispositivos individuais ou grupos de dispositivos utilizando a gestão automática do dispositivo. Aprenda a [implementar e monitorizar os módulos IoT Edge em escala utilizando o portal Azure](how-to-deploy-at-scale.md) ou utilizando o [Azure CLI](how-to-deploy-cli-at-scale.md).

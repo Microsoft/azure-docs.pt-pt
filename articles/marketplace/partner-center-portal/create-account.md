@@ -3,21 +3,24 @@ title: Criar uma conta de mercado comercial no Partner Center
 description: Saiba como criar uma conta de mercado comercial da Microsoft no Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: guide
-ms.date: 04/14/2020
-ms.openlocfilehash: 4a178feb4bdf0bc361185e21e47ccdceac3a7f21
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/01/2020
+ms.openlocfilehash: 5a55d66bfed19f6d88d4ff13a9f59d7e791664cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110016"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092189"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Criar uma conta de mercado comercial no Partner Center
 
-Para publicar as suas ofertas no [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [no Microsoft AppSource,](https://appsource.microsoft.com/)é necessário criar uma conta no programa de marketplace comercial no Partner Center. Este artigo abrange como criar uma conta Partner Center e como adicionar novas editoras ao programa de marketplace comercial.
+Para publicar as suas ofertas no [Azure Marketplace](https://azuremarketplace.microsoft.com/) ou [no Microsoft AppSource,](https://appsource.microsoft.com/)tem de criar uma conta no programa de marketplace comercial no Partner Center. Este artigo abrange como criar uma conta Partner Center e como adicionar novas editoras ao programa de marketplace comercial.
 
 >[!IMPORTANT]
->Se tiver uma conta no Portal do [Parceiro Cloud](https://cloudpartner.azure.com) que foi transferida para o Partner Center, não precisa de criar uma nova conta. Para obter mais informações, consulte [para as editoras que se estão a mover do Portal do Parceiro Cloud.](#for-publishers-who-are-moving-from-the-cloud-partner-portal)
+>Para publicar ofertas no mercado comercial deve utilizar uma conta de trabalho, associada a uma empresa ou organização. As contas pessoais não são suportadas.
+
+>[!IMPORTANT]
+>Se tivesse uma conta no Portal do Parceiro Cloud (CPP), mudámo-la para o Partner Center; não precisa criar uma nova conta. Para mais informações, consulte [para as editoras que se mudaram do Portal do Parceiro Cloud.](#for-publishers-who-moved-from-the-cloud-partner-portal)
 
 ## <a name="before-you-begin"></a>Before you begin
 
@@ -43,7 +46,7 @@ Utilize este método se for novo no Partner Center e não estiver inscrito na Mi
 - [Forneça o seu perfil de editor](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->Se tiver uma conta [Cloud Partner Portal](https://cloudpartner.azure.com) que foi transferida para o Partner Center, não precisa de criar uma nova conta. Para obter mais informações, consulte [para as editoras que se estão a mover do Portal do Parceiro Cloud.](#for-publishers-who-are-moving-from-the-cloud-partner-portal)
+>Se tivesse uma conta no Portal do Parceiro Cloud, mudá-laíamos para o Partner Center; não precisa criar uma nova conta. Para mais informações, consulte [para as editoras que se mudaram do Portal do Parceiro Cloud.](#for-publishers-who-moved-from-the-cloud-partner-portal)
 
 ### <a name="register-on-the-partner-center-enrollment-page"></a>Registe-se na página de inscrição do Centro parceiro
 
@@ -94,7 +97,7 @@ Para ambos os tipos de matrículas, você:
 Certifique-se de ter as informações da sua conta à mão.
 
 >[!IMPORTANT]
->Se tiver uma conta no Portal do [Parceiro Cloud](https://cloudpartner.azure.com/) que foi transferida para o Partner Center, não precisa de criar uma nova conta. Para obter mais informações, consulte [para as editoras que se estão a mover do Portal do Parceiro Cloud.](#for-publishers-who-are-moving-from-the-cloud-partner-portal)
+>Se tivesse uma conta no Portal do Parceiro Cloud, mudá-laíamos para o Partner Center; não precisa criar uma nova conta. Para mais informações, consulte [para as editoras que se mudaram do Portal do Parceiro Cloud.](#for-publishers-who-moved-from-the-cloud-partner-portal)
 
 ### <a name="what-if-im-already-enrolled-in-the-microsoft-partner-network"></a>E se já estiver inscrito na Microsoft Partner Network?
 
@@ -154,15 +157,13 @@ Depois de iniciar sposição no Partner Center, termine de configurar a sua cont
 
 Criou agora uma conta comercial no Partner Center. Para mais informações, consulte [a visão geral do mercado comercial.](./commercial-marketplace-overview.md) Para obter ajuda na adição de editores, consulte [adicionar novas editoras ao mercado comercial.](#add-new-publishers-to-the-commercial-marketplace-program)
 
-## <a name="for-publishers-who-are-moving-from-the-cloud-partner-portal"></a>Para editores que se movem do Portal do Parceiro Cloud
+## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>Para editores que se mudaram do Portal do Parceiro Cloud
 
-Se a sua conta tiver sido migrada do [Portal do Parceiro Cloud,](https://cloudpartner.azure.com)não precisa de criar uma nova conta Partner Center. Deveria ter recebido um link personalizado para a sua nova conta Partner Center, tanto no e-mail como numa notificação de banner depois de ter assinado na sua conta cloud partner portal.
+Se tivesse uma conta cloud partner portal, mudá-laíamos para o Partner Center. Não precisas de criar uma nova conta do Partner Center. Deveria ter recebido um link personalizado para a sua nova conta Partner Center, tanto no e-mail como numa notificação de banner depois de ter assinado na sua conta cloud partner portal.
 
 Depois de ter selecionado o link personalizado e ativado a sua nova conta Partner Center, pode voltar à sua conta indo ao [painel de marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
 
-O contrato de publicação e as informações de perfil da empresa são migrados para a sua nova conta Partner Center, juntamente com qualquer informação de perfil de pagamento de conta previamente configurada, contas e permissões de utilizador e ofertas ativas que estejam associadas à sua conta Cloud Partner Portal.
-
-Depois de as informações da sua conta serem transferidas do Portal do Parceiro cloud para o Partner Center, deixará de utilizar o Portal do Parceiro Cloud para escoar atualizações de contas ou para gerir utilizadores, permissões e faturação. Por um tempo limitado, quaisquer atualizações de conta que efetuar no Partner Center são automaticamente atualizadas na sua conta Cloud Partner Só de leitura até que seja eventualmente depreciada.
+O contrato de publicação e a transição de informação de perfil da empresa para a sua nova conta Partner Center, juntamente com qualquer informação de perfil de pagamento de conta previamente configurada, contas e permissões de utilizador e ofertas ativas que estavam associadas à sua conta Cloud Partner Portal.
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Adicione novas editoras ao programa de marketplace comercial
 
@@ -185,6 +186,6 @@ Utilizadores adicionais do mesmo inquilino do Azure Ative Directory podem adicio
 
 Depois de concluído este processo, pode gerir a editora recém-criada indo para a conta de marketplace comercial que está listada no painel esquerdo. Se não vir a conta do mercado comercial, refresque a página. A nova editora aparece na lista dos **Editores.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir a sua conta de mercado comercial no Partner Center](./manage-account.md)

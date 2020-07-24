@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b1f8b158c511919a72e72629d72b0e5ff73ff7db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58657ca604e7bd0fc081d6a5bb6ef18a8b7b5b48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78268121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091713"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilize serviços de mídia para entregar licenças DE DRM ou chaves AES 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 O Azure Media Services permite-lhe ingerir, codificar, adicionar proteção de conteúdos e transmitir o seu conteúdo. Para obter mais informações, consulte [a utilização da encriptação comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md). Alguns clientes querem utilizar os Serviços de Comunicação apenas para entregar licenças e/ou chaves e codificar, encriptar e transmitir utilizando os seus servidores no local. Este artigo descreve como pode utilizar os Media Services para entregar licenças PlayReady e/ou Widevine, mas faça o resto com os seus servidores no local. 
 
@@ -354,6 +355,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)

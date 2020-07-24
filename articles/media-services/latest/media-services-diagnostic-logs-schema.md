@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 37baed076ca074c1d558af36649e90959a0034c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092019"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas dos registos de diagnósticos
 
@@ -29,7 +30,7 @@ Este artigo descreve esquemas de registos de registos de media.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Esquema de registos de diagnóstico de alto nível
 
-Para uma descrição detalhada do esquema de registos de diagnóstico de nível superior, consulte [serviços, esquemas e categorias de Registos de Diagnóstico Azure](../../azure-monitor/platform/tutorial-dashboards.md).
+Para uma descrição detalhada do esquema de registos de diagnóstico de nível superior, consulte [serviços, esquemas e categorias de Registos de Diagnóstico Azure](../../azure-monitor/platform/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema"></a>Esquema de registo de entrega de chaves
 
@@ -37,7 +38,7 @@ Para uma descrição detalhada do esquema de registos de diagnóstico de nível 
 
 Estas propriedades são específicas do esquema de registo de entrega de chaves.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |keyId|A identificação da chave solicitada.|
 |teclaType|Pode ser um dos seguintes valores: "Claro" (sem encriptação), "FairPlay", "PlayReady" ou "Widevine".|
@@ -111,6 +112,6 @@ Propriedades do esquema de pedidos de entrega chave.
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorizar métricas de Serviços de Mídia e registos de diagnóstico](media-services-metrics-diagnostic-logs.md)

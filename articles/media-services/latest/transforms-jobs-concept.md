@@ -12,15 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73571242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091934"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e Empregos em Serviços de Media
 
-Este tópico dá detalhes sobre [Transforms](https://docs.microsoft.com/rest/api/media/transforms) e [Jobs](https://docs.microsoft.com/rest/api/media/jobs) e explica a relação entre estas entidades.
+Este tópico dá detalhes sobre [Transforms](/rest/api/media/transforms) e [Jobs](/rest/api/media/jobs) e explica a relação entre estas entidades.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -57,7 +58,7 @@ Utilizar **Transformações** para configurar tarefas comuns para codificar ou a
 
 ### <a name="viewing-schema"></a>Esquema de visualização
 
-Nos Serviços de Comunicação Social v3, as predefinições são entidades fortemente dactilografada na própria API. Pode encontrar a definição de "esquema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **o StandardEncoderPreset)** na [API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)ou outros Serviços de Mídia v3 SDK documentação de referência.
+Nos Serviços de Comunicação Social v3, as predefinições são entidades fortemente dactilografada na própria API. Pode encontrar a definição de "esquema" para estes objetos em [Especificação API Aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **o StandardEncoderPreset)** na [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK,](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)ou outros Serviços de Mídia v3 SDK documentação de referência.
 
 ### <a name="creating-transforms"></a>Criar Transformações
 
@@ -65,7 +66,7 @@ Pode criar Transforms usando REST, CLI ou qualquer um dos SDKs publicados. A API
 
 ### <a name="updating-transforms"></a>Atualização de Transformações
 
-Se precisar de atualizar o seu [Transform,](https://docs.microsoft.com/rest/api/media/transforms)utilize a operação **Atualização.** Destina-se a fazer alterações à descrição, ou às prioridades dos TransformOutputs subjacentes. Recomenda-se que tais atualizações sejam feitas quando todos os trabalhos em curso estiverem concluídos. Se pretende reescrever a receita, precisa de criar um novo Transform.
+Se precisar de atualizar o seu [Transform,](/rest/api/media/transforms)utilize a operação **Atualização.** Destina-se a fazer alterações à descrição, ou às prioridades dos TransformOutputs subjacentes. Recomenda-se que tais atualizações sejam feitas quando todos os trabalhos em curso estiverem concluídos. Se pretende reescrever a receita, precisa de criar um novo Transform.
 
 ### <a name="transform-object-diagram"></a>Transforme o diagrama do objeto
 
@@ -77,7 +78,7 @@ Selecione a imagem para vê-la em tamanho real.
 
 ## <a name="jobs"></a>Tarefas
 
-A **Job** é o pedido real aos Serviços de Comunicação social para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. Uma vez criado o Transform, pode submeter empregos usando APIs de Serviços de Mídia ou qualquer um dos SDKs publicados. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo de entrada utilizando: URLs HTTPS, URLs SAS ou [Ativos](https://docs.microsoft.com/rest/api/media/assets).  
+A **Job** é o pedido real aos Serviços de Comunicação social para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. Uma vez criado o Transform, pode submeter empregos usando APIs de Serviços de Mídia ou qualquer um dos SDKs publicados. O **Trabalho** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo de entrada utilizando: URLs HTTPS, URLs SAS ou [Ativos](/rest/api/media/assets).  
 
 ### <a name="job-input-from-https"></a>Entrada de trabalho da HTTPS
 
@@ -93,7 +94,7 @@ O progresso e o estado dos postos de trabalho podem ser obtidos através da moni
 
 ### <a name="updating-jobs"></a>Atualização de Postos de Trabalho
 
-A operação De Atualização na entidade [Job](https://docs.microsoft.com/rest/api/media/jobs) pode ser usada para modificar a *descrição* e as propriedades *prioritárias* após a apresentação do trabalho. Uma mudança na propriedade *prioritária* só é eficaz se o trabalho ainda estiver em fila. Se o trabalho começou a processar, ou terminou, mudar de prioridade não tem efeito.
+A operação De Atualização na entidade [Job](/rest/api/media/jobs) pode ser usada para modificar a *descrição* e as propriedades *prioritárias* após a apresentação do trabalho. Uma mudança na propriedade *prioritária* só é eficaz se o trabalho ainda estiver em fila. Se o trabalho começou a processar, ou terminou, mudar de prioridade não tem efeito.
 
 ### <a name="job-object-diagram"></a>Diagrama de objeto de trabalho
 
@@ -113,12 +114,12 @@ Para mais informações, consulte [o processamento de mídia scale com CLI](medi
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Códigos de erro](/rest/api/media/jobs/get#joberrorcode)
 * [Filtragem, encomenda, paging de entidades de Serviços de Comunicação Social](entities-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Antes de começar a desenvolver, [reveja o Desenvolvimento com os Serviços de Comunicação Social v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, etc.)
 - Confira estes tutoriais:

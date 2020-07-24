@@ -3,11 +3,12 @@ title: Configure Azure Red Hat OpenShift v3.x com Monitor Azure para contentores
 description: Este artigo descreve como configurar a monitorização de um cluster Kubernetes com o Azure Monitor hospedado na versão 3 e superior do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e04ef42971756cffe0906e1ddfb8406e876588bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 438a0513b6aceb876df4f9e3d0f4510c7cf8235e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800516"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092903"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v3 com Monitor Azure para contentores
 
@@ -20,7 +21,7 @@ O Azure Monitor para contentores proporciona uma experiência de monitorização
 O Monitor Azure para contentores pode ser ativado para novas ou mais implementações existentes do Azure Red Hat OpenShift utilizando os seguintes métodos suportados:
 
 - Para um cluster existente a partir do portal Azure ou usando o modelo de Gestor de Recursos Azure.
-- Para um novo cluster usando o modelo Azure Resource Manager, ou enquanto cria um novo cluster usando o [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+- Para um novo cluster usando o modelo Azure Resource Manager, ou enquanto cria um novo cluster usando o [Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Funcionalidades suportadas e não apoiadas
 
@@ -105,7 +106,7 @@ Se não estiver familiarizado com o conceito de implantação de recursos utiliz
 
 - [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 1. Faça o download e guarde para uma pasta local, o modelo do Gestor de Recursos Azure e o ficheiro de parâmetros, para criar um cluster com o add-on de monitorização utilizando os seguintes comandos:
 
@@ -192,7 +193,7 @@ Se não estiver familiarizado com o conceito de implantação de recursos utiliz
 
 - [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.65 ou posterior. Para identificar a sua versão, corra `az --version` . Se necessitar de instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 1. Descarregue o modelo e o ficheiro de parâmetros para atualizar o seu cluster com o add-on de monitorização utilizando os seguintes comandos:
 
@@ -234,7 +235,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
     provisioningState       : Succeeded
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster RedHat OpenShift e cargas de trabalho em execução, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
 
@@ -242,4 +243,4 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 
 - Para raspar e analisar as métricas prometheus do seu cluster, [reveja métricas configure Prometheus raspando](container-insights-prometheus-integration.md)
 
-- Para aprender a parar de monitorizar o seu cluster com o Azure Monitor para obter recipientes, consulte [Como Parar de monitorizar o seu aglomerado de chapéus abertos Azure Red Hat](container-insights-optout-openshift.md).
+- Para aprender a parar de monitorizar o seu cluster com o Azure Monitor para obter recipientes, consulte [Como Parar de monitorizar o seu aglomerado de chapéus abertos Azure Red Hat](./container-insights-optout-openshift-v3.md).

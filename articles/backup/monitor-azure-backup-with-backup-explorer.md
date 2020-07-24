@@ -4,11 +4,12 @@ description: Este artigo descreve como usar o Backup Explorer para realizar moni
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83715210"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092801"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorize as suas cópias de segurança com o Backup Explorer
 
@@ -93,8 +94,8 @@ Pode selecionar o ícone "pin" na parte superior de cada mesa ou gráfico para f
 
 ## <a name="cross-tenant-views"></a>Vistas de inquilinos cruzados
 
-Se você é um utilizador do Azure Lighthouse com acesso delegado a subscrições em vários ambientes de inquilinos, você pode usar o filtro de subscrição padrão. Exibe as subscrições para as quais deseja ver dados selecionando o ícone "filtro" no canto superior direito do portal Azure. Quando utiliza esta funcionalidade, o Backup Explorer agrega informações sobre todos os cofres nas subscrições selecionadas. Para saber mais, veja [o que é o Farol de Azure?](https://docs.microsoft.com/azure/lighthouse/overview)
+Se você é um utilizador do Azure Lighthouse com acesso delegado a subscrições em vários ambientes de inquilinos, você pode usar o filtro de subscrição padrão. Exibe as subscrições para as quais deseja ver dados selecionando o ícone "filtro" no canto superior direito do portal Azure. Quando utiliza esta funcionalidade, o Backup Explorer agrega informações sobre todos os cofres nas subscrições selecionadas. Para saber mais, veja [o que é o Farol de Azure?](../lighthouse/overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Saiba como utilizar o Azure Monitor para obter informações sobre os seus dados de backup](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Saiba como utilizar o Azure Monitor para obter informações sobre os seus dados de backup](./backup-azure-monitoring-use-azuremonitor.md)

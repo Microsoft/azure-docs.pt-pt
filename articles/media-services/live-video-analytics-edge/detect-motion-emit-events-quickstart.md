@@ -3,12 +3,12 @@ title: Detetar movimento e emitir eventos - Azure
 description: Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para detetar movimentos e emitir eventos, chamando programáticamente métodos diretos.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: fca773d0583bee3bef4e7254bcca95866b2205e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816712"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091917"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Quickstart: Detetar movimento e emitir eventos
 
@@ -36,7 +36,7 @@ Este tutorial requer os seguintes recursos Azure:
 * Hub IoT
 * Conta de armazenamento
 * Conta Azure Media Services
-* Linux VM em Azure, com [tempo de execução IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) instalado
+* Linux VM em Azure, com [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
 
 Para este arranque rápido, recomendamos que utilize o [script de configuração de recursos live video analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar os recursos necessários na sua subscrição Azure. Para o fazer, siga estes passos:
 
@@ -228,7 +228,7 @@ Siga estes passos para executar o código de amostra:
 
 ## <a name="interpret-results"></a>Interpretar os resultados
 
-Quando executar o gráfico de mídia, os resultados do nó do processador de processador de movimento passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela **OUTPUT** do Código do Estúdio Visual contêm uma `body` secção e uma `applicationProperties` secção. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quando executar o gráfico de mídia, os resultados do nó do processador de processador de movimento passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela **OUTPUT** do Código do Estúdio Visual contêm uma `body` secção e uma `applicationProperties` secção. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Nas seguintes mensagens, o módulo Live Video Analytics define as propriedades da aplicação e o conteúdo do corpo.
 

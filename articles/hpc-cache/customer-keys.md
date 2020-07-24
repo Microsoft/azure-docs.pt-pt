@@ -4,13 +4,14 @@ description: Como utilizar o Cofre de Chaves Azure com cache Azure HPC para cont
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: b7b9e9e6858d709e80642603e77bfb36f2e4c0c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092529"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Utilize chaves de encriptação geridas pelo cliente para cache Azure HPC
 
@@ -18,6 +19,8 @@ Pode utilizar o Cofre da Chave Azure para controlar a propriedade das chaves uti
 
 > [!NOTE]
 > Todos os dados armazenados no Azure, incluindo nos discos de cache, são encriptados em repouso utilizando as teclas geridas pela Microsoft por padrão. Só precisa de seguir os passos deste artigo se quiser gerir as chaves utilizadas para encriptar os seus dados.
+
+O Azure HPC Cache também está protegido pela [encriptação do anfitrião VM](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) nos discos geridos que detêm os seus dados em cache, mesmo que adicione uma chave de cliente para os discos de cache. Adicionar uma chave gerida pelo cliente para encriptação dupla dá um nível extra de segurança para clientes com elevadas necessidades de segurança. Leia [a encriptação do lado do servidor do armazenamento do disco Azure](../virtual-machines/linux/disk-encryption.md) para obter detalhes.
 
 Esta funcionalidade está disponível apenas em algumas das regiões do Azure onde o Azure HPC Cache está disponível. Consulte a lista [de disponibilidade da Região](hpc-cache-overview.md#region-availability) para mais detalhes.
 
@@ -143,7 +146,7 @@ Estes artigos explicam mais sobre a utilização do Cofre da Chave Azure e chave
 * [Visão geral da encriptação de armazenamento Azure](../storage/common/storage-service-encryption.md)
 * [Encriptação de disco com chaves geridas pelo cliente](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) - Documentação para a utilização do Cofre de Chaves Azure com discos geridos, que é um cenário semelhante ao cache Azure HPC
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter criado o Cache Azure HPC e de encriptação autorizada baseada no Cofre de Chaves, continue a configurar o seu cache dando-lhe acesso às suas fontes de dados.
 

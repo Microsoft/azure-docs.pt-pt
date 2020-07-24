@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091951"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo
 
-No Azure Media Services v3, [as Políticas de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permitem-lhe definir protocolos de streaming e opções de encriptação para os seus [Localizadores de Streaming.](streaming-locators-concept.md) O Media Services v3 fornece algumas Políticas de Streaming predefinidas para que possa usá-las diretamente para teste ou produção. 
+No Azure Media Services v3, [as Políticas de Streaming](/rest/api/media/streamingpolicies) permitem-lhe definir protocolos de streaming e opções de encriptação para os seus [Localizadores de Streaming.](streaming-locators-concept.md) O Media Services v3 fornece algumas Políticas de Streaming predefinidas para que possa usá-las diretamente para teste ou produção. 
 
 As políticas de streaming pré-indefinidas atualmente disponíveis:<br/>
 * 'Predefined_DownloadOnly'
@@ -44,11 +44,11 @@ Clique na imagem para visualizá-lo tamanho completo.
 
 Se encriptar o seu conteúdo, tem de criar uma [Política de Chave de Conteúdo,](content-key-policy-concept.md)a Política de Chave de **Conteúdo** não é necessária para um streaming ou descarregamento claros. 
 
-Se tiver requisitos especiais (por exemplo, se quiser especificar diferentes protocolos, precisa de utilizar um serviço de entrega de chaves personalizado ou precisar de utilizar uma faixa de áudio clara), pode [criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) uma Política de Streaming personalizada. 
+Se tiver requisitos especiais (por exemplo, se quiser especificar diferentes protocolos, precisa de utilizar um serviço de entrega de chaves personalizado ou precisar de utilizar uma faixa de áudio clara), pode [criar](/rest/api/media/streamingpolicies/create) uma Política de Streaming personalizada. 
 
 ## <a name="get-a-streaming-policy-definition"></a>Obtenha uma definição de Política de Streaming  
 
-Se quiser ver a definição de uma Política de Streaming, use [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e especifique o nome da política. Por exemplo:
+Se quiser ver a definição de uma Política de Streaming, use [Get](/rest/api/media/streamingpolicies/get) e especifique o nome da política. Por exemplo:
 
 ### <a name="rest"></a>REST
 

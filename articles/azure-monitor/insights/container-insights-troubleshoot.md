@@ -2,19 +2,19 @@
 title: Como resolver problemas monitor Azure Monitor para contentores Microsoft Docs
 description: Este artigo descreve como pode resolver problemas com o Azure Monitor para contentores.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: bc4105dc23445c29364961501f93e42f8c3b683d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800448"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092835"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Resolução de problemas Monitor Azure para contentores
 
 Ao configurar a monitorização do seu cluster Azure Kubernetes Service (AKS) com o Azure Monitor para contentores, poderá encontrar um problema que impeça a recolha de dados ou o estado de reporte. Este artigo detalha algumas questões comuns e etapas de resolução de problemas.
 
-## <a name="authorization-error-during-onboarding-or-update-operation"></a>Erro de autorização durante a operação de embarque ou atualização
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Erro de autorização durante a operação de integração ou atualização
 
 Ao permitir que o Azure Monitor para contentores ou a atualização de um cluster suporte a métricas de recolha, pode receber um erro semelhante ao seguinte - *O cliente <> de identidade do utilizador com o id de objeto "<objectId do utilizador>" não tem autorização para executar ação 'Microsoft.Autorização/funAsignments/write'*
 
@@ -37,7 +37,7 @@ Se o Monitor Azure para os contentores estiver habilitado e configurado com suce
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    A saída deve assemelhar-se ao seguinte, o que indica que foi corretamente implantado:
+    A saída deve assemelhar-se ao seguinte exemplo, que indica que foi corretamente implantada:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
@@ -48,7 +48,7 @@ Se o Monitor Azure para os contentores estiver habilitado e configurado com suce
 
     `kubectl get ds omsagent-win --namespace=kube-system`
 
-    A saída deve assemelhar-se ao seguinte, o que indica que foi corretamente implantado:
+    A saída deve assemelhar-se ao seguinte exemplo, que indica que foi corretamente implantada:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
@@ -82,33 +82,6 @@ Se o Monitor Azure para os contentores estiver habilitado e configurado com suce
     omsagent-win-6drwq                  1/1       Running   0          1d
     ```
 
-5. Verifique os registos do agente. Quando o agente contentorizado é implantado, executa uma verificação rápida executando comandos OMI e exibe a versão do agente e do fornecedor.
-
-6. Para verificar se o agente foi implantado com sucesso, verifique o comando:`kubectl logs omsagent-484hw --namespace=kube-system`
-
-    O estatuto deve assemelhar-se ao seguinte exemplo:
-
-    ```
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.2
-    omsagent 1.6.0.23
-    docker-cimprov 1.0.0.31
-    ```
-
 ## <a name="error-messages"></a>Mensagens de erro
 
 A tabela abaixo resume os erros conhecidos que pode encontrar durante a utilização do Azure Monitor para recipientes.
@@ -117,7 +90,7 @@ A tabela abaixo resume os erros conhecidos que pode encontrar durante a utiliza�
 | ---- | --- |
 | Mensagem de Erro`No data for selected filters`  | Poderá demorar algum tempo a estabelecer o fluxo de dados de monitorização para os clusters recentemente criados. Deixe pelo menos 10 a 15 minutos para que os dados apareçam para o seu cluster. |
 | Mensagem de Erro`Error retrieving data` | Enquanto o cluster de serviço Azure Kubernetes está se estabelecendo para monitorização de saúde e desempenho, uma ligação é estabelecida entre o cluster e o espaço de trabalho Azure Log Analytics. Um espaço de trabalho Log Analytics é utilizado para armazenar todos os dados de monitorização do seu cluster. Este erro pode ocorrer quando o seu espaço de trabalho Log Analytics foi eliminado. Verifique se o espaço de trabalho foi apagado e se foi, terá de voltar a permitir a monitorização do seu cluster com o Azure Monitor para contentores e especificar um espaço de trabalho existente ou criar um novo espaço de trabalho. Para voltar a ativar, terá de [desativar](container-insights-optout.md) a monitorização do cluster e voltar a [ativar](container-insights-enable-new-cluster.md) o Monitor Azure para os contentores. |
-| `Error retrieving data`depois de adicionar Azure Monitor para contentores através de az aks cli | Quando ativar a `az aks cli` monitorização, o Monitor Azure para recipientes pode não ser corretamente acionado. Verifique se a solução está implantada. Para isso, vá ao seu espaço de trabalho Log Analytics e veja se a solução está disponível selecionando **Soluções** a partir do painel do lado esquerdo. Para resolver este problema, terá de recolocar a solução seguindo as instruções sobre como implantar o [Monitor Azure para contentores](container-insights-onboard.md) |
+| `Error retrieving data`depois de adicionar Azure Monitor para contentores através de az aks cli | Quando ativar a `az aks cli` monitorização, o Monitor Azure para recipientes pode não ser corretamente acionado. Verifique se a solução está implantada. Para verificar, vá ao seu espaço de trabalho Log Analytics e veja se a solução está disponível selecionando **Soluções** a partir do painel do lado esquerdo. Para resolver este problema, terá de recolocar a solução seguindo as instruções sobre como implantar o [Monitor Azure para contentores](container-insights-onboard.md) |
 
 Para ajudar a diagnosticar o problema, fornecemos um script de resolução de problemas disponível [aqui.](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1)
 
@@ -141,6 +114,6 @@ O Azure Monitor para o agente de contentores Pods utiliza o ponto final do cAdvi
 
 Para visualizar o cluster não-Azure Kubernetes no Azure Monitor para contentores, é necessário ler o acesso no espaço de trabalho Log Analytics que suporta este Insight e no recurso de solução Container Insights **ContainerInsights *(espaço de trabalho)***.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com a monitorização possibilitada para capturar métricas de saúde tanto para os nós do cluster AKS como para as cápsulas, estas métricas de saúde estão disponíveis no portal Azure. Para aprender a utilizar o Azure Monitor para recipientes, consulte [a saúde do Serviço Azure Kubernetes](container-insights-analyze.md).

@@ -3,12 +3,12 @@ title: Detete o movimento & gravar vídeo em dispositivos de borda - Azure
 description: Este quickstart mostra-lhe como usar o Live Video Analytics no IoT Edge para analisar o feed de vídeo ao vivo a partir de uma câmara IP (simulada), detetar se algum movimento está presente e, em caso afirmativo, gravar um videoclip MP4 para o sistema de ficheiros local no dispositivo de borda.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 32f1ae5e9edbdbe522afb39bd56584cd2423dd33
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 14dcc7b298244a1d53a9b820c641ea87c4f9a016
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817082"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091866"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Quickstart: Detetar movimento e gravar vídeo em dispositivos de borda
  
@@ -51,7 +51,7 @@ Neste arranque rápido, você vai:
 
 1. Criar e implementar o gráfico de mídia.
 1. Interprete os resultados.
-1. Limpar recursos.
+1. Limpe os recursos.
 
 ## <a name="examine-and-edit-the-sample-files"></a>Examine e edite os ficheiros de amostra
 Como parte dos pré-requisitos para este arranque rápido, descarregou o código de amostra para uma pasta. Siga estes passos para examinar e editar o código de amostra.
@@ -164,7 +164,7 @@ Certifique-se de que completou os passos para [preparar para monitorizar os even
      * Uma última chamada para `GraphTopologyList` mostrar que a lista está agora vazia.
 
 ## <a name="interpret-results"></a>Interpretar os resultados 
-Quando executar o gráfico de mídia, os resultados do nó do processador de processador de movimento passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela **OUTPUT** do Código do Estúdio Visual contêm uma `body` secção e uma `applicationProperties` secção. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quando executar o gráfico de mídia, os resultados do nó do processador de processador de movimento passam pelo nó da pia IoT Hub para o hub IoT. As mensagens que vê na janela **OUTPUT** do Código do Estúdio Visual contêm uma `body` secção e uma `applicationProperties` secção. Para obter mais informações, consulte [Criar e ler mensagens IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Nas seguintes mensagens, o módulo Live Video Analytics define as propriedades da aplicação e o conteúdo do corpo.
 
@@ -254,7 +254,7 @@ Para reproduzir o clipe MP4:
 
     ![Saída](./media/quickstarts/samples-output.png) 
 
-1. Utilize [a Cópia Segura (SCP)](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) para copiar os ficheiros para a sua máquina local. 
+1. Utilize [a Cópia Segura (SCP)](../../virtual-machines/linux/copy-files-to-linux-vm-using-scp.md) para copiar os ficheiros para a sua máquina local. 
 1. Reproduz os ficheiros utilizando o [leitor de mídia VLC](https://www.videolan.org/vlc/) ou qualquer outro leitor de MP4.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -267,4 +267,4 @@ Se pretende experimentar os outros quickstarts, então mantenha os recursos que 
 * Rever desafios adicionais para utilizadores avançados:
 
     * Utilize uma [câmara IP](https://en.wikipedia.org/wiki/IP_camera) que suporte o RTSP em vez de utilizar o simulador RTSP. Pode encontrar câmaras IP que suportam RTSP na página de [produtos conformantes ONVIF.](https://www.onvif.org/conformant-products) Procure dispositivos em conformidade com os perfis G, S ou T.
-    * Utilize um dispositivo Linux AMD64 ou x64 em vez de utilizar um Linux VM em Azure. Este dispositivo deve estar na mesma rede que a câmara IP. Siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Em seguida, siga as instruções no [Implementar o seu primeiro módulo IoT Edge num dispositivo Linux virtual](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) para registar o dispositivo com o Azure IoT Hub.
+    * Utilize um dispositivo Linux AMD64 ou x64 em vez de utilizar um Linux VM em Azure. Este dispositivo deve estar na mesma rede que a câmara IP. Siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Em seguida, siga as instruções no [Implementar o seu primeiro módulo IoT Edge num dispositivo Linux virtual](../../iot-edge/quickstart-linux.md) para registar o dispositivo com o Azure IoT Hub.

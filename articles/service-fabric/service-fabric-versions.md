@@ -3,12 +3,12 @@ title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 88c91558360f6be8343c955f8e6185366cd3279a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 211197ced52ca094d375d3ae212957fa25a523fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091645"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de tecido de serviço suportado
 
@@ -41,8 +41,9 @@ A tabela que se segue lista as versões do Service Fabric e as datas finais de s
 | 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|1 de agosto de 2020 |
 | 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de agosto de 2020  |
 | 7.0.472.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de agosto de 2020  |
-| 7.1.409.* | 7.0.466.* |Menos ou igual à versão 4.0 |Versão atual, então sem data de fim |
-| 7.1.417.* | 7.0.466.* |Menos ou igual à versão 4.0 |Versão atual, então sem data de fim |
+| 7.1.409.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
+| 7.1.417.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
+| 7.1.428.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -52,11 +53,11 @@ A tabela que se segue lista os sistemas operativos suportados para as versões s
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Servidor Windows 1709 | 6.0 |
+| Servidor Windows 1709 | 6,0 |
 | Servidor Windows 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 16.04 | 6,0 |
 | Linux Ubuntu 18.04 | 7.1 |
 
 ## <a name="supported-version-names"></a>Nomes de versão suportados
@@ -113,3 +114,4 @@ A tabela que se segue lista os nomes da versão do Service Fabric e os respetivo
 | 7.0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
 | 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
+| 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |

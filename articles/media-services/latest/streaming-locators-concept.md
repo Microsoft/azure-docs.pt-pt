@@ -11,22 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 41b2d0ad1e072fb2bf5860ae80f8f25f886b37f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed58919c47da13a8a0707a344a389126c6feb6c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582677"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091968"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
-Para fazer vídeos no Recurso de saída disponível para a reprodução em clientes, tem de criar um [Localizador de Transmissões em Fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, criar os URLs das transmissões. Para construir um URL, é necessário concatenar o nome do anfitrião streaming Endpoint e o caminho do localizador de streaming. Para um exemplo de .NET, veja [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator) (Obter um Localizador de Transmissão em Fluxo).
+Para fazer vídeos no Recurso de saída disponível para a reprodução em clientes, tem de criar um [Localizador de Transmissões em Fluxo](/rest/api/media/streaminglocators) e, em seguida, criar os URLs das transmissões. Para construir um URL, é necessário concatenar o nome do anfitrião streaming Endpoint e o caminho do localizador de streaming. Para um exemplo de .NET, veja [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator) (Obter um Localizador de Transmissão em Fluxo).
 
 O processo de criação de um **Localizador de Streaming** chama-se publicação. Por predefinição, o **Localizador de Streaming** é válido imediatamente após a edição da API e dura até ser eliminado, a menos que configuure os tempos de início e fim opcionais. 
 
 Ao criar um **localizador de streaming,** tem de especificar um nome **de Ativo** e um nome **de Política de Streaming.** Para obter mais informações, consulte os seguintes tópicos:
 
-* [Elementos](assets-concept.md)
+* [Recursos](assets-concept.md)
 * [Políticas de streaming](streaming-policy-concept.md)
 * [Políticas-chave de conteúdo](content-key-policy-concept.md)
 
@@ -92,15 +92,15 @@ Para obter localizadores de streaming com base no nome do Ativo associado, utili
 
 |Linguagem|API|
 |---|---|
-|REST|[liststreaminglocadores](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
-|CLI|[az ams lista de ativos-streaming-localizadores](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
-|.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
-|Java|[Gestor de ActivosStreamingLotor](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
-|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
+|REST|[liststreaminglocadores](/rest/api/media/assets/liststreaminglocators)|
+|CLI|[az ams lista de ativos-streaming-localizadores](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|Java|[Gestor de ActivosStreamingLotor](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
+|Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
 ## <a name="see-also"></a>Ver também
 
-* [Elementos](assets-concept.md)
+* [Recursos](assets-concept.md)
 * [Políticas de streaming](streaming-policy-concept.md)
 * [Políticas-chave de conteúdo](content-key-policy-concept.md)
 * [Tutorial: Carregar, codificar e transmitir vídeos usando .NET](stream-files-tutorial-with-api.md)

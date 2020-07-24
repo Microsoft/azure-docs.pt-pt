@@ -4,17 +4,18 @@ description: Como criar uma instância cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/10/2020
 ms.author: v-erkel
-ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092495"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar uma Cache Azure HPC
 
-Utilize o portal Azure para criar o seu cache.
+Utilize o portal Azure ou o CLI Azure para criar o seu cache.
 
 ![screenshot da visão geral da cache no portal Azure, com o botão criar na parte inferior](media/hpc-cache-home-page.png)
 
@@ -22,11 +23,13 @@ Clique na imagem abaixo para ver uma [demonstração](https://azure.microsoft.co
 
 [![miniatura de vídeo: Azure HPC Cache: Configuração (clique para visitar a página de vídeo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
+## <a name="portal"></a>[Portal](#tab/azure-portal)
+
 ## <a name="define-basic-details"></a>Definir detalhes básicos
 
 ![screenshot da página de detalhes do projeto no portal Azure](media/hpc-cache-create-basics.png)
 
-Em **Detalhes do Projeto,** selecione o grupo de subscrição e recursos que irá acolher a cache. Certifique-se de que a subscrição está na lista [de acesso.](hpc-cache-prereqs.md#azure-subscription)
+Em **Detalhes do Projeto,** selecione o grupo de subscrição e recursos que irá acolher a cache. Certifique-se de que a subscrição está na lista [de acesso.](hpc-cache-prerequisites.md#azure-subscription)
 
 Em **Detalhes de Serviço,** desateie o nome da cache e estes outros atributos:
 
@@ -56,9 +59,9 @@ A Azure HPC Cache gere quais os ficheiros em cache e pré-carregados para maximi
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Ativar encriptação do cofre da chave Azure (opcional)
 
-Se o seu cache estiver numa região que suporta chaves de encriptação geridas pelo cliente, a página **das chaves de encriptação do disco** aparece entre os separadores **Cache** e **Tags.** Na altura da publicação, esta opção é suportada nos EUA, Centro Sul dos EUA e Nos 2 Oeste.
+Se o seu cache estiver numa região que suporta chaves de encriptação geridas pelo cliente, a página **das chaves de encriptação do disco** aparece entre os separadores **Cache** e **Tags.** Leia [a disponibilidade regional](hpc-cache-overview.md#region-availability) para saber mais sobre o apoio à região.
 
-Se pretender gerir as chaves de encriptação utilizadas com o armazenamento do cache, forneça as informações do Cofre da Chave Azure na página das **chaves de encriptação** do disco. O cofre-chave deve estar na mesma região e na mesma subscrição que a cache.
+Se pretender gerir as chaves de encriptação utilizadas para o armazenamento do cache, forneça as informações do Cofre da Chave Azure na página das **chaves de encriptação** do disco. O cofre-chave deve estar na mesma região e na mesma subscrição que a cache.
 
 Pode saltar esta secção se não precisar de chaves geridas pelo cliente. O Azure encripta os dados com as teclas geridas pela Microsoft por padrão. Leia [a encriptação de armazenamento Azure](../storage/common/storage-service-encryption.md) para saber mais.
 
@@ -95,7 +98,100 @@ Quando a criação termina, uma notificação aparece com um link para a nova in
 > [!NOTE]
 > Se o seu cache utilizar chaves de encriptação geridas pelo cliente, a cache pode aparecer na lista de recursos antes que o estado de implantação seja concluído. Assim que o estado da cache estiver à espera da **chave,** pode [autorizar a](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) utilização do cofre da chave.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+## <a name="create-the-cache-with-azure-cli"></a>Crie a cache com Azure CLI
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+> [!NOTE]
+> Atualmente, o CLI Azure não suporta a criação de um cache com chaves de encriptação geridas pelo cliente. Use o portal Azure.
+
+Utilize o comando [az hpc-cache](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) para criar uma nova Cache Azure HPC.
+
+Fornecer estes valores:
+
+* Nome do grupo de recursos cache
+* Nome cache
+* Região do Azure
+* Sub-rede cache, neste formato:
+
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"``
+
+  A sub-rede cache precisa de pelo menos 64 endereços IP (/24), e não pode alojar quaisquer outros recursos.
+
+* Capacidade de cache. Dois valores definem a produção máxima da sua Cache Azure HPC:
+
+  * O tamanho da cache (em GB)
+  * O SKU das máquinas virtuais utilizadas na infraestrutura de cache
+
+  [az hpc-cache skus lista](/cli/azure/ext/hpc-cache/hpc-cache/skus) mostra as SKUs disponíveis e as opções de tamanho de cache válidos para cada um. As opções de tamanho da cache variam de 3 TB a 48 TB, mas apenas alguns valores são suportados.
+
+  Este gráfico mostra qual o tamanho da cache e as combinações SKU válidas no momento em que este documento está a ser preparado (julho de 2020).
+
+  | Tamanho da cache | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | sim         | não          | não          |
+  | 6144 GB    | sim         | sim         | não          |
+  | 12288 GB   | sim         | sim         | sim         |
+  | 24576 GB   | não          | sim         | sim         |
+  | 49152 GB   | não          | não          | sim         |
+
+  Leia a secção **de capacidade de cache definida** no separador instruções do portal para obter informações importantes sobre preços, saídas e como dimensionar adequadamente a sua cache para o seu fluxo de trabalho.
+
+Exemplo de criação de cache:
+
+```azurecli
+az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
+    --location "eastus" --cache-size-gb "3072" \
+    --subnet "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default" \
+    --sku-name "Standard_2G"
+```
+
+A criação de cache leva vários minutos. No sucesso, o comando criar retorna a saída como esta:
+
+```azurecli
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+  "id": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619",
+  "location": "eastus",
+  "mountAddresses": [
+    "10.3.0.17",
+    "10.3.0.18",
+    "10.3.0.19"
+  ],
+  "name": "my-cache-0619",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "doc-demo-rg",
+  "sku": {
+    "name": "Standard_2G"
+  },
+  "subnet": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default",
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.42",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-04-01T15:19:54.068299+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+```
+
+A mensagem inclui algumas informações úteis, incluindo estes itens:
+
+* Endereços de montagem do cliente - Utilize estes endereços IP quando estiver pronto para ligar os clientes à cache. Leia [o Monte da Cache Azure HPC](hpc-cache-mount.md) para saber mais.
+* Estado de atualização - Quando uma atualização de software é lançada, esta mensagem mudará. Pode [atualizar o software cache](hpc-cache-manage.md#upgrade-cache-software) manualmente numa hora conveniente, ou será aplicado automaticamente após vários dias.
+
+---
+
+## <a name="next-steps"></a>Passos seguintes
 
 Depois da sua cache aparecer na lista **de Recursos,** pode passar para o próximo passo.
 

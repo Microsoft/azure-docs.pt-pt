@@ -12,16 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 030a10e9138af32ee848009a14216c37567d9d2d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582737"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092002"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) em Azure Media Services
 
-No Microsoft Azure Media Services, um [Serviço de Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode entregar o seu conteúdo ao vivo e a pedido diretamente a uma aplicação de cliente usando um dos protocolos comuns de streaming de meios de comunicação (HLS ou DASH). Além disso, o **Streaming Endpoint** fornece encriptação dinâmica (just-in-time) para DRMs líderes do setor. 
+No Microsoft Azure Media Services, um [Serviço de Streaming Endpoint](/rest/api/media/streamingendpoints) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode entregar o seu conteúdo ao vivo e a pedido diretamente a uma aplicação de cliente usando um dos protocolos comuns de streaming de meios de comunicação (HLS ou DASH). Além disso, o **Streaming Endpoint** fornece encriptação dinâmica (just-in-time) para DRMs líderes do setor. 
 
 Quando cria uma conta de Serviços de Mídia, é criado um Ponto Final de Streaming **predefinido** para si num estado parado. Não é possível eliminar o ponto final de streaming **predefinido.** Mais pontos finais de streaming podem ser criados na conta (ver [Quotas e limites).](limits-quotas-constraints.md)
 
@@ -41,7 +41,7 @@ Ao utilizar o ponto final de streaming `servicename` predefinido, é omitido de 
 ### <a name="limitations"></a>Limitações
 
 * O nome do ponto final de streaming tem um valor máximo de 24 caracteres.
-* O nome deve seguir este padrão [regex:](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
+* O nome deve seguir este padrão [regex:](/dotnet/standard/base-types/regular-expression-language-quick-reference) `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 ## <a name="types"></a>Tipos
 
@@ -49,7 +49,7 @@ Existem dois tipos **de Ponto final de streaming:** **Standard** (pré-visualiza
 
 A tabela descreve os tipos:
 
-|Tipo|Unidades de escala|Description|
+|Tipo|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Standard**|0|O ponto final de streaming predefinido é um tipo **standard** — pode ser alterado para o tipo Premium `scaleUnits` ajustando-o .|
 |**Premium**|>0|**Premium** Os pontos finais de streaming são adequados para cargas de trabalho avançadas e fornecem capacidade de largura de banda dedicada e escalável. Move-se para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits`fornecer-lhe uma capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium,** cada unidade ativada fornece uma capacidade de largura de banda adicional à aplicação. |
@@ -77,7 +77,7 @@ Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|U
 
 ## <a name="streaming-endpoint-properties"></a>Propriedades de Streaming Endpoint
 
-Esta secção dá detalhes sobre algumas das propriedades do Streaming Endpoint. Por exemplo, como criar um novo ponto final de streaming e descrições de todas as propriedades, consulte [streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
+Esta secção dá detalhes sobre algumas das propriedades do Streaming Endpoint. Por exemplo, como criar um novo ponto final de streaming e descrições de todas as propriedades, consulte [streaming Endpoint](/rest/api/media/streamingendpoints/create).
 
 - `accessControl`: Utilizado para configurar as seguintes definições de segurança para este ponto final de streaming: teclas de autenticação do cabeçalho de assinatura da Akamai e endereços IP que podem ser ligados a este ponto final. Esta propriedade só pode ser definida quando `cdnEnabled` é definida como falsa.
 
@@ -92,7 +92,7 @@ Esta secção dá detalhes sobre algumas das propriedades do Streaming Endpoint.
 
 - `cdnProfile`: Quando `cdnEnabled` é definido como verdadeiro, também pode passar `cdnProfile` valores. `cdnProfile`é o nome do perfil CDN onde o ponto final do CDN será criado. Pode fornecer um cdnProfile existente ou utilizar um novo. Se o valor for NULO e `cdnEnabled` for verdadeiro, é utilizado o valor predefinido "AzureMediaStreamingPlatformCdnProfile". Se o fornecido `cdnProfile` já existe, um ponto final é criado sob ele. Se o perfil não existir, um novo perfil é automaticamente criado.
 - `cdnProvider`: Quando o CDN está ativado, também pode passar `cdnProvider` valores. `cdnProvider`controlos que o fornecedor será utilizado. Atualmente, três valores são suportados: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se nenhum valor for fornecido e `cdnEnabled` for verdadeiro, "StandardVerizon" é usado (é esse o valor padrão).
-- `crossSiteAccessPolicies`: Usado para especificar políticas de acesso a vários clientes. Para obter mais informações, consulte [a especificação do ficheiro de política de domínio transversal](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e a [disponibilização de um serviço através dos limites do domínio](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). As definições aplicam-se apenas ao Streaming Suave.
+- `crossSiteAccessPolicies`: Usado para especificar políticas de acesso a vários clientes. Para obter mais informações, consulte [a especificação do ficheiro de política de domínio transversal](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e a [disponibilização de um serviço através dos limites do domínio](/previous-versions/azure/azure-services/gg185950(v=azure.100)). As definições aplicam-se apenas ao Streaming Suave.
 - `customHostNames`: Usado para configurar um Streaming Endpoint para aceitar o tráfego direcionado para um nome de anfitrião personalizado. Esta propriedade é válida para Pontos Finais Standard e Premium Streaming e pode ser definida quando `cdnEnabled` : falso.
 
     A propriedade do nome de domínio deve ser confirmada pela Media Services. Os Serviços de Comunicação Social verificam a propriedade do nome de domínio exigindo um `CName` registo que contenha o ID da conta dos Serviços de Mídia como componente a ser adicionado ao domínio em uso. Como exemplo, para que "sports.contoso.com" seja usado como um nome de anfitrião personalizado para o ponto final de streaming, um registo `<accountId>.contoso.com` para deve ser configurado para apontar para um dos nomes dos anfitriões de verificação de Serviços de Comunicação. O nome do anfitrião de verificação é composto por verificações. \<mediaservices-dns-zone> . .

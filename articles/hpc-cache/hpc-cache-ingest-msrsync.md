@@ -5,12 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 02933ab9eeb05dbaa65fdf0c66c4a7946c3b0de1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: 323ecd6a2dd001c3c8df1b2ec15f0ae8402ec70c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092410"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Azure HPC Cache data ingestão - método msrsync
 

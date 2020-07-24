@@ -9,11 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f08352d4a79b8c27b2c163516f44edf578fbe3a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83835636"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092648"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de extinção de SO convidado de Família 1
 A reforma da Família OS 1 foi anunciada pela primeira vez em 1 de junho de 2013.
@@ -31,7 +32,7 @@ Os seus Serviços cloud são afetados se algum dos seguintes se aplicar:
 2. Não tem um valor para osFamily explicitamente especificado no ficheiro ServiceConfiguration.cscfg para o seu Serviço cloud. Atualmente, o sistema utiliza o valor padrão de "1" neste caso.
 3. O portal Azure lista o valor familiar do Sistema Operativo convidado como "Windows Server 2008".
 
-Para descobrir qual dos seus serviços na nuvem está a funcionar que o OS Family, pode executar o seguinte script em Azure PowerShell, embora tenha de [configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) primeiro. Para mais informações sobre o script, consulte [Azure Guest OS Family 1 End of Life: June 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Para descobrir qual dos seus serviços na nuvem está a funcionar que o OS Family, pode executar o seguinte script em Azure PowerShell, embora tenha de [configurar o Azure PowerShell](/powershell/azure/) primeiro. Para mais informações sobre o script, consulte [Azure Guest OS Family 1 End of Life: June 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -66,5 +67,5 @@ Recomendamos que emigre as suas funções de Cloud Service para uma das família
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Apoio alargado à família guest OS 1 terminou 3 de novembro de 2014
 Os serviços em nuvem na família Guest OS 1 já não são suportados. Migrar para fora da família 1 o mais rápido possível para evitar perturbações de serviço.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Reveja as [últimas versões do Guest OS](cloud-services-guestos-update-matrix.md).

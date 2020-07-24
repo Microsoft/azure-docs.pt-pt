@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 7d3a85e6fcc5b9d1c5ca1511cd7edd05ff5d9ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091985"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Erros de Ponto Final de Streaming (Origem) 
+# <a name="streaming-endpoint-origin-errors"></a>Erros do Ponto Final de Transmissão em Fluxo (Origem) 
 
 Este tópico descreve erros que poderá receber do serviço Azure Media [Streaming Endpoint](streaming-endpoint-concept.md).
 
-## <a name="400-bad-request"></a>400 Mau Pedido
+## <a name="400-bad-request"></a>400 Pedido Incorreto
 
 O pedido contém informações inválidas e é rejeitado com estes códigos de erro e devido a uma das seguintes razões:
 
@@ -82,7 +82,7 @@ O ID fornecido para um recurso numa `PUT` ou `POST` operação foi tomado por um
 
 ## <a name="412-precondition-failure"></a>412 Pré-condição Falha
 
-A operação especificou um eTag que é diferente da versão disponível no servidor, ou seja, um erro de concordância otimista. Rejulgar o pedido após a leitura da versão mais recente do recurso e atualizar o eTag no pedido.
+A operação especificou um eTag que é diferente da versão disponível no servidor, ou seja, um erro de concordância otimista. Repita o pedido depois de ler a versão mais recente do recurso e atualizar a eTag no pedido.
 
 |Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
@@ -163,13 +163,13 @@ Para artigos e amostras ao vivo, consulte:
 - [Conceito: Eventos ao vivo e saídas ao vivo](live-events-outputs-concept.md)
 - [Amostra: tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
 
-## <a name="416-range-not-satisfiable"></a>416 Alcance não satisfatório
+## <a name="416-range-not-satisfiable"></a>416 Intervalo Não Satisfatório
 
 |Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Erro de funcionamento de armazenamento, erro de 416, intervalo inválido.|
 
-## <a name="500-internal-server-error"></a>500 Erro de Servidor Interno
+## <a name="500-internal-server-error"></a>Erro Interno do Servidor 500
 
 Durante o processamento do pedido, os Serviços de Comunicação encontram algum erro que impede que o processamento continue.  
 
@@ -184,10 +184,10 @@ Durante o processamento do pedido, os Serviços de Comunicação encontram algum
 
 ## <a name="503-service-unavailable"></a>503 Serviço Indisponível
 
-O servidor não consegue receber pedidos. Este erro pode ser causado por pedidos excessivos ao serviço. O mecanismo de estrangulamento dos Serviços de Comunicação Social restringe o uso de recursos para aplicações que fazem um pedido excessivo ao serviço.
+O servidor não consegue receber pedidos. Este erro pode ser causado por excesso de pedidos ao serviço. O mecanismo de limitação dos Serviços de Multimédia restringe a utilização de recursos para aplicações que fazem pedidos em excesso ao serviço.
 
 > [!NOTE]
-> Verifique a mensagem de erro e o código de erro para obter informações mais detalhadas sobre a razão pela qual obteve o erro 503. Este erro nem sempre significa estrangulamento.
+> Verifique a mensagem de erro e a cadeia de código do erro para obter informações mais detalhadas sobre o motivo pelo qual obteve o erro 503. Este erro nem sempre significa limitação.
 > 
 
 |Código de erro|Valor hexadecimal |Descrição do erro|
@@ -200,7 +200,7 @@ Consulte o artigo da [comunidade Azure Media Services](media-services-community.
 
 ## <a name="see-also"></a>Ver também
 
-- [Encoding error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode) (Códigos de erro de codificação)
+- [Encoding error codes](/rest/api/media/jobs/get#joberrorcode) (Códigos de erro de codificação)
 - [Conceitos de Azure Media Services](concepts-overview.md)
 - [Quotas e limites](limits-quotas-constraints.md)
 

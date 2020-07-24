@@ -7,11 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 1db7937cb574ce62986f25e0bfa688dc54b5c606
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092512"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilidade Azure Cosmos DB Gremlin
 O motor Azure Cosmos DB Graph segue de perto a especificação de passos traversais [Apache TinkerPop,](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) mas existem diferenças na implementação específicas para Azure Cosmos DB. Para conhecer a lista de passos gremlin suportados, consulte o artigo de Suporte ao [Protocolo de Arame Gremlin API.](gremlin-support.md)
@@ -68,7 +69,7 @@ O motor Azure Cosmos DB Graph segue de perto a especificação de passos travers
     g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
 
-    Pode rever o desempenho das consultas utilizando o passo `executionProfile()` [Gremlin](gráfico-execução-execução-profile.md.
+    Pode rever o desempenho das consultas utilizando o [ `executionProfile()` passo Gremlin](graph-execution-profile.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Visite a página [de voz do utilizador da Cosmos DB](https://feedback.azure.com/forums/263030-azure-cosmos-db) para partilhar feedback e ajudar a equipa a focar-se em funcionalidades importantes para si.

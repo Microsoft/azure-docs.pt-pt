@@ -7,18 +7,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: d40e392984d2675c748bda00c61cdaeb1c0932da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa918a3a6894205ed36c4b576608e7a71e523a92
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75387025"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092716"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conectar funções de serviços em nuvem de Azure a um controlador de domínio AD personalizado hospedado em Azure
 Primeiro criaremos uma Rede Virtual (VNet) em Azure. Em seguida, adicionaremos um Controlador de Domínio de Diretório Ativo (hospedado numa Máquina Virtual Azure) ao VNet. Em seguida, adicionaremos as funções de serviço de nuvem existentes ao VNet pré-criado e, em seguida, conectá-las-emos ao Controlador de Domínio.
 
 Antes de começarmos, algumas coisas a ter em mente:
 
-1. Este tutorial utiliza o PowerShell, por isso certifique-se de que tem o Azure PowerShell instalado e pronto para partir. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+1. Este tutorial utiliza o PowerShell, por isso certifique-se de que tem o Azure PowerShell instalado e pronto para partir. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/).
 2. O seu Controlador de Domínio AD e as instâncias de função Web/Worker precisam de estar no VNet.
 
 Siga este guia passo a passo e se encontrar algum problema, deixe-nos um comentário no final do artigo. Alguém vai entrar em sua casa (sim, nós lemos comentários).

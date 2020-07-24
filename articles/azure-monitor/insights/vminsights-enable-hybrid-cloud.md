@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 734f61c2e96002516e9e15af88d2c6b0fce00e98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 013515e0608bf790ceef8dc13d9d547496306610
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480747"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092852"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-environment"></a>Ativar o Monitor Azure para VMs para um ambiente híbrido
 
@@ -18,7 +19,7 @@ ms.locfileid: "79480747"
 
 Este artigo explica como ativar o Azure Monitor para VMs para máquinas virtuais ou computadores físicos alojados no seu datacenter ou noutro ambiente em nuvem. No final deste processo, terá começado com sucesso a monitorizar as suas máquinas virtuais no seu ambiente e a saber se estão a ter algum problema de desempenho ou disponibilidade.
 
-Antes de começar, certifique-se de rever os [pré-requisitos](vminsights-enable-overview.md) e verificar se a sua subscrição e recursos cumprem os requisitos. Reveja os requisitos e métodos de implementação do [Log Analytics Linux e do windows agent](../../log-analytics/log-analytics-agent-overview.md).
+Antes de começar, certifique-se de rever os [pré-requisitos](vminsights-enable-overview.md) e verificar se a sua subscrição e recursos cumprem os requisitos. Reveja os requisitos e métodos de implementação do [Log Analytics Linux e do windows agent](../platform/log-analytics-agent.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -155,7 +156,7 @@ Se não souber como implementar recursos utilizando um modelo, consulte:
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Criar e executar um modelo
 
@@ -234,7 +235,7 @@ Se a instalação do seu agente de dependência tiver sido bem sucedida, mas nã
 
     **Linux**: Procure o processo de execução "microsoft-dependency-agent".
 
-2. Está no [nível de preços gratuitos do Log Analytics?](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) O plano Free permite até cinco computadores únicos. Quaisquer computadores subsequentes não aparecerão no mapa, mesmo que os cinco anteriores já não estejam a enviar dados.
+2. Está no [nível de preços gratuitos do Log Analytics?](./solutions.md) O plano Free permite até cinco computadores únicos. Quaisquer computadores subsequentes não aparecerão no mapa, mesmo que os cinco anteriores já não estejam a enviar dados.
 
 3. O computador está a enviar registos e dados perf para registos do Monitor Azure? Execute a seguinte consulta para o seu computador:
 
@@ -251,7 +252,7 @@ Se vir o seu servidor no mapa, mas não tiver dados de processo ou ligação, is
 Verifique o ficheiro C:\Programas\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou o ficheiro /var/opt/microsoft/dependency-agent/log/service.log (Linux). As últimas linhas do ficheiro devem indicar o motivo pelo qual kernel não carregou. Por exemplo, o kernel poderá não ser suportado pelo Linux se tiver atualizado o kernel.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que a monitorização está ativada para as suas máquinas virtuais, esta informação está disponível para análise com o Azure Monitor para VMs.
 
