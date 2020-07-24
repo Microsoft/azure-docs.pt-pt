@@ -1,19 +1,19 @@
 ---
 title: Escolha o nível de preços certo ! Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre os níveis de preços oferecidos pela Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: a8bf7ff9bacd4fe84ee5b64d0aed5cb271ce06f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b32706822ff16780388f4acb5d59bf3d91e6d91
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80335667"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133338"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha o nível de preços certo em Azure Maps
 
@@ -27,13 +27,13 @@ O nível de preços S0 é adequado para si, se as APEs geoespaciais fundamentais
 
 ### <a name="pricing-tier-capabilities"></a>Capacidades de níveis de preços
 
-| Funcionalidade                              |        S0           |  S1      |
+| Capacidade                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Renderização do mapa                              | ✓                   | ✓       |
 | Imagens de satélite                       |                     | ✓        |
 | Pesquisar                                  | ✓                    | ✓        |
 | Pesquisa de lotes                            |                     | ✓        |
-| Encaminhar                                   | ✓                    |✓        |
+| Rota                                   | ✓                    |✓        |
 | Encaminhamento de lote                            |                    | ✓        |
 | Encaminhamento de Matriz                          |                     | ✓        |
 | Rota (Isochrones)                |                     | ✓        |

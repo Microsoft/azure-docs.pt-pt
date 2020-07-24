@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902697"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133895"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -79,7 +79,15 @@ Uma vez que um hospedeiro dedicado é provisionado, Azure atribui-o ao servidor 
 
 ## <a name="quotas"></a>Quotas
 
-Existe um limite de quota padrão de 3000 vCPUs para anfitriões dedicados, por região. Mas, o número de anfitriões que pode implementar também é limitado pela quota para a família de tamanho VM usada para o hospedeiro. Por exemplo, uma subscrição **Pay-as-you-go** pode ter apenas uma quota de 10 vCPUs disponíveis para a série de tamanhoSV3, na região leste dos EUA. Neste caso, você precisa solicitar um aumento de quota para pelo menos 64 vCPUs antes de você pode implementar um anfitrião dedicado. Selecione o botão **'Aumentar** pedido' no canto superior direito para apresentar um pedido se necessário.
+Existem dois tipos de quota que são consumidos quando se implanta um hospedeiro dedicado.
+
+1. Quota de anfitrião vCPU dedicada. O limite de quota padrão é de 3000 vCPUs, por região.
+1. Quota familiar do tamanho de VM. Por exemplo, uma subscrição **Pay-as-you-go** pode ter apenas uma quota de 10 vCPUs disponíveis para a série de tamanhoSV3, na região leste dos EUA. Para implementar um anfitrião dedicado Dsv3, você precisaria solicitar um aumento de quota para pelo menos 64 vCPUs antes de poder implantar o anfitrião dedicado. 
+
+Para solicitar um aumento de quota, crie um pedido de apoio no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+O fornecimento de um hospedeiro dedicado consumirá tanto o vCPU de hospedeiro dedicado como a quota vCPU da família VM, mas não consumirá o vCPU regional.
+
 
 ![Screenshot da página de utilização e quotas no portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

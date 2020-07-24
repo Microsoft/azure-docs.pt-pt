@@ -1,59 +1,72 @@
 ---
 title: Configurar o público anónimo ler acesso a contentores e bolhas
 titleSuffix: Azure Storage
-description: Saiba como ativar ou desativar o acesso anónimo aos dados blob para a conta de armazenamento. Defina a definição de acesso público do contentor para disponibilizar contentores e bolhas para acesso anónimo.
+description: Saiba como permitir ou proibir o acesso anónimo aos dados blob para a conta de armazenamento. Defina a definição de acesso público do contentor para disponibilizar contentores e bolhas para acesso anónimo.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/23/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: af589874021baaf04a423b7bbaa0e36528eda93c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a153a3735bbc46dbbce7e58374e1015ac1ec0bfb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209936"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133185"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
-O Azure Storage suporta o acesso anónimo ao público para ler o acesso a contentores e bolhas. Por predefinição, todos os pedidos a um contentor e às suas bolhas devem ser autorizados utilizando a autorização do Azure Ative Directory (Azure AD) ou da Chave Partilhada. Ao configurar a definição de nível de acesso público de um contentor para permitir o acesso anónimo, os clientes podem ler dados nesse recipiente sem autorizar o pedido.
+O Azure Storage suporta o acesso público anónimo opcional para recipientes e bolhas. Por padrão, o acesso anónimo aos seus dados nunca é permitido. A menos que você ative explicitamente o acesso anónimo, todos os pedidos para um recipiente e suas bolhas devem ser autorizados usando a autorização do Azure Ative (Azure AD) ou da Chave Partilhada. Ao configurar a definição de nível de acesso público de um contentor para permitir o acesso anónimo, os clientes podem ler dados nesse recipiente sem autorizar o pedido.
 
 > [!WARNING]
-> Quando um recipiente é configurado para acesso público, qualquer cliente pode ler dados nesse recipiente. O acesso público apresenta um potencial risco de segurança, por isso, se o seu cenário não o exigir, a Microsoft recomenda que o desative para a conta de armazenamento. Para obter mais informações, consulte [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
-
-Para configurar o acesso público a um contentor, deve realizar dois passos:
-
-1. Permitir o acesso público à conta de armazenamento
-1. Configure a definição de acesso público do contentor
+> Quando um recipiente é configurado para acesso público, qualquer cliente pode ler dados nesse recipiente. O acesso público apresenta um potencial risco de segurança, por isso, se o seu cenário não o exigir, a Microsoft recomenda que o desapromia para a conta de armazenamento. Para obter mais informações, consulte [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
 
 Este artigo descreve como configurar o público anónimo ler o acesso a um contentor e às suas bolhas. Para obter informações sobre como aceder a dados blob de forma anónima a partir de uma aplicação do cliente, consulte [access public containers e blobs anonimamente com .NET](anonymous-read-access-client.md).
 
-## <a name="enable-or-disable-public-read-access-for-a-storage-account"></a>Permitir ou desativar o acesso de leitura pública para uma conta de armazenamento
+## <a name="about-anonymous-public-read-access"></a>Sobre o acesso ao público anónimo
 
-Por predefinição, o acesso público está habilitado para uma conta de armazenamento. A desativação do acesso público impede todo o acesso anónimo a contentores e bolhas nessa conta. Para uma maior segurança, a Microsoft recomenda que desative o acesso público às suas contas de armazenamento, a menos que o seu cenário exija que os utilizadores acedam a recursos blob de forma anónima.
+O acesso do público aos seus dados é sempre proibido por defeito. Existem duas configurações distintas que afetam o acesso do público:
 
-> [!WARNING]
-> A desativação do acesso público a uma conta de armazenamento sobrepõe-se às definições de acesso público a todos os contentores dessa conta de armazenamento. Quando o acesso público é desativado para a conta de armazenamento, quaisquer futuros pedidos anónimos a essa conta falharão.
+1. **Permitir o acesso público à conta de armazenamento.** Por predefinição, uma conta de armazenamento permite a um utilizador com as permissões adequadas para permitir o acesso do público a um contentor. Os dados blob não estão disponíveis para acesso público, a menos que o utilizador tome o passo adicional para configurar explicitamente a configuração de acesso público do recipiente.
+1. **Configure a definição de acesso público do contentor.** Por predefinição, a definição de acesso público de um contentor é desativada, o que significa que é necessária autorização para cada pedido ao contentor ou aos seus dados. Um utilizador com as permissões adequadas pode modificar a definição de acesso público de um contentor para permitir o acesso anónimo apenas se for permitido acesso anónimo à conta de armazenamento.
 
-Para ativar ou desativar o acesso público a uma conta de armazenamento, utilize o portal Azure ou o Azure CLI para configurar a propriedade **blobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
+A tabela que se segue resume como ambas as configurações em conjunto afetam o acesso público a um contentor.
+
+| Cenário de acesso público | O acesso público é desativado para um contentor (definição predefinição) | O acesso público a um contentor está definido para Contentor | Acesso público a um contentor está definido para Blob |
+|--|--|--|--|
+| O acesso público é proibido para a conta de armazenamento | Não há acesso público a nenhum contentor na conta de armazenamento. | Não há acesso público a nenhum contentor na conta de armazenamento. A definição da conta de armazenamento substitui a definição do recipiente. | Não há acesso público a nenhum contentor na conta de armazenamento. A definição da conta de armazenamento substitui a definição do recipiente. |
+| O acesso público é permitido para a conta de armazenamento (definição predefinição) | Não há acesso público a este recipiente (configuração predefinida). | O acesso público é permitido a este contentor e às suas bolhas. | O acesso público é permitido a bolhas neste recipiente, mas não ao próprio contentor. |
+
+## <a name="allow-or-disallow-public-read-access-for-a-storage-account"></a>Permitir ou proibir o acesso público a uma conta de armazenamento
+
+Por predefinição, o acesso público é permitido para recipientes individuais numa conta de armazenamento. Quando o acesso público é permitido, um utilizador com as permissões adequadas pode modificar a definição de acesso público de um contentor para permitir o acesso anónimo do público aos dados nesse contentor.
+
+Tenha em mente que o acesso do público a um recipiente é sempre desligado por defeito e deve ser explicitamente configurado para permitir pedidos anónimos. Independentemente da configuração da conta de armazenamento, os seus dados nunca estarão disponíveis para acesso público, a menos que um utilizador com permissões adequadas dê este passo adicional para permitir o acesso do público no recipiente.
+
+A não permitir o acesso público à conta de armazenamento impede o acesso anónimo a todos os contentores e bolhas nessa conta. Quando o acesso público é proibido para a conta, não é possível configurar a definição de acesso público para um contentor para permitir o acesso anónimo. Para uma maior segurança, a Microsoft recomenda que não seja permitido o acesso do público às suas contas de armazenamento, a menos que o seu cenário exija que os utilizadores acedam a recursos blob de forma anónima.
+
+> [!IMPORTANT]
+> A não permitir o acesso do público a uma conta de armazenamento sobrepõe-se às definições de acesso público a todos os contentores dessa conta de armazenamento. Quando o acesso público for proibido para a conta de armazenamento, quaisquer futuros pedidos anónimos a essa conta falharão. Antes de alterar esta definição, certifique-se de compreender o impacto nas aplicações do cliente que podem estar a aceder a dados na sua conta de armazenamento de forma anónima. Para obter mais informações, consulte [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
+
+Para permitir ou proibir o acesso público a uma conta de armazenamento, utilize o portal Azure ou o Azure CLI para configurar a propriedade **blobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Para ativar ou desativar o acesso do público a uma conta de armazenamento no portal Azure, siga estes passos:
+Para permitir ou proibir o acesso do público a uma conta de armazenamento no portal Azure, siga estes passos:
 
 1. Navegue para a sua conta de armazenamento no portal do Azure.
 1. Localizar a **definição de configuração** em **Definições**.
-1. Descreva **o acesso público blob** a **deficientes** ou **ativados**.
+1. Descreva **o acesso público blob** a **Ativação** ou **Desativação**.
 
-    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot mostrando como ativar ou desativar o acesso público blob para conta":::
+    :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot mostrando como permitir ou desativar o acesso público blob para conta":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para ativar ou desativar o acesso público a uma conta de armazenamento com o Azure CLI, obtenha primeiro o ID de recursos para a sua conta de armazenamento, ligando para o comando [de show de recursos az.](/cli/azure/resource#az-resource-show) Em seguida, ligue para o comando [de atualização de recursos az](/cli/azure/resource#az-resource-update) para definir a propriedade **allowBlobPublicAccess** para a conta de armazenamento. Para permitir o acesso do público, descreva a propriedade **allowBlobPublicAccess** para ser verdadeira; para desativar, defini-lo como **falso**.
+Para permitir ou proibir o acesso público a uma conta de armazenamento com o Azure CLI, obtenha primeiro o ID de recursos para a sua conta de armazenamento, ligando para o comando [de show de recursos az.](/cli/azure/resource#az-resource-show) Em seguida, ligue para o comando [de atualização de recursos az](/cli/azure/resource#az-resource-update) para definir a propriedade **allowBlobPublicAccess** para a conta de armazenamento. Para permitir o acesso público, descreva a propriedade **allowBlobPublicAccess** para ser verdadeira; para não permitir, defini-lo como **falso**.
 
-O exemplo a seguir desativa o acesso público à conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
+O exemplo a seguir não permite o acesso público blob para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
 ```azurecli-interactive
 storage_account_id=$(az resource show \
@@ -69,31 +82,21 @@ az resource update \
     ```
 ```
 
-Para verificar se o acesso público está ativado com o Azure CLI, ligue para o comando de [show de recursos az](/cli/azure/resource#az-resource-show) e consulte a propriedade **allowBlobPublicAccess:**
-
-```azurecli-interactive
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowBlobPublicAccess \
-    --output tsv
-```
-
 ---
 
 > [!NOTE]
-> A desativação do acesso público a uma conta de armazenamento não afeta quaisquer sites estáticos alojados nessa conta de armazenamento. O **recipiente $web** é sempre acessível ao público.
+> A não permitir o acesso público a uma conta de armazenamento não afeta quaisquer sites estáticos alojados nessa conta de armazenamento. O **recipiente $web** é sempre acessível ao público.
 
-## <a name="check-the-public-access-setting-for-a-storage-account"></a>Verifique a definição de acesso público para uma conta de armazenamento
+## <a name="check-whether-public-access-is-allowed-for-a-storage-account"></a>Verifique se o acesso público é permitido para uma conta de armazenamento
 
-Para verificar a definição de acesso público para uma conta de armazenamento, obtenha o valor da propriedade **allowBlobPublicAccess.** Para verificar esta propriedade para obter uma grande número de contas de armazenamento de uma só vez, utilize o Azure Resource Graph Explorer.
+Para verificar se o acesso público é permitido para uma conta de armazenamento, obtenha o valor da propriedade **allowBlobPublicAccess.** Para verificar esta propriedade para obter uma grande número de contas de armazenamento de uma só vez, utilize o Azure Resource Graph Explorer.
 
-A propriedade **allowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento não permite o acesso do público quando o valor da propriedade é nulo.
+> [!IMPORTANT]
+> A propriedade **allowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou quando é **verdade.**
 
-### <a name="check-the-public-access-setting-for-a-single-storage-account"></a>Verifique a definição de acesso público para uma única conta de armazenamento
+### <a name="check-whether-public-access-is-allowed-for-a-single-storage-account"></a>Verifique se o acesso público é permitido para uma única conta de armazenamento
 
-Para verificar a definição de acesso público para uma única conta de armazenamento utilizando o Azure CLI, ligue para o comando de [exibição de recursos az](/cli/azure/resource#az-resource-show) e consulte a propriedade **allowBlobPublicAccess:**
+Para verificar se o acesso público é permitido para uma única conta de armazenamento usando O Azure CLI, ligue para o comando de [show de recursos az](/cli/azure/resource#az-resource-show) e consulte a propriedade **allowBlobPublicAccess:**
 
 ```azurecli-interactive
 az resource show \
@@ -104,9 +107,9 @@ az resource show \
     --output tsv
 ```
 
-### <a name="check-the-public-access-setting-for-a-set-of-storage-accounts"></a>Consulte a definição de acesso público para um conjunto de contas de armazenamento
+### <a name="check-whether-public-access-is-allowed-for-a-set-of-storage-accounts"></a>Verifique se o acesso público é permitido para um conjunto de contas de armazenamento
 
-Para verificar a definição de acesso público através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+Para verificar se o acesso público é permitido através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
 Executando a seguinte consulta no Explorador de Gráficos de Recurso devolve uma lista de contas de armazenamento e exibe o valor da propriedade **allowBlobPublicAccess** para cada conta:
 
@@ -120,9 +123,9 @@ resources
 
 ## <a name="set-the-public-access-level-for-a-container"></a>Definir o nível de acesso público para um recipiente
 
-Para conceder aos utilizadores anónimos o acesso a um contentor e às suas bolhas, primeiro permitir o acesso público à conta de armazenamento, em seguida, definir o nível de acesso público do contentor. Se o acesso público for desativado para a conta de armazenamento, não poderá configurar o acesso público a um contentor.
+Para conceder aos utilizadores anónimos o acesso a um contentor e às suas bolhas, primeiro permitir o acesso público à conta de armazenamento, em seguida, definir o nível de acesso público do contentor. Se o acesso público for negado para a conta de armazenamento, não poderá configurar o acesso público a um contentor.
 
-Quando o acesso público estiver habilitado para uma conta de armazenamento, pode configurar um recipiente com as seguintes permissões:
+Quando é permitido o acesso público a uma conta de armazenamento, pode configurar um recipiente com as seguintes permissões:
 
 - **Sem acesso público:** O recipiente e as suas bolhas só podem ser acedidos com um pedido autorizado. Esta opção é o padrão para todos os novos recipientes.
 - **O público lê o acesso apenas para bolhas:** As bolhas dentro do recipiente podem ser lidas por pedido anónimo, mas os dados do contentor não estão disponíveis anonimamente. Os clientes anónimos não podem enumerar as bolhas dentro do contentor.
@@ -144,9 +147,9 @@ Para atualizar o nível de acesso público a um ou mais contentores existentes n
 
     ![Screenshot mostrando como definir o nível de acesso público no portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
-Quando o acesso público é desativado para a conta de armazenamento, o nível de acesso público de um contentor não pode ser definido. Se tentar definir o nível de acesso público do contentor, verá que a definição está desativada porque o acesso público é proibido para a conta.
+Quando o acesso público é proibido para a conta de armazenamento, o nível de acesso público de um contentor não pode ser definido. Se tentar definir o nível de acesso público do contentor, verá que a definição está desativada porque o acesso público é proibido para a conta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando que definir o nível de acesso público do contentor é bloqueado quando o acesso público é desativado":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando que a definição do nível de acesso público do contentor é bloqueada quando o acesso público é proibido":::
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -163,7 +166,7 @@ az storage container set-permission \
     --auth-mode key
 ```
 
-Quando o acesso público é desativado para a conta de armazenamento, o nível de acesso público de um contentor não pode ser definido. Se tentar definir o nível de acesso público do contentor, ocorre um erro que indica que o acesso público não é permitido na conta de armazenamento.
+Quando o acesso público é proibido para a conta de armazenamento, o nível de acesso público de um contentor não pode ser definido. Se tentar definir o nível de acesso público do contentor, ocorre um erro que indica que o acesso público não é permitido na conta de armazenamento.
 
 ---
 

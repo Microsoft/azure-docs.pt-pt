@@ -1,66 +1,66 @@
 ---
-title: Crie o seu primeiro fluxo de trabalho automatizado
+title: Criar um fluxo de trabalho de integração automatizada
 description: Quickstart - Construa o seu primeiro fluxo de trabalho automatizado utilizando apps Azure Logic para a integração de sistemas e soluções de integração de aplicações empresariais (EAI)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/20/2019
-ms.openlocfilehash: 2fdb83a61f7eaaefb3fab10af46315893791590c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/23/2020
+ms.openlocfilehash: 980e3e036257bbf5aa9743025bbfb55065176a39
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536288"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133304"
 ---
-# <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Quickstart: Crie o seu primeiro fluxo de trabalho utilizando aplicações Azure Logic - portal Azure
+# <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Quickstart: Crie o seu primeiro fluxo de trabalho de integração automatizada utilizando apps Azure Logic - Portal Azure
 
-Este quickstart introduz os conceitos gerais básicos por trás de como construir o seu primeiro fluxo de trabalho usando [Azure Logic Apps](../logic-apps/logic-apps-overview.md), como criar uma aplicação lógica em branco, adicionar um gatilho e uma ação, e depois testar a sua aplicação lógica. Neste quickstart, você constrói uma aplicação lógica que verifica regularmente o feed RSS de um site para novos itens. Se existirem novos itens, a aplicação lógica envia uma mensagem de e-mail para cada item. Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a alto nível:
+Este quickstart introduz os conceitos gerais básicos por trás de como construir o seu primeiro fluxo de trabalho usando [Azure Logic Apps](logic-apps-overview.md), como criar uma aplicação lógica em branco, adicionar um gatilho e uma ação, e depois testar a sua aplicação lógica. Neste quickstart, você constrói uma aplicação lógica que verifica regularmente o feed RSS de um site para novos itens. Se existirem novos itens, a aplicação lógica envia uma mensagem de e-mail para cada item. Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a alto nível:
 
-![Fluxo de trabalho de aplicações lógicas de exemplo de alto nível](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
+![Arte conceptual mostrando fluxo de trabalho de aplicações lógicas de exemplo de alto nível.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-Para este cenário, precisa de uma subscrição do Azure ou [de uma conta Azure gratuita](https://azure.microsoft.com/free/), uma conta de e-mail de um serviço que é suportado por Azure Logic Apps, como o Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de e-mail suportados, [reveja a lista de conectores aqui.](/connectors/) Neste exemplo, a aplicação lógica utiliza uma conta Office 365 Outlook. Se utilizar um serviço de e-mail diferente, os passos gerais gerais são os mesmos, mas a interface do utilizador pode diferir ligeiramente.
+Para este cenário, precisa de uma subscrição do Azure ou [de uma conta Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), uma conta de e-mail de um serviço que é suportado por Azure Logic Apps, como o Office 365 Outlook, Outlook.com ou Gmail. Para outros serviços de e-mail suportados, [reveja a lista de conectores aqui.](/connectors/) Neste exemplo, a aplicação lógica utiliza uma conta Office 365 Outlook. Se utilizar um serviço de e-mail diferente, os passos gerais gerais são os mesmos, mas a interface do utilizador pode diferir ligeiramente.
 
 > [!IMPORTANT]
 > Se quiser utilizar o conector do Gmail, apenas as contas de negócios da G-Suite podem utilizar este conector sem restrições em aplicações lógicas. Se tiver uma conta de consumo do Gmail, pode utilizar este conector apenas com serviços específicos aprovados pela Google, ou pode [criar uma aplicação para clientes da Google para utilizar para autenticação com o seu conector Gmail.](/connectors/gmail/#authentication-and-bring-your-own-application) Para obter mais informações, consulte [as políticas de segurança de dados e privacidade para conectores google em Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-
-Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
-
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
 
-1. A partir da página inicial do Azure, na caixa de pesquisa, encontre e selecione **Aplicações Lógicas.**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais da sua conta do Azure.
 
-   ![Localizar e selecionar "Aplicações lógicas"](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
+1. Na caixa de pesquisa do portal Azure, insira `logic apps` e selecione **Aplicações Lógicas**.
+
+   ![Screenshot mostrando a caixa de pesquisa do portal Azure com "apps lógicas" como o termo de pesquisa e "Logic Apps" como o resultado de pesquisa selecionado.](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
 1. Na página **'Aplicações lógicas',** selecione **Adicionar**.
 
-   ![Adicionar novo aplicativo de lógica](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Screenshot mostrando lista de aplicações lógicas e botão selecionado, "Add".](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. No painel **da Aplicação Lógica,** forneça detalhes sobre a sua aplicação lógica, como mostrado abaixo. Depois de terminar, **selecione Criar**.
+1. No painel **da Aplicação Lógica,** forneça detalhes sobre a sua aplicação lógica, como mostrado abaixo.
 
-   ![Fornecer detalhes para nova aplicação lógica](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
+   ![Screenshot mostrando painel de criação de aplicativos lógicos com detalhes para nova aplicação lógica.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que contém apenas letras, números, hífenes (), sublinha os `-` `_` parênteses ( `(` , ) e `)` períodos `.` (). Este exemplo utiliza "My-First-Logic-App". <p><p>**Nota:** Os nomes das aplicações lógicas devem ser únicos em todas as regiões. |
+   | **Nome** | <*lógica-app-nome*> | O nome da sua aplicação lógica, que deve ser única em todas as regiões e que pode conter apenas letras, números, hífenes `-` (), sublinhados `_` (), parênteses `(` e `)` períodos `.` (). Este exemplo utiliza "My-First-Logic-App". |
    | **Subscrição** | <*Nome de subscrição Azure*> | O seu nome de subscrição Azure |
-   | **Grupo de recursos** | <*Nome de grupo Azure-recursos*> | O nome do [grupo de recursos Azure](../azure-resource-manager/management/overview.md) usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". <p><p>**Nota:** Os nomes dos grupos de recursos devem ser únicos em todas as regiões. |
+   | **Grupo de recursos** | <*Nome de grupo Azure-recursos*> | O nome para o [grupo de recursos Azure,](../azure-resource-manager/management/overview.md)que deve ser único em todas as regiões e é usado para organizar recursos relacionados. Este exemplo usa "My-First-LA-RG". |
    | **Localização** | <*Região de Azure*> | A região onde armazenar a sua informação lógica de aplicações. Este exemplo usa "West US". |
    | **Log Analytics** | Desligado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
-1. Depois de o Azure implementar a sua aplicação, na barra de **ferramentas**Azure, selecione Notifications  >  **Go para o recurso** para a sua aplicação lógica implementada.
+1. Quando estiver pronto, selecione **Review + Create**. Confirme os detalhes que forneceu e selecione **Criar**.
 
-   ![Vá para o recurso de aplicativo lógica recém-criado](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
+1. Depois de a Azure implementar com sucesso a sua aplicação, selecione **Ir para o recurso**.
+
+   ![Screenshot mostrando a página de implementação de recursos e botão selecionado para "Ir para o recurso".](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    Ou, pode encontrar e selecionar a sua aplicação lógica digitando o nome na caixa de pesquisa.
 
    O Estruturador da Aplicação Lógica é aberto e mostra uma página com um vídeo de introdução e os acionadores habitualmente utilizados. Em **Modelos**, selecione **Aplicação Lógica em Branco**.
 
-   ![Selecione o modelo em branco para aplicação lógica](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![Screenshot mostrando galeria de modelos de design de apps lógicas e modelo selecionado, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que é desencadeado quando um novo item do feed RSS é apresentado. Todas as aplicações lógicas têm de iniciar com um acionador, que é desencadeado quando um evento específico acontece ou quando uma condição específica é cumprida. Cada vez que o gatilho dispara, o motor Azure Logic Apps cria uma instância lógica de aplicações que inicia e executa o seu fluxo de trabalho.
 
@@ -70,26 +70,26 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
 1. No **Logic App Designer,** sob a caixa de pesquisa, selecione **All**.
 
-1. Na caixa de pesquisa, insira `rss` para encontrar o conector RSS. Na lista de gatilhos, selecione o gatilho **quando um item de alimentação é publicado.**
+1. Para encontrar o conector RSS, na caixa de pesquisa, insira `rss` . A partir da lista de gatilhos, selecione o gatilho RSS, **quando for publicado um item de alimentação**.
 
-   ![Selecione o gatilho "Quando um item de alimentação é publicado"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
+   ![Screenshot mostrando o Logic Apps Designer com "rss" na caixa de pesquisa e o gatilho selecionado, "Quando um item de alimentação é publicado".](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Forneça as informações para o seu gatilho, conforme descrito na tabela:
+1. Forneça as informações para o seu gatilho, conforme descrito neste passo:
 
-   ![Configurar o acionador com o feed RSS, a frequência e o intervalo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
+   ![Screenshot mostrando Aplicativos Lógicos Designer com definições de gatilho RSS, incluindo URL RSS, frequência e intervalo.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **O URL do feed RSS** | <*RSS-feed-URL*> | A ligação para o feed RSS que deseja monitorizar. Este exemplo `http://feeds.reuters.com/reuters/topNews` utiliza. |
+   | **O URL do feed RSS** | <*RSS-feed-URL*> | A ligação para o feed RSS que deseja monitorizar. Este exemplo utiliza o feed RSS do Wall Street Journal em `https://feeds.a.dj.com/rss/RSSMarketsMain.xml` , mas se quiser, pode usar o seu próprio URL de feed RSS. |
    | **Intervalo** | 1 | O número de intervalos de espera entre verificações |
-   | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações  |
+   | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações |
    ||||
 
    Em conjunto, o intervalo e a frequência definem o agendamento para o acionador da aplicação lógica. Esta aplicação lógica verifica o feed a cada minuto.
 
 1. Para colapsar os detalhes do gatilho por enquanto, clique dentro da barra de título do gatilho.
 
-   ![Colapso forma de aplicativo lógica para esconder detalhes](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
+   ![Screenshot mostrando Logic Apps Designer com formato de aplicação lógica em colapso.](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
 1. Guarde a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
 
@@ -101,18 +101,19 @@ Adicione agora uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
 
 1. Sob o gatilho **Quando um item de alimentação é publicado,** selecione Novo **passo**.
 
-   ![No gatilho, selecione "Novo passo"](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
+   ![Screenshot mostrando Logic Apps Designer com "Novo passo".](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
 1. Em **Escolha uma ação** e a caixa de pesquisa, selecione **All**.
 
-1. Na caixa de pesquisa, insira `send an email` para encontrar conectores que ofereçam esta ação. Na lista de ações, selecione a ação "enviar um e-mail" para o serviço de e-mail que pretende utilizar. Este exemplo utiliza o conector Office 365 Outlook, que tem a **ação enviar um e-mail.**
+1. Na caixa de pesquisa, `send an email` insira para que possa encontrar conectores que ofereçam esta ação. Para filtrar a lista de ações para uma aplicação ou serviço específico, pode selecionar primeiro essa aplicação ou serviço.
 
-   ![Selecione a ação "Enviar um e-mail" para o Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   Por exemplo, se estiver a utilizar uma conta de trabalho ou escola da Microsoft e quiser utilizar o Office 365 Outlook, selecione **Office 365 Outlook**. Ou, se estiver a utilizar uma conta pessoal da Microsoft, pode selecionar Outlook.com. Este exemplo continua com o Office 365 Outlook:
 
-   Para filtrar a lista de ações para um serviço ou aplicação específico, pode selecionar primeiro essa aplicação ou serviço:
+   ![Screenshot mostrando o Designer de Aplicações Lógicas e o conector do Office 365 Outlook selecionado.](./media/quickstart-create-first-logic-app-workflow/select-connector.png)
 
-   * Relativamente a contas escolares ou profissionais do Azure, selecione Office 365 Outlook (Outlook do Office 365).
-   * Quanto a contas Microsoft pessoais, selecione Outlook.com.
+   Agora pode encontrar e selecionar mais facilmente a ação que pretende utilizar, por `send an email` exemplo:
+
+   ![Screenshot mostrando Logic Apps Designer e lista com ações filtradas.](./media/quickstart-create-first-logic-app-workflow/filtered-actions-list.png)
 
 1. Se o conector de e-mail selecionado lhe pedir para autenticar a sua identidade, complete esse passo agora para criar uma ligação entre a sua aplicação lógica e o seu serviço de e-mail.
 
@@ -124,29 +125,34 @@ Adicione agora uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
    > * [Autenticar acesso com identidades geridas](../logic-apps/create-managed-service-identity.md)
    > * [Autenticar ligações para implementação de aplicações lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
-1. Na ação **Enviar uma mensagem de e-mail**, especifique os dados que pretende que a mensagem inclua.
+1. No Enviar uma ação **por e-mail,** especifique as informações a incluir no e-mail.
 
    1. Na caixa **Para**, introduza o endereço de e-mail do destinatário. Para efeitos de teste, pode utilizar o seu endereço de e-mail.
 
-      Por agora, ignore a lista **Adicionar conteúdo dinâmico** que é apresentada. Quando clica no interior de algumas caixas de edição, esta lista aparece e mostra os parâmetros disponíveis do passo anterior que pode incluir como entradas no fluxo de trabalho.
+      Por agora, ignore a lista **Adicionar conteúdo dinâmico** que é apresentada. Quando clica em algumas caixas de edição, esta lista aparece e mostra quaisquer saídas disponíveis do passo anterior que pode usar como entradas para a ação atual.
 
    1. Na caixa **Assunto**, introduza este texto com um espaço em branco à direita: `New RSS item: `
 
-      ![Na propriedade "Assunto", insira o seu tema de e-mail](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
+      ![Screenshot mostrando o Logic Apps Designer com ação "Enviar um e-mail" e cursor dentro da caixa de propriedade "Subject".](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
 
-   1. Na lista **Adicionar conteúdo dinâmico**, selecione **Título de feed** para incluir o título do item RSS.
+   1. Na lista de **conteúdos dinâmicos Add,** selecione **o título Feed**, que é a saída do gatilho, "Quando um item de alimentação é publicado", que disponibiliza o título de artigo RSS para utilizar.
 
-      ![A partir da lista de conteúdos dinâmicos, selecione a propriedade "Feed title"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
+      ![Screenshot mostrando o Logic Apps Designer com ação "Enviar um e-mail" e cursor dentro da caixa de propriedade "Subject" com uma lista de conteúdos dinâmicos abertos e saída selecionada, "Feed title".](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
+
+      > [!TIP]
+      > Na lista de conteúdos dinâmicos, se não aparecerem saídas do gatilho "Quando um item de alimentação é publicado", junto ao cabeçalho da ação, selecione **Ver mais**.
+      > 
+      > ![Screenshot mostrando Logic Apps Designer com lista de conteúdo dinâmico aberto e "Ver mais" selecionado para o gatilho.](./media/quickstart-create-first-logic-app-workflow/dynamic-content-list-see-more-actions.png)
 
       Quando estiver pronto, o assunto do e-mail terá o aspeto deste exemplo:
 
-      ![Exemplo de assunto de e-mail terminado para o título de feed adicionado](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
+      ![Screenshot mostrando o Logic Apps Designer com ação "Enviar um e-mail" e um assunto de e-mail exemplo com a propriedade incluída "Feed title".](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
       Se um ciclo "For each" aparecer no estruturador, significa que selecionou token para uma matriz, como o token **categories-item**. Para estes tipos de tokens, o estruturador adiciona automaticamente este ciclo à volta da ação que faz referência a esse token. Desta forma, a aplicação lógica realiza a mesma ação em cada item da matriz. Para remover o laço, selecione as **elipses** **(...**) na barra de título do loop e, em seguida, selecione **Delete**.
 
    1. Na caixa **Corpo**, introduza este texto e selecione estes tokens para o corpo da mensagem de e-mail. Para adicionar linhas em branco a uma caixa de edição, prima Shift + Enter.
 
-      ![Selecione propriedades para o conteúdo do corpo de e-mail](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
+      ![Screenshot mostrando o Logic Apps Designer com ação "Enviar um e-mail" e propriedades selecionadas dentro da caixa "Body".](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
       | Propriedade | Descrição |
       |----------|-------------|
@@ -161,11 +167,15 @@ Em seguida, teste a aplicação lógica.
 
 ## <a name="run-your-logic-app"></a>Executar a aplicação lógica
 
-Para iniciar manualmente a sua aplicação lógica, na barra de barras de ferramentas do designer, selecione **Run**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de verificar novamente. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
+Para iniciar manualmente a sua aplicação lógica, na barra de barras de ferramentas do designer, selecione **Run**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto).
+
+![Screenshot mostrando o Design de Aplicações Lógicas com o botão "Run" selecionado na barra de ferramentas do designer.](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
+
+Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de verificar novamente. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
 
 Por exemplo, eis um exemplo de uma mensagem de e-mail enviada por esta aplicação lógica.
 
-![Amostra de e-mail enviado quando novo item de feed RSS aparece](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
+![Screenshot mostrando o e-mail da amostra recebido quando aparece o novo item de alimentação RSS.](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
 Tecnicamente, quando o gatilho verifica o feed RSS e encontra novos itens, o gatilho dispara, e o motor Azure Logic Apps cria uma instância do seu fluxo de trabalho de aplicações lógicas que executa as ações no fluxo de trabalho. Se o acionador não encontrar itens novos, este não é acionado e "ignora" a criação de instâncias do fluxo de trabalho.
 
@@ -175,18 +185,22 @@ Parabéns, já construíste e executou com sucesso a tua primeira aplicação l�
 
 Quando já não precisar deste exemplo, elimine o grupo de recursos que contém a aplicação lógica e os recursos relacionados.
 
-1. No menu Azure principal, selecione **grupos de Recursos**e, em seguida, selecione o grupo de recursos da sua aplicação lógica. No **painel de visão** geral, selecione **Eliminar o grupo de recursos**.
+1. Na caixa de pesquisa Azure, insira `resource groups` e, em seguida, selecione **grupos de Recursos**.
 
-   ![Localizar, selecionar e eliminar grupo de recursos](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+   ![Screenshot mostrando caixa de pesquisa do portal Azure com o termo de pesquisa, "grupos de recursos".](./media/quickstart-create-first-logic-app-workflow/find-resource-groups.png)
+
+1. Encontre e selecione o grupo de recursos da sua aplicação lógica. No **painel de visão** geral, selecione **Eliminar o grupo de recursos**.
+
+   ![Screenshot mostrando portal Azure com grupo de recursos selecionado e botão para "Eliminar grupo de recursos".](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
 1. Quando o painel de confirmação aparecer, insira o nome do grupo de recursos e selecione **Delete**.
 
-   ![Para confirmar a eliminação, selecione "Excluir"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+   ![Screenshot mostrando portal Azure com painel de confirmação e nome de grupo de recursos introduzido para apagar.](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 > [!NOTE]
 > Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou a sua primeira aplicação lógica que verifica a existência de atualizações RSS com base no seu agendamento especificado (a cada minuto) e realiza uma ação (envia e-mail) quando existem atualizações. Para saber mais, continue com este tutorial que cria fluxos de trabalho mais avançados com base num agendamento:
 

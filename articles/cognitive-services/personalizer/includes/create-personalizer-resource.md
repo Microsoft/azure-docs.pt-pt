@@ -1,21 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
 ms.date: 01/15/2020
-ms.author: diberry
-ms.openlocfilehash: b1013b261e9449aef45f629c729579f4c87c1f6b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: caa942c4bbff93f51ed311e01ecdb77bc938ac2c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378612"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133890"
 ---
 ## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso Personalizer Azure
 

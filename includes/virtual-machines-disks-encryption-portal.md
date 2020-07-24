@@ -8,65 +8,14 @@ ms.topic: include
 ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8956d4f5b2243cab433fcb3abaf2e71da8f8c772
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a8702f14bfb9aed5a3595203dde1d86ea56a151b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229419"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133897"
 ---
-A configuração de chaves geridas pelo cliente para os seus discos exigirá que crie recursos numa determinada encomenda, se o fizer pela primeira vez. Primeiro, terás de criar e montar um Cofre de Chaves Azure.
-
-## <a name="set-up-your-azure-key-vault"></a>Configurar o seu Cofre de Chaves Azure
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Procure e selecione **Cofres-chave.**
-
-    [![server-side-encryption-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
-
-    > [!IMPORTANT]
-    > O cofre da chave Azure, o conjunto de encriptação do disco, o VM, os discos e os instantâneos devem estar todos na mesma região e subscrição para que a implementação tenha sucesso.
-
-1. **Selecione +Adicionar** para criar um novo Cofre de Chaves.
-1. Criar um novo grupo de recursos.
-1. Insira um nome de cofre chave, selecione uma região e selecione um nível de preços.
-1. Selecione **Rever + Criar,** verificar as suas escolhas e, em seguida, selecione **Criar**.
-
-    ![Screenshot da experiência de criação do Azure Key Vault. Mostrando os valores particulares que cria](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
-
-1. Assim que o cofre terminar de ser acionado, selecione-o.
-1. Selecione **Teclas** em **Definições**.
-1. **Selecione Gerar/Importar.**
-
-    ![Screenshot do painel de configurações de recursos do Cofre de Chaves. Mostra o botão de gerar/importar dentro das definições.](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png)
-
-1. Deixe o **tipo de chave** definido para O Tamanho da Chave **RSA** e **RSA** definido para **2048**.
-1. Preencha as restantes seleções como quiser e, em seguida, **selecione Criar**.
-
-    ![Screenshot da criação de uma lâmina chave que aparece uma vez que o botão gerar/importar é selecionado](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
-
-## <a name="set-up-your-disk-encryption-set"></a>Configurar o seu conjunto de encriptação de disco
-
-1. Procure por **Conjuntos de Encriptação de Discos** e selecione-o.
-1. No conjunto de **encriptação** do disco seleciona a lâmina **+Adicionar**.
-
-    ![Screenshot do ecrã principal do portal de encriptação do disco. Realçar o botão Adicionar](media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
-
-1. Selecione o seu grupo de recursos, nomeie o seu conjunto de encriptação e selecione a mesma região que o cofre de chaves.
-1. Selecione **cofre e chave chave**.
-1. Selecione o cofre e a chave chave que criou anteriormente, bem como a versão.
-1. **Seleção de imprensa**.
-1. Selecione **Rever + Criar** e, em seguida, **Criar**.
-
-    ![Screenshot da lâmina de criação de encriptação do disco. Mostrando a subscrição, grupo de recursos, nome de conjunto de encriptação de disco, região e chave do seletor de chaves + chave.](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-blade-key.png)
-
-1. Abra o conjunto de encriptação do disco assim que terminar de criar e selecione o alerta que aparece.
-
-    ![Screenshot do alerta popup: "Para associar um disco, imagem ou instantâneo com um conjunto de encriptação de disco, deve conceder permissões ao cofre de chaves". Selecione este alerta para continuar](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
-
-Duas notificações devem aparecer e ter sucesso. Ao fazê-lo, irá utilizar o conjunto de encriptação do disco com o seu cofre de chaves.
-
-![Screenshot de permissão bem sucedida e atribuição de função para o seu cofre de chaves.](media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](virtual-machines-disks-encryption-create-key-vault-portal.md)]
 
 ## <a name="deploy-a-vm"></a>Implementar uma VM
 
@@ -74,12 +23,12 @@ Agora que criou e montou o cofre de chaves e o conjunto de encriptação do disc
 O processo de implementação de VM é semelhante ao processo de implementação padrão, as únicas diferenças são que você precisa implementar o VM na mesma região que os seus outros recursos e você opta por usar uma chave gerida pelo cliente.
 
 1. Procure por **Máquinas Virtuais** e selecione **+ Adicionar** para criar um VM.
-1. No separador **Basic,** selecione a mesma região que o seu conjunto de encriptação de disco e Azure Key Vault.
-1. Preencha os outros valores no separador **Básico** como quiser.
+1. Na lâmina **Basic,** selecione a mesma região que o seu conjunto de encriptação de disco e a Azure Key Vault.
+1. Preencha os outros valores na lâmina **Básica** como quiser.
 
     ![Screenshot da experiência de criação de VM, com o valor da região em destaque.](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-vm-region.png)
 
-1. No **separador Discos,** selecione **Encriptação em repouso com uma chave gerida pelo cliente**.
+1. Na lâmina **Discos,** selecione **Encriptação em repouso com uma chave gerida pelo cliente**.
 1. Selecione o conjunto de encriptação do disco no conjunto de encriptação do **disco.**
 1. Faça as restantes seleções como quiser.
 
