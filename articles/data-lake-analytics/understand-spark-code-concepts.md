@@ -1,19 +1,17 @@
 ---
 title: Compreenda os conceitos de código Apache Spark para desenvolvedores U-SQL do Azure Data Lake Analytics.
 description: Este artigo descreve conceitos de Apache Spark para ajudar os desenvolvedores da U-SQL a entender os conceitos de código Spark.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: d7cdcd5a3b176b60bb7801b37a831f8feb08c21f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106497"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132352"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Compreenda o código Apache Spark para desenvolvedores U-SQL
 
@@ -128,10 +126,10 @@ A tabela seguinte dá os tipos equivalentes em Spark, Scala e PySpark para os ti
 |`SQL.MAP<K,V>`   |`MapType(keyType, valueType, valueContainsNull)` |`scala.collection.Map` | `MapType(keyType, valueType, valueContainsNull=True)`|
 |`SQL.ARRAY<T>`   |`ArrayType(elementType, containsNull)` |`scala.collection.Seq` | `ArrayType(elementType, containsNull=True)`|
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Tipos de SQL e DataFrames spark](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Tipos de SQL e DataFrames spark](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Tipos de valor scala](https://www.scala-lang.org/api/current/scala/AnyVal.html)
 - [pyspark.sql.tipos](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 
@@ -213,7 +211,7 @@ O U-SQL oferece várias formas sintáticas de fornecer dicas para o otimizador d
 
 O otimizador de consultas baseado em custos da Spark tem as suas próprias capacidades para fornecer dicas e afinar o desempenho da consulta. Consulte a documentação correspondente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreender os formatos de dados da Spark para desenvolvedores U-SQL](understand-spark-data-formats.md)
 - [.NET para Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)

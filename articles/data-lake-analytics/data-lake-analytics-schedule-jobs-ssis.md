@@ -2,20 +2,18 @@
 title: Agendar trabalhos U-SQL do Azure Data Lake Analytics utilizando SSIS
 description: Saiba como utilizar os Serviços de Integração de Servidores SQL para agendar trabalhos U-SQL com script inline ou a partir de ficheiros de consulta U-SQL.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: cafb657bbb981edddf9d6bbcfc8d390a519804b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ac747b87cf1a0f2d7c85d05975a31f953bfa5aae
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121304"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132505"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar empregos U-SQL utilizando serviços de integração de servidores SQL (SSIS)
 
@@ -106,7 +104,7 @@ Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiro
 
 3. Desconfiem **da AzureDataLakeAnalyticsConnection** na conta Azure Data Lake Analytics para a quais pretende submeter empregos. Saiba mais sobre [o Azure Data Lake Analytics Connection Manager](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
-4. Desa estaleia outras configurações de trabalho. [Saiba mais.](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)
+4. Desa estaleia outras configurações de trabalho. [Saiba Mais](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
 5. Use **expressões** para definir dinamicamente o nome de trabalho U-SQL:
 
@@ -166,7 +164,7 @@ Em alguns casos, pode querer definir dinamicamente o valor variável U-SQL no sc
 
 [Saiba mais sobre como definir parâmetros para o script U-SQL](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar pacotes do SSIS no Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Pacote de Recursos Azure para Serviços de Integração (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)

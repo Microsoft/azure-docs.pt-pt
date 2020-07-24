@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 00369ae45a13414ce46f324e37afe24be24a48e0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986787"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132947"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -112,7 +112,7 @@ A gestão central da identidade oferece os seguintes benefícios:
 > - O token de acesso Azure AD está em cache no lado do cliente e a sua vida útil depende da configuração simbólica. Veja o artigo, [Configurar vidas simbólicas no Azure Ative Directory](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientações sobre problemas de resolução de problemas Azure AD Authentication, consulte o seguinte blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991).
 
-### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
+### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
 
 > Mencionado em: Osa Practice #2, ISO Access Control (AC)
 
@@ -240,9 +240,9 @@ Atribua apenas as [permissões necessárias](https://docs.microsoft.com/sql/rela
   - Certifique-se de que não atribui os utilizadores a funções desnecessárias.
 
 - Em Azure Resource Manager:
-  - Utilize funções incorporadas se estiver disponível ou personalizadas de RBAC e atribuir as permissões necessárias.
-    - [Papéis incorporados para Azure](../../role-based-access-control/built-in-roles.md)
-    - [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md) (Funções personalizadas para recursos do Azure)
+  - Utilize funções incorporadas se estiver disponível ou a azure funções personalizadas e atribuir as permissões necessárias.
+    - [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md)
+    - [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md)
 
 **Boas práticas:**
 
@@ -291,7 +291,7 @@ A Separação de Deveres, também denominada Segregação de Deveres, descreve a
 - Identifique uma hierarquia abrangente de utilizadores (e processos automatizados) que acedam ao sistema.
 
 - Criar funções de acordo com os grupos de utilizador necessários e atribuir permissões a funções.
-  - Para tarefas de nível de gestão no portal Azure ou através da automação PowerShell utilize funções DE RBAC. Ou encontra uma função incorporada que corresponda ao requisito, ou crie um papel RBAC personalizado usando as permissões disponíveis
+  - Para tarefas de nível de gestão no portal Azure ou através da automação PowerShell utilize funções DE RBAC. Ou encontra uma função incorporada que corresponda ao requisito, ou crie uma função personalizada Azure usando as permissões disponíveis
   - Criar funções de Servidor para tarefas em todo o servidor (criando novos logins, bases de dados) num caso gerido.
   - Criar funções de base de dados para tarefas ao nível da base de dados.
 
@@ -342,8 +342,8 @@ Para os leitores que querem mergulhar mais profundamente no SoD, recomendamos os
   - [Assinatura de Procedimentos Armazenados](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - Para a gestão de recursos Azure:
-  - [Papéis incorporados para Azure](../../role-based-access-control/built-in-roles.md)
-  - [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md) (Funções personalizadas para recursos do Azure)
+  - [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md)
+  - [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md)
   - [Utilização de Gestão de Identidade Privilegiada Azure AD para acesso elevado](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### <a name="perform-regular-code-reviews"></a>Realizar revisões de código regulares
@@ -798,6 +798,6 @@ A maioria das normas de segurança aborda a disponibilidade de dados em termos d
 
 - Características adicionais de continuidade do negócio, tais como grupos de auto-failover em diferentes geos Azure podem ser configurados como descrito aqui: [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [uma visão geral das capacidades de segurança da Base de Dados Azure SQL](security-overview.md)

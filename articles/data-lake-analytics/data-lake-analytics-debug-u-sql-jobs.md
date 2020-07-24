@@ -3,18 +3,16 @@ title: Código Debug C# para empregos U-SQL do Azure Data Lake
 description: Este artigo descreve como depurar um vértice falhado U-SQL usando Azure Data Lake Tools para o Visual Studio.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: 9c1c36d146b4370962fc6328f6b75ef7160e28b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121457"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131876"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Código C# definido pelo utilizador para trabalhos falhados de U-SQL
 
@@ -105,7 +103,7 @@ Para reenviar o trabalho falhado:
 
 3. Reenviar o trabalho da U-SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Guia de programabilidade U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Desenvolver operadores definidos pelo utilizador U-SQL para empregos Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)

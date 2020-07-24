@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1837d342c4476633ee33a8579abe7389ac9bbddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce85473e80bfccf1bcff3e21408fd91e4cd428a4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80476823"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131332"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerir instâncias em Funções Duradouras em Azure
 
@@ -18,13 +18,13 @@ Se estiver a utilizar a extensão [de Funções Duradouras](durable-functions-ov
 
 Pode iniciar e encerrar casos, por exemplo, e pode consultar casos, incluindo a capacidade de consultar todas as instâncias e consultar casos com filtros. Além disso, pode enviar eventos para instâncias, aguardar a conclusão da orquestração e recuperar URLs de webhook de gestão HTTP. Este artigo abrange também outras operações de gestão, incluindo rebobinar instâncias, expurgar a história dos casos e eliminar um centro de tarefas.
 
-Em Funções Duradouras, tem opções para a forma como pretende implementar cada uma destas operações de gestão. Este artigo fornece exemplos que utilizam as [Ferramentas Centrais de Funções Azure](../functions-run-local.md) para .NET (C#) e JavaScript.
+Em Funções Duradouras, tem opções para a forma como pretende implementar cada uma destas operações de gestão. Este artigo fornece exemplos que utilizam as [Ferramentas Centrais de Funções Azure](../functions-run-local.md) para .NET (C#), JavaScript e Python.
 
 ## <a name="start-instances"></a>Iniciar instâncias
 
 É importante ser capaz de iniciar um caso de orquestração. Isto é geralmente feito quando está a usar uma ligação de funções duradouras no gatilho de outra função.
 
-O `StartNewAsync` método (.NET) ou `startNew` (JavaScript) na [ligação](durable-functions-bindings.md#orchestration-client) do cliente de orquestração inicia uma nova instância. Internamente, este método encova uma mensagem na fila de controlo, que depois desencadeia o início de uma função com o nome especificado que utiliza a ligação do gatilho de [orquestração](durable-functions-bindings.md#orchestration-trigger).
+O `StartNewAsync` método (.NET), `startNew` (JavaScript) ou `start_new` (Python) na [ligação](durable-functions-bindings.md#orchestration-client) do cliente de orquestração inicia uma nova instância. Internamente, este método encova uma mensagem na fila de controlo, que depois desencadeia o início de uma função com o nome especificado que utiliza a ligação do gatilho de [orquestração](durable-functions-bindings.md#orchestration-trigger).
 
 Esta operação de assínca termina quando o processo de orquestração é programado com sucesso.
 
@@ -60,7 +60,7 @@ public static async Task Run(
 
 <a name="javascript-function-json"></a>Salvo especificação em contrário, os exemplos nesta página utilizam o gatilho HTTP com o seguinte function.jsligado.
 
-**function.js**
+**function.json**
 
 ```json
 {
@@ -102,9 +102,59 @@ module.exports = async function(context, input) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+<a name="javascript-function-json"></a>Salvo especificação em contrário, os exemplos nesta página utilizam o gatilho HTTP com o seguinte function.jsligado.
+
+**function.json**
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [    
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureStorageQueuesConnectionString"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> Este exemplo visa a versão 2.x das Funções Duradouras. Na versão 1.x, use `orchestrationClient` em vez de `durableClient` .
+
+**__init__.py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    
+    instance_id = await client.start_new('HelloWorld', None, None)
+    logging.log(f"Started orchestration with ID = ${instance_id}.")
+
+```
+
 ---
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Também pode iniciar uma ocorrência diretamente utilizando o comando [Azure Functions Core](../functions-run-local.md) `durable start-new` Tools. São necessários os seguintes parâmetros:
 
@@ -127,7 +177,7 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 Como parte do seu esforço para gerir as suas orquestrações, provavelmente terá de recolher informações sobre o estado de uma instância de orquestração (por exemplo, se completou normalmente ou falhou).
 
-O `GetStatusAsync` método (.NET) ou o `getStatus` método (JavaScript) na [orquestração cliente de ligação](durable-functions-bindings.md#orchestration-client) questiona o estado de uma instância de orquestração.
+O `GetStatusAsync` método (.NET), `getStatus` (JavaScript), ou o `get_status` método (Python) na [orquestração cliente que liga](durable-functions-bindings.md#orchestration-client) o estado de uma instância de orquestração.
 
 É preciso um `instanceId` (obrigatório), `showHistory` (opcional), `showHistoryOutput` (opcional) e `showInput` (opcional) como parâmetros.
 
@@ -153,7 +203,7 @@ O método devolve um objeto com as seguintes propriedades:
   * **Encerrado**: O caso foi interrompido abruptamente.
 * **História**: A história da execução da orquestração. Este campo só é povoado se `showHistory` estiver definido para `true` .
 
-Este método `null` retorna (.NET) ou `undefined` (JavaScript) se a instância não existir.
+Este método `null` retorna (.NET), `undefined` (JavaScript) ou `None` (Python) se a instância não existir.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -186,9 +236,22 @@ module.exports = async function(context, instanceId) {
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    status = await client.get_status(instance_id)
+    # do something based on the current status
+```
+
 ---
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Também é possível obter o estatuto de uma instância de orquestração diretamente, usando o comando [Azure Functions Core](../functions-run-local.md) `durable get-runtime-status` Tools. São necessários os seguintes parâmetros:
 
@@ -218,7 +281,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 Em vez de consultar um caso na sua orquestração de cada vez, pode achar mais eficiente questioná-los todos ao mesmo tempo.
 
-Pode utilizar o `GetStatusAsync` método (.NET) ou `getStatusAll` (JavaScript) para consultar os estados de todas as instâncias de orquestração. Em .NET, pode passar um `CancellationToken` objeto no caso de querer cancelá-lo. O método devolve objetos com as mesmas propriedades que o `GetStatusAsync` método com parâmetros.
+Pode utilizar o `GetStatusAsync` método (.NET), `getStatusAll` (JavaScript) ou `get_status_all` (Python) para consultar os estatutos de todas as instâncias de orquestração. Em .NET, pode passar um `CancellationToken` objeto no caso de querer cancelá-lo. O método devolve objetos com as mesmas propriedades que o `GetStatusAsync` método com parâmetros.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -255,11 +318,29 @@ module.exports = async function(context, req) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import json
+import azure.functions as func
+import azure.durable_functions as df
+
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    instances = await client.get_status_all()
+
+    for instance in instances:
+        logging.log(json.dumps(instance))
+```
+
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
 ---
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Também é possível consultar as instâncias diretamente, utilizando o comando [Azure Functions Core](../functions-run-local.md) `durable get-instances` Tools. São necessários os seguintes parâmetros:
 
@@ -331,9 +412,34 @@ module.exports = async function(context, req) {
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+from datetime import datetime
+import json
+import azure.functions as func
+import azure.durable_functions as df
+from azure.durable_functions.models.OrchestrationRuntimeStatus import OrchestrationRuntimeStatus
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    runtime_status = [OrchestrationRuntimeStatus.Completed, OrchestrationRuntimeStatus.Running]
+
+    instances = await client.get_status_by(
+        datetime(2018, 3, 10, 10, 1, 0),
+        datetime(2018, 3, 10, 10, 23, 59),
+        runtime_status
+    )
+
+    for instance in instances:
+        logging.log(json.dumps(instance))
+```
+
 ---
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Nas Ferramentas Principais de Funções Azure, também pode utilizar o `durable get-instances` comando com filtros. Além dos `top` `continuation-token` `connection-string-setting` parâmetros, e parâmetros acima `task-hub-name` referidos, pode utilizar três parâmetros de filtro `created-after` (, `created-before` e `runtime-status` .
 
@@ -355,7 +461,7 @@ func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before
 
 Se tiver um caso de orquestração que está a demorar muito tempo a ser executado, ou se apenas precisar de o parar antes que se concretize por qualquer motivo, tem a opção de o encerrar.
 
-Pode utilizar o `TerminateAsync` método (.NET) ou o `terminate` método (JavaScript) da [ligação](durable-functions-bindings.md#orchestration-client) do cliente de orquestração para encerrar instâncias. Os dois parâmetros são um `instanceId` e um `reason` string, que são escritos para registos e para o estado da instância.
+Pode utilizar o `TerminateAsync` método (.NET), `terminate` (JavaScript) ou o `terminate` método (Python) da [ligação](durable-functions-bindings.md#orchestration-client) do cliente de orquestração para encerrar instâncias. Os dois parâmetros são um `instanceId` e um `reason` string, que são escritos para registos e para o estado da instância.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -388,6 +494,19 @@ module.exports = async function(context, instanceId) {
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    reason = "It was time to be done."
+    return client.terminate(instance_id, reason)
+```
+
 ---
 
 Uma instância terminada acabará por transitar para o `Terminated` estado. No entanto, esta transição não acontecerá imediatamente. Em vez disso, a operação de fim de semana será interrompida no centro de tarefas, juntamente com outras operações, para esse caso. Você pode usar as APIs [de consulta de caso](#query-instances) para saber quando uma instância terminada realmente chegou ao `Terminated` estado.
@@ -395,7 +514,7 @@ Uma instância terminada acabará por transitar para o `Terminated` estado. No e
 > [!NOTE]
 > A rescisão por exemplo não se propaga atualmente. As funções de atividade e as sub-orquestrações estão concluídas, independentemente de ter terminado a instância de orquestração que as chamou.
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Também pode terminar uma instância de orquestração diretamente, utilizando o comando [Azure Functions Core](../functions-run-local.md) `durable terminate` Tools. São necessários os seguintes parâmetros:
 
@@ -453,12 +572,25 @@ module.exports = async function(context, instanceId) {
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    event_data = [1, 2 ,3]
+    return client.raise_event(instance_id, 'MyEvent', event_data)
+```
+
 ---
 
 > [!NOTE]
 > Se não houver nenhuma instância de orquestração com o ID de instância especificado, a mensagem do evento é descartada. Se existir um caso mas ainda não estiver à espera do evento, o evento será armazenado no estado do caso até que esteja pronto para ser recebido e processado.
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Também pode elevar um evento a uma instância de orquestração diretamente, utilizando o comando [Azure Functions Core](../functions-run-local.md) `durable raise-event` Tools. São necessários os seguintes parâmetros:
 
@@ -493,6 +625,39 @@ Aqui está um exemplo da função de gatilho HTTP que demonstra como utilizar es
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+timeout = "timeout"
+retry_interval = "retryInterval"
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    instance_id = await client.start_new(req.route_params['functionName'], None, req.get_body())
+    logging.log(f"Started orchestration with ID = '${instance_id}'.")
+
+    timeout_in_milliseconds = get_time_in_seconds(req, timeout)
+    timeout_in_milliseconds = timeout_in_milliseconds if timeout_in_milliseconds != None else 30000
+    retry_interval_in_milliseconds = get_time_in_seconds(req, retry_interval)
+    retry_interval_in_milliseconds = retry_interval_in_milliseconds if retry_interval_in_milliseconds != None else 1000
+
+    return client.wait_for_completion_or_create_check_status_response(
+        req,
+        instance_id,
+        timeout_in_milliseconds,
+        retry_interval_in_milliseconds
+    )
+
+def get_time_in_seconds(req: func.HttpRequest, query_parameter_name: str):
+    query_value = req.params.get(query_parameter_name)
+    return query_value if query_value != None else 1000
+```
 
 ---
 
@@ -600,6 +765,22 @@ modules.exports = async function(context, ctx) {
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.cosmosdb.cdb.Document:
+    client = df.DurableOrchestrationClient(starter)
+
+    payload = client.create_check_status_response(req, instance_id).get_body().decode()
+
+    return func.cosmosdb.CosmosDBConverter.encode({
+        id: instance_id,
+        payload: payload
+    })
+```
 ---
 
 ## <a name="rewind-instances-preview"></a>Rebobinar instâncias (pré-visualização)
@@ -647,9 +828,25 @@ module.exports = async function(context, instanceId) {
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Esta funcionalidade não é suportada em Python.
+
+<!-- ```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    reason = "Orchestrator failed and needs to be revived."
+    return client.rewind(instance_id, reason)
+``` -->
+
 ---
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Também pode rebobinar uma instância de orquestração diretamente utilizando o comando [Azure Functions Core](../functions-run-local.md) `durable rewind` Tools. São necessários os seguintes parâmetros:
 
@@ -693,6 +890,18 @@ module.exports = async function(context, instanceId) {
 
 Consulte [as instâncias iniciar](#javascript-function-json) para o function.jsna configuração.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+
+    return client.purge_instance_history(instance_id)
+```
+
 ---
 
 O exemplo seguinte mostra uma função desencadeada pelo temporizador que purga a história para todos os casos de orquestração que terminaram após o intervalo de tempo especificado. Neste caso, remove dados para todos os casos concluídos há 30 ou mais dias. Está programado para ser executado uma vez por dia, às 00:00:
@@ -722,7 +931,7 @@ public static Task Run(
 
 O `purgeInstanceHistoryBy` método pode ser usado para purgar condicionalmente a história do exemplo em vários casos.
 
-**function.js**
+**function.json**
 
 ```json
 {
@@ -759,13 +968,28 @@ module.exports = async function (context, myTimer) {
     return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
 };
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from azure.durable_functions.models.DurableOrchestrationStatus import OrchestrationRuntimeStatus
+from datetime import datetime, timedelta
+
+async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    created_time_from = datetime.datetime()
+    created_time_to = datetime.datetime.today + timedelta(days = -30)
+    runtime_statuses = [OrchestrationRuntimeStatus.Completed]
+
+    return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
+```
 ---
 
 > [!NOTE]
 > Para que a operação de histórico de purga tenha êxito, o estado de funcionamento da instância-alvo deve ser **concluído,** **terminado**ou **falhado**.
 
-### <a name="azure-functions-core-tools"></a>Ferramentas principais de funções Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
 Pode expurgar a história de uma instância de orquestração utilizando o comando [Azure Functions Core](../functions-run-local.md) `durable purge-history` Tools. Semelhante ao segundo exemplo C# na secção anterior, purga a história para todos os casos de orquestração criados durante um intervalo de tempo especificado. Pode filtrar ainda mais as instâncias purgadas por estado de funcionação. O comando tem vários parâmetros:
 

@@ -1,34 +1,32 @@
 ---
-title: Analytics na base de conhecimentos - QnA Maker
+title: Analytics on knowledgebase - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: A QnA Maker armazena todos os registos de chat e outras telemetrias, se tiver ativado a App Insights durante a criação do seu serviço QnA Maker. Faça as consultas de amostra para obter os seus registos de chat da App Insights.
+description: O QnA Maker armazena todos os registos de chat e outros telemetrias, se tiver ativado a App Insights durante a criação do seu serviço QnA Maker. Faça as consultas de amostra para obter os seus registos de chat da App Insights.
 services: cognitive-services
-author: diberry
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: diberry
-ms.openlocfilehash: d247c55112bc1c3cd921c0eda8e4ddadd6b5aed9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00b7b88aa4ce0cab2a2379756e40054f27fc633b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878073"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131655"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter análises da base de dados de conhecimento
 
 A QnA Maker armazena todos os registos de chat e outras telemetrias, se tiver ativado a App Insights durante a [criação do seu serviço QnA Maker](./set-up-qnamaker-service-azure.md). Faça as consultas de amostra para obter os seus registos de chat da App Insights.
 
-1. Vá ao seu recurso App Insights.
+1. Aceda ao seu recurso App Insights.
 
     ![Selecione o seu recurso de insights de aplicação](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Selecione **Registo (Analytics)**. Abre-se uma nova janela onde pode consultar a telemetria do QnA Maker.
+2. Selecione **Log (Analytics)**. Uma nova janela abre onde pode consultar a telemetria da QnA Maker.
 
-3. Pasta na seguinte consulta e executá-la.
+3. Cole na seguinte consulta e execute-a.
 
     ```kusto
     requests
@@ -48,9 +46,9 @@ A QnA Maker armazena todos os registos de chat e outras telemetrias, se tiver at
 
     [![Executar consulta para determinar perguntas, respostas e pontuação dos utilizadores](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Execute consultas para outras análises na sua base de conhecimento qnA Maker
+## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Executar consultas para outras análises na sua base de conhecimento qnA Maker
 
-### <a name="total-90-day-traffic"></a>Total de tráfego de 90 dias
+### <a name="total-90-day-traffic"></a>Tráfego total de 90 dias
 
 ```kusto
 //Total Traffic
@@ -60,7 +58,7 @@ requests
 | summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
-### <a name="total-question-traffic-in-a-given-time-period"></a>Total de questiona tráfego em um determinado período de tempo
+### <a name="total-question-traffic-in-a-given-time-period"></a>Tráfego total de perguntas num determinado período de tempo
 
 ```kusto
 //Total Question Traffic in a given time period
@@ -88,7 +86,7 @@ traces | extend id = operation_ParentId
 | summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
 ```
 
-### <a name="latency-distribution-of-questions"></a>Distribuição de perguntas por latência
+### <a name="latency-distribution-of-questions"></a>Distribuição de latência de perguntas
 
 ```kusto
 //Latency distribution of questions
@@ -121,4 +119,4 @@ traces | extend id = operation_ParentId
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Escolha a capactiy](./improve-knowledge-base.md)
+> [Escolha capactiy](./improve-knowledge-base.md)

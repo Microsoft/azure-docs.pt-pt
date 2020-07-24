@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar e configurar um controlador de entrada NGINX com um endereço IP público estático num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: a59bd1cfcc03b0a6c9af218cb7108a0ba094377d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: 89068210e0a2656c0a0642417532b28d8f10d93a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255290"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130856"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada com um endereço IP público estático no Serviço Azure Kubernetes (AKS)
 
@@ -48,6 +48,9 @@ Em seguida, crie um endereço IP público com o método de atribuição *estáti
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
+
+> [!NOTE]
+> Os comandos acima criam um endereço IP que será eliminado se eliminar o seu cluster AKS. Em alternativa, pode criar um endereço IP num grupo de recursos diferente que pode ser gerido separadamente do seu cluster AKS. Se criar um endereço IP num grupo de recursos diferente, certifique-se de que o principal de serviço utilizado pelo cluster AKS delegou permissões para o outro grupo de recursos, como o *Network Contributor*.
 
 Agora, implante a tabela *de entrada de nginx* com Helm. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
 
@@ -264,7 +267,7 @@ No exemplo seguinte, o tráfego para o endereço `https://demo-aks-ingress.eastu
 Crie um ficheiro nomeado `hello-world-ingress.yaml` e copie no seguinte exemplo YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -369,7 +372,7 @@ Adicione agora o caminho */olá-mundo-dois* ao FQDN, tal como *`https://demo-aks
 
 ![Exemplo de aplicação dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou helm para instalar os componentes, certificados e aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 

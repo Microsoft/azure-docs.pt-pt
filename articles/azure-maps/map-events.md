@@ -1,19 +1,20 @@
 ---
 title: Lidar com eventos de mapas / Microsoft Azure Maps
 description: Neste artigo, você vai aprender a fazer um mapa Web SDK interativo com eventos de mapa usando o Microsoft Azure Maps web SDK.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94ff9cff31703dbfa9c08b2a3e60eb29b0997a86
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124011"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130465"
 ---
 # <a name="interact-with-the-map"></a>Interaja com o mapa
 
@@ -108,7 +109,7 @@ A tabela que se segue lista todos os eventos de classe de mapas suportados.
 | `zoomstart`         | Disparado pouco antes do mapa iniciar uma transição de um nível de zoom para outro, como resultado da interação do utilizador ou dos métodos.|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para obter exemplos de código completo:
 

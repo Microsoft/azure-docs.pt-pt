@@ -3,18 +3,16 @@ title: Desenvolver operadores definidos pelo utilizador U-SQL - Azure Data Lake 
 description: Saiba como desenvolver operadores definidos pelo utilizador para serem usados e reutilizados em trabalhos Azure Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 771590a145d4da0a3a81050e6bbe8a9a4d528b30
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 71cb6e026c81b00e475ae3f4e7fc4958a8de82a3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121219"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131808"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definidos pelo utilizador U-SQL (UDOs)
 Este artigo descreve como desenvolver operadores definidos pelo utilizador para processar dados num trabalho U-SQL.
@@ -26,7 +24,7 @@ Este artigo descreve como desenvolver operadores definidos pelo utilizador para 
 1. Do Estúdio Visual selecione **Arquivo > Projeto New > > U-SQL Project**.
 2. Clique em **OK**. O Visual Studio cria uma solução com um ficheiro Script.usql.
 3. A partir do **Solution Explorer,** expanda o Script.usql e, em seguida, clique duas **vezes Script.usql.cs**.
-4. Cole o seguinte código no ficheiro:
+4. Cole o código seguinte no ficheiro:
 
    ```usql
    using Microsoft.Analytics.Interfaces;
@@ -126,7 +124,7 @@ Este artigo descreve como desenvolver operadores definidos pelo utilizador para 
 
 2. Expandir amostras, expandir saídas e, em seguida, clicar duas vezes **Drivers.csv**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Extensão de Expressões U-SQL com Código do Utilizador](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [Utilize ferramentas do Data Lake para o Estúdio Visual para o desenvolvimento de aplicações U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

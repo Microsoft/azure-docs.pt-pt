@@ -1,19 +1,20 @@
 ---
 title: Adicione um pop-up a um ponto num mapa Microsoft Azure Maps
 description: Neste artigo, você aprenderá a adicionar um pop-up a um ponto usando o Microsoft Azure Maps Web SDK.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d7ca2f07e4568257baf72f2f298631b86f776c2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2888f6c58bb67cf68df2263bbabb87180bc57288
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83119262"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130568"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adicione um pop-up ao mapa
 
@@ -273,7 +274,7 @@ Popups podem ser abertos, fechados e arrastados. A classe popup fornece eventos 
 Veja os <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventos</a> Pen Popup da Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

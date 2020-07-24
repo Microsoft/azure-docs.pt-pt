@@ -1,18 +1,18 @@
 ---
-title: Automatizar fluxos de trabalho de tarefas no Estúdio Visual
-description: Criar, programar e executar fluxos de trabalho recorrentes para integração empresarial utilizando apps Azure Logic e Visual Studio
+title: Automatizar tarefas e fluxos de trabalho com o Visual Studio
+description: Criar, programar e executar fluxos de trabalho automatizados para integração empresarial utilizando apps Azure Logic e Visual Studio
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
-ms.openlocfilehash: 4416c9f9d1c55a460cb983089706e984d90ba082
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520771"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132369"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps – Visual Studio
 
@@ -51,9 +51,15 @@ Neste arranque rápido, cria-se a mesma aplicação lógica com o Visual Studio 
   
     Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba [como instalar esta extensão a partir do Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Certifique-se de que reinicia o Visual Studio depois de concluir a instalação.
 
+  * Para utilizar subscrições do Governo Azure com o Visual Studio, consulte estes tópicos para configuração adicional:
+
+    * Visual Studio 2019: [Quickstart: Connect to Azure Government with Visual Studio](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [Introduzindo a extensão do Azure Environment Seletor Visual Studio,](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/)que pode descarregar e instalar a partir do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
 * Acesso à Web durante a utilização do Estruturador da Aplicação Lógica incorporado
 
-  O designer precisa de uma ligação à internet para criar recursos no Azure e para ler propriedades e dados de conectores na sua aplicação lógica. Por exemplo, para ligações Dynamics CRM Online, o designer verifica a sua instância CRM por propriedades padrão e personalizadas.
+  O designer precisa de uma ligação à internet para criar recursos no Azure e para ler propriedades e dados de conectores na sua aplicação lógica.
 
 * Uma conta de e-mail suportada pelo Logic Apps, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros fornecedores, reveja [a lista de conectores aqui.](/connectors/) Este exemplo utiliza o Office 365 Outlook. Se utilizar outro fornecedor, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente.
 
@@ -202,7 +208,7 @@ Quando terminar a sua aplicação lógica, elimine o grupo de recursos que cont�
 
 1. Elimine a solução do Visual Studio do seu computador local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou, implementou e executou a sua aplicação lógica com o Visual Studio. Para aprender sobre como gerir e realizar implementações avançadas para aplicações lógicas com o Visual Studio, consulte estes artigos:
 

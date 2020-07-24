@@ -1,18 +1,19 @@
 ---
 title: Boas práticas para o Azure Maps Route Service Microsoft Azure Maps
 description: Saiba como encaminhar os veículos utilizando o Serviço de Rota do Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266700"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132216"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Melhores práticas para o serviço Azure Maps Route
 
@@ -30,7 +31,7 @@ As APIs da Rota e da Matriz de Rotas no [Serviço de Rota](https://docs.microsof
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs do Azure Maps, precisa de uma conta Azure Maps e uma chave. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e obter uma chave [primária.](quick-demo-map-app.md#get-the-primary-key-for-your-account) A chave primária também é conhecida como a chave de subscrição primária, ou chave de subscrição.
+Para fazer chamadas para as APIs do Azure Maps, precisa de uma conta Azure Maps e uma chave. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) e obter uma chave [primária.](quick-demo-map-app.md#get-the-primary-key-for-your-account) A chave primária também é conhecida como a chave de subscrição primária, ou chave de subscrição.
 
 Para obter informações sobre a autenticação em Azure Maps, consulte [a autenticação Manage no Azure Maps.](./how-to-manage-authentication.md) E para obter mais informações sobre a cobertura do Serviço de Rota, consulte a [Cobertura de Encaminhamento](routing-coverage.md).
 
@@ -324,7 +325,7 @@ A imagem abaixo é um exemplo de renderização de rotas alternativas com limite
 
 O Azure Maps Web SDK fornece um [módulo de serviço.](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest) Este módulo é uma biblioteca auxiliar que facilita a utilização das APIs REST do Azure Maps em aplicações web ou Node.js, utilizando JavaScript ou TypeScript. O módulo de Serviço pode ser utilizado para tornar as rotas devolvidas no mapa. O módulo determina automaticamente quais a API a utilizar com pedidos GET e POST.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte:
 

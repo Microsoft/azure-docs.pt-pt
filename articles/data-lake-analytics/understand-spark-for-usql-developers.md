@@ -1,19 +1,17 @@
 ---
 title: Compreenda o Apache Spark para os desenvolvedores U-SQL do Azure Data Lake Analytics.
 description: Este artigo descreve conceitos de Apache Spark para ajudá-lo a diferenças entre desenvolvedores U-SQL.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-for-usql-developers
 ms.date: 10/15/2019
-ms.openlocfilehash: cb865ec4f5182a868450d1ff7c561a62f7ca3919
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 567574e65fcc1db3ef9e8aea73c6a59be0594f72
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106412"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132301"
 ---
 # <a name="understand-apache-spark-for-u-sql-developers"></a>Compreender o Apache Spark para programadores de U-SQL
 
@@ -39,7 +37,7 @@ Inclui uma série de passos que pode tomar, e várias alternativas.
 > [!CAUTION]
 > Tanto [a Azure Databricks](../azure-databricks/what-is-azure-databricks.md) como [a Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) são serviços de cluster e não trabalhos sem servidor como o Azure Data Lake Analytics. Terá de considerar como providenciar os clusters para obter a relação custo/desempenho adequada e como gerir a sua vida útil para minimizar os seus custos. Estes serviços têm características de desempenho diferentes com o código do utilizador escrito em .NET, pelo que terá de escrever invólucros ou reescrever o seu código num idioma suportado. Para obter mais informações, consulte [os formatos de dados da Spark,](understand-spark-data-formats.md) [compreenda os conceitos de código Apache Spark para desenvolvedores U-SQL](understand-spark-code-concepts.md), [.Net for Apache Spark](https://dotnet.microsoft.com/apps/data/spark)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreender os formatos de dados da Spark para desenvolvedores U-SQL](understand-spark-data-formats.md)
 - [Compreenda os conceitos de código Spark para desenvolvedores U-SQL](understand-spark-code-concepts.md)

@@ -2,18 +2,16 @@
 title: Gerir a Azure Data Lake Analytics usando O Azure CLI
 description: Este artigo descreve como usar o CLI Azure para gerir os empregos do Data Lake Analytics, fontes de dados, & utilizadores.
 services: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: f2e77e31049e2643f1488eb3f6be906de735ad2b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d4b9a7be36bd4c0a4044f3e76b96b21a16eb80de
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121423"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132522"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerir a Azure Data Lake Analytics utilizando a Interface de linha de comando Azure (CLI)
 
@@ -28,7 +26,7 @@ Antes de iniciar este tutorial, deve ter os seguintes recursos:
 
 * Uma subscrição do Azure. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Azure CLI. Consulte [instalar e configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* CLI do Azure. Consulte [instalar e configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
   * Transfira e instale o **pré-lançamento** [Ferramentas CLI do Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para concluir esta demonstração.
 
@@ -213,7 +211,7 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introdução ao Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md)
 * [Gerir a Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)

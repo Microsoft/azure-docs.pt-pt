@@ -6,17 +6,17 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/18/2019
-ms.openlocfilehash: 5428de23eb0e1b8c31f4576881526ec08ccc9698
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/22/2020
+ms.openlocfilehash: b8cf0425a4a40c4692f4c0c7fcf11dbb23019b23
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027819"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132675"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas em Azure Cosmos DB
 
-O Azure Cosmos DB fornece métricas para débito, armazenamento, consistência, disponibilidade e latência. O portal do Azure fornece uma vista agregada destas métricas. Também pode ver as métricas do Azure Cosmos DB na API do Azure Monitor. Para saber como ver as métricas do monitor Azure, consulte as [métricas get do artigo do Azure Monitor.](cosmos-db-azure-monitor-metrics.md) 
+O Azure Cosmos DB fornece métricas para débito, armazenamento, consistência, disponibilidade e latência. O portal do Azure fornece uma vista agregada destas métricas. Também pode ver as métricas do Azure Cosmos DB na API do Azure Monitor. Os valores de dimensão para as métricas como o nome do recipiente são insensíveis ao caso. Por isso, tens de usar a comparação caso-insensível ao fazer comparações de cordas sobre estes valores de dimensão. Para saber como ver as métricas do monitor Azure, consulte as [métricas get do artigo do Azure Monitor.](cosmos-db-azure-monitor-metrics.md)
 
 Este artigo aborda casos de utilização comum e a forma como as métricas do Azure Cosmos DB podem ser utilizadas para analisar e depurar estas questões. As métricas são recolhidas a cada cinco minutos e são mantidas durante sete dias.
 
@@ -107,7 +107,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 *A ConsultaMetrics* fornece detalhes sobre quanto tempo cada componente da consulta demorou a ser executado. A causa mais comum para consultas de longa duração são os exames, o que significa que a consulta não foi capaz de alavancar os índices. Este problema pode ser resolvido com uma melhor condição de filtro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora aprendeu a monitorizar e depurar problemas usando as métricas fornecidas no portal Azure. Pode querer saber mais sobre a melhoria do desempenho da base de dados lendo os seguintes artigos:
 

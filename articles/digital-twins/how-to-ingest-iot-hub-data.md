@@ -7,11 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725856"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131570"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -41,7 +42,7 @@ Este cenário está delineado num diagrama abaixo:
 
 Antes de continuar com este exemplo, terá de completar os seguintes pré-requisitos.
 1. Criar um hub IoT. Consulte a secção *Criar um hub IoT* [deste quickstart IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md) para obter instruções.
-2. Crie pelo menos uma função Azure para processar eventos a partir do IoT Hub. Consulte [como fazer: Crie uma função Azure para o processamento de dados](how-to-create-azure-function.md) para construir uma função Azure básica que pode ligar-se a Azure Digital Twins e chamar a Azure Digital Twins API funções. O resto deste como construir sobre esta função.
+2. Crie pelo menos uma função Azure para processar eventos a partir do IoT Hub. Consulte [*como fazer: Crie uma função Azure para o processamento de dados*](how-to-create-azure-function.md) para construir uma função Azure básica que pode ligar-se a Azure Digital Twins e chamar a Azure Digital Twins API funções. O resto deste como construir sobre esta função.
 3. Crie um destino de eventos para os dados do hub. No [portal Azure,](https://portal.azure.com/)navegue para o seu ioT Hub. Em *Eventos,* crie uma subscrição para a sua função Azure. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Portal Azure: Adicionar uma subscrição de eventos":::
@@ -54,7 +55,7 @@ Antes de continuar com este exemplo, terá de completar os seguintes pré-requis
 
 ## <a name="create-an-azure-function-in-visual-studio"></a>Criar uma função Azure no Estúdio Visual
 
-Esta secção utiliza os mesmos passos de arranque do Estúdio Visual e esqueleto de função Azure de [How-to: Configurar uma função Azure para o processamento de dados](how-to-create-azure-function.md). O esqueleto lida com a autenticação e cria um cliente de serviço, pronto para processar dados e ligar para as APIs de Gémeos Digitais da Azure em resposta. 
+Esta secção utiliza os mesmos passos de arranque do Estúdio Visual e esqueleto de função Azure de [*How-to: Configurar uma função Azure para o processamento de dados*](how-to-create-azure-function.md). O esqueleto lida com a autenticação e cria um cliente de serviço, pronto para processar dados e ligar para as APIs de Gémeos Digitais da Azure em resposta. 
 
 O coração da função do esqueleto é o seguinte:
 
@@ -267,9 +268,9 @@ Agora tem uma função Azure que está equipada para ler e interpretar os dados 
 
 ## <a name="debug-azure-function-apps-locally"></a>Aplicativos de função Debug Azure localmente
 
-É possível depurar funções de Azure com um gatilho de Grade de Eventos localmente. Para obter mais informações sobre isto, consulte [o gatilho da Grelha de Eventos de Debug localmente.](../azure-functions/functions-debug-event-grid-trigger-local.md)
+É possível depurar funções de Azure com um gatilho de Grade de Eventos localmente. Para obter mais informações sobre isto, consulte [*o gatilho da Grelha de Eventos de Debug localmente.*](../azure-functions/functions-debug-event-grid-trigger-local.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre a entrada de dados e saída com a Azure Digital Twins:
-* [Conceitos: Integração com outros serviços](concepts-integration.md)
+* [*Conceitos: Integração com outros serviços*](concepts-integration.md)

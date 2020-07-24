@@ -4,11 +4,12 @@ description: Descreve como implementar um serviço em muitas regiões com O Gest
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 006c123dfbb682ff5c498872d7f717a4a09e0bb5
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057930"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130227"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permitir práticas de implementação seguras com O Gestor de Implementação Azure (visualização pública)
 
@@ -36,7 +37,7 @@ Recursos adicionais:
 
 ## <a name="identity-and-access"></a>Identidade e acesso
 
-Com o Gestor de Implementação, uma [identidade gerida atribuída pelo utilizador](../../active-directory/managed-identities-azure-resources/overview.md) realiza as ações de implementação. Cria esta identidade antes de iniciar a sua implantação. Deve ter acesso à subscrição a que está a implantar o serviço, e permissão suficiente para completar a implementação. Para obter informações sobre as ações concedidas através de funções, consulte [funções incorporadas para recursos Azure](../../role-based-access-control/built-in-roles.md).
+Com o Gestor de Implementação, uma [identidade gerida atribuída pelo utilizador](../../active-directory/managed-identities-azure-resources/overview.md) realiza as ações de implementação. Cria esta identidade antes de iniciar a sua implantação. Deve ter acesso à subscrição a que está a implantar o serviço, e permissão suficiente para completar a implementação. Para obter informações sobre as ações concedidas através de funções, consulte [as funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
 A identidade deve residir no mesmo local que o lançamento.
 
@@ -331,7 +332,7 @@ Em seguida, use esse parâmetro no seu modelo:
 
 Gere as implementações versadas criando novas pastas e passando essa raiz durante o lançamento. O caminho flui até ao modelo que implementa os recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre o Gestor de Implementação. Dirija-se ao próximo artigo para aprender a implementar com o Gestor de Implementação.
 

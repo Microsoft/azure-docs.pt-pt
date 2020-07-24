@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850282"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130193"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitorização Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Pode monitorizar os seus dados com métricas do lado do cliente e do servidor. A
 
 * **Monitor do portal DB Azure Cosmos:** Pode monitorizar com as métricas disponíveis no separador **Métricas** da conta Azure Cosmos. As métricas deste separador incluem níveis de produção, armazenamento, disponibilidade, latência, consistência e métricas de nível do sistema. Por padrão, estas métricas têm um período de retenção de 7 dias. Para saber mais, consulte os [dados de monitorização recolhidos na secção DB do Azure Cosmos](#monitoring-from-azure-cosmos-db) deste artigo.
 
-* **Monitorize com métricas no monitor Azure:** Pode monitorizar as métricas da sua conta Azure Cosmos e criar dashboards a partir do Monitor Azure. O Azure Monitor recolhe as métricas DB do Azure Cosmos por padrão, não tem configurar nada explicitamente. Estas métricas são recolhidas com granularidade de um minuto, a granularidade pode variar em função da métrica que escolher. Por padrão, estas métricas têm um período de retenção de 30 dias. A maioria das métricas que estão disponíveis a partir das opções anteriores também estão disponíveis nestas métricas. Para saber mais, consulte a secção de [dados métricos](#analyze-metric-data) analisar este artigo.
+* **Monitorize com métricas no monitor Azure:** Pode monitorizar as métricas da sua conta Azure Cosmos e criar dashboards a partir do Monitor Azure. O Azure Monitor recolhe as métricas DB do Azure Cosmos por padrão, não tem configurar nada explicitamente. Estas métricas são recolhidas com granularidade de um minuto, a granularidade pode variar em função da métrica que escolher. Por padrão, estas métricas têm um período de retenção de 30 dias. A maioria das métricas que estão disponíveis a partir das opções anteriores também estão disponíveis nestas métricas. Os valores de dimensão para as métricas como o nome do recipiente são insensíveis ao caso. Por isso, tens de usar a comparação caso-insensível ao fazer comparações de cordas sobre estes valores de dimensão. Para saber mais, consulte a secção de [dados métricos](#analyze-metric-data) analisar este artigo.
 
 * **Monitor com registos de diagnóstico no Monitor Azure:** Pode monitorizar os registos da sua conta Azure Cosmos e criar dashboards a partir do Monitor Azure. A telemetria, como eventos e vestígios que ocorrem numa segunda granularidade, são armazenados como troncos. Por exemplo, se a produção de um recipiente for alterada, as propriedades de uma conta Cosmos são alteradas estes eventos são capturas dentro dos registos. Pode analisar estes registos executando consultas nos dados recolhidos. Para saber mais, consulte a secção de [dados](#analyze-log-data) de registo de comentários deste artigo.
 
@@ -167,7 +167,7 @@ As consultas para recuperar métricas individuais utilizam o seguinte formato:
 https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte [a referência de dados de monitorização do Azure Cosmos DB](monitor-cosmos-db-reference.md) para uma referência dos registos e métricas criados pela Azure Cosmos DB.
 * Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

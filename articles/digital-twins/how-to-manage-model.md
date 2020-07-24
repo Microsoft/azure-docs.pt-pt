@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 01bb5f9ae6d8c7a6374a8b1392b061f31fdb63a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec93169a8c49422c9e310cddc08ae3412b89166
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390589"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132284"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -66,7 +66,7 @@ Este modelo define um nome e um ID único para a sala do paciente, e propriedade
 Seguindo este método, pode continuar a definir modelos para as enfermarias, zonas ou o próprio hospital.
 
 > [!TIP]
-> Existe uma biblioteca do lado do cliente disponível para análise e validação de DTDL. Gera um modelo de objeto C# do conteúdo DTDL, que pode ser usado em cenários de desenvolvimento orientados por modelos, como gerar elementos de UI. Também pode utilizar esta biblioteca para se certificar de que os seus modelos não têm erros de sintaxe antes de os carregar. Para obter mais informações sobre esta biblioteca e aceder a uma amostra construída sobre ela para um Validador DTDL, consulte [Como-a-fazer: Parse e valide modelos.](how-to-use-parser.md)
+> Existe uma biblioteca do lado do cliente disponível para análise e validação de DTDL. Gera um modelo de objeto C# do conteúdo DTDL, que pode ser usado em cenários de desenvolvimento orientados por modelos, como gerar elementos de UI. Também pode utilizar esta biblioteca para se certificar de que os seus modelos não têm erros de sintaxe antes de os carregar. Para obter mais informações sobre esta biblioteca e aceder a uma amostra construída sobre ela para um Validador DTDL, consulte [*Como-a-fazer: Parse e valide modelos.*](how-to-use-parser.md)
 
 ## <a name="manage-models-with-apis"></a>Gerir modelos com APIs.
 
@@ -190,7 +190,7 @@ O estado de desmantelamento de um modelo está incluído nos `ModelData` registo
 
 Pode eliminar todos os modelos no seu caso de uma vez, ou pode fazê-lo individualmente.
 
-Para um exemplo de como eliminar todos os modelos, descarregue a aplicação de amostra utilizada no [Tutorial: Explore o básico com uma aplicação de cliente de amostra.](tutorial-command-line-app.md) O *ficheiro CommandLoop.cs* faz isto numa `CommandDeleteAllModels` função.
+Para um exemplo de como eliminar todos os modelos, descarregue a aplicação de amostra utilizada no [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) O *ficheiro CommandLoop.cs* faz isto numa `CommandDeleteAllModels` função.
 
 O resto desta secção decompõe a eliminação do modelo em detalhes mais próximos, e mostra como fazê-lo para um modelo individual.
 
@@ -247,9 +247,9 @@ A Azure Digital Twins não impede este estado, por isso tenha cuidado para remen
 
 ## <a name="manage-models-with-cli"></a>Gerir modelos com CLI
 
-Os modelos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+Os modelos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [*Como-a-: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir gémeos digitais com base nos seus modelos:
-* [Como fazer: Gerir gémeos digitais](how-to-manage-twin.md)
+* [*Como fazer: Gerir gémeos digitais*](how-to-manage-twin.md)

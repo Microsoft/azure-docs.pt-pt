@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 923ae652872246916b2a4c5e8be95871983dbe95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc22cf5a21709ccacafe068a60541cc9990d1131
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559842"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132267"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gerir pontos finais e rotas em Azure Digital Twins
 
@@ -23,14 +23,9 @@ Os tipos de pontos finais suportados incluem:
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Para obter mais informações sobre os diferentes pontos finais, consulte [Escolha entre os serviços de mensagens Azure.](https://docs.microsoft.com/azure/event-grid/compare-messaging-services)
+Para obter mais informações sobre os diferentes pontos finais, consulte [*Escolha entre os serviços de mensagens Azure.*](https://docs.microsoft.com/azure/event-grid/compare-messaging-services)
 
 Os pontos finais e as rotas são geridos com os [**APIs do EventRoutes,**](how-to-use-apis-sdks.md)o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Também podem ser geridos através do [portal Azure.](https://portal.azure.com)
-
-> [!NOTE]
-> A gestão das rotas de eventos através do portal Azure está atualmente disponível apenas para utilizadores do Azure em contas de domínio corporativo. 
->
->Se estiver a utilizar uma conta pessoal [da Microsoft (MSA),](https://account.microsoft.com/account/Account)como uma @outlook.com conta, utilize as APIs ou CLI das Gémeas Digitais Azure para gerir as rotas dos eventos, conforme descrito neste artigo.
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto final para a Azure Digital Twins
 
@@ -70,7 +65,14 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ## <a name="manage-event-routes-with-apis"></a>Gerir rotas de eventos com APIs
 
-Para enviar dados da Azure Digital Twins para um ponto final, precisa definir uma rota de eventos. Azure Digital Twins **EventRoutes APIs** permitem aos desenvolvedores ligar o fluxo de eventos, em todo o sistema e para serviços a jusante. Leia mais sobre as rotas de eventos em [Conceitos: Eventos de Roteamento Azure Digital Twins](concepts-route-events.md).
+Para enviar dados da Azure Digital Twins para um ponto final, precisa definir uma rota de eventos. Azure Digital Twins **EventRoutes APIs** permitem aos desenvolvedores ligar o fluxo de eventos, em todo o sistema e para serviços a jusante. Leia mais sobre as rotas de eventos em [*Conceitos: Eventos de Roteamento Azure Digital Twins*](concepts-route-events.md).
+
+Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
+
+>[!NOTE]
+>Se implementou recentemente os seus pontos finais, valide que terminaram de ser implementados **antes** de tentar usá-los para uma nova rota de eventos. Se a implementação da rota falhar porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
+>
+> Se estiver a escrever este fluxo, é melhor prestar contas por isso construindo em 2-3 minutos de tempo de espera para o serviço de ponto final terminar a implantação antes de seguir para a configuração da rota.
 
 As amostras deste artigo utilizam o C# SDK.
 
@@ -174,7 +176,7 @@ Quando implementar ou atualizar um filtro, a alteração pode demorar alguns min
 
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Gerir pontos finais e rotas com CLI
 
-Os pontos finais e as rotas também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [Como-a-: Use o CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+Os pontos finais e as rotas também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [*Como-a-: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
 
 ## <a name="monitor-event-routes"></a>Monitorizar rotas de eventos
 
@@ -186,7 +188,7 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia sobre os diferentes tipos de mensagens de evento que pode receber:
-* [Como fazer: Interpretar dados do evento](how-to-interpret-event-data.md)
+* [*Como fazer: Interpretar dados do evento*](how-to-interpret-event-data.md)

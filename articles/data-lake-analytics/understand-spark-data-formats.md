@@ -1,19 +1,17 @@
 ---
 title: Compreenda os formatos de dados da Apache Spark para os desenvolvedores U-SQL do Azure Data Lake Analytics.
 description: Este artigo descreve conceitos de Apache Spark para ajudar os desenvolvedores U_SQL a compreender as diferenças entre os formatos de dados U-SQL e Spark.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: ed929b9dd6d262d63554ef3df59d3e3806dd28dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bff8c89dcdcbb7c319e04e5e7518985badf5a5ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106429"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132318"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Compreender diferenças entre formatos de dados U-SQL e Spark
 
@@ -46,7 +44,7 @@ Após esta transformação, copia os dados descritos no capítulo [Move os dados
 - As tabelas U-SQL da organização de dados (partição) fornecem partição de dois níveis. O nível exterior `PARTITIONED BY` () é por valor e mapas principalmente no esquema de partição colmeia/faísca usando hierarquias de pasta. Terá de se certificar de que os valores nulos estão mapeados para a pasta certa. O nível interno `DISTRIBUTED BY` em U-SQL oferece 4 esquemas de distribuição: robin redondo, alcance, haxixe e haxixe direto.
     As tabelas Hive/Spark suportam apenas a partição de valor ou partição de haxixe, utilizando uma função de haxixe diferente da U-SQL. Quando desativar os dados da tabela U-SQL, provavelmente só será capaz de mapear a partição de valor para a Spark e poderá ter de fazer uma afinação adicional do seu layout de dados dependendo das suas consultas finais de Spark.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Compreenda os conceitos de código Spark para desenvolvedores U-SQL](understand-spark-code-concepts.md)
 - [Atualize as suas soluções de análise de big data de Azure Data Lake Storage Gen1 para Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)

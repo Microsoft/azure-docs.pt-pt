@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c4121482c37afcda0f580656bbe583128b7720fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10c9e2c3ecefedded393d6949be1480f2f02973b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829402"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131060"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -76,7 +76,7 @@ Devido ao nível de controlo que tens com os VMs, podes executar uma vasta gama 
 
 > **Quando utilizar**: Utilize máquinas virtuais quando pretender o controlo total sobre a sua infraestrutura de aplicação ou migrar cargas de trabalho de aplicação no local para Azure sem ter de fazer alterações.
 >
-> **Começar:** Crie um [VM Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) ou [Windows VM](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) a partir do portal Azure.
+> **Começar:** Crie um [VM Linux](../../virtual-machines/linux/quick-create-portal.md) ou [Windows VM](../../virtual-machines/windows/quick-create-portal.md) a partir do portal Azure.
 
 #### <a name="azure-functions-serverless"></a>Funções Azure (sem servidor)
 
@@ -141,11 +141,6 @@ Os contentores docker, uma forma de virtualização de SO, permitem implementar 
 
 O Azure fornece várias formas de utilizar recipientes nas suas aplicações.
 
-- **Extensão VM Azure Docker**: Permite-lhe configurar o seu VM com ferramentas Docker para agir como anfitrião do Docker.
-
-  > **Quando utilizar:** Quando pretender gerar colocações consistentes de contentores para as suas aplicações num VM, ou quando pretender utilizar [o Docker Compose](https://docs.docker.com/compose/overview/).
-  >
-  > **Começar :** [Crie um ambiente Docker em Azure utilizando a extensão Docker VM](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
 - **Serviço Azure Kubernetes**: Permite criar, configurar e gerir um conjunto de máquinas virtuais pré-configuradas para executar aplicações contentorizadas. Para saber mais sobre o Serviço Azure Kubernetes, consulte [a introdução do Serviço Azure Kubernetes.](../../aks/intro-kubernetes.md)
 
@@ -302,7 +297,7 @@ O Azure Resource Explorer é uma ótima ferramenta para visualizar os recursos q
 
 Quando permite o acesso aos recursos do Azure, é sempre uma boa prática proporcionar aos utilizadores o menor privilégio que é necessário para fazer uma determinada tarefa.
 
-- **Controlo de acesso baseado em funções (RBAC)**: Em Azure, pode conceder acesso a contas de utilizador (principais) num âmbito especificado: subscrição, grupo de recursos ou recursos individuais. O RBAC permite-lhe implantar recursos num grupo de recursos e conceder permissões a um utilizador ou grupo específico. Também permite limitar o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou uma rede virtual. Para conceder acesso, atribui uma função ao utilizador, grupo ou principal de serviço. Existem muitos papéis predefinidos, e também pode definir os seus próprios papéis personalizados. Para saber mais, veja [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md)
+- **Controlo de acesso baseado em funções (RBAC)**: Em Azure, pode conceder acesso a contas de utilizador (principais) num âmbito especificado: subscrição, grupo de recursos ou recursos individuais. O RBAC permite-lhe implantar recursos num grupo de recursos e conceder permissões a um utilizador ou grupo específico. Também permite limitar o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou uma rede virtual. Para conceder acesso, atribui uma função ao utilizador, grupo ou principal de serviço. Existem muitos papéis predefinidos, e também pode definir os seus próprios papéis personalizados. Para saber mais, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 
   > **Quando utilizar:** Quando necessitar de uma gestão de acesso fino para utilizadores e grupos ou quando necessitar de fazer de um utilizador um proprietário de uma subscrição.
   >

@@ -4,14 +4,14 @@ description: Aprenda a utilizar o autoescalador de cluster para escalar automati
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9aa06ea2fbc3aff218a4940fa60da767fabca500
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252033"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130839"
 ---
-# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensione automaticamente um cluster para satisfazer as exigências da aplicação no Serviço Azure Kubernetes (AKS)
+# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para satisfazer as exigências das aplicações no Azure Kubernetes Service (AKS)
 
 Para acompanhar as exigências da aplicação no Serviço Azure Kubernetes (AKS), poderá ter de ajustar o número de nós que executam as suas cargas de trabalho. O componente de autoescala de cluster pode observar por cápsulas no seu cluster que não podem ser programadas devido a restrições de recursos. Quando as questões são detetadas, o número de nós num conjunto de nós é aumentado para satisfazer a procura de aplicação. Os nós também são verificados regularmente por falta de cápsulas de corrida, com o número de nós a diminuir conforme necessário. Esta capacidade de aumentar ou diminuir automaticamente o número de nós no seu cluster AKS permite-lhe executar um cluster eficiente e rentável.
 
@@ -56,7 +56,7 @@ O cluster e os autoescaladores horizontais podem trabalhar em conjunto, e são m
 Se precisar de criar um cluster AKS, use os [az aks criar][az-aks-create] comando. Para ativar e configurar o autoescalador do cluster na piscina de nós para o cluster, utilize o parâmetro *autoescalo-cluster-activar* e especifique um nó *-- contagem de min-contagem* e *--contagem máxima*.
 
 > [!IMPORTANT]
-> O autoescalador de cluster é um componente Kubernetes. Embora o cluster AKS utilize um conjunto de balança de máquina virtual para os nós, não ative manualmente ou edite definições para escala definida automaticamente no portal Azure ou utilizando o CLI Azure. Deixe que o cluster Kubernetes gere as definições de escala necessárias. Para mais informações, consulte [posso modificar os recursos da AKS no grupo de recursos de nó?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
+> O autoescalador de cluster é um componente Kubernetes. Embora o cluster AKS utilize um conjunto de balança de máquina virtual para os nós, não ative manualmente ou edite definições para escala definida automaticamente no portal Azure ou utilizando o CLI Azure. Deixe que o cluster Kubernetes gere as definições de escala necessárias. Para mais informações, consulte [posso modificar os recursos da AKS no grupo de recursos de nó?][aks-faq-node-resource-group]
 
 O exemplo a seguir cria um cluster AKS com um único conjunto de nós apoiado por um conjunto de balança de máquina virtual. Também permite o autoescalador de cluster na piscina de nó para o cluster e define um mínimo de *1* e máximo de *3* nóns:
 
@@ -77,6 +77,26 @@ az aks create \
 ```
 
 Demora alguns minutos a criar o cluster e a configurar as definições de autoescala do cluster.
+
+## <a name="update-an-existing-aks-cluster-to-enable-the-cluster-autoscaler"></a>Atualize um cluster AKS existente para permitir o cluster autoscaler
+
+Utilize o comando [de atualização az aks][az-aks-update] para ativar e configurar o autoescalador do cluster no conjunto de nós para o cluster existente. Utilize o parâmetro *autoescalador de agrupamento-activador* e especifique um nó *-- contagem de min* e *--contagem máxima*.
+
+> [!IMPORTANT]
+> O autoescalador de cluster é um componente Kubernetes. Embora o cluster AKS utilize um conjunto de balança de máquina virtual para os nós, não ative manualmente ou edite definições para escala definida automaticamente no portal Azure ou utilizando o CLI Azure. Deixe que o cluster Kubernetes gere as definições de escala necessárias. Para mais informações, consulte [posso modificar os recursos da AKS no grupo de recursos de nó?][aks-faq-node-resource-group]
+
+O exemplo a seguir atualiza um cluster AKS existente para permitir o autoescalador de cluster na piscina de nó para o cluster e define um mínimo de *1* e máximo de *3* nóns:
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+Demora alguns minutos a atualizar o cluster e a configurar as definições de autoescala do cluster.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Alterar as definições de autoescalador de cluster
 
@@ -107,7 +127,7 @@ Monitorize o desempenho das suas aplicações e serviços e ajuste as contagens 
 
 Também pode configurar mais detalhes granulares do autoescalador do cluster alterando os valores predefinidos no perfil de autoescala em todo o cluster. Por exemplo, um evento de escala para baixo ocorre depois de os nós serem subutilizados após 10 minutos. Se tiver cargas de trabalho que se desciam a cada 15 minutos, talvez quisesse alterar o perfil de autoescalador para reduzir sob nós utilizados após 15 ou 20 minutos. Quando ativa o autoescalador do cluster, é utilizado um perfil predefinido a menos que especifique diferentes definições. O perfil de autoescalador do cluster tem as seguintes definições que pode atualizar:
 
-| Definição                          | Descrição                                                                              | Valor predefinido |
+| Definições                          | Descrição                                                                              | Valor predefinido |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | intervalo de digitalização                    | Quantas vezes o cluster é reavaliado para escala para cima ou para baixo                                    | 10 segundos    |
 | escala-down-delay-after-add       | Quanto tempo depois de escalar a escala para baixo a avaliação retoma                               | 10 minutos    |
@@ -122,7 +142,7 @@ Também pode configurar mais detalhes granulares do autoescalador do cluster alt
 > [!IMPORTANT]
 > O perfil de autoescalador do cluster afeta todas as piscinas de nós que utilizam o autoescalador do cluster. Não é possível definir um perfil de autoescalador por piscina de nó.
 
-### <a name="install-aks-preview-cli-extension"></a>Instale extensão CLI de pré-visualização aks
+### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
 Para definir o perfil de definições de autoescala do cluster, precisa da versão de extensão CLI *de pré-visualização aks* 0.4.30 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
 
@@ -136,7 +156,7 @@ az extension update --name aks-preview
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Desacruque o perfil de autoescalador de cluster num cluster AKS existente
 
-Utilize o comando [de atualização az aks][az-aks-update] com o parâmetro *de perfil de cluster-autoscaler* para definir o perfil de autoescalador do cluster no seu cluster. O exemplo a seguir configura a definição do intervalo de digitalização como 30s no perfil.
+Utilize o comando [de atualização az aks][az-aks-update-preview] com o parâmetro *de perfil de cluster-autoscaler* para definir o perfil de autoescalador do cluster no seu cluster. O exemplo a seguir configura a definição do intervalo de digitalização como 30s no perfil.
 
 ```azurecli-interactive
 az aks update \
@@ -179,7 +199,7 @@ O comando acima cria um cluster AKS e define o intervalo de digitalização como
 
 ### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>Redefinir o perfil de autoescalador do cluster para valores predefinidos
 
-Utilize o comando [de atualização az aks][az-aks-update] para redefinir o perfil de autoescalador do cluster no seu cluster.
+Utilize o comando [de atualização az aks][az-aks-update-preview] para redefinir o perfil de autoescalador do cluster no seu cluster.
 
 ```azurecli-interactive
 az aks update \
@@ -190,7 +210,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Desative o autoescalador de cluster
 
-Se já não pretender utilizar o autoescalador do cluster, pode desativá-lo utilizando o comando [de atualização az aks,][az-aks-update] especificando o parâmetro *autoescala de cluster-cluster.desativado.* Os nós não são removidos quando o autoescalador do cluster é desativado.
+Se já não pretender utilizar o autoescalador do cluster, pode desativá-lo utilizando o comando [de atualização az aks,][az-aks-update-preview] especificando o parâmetro *autoescala de cluster-cluster.desativado.* Os nós não são removidos quando o autoescalador do cluster é desativado.
 
 ```azurecli-interactive
 az aks update \
@@ -203,7 +223,7 @@ Pode escalar manualmente o seu cluster depois de desativar o autoescalador do cl
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Reativar um autoescalador de cluster desativado
 
-Se desejar voltar a ativar o autoescalador de cluster num cluster existente, pode voltar a capacitá-lo utilizando o comando [de atualização az aks,][az-aks-update] especificando os parâmetros *de autoescala de cluster-capacitação*, *--contagem de min-* e *--contagem máxima.*
+Se desejar voltar a ativar o autoescalador de cluster num cluster existente, pode voltar a capacitá-lo utilizando o comando [de atualização az aks,][az-aks-update-preview] especificando os parâmetros *de autoescala de cluster-capacitação*, *--contagem de min-* e *--contagem máxima.*
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Recuperar registos e estado de autoescala de cluster
 
@@ -213,7 +233,7 @@ A AKS gere o autoescala de cluster em seu nome e executa-o no plano de controlo 
 
 Para configurar os registos a serem empurrados do autoescalador do cluster para o Log Analytics, siga estes passos.
 
-1. Crie uma regra para os registos de recursos para empurrar os registos de escala de cluster-autoscaler para Log Analytics. [As instruções são detalhadas aqui,](./view-master-logs.md#enable-resource-logs)certifique-se de que verifica a caixa para `cluster-autoscaler` quando selecionar opções para "Logs".
+1. Crie uma regra para os registos de recursos para empurrar os registos de escala de cluster-autoscaler para Log Analytics. [As instruções são detalhadas aqui,][aks-view-master-logs]certifique-se de que verifica a caixa para `cluster-autoscaler` quando selecionar opções para "Logs".
 1. Clique na secção "Logs" no seu cluster através do portal Azure.
 1. Insira a seguinte consulta de exemplo no Log Analytics:
 
@@ -232,11 +252,11 @@ O autoescalador do cluster também irá escrever o estado de saúde para um conf
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
 ```
 
-Para saber mais sobre o que é registado a partir do autoescalador, leia as FAQ no [projeto Kubernetes/autoscaler GitHub](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
+Para saber mais sobre o que é registado a partir do autoescalador, leia as FAQ no [projeto Kubernetes/autoscaler GitHub][kubernetes-faq].
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Utilize o autoescalador de cluster com várias piscinas de nó ativados
 
-O autoescalador de cluster pode ser utilizado juntamente com [várias piscinas de nós](use-multiple-node-pools.md) ativadas. Siga este documento para aprender como ativar várias piscinas de nós e adicionar piscinas de nó adicionais a um cluster existente. Ao utilizar ambas as funcionalidades em conjunto, ative o autoescalador de cluster em cada piscina de nó individual no cluster e pode passar regras de autoscalagem únicas para cada um.
+O autoescalador de cluster pode ser utilizado juntamente com [várias piscinas de nós][aks-multiple-node-pools] ativadas. Siga este documento para aprender como ativar várias piscinas de nós e adicionar piscinas de nó adicionais a um cluster existente. Ao utilizar ambas as funcionalidades em conjunto, ative o autoescalador de cluster em cada piscina de nó individual no cluster e pode passar regras de autoscalagem únicas para cada um.
 
 O comando abaixo pressupõe que seguiu as [instruções iniciais](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) no início deste documento e pretende atualizar a contagem máxima de um número máximo de piscina existente de *3* a *5*. Utilize o comando [de atualização de nodepool az aks][az-aks-nodepool-update] para atualizar as definições de um grupo de nós existentes.
 
@@ -268,22 +288,27 @@ Este artigo mostrou-lhe como escalar automaticamente o número de nós AKS. Tamb
 
 <!-- LINKS - internal -->
 [aks-faq]: faq.md
+[aks-faq-node-resource-group]: faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group
+[aks-multiple-node-pools]: use-multiple-node-pools.md
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
+[aks-view-master-logs]: ./view-master-logs.md#enable-resource-logs
 [autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
-[az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
+[az-aks-update-preview]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
 [az-aks-nodepool-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview#enable-cluster-auto-scaler-for-a-node-pool
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca
+[kubernetes-faq]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why

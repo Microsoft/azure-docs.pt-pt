@@ -1,19 +1,20 @@
 ---
 title: Mostrar informações sobre uma coordenada num mapa Microsoft Azure Maps
 description: Saiba como exibir informações sobre um endereço no mapa quando um utilizador seleciona uma coordenada.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 274d1102649dade1b3295bd02feba03f64a26ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02ffbd9352b97fd0968aee89b0e8f41e3bc30713
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123994"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130414"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações a partir de uma coordenada
 
@@ -53,7 +54,7 @@ O terceiro bloco de código adiciona um ouvinte de eventos para cliques de rato.
 
 A mudança de cursor, o objeto popup e o evento de clique são todos criados no ouvinte do evento de [carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)do mapa. Esta estrutura de código garante que o mapa carrega completamente antes de recuperar as informações das coordenadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Melhores práticas para a utilização do serviço de pesquisa](how-to-use-best-practices-for-search.md)

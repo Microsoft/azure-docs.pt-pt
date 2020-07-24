@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444459"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132828"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de Rede Virtual
 
@@ -122,7 +123,7 @@ Uma vez configurar os pontos finais de serviço para um serviço específico, va
 
 Os pontos finais de serviço podem ser configurados em redes virtuais de forma independente por um utilizador com acesso por escrito a uma rede virtual. Para garantir os recursos de serviço do Azure a um VNet, o utilizador deve ter permissão para *microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* para as sub-redes adicionadas. As funções de administrador de serviço incorporado incluem esta permissão por padrão. Pode modificar a permissão criando funções personalizadas.
 
-Para obter mais informações sobre funções incorporadas, consulte [as funções incorporadas para os recursos da Azure.](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Para obter mais informações sobre a atribuição de permissões específicas a funções personalizadas, consulte [as funções personalizadas para recursos Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obter mais informações sobre papéis incorporados, consulte [as funções incorporadas do Azure.](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Para obter mais informações sobre a atribuição de permissões específicas a funções personalizadas, consulte [as funções personalizadas Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da rede virtual e do Azure pertencerem a subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD). 
 
@@ -142,7 +143,7 @@ As políticas de ponto final do serviço VNet permitem filtrar o tráfego de red
 
 Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede virtual.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar pontos finais de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - [Garantir uma conta de Armazenamento Azure a uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -151,4 +152,3 @@ Para perguntas frequentes, consulte [as FAQs de endpoint do serviço de rede vir
 - [Integração de serviços Azure em redes virtuais](virtual-network-for-azure-services.md)
 - [Políticas de ponto final de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
-

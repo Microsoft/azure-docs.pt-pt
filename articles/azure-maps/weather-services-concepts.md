@@ -1,19 +1,19 @@
 ---
 title: Conceitos de Serviços Meteorológicos / Microsoft Azure Maps
 description: Neste artigo, você vai aprender sobre os conceitos que se aplicam aos Serviços Meteorológicos Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f38ef2c337564d2b36d3939b3ed03130437e35ea
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221770"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132114"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos em Azure Maps
 
@@ -56,27 +56,27 @@ Algumas das APIs do serviço meteorológico devolvem `iconCode` a resposta. É `
 
 | Número de ícone |Ícone| Dia | Noite | Texto |
 |-------------|:----:|-----|-------|------|
-| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sim |  Não    | Ensolarado|
-| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sim |  Não    | Maioritariamente ensolarado|
-| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Sim |  Não    | Parcialmente Ensolarado|
-| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Sim |  Não    | Nuvens intermitentes|
-| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Sim |  Não    | Sol nebuloso |
-| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Sim |  Não    | Maioritariamente nublado|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  Não    | Ensolarado|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  Não    | Maioritariamente ensolarado|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  Não    | Parcialmente Ensolarado|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  Não    | Nuvens intermitentes|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  Não    | Sol nebuloso |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Yes |  Não    | Maioritariamente nublado|
 | 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Sim |  Sim   | Nublado |
 | 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Sim |  Sim   | Dreary (Nublado)|
 | 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Sim |  Sim   | Nevoeiro|
 | 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Sim |  Sim   | Chuveiros|
-| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Sim |  Não    | Maioritariamente nublado com chuveiros|
-| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Sim |  Não    | Parcialmente ensolarado com chuveiros|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Yes |  Não    | Maioritariamente nublado com chuveiros|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Yes |  Não    | Parcialmente ensolarado com chuveiros|
 | 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Sim |  Sim   | Trovoadas|
-| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Sim |  Não    | Maioritariamente nublado com trovoadas|
-| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Sim |  Não    | Parcialmente ensolarado com trovoadas|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Yes |  Não    | Maioritariamente nublado com trovoadas|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Yes |  Não    | Parcialmente ensolarado com trovoadas|
 | 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Sim |  Sim   | Chuva|
 | 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Sim |  Sim   | Flurries|
-| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Sim |  Não    | Maioritariamente nublado com flurries|
-| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Sim |  Não    | Parcialmente ensolarado com flurries|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  Não    | Maioritariamente nublado com flurries|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  Não    | Parcialmente ensolarado com flurries|
 | 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Sim |  Sim   | Neve|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Sim |  Não    | Maioritariamente nublado com neve|     
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  Não    | Maioritariamente nublado com neve|     
 | 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Sim |  Sim   | Ferreira |
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Sim |  Sim   | Granizo|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Sim |  Sim   | Chuva congelada|
@@ -84,11 +84,11 @@ Algumas das APIs do serviço meteorológico devolvem `iconCode` a resposta. É `
 | 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sim |  Sim   | Acesso Frequente|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sim |  Sim   | Cold|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sim |  Sim   | Ventoso|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Não  |  Sim   | Limpar|
-| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Não  |  Sim   | Maioritariamente clara|
-| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Não  |  Sim   | Parcialmente nublado|
-| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Não  |  Sim   | Nuvens intermitentes|
-| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Não  |  Sim   | Luar Nebuloso|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Não  |  Yes   | Limpar|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Não  |  Yes   | Maioritariamente clara|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Não  |  Yes   | Parcialmente nublado|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Não  |  Yes   | Nuvens intermitentes|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Não  |  Yes   | Luar Nebuloso|
 | 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Não  |  Sim   | Maioritariamente nublado|
 | 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Não  |  Sim   | Parcialmente nublado com chuveiros|
 | 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Não  |  Sim   | Maioritariamente nublado com chuveiros|

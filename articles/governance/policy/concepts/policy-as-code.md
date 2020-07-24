@@ -1,14 +1,14 @@
 ---
 title: Criar fluxos de trabalho de Política como Código
 description: Aprenda a desenhar fluxos de trabalho para implementar as definições da Política Azure como código e valide automaticamente os recursos.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970948"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131502"
 ---
 # <a name="design-policy-as-code-workflows"></a>Criar fluxos de trabalho de Política como Código
 
@@ -20,6 +20,24 @@ ms.locfileid: "85970948"
 A política como Código é a combinação destas ideias. Essencialmente, mantenha as definições de política no controlo de origem e sempre que uma alteração é feita, teste e valide essa mudança. No entanto, esta não deve ser a extensão das políticas de envolvimento com infraestruturas como Código ou DevOps.
 
 O passo de validação deve também ser um componente de outros fluxos de trabalho de integração contínua ou de implantação contínua. Exemplos incluem a implantação de um ambiente de aplicação ou infraestrutura virtual. Ao fazer da Azure Policy validar um componente precoce do processo de construção e implantação, as equipas de aplicação e operações descobrem se as suas alterações não são compatíveis, muito antes de ser tarde demais e estão a tentar implementar na produção.
+
+## <a name="definitions-and-foundational-information"></a>Definições e informações fundamentais
+
+Antes de entrar nos detalhes da Política como fluxo de trabalho do Código, reveja as seguintes definições e exemplos:
+
+- [Definição de política](./definition-structure.md)
+- [Definição de iniciativa](./initiative-definition-structure.md)
+
+Os nomes dos ficheiros alinham-se com partes da definição de política ou de iniciativa:
+- `policy(set).json`- Toda a definição
+- `policy(set).parameters.json`- A `properties.parameters` parte da definição
+- `policy.rules.json`- A `properties.policyRule` parte da definição
+- `policyset.definitions.json`- A `properties.policyDefinitions` parte da definição
+
+Exemplos destes formatos de ficheiros estão disponíveis no [Azure Policy GitHub Repo:](https://github.com/Azure/azure-policy/)
+
+- Definição de política: [Adicione uma etiqueta aos recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Definição de iniciativa: [Etiquetas de faturação](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -119,11 +137,11 @@ O fluxo geral de trabalho para a Política como Código destina-se a desenvolver
 
 Nestes casos, após a aplicação ou implantação da infraestrutura a um grupo de subscrição de teste ou de recursos, deve ser feita uma avaliação das políticas para esse âmbito de verificação de todas as políticas e iniciativas existentes. Embora possam ser configurados como **enforcementMode** _desativado_ em tal ambiente, é útil saber cedo se uma aplicação ou implantação de infraestrutura está violando as definições políticas precocemente. Esta avaliação política deve, portanto, ser um passo nesses fluxos de trabalho e falhar nas implementações que criam recursos não conformes.
 
-## <a name="review"></a>Rever
+## <a name="review"></a>Revisão
 
 Este artigo abrange o fluxo de trabalho geral para a Política como Código e também onde a avaliação das políticas deve fazer parte de outros fluxos de trabalho de implantação. Este fluxo de trabalho pode ser usado em qualquer ambiente que suporte passos scripted e automação com base em gatilhos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça a estrutura de [definição de políticas.](./definition-structure.md)
 - Conheça a [estrutura de atribuição de políticas.](./assignment-structure.md)

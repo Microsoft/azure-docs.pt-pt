@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: bad97f9bc9eaa3aad02dfcb5e82d2171e93f2dac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fdf25087ec376ec1bc9173aae16f357795372e
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809020"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130924"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma delegação de utilizador SAS para um recipiente ou bolha com o Azure CLI
 
@@ -52,7 +52,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Para obter mais informações sobre as funções incorporadas que incluem a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey,** consulte [funções incorporadas para recursos Azure](../../role-based-access-control/built-in-roles.md).
+Para obter mais informações sobre as funções incorporadas que incluem a ação **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey,** consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Use credenciais AD AD para garantir um SAS
 
@@ -131,7 +131,7 @@ az storage account revoke-delegation-keys \
 > [!IMPORTANT]
 > Tanto a chave da delegação de utilizadores como as atribuições de funções RBAC são armazenadas pela Azure Storage, pelo que pode haver um atraso entre quando inicia o processo de revogação e quando uma delegação de utilizadores existente SAS se torna inválida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
 - [Obtenha a operação chave da delegação de utilizadores](/rest/api/storageservices/get-user-delegation-key)

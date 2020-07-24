@@ -1,19 +1,20 @@
 ---
 title: Mostrar tráfego num mapa Microsoft Azure Maps
 description: Neste artigo você vai aprender, como exibir dados de tráfego em um mapa usando o Microsoft Azure Maps Web SDK.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9c17c3cc22d478d81ed3c2b2ae9f61c173aad6cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3beafb28f67f5f1e1584d23a3d9603add2d09bee
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123926"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130176"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
@@ -52,7 +53,7 @@ A seguinte ferramenta permite alternar entre as diferentes definições de sobre
 Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>opções de sobreposição de tráfego de canetas</a> por Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

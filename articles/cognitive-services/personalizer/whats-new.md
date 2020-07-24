@@ -2,20 +2,18 @@
 title: Quais são as novidades - Personalizante
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém novidades sobre o Personalizador.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 06/10/2020
-ms.author: diberry
-ms.openlocfilehash: 973a8b7eb8dad66568a5beb45adea9740dd0402a
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 07/17/2020
+ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84700639"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133083"
 ---
 # <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizer
 
@@ -23,7 +21,11 @@ Saiba o que há de novo no serviço. Estes itens podem incluir notas de lançame
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="june-2020"></a>junho de 2020
+### <a name="july-2020"></a>Julho de 2020
+
+* Novo tutorial - [usando Personalizer em um chat bot](tutorial-use-personalizer-chat-bot.md)
+
+### <a name="june-2020"></a>Junho de 2020
 
 * Novo tutorial - [usando Personalizer em uma aplicação web](tutorial-use-personalizer-web-app.md)
 

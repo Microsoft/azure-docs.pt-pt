@@ -3,13 +3,12 @@ title: Use aplicativo web - Personalizer
 description: Personalize uma aplicação web C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador com base em ações (com funcionalidades) e funcionalidades de contexto.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.author: diberry
-ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207611"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133134"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicione Personalizer a uma aplicação web .NET
 
@@ -580,7 +579,7 @@ As definições adicionais para jogar incluem:
 * Percentagem de exploração
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar este tutorial, limpe os seguintes recursos:
 

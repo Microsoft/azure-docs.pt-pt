@@ -1,19 +1,20 @@
 ---
 title: Criar um mapa com mapas Azure Microsoft Azure Maps
 description: Neste artigo, você aprenderá a renderizar um mapa numa página web usando o Microsoft Azure Maps Web SDK.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 97eb1ebb61e5ff78ed918fded8107f5775b533c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4d3784bda1ba5a94dad1cae45513120b3686869
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124028"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130499"
 ---
 # <a name="create-a-map"></a>Criar um mapa
 
@@ -133,7 +134,7 @@ Olha para as amostras de código. Pode editar o código JavaScript dentro do **s
 
 <a id="relatedReference"></a>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

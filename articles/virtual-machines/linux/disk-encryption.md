@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0847f2360a3562f96454992470e3cc2000f66b11
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fba16f9245c8d438268338329ebadad7a57ef206
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502729"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131927"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Encriptação do lado do servidor do armazenamento do disco Azure
 
@@ -78,10 +78,9 @@ Clientes sensíveis de alta segurança que estejam preocupados com o risco assoc
 
 [A Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) aproveita a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para encriptar discos geridos com chaves geridas pelo cliente dentro do VM do hóspede.  A encriptação do lado do servidor com as teclas geridas pelo cliente melhora no ADE, permitindo-lhe utilizar quaisquer tipos e imagens de OS para os seus VMs encriptando dados no serviço de Armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar encriptação de ponta a ponta utilizando encriptação no anfitrião - CLI](disks-enable-host-based-encryption-cli.md)
-- [Ativar a dupla encriptação em repouso para discos geridos - CLI](disks-enable-double-encryption-at-rest-cli.md)
-- [Ativar chaves geridas pelo cliente para discos geridos - CLI](disks-enable-customer-managed-keys-cli.md)
-- [Ativar chaves geridas pelo cliente para discos geridos - portal](disks-enable-customer-managed-keys-portal.md)
+- Ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião com [o CLI](disks-enable-host-based-encryption-cli.md) ou com o [portal Azure](disks-enable-host-based-encryption-portal.md).
+- Ativar a dupla encriptação em repouso para discos geridos com [CLI](disks-enable-double-encryption-at-rest-cli.md) ou com o [portal Azure](disks-enable-double-encryption-at-rest-portal.md).
+- Ativar as chaves geridas pelo cliente para discos geridos com [O CLI](disks-enable-customer-managed-keys-cli.md) ou com o [portal Azure](disks-enable-customer-managed-keys-portal.md).
 - [O que é o Azure Key Vault?](../../key-vault/general/overview.md)

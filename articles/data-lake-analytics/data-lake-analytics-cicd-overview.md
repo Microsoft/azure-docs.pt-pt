@@ -2,20 +2,20 @@
 title: Como configurar um pipeline CI/CD para a Azure Data Lake Analytics
 description: Aprenda a configurar a integração contínua e a implementação contínua para a Azure Data Lake Analytics.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+author: liudan66
+ms.author: liud
+ms.reviewer: jasonh
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: cd696539cda5b24d801da692822b13de143249dd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 09b4f36a5c97b6bcc0a8d11d2fb1ee0893fae80a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121525"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130142"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline CI/CD para a Azure Data Lake Analytics  
 
@@ -482,7 +482,7 @@ Tome as seguintes medidas para configurar uma tarefa de implantação de bases d
 |CertFile|O ficheiro guarda a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação secreta do cliente.|nulo|false|
 | EmpregoPrefixo | O prefixo para a implantação de bases de dados de um trabalho de DDL U-SQL. | Deploy_ + DateTime.Now | false |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como testar o seu código Azure Data Lake Analytics](data-lake-analytics-cicd-test.md).
 - [Executar o script U-SQL na sua máquina local.](data-lake-analytics-data-lake-tools-local-run.md)

@@ -3,12 +3,12 @@ title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963687"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132930"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gestão Azure?
 
@@ -19,7 +19,7 @@ Por exemplo, pode aplicar políticas a um grupo de gestão que limita as regiõe
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarquia de grupos de gestão e de subscrições
 
-Pode criar uma estrutura flexível de grupos de gestão e de subscrições para organizar os seus recursos numa hierarquia para assegurar uma gestão unificada de acesso e política. O diagrama seguinte mostra um exemplo de criação de uma hierarquia de governação com grupos de gestão.
+Pode criar uma estrutura flexível de grupos de gestão e de subscrições para organizar os seus recursos numa hierarquia para assegurar uma gestão unificada de acesso e política. O seguinte diagrama mostra um exemplo de criação de uma hierarquia de governação com grupos de gestão.
 
 :::image type="content" source="./media/tree.png" alt-text="Exemplo de uma árvore hierárquica do grupo de gestão" border="false":::
 
@@ -27,13 +27,13 @@ Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, lim
 
 Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições para esse grupo de gestão, pode criar uma atribuição de [controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) no grupo de gestão, o que faz com que todas as subscrições herdem esse acesso. Uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam, sem a necessidade de criar scripts de RBAC para diferentes subscrições.
 
-### <a name="important-facts-about-management-groups"></a>Factos importantes sobre os grupos de gestão
+### <a name="important-facts-about-management-groups"></a>Factos importantes sobre grupos de gestão
 
 - Um único diretório suporta 10 000 grupos de gestão.
 - Uma árvore de grupo de gestão pode suportar até seis níveis de profundidade.
   - Este limite não inclui o nível da Raiz ou o nível da subscrição.
 - Cada grupo de gestão e subscrição só podem suportar um elemento principal.
-- Cada grupo de gestão pode ter vários elementos subordinados.
+- Cada grupo de gestão pode ter muitos subordinados.
 - Todos os grupos de gestão e subscrições estão contidos numa única hierarquia em cada diretório. Veja [Factos importantes sobre o grupo de gestão de Raiz](#important-facts-about-the-root-management-group).
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gestão de raiz para cada diretório
@@ -87,7 +87,7 @@ Estas permissões são herdadas pelos recursos subordinados existentes na hierar
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
 
-| Nome da Função RBAC             | Criar | Mudar o Nome | Mover-se\*\* | Eliminar | Atribuir Acesso | Atribuir Política | Leitura  |
+| Nome da Função RBAC             | Criar | Mudar o Nome | Mover-se\*\* | Eliminar | Atribuir Acesso | Atribuir Política | Ler  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X        | X      | X             | X             | X     |
 |Contribuinte                 | X      | X      | X        | X      |               |               | X     |
@@ -95,14 +95,14 @@ A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos
 |Leitor                      |        |        |          |        |               |               | X     |
 |Leitor MG\*                 |        |        |          |        |               |               | X     |
 |Contribuidor de Política de Recursos |        |        |          |        |               | X             |       |
-|Administrador de Acesso de Utilizador   |        |        |          |        | X             | X             |       |
+|Administrador de Acesso dos Utilizadores   |        |        |          |        | X             | X             |       |
 
 \*: MG Colaborador e MG Reader apenas permitem que os utilizadores façam essas ações no âmbito do grupo de gestão.  
 \*\*: As atribuições de funções no grupo de gestão Root não são necessárias para mover um grupo de subscrição ou gestão de e para ele. Veja [Manage your resources with management groups](manage.md) (Gerir os recursos com grupos de gestão) para obter detalhes sobre como mover itens dentro da hierarquia.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Definição e atribuição de funções personalizadas do RBAC
+## <a name="azure-custom-role-definition-and-assignment"></a>Definição e atribuição de funções personalizadas Azure
 
-O suporte personalizado de funções RBAC para grupos de gestão está atualmente em pré-visualização com [algumas limitações.](#limitations) Pode definir o âmbito do grupo de gestão no âmbito designado pela Definição de Função. Essa Função RBAC personalizada passará a estar disponível para atribuição nesse grupo de gestão e em qualquer grupo de gestão, subscrição, grupo de recursos ou recursos aí existentes. Esta função personalizada herdará a hierarquia como qualquer função incorporada.  
+O suporte de função personalizado Azure para grupos de gestão está atualmente em pré-visualização com [algumas limitações.](#limitations) Pode definir o âmbito do grupo de gestão no âmbito designado pela Definição de Função. Essa função personalizada da Azure estará então disponível para atribuição nesse grupo de gestão e em qualquer grupo de gestão, subscrição, grupo de recursos ou recurso sob o mesmo. Esta função personalizada herdará a hierarquia como qualquer função incorporada.  
 
 ### <a name="example-definition"></a>Definição de exemplo
 

@@ -3,19 +3,17 @@ title: Como realizar avaliação offline - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Este artigo irá mostrar-lhe como usar a avaliação offline para medir a eficácia da sua app e analisar o seu ciclo de aprendizagem.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.author: diberry
-ms.openlocfilehash: 2fa4e47f600737c9bff5dbff4dd743946b4e82aa
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d1e11ffcb96bc233604464e90edb7dd42578bf08
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342158"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132709"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analise o seu ciclo de aprendizagem com uma avaliação offline
 
@@ -59,6 +57,6 @@ Uma vez concluída, pode selecionar a avaliação da lista de avaliações e, em
 
 1. Selecione **Aplicar** para aplicar a política que melhora melhor o modelo para os seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [como funcionam as avaliações offline.](concepts-offline-evaluation.md)

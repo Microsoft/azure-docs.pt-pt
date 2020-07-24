@@ -6,15 +6,15 @@ metadata:
   description: Saiba mais acerca do Azure Maps e como o utilizar para fornecer serviços geoespaciais para a aplicação Web ou móvel.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: philmea
-  ms.author: philmea
+  author: anastasia-ms
+  ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: a48aa9c3c18784205f6780bf20d9790f24e56c90
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.openlocfilehash: 82f77b392dfaabd8528d482aa67a1311520936fa
+  ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86242394"
+  ms.lasthandoff: 07/24/2020
+  ms.locfileid: "87130638"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:

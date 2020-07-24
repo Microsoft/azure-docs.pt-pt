@@ -2,19 +2,17 @@
 title: Descrição geral do Azure Data Lake Analytics
 description: O Data Lake Analytics permite-lhe orientar a sua empresa através de informações obtidas dos dados na cloud a qualquer escala.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: 65bf1b0d0b2168d8469c3e0233212eea6000d1ad
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: ec71883a174a60b22014edddce5b24d62e9c1761
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800788"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132063"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>O que é o Azure Data Lake Analytics?
 

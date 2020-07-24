@@ -6,15 +6,15 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: cf09dd1521994f01e5f43b981d4bff540f3b1f40
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe26731a7f217d0f441a3dea1650f2652677a57f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506456"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133015"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -89,6 +89,10 @@ Se o agente não iniciar após a configuração terminar, verifique se os regist
 
 1. Abra uma linha de comandos elevada do PowerShell.
 
+    >[!NOTE]
+    >O script suporta apenas a execução a partir de uma versão de 64 bits do Windows PowerShell.
+    >
+
 1. Altere para a pasta ou partilhe para a seguinte cópia do script e execute-o no servidor executando o `./OnboardingScript.ps1` script.
 
 Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
@@ -155,13 +159,13 @@ Depois de instalar o agente, configuure-o para comunicar com o serviço Azure Ar
 >[!NOTE]
 >Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
 
-## <a name="verify-the-connection-with-azure-arc"></a>Verifique a ligação com a Azure Arc
+## <a name="verify-the-connection-with-azure-arc"></a>Verificar a ligação com o Azure Arc
 
-Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar ao Azure Arc para servidores (pré-visualização), vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
 

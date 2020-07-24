@@ -4,16 +4,15 @@ description: Aprenda a executar e testar trabalhos U-SQL localmente usando a lin
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: 58521b16e0f4ff133fd032abd4451f785256bbee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110475"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132420"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com Azure Data Lake U-SQL SDK
 
@@ -381,7 +380,7 @@ Por favor, verifique o seguinte:
 - Certifique-se de que tem ambiente x64. A plataforma-alvo de construção e o ambiente de teste devem ser x64, consulte o **Passo 1: Criar projeto de teste de unidade C# e configuração** acima.
 - Certifique-se de que copiou todos os ficheiros de dependência no âmbito do NugetPackage\build\runtime\ para projetar o diretório de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para registar informações de diagnóstico, consulte [aceder aos registos de diagnósticos do Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).

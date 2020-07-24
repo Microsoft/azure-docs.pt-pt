@@ -2,19 +2,17 @@
 title: Analisar registos de sites com o Azure Data Lake Analytics
 description: Saiba como analisar os registos do site usando o Azure Data Lake Analytics para executar funções e consultas U-SQL.
 services: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 25b84646bd6a95f0409184cccd40c6b7c9a0ef7f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117445"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132641"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar registos de sites com o Azure Data Lake Analytics
 Saiba como analisar os registos do site usando data lake analytics, especialmente ao descobrir quais os remetentes que se depararam com erros quando tentaram visitar o site.
@@ -182,7 +180,7 @@ Pode adicionar adição de operadores definidos pelo utilizador à aplicação. 
 3. Clique duas **vezes em Serviços de Respostas.log**.
 4. Também pode clicar duas vezes no ficheiro de saída dentro da vista de gráfico da função para navegar diretamente para a saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para iniciar o Data Lake Analytics com ferramentas diferentes, veja:
 
 * [Começar com data lake analytics usando o Portal Azure](data-lake-analytics-get-started-portal.md)

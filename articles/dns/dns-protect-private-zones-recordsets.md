@@ -7,11 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: a817cb0722bff721891cd290ea4a6552c778dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550ed5791df821b1793755f5046da92adf6e3f3a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701869"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131553"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Como proteger zonas e registos privados de DNS
 
@@ -23,7 +24,7 @@ Este artigo explica como o Azure DNS permite proteger as suas zonas e registos p
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-O Azure Role-Based Access Control (RBAC) permite uma gestão de acessos finos para utilizadores, grupos e recursos da Azure. Com o RBAC, pode conceder o nível de acesso de que os utilizadores precisam. Para obter mais informações sobre como o RBAC o ajuda a gerir o acesso, consulte [o que é o Controlo de Acesso Baseado em Papéis.](../role-based-access-control/overview.md)
+O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acessos finos para utilizadores, grupos e recursos da Azure. Com o RBAC, pode conceder o nível de acesso de que os utilizadores precisam. Para obter mais informações sobre como o RBAC o ajuda a gerir o acesso, consulte [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 ### <a name="the-private-dns-zone-contributor-role"></a>O papel de contribuinte privado da zona de DNS
 
@@ -167,7 +168,7 @@ A propriedade Actions define as seguintes permissões específicas do DNS:
 * `Microsoft.Network/privateDNSZones/read`concede permissão para ler zonas privadas DNS, mas não modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
 
 > [!NOTE]
-> Usar um papel RBAC personalizado para evitar a eliminação de recordes, permitindo que sejam atualizados, não é um controlo eficaz. Impede que os recordes sejam eliminados, mas não impede que sejam modificados.  As modificações permitidas incluem a adição e remoção de registos do conjunto de recordes, incluindo a remoção de todos os registos para deixar um recorde vazio. Isto tem o mesmo efeito que apagar o recorde estabelecido de um ponto de vista de resolução de DNS.
+> A utilização de um papel personalizado Azure para evitar a eliminação de conjuntos de registos, permitindo ainda a sua atualização, não é um controlo eficaz. Impede que os recordes sejam eliminados, mas não impede que sejam modificados.  As modificações permitidas incluem a adição e remoção de registos do conjunto de recordes, incluindo a remoção de todos os registos para deixar um recorde vazio. Isto tem o mesmo efeito que apagar o recorde estabelecido de um ponto de vista de resolução de DNS.
 
 As definições de funções personalizadas não podem ser definidas atualmente através do portal Azure. Um papel personalizado baseado nesta definição de função pode ser criado usando Azure PowerShell:
 
@@ -284,7 +285,7 @@ O papel personalizado funciona para todas as zonas acedidas por essas contas. As
 
 É possível usar ambas as abordagens - bloqueios de recursos e funções personalizadas - ao mesmo tempo, como uma abordagem de defesa em profundidade para a proteção da zona de DNS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o trabalho com o RBAC, consulte [Começar com a gestão de acessos no portal Azure.](../role-based-access-control/overview.md)
 * Para obter mais informações sobre o trabalho com bloqueios de recursos, consulte [os recursos de bloqueio com o Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

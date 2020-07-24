@@ -2,19 +2,17 @@
 title: Exportação U-SQL base de dados - Azure Data Lake Tools for Visual Studio
 description: Saiba como usar o Azure Data Lake Tools para o Visual Studio para exportar uma base de dados U-SQL e importá-la automaticamente para uma conta local.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 11/27/2017
-ms.openlocfilehash: 364682f6bcf2edeecc7af2da6c91e4bfd1de98a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 05e55d1608323b8e746a1c82ccb915a2db58ce97
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117292"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132097"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar uma base de dados U-SQL
 
@@ -56,7 +54,7 @@ Também pode configurar outras definições para o objetivo de exportação. As 
 |Nome do destino|Este nome indica onde pretende guardar os recursos de base de dados exportados. Exemplos são conjuntos, ficheiros adicionais e dados de amostras. Uma pasta com este nome é criada sob a pasta de raiz de dados local.|
 |Diretório de Projetos|Este caminho define onde pretende salvar o script U-SQL exportado. Todas as definições de objetos de base de dados são guardadas neste local.|
 |Só Schema|Se selecionar esta opção, apenas são exportadas definições e recursos de base de dados (como conjuntos e ficheiros adicionais).|
-|Schema e Dados|Se selecionar esta opção, são exportadas definições, recursos e dados de base de dados. As fileiras superiores n são exportadas.|
+|Esquema e Dados|Se selecionar esta opção, são exportadas definições, recursos e dados de base de dados. As fileiras superiores n são exportadas.|
 |Importação para Base de Dados Local Automaticamente|Se selecionar esta opção, a base de dados exportada é automaticamente importada para a sua base de dados local quando a exportação estiver concluída.|
 
 ![Assistente de exportação de bases de dados - Lista de objetos de exportação e outras configurações](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
@@ -82,7 +80,7 @@ Para importar a base de dados para diferentes conta data lake analytics:
 
 Atualmente, se selecionar a opção **Schema e Data** no Passo 3, a ferramenta executa um trabalho U-SQL para exportar os dados armazenados em tabelas. Por isso, o processo de exportação de dados pode ser lento e poderá incorrer em custos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre bases de dados U-SQL](/u-sql/data-definition-language-ddl-statements) 
 * [Testar e depurar tarefas U-SQL utilizando a execução local e o SDK U-SQL do Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)

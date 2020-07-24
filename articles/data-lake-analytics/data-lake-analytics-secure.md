@@ -3,17 +3,15 @@ title: Secure Azure Data Lake Analytics para vários utilizadores
 description: Saiba como configurar vários utilizadores para executar empregos no Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 services: data-lake-analytics
-author: matt1883
-ms.author: mahi
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/30/2018
-ms.openlocfilehash: 758bf7a41218bcb8f34761db6cbbd541b97b6a86
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9006a22c588a7f1456585d40da0b4345145c6d05
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120879"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132488"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Configure o acesso do utilizador à informação de trabalho em Azure Data Lake Analytics 
 
@@ -44,5 +42,5 @@ Se precisar de mais controlo granular ou precisar de scriptar as permissões, en
    - /sistema/jobservice/jobs/Usql/2018/05/25/11/01
    - /system/jobservice/jobs/Usql/2018/05/25/11/01/b074bd7a-1448-d879-9d75-f562b101bd3d
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Adicionar um novo utilizador](data-lake-analytics-manage-use-portal.md#add-a-new-user)

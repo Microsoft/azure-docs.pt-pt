@@ -1,19 +1,19 @@
 ---
 title: Adicione uma camada de dados simples ! Microsoft Azure Maps
 description: Saiba como adicionar uma camada de dados simples utilizando o módulo Spatial IO, fornecido pela Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 61272bee350fc7c7dd7d0e17adc55c436f4706ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 622aa41975fdec015e4ca4964309c5c4bf274ef2
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885951"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131451"
 ---
 # <a name="add-a-simple-data-layer"></a>Adicionar uma camada de dados simples
 
@@ -170,7 +170,7 @@ Se a funcionalidade for um `Polygon` `MultiPolygon` ou um, e tiver um `height` i
 | `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
 | `height` | `height` | `0` |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 

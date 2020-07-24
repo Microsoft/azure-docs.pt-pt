@@ -3,19 +3,17 @@ title: Quais as novidades no serviço QnA Maker?
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém notícias sobre o QnA Maker.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 06/15/2020
-ms.author: diberry
-ms.openlocfilehash: 285f68b4f0d7284740867f83311135d6c3efa90f
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.date: 07/16/2020
+ms.openlocfilehash: 0337abedbc5b592a0ae48fabd5bc7ecbb484def9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791219"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132794"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novidades no QnA Maker
 
@@ -24,6 +22,12 @@ Saiba o que há de novo no serviço. Estes itens podem divulgar notas, vídeos, 
 ## <a name="release-notes"></a>Notas de versão
 
 Saiba as novidades com o QnA Maker.
+
+### <a name="july-2020"></a>Julho de 2020
+
+* [Metadados: `OR` combinação lógica de múltiplos pares de metadados](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
+* [Passos](how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet) para configurar pontos finais de Pesquisa Cognitiva para serem privados, mas ainda acessíveis ao QnA Maker.
+* Os recursos de pesquisa cognitiva gratuita são removidos após [90 dias de inatividade.](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources)
 
 ### <a name="june-2020"></a>Junho de 2020
 
@@ -71,7 +75,7 @@ Saiba as novidades com o QnA Maker.
 * Modelo de [classificação de](concepts/query-knowledge-base.md#ranker-process) linguagem natural melhorada (NLP) para inglês
 
 > [!div class="nextstepaction"]
-> [Criar o serviço Criador de FAQ](how-to/set-up-qnamaker-service-azure.md)
+> [Criar um serviço QnA Maker](how-to/set-up-qnamaker-service-azure.md)
 
 ## <a name="cognitive-service-updates"></a>Atualizações do Serviço Cognitivo
 

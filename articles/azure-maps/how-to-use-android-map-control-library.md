@@ -1,20 +1,20 @@
 ---
 title: Começar com o controlo de mapas Android Microsoft Azure Maps
 description: Neste artigo você vai aprender, como começar com o controlo de mapas Android usando o Microsoft Azure Maps Android SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 241f107f0bb2163951104067cb82d6e6a967ad3e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f3a19a3e596d4d0162e92ac3f69c1333eea6aa41
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540133"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132165"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Começando com Azure Maps Android SDK
 
@@ -291,7 +291,7 @@ Existem várias maneiras diferentes em que o mapa pode ser ampliado, panned, gir
 
 - Toque no mapa com dois dedos e arraste-os para cima ou para baixo juntos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como adicionar dados sobrepostos no mapa:
 

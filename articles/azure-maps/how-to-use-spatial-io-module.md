@@ -1,18 +1,19 @@
 ---
 title: Como utilizar o módulo IO espacial Azure Maps Microsoft Azure Maps
 description: Saiba como utilizar o módulo Spatial IO fornecido pelo Azure Maps Web SDK. Este módulo fornece funcionalidades robustas para facilitar aos desenvolvedores a integração de dados espaciais com o SdK web Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0532b1548af9be04a53f3ba06147fdde4722f307
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80804644"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130703"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como utilizar o módulo Azure Maps Spatial IO
 
@@ -38,7 +39,7 @@ Este vídeo fornece uma visão geral do módulo IO espacial no Azure Maps Web SD
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder utilizar o módulo IO Espacial, terá de [fazer uma conta Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) e obter a chave de [subscrição primária para a sua conta.](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)
+Antes de poder utilizar o módulo IO Espacial, terá de [fazer uma conta Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) e obter a chave de [subscrição primária para a sua conta.](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)
 
 ## <a name="installing-the-spatial-io-module"></a>Instalação do módulo IO espacial
 
@@ -229,7 +230,7 @@ Pode carregar o módulo IO espacial Azure Maps utilizando uma das duas opções:
 
     </center>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A funcionalidade que aqui demonstramos é apenas uma das muitas funcionalidades disponíveis no módulo IO Espacial. Leia os guias abaixo para saber como utilizar outras funcionalidades no módulo IO espacial:
 

@@ -1,16 +1,16 @@
 ---
-title: Painel de clientes no mercado comercial da Microsoft análise no Partner Center
+title: Painel de clientes no mercado comercial da Microsoft análise no Partner Center, Azure Marketplace e Microsoft AppSource
 description: Saiba como aceder a informação sobre os seus clientes, incluindo tendências de crescimento, utilizando o painel de clientes em análise de mercado comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 9f71a668b3473521e9d8d7c9318ab2e557380845
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+ms.openlocfilehash: f4dbdbfc3b835871516233e601881012190169ce
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121763"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131774"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard do Cliente na análise do mercado comercial
 
@@ -29,17 +29,19 @@ O painel de instrumentos do **menu 'Cliente'** do menu **Analyze** apresenta dad
 - [Cliente por geografia](#customer-by-geography)
 - [Tendências do cliente](#customer-trends)
 - [Clientes por encomendas e utilização](#customers-by-orders-and-usage)
-- [Clientes por SKUs](#customers-by-skus)
+- [Clientes por planos](#customers-by-plans)
 - [Encomendas e utilização por tipo de cliente](#orders-and-usage-by-customer-type)
 - [Tabela de detalhes do cliente](#customer-details-table)
 - [Filtros de página do cliente](#customer-page-filters)
+
+A latência máxima entre a aquisição e reporte de clientes no Partner Center é de 48 horas.
 
 ### <a name="customer-summary"></a>Resumo do cliente
 
 A secção de resumo do Cliente apresenta uma contagem de todos os clientes, incluindo novos, existentes e agitados, durante o intervalo de datas selecionados.
 
 - O total de clientes é definido como a contagem de todos os clientes que compraram a sua oferta e têm pelo menos uma encomenda que não foi cancelada.
-- A percentagem de crescimento dos clientes face ao mês anterior é indicada pelo indicador número e crescimento no indicador verde ou descendente no vermelho.
+- A percentagem de crescimento do cliente face ao mês anterior é indicada pelo indicador número e para cima no indicador verde ou descendente no vermelho.
 - As tendências de crescimento são representadas por gráficos de barras e mostrarão o valor para cada mês pairando sobre as colunas do gráfico.
 
 Existem três **tipos de clientes:** novos, existentes e agitados.
@@ -50,9 +52,9 @@ Existem três **tipos de clientes:** novos, existentes e agitados.
 
 ### <a name="customer-by-geography"></a>Cliente por geografia
 
-O **gráfico de geografia do Cliente** mostra as contagens de todos os clientes e clientes adquiridos durante a gama de datas selecionadas e são mapeados com base no País/Região do Cliente. A cor clara para a luz no mapa representa o valor baixo a alto da contagem do cliente. Clique num registo na tabela para fazer zoom em um país/região.
+O **gráfico de geografia do Cliente** mostra as contagens de todos os clientes e clientes adquiridos durante a gama de datas selecionadas, que são mapeadas com base no País/Região do Cliente. A cor clara para a luz no mapa representa o valor baixo a alto da contagem do cliente. Selecione um registo na tabela para fazer zoom em um país/região.
 
-O mapa de calor exibe a contagem do cliente e % por país/região do cliente. Pode mover o mapa para ver a localização exata e fazer zoom para um local específico. Este mapa tem uma rede suplementar que permite visualizar a % dos clientes por localização, bem como os clientes recém-adicionados a esse local.
+O mapa de calor exibe a contagem e percentagem do cliente por país/região do cliente. Pode mover o mapa para ver a localização exata e fazer zoom para um local específico. Este mapa tem uma rede suplementar que permite visualizar a % dos clientes por localização, bem como os clientes recém-adicionados a esse local.
 
 ### <a name="customer-trends"></a>Tendências do cliente
 
@@ -71,14 +73,14 @@ O **gráfico de encomendas/utilização** dos Clientes tem três separadores, "e
 
 Como exemplo, veja o gráfico abaixo para uma utilização normalizada: O percentil 30 dos clientes está a contribuir para 87% do uso normalizado cumulativamente. O percentil 30 dos clientes está apenas a contribuir com 1,57 milhões de horas de utilização.
 
-### <a name="customers-by-skus"></a>Clientes por SKUs
+### <a name="customers-by-plans"></a>Clientes por planos
 
-Os **gráficos de clientes por SKUs/use** são descritos abaixo.
+Os **clientes por planos/gráficos de utilização** são descritos abaixo.
 
 1. A direção do Líder apresenta detalhes dos 50 melhores clientes classificados pela contagem de encomendas. Após a seleção de um cliente, os detalhes do cliente são apresentados nas secções 2, 3 e 4 deste quadro de líderes.
 2. Os detalhes do perfil do Cliente são apresentados neste espaço quando as editoras estão a iniciar sessão com uma função de proprietário. Se os editores estiverem com uma função de contribuinte, os detalhes nesta secção não estarão disponíveis.
-3. O gráfico de donuts da SKUs apresenta a repartição das encomendas compradas para SKUs. Os 5 SKUs mais altos com a contagem de encomendas mais alta são apresentados, enquanto as restantes encomendas são agrupadas em "rest all".
-4. O gráfico de donuts da SKUs apresenta a avaria dos assentos encomendados para SKUs. Os 5 SKUs mais altos com os assentos mais altos são apresentados, enquanto as restantes encomendas são agrupadas em repouso.
+3. As **Encomendas por planos** gráfico de donut apresenta a desagregação das encomendas compradas para planos. Os cinco primeiros planos com a contagem de encomendas mais alta são apresentados, enquanto os restantes pedidos são agrupados em "rest all".
+4. O **seats by plans** donut chart mostra a avaria de lugares encomendados para planos. Os cinco primeiros planos com os lugares mais altos são apresentados, enquanto os restantes pedidos estão agrupados em repouso.
 
 ### <a name="orders-and-usage-by-customer-type"></a>Encomendas e utilização por tipo de cliente
 
@@ -95,7 +97,7 @@ A tabela **de detalhes do Cliente** apresenta uma lista numerada dos 1000 melhor
 - Cada coluna da grelha é ordenada.
 - Os dados podem ser extraídos para um ficheiro TSV se a contagem dos registos for inferior a 1000.
 - Se o número de registos for superior a 1000, os dados exportados serão colocados de forma assíncronea numa página de downloads durante os próximos 30 dias.
-- Os filtros podem ser aplicados na tabela para exibir apenas os dados em que está interessado. Os dados podem ser filtrados pelo nome da Empresa, ID do Cliente, ID de Assinatura de Mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País/Estado/Estado/Cidade/Zip, Linguagem do Cliente, e assim por diante.
+- Aplique filtros na tabela para exibir apenas os dados em que está interessado. Filtrar dados por nome da Empresa, ID do Cliente, ID de Assinatura de Mercado, Tipo de Licença Azure, Data Adquirida, Data Perdida, E-mail do Cliente, País/Estado/Estado/Cidade/Zip, Linguagem do Cliente, e assim por diante.
 - Quando uma oferta é comprada por um cliente protegido, as informações em **Dados Detalhados do Cliente** serão mascaradas (**********************************************************************************
 - Os detalhes da dimensão do cliente, tais como Nome da Empresa, Nome do Cliente e E-mail do Cliente estão a nível de ID da organização, não ao nível de transações do Azure Marketplace ou appSource.
 
@@ -104,9 +106,9 @@ A tabela **de detalhes do Cliente** apresenta uma lista numerada dos 1000 melhor
 Os filtros **de página clientes** são aplicados ao nível da página dos Clientes. Pode selecionar vários filtros para tornar o gráfico para os critérios que escolhe visualizar e os dados que pretende ver na grelha /exportação de dados de encomendas detalhadas. Os filtros são aplicados nos dados extraídos para a gama de dados que selecionou no canto superior direito da página das encomendas.
 
 >[!NOTE]
-> Definições detalhadas para cada um dos campos na grelha de clientes, filtros de página e suas possíveis seleções estão localizadas em [perguntas e terminologia frequentemente feitas para análise de mercado comercial.](./faq-terminology.md)
+> Definições detalhadas para cada um dos campos na grelha do cliente, filtros de página e suas possíveis seleções estão localizadas no artigo de FAQ abaixo indicado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

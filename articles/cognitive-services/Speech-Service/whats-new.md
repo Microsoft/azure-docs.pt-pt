@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 017de2f66d6e57c9081e0d1ed53232a4634d4f4f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4c448b8ed50863457da69db3f74b959f04e26ec1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740286"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131859"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Serviço de fala: as novidades nos docs
 
@@ -56,32 +56,32 @@ Se quiser aprender sobre as atualizações do serviço de fala, SDK de fala, dis
 
 ### <a name="github-issues-opened-in-may"></a>Questões do GitHub abriram em maio
 
-Estas questões foram abertas em junho. Esta tabela lista o utilizador que abriu o problema, quando foi aberto, e o seu estado.  
+Estas questões foram abertas em maio. Esta tabela lista o utilizador que abriu o problema, quando foi aberto, e o seu estado.  
 
 Esta tabela é atualizada mensalmente e apenas reflete as questões abertas em maio.  
 
 |ID|Utilizador|Descrição|Inaugurado|Estado|Tipo|
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|A atividade caiu porque o ponto final do bot está desaparecido.|2020-05-31|Fechado|Problema|
-|[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Passos de bot de publicação erradas|2020-05-31|Abrir|Problema|
-|[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|Adicione um doc mais claro sobre o formato de amostras de PCM|2020-05-30|Abrir|Problema|
-|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|O título não corresponde à barra lateral|2020-05-29|Fechado|Problema|
-|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|Erro CLI com ficheiro de onda|2020-05-28|Fechado|Problema|
-|[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|Atualizar speech-sdk.md|2020-05-27|Abrir|Pedido de puxar|
-|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Erro estranho com o nome de voz não suportado|2020-05-20|Fechado|Problema|
-|[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|A documentação sobre o discurso para texto api é pobre|2020-05-18|Abrir|Problema|
-|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft CognitiveServices SpeechRecognizer, não consegue reunir um texto resultante|2020-05-18|Fechado|Problema|
-|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Não é claro|2020-05-18|Fechado|Problema|
-|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Gráficos não visíveis no tema escuro|2020-05-17|Fechado|Problema|
-|[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|Secção desaparecida?|2020-05-15|Abrir|Problema|
-|[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|15 alegria|Os recipientes de serviço de fala em execução falham|2020-05-13|Abrir|Problema|
-|[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|Exemplo para arquivo de pronúncia|2020-05-11|Abrir|Problema|
-|[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|A amostra de Java está errada.|2020-05-10|Abrir|Problema|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Não consigo pronunciar pontuação|2020-05-08|Fechado|Problema|
-|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Modelo de arquivo YAML|2020-05-07|Fechado|Problema|
-|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C# O Código da Amostra não leva o utilizador a falar.|2020-05-06|Fechado|Problema|
-|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS de v1.3 para v1.4|2020-05-05|Fechado|Pedido de puxar|
-|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Atualizar versão mais recente do STT para v2.2.0|2020-05-05|Fechado|Pedido de puxar|
-|[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|As ligações aos projetos do Github estão quebradas|2020-05-03|Abrir|Problema|
-|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Propriedade para definir: Tempo de reconhecimento de áudio max para microfone Android. Parar o reconhecimento áudio após 15 segundos|2020-05-02|Fechado|Problema|
-|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Comandos personalizados: atualização de docs|2020-05-01|Fechado|Pedido de puxar|
+|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|A atividade caiu porque o ponto final do bot está desaparecido.|2020-05-31|Fechada|Problema|
+|[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Passos de bot de publicação erradas|2020-05-31|Aberta|Problema|
+|[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|Adicione um doc mais claro sobre o formato de amostras de PCM|2020-05-30|Aberta|Problema|
+|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|O título não corresponde à barra lateral|2020-05-29|Fechada|Problema|
+|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|Erro CLI com ficheiro de onda|2020-05-28|Fechada|Problema|
+|[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|Atualizar speech-sdk.md|2020-05-27|Aberta|Pedido de puxar|
+|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Erro estranho com o nome de voz não suportado|2020-05-20|Fechada|Problema|
+|[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|A documentação sobre o discurso para texto api é pobre|2020-05-18|Aberta|Problema|
+|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft CognitiveServices SpeechRecognizer, não consegue reunir um texto resultante|2020-05-18|Fechada|Problema|
+|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Não é claro|2020-05-18|Fechada|Problema|
+|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Gráficos não visíveis no tema escuro|2020-05-17|Fechada|Problema|
+|[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|Secção desaparecida?|2020-05-15|Aberta|Problema|
+|[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|15 alegria|Os recipientes de serviço de fala em execução falham|2020-05-13|Aberta|Problema|
+|[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|Exemplo para arquivo de pronúncia|2020-05-11|Aberta|Problema|
+|[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|A amostra de Java está errada.|2020-05-10|Aberta|Problema|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Não consigo pronunciar pontuação|2020-05-08|Fechada|Problema|
+|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Modelo de arquivo YAML|2020-05-07|Fechada|Problema|
+|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C# O Código da Amostra não leva o utilizador a falar.|2020-05-06|Fechada|Problema|
+|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS de v1.3 para v1.4|2020-05-05|Fechada|Pedido de puxar|
+|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Atualizar versão mais recente do STT para v2.2.0|2020-05-05|Fechada|Pedido de puxar|
+|[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|As ligações aos projetos do Github estão quebradas|2020-05-03|Aberta|Problema|
+|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Propriedade para definir: Tempo de reconhecimento de áudio max para microfone Android. Parar o reconhecimento áudio após 15 segundos|2020-05-02|Fechada|Problema|
+|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Comandos personalizados: atualização de docs|2020-05-01|Fechada|Pedido de puxar|

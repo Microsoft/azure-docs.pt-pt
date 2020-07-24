@@ -1,16 +1,16 @@
 ---
-title: Painel de utilização na análise do mercado comercial da Microsoft
+title: Painel de utilização em análise de mercado comercial da Microsoft, Azure Marketplace e Microsoft AppSource
 description: Saiba como aceder a todos os VM oferece métricas de utilização e faturação medido. Vá ao painel de utilização no Partner Center no mercado comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 8747ff98cd2b53773d9e0a95436d90fef74fda55
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+ms.openlocfilehash: a03ef316b409fdeff687f0ee7bbbf6316857c54b
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120675"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131750"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de utilização na análise do mercado comercial da Microsoft
 
@@ -30,14 +30,13 @@ No separador de utilização VM, existem representações gráficas dos seguinte
 - [Resumo da utilização](#usage-summary)
 - [Utilização por geografia](#usage-by-geography)
 - [Utilização por ofertas](#usage-by-offers)
-- [Tendência de utilização por ofertas e SKUs](#usage-trend-by-offers-and-skus)
+- [Tendência de utilização por ofertas e planos](#usage-trend-by-offers-and-plans)
 - [Utilização por tipo de oferta](#usage-by-offer-type)
 - [Utilização por tamanho VM](#usage-by-vm-size)
 - [Utilização por canal de vendas](#usage-by-sales-channel)
 - [Dados de utilização detalhados](#detailed-usage-data)
 
-> [!NOTE]
-> Os relatórios de análise mostram-se de forma diferente no Cloud Partner Portal (CPP) e no Partner Center. **Os insights do vendedor** no CPP têm um separador de encomendas e utilização, que exibe dados tanto para ofertas baseadas em uso como para ofertas não baseadas em uso. No Partner Center, as métricas de utilização são apresentadas numa página separada.
+A latência máxima entre a geração de eventos de utilização e a reportagem no Partner Center é de 48 horas.
 
 ### <a name="usage-summary"></a>Resumo da utilização
 
@@ -60,9 +59,9 @@ O **uso normalizado por** mapa térmico de geografia exibe horas de utilização
 - O gráfico de barras retrata uma tendência de crescimento mensal para a gama de datas selecionadas. As colunas mensais representam horas de utilização das ofertas com as horas de utilização mais elevadas do respetivo mês. O gráfico de linha retrata a tendência de crescimento da percentagem traçada no eixo Y secundário.
 - Utilize o slider na parte superior da tabela para deslocar da direita para a esquerda ao longo do eixo x e/ou concentrar-se em pontos de dados específicos.
 
-### <a name="usage-trend-by-offers-and-skus"></a>Tendência de utilização por ofertas e SKUs
+### <a name="usage-trend-by-offers-and-plans"></a>Tendência de utilização por ofertas e planos
 
-Este gráfico apresenta a tendência de utilização normalizada para os SKUs selecionados de uma oferta. O leaderboard de oferta exibe as 50 melhores ofertas com o uso mais elevado, ordenadas por horas de utilização. O quadro de líderes SKU exibe os 50 SKUs mais elevados com o uso mais elevado para a oferta selecionada.
+Este gráfico apresenta a tendência de utilização normalizada para os planos selecionados (anteriormente chamados SKUs) de uma oferta. O leaderboard de oferta exibe as 50 melhores ofertas com o uso mais elevado, ordenadas por horas de utilização. O painel de líderes do plano exibe os 50 melhores planos com o uso mais elevado para a oferta selecionada.
 
 ### <a name="usage-by-offer-type"></a>Utilização por tipo de oferta
 
@@ -72,7 +71,7 @@ Este gráfico apresenta a tendência de utilização normalizada para os SKUs se
 
 ### <a name="usage-by-vm-size"></a>Utilização por tamanho VM
 
-Este gráfico representa a tendência de utilização para tamanhos VM selecionados (máx. 5) de todas as suas ofertas/SKUs. O gráfico da coluna é empilhado com as horas de utilização dos tamanhos VM selecionados.
+Este gráfico representa a tendência de utilização para tamanhos VM selecionados (máximo cinco) de todas as suas ofertas/planos. O gráfico da coluna é empilhado com as horas de utilização dos tamanhos de VM selecionados.
 
 O quadro de líderes exibe os tamanhos top 50 VM com maior utilização e ordenado por horas de utilização.
 
@@ -90,7 +89,7 @@ A **tabela de detalhes de utilização** apresenta uma lista numerada dos 1000 m
 - Cada coluna da grelha é ordenada.
 - Os dados podem ser extraídos para um ficheiro CSV se a contagem dos registos for inferior a 1000.
 - Se a contagem de registos for superior a 1000, os dados de exportação serão colocados assíncronos numa página de downloads que estará disponível durante os próximos 30 dias.
-- Os filtros podem ser aplicados aos **dados de utilização detalhados** para exibir apenas os dados em que está interessado. Os dados podem ser filtrados por país/região, canal de vendas, tipo de licença de mercado, tipo de utilização, nome de oferta, tipo de oferta, testes gratuitos, ID de assinatura do Mercado, ID do cliente e nome da empresa.
+- Aplicar filtros em **dados de utilização detalhados** para exibir apenas os dados em que está interessado. Filtrar dados por país/região, canal de vendas, tipo de licença de mercado, tipo de utilização, nome de oferta, tipo de oferta, testes gratuitos, ID de assinatura do Mercado, ID do cliente e nome da empresa.
 
 > [!NOTE]
 > Selecione o **tipo de utilização** no filtro de página para visualizar gráficos na página em "Visualização normalizada" ou "Vista bruta". A vista padrão para estes gráficos é "Vista Normalizada".
@@ -107,7 +106,7 @@ Os **filtros de página de utilização** são aplicados ao nível da página. P
 O **separador de utilização da faturação medido** apresenta informações de utilização para tipos de oferta onde a utilização é medida por dimensão por metro. A oferta saaS é apresentada atualmente. O separador apresenta representações gráficas das tendências de overage para o uso da faturação medido saaS:
 
 - **Tendência de sobreação por dimensão**do medidor : Apresenta a tendência mensal de sobreatenção para a dimensão do medidor selecionado de uma oferta. O Eixo X representa o mês e o Eixo Y representa a quantidade de utilização. A unidade de medição do medidor personalizado também é exibida no eixo Y.
-- **Tendência de sobreatenção por SKU**: Representa a tendência da quantidade de utilização da dimensão do contador selecionado por SKUs. Os SKUs apresentados representarão os 5 SKUs mais elevados com a maior quantidade de utilização para a oferta selecionada.
+- **Tendência de sobreação por plano**: Representa a tendência da quantidade de utilização da dimensão do contador selecionado por planos. Os planos apresentados representarão os cinco melhores planos com a maior quantidade de utilização para a oferta selecionada.
 - **Tendência overage by Top 50 Clientes**: As 50 melhores ofertas com as horas de utilização mais altas são exibidas num ***quadro de líderes*** e são classificadas pela utilização mais alta do medidor personalizado. Selecione um cliente na tabela de líderes para ver a tendência de utilização de uma dimensão de contador selecionado.
 - **Tendência de sobreatenção por parte dos principais clientes**: Apresenta percentil de cliente de topo que contribuem para a % do uso geral. O percentil superior do cliente é apresentado ao longo do eixo X e é determinado pela quantidade de utilização do cliente. O eixo Y exibe a quantidade de utilização. Pode apresentar detalhes pairando sobre pontos ao longo da tabela de linha.
 

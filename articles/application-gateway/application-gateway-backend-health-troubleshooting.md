@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b5524d0612bf8f5d69979a8392f664e417c5f98d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808181"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132046"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de saúde na resolução de problemas de saúde no Gateway de Aplicação
 ==================================================
@@ -176,7 +176,7 @@ Verifique também se algum NSG/UDR/Firewall está bloqueando o acesso ao Ip e à
 
 | **Erro** | **Ações** |
 | --- | --- |
-| Desajuste do código da sonda: Recebido 401 | Verifique se o servidor backend requer autenticação. As sondas Application Gateway não podem passar credenciais para autenticação neste momento. Ou permite \" HTTP 401 \" numa correspondência de código de sonda ou sonda para um caminho onde o servidor não necessita de autenticação. | |
+| Desajuste do código da sonda: Recebido 401 | Verifique se o servidor backend requer autenticação. As sondas Application Gateway não podem passar credenciais para autenticação. Ou permite \" HTTP 401 \" numa correspondência de código de sonda ou sonda para um caminho onde o servidor não necessita de autenticação. | |
 | Desajuste do código da sonda: Recebido 403 | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor backend. | |
 | Desajuste do código da sonda: Recebido 404 | Página não encontrada. Verifique se o caminho do nome do anfitrião está acessível no servidor backend. Altere o nome do anfitrião ou o parâmetro do caminho para um valor acessível. | |
 | Desajuste do código da sonda: Recebido 405 | Os pedidos de sonda para o Gateway de Aplicação utilizam o método HTTP GET. Verifique se o seu servidor permite este método. | |
@@ -395,7 +395,7 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 1.  Para verificar se o Gateway de Aplicação está saudável e em funcionamento, vá à opção **Saúde de Recursos** no portal e verifique se o estado é **saudável.** Se vir um estado **insalubre** ou **degradado,** [contacte o suporte](https://azure.microsoft.com/support/options/).
 
-<a name="next-steps"></a>Próximos passos
+<a name="next-steps"></a>Passos seguintes
 ----------
 
 Saiba mais sobre [diagnósticos e registos de gateway de aplicações.](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ab0b08c01478d1375ec2a234dc0277980312f17c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258283"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131638"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -24,12 +24,12 @@ Os modelos são escritos utilizando a **Linguagem de Definição Digital DeFins 
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Linguagem de definição de gémeos digital (DTDL) para modelos de escrita
 
-Os modelos para Gémeos Digitais Azure são definidos usando a linguagem de definição de gémeos digitais (DTDL). O DTDL baseia-se no JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) Azure Digital Twins usa a versão DTDL *2*.
+Os modelos para Gémeos Digitais Azure são definidos usando a linguagem de definição de gémeos digitais (DTDL). O DTDL baseia-se no JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) 
+
+Azure Digital Twins usa a versão DTDL *2*. Para obter mais informações sobre esta versão do DTDL, consulte a sua documentação de especificação no GitHub: [*Digital Twins Definition Language (DTDL) - versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 > [!TIP] 
 > Nem todos os serviços que utilizam o DTDL implementam exatamente as mesmas funcionalidades do DTDL. Por exemplo, o IoT Plug and Play não utiliza as funcionalidades DTDL que são para gráficos, enquanto a Azure Digital Twins não implementa atualmente comandos DTDL. Para obter mais informações sobre as funcionalidades DTDL específicas da Azure Digital Twins, consulte a secção mais tarde neste artigo sobre [as especificações de implementação do DTDL das Gémeas Digitais Azure.](#azure-digital-twins-dtdl-implementation-specifics)
-
-Para obter mais informações sobre o DTDL em geral, consulte a sua documentação de especificação no GitHub: [Digital Twins Definition Language (DTDL) - versão 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## <a name="elements-of-a-model"></a>Elementos de um modelo
 
@@ -62,7 +62,9 @@ Para que um modelo DTDL seja compatível com a Azure Digital Twins, deve satisfa
 
 Modelos de tipo gémeo podem ser escritos em qualquer editor de texto. A língua DTDL segue a sintaxe JSON, pelo que deve armazenar modelos com a extensão *.json*. A utilização da extensão JSON permitirá que muitos editores de texto de programação forneçam a verificação e a realce básicas de sintaxe para os seus documentos DTDL. Há também uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Código de Estúdio Visual](https://code.visualstudio.com/).
 
-Aqui está um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve planetas, cada um com um nome, uma massa e uma temperatura. O planeta pode ter luas como satélites, e pode conter crateras.
+Esta secção contém um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve **planetas,** cada um com um nome, uma massa e uma temperatura.
+ 
+Considere que os planetas também podem interagir com **as luas** que são seus satélites, e podem conter **crateras.** No exemplo abaixo, o `Planet` modelo expressa ligações a estas outras entidades, referindo dois modelos externos `Moon` e `Crater` . Estes modelos também são definidos no código de exemplo abaixo, mas são mantidos muito simples para não desviar do `Planet` exemplo principal.
 
 ```json
 [
@@ -101,6 +103,11 @@ Aqui está um exemplo de um modelo típico, escrito como uma interface DTDL. O m
   },
   {
     "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2"
   }
@@ -204,13 +211,13 @@ Existe uma amostra agnóstica linguística disponível para validar documentos d
 
 A amostra validador DTDL é construída numa biblioteca de parser DTDL .NET, que está disponível no NuGet como biblioteca do lado do cliente: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Também pode usar a biblioteca diretamente para desenhar a sua própria solução de validação. Ao utilizar a biblioteca parser, certifique-se de que utiliza uma versão compatível com a versão que o Azure Digital Twins está a executar. Durante a pré-visualização, esta é a versão *3.7.0*.
 
-Pode saber mais sobre a biblioteca de parser, incluindo exemplos de utilização, em [Como-a-: Parse e validar modelos](how-to-use-parser.md).
+Pode saber mais sobre a biblioteca de parser, incluindo exemplos de utilização, em [*Como-a-: Parse e validar modelos*](how-to-use-parser.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir os modelos com as APIs digitalTwinsModels:
-* [Como fazer: Gerir modelos personalizados](how-to-manage-model.md)
+* [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)
 
 Ou, saiba como os gémeos digitais são criados com base em modelos:
-* [Conceitos: Gémeos digitais e o gráfico gémeo](concepts-twins-graph.md)
+* [*Conceitos: Gémeos digitais e o gráfico gémeo*](concepts-twins-graph.md)
 

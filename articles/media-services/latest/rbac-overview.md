@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1872d0dd56a0459988e65852340c36493ee53f9f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "66236907"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132250"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de Serviços de Mídia
 
@@ -36,14 +36,14 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 }
 ```
 
-O artigo [de definições de papel incorporado diz-lhe](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) exatamente o que o papel concede. 
+O artigo [de definições de papel incorporado diz-lhe](../../role-based-access-control/built-in-roles.md) exatamente o que o papel concede. 
 
 Consulte os seguintes artigos para obter mais informações:
 
-- [Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
-- [O que é RBAC para os recursos Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Use o RBAC para gerir o acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Operações de prestadores de recursos dos Serviços de Mídia](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
+- [Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
+- [Use o RBAC para gerir o acesso](../../role-based-access-control/role-assignments-rest.md)
+- [Operações de prestadores de recursos dos Serviços de Mídia](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>Passos seguintes
 

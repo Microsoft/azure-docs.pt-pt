@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a1447e64b606170601e6df6a443f53e3132294d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ec681d0af132d11e18703dce6105352651a70180
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522266"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131621"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Secure Azure Digital Twins com controlo de acesso baseado em funções
 
@@ -35,7 +35,7 @@ A etapa de autenticação requer qualquer pedido de pedido para conter um token 
 
 O passo de autorização requer que seja atribuída uma função RBAC ao diretor de segurança. As funções atribuídas a um diretor de segurança determinam as permissões que o diretor terá. A Azure Digital Twins fornece funções RBAC que englobam conjuntos de permissões para recursos Azure Digital Twins. Estes papéis são descritos mais tarde neste artigo.
 
-Para saber mais sobre papéis e atribuições de papéis suportados no Azure, consulte [Compreender os diferentes papéis](../role-based-access-control/rbac-and-directory-admin-roles.md) na documentação do Azure RBAC.
+Para saber mais sobre papéis e atribuições de papéis suportados no Azure, consulte [*Compreender os diferentes papéis*](../role-based-access-control/rbac-and-directory-admin-roles.md) na documentação do Azure RBAC.
 
 ### <a name="authentication-with-managed-identities"></a>Autenticação com identidades geridas
 
@@ -46,19 +46,19 @@ Com identidades geridas, a plataforma Azure gere esta identidade de tempo de exe
 ### <a name="authorization-rbac-roles-for-azure-digital-twins"></a>Autorização: Papéis do RBAC para gémeos digitais Azure
 
 A Azure fornece as funções RBAC incorporadas abaixo para autorizar o acesso a um recurso Azure Digital Twins:
-* Azure Digital Twins Owner (Preview) – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
-* Azure Digital Twins Reader (Preview) – Use este papel para dar acesso apenas à leitura dos recursos da Azure Digital Twins.
+* *Azure Digital Twins Owner (Preview)* – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
+* *Azure Digital Twins Reader (Preview)* – Use este papel para dar acesso apenas à leitura dos recursos da Azure Digital Twins.
 
 > [!TIP]
-> O papel do Azure Digital Twins Reader (Preview) agora também suporta relações de navegação.
+> O papel *do Azure Digital Twins Reader (Preview)* agora também suporta relações de navegação.
 
-Para obter mais informações sobre como as funções incorporadas são [definidas,](../role-based-access-control/role-definitions.md) consulte definições de funções na documentação do Azure RBAC. Para obter informações sobre a criação de funções RBAC personalizadas, consulte [funções personalizadas para recursos Azure](../role-based-access-control/custom-roles.md).
+Para obter mais informações sobre como as funções incorporadas são [*definidas,*](../role-based-access-control/role-definitions.md) consulte definições de funções na documentação do Azure RBAC. Para obter informações sobre a criação de funções personalizadas [*Azure, consulte os papéis personalizados da Azure*](../role-based-access-control/custom-roles.md).
 
 Pode atribuir funções de duas formas:
-* através do painel de controlo de acesso (IAM) para Azure Digital Twins no portal Azure (ver [Adicionar ou remover atribuições de funções utilizando o RBAC Azure e o portal Azure)](../role-based-access-control/role-assignments-portal.md)
+* através do painel de controlo de acesso (IAM) para Azure Digital Twins no portal Azure (ver [*Adicionar ou remover atribuições de funções utilizando o RBAC Azure e o portal Azure)*](../role-based-access-control/role-assignments-portal.md)
 * através de comandos CLI para adicionar ou remover uma função
 
-Para passos mais detalhados sobre como fazê-lo, experimente-o no [tutorial Azure Digital Twins: *Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
+Para passos mais detalhados sobre como fazê-lo, experimente-o no Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
 
 ## <a name="permission-scopes"></a>Âmbitos de permissão
 
@@ -71,8 +71,14 @@ A lista que se segue descreve os níveis em que pode aceder aos recursos da Azur
 * Relação Digital Twin: As ações para este recurso definem o controlo sobre as operações crud nas [relações](concepts-twins-graph.md) entre gémeos digitais no gráfico gémeo.
 * Rota do evento: As ações deste recurso determinam permissões para [encaminhar eventos](concepts-route-events.md) da Azure Digital Twins para um serviço de ponto final como [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus.](../service-bus-messaging/service-bus-messaging-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="troubleshooting"></a>Resolução de problemas
 
-* Veja como caminhar por estes passos com uma aplicação de cliente de amostra em [*Como-a-: Autenticar uma aplicação ao cliente.*](how-to-authenticate-client.md)
+Se um utilizador tentar executar uma ação não permitida pela sua função, poderá receber um erro da leitura do pedido de serviço `403 (Forbidden)` . Para obter mais informações e etapas de resolução de problemas, consulte [*Resolução de Problemas: Pedido de Gémeos Digitais Azure falhou com o Estado: 403 (Proibido)*](troubleshoot-error-403.md).
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Consulte estes conceitos em ação em [*Como-a: Configurar um caso e autenticação.*](how-to-set-up-instance-scripted.md)
+
+* Veja como interagir com estes conceitos a partir do código de aplicação do cliente em [*Como-a-: Escrever código de autenticação de aplicações*](how-to-authenticate-client.md).
 
 * Leia mais sobre [o RBAC para Azure.](../role-based-access-control/overview.md)

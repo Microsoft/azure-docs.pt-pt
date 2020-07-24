@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e5c57ba56ce236bcf07478e1784eec6d4c632d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca54cb44618da1ff92b12b3ad918da513ab2be2f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195252"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131825"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de Base de Segurança Azure para Cosmos DB
 
@@ -78,7 +78,7 @@ Configure a partilha de recursos de origem cruzada:https://docs.microsoft.com/az
 
 Ativar o DDoS Protection Standard nas Redes Virtuais associadas às suas instâncias DB do Azure Cosmos para se proteger contra ataques de DDoS. Use a Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
-Como configurar a Proteção Avançada de Ameaças avançadas da Cosmos Cosmos Cosmos:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Como configurar a Azure Cosmos DB Advanced Threat Protection:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 Como configurar a proteção DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 

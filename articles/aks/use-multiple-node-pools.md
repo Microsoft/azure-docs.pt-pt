@@ -4,14 +4,14 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250860"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133100"
 ---
-# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir várias piscinas de nós para um cluster no Serviço Azure Kubernetes (AKS)
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
 No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupados em *piscinas de nó.* Estas piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. O número inicial de nós e o seu tamanho (SKU) é definido quando se cria um cluster AKS, que cria uma [piscina de nó do sistema.][use-system-pool] Para suportar aplicações que tenham diferentes exigências de computação ou armazenamento, pode criar piscinas de *nó de utilizador adicionais.* As piscinas de nó de sistema servem o principal propósito de hospedar cápsulas de sistema críticas, tais como CoreDNS e frente de túneis. As piscinas de nó de utilizador servem o principal propósito de hospedar as suas cápsulas de aplicação. No entanto, as cápsulas de aplicação podem ser agendadas nas piscinas de nó do sistema se desejar ter apenas uma piscina no seu cluster AKS. As piscinas de nó do utilizador são onde coloca as suas cápsulas específicas para a aplicação. Por exemplo, utilize estes conjuntos de nó de utilizador adicionais para fornecer GPUs para aplicações intensivas de computação ou acesso a armazenamento SSD de alto desempenho.
 
@@ -37,7 +37,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS que suporta
 * Todas as piscinas de nódis devem residir na mesma rede virtual.
 * Ao criar várias piscinas de nó no cluster criar tempo, todas as versões Kubernetes utilizadas por piscinas de nó devem corresponder ao conjunto de versão definida para o plano de controlo. Isto pode ser atualizado depois de o cluster ter sido a provisionado utilizando operações de piscina por nó.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 > [!Important]
 > Se executar uma única piscina de nó de sistema para o seu cluster AKS em ambiente de produção, recomendamos que use pelo menos três nós para a piscina de nós.
@@ -72,7 +72,7 @@ Quando o cluster estiver pronto, use o comando [az aks get-credentials][az-aks-g
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="add-a-node-pool"></a>Adicione uma piscina de nó
+## <a name="add-a-node-pool"></a>Adicionar um conjunto de nós
 
 O cluster criado no degrau anterior tem uma única piscina de nós. Vamos adicionar uma segunda piscina de nó usando o comando [de adicionar nodepool az aks.][az-aks-nodepool-add] O exemplo a seguir cria uma piscina de nó chamado *mynodepool* que corre *3* nosdes:
 
@@ -503,6 +503,9 @@ az aks nodepool add \
     --no-wait
 ```
 
+> [!NOTE]
+> Uma mancha só pode ser definida para piscinas de nó durante a criação da piscina de nó.
+
 A saída de exemplo a seguir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *taintnp* está *criando* nódes com os *nóns especificados*:
 
 ```console
@@ -783,7 +786,7 @@ Pode localizar os IPs públicos para os seus nóns de várias formas:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Neste artigo, criou um cluster AKS que inclui nós baseados em GPU. Para reduzir custos desnecessários, pode querer eliminar o *gpunodepool*, ou todo o cluster AKS.
 

@@ -3,16 +3,14 @@ title: Ativar e visualizar registos de diagnóstico para Azure Data Lake Analyti
 description: Entenda como configurar e aceder a registos de diagnóstico para Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: 9d389c433cb8a049671668cb58b3d80691ff0d16
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121440"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132607"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)
 
@@ -45,7 +43,7 @@ O registo de diagnóstico permite-lhe recolher pistas de auditoria de acesso a d
 
    * Para __o Arquivo numa conta de armazenamento,__ especifique o número de dias para reter os dados.
 
-   * Clique em __Guardar__.
+   * Clique em __Save__ (Guardar).
 
         > [!NOTE]
         > Tem de selecionar o __Arquivo para uma conta de armazenamento,__ transmitir para um Centro de __Eventos__ ou __Enviar para registar analítico__ antes de clicar no botão __Guardar.__
@@ -128,28 +126,28 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 
 #### <a name="request-log-schema"></a>Solicitar esquema de registo
 
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |A horatampia (em UTC) do log |
-| resourceId |String |O identificador do recurso que a operação teve lugar em |
-| categoria |String |A categoria de registo. Por exemplo, **Pedidos**. |
-| operationName |String |Nome da operação que está registada. Por exemplo, GetAggregatedJobHistory. |
-| resultType |String |O estado da operação, por exemplo, 200. |
-| callerIpAddress |String |O endereço IP do cliente fazendo o pedido |
-| correlationId |String |O identificador do registo. Este valor pode ser usado para agrupar um conjunto de entradas de registo relacionadas. |
+| hora |Cadeia |A horatampia (em UTC) do log |
+| resourceId |Cadeia |O identificador do recurso que a operação teve lugar em |
+| categoria |Cadeia |A categoria de registo. Por exemplo, **Pedidos**. |
+| operationName |Cadeia |Nome da operação que está registada. Por exemplo, GetAggregatedJobHistory. |
+| resultType |Cadeia |O estado da operação, por exemplo, 200. |
+| callerIpAddress |Cadeia |O endereço IP do cliente fazendo o pedido |
+| correlationId |Cadeia |O identificador do registo. Este valor pode ser usado para agrupar um conjunto de entradas de registo relacionadas. |
 | identidade |Objeto |A identidade que gerou o log |
 | propriedades |JSON |Consulte a secção seguinte (Pedido de registo de propriedades) para mais detalhes |
 
 #### <a name="request-log-properties-schema"></a>Solicite esquema de propriedades de registo
 
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, GET. |
-| Caminho |String |O caminho em que a operação foi realizada |
+| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, GET. |
+| Caminho |Cadeia |O caminho em que a operação foi realizada |
 | PedidoContentLength |int |O comprimento do conteúdo do pedido HTTP |
-| ClientRequestId |String |O identificador que identifica exclusivamente este pedido |
-| StartTime |String |O momento em que o servidor recebeu o pedido |
-| EndTime |String |O momento em que o servidor enviou uma resposta |
+| ClientRequestId |Cadeia |O identificador que identifica exclusivamente este pedido |
+| StartTime |Cadeia |O momento em que o servidor recebeu o pedido |
+| EndTime |Cadeia |O momento em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
@@ -176,17 +174,17 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 }
 ```
 
-#### <a name="audit-log-schema"></a>Esquema de registo de auditoria
+#### <a name="audit-log-schema"></a>Esquema do registo de auditoria
 
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |A horatampia (em UTC) do log |
-| resourceId |String |O identificador do recurso que a operação teve lugar em |
-| categoria |String |A categoria de registo. Por exemplo, **Auditoria**. |
-| operationName |String |Nome da operação que está registada. Por exemplo, JobSubmitted. |
-| resultType |String |Subestato para o estado do trabalho (operaçãoName). |
-| resultSignature |String |Detalhes adicionais sobre o estado do trabalho (operaçãoName). |
-| identidade |String |O utilizador que solicitou a operação. Por exemplo, susan@contoso.com. |
+| hora |Cadeia |A horatampia (em UTC) do log |
+| resourceId |Cadeia |O identificador do recurso que a operação teve lugar em |
+| categoria |Cadeia |A categoria de registo. Por exemplo, **Auditoria**. |
+| operationName |Cadeia |Nome da operação que está registada. Por exemplo, JobSubmitted. |
+| resultType |Cadeia |Subestato para o estado do trabalho (operaçãoName). |
+| resultSignature |Cadeia |Detalhes adicionais sobre o estado do trabalho (operaçãoName). |
+| identidade |Cadeia |O utilizador que solicitou a operação. Por exemplo, susan@contoso.com. |
 | propriedades |JSON |Consulte a secção seguinte (esquema de propriedades de registo de auditoria) para mais detalhes |
 
 > [!NOTE]
@@ -196,15 +194,15 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
 
-| Name | Tipo | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
-| JobId |String |A ID atribuída ao trabalho |
-| Nome de emprego |String |O nome que foi fornecido para o trabalho |
-| Tempo de Trabalho |String |O tempo de execução usado para processar o trabalho |
-| Tempo de Submissão |String |O tempo (na UTC) que o trabalho foi submetido |
-| StartTime |String |O tempo em que o trabalho começou a funcionar após a submissão (na UTC) |
-| EndTime |String |O tempo que o trabalho terminou |
-| Paralelismo |String |O número de unidades de Data Lake Analytics solicitadas para este trabalho durante a submissão |
+| JobId |Cadeia |A ID atribuída ao trabalho |
+| Nome de emprego |Cadeia |O nome que foi fornecido para o trabalho |
+| Tempo de Trabalho |Cadeia |O tempo de execução usado para processar o trabalho |
+| Tempo de Submissão |Cadeia |O tempo (na UTC) que o trabalho foi submetido |
+| StartTime |Cadeia |O tempo em que o trabalho começou a funcionar após a submissão (na UTC) |
+| EndTime |Cadeia |O tempo que o trabalho terminou |
+| Paralelismo |Cadeia |O número de unidades de Data Lake Analytics solicitadas para este trabalho durante a submissão |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime,** **EndTime**e **Parallelism** fornecem informações sobre uma operação. Estas entradas só contêm um valor se essa operação tiver começado ou concluído. Por exemplo, **o SubmitTime** contém apenas um valor após **a operaçãoName** tem o valor **JobSubmitted**.
@@ -213,6 +211,6 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 
 A Azure Data Lake Analytics fornece uma amostra sobre como processar e analisar os dados de registo. Pode encontrar a amostra [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) em.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
