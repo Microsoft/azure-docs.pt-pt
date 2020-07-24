@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010835"
 ---
 *Aquecimento da Cache*  
 O disco com o cache do anfitrião ReadOnly é capaz de dar IOPS mais alto do que o limite do disco. Para obter este desempenho de leitura máxima da cache do anfitrião, primeiro deve aquecer a cache deste disco. Isto garante que os IOs de Leitura que a ferramenta de benchmarking irá conduzir no volume CacheReads, realmente atinge a cache, e não o disco diretamente. Os hits de cache resultam em IOPS adicionais a partir do disco ativado por cache única.
@@ -68,12 +68,12 @@ Execute os passos abaixo para aquecer cache
    | RandomReads \_ 1MB |1 MB |100 |100 |
 1. Executar o teste de Iometer para inicializar o disco de cache com os seguintes parâmetros. Utilize três fios de trabalho para o volume de destino e uma profundidade de fila de 128. Desa cosar a duração do teste para 2 horas no separador "Configuração de Teste".
 
-   | Scenario | Volume-alvo | Name | Duração |
+   | Cenário | Volume-alvo | Name | Duração |
    | --- | --- | --- | --- |
    | Inicializar o disco cache |CacheReads |RandomWrites \_ 1MB |2 horas |
 1. Executar o teste de Iometer para aquecer o disco de cache com os seguintes parâmetros. Utilize três fios de trabalho para o volume de destino e uma profundidade de fila de 128. Desa cosar a duração do teste para 2 horas no separador "Configuração de Teste".
 
-   | Scenario | Volume-alvo | Name | Duração |
+   | Cenário | Volume-alvo | Name | Duração |
    | --- | --- | --- | --- |
    | Aquecer disco cache |CacheReads |RandomReads \_ 1MB |2 horas |
 
@@ -153,7 +153,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 Enquanto o teste decorre, é possível ver o número de IOPS de escrita que os discos VM e Premium estão a entregar. Como mostrado na amostra abaixo, o DS14 VM está a entregar o seu limite máximo de IOPS de escrita máxima de 50.000 IOPS.  
-    ![Número de discos IOPS VM e Premium de escrita estão a entregar](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+    ![Número de discos IOPS VM e Premium de escrita estão a ser entregues.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>IOPS de leitura máxima
 
@@ -194,7 +194,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 Enquanto o teste decorre, é possível ver o número de IOPS lidos que os discos VM e Premium estão a entregar. Como mostrado na amostra abaixo, o DS14 VM está a entregar mais de 64.000 IOPS de leitura. Esta é uma combinação do disco e do desempenho da cache.  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+    ![Screenshot do número de discos IOPS VM e Premium de escrita estão a ser entregues.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>Leitura máxima e escrita IOPS
 

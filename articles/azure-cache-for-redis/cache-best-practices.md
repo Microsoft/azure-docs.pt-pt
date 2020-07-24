@@ -6,11 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 6a1dddfbcdbf2bd49586238872db15f1da5d7ce1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457308"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008324"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável da sua Cache Azure para a instância Redis.
@@ -26,7 +27,7 @@ Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utiliza
 
  * **O Redis funciona melhor com valores mais pequenos,** por isso considere cortar dados maiores em várias teclas.  [Nesta discussão redis,](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)algumas considerações estão listadas que deve considerar cuidadosamente.  Leia [este artigo](cache-troubleshoot-client.md#large-request-or-response-size) para um problema de exemplo que pode ser causado por grandes valores.
 
- * **Localize o seu cache e a sua aplicação na mesma região.**  Ligar a uma cache numa região diferente pode aumentar significativamente a latência e reduzir a fiabilidade.  Embora possa ligar-se do exterior do Azure, não é recomendado *especialmente quando se utiliza o Redis como cache*.  Se estiver a usar o Redis como apenas uma loja chave/valor, a latência pode não ser a principal preocupação. 
+ * **Localize o seu cache e a sua aplicação na mesma região.**  Estabelecer ligação a uma cache numa região diferente pode aumentar significativamente a latência e reduzir a fiabilidade.  Embora possa ligar-se do exterior do Azure, não é recomendado *especialmente quando se utiliza o Redis como cache*.  Se estiver a usar o Redis como apenas uma loja chave/valor, a latência pode não ser a principal preocupação. 
 
  * **Reutilizar as ligações.**  Criar novas ligações é dispendioso e aumenta a latência, por isso reutilizar as ligações o máximo possível. Se optar por criar novas ligações, certifique-se de fechar as ligações antigas antes de as libertar (mesmo em idiomas de memória geridos como .NET ou Java).
 
@@ -82,10 +83,10 @@ Se quiser testar como o seu código funciona em condições de erro, considere u
  
 ### <a name="redis-benchmark-examples"></a>Exemplos de Referência Redis
 **Configuração pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e de produção listados abaixo.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
+> redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
 
 **Para testar a latência**: Teste os pedidos GET utilizando uma carga útil de 1k.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
+> redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 
 **Para testar a produção:** Solicitações PIPELINED GET com carga útil de 1k.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -n 1000000 -d 1024 -P 50 -c 50
+> redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -n 1000000 -d 1024 -P 50 -c 50

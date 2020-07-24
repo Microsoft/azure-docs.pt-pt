@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282312"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012411"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Ferramentas de aprendizagem automática e ciência de dados em Azure Data Science Virtual Machines
 As máquinas virtuais Azure Data Science (DSVMs) têm um rico conjunto de ferramentas e bibliotecas para machine learning disponíveis em línguas populares, como Python, R e Julia.
@@ -26,9 +26,9 @@ Aqui estão algumas das ferramentas de aprendizagem automática e bibliotecas em
 
 Consulte a referência completa para o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   |   A azure Machine Learning é um serviço de nuvem que pode usar para desenvolver e implementar modelos de aprendizagem automática. Você pode rastrear seus modelos à medida que constrói, treina, escala e gere-os usando o Python SDK. Implemente os modelos como recipientes e olo na nuvem, no local ou no Azure IoT Edge.   |
+| Que passa?   |   A azure Machine Learning é um serviço de nuvem que pode usar para desenvolver e implementar modelos de aprendizagem automática. Você pode rastrear seus modelos à medida que constrói, treina, escala e gere-os usando o Python SDK. Implemente os modelos como recipientes e olo na nuvem, no local ou no Azure IoT Edge.   |
 | Edições apoiadas     | Janelas (ambiente conda: AzureML), Linux (ambiente conda: py36)    |
 | Usos típicos      | Plataforma geral de aprendizagem automática      |
 | Como é configurado ou instalado?      |  Instalado com suporte gpu   |
@@ -38,9 +38,9 @@ Consulte a referência completa para o [Azure Machine Learning SDK para Python](
 
 ## <a name="h2o"></a>H2O
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Uma plataforma de IA de código aberto que suporta aprendizagem automática na memória, distribuída, rápida e escalável.  |
+| Que passa?   | Uma plataforma de IA de código aberto que suporta aprendizagem automática na memória, distribuída, rápida e escalável.  |
 | Versões suportadas      | Linux   |
 | Usos típicos      | Aprendizagem de máquinas distribuídas de forma geral e escaláveis   |
 | Como é configurado ou instalado?      | H2O está instalado em `/dsvm/tools/h2o` .      |
@@ -52,9 +52,9 @@ Existem várias outras bibliotecas de aprendizagem automática em DSVMs, como o 
 
 ## <a name="lightgbm"></a>LightGBM
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Um quadro rápido, distribuído e de alto desempenho (GBDT, GBRT, GBM ou MART) baseado em algoritmos de árvores de decisão. É usado para classificar, classificar e muitas outras tarefas de aprendizagem automática.    |
+| Que passa?   | Um quadro rápido, distribuído e de alto desempenho (GBDT, GBRT, GBM ou MART) baseado em algoritmos de árvores de decisão. É usado para classificar, classificar e muitas outras tarefas de aprendizagem automática.    |
 | Versões suportadas      | Windows, Linux    |
 | Usos típicos      | Quadro de reforço do gradiente de fim geral      |
 | Como é configurado ou instalado?      | No Windows, o LightGBM é instalado como um pacote Python. No Linux, a linha de comando executável está `/opt/LightGBM/lightgbm` dentro, o pacote R está instalado e os pacotes Python são instalados.     |
@@ -62,9 +62,9 @@ Existem várias outras bibliotecas de aprendizagem automática em DSVMs, como o 
 | Ferramentas relacionadas      | MXNet  |
 
 ## <a name="rattle"></a>Rattle
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   |   Uma interface gráfica do utilizador para a mineração de dados utilizando R.   |
+| Que passa?   |   Uma interface gráfica do utilizador para a mineração de dados utilizando R.   |
 | Edições apoiadas     | Windows, Linux     |
 | Usos típicos      | Ferramenta geral de mineração de dados de UI para R    |
 | Como usá-lo ou executá-lo      | Como uma ferramenta de UI. No Windows, inicie um pedido de comando, corra R e, em seguida, dentro de R, corra `rattle()` . No Linux, ligue-se ao X2Go, inicie um terminal, corra R e, em seguida, dentro de R, corra `rattle()` . |
@@ -72,9 +72,9 @@ Existem várias outras bibliotecas de aprendizagem automática em DSVMs, como o 
 | Ferramentas relacionadas      |LightGBM, Weka, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   |   Uma biblioteca rápida, de código aberto, fora do núcleo    |
+| Que passa?   |   Uma biblioteca rápida, de código aberto, fora do núcleo    |
 | Edições apoiadas     | Windows, Linux     |
 | Usos típicos      | Biblioteca geral de aprendizagem automática      |
 | Como é configurado ou instalado?      |  Windows: instalador msi<br/>Linux: apt-get |
@@ -84,9 +84,9 @@ Existem várias outras bibliotecas de aprendizagem automática em DSVMs, como o 
 
 
 ## <a name="weka"></a>Weka
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   |  Uma recolha de algoritmos de aprendizagem automática para tarefas de mineração de dados. Os algoritmos podem ser aplicados diretamente a um conjunto de dados ou chamados a partir do seu próprio código Java. Weka contém ferramentas para pré-processamento de dados, classificação, regressão, agrupamento, regras de associação e visualização. |
+| Que passa?   |  Uma recolha de algoritmos de aprendizagem automática para tarefas de mineração de dados. Os algoritmos podem ser aplicados diretamente a um conjunto de dados ou chamados a partir do seu próprio código Java. Weka contém ferramentas para pré-processamento de dados, classificação, regressão, agrupamento, regras de associação e visualização. |
 | Edições apoiadas     | Windows, Linux     |
 | Usos típicos      | Ferramenta geral de aprendizagem automática     |
 | Como usá-lo ou executá-lo      | No Windows, procure weka no menu **Iniciar.** No Linux, inscreva-se com x2Go e, em seguida, vá ao **Applications**  >  **Development**  >  **Weka**. |
@@ -94,9 +94,9 @@ Existem várias outras bibliotecas de aprendizagem automática em DSVMs, como o 
 | Ferramentas relacionadas      |LightGBM, Rattle, XGBoost   |
 
 ## <a name="xgboost"></a>XGBoost 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   |   Uma biblioteca rápida, portátil e distribuída de gradiente (GBDT, GBRT ou GBM) para Python, R, Java, Scala, C++, e muito mais. Funciona numa única máquina, e em Apache Hadoop e Spark.    |
+| Que passa?   |   Uma biblioteca rápida, portátil e distribuída de gradiente (GBDT, GBRT ou GBM) para Python, R, Java, Scala, C++, e muito mais. Funciona numa única máquina, e em Apache Hadoop e Spark.    |
 | Edições apoiadas     | Windows, Linux     |
 | Usos típicos      | Biblioteca geral de aprendizagem automática      |
 | Como é configurado ou instalado?      |  Instalado com suporte gpu   |
@@ -105,9 +105,9 @@ Existem várias outras bibliotecas de aprendizagem automática em DSVMs, como o 
 | Ferramentas relacionadas      | LightGBM, MXNet   |
 
 ## <a name="apache-drill"></a>Apache Drill
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Motor de consulta SQL de código aberto em big data    |
+| Que passa?   | Motor de consulta SQL de código aberto em big data    |
 | Versões DSVM suportadas      | Windows 2019, Linux  |
 | Como é configurado e instalado no DSVM?      |  Instalado apenas `/dsvm/tools/drill*` em modo incorporado   |
 | Usos típicos      |  Para a exploração de dados no local sem necessidade de extrato, transformação, carga (ETL). Consultar diferentes fontes de dados e formatos, incluindo CSV, JSON, tabelas relacionais e Hadoop.     |

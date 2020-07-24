@@ -3,11 +3,12 @@ title: Análise de vídeo ao vivo nas FAQs IoT Edge - Azure
 description: Este tópico dá respostas ao Live Video Analytics nas FAQs IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 705c74b1ba6d3a28911185b82a558099e87dc18d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261325"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011520"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (PERGUNTAS Frequentes)
 
@@ -19,14 +20,14 @@ Quais são as variáveis do sistema que podem ser usadas na definição de topol
 
 |Variável   |Descrição|
 |---|---|
-|[Sistema.DataTime](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Representa um instante no tempo, tipicamente expresso como data e hora do dia.|
+|[Sistema.DataTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Representa um instante no tempo, tipicamente expresso como data e hora do dia.|
 |Nome System.GraphTopology   |Representa uma topologia de gráficos de mídia, detém a planta de um gráfico.|
 |Nome system.graphInstance|  Representa uma instância de gráfico de mídia, detém valores de parâmetros e faz referência à topologia.|
 
 ## <a name="configuration-and-deployment"></a>Configuração e implantação
 
 Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?
-    * Sim. Consulte o artigo sobre [os recipientes Linux no Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers).
+    * Yes. Consulte o artigo sobre [os recipientes Linux no Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Captura a partir de câmara IP e definições de RTSP
 
@@ -38,16 +39,16 @@ Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?
 * Posso reiniciar ou atualizar o URL da origem RTSP numa instância de gráfico?
     * Sim, quando a instância do gráfico está em estado inativo.  
 * Existe um simulador RTSP disponível para ser utilizado durante o teste e desenvolvimento?
-    * Sim. Existe um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) disponível para utilização nos arranques rápidos e tutoriais para suportar o processo de aprendizagem. Este módulo é proporcionado como a melhor solução e pode nem sempre estar disponível. É fortemente encorajado a não usar isto por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de fazer planos para uma implementação de produção.
+    * Yes. Existe um módulo de borda [de simulador RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) disponível para utilização nos arranques rápidos e tutoriais para suportar o processo de aprendizagem. Este módulo é proporcionado como a melhor solução e pode nem sempre estar disponível. É fortemente encorajado a não usar isto por mais de algumas horas. Deve investir em testes com a sua fonte rtsp real antes de fazer planos para uma implementação de produção.
 * É suportada a deteção ONVIF de câmaras IP no Edge?
     * Não, não existe suporte para a deteção ONVIF de dispositivos no Edge.
 
 ## <a name="streaming-and-playback"></a>Streaming e reprodução
 
 * Os ativos registados na AMS a partir da borda podem ser reproduzidos utilizando tecnologias de streaming de Media Services como o HLS ou o DASH?
-    * Sim. Os ativos registados podem ser transmitidos como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um Streaming Endpoint criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um manifesto HLS ou DASH para streaming para qualquer estrutura de jogador capaz. Para obter detalhes sobre a criação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
+    * Yes. Os ativos registados podem ser transmitidos como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um Streaming Endpoint criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um manifesto HLS ou DASH para streaming para qualquer estrutura de jogador capaz. Para obter detalhes sobre a criação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
 * Posso utilizar a proteção padrão de conteúdos e as funcionalidades de DRM dos Serviços de Mídia num ativo arquivado?
-    * Sim. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e drm estão disponíveis para utilização nos ativos registados a partir de um gráfico de mídia.
+    * Yes. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e drm estão disponíveis para utilização nos ativos registados a partir de um gráfico de mídia.
 * Que jogadores posso usar para ver conteúdo dos ativos gravados?
    * Todos os jogadores padrão que suportam a versão 3 (HLS) do Apple HTTP Live Streaming (HLS) ou a versão 4 são suportados. Além disso, qualquer jogador que seja capaz de cumprir a reprodução MPEG-DASH também é suportado.
     Os jogadores recomendados para testes incluem:
@@ -84,6 +85,6 @@ Para obter mais informações, consulte o artigo [de monitorização e registo.]
 * Como é cobrado o LiveVideo Analytics no IoT Edge?
     * Consulte [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) para mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

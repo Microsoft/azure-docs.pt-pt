@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: a45f0a882c58c7035badcc1270c66bd9c6fb252a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b48334f1e7f2032216e1b058950c7ffc3cef70b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010160"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Recolher detalhes sobre todas as VMs numa subscrição com o PowerShell
 
@@ -80,8 +80,8 @@ Este script utiliza os seguintes comandos para criar uma exportação csv dos de
 |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)|Obtém um endereço IP público.|
 |[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface)|Obtém uma interface de rede.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/).
 
 Pode ver exemplos adicionais de scripts do PowerShell da máquina virtual na [Documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=/azure/virtual-machines/windows/toc.json).

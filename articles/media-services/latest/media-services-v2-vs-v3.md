@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: fd094e35ceaa718ec1b258d74106b39744cbd16f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011639"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de Mídia v2 vs. v3
 
@@ -27,7 +28,7 @@ Este artigo descreve alterações que foram introduzidas no Azure Media Services
 
 ## <a name="general-changes-from-v2"></a>Alterações gerais de v2
 
-* Para ativos criados com v3, os Serviços de Media suportam apenas a [encriptação de armazenamento do servidor do Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+* Para ativos criados com v3, os Serviços de Media suportam apenas a [encriptação de armazenamento do servidor do Azure Storage](../../storage/common/storage-service-encryption.md).
     * Pode utilizar APIs v3 com Ativos criados com APIs v2 que tinham [encriptação de armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecida pela Media Services.
     * Não é possível criar novos Ativos com a [encriptação](../previous/media-services-rest-storage-encryption.md) de armazenamento AES 256 usando APIs v3.
 * As propriedades do [Ativo](assets-concept.md)em v3 diferem de v2, veja [como as propriedades mapeiam.](#map-v3-asset-properties-to-v2)
@@ -87,11 +88,11 @@ A API v3 tem as seguintes lacunas de características no que diz respeito à API
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapear propriedades de ativos v3 para v2
 
-A tabela seguinte mostra como as propriedades do [Ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)no mapa v3 para as propriedades do Ativo em v2.
+A tabela seguinte mostra como as propriedades do [Ativo](/rest/api/media/assets/createorupdate#asset)no mapa v3 para as propriedades do Ativo em v2.
 
 |v3 propriedades|v2 propriedades|
 |---|---|
-|`id`- (único) o percurso completo do Gestor de Recursos Azure, ver exemplos em [Ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|`id`- (único) o percurso completo do Gestor de Recursos Azure, ver exemplos em [Ativo](/rest/api/media/assets/createorupdate)||
 |`name`- (único) ver [convenções de nomeação](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
 |`assetId`|`Id`- (único) o valor começa com o `nb:cid:UUID:` prefixo.|
@@ -109,8 +110,8 @@ Para proteger os seus Ativos em repouso, os ativos devem ser encriptados pela en
 |Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
 |Encriptação de armazenamento de serviços de mídia|Encriptação AES-256, chave gerida pelos Media Services.|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
-|[Encriptação do serviço de armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado|Suportado|
-|[Encriptação do lado do cliente do armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault.|Não suportado|Não suportado|
+|[Encriptação do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado|Suportado|
+|[Encriptação do lado do cliente do armazenamento](../../storage/common/storage-client-side-encryption.md)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault.|Não suportado|Não suportado|
 
 <sup>1 Enquanto</sup> os Serviços de Mídia suportam o manuseamento de conteúdos na clara/sem qualquer forma de encriptação, não é recomendado.
 
@@ -120,7 +121,7 @@ Para proteger os seus Ativos em repouso, os ativos devem ser encriptados pela en
 
 A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários comuns.
 
-|Scenario|V2 API|V3 API|
+|Cenário|V2 API|V3 API|
 |---|---|---|
 |Criar um ativo e fazer upload de um ficheiro |[v2 .NET exemplo](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Submeter um emprego|[v2 .NET exemplo](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como primeiro criar uma Transform e depois submeter um Job.|
@@ -134,6 +135,6 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md)

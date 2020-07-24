@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 2b65dee27bf31a3cf49b59ddf982834b86dca4de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f233a6fc557d9dbb62585e8cca85f175b3bc3e26
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82872124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010602"
 ---
-# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Pré-visualização: Criar uma nova versão de imagem VM a partir de uma versão de imagem existente usando O Azure Image Builder
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Pré-visualização: Criar uma nova versão de imagem VM a partir de uma versão de imagem existente usando Azure Image Builder em Linux
 
 Este artigo mostra-lhe como pegar uma versão de imagem existente numa [Galeria de Imagens Partilhadas,](shared-image-galleries.md)atualizá-la e publicá-la como uma nova versão de imagem para a galeria.
 
@@ -145,7 +146,7 @@ az resource invoke-action \
 Aguarde até que a imagem tenha sido construída e replicada antes de passar para o passo seguinte.
 
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 ```azurecli-interactive
 az vm create \
@@ -182,6 +183,6 @@ az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o t
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os componentes do ficheiro .json utilizado neste artigo, consulte a [referência do modelo do construtor de imagem](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

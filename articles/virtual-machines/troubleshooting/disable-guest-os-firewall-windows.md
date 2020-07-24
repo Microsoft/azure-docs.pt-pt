@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009769"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
@@ -73,7 +74,7 @@ Se tiver um agente Azure em funcionamento, pode utilizar [a extensão de script 
 
 #### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: Comandos PSTools
 
-1.  No VM de resolução de problemas, descarregue [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  No VM de resolução de problemas, descarregue [PSTools](/sysinternals/downloads/pstools).
 
 2.  Abra uma instância CMD e, em seguida, aceda ao VM através do seu DIP.
 

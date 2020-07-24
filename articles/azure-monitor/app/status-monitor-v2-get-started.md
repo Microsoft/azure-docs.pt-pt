@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 4cfa136585611e81a4060c5544d5dc464b32f12c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05527ff456c70290a925befc9d30fb1eaf177199
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008239"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Começar com o Azure Monitor Application Insights Agent para servidores no local
 
@@ -66,13 +67,13 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  Ver a telemetria:
 
 - [Explore métricas](../../azure-monitor/platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
 - [Pesquisar eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
-- [Use Analytics](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
+- [Use Analytics](../log-query/log-query-overview.md) para consultas mais avançadas.
 - [Criar painéis de instrumentos.](../../azure-monitor/app/overview-dashboard.md)
 
  Adicionar mais telemetria:

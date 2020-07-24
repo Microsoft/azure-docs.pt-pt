@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 10d4c2d6650502510bd160cc452ac2289130263b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3e9a14edf9235baff2955c9f8419dc78e45755c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549502"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007984"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 [A extensão de diagnóstico Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho de máquinas virtuais Azure e outros recursos compute. Este artigo fornece detalhes sobre a instalação e configuração da extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados e conta de Armazenamento Azure.
@@ -77,7 +77,7 @@ Pode instalar e configurar a extensão de diagnóstico numa máquina virtual ind
 Consulte [a monitorização e diagnósticos de utilização com modelos de Gestor de Recursos Windows VM e Azure](../../virtual-machines/extensions/diagnostics-template.md) na implementação da extensão de diagnóstico com modelos do Gestor de Recursos Azure. 
 
 ## <a name="azure-cli-deployment"></a>Implantação do Azure CLI
-O CLI Azure pode ser utilizado para implantar a extensão Azure Diagnostics a uma máquina virtual existente utilizando [o conjunto de extensão az vm](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) como no exemplo seguinte. 
+O CLI Azure pode ser utilizado para implantar a extensão Azure Diagnostics a uma máquina virtual existente utilizando [o conjunto de extensão az vm](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) como no exemplo seguinte. 
 
 ```azurecli
 az vm extension set \
@@ -133,7 +133,7 @@ As configurações públicas são definidas no [elemento público](diagnostics-e
 
 
 ## <a name="powershell-deployment"></a>Implantação powerShell
-O PowerShell pode ser utilizado para implantar a extensão Azure Diagnostics a uma máquina virtual existente utilizando [o Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) como no exemplo seguinte. 
+O PowerShell pode ser utilizado para implantar a extensão Azure Diagnostics a uma máquina virtual existente utilizando [o Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) como no exemplo seguinte. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
@@ -198,9 +198,9 @@ A tabela que se segue lista os diferentes tipos de dados recolhidos a partir da 
 | WadLogsTable | Tabela | Registos escritos em código utilizando o ouvinte de traços. |
 | WADPerformanceCountersTable | Tabela | Contadores de desempenho. |
 | WADWindowsEventLogsTable | Tabela | Registos do Evento windows. |
-| wad-iis-failedreqlogfiles | Blobs | Contém informações de registos de pedidos falhados do IIS. |
-| wad-iis-logfiles | Blobs | Contém informações sobre registos IIS. |
-| "costume" | Blobs | Um recipiente personalizado baseado em diretórios configurados que são monitorizados pelo monitor de diagnóstico.  O nome deste recipiente blob será especificado no WADDirectoriesTable. |
+| wad-iis-failedreqlogfiles | Blob | Contém informações de registos de pedidos falhados do IIS. |
+| wad-iis-logfiles | Blob | Contém informações sobre registos IIS. |
+| "costume" | Blob | Um recipiente personalizado baseado em diretórios configurados que são monitorizados pelo monitor de diagnóstico.  O nome deste recipiente blob será especificado no WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Ferramentas para visualizar dados de diagnóstico
 Várias ferramentas estão disponíveis para visualizar os dados depois de serem transferidos para armazenamento. Por exemplo:
@@ -209,5 +209,5 @@ Várias ferramentas estão disponíveis para visualizar os dados depois de serem
 * [O Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento Azure no Windows, OSX e Linux.
 * [O Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) inclui o Azure Diagnostics Manager que lhe permite visualizar, transferir e gerir os dados de diagnóstico recolhidos pelas aplicações em execução no Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [Enviar dados da extensão de diagnóstico do Windows Azure aos Centros de Eventos](diagnostics-extension-stream-event-hubs.md) para obter mais informações sobre o encaminhamento de dados de monitorização para Azure Event Hubs.

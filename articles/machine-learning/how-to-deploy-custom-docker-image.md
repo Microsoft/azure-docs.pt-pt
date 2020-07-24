@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa55285a2447f9baadfc74782a46bcd6c68b545e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012285"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implemente um modelo usando uma imagem base personalizada do Docker
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ As informações nesta secção pressupõem que está a utilizar um registo de c
 
     * Ubuntu 16.04 ou maior.
     * Conda 4.5.# ou maior.
-    * Python 3.5.# ou 3.6.#.
+    * Python 3.5.#, 3.6.# ou 3.7.#.
 
 <a id="getname"></a>
 
@@ -326,7 +326,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 Para obter mais informações sobre a implementação de um modelo utilizando o ML CLI, consulte a secção "registo, perfis e implantação do modelo" da extensão do CLI para o artigo [de Aprendizagem automática Azure.](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [onde implementar e como.](how-to-deploy-and-where.md)
 * Aprenda a [treinar e implementar modelos de machine learning utilizando gasodutos Azure.](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)

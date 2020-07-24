@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f12278d02715bd94f1ea26abf2bd4b2b03caf1
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 6b95eeaf7dd72c85c3940e3cdc2a71c193c35ff5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187409"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008613"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerir credenciais em Azure Automation
 
@@ -44,7 +44,7 @@ Os cmdlets da tabela seguinte são utilizados para aceder a credenciais nos seus
 |:--- |:--- |
 | `Get-AutomationPSCredential` |Obtém um `PSCredential` objeto para usar num livro de recortes ou configuração DSC. Na maioria das vezes, deve utilizar este [cmdlet interno](modules.md#internal-cmdlets) em vez do `Get-AzAutomationCredential` cmdlet, uma vez que este último apenas recupera informações credenciais. Esta informação normalmente não é útil para passar para outro cmdlet. |
 | [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Obtém uma credencial com um pedido de nome de utilizador e senha. Este cmdlet faz parte do módulo padrão Microsoft.PowerShell.Security. Ver [módulos predefinidos](modules.md#default-modules).|
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Cria um ativo credencial. Este cmdlet faz parte do módulo Azure predefinido. Ver [módulos predefinidos](modules.md#default-modules).|
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) | Cria um ativo credencial. Este cmdlet faz parte do módulo Azure predefinido. Ver [módulos predefinidos](modules.md#default-modules).|
 
 Para recuperar `PSCredential` objetos no seu código, tem de importar o `Orchestrator.AssetManagement.Cmdlets` módulo. Para mais informações, consulte [Gerir os módulos na Azure Automation.](modules.md)
 

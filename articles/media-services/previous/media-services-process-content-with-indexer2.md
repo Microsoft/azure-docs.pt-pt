@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4589e2e923bf4068cc3a707c69f0304a1539745
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78163799"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011554"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexação de ficheiros de mídia com indexante de mídia Azure 2
 
 > [!NOTE]
-> O processador de mídia **Azure Media Indexer 2** será retirado. Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](legacy-components.md) [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui este processador de mídia legado. Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> O processador de mídia **Azure Media Indexer 2** será retirado. Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui este processador de mídia legado. Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 O processador de mídia **Azure Media Indexer 2 Preview** (MP) permite-lhe tornar os ficheiros de mídia e conteúdos pesjáveis, bem como gerar faixas de legendas fechadas. Em comparação com a versão anterior do [Azure Media Indexer](media-services-index-content.md), **a Azure Media Indexer 2 Preview** realiza uma indexação mais rápida e oferece um suporte linguístico mais amplo. As línguas apoiadas incluem inglês, espanhol, francês, alemão, italiano, chinês (mandarim, simplificado), português, árabe, russo e japonês.
 
@@ -300,4 +301,3 @@ namespace IndexContent
 [Visão geral da Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-

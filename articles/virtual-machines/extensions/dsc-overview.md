@@ -3,8 +3,8 @@ title: Configuração de estado desejada para visão geral do Azure
 description: Saiba como utilizar o controlador de extensão Microsoft Azure para configuração de estado desejada por PowerShell (DSC). O artigo inclui pré-requisitos, arquitetura e cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: dsc
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
-ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.author: magoedte
+ms.openlocfilehash: edf1fce488bf3bb8aa107a295cf3488243775192
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82188540"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010925"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao processador da extensão Desired State Configuration do Azure
 
@@ -59,7 +59,7 @@ Quando a extensão é chamada pela primeira vez, instala uma versão do WMF util
 - Se a propriedade **wmfVersion** for especificada, esta versão do WMF é instalada, a menos que essa versão seja incompatível com o SISTEMA do VM.
 - Se não for especificada nenhuma propriedade **wmfVersion,** a versão mais recente aplicável do WMF é instalada.
 
-A instalação do WMF requer um reinício. Após reiniciar, a extensão descarrega o ficheiro .zip especificado na propriedade **modulesUrl,** se fornecido. Se esta localização estiver no armazenamento do Azure Blob, pode especificar um token SAS na propriedade **sasToken** para aceder ao ficheiro. Depois de o .zip ser descarregado e desembalado, a função de configuração definida na **configuraçãoFunction** funciona para gerar um ficheiro .mof[(Formato de Objeto Gerido).](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-) A extensão é então executado `Start-DscConfiguration -Force` utilizando o ficheiro .mof gerado. A extensão captura a saída e escreve-a para o canal de estado do Azure.
+A instalação do WMF requer um reinício. Após reiniciar, a extensão descarrega o ficheiro .zip especificado na propriedade **modulesUrl,** se fornecido. Se esta localização estiver no armazenamento do Azure Blob, pode especificar um token SAS na propriedade **sasToken** para aceder ao ficheiro. Depois de o .zip ser descarregado e desembalado, a função de configuração definida na **configuraçãoFunction** funciona para gerar um ficheiro .mof[(Formato de Objeto Gerido).](/windows/win32/wmisdk/managed-object-format--mof-) A extensão é então executado `Start-DscConfiguration -Force` utilizando o ficheiro .mof gerado. A extensão captura a saída e escreve-a para o canal de estado do Azure.
 
 ### <a name="default-configuration-script"></a>Script de configuração padrão
 
@@ -81,7 +81,7 @@ Esta informação pode ser vista no portal Azure ou pode utilizar o PowerShell.
 ```
 
 Para o nome de configuração do nó, certifique-se de que a configuração do nó existe na Configuração do Estado de Azure.  Se não o fizer, a extensão retornará uma falha.  Certifique-se também de que está a utilizar o nome da *Configuração* do Nó e não da Configuração.
-Uma configuração é definida num script que é utilizado [para compilar a Configuração do Nó (ficheiro MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Uma configuração é definida num script que é utilizado [para compilar a Configuração do Nó (ficheiro MOF)](../../automation/automation-dsc-compile.md).
 O nome será sempre a Configuração seguida de um período e um `.` ou um nome de computador `localhost` específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensão DSC em modelos de gestor de recursos
@@ -188,11 +188,11 @@ O portal recolhe a seguinte entrada:
 
 - **Argumentos de configuração**: Se a função de configuração tiver argumentos, insira-os aqui no argumento de **formatoName1=valor1,argumentName2=value2**. Este formato é um formato diferente no qual os argumentos de configuração são aceites em cmdlets ou modelos de Gestor de Recursos PowerShell.
 
-- **Configuração Data PSD1 Ficheiro**: A sua configuração requer um ficheiro de dados de configuração em .psd1, utilize este campo para selecionar o ficheiro de dados e carregá-lo para o armazenamento da bolha do utilizador. O ficheiro de dados de configuração é protegido por um símbolo SAS no armazenamento de bolhas.
+- **Ficheiro de dados de configuração PSD1**: Se a sua configuração necessitar de um ficheiro de dados de configuração, `.psd1` utilize este campo para selecionar o ficheiro de dados e carregá-lo para o armazenamento da bolha do utilizador. O ficheiro de dados de configuração é protegido por um símbolo SAS no armazenamento de bolhas.
 
 - **Versão WMF**: Especifica a versão do Quadro de Gestão do Windows (WMF) que deve ser instalada no seu VM. Definir esta propriedade para as mais recentes instala a versão mais recente do WMF. Atualmente, os únicos valores possíveis para este imóvel são 4.0, 5.0, 5.1, e os mais recentes. Estes valores possíveis estão sujeitos a atualizações. O valor predefinido é **o mais recente**.
 
-- **Recolha de Dados**: Determina se a extensão irá recolher telemetria. Para obter mais informações, consulte [a recolha de dados de extensão Azure DSC.](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)
+- **Recolha de Dados**: Determina se a extensão irá recolher telemetria. Para obter mais informações, consulte [a recolha de dados de extensão Azure DSC.](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/)
 
 - **Versão**: Especifica a versão da extensão DSC para instalar. Para obter informações sobre versões, consulte [o histórico da versão de extensão DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 

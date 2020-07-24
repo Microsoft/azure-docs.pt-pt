@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: caa8e928a10deb3d6d97e601c607074c09e0572e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 681bd0aff909552531d682186d5b22dce5ef33f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010772"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Pré-visualização: Criar uma imagem a partir de um VM
 
 Se tiver um VM existente que gostaria de usar para fazer VMs múltiplos e idênticos, pode usar esse VM para criar uma imagem numa Galeria de Imagens Partilhada utilizando a Azure PowerShell. Também pode criar uma imagem a partir de um VM utilizando o [Azure CLI](image-version-vm-cli.md).
 
-Pode capturar uma imagem de [VMs especializados e generalizados](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) utilizando a Azure PowerShell. 
+Pode capturar uma imagem de [VMs especializados e generalizados](./windows/shared-image-galleries.md#generalized-and-specialized-images) utilizando a Azure PowerShell. 
 
 As imagens numa galeria de imagens têm dois componentes, que iremos criar neste exemplo:
 - Uma **definição de Imagem** transporta informações sobre a imagem e requisitos para a sua utilização. Isto inclui se a imagem é Windows ou Linux, especializada ou generalizada, notas de lançamento e requisitos mínimos e máximo de memória. É uma definição de um tipo de imagem. 
@@ -54,7 +54,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="get-the-vm"></a>Pegue o VM
 
-Pode ver uma lista de VMs que estão disponíveis num grupo de recursos usando [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Assim que souber o nome VM e em que grupo de recursos está, pode `Get-AzVM` usar novamente para obter o objeto VM e armazená-lo numa variável para usar mais tarde. Este exemplo obtém um VM nomeado *fonteVM* do grupo de recursos "myResourceGroup" e atribui-o à variável *$sourceVm*. 
+Pode ver uma lista de VMs que estão disponíveis num grupo de recursos usando [o Get-AzVM](/powershell/module/az.compute/get-azvm). Assim que souber o nome VM e em que grupo de recursos está, pode `Get-AzVM` usar novamente para obter o objeto VM e armazená-lo numa variável para usar mais tarde. Este exemplo obtém um VM nomeado *fonteVM* do grupo de recursos "myResourceGroup" e atribui-o à variável *$sourceVm*. 
 
 ```azurepowershell-interactive
 $sourceVm = Get-AzVM `
@@ -62,7 +62,7 @@ $sourceVm = Get-AzVM `
    -ResourceGroupName myResourceGroup
 ```
 
-É uma boa prática parar o VM antes de criar uma imagem utilizando [o Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+É uma boa prática parar o VM antes de criar uma imagem utilizando [o Stop-AzVM](/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -77,9 +77,9 @@ As definições de imagem criam um agrupamento lógico para imagens. São usados
 
 Ao fazer a definição de imagem, certifique-se de que tem todas as informações corretas. Se generalizou o VM (utilizando o Sysprep para Windows, ou desprovisionamento waagent para o Linux), então deve criar uma definição de imagem utilizando `-OsState generalized` . Se não generalizou o VM, crie uma definição de imagem utilizando `-OsState specialized` .
 
-Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, consulte [definições de imagem](./windows/shared-image-galleries.md#image-definitions).
 
-Crie a definição de imagem utilizando [a Definição de Imagem de Nova AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Crie a definição de imagem utilizando [a Definição de Imagem de Nova AzGallery](/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Neste exemplo, a definição de imagem chama-se *myImageDefinition*, e destina-se a um VM especializado que executa o Windows. Para criar uma definição para imagens que utilizem o Linux, `-OsType Linux` utilize. 
 
@@ -99,7 +99,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
-Crie uma versão de imagem utilizando [a Versão Imagens new-AzGallery .](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 
+Crie uma versão de imagem utilizando [a Versão Imagens new-AzGallery .](/powershell/module/az.compute/new-azgalleryimageversion) 
 
 Os caracteres permitidos para a versão de imagem são números e períodos. Os números devem estar dentro do alcance de um inteiro de 32 bits. Formato: *MajorVersion*. *Menorversão.* *Patch*.
 
@@ -133,7 +133,7 @@ $job.State
 > [!NOTE]
 > É necessário esperar que a versão de imagem termine completamente de ser construída e replicada antes de poder utilizar a mesma imagem gerida para criar outra versão de imagem.
 >
-> Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `-StorageAccountType Premium_LRS` , ou [Armazenamento Redundante zona,](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
+> Também pode armazenar a sua imagem no armazenamento premiun através de um armazenamento `-StorageAccountType Premium_LRS` , ou [Armazenamento Redundante zona,](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` quando cria a versão de imagem.
 >
 
 ## <a name="next-steps"></a>Passos seguintes

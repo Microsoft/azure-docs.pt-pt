@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f2b3ea90cc94fa3411552c7b812fe53eb4dbbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008103"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Crie uma definição de diagnóstico em Azure usando um modelo de Gestor de Recursos
 [As definições de diagnóstico](diagnostic-settings.md) no Azure Monitor especificam para onde enviar [registos de plataforma](platform-logs-overview.md) que são recolhidos pelos recursos Azure e pela plataforma Azure de que dependem. Este artigo fornece detalhes e exemplos para usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar definições de diagnóstico para recolher registos de plataformas para diferentes destinos.
@@ -29,7 +30,7 @@ Consulte [recursos de implementação com modelos de Gestor de Recursos e Recurs
 
 
 ## <a name="resource-logs"></a>Registos do recurso
-Para registos de recursos, adicione um recurso de tipo `<resource namespace>/providers/diagnosticSettings` ao modelo. A secção de propriedades segue o formato descrito em [Definições de Diagnóstico - Criar ou Atualizar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Forneça uma `category` na secção para cada uma das `logs` categorias válidas para o recurso que pretende recolher. Adicione a `metrics` propriedade para recolher métricas de recursos para os mesmos destinos se o [recurso suportar métricas.](metrics-supported.md)
+Para registos de recursos, adicione um recurso de tipo `<resource namespace>/providers/diagnosticSettings` ao modelo. A secção de propriedades segue o formato descrito em [Definições de Diagnóstico - Criar ou Atualizar](/rest/api/monitor/diagnosticsettings/createorupdate). Forneça uma `category` na secção para cada uma das `logs` categorias válidas para o recurso que pretende recolher. Adicione a `metrics` propriedade para recolher métricas de recursos para os mesmos destinos se o [recurso suportar métricas.](metrics-supported.md)
 
 Segue-se um modelo que recolhe uma categoria de registo de recursos para um determinado recurso para um espaço de trabalho log analytics, conta de armazenamento e centro de eventos.
 
@@ -143,7 +144,7 @@ Segue-se um exemplo que cria uma definição de diagnóstico para uma definiçã
 ```
 
 ## <a name="activity-log"></a>Registo de atividades
-Para o registo de atividades Azure, adicione um recurso do tipo `Microsoft.Insights/diagnosticSettings` . As categorias disponíveis estão listadas em [Categorias no Registo de Atividades.](activity-log-view.md#categories-in-the-activity-log) Segue-se um modelo que recolhe todas as categorias de registo de atividade para um espaço de trabalho log analytics, conta de armazenamento e centro de eventos.
+Para o registo de atividades Azure, adicione um recurso do tipo `Microsoft.Insights/diagnosticSettings` . As categorias disponíveis estão listadas em [Categorias no Registo de Atividades.](./activity-log.md#view-the-activity-log) Segue-se um modelo que recolhe todas as categorias de registo de atividade para um espaço de trabalho log analytics, conta de armazenamento e centro de eventos.
 
 
 ```json
@@ -235,6 +236,6 @@ Para o registo de atividades Azure, adicione um recurso do tipo `Microsoft.Insig
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Leia mais sobre [os registos da plataforma em Azure](platform-logs-overview.md).
 * Saiba mais [sobre as definições de diagnóstico](diagnostic-settings.md).

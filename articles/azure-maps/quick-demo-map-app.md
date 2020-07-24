@@ -1,43 +1,44 @@
 ---
-title: 'Quickstart: Pesquisa interativa de mapas com mapas Azure'
-description: Saiba como criar uma aplicação web de demonstração para pesquisa interativa de mapas utilizando o Web SDK do Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
-ms.date: 5/21/2020
+title: 'Quickstart: Pesquisa de mapas interativos com mapas Azure'
+description: Saiba como criar uma aplicação web de demonstração para pesquisa de mapas interativos utilizando o Microsoft Azure Maps web SDK.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 7/10/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: da225f9a0bac5d179efadb7d507750c8aa0bc13e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: bb6c5ee48e22e0c913e7fc6150d3986af805a08f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872109"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004625"
 ---
-# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Quickstart: Criar um mapa de pesquisa interativo usando o Azure Maps
+# <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Quickstart: Criar um mapa de pesquisa interativo com mapas Azure
 
-Este artigo demonstra as capacidades do Azure Maps criar um mapa que proporciona aos utilizadores uma experiência de pesquisa interativa. Ele acompanha-te através destes passos básicos:
+Este artigo mostra-lhe como usar o Azure Maps para criar um mapa que dá aos utilizadores uma experiência de pesquisa interativa. Acompanha-o através destes passos básicos:
 
 * Crie a sua própria conta Azure Maps.
 * Obtenha a sua chave principal para usar na aplicação web de demonstração.
+* Faça o download e abra a aplicação do mapa de demonstração.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+* Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
-## <a name="create-an-account-with-azure-maps"></a>Criar uma conta com o Azure Maps
+## <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps
 
-Crie uma nova conta dos Maps com os seguintes passos:
+Crie uma nova conta Azure Maps com os seguintes passos:
 
 1. No canto superior esquerdo do [portal Azure,](https://portal.azure.com)clique em **Criar um recurso**.
-2. Na caixa *Procurar no Marketplace*, escreva **Maps**.
-3. Em *Resultados*, selecione **Maps**. Clique no botão **Criar** que aparece abaixo do mapa.
+2. Na *caixa De Pesquisa no Mercado,* escreva **Azure Maps**.
+3. A partir dos *Resultados,* selecione **Azure Maps**. Clique no botão **Criar** que aparece abaixo do mapa.
 4. Na página **Criar Conta do Maps**, introduza os seguintes valores:
     * A *Subscrição* que quer utilizar para esta conta.
     * O nome do *Grupo de recursos* para esta conta. Pode optar por *Criar um grupo de recursos novo* ou *Utilizar um grupo de recursos existente*.
@@ -46,52 +47,57 @@ Crie uma nova conta dos Maps com os seguintes passos:
     * Leia a *Licença* e a *Declaração de Privacidade*, e selecione a caixa de verificação para aceitar os termos.
     * Clique no botão **Criar**.
 
-![Criar a conta do Maps no portal](./media/quick-demo-map-app/create-account.png)
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Criar a conta do Maps no portal":::
 
 <a id="getkey"></a>
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obter a chave primária para a sua conta
 
-Assim que a sua conta Maps for criada com sucesso, recupere a chave principal que lhe permite consultar as APIs do Maps.
+Assim que a sua conta Maps for criada com sucesso, recupere a chave primária que lhe permite consultar as APIs do Maps.
 
 1. Abra a sua conta do Maps no portal.
-2. Na secção definições, **selecione Autenticação**.
+2. Na secção de definições, selecione **Autenticação**.
 3. Copie a **Chave primária** para a área de transferência. Guarde-a localmente para a utilizar mais tarde neste tutorial.
 
 >[!NOTE]
-> Se utilizar a chave de subscrição em vez da chave principal, o seu mapa não será adequado. Além disso, para fins de segurança, recomenda-se que rode entre as suas chaves primárias e secundárias. Para rodar as teclas, atualize a sua aplicação para utilizar a tecla secundária, implante e, em seguida, pressione o botão ciclo/atualização ao lado da tecla primária para gerar uma nova chave primária. A velha chave primária será desativada. Para obter mais informações sobre a rotação da chave, consulte Configurar o [Cofre chave Azure com rotação de chaves e auditoria](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> Se utilizar a chave de subscrição em vez da chave primária, o seu mapa não renderizará corretamente. Além disso, por razões de segurança, recomenda-se que rode entre as suas teclas primária e secundária. Para rodar as teclas, atualize a sua aplicação para utilizar a tecla secundária, desloque-a e, em seguida, pressione o botão ciclo/atualização ao lado da tecla primária para gerar uma nova tecla primária. A velha chave primária será desativada. Para obter mais informações sobre a rotação da chave, consulte [Configurar o Cofre da Chave Azure com rotação e auditoria de chaves](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-![Obtenha a chave primary Azure Maps no portal Azure](./media/quick-demo-map-app/get-key.png)
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Obtenha a chave principal Azure Maps no portal Azure":::
 
-## <a name="download-the-application"></a>Transferir a aplicação
+## <a name="download-the-demo-application"></a>Transferir a aplicação de demonstração
 
-1. Vá a [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copie o conteúdo do ficheiro.
-2. Guarde o conteúdo deste ficheiro localmente como **AzureMapDemo.html**. Abre-o num editor de texto.
-3. Procure a `<Your Azure Maps Key>` corda. Substitua-o pelo valor **da chave primária** da secção anterior.
+1. Vá para [interactiveSearch.html.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) Copie o conteúdo do ficheiro.
+2. Guarde o conteúdo deste ficheiro localmente como **AzureMapDemo.html**. Abra-o num editor de texto.
+3. Procure a `<Your Azure Maps Key>` corda. Substitua-a pelo valor da **chave primária** da secção anterior.
 
-## <a name="open-the-application"></a>Abrir a aplicação
+## <a name="open-the-demo-application"></a>Abra a aplicação de demonstração
 
 1. Abra o ficheiro **AzureMapDemo.html** num browser da sua preferência.
-2. Observe o mapa mostrado pela cidade de Los Angeles. Amplie e reduza para ver como o mapa é composto automaticamente com mais ou menos informações consoante o nível de zoom.
+2. Observe o mapa mostrado da cidade de Los Angeles. Amplie e reduza para ver como o mapa é composto automaticamente com mais ou menos informações consoante o nível de zoom.
 3. Altere o centro predefinido do mapa. No ficheiro **AzureMapDemo.html**, procure a variável com o nome **center**. Substitua o valor do par longitude/latitude desta variável pelos novos valores **[-74.0060, 40.7128]**. Guarde o ficheiro e atualize o browser.
-4. Usufrua da experiência de pesquisa interativa. Na caixa de pesquisa no canto superior esquerdo da aplicação web de demonstração, procure **por restaurantes.**
-5. Mova o rato sobre a lista de endereços e locais que aparecem abaixo da caixa de pesquisa. Note como o pino correspondente no mapa mostra informações sobre esse local. Por motivos de privacidade das empresas privadas, são apresentados nomes e endereços fictícios.
+4. Usufrua da experiência de pesquisa interativa. Na caixa de pesquisa no canto superior esquerdo da aplicação web de demonstração, procure **restaurantes.**
+5. Desloque o rato sobre a lista de endereços e locais que aparecem abaixo da caixa de pesquisa. Repare como o pino correspondente no mapa mostra informações sobre o local. Por motivos de privacidade das empresas privadas, são apresentados nomes e endereços fictícios.
 
-    ![Aplicação web de pesquisa de mapas interativo](./media/quick-demo-map-app/interactive-search.png)
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Aplicação web de pesquisa de mapas interativos":::
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Os tutoriais detalham como usar e configurar o Azure Maps com a sua conta. Não limpe os recursos criados neste arranque rápido se planeia continuar com os tutoriais. Se não pretende continuar, tome estas medidas para limpar os recursos:
+>[!WARNING]
+>Os tutoriais listados na secção [Next Steps](#next-steps) detalham como usar e configurar mapas Azure com a sua conta. Não limpe os recursos criados neste quickstart se pretende continuar para os tutoriais.
 
-1. Feche o navegador que executa a aplicação web **AzureMapDemo.html.**
-2. A partir do menu esquerdo no portal Azure, selecione **Todos os recursos.** Em seguida, selecione a sua conta Azure Maps. Na parte superior da lâmina **de todos os recursos,** selecione **Delete**.
+Se não pretende continuar com os tutoriais, tome estes passos para limpar os recursos:
+
+1. Feche o navegador que executa a **aplicação webAzureMapDemo.html.**
+2. Navegue para a página do portal Azure. Selecione **Todos os recursos** da página principal do portal. Ou, clique no ícone do menu no canto superior esquerdo. Selecione **Todos os recursos**.
+3. Clique na sua conta Azure Maps. No topo da página, clique em **Apagar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou a sua conta Azure Maps e criou uma aplicação de demonstração. Dê uma olhada nos seguintes tutoriais para aprender sobre o Azure Maps:
+Neste quickstart, criou a sua conta Azure Maps e criou uma aplicação de demonstração. Veja os seguintes tutoriais para saber mais sobre o Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Pesquise pontos de interesse nas proximidades com o Azure Maps](tutorial-search-location.md)
+> [Procure pontos de interesse nas proximidades com a Azure Maps](tutorial-search-location.md)
 
 Para mais exemplos de código e uma experiência de codificação interativa, consulte estes guias:
 
@@ -99,4 +105,4 @@ Para mais exemplos de código e uma experiência de codificação interativa, co
 > [Encontre um endereço com o serviço de pesquisa Azure Maps](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Utilize o Controlo de Mapas de Mapas Azure](how-to-use-map-control.md)
+> [Use o controlo do mapa dos mapas Azure Maps](how-to-use-map-control.md)

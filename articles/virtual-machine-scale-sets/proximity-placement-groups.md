@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 8e455d4d016f97a466838c07fc7af2422f72cc00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727102"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011061"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Pré-visualização: Criar e utilizar grupos de colocação de proximidade utilizando o PowerShell
 
@@ -29,7 +30,7 @@ Um grupo de colocação de proximidade é um agrupamento lógico usado para gara
 
 
 ## <a name="create-a-proximity-placement-group"></a>Criar um grupo de colocação em proximidade
-Crie um grupo de colocação de proximidade utilizando o [cmdlet New-AzProximityPlacementGroup.](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) 
+Crie um grupo de colocação de proximidade utilizando o [cmdlet New-AzProximityPlacementGroup.](/powershell/module/az.compute/new-azproximityplacementgroup) 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -54,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
-Crie uma escala no grupo de colocação de proximidade utilizando `-ProximityPlacementGroup $ppg.Id` para se referir ao ID do grupo de colocação de proximidade quando utilizar o [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar o conjunto de escala.
+Crie uma escala no grupo de colocação de proximidade utilizando `-ProximityPlacementGroup $ppg.Id` para se referir ao ID do grupo de colocação de proximidade quando utilizar o [New-AzVMSS](/powershell/module/az.compute/new-azvmss) para criar o conjunto de escala.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"
@@ -80,6 +81,6 @@ Pode ver a instância no grupo de colocação usando o [Get-AzProximityPlacement
    -Property VirtualMachineScaleSets
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode usar o [CLI Azure](../virtual-machines/linux/proximity-placement-groups.md) para criar grupos de colocação de proximidade.

@@ -10,11 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012319"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de máquina virtual de ciência de dados de dados
 
@@ -24,9 +25,9 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 
 ## <a name="adlcopy"></a>AdlCopy
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Uma ferramenta para copiar dados do armazenamento da Azure Blob na Azure Data Lake Store. Também pode copiar dados entre duas contas Azure Data Lake Store.      |
+| Que passa?   | Uma ferramenta para copiar dados do armazenamento da Azure Blob na Azure Data Lake Store. Também pode copiar dados entre duas contas Azure Data Lake Store.      |
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Importando várias bolhas do armazenamento Azure Blob para a Azure Data Lake Store.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `adlcopy` escreva para obter ajuda.    |
@@ -35,9 +36,9 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Uma ferramenta de gestão para o Azure. Também contém verbos de comando para mover dados de plataformas de dados Azure, como o armazenamento de Azure Blob e a Azure Data Lake Store.     |
+| Que passa?   | Uma ferramenta de gestão para o Azure. Também contém verbos de comando para mover dados de plataformas de dados Azure, como o armazenamento de Azure Blob e a Azure Data Lake Store.     |
 | Versões DSVM suportadas      | Windows, Linux     |
 | Usos típicos      | Importar e exportar dados de e para a Azure Storage e Azure Data Lake Store.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `az` escreva para obter ajuda.    |
@@ -47,9 +48,9 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 
 ## <a name="azcopy"></a>AzCopy
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Uma ferramenta para copiar dados de e para ficheiros locais, armazenamento, ficheiros e tabelas Azure Blob.      |
+| Que passa?   | Uma ferramenta para copiar dados de e para ficheiros locais, armazenamento, ficheiros e tabelas Azure Blob.      |
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Copiar ficheiros para o armazenamento da Azure Blob e copiar bolhas entre contas.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `azcopy` escreva para obter ajuda.    |
@@ -59,9 +60,9 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 
 ## <a name="azure-cosmos-db-data-migration-tool"></a>Ferramenta de migração de dados Azure Cosmos DB
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Ferramenta para importar dados de várias fontes para Azure Cosmos DB, uma base de dados NoSQL na nuvem. Estas fontes incluem ficheiros JSON, ficheiros CSV, SQL, MongoDB, armazenamento de mesa Azure, Amazon DynamoDB e Azure Cosmos DB SQL API coleções.      |
+| Que passa?   | Ferramenta para importar dados de várias fontes para Azure Cosmos DB, uma base de dados NoSQL na nuvem. Estas fontes incluem ficheiros JSON, ficheiros CSV, SQL, MongoDB, armazenamento de mesa Azure, Amazon DynamoDB e Azure Cosmos DB SQL API coleções.      |
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Importar ficheiros de um VM para CosmosDB, importar dados do armazenamento de mesas Azure para cosmosDB, e importar dados de uma base de dados do Microsoft SQL Server para CosmosDB.     |
 |  Como usá-lo/ executá-lo?    |   Para utilizar a versão da linha de comando, abra um pedido de comando e escreva `dt` . Para utilizar a ferramenta GUI, abra uma solicitação de comando e escreva `dtui` .    |
@@ -70,9 +71,9 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 
 ## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Interface gráfica do utilizador para interagir com ficheiros armazenados na nuvem Azure. |
+| Que passa?   | Interface gráfica do utilizador para interagir com ficheiros armazenados na nuvem Azure. |
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Dados de importação e exportação do DSVM.    |
 |  Como usá-lo/ executá-lo?    | Procure "Azure Storage Explorer" no menu Iniciar. |
@@ -81,9 +82,9 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 
 ## <a name="bcp"></a>bcp
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Ferramenta SQL Server para copiar dados entre o SQL Server e um ficheiro de dados.      |
+| Que passa?   | Ferramenta SQL Server para copiar dados entre o SQL Server e um ficheiro de dados.      |
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Importar um ficheiro CSV numa tabela do SQL Server e exportar uma tabela sql Server para um ficheiro.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `bcp` escreva para obter ajuda.    |
@@ -92,9 +93,9 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 
 ## <a name="blobfuse"></a>blobfuse
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Uma ferramenta para montar um recipiente de armazenamento Azure Blob no sistema de ficheiros Linux.      |
+| Que passa?   | Uma ferramenta para montar um recipiente de armazenamento Azure Blob no sistema de ficheiros Linux.      |
 | Versões DSVM suportadas      | Linux      |
 | Usos típicos      | Ler e escrever para bolhas num recipiente.      |
 |  Como usá-lo e executá-lo?    |   Executar _blobfuse_ em um terminal.    |

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/29/2020
-ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/14/2020
+ms.openlocfilehash: eafa6c4911e934d391a380e5eb494ca8f7766959
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231884"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012064"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
@@ -30,7 +30,7 @@ Pode continuar a fazer negócios como de costume no Partner Center:
 | Novas compras e implementações | Sem alterações. Os seus clientes podem continuar a comprar e implementar as suas ofertas sem interrupções. |
 | Pagamentos | Quaisquer compras e implementações continuarão a ser pagos normalmente. Saiba mais sobre [ser pago no mercado comercial.](partner-center-portal/get-paid.md) |
 | Integrações da API com apIs do [Portal do Parceiro cloud existentes](cloud-partner-portal-api-overview.md) | As APIs do Portal do Parceiro Cloud existentes ainda são suportadas e as suas integrações existentes ainda funcionam. Saiba mais no [Portal do Parceiro Cloud REST APIs será suportado?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Análise | Pode continuar a monitorizar as vendas, avaliar o desempenho e otimizar as suas ofertas no mercado comercial, visualizando análises no Partner Center. Saiba mais na [Access analítica reportagens para o mercado comercial no Partner Center.](partner-center-portal/analytics.md) |
+| Análise | Pode continuar a monitorizar as vendas, avaliar o desempenho e otimizar as suas ofertas no mercado comercial, visualizando análises no Partner Center. Existem diferenças entre a forma como os relatórios de análise são exibidos no CPP e no Partner Center. Por exemplo, **o Seller Insights** em CPP tem um **separador De utilização & encomendas** que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso, enquanto no Centro parceiro a página **Encomendas** tem um separado separado para Ofertas SaaS. Saiba mais na [Access analítica reportagens para o mercado comercial no Partner Center.](partner-center-portal/analytics.md) |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Preciso de criar uma nova conta para gerir as minhas ofertas no Partner Center?
@@ -50,6 +50,19 @@ Seguem-se os links partner Center para páginas comumente utilizadas no Portal d
 | Página de história | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | A funcionalidade História ainda não é suportada no Partner Center. |
 | Painel de insights | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
 | Relatório de pagamento | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
+
+## <a name="payout-report-differences"></a>Diferenças de relatório de pagamento
+
+Estas são as diferenças no relatório de pagamento entre o Portal de Parceiros Cloud reformado e o atual Centro de Parceiros:
+
+| Portal de Parceiros da Cloud | Centro de Parceiros |
+| --- | --- |
+| **Ligação:**https://cloudpartner.azure.com/ | **Ligação**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory ehttps://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navegação**: Relatório de pagamento fornecido no Pagamento de Insights | **Navegação**: Relatório de pagamento fornecido no Partner Center – Ícone de pagamento |
+| **Âmbito:**<ul><li>A transação por item de linha é visível, para recolha em curso, recolhida e paga.</li><li>Reporting – mostra todos os itens de linha uma vez que a encomenda de compra é criada, incluindo a cobrança em andamento e faturação em andamento, e o estado de cobrança e itens de linha que ainda não estão elegíveis para serem pagos.</li></ul> | **Âmbito:**<ul><li>Mostra os itens de linha depois de serem considerados ganhos elegíveis.</li><li>Os clientes pagam primeiro à Microsoft, e depois os ISVs podem ver o relatório de pagamento a começar.</li><li>O relatório do pagamento não mostrará a cobrança em andamento e a faturação em Progress.</li></ul> |
+| **Transação não pronta para pagamento**: Faturação em Progresso | **Transação não pronta para pagamento**: Próximo pagamento estimado: O estado de pagamento está no estado não processado. |
+| **Estado do pagamento**: n/a | **Estado do pagamento:**<ul><li>Não processado: O ganho é elegível para pagamento.</li><li>A seguir: O ganho será enviado à editora no próximo pagamento mensal.</li><li>Enviado: O pagamento foi enviado para o seu banco.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>E as ofertas que publiquei no Portal do Parceiro Cloud?
@@ -75,8 +88,8 @@ Para os tipos de oferta suportados no Partner Center, todas as ofertas foram mov
 | Contentor | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a oferta de recipienteS Azure](partner-center-portal/create-azure-container-offer.md). |
 | Serviço de Consultoria | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a consulting service offer.](partner-center-portal/create-consulting-service-offer.md) |
 | Serviço Gerido | Yes | Inscreva-se no Partner Center para criar novas ofertas e gerir ofertas que foram criadas no Cloud Partner Portal. Saiba mais na [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md). |
-| Serviço gerido por Navegação Dinâmica | Não | A Microsoft desenvolveu o Dynamics NAV Managed Service para [a Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), por isso desanumeroumos ofertas ao vivo do Serviço Gerido Dynamics NAV da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no AppSource, adapte-as às ofertas da Dynamics 365 Business Central e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
-| Cortana Intelligence | Não | A Microsoft desenvolveu o roteiro do produto para a Cortana Intelligence, por isso desaubornamos as ofertas ao vivo da Cortana Intelligence da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no mercado comercial, adapte as suas ofertas ao Software como um Serviço (SaaS) oferece e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [SaaS offer a lista de verificação de criação no Partner Center.](partner-center-portal/offer-creation-checklist.md) |
+| Serviço gerido por Navegação Dinâmica | No | A Microsoft desenvolveu o Dynamics NAV Managed Service para [a Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), por isso desanumeroumos ofertas ao vivo do Serviço Gerido Dynamics NAV da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no AppSource, adapte-as às ofertas da Dynamics 365 Business Central e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [Create a Dynamics 365 Business Central.](partner-center-portal/create-new-business-central-offer.md) |
+| Cortana Intelligence | No | A Microsoft desenvolveu o roteiro do produto para a Cortana Intelligence, por isso desaubornamos as ofertas ao vivo da Cortana Intelligence da AppSource. Estas ofertas já não são detetáveis pelos clientes e não foram transferidas para o Partner Center. Para disponibilizar as suas ofertas no mercado comercial, adapte as suas ofertas ao Software como um Serviço (SaaS) oferece e submeta-as no [Partner Center.](https://partner.microsoft.com/) Saiba mais na [SaaS offer a lista de verificação de criação no Partner Center.](partner-center-portal/offer-creation-checklist.md) |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Não encontro as ofertas do meu Portal de Parceiros Cloud no Partner Center
 

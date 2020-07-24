@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009123"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Requer a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com Acesso Condicional
 
@@ -29,10 +30,11 @@ Este artigo apresenta três cenários para configurar políticas de acesso condi
 
 No Acesso Condicional, estas aplicações de clientes são conhecidas por estarem protegidas com uma política de proteção de aplicações. Mais informações sobre políticas de proteção de aplicações podem ser encontradas no artigo, [Visão geral das políticas de proteção de aplicações](/intune/apps/app-protection-policy)
 
-Para obter uma lista de aplicações elegíveis para clientes, consulte [o requisito da política de proteção da Aplicação.](concept-conditional-access-grant.md)
+> [!WARNING]
+> Nem todas as aplicações são apoiadas como aplicações aprovadas ou políticas de proteção de aplicações de apoio. Para obter uma lista de aplicações elegíveis para clientes, consulte [o requisito da política de proteção da Aplicação.](concept-conditional-access-grant.md#require-app-protection-policy)
 
 > [!NOTE]
->    A ou cláusula é utilizada dentro da política para permitir que os utilizadores utilizem aplicações que suportem a **política de proteção de aplicações Require** ou exijam controlos aprovados de **concessão de aplicações** ao cliente. Para obter mais informações sobre quais as aplicações que suportam o controlo **da política de proteção de aplicações Require,** consulte [o requisito da política de proteção da aplicação](concept-conditional-access-grant.md).
+> "Exigir um dos controlos selecionados" ao abrigo dos controlos de subvenção é como uma cláusula de OR. Isto é utilizado dentro da política para permitir que os utilizadores utilizem apps que suportem a **política de proteção** de aplicações Require ou exijam controlos aprovados de **concessão de aplicações** ao cliente. **Exigir que a política de proteção de aplicações** seja aplicada se uma aplicação for suportada em ambas as políticas. Para obter mais informações sobre quais as aplicações que suportam o controlo **da política de proteção de aplicações Require,** consulte [o requisito da política de proteção da aplicação](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: As aplicações do Office 365 exigem aplicações aprovadas com políticas de proteção de apps
 
@@ -48,7 +50,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione **Office 365 (pré-visualização)**.
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
@@ -72,7 +74,7 @@ Para a política de acesso condicional neste passo, configuure os seguintes comp
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365 Exchange Online**.
 1. Em **Condições:**
    1. **Aplicativos de cliente (pré-visualização)**:
@@ -100,7 +102,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione **Office 365 (pré-visualização)**.
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
@@ -133,7 +135,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365 Exchange Online** e Office **365 SharePoint Online**.
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
@@ -155,7 +157,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
-   1. Selecione **Done** (Concluído).
+   1. Selecione **Concluído**.
 1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365 Exchange Online**.
 1. Em **Condições:**
    1. **Aplicativos de cliente (pré-visualização)**:
@@ -169,11 +171,11 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 
 Reveja o artigo [Como criar e atribuir políticas de proteção de aplicações](/intune/apps/app-protection-policies), para medidas para criar políticas de proteção de aplicações para Android e iOS. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [O que é o Acesso Condicional?](overview.md)
 
 [Componentes de acesso condicional](concept-conditional-access-policies.md)
 
-[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+[Políticas de Acesso Condicional comuns](concept-conditional-access-policy-common.md)
 

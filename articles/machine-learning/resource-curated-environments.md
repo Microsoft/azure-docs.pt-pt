@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9d0964fb28451abe0a77276d6f9d605fcaac2514
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 72ccf2a765f50358635e4a803ed0b92e60bd7d19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012217"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Ambientes curados de aprendizagem de máquinas Azure
 
-Este artigo lista os ambientes curados em Azure Machine Learning, e os pacotes e canais que estão pré-instalados neles.
+Este artigo lista os ambientes curados em Azure Machine Learning, e os pacotes e canais que estão pré-instalados neles. Ambientes curados são fornecidos pela Azure Machine Learning e estão disponíveis no seu espaço de trabalho por padrão. São apoiados por imagens em cache do Docker, reduzindo o custo de preparação de execução e permitindo um tempo de implementação mais rápido. Use estes ambientes para começar rapidamente com várias estruturas de aprendizagem automática.
 
 > [!NOTE]
 > Esta lista é atualizada a partir de junho de 2020. Use o Python SDK para obter a lista mais atualizada. Para mais informações, consulte o [artigo ambientes.](./how-to-use-environments.md#use-a-curated-environment)

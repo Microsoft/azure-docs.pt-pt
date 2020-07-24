@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670581"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008188"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recolha registos IIS no Azure Monitor
 O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo Azure Monitor e armazenados como [dados de registo](data-platform.md).
@@ -18,7 +19,7 @@ O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador 
 ![Registos do IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configurar registos IIS
-O Azure Monitor recolhe entradas a partir de ficheiros de registo criados pelo IIS, pelo que deve [configurar o IIS para registar](https://technet.microsoft.com/library/hh831775.aspx).
+O Azure Monitor recolhe entradas a partir de ficheiros de registo criados pelo IIS, pelo que deve [configurar o IIS para registar](/previous-versions/orphan-topics/ws.11/hh831775(v=ws.11)).
 
 O Azure Monitor suporta apenas ficheiros de registo IIS armazenados em formato W3C e não suporta campos personalizados ou Registo Avançado IIS. Não recolhe registos em formato NCSA ou IIS.
 
@@ -67,6 +68,6 @@ A tabela seguinte fornece diferentes exemplos de consultas de registo que recupe
 | W3CIISLog &#124; onde csHost=="www \. contoso.com" &#124; resumir a contagem() por csUriStem |Contagem de entradas de registo IIS por URL para o anfitrião www \. contoso.com. |
 | W3CIISLog &#124; resumir a soma (csBytes) por computador &#124; take 500000 |Total de bytes recebidos por cada computador IIS. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Configure O Monitor Azure para recolher [outras fontes de dados](agent-data-sources.md) para análise.
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.

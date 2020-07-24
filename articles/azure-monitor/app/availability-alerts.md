@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19a0e94206691dc741020374bf5c827ba423515d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382873"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008358"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
@@ -24,7 +24,7 @@ Os alertas são agora automaticamente ativados por padrão, mas para configurar 
 ![Criar experiência](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  Com os [novos alertas unificados,](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)a gravidade da regra de alerta e as preferências de notificação com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) devem **ser** configuradas na experiência dos alertas. Sem os seguintes passos, só receberá notificações no portal.
+>  Com os [novos alertas unificados,](../platform/alerts-overview.md)a gravidade da regra de alerta e as preferências de notificação com [grupos de ação](../platform/action-groups.md) devem **ser** configuradas na experiência dos alertas. Sem os seguintes passos, só receberá notificações no portal.
 
 1. Depois de guardar o teste de disponibilidade, no separador detalhes clique na elipse pelo teste que acabou de escamá-la. Clique em "editar alerta".
 
@@ -39,7 +39,7 @@ Os alertas são agora automaticamente ativados por padrão, mas para configurar 
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alerta em X fora de locais Y reportando falhas
 
-A regra de alerta de x fora de y localizações é ativada por padrão na [nova experiência de alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), quando você cria um novo teste de disponibilidade. Pode optar por não selecionar a opção "clássico" ou optar por desativar a regra de alerta.
+A regra de alerta de x fora de y localizações é ativada por padrão na [nova experiência de alertas unificados](../platform/alerts-overview.md), quando você cria um novo teste de disponibilidade. Pode optar por não selecionar a opção "clássico" ou optar por desativar a regra de alerta.
 
 > [!NOTE]
 > Configure os grupos de ação para receber notificações quando o alerta é acionado seguindo os passos acima. Sem este passo, só receberá notificações no portal quando a regra disparar.
@@ -47,7 +47,7 @@ A regra de alerta de x fora de y localizações é ativada por padrão na [nova 
 
 ### <a name="alert-on-availability-metrics"></a>Alerta sobre métricas de disponibilidade
 
-Utilizando os [novos alertas unificados,](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)pode alertar também para a disponibilidade agregada segmentada e para as métricas de duração do teste:
+Utilizando os [novos alertas unificados,](../platform/alerts-overview.md)pode alertar também para a disponibilidade agregada segmentada e para as métricas de duração do teste:
 
 1. Selecione um recurso De Insights de Aplicação na experiência Métricas e selecione uma métrica de Disponibilidade:
 
@@ -57,7 +57,7 @@ Utilizando os [novos alertas unificados,](https://docs.microsoft.com/azure/monit
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alerta em consultas de análise personalizadas
 
-Utilizando os [novos alertas unificados,](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)pode alertar em [consultas de registo personalizadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Com consultas personalizadas, pode alertar sobre qualquer condição arbitrária que o ajude a obter o sinal mais fiável de problemas de disponibilidade. Isto também é aplicável, se estiver a enviar resultados de disponibilidade personalizados usando o TrackVailability SDK.
+Utilizando os [novos alertas unificados,](../platform/alerts-overview.md)pode alertar em [consultas de registo personalizadas](../platform/alerts-unified-log.md). Com consultas personalizadas, pode alertar sobre qualquer condição arbitrária que o ajude a obter o sinal mais fiável de problemas de disponibilidade. Isto também é aplicável, se estiver a enviar resultados de disponibilidade personalizados usando o TrackVailability SDK.
 
 > [!Tip]
 > As métricas dos dados de disponibilidade incluem quaisquer resultados de disponibilidade personalizados que possa estar a enviar, ligando para o nosso TrackVailability SDK. Pode utilizar o suporte de alerta sobre métricas para alertar sobre os resultados de disponibilidade personalizados.

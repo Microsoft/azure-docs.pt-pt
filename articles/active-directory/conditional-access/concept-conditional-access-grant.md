@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 85beb04e39c5c47b9ee71ee96c2dff8910766ea3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009056"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -81,7 +81,6 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
-- Browser Gerido do Microsoft Intune
 - Faturação da Microsoft
 - Microsoft Kaizala
 - Microsoft Launcher
@@ -97,7 +96,7 @@ Esta definição aplica-se às seguintes aplicações iOS e Android:
 - Microsoft Skype para Empresas
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft Teams
+- Microsoft Stream
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
@@ -123,9 +122,22 @@ Para alavancar este controlo de subvenção, o Conditional Access exige que o di
 Esta definição aplica-se às seguintes aplicações de clientes:
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- MultiLine para Intune
+- Nove e-mail - E-mail & Calendário
+
+> [!NOTE]
+> Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não suportam a concessão **de política de proteção de aplicações Require.** Se necessitar que estas aplicações funcionem, por favor utilize a concessão **de aplicações aprovadas requerendo** exclusivamente. A utilização da ou cláusula entre as duas subvenções não funcionará para estas três candidaturas.
 
 **Observações**
 
@@ -155,7 +167,7 @@ Existe uma restrição de casal quando configura uma política usando o controlo
 
 Se a sua organização criou termos de utilização, opções adicionais podem ser visíveis sob controlo de subvenção. Estas opções permitem que os administradores exijam o reconhecimento dos termos de utilização como condição de acesso aos recursos protegidos pela política. Mais informações sobre os termos de utilização podem ser encontradas no artigo, [termos de utilização do Azure Ative Directory](terms-of-use.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso Condicional: Controlos de sessão](concept-conditional-access-session.md)
 

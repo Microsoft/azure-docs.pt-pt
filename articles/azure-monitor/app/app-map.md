@@ -4,15 +4,16 @@ description: Monitorize topologias complexas de aplicações com o mapa de aplic
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f9f19ea9370b9da3e69d871e8b53ccf7f64a6a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80989532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008511"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas por triagem
 
-O Application Map ajuda-o a detetar estrangulamentos de desempenho ou hotspots de falha em todos os componentes da sua aplicação distribuída. Cada nó no mapa representa um componente de aplicação ou as suas dependências; e tem KPI de saúde e estado de alerta. Pode clicar em qualquer componente para diagnósticos mais detalhados, como eventos Application Insights. Se a sua aplicação utilizar serviços Azure, também pode clicar nos diagnósticos Azure, como recomendações do SQL Database Advisor.
+O Mapa de Aplicações ajuda-o a detetar estrangulamentos de desempenho ou falhas em hotspots em todos os componentes da aplicação distribuída. Cada nó no mapa representa um componente de aplicação ou as suas dependências; e tem KPI de saúde e estado de alerta. Pode clicar em qualquer componente para diagnósticos mais detalhados, como eventos Application Insights. Se a sua aplicação utilizar serviços Azure, também pode clicar nos diagnósticos Azure, como recomendações do SQL Database Advisor.
 
 ## <a name="what-is-a-component"></a>O que é um Componente?
 
@@ -156,7 +157,7 @@ Para ASP.NET aplicações [Core,](asp-net-core.md#adding-telemetryinitializers) 
 
 **Agente java**
 
-Para [o agente Java 3.0,](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) o nome da função em nuvem é definido da seguinte forma:
+Para [o agente Java 3.0,](./java-in-process-agent.md) o nome da função em nuvem é definido da seguinte forma:
 
 ```json
 {
@@ -258,15 +259,15 @@ Se está com dificuldades em fazer com que o Mapa da Aplicação funcione como e
 
 1. Confirme que está a utilizar um SDK suportado oficialmente. Os SDKs não suportados/da comunidade poderão não suportar a correlação.
 
-    Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista de SDKs suportados.
+    Veja uma lista dos SDKs suportados neste [artigo](./platforms.md).
 
 2. Atualize todos os componentes para a versão SDK mais recente.
 
-3. Se estiver a utilizar funções Azure com C#, atualize para [funções V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se estiver a utilizar funções Azure com C#, atualize para [funções V2](../../azure-functions/functions-versions.md).
 
 4. Confirme que [o nome da função da nuvem](#set-cloud-role-name) está corretamente configurado.
 
-5. Se tiver uma dependência em falta, certifique-se de que a mesma está na lista de [dependências recolhidas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se não, pode acompanhá-la manualmente com uma [chamada de dependência de acompanhamento](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Se tiver uma dependência em falta, certifique-se de que a mesma está na lista de [dependências recolhidas automaticamente](./auto-collect-dependencies.md). Se não, pode acompanhá-la manualmente com uma [chamada de dependência de acompanhamento](./api-custom-events-metrics.md#trackdependency).
 
 ### <a name="too-many-nodes-on-the-map"></a>Demasiados nós no mapa
 
@@ -280,7 +281,7 @@ Para corrigir isto, terá de alterar a sua instrumentação para definir correta
 
 * O tipo de dependência deve representar o tipo lógico de dependência. Por exemplo, HTTP, SQL ou Azure Blob são tipos típicos de dependência. Não deve conter identificações únicas.
 
-* O objetivo do nome da função em nuvem é descrito na [secção acima](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* O objetivo do nome da função em nuvem é descrito na [secção acima](#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Feedback do portal
 
@@ -288,7 +289,7 @@ Para fornecer feedback, utilize a opção de feedback.
 
 ![Imagem mapLink-1](./media/app-map/14-updated.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre como funciona a correlação no Application Insights consulte o [artigo de correlação de telemetria](correlation.md).
 * A [experiência de diagnóstico de transações de ponta a ponta](transaction-diagnostics.md) correlaciona a telemetria do lado do servidor de todos os seus componentes monitores application insights numa única visão.

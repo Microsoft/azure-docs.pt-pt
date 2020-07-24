@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80282686"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012388"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na Máquina Virtual Azure Data Science
 
@@ -23,9 +23,9 @@ A Máquina Virtual de Ciência de Dados (DSVM) agrega várias ferramentas popula
 
 ## <a name="visual-studio-community-edition"></a>Edição Comunitária do Estúdio Visual
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | IDE de finalidade geral      |
+| Que passa?   | IDE de finalidade geral      |
 | Versões DSVM suportadas      | Windows: Visual Studio 2017, Windows 2019 : Visual Studio 2019      |
 | Usos típicos      | Desenvolvimento de software    |
 | Como é configurado e instalado no DSVM?      | Data Science Workload (ferramentas Python e R), carga de trabalho Azure (Hadoop, Data Lake), Node.js, ferramentas de servidor SQL, [Aprendizagem automática Azure para Código do Estúdio Visual](https://github.com/Microsoft/vs-tools-for-ai)    |
@@ -37,9 +37,9 @@ A Máquina Virtual de Ciência de Dados (DSVM) agrega várias ferramentas popula
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | IDE de finalidade geral      |
+| Que passa?   | IDE de finalidade geral      |
 | Versões DSVM suportadas      | Windows, Linux     |
 | Usos típicos      | Editor de código e integração de Git   |
 | Como usá-lo e executá-lo      | Atalho de ambiente de trabalho ( `C:\Program Files (x86)\Microsoft VS Code\Code.exe` ) em Windows, atalho ou terminal de ambiente de trabalho `code` () em Linux    |
@@ -47,9 +47,9 @@ A Máquina Virtual de Ciência de Dados (DSVM) agrega várias ferramentas popula
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | IDE do cliente para idioma R   |
+| Que passa?   | IDE do cliente para idioma R   |
 | Versões DSVM suportadas      | Windows, Linux      |
 | Usos típicos      |  Desenvolvimento r     |
 | Como usá-lo e executá-lo      | Atalho de ambiente de trabalho `C:\Program Files\RStudio\bin\rstudio.exe` ( ) no Windows, atalho de ambiente de trabalho ( `/usr/bin/rstudio` ) no Linux      |
@@ -57,10 +57,10 @@ A Máquina Virtual de Ciência de Dados (DSVM) agrega várias ferramentas popula
 
 ## <a name="rstudio-server"></a>RStudio Server
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | IDE do cliente para idioma R   |
-| O que é?   | IDE baseado na Web para R    |
+| Que passa?   | IDE do cliente para idioma R   |
+| Que passa?   | IDE baseado na Web para R    |
 | Versões DSVM suportadas      | Linux      |
 | Usos típicos      |  Desenvolvimento r     |
 | Como usá-lo e executá-lo      | Ativar o serviço com _sistemactl ativar o rstudio-servidor_e, em seguida, iniciar o serviço com _o sistemactl start rstudio-servidor_. Em seguida, inscreva-se no RStudio Server em http: \/ /your-vm-ip:8787.       |
@@ -68,9 +68,9 @@ A Máquina Virtual de Ciência de Dados (DSVM) agrega várias ferramentas popula
 
 ## <a name="juno"></a>Rio Juno 
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | IDE do cliente para linguagem Julia   |
+| Que passa?   | IDE do cliente para linguagem Julia   |
 | Versões DSVM suportadas      | Windows, Linux      |
 | Usos típicos      |  Júlia desenvolvimento     |
 | Como usá-lo e executá-lo      | Atalho de ambiente de trabalho `C:\JuliaPro-0.5.1.1\Juno.bat` ( ) no Windows, atalho de ambiente de trabalho ( `/opt/JuliaPro-VERSION/Juno` ) no Linux      |
@@ -78,9 +78,9 @@ A Máquina Virtual de Ciência de Dados (DSVM) agrega várias ferramentas popula
 
 ## <a name="pycharm"></a>Pycharm
 
-|    |           |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | IDE do cliente para idioma python    |
+| Que passa?   | IDE do cliente para idioma python    |
 | Versões DSVM suportadas      | Windows 2019, Linux      |
 | Usos típicos      |  Desenvolvimento de Python     |
 | Como usá-lo e executá-lo      | Atalho de ambiente de trabalho `C:\Program Files\tk` () no Windows. Atalho de ambiente de trabalho `/usr/bin/pycharm` ( ) em Linux      |

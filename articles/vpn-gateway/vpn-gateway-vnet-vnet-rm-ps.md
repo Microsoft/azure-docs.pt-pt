@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009497"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o PowerShell
 
@@ -80,7 +81,7 @@ Neste exercício, pode combinar configurações ou escolher apenas aquela com qu
 
 * Como leva até 45 minutos para criar uma porta de entrada, a Azure Cloud Shell irá periodicamente cronometrar durante este exercício. Pode reiniciar a Cloud Shell clicando na parte superior esquerda do terminal. Certifique-se de que redeclare quaisquer variáveis quando reiniciar o terminal.
 
-* Se preferir instalar a versão mais recente do módulo Azure PowerShell localmente, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+* Se preferir instalar a versão mais recente do módulo Azure PowerShell localmente, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Passo 1 - Planear os intervalos de endereços IP
 
@@ -363,7 +364,7 @@ Este passo tem de ser realizado no contexto da nova subscrição. Esta parte pod
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. Crie um novo grupo de recursos.
+3. Criar um novo grupo de recursos.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5
@@ -480,7 +481,7 @@ Neste exemplo, uma vez que os gateways estão em subscrições diferentes, divid
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Consulte a [documentação das Máquinas Virtuais](https://docs.microsoft.com/azure/) para obter mais informações.
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

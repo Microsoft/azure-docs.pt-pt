@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed525230315781eeca41956047a173f27b1447e1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 939a2e67d6d2c215f7a575b6b9bd08660fc03b27
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201289"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008205"
 ---
-# <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a sua implementação de registos de monitores Azure
+# <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
 
 O Azure Monitor armazena dados de [registo](data-platform-logs.md) num espaço de trabalho log Analytics, que é um recurso Azure e um recipiente onde os dados são recolhidos, agregados e serve como uma fronteira administrativa. Embora possa implantar um ou mais espaços de trabalho na sua subscrição do Azure, existem várias considerações que deve entender para garantir que a sua implementação inicial está a seguir as nossas diretrizes para lhe proporcionar uma implementação rentável, gerível e escalável que satisfaz as necessidades das suas organizações.
 
@@ -25,7 +25,7 @@ Um espaço de trabalho Log Analytics fornece:
 
 * Uma localização geográfica para armazenamento de dados.
 * Isolamento de dados, concedendo a diferentes utilizadores direitos de acesso seguindo uma das nossas estratégias de design recomendadas.
-* Possibilidade de configuração de configurações como [o nível de preços,](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier) [retenção](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e [cobertura de dados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Possibilidade de configuração de configurações como [o nível de preços,](./manage-cost-storage.md#changing-pricing-tier) [retenção](./manage-cost-storage.md#change-the-data-retention-period)e [cobertura de dados](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 Este artigo fornece uma visão detalhada das considerações de design e migração, visão geral do controlo de acesso e uma compreensão das implementações de design que recomendamos para a sua organização de TI.
 

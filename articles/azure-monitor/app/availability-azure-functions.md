@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1808623821d71169ec35beab1d33d4eb2c32c189
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82791119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008409"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando funções Azure
 
@@ -23,7 +23,7 @@ Este artigo cobrirá como criar uma Função Azure com TrackAvailability() que s
 
 - Se tiver um recurso de insights de aplicação:
     - Por predefinição, as Funções Azure criam um recurso Application Insights, mas se pretender utilizar um dos recursos já criados, terá de especificar isso durante a criação.
-    - Siga as instruções sobre como [criar um recurso Azure Functions e função de temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (parar antes de limpar) com as seguintes escolhas.
+    - Siga as instruções sobre como [criar um recurso Azure Functions e função de temporizador](../../azure-functions/functions-create-scheduled-function.md) (parar antes de limpar) com as seguintes escolhas.
         -  Selecione o **separador Monitorar** perto da parte superior.
 
             ![ Crie uma app Azure Functions com o seu próprio recurso App Insights](media/availability-azure-functions/create-function-app.png)
@@ -35,7 +35,7 @@ Este artigo cobrirá como criar uma Função Azure com TrackAvailability() que s
         - **Selecione Review + criar**
 - Se ainda não tiver um Recurso de Insights de Aplicação criado para a função de desacionado do temporizador:
     - Por predefinição, quando estiver a criar a sua aplicação Azure Functions, criará um recurso 'Insights de Aplicação' para si.
-    - Siga as instruções sobre como [criar um recurso Azure Functions e função de gatilho do Temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (parar antes da limpeza).
+    - Siga as instruções sobre como [criar um recurso Azure Functions e função de gatilho do Temporizador](../../azure-functions/functions-create-scheduled-function.md) (parar antes da limpeza).
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -45,7 +45,7 @@ Copie o código abaixo no ficheiro run.csx (isto substituirá o código pré-exi
 >![Run.csx da função Azure no portal Azure](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Para o Endpoint Address utilizaria: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . A menos que o seu recurso esteja localizado numa região como o Governo Azure ou a Azure China, nesse caso, consulte este artigo sobre [a sobreposição dos pontos finais predefinidos](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selecione o ponto final apropriado do Canal de Telemetria para a sua região.
+> Para o Endpoint Address utilizaria: `EndpointAddress= https://dc.services.visualstudio.com/v2/track` . A menos que o seu recurso esteja localizado numa região como o Governo Azure ou a Azure China, nesse caso, consulte este artigo sobre [a sobreposição dos pontos finais predefinidos](./custom-endpoints.md#regions-that-require-endpoint-modification) e selecione o ponto final apropriado do Canal de Telemetria para a sua região.
 
 ```C#
 #load "runAvailabilityTest.csx"

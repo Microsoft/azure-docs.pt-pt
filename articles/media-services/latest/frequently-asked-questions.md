@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011690"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -45,7 +46,7 @@ Para mais informações, consulte [o processamento de mídia scale](media-reserv
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual é o método recomendado para processar vídeos?
 
-Utilizar [Transformações](https://docs.microsoft.com/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada Transform descreve uma receita, ou um fluxo de trabalho de tarefas para processar os seus ficheiros de vídeo ou áudio. A [Job](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real aos Serviços de Comunicação social para aplicar a Transformação a um conteúdo de vídeo ou áudio de entrada. Após a criação da Transform, pode submeter Jobs utilizando APIs dos Serviços de Comunicação Social ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
+Utilizar [Transformações](/rest/api/media/transforms) para configurar tarefas comuns para codificar ou analisar vídeos. Cada Transform descreve uma receita, ou um fluxo de trabalho de tarefas para processar os seus ficheiros de vídeo ou áudio. A [Job](/rest/api/media/jobs) é o pedido real aos Serviços de Comunicação social para aplicar a Transformação a um conteúdo de vídeo ou áudio de entrada. Após a criação da Transform, pode submeter Jobs utilizando APIs dos Serviços de Comunicação Social ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Fiz o upload, o codificado e publiquei um vídeo. Porque é que o vídeo não é reproduze quando tento transmiti-lo?
 
@@ -118,7 +119,7 @@ A abordagem correta é utilizar o Serviço Secure Token. Em STS, dependendo do p
 
 Utilize APIs de Serviços de Media Azure para configurar a licença/entrega de chaves e encriptar os seus ativos (como mostrado [nesta amostra).](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Visão geral da proteção de conteúdos](content-protection-overview.md)
 - [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
@@ -158,9 +159,9 @@ Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
 
 * Gerir [Eventos Ao Vivo](live-events-outputs-concept.md) nos Serviços de Media v3. 
 * Ver (não gerir) [ativos](assets-concept.md)v3 . 
-* [Obtenha informações sobre o acesso às APIs.](access-api-portal.md) 
+* [Obtenha informações sobre o acesso às APIs.](./access-api-howto.md) 
 
-Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [proteção de conteúdos),](content-protection-overview.md)utilize a [API REST](https://docs.microsoft.com/rest/api/media/), o [Azure CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [proteção de conteúdos),](content-protection-overview.md)utilize a [API REST](/rest/api/media/), o [Azure CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito AssetFile em v3?
 
@@ -170,7 +171,7 @@ Para mais informações, consulte [Migrate to Media Services v3](media-services-
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Para onde foi a encriptação do armazenamento do lado do cliente?
 
-Recomendamos agora que utilize encriptação de armazenamento do lado do servidor (que está ligado por padrão). Para obter mais informações, consulte [a Encriptação do Serviço de Armazenamento Azure para obter dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Recomendamos agora que utilize encriptação de armazenamento do lado do servidor (que está ligado por padrão). Para obter mais informações, consulte [a Encriptação do Serviço de Armazenamento Azure para obter dados em repouso](../../storage/common/storage-service-encryption.md).
 
 ## <a name="offline-streaming"></a>Streaming offline
 
@@ -188,7 +189,7 @@ Dependendo do design da chave de cache para a rede de entrega de conteúdos, o c
 
 #### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>O modo offline FPS é suportado no iOS 11 para além do iOS 10?
 
-Sim. O modo offline FPS é suportado para iOS 10 e iOS 11.
+Yes. O modo offline FPS é suportado para iOS 10 e iOS 11.
 
 #### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Por que não posso encontrar o documento "Offline Playback with FairPlay Streaming e HTTP Live Streaming" no FPS Server SDK?
 
@@ -266,6 +267,6 @@ Existem duas formas de melhorar a velocidade de descarregamento:
   * Controlado pelo cliente: A aplicação do jogador seleciona automaticamente, ou o utilizador seleciona, a camada de qualidade de vídeo e as faixas de áudio para descarregar.
   * Controlado por serviço: Pode utilizar a função Dynamic Manifest nos Serviços Azure Media para criar um filtro (global), que limita a lista de reprodução HLS ou o MPD do DASH a uma única camada de qualidade de vídeo e faixas de áudio selecionadas. Em seguida, o URL de descarregamento apresentado aos utilizadores incluirá este filtro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral dos Serviços de Comunicação Social v3](media-services-overview.md)

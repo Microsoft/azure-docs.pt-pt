@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Aprenda as melhores práticas para otimizar as velocidades de processamento de dados e quais as integrações que o Azure Machine Learning suporta para o processamento de dados em escala.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0badd92a3156f76f99bf1f48fca2093a2bca2f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481889"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012642"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com a Azure Machine Learning
 
@@ -79,7 +79,7 @@ Para dados maiores que 10 GB| Mude-se para um cluster usando `Ray` `Dask` , ou`S
 
 Você pode criar `Dask` clusters em Azure ML compute cluster com o pacote [dask-cloudprovider.](https://cloudprovider.dask.org/en/latest/#azure) Ou pode correr `Dask` localmente numa instância computacional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Opções de ingestão de dados com Azure Machine Learning](concept-data-ingestion.md).
 * [Ingestão de dados com a Azure Data Factory](how-to-data-ingest-adf.md).

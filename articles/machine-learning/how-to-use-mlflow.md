@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 6dd3efb3e8bbe902d3c8267aff714a8e7f77acc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e78634001c5ef1b11d6add8f02208cfa9cacf07
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012302"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Rastrear métricas de modelos e implementar modelos ML com MLflow e Azure Machine Learning (pré-visualização)
 
@@ -47,7 +47,7 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de
  O MLflow Tracking oferece funcionalidades de registo métrico e de armazenamento de artefactos que só estão disponíveis de outra forma através do [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | &nbsp;Implementação de & de rastreio de fluxo mlflow | Azure Máquina aprendendo Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
+| Capacidade | &nbsp;Implementação de & de rastreio de fluxo mlflow | Azure Máquina aprendendo Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
 |---|---|---|---|---|
 | Gerir espaço de trabalho |   | ✓ | ✓ | ✓ |
 | Utilizar lojas de dados  |   | ✓ | ✓ | |
@@ -365,6 +365,6 @@ Se não planeia utilizar as métricas e artefactos registados no seu espaço de 
 
 O [fluxo ML com os cadernos Azure ML](https://aka.ms/azureml-mlflow-examples) demonstram e expandem-se sobre conceitos apresentados neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Gerencie os seus modelos.](concept-model-management-and-deployment.md)
 * Monitorize os seus modelos de produção para [a deriva de dados.](how-to-monitor-data-drift.md)

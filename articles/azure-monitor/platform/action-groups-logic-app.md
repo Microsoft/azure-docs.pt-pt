@@ -6,11 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f592c42bc06c6bcd33ce6e10c506f8af0d8e0cf2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78206241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008392"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Azure Monitor
 
@@ -127,7 +128,7 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
 14. No topo do **Logic Apps Designer,** selecione **Save** para guardar a sua aplicação lógica.
 
-15. Abra o seu grupo de ação existente e adicione uma ação para fazer referência à aplicação lógica. Se não tiver um grupo de ação existente, consulte [Criar e gerir grupos de ação no portal Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para criar um. Não se esqueça de guardar as suas mudanças.
+15. Abra o seu grupo de ação existente e adicione uma ação para fazer referência à aplicação lógica. Se não tiver um grupo de ação existente, consulte [Criar e gerir grupos de ação no portal Azure](./action-groups.md) para criar um. Não se esqueça de guardar as suas mudanças.
 
     ![Atualizar o grupo de ação](media/action-groups-logic-app/update-action-group.png "Atualizar o grupo de ação")
 
@@ -292,8 +293,7 @@ O processo de criação de um alerta métrico é semelhante à criação de [um 
 ## <a name="calling-other-applications-besides-microsoft-teams"></a>Chamando outras aplicações além de Microsoft Teams
 A Logic Apps tem uma série de conectores diferentes que permitem desencadear ações numa vasta gama de aplicações e bases de dados. Slack, SQL Server, Oracle, Salesforce, são apenas alguns exemplos. Para obter mais informações sobre conectores, consulte [os conectores Logic App](../../connectors/apis-list.md).  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Obtenha uma [visão geral dos alertas de registo de atividades do Azure](../../azure-monitor/platform/alerts-overview.md) e aprenda a receber alertas.  
-* Saiba como [configurar alertas quando for publicada uma notificação de Saúde do Serviço Azure](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Saiba como [configurar alertas quando for publicada uma notificação de Saúde do Serviço Azure](../../service-health/alerts-activity-log-service-notifications-portal.md).
 * Saiba mais sobre [grupos de ação.](../../azure-monitor/platform/action-groups.md)
-

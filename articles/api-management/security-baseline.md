@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b5640a42c0fdcb0bd958011db28c19854b16a547
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4e951b7eb2d3d5e49ab80af2604d5b44565dd25e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008545"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para a Gestão da API
 
@@ -640,7 +640,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções para controlar o acesso à Azure API Management. A Azure API Management conta com o Azure Role-Based Access Control (RBAC) para permitir uma gestão de acessos finos para serviços e entidades de Gestão de API (por exemplo, APIs e políticas).
+**Orientação**: Utilize o controlo de acesso baseado em funções para controlar o acesso à Azure API Management. A Azure API Management conta com o controlo de acesso baseado em funções Azure (Azure RBAC) para permitir uma gestão de acessos finos para serviços e entidades de Gestão de API (por exemplo, APIs e políticas).
 
 * [Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure](./api-management-role-based-access-control.md)
 

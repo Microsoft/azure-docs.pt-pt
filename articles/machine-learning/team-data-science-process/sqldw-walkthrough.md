@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a748b9284407b5ecd8cc8f6225c6762e7017d4d9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d5a332acbf6550fcc3a4256e1bc0531b31dd6c6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012260"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>O processo de ciência de dados da equipa em ação: usando a Azure Synapse Analytics
 Neste tutorial, percorremos a construção e implementamos um modelo de machine learning usando a Azure Synapse Analytics para um conjunto de dados publicamente disponível - o conjunto de dados [de Viagens de Táxi de NYC.](https://www.andresmh.com/nyctaxitrips/) O modelo de classificação binária construído prevê se uma gorjeta é ou não paga por uma viagem.  Os modelos incluem classificação multiclasse (se há ou não uma ponta) e regressão (a distribuição pelos valores da gorjeta paga).
@@ -95,7 +95,7 @@ Siga a documentação na [Create e consultar um Armazém de Dados Azure SQL no p
 
 * **Nome do servidor**: \<server Name> .database.windows.net
 * **Nome SQLDW (Base de Dados)**
-* **Nome de utilizador**
+* **Nome de Utilizador**
 * **Palavra-passe**
 
 **Instale ferramentas de dados do Estúdio Visual e do Servidor SQL.** Para obter instruções, consulte [Começar com o Visual Studio 2019 para o SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
@@ -602,7 +602,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
 **Saída:** Esta consulta gera uma tabela (com 2.803.538 linhas) com latitudes de recolha e entrega e longitudes e as distâncias diretas correspondentes em milhas. Aqui estão os resultados das três primeiras linhas:
 
-|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | Direcciondance |
+| (Número de linha) | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | Direcciondance |
 | --- | --- | --- | --- | --- | --- |
 | 1 |40.731804 |-74.001083 |40.736622 |-73.988953 |.7169601222 |
 | 2 |40.715794 |-74,010635 |40.725338 |-74.00399 |.7448343721 |

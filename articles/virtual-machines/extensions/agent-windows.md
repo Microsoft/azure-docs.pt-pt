@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: a002479375d835f7fafe031517e5b2fe61b77b5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ff5825f3272f0dadc74147d36e8c5fd8e7838d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608694"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010959"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do Agente da Máquina Virtual do Azure
 O Agente da Máquina Virtual do Microsoft Azure (Agente da VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o Controlador de Recursos de Infraestrutura do Microsoft Azure. O Agente da VM tem uma função primária na ativação e na execução de extensões de máquina virtual do Azure. As extensões de VM permitem a configuração pós-implementação da VM, por exemplo, instalar e configurar o software. As extensões de VM também permitem funcionalidades de recuperação, como a reposição da palavra-passe administrativa de uma VM. Sem o Agente da VM do Azure, as extensões de VM não podem ser executadas.
@@ -70,13 +71,13 @@ $vm | Update-AzVM
 ### <a name="prerequisites"></a>Pré-requisitos
 - O Agente VM do Windows precisa de pelo menos o Windows Server 2008 (64-bit) para ser executado, com o .Net Framework 4.0. Veja [Suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
-- Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, veja [O que é o endereço IP 168.63.129.16?](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)
+- Confirme que a VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, veja [O que é o endereço IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ## <a name="detect-the-vm-agent"></a>Detetar o Agente da VM
 
 ### <a name="powershell"></a>PowerShell
 
-O módulo do PowerShell do Azure Resource Manager pode ser utilizado para recuperar informações sobre as VMs do Azure. Para ver informações sobre uma VM, como o estado de aprovisionamento do Agente da VM do Azure, utilize [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm):
+O módulo do PowerShell do Azure Resource Manager pode ser utilizado para recuperar informações sobre as VMs do Azure. Para ver informações sobre uma VM, como o estado de aprovisionamento do Agente da VM do Azure, utilize [Get-AzVM](/powershell/module/az.compute/get-azvm):
 
 ```powershell
 Get-AzVM

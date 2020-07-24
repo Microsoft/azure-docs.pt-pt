@@ -1,18 +1,18 @@
 ---
 title: Crie uma oferta de máquina virtual Azure no Azure Marketplace
-description: Saiba como criar uma oferta de máquina virtual no Azure Marketplace com o SKU necessário.
+description: Saiba como criar uma oferta de máquina virtual no Azure Marketplace com o plano necessário.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/17/2020
+ms.openlocfilehash: 6df1620f2d1097ac23e5dfa3903fefc74d13fa65
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012030"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
 
@@ -286,7 +286,7 @@ Adicione pelo menos um ID de subscrição Azure, individualmente (até 10 IDs) o
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
-Você pode fornecer uma variedade de opções de plano dentro da mesma oferta no Partner Center. Estes planos eram anteriormente referidos como SKUs. Uma oferta requer pelo menos um plano, que pode variar por rentabilização do público, região de Azure, características ou imagens VM.
+Você pode fornecer uma variedade de opções de plano dentro da mesma oferta no Partner Center. Uma oferta requer pelo menos um plano (anteriormente chamado de SKU), que pode variar por rentabilização do público, região de Azure, recursos ou imagens VM.
 
 Depois de criar os seus planos, selecione o separador **'visão geral' do Plano** para visualizar:
 
@@ -413,7 +413,6 @@ Pode desenhar cada plano para ser visível para todos ou apenas para um público
 >[!Note]
 >As ofertas privadas não são suportadas com subscrições Azure estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
 
-
 #### <a name="hide-a-plan"></a>Esconder um plano
 
 Se a sua máquina virtual deve ser usada apenas indiretamente quando é referenciada através de outro modelo de solução ou aplicação gerida, selecione esta caixa de verificação para publicar a máquina virtual, mas esconda-a de clientes que possam estar a pesquisar ou navegar diretamente por ela.
@@ -516,10 +515,10 @@ A página **geral da Oferta** mostra uma representação visual dos passos, tant
 
 Esta página também inclui links para ajudá-lo a trabalhar com a oferta, dependendo do seu estado:
 
-- Se a oferta for um rascunho: [Eliminar proposta de rascunho)](update-existing-offer.md#delete-a-draft-offer)
-- Se a oferta for ao vivo: [Pare de vender a oferta)](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em [pré-visualização: Go-live](publishing-status.md#publisher-approval))
-- Se ainda não tiver concluído a assinatura do editor: [Cancelar a publicação](update-existing-offer.md#cancel-publishing))
+- Se a oferta for um rascunho: [Eliminar a oferta de rascunho](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for ao vivo: [Pare de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em [pré-visualização: Go-live](publishing-status.md#publisher-approval)
+- Se ainda não tiver concluído a assinatura da editora: [Cancelar a publicação](update-existing-offer.md#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>Exemplos de mercado
 
@@ -566,7 +565,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
-1. Name
+1. Nome
 2. Descrição
 3. Ligações úteis
 4. Screenshots/vídeos

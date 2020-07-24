@@ -1,18 +1,18 @@
 ---
-title: Criar uma nova oferta SaaS para o mercado comercial da Microsoft
-description: Como criar um novo Software como oferta de Serviço (SaaS) para listagem ou venda no Microsoft AppSource, Azure Marketplace ou através do programa Cloud Solution Provider (CSP) utilizando o programa de marketplace comercial da Microsoft no Microsoft Partner Center.
+title: Criar uma oferta SaaS, Azure Marketplace e Microsoft AppSource
+description: Como criar uma oferta de Software como serviço (SaaS) para listagem ou venda no Microsoft AppSource, Azure Marketplace ou através do programa Cloud Solution Provider (CSP) utilizando o programa de marketplace comercial da Microsoft no Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: a233f3594ace74a6bfeca90ffccfbcb233e5d890
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 2c5394dce503a6fa00e2a3e6ff73a683d3d2e76f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121895"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012098"
 ---
-# <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Criar uma nova oferta saaS no mercado comercial
+# <a name="create-a-saas-offer"></a>Criar uma oferta SaaS
 
 Para começar a criar software como um Serviço (SaaS) oferece no mercado comercial, certifique-se de que primeiro [cria uma conta Partner Center](./create-account.md) e abre o painel de [instrumentos do Mercado Comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com o **separador Overview** selecionado.
 
@@ -96,7 +96,7 @@ Trata-se de uma repartição de custos e pagamentos para demonstrar o modelo da 
 - Neste exemplo, a Microsoft fatura $100,00 ao cliente pela sua licença de software e paga $80,00 à editora.
 
 > [!NOTE]
-> **Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como sendo ou IP co-sell pronto ou IP co-sell priorizado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço do Mercado não se aplica a VMs, Apps Geridas ou quaisquer outros produtos disponibilizados através do mercado comercial.
+> **Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
 
 ### <a name="list-through-microsoft"></a>Lista através da Microsoft
 
@@ -131,7 +131,7 @@ Aqui está um exemplo de como a informação da oferta aparece no Microsoft AppS
 
 1. Logotipo grande
 2. Categorias
-3. Setores
+3. Indústrias
 4. Endereço de suporte (link)
 5. Termos de utilização
 6. Política de privacidade
@@ -190,7 +190,7 @@ A sua oferta será publicada no AppSource ou no Azure Marketplace, dependendo da
 
 Consulte a lista completa de categorias e subcategorias aplicáveis a cada Montra em [Ofertas Listando As Melhores Práticas.](../gtm-offer-listing-best-practices.md)
 
-### <a name="industries"></a>Setores
+### <a name="industries"></a>Indústrias
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
@@ -331,14 +331,14 @@ Diagramas e explicações detalhadas que descrevem a utilização dos campos rec
 
 - **URL da página de aterragem** (obrigatório) – Defina o URL do site SaaS (por exemplo: `https://contoso.com/signup` ) que os clientes finais aterrarão após adquirirem a sua oferta no mercado e desencadeando o processo de configuração a partir da recém-criada subscrição SaaS.  Este URL será chamado com o parâmetro de identificação de compra de mercado que identifica exclusivamente a compra específica do cliente final SaaS.  Tem de trocar este token pelos correspondentes dados de subscrição do SaaS utilizando a API [de resolução.](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription)  Esses detalhes e quaisquer outros que deseje recolher devem ser usados como parte de uma página web interativa do cliente construída na sua experiência para completar o registo final do cliente e ativar a sua compra.  Nesta página, o utilizador deve inscrever-se através de uma autenticação de um clique utilizando o Azure Ative Directory (Azure AD). <br> <br> Este URL com o parâmetro de identificação de compra de mercado também será chamado quando o cliente final lançar a experiência Managed SaaS do portal Azure ou M365 Admin Center. Você deve lidar com ambos os fluxos, quando o token é fornecido pela primeira vez após a compra para novos clientes e quando é fornecido para o cliente existente que gere o seu SaaS. <br> <br> A página de Aterragem que configura aqui deve estar a funcionar 24 horas por dia, 7 horas por dia. Esta é a única forma de ser notificado sobre novas compras das suas ofertas SaaS efetuadas no mercado, ou pedidos de configuração de uma subscrição ativa de uma oferta.
 
-- **Connection webhook** (obrigatório) – Para todos os eventos assíncronos que a Microsoft precisa de lhe enviar (por exemplo, a subscrição do SaaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento. <br> <br> O webhook que fornece deve estar a funcionar 24 horas por dia, 7 dias por semana, pois esta é a única forma de ser notificado sobre atualizações sobre as subscrições saaS dos seus clientes adquiridas através do mercado.  Se ainda não tiver um sistema webhook no lugar, a configuração mais simples é ter uma App lógica http Endpoint que irá ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, `https://prod-1westus.logic.azure.com:443/work` ). Para obter mais informações, consulte [Call, Trigger ou nestflows com pontos finais HTTP em aplicações lógicas.](../../logic-apps/logic-apps-http-endpoint.md)
+- **Connection webhook** (obrigatório) – Para todos os eventos assíncronos que a Microsoft precisa de lhe enviar (por exemplo, a subscrição do SaaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento. <br> <br> O webhook que fornece deve estar a funcionar 24 horas por dia, 7 dias por semana, pois esta é a única forma de ser notificado sobre atualizações sobre as subscrições saaS dos seus clientes adquiridas através do mercado. Se ainda não tiver um sistema webhook no lugar, a configuração mais simples é ter uma App lógica http Endpoint que irá ouvir quaisquer eventos que lhe sejam publicados e, em seguida, manuseá-los adequadamente (por exemplo, `https://prod-1westus.logic.azure.com:443/work` ). Para obter mais informações, consulte [Call, Trigger ou nestflows com pontos finais HTTP em aplicações lógicas.](../../logic-apps/logic-apps-http-endpoint.md)
 
 - **ID do inquilino Azure AD** (obrigatório) – Dentro do portal Azure, exigimos que [crie uma app Azure Ative Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) para que possamos validar a ligação entre os nossos dois serviços por trás de uma comunicação autenticada. Para encontrar o ID do [inquilino),](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número **de ID** do Diretório listado (como 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **ID da aplicação AD AZure** (obrigatório) – Também precisa do seu [ID de aplicação).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para obter o seu valor, vá ao seu Diretório Ativo Azure e selecione **registos de Aplicações,** em seguida, procure o número **de ID da aplicação** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 >[!Note]
->O ID da aplicação AZure está associado ao seu ID de editor na sua conta Partner Center.  Certifique-se de que o mesmo ID de aplicação é usado em todas as suas ofertas.
+>O ID da aplicação AZure está associado ao seu ID de editor na sua conta Partner Center. Certifique-se de que utiliza o mesmo ID de aplicação em todas as suas ofertas.
 
 >[!Note]
 >Se a editora tiver duas ou mais contas diferentes no Partner Center, devem ser utilizados dois ou mais IDs de aplicações AD Azure diferentes, cada um para uma das contas. Cada conta de parceiro no Partner Center deve usar iD de aplicação AD AZure única para todas as ofertas saaS que são publicadas através desta conta.
@@ -347,7 +347,7 @@ Diagramas e explicações detalhadas que descrevem a utilização dos campos rec
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
-Esta página permite-lhe fornecer uma variedade de opções de plano dentro da mesma oferta. Estes planos (por vezes referidos como SKUs) poderiam diferir em termos de versão, rentabilização ou níveis de serviço. Tem de criar pelo menos um plano para vender a sua oferta no mercado.
+Esta página permite-lhe fornecer uma variedade de opções de plano dentro da mesma oferta. Estes planos (anteriormente chamados SKUs) podem diferir em termos de versão, rentabilização ou níveis de serviço. Deve criar pelo menos um plano para vender a sua oferta no mercado.
 
 Uma vez criado, verá os nomes do seu plano, IDs, modelos de preços, disponibilidade (Público ou Privado), estado de publicação atual e quaisquer ações disponíveis.
 
@@ -380,7 +380,7 @@ Esta página permite configurar os mercados em que este plano estará disponíve
 
 #### <a name="markets-optional"></a>Mercados (opcional)
 
-Todos os planos devem estar disponíveis em pelo menos um mercado. **Selecione os mercados editar** e selecione a caixa de verificação para qualquer local de mercado onde gostaria de disponibilizar este plano. Esta página inclui uma caixa de pesquisa e opção para selecionar países/regiões "Tax Remitted", em que a Microsoft remete as vendas e usa o imposto em seu nome.
+Todos os planos devem estar disponíveis em pelo menos um mercado. **Selecione os mercados editar** e selecione a caixa de verificação para qualquer local de mercado onde gostaria de disponibilizar este plano. Esta página inclui uma caixa de pesquisa e opção para selecionar [países/regiões "Tax Remitted",](tax-details-paid-transactions.md)em que a Microsoft remete as vendas e usa o imposto em seu nome.
 
 Se já estabeleceu preços para o seu plano em Dólares dos Estados Unidos (USD) e adiciona outra localização de mercado, o preço do novo mercado será calculado de acordo com as taxas de câmbio atuais. Reveja o preço de cada mercado antes de publicar. Ver preços utilizando o link "Preços de exportação (xlsx)" depois de guardar as suas alterações.
 
@@ -444,7 +444,7 @@ Selecione **Este é um plano privado** para tornar o seu plano privado e visíve
 
 Atribua ao público que terá acesso a este plano privado. O acesso é atribuído usando iDs de inquilino com a opção de incluir uma descrição de cada ID do inquilino atribuído. Um máximo de 10 IDs de inquilino pode ser adicionado, ou 20.000 clientes iDs inquilinos se importar um arquivo de folha de cálculo .csv.
 
-Um inquilino é uma representação de uma organização, com um ID representado como um GUID (Globalmente Unique Identifier, um número inteiro de 128 bits usado para identificar recursos). É um caso dedicado de Azure AD que uma organização ou programador de aplicações recebe quando a organização ou desenvolvedor de aplicações cria uma relação com a Microsoft, por exemplo, ao inscrever-se para a Azure, Microsoft Intune ou Microsoft 365. Cada inquilino do Azure AD é diferente e separado de outros inquilinos do Azure AD. Para verificar o inquilino, inicie sessão no Portal do Azure com a conta que pretende utilizar para gerir a sua aplicação. Se tiver um inquilino, irá ter automaticamente sessão iniciada no mesmo e verá o nome do inquilino imediatamente por baixo do nome da sua conta. Se passar com o rato por cima do nome da sua conta, no canto superior direito do portal do Azure, verá o seu nome, e-mail, diretório e ID de inquilino (um GUID) e o seu domínio. Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino. Você também pode procurar o ID do inquilino da sua organização usando um URL de nome de domínio em [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+Um inquilino é uma representação de uma organização, com um ID representado como um GUID (Globalmente Unique Identifier, um número inteiro de 128 bits usado para identificar recursos). É um caso dedicado de Azure AD que uma organização ou programador de aplicações recebe quando a organização ou desenvolvedor de aplicações cria uma relação com a Microsoft, por exemplo, ao inscrever-se para a Azure, Microsoft Intune ou Microsoft 365. Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD. Para verificar o inquilino, inicie sessão no Portal do Azure com a conta que pretende utilizar para gerir a sua aplicação. Se tiver um inquilino, irá ter automaticamente sessão iniciada no mesmo e verá o nome do inquilino imediatamente por baixo do nome da sua conta. Se passar com o rato por cima do nome da sua conta, no canto superior direito do portal do Azure, verá o seu nome, e-mail, diretório e ID de inquilino (um GUID) e o seu domínio. Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino. Você também pode procurar o ID do inquilino da sua organização usando um URL de nome de domínio em [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 Enquanto o SaaS oferece iDs de inquilino para definir um público privado, outros tipos de oferta podem usar IDs de assinatura Azure (que também são representados como GUIDs).
 

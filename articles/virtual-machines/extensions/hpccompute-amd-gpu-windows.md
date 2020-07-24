@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010874"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extensão do controlador GPU da AMD para Windows
 
-Este artigo fornece uma visão geral da extensão VM para implantar controladores GPU AMD em VMs [da série Windows NVv4.](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) Ao instalar controladores AMD utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de Licença do Utilizador Final da [AMD.](https://amd.com/radeonsoftwarems) Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
+Este artigo fornece uma visão geral da extensão VM para implantar controladores GPU AMD em VMs [da série Windows NVv4.](../nvv4-series.md) Ao instalar controladores AMD utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de Licença do Utilizador Final da [AMD.](https://amd.com/radeonsoftwarems) Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
 
-As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
+As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](../windows/n-series-amd-driver-setup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,10 +69,10 @@ O JSON seguinte mostra o esquema para a extensão.
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | AmdGpuDriverWindows | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1,0 | int |
 
 
 ## <a name="deployment"></a>Implementação
@@ -81,7 +81,7 @@ O JSON seguinte mostra o esquema para a extensão.
 
 As extensões Azure VM podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem configuração de implantação de posts.
 
-A configuração JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo do recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/resource-manager-template-child-resource.md) 
+A configuração JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo do recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/templates/child-resource-name-type.md) 
 
 O exemplo a seguir pressupõe que a extensão está aninhada dentro do recurso da máquina virtual. Ao nidificar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
@@ -135,7 +135,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolução de Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure, e utilizando a Azure PowerShell e a Azure CLI. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando.
 
@@ -169,7 +169,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades da máquina Virtual para Windows](features-windows.md).
 
-Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../windows/sizes-gpu.md)
+Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../sizes-gpu.md)

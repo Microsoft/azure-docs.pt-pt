@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010942"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -123,11 +123,11 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.Compute | string |
 | tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.10 | int |
-| fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
 | timetamp (por exemplo) | 123456789 | Inteiro de 32 bits |
 | commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | string |
@@ -144,7 +144,7 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 * `timestamp`(opcional, inteiro de 32 bits) utilize este campo apenas para desencadear uma repetição do script alterando o valor deste campo.  Qualquer valor inteiro é aceitável; só deve ser diferente do valor anterior.
 * `storageAccountName`: (opcional, cadeia) o nome da conta de armazenamento. Se especificar credenciais de armazenamento, todos `fileUris` devem ser URLs para Azure Blobs.
 * `storageAccountKey`: (opcional, cadeia) a chave de acesso da conta de armazenamento
-* `managedIdentity`: (opcional, objeto json) a [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros
+* `managedIdentity`: (opcional, objeto json) a [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para descarregar ficheiros
   * `clientId`: (opcional, string) o ID do cliente da identidade gerida
   * `objectId`: (opcional, cadeia) o ID do objeto da identidade gerida
 
@@ -160,9 +160,9 @@ As definições públicas são enviadas em texto claro para o VM onde o script s
 > [!NOTE]
 > Esta propriedade **deve** ser especificada apenas em configurações protegidas.
 
-CustomScript (versão 1.10 em diante) suporta [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descarregar ficheiros(s) a partir de URLs fornecidos na definição "fileUris". Permite que o CustomScript aceda a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
+CustomScript (versão 1.10 em diante) suporta [identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md) para descarregar ficheiros(s) a partir de URLs fornecidos na definição "fileUris". Permite que o CustomScript aceda a blobs ou contentores privados do Azure Storage sem que o utilizador tenha de passar segredos como fichas SAS ou chaves de conta de armazenamento.
 
-Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) ou [atribuída](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) ao VM ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de identidade gerido ao recipiente ou bolha de [armazenamento Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Para utilizar esta funcionalidade, o utilizador deve adicionar uma identidade atribuída ao [sistema](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) ou [atribuída](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) ao VM ou VMSS onde se espera que o CustomScript seja executado, e conceder o acesso de identidade gerido ao recipiente ou bolha de [armazenamento Azure](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 Para utilizar a identidade atribuída ao sistema no VM/VMSS alvo, dedije o campo "managedidentity" a um objeto json vazio. 
 
@@ -283,7 +283,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
 
-Para implementar a extensão de script personalizada num conjunto de escala, consulte [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
+Para implementar a extensão de script personalizada num conjunto de escala, consulte [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## <a name="classic-vms"></a>VMs clássicas
 
@@ -301,7 +301,7 @@ Na página **de extensão instalar,** selecione o ficheiro PowerShell local e pr
 
 ### <a name="powershell"></a>PowerShell
 
-Utilize o [cmdlet set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) pode ser usado para adicionar a extensão de Script Personalizado a uma máquina virtual existente.
+Utilize o [cmdlet set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) pode ser usado para adicionar a extensão de Script Personalizado a uma máquina virtual existente.
 
 ```powershell
 # define your file URI
@@ -319,7 +319,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolução de Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando:
 

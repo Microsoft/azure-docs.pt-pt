@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011078"
 ---
 # <a name="orchestration-modes-preview"></a>Modos de orquestração (pré-visualização)
 
@@ -42,9 +42,9 @@ Conjuntos de escala de máquina virtual suportarão 2 modos de orquestração di
 
 ## <a name="orchestration-modes"></a>Modos de orquestração
 
-|                             | "OrchestrationMode": "VM" (VirtualMachine) | "OrchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+| Funcionalidade                     | "OrchestrationMode": "VM" (VirtualMachine) | "OrchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modelo de configuração VM      | Nenhuma                                       | Necessário |
+| Modelo de configuração VM      | Nenhum                                       | Necessário |
 | Adicionar novo VM ao conjunto de escala  | Os VMs são explicitamente adicionados à escala definida quando o VM é criado. | Os VMs são implicitamente criados e adicionados à escala definida com base no modelo de configuração VM, contagem de instâncias e regras de AutoScaling | |
 | Eliminar VM                   | Os VMs têm de ser eliminados individualmente, o conjunto de escala não será eliminado se tiver VMs nele. | Os VMs podem ser eliminados individualmente, eliminando o conjunto de escalas eliminará todas as instâncias VM.  |
 | Anexar/desprender VMs           | Não suportado                              | Não suportado |
@@ -62,6 +62,6 @@ Conjuntos de escala de máquina virtual suportarão 2 modos de orquestração di
 | Grupo de colocação única == falso | Não suportado                          | Suportado |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte a [visão geral das opções de disponibilidade.](availability.md)
+Para mais informações, consulte a [visão geral das opções de disponibilidade.](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json)

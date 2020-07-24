@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82559539"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011656"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico via Azure Monitor
 
@@ -42,7 +42,7 @@ Os Serviços de Comunicação Social apoiam métricas de monitorização dos seg
 
 Pode monitorizar as seguintes métricas de conta.
 
-|Nome da métrica|Nome a apresentar|Description|
+|Nome da métrica|Nome a apresentar|Descrição|
 |---|---|---|
 |Conta de Ativos|Contagem de ativos|Bens na sua conta.|
 |AssetQuota|Quota de ativos|Quota de ativo na sua conta.|
@@ -58,9 +58,9 @@ Deve também rever [as quotas e limites de conta.](limits-quotas-constraints.md)
 
 ### <a name="streaming-endpoint"></a>Ponto Final de Transmissão em Fluxo
 
-São suportadas as [seguintes métricas de serviços](https://docs.microsoft.com/rest/api/media/streamingendpoints) de streaming de media:
+São suportadas as [seguintes métricas de serviços](/rest/api/media/streamingendpoints) de streaming de media:
 
-|Nome da métrica|Nome a apresentar|Description|
+|Nome da métrica|Nome a apresentar|Descrição|
 |---|---|---|
 |Pedidos|Pedidos|Fornece o número total de pedidos HTTP servidos pelo Streaming Endpoint.|
 |Saída|Saída|Egress bytes total por minuto por streaming Endpoint.|
@@ -92,7 +92,7 @@ Os Serviços de Comunicação Social suportam os seguintes registos de diagnóst
 
 ### <a name="key-delivery"></a>Entrega chave
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 |Pedido de serviço de entrega chave|Registos que mostram a informação do serviço de entrega chave. Para mais informações, consulte [os esquemas.](media-services-diagnostic-logs-schema.md)|
 

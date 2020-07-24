@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 82ef70677dd0ede4ddfdd0899747c18f335da5a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077036"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012183"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
 
@@ -41,10 +41,10 @@ Este documento pressupõe que os comandos SQL são executados a partir do SQL Se
 ## <a name="prerequisites"></a><a name="prereqs"></a>Pré-requisitos
 Este tutorial pressupõe que tem:
 
-* Uma **assinatura Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento Azure.** Você usará uma conta de armazenamento Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). Depois de ter criado a conta de armazenamento, terá de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 * Servidor **SQL provisionado num VM Azure**. Para obter instruções, consulte [configurar uma máquina virtual do Azure SQL Server como um servidor de caderno IPython para análises avançadas](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
-* Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+* Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 ## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a>Mover dados de uma fonte de ficheiro plana para SQL Server em um Azure VM
 Se os seus dados estiverem num ficheiro plano (dispostos num formato de linha/coluna), pode ser movido para SQL Server VM em Azure através dos seguintes métodos:

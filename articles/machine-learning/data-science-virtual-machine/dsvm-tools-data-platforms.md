@@ -10,11 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: ccb95064f756ef035b7da92d029680f1c195982b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958740"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012490"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados suportadas na Máquina Virtual da Ciência de Dados
 
@@ -24,13 +25,13 @@ As seguintes ferramentas da plataforma de dados são suportadas no DSVM.
 
 ## <a name="sql-server-developer-edition"></a>SQL Server Developer Edition
 
-| | |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Uma instância de base de dados relacional local      |
+| Que passa?   | Uma instância de base de dados relacional local      |
 | Edições DSVM suportadas      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
-| Usos típicos      | Desenvolvimento rápido localmente com conjunto de dados mais pequeno <br/> Executar in-database R   |
-| Ligações a amostras      |    Uma pequena amostra de um conjunto de dados da cidade de Nova Iorque é carregada na base de dados SQL:<br/>  `nyctaxi` <br/> A amostra do Jupyter que mostra o Microsoft Machine Learning Server e a análise in-database pode ser encontrada em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| Ferramentas relacionadas no DSVM       | SQL Server Management Studio <br/> Condutores ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
+| Usos típicos      | <ul><li>Desenvolvimento rápido localmente com conjunto de dados mais pequeno</li><li>Executar in-database R</li></ul> |
+| Ligações a amostras      | <ul><li>Uma pequena amostra de um conjunto de dados da cidade de Nova Iorque é carregada na base de dados SQL:<br/>  `nyctaxi`</li><li>A amostra do Jupyter que mostra o Microsoft Machine Learning Server e a análise in-database pode ser encontrada em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
+| Ferramentas relacionadas no DSVM       | <ul><li>O SQL Server Management Studio</li><li>Condutores ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > A SQL Server Developer Edition só pode ser utilizada para fins de desenvolvimento e teste. Precisa de uma licença ou de um dos VMs do SQL Server para executá-la em produção.
@@ -61,13 +62,13 @@ Além disso, o DSVM vem com controladores ODBC e JDBC para falar com sql Server,
 
 ## <a name="apache-spark-2x-standalone"></a>Faísca Apache 2.x (Autónoma)
 
-| | |
+| Categoria | Valor |
 | ------------- | ------------- |
-| O que é?   | Uma instância autónoma (nó único em processo) da popular plataforma Apache Spark; um sistema de processamento rápido e em larga escala de dados e aprendizagem automática     |
+| Que passa?   | Uma instância autónoma (nó único em processo) da popular plataforma Apache Spark; um sistema de processamento rápido e em larga escala de dados e aprendizagem automática     |
 | Edições DSVM suportadas      | Linux     |
-| Usos típicos      | * Desenvolvimento rápido de aplicações Spark/PySpark localmente com um conjunto de dados menor e posterior implantação em grandes clusters de faíscas, como Azure HDInsight<br/> * Teste o contexto de faísca do servidor de aprendizagem de máquinas da Microsoft <br />* Utilize a biblioteca [MMLSpark](https://github.com/Azure/mmlspark) de código aberto da SparkML ou da Microsoft para construir aplicações ML |
-| Ligações a amostras      |    Amostra de Jupyter: <br />&nbsp;&nbsp;* ~/cadernos/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/cadernos/MMLSpark <br /> Microsoft Machine Learning Server (contexto spark): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Ferramentas relacionadas no DSVM       | PySpark<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
+| Usos típicos      | <ul><li>Desenvolvimento rápido de aplicações Spark/PySpark localmente com um conjunto de dados menor e posterior implantação em grandes clusters de faíscas, como Azure HDInsight</li><li>Teste o contexto de faísca do servidor de aprendizagem de máquinas da Microsoft</li><li>Utilize a biblioteca [MMLSpark](https://github.com/Azure/mmlspark) da SparkML ou da Microsoft para construir aplicações ML</li></ul> |
+| Ligações a amostras      |    Amostra de Jupyter:<ul><li>~/cadernos/SparkML/pySpark</li><li>~/cadernos/MMLSpark</li></ul><p>Microsoft Machine Learning Server (contexto spark): /dsvm/samples/MRS/MRSSparkContextSample.R</p> |
+| Ferramentas relacionadas no DSVM       | <ul><li>PySpark</li><li>Jupyter (Spark/PySpark Kernels)</li><li>Microsoft Machine Learning Server, SparkR, Sparklyr</li><li>Apache Drill</li></ul> |
 
 ### <a name="how-to-use-it"></a>Como utilizá-lo
 Pode submeter trabalhos spark na linha de comando executando o `spark-submit` comando ou `pyspark` comando. Também pode criar um caderno Jupyter criando um novo caderno com o kernel Spark.

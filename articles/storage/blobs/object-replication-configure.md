@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddf9a1309cb4f9156cec3aeb5d2ddd9d22cde485
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011453"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configure a replicação do objeto para as bolhas de bloco (pré-visualização)
 
@@ -52,7 +52,7 @@ Para criar uma política de replicação no portal Azure, siga estes passos:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Screenshot mostrando regras de replicação no portal Azure":::
 
-1. Se desejar, especifique um ou mais filtros para copiar apenas bolhas que correspondam a um padrão de prefixo. Por exemplo, se especificar um prefixo, `b` apenas bolhas cujo nome começa com essa letra são replicadas. Pode especificar um diretório virtual como parte do prefixo.
+1. Se desejar, especifique um ou mais filtros para copiar apenas bolhas que correspondam a um padrão de prefixo. Por exemplo, se especificar um prefixo, `b` apenas bolhas cujo nome começa com essa letra são replicadas. Pode especificar um diretório virtual como parte do prefixo. A cadeia de prefixo não suporta caracteres wildcard.
 
     A imagem a seguir mostra filtros que restringem quais as bolhas que são copiadas como parte de uma regra de replicação.
 
@@ -68,7 +68,7 @@ Para criar uma política de replicação no portal Azure, siga estes passos:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para criar uma política de replicação com o PowerShell, instale pela primeira vez a versão [2.0.1-pré-visualização](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) do módulo Az.Storage PowerShell. Siga estes passos para instalar o módulo de pré-visualização:
+Para criar uma política de replicação com o PowerShell, instale pela primeira vez a versão [2.0.1 ou](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) posterior do módulo Az.Storage PowerShell. Siga estes passos para instalar o módulo de pré-visualização:
 
 1. Desinstalar quaisquer instalações anteriores do Azure PowerShell a partir do Windows utilizando as **funcionalidades & aplicações** em **Definições**.
 
@@ -277,6 +277,6 @@ az storage account or-policy delete \
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da replicação do objeto (pré-visualização)](object-replication-overview.md)

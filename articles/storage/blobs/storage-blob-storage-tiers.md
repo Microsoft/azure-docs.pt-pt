@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919911"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011350"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
@@ -230,7 +230,7 @@ A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes
 
 **Posso armazenar objetos nos três níveis de acesso (quentes, frescos e de arquivo) na mesma conta?**
 
-Sim. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
+Yes. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
 
 **Posso alterar o nível de acesso predefinido da minha conta de armazenamento Blob ou GPv2?**
 
@@ -248,7 +248,7 @@ Os níveis de acesso quente e fresco, juntamente com o nível de nível de bolha
 
 As bolhas no nível de acesso quente têm a mesma latência que as bolhas nas contas de armazenamento GPv1, GPv2 e Blob. As bolhas no nível de acesso fresco têm uma latência semelhante (em milissegundos) como bolhas em contas de armazenamento GPv1, GPv2 e Blob. As bolhas no nível de acesso ao arquivo têm várias horas de latência nas contas de armazenamento GPv1, GPv2 e Blob.
 
-As bolhas no nível de acesso fresco têm um nível de serviço de disponibilidade ligeiramente mais baixo (SLA) do que as bolhas armazenadas no nível de acesso quente. Para obter mais informações, veja [SLA para Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+As bolhas no nível de acesso fresco têm um nível de serviço de disponibilidade ligeiramente mais baixo (SLA) do que as bolhas armazenadas no nível de acesso quente. Para obter mais informações, veja [SLA para Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 **As operações entre as camadas frequente, esporádica e de arquivo são iguais?**
 
@@ -274,7 +274,7 @@ O portal, o PowerShell e as ferramentas da CLI do Azure e as bibliotecas de.NET,
 
 O armazenamento de dados juntamente com outros limites são definidos ao nível da conta e não por nível de acesso. Pode optar por utilizar todo o seu limite num só nível ou nos três níveis. Para obter mais informações, consulte [os objetivos de Escalabilidade e desempenho para as contas de armazenamento padrão.](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avalie o calor, o frio e o arquivo nas contas de armazenamento de GPv2 e Blob
 

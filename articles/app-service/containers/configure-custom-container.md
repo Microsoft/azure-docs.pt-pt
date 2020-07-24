@@ -3,12 +3,12 @@ title: Configure um recipiente Linux personalizado
 description: Saiba como configurar um recipiente Linux personalizado no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 57281bedb34078dff6878d69be1bfe7f7300f545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84905804"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008596"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configure um recipiente Linux personalizado para o Serviço de Aplicações Azure
 
@@ -18,7 +18,7 @@ Este guia fornece conceitos e instruções fundamentais para a contentorização
 
 ## <a name="configure-port-number"></a>Configure o número da porta
 
-O servidor web na sua imagem personalizada pode usar uma porta que não seja 80. Informe o Azure sobre a porta que o seu recipiente personalizado utiliza utilizando a definição da `WEBSITES_PORT` aplicação. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Pode defini-lo executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) o comando na Cloud Shell. Por exemplo:
+Por predefinição, o Serviço de Aplicações assume que o seu recipiente personalizado está a ouvir na porta 80. O servidor web na sua imagem personalizada pode usar uma porta que não seja 80. Informe o Azure sobre a porta que o seu recipiente personalizado utiliza utilizando a definição da `WEBSITES_PORT` aplicação. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Pode defini-lo executando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) o comando na Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -138,7 +138,7 @@ As seguintes listas mostram opções de configuração de Composição de Docker
 
 - command
 - entrypoint
-- environment
+- ambiente
 - image
 - ports
 - restart
@@ -162,7 +162,7 @@ A utilização de um recipiente personalizado com integração VNet pode requere
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Implantação do repositório de contentores privados](tutorial-custom-docker-image.md)

@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224269"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010806"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual key Vault para Linux
 
@@ -35,7 +35,7 @@ A extensão Key Vault VM suporta estas distribuições Linux:
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A extensão não requer configurações protegidas - todas as suas definições são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorizados, frequência de sondagens e a loja de certificados de destino. Mais concretamente:  
+O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A extensão não requer configurações protegidas - todas as suas definições são consideradas informações sem impacto de segurança. A extensão requer uma lista de segredos monitorizados, frequência de sondagens e a loja de certificados de destino. Especificamente:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -71,7 +71,7 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 > [!NOTE]
 > Os seus certificados observados URLs devem ser do formulário `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
-> Isto porque o `/secrets` caminho devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de Cofre Chave](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Isto porque o `/secrets` caminho devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de Cofre Chave](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > A propriedade 'autenticaçõesSettings' é opcional para cenários quando a VM tem múltiplas identidades atribuídas.
@@ -80,12 +80,12 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | data |
 | publicador | Microsoft.Azure.KeyVault | string |
 | tipo | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1,0 | int |
 | sondagensIntervalInS | 3600 | string |
 | certificadoStoreName | É ignorado em Linux | string |
 | linkOnRenewal | false | boolean |
@@ -204,12 +204,12 @@ O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves 
 Por favor, esteja ciente das seguintes restrições/requisitos:
 - Restrições do Cofre chave:
   - Deve existir no momento da implantação 
-  - A Política de Acesso ao Cofre de Chaves deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Consulte [a autenticação do Cofre de Chaves com uma identidade gerida](../../key-vault/managed-identity.md)
+  - A Política de Acesso ao Cofre de Chaves deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Consulte [a autenticação do Cofre de Chaves com uma identidade gerida](../../key-vault/general/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolução de Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure PowerShell.
 
