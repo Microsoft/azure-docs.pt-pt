@@ -14,13 +14,14 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015889"
 ---
-# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Ative Directory
+# <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 
 Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido em Azure Ative Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para obter mais sobre autosserviço ou inscrição "viral" para um serviço, consulte [o que é a inscrição de self-service para o Azure Ative Directory?](directory-self-service-signup.md)
 
@@ -31,7 +32,7 @@ Durante o processo de obtenção do controlo administrativo, pode provar a propr
 
 * Quando executa uma [aquisição "externa"](#external-admin-takeover) de um diretório Azure não gerido, adiciona-se o nome de domínio DNS do diretório não gerido ao seu diretório Azure gerido. Quando adiciona o nome de domínio, é criado um mapeamento dos utilizadores para os recursos no diretório do Azure gerido, para que os utilizadores possam continuar a aceder a serviços sem interrupções. 
 
-## <a name="internal-admin-takeover"></a>Aquisição interna de administração
+## <a name="internal-admin-takeover"></a>Aquisição de administrador interno
 
 Alguns produtos que incluem SharePoint e OneDrive, como o Office 365, não suportam aquisição externa. Se esse é o seu cenário, ou se você é um administrador e quer assumir uma organização AD AZure não gerida ou "sombra" criada por utilizadores que usaram inscrição de autosserviço, você pode fazê-lo com uma aquisição de administração interna.
 
@@ -73,7 +74,7 @@ Quando completar os passos anteriores, é agora o administrador global da organi
 > [!NOTE]
 > Qualquer utilizadores do serviço Power BI ou Azure Rights Management que tenham licenças atribuídas na organização office 365 devem guardar os seus dashboards se o nome de domínio for removido. Devem iniciar sposição com um nome de utilizador como * \@ utilizador fourthcoffeexyz.onmicrosoft.com* em vez de utilizador * \@ quartocoffee.xyz*.
 
-## <a name="external-admin-takeover"></a>Aquisição de administração externa
+## <a name="external-admin-takeover"></a>Aquisição de administrador externo
 
 Se já gere uma organização com serviços Azure ou Office 365, não pode adicionar um nome de domínio personalizado se já estiver verificado em outra organização Azure AD. No entanto, a partir da sua organização gerida em Azure AD você pode assumir uma organização não gerida como uma aquisição de administração externa. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
 
@@ -81,7 +82,7 @@ Quando verifica a propriedade do nome de domínio, a Azure AD remove o nome de d
 
 - Utilizadores
 - Subscrições
-- Atribuição de licenças
+- Atribuições de licenças
 
 ### <a name="support-for-external-admin-takeover"></a>Apoio à aquisição de administradores externos
 A aquisição de administração externa é suportada pelos seguintes serviços online:
@@ -167,11 +168,11 @@ cmdlet | Utilização
 
 Um desafio bem sucedido devolve-lhe o pedido sem um erro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Adicione um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
-* [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
+* [Como instalar e configurar o Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Referência de Cmdlet do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 

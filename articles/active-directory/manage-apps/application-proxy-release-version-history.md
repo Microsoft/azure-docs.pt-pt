@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2020
+ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c41a357ebaf65cca8465bfc48dda3dd065c3e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019391"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD Application Proxy: O histórico de lançamentos da versão
 Este artigo lista as versões e funcionalidades do Azure Ative Directory (Azure AD) Application Proxy que foram lançados. A equipa Azure AD atualiza regularmente o Application Proxy com novas funcionalidades e funcionalidades. Os conectores Proxy da aplicação são atualizados automaticamente quando uma nova versão é lançada. 
@@ -35,6 +35,31 @@ Recurso |  Detalhes
 Como ativar o Proxy de Aplicação | Neste [tutorial](application-proxy-add-on-premises-application.md)são descritos os pré-requisitos para permitir a aplicação Proxy e instalar e registar um conector .
 Compreenda os conectores Proxy de aplicação AD Azure | Saiba mais sobre [a gestão do conector](application-proxy-connectors.md) e como os conectores [atualizam automaticamente.](application-proxy-connectors.md#automatic-updates)
 Download do conector proxy da aplicação Azure Ad |  [Descarregue o conector mais recente.](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)
+
+## <a name="1519750"></a>1.5.1975.0
+
+### <a name="release-status"></a>Estado de lançamento
+
+22 de julho de 2020: Lançado para download Esta versão só está disponível para instalação através da página de descarregamento. Um lançamento de upgrade automático desta versão será lançado mais tarde.
+
+### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
+-   Melhor apoio aos ambientes nublados do Governo de Azure. Para etapas sobre como instalar corretamente o conector para a nuvem do Governo Azure, reveja os [passos de pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e [de instalação](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+- Suporte para utilizar o cliente web remote desktop Services com Application Proxy. Consulte [o Ambiente de Trabalho Remoto com O Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) para obter mais detalhes.
+- Melhores negociações de extensão de websocket. 
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+- Corrigiu um problema de websocket que forçou cordas minúsculas.
+- Corrigiu um problema que fez com que os conectores não respondessem de forma occassional.
+
+## <a name="1516260"></a>1.5.1626.0
+
+### <a name="release-status"></a>Estado de lançamento
+
+17 de julho de 2020: Lançado para download. Esta versão só está disponível para instalação através da página de descarregamento. Um lançamento de upgrade automático desta versão será lançado mais tarde.
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+- Problema de fuga de memória resolvido presente na versão anterior
+- Melhorias gerais para suporte a websocket
 
 ## <a name="1515260"></a>1.5.1526.0
 
@@ -106,6 +131,6 @@ Melhor controlo sobre os limites de ligação de saída dos conectores.
 
 Se estiver a utilizar uma versão de conector Proxy da Aplicação antes de 1.5.36.0, atualize a versão mais recente para garantir que tem as funcionalidades mais recentes totalmente suportadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [acesso remoto a aplicações no local através do Azure AD Application Proxy](application-proxy.md).
 - Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).

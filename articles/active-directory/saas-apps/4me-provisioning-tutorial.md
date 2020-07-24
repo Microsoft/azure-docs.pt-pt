@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77059172"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018694"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configurar 4me para o provisionamento automático do utilizador
 
@@ -121,13 +122,13 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Guardar**.
+9. Clique em **Save** (Guardar).
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para 4me**.
 
     ![Mapeamentos de 4me do utilizador](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Reveja os atributos do utilizador que são sincronizados de AZure AD a 4me na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em 4me para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+11. Reveja os atributos do utilizador que são sincronizados de AZure AD a 4me na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em 4me para operações de atualização. Certifique-se de que [o 4me suporta a filtragem](https://developer.4me.com/v1/scim/users/) no atributo correspondente que escolheu. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
     ![Mapeamentos de 4me do utilizador](media/4me-provisioning-tutorial/4me-user-attributes.png)
     
@@ -168,6 +169,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)

@@ -11,11 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b6bda6d35391543e416c377557e34de317e293eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741573"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015975"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas não Microsoft à aplicação Microsoft Authenticator
 
@@ -49,7 +50,7 @@ Adicione a sua conta Google ligando a verificação de dois fatores e adicionand
 
 ### <a name="add-your-google-account-to-the-app"></a>Adicione a sua conta Google à aplicação
 
-1. Na página do Google no seu computador, vá à secção **de segundo passo alternativo,** escolha **Configurar** a partir da secção de **aplicação Authenticator.**
+1. Na página de segurança da conta google no seu computador https://myaccount.google.com/security) (, vá ao **Add mais segundos passos para verificar se é a** sua secção, escolha **Configurar a** partir da secção de **aplicações Authenticator.**
 
 2. Na página **de aplicações "Obter" da página de aplicações Authenticator,** selecione **Android** ou **iPhone** com base no seu tipo de telefone e, em seguida, selecione **Next**.
 
@@ -192,7 +193,7 @@ Adicione a sua conta Amazon ligando a verificação de dois fatores e adicionand
     >[!NOTE]
     >Para obter mais informações sobre a verificação de dois fatores e a sua conta Amazon, consulte [Sobre a Verificação em Duas Etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) e [Inscreva-se com Verificação em Duas Etapas](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Depois de adicionar as suas contas à aplicação, pode iniciar sôms usando a aplicação Authenticator no seu dispositivo. Para obter mais informações, consulte [Iniciar sção usando a aplicação.](user-help-auth-app-sign-in.md)
 

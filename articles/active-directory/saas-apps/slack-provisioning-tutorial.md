@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b7fa5aea835329be8f65a3bb1775ba5b0d97d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389870"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016344"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configure Slack para o fornecimento automático de utilizadores
 
@@ -62,7 +62,7 @@ O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a p
 
 * Comece minúsculo. Teste com um pequeno conjunto de utilizadores e grupos antes de rolar para todos. Quando o âmbito de provisão é definido para utilizadores e grupos atribuídos, pode controlá-lo atribuindo um ou dois utilizadores ou grupos à aplicação. Quando o âmbito é definido para todos os utilizadores e grupos, pode especificar um [filtro de deteção baseado no atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-## <a name="step-4-configure-automatic-user-provisioning-to-slack"></a>Passo 4. Configure o fornecimento automático de utilizadores ao Slack 
+## <a name="step-4-configure-automatic-user-provisioning-to-slack"></a>Passo 4: Configure o fornecimento automático de utilizadores ao Slack 
 
 Esta secção guia-o através da ligação do seu AD Azure à conta de utilizador da Slack que fornece a API, e configura o serviço de fornecimento para criar, atualizar e desativar as contas de utilizador atribuídas em Slack com base na atribuição de utilizadores e grupos em Azure AD.
 
@@ -108,34 +108,34 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
    |Atributo|Tipo|
    |---|---|
    |ativo|Booleano|
-   |externoId|String|
-   |displayName|String|
-   |nome.famíliaName|String|
-   |nome.dado Nome|String|
-   |título|String|
-   |e-mails[tipo eq "work"].value|String|
-   |userName|String|
-   |nickName|String|
-   |endereços[tipo eq "untyped"].streetAddress|String|
-   |endereços[tipo eq "untyped"].localidade|String|
-   |endereços[tipo eq "untyped"].região|String|
-   |endereços[tipo eq "untyped"].postalCode|String|
-   |endereços[tipo eq "untyped"].país|String|
-   |números de telefone[tipo eq "mobile"].valor|String|
-   |phoneNumbers[tipo eq "work"].value|String|
-   |papéis[eq primário "Verdadeiro"].valor|String|
-   |região|String|
-   |nome.honorificPrefix|String|
-   |fotos[tipo eq "foto"].valor|String|
-   |profileUrl|String|
-   |timezone|String|
-   |userType|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.department|String|
+   |externoId|Cadeia|
+   |displayName|Cadeia|
+   |nome.famíliaName|Cadeia|
+   |nome.dado Nome|Cadeia|
+   |título|Cadeia|
+   |e-mails[tipo eq "work"].value|Cadeia|
+   |userName|Cadeia|
+   |nickName|Cadeia|
+   |endereços[tipo eq "untyped"].streetAddress|Cadeia|
+   |endereços[tipo eq "untyped"].localidade|Cadeia|
+   |endereços[tipo eq "untyped"].região|Cadeia|
+   |endereços[tipo eq "untyped"].postalCode|Cadeia|
+   |endereços[tipo eq "untyped"].país|Cadeia|
+   |números de telefone[tipo eq "mobile"].valor|Cadeia|
+   |phoneNumbers[tipo eq "work"].value|Cadeia|
+   |papéis[eq primário "Verdadeiro"].valor|Cadeia|
+   |região|Cadeia|
+   |nome.honorificPrefix|Cadeia|
+   |fotos[tipo eq "foto"].valor|Cadeia|
+   |profileUrl|Cadeia|
+   |timezone|Cadeia|
+   |userType|Cadeia|
+   |urn:scim:schemas:extensão:enterprise:1.0.department|Cadeia|
    |urn:scim:schemas:extensão:enterprise:1.0.manager|Referência|
-   |urn:scim:schemas:extensão:enterprise:1.0.employeeNumber|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.costCenter|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.organization|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.division|String|
+   |urn:scim:schemas:extensão:enterprise:1.0.employeeNumber|Cadeia|
+   |urn:scim:schemas:extensão:enterprise:1.0.costCenter|Cadeia|
+   |urn:scim:schemas:extensão:enterprise:1.0.organization|Cadeia|
+   |urn:scim:schemas:extensão:enterprise:1.0.division|Cadeia|
 
 12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Slack**.
 
@@ -143,7 +143,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|String|
+      |displayName|Cadeia|
       |membros|Referência|
 
 14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -169,7 +169,7 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
 
-## <a name="connector-limitations"></a>Limitações do conector
+## <a name="troubleshooting-tips"></a>Sugestões de Resolução de Problemas
 
 * Ao configurar o atributo de nome de **exibição** de Slack, esteja ciente dos seguintes comportamentos:
 
@@ -179,11 +179,15 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
   
   * A pontuação permitida inclui períodos, sublinhados, hífens, apóstrofos, suportes **(por exemplo, [ { } )** e separadores (por **exemplo, / .**
   
+  * displayName propriedade não pode ter um caráter '@'. Se um '@' estiver incluído, poderá encontrar um evento ignorado nos registos de provisionamento com a descrição "AttributeValidationFailed".
+
   * Apenas atualizações se estas duas definições estiverem configuradas no local de trabalho/organização da Slack - A sincronização de **perfis está ativada** e os **utilizadores não podem alterar o seu nome de exibição**.
-  
+
 * O **atributo de nome** de utilizador da Slack tem de ter menos de 21 caracteres e ter um valor único.
 
 * A folga só permite combinar com os atributos **userName** e **e-mail**.  
+  
+* Os códigos erorr comuns são documentados na documentação oficial da Slack -https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Change log
 
@@ -194,6 +198,6 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 723329022d748ee18a07fcaeaecc2aff0e5f707b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021652"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Ativar zona para zona de recuperação de desastres para máquinas virtuais Azure
 
@@ -20,7 +20,6 @@ Este artigo descreve como replicar, falhar e falhar as máquinas virtuais Azure 
 
 >[!NOTE]
 >
->- A recuperação do local atualmente não suporta planos de recuperação de zona para recuperação de desastres de zona via portal. Por favor, use a PowerShell ou a REST API para alavancar os planos de recuperação da zona para a recuperação de desastres da zona. 
 >- O apoio à recuperação de desastres zona-a-zona está atualmente limitado a duas regiões: Sudeste Asiático e Reino Unido Sul.  
 >- A Recuperação do Site não move nem armazena os dados dos clientes para fora da região em que é implantado quando o cliente está a utilizar a Zone to Zone Disaster Recovery. Os clientes podem selecionar um Cofre de Serviços de Recuperação de uma região diferente, se assim o desejarem. O Cofre de Serviços de Recuperação contém metadados, mas nenhum dado real do cliente.
 
@@ -122,7 +121,7 @@ Zona para zona Recuperação de Desastres suporta os mesmos sistemas operativos 
 **5. Os grupos de recursos de origem e de destino podem ser os mesmos?**
 Não, tens de falhar com um grupo de recursos diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os passos que precisam de ser seguidos para executar um exercício de recuperação de desastres, falhar, re-proteger e falhar são os mesmos que os passos em Azure para O cenário de Recuperação de Desastres Azure.
 

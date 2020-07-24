@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021380"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
 
@@ -65,7 +66,7 @@ A tabela seguinte mostra algumas diferenças fundamentais entre a StorSimple Clo
 | --- | --- | --- |
 | **Localização** |Reside no datacenter. |É executado no Azure. |
 | **Interfaces de rede** |Possui seis interfaces de rede: de DADOS 0 a DADOS 5. |Possui apenas uma interface de rede: DADOS 0. |
-| **Registo** |Registado durante o passo de configuração inicial. |O registo é uma tarefa separada. |
+| **Inscrição** |Registado durante o passo de configuração inicial. |O registo é uma tarefa separada. |
 | **Chave de encriptação de dados de serviço** |Volte a gerá-la no dispositivo físico e, em seguida, atualize a aplicação da cloud com a nova chave. |Não é possível voltar a gerar a chave a partir da aplicação da cloud. |
 | **Tipos de volume suportados** |Suporta volumes afixados localmente e escalonados. |Suporta apenas volumes escalonados. |
 
@@ -83,7 +84,7 @@ Antes de aprovisionar a aplicação da cloud, terá de efetuar os seguintes prep
 * Para a aplicação da cloud, [configure uma rede virtual no Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se utilizar o Premium Storage, tem de criar uma rede virtual numa região do Azure que suporte o Premium Storage. As regiões de Armazenamento Premium são regiões que correspondem à linha de armazenamento de discos na [lista dos Serviços Azure por Região.](https://azure.microsoft.com/regions/services/)
 * É recomendado que utilize o servidor DNS predefinido fornecido pelo Azure em vez de especificar o próprio nome de servidor DNS. Se o nome de servidor DNS não for válido ou se o servidor DNS não for capaz de resolver corretamente os endereços IP, a criação da aplicação da cloud irá falhar.
 * As opções de ponto a site e site a site são opcionais, mas não obrigatórias. Se desejar, pode configurar estas opções para cenários mais avançados.
-* Pode criar [máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (servidores anfitriões) na rede virtual que pode utilizar os volumes expostos pela aplicação da cloud. Estes servidores devem cumprir os seguintes requisitos:
+* Pode criar [máquinas virtuais do Azure](../virtual-machines/windows/quick-create-portal.md) (servidores anfitriões) na rede virtual que pode utilizar os volumes expostos pela aplicação da cloud. Estes servidores devem cumprir os seguintes requisitos:
 
   * Ser uma VMs com Windows ou Linux e ter um software iniciador do iSCSI instalado.
   * Estar em execução na mesma rede virtual da aplicação da cloud.
@@ -194,7 +195,7 @@ Para que a aplicação da cloud se ligue ao servidor anfitrião na mesma rede vi
 
      ![Selecione a máquina virtual da sua aplicação da cloud.](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
 
-2. Aceda a **Definições > Rede**. No painel do lado direito, pode ver o endereço IP privado da aplicação de cloud. Tome nota do mesmo.
+2. Aceda a **Definições > Rede**. No painel do lado direito, pode ver o endereço IP privado da aplicação de cloud. Tome nota desse nome.
 
     ![Obter o endereço IP privado da sua aplicação da cloud](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
@@ -275,6 +276,6 @@ Durante a criação de uma aplicação da cloud, se não existir conectividade �
 5. Se `nslookup` falhar, significa que a falha de conectividade Internet está a impedir a aplicação da cloud de se registar no serviço Gestor de Dispositivos do StorSimple.
 6. Faça as alterações necessárias à rede virtual para se certificar de que a aplicação da cloud é capaz de aceder a sites do Azure, como _windows.net_.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saber como [utilizar o serviço Gestor de Dispositivos do StorSimple para gerir uma aplicação da cloud](storsimple-8000-manager-service-administration.md).
 * Compreender como [restaurar um volume StorSimple a partir de um conjunto de cópias de segurança](storsimple-8000-restore-from-backup-set-u2.md).

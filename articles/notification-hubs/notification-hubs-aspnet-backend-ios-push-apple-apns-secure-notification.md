@@ -14,11 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa84ad9f48f79a77bad1445dadc8c5c965b13655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248705"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022128"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Hubs de notificação Azure Secure Push
 
@@ -121,7 +122,7 @@ Para atingir este objetivo, temos de escrever a lógica para recuperar o conteú
 4. Agora temos de lidar com a notificação recebida e usar o método acima para recuperar o conteúdo para exibição. Em primeiro lugar, temos de permitir que a sua aplicação iOS seja executada em segundo plano ao receber uma notificação push. No **XCode,** selecione o seu projeto de aplicação no painel esquerdo e, em seguida, clique no seu alvo principal de aplicação na secção **Alvos** a partir do painel central.
 5. Em seguida, clique no separador **Capabilities** na parte superior do painel central e verifique a caixa de **verificação de Notificações Remotas.**
 
-    ![][IOS1]
+    ![Screenshot do XCode, com o projeto da aplicação selecionado e o separador Capabilities aberto. A caixa de verificação de notificações remotas é selecionada.][IOS1]
 
 6. Adicione `AppDelegate.m` o seguinte método para lidar com notificações push:
 

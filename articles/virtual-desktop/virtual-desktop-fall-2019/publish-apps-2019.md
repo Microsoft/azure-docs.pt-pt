@@ -1,5 +1,5 @@
 ---
-title: Publicar aplicativos incorporados no Windows Virtual Desktop - Azure
+title: Publicar aplicativos incorporados no Windows Virtual Desktop Fall 2019 - Azure
 description: Como publicar aplicativos incorporados no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,13 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a453ef44a1ede86290f4130a6147eaaad09fa97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e20d2ca8f2f0ef2b8c0290702a2b9e91cc22bb09
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020378"
 ---
-# <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicar aplicativos incorporados no Windows Virtual Desktop
+# <a name="publish-built-in-apps-in-windows-virtual-desktop---fall-2019"></a>Publicar aplicativos incorporados no Windows Virtual Desktop - outono 2019
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../publish-apps.md).
@@ -48,7 +49,7 @@ O processo que utiliza para publicar o Microsoft Edge é um pouco diferente do p
 New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como configurar feeds para organizar a forma como as aplicações são apresentadas para os utilizadores no [Feed Personalizado para utilizadores do Windows Virtual Desktop](customize-feed-virtual-desktop-users-2019.md).
 - Saiba mais sobre a funcionalidade de anexação de aplicações MSIX no [anexo de aplicações set up MSIX](../app-attach.md).

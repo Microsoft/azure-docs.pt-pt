@@ -1,6 +1,6 @@
 ---
-title: Introdução à vista do grupo de segurança no Azure Network Watcher Microsoft Docs
-description: Esta página fornece uma visão geral da capacidade de visualização de segurança do Observador de Rede
+title: Introdução a Regras de Segurança Eficazes no Observador da Rede Azure Microsoft Docs
+description: Esta página fornece uma visão geral do Observador de Rede - Capacidade de visualização de regras de segurança eficazes
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -11,11 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
-ms.openlocfilehash: 18619cc0f7a21a39d0802575c484c68c5fa1a624
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4c601184a060c3dfc4f033bcf983bf773f7167f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76840762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022655"
 ---
 # <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Introdução à visão eficaz das regras de segurança no Observador da Rede Azure
 
@@ -31,7 +32,12 @@ As regras podem ser selecionadas e uma nova lâmina abre-se para mostrar o Grupo
 
 ![perfuração][2]
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
+
+Também pode utilizar a funcionalidade *Grupos de Segurança Eficaz* através de outros métodos listados abaixo:
+* [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
 
 Saiba como auditar as definições do Grupo de Segurança de Rede visitando [as definições do Grupo de Segurança da Rede de Auditoria com o PowerShell](network-watcher-nsg-auditing-powershell.md)
 

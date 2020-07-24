@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2226d7a769caf049af30bbca81ca3079d72970b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75779251"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023131"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com Serviços de Mídia .NET SDK
 
@@ -25,7 +26,7 @@ Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo
 
 Para uma descrição detalhada desta característica e cenários onde é utilizado, consulte [Manifestos Dinâmicos](filters-dynamic-manifest-overview.md) e [Filtros.](filters-concept.md)
 
-Este tópico mostra como utilizar os Serviços de Comunicação Social .NET SDK para definir um filtro para um ativo Video on Demand e criar [Filtros de Conta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) e [Filtros de Ativos](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+Este tópico mostra como utilizar os Serviços de Comunicação Social .NET SDK para definir um filtro para um ativo Video on Demand e criar [Filtros de Conta](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) e [Filtros de Ativos](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
 > Certifique-se de rever a [apresentaçãoTimeRange](filters-concept.md#presentationtimerange).
@@ -33,13 +34,13 @@ Este tópico mostra como utilizar os Serviços de Comunicação Social .NET SDK 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 - Rever [filtros e manifestos dinâmicos.](filters-dynamic-manifest-overview.md)
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
-- Obtenha informações necessárias para aceder a [APIs](access-api-cli-how-to.md)
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
+- Obtenha informações necessárias para aceder a [APIs](./access-api-howto.md)
 - [Reveja upload, codificação e stream usando Azure Media Services](stream-files-tutorial-with-api.md) para ver como começar a usar [.NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)
 
 ## <a name="define-a-filter"></a>Definir um filtro  
 
-Em .NET, configura seleções de faixas com as classes [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) e [FilterTrackPropertyCondition.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) 
+Em .NET, configura seleções de faixas com as classes [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) e [FilterTrackPropertyCondition.](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) 
 
 O código que se segue define um filtro que inclui quaisquer faixas de áudio que sejam EC-3 e quaisquer faixas de vídeo que tenham bitrate na gama 0-100000.
 
@@ -115,8 +116,6 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Transmissão em Fluxo Uniforme|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Stream vídeos](stream-files-tutorial-with-api.md) 
-
-

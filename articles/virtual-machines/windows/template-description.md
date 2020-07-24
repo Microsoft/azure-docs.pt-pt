@@ -7,16 +7,16 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac2e94e9c0213f14999d730027e118df6584519
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020207"
 ---
-# <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo de gestor de recursos Azure
+# <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo do Azure Resource Manager
 
-Este artigo descreve aspetos de um modelo de Gestor de Recursos Azure que se aplicam a máquinas virtuais. Este artigo não descreve um modelo completo para criar uma máquina virtual; para isso precisa de definições de recursos para contas de armazenamento, interfaces de rede, endereços IP públicos e redes virtuais. Para obter mais informações sobre como estes recursos podem ser definidos em conjunto, consulte o [modelo do Gestor de Recursos.](../../azure-resource-manager/resource-manager-template-walkthrough.md)
+Este artigo descreve aspetos de um modelo de Gestor de Recursos Azure que se aplicam a máquinas virtuais. Este artigo não descreve um modelo completo para criar uma máquina virtual; para isso precisa de definições de recursos para contas de armazenamento, interfaces de rede, endereços IP públicos e redes virtuais. Para obter mais informações sobre como estes recursos podem ser definidos em conjunto, consulte o [modelo do Gestor de Recursos.](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 Existem [muitos modelos na galeria](https://azure.microsoft.com/documentation/templates/?term=VM) que incluem o recurso VM. Nem todos os elementos que podem ser incluídos num modelo são descritos aqui.
 
@@ -156,14 +156,14 @@ A versão da API que especifica no seu modelo afeta quais as propriedades que po
 
 Utilize estas oportunidades para obter as versões API mais recentes:
 
-- REST API - [Listar todos os fornecedores de recursos](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Azure CLI - [show de fornecedores az](https://docs.microsoft.com/cli/azure/provider)
+- REST API - [Listar todos os fornecedores de recursos](/rest/api/resources/providers)
+- PowerShell - [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI - [show de fornecedores az](/cli/azure/provider)
 
 
 ## <a name="parameters-and-variables"></a>Parâmetros e variáveis
 
-[Os parâmetros](../../resource-group-authoring-templates.md) facilitam a especificação de valores para o modelo quando o executam. Esta secção de parâmetros é utilizada no exemplo:
+[Os parâmetros](../../azure-resource-manager/templates/template-syntax.md) facilitam a especificação de valores para o modelo quando o executam. Esta secção de parâmetros é utilizada no exemplo:
 
 ```json
 "parameters": {
@@ -175,7 +175,7 @@ Utilize estas oportunidades para obter as versões API mais recentes:
 
 Quando implementa o modelo de exemplo, introduz valores para o nome e palavra-passe da conta do administrador em cada VM e o número de VMs a criar. Tem a opção de especificar valores de parâmetros num ficheiro separado que é gerido com o modelo, ou fornecer valores quando solicitado.
 
-[As variáveis](../../resource-group-authoring-templates.md) facilitam a configuração de valores no modelo que são usados repetidamente ao longo do mesmo ou que podem mudar ao longo do tempo. Esta secção de variáveis é utilizada no exemplo:
+[As variáveis](../../azure-resource-manager/templates/template-syntax.md) facilitam a configuração de valores no modelo que são usados repetidamente ao longo do mesmo ou que podem mudar ao longo do tempo. Esta secção de variáveis é utilizada no exemplo:
 
 ```json
 "variables": { 
@@ -208,7 +208,7 @@ Quando implementa o modelo de exemplo, introduz valores para o nome e palavra-pa
 }, 
 ```
 
-Quando implementa o modelo de exemplo, são utilizados valores variáveis para o nome e identificador da conta de armazenamento previamente criada. As variáveis também são usadas para fornecer as definições para a extensão de diagnóstico. Use as [melhores práticas para criar modelos de Gestor de Recursos Azure](../../resource-manager-template-best-practices.md) para ajudá-lo a decidir como pretende estruturar os parâmetros e variáveis no seu modelo.
+Quando implementa o modelo de exemplo, são utilizados valores variáveis para o nome e identificador da conta de armazenamento previamente criada. As variáveis também são usadas para fornecer as definições para a extensão de diagnóstico. Use as [melhores práticas para criar modelos de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-best-practices.md) para ajudá-lo a decidir como pretende estruturar os parâmetros e variáveis no seu modelo.
 
 ## <a name="resource-loops"></a>Ciclos de recursos
 
@@ -247,7 +247,7 @@ Tenha em mente que criar um loop para um recurso no modelo pode exigir que você
 
 ## <a name="dependencies"></a>Dependências
 
-A maioria dos recursos depende de outros recursos para funcionar corretamente. As máquinas virtuais devem ser associadas a uma rede virtual e para isso precisa de uma interface de rede. O elemento [dependOn](../../resource-group-define-dependencies.md) é utilizado para garantir que a interface de rede está pronta para ser usada antes da criação dos VMs:
+A maioria dos recursos depende de outros recursos para funcionar corretamente. As máquinas virtuais devem ser associadas a uma rede virtual e para isso precisa de uma interface de rede. O elemento [dependOn](../../azure-resource-manager/templates/define-resource-dependency.md) é utilizado para garantir que a interface de rede está pronta para ser usada antes da criação dos VMs:
 
 ```json
 "dependsOn": [
@@ -277,7 +277,7 @@ Vários elementos de perfil são utilizados ao definir um recurso de máquina vi
 - [tamanho](sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenciais
 - definições de discos e [sistemas operativos](cli-ps-findimage.md)
-- [interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [interface de rede](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - diagnósticos de botas
 
 ## <a name="disks-and-images"></a>Discos e imagens
@@ -369,7 +369,7 @@ Pode opcionalmente adicionar discos de dados aos VMs. O [número de discos](size
 
 ## <a name="extensions"></a>Extensões
 
-Embora [as extensões](extensions-features.md) sejam um recurso separado, estão intimamente ligadas aos VMs. As extensões podem ser adicionadas como um recurso infantil do VM ou como um recurso separado. O exemplo mostra que a [extensão de diagnóstico](extensions-diagnostics-template.md) foi adicionada aos VMs:
+Embora [as extensões](../extensions/features-windows.md) sejam um recurso separado, estão intimamente ligadas aos VMs. As extensões podem ser adicionadas como um recurso infantil do VM ou como um recurso separado. O exemplo mostra que a [extensão de diagnóstico](../extensions/diagnostics-template.md) foi adicionada aos VMs:
 
 ```json
 { 
@@ -404,7 +404,7 @@ Embora [as extensões](extensions-features.md) sejam um recurso separado, estão
 
 Este recurso de extensão utiliza a variável de nome de armazenamento e as variáveis de diagnóstico para fornecer valores. Se quiser alterar os dados recolhidos por esta extensão, pode adicionar mais contadores de desempenho à variável wadperfcounters. Também pode optar por colocar os dados de diagnóstico numa conta de armazenamento diferente do local onde os discos VM estão armazenados.
 
-Existem muitas extensões que pode instalar num VM, mas a mais útil é provavelmente a [Extensão de Script Personalizado.](extensions-customscript.md) No exemplo, um script PowerShell nomeado start.ps1 funciona em cada VM quando começa:
+Existem muitas extensões que pode instalar num VM, mas a mais útil é provavelmente a [Extensão de Script Personalizado.](../extensions/custom-script-windows.md) No exemplo, um script PowerShell nomeado start.ps1 funciona em cada VM quando começa:
 
 ```json
 {
@@ -447,11 +447,11 @@ Se estiver curioso sobre o estado dos recursos na implantação, consulte o grup
 
 ![Obtenha informações de implementação](./media/template-description/virtual-machines-deployment-info.png)
     
-Não é um problema usar o mesmo modelo para criar recursos ou atualizar os recursos existentes. Quando utiliza comandos para implementar modelos, tem a oportunidade de dizer qual [o modo](../../resource-group-template-deploy.md) que pretende utilizar. O modo pode ser definido para **Completo** ou **Incremental**. O padrão é fazer atualizações incrementais. Tenha cuidado ao utilizar o modo **Complete** porque pode eliminar acidentalmente os recursos. Quando define o modo para **Completar,** o Gestor de Recursos elimina quaisquer recursos do grupo de recursos que não estejam no modelo.
+Não é um problema usar o mesmo modelo para criar recursos ou atualizar os recursos existentes. Quando utiliza comandos para implementar modelos, tem a oportunidade de dizer qual [o modo](../../azure-resource-manager/templates/deploy-powershell.md) que pretende utilizar. O modo pode ser definido para **Completo** ou **Incremental**. O padrão é fazer atualizações incrementais. Tenha cuidado ao utilizar o modo **Complete** porque pode eliminar acidentalmente os recursos. Quando define o modo para **Completar,** o Gestor de Recursos elimina quaisquer recursos do grupo de recursos que não estejam no modelo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Crie o seu próprio modelo utilizando [modelos de Gestor de Recursos Azure authoring](../../resource-group-authoring-templates.md).
+- Crie o seu próprio modelo utilizando [modelos de Gestor de Recursos Azure authoring](../../azure-resource-manager/templates/template-syntax.md).
 - Implemente o modelo que criou usando [Criar uma máquina virtual do Windows com um modelo de Gestor de Recursos](ps-template.md).
 - Saiba como gerir os VMs que criou através da revisão [criar e gerir VMs do Windows com o módulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Para a sintaxe JSON e propriedades de tipos de recursos em modelos, consulte [a referência do modelo do Gestor de Recursos Azure](/azure/templates/).

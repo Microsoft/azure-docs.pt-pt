@@ -12,18 +12,18 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b9ea9e756587af124ca94518d9f15271310ddee3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3baa659d454a24a132eda914d50acddbd5df8a90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020071"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
 Neste artigo, aprende a configurar o Azure Ative Directory B2C (Azure AD B2C) para atuar como um fornecedor de identidade de Marcação de Afirmação de Segurança (SAML) às suas aplicações.
 
-## <a name="scenario-overview"></a>Descrição geral do cenário
+## <a name="scenario-overview"></a>Scenario overview (Descrição geral do cenário)
 
 As organizações que utilizam o Azure AD B2C como a sua solução de gestão de identidade e acesso podem exigir interação com fornecedores de identidade ou aplicações configuradas para autenticar usando o protocolo SAML.
 
@@ -36,7 +36,7 @@ Azure AD B2C alcança a interoperabilidade da SAML de uma de duas maneiras:
 
 Resumindo os dois cenários centrais não exclusivos com a SAML:
 
-| Scenario | Papel de Azure AD B2C | Procedimentos |
+| Cenário | Papel de Azure AD B2C | Procedimentos |
 | -------- | ----------------- | ------- |
 | A minha candidatura espera que uma afirmação da SAML complete uma autenticação. | **AZure AD B2C atua como fornecedor de identidade (IdP)**<br />A Azure AD B2C atua como um IdP SAML para as aplicações. | Este artigo. |
 | Os meus utilizadores precisam de um único sinal com um fornecedor de identidade compatível com SAML, como a ADFS, a Salesforce ou a Shibboleth.  | **A Azure AD B2C atua como prestador de serviços (SP)**<br />O Azure AD B2C atua como prestador de serviços ao ligar-se ao fornecedor de identidade SAML. É um representante da federação entre o seu pedido e o fornecedor de identidade SAML.  | <ul><li>[Configurar o súps com a ADFS como um IdP SAML utilizando políticas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configurar o sôm-in com um fornecedor de SAML salesforce usando políticas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
@@ -354,6 +354,51 @@ Para completar este tutorial utilizando a nossa [Aplicação de Teste SAML:][sam
 
 Selecione **Login** e deverá ser apresentado com um ecrã de entrada de utilizador. Após a sua inscrição, uma afirmação SAML é emitida de volta ao pedido de amostra.
 
+## <a name="enable-encypted-assertions"></a>Ativar afirmações enciptadas
+Para encriptar as afirmações SAML enviadas de volta ao Fornecedor de Serviços, o Azure AD B2C utilizará o certificado de chave pública dos prestadores de serviços. A chave pública deve existir nos metadados SAML descritos no ["samlMetadataUrl"](#samlmetadataurl) acima referido como um KeyDescriptor com o uso de 'Encriptação'.
+
+Segue-se um exemplo do KeyDescriptor de metadados SAML com um conjunto de utilização para encriptação:
+
+```xml
+<KeyDescriptor use="encryption">
+  <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
+    <X509Data>
+      <X509Certificate>valid certificate</X509Certificate>
+    </X509Data>
+  </KeyInfo>
+</KeyDescriptor>
+```
+
+Para permitir que o Azure AD B2C envie afirmações encriptadas, definir o item de metadados **de Setada de Secreção WantEncrypted Para** verdadeiro no Perfil Técnico da Parte De Relying, como mostrado abaixo;
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TrustFrameworkPolicy
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+  PolicySchemaVersion="0.3.0.0"
+  TenantId="contoso.onmicrosoft.com"
+  PolicyId="B2C_1A_signup_signin_saml"
+  PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_signup_signin_saml">
+ ..
+ ..
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2"/>
+      <Metadata>
+          <Item Key="WantsEncryptedAssertions">true</Item>
+      </Metadata>
+     ..
+     ..
+     ..
+    </TechnicalProfile>
+  </RelyingParty>
+</TrustFrameworkPolicy>
+```
+
 ## <a name="sample-policy"></a>Política de exemplo
 
 Fornecemos uma política completa de amostras que pode utilizar para testar com a App de Teste SAML.
@@ -370,7 +415,7 @@ Os seguintes cenários de partidos de suporte SAML (RP) são suportados através
 * Especifique a chave de assinatura para verificar os pedidos de RP no objeto principal de aplicação/serviço.
 * Especifique a chave de encriptação simbólica no objeto principal de aplicação/serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Pode encontrar mais informações sobre o [protocolo SAML no site da OASIS.](https://www.oasis-open.org/)
 - Obtenha a aplicação web de teste SAML da [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).

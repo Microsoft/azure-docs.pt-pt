@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021465"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação de VMware VMs para Azure
 
@@ -23,6 +23,9 @@ Uma estratégia de continuidade de negócios e recuperação de desastres (BCDR)
 
 - [O Azure Backup](../backup/backup-overview.md) confirma os seus dados no local e Azure VM. Pode fazer uma erção de um ficheiro e pastas, cargas de trabalho específicas ou um VM inteiro. 
 - [A Azure Site Recovery](site-recovery-overview.md) proporciona resiliência e recuperação de desastres para apps e cargas de trabalho em funcionamento em máquinas no local, ou VMs Azure IaaS. A recuperação do local orquestra a replicação e as pegas falham em Azure quando ocorrem interrupções. Também trata da recuperação de Azure para o seu local principal. 
+
+> [!NOTE]
+> A Recuperação do Site não move nem armazena os dados dos clientes para fora da região alvo, na qual foi configurada a recuperação de desastres para as máquinas de origem. Os clientes podem selecionar um Cofre de Serviços de Recuperação de uma região diferente, se assim o desejarem. O Cofre de Serviços de Recuperação contém metadados, mas nenhum dado real do cliente.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>Como é que a Recuperação do Local faz a recuperação de desastres?
 
@@ -119,6 +122,6 @@ Depois de ter a sua infraestrutura Azure e no local, pode preparar a recuperaç�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com a replicação agora no lugar, você deve [executar um exercício de recuperação de desastres](tutorial-dr-drill-azure.md) para garantir que o failover funciona como esperado. 

@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73961433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021669"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar endereço IP para ligar a um site secundário no local após falha
 
@@ -78,12 +79,12 @@ Após o failover, a Recuperação do Site atribui um endereço IP para cada inte
 
 Depois de ativar a proteção de um VM, pode utilizar o seguinte script de amostra para verificar o endereço atribuído ao VM. Este endereço IP é definido como o endereço IP de failover, e atribuído ao VM no momento do failover:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>Use um endereço IP diferente
 
@@ -92,7 +93,7 @@ Neste cenário, os endereços IP dos VMs que falham são alterados. A desvantage
 - Utilize valores TTL baixos para aplicações intranet.
 - Utilize o seguinte script num plano de recuperação do site, para uma atualização atemea do servidor DNS. Não precisa do script se utilizar o registo de DNS dinâmico.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,
@@ -124,7 +125,7 @@ Neste exemplo, temos diferentes endereços IP em sites primários e secundários
 ![Endereço IP diferente - após falha](./media/hyper-v-vmm-networking/network-design11.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Executar uma ativação pós-falha](hyper-v-vmm-failover-failback.md)
 

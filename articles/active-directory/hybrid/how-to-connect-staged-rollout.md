@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357856"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019833"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
-Ao utilizar uma abordagem de lançamento encenada, pode evitar um corte de todo o seu domínio.  Isto permite testar seletivamente grupos de utilizadores com capacidades de autenticação em nuvem como Azure Multi-Factor Authentication (MFA), Acesso Condicional, Proteção de Identidade para credenciais vazadas, Governação de Identidade, entre outros.  Este artigo discute como fazer a troca. Antes de iniciar o lançamento encenado, no entanto, deve considerar as implicações se uma ou mais das seguintes condições forem verdadeiras:
+O lançamento encenado permite testar seletivamente grupos de utilizadores com capacidades de autenticação em nuvem como Azure Multi-Factor Authentication (MFA), Acesso Condicional, Proteção de Identidade para credenciais vazadas, Governação de Identidade, entre outros, antes de cortar os seus domínios.  Este artigo discute como fazer a troca. Antes de iniciar o lançamento encenado, no entanto, deve considerar as implicações se uma ou mais das seguintes condições forem verdadeiras:
     
 -  Está atualmente a utilizar um servidor de autenticação multi-factor no local. 
 -  Estás a usar cartões inteligentes para autenticação. 
@@ -45,7 +45,7 @@ Para uma visão geral da funcionalidade, veja este "Azure Ative Directory: What 
 
 -   Configurar todas as políticas adequadas de marca de inquilino e acesso condicional que necessita para os utilizadores que estão a ser migrados para a autenticação em nuvem.
 
--   Se pretender utilizar a Autenticação Multi-Factor Azure, recomendamos que utilize [o registo convergente para reiniciar a palavra-passe de autosserviço (SSPR) e a Autenticação Multi-Factor](../authentication/concept-registration-mfa-sspr-combined.md) para que os seus utilizadores registem os seus métodos de autenticação uma vez.
+-   Se pretender utilizar a Autenticação Multi-Factor Azure, recomendamos que utilize [o registo combinado para reiniciar a palavra-passe de autosserviço (SSPR) e a Autenticação Multi-Factor](../authentication/concept-registration-mfa-sspr-combined.md) para que os seus utilizadores registem os seus métodos de autenticação uma vez.
 
 -   Para utilizar a funcionalidade de lançamento encenada, tem de ser um administrador global no seu inquilino.
 
@@ -81,6 +81,8 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 
 
 - Quando adicionas um grupo de segurança para lançamento encenado, estás limitado a 200 utilizadores para evitar uma saída sem acordo com o UX. Depois de ter adicionado o grupo, pode adicionar mais utilizadores diretamente ao mesmo, conforme necessário.
+
+- Enquanto os utilizadores estão em Lançamento Faseado, a política de validade da palavra-passe está definida para 90 dias sem opção de personalizá-la. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Começar com lançamento encenado
@@ -173,8 +175,9 @@ Faça o seguinte:
 
    >[!NOTE]
    >Os membros de um grupo estão automaticamente habilitados para o lançamento encenado. Grupos aninhados e dinâmicos não são apoiados para o lançamento encenado.
+   >Ao adicionar um novo grupo, os utilizadores do grupo (até 200 utilizadores para um novo grupo) serão atualizados para utilizar em imidiamente gerido. Editar um grupo (adicionar ou remover utilizadores), pode levar até 24 horas para que as alterações entrem em vigor.
 
-## <a name="auditing"></a>Auditoria
+## <a name="auditing"></a>Auditing (Auditoria)
 
 Permitimos eventos de auditoria para as várias ações que executamos para lançamento encenado:
 
@@ -226,7 +229,7 @@ Para testar o *sso sem costura:*
 
 A remoção de um utilizador do grupo desativa o lançamento encenado para esse utilizador. Para desativar a função de lançamento encenada, deslize o controlo de volta para **Off**.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Posso usar esta capacidade na produção?**
 
@@ -240,5 +243,5 @@ R: Não, esta funcionalidade foi concebida para migrar da autenticação federad
 
 R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Pré-visualização Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

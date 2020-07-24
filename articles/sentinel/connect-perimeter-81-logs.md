@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: a0eb234d9677c479d2cb404b065da408854168e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c9a7a09d3085b1ec67bf29f142c6e7b205561ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021754"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Ligue o seu Perímetro 81 registos de atividades a Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados do Perímetro 81 em Azure Sentinel está atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como ligar o seu aparelho [de registos de atividades do Perímetro 81](https://www.perimeter81.com/) ao Azure Sentinel. O conector de registos de atividade perimeter 81 permite-lhe facilmente trazer os dados do Perímetro 81 para o Azure Sentinel, para que possa vê-lo em livros de trabalho, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a investigação.
 
@@ -52,7 +56,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem em **Registos
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar os registos de atividade do Perímetro 81 ao Azure Sentinel. Para tirar o máximo partido das capacidades incorporadas neste conector de dados, clique no separador **passos seguintes** na página do conector de dados. Lá você encontrará um livro pronto e algumas consultas de amostra para que você possa começar a encontrar informações úteis.
 

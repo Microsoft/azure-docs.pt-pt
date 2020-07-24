@@ -2,25 +2,22 @@
 title: Use restrições de inquilinos para gerir o acesso a apps SaaS - Azure AD
 description: Como usar as restrições do inquilino para gerir quais os utilizadores que podem aceder a apps com base no seu inquilino AZure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: kenwith
-ms.reviewer: richagi
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae90a682ea2d1abb8159ec28ed02ed122494f512
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763028"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019255"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -101,7 +98,7 @@ Enquanto a configuração das restrições de inquilinos é feita na infraestrut
 
 2. No painel esquerdo, selecione **Azure Active Directory**. Aparece a página geral do Diretório Ativo Azure.
 
-3. Na rubrica **Outras capacidades,** selecione **restrições de inquilino.**
+3. Na página 'Visão Geral', **selecione restrições de inquilinos.**
 
 O administrador para o inquilino especificado como o inquilino restrito-contexto de acesso pode usar este relatório para ver as inscrições bloqueadas devido à política de restrições do arrendatário, incluindo a identidade utilizada e o iD do directório-alvo. As inscrições estão incluídas se o arrendatário que estabelece a restrição for o inquilino do utilizador ou o inquilino de recursos para a inscrição.
 
@@ -120,7 +117,7 @@ O administrador para o inquilino especificado como o inquilino restrito-contexto
 - **Resultado do MFA**
 - **Endereço IP**
 - **Cliente**
-- **Nome de utilizador**
+- **Nome de Utilizador**
 - **Localização**
 - **ID do inquilino alvo**
 
@@ -186,7 +183,7 @@ Dependendo das capacidades da sua infraestrutura proxy, poderá ser capaz de con
 
 Para obter detalhes específicos, consulte a documentação do seu servidor proxy.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ler sobre [a autenticação moderna do Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Rever os [intervalos de endereços URLs e IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

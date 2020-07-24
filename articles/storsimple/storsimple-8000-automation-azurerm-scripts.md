@@ -6,11 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 009e8c7e1cb59d68f3d3aa15de32ec47083095f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b9a7bf243931443b8273253dee7618c0e594aaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020870"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utilize scripts baseados em SDK para gerir dispositivos StorSimple do Azure Resource Manager para gerir dispositivos StorSimple
 
@@ -53,8 +54,8 @@ Esta secção toma um roteiro de exemplo e detalha os vários passos necessário
 Antes de começar, certifique-se de que tem:
 
 *   Azure PowerShell instalado. Para instalar os módulos Azure PowerShell:
-    * Num ambiente Windows, siga os passos na [Instalação e configuure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Pode instalar o Azure PowerShell no seu anfitrião Windows Server para o seu StorSimple se utilizar um.
-    * Num ambiente Linux ou MacOS, siga os passos na [Instalação e configuure Azure PowerShell no MacOS ou Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
+    * Num ambiente Windows, siga os passos na [Instalação e configuure Azure PowerShell](/powershell/azure/install-az-ps). Pode instalar o Azure PowerShell no seu anfitrião Windows Server para o seu StorSimple se utilizar um.
+    * Num ambiente Linux ou MacOS, siga os passos na [Instalação e configuure Azure PowerShell no MacOS ou Linux](/powershell/azure/install-az-ps).
 
 Para obter mais informações sobre a utilização do Azure PowerShell, vá a [Começar a utilizar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -165,6 +166,6 @@ PS C:\Scripts\StorSimpleSDKTools>
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o serviço StorSimple Device Manager para gerir o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

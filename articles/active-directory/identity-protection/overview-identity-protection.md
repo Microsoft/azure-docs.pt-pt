@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83c7896ca371809d9103489b140ae73d5a42d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256663"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019616"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é o Azure Active Directory Identity Protection?
 
@@ -71,7 +71,7 @@ Mais informações podem ser encontradas no artigo, [Como: Investigar o risco.](
 
 ## <a name="exporting-risk-data"></a>Dados de risco de exportação
 
-Os dados da Proteção de Identidade podem ser exportados para outras ferramentas para arquivar e continuar a investigação e corelation. As APIs baseadas no Microsoft Graph permitem que as organizações recolham estes dados para posterior processamento numa ferramenta como o seu SIEM. Informações sobre como aceder à API de Proteção de Identidade podem ser encontradas no artigo, [Começar com a Azure Ative Directory Identity Protection e Microsoft Graph](howto-identity-protection-graph-api.md)
+Os dados da Proteção de Identidade podem ser exportados para outras ferramentas para arquivar e continuar a investigação e correlação. As APIs baseadas no Microsoft Graph permitem que as organizações recolham estes dados para posterior processamento numa ferramenta como o seu SIEM. Informações sobre como aceder à API de Proteção de Identidade podem ser encontradas no artigo, [Começar com a Azure Ative Directory Identity Protection e Microsoft Graph](howto-identity-protection-graph-api.md)
 
 Informações sobre a integração de informações de Proteção de Identidade com Azure Sentinel podem ser encontradas no artigo, [Ligue os dados da Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 
@@ -101,10 +101,10 @@ Os administradores de acesso condicional também podem criar políticas que fato
 | Relatórios de segurança | Descrição geral | Sim | Não | Não |
 | Relatórios de segurança | Utilizadores de risco | Acesso completo | Informação Limitada | Informação Limitada |
 | Relatórios de segurança | Inícios de sessão de risco | Acesso completo | Informação Limitada | Informação Limitada |
-| Relatórios de segurança | Deteções de riscos | Acesso completo | Informação Limitada | Não |
-| Notificações | Utilizadores em risco detetados alertas | Sim | Não | Não |
-| Notificações | Digestão semanal | Sim | Não | Não |
-| | Política de registo na MFA | Sim | Não | Não |
+| Relatórios de segurança | Deteções de riscos | Acesso completo | Informação Limitada | No |
+| Notificações | Utilizadores em risco detetados alertas | Sim | No | Não |
+| Notificações | Digestão semanal | Sim | No | Não |
+| | Política de registo na MFA | Sim | No | Não |
 
 ## <a name="next-steps"></a>Próximos passos
 

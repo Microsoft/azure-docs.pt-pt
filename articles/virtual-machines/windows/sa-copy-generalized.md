@@ -9,11 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 31b8200b63780388fb53db588c418951c500ac19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8077689bce988124da34428842df8fd2ef757bf0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84232911"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020190"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerida a partir de uma VM do Azure
 
@@ -24,9 +25,9 @@ Este artigo mostra-lhe como usar a Azure PowerShell para criar uma imagem de um 
  
 
 ## <a name="generalize-the-vm"></a>Generalizar o VM 
-Esta secção mostra-lhe como generalizar a sua máquina virtual Windows para utilização como imagem. Generalizar um VM remove todas as informações da sua conta pessoal, entre outras coisas, e prepara a máquina para ser usada como imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
+Esta secção mostra-lhe como generalizar a sua máquina virtual Windows para utilização como imagem. Generalizar um VM remove todas as informações da sua conta pessoal, entre outras coisas, e prepara a máquina para ser usada como imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
-Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para mais informações, consulte [o Suporte Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Certifique-se de que as funções do servidor em funcionamento na máquina são suportadas pela Sysprep. Para mais informações, consulte [o Suporte Sysprep para funções de servidor](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Se estiver a enviar o seu VHD para Azure pela primeira vez, certifique-se de que [preparou o seu VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar o Sysprep. 
@@ -183,7 +184,7 @@ Criar uma variável para a rede virtual concluída.
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
-### <a name="create-the-vm"></a>Crie a VM
+### <a name="create-the-vm"></a>Criar a VM
 O Seguinte PowerShell completa as configurações da máquina virtual e utiliza a imagem nãogerida como fonte para a nova instalação.
 
 </br>
@@ -249,7 +250,5 @@ Quando estiver concluído, deverá ver o VM recém-criado no [portal Azure](http
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para gerir a sua nova máquina virtual com a Azure PowerShell, consulte [Gerir máquinas virtuais utilizando o Azure Resource Manager e o PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

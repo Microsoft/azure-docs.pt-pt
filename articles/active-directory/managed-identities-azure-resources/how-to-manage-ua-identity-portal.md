@@ -15,16 +15,14 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7936b33c51897c35444a250d82e22870182ca1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27144dcd4c7d7490aba3626264e1cb4b64fbb162
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019204"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure
-
-[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Identidades geridas para recursos Azure fornecem aos serviços Azure uma identidade gerida no Azure Ative Directory. Pode utilizar esta identidade para autenticar serviços que suportem a autenticação Azure AD, sem precisar de credenciais no seu código. 
 
@@ -46,7 +44,7 @@ Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita
    - **Subscrição**: Escolha a subscrição para criar a identidade gerida atribuída pelo utilizador
    - **Grupo de Recursos**: Criar um novo grupo de recursos para conter a identidade gerida atribuída ao utilizador ou escolher **Utilização existente** para criar a identidade gerida atribuída pelo utilizador num grupo de recursos existente.
    - **Localização**: Escolha um local para implementar a identidade gerida atribuída pelo utilizador, por **exemplo, West US**.
-4. Clique em **Criar**.
+4. Clique em **Create** (Criar).
 
 ![Criar uma identidade gerida atribuída pelo utilizador](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: a08b59464855b805173fa76d696107f8a7673d39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0ce6a754ce09e227332309878bdddd3d8c1733be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021907"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerencie o seu serviço de Pesquisa Cognitiva Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Dentro de um serviço, a criação e gestão de conteúdos é através [do Servi
 
 ## <a name="check-versions-and-load-modules"></a>Versões e módulos de carga
 
-Os exemplos deste artigo são interativos e requerem permissões elevadas. Azure PowerShell (o módulo **Az)** deve ser instalado. Para obter mais informações, consulte [instalar a Azure PowerShell](/powershell/azure/overview).
+Os exemplos deste artigo são interativos e requerem permissões elevadas. Azure PowerShell (o módulo **Az)** deve ser instalado. Para obter mais informações, consulte [instalar a Azure PowerShell](/powershell/azure/).
 
 ### <a name="powershell-version-check-51-or-later"></a>Verificação da versão PowerShell (5.1 ou posterior)
 
@@ -248,7 +248,7 @@ HostingMode       : Default
 Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Construa um [índice,](search-what-is-an-index.md) [consultar um índice](search-query-overview.md) utilizando o portal, AS APIs de REST ou o .NET SDK.
 

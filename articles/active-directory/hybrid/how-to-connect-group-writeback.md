@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2a41dcf9c224e9e4a9a280078432e0b57e16c2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7992563bdfb318867e963ed4f371998bafbbbcdb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359420"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019918"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect group writeback
 
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Para obter informações adicionais sobre a configuração dos grupos Office 365 consulte [Configure Grupos Microsoft 365 com híbrido de troca no local](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-office-365-groups#enable-group-writeback-in-azure-ad-connect).
+Para obter informações adicionais sobre a configuração dos grupos Office 365 consulte [Configure Grupos Microsoft 365 com híbrido de troca no local](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## <a name="disabling-group-writeback"></a>Desativar a gravação do grupo
 Para desativar o Writeback do Grupo, utilize os seguintes passos: 
@@ -67,5 +67,5 @@ Para desativar o Writeback do Grupo, utilize os seguintes passos:
  >[!NOTE]
  > Desativará as bandeiras de Repartição total e Sincronização Completas para "verdadeiro" no Conector de Diretório Ativo Azure, fazendo com que as alterações de regras se propaguem no próximo ciclo de sincronização, eliminando os grupos previamente recímos para o seu Diretório Ativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

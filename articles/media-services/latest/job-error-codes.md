@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: d66347bc5510189b1d947b4c6b00345b0a56c3f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec057d86ea39afb7eabd4e8227646eaec11c5655
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582224"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023012"
 ---
 # <a name="media-services-job-error-codes"></a>Códigos de erro de trabalho dos Serviços de Comunicação Social
 
@@ -26,7 +26,7 @@ Este tópico liga-se a um documento de referência REST para descrição detalha
 
 ## <a name="job-error-codes"></a>Códigos de erro das tarefas
 
-O documento REST seguinte dá explicações detalhadas sobre [códigos de erro de emprego](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+O documento REST seguinte dá explicações detalhadas sobre [códigos de erro de emprego](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, dê feedback, obtenha atualizações
 

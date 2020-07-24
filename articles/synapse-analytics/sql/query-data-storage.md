@@ -1,5 +1,5 @@
 ---
-title: Visão geral - Dados de consulta no armazenamento utilizando SQL on demand (pré-visualização)
+title: Dados de consulta no armazenamento utilizando SQL on demand (pré-visualização)
 description: Este artigo descreve como consultar o armazenamento Azure usando o recurso SQL on demand (pré-visualização) dentro do Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a30874a14a1c2c44ec04b17b9ebddb52a9e9fb58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259678"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020547"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consultas utilizando recursos SQL on-demand (pré-visualização) dentro do Sinaapse SQL
 

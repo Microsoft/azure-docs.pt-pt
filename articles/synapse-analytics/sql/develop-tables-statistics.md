@@ -1,5 +1,5 @@
 ---
-title: Criar, atualizar estatísticas
+title: Criar e atualizar estatísticas utilizando recursos SQL Azure Synapse
 description: Recomendações e exemplos para a criação e atualização de estatísticas de otimização de consultas no Sinaapse SQL.
 services: synapse-analytics
 author: filippopovic
@@ -11,11 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020604"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
@@ -555,7 +556,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Não se pode usar nomes de colunas para identificar objetos estatísticos.
 - O erro personalizado 2767 não é suportado.
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Para melhorar ainda mais o desempenho da consulta, consulte [Monitorar a sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
@@ -813,6 +814,6 @@ CREATE STATISTICS sState
     WITH FULLSCAN, NORECOMPUTE
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter melhorias no desempenho da consulta, consulte [as melhores práticas para a piscina SQL](best-practices-sql-pool.md#maintain-statistics).

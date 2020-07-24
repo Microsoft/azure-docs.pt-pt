@@ -2,14 +2,14 @@
 title: Matriz de suporte Azure Migrate
 description: Fornece um resumo das configurações e limitações de suporte para o serviço Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108758"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022723"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte Azure Migrate
 
@@ -21,18 +21,20 @@ A tabela resume os cenários de descoberta, avaliação e migração suportados.
 
 **Implementação** | **Detalhes** 
 --- | --- 
-**Descoberta específica de aplicativos** | Pode descobrir apps, funções e funcionalidades em execução em VMware VMs. Atualmente esta funcionalidade está limitada apenas à descoberta. A avaliação está atualmente ao nível da máquina. Ainda não oferecemos app, papel ou avaliação específica de recursos. 
-**Avaliação no local** | Avaliar as cargas de trabalho e os dados em execução em VMware VMs, Hiper-VMs e servidores físicos. Avalie usando a avaliação do servidor Azure Migrate e o Assistente de Migração de Dados do Microsoft (DMA), bem como outras ferramentas e ofertas isv.
-**Migração no local para Azure** | Migrar cargas de trabalho e dados em execução em servidores físicos, VMware VMs, VMs Hiper-V, servidores físicos e VMS baseados na nuvem para Azure. Migrar usando o Azure Migrate Server Assessment e o Azure Database Migration Service (DMS), bem como outras ferramentas e ofertas isv.
+**Deteção** | Pode descobrir metadados de máquina e dados de desempenho dinâmicos.
+**Descoberta de aplicativos** | Pode descobrir apps, funções e funcionalidades em execução em VMware VMs. Atualmente esta funcionalidade está limitada apenas à descoberta. A avaliação está atualmente ao nível da máquina. Ainda não oferecemos avaliações baseadas em aplicativos, papéis ou funcionalidades. 
+**Avaliação** | Avaliar as cargas de trabalho e os dados em execução em VMware VMs, Hiper-VMs e servidores físicos. Avalie usando a avaliação do servidor Azure Migrate, o Microsoft Data Migration Assistant (DMA), bem como outras ferramentas e ofertas isv.
+**Migração** | Migrar cargas de trabalho e dados em execução em servidores físicos, VMware VMs, VMs Hiper-V, servidores físicos e VMS baseados na nuvem para Azure. Migrar usando o Azure Migrate Server Assessment e o Azure Database Migration Service (DMS), bem como outras ferramentas e ofertas isv.
 
 > [!NOTE]
 > Atualmente, as ferramentas ISV não podem enviar dados para a Azure Migrate no Governo de Azure. Pode utilizar ferramentas integradas da Microsoft ou utilizar ferramentas parceiras de forma independente.
 
 ## <a name="supported-tools"></a>Ferramentas suportadas
 
+
 O suporte específico da ferramenta é resumido na tabela.
 
-**Ferramenta** | **Avaliar** | **Migrar** 
+**Ferramenta** | **Avaliar** | **Migrate** 
 --- | --- | ---
 Avaliação do servidor Azure Migrate | Avaliar [VMware VMs,](tutorial-prepare-vmware.md) [VMs hiper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (NA)
 Migração do Servidor do Azure Migrate | ND | Migrar [VMware VMs,](tutorial-migrate-vmware.md) [Hiper-VMs](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
@@ -73,7 +75,11 @@ Crie um cofre chave para migração sem agente VMware | Para migrar VMware VMs c
 
 ## <a name="supported-geographies-public-cloud"></a>Geografias apoiadas (nuvem pública)
 
-Você pode criar um projeto Azure Migrate em várias geografias na nuvem pública. Embora só possa criar projetos nestas geografias, pode avaliar ou migrar máquinas para outros locais-alvo. A geografia do projeto é usada apenas para armazenar os metadados descobertos.
+Você pode criar um projeto Azure Migrate em várias geografias na nuvem pública.
+
+- Embora só possa criar projetos nestas geografias, pode avaliar ou migrar máquinas para outros locais-alvo.
+- A geografia do projeto é usada apenas para armazenar os metadados descobertos.
+- Quando se cria um projeto, seleciona-se uma geografia. O projeto e recursos conexos são criados numa das regiões da geografia. A região é atribuída pelo serviço Azure Migrate.
 
 **Geografia** | **Localização de armazenamento de metadados**
 --- | ---
@@ -116,7 +122,7 @@ Existem duas versões do serviço Azure Migrate:
 - **Versão atual**: Utilizando esta versão, pode criar novos projetos Azure Migrate, descobrir avaliações no local e orquestrar avaliações e migrações. [Saiba mais](whats-new.md).
 - **Versão anterior**: Para o cliente utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Na versão anterior, não é possível criar novos projetos Azure Migrate ou realizar novas descobertas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar VMware VMs](tutorial-assess-vmware.md) para migração.
 - [Avaliar os VMs hiper-V](tutorial-assess-hyper-v.md) para migração.

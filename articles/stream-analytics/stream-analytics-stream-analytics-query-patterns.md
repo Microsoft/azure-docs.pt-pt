@@ -8,11 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c79d810979641d1dc128c741c2124d9b5887aa3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83832967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020751"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns em Azure Stream Analytics
 
@@ -83,7 +84,7 @@ FROM Input
 ```
 ## <a name="data-aggregation-over-time"></a>Agregação de dados ao longo do tempo
 
-Para calcular informações sobre uma janela de tempo, os dados podem ser agregados em conjunto. Neste exemplo, uma contagem é calculada ao longo dos últimos 10 minutos de tempo para cada carro específico fazer.
+Para calcular informações sobre uma janela de tempo, os dados podem ser agregados em conjunto. Neste exemplo, uma contagem é calculada ao longo dos últimos 10 segundos de tempo para cada carro específico fazer.
 
 **Entrada:**
 
@@ -248,7 +249,7 @@ Várias declarações **SELECT** podem ser usadas para obter dados de produção
 
 **Saída de Alerta de Saída:**
 
-| Criação | Hora | Contagem |
+| Criação | Hora | de palavras |
 | --- | --- | --- |
 | Make2 |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -628,7 +629,7 @@ Em caso de eventos irregulares ou em falta, uma saída de intervalo regular pode
 
 **Saída (primeiras 10 linhas)**:
 
-| Window_end | Last_event. Tempo | Last_event. Valor |
+| Window_end | Last_event. Hora | Last_event. Valor |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -677,7 +678,7 @@ Por exemplo, o relógio do dispositivo *para TollID* 2 está cinco segundos atr�
 
 **Saída:**
 
-| TollID | Contagem |
+| TollID | de palavras |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -931,7 +932,7 @@ Para obter mais informações, consulte os cenários de [agregação geoespacial
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

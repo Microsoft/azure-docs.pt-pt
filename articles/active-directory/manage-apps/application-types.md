@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97eef1f331d8e6965e378d6a76cfa7a0c50feb9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6c329b7de3e18989e7dbfa35aa6e9303c129654
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317467"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019306"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicação inesperada na minha lista de candidaturas
 
@@ -28,7 +28,7 @@ Este artigo ajuda-o a entender como as aplicações aparecem na sua lista **de T
 
 ## <a name="how-to-see-all-applications-in-your-tenant"></a>Como ver todas as aplicações no seu inquilino
 
-Para ver todas as aplicações no seu inquilino, é necessário utilizar o controlo **Filter** para mostrar **todas as aplicações** na lista de Todas as **Aplicações.** Siga estes passos.
+Para ver todas as aplicações no seu inquilino, é necessário utilizar o controlo **Filter** para mostrar **todas as aplicações** na lista de Todas as **Aplicações.** Siga estes passos:
 
 1.  Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração.**
 
@@ -68,7 +68,7 @@ Quando filtrado para **todas as aplicações,** a **Lista** de Todas as Aplicaç
 
 6. Ao adicionar uma aplicação que está a desenvolver utilizando os métodos de [autenticação ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) do Visual Studio ou [serviços conectados](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
 
-7. Quando cria um objeto principal de serviço utilizando o [Módulo Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0)
+7. Quando cria um objeto principal de serviço utilizando o [Módulo Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
 8. Quando [consente num pedido](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) como administrador para utilizar dados no seu inquilino
 
@@ -124,5 +124,5 @@ Para **desativar todas as futuras operações de consentimento do utilizador em 
 
 6.  Desativar todas as futuras operações de consentimento do utilizador, definindo os **Utilizadores, pode permitir que as aplicações acedam aos seus dados** para **alternar** para No e clicar no botão **Guardar.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

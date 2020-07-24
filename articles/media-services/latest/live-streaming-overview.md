@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: 23ee7ba7a5456916eb307e21aa2074924614cb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd592469a4435504f1eecf1f24e50faf23fad17a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022978"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -34,7 +35,7 @@ Para clientes que procuram entregar conteúdo a grandes audiências de internet,
 Este artigo dá uma visão geral e orientação de streaming ao vivo com os Media Services e links para outros artigos relevantes.
  
 > [!NOTE]
-> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir v3 [Live Events,](live-events-outputs-concept.md)ver [ativos](assets-concept.md)v3, obter informações sobre o acesso às APIs. Para todas as outras tarefas de gestão (por exemplo, Transformações e Empregos), utilize o [REST API,](https://docs.microsoft.com/rest/api/media/) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+> Pode utilizar o [portal Azure](https://portal.azure.com/) para gerir v3 [Live Events,](live-events-outputs-concept.md)ver [ativos](assets-concept.md)v3, obter informações sobre o acesso às APIs. Para todas as outras tarefas de gestão (por exemplo, Transformações e Empregos), utilize o [REST API,](/rest/api/media/) [CLI,](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 ## <a name="dynamic-packaging-and-delivery"></a>Embalagem e entrega dinâmicas
 
@@ -53,7 +54,7 @@ A filtragem dinâmica é usada para controlar o número de faixas, formatos, bit
 
 ## <a name="live-event-types"></a>Tipos de eventos ao vivo
 
-[Os eventos](https://docs.microsoft.com/rest/api/media/liveevents) ao vivo são responsáveis por ingerir e processar os feeds de vídeo ao vivo. Um evento ao vivo pode ser definido para um *passe-through* (um codificadora ao vivo no local envia um fluxo bitrate múltiplo) ou *codificação ao vivo* (um codificante ao vivo no local envia um único fluxo de bitrate). Para mais detalhes sobre o streaming em direto nos Media Services v3, consulte [eventos ao vivo e saídas ao vivo.](live-events-outputs-concept.md)
+[Os eventos](/rest/api/media/liveevents) ao vivo são responsáveis por ingerir e processar os feeds de vídeo ao vivo. Um evento ao vivo pode ser definido para um *passe-through* (um codificadora ao vivo no local envia um fluxo bitrate múltiplo) ou *codificação ao vivo* (um codificante ao vivo no local envia um único fluxo de bitrate). Para mais detalhes sobre o streaming em direto nos Media Services v3, consulte [eventos ao vivo e saídas ao vivo.](live-events-outputs-concept.md)
 
 ### <a name="pass-through"></a>Pass-through
 
@@ -107,7 +108,7 @@ Para compreender o fluxo de trabalho em streaming ao vivo nos Serviços de Media
     * Pare o evento ao vivo. Uma vez que o evento ao vivo seja interrompido, não incorrerá em quaisquer acusações. Quando quiser reiniciar a transmissão, esta terá o mesmo URL de inserção, desta forma, não terá de reconfigurar o codificador.
     * Pode parar o seu ponto final de streaming, a menos que queira continuar a fornecer o arquivo do seu evento ao vivo como um fluxo on-demand. Se o evento ao vivo estiver parado, não incorrerá em nenhuma acusação.
 
-O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ativo a pedido quando a saída ao vivo é eliminada. Deve eliminar todas as saídas ao vivo antes de um evento ao vivo poder ser interrompido. Pode utilizar uma proteção de bandeira [opcionalOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) para remover automaticamente as saídas vivas no stop. 
+O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ativo a pedido quando a saída ao vivo é eliminada. Deve eliminar todas as saídas ao vivo antes de um evento ao vivo poder ser interrompido. Pode utilizar uma proteção de bandeira [opcionalOutputsOnStop](/rest/api/media/liveevents/stop#request-body) para remover automaticamente as saídas vivas no stop. 
 
 > [!TIP]
 > Ver [tutorial de streaming ao vivo,](stream-live-tutorial-with-api.md)o artigo examina o código que implementa os passos acima descritos.
@@ -117,10 +118,10 @@ O ativo a que a saída ao vivo está a arquivar, torna-se automaticamente um ati
 - [Codificadores em direto recomendados](recommended-on-premises-live-encoders.md)
 - [Using a cloud DVR](live-event-cloud-dvr.md) (Utilizar um DVR na cloud)
 - [Comparação de tipos de eventos ao vivo](live-event-types-comparison.md)
-- [Estados e faturação](live-event-states-billing.md)
+- [States and billing](live-event-states-billing.md) (Estados e faturação)
 - [Latência](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
 
@@ -128,7 +129,7 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arranque rápido de streaming ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

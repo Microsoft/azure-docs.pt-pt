@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 674befe7d01d0ef88026afeb2cb9179b167a88ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019736"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
@@ -62,7 +62,7 @@ Se quiser outras aplicações utilizando a nossa experiência de inscrição sil
 
 **P: O SSO sem emenda suporta `Alternate ID` como nome de utilizador, em vez de `userPrincipalName` ?**
 
-Sim. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os pedidos do Office 365 suportam `Alternate ID` . Consulte a documentação específica do pedido para a declaração de apoio.
+Yes. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando configurado no Azure AD Connect como mostrado [aqui](how-to-connect-install-custom.md). Nem todos os pedidos do Office 365 suportam `Alternate ID` . Consulte a documentação específica do pedido para a declaração de apoio.
 
 **P: Qual é a diferença entre a experiência de inscrição única fornecida pela [Azure AD Join](../active-directory-azureadjoin-overview.md) e pela Seamless SSO?**
 
@@ -102,6 +102,10 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
    >A conta de administrador de domínio utilizada não deve ser membro do grupo de Utilizadores Protegidos. Em caso afirmativo, a operação falhará.
 
    2. `Update-AzureADSSOForest -OnPremCredentials $creds`Ligue. Este comando atualiza a chave de desencriptação Kerberos para a `AZUREADSSO` conta do computador nesta floresta específica de AD e atualiza-a em Azure AD.
+   
+   >[!NOTE]
+   >Se você não é um administrador de domínio e foi-lhe atribuídas permissões pelo administrador de domínio, você deve ligar para`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Repita os passos anteriores para cada floresta AD em que configurar a funcionalidade.
 
    >[!IMPORTANT]
@@ -147,7 +151,7 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
 
    **Passo 3. Elimine manualmente a `AZUREADSSO` conta do computador de cada floresta AD que vê listada.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [**Quickstart**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
 - [**Mergulho Profundo Técnico**](how-to-connect-sso-how-it-works.md) - Entenda como funciona esta funcionalidade.

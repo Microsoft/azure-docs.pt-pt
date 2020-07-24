@@ -1,6 +1,6 @@
 ---
-title: Integração de Centros de Notificação com aplicações móveis do serviço de aplicações
-description: Saiba como o Azure Notification Hubs funciona com aplicações móveis do Azure App Service.
+title: Integração de Hubs de Notificações com Aplicações Móveis do Serviço de Aplicações
+description: Saiba como funciona o Azure Notification Hubs com aplicações móveis do Azure App Service.
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -17,16 +17,16 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e6c4fb767e6237f390cdb467b35c323f637bebf2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 647c5f40c7b02b8d9b488ce0812f27c0c0dde1a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76264157"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022145"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>Integração com as Aplicações Móveis do Serviço de Aplicações
 
-Para facilitar uma experiência totalmente integrada e unificadora em todos os serviços do Azure, as [Aplicações Móveis do Serviço de Aplicações](../app-service-mobile/app-service-mobile-value-prop.md) têm suporte incorporado para notificações push com os Hubs de Notificação. As [Aplicações Móveis do Serviço de Aplicações](../app-service-mobile/app-service-mobile-value-prop.md) oferecem uma plataforma de desenvolvimento de aplicações móveis altamente dimensionável e globalmente disponível para Programadores Empresariais e Integradores de Sistemas, que fornece um conjunto completo de capacidades para programadores móveis.
+Para facilitar uma experiência totalmente integrada e unificadora em todos os serviços do Azure, as [Aplicações Móveis do Serviço de Aplicações](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) têm suporte incorporado para notificações push com os Hubs de Notificação. As [Aplicações Móveis do Serviço de Aplicações](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) oferecem uma plataforma de desenvolvimento de aplicações móveis altamente dimensionável e globalmente disponível para Programadores Empresariais e Integradores de Sistemas, que fornece um conjunto completo de capacidades para programadores móveis.
 
 Os programadores de Mobile Apps podem utilizar Notification Hubs com o fluxo de trabalho seguinte:
 

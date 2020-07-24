@@ -1,5 +1,5 @@
 ---
-title: Implementar máquina virtual Windows 7 Windows Virtual Desktop - Azure
+title: Implementar máquina virtual Windows 7 Windows Virtual Desktop Spring 2020 - Azure
 description: Como configurar e implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 542d0bcea6cfae2af2918d699952d4c054bd68cb
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b589890f7b65b41cf6b7ba4fdf53b71173ed6a38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277668"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020445"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementar uma máquina virtual do Windows 7 no Windows Virtual Desktop
 

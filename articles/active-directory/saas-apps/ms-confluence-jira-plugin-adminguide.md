@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5884685f12c4697558a008287f446e52e5105d3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73161203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016790"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração Atlassian Jira e Confluence para o Azure Ative Directory
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O plug-in de assinatura única (SSO) do Azure Ative Directory (Azure AD) permite que os clientes da Microsoft Azure AD utilizem a sua conta de trabalho ou escola para iniciar sessão nos produtos baseados em Atlassian Jira e Confluence Server. Implementa sSO baseado em SAML 2.0.
 
@@ -147,7 +147,7 @@ A imagem a seguir mostra o ecrã de configuração tanto em Jira como confluênc
 
 * **Pretende desativar o WebSudo (desative a sessão de administrador seguro)**:
 
-  * Para jira, as sessões de administrador segura (isto é, confirmação de senha antes de aceder às funções de administração) são ativadas por padrão. Se pretender remover esta capacidade no seu caso Jira, especifique a seguinte linha no seu ficheiro jira-config.properties:`ira.websudo.is.disabled = true`
+  * Para jira, as sessões de administrador segura (isto é, confirmação de senha antes de aceder às funções de administração) são ativadas por padrão. Se pretender remover esta capacidade no seu caso Jira, especifique a seguinte linha no seu ficheiro jira-config.properties:`jira.websudo.is.disabled = true`
 
   * Para a Confluence, siga os passos no [local de apoio à Confluência.](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)
 

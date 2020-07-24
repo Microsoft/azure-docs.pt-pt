@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367194"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016339"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: Configure Snowflake para o fornecimento automático de utilizadores
 
@@ -72,7 +72,7 @@ Antes de configurar o Snowflake para o fornecimento automático do utilizador co
 
 Adicione Snowflake da galeria de aplicações AZure AD para começar a gerir o fornecimento a Snowflake. Se já configurar snowflake para SSO, pode utilizar a mesma aplicação. No entanto, recomenda-se que crie uma aplicação separada ao testar inicialmente a integração. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app) 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4. Definir quem estará no âmbito do provisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Definir quem estará no âmbito do provisionamento 
 
 O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador/grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua aplicação com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador ou grupo, pode utilizar um filtro de deteção como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -111,7 +111,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Guardar**.
+8. Clique em **Save** (Guardar).
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Snowflake**.
 
@@ -120,13 +120,13 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |Atributo|Tipo|
    |---|---|
    |ativo|Booleano|
-   |displayName|String|
-   |e-mails[tipo eq "work"].value|String|
-   |userName|String|
-   |nome.dado Nome|String|
-   |nome.famíliaName|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultRole|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultWarehouse|String|
+   |displayName|Cadeia|
+   |e-mails[tipo eq "work"].value|Cadeia|
+   |userName|Cadeia|
+   |nome.dado Nome|Cadeia|
+   |nome.famíliaName|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultRole|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:defaultWarehouse|Cadeia|
 
 11. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Snowflake**.
 
@@ -134,7 +134,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       |Atributo|Tipo|
       |---|---|
-      |displayName|String|
+      |displayName|Cadeia|
       |membros|Referência|
 
 13. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -164,10 +164,14 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 
 * Os tokens do SCIM gerados pelo floco de neve expiram em 6 meses. Esteja ciente de que estes devem ser atualizados antes de expirarem para permitir que as sincronizações de provisionamento continuem a funcionar. 
 
+## <a name="change-log"></a>Alterar Registo
+
+* 07/21/2020 - Ativado soft-delete para todos os utilizadores (através do atributo ativo).
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md).

@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 6f18c9fe43b0b714e5709b014c051520b3722138
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d8aa6cc7894b13789fe196e32c401128572346bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855126"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019068"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>PERGUNTAS Frequentes e questões conhecidas com identidades geridas para recursos da Azure
 
@@ -55,9 +55,12 @@ As identidades geridas não têm um objeto de aplicação no diretório, que é 
 
 Não, não há planos para suportar identidades geridas para recursos Azure em Azure Cloud Services.
 
-### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>As identidades geridas para recursos Azure funcionam com a Biblioteca de Autenticação de Diretório Ativo (ADAL) ou a Biblioteca de Autenticação do Microsoft (MSAL)?
+### <a name="what-is-the-credential-associated-with-a-managed-identity-how-long-is-it-valid-and-how-often-is-it-rotated"></a>Qual é a credencial associada a uma identidade gerida? Quanto tempo é válido e com que frequência é rodado?
 
-Não, as identidades geridas para os recursos Azure ainda não estão integradas com a ADAL ou a MSAL. Para obter detalhes sobre a aquisição de um símbolo para identidades geridas para recursos Azure utilizando o ponto final REST, consulte [como utilizar identidades geridas para recursos Azure em um VM Azure para adquirir um token de acesso](how-to-use-vm-token.md).
+> [!NOTE]
+> Como as identidades geridas autenticam é um detalhe de implementação interna que está sujeito a alterações sem aviso prévio.
+
+Identidades geridas utilizam a autenticação baseada em certificados. A credencial de cada identidade gerida tem um prazo de 90 dias e é enrolada ao fim de 45 dias.
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Qual é a fronteira de segurança das identidades geridas para os recursos da Azure?
 
@@ -133,7 +136,7 @@ Solução alternativa para identidades geridas numa subscrição que foi transfe
  - Para identidades geridas atribuídas pelo sistema: desativar e reativar. 
  - Para as identidades geridas atribuídas pelo utilizador: eliminar, recriar e ligá-las novamente aos recursos necessários (por exemplo, máquinas virtuais)
 
-Para obter mais informações, consulte [transferir uma subscrição do Azure para um diretório AD Azure diferente (Preview)](../../role-based-access-control/transfer-subscription.md).
+Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Mover uma identidade gerida atribuída pelo utilizador para um grupo/subscrição de recursos diferentes
 

@@ -1,5 +1,5 @@
 ---
-title: Amostra PowerShell - Lista todos os grupos de conector de procuração de aplicação
+title: Lista Azure AD Application Proxy grupos de conector para apps
 description: Exemplo powerShell que lista todos os grupos de conector de aplicação Azure Ative (Azure AD) com as aplicações atribuídas.
 services: active-directory
 author: msmimart
@@ -12,11 +12,12 @@ ms.date: 12/05/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dcf2eb6a1904e4a7223a19e598f0c06ddc36f71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f381d64e06d8b7abf67b08297baa616397cc439
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482169"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019442"
 ---
 # <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>Obtenha todas as aplicações Proxy de aplicação e lista por grupo de conector
 
@@ -44,7 +45,7 @@ Esta amostra requer o [AzureAD V2 PowerShell para módulo Graph](https://docs.mi
 | [Get-AzureADApplicationProxyConnectorGroup](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup?view=azureadps-2.0) | Recupera uma lista de todos os grupos de conector, ou se especificado, detalhes do grupo de conector especificado. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo Azure AD PowerShell, consulte a visão geral do [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 

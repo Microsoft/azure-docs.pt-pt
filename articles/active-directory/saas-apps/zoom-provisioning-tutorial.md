@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384080"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016270"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configure Zoom para o fornecimento automático de utilizadores
 
@@ -74,7 +74,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 Adicione Zoom da galeria de aplicações AZure AD para começar a gerir o provisionamento ao Zoom. Se tiver configurado previamente Zoom para SSO, pode utilizar a mesma aplicação. No entanto, recomenda-se que crie uma aplicação separada ao testar inicialmente a integração. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app) 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4. Definir quem estará no âmbito do provisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Definir quem estará no âmbito do provisionamento 
 
 O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador/grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua aplicação com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador ou grupo, pode utilizar um filtro de deteção como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -121,12 +121,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    |Atributo|Tipo|
    |---|---|
-   |userName|String|
+   |userName|Cadeia|
    |ativo|Booleano|
-   |nome.dado Nome|String|
-   |nome.famíliaName|String|
-   |e-mails[tipo eq "work"]|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |nome.dado Nome|Cadeia|
+   |nome.famíliaName|Cadeia|
+   |e-mails[tipo eq "work"]|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +153,9 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 
 ## <a name="connector-limitations"></a>Limitações do conector
 * O Zoom só permite um máximo de 9.999 utilizadores básicos hoje em dia.
+
+## <a name="change-log"></a>Change log
+* 05/14/2020 - Apoio às operações de ATUALIZAÇÃO adicionadas para e-mails[tipo eq "trabalho"] atribuem.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

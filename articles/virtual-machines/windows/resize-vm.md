@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98a0a1a2ce0a5122a953b8cc9916e2bf56955feb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82099891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020242"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar VMs do Windows
 
@@ -25,7 +25,7 @@ Se o seu VM utilizar o Premium Storage, certifique-se de que escolhe uma versão
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
-1. Abra o [portal Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 1. Abra a página para a máquina virtual.
 1. No menu esquerdo, selecione **Tamanho**.
 1. Escolha um novo tamanho na lista de tamanhos disponíveis e, em seguida, selecione **Resize**.
@@ -126,5 +126,4 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para uma escalabilidade adicional, executar vários casos de VM e escalar para fora. Para obter mais informações, consulte [automaticamente as máquinas windows num conjunto de escala de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
+Para uma escalabilidade adicional, executar vários casos de VM e escalar para fora. Para obter mais informações, consulte [automaticamente as máquinas windows num conjunto de escala de máquina virtual](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
