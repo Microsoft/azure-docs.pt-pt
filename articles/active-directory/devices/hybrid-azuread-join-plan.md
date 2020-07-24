@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf21f2ea5aacb36f3a76034e99b748bf4c6c363b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025703"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
 
@@ -92,12 +92,12 @@ Como primeiro passo de planeamento, deve rever o seu ambiente e determinar se pr
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Dispositivos de manuseamento com estado registado Azure AD
 Se os dispositivos associados ao domínio do Windows 10 forem [Azure AD registados no nome](overview.md#getting-devices-in-azure-ad) do seu inquilino, poderá levar a um duplo estado de ad AD Híbrido Azure e dispositivo registado Azure AD. Recomendamos o upgrade para o Windows 10 1803 (com KB4489894 aplicado) ou acima para abordar automaticamente este cenário. Nas versões pré-1803, terá de remover manualmente o estado registado Azure AD antes de permitir a junção do AD Híbrido Azure. Em 1803 e acima de 1803, foram efetuadas as seguintes alterações para evitar este duplo estado:
 
-- Qualquer estado registado em Azure AD existente para um utilizador seria automaticamente removido <i>após o dispositivo ser híbrido Azure AD e os mesmos registos de utilizador dentro</i> Por exemplo, se o Utilizador A tiver um estado AD AD Azure registado no dispositivo, o duplo estado do Utilizador A só é limpo quando o Utilizador A entra no dispositivo. se houver vários utilizadores no mesmo dispositivo, o estado duplo é limpo individualmente quando esses utilizadores iniciam sessão.
+- Qualquer estado registado em Azure AD existente para um utilizador seria automaticamente removido <i>após o dispositivo ser híbrido Azure AD e os mesmos registos de utilizador dentro</i> Por exemplo, se o Utilizador A tiver um estado AD AD Azure registado no dispositivo, o duplo estado do Utilizador A só é limpo quando o Utilizador A entra no dispositivo. Se houver vários utilizadores no mesmo dispositivo, o estado duplo é limpo individualmente quando estes utilizadores fazem login. Além de remover o estado registado Azure AD, o Windows 10 também irá desinsupear o dispositivo do Intune ou de outros MDM, se a inscrição ocorrer como parte do registo AD Azure através de inscrição automática.
 - Pode evitar que o seu dispositivo de alistamento de domínio seja registado a Azure AD adicionando o seguinte valor de registo à HKLM\SOFTWARE\Policies\Microsoft\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - No Windows 10 1803, se tiver o Windows Hello para o Negócios configurado, o utilizador precisa de reen configurar o Windows Hello para o Negócios após a limpeza do duplo estado. Esta questão foi abordada com o KB4512509
 
 > [!NOTE]
-> O dispositivo registado Azure AD não será removido automaticamente se for gerido pela Intune.
+> Apesar de o Windows 10 remover automaticamente o estado registado AZURE AD localmente, o objeto do dispositivo em Azure AD não é imediatamente eliminado se for gerido pelo Intune. Pode validar a remoção do estado registado Azure AD executando dsregcmd/status e considerar que o dispositivo não é Azure AD registado com base nisso.
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 - Se o seu ambiente utilizar infraestruturas de ambientes de trabalho virtuais (VDI), consulte [a identidade do dispositivo e a virtualização do ambiente de trabalho](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
@@ -166,7 +166,7 @@ O quadro abaixo fornece detalhes sobre o suporte para estes UPNs AD no local no 
 | Roteável | Gerido | A partir de 1803 lançamento | Geralmente disponível, Azure AD SSPR no ecrã de bloqueio do Windows não é suportado |
 | Não-encaminhável | Gerido | Não suportado | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configure híbrido Azure Ative Directy junta-se ao ambiente](hybrid-azuread-join-federated-domains.md) 

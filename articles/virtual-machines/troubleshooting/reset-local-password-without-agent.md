@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 11d1a4743f9aaf70d96e6cfd1f22ff31def440f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028673"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor uma palavra-passe do Windows local da VM do Azure offline
 Pode redefinir a palavra-passe local do Windows de um VM em Azure utilizando o [portal Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde que o agente convidado Azure esteja instalado. Este método é a forma primária de redefinir uma palavra-passe para um VM Azure. Se encontrar problemas com o agente convidado Azure que não responde ou que não instala depois de carregar uma imagem personalizada, pode redefinir manualmente uma palavra-passe do Windows. Este artigo detalha como redefinir uma palavra-passe de conta local anexando o disco virtual de origem os a outro VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -106,7 +107,7 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
 > [!NOTE]
 > Os passos não se aplicam aos controladores de domínio do Windows. Funciona apenas em servidor autónomo ou num servidor que é membro de um domínio.
 
-Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure PowerShell](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) antes de experimentar os seguintes passos. Certifique-se de que tem uma cópia de segurança do seu VM antes de começar. 
+Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure PowerShell](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp) antes de experimentar os seguintes passos. Certifique-se de que tem uma cópia de segurança do seu VM antes de começar. 
 
 1. Elimine o VM afetado no portal Azure. A eliminação do VM apenas elimina os metadados, a referência do VM dentro do Azure. Os discos virtuais são retidos quando o VM é eliminado:
    
@@ -219,5 +220,5 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
     * De`%windir%\System32\GroupPolicy`
       * remover `gpt.ini` (se `gpt.ini` existisse antes, e renomeou-o `gpt.ini.bak` para, renomear o `.bak` ficheiro de volta para `gpt.ini` )
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se ainda não conseguir ligar-se através do Ambiente de Trabalho Remoto, consulte o [guia de resolução de problemas RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). O [guia detalhado de resolução de problemas rdp](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) analisa métodos de resolução de problemas em vez de passos específicos. Também pode abrir um pedido de [apoio ao Azure](https://azure.microsoft.com/support/options/) para assistência prática.

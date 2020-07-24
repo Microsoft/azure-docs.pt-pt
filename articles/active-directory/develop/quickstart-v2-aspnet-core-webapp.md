@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 2924a950e7b52a41939d1c06305bad2d1b243476
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6902e69ecfd0738a74e6d492b8ed4d2b2d525eaf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026888"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Quickstart: Adicione o início de sôs-in com a Microsoft a uma aplicação web core ASP.NET
 Neste quickstart, você usa uma amostra de código para saber como uma aplicação web core ASP.NET pode assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD). (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -62,10 +62,10 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 #### <a name="step-2-download-your-aspnet-core-project"></a>Passo 2: Descarregue o seu projeto ASP.NET Core
 
 > [!div renderon="docs"]
-> [Descarregue a solução Visual Studio 2019](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+> [Descarregue a solução ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Executar o projeto usando o Visual Studio 2019.
+> Executar o projeto.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Descarregue a amostra de código](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
@@ -76,9 +76,9 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
-> #### <a name="step-3-run-your-visual-studio-project"></a>Passo 3: Executar o seu projeto Visual Studio
+> #### <a name="step-3-run-your-aspnet-core-project"></a>Passo 3: Executar o seu projeto ASP.NET Core
 > 1. Extrair o ficheiro zip para uma pasta local dentro da pasta raiz - por exemplo, **C:\Azure-Samples**
-> 1. Abra a solução no Estúdio Visual
+> 1. Abra a solução no seu IDE
 > 1. Edite as **appsettings.jsno** ficheiro. Encontre `ClientId` e atualize o valor da `ClientId` **aplicação (cliente)** valor de ID da aplicação que registou.
 >
 >    ```json
@@ -145,7 +145,7 @@ O método `AddAuthentication` configura o serviço para adicionar autenticação
 
 A linha que contém `.AddAzureAd` adiciona a autenticação da plataforma de identidade da Microsoft à sua aplicação. Em seguida, é configurado para iniciar sação usando o ponto final da plataforma de identidade da Microsoft.
 
-> |Onde | Description |
+> |Onde | Descrição |
 > |---------|---------|
 > | ClientId  | Identificação de candidatura (cliente) a partir da aplicação registada no portal Azure. |
 > | Autoridade | O ponto final STS para o utilizador autenticar. Normalmente, isto é <https://login.microsoftonline.com/{tenant}/v2.0> para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu ID do seu inquilino, ou *comum* para uma referência ao ponto final comum (usado para aplicações multi-inquilinos) |

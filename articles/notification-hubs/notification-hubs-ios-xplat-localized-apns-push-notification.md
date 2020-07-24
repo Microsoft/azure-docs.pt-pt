@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bc392cb6d499d967656358e920f46e261af2906
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72385647"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030339"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push localizadas para o iOS usando hubs de notificação do Azure
 
@@ -44,7 +44,7 @@ Neste tutorial, siga os seguintes passos:
 > * Envie notificações de modelo localizadas a partir da aplicação de consola .NET
 > * Enviar notificações de modelo localizadas a partir do dispositivo
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 No [Use Notification Hubs para enviar notícias de última hora,]construiu uma aplicação que usava **tags** para subscrever notificações para diferentes categorias de notícias. Muitas aplicações, no entanto, visam vários mercados e exigem a localização. Isto significa que o conteúdo das próprias notificações tem de ser localizado e entregue no conjunto correto de dispositivos. Este tutorial mostra-lhe como usar a funcionalidade **de modelo** dos Centros de Notificação para facilmente fornecer notificações de notícias de última hora localizadas.
 
@@ -273,7 +273,7 @@ Neste tutorial, enviou notificações localizadas para dispositivos iOS. Para ap
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: /previous-versions/azure/reference/dn223264(v=azure.100)
 [Utilizar Notification Hubs para enviar notícias de última hora]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
@@ -290,5 +290,5 @@ Neste tutorial, enviou notificações localizadas para dispositivos iOS. Para ap
 [JavaScript and HTML]: ../get-started-with-push-js.md
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for iOS]: /previous-versions/azure/reference/dn223264(v=azure.100)

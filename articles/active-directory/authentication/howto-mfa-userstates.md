@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 860616cbea598e40494155e250254b3c607c1173
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476840"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027500"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Ativar o Multi-Factor Authentication do Azure por utilizador para garantir eventos de início de sessão seguros
 
@@ -39,8 +39,8 @@ As contas de utilizador na Autenticação Multi-Factor Azure têm os seguintes t
 | Estado | Descrição | Aplicações não-navegador afetadas | Aplicativos de navegador afetados | Autenticação moderna afetada |
 |:---:| --- |:---:|:--:|:--:|
 | Desativado | O estado predefinido para um novo utilizador não inscrito na Autenticação Multi-Factor Azure. | Não | Não | Não |
-| Ativado | O utilizador foi inscrito na Autenticação Multi-Factor Azure, mas não registou métodos de autenticação. Recebem um pedido para se registarem da próxima vez que assinarem. | Não.  Continuam a trabalhar até que o processo de registo esteja concluído. | Sim. Após o termo da sessão, é necessário o registo de autenticação multi-factor Azure.| Sim. Após o termo do token de acesso, é necessário o registo de autenticação multi-factor Azure. |
-| Imposto | O utilizador foi inscrito e concluiu o processo de registo da Autenticação Multi-Factor Azure. | Sim. As aplicações requerem senhas de aplicação. | Sim. A autenticação multi-factor Azure é necessária no início de sessão. | Sim. A autenticação multi-factor Azure é necessária no início de sessão. |
+| Ativado | O utilizador foi inscrito na Autenticação Multi-Factor Azure, mas não registou métodos de autenticação. Recebem um pedido para se registarem da próxima vez que assinarem. | Não.  Continuam a trabalhar até que o processo de registo esteja concluído. | Yes. Após o termo da sessão, é necessário o registo de autenticação multi-factor Azure.| Yes. Após o termo do token de acesso, é necessário o registo de autenticação multi-factor Azure. |
+| Imposto | O utilizador foi inscrito e concluiu o processo de registo da Autenticação Multi-Factor Azure. | Yes. As aplicações requerem senhas de aplicação. | Yes. A autenticação multi-factor Azure é necessária no início de sessão. | Yes. A autenticação multi-factor Azure é necessária no início de sessão. |
 
 O estado de um utilizador reflete se um administrador os inscreveu na Autenticação Multi-Factor Azure e se completaram o processo de registo.
 
@@ -55,7 +55,7 @@ Utilize os seguintes passos para aceder à página do portal Azure onde pode vis
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 1. Procure e selecione *O Diretório Ativo Azure,* selecione **Utilizadores**  >  **Todos os utilizadores**.
-1. Selecione **a autenticação multi-factor**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecione autenticação multi-factor a partir da janela do Utilizadores em Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Selecione **Multi-Factor Authentication**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecione autenticação multi-factor a partir da janela do Utilizadores em Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Abre-se uma nova página que exibe o estado do utilizador, como mostra o exemplo a seguir.
    ![Screenshot que mostra exemplo informações do estado do utilizador para autenticação multi-factor Azure](./media/howto-mfa-userstates/userstate1.png)
 
@@ -78,7 +78,7 @@ Depois de ativar os utilizadores, notifique-os por e-mail. Informe os utilizador
 
 ## <a name="change-state-using-powershell"></a>Alterar estado usando PowerShell
 
-Para alterar o estado do utilizador utilizando [o Azure AD PowerShell,](/powershell/azure/overview)altere o `$st.State` parâmetro para uma conta de utilizador. Existem três estados possíveis para uma conta de utilizador:
+Para alterar o estado do utilizador utilizando [o Azure AD PowerShell,](/powershell/azure/)altere o `$st.State` parâmetro para uma conta de utilizador. Existem três estados possíveis para uma conta de utilizador:
 
 * *Ativado*
 * *Imposto*
@@ -177,12 +177,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Mudámos recentemente o comportamento e este guião powerShell. Anteriormente, o script guardou os métodos MFA, desativou o MFA e restaurou os métodos. Isto já não é necessário agora que o comportamento padrão para desativar não limpa os métodos.
->
 > Se o MFA for re-activado num objeto de utilizador que já tenha dados de registo, como telefone ou e-mail, então os administradores precisam de ter esse utilizador a re-registar MFA através do portal Azure ou powerShell. Se o utilizador não se re-registar, o seu estado de MFA não transita de *Enabled* para *Enforcado* na UI de gestão de MFA.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para configurar as definições de autenticação multi-factor Azure, como IPs fidedignos, mensagens de voz personalizadas e alertas de fraude, consulte [as definições de autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md). Para gerir as definições do utilizador para autenticação multi-factor Azure, consulte [gerir as definições do utilizador com autenticação multi-factor Azure](howto-mfa-userdevicesettings.md).
+Para configurar as definições de autenticação multi-factor Azure, consulte [as definições de autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md).
+
+Para gerir as definições do utilizador para autenticação multi-factor Azure, consulte [gerir as definições do utilizador com autenticação multi-factor Azure](howto-mfa-userdevicesettings.md).
 
 Para entender por que um utilizador foi solicitado ou não solicitado para realizar MFA, consulte [os relatórios de autenticação multi-factor Azure](howto-mfa-reporting.md).

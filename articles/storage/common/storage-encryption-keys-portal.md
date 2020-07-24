@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 4af70a4e2a698bd280c8c41018bc5aaa1bfa27f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512545"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029594"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o portal Azure
 
@@ -45,9 +45,26 @@ Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 
 ## <a name="specify-a-key"></a>Especificar uma chave
 
-Depois de ativar as chaves geridas pelo cliente, terá a oportunidade de especificar uma chave para associar à conta de armazenamento.
+Depois de ativar as chaves geridas pelo cliente, terá a oportunidade de especificar uma chave para associar à conta de armazenamento. Também pode indicar se o Azure Storage deve rodar automaticamente a tecla gerida pelo cliente ou se roda a chave manualmente.
+
+### <a name="specify-a-key-from-a-key-vault"></a>Especifique uma chave de um cofre chave
+
+Quando seleciona uma chave gerida pelo cliente a partir de um cofre de tecla, a rotação automática da tecla é automaticamente ativada. Para gerir manualmente a versão chave, especifique a chave URI e inclua a versão chave. Para obter mais informações, consulte [Especificar uma chave como URI](#specify-a-key-as-a-uri).
+
+Para especificar uma chave de um cofre de chaves, siga estes passos:
+
+1. Escolha a **opção Selecionar a partir da** opção Key Vault.
+1. **Selecione um cofre e uma chave de teclas**.
+1. Selecione o cofre de chaves que contém a chave que pretende utilizar.
+1. Selecione a chave do cofre da chave.
+
+   ![Screenshot mostrando como selecionar cofre e chave chave](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+
+1. Guarde as alterações.
 
 ### <a name="specify-a-key-as-a-uri"></a>Especifique uma chave como um URI
+
+Quando especificar a chave URI, omita a versão chave para permitir a rotação automática da chave gerida pelo cliente. Se incluir a versão chave no URI chave, então a rotação automática não está ativada e tem de gerir a versão chave por si mesmo. Para obter mais informações sobre a atualização da versão chave, consulte [atualização manual da versão chave](#manually-update-the-key-version).
 
 Para especificar uma chave como URI, siga estes passos:
 
@@ -56,35 +73,29 @@ Para especificar uma chave como URI, siga estes passos:
 
     ![Screenshot mostrando chave de cofre chave URI](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
-1. Nas definições **de encriptação** para a sua conta de armazenamento, escolha a opção **URI chave introduzir.**
-1. Cole o URI que copiou para o campo **Key URI.**
+1. Nas definições da **chave de encriptação** para a sua conta de armazenamento, escolha a opção **URI da chave entrar.**
+1. Cole o URI que copiou para o campo **Key URI.** Omita a versão chave do URI para permitir a rotação automática.
 
    ![Screenshot mostrando como entrar na chave URI](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Especifique a subscrição que contém o cofre de chaves.
 1. Guarde as alterações.
 
-### <a name="specify-a-key-from-a-key-vault"></a>Especifique uma chave de um cofre chave
+Depois de ter especificado a chave, o portal Azure indica se a rotação automática da chave está ativada e exibe a versão chave atualmente em uso para encriptação.
 
-Para especificar uma chave de um cofre de chaves, certifique-se primeiro de que tem um cofre chave que contém uma chave. Para especificar uma chave de um cofre de chaves, siga estes passos:
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot mostrando rotação automática das chaves geridas pelo cliente ativadas":::
 
-1. Escolha a **opção Selecionar a partir da** opção Key Vault.
-1. Selecione o cofre de chaves que contém a chave que pretende utilizar.
-1. Selecione a chave do cofre da chave.
+## <a name="manually-update-the-key-version"></a>Atualizar manualmente a versão chave
 
-   ![Screenshot mostrando a opção chave gerida pelo cliente](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
+Por predefinição, o Azure Storage gira automaticamente as teclas geridas pelo cliente para si, conforme descrito nas secções anteriores. Se optar por gerir a versão chave, terá de atualizar a versão chave especificada para a conta de armazenamento sempre que criar uma nova versão da chave.
 
-1. Guarde as alterações.
-
-## <a name="update-the-key-version"></a>Atualizar a versão chave
-
-Quando criar uma nova versão de uma chave, atualize a conta de armazenamento para utilizar a nova versão. Siga estes passos.
+Para atualizar a conta de armazenamento para utilizar a nova versão chave, siga estes passos:
 
 1. Navegue para a sua conta de armazenamento e apresente as definições **de Encriptação.**
 1. Introduza o URI para a nova versão chave. Em alternativa, pode selecionar o cofre da chave e a chave novamente para atualizar a versão.
 1. Guarde as alterações.
 
-## <a name="use-a-different-key"></a>Use uma chave diferente
+## <a name="switch-to-a-different-key"></a>Mude para uma chave diferente
 
 Para alterar a chave utilizada para encriptação de armazenamento Azure, siga estes passos:
 
@@ -99,7 +110,7 @@ Quando desativa as teclas geridas pelo cliente, a sua conta de armazenamento é 
 1. Navegue para a sua conta de armazenamento e apresente as definições **de Encriptação.**
 1. Desmarcar a caixa de verificação ao lado da definição **de teclas.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
 - [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

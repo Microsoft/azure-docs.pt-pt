@@ -15,11 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2f21cab4740013eb2de1d69f558c95461c493e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120968"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028401"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Problemas de implementação de resolução de problemas ao criar um novo Windows VM em Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -36,7 +37,7 @@ Para iniciar a resolução de problemas, recolha os registos de atividade para i
 
 [Ver as operações de implementação](../../azure-resource-manager/templates/deployment-history.md)
 
-[Ver registos de atividades para gerir recursos do Azure](../../resource-group-audit.md)
+[Ver registos de atividades para gerir recursos do Azure](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -52,7 +53,7 @@ Para iniciar a resolução de problemas, recolha os registos de atividade para i
 
 **Resolução**
 
-Para resolver estes dois erros, utilize [o Add-AzVhd para carregar o VHD original,](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)disponível no local, com a mesma definição que para o SISTEMA (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
+Para resolver estes dois erros, utilize [o Add-AzVhd para carregar o VHD original,](/powershell/module/az.compute/add-azvhd)disponível no local, com a mesma definição que para o SISTEMA (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro.
 
 **Erros de captura:**
 
@@ -87,7 +88,5 @@ Este erro surge em situações em que o novo pedido de VM é fixado a um cluster
   * Criar um novo VM num conjunto de disponibilidade diferente (na mesma região).
   * Adicione o novo VM à mesma rede virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se encontrar problemas quando iniciar um VM do Windows parado ou redimensionar um VM do Windows existente em Azure, consulte [problemas de implementação do Gestor de Recursos de Resolução de Problemas com o reinício ou redimensionamento de uma máquina virtual do Windows existente no Azure](restart-resize-error-troubleshooting.md).
-
-

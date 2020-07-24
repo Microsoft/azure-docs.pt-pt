@@ -1,25 +1,25 @@
 ---
 title: Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob
 titleSuffix: Azure Storage
-description: Os clientes que fazem pedidos contra o armazenamento Azure Blob têm a opção de fornecer uma chave de encriptação por pedido (pré-visualização). A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento Blob.
+description: Os clientes que fazem pedidos contra o armazenamento Azure Blob têm a opção de fornecer uma chave de encriptação por pedido. A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento Blob.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec3d760450fb5cc20deed14dac03f58f23c2b4b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805321"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029744"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob (pré-visualização)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob
 
-Os clientes que fazem pedidos contra o armazenamento Azure Blob têm a opção de fornecer uma chave de encriptação por pedido (pré-visualização). A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento Blob. As chaves fornecidas pelo cliente podem ser armazenadas no Cofre da Chave Azure ou noutra loja de chaves.
+Os clientes que fazem pedidos contra o armazenamento Azure Blob têm a opção de fornecer uma chave de encriptação por pedido. A inclusão da chave de encriptação no pedido fornece controlo granular sobre as definições de encriptação para operações de armazenamento Blob. As chaves fornecidas pelo cliente podem ser armazenadas no Cofre da Chave Azure ou noutra loja de chaves.
 
 ## <a name="encrypting-read-and-write-operations"></a>Encriptação de operações de leitura e escrita
 
@@ -74,7 +74,7 @@ Para rodar uma chave de encriptação que foi usada para encriptar uma bolha, de
 >
 > Certifique-se de proteger a chave de encriptação que fornece num pedido de armazenamento Blob numa loja de chaves segura como o Azure Key Vault. Se tentar uma operação de escrita num recipiente ou numa bolha sem a chave de encriptação, a operação falhará e perderá o acesso ao objeto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Especifique uma chave fornecida pelo cliente num pedido de armazenamento blob com .NET](../blobs/storage-blob-customer-provided-key.md)
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)

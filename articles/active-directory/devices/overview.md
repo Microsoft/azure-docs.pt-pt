@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 03/26/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025596"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade de dispositivo?
 
@@ -45,9 +45,9 @@ Para obter um dispositivo em Azure AD, tem várias opções:
 - **Azure AD associado**
    - Os dispositivos que são Azure AD aderidos são propriedade de uma organização, e são assinados com uma conta AD AZure pertencente a essa organização. Só existem na nuvem.
       - Windows 10 
-      - [Windows Server 2019 Máquinas Virtuais em execução em Azure] (./howto-vm-sign-in-azure-ad-windows.md) (O núcleo do servidor não é suportado)
+      - [Máquinas virtuais do Windows Server 2019 em execução em Azure](howto-vm-sign-in-azure-ad-windows.md) (o núcleo do servidor não é suportado)
 - **associado ao Azure AD Híbrido**
-   - Os dispositivos que são híbridos Azure AD aderidos são propriedade de uma organização, e são assinados com uma conta AD AZure pertencente a essa organização. Existem na nuvem e no local.
+   - Os dispositivos que são híbridos Azure AD aderidos são propriedade de uma organização, e são assinados com uma conta ative Directory Domain Services pertencente a essa organização. Existem na nuvem e no local.
       - Windows 7, 8.1 ou 10
       - Windows Server 2008 ou mais recente
 
@@ -80,7 +80,7 @@ Os dispositivos que são Azure AD unidos ou híbridoS Azure AD juntaram-se para 
    - Windows Hello
 - **A azure AD juntou-se ou híbrido Azure AD ad adsumo uma** conta organizacional em Azure AD garantido com um ou mais dos seguintes dispositivos.
    - Palavra-passe
-   - Windows Hello para empresas
+   - Windows Hello para Empresas
 
 ## <a name="provisioning"></a>Aprovisionamento
 
@@ -97,7 +97,7 @@ Com a gestão de identidade do dispositivo em Azure AD, pode:
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os dispositivos registados Azure AD](concept-azure-ad-register.md)
 - Saiba mais sobre [dispositivos aderidos a Azure AD](concept-azure-ad-join.md)

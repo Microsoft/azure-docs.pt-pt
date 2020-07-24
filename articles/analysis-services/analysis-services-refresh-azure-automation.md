@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: c3c9827814b7d638745761dbb5f3c7d2e581491b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5314c933b01a1fb9c4ea9902a6fbb698c104d195
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389977"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025409"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
 
@@ -64,7 +64,10 @@ O Diretor de Serviço que cria deve ter permissões de administrador de servidor
 
     ![Livro de importação](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Navegue pelo ficheiro **Refresh-Model.ps1,** forneça um **Nome** e **Descrição**e, em seguida, clique em **Criar**.
+4. Navegue pelo ficheiro [Refresh-Model.ps1,](#sample-powershell-runbook) forneça um **Nome** e **Descrição**e, em seguida, clique em **Criar**.
+
+    > [!NOTE]
+    > Utilize o script da secção [Sample Powershell Runbook](#sample-powershell-runbook) na parte inferior deste documento para criar um ficheiro chamado Refresh-Model.ps1 e guardar para a máquina local para importar em Runbook.
 
     ![Livro de importação](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -101,7 +104,7 @@ Isto pode ser configurado da seguinte forma:
 
     ![Calendário de configuração](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Clique em **Criar**.
+3. Clique em **Create** (Criar).
 
 4. Preencha os parâmetros para o horário. Estes serão utilizados sempre que o Runbook acionar. O parâmetro **WEBHOOKDATA** deve ficar em branco quando funciona através de um horário.
 
@@ -220,7 +223,7 @@ else
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Amostras](analysis-services-samples.md)  
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 7e8a70955b36f11727019fe430f62e84d4f0c93c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d00801ccf67ff82dd0c00bf8aec616aa531668f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023488"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados Azure utilizando a Azure Data Factory .NET SDK
 > [!NOTE]
@@ -34,7 +34,7 @@ Pode criar, monitorizar e gerir fábricas de dados Azure programáticamente util
 
 * Visual Studio 2012 ou 2013 ou 2015
 * Faça o download e instale [o Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Azure PowerShell. Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar o Azure PowerShell no seu computador. Utilize o Azure PowerShell para criar uma aplicação do Azure Active Directory.
+* Azure PowerShell. Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para instalar o Azure PowerShell no seu computador. Utilize o Azure PowerShell para criar uma aplicação do Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
 Crie uma aplicação no Azure Active Directory, crie um principal de serviço para a aplicação e atribua-a à função **Contribuinte do Data Factory**.
@@ -499,7 +499,7 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja o exemplo seguinte para a criação de um oleoduto utilizando .NET SDK que copia dados de um armazenamento de bolhas Azure para Azure SQL Database: 
 
 - [Criar um pipeline para copiar dados do Blob Storage para a Base de Dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)

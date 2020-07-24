@@ -9,11 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197359"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029319"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Crie um conjunto de escala de máquina virtual que utilize Zonas de Disponibilidade
 
@@ -60,7 +61,7 @@ Para utilizar Zonas de Disponibilidade, o seu conjunto de escalas deve ser criad
 - [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure
 - [Azure PowerShell](#use-azure-powershell)
-- [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates)
+- [Modelos de gestor de recursos Azure](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -91,7 +92,7 @@ Para um exemplo completo de um conjunto de escala única e recursos de rede, con
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escala redundante de zona
 
-Para criar um conjunto de escala redundante de zona, utilize um endereço IP público *Standard* SKU e um equilibrador de carga. Para uma redundância reforçada, o *SKU Standard* cria recursos de rede redundantes de zona. Para obter mais informações, consulte [a visão geral do balançor de carga Azure e as](../load-balancer/load-balancer-standard-overview.md) [zonas padrão de balançador de carga e disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
+Para criar um conjunto de escala redundante de zona, utilize um endereço IP público *Standard* SKU e um equilibrador de carga. Para uma redundância reforçada, o *SKU Standard* cria recursos de rede redundantes de zona. Para obter mais informações, consulte [a visão geral do balançor de carga Azure e as](../load-balancer/load-balancer-overview.md) [zonas padrão de balançador de carga e disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para criar um conjunto de escala de zona redundante, especifique várias zonas com o `--zones` parâmetro. O exemplo a seguir cria um conjunto de escala redundante de zona denominado *myScaleSet* entre as zonas *1,2,3*:
 
@@ -208,10 +209,10 @@ Para criar um conjunto de escala redundante de zona, especifique vários valores
 }
 ```
 
-Se criar um endereço IP público ou um equilibrador de carga, especifique o *"sku": { "name": "Standard" }"* propriedade para criar recursos de rede redundantes de zona. Também precisa de criar um Grupo de Segurança de Rede e regras para permitir qualquer tráfego. Para obter mais informações, consulte [a visão geral do balançor de carga Azure e as](../load-balancer/load-balancer-standard-overview.md) [zonas padrão de balançador de carga e disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
+Se criar um endereço IP público ou um equilibrador de carga, especifique o *"sku": { "name": "Standard" }"* propriedade para criar recursos de rede redundantes de zona. Também precisa de criar um Grupo de Segurança de Rede e regras para permitir qualquer tráfego. Para obter mais informações, consulte [a visão geral do balançor de carga Azure e as](../load-balancer/load-balancer-overview.md) [zonas padrão de balançador de carga e disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para um exemplo completo de um conjunto de escalas redundantes de zona e recursos de rede, consulte [este modelo de gestor de recursos de amostra](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou uma escala definida numa Zona de Disponibilidade, pode aprender a [implementar aplicações em conjuntos de escala de máquinas virtuais](tutorial-install-apps-cli.md) ou [utilizar uma escala automática com conjuntos de escala de máquina virtual](tutorial-autoscale-cli.md).

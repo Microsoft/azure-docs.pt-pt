@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029285"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Autoescala vertical com conjuntos de escala de máquina virtual
 
@@ -89,7 +89,7 @@ Pode configurar a escala vertical para ser acionada com base em alertas métrico
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Criar uma Conta de Automação Azure com capacidade de funcionamento
 A primeira coisa que precisa de fazer é criar uma conta Azure Automation que hospeda os runbooks usados para escalar as instâncias de escala de máquina virtual. Recentemente, a [Azure Automation](https://azure.microsoft.com/services/automation/) introduziu a funcionalidade "Executar como conta" que faz com que a criação do Diretor de Serviço para executar automaticamente os livros de execução em nome de um utilizador. Para obter mais informações, veja:
 
-* [Autenticar Runbooks com a conta Run As do Azure](../automation/automation-sec-configure-azure-runas-account.md)
+* [Autenticar Runbooks com a conta Run As do Azure](../automation/manage-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar livros de escala vertical da Azure Automation na sua subscrição
 

@@ -8,11 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: bd1022079b382353591857eacdedff344ed49f63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 028ac730396c71549bfc338d3496109c98dfdc73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984167"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027840"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado utilizando o modelo de implementação Azure Resource Manager
 
@@ -59,9 +60,9 @@ O procedimento a seguir ajuda a criar um grupo de recursos e um VNet. Em seguida
 
 As etapas de procedimento definem o 'DefaultSiteHQ' como a ligação padrão do local para a escavação forçada e configuram as subesí redes 'Midtier' e 'Backend' para utilizar túneis forçados.
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
-Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre como instalar os cmdlets PowerShell.
+Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter mais informações sobre como instalar os cmdlets PowerShell.
 
 > [!IMPORTANT]
 > É necessária a instalação da versão mais recente dos cmdlets PowerShell. Caso contrário, poderá receber erros de validação ao executar alguns dos cmdlets.

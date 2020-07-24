@@ -7,11 +7,12 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 4050a74dfef1fb31939ba716cfbaf78577f1aaef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9b227dc6812b62b525991fc84b045c9610df63a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028724"
 ---
 # <a name="m-series"></a>Série M
 
@@ -29,7 +30,7 @@ Migração ao vivo: Não suportado
 
 Atualizações de preservação da memória: Não suportadas
 
-Acelerador de escrita: [suportado](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acelerador de escrita: [suportado](./windows/how-to-enable-write-accelerator.md)
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Produção de armazenamento em cache máximo e temporário: IOPS/MBps (tamanho da cache em GiB) | Produção de disco não-abacatado por maxilar: IOPS/MBps | Largura de banda de rede Max NICs/Expect (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -59,10 +60,10 @@ Acelerador de escrita: [suportado](https://docs.microsoft.com/azure/virtual-mach
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

@@ -6,13 +6,13 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
-ms.author: anzaman
-ms.openlocfilehash: 4821f2eb694a36cf0570008b3e62ce39999c58d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 536e1e57af16a87fba85323e9448bfb904d56384
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80239752"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027874"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
 

@@ -5,20 +5,46 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
-ms.openlocfilehash: e77d621d5699c434e691de0a523e58e49166d8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 521756081db938e749849e6f3630dbd60700d24f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315016"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023891"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explora métodos comuns de resolução de problemas para o tempo de integração auto-hospedado na Azure Data Factory.
+
+## <a name="gather-self-hosted-integration-runtime-logs-from-azure-data-factory"></a>Recolha registos de tempo de execução de integração auto-hospedados da Azure Data Factory
+
+Para atividades falhadas em execução em IR /ID Partilhado, a Azure Data Factory suporta a visualização e o upload de registos de erros. Pode seguir os passos abaixo para obter a identificação do relatório de erro e, em seguida, inserir o ID do relatório para localizar questões conhecidas relacionadas.
+
+1. Ir para a página **de execuções de atividades.**
+
+1. Sob a coluna **ERROR,** clique abaixo do botão.
+
+    ![A atividade executa a página](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. Verá registos relacionados para a execução da atividade falhada. Clique no botão **Enviar registos** para obter mais assistência.
+
+    ![Enviar registos](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. Pode escolher registos que pretende enviar. Para *o IR auto-hospedado,* pode carregar registos relacionados com a atividade falhada ou todos os registos no nó IV auto-hospedado. Para *o IR Partilhado,* só é possível carregar registos relacionados com a atividade falhada.
+
+    ![Escolha registos](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. Quando os registos estiverem a ser enviados, mantenha um registo do ID do relatório se precisar de mais assistência para resolver o problema.
+
+    ![Carregar registos](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> Os pedidos de visualização e upload de registos serão executados em todas as instâncias ir auto-hospedadas online. Por favor, certifique-se de que todas as instâncias de IR auto-hospedadas estão on-line no caso de quaisquer registos em falta. 
+
 
 ## <a name="common-errors-and-resolutions"></a>Erros comuns e resoluções
 
@@ -275,13 +301,13 @@ Abaixo o exemplo mostra como seria um bom cenário.
     ![Fluxo de trabalho de aperto de mão TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda na resolução de problemas, experimente os seguintes recursos:
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)

@@ -7,11 +7,12 @@ ms.topic: article
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4e342ff44af38b8e79dc8695c1270b1f5c68e0a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3be8863d86fd1525e6f64b46ddf5ca3c702ecdea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80657433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029234"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configure LVM e RAID em dispositivos encriptados
 
@@ -44,11 +45,11 @@ Da mesma forma, o dispositivo RAID é criado em cima da camada encriptada nos di
 
 Recomendamos que utilize LVM-on-crypt. RAID é uma opção quando o LVM não pode ser usado devido a aplicações específicas ou limitações ambientais.
 
-Utilizará a opção **EncryptFormatAll.** Para obter mais informações sobre esta opção, consulte [a funcionalidade EncryptFormatAll para discos de dados em VMs Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Utilizará a opção **EncryptFormatAll.** Para obter mais informações sobre esta opção, consulte [a funcionalidade EncryptFormatAll para discos de dados em VMs Linux](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Embora possa usar este método quando também está a encriptar o SISTEMA, estamos apenas a encriptar unidades de dados aqui.
 
-Os procedimentos pressupõem que já reviu os pré-requisitos em [cenários de encriptação de disco Azure em VMs Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) e em [Quickstart: Criar e encriptar um Linux VM com o Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
+Os procedimentos pressupõem que já reviu os pré-requisitos em [cenários de encriptação de disco Azure em VMs Linux](./disk-encryption-linux.md) e em [Quickstart: Criar e encriptar um Linux VM com o Azure CLI](./disk-encryption-cli-quickstart.md).
 
 A versão Azure Disk Encryption dual-pass está num caminho de depreciação e não deve mais ser usada em novas encriptações.
 
@@ -456,7 +457,6 @@ E quando puder fazer login:
 lsblk
 df -h
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas do Azure Disk Encryption](disk-encryption-troubleshooting.md)
-

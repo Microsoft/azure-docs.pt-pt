@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d2eb5356b1abc54508fd6bf8d35fd9fc39d02ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026266"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicação web que assina nos utilizadores: Registo de aplicações
 
@@ -40,9 +41,9 @@ Pode utilizar estes links para a criação da sua aplicação web:
 > O portal a utilizar é diferente dependendo se a sua aplicação funciona na nuvem pública do Microsoft Azure ou numa nuvem nacional ou soberana. Para mais informações, consulte [as nuvens nacionais.](./authentication-national-cloud.md#app-registration-endpoints)
 
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft. Em alternativa, inscreva-se no portal Azure de eleição para a nuvem nacional.
-1. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito. Em seguida, desa um pouco para o inquilino pretendido do Azure Ative Directory (Azure AD).
-1. No painel esquerdo, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**  >  **Novo registo**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft. Em alternativa, inscreva-se no [portal Azure de eleição](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) para a nuvem nacional.
+2. Se a sua conta lhe der acesso a mais de um inquilino, selecione a sua conta no canto superior direito. Em seguida, desa um pouco para o inquilino pretendido do Azure Ative Directory (Azure AD).
+3. No painel esquerdo, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**  >  **Novo registo**.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -50,12 +51,14 @@ Pode utilizar estes links para a criação da sua aplicação web:
    1. Escolha os tipos de conta suportados para a sua aplicação. (Ver [tipos de conta suportado.)](./v2-supported-account-types.md)
    1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação. Por exemplo, **insira AspNetCore-WebApp**.
    1. Para **redirecionamento URI**, adicione o tipo de aplicação e o destino URI que aceitará respostas simbólicas devolvidas após a autenticação bem sucedida. Por exemplo, insira **https://localhost:44321** . Em seguida, **selecione Registar.**
+   ![registo](media/scenario-webapp/scenario-webapp-app-registration-1.png)
 1. Selecione o menu **autenticação** e, em seguida, adicione as seguintes informações:
    1. Para **URL de resposta**, adicione o tipo **https://localhost:44321/signin-oidc** **Web**.
    1. Na secção **definições Avançadas,** defina **o URL de logout** para **https://localhost:44321/signout-oidc** .
    1. Em **Concessão implícita**, selecione **Tokens de ID**.
    1. Selecione **Guardar**.
-
+  ![registo](media/scenario-webapp/scenario-webapp-app-registration-2.png)
+ 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Quando aparecer a **página de inscrição,** insira as informações de registo do seu pedido:
@@ -116,9 +119,9 @@ Pode utilizar estes links para a criação da sua aplicação web:
 > - MyOrg (contas apenas neste diretório organizacional)
 > - AnyOrg (contas em qualquer diretório organizacional)
 >
-> Pode criar uma aplicação que assina nos utilizadores com as suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, criar uma aplicação multitenant. Os tipos de conta suportado são contas em qualquer diretório organizacional. Em seguida, altere o `signInAudience` imóvel no manifesto de aplicação a partir do portal Azure. Para mais informações, consulte o [passo 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial do Núcleo ASP.NET. Pode generalizar este passo para aplicações web em qualquer idioma.
+> Pode criar uma aplicação que assina nos utilizadores com as suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, criar uma aplicação multitenant. Os tipos de conta suportado são contas em qualquer diretório organizacional. Em seguida, altere o [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) imóvel para **2** e o [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) imóvel para `AzureADandPersonalMicrosoftAccount` no manifesto de [aplicação](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) a partir do portal Azure. Para mais informações, consulte o [passo 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial do Núcleo ASP.NET. Pode generalizar este passo para aplicações web em qualquer idioma.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configuração de código da App](scenario-web-app-sign-user-app-configuration.md)

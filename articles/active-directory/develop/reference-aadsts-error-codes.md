@@ -12,13 +12,14 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026769"
 ---
-# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de autenticação e de autorização Azure AD
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
 Procurando informações sobre os códigos de erro AADSTS que são devolvidos do serviço de fichas de segurança Azure Ative (Azure AD) (STS)? Leia este documento para encontrar descrições de erros, correções e algumas soluções de solução sugeridas.
 
@@ -93,7 +94,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS40015 | OAuth2IdPAuthCodeRedemptionUserError - Há um problema com o seu Fornecedor de Identidade federado. Contacte o seu IDP para resolver este problema. |
 | AADSTS50000 | TokenIssuanceError - Há um problema com o serviço de inscrição. [Crie um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver este problema. |
 | AADSTS50001 | InvalidResource - O recurso é desativado ou não existe. Verifique o código da sua aplicação para garantir que especificou o URL de recurso exato para o recurso a que está a tentar aceder.  |
-| AADSTS50002 | NotAllowedTenant - A inscrição falhou devido a um acesso restrito por procuração ao inquilino. Se for a sua própria política de inquilinos, pode mudar as suas configurações restritas de inquilino para resolver este problema. |
+| AADSTS50002 | NotAllowedTenant - A inscrição falhou devido a um acesso restrito por procuração ao inquilino. Se for a sua própria política de inquilino, pode alterar as definições de restrição do inquilino para corrigir este problema. |
 | AADSTS50003 | MissingSigningKey - O sessão falhou devido à falta de uma chave ou certificado de assinatura. Isto pode ser porque não havia nenhuma chave de assinatura configurada na app. Confira as resoluções descritas em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Se ainda vir problemas, contacte o proprietário da aplicação ou um administrador de aplicações. |
 | AADSTS50005 | DevicePolicyError - O utilizador tentou iniciar sessão num dispositivo a partir de uma plataforma que não é suportada através da política de Acesso Condicional. |
 | AADSTS50006 | InvalidSignature - A verificação de assinatura falhou devido a uma assinatura inválida. |
@@ -202,7 +203,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS70012 | MsaServerError - Ocorreu um erro de servidor durante a autenticação de um utilizador MSA (consumidor). Tentar novamente. Se continuar a falhar, [abra um bilhete de apoio](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AutorizaçãoSPending - Erro de fluxo do dispositivo OAuth 2.0. A autorização está pendente. O dispositivo vai voltar a sondar o pedido. |
 | AADSTS70018 | BadVerificationCode - Código de verificação inválido devido à dactilografia do Utilizador no código do utilizador errado para o fluxo de código do dispositivo. A autorização não é aprovada. |
-| AADSTS70019 | CódigoEx expirado - Código de verificação expirado. Que o utilizador re-teste a inscrição. |
+| AADSTS70019 | CódigoEx expirado - Código de verificação expirado. Peça ao utilizador que volte a tentar iniciar sessão. |
 | AADSTS75001 | BindingSerializationError - Ocorreu um erro durante a ligação da mensagem SAML. |
 | AADSTS75003 | Não suportadaBindingError - A aplicação devolveu um erro relacionado com a ligação não suportada (a resposta do protocolo SAML não pode ser enviada através de encadernações diferentes do HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid - Azure AD não suporta o pedido SAML enviado pela app para SSO. |
@@ -263,6 +264,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS90093 | GraphUserUnautized - Gráfico devolvido com um código de erro proibido para o pedido. |
 | AADSTS90094 | AdminConsentRequired - Consentimento do administrador é necessário. |
 | AADSTS900382 | O Cliente Confidencial não é suportado no pedido da Cross Cloud. |
+| AADSTS90099 | A aplicação '{appId}' ({appName}) não foi autorizada no inquilino '{tenant}'. As candidaturas devem ser autorizadas a aceder ao cliente inquilino antes que os administradores delegados do parceiro possam usá-las. Fornecer pré-consentimento ou executar a API do Centro de Parceiros apropriado para autorizar o pedido. |
 | AADSTS90100 | InvalidRequestParameter - O parâmetro está vazio ou não é válido. |
 | AADSTS901002 | AADSTS901002: O parâmetro de pedido de "recursos" não é suportado. |
 | AADSTS90101 | InvalidEmailAddress - Os dados fornecidos não são um endereço de e-mail válido. O endereço de e-mail deve estar no formato `someone@example.com` . |
@@ -320,6 +322,6 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS7000112 | Não autorizadoClientApplicationDabled - A aplicação está desativada. |
 | AADSTS7500529 | O valor 'SAMLId-Guid' não é um ID SAML válido - A azure AD utiliza este atributo para preencher o atributo InResponseTo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, id6c1c178c16666687be4aaf5e482730 é um ID válido. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Tem uma pergunta ou não consegue encontrar o que procura? Crie um problema do GitHub ou veja [opções de Suporte e ajuda para que os desenvolvedores](active-directory-develop-help-support.md) aprendam sobre outras formas de obter ajuda e suporte.

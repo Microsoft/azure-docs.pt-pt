@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7393b0f3d3004c28e0d6befe2fdbbeda7f9a592
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026157"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicação web que assina nos utilizadores: Iniciar s-in e iniciar sê-out
 
@@ -32,7 +33,7 @@ A inscrição é constituída por duas partes:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Em ASP.NET Core, para aplicações de plataforma de identidade da Microsoft, o botão **Sign in** é exposto `Views\Shared\_LoginPartial.cshtml` (para uma aplicação MVC) ou `Pages\Shared\_LoginPartial.cshtm` (para uma aplicação Razor). Só é apresentado quando o utilizador não é autenticado. Ou seja, é exibido quando o utilizador ainda não assinou ou assinou. Pelo contrário, é apresentado o botão **'Iniciar'** quando o utilizador já está inscrito. Note que o controlador de conta está definido no pacote **Microsoft.Identity.Web.UI** NuGet, na área chamada **MicrosoftIdentity**
+Em ASP.NET Core, para aplicações de plataforma de identidade da Microsoft, o botão **Sign in** é exposto `Views\Shared\_LoginPartial.cshtml` (para uma aplicação MVC) ou `Pages\Shared\_LoginPartial.cshtm` (para uma aplicação Razor). Só é exibido quando o utilizador não é autenticado. Ou seja, é exibido quando o utilizador ainda não assinou ou assinou. Pelo contrário, é apresentado o botão **'Iniciar'** quando o utilizador já está inscrito. Note que o controlador de conta está definido no pacote **Microsoft.Identity.Web.UI** NuGet, na área chamada **MicrosoftIdentity**
 
 ```html
 <ul class="navbar-nav">
@@ -334,7 +335,7 @@ Em versões anteriores dos ASP.NET modelos de núcleo, o `Account` controlador f
 - Chamadas `Signout()` , que permite que o middleware OpenID Connect contacte o ponto final da plataforma de identidade da `logout` Microsoft. O ponto final, então:
 
   - Limpa o cookie de sessão do navegador.
-  - Chama de volta a URL logout. Por predefinição, o URL logout apresenta a página de visualização [assinadaSignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Esta página também é fornecida como parte de MIcrosoft.Identity.Web.
+  - Chama de volta a URL logout. Por predefinição, o URL logout apresenta a página de visualização assinada [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página também é fornecida como parte de MIcrosoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -429,7 +430,7 @@ No quickstart Python, o redirecionamento de uri pós-logout apenas exibe a pági
 
 Se quiser saber mais sobre a assinatura, leia a documentação do protocolo disponível no [Open ID Connect](./v2-protocols-oidc.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Mover-se para a produção](scenario-web-app-sign-user-production.md)
+> [Mover para a produção](scenario-web-app-sign-user-production.md)

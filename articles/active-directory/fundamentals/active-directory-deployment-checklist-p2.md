@@ -3,21 +3,22 @@ title: Lista de verificação de Implementação do Azure AD
 description: Lista de verificação de funcionalidades do Azure Ative Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: ''
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 082e4a35582e9fe643aefc13c0c46a1c75f443e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063650"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025392"
 ---
-# <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de recursos do Azure Ative Directory
+# <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de funcionalidades do Azure Active Directory
 
 Pode parecer assustador implantar o Azure Ative Directory (Azure AD) para a sua organização e mantê-lo seguro. Este artigo identifica tarefas comuns que os clientes consideram úteis para completar em fases, ao longo de 30, 60, 90 dias, ou mais, para melhorar a sua postura de segurança. Mesmo as organizações que já implementaram a Azure AD podem usar este guia para garantir que estão a tirar o máximo partido do seu investimento.
 
@@ -40,7 +41,7 @@ Informações adicionais sobre o licenciamento podem ser encontradas nas seguint
 
 Nesta fase, os administradores permitem funcionalidades de segurança de base para criar uma fundação mais segura e fácil de usar em Azure AD antes de importar ou criar contas normais de utilizador. Esta fase fundamental garante que está num estado mais seguro desde o início e que os seus utilizadores finais só têm de ser introduzidos em novos conceitos uma vez.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | [Designar mais do que um administrador global](../users-groups-roles/directory-emergency-access.md) | Atribua pelo menos duas contas de administrador global permanente apenas na nuvem para utilização em caso de emergência. Estas contas não são usadas diariamente e devem ter senhas longas e complexas. | Azure AD Gratuito |
 | [Utilizar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos seus administradores apenas o acesso que precisam para apenas as áreas a que precisam de acesso. Nem todos os administradores precisam de ser administradores globais. | Azure AD Gratuito |
@@ -52,16 +53,17 @@ Nesta fase, os administradores permitem funcionalidades de segurança de base pa
 | [Desativar resets periódicos de palavra-passe para contas de utilizador baseadas na nuvem](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | As reposições periódicas de palavra-passe incentivam os seus utilizadores a incrementar as suas palavras-passe existentes. Utilize as diretrizes no doc de orientação de passwords da Microsoft e espelhe a sua política no local para utilizadores apenas na nuvem. | Azure AD Gratuito |
 | [Personalize o bloqueio inteligente do Azure Ative Directory](../authentication/howto-password-smart-lockout.md) | Impedir que os bloqueios de utilizadores baseados na nuvem sejam replicados para utilizadores do Ative Directory | |
 | [Ativar o bloqueio inteligente da extranet para FS AD](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | O bloqueio da extranet AD FS protege contra ataques de adivinhação de senha de força bruta, enquanto permite que utilizadores válidos de FS AD continuem a usar as suas contas. | |
+| [Bloquear a autenticação do legado para Azure AD com acesso condicional](../conditional-access/block-legacy-authentication.md) | Bloqueie protocolos de autenticação de legados como POP, SMTP, IMAP e MAPI que não podem impor a Autenticação Multi-Factor, tornando-os um ponto de entrada preferido para os adversários. | Azure AD Premium P1 |
 | [Implementar autenticação multi-factor Azure AD utilizando políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) | Exija que os utilizadores realizem uma verificação em duas etapas ao aceder a aplicações sensíveis utilizando políticas de Acesso Condicional. | Azure AD Premium P1 |
 | [Ativar a proteção de identidade do diretório ativo Azure](../identity-protection/overview-identity-protection.md) | Ativar o rastreio de insusões de risco e credenciais comprometidas para os utilizadores da sua organização. | Azure AD Premium P2 |
 | [Utilize deteções de risco para desencadear alterações na autenticação de vários fatores e nas alterações da palavra-passe](../authentication/tutorial-risk-based-sspr-mfa.md) | Ativar a automatização que pode desencadear eventos como autenticação de vários fatores, reset de palavra-passe e bloqueio de ins-ins com base no risco. | Azure AD Premium P2 |
-| [Ativar o registo convergente para reset de senha de autosserviço e autenticação multi-factor AD Azure (pré-visualização)](../authentication/concept-registration-mfa-sspr-converged.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. | Azure AD Premium P1 |
+| [Ativar o registo combinado para reset de senha de autosserviço e autenticação multi-factor Azure AD](../authentication/concept-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importar utilizadores, permitir sincronização e gerir dispositivos
 
 Em seguida, adicionamos à fundação estabelecida na fase 1, importando os nossos utilizadores e permitindo a sincronização, planejando o acesso dos hóspedes, e preparando-se para apoiar funcionalidades adicionais.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | [Instalar o Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Prepare-se para sincronizar os utilizadores do seu diretório existente no local até à nuvem. | Azure AD Gratuito |
 | [Implementar sincronização de hash de palavra-passe](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Sincronizar os hashes de palavra-passe para permitir que as alterações de palavras-passe sejam replicadas, a deteção e reparação de palavras-passe erradas e a fuga de relatórios de credenciais. | Azure AD Gratuito |
@@ -77,7 +79,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, importando os noss
 
 À medida que continuamos a construir nas fases anteriores, identificamos candidaturas candidatas para migração e integração com a AZure AD e completamos a configuração dessas aplicações.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | Identifique as suas aplicações | Identifique aplicações em uso na sua organização: no local, aplicações SaaS na nuvem e outras aplicações de linha de negócio. Determine se estas aplicações podem e devem ser geridas com Azure AD. | Sem licença necessária |
 | [Integrar candidaturas de SaaS apoiadas na galeria](../manage-apps/add-application-portal.md) | A Azure AD tem uma galeria que contém milhares de aplicações pré-integradas. Algumas das aplicações que a sua organização utiliza provavelmente estão na galeria acessível diretamente a partir do portal Azure. | Azure AD Gratuito |
@@ -87,7 +89,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, importando os noss
 
 A fase 4 vê os administradores a impor princípios de privilégios mínimos para a administração, a completar as suas primeiras revisões de acesso e a permitir a automatização de tarefas comuns do ciclo de vida do utilizador.
 
-| Tarefa | Detalhe | Licença requerida |
+| Tarefa | Detalhes | Licença requerida |
 | ---- | ------ | ---------------- |
 | [Impor o uso da Gestão de Identidade Privilegiada](../privileged-identity-management/pim-security-wizard.md) | Remova as funções administrativas das contas normais do dia-a-dia do utilizador. Tornar os utilizadores administrativos elegíveis para utilizarem o seu papel após uma verificação de autenticação multi-factor, fornecendo uma justificação do negócio ou solicitando a aprovação dos aprovadores designados. | Azure AD Premium P2 |
 | [Complete uma revisão de acesso para funções de diretório AZure AD em PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Trabalhe com as suas equipas de segurança e liderança para criar uma política de revisão de acesso para rever o acesso administrativo com base nas políticas da sua organização. | Azure AD Premium P2 |
@@ -95,7 +97,7 @@ A fase 4 vê os administradores a impor princípios de privilégios mínimos par
 | [Implementar provisão de aplicações baseadas em grupo](../manage-apps/what-is-access-management.md) | Utilize o fornecimento de gestão de acesso baseado em grupo para provisão automática de utilizadores para aplicações SaaS. |  |
 | [Automatizar o fornecimento e desprovisionamento dos utilizadores](../app-provisioning/user-provisioning.md) | Remova os passos manuais do ciclo de vida da conta do seu funcionário para evitar o acesso não autorizado. Sincronizar identidades da sua fonte de verdade (Sistema HR) para Azure AD. |  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Detalhes de licenciamento e preços da AZure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 

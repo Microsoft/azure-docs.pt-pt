@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 238bcc6c706f2fab969c98b73ca879d064498693
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026514"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicação de uma página única: Registo de aplicações
 
@@ -37,7 +38,7 @@ Em seguida, configurar o registo da aplicação com um **Redirect URI** para esp
 - [MSAL.js 2.0 com fluxo de código de auth](#redirect-uri-msaljs-20-with-auth-code-flow) (recomendado)
 - [MSAL.js 1.0 com fluxo implícito](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Redirecionamento URI: MSAL.js 2.0 com fluxo de código auth
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Redirecionamento URI: [MSAL.js 2.0 com fluxo de código auth](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 Siga estes passos para adicionar um URI de redirecionamento para uma aplicação que utiliza MSAL.js 2.0 ou mais tarde. MSAL.js 2.0+ suporta o fluxo de código de autorização com PKCE e CORS em resposta às restrições de [cookies de terceiros do navegador](reference-third-party-cookies-spas.md). O fluxo de subvenção implícita não é suportado em MSAL.js 2.0+.
 
@@ -49,7 +50,9 @@ Siga estes passos para adicionar um URI de redirecionamento para uma aplicação
 
 Já concluiu o registo da sua aplicação de uma página única (SPA) e configura um URI de redirecionamento para o qual o cliente será redirecionado e quaisquer fichas de segurança serão enviadas. Ao configurar o seu URI de redirecionamento utilizando o azulejo **de aplicação de página única** no painel de plataforma Add **a,** o seu registo de candidatura está configurado para suportar o fluxo de código de autorização com PKCE e CORS.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Redirecionamento URI: MSAL.js 1.0 com fluxo implícito
+Siga o [tutorial](tutorial-v2-javascript-auth-code.md) para mais orientação.
+
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Redirecionamento URI: [MSAL.js 1.0 com fluxo implícito](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 Siga estes passos para adicionar um URI de redirecionamento para uma aplicação de uma página que utiliza MSAL.js 1.3 ou mais cedo e o fluxo de concessão implícito. As aplicações que utilizam MSAL.js 1.3 ou mais cedo não suportam o fluxo de código auth.
 
@@ -64,6 +67,8 @@ Siga estes passos para adicionar um URI de redirecionamento para uma aplicação
 
 Já concluiu o registo da sua aplicação de uma página única (SPA) e configura um URI de redirecionamento para o qual o cliente será redirecionado e quaisquer fichas de segurança serão enviadas. Ao selecionar um ou ambos os **tokens** de ID e **tokens de acesso,** você ativou o fluxo de subvenção implícita.
 
+Siga o [tutorial](tutorial-v2-javascript-spa.md) para mais orientação. 
+
 ## <a name="note-about-authorization-flows"></a>Nota sobre fluxos de autorização
 
 Por predefinição, um registo de aplicações criado através da configuração da plataforma de aplicação de uma página única permite o fluxo de código de autorização. Para tirar partido deste fluxo, a sua aplicação deve utilizar MSAL.js 2.0 ou posterior.
@@ -72,7 +77,7 @@ Como mencionado anteriormente, as aplicações de uma página única que utiliza
 
 Quando todas as aplicações de produção de uma página única representadas por um registo de aplicações estiverem a utilizar MSAL.js 2.0 e o fluxo de código de autorização, desmarque as definições implícitas do painel de **autenticação** do registo da aplicação no portal Azure. As aplicações que utilizam MSAL.js 1.x e o fluxo implícito podem continuar a funcionar, no entanto, se deixar o fluxo implícito ativado (verificado).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, configurar o código da sua aplicação para utilizar o registo de aplicações que criou nos passos anteriores:.
 

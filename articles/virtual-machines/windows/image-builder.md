@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 6fa1f6bcc6c91a493225726bc0df60d2d0b4a1e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027942"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Pré-visualização: Criar um Windows VM com Azure Image Builder
 
@@ -102,7 +102,7 @@ az group create -n $imageResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Criar uma identidade atribuída ao utilizador e definir permissões no grupo de recursos
-O Image Builder utilizará a [identidade do utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) fornecida para injetar a imagem no grupo de recursos. Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem. A definição de função será então atribuída à identidade do utilizador.
+O Image Builder utilizará a [identidade do utilizador](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) fornecida para injetar a imagem no grupo de recursos. Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem. A definição de função será então atribuída à identidade do utilizador.
 
 ## <a name="create-user-assigned-managed-identity-and-grant-permissions"></a>Criar identidade gerida atribuída ao utilizador e conceder permissões 
 ```bash
@@ -211,7 +211,7 @@ Espere até que a construção esteja completa. Isto pode levar cerca de 15 minu
 Se encontrar algum erro, por favor reveja estes passos [de resolução de problemas.](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting)
 
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Crie o VM utilizando a imagem que construiu. *\<password>* Substitua-a pela sua própria palavra-passe para `aibuser` o VM.
 
@@ -269,6 +269,6 @@ az group delete -n $imageResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os componentes do ficheiro .json utilizado neste artigo, consulte a [referência do modelo do construtor de imagem](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

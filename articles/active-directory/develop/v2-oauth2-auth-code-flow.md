@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 198ab9505c550ad5bf8dc75211864a562b45979f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0470ab635f34291b4c92259e556329d6b2f401c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553671"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026089"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização OAuth 2.0
 
@@ -159,7 +159,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | obrigatório   | O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais detalhes, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints)  |
 | `client_id` | obrigatório  | O ID da Aplicação (cliente) que o [portal Azure – Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu à sua app. |
 | `grant_type` | obrigatório   | Deve ser `authorization_code` para o fluxo de código de autorização.   |
-| `scope`      | obrigatório   | Uma lista de âmbitos separados pelo espaço. Os âmbitos solicitados nesta perna devem ser equivalentes ou a um subconjunto dos âmbitos solicitados na primeira perna. Os âmbitos devem ser todos de um único recurso, juntamente com os âmbitos OIDC `profile` (, `openid` . . `email` . Para obter uma explicação mais detalhada dos âmbitos, consulte [permissões, consentimento e âmbitos](v2-permissions-and-consent.md). |
+| `scope`      | opcional   | Uma lista de âmbitos separados pelo espaço. Os âmbitos devem ser todos de um único recurso, juntamente com os âmbitos OIDC `profile` (, `openid` . . `email` . Para obter uma explicação mais detalhada dos âmbitos, consulte [permissões, consentimento e âmbitos](v2-permissions-and-consent.md). Trata-se de uma extensão da Microsoft ao fluxo de código de autorização, destinado a permitir que as aplicações declarem o recurso para o qual pretendem o símbolo durante o resgate simbólico.|
 | `code`          | obrigatório  | O authorization_code que adquiriu na primeira parte do fluxo. |
 | `redirect_uri`  | obrigatório  | O mesmo valor redirect_uri que foi usado para adquirir o authorization_code. |
 | `client_secret` | necessário para aplicações confidenciais da web | O segredo da aplicação que criou no portal de registo de aplicações para a sua aplicação. Não deve usar o segredo da aplicação numa aplicação nativa ou numa aplicação de página única porque client_secrets não podem ser armazenados de forma fiável em dispositivos ou páginas web. É necessário para aplicações web e APIs web, que têm a capacidade de armazenar o client_secret de forma segura no lado do servidor.  O segredo do cliente deve ser codificado por URL antes de ser enviado. Para obter mais informações sobre a codificação uri, consulte a [especificação de sintaxe genérica URI](https://tools.ietf.org/html/rfc3986#page-12). |

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc81cca10bacc581e72c7caa70a0b74b7ae99f9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025343"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory
 
@@ -85,13 +85,13 @@ Mudar o diretório de subscrição é uma operação de nível de serviço, por 
 
 Depois de associar uma subscrição a um diretório diferente, poderá ter de fazer as seguintes tarefas para retomar as operações:
 
-- Se tem cofres chave, tem de mudar a identificação do inquilino do cofre. Para obter mais informações, consulte [Change a key vault tenant ID after a subscription move](../../key-vault/general/subscription-move-fix.md).
+- Se tem cofres chave, tem de mudar a identificação do inquilino do cofre. Para obter mais informações, consulte [Change a key vault tenant ID after a subscription move](../../key-vault/general/move-subscription.md).
 
 - Se utilizou identidades geridas atribuídas pelo sistema para recursos, deve ree capacitar estas identidades. Se utilizar identidades geridas atribuídas pelo utilizador, deve recriar estas identidades. Após a re-habilitação ou recriação das Identidades Geridas, deve restabelecer as permissões atribuídas a essas identidades. Para mais informações, veja [o que são identidades geridas para os recursos da Azure?](../managed-identities-azure-resources/overview.md)
 
 - Se registou uma Stack Azure usando esta subscrição, deve voltar a registar-se. Para mais informações, consulte [o Register Azure Stack com Azure](/azure-stack/operator/azure-stack-registration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para criar um novo inquilino AZure AD, consulte [Quickstart: Criar um novo inquilino no Azure Ative Directory](active-directory-access-create-new-tenant.md).
 

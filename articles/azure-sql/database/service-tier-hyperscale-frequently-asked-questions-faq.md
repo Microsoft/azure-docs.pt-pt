@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024032"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FaQ de hiperescala da base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,7 +73,7 @@ O nível de serviço de hiperescala está atualmente disponível nas regiões li
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-server"></a>Posso criar várias bases de dados de hiperescala por servidor
 
-Sim. Para obter mais informações e limites sobre o número de bases de dados de Hiperescala por servidor, consulte [os limites de recursos da Base de Dados SQL para bases de dados individuais e agidadas num servidor](resource-limits-logical-server.md).
+Yes. Para obter mais informações e limites sobre o número de bases de dados de Hiperescala por servidor, consulte [os limites de recursos da Base de Dados SQL para bases de dados individuais e agidadas num servidor](resource-limits-logical-server.md).
 
 ### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Quais são as características de desempenho de uma base de dados de Hiperescala
 
@@ -198,13 +198,15 @@ Sim, incluindo compressão de linha, página e loja de colunas.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Se eu tiver uma mesa enorme, os dados da minha tabela são espalhados por vários ficheiros de dados
 
-Sim. As páginas de dados associadas a uma determinada tabela podem acabar em vários ficheiros de dados, que fazem parte do mesmo grupo de ficheiros. O SQL Server utiliza [uma estratégia de preenchimento proporcional](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados por ficheiros de dados.
+Yes. As páginas de dados associadas a uma determinada tabela podem acabar em vários ficheiros de dados, que fazem parte do mesmo grupo de ficheiros. O SQL Server utiliza [uma estratégia de preenchimento proporcional](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados por ficheiros de dados.
 
 ## <a name="data-migration-questions"></a>Questões de migração de dados
 
 ### <a name="can-i-move-my-existing-databases-in-azure-sql-database-to-the-hyperscale-service-tier"></a>Posso mover as minhas bases de dados existentes na Base de Dados Azure SQL para o nível de serviço de hiperescala
 
-Sim. Pode mover as bases de dados existentes na Base de Dados Azure SQL para Hyperscale. Esta é uma migração unidirecciona. Não se pode mover bases de dados de Hyperscale para outro nível de serviço. Para provas de conceito (POCs), recomendamos que faça uma cópia da sua base de dados e emigre a cópia para Hyperscale.
+Yes. Pode mover as bases de dados existentes na Base de Dados Azure SQL para Hyperscale. Esta é uma migração unidirecciona. Não se pode mover bases de dados de Hyperscale para outro nível de serviço. Para provas de conceito (POCs), recomendamos que faça uma cópia da sua base de dados e emigre a cópia para Hyperscale. 
+
+O tempo necessário para mover uma base de dados existente para Hyperscale consiste na hora de copiar dados, e o tempo para reproduzir as alterações es feitas na base de dados de origem enquanto copia dados. O tempo de cópia de dados é proporcional ao tamanho dos dados. O tempo para reproduzir alterações será mais curto se o movimento for feito durante um período de baixa atividade de escrita.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Posso mover as minhas bases de dados de Hiperescala para outros níveis de serviço
 
@@ -212,11 +214,11 @@ Não. Neste momento, não se pode mover uma base de dados hyperscale para outro 
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Se perco alguma funcionalidade ou capacidade após a migração para o nível de serviço hyperscale
 
-Sim. Algumas funcionalidades da Base de Dados Azure SQL ainda não são suportadas em Hyperscale, incluindo, mas não se limitando a retenção de backup a longo prazo. Depois de migrar as suas bases de dados para Hyperscale, essas funcionalidades deixam de funcionar.  Esperamos que estas limitações sejam temporárias.
+Yes. Algumas funcionalidades da Base de Dados Azure SQL ainda não são suportadas em Hyperscale, incluindo, mas não se limitando a retenção de backup a longo prazo. Depois de migrar as suas bases de dados para Hyperscale, essas funcionalidades deixam de funcionar.  Esperamos que estas limitações sejam temporárias.
 
 ### <a name="can-i-move-my-on-premises-sql-server-database-or-my-sql-server-database-in-a-cloud-virtual-machine-to-hyperscale"></a>Posso mover a minha base de dados do SQL Server no local ou a minha base de dados do SQL Server numa máquina virtual em nuvem para Hyperscale
 
-Sim. Pode utilizar todas as tecnologias de migração existentes para migrar para a Hiperescala, incluindo a replicação transacional, e quaisquer outras tecnologias de movimento de dados (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). Consulte também o [Serviço de Migração da Base de Dados Azure,](../../dms/dms-overview.md)que suporta muitos cenários de migração.
+Yes. Pode utilizar todas as tecnologias de migração existentes para migrar para a Hiperescala, incluindo a replicação transacional, e quaisquer outras tecnologias de movimento de dados (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). Consulte também o [Serviço de Migração da Base de Dados Azure,](../../dms/dms-overview.md)que suporta muitos cenários de migração.
 
 ### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Qual é o meu tempo de inatividade durante a migração de um ambiente de máquinas virtuais ou de uma máquina virtual para Hyperscale, e como posso minimizá-lo
 
@@ -245,7 +247,7 @@ SQL Server 2005. Para obter mais informações, consulte [Migrar para uma única
 
 ### <a name="does-hyperscale-support-migration-from-other-data-sources-such-as-amazon-aurora-mysql-postgresql-oracle-db2-and-other-database-platforms"></a>A Hyperscale suporta a migração de outras fontes de dados, tais como Amazon Aurora, MySQL, PostgreSQL, Oracle, DB2 e outras plataformas de base de dados
 
-Sim. [O Azure Database Migration Service](../../dms/dms-overview.md) suporta muitos cenários de migração.
+Yes. [O Azure Database Migration Service](../../dms/dms-overview.md) suporta muitos cenários de migração.
 
 ## <a name="business-continuity-and-disaster-recovery-questions"></a>Questões de continuidade do negócio e recuperação de desastres
 
@@ -255,7 +257,7 @@ Consulte [a SLA para a base de dados Azure SQL](https://azure.microsoft.com/supp
 
 ### <a name="are-the-database-backups-managed-for-me-by-azure-sql-database"></a>São as cópias de dados geridas por Azure SQL Database
 
-Sim.
+Yes.
 
 ### <a name="how-often-are-the-database-backups-taken"></a>Quantas vezes são recolhidas as cópias de segurança da base de dados
 
@@ -263,7 +265,7 @@ Não existem cópias de segurança tradicionais completas, diferenciais e de reg
 
 ### <a name="does-hyperscale-support-point-in-time-restore"></a>O ponto de suporte da Hyperscale restaura no tempo
 
-Sim.
+Yes.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>Qual é o Objetivo do Ponto de Recuperação (RPO)/Objetivo do Tempo de Recuperação (RTO) para a restauração da base de dados em hiperescala
 
@@ -275,7 +277,7 @@ Não. As cópias de segurança são geridas pelo subsistema de armazenamento e a
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Posso realizar geo-restauro com uma base de dados de Hiperescala
 
-Sim. Geo-restauro é totalmente suportado. Ao contrário da restauração pontual, a geo-restauração requer uma operação de tamanho de dados. Os ficheiros de dados são copiados em paralelo, pelo que a duração desta operação depende principalmente do tamanho do maior ficheiro na base de dados, em vez do tamanho total da base de dados. O tempo de geo-restauração será significativamente mais curto se a base de dados for restaurada na região de Azure que é [emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) com a região da base de dados de origem.
+Yes. Geo-restauro é totalmente suportado. Ao contrário da restauração pontual, a geo-restauração requer uma operação de tamanho de dados. Os ficheiros de dados são copiados em paralelo, pelo que a duração desta operação depende principalmente do tamanho do maior ficheiro na base de dados, em vez do tamanho total da base de dados. O tempo de geo-restauração será significativamente mais curto se a base de dados for restaurada na região de Azure que é [emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) com a região da base de dados de origem.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Posso configurar a geo-replicação com base de dados de hiperescala
 
@@ -289,7 +291,7 @@ Não. O formato de armazenamento para bases de dados hyperscale é diferente de 
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Se perco alguma funcionalidade ou capacidade após a migração para o nível de serviço hyperscale
 
-Sim. Algumas funcionalidades da Base de Dados Azure SQL não são suportadas em Hiperescala, incluindo, mas não se limitando a retenção de backup a longo prazo. Depois de migrar as suas bases de dados para Hyperscale, essas funcionalidades deixam de funcionar.
+Yes. Algumas funcionalidades da Base de Dados Azure SQL não são suportadas em Hiperescala, incluindo, mas não se limitando a retenção de backup a longo prazo. Depois de migrar as suas bases de dados para Hyperscale, essas funcionalidades deixam de funcionar.
 
 ### <a name="will-polybase-work-with-hyperscale"></a>A Polybase funcionará com a Hyperscale
 
@@ -345,7 +347,7 @@ Utilizador final. Não é automático.
 
 ### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>Será que o tamanho da minha `tempdb` base de dados também cresce à medida que o cálculo é aumentado
 
-Sim. A `tempdb` base de dados aumentará automaticamente à medida que o cálculo cresce.  
+Yes. A `tempdb` base de dados aumentará automaticamente à medida que o cálculo cresce.  
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Posso providenciar múltiplas réplicas primárias de computação, como um sistema multi-mestre, onde várias cabeças de computação primária podem conduzir a um nível mais elevado de concordância
 

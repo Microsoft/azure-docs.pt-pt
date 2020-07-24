@@ -12,11 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634647"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027619"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory
 
@@ -220,7 +221,7 @@ Desativar a extensão de NPS:
 -   Determine se a autenticação primária para a VPN é bem sucedida.
 
 Uma vez recuperado o serviço e estiver pronto para impor novamente o MFA aos seus utilizadores, ative a extensão NPS: 
--   Importante a chave de registo de HKEY_LOCAL_MACHINE de backup\SYSTEM\CurrentControlSet\Services\AuthSrv\Parâmetros 
+-   Importar a chave de registo de HKEY_LOCAL_MACHINE de backup\SYSTEM\CurrentControlSet\Services\AuthSrv\Parâmetros 
 -   Reiniciar o serviço de política de rede (IAS) para que as alterações produzam efeitos 
 -   Determine se a autenticação primária e a autenticação secundária para VPN são bem sucedidas.
 -   Reveja o servidor NPS e o registo VPN para determinar quais os utilizadores que se inscreveram durante a janela de emergência.

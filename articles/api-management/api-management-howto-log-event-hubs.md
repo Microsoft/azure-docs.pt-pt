@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: f594d4467e64ead40ff3c26aaf3e3a44cb673a98
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e2bf63558b4bbd55262aa16f70bfba934a42c3ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250299"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024967"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos para Azure Event Hubs na Azure API Management
 Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. O Event Hubs funciona como a "porta da frente" para um oleoduto de eventos, e uma vez recolhidos dados num centro de eventos, pode ser transformado e armazenado usando qualquer fornecedor de análise em tempo real ou adaptadores de lote/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
@@ -66,6 +66,9 @@ Uma vez configurado o seu madeireiro na Gestão da API, pode configurar a sua po
 Pode utilizar qualquer expressão que devolva uma corda como o valor do `log-to-eventhub` elemento. Neste exemplo, um string no formato JSON contendo a data e hora, nome de serviço, id pedido, endereço IP pedido e nome de operação é registado.
 
 Clique em **Guardar** para guardar a configuração de política atualizada. Assim que for salva, a política está ativa e os eventos são registados no Centro de Eventos designado.
+
+> [!NOTE]
+> O tamanho máximo de mensagem suportado que pode ser enviado para um centro de eventos desta política de Gestão da API é de 200 quilobytes (KB). Se uma mensagem enviada para um centro de eventos for superior a 200 KB, será automaticamente truncada e a mensagem truncada será transferida para centros de eventos.
 
 ## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Pré-visualizar o registo em Centros de Eventos utilizando a Azure Stream Analytics
 

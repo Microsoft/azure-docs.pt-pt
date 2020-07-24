@@ -4,16 +4,17 @@ description: Configurar testes de desempenho e carga com insights de aplicação
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8885a2e511c11317f593706255437e52819adcae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024355"
 ---
 # <a name="performance-testing"></a>Teste de desempenho
 
 > [!NOTE]
-> O serviço de testes de carga baseado na nuvem foi depreciado. Mais informações sobre a depreciação, a disponibilidade do serviço e serviços alternativos podem ser consultados [aqui.](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops)
+> O serviço de testes de carga baseado na nuvem foi depreciado. Mais informações sobre a depreciação, a disponibilidade do serviço e serviços alternativos podem ser consultados [aqui.](/azure/devops/test/load-test/overview?view=azure-devops)
 
 O Application Insights permite-lhe gerar testes de carga para os seus websites. Tal como [os testes de disponibilidade,](monitor-web-app-availability.md)pode enviar pedidos básicos ou [pedidos em várias etapas](availability-multistep.md) de agentes de teste da Azure em todo o mundo. Os testes de desempenho permitem simular até 20.000 utilizadores simultâneos até 60 minutos.
 
@@ -50,7 +51,7 @@ As capacidades avançadas de teste de desempenho da Application Insights são co
 
 ![Visual Studio ](./media/performance-testing/visual-studio-test.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Testes Web com vários passos](availability-multistep.md)
 * [Testes de url ping](monitor-web-app-availability.md)

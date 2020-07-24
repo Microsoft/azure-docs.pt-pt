@@ -5,20 +5,20 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 093448ad0280ada039f1d4e5abd0e83e4be19b03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d790a6f02fdc07609e374639c6e452b9088262e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024576"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Monitorização de funções do Azure com Insights de Aplicação do Monitor Azure
 
-[A Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) oferece integração incorporada com a Azure Application Insights para monitorizar funções. 
+[A Azure Functions](../../azure-functions/functions-overview.md) oferece integração incorporada com a Azure Application Insights para monitorizar funções. 
 
 O Application Insights recolhe dados de registo, desempenho e erro e deteta automaticamente anomalias de desempenho. O Application Insights inclui ferramentas de análise poderosas para ajudá-lo a diagnosticar problemas e a compreender como as suas funções são usadas. Quando tem a visibilidade nos dados da sua aplicação, pode melhorar continuamente o desempenho e a usabilidade. Pode até usar o Application Insights durante o desenvolvimento de projetos de aplicações de funções locais. 
 
-A instrumentação necessária para insights de aplicação é incorporada em Funções Azure. A única coisa que precisa é de uma chave de instrumentação válida para ligar a sua aplicação de função a um recurso Application Insights. A chave de instrumentação deve ser adicionada às definições da sua aplicação quando o recurso da aplicação de função for criado em Azure. Se a sua aplicação de função ainda não tiver esta chave, pode defini-la manualmente. Para obter mais informações, leia mais sobre [a monitorização das Funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
+A instrumentação necessária para insights de aplicação é incorporada em Funções Azure. A única coisa que precisa é de uma chave de instrumentação válida para ligar a sua aplicação de função a um recurso Application Insights. A chave de instrumentação deve ser adicionada às definições da sua aplicação quando o recurso da aplicação de função for criado em Azure. Se a sua aplicação de função ainda não tiver esta chave, pode defini-la manualmente. Para obter mais informações, leia mais sobre [a monitorização das Funções Azure](../../azure-functions/functions-monitoring.md?tabs=cmd).
 
 ## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Rastreio distribuído para aplicações Java no Windows (pré-visualização pública)
 
@@ -40,8 +40,8 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Ler mais instruções e informações sobre monitorização das funções de [Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
-* Obtenha uma visão geral do [Rastreio Distribuído](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)
-* Veja o que o [Mapa de Aplicações](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) pode fazer para o seu negócio
-* Leia sobre [pedidos e dependências de aplicativos Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
-* Saiba mais sobre [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) e [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* Ler mais instruções e informações sobre monitorização das funções de [Azure](../../azure-functions/functions-monitoring.md)
+* Obtenha uma visão geral do [Rastreio Distribuído](./distributed-tracing.md)
+* Veja o que o [Mapa de Aplicações](./app-map.md?tabs=net) pode fazer para o seu negócio
+* Leia sobre [pedidos e dependências de aplicativos Java](./java-in-process-agent.md)
+* Saiba mais sobre [o Azure Monitor](../overview.md) e [Application Insights](./app-insights-overview.md)

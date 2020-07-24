@@ -12,16 +12,16 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026735"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação?
 
->Seja notificado sobre as atualizações desta página. Basta adicionar [este URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) ao seu leitor de feed RSS.
+> Seja notificado das atualizações desta página colando este URL no seu leitor de feed RSS:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
 O sistema de autenticação altera e adiciona funcionalidades de forma contínua para melhorar a conformidade com a segurança e as normas. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre os seguintes detalhes:
 
@@ -193,7 +193,7 @@ Se a sua aplicação reutilizar códigos de autorização para obter fichas para
 
 Para obter mais informações sobre tokens de atualização, consulte [Refresh the access tokens](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Se utilizar a ADAL ou a MSAL, esta é tratada por si pela biblioteca - substitua a segunda instância de 'AcquireTokenByAuthorizationCodeAsync' por 'AcquireTokenSilentAsync'.
 
-## <a name="may-2018"></a>May 2018
+## <a name="may-2018"></a>Maio de 2018
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Fichas de ID não podem ser usadas para o fluxo OBO
 

@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152f7ab6ccb9f01c7fe70553501c8cf8afa1c650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8c9fbf2d86c2e066566bab11b1701909be64a37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025851"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
-As organizações podem agora utilizar a autenticação do Azure Ative Directory (AD) para as suas máquinas virtuais Azure (VMs) que executam a **edição do Datacenter 2019 do Windows Server 2019** ou **do Windows 10 1809** e posteriormente. A utilização do Azure AD para autenticar em VMs proporciona-lhe uma forma de controlar e impor políticas centralmente. Ferramentas como O Controlo de Acesso Baseado em Função (RBAC) e acesso condicional AD Azure permitem-lhe controlar quem pode aceder a um VM. Este artigo mostra-lhe como criar e configurar um VM Windows Server 2019 para utilizar a autenticação AD AZure.
+As organizações podem agora utilizar a autenticação do Azure Ative Directory (AD) para as suas máquinas virtuais Azure (VMs) que executam a **edição do Datacenter 2019 do Windows Server 2019** ou **do Windows 10 1809** e posteriormente. A utilização do Azure AD para autenticar em VMs proporciona-lhe uma forma de controlar e impor políticas centralmente. Ferramentas como o controlo de acesso baseado em funções Azure (Azure RBAC) e acesso condicional Ad Ad Azure permitem-lhe controlar quem pode aceder a um VM. Este artigo mostra-lhe como criar e configurar um VM Windows Server 2019 para utilizar a autenticação AD AZure.
 
 > [!NOTE]
 > O Azure AD in for Azure Windows VMs é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -39,7 +39,7 @@ Existem muitos benefícios em utilizar a autenticação AD AZure para iniciar se
 > [!NOTE]
 > Assim que ativar esta capacidade, os seus VMs windows em Azure serão aderidos ao Azure AD. Não pode junção a outros domínios, como AD ou AD DS Azure. Se precisar de o fazer, terá de desligar o VM do seu inquilino AZure AD desinstalando a extensão.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Regiões de Azure apoiadas e distribuição do Windows
 
@@ -200,7 +200,10 @@ Para obter mais informações sobre como utilizar o RBAC para gerir o acesso aos
 Pode impor políticas de Acesso Condicional, tais como autenticação de vários fatores ou verificação de risco de entrada no utilizador antes de autorizar o acesso a VMs do Windows em Azure que estão ativados com o sinal AD do Azure. Para aplicar a política de Acesso Condicional, tem de selecionar a aplicação "Azure Windows VM Sign-In" a partir da opção de atribuição de aplicações na nuvem ou ações e, em seguida, utilizar o risco de acesso como condição e/ou exigir a autenticação de vários fatores como controlo de acesso a subvenções. 
 
 > [!NOTE]
-> Se utilizar a "Requer autenticação multi-factor" como um controlo de acesso a subvenções para solicitar acesso à aplicação "Azure Windows VM Sign-In", então deve fornecer a reclamação de autenticação multi-factor como parte do cliente que inicia a sessão DE PDR para o windows VM alvo em Azure. A única forma de o conseguir num cliente do Windows 10 é utilizar o Windows Hello para Business PIN ou authenicação biométrica com o cliente RDP. O suporte à autenticação biométrica foi adicionado ao cliente RDP na versão 1809 do Windows 10. O ambiente de trabalho remoto que utiliza a autenticação do Windows Hello for Business apenas está disponível para implementações que utilizam o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
+> Se utilizar a "Requer autenticação multi-factor" como um controlo de acesso a subvenções para solicitar acesso à aplicação "Azure Windows VM Sign-In", então deve fornecer a reclamação de autenticação multi-factor como parte do cliente que inicia a sessão DE PDR para o windows VM alvo em Azure. A única forma de o conseguir num cliente do Windows 10 é utilizar o Windows Hello para Business PIN ou a autenticação biométrica com o cliente RDP. O suporte à autenticação biométrica foi adicionado ao cliente RDP na versão 1809 do Windows 10. O ambiente de trabalho remoto que utiliza a autenticação do Windows Hello for Business apenas está disponível para implementações que utilizam o modelo cert trust e que atualmente não estão disponíveis para o modelo de confiança chave.
+
+> [!WARNING]
+> Por utilizador A autenticação multi-factor ativada/forçada não é suportada para o sent-in VM.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Faça login usando credenciais AZure AD para um Windows VM
 
@@ -211,7 +214,7 @@ Para iniciar sessão na sua máquina virtual Windows Server 2019 utilizando Azur
 
 1. Navegue para a página geral da máquina virtual que foi ativada com o logon AD Azure.
 1. Selecione **Connect** para abrir a lâmina da máquina virtual Connect.
-1. Selecione **Download RDP File**.
+1. Selecione **Transferir Ficheiro RDP**.
 1. Selecione **Open** para lançar o cliente Remote Desktop Connection.
 1. Selecione **Connect** para lançar o diálogo de início de s logon do Windows.
 1. Logor usando as suas credenciais AZure AD.
@@ -221,7 +224,7 @@ Está agora a fazer sessão no Windows Server 2019 Azure virtual machine com as 
 > [!NOTE]
 > Pode salvar o . O ficheiro RDP localmente no seu computador para lançar futuras ligações remotas de ambiente de trabalho à sua máquina virtual em vez de ter de navegar para a página geral da máquina virtual no portal Azure e utilizar a opção de ligação.
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolução de Problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 
@@ -362,6 +365,6 @@ Se não tiver implementado o Windows Hello for Business e se isso não for uma o
 
 Partilhe o seu feedback sobre esta funcionalidade de pré-visualização ou informe os problemas que o utilizam no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](/azure/active-directory/fundamentals/active-directory-whatis)

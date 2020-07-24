@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 560ae8d837cf57e471a9f39d5ccdcf152a156b1e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186831"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029081"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
 
@@ -68,7 +68,7 @@ O fluxo de informação da plataforma para o agente ocorre através de dois cana
 * Um DVD anexado para implantações iaaS. Este DVD inclui um ficheiro de configuração compatível com OVF que inclui todas as informações de fornecimento que não os elementos-chave SSH reais.
 * Um ponto final TCP expondo uma API REST usada para obter configuração de implantação e topologia.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 Os seguintes sistemas foram testados e são conhecidos por trabalhar com o Agente Azure Linux:
 
 > [!NOTE]
@@ -344,5 +344,4 @@ Ubuntu Cloud Images utiliza [cloud-init](https://launchpad.net/ubuntu/+source/cl
 * Para obter mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recursos e trocar espaço em Ubuntu Cloud Images durante o provisionamento:
   
   * [Ubuntu Wiki: Configure Swap Partitions](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Injetar dados personalizados numa máquina virtual Azure](../windows/classic/inject-custom-data.md)
-
+  * [Injetar dados personalizados numa máquina virtual Azure](../windows/tutorial-automate-vm-deployment.md)

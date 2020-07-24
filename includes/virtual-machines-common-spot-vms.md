@@ -1,35 +1,31 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 07/20/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df78133f602466681da64d2666a311e1649c598f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506055"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028805"
 ---
 A utilização de VMs spot permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
 A quantidade de capacidade disponível pode variar em função do tamanho, região, hora do dia e muito mais. Ao implementar VMs spot, o Azure irá alocar os VMs se houver capacidade disponível, mas não há SLA para estes VMs. Um Spot VM não oferece garantias de alta disponibilidade. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure despejará VMs spot com aviso prévio de 30 segundos. 
 
 
-## <a name="eviction-policy"></a>Política de despejo
+## <a name="eviction-policy"></a>Política de expulsão
 
 Os VMs podem ser despejados com base na capacidade ou no preço máximo que definiu. Ao criar um Spot VM, pode definir a política de despejo para *Deallocate* (padrão) ou *Eliminar*. 
 
 A política *deallocate* move o seu VM para o estado de paragem, permitindo-lhe recolocá-lo mais tarde. No entanto, não há garantias de que a dotação seja bem sucedida. Os VMs translocados contarão com a sua quota e serão cobrados custos de armazenamento para os discos subjacentes. 
 
 Se quiser que o seu VM seja apagado quando for despejado, pode definir a política de despejo para *eliminar*. Os VMs despejados são eliminados juntamente com os seus discos subjacentes, pelo que não continuará a ser cobrado pelo armazenamento. 
-
-> [!NOTE]
->
-> O portal não suporta atualmente `Delete` como opção de despejo, só pode definir `Delete` usando PowerShell, CLI e modelos.
 
 Pode optar por receber notificações in-VM através de [Eventos Agendados Azure.](../articles/virtual-machines/linux/scheduled-events.md) Isto irá notificá-lo se os seus VMs estiverem a ser despejados e terá 30 segundos para terminar quaisquer trabalhos e executar tarefas de encerramento antes do despejo. 
 
@@ -54,19 +50,14 @@ Os seguintes tamanhos VM não são suportados para VMs spot:
 
 Os VM spot podem ser implantados em qualquer região, exceto microsoft Azure China 21Vianet.
 
-Alguns canais de subscrição não são suportados:
-
 <a name="channel"></a>
 
-| Canais Azure               | Disponibilidade de VMs Azure Spot       |
-|------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sim                               |
-| Pay As You Go                | Sim                               |
-| Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Benefícios                     | Não disponível                     |
-| Patrocinado                    | Sim                               |
-| Avaliação Gratuita                   | Não disponível                     |
+Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) são atualmente suportados:
 
+-   Contrato Enterprise
+-   Pay as you go
+-   Patrocinado
+- Para Provedor de Serviços cloud (CSP), contacte o seu parceiro
 
 
 ## <a name="pricing"></a>Preços
@@ -77,7 +68,7 @@ Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter
 Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço do VM será o preço atual para o spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível.
 
 
-##  <a name="frequently-asked-questions"></a>Perguntas frequentes
+##  <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **Q:** Uma vez criado, um Spot VM é o mesmo que o VM normal?
 

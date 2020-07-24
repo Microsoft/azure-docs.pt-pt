@@ -4,12 +4,12 @@ description: Criar e gerir um Gestor de Dados blockchain para o Serviço Azure B
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: b7b897f35cb864e2a1fa904bbb3ec13b56986598
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023743"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Blockchain Data Manager com a CLI do Azure
 
@@ -25,7 +25,7 @@ Para configurar uma instância do Gestor de Dados blockchain, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o mais recente [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e assine a utilização `az login` .
+* Instale o mais recente [Azure CLI](/cli/azure/install-azure-cli) e assine a utilização `az login` .
 * [Quickstart completo: Utilize o Código do Estúdio Visual para ligar a uma rede de consórcios do Azure Blockchain Service](connect-vscode.md). Recomenda-se o nível *padrão* do serviço Azure Blockchain ao utilizar o Blockchain Data Manager.
 * Criar um [tópico de grelha de evento](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Saiba mais sobre [os manipuladores de eventos em Azure Event Grid](../../event-grid/event-handlers.md)
@@ -36,11 +36,11 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0.51 do CLI Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [a instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0.51 do CLI Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [a instalação do Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -347,7 +347,7 @@ az resource invoke-action \
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| action | Use **começar** a executar o observador. |
+| ação | Use **começar** a executar o observador. |
 | ids | Identificação de recursos de observadores. Substitua \<Subscription ID\> \<Resource group\> , e pelos \<Watcher name\> valores para o recurso do observador.|
 
 ### <a name="start-instance-example"></a>Exemplo de exemplo de exemplo de exemplo de início
@@ -372,7 +372,7 @@ az resource invoke-action \
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| action | Use a **paragem** para parar o observador. |
+| ação | Use a **paragem** para parar o observador. |
 | ids | O nome do observador. Substitua \<Subscription ID\> \<Resource group\> , e pelos \<Watcher name\> valores para o recurso do observador. |
 
 ### <a name="stop-watcher-example"></a>Pare o exemplo do observador
@@ -413,7 +413,7 @@ az resource delete \
                    --resource-type Microsoft.blockchain/watchers
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o próximo tutorial criando um explorador de mensagens de transação blockchain usando blockchain Data Manager e Azure Cosmos DB.
 

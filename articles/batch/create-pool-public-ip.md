@@ -2,13 +2,13 @@
 title: Criar uma piscina com endereços IP públicos especificados
 description: Saiba como criar uma piscina de Lote que utilize os seus próprios endereços IP públicos.
 ms.topic: how-to
-ms.date: 06/16/2020
-ms.openlocfilehash: 51cb023bf3749233878fa4d544c6fd8ef4703645
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 07/20/2020
+ms.openlocfilehash: 630da3ff9c1f2318c7ed4da0e8f4b5ee8212f389
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961562"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023760"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Criar uma piscina Azure Batch com endereços IP públicos especificados
 
@@ -71,9 +71,11 @@ Corpo do Pedido
         "nodeAgentSKUId": "batch.node.ubuntu 16.04"
       },
 "networkConfiguration": {
-          "subnetId": "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
-          "publicIPs": [
-            "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135"
+          "subnetId": "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/virtualNetworks/<vNetId>/subnets/<subnetId>",
+          "publicIPAddressConfiguration": {
+            "provision": "usermanaged",
+            "ipAddressIds": [
+              "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/publicIPAddresses/<publicIpId>"
           ]
         },
 
@@ -93,7 +95,7 @@ Corpo do Pedido
     }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como [criar uma piscina numa sub-rede de uma rede virtual Azure.](batch-virtual-network.md)

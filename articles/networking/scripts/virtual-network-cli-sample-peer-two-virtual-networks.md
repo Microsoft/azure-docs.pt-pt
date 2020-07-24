@@ -12,13 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: 0e5aaf07b49546aca9f44dcb9a43a79127c82341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c301c66c3b668ae48314c4d1eb06657d8573209c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73890248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030409"
 ---
-# <a name="peer-two-virtual-networks"></a>Peering de rede de duas redes virtuais
+# <a name="use-an-azure-cli-sample-script-to-connect-two-virtual-networks"></a>Use um script de amostra Azure CLI para ligar duas redes virtuais
 
 Este script cria e conecta duas redes virtuais na mesma região através da rede Azure. Depois de executar o script, irá criar um peering entre duas redes virtuais.
 
@@ -50,7 +51,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az network vnet peering create](https://docs.microsoft.com/cli/azure/network/vnet/peering) | Cria um peering entre duas redes virtuais.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

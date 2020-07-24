@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 07/16/2020
 author: dlepow
 ms.author: danlep
-ms.openlocfilehash: e2498e2c20e171f113c8e3ec9eff70685df92c7f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d748e3e6239ba913afc5b8aadd7e85dcd1027c04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023709"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>Configure um único endereço IP público para o tráfego de saída e de entrada para um grupo de contentores
 
@@ -280,7 +280,7 @@ A saída é semelhante a:
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 52.142.18.133</body></html>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você configura grupos de contentores numa rede virtual atrás de uma firewall Azure. Configuraste uma rota definida pelo utilizador e regras de NAT e aplicação na firewall. Ao utilizar esta configuração, configura um único endereço IP estático para entrada e saída de Instâncias de Contentores Azure.
 
@@ -292,18 +292,18 @@ Para obter mais informações sobre a gestão do tráfego e a proteção dos rec
 [az-container-create]: /cli/azure/container#az-container-create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
 [az-extension-add]: /cli/azure/extension#az-extension-add
-[az-network-firewall-update]: /cli/azure/network/firewall#az-network-firewall-update
+[az-network-firewall-update]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-update
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az-network-public-ip-show
 [az-network-route-table-create]:/cli/azure/network/route-table/#az-network-route-table-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
-[az-network-firewall-ip-config-list]: /cli/azure/network/firewall/ip-config#[]az-network-firewall-ip-config-list
+[az-network-firewall-ip-config-list]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-list
 [az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-update
 [az-container-exec]: /cli/azure/container#az-container-exec
 [az-vm-create]: /cli/azure/vm#az-vm-create
 [az-vm-open-port]: /cli/azure/vm#az-vm-open-port
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
-[az-network-firewall-application-rule-create]: /cli/azure/network/firewall/application-rule#az-network-firewall-application-rule-create
-[az-network-firewall-nat-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/nat-rule
+[az-network-firewall-application-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/application-rule#ext-azure-firewall-az-network-firewall-application-rule-create
+[az-network-firewall-nat-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/nat-rule#ext-azure-firewall-az-network-firewall-nat-rule-create
 
 
 

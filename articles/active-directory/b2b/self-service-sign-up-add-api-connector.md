@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386747"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027517"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -76,7 +76,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -99,7 +99,7 @@ Se uma reclamação a enviar não tiver um valor no momento em que o ponto final
 Os atributos personalizados podem ser criados para o utilizador utilizando o formato **_AttributeName \<extensions-app-id> extension_.** A sua API deverá esperar receber reclamações neste mesmo formato serializado. A sua API pode devolver reclamações com ou sem `<extensions-app-id>` . Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autosserviço](user-flow-add-custom-attributes.md).
 
 > [!TIP] 
-> [**as identidades ('identidades')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e as reclamações do **Email Address ('email_address')** podem ser usadas para identificar um utilizador antes de terem uma conta no seu inquilino. A alegação de "identidades" é enviada quando um utilizador autentica com um Google ou Facebook e 'email_address' é sempre enviada.
+> [**as identidades ('identidades')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e as reclamações do **Email Address ('email')** podem ser usadas para identificar um utilizador antes de terem uma conta no seu inquilino. A alegação de "identidades" é enviada quando um utilizador autentica com um Google ou Facebook e o 'email' é sempre enviado.
 
 ## <a name="expected-response-types-from-the-web-api"></a>Tipos de resposta esperados da API web
 
@@ -135,16 +135,16 @@ Content-type: application/json
 
 | Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
-| action                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida pode, opcionalmente, não `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
+| versão                                            | Cadeia            | Yes      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | Cadeia            | Yes      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="blocking-response"></a>Resposta de bloqueio
 
 Uma resposta de bloqueio sai do fluxo do utilizador. Pode ser emitido propositadamente pela API para impedir a continuação do fluxo do utilizador exibindo uma página de bloco ao utilizador. A página do bloco apresenta o `userMessage` fornecido pela API.
 
-Segue-se um exemplo da resposta de bloqueio:
+Exemplo da resposta de bloqueio:
 
 ```http
 HTTP/1.1 200 OK
@@ -161,10 +161,10 @@ Content-type: application/json
 
 | Parâmetro   | Tipo   | Necessário | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | String | Sim      | A versão da API.                                                    |
-| action      | String | Sim      | Valor deve ser`ShowBlockPage`                                              |
-| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | Cadeia | Yes      | A versão da API.                                                    |
+| ação      | Cadeia | Yes      | Valor deve ser`ShowBlockPage`                                              |
+| userMessage | Cadeia | Yes      | A mensagem a apresentar ao utilizador.                                            |
+| code        | Cadeia | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 #### <a name="end-user-experience-with-a-blocking-response"></a>Experiência de utilizador final com uma resposta de bloqueio
 
@@ -191,20 +191,20 @@ Content-type: application/json
 
 | Parâmetro   | Tipo    | Necessário | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | String  | Sim      | A versão da API.                                                    |
-| action      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
-| status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | String  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | Cadeia  | Yes      | A versão da API.                                                    |
+| ação      | Cadeia  | Yes      | O valor deve `ValidationError` ser.                                           |
+| status      | Integer (Número inteiro) | Yes      | Deve ser valor `400` para uma resposta do ValidationError.                        |
+| userMessage | Cadeia  | Yes      | A mensagem a apresentar ao utilizador.                                            |
+| code        | Cadeia  | No       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
-#### <a name="end-user-experience-with-a-validation-error-response"></a>Experiência final do utilizador com uma resposta de erro de validação
+#### <a name="end-user-experience-with-a-validation-error-response"></a>Experiência de utilizador final com uma resposta de erro de validação
 
 ![Página de validação de exemplo](./media/api-connectors-overview/validation-error-postal-code.png)
 
 ### <a name="integration-with-azure-functions"></a>Integração com as Funções do Azure
 Pode utilizar um gatilho HTTP em Funções Azure como uma forma simples de criar uma API para usar com o conector API. Utiliza a Função Azure [para, por exemplo,](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)executar lógica de validação e limitar inscrições a domínios específicos. Também pode ligar e invocar outras APIs web, lojas de utilizadores e outros serviços na nuvem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Saiba como [adicionar um fluxo de trabalho de aprovação personalizado ao autosserviço](self-service-sign-up-add-approvals.md)

@@ -1,5 +1,5 @@
 ---
-title: Políticas de acesso condicional migração - Diretório Ativo Azure
+title: Migrar políticas de acesso condicional com autenticação multi-factor - Diretório Ativo Azure
 description: Este artigo mostra como migrar uma política clássica que requer autenticação multi-factor no portal Azure.
 services: active-directory
 ms.service: active-directory
@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5cc99241f5fa7c09c69db13dcb3f6c3aaa75e376
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027398"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrar uma política clássica no portal Azure
 
@@ -68,7 +69,7 @@ Para desativar a sua política clássica, clique em **Desativar** na vista **Det
 
 ![Desativar as políticas clássicas](./media/policy-migration-mfa/14.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a migração política clássica, consulte [as políticas clássicas da Migração no portal Azure.](policy-migration.md)
 - [Utilize o modo apenas de relatório para acesso condicional para determinar o impacto de novas decisões políticas.](concept-conditional-access-report-only.md)

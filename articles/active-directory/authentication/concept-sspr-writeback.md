@@ -5,21 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83639789"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027602"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como funciona a redefinição da palavra-passe de autosserviço no Azure Ative Directory?
 
 O Azure Ative Directory (Azure AD) redefiniu a palavra-passe de autosserviço (SSPR) permite que os utilizadores republem as suas palavras-passe na nuvem, mas a maioria das empresas também tem um ambiente no local Ative Directory Domain Services (AD DS) onde os seus utilizadores existem. O writeback de palavra-passe é uma funcionalidade ativada com [o Azure AD Connect](../hybrid/whatis-hybrid-identity.md) que permite que as alterações de palavras-passe na nuvem sejam escritas de volta para um diretório existente no local em tempo real. Nesta configuração, à medida que os utilizadores alteram ou reiniciam as suas palavras-passe utilizando SSPR na nuvem, as palavras-passe atualizadas também foram escritas para o ambiente AD DS no local.
+
+> [!IMPORTANT]
+> Este artigo conceptual explica a um administrador como funciona a gravação da palavra-passe de autosserviço. Se é um utilizador final já registado para redefinição da palavra-passe de autosserviço e precisa de voltar à sua conta, vá a https://aka.ms/sspr .
+>
+> Se a sua equipa de TI não tiver ativado a capacidade de redefinir a sua própria palavra-passe, contacte o seu helpdesk para obter assistência adicional.
 
 O writeback de palavra-passe é suportado em ambientes que utilizam os seguintes modelos de identidade híbrida:
 
@@ -36,7 +42,12 @@ A writeback da palavra-passe fornece as seguintes funcionalidades:
 * **Não requer regras de firewall de entrada**: A writeback de palavras-passe utiliza um retransmissor Azure Service Bus como um canal de comunicação subjacente. Toda a comunicação é saída sobre o porto 443.
 
 > [!NOTE]
-> As contas de administrador que existem dentro de grupos protegidos em AD no local podem ser usadas com a gravação de palavra-passe. Os administradores podem alterar a sua palavra-passe na nuvem, mas não podem usar a palavra-passe para redefinir uma palavra-passe esquecida. Para obter mais informações sobre grupos protegidos, consulte [contas e grupos protegidos no Ative Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> As contas de administrador que existem dentro de grupos protegidos em AD no local podem ser usadas com a gravação de palavra-passe. Os administradores podem alterar a sua palavra-passe na nuvem, mas não podem usar a palavra-passe para redefinir uma palavra-passe esquecida. Para obter mais informações sobre grupos protegidos, consulte [contas e grupos protegidos em DS AD](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+
+Para começar com a gravação da SSPR, complete o seguinte tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Ativar o reset da palavra-passe de autosserviço (SSPR)](tutorial-enable-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Como funciona a repetição de escrita de palavras-passe
 
@@ -52,14 +63,14 @@ Quando um utilizador sincronizado de haxixe federado ou de palavra-passe tenta r
 1. Depois de a mensagem chegar ao autocarro de serviço, o ponto final de reset de palavra-passe acorda automaticamente e vê que tem um pedido de reset pendente.
 1. Em seguida, o serviço procura o utilizador utilizando o atributo âncora de nuvem. Para que esta procura tenha êxito, devem ser satisfeitas as seguintes condições:
 
-   * O objeto do utilizador deve existir no espaço do conector Ative Directory.
+   * O objeto do utilizador deve existir no espaço do conector AD DS.
    * O objeto do utilizador deve ser ligado ao objeto metaverso correspondente (MV).
-   * O objeto do utilizador deve ser ligado ao respetivo objeto de conector Azure Ative Directory.
-   * A ligação do conector ative diretório ao MV deve ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` no link.
+   * O objeto do utilizador deve estar ligado ao respetivo objeto de conector Azure AD.
+   * A ligação do conector AD DS ao MV deve ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` no link.
 
-   Quando a chamada vem da nuvem, o motor de sincronização utiliza o atributo **cloudAnchor** para procurar o objeto espacial do conector Azure Ative Directory. Em seguida, segue a ligação de volta para o objeto MV, e em seguida, segue a ligação de volta para o objeto Ative Directory. Como pode haver vários objetos ative directory (multi-floresta) para o mesmo utilizador, o motor de sincronização depende da `Microsoft.InfromADUserAccountEnabled.xxx` ligação para escolher o correto.
+   Quando a chamada vem da nuvem, o motor de sincronização usa o atributo **cloudAnchor** para procurar o objeto de espaço do conector AZure AD. Em seguida, segue a ligação de volta para o objeto MV, e em seguida, segue a ligação de volta para o objeto DS AD. Como pode haver vários objetos AD DS (multi-floresta) para o mesmo utilizador, o motor de sincronização depende da `Microsoft.InfromADUserAccountEnabled.xxx` ligação para escolher o correto.
 
-1. Após a consulta da conta de utilizador, é feita uma tentativa de repor a palavra-passe diretamente na floresta de Ative Directory apropriada.
+1. Após a consulta da conta de utilizador, é feita uma tentativa de repor a palavra-passe diretamente na floresta DS AD apropriada.
 1. Se a operação de definição de palavra-passe for bem sucedida, o utilizador é informado de que a sua palavra-passe foi alterada.
 
    > [!NOTE]
@@ -68,7 +79,7 @@ Quando um utilizador sincronizado de haxixe federado ou de palavra-passe tenta r
 1. Se a operação de definição de palavra-passe falhar, um erro leva o utilizador a tentar novamente. A operação pode falhar devido às seguintes razões:
     * O serviço estava em baixo.
     * A palavra-passe que escolheram não corresponde às políticas da organização.
-    * Não é possível encontrar o utilizador no Ative Directory local.
+    * Não é possível encontrar o utilizador em ambientes AD DS locais.
 
    As mensagens de erro fornecem orientação aos utilizadores para que possam tentar resolver sem a intervenção do administrador.
 
@@ -85,7 +96,7 @@ A gravação de palavras-passe é um serviço altamente seguro. Para garantir qu
    1. A palavra-passe encriptada é colocada numa mensagem HTTPS que é enviada através de um canal encriptado utilizando certificados microsoft TLS/SSL para o seu retransmissor de autocarro de serviço.
    1. Depois de a mensagem chegar ao autocarro de serviço, o seu agente no local acorda e autentica-se no autocarro de serviço utilizando a palavra-passe forte que foi previamente gerada.
    1. O agente no local pega na mensagem encriptada e desencripta-a usando a chave privada.
-   1. O agente no local tenta definir a palavra-passe através da AD DS SetPassword API. Este passo é o que permite a aplicação da sua política de senhas ative directory no local (como a complexidade, idade, história e filtros) na nuvem.
+   1. O agente no local tenta definir a palavra-passe através da AD DS SetPassword API. Este passo é o que permite a aplicação da sua política de senha de DS AD no local (como a complexidade, idade, história e filtros) na nuvem.
 * **Políticas de expiração de mensagens**
    * Se a mensagem se sentar no autocarro de serviço porque o seu serviço no local está avariado, ele acaba e é removido após vários minutos. O tempo limite e a remoção da mensagem aumentam ainda mais a segurança.
 
@@ -94,9 +105,9 @@ A gravação de palavras-passe é um serviço altamente seguro. Para garantir qu
 Depois de um utilizador submeter um reset de palavra-passe, o pedido de reset passa por vários passos de encriptação antes de chegar ao seu ambiente no local. Estes passos de encriptação garantem a máxima fiabilidade e segurança do serviço. São descritos da seguinte forma:
 
 1. **Encriptação de palavra-passe com chave RSA de 2048**: Depois de um utilizador submeter uma palavra-passe a ser escrita de volta para o local, a própria palavra-passe submetida é encriptada com uma chave RSA de 2048.
-1. **Encriptação ao nível do pacote com AES-GCM**: Todo o pacote, a palavra-passe mais os metadados necessários, é encriptado utilizando a AES-GCM. Esta encriptação impede qualquer pessoa com acesso direto ao canal ServiceBus subjacente de visualização ou adulteração do conteúdo.
-1. Toda a **comunicação ocorre sobre TLS/SSL**: Toda a comunicação com o ServiceBus acontece num canal SSL/TLS. Esta encriptação protege o conteúdo de terceiros não autorizados.
-1. **Chave automática rebola de seis em seis meses**: Todas as teclas reagem de seis em seis meses, ou sempre que a gravação da palavra-passe é desativada e, em seguida, reativada no Azure AD Connect, para garantir a máxima segurança e segurança do serviço.
+1. **Encriptação ao nível do pacote com AES-GCM**: Todo o pacote, a palavra-passe mais os metadados necessários, é encriptado utilizando a AES-GCM. Esta encriptação impede que qualquer pessoa com acesso direto ao canal de Service Bus subjacente veja ou adulterar o conteúdo.
+1. Toda a **comunicação ocorre sobre tls/SSL**: Toda a comunicação com o Service Bus acontece num canal SSL/TLS. Esta encriptação protege o conteúdo de terceiros não autorizados.
+1. **Capotamento automático da chave de seis em seis meses**: Todas as teclas reagem de seis em seis meses, ou sempre que a gravação da palavra-passe é desativada e, em seguida, reativada no Azure AD Connect, para garantir a máxima segurança e segurança do serviço.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Utilização da largura de banda de reversão de palavra-passe
 
@@ -145,7 +156,7 @@ As palavras-passe não estão escritas em nenhuma das seguintes situações:
 > [!WARNING]
 > A utilização da caixa de verificação "O utilizador deve alterar a palavra-passe no próximo início de súmido" em ferramentas administrativas AD DS no local, como Utilizadores e Computadores de Diretório Ativo ou o Ative Directory Administrative Center é suportado como uma funcionalidade de pré-visualização do Azure AD Connect. Para obter mais informações, consulte [implementar a sincronização de hash de palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a gravação da SSPR, complete o seguinte tutorial:
 

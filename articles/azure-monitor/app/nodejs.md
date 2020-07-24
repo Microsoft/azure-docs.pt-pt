@@ -3,11 +3,12 @@ title: Monitorizar serviços Node.js com o Azure Application Insights | Microsof
 description: Monitorize o desempenho e diagnostique problemas em serviços Node.js com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80b4c4336a3e253e38790520a7eb4458ca36ff30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024389"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -28,7 +29,7 @@ Conclua as tarefas seguintes para configurar a monitorização para uma aplicaç
 Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma nova gratuitamente][azure-free-offer]. Se a sua organização já tiver uma subscrição do Azure, um administrador pode seguir [estas instruções][add-aad-user] para o adicionar à mesma.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
-[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
 ### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurar um recurso do Application Insights
 
@@ -411,7 +412,7 @@ Estas propriedades são específicas do cliente, para que possa configurar `appI
 | correlaidretryIntervalms    | O tempo para esperar antes de voltar a tentar recuperar o ID para a correlação entre componentes `30000` (Padrão).     |
 | correlationHeaderExcludedDomains| Uma lista de domínios a excluir da injeção de cabeçalho de correlação de componentes [cruzados (Config.ts Config.ts).](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Config.ts)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorizar a telemetria no portal](../../azure-monitor/app/overview-dashboard.md)
 * [Escrever consultas de análise sobre a telemetria](../../azure-monitor/log-query/get-started-portal.md)
@@ -419,4 +420,4 @@ Estas propriedades são específicas do cliente, para que possa configurar `appI
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
+[FAQ]: ../faq.md

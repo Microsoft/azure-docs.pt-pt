@@ -9,45 +9,51 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: d8ff8ced1723a3cdc969b4a951c31ea1da2d3093
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 65726a1b43cdbcb5a36d4a6d3f3df97669e1028f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027264"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
 Este artigo descreve o registo de pedidos, objetos de aplicação e diretores de serviço no Azure Ative Directory: o que são, como são usados e como estão relacionados uns com os outros. É também apresentado um cenário de exemplo multi-inquilino para ilustrar a relação entre o objeto de aplicação de uma aplicação e os objetos principais de serviço correspondentes.
 
 ## <a name="application-registration"></a>Registo da aplicação
-Para delegar funções de Gestão de Identidade e Acesso à Azure AD, deve ser registado um pedido junto de um [inquilino](developer-glossary.md#tenant)da AD Azure. Quando regista a sua candidatura com Azure AD, está a criar uma configuração de identidade para a sua aplicação que lhe permite integrar-se com a Azure AD. Quando regista uma aplicação no [portal Azure,][AZURE-Portal]você escolhe se é inquilino único (apenas acessível no seu inquilino) ou multi-inquilino (acessível a outros inquilinos) e pode configurar opcionalmente um URI redirecionado (para onde o token de acesso é enviado).
+Para delegar funções de Gestão de Identidade e Acesso à Azure AD, deve ser registado um pedido junto de um [inquilino](developer-glossary.md#tenant)da AD Azure. Quando regista a sua candidatura com Azure AD, está a criar uma configuração de identidade para a sua aplicação que lhe permite integrar-se com a Azure AD. Quando regista uma aplicação no [portal Azure,][AZURE-Portal]você escolhe se é um único inquilino (apenas acessível no seu inquilino) ou multi-inquilino (acessível a outros inquilinos) e pode configurar opcionalmente um URI redirecionador (para onde o token de acesso é enviado).
+
+![Registo da aplicação](./media/app-objects-and-service-principals/app-registration.png)
 
 Quando tiver concluído o registo da aplicação, tem uma instância globalmente única da app (o objeto da aplicação) que vive dentro do seu inquilino ou diretório.  Você também tem um ID globalmente único para a sua aplicação (a app ou iD do cliente).  No portal, pode então adicionar segredos ou certificados e âmbitos para fazer a sua app funcionar, personalizar a marca da sua app no diálogo de inscrição, e muito mais.
 
 Se registar uma aplicação no portal, um objeto de aplicação e um objeto principal de serviço são automaticamente criados no seu inquilino de casa.  Se registar/criar uma aplicação utilizando as APIs do Gráfico microsoft, criar o objeto principal de serviço é um passo separado.
 
 ## <a name="application-object"></a>Objeto de aplicação
-Um pedido AD Azure é definido pelo seu único objeto de candidatura, que reside no inquilino Azure AD onde o pedido foi registado (conhecido como o inquilino "casa" do pedido).  Um objeto de aplicação é usado como um modelo ou planta para criar um ou mais objetos principais de serviço.  Um diretor de serviço é criado em todos os inquilinos onde o pedido é usado. Semelhante a uma classe na programação orientada para objetos, o objeto de aplicação tem algumas propriedades estáticas que são aplicadas a todos os principais de serviço criados (ou instâncias de aplicação). 
+Um pedido AD Azure é definido pelo seu único objeto de candidatura, que reside no inquilino Azure AD onde o pedido foi registado (conhecido como o inquilino "casa" do pedido).  Um objeto de aplicação é usado como um modelo ou planta para criar um ou mais objetos principais de serviço.  Um diretor de serviço é criado em todos os inquilinos onde o pedido é usado. Semelhante a uma classe na programação orientada a objetos, o objeto de aplicação tem algumas propriedades estáticas que são aplicadas a todos os principais de serviço criados (ou instâncias de aplicação). 
 
 O objeto da aplicação descreve três aspetos de uma aplicação: como o serviço pode emitir fichas para aceder à aplicação, recursos a que a aplicação pode ter de aceder e as ações que a aplicação pode tomar. 
 
 A lâmina **de registos** da App no [portal Azure][AZURE-Portal] é usada para listar e gerir os objetos de aplicação no seu inquilino de casa.
 
+![Lâmina de registos de aplicativos](./media/app-objects-and-service-principals/app-registrations-blade.png)
+
 A entidade microsoft Graph [Application][MS-Graph-App-Entity] define o esquema para as propriedades de um objeto de aplicação.
 
 ## <a name="service-principal-object"></a>Objeto principal de serviço
-Para aceder aos recursos que são assegurados por um inquilino da Azure AD, a entidade que necessita de acesso deve ser representada por um diretor de segurança. Isto é verdade tanto para os utilizadores (utilizadores principais) como para as aplicações (principal serviço). O diretor de segurança define a política de acesso e permissões para o utilizador/aplicação no inquilino AZure AD. Isto permite funcionalidades fundamentais, como a autenticação do utilizador/aplicação durante a entrada e autorização durante o acesso ao recurso.
+Para aceder aos recursos que são assegurados por um inquilino da Azure AD, a entidade que necessita de acesso deve ser representada por um diretor de segurança. Este requisito é válido tanto para os utilizadores (principal utilizador) como para as aplicações (principal serviço). O diretor de segurança define a política de acesso e permissões para o utilizador/aplicação no inquilino AZure AD. Isto permite funcionalidades fundamentais, como a autenticação do utilizador/aplicação durante a entrada e autorização durante o acesso ao recurso.
 
 Um diretor de serviço é a representação local, ou instância de aplicação, de um objeto de aplicação global em um único inquilino ou diretório. Um principal de serviço é um caso concreto criado a partir do objeto de aplicação e herda certas propriedades a partir desse objeto de aplicação.  Um diretor de serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único.  O objeto principal do serviço define o que a app pode realmente fazer no inquilino específico, que pode aceder à app, e quais os recursos a que a app pode aceder. 
 
 Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. Também pode criar o objeto principal de serviço num inquilino utilizando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph,](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http)o [portal Azure][AZURE-Portal]e outras ferramentas.  Ao utilizar o portal, é criado automaticamente um resmounte de serviço quando regista uma aplicação.
 
 A lâmina **de aplicações da Enterprise** no portal é usada para listar e gerir os principais serviços num inquilino. Pode ver as permissões do titular do serviço, permissões consentidas pelo utilizador, que os utilizadores fizeram esse consentimento, assinar informações e muito mais.
+
+![Lâmina de aplicativos da empresa](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
 
 A entidade Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto principal de serviço.
 
@@ -82,11 +88,11 @@ Neste cenário de exemplo:
 | 2    | Quando os administradores da Contoso e da Fabrikam consentem completamente, um objeto principal de serviço é criado no inquilino AZure AD da sua empresa e atribuiu as permissões que o administrador concedeu. Note também que a aplicação HR poderia ser configurada/projetada para permitir o consentimento dos utilizadores para uso individual. |
 | 3    | Os inquilinos de consumo da aplicação de RH (Contoso e Fabrikam) têm cada um o seu próprio objeto principal de serviço. Cada um representa a sua utilização de um caso do pedido em tempo de execução, regido pelas permissões consentidas pelo respetivo administrador. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Pode utilizar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos principais da aplicação e do serviço.
-- Pode aceder ao objeto de aplicação de uma aplicação utilizando a Microsoft Graph API, o editor manifesto de aplicação [do portal Azure,][AZURE-Portal] ou [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), representado pela sua entidade de [aplicação][MS-Graph-App-Entity]OData .
-- Pode aceder ao objeto principal de serviço de uma aplicação através dos cmdlets API ou [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), representados pela sua entidade OData [ServicePrincipal][MS-Graph-Sp-Entity].
+- Pode aceder ao objeto de aplicação de uma aplicação utilizando a Microsoft Graph API, o editor manifesto de aplicação [do portal Azure,][AZURE-Portal] ou [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), representado pela sua entidade de [aplicação][MS-Graph-App-Entity]OData .
+- Pode aceder ao objeto principal de serviço de uma aplicação através dos cmdlets API ou [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), representados pela sua entidade OData [ServicePrincipal][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 

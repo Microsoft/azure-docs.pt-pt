@@ -6,17 +6,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65c0838c06207435934e36d421b2cafc12ee39bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78969257"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029030"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos comuns da CLI do Azure para gerir recursos do Azure
 
 O Azure CLI permite-lhe criar e gerir os seus recursos Azure em macOS, Linux e Windows. Este artigo detalha alguns dos comandos mais comuns para criar e gerir máquinas virtuais (VMs).
 
-Este artigo requer a versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode utilizar [cloud Shell](/azure/cloud-shell/quickstart) a partir do seu navegador.
+Este artigo requer a versão Azure CLI 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Também pode utilizar [cloud Shell](../../cloud-shell/quickstart.md) a partir do seu navegador.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
 Para uma ajuda mais detalhada com comutadores e opções específicos da linha de comando, pode utilizar a ajuda e opções de comando on-line digitando `az <command> <subcommand> --help` .
@@ -57,8 +58,5 @@ Para uma ajuda mais detalhada com comutadores e opções específicos da linha d
 | Criar VM a partir da imagem | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para exemplos adicionais dos comandos CLI, consulte os [VMs Create e Manage Linux com o tutorial Azure CLI.](tutorial-manage-vm.md)
-
-
-

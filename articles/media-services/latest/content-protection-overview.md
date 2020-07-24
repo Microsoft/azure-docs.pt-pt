@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79461117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023267"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Proteja o seu conteúdo com encriptação dinâmica dos Media Services
 
@@ -243,12 +244,12 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId`tem um valor da chave solicitada. Pode usar `AlternativeMediaId` se quiser mapear o pedido a uma entidade do seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a procurar permissões.
 
-Para exemplos REST que usam URLs de aquisição de licença/chave personalizados, consulte [Políticas de Streaming - Criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Para exemplos REST que usam URLs de aquisição de licença/chave personalizados, consulte [Políticas de Streaming - Criar](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolução de Problemas
 
 Se tiver o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, certifique-se de que especifica a política de streaming apropriada.
 
@@ -258,11 +259,11 @@ Se tiver erros que terminam com `_NOT_SPECIFIED_IN_URL` , certifique-se de que e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Proteger com encriptação AES](protect-with-aes128.md)
 * [Proteger com DRM](protect-with-drm.md)
 * [Conceber sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
 * [Encriptação lateral do armazenamento](storage-account-concept.md#storage-side-encryption)
 * [Perguntas mais frequentes](frequently-asked-questions.md)
-* [Manipulador de token web JSON](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [Manipulador de token web JSON](/dotnet/framework/security/json-web-token-handler)

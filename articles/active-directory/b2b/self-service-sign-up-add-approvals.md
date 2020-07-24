@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b40c284c8d034d92f29eb25d754d9294ac2e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027466"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
 
@@ -61,11 +61,11 @@ Tem de registar o seu sistema de aprovação como uma aplicação no seu inquili
 
 Em seguida, [irá criar os conectores API](self-service-sign-up-add-api-connector.md#create-an-api-connector) para o fluxo de utilizador de inscrição de autosserviço. O seu sistema de aprovação API precisa de dois conectores e pontos finais correspondentes, como os exemplos apresentados abaixo. Estes conectores API fazem o seguinte:
 
-- **Verifique o estado de aprovação**. Envie uma chamada para o sistema de aprovação imediatamente após um utilizador entrar em sing-in com um fornecedor de identidade para verificar se o utilizador tem um pedido de aprovação existente ou já foi negado. Se o seu sistema de aprovação apenas fizer decisões de aprovação automáticas, este conector API pode não ser necessário. Segue-se um exemplo de um conector API "Verificar o estado de aprovação".
+- **Verifique o estado de aprovação**. Envie uma chamada para o sistema de aprovação imediatamente após um utilizador entrar em sing-in com um fornecedor de identidade para verificar se o utilizador tem um pedido de aprovação existente ou já foi negado. Se o seu sistema de aprovação apenas fizer decisões de aprovação automáticas, este conector API pode não ser necessário. Exemplo de um conector API "Verificar o estado de aprovação".
 
   ![Verifique a configuração do conector API do estado de aprovação](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Solicitar aprovação** - Enviar uma chamada para o sistema de aprovação depois de um utilizador completar a página de recolha de atributos, mas antes da conta de utilizador ser criada, para solicitar a aprovação. O pedido de aprovação pode ser concedido automaticamente ou revisto manualmente. Segue-se um exemplo de um conector API de "Pedido de aprovação". Selecione quaisquer **Reclamações para enviar** que o sistema de aprovação precisa de tomar uma decisão de aprovação.
+- **Solicitar aprovação** - Enviar uma chamada para o sistema de aprovação depois de um utilizador completar a página de recolha de atributos, mas antes da conta de utilizador ser criada, para solicitar a aprovação. O pedido de aprovação pode ser concedido automaticamente ou revisto manualmente. Exemplo de um conector API de "Pedido de aprovação". Selecione quaisquer **Reclamações para enviar** que o sistema de aprovação precisa de tomar uma decisão de aprovação.
 
   ![Solicitação de configuração do conector API de aprovação](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -94,14 +94,14 @@ O seu sistema de aprovação pode utilizar os tipos de [resposta API](self-servi
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Pedido e respostas para o conector API "Verificar o estado de aprovação"
 
-Segue-se um exemplo do pedido recebido pela API a partir do conector API "Verificar o estado de aprovação":
+Exemplo do pedido recebido pela API a partir do conector API "Verificar o estado de aprovação":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -119,7 +119,7 @@ O ponto final **do estado de aprovação** do Cheque API deve devolver uma respo
 
 - O utilizador não solicitou previamente uma aprovação.
 
-Segue-se um exemplo da resposta de continuação:
+Exemplo da resposta de continuação:
 
 ```http
 HTTP/1.1 200 OK
@@ -166,14 +166,14 @@ Content-type: application/json
 
 ### <a name="request-and-responses-for-the-request-approval-api-connector"></a>Pedido e respostas para o conector API "Pedido de aprovação"
 
-Segue-se um exemplo de um pedido HTTP recebido pela API a partir do conector API "Pedido de aprovação":
+Exemplo de um pedido HTTP recebido pela API a partir do conector API "Pedido de aprovação":
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -194,7 +194,7 @@ O ponto final da **API de aprovação** do Pedido deve devolver uma resposta de 
 
 - O utilizador pode ser **_automaticamente aprovado_**.
 
-Segue-se um exemplo da resposta de continuação:
+Exemplo da resposta de continuação:
 
 ```http
 HTTP/1.1 200 OK
@@ -264,7 +264,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -305,13 +305,13 @@ Content-type: application/json
 
 | Parâmetro                                           | Obrigatório | Descrição                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Sim      | Pode ser gerado tomando a `email_address` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled                                      | Sim      | Deve ser definido para `true` .                                                                                                                                                 |
-| correio                                                | Sim      | Equivalente à `email_address` reclamação enviada à API.                                                                                                               |
-| userType                                            | Sim      | Deve `Guest` ser. Designa este utilizador como utilizador convidado.                                                                                                                 |
-| identidades                                          | Sim      | A informação de identidade federada.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | Não       | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | Não       | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                                                            |
+| userPrincipalName                                   | Yes      | Pode ser gerado tomando a `email` reclamação enviada para a API, substituindo o `@` personagem por `_` , e pré-pendente para `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Yes      | Deve ser definido para `true` .                                                                                                                                                 |
+| correio                                                | Yes      | Equivalente à `email` reclamação enviada à API.                                                                                                               |
+| userType                                            | Yes      | Deve `Guest` ser. Designa este utilizador como utilizador convidado.                                                                                                                 |
+| identidades                                          | Yes      | A informação de identidade federada.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | No       | Outros atributos incorporados `displayName` `city` como, e outros. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Atributos personalizados sobre o utilizador. Os nomes dos parâmetros são os mesmos que os parâmetros enviados pelo conector API.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Para um utilizador federado do Azure Ative Directory
 
@@ -324,7 +324,7 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
  "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
@@ -332,7 +332,7 @@ Content-type: application/json
 }
 ```
 
-2. O sistema de aprovação cria o convite utilizando o `email_address` conector API fornecido.
+2. O sistema de aprovação cria o convite utilizando o `email` conector API fornecido.
 
 ```http
 POST https://graph.microsoft.com/v1.0/invitations
@@ -344,7 +344,7 @@ Content-type: application/json
 }
 ```
 
-Segue-se um exemplo da resposta:
+Exemplo da resposta:
 
 ```http
 HTTP/1.1 201 OK
@@ -371,7 +371,7 @@ Content-type: application/json
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Começa com as [nossas amostras de quickstart da Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
 - Check-out o [autosserviço de inscrição para utilizadores convidados com amostra de aprovação manual](code-samples-self-service-sign-up.md#custom-approval-workflows). 

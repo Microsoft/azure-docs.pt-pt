@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 86e897547869c917313deeb8d71b361c9e16798b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccae831498c8c10895387b78c07e4f8ddc228be1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537190"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026565"
 ---
 # <a name="protected-web-api---move-to-production"></a>Protected web API - passe para a produção
 
@@ -24,7 +25,7 @@ Agora que sabe como proteger a sua API web, eis como pode movê-la para a produ�
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a chamar uma API a jusante.
 

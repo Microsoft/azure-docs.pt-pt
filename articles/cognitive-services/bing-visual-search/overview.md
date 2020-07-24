@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 14acebb71538dddfd2421fbb27794f456b6c9c8f
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 192517aa16e0fe56eb5b7dc8b852116af500b715
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611514"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023726"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>O que é a API de Pesquisa Visual do Bing?
 
@@ -30,7 +30,7 @@ Se utilizar a [API de Pesquisa de Imagem Bing,](../bing-image-search/overview.md
 
 Pode descobrir as seguintes informações utilizando a Pesquisa Visual Bing:
 
-| Informações                              | Description |
+| Informações                              | Descrição |
 |--------------------------------------|-------------|
 | Imagens visualmente semelhantes              | Uma lista de imagens que são visualmente semelhantes à imagem de entrada. |
 | Produtos visualmente similares            | Produtos que são visualmente semelhantes ao produto mostrado.            |
@@ -57,7 +57,15 @@ A API de Pesquisa Visual Bing é um serviço web RESTful, facilitando a chamada 
 Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/)Bing Visual Search API .
 A demonstração mostra como você pode rapidamente personalizar uma consulta de pesquisa e vasculhar a web para obter imagens.
 
-Para começar rapidamente com o seu primeiro pedido, consulte os quickstarts: [C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
+Para começar rapidamente com o seu primeiro pedido, consulte os quickstarts:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)
 
 ## <a name="see-also"></a>Ver também
 

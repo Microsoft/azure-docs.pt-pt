@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b3e06ff28c7980910636edeb06c5863859120484
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081575"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028248"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas para uma VM do Windows no Azure
 Pode receber uma mensagem de erro específica quando utilizar a ligação remote desktop a uma máquina virtual Windows (VM) em Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com medidas de resolução de problemas para as resolver. Se tiver problemas ligados ao seu VM utilizando RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md).
@@ -46,7 +46,7 @@ mstsc <File name>.RDP /admin
 
 Se não precisar de mais de duas ligações de ambiente de trabalho remoto simultâneas ao VM, pode utilizar o Server Manager para remover a função "Servidor de Ambiente de Trabalho Remoto".
 
-Para obter mais informações, consulte o post de blog [Azure VM falha com "Nenhum Servidor de Licença de Ambiente de Trabalho Remoto disponível"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
+Para obter mais informações, consulte o post de blog [Azure VM falha com "Nenhum Servidor de Licença de Ambiente de Trabalho Remoto disponível"](/archive/blogs/mast/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available).
 
 <a id="rdpname"></a>
 
@@ -108,9 +108,8 @@ Todos os computadores Windows têm um grupo local de utilizadores de desktop rem
 
 Certifique-se de que a conta que está a utilizar para se ligar tem direitos de entrada no Ambiente de Trabalho Remoto. Como solução alternativa, utilize uma conta de administrador de domínio ou local para ligar ao Ambiente de Trabalho Remoto. Para adicionar a conta desejada ao grupo local de utilizadores de desktop remoto, utilize o snap-in do Microsoft Management Console **(Ferramentas de Sistema > Grupos > Grupos > locais > Utilizadores remotos de ambiente de trabalho).**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se nenhum destes erros ocorrer e tiver um problema desconhecido com a ligação utilizando RDP, consulte o [guia de resolução de problemas para o Ambiente de Trabalho Remoto](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Para obter etapas de resolução de problemas no acesso a aplicações em execução num VM, consulte [o acesso de Resolução de Problemas a uma aplicação em execução num VM Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Se tiver problemas em utilizar a Secure Shell (SSH) para ligar a um Linux VM em Azure, consulte [as ligações SSH de resolução de problemas a um Linux VM em Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+* Para obter etapas de resolução de problemas no acesso a aplicações em execução num VM, consulte [o acesso de Resolução de Problemas a uma aplicação em execução num VM Azure](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+* Se tiver problemas em utilizar a Secure Shell (SSH) para ligar a um Linux VM em Azure, consulte [as ligações SSH de resolução de problemas a um Linux VM em Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

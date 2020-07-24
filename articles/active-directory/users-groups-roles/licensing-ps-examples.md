@@ -14,15 +14,16 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727335"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025222"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos de PowerShell e Graph para licenciamento baseado em grupo em Azure AD
 
-A funcionalidade completa para licenciamento baseada em grupo está disponível através do [portal Azure](https://portal.azure.com)– e atualmente o suporte ao PowerShell e microsoft graph está limitado a operações apenas de leitura. No entanto, existem algumas tarefas úteis que podem ser executadas usando os [cmdlets MSOnline PowerShell existentes](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) e o Microsoft Graph. Este documento fornece exemplos do que é possível.
+A funcionalidade completa para licenciamento baseada em grupo está disponível através do [portal Azure](https://portal.azure.com)– e atualmente o suporte ao PowerShell e microsoft graph está limitado a operações apenas de leitura. No entanto, existem algumas tarefas úteis que podem ser executadas usando os [cmdlets MSOnline PowerShell existentes](/powershell/module/msonline) e o Microsoft Graph. Este documento fornece exemplos do que é possível.
 
 > [!NOTE]
 > Antes de começar a executar cmdlets, certifique-se de que se conecta primeiro à sua organização, executando o `Connect-MsolService`   cmdlet.
@@ -618,7 +619,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 > [!NOTE]
 > Por favor, atualize os valores das variáveis `$skuId` e que está a ser direcionado para a remoção de `$groupId`   Licenças Diretas de acordo com o seu ambiente de teste antes de executar o script acima. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o conjunto de funcionalidades para gestão de licenças através de grupos, consulte os seguintes artigos:
 

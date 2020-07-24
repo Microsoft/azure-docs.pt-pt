@@ -11,11 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 292ba1d52b107acd164408767747e5a33cb0c67d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252700"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025642"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos em Azure AD
 
@@ -56,7 +57,7 @@ Tem duas opções para obter o valor do carimbo de data/hora da atividade:
 
     ![Carimbo de data/hora da atividade](./media/manage-stale-devices/01.png)
 
-- O cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0)
+- [O cmdlet Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
     ![Carimbo de data/hora da atividade](./media/manage-stale-devices/02.png)
 
@@ -88,7 +89,7 @@ Se o seu dispositivo estiver a ser controlado pelo Intune ou por outra solução
 
 ### <a name="system-managed-devices"></a>Dispositivos geridos pelo sistema
 
-Não elimine dispositivos geridos pelo sistema. Estes são geralmente dispositivos como o Autopilot. Uma vez eliminados, estes dispositivos não podem ser reprovisionados. Por predefinição, o cmdlet `get-msoldevice` novo exclui os dispositivos geridos pelo sistema. 
+Não elimine dispositivos geridos pelo sistema. Estes são geralmente dispositivos como o Autopilot. Uma vez eliminados, estes dispositivos não podem ser reprovisionados. Por predefinição, o cmdlet `Get-AzureADDevice` novo exclui os dispositivos geridos pelo sistema. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos associados ao Azure AD
 
@@ -128,26 +129,25 @@ Embora possa limpar dispositivos obsoletos no portal do Azure, é mais eficiente
 
 Uma rotina típica consiste nos seguintes passos:
 
-1. Ligar ao Azure Active Directory com o cmdlet [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
+1. Ligue-se ao Azure Ative Directory utilizando o [cmdlet Connect-AzureAD](/powershell/module/azuread/connect-azuread)
 1. Obter a lista de dispositivos
-1. Desativar o dispositivo com o cmdlet [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
+1. Desative o dispositivo utilizando o cmdlet [Set-AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) (desative-o utilizando a opção -AccountEnabled). 
 1. Aguarde até ao fim do período de tolerância com o número de dias que escolher antes de eliminar o dispositivo.
-1. Remover o dispositivo com o cmdlet [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+1. Retire o dispositivo utilizando o [cmdlet Remove-AzureADDevice.](/powershell/module/azuread/Remove-AzureADDevice)
 
 ### <a name="get-the-list-of-devices"></a>Obter a lista de dispositivos
 
 Para obter todos os dispositivos e armazenar os dados devolvidos num ficheiro CSV:
 
 ```PowerShell
-Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
-mateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
 Se tiver um grande número de dispositivos no seu diretório, utilize o filtro de hora para reduzir o número de dispositivos devolvidos. Para obter todos os dispositivos com um carimbo de data/hora posterior a uma data específica e armazenar os dados devolvidos num ficheiro CSV: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>O que deve saber
@@ -179,6 +179,6 @@ Qualquer autenticação em que esteja a ser utilizado um dispositivo para autent
 - **Dispositivo associado ao Azure AD** - os utilizadores não podem utilizar o dispositivo para iniciarem sessão. 
 - **Dispositivos móveis** - o utilizador não pode aceder aos recursos do Azure AD, como o Office 365. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)

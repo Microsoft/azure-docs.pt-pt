@@ -11,15 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6e0d18665ac5fc28da2935c20b467f9d7662d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78304566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023250"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de transmissão e compilar URLs
 
-No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
+No Azure Media Services, para construir um URL de streaming, é necessário primeiro criar um [Localizador de Streaming.](streaming-locators-concept.md) Em seguida, concatena o nome do anfitrião [streaming Endpoint](/rest/api/media/streamingendpoints) e o caminho **do localizador de streaming.** Nesta amostra, é utilizado o ponto final de streaming *predefinido.* **Streaming Endpoint** Quando criar uma conta de Serviço de Mídia, este **Ponto Final de Streaming** *predefinido* estará num estado parado, pelo que precisa de ligar para **iniciar** o streaming.
 
 Este artigo demonstra como criar um localizador de streaming e construir um URL de streaming usando Java e .NET SDKs.
 
@@ -159,12 +160,12 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Consulte a amostra de código completa: [Codificação ComMESPredefinedPredefinedPredeset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Criar filtros com .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com REST](filters-dynamic-manifest-rest-howto.md)
 * [Criar filtros com CLI](filters-dynamic-manifest-cli-howto.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Proteja o seu conteúdo com DRM](protect-with-drm.md).

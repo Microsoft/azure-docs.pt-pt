@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 78899f44ba6610f17d19b025f61d968a629c8ad6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023471"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário dos termos do IoT Hub
 
@@ -64,13 +64,13 @@ O [portal Microsoft Azure](https://portal.azure.com) é um local central onde po
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview) é uma coleção de cmdlets que pode usar para gerir o Azure com o Windows PowerShell. Pode utilizar os cmdlets para criar, testar, implementar e gerir soluções e serviços prestados através da plataforma Azure.
+[Azure PowerShell](/powershell/azure/) é uma coleção de cmdlets que pode usar para gerir o Azure com o Windows PowerShell. Pode utilizar os cmdlets para criar, testar, implementar e gerir soluções e serviços prestados através da plataforma Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 [O Azure Resource Manager](../azure-resource-manager/management/overview.md) permite-lhe trabalhar com os recursos na sua solução como grupo. Pode implementar, atualizar ou eliminar os recursos da sua solução numa única operação coordenada.
 
-## <a name="azure-service-bus"></a>Service Bus do Azure
+## <a name="azure-service-bus"></a>Azure Service Bus
 
 [O Service Bus](../service-bus/index.md) fornece comunicação ativada em nuvem com mensagens empresariais e comunicação transmitida que o ajuda a conectar soluções no local com a nuvem. Alguns tutoriais do IoT Hub usam [as filas](../service-bus-messaging/service-bus-messaging-overview.md)de Service Bus.
 
@@ -178,7 +178,7 @@ Um [dispositivo gémeo](iot-hub-devguide-device-twins.md) é o documento JSON qu
 
 Um [método direto](iot-hub-devguide-direct-methods.md) é uma forma de desencadear um método para executar num dispositivo invocando uma API no seu hub IoT.
 
-## <a name="endpoint"></a>Ponto Final
+## <a name="endpoint"></a>Ponto final
 
 Um hub IoT expõe vários [pontos finais](iot-hub-devguide-endpoints.md) que permitem que as suas aplicações se conectem ao hub IoT. Existem pontos finais virados para dispositivos que permitem aos dispositivos realizar operações como o envio de mensagens [de dispositivo para nuvem](#device-to-cloud) e receber mensagens [cloud-to-device.](#cloud-to-device) Existem pontos finais de gestão virados para o serviço que permitem que [as aplicações de back-end](#back-end-app) realizem operações como a gestão [da identidade](#device-identity) do dispositivo e a gestão de twins de dispositivos. Existem [pontos finais incorporados voltados](#built-in-endpoints) para o serviço para a leitura de mensagens dispositivo-a-nuvem. Pode criar [pontos finais personalizados](#custom-endpoints) para receber mensagens dispositivo-a-nuvem despachadas por uma [regra de encaminhamento](#routing-rules).
 
@@ -212,7 +212,7 @@ Uma mensagem interativa é uma mensagem [nuvem-para-dispositivo](#cloud-to-devic
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-hub"></a>Hub IoT
 
 O IoT Hub é um serviço Azure totalmente gerido que permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução traseira. Para mais informações, veja [o que é Azure IoT Hub?](about-iot-hub.md) Utilizando a sua [subscrição Azure,](#subscription)pode criar hubs IoT para lidar com as suas cargas de trabalho de mensagens IoT.
 

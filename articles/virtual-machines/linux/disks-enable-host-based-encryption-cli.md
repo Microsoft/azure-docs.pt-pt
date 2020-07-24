@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0773515809ffdc50167a3cba1f767ac8635bcee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f61835887c26e41b3338286065df4ca9d05f513
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502576"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029013"
 ---
 # <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-cli"></a>Ativar encriptação de ponta a ponta utilizando encriptação no anfitrião - Azure CLI
 
@@ -43,34 +43,144 @@ Uma vez ativada a funcionalidade, terá de configurar um Cofre de Teclas Azure e
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
-## <a name="enable-encryption-at-host-for-disks-attached-to-vm-and-virtual-machine-scale-sets"></a>Ativar a encriptação no anfitrião para discos ligados a conjuntos de escala de VM e máquinas virtuais
+## <a name="examples"></a>Exemplos
 
-Pode ativar a encriptação no anfitrião, definindo uma nova propriedade EncryptionAtHost sob segurançaProfile de VMs ou conjuntos de escala de máquina virtual usando a versão API **2020-06-01** e acima.
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Crie um VM com encriptação no anfitrião ativado com teclas geridas pelo cliente. 
 
-`"securityProfile": { "encryptionAtHost": "true" }`
-
-## <a name="example-scripts"></a>Scripts de exemplo
-
-### <a name="enable-encryption-at-host-for-disks-attached-to-a-vm-with-customer-managed-keys"></a>Ativar a encriptação no anfitrião para discos ligados a um VM com teclas geridas pelo cliente
-
-Crie um VM com discos geridos utilizando o recurso URI do DiskEncrypationSet criado anteriormente.
-
-`<yourPassword>`Substitua, , , , , `<yourVMName>` `<yourVMSize>` `<yourDESName>` `<yoursubscriptionID>` `<yourResourceGroupName>` `<yourRegion>` e, em seguida, executar o script.
+Crie um VM com discos geridos utilizando o recurso URI do DiskEncrypationSet criado anteriormente para encriptar cache de SISTEMA e discos de dados com chaves geridas pelo cliente. Os discos temporários são encriptados com chaves geridas pela plataforma. 
 
 ```azurecli
-az group deployment create -g <yourResourceGroupName> \
---template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithCMK.json" \
---parameters "virtualMachineName=<yourVMName>" "adminPassword=<yourPassword>" "vmSize=<yourVMSize>" "diskEncryptionSetId=/subscriptions/<yoursubscriptionID>/resourceGroups/<yourResourceGroupName>/providers/Microsoft.Compute/diskEncryptionSets/<yourDESName>" "region=<yourRegion>"
+rgName=yourRGName
+vmName=yourVMName
+location=eastus
+vmSize=Standard_DS2_v2
+image=UbuntuLTS 
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+
+az vm create -g $rgName \
+-n $vmName \
+-l $location \
+--encryption-at-host \
+--image $image \
+--size $vmSize \
+--generate-ssh-keys \
+--os-disk-encryption-set $diskEncryptionSetId \
+--data-disk-sizes-gb 128 128 \
+--data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
-### <a name="enable-encryption-at-host-for-disks-attached-to-a-vm-with-platform-managed-keys"></a>Ativar a encriptação no anfitrião para discos ligados a um VM com teclas geridas pela plataforma
+### <a name="create-a-vm-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Crie um VM com encriptação no anfitrião ativado com teclas geridas pela plataforma. 
 
-`<yourPassword>`Substitua, `<yourVMName>` , `<yourVMSize>` `<yourResourceGroupName>` `<yourRegion>` e, em seguida, executar o script.
+Crie um VM com encriptação no anfitrião habilitado a encriptar cache de discos de OS/dados e discos temporários com teclas geridas pela plataforma. 
 
 ```azurecli
-az group deployment create -g <yourResourceGroupName> \
---template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/EncryptionAtHost/CreateVMWithDisksEncryptedAtHostWithPMK.json" \
---parameters "virtualMachineName=<yourVMName>" "adminPassword=<yourPassword>" "vmSize=<yourVMSize>" "region=<yourRegion>"
+rgName=yourRGName
+vmName=yourVMName
+location=eastus
+vmSize=Standard_DS2_v2
+image=UbuntuLTS 
+
+az vm create -g $rgName \
+-n $vmName \
+-l $location \
+--encryption-at-host \
+--image $image \
+--size $vmSize \
+--generate-ssh-keys \
+--data-disk-sizes-gb 128 128 \
+```
+
+### <a name="update-a-vm-to-enable-encryption-at-host"></a>Atualize um VM para permitir a encriptação no anfitrião. 
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm update -n $vmName \
+-g $rgName \
+--set securityProfile.encryptionAtHost=true
+```
+
+### <a name="check-the-status-of-encryption-at-host-for-a-vm"></a>Verifique o estado da encriptação no anfitrião para obter um VM
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+
+az vm show -n $vmName \
+-g $rgName \
+--query [securityProfile.encryptionAtHost] -o tsv
+```
+
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-customer-managed-keys"></a>Crie um conjunto de escala de máquina virtual com encriptação no anfitrião ativado com teclas geridas pelo cliente. 
+
+Crie um conjunto de escala de máquina virtual com discos geridos utilizando o recurso URI do DiskEncrypationSet criado anteriormente para encriptar cache de SISTEMA e discos de dados com teclas geridas pelo cliente. Os discos temporários são encriptados com chaves geridas pela plataforma. 
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMSSName
+location=westus2
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+
+az vmss create -g $rgName \
+-n $vmssName \
+--encryption-at-host \
+--image UbuntuLTS \
+--upgrade-policy automatic \
+--admin-username azureuser \
+--generate-ssh-keys \
+--os-disk-encryption-set $diskEncryptionSetId \
+--data-disk-sizes-gb 64 128 \
+--data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+```
+
+### <a name="create-a-virtual-machine-scale-set-with-encryption-at-host-enabled-with-platform-managed-keys"></a>Crie um conjunto de escala de máquina virtual com encriptação no anfitrião ativado com teclas geridas pela plataforma. 
+
+Crie um conjunto de escala de máquina virtual com encriptação no anfitrião habilitado a encriptar cache de discos de OS/dados e discos temporários com teclas geridas pela plataforma. 
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMSSName
+location=westus2
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+
+az vmss create -g $rgName \
+-n $vmssName \
+--encryption-at-host \
+--image UbuntuLTS \
+--upgrade-policy automatic \
+--admin-username azureuser \
+--generate-ssh-keys \
+--data-disk-sizes-gb 64 128 \
+```
+
+### <a name="update-a-virtual-machine-scale-set-to-enable-encryption-at-host"></a>Atualize uma escala de máquina virtual definida para permitir a encriptação no anfitrião. 
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss update -n $vmssName \
+-g $rgName \
+--set virtualMachineProfile.securityProfile.encryptionAtHost=true
+```
+
+### <a name="check-the-status-of-encryption-at-host-for-a-virtual-machine-scale-set"></a>Verifique o estado da encriptação no anfitrião para obter um conjunto de escala de máquina virtual
+
+```azurecli
+rgName=yourRGName
+vmssName=yourVMName
+
+az vmss show -n $vmssName \
+-g $rgName \
+--query [virtualMachineProfile.securityProfile.encryptionAtHost] -o tsv
 ```
 
 ## <a name="finding-supported-vm-sizes"></a>Encontrar tamanhos de VM suportados
@@ -117,7 +227,7 @@ foreach($vmSize in $vmSizes)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou e configura estes recursos, pode usá-los para proteger os seus discos geridos. O link que se segue contém scripts de exemplo, cada um com um cenário respetivo, que pode utilizar para proteger os seus discos geridos.
 

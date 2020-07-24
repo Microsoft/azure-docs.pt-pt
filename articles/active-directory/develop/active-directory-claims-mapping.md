@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d240ed426bb270ac4cf09f3806bd36a6a52d3633
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275398"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027177"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -320,7 +320,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 | Utilizador | extensãotribuição15 | Atributo de extensão 15 |
 | Utilizador | outromail | Outros Correios |
 | Utilizador | país | País/Região |
-| Utilizador | city | City |
+| Utilizador | city | Cidade |
 | Utilizador | state | Estado |
 | Utilizador | cargo | Cargo |
 | Utilizador | empregado | ID de colaborador |
@@ -362,7 +362,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 |TransformaçãoMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
 |Associar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:" foo@bar.com " " " " " string2:"sandbox", separador:"." resulta em outputClaim:" foo@bar.com.sandbox|
-|ExtratoMailPrefixo|e-mail ou UPN|UPN|ExtensãoTribu 1-15 ou quaisquer outras extensões de Esquema que estejam a armazenar um valor de endereço DE UPN ou e-mail para o utilizador, por johndoe@contoso.com exemplo. Extrai a parte local de um endereço de e-mail. Por exemplo: mail:" foo@bar.com " resulta em saídaClaim:"foo". Se não \@ houver sinal, a cadeia de entrada original é devolvida como está.|
+|ExtratoMailPrefixo|E-mail ou UPN|corda extraída|ExtensãoTribu 1-15 ou quaisquer outras extensões de Esquema que estejam a armazenar um valor de endereço DE UPN ou e-mail para o utilizador, por johndoe@contoso.com exemplo. Extrai a parte local de um endereço de e-mail. Por exemplo: mail:" foo@bar.com " resulta em saídaClaim:"foo". Se não \@ houver sinal, a cadeia de entrada original é devolvida como está.|
 
 **InputClaims:** Utilize um elemento InputClaims para passar os dados de uma entrada de esquema de reclamação para uma transformação. Tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 

@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ecfd6bf9d20309619155bf35c87bdb4c08665f73
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3b2684122e7de97282b1054fa9ad0390469b0f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169549"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030271"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como utilizar os Centros de Notificação de Java
 
@@ -30,7 +30,7 @@ ms.locfileid: "86169549"
 Este tópico descreve as principais características do novo hub oficial de notificação do Azure, Java SDK.
 Este projeto é um projeto de código aberto e você pode ver todo o código SDK em [Java SDK.]
 
-Em geral, pode aceder a todas as funcionalidades do Centro de Notificação a partir de um back-end Java/PHP/Python/Ruby utilizando a interface DeRES do Centro de Notificação, tal como descrito no tópico MSDN [Notification Hubs REST APIs](https://msdn.microsoft.com/library/dn223264.aspx). Este Java SDK fornece um invólucro fino sobre estas interfaces REST em Java.
+Em geral, pode aceder a todas as funcionalidades do Centro de Notificação a partir de um back-end Java/PHP/Python/Ruby utilizando a interface DeRES do Centro de Notificação, tal como descrito no tópico MSDN [Notification Hubs REST APIs](/previous-versions/azure/reference/dn223264(v=azure.100)). Este Java SDK fornece um invólucro fino sobre estas interfaces REST em Java.
 
 O SDK suporta atualmente:
 
@@ -387,7 +387,7 @@ Este tópico mostrou-lhe como criar um cliente Java REST simples para Centros de
   * [Enviar notificações transversais a utilizadores autenticados]
 
 [SDK Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get started tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Começar com centros de notificação]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Enviar notícias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Enviar notícias de última hora localizadas]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md

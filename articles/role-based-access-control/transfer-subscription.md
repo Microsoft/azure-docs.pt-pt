@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230847"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029982"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente (Preview)
 
@@ -66,19 +66,19 @@ Vários recursos Azure têm uma dependência de uma subscrição ou de um diret�
 
 | Serviço ou recurso | Impactado | Recuperável | Foi atingido? | O que pode fazer |
 | --------- | --------- | --------- | --------- | --------- |
-| Atribuições de funções | Sim | Sim | [Listar atribuições de função](#save-all-role-assignments) | Todas as atribuições de funções são permanentemente eliminadas. Deve mapear utilizadores, grupos e princípios de serviço para objetos correspondentes no diretório alvo. Tens de recriar as atribuições de papéis. |
-| Funções personalizadas | Sim | Sim | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são permanentemente eliminadas. Deve recriar as funções personalizadas e quaisquer atribuições de papéis. |
-| Identidades geridas atribuídas pelo sistema | Sim | Sim | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve desativar e reativar as identidades geridas. Tens de recriar as atribuições de papéis. |
-| Identidades geridas atribuídas pelo utilizador | Sim | Sim | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve eliminar, recriar e anexar as identidades geridas ao recurso apropriado. Tens de recriar as atribuições de papéis. |
-| Azure Key Vault | Sim | Sim | [Políticas de acesso ao cofre de chaves de lista](#list-other-known-resources) | Tem de atualizar a identificação do inquilino associada aos cofres das chaves. Tem de remover e adicionar novas políticas de acesso. |
-| Bases de dados Azure SQL com autenticação AZURE AD | Sim | Não | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-other-known-resources) |  |  |
-| Azure Storage e Azure Data Lake Storage Gen2 | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
+| Atribuições de funções | Sim | Yes | [Listar atribuições de função](#save-all-role-assignments) | Todas as atribuições de funções são permanentemente eliminadas. Deve mapear utilizadores, grupos e princípios de serviço para objetos correspondentes no diretório alvo. Tens de recriar as atribuições de papéis. |
+| Funções personalizadas | Sim | Yes | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são permanentemente eliminadas. Deve recriar as funções personalizadas e quaisquer atribuições de papéis. |
+| Identidades geridas atribuídas pelo sistema | Sim | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve desativar e reativar as identidades geridas. Tens de recriar as atribuições de papéis. |
+| Identidades geridas atribuídas pelo utilizador | Sim | Yes | [Lista de identidades geridas](#list-role-assignments-for-managed-identities) | Deve eliminar, recriar e anexar as identidades geridas ao recurso apropriado. Tens de recriar as atribuições de papéis. |
+| Azure Key Vault | Sim | Yes | [Políticas de acesso ao cofre de chaves de lista](#list-other-known-resources) | Tem de atualizar a identificação do inquilino associada aos cofres das chaves. Tem de remover e adicionar novas políticas de acesso. |
+| Bases de dados Azure SQL com autenticação AZURE AD | Yes | Não | [Consulte as bases de dados do Azure SQL com a autenticação AZure AD](#list-other-known-resources) |  |  |
+| Azure Storage e Azure Data Lake Storage Gen2 | Sim | Yes |  | Tens de recriar quaisquer ACLs. |
 | Azure Data Lake Storage Gen1 | Sim |  |  | Tens de recriar quaisquer ACLs. |
-| Ficheiros do Azure | Sim | Sim |  | Tens de recriar quaisquer ACLs. |
-| Azure File Sync | Sim | Sim |  |  |
-| Managed Disks do Azure | Sim | N/D |  |  |
-| Serviços de Contentores Azure para Kubernetes | Sim | Sim |  |  |
-| Azure Active Directory Domain Services | Sim | Não |  |  |
+| Ficheiros do Azure | Sim | Yes |  | Tens de recriar quaisquer ACLs. |
+| Azure File Sync | Sim | Yes |  |  |
+| Managed Disks do Azure | Yes | N/D |  |  |
+| Serviços de Contentores Azure para Kubernetes | Sim | Yes |  |  |
+| Azure Active Directory Domain Services | Yes | Não |  |  |
 | Registos de aplicações | Sim | Sim |  |  |
 
 Se estiver a usar encriptação em repouso para um recurso, como uma conta de armazenamento ou uma base de dados SQL, que tenha uma dependência de um cofre-chave que não esteja na mesma subscrição que está a ser transferida, pode levar a um cenário irrecuperável. Se tiver esta situação, deve tomar medidas para utilizar um cofre de chave diferente ou desativar temporariamente as chaves geridas pelo cliente para evitar este cenário irrecuperável.
@@ -145,7 +145,7 @@ Para completar estes passos, você precisará:
 
 ### <a name="save-custom-roles"></a>Guardar papéis personalizados
 
-1. Utilize a [lista de definições de funções az](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para listar as suas funções personalizadas. Para obter mais informações, consulte [Criar ou atualizar funções personalizadas para recursos Azure utilizando o Azure CLI](custom-roles-cli.md).
+1. Utilize a [lista de definições de funções az](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para listar as suas funções personalizadas. Para obter mais informações, consulte [Criar ou atualizar as funções personalizadas Azure utilizando o Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ As identidades geridas não são atualizadas quando uma subscrição é transfer
 
 ### <a name="list-key-vaults"></a>Lista de cofres-chave
 
-Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azure Ative Directory predefinido para a subscrição em que é criado. Todas as entradas de política de acesso também estão associadas a este ID de inquilino. Para obter mais informações, consulte [movendo um Cofre de Chaves Azure para outra subscrição](../key-vault/general/keyvault-move-subscription.md).
+Quando cria um cofre chave, está automaticamente ligado ao ID do inquilino Azure Ative Directory predefinido para a subscrição em que é criado. Todas as entradas de política de acesso também estão associadas a este ID de inquilino. Para obter mais informações, consulte [movendo um Cofre de Chaves Azure para outra subscrição](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > Se estiver a usar encriptação em repouso para um recurso, como uma conta de armazenamento ou uma base de dados SQL, que tenha uma dependência de um cofre-chave que não esteja na mesma subscrição que está a ser transferida, pode levar a um cenário irrecuperável. Se tiver esta situação, deve tomar medidas para utilizar um cofre de chave diferente ou desativar temporariamente as chaves geridas pelo cliente para evitar este cenário irrecuperável.
@@ -291,7 +291,7 @@ Neste passo, você transfere a propriedade de faturação da subscrição do dir
 
 ### <a name="create-custom-roles"></a>Criar funções personalizadas
         
-- Use [a definição de função az criar](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para criar cada papel personalizado a partir dos ficheiros que criou anteriormente. Para obter mais informações, consulte [Criar ou atualizar funções personalizadas para recursos Azure utilizando o Azure CLI](custom-roles-cli.md).
+- Use [a definição de função az criar](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para criar cada papel personalizado a partir dos ficheiros que criou anteriormente. Para obter mais informações, consulte [Criar ou atualizar as funções personalizadas Azure utilizando o Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -339,7 +339,7 @@ Neste passo, você transfere a propriedade de faturação da subscrição do dir
 
 ### <a name="update-key-vaults"></a>Atualizar cofres-chave
 
-Esta secção descreve os passos básicos para atualizar os cofres das chaves. Para obter mais informações, consulte [movendo um Cofre de Chaves Azure para outra subscrição](../key-vault/general/keyvault-move-subscription.md).
+Esta secção descreve os passos básicos para atualizar os cofres das chaves. Para obter mais informações, consulte [movendo um Cofre de Chaves Azure para outra subscrição](../key-vault/general/move-subscription.md).
 
 1. Atualize o ID do inquilino associado a todos os cofres-chave existentes na subscrição do diretório-alvo.
 

@@ -1,20 +1,20 @@
 ---
-title: Base de dados Azure para PostgreSQL - Linha de segurança de hiperescala para benchmark de segurança Azure
+title: Linha de segurança Azure para Base de Dados Azure para PostgreSQL - Hiperescala
 description: A Base de Dados Azure para postgreSQL - Linha de base de segurança de hiperescala fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca08ac30c5d8e925197a0df1d327bf9a0923b046
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd6d3ef6f610dcbdc511297e459cc5856bebe033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030050"
 ---
-# <a name="azure-database-for-postgresql---hyperscale-security-baseline-for-azure-security-benchmark"></a>Base de dados Azure para PostgreSQL - Linha de segurança de hiperescala para benchmark de segurança Azure
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linha de segurança Azure para Base de Dados Azure para PostgreSQL - Hiperescala
 
 A Linha de Base de Segurança Azure para Azure Database for PostgreSQL - Hyperscale contém recomendações que o ajudarão a melhorar a postura de segurança da sua implementação.
 
@@ -1044,7 +1044,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

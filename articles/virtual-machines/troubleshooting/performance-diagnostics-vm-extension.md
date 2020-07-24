@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 763e948f58dfc76c3aa7ba67f461438fc752c689
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028554"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -71,7 +71,7 @@ O JSON seguinte mostra o esquema para a extensão VM de diagnóstico de desempen
 |apiVersion|2015-06-15|A versão da API.
 |publicador|Microsoft.Azure.Performance.Diagnostics|O espaço de nome da editora para a extensão.
 |tipo|AzurePerformanceDiagnósticos|O tipo de extensão VM.
-|typeHandlerVersion|1.0|A versão do manipulador de extensão.
+|typeHandlerVersion|1,0|A versão do manipulador de extensão.
 |performanceScenario|básico|O cenário de desempenho para o qual capturar dados. Os valores válidos são: **básicos, vmslow,** **azurefiles,** e **costumes.** **basic**
 |traceDurationInSeconds|300|A duração dos vestígios, se alguma das opções de rastreio for selecionada.
 |perfCounterTrace|p|Opção para ativar o rastreio do contador de desempenho. Valores válidos são **p** ou valor vazio. Se não quiser capturar este vestígio, deixe o valor vazio.
@@ -233,7 +233,7 @@ A ferramenta PerfInsights recolhe vários registos, configurações e dados de d
 
 ## <a name="view-and-share-the-results"></a>Ver e partilhar os resultados
 
-A saída da extensão pode ser encontrada num ficheiro zip que foi enviado para a conta de armazenamento especificada durante a instalação e é partilhado durante 30 dias utilizando [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Este ficheiro zip contém registos de diagnóstico e um relatório com conclusões e recomendações. Uma ligação SAS ao ficheiro zip de saída pode ser encontrada dentro de um ficheiro de texto denominado *zipfilename*_saslink.txt na pasta ** \\ \<version> C:\Pacotes\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics**. Qualquer pessoa que tenha este link é capaz de descarregar o ficheiro zip.
+A saída da extensão pode ser encontrada num ficheiro zip que foi enviado para a conta de armazenamento especificada durante a instalação e é partilhado durante 30 dias utilizando [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-sas-overview.md). Este ficheiro zip contém registos de diagnóstico e um relatório com conclusões e recomendações. Uma ligação SAS ao ficheiro zip de saída pode ser encontrada dentro de um ficheiro de texto denominado *zipfilename*_saslink.txt na pasta ** \\ \<version> C:\Pacotes\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics**. Qualquer pessoa que tenha este link é capaz de descarregar o ficheiro zip.
 
 Para ajudar o engenheiro de suporte a trabalhar no seu bilhete de suporte, a Microsoft poderá utilizar este link SAS para descarregar os dados de diagnóstico.
 

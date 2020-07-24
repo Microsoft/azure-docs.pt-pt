@@ -12,11 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: f1bf8eff4a6f518fc24c87c5fbd24984ef8f8b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024198"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +47,7 @@ Para concluir este tutorial, confirme que tem:
 Para completar o tutorial, certifique-se de que tem os seguintes itens:
 
 - Uma subscrição do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se ainda não tiver uma.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 ---
 
@@ -428,7 +429,7 @@ Para criar uma rede virtual, siga estes passos:
     | **Campo** | Valor |
     | --- | --- |
     | **Nome** |  O nome da rede virtual a ser utilizada pelo caso secundário gerido, como `vnet-sql-mi-secondary` . |
-    | **Espaço de endereço** | O espaço de endereço para a sua rede virtual, tal como `10.128.0.0/16` . | 
+    | **Espaço de endereços** | O espaço de endereço para a sua rede virtual, tal como `10.128.0.0/16` . | 
     | **Subscrição** | A subscrição onde reside o seu principal caso gerido e grupo de recursos. |
     | **Região** | O local onde irá implantar o seu caso secundário gerido. |
     | **Sub-rede** | O nome da sua sub-rede. `default`é fornecido por defeito. |
@@ -1148,7 +1149,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configuraste um grupo de falhanços entre duas instâncias geridas. Aprendeu a:
 

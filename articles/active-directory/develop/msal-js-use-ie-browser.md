@@ -13,13 +13,14 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c4f3c4153e1404a5576427be7ef218f5a669387e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 633166f3bb46212991920d6720737f8268b3f401
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76695862"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026859"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problemas conhecidos nos navegadores Internet Explorer e Microsoft Edge (MSAL.js)
+# <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Problemas conhecidos nos navegadores do Internet Explorer (MSAL.js)
 
 A Microsoft Authentication Library for JavaScript (MSAL.js) é gerada para [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) para que possa ser executada no Internet Explorer. Há, no entanto, algumas coisas para saber.
 
@@ -52,5 +53,5 @@ Se quiser executar e depurar localmente a sua aplicação em execução no Inter
 
 Quando terminar, restaure as definições de segurança do Internet Explorer.  Selecione **Definições**  ->  **Opções de Internet**  ->  **Segurança**Redefinir todas  ->  **as zonas para o nível predefinido**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [questões conhecidas ao utilizar MSAL.js no Internet Explorer.](msal-js-use-ie-browser.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: d6560f11d26200bdd9f39c4cbae643022872d362
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653106c54644749174fd8530fccf30329c7751ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506077"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028775"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Implementar VMs spot utilizando o CLI Azure
 
@@ -23,7 +23,7 @@ Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter
 
 Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de um Spot VM pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço para o VM será o preço atual para o Spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível. Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](spot-vms.md#pricing).
 
-O processo de criação de um VM com spot utilizando o CLI Azure é o mesmo que detalhado no [artigo de arranque rápido](/azure/virtual-machines/linux/quick-create-cli). Basta adicionar o parâmetro "--prioridade Spot", definir o `--eviction-policy` Deallocate (este é o padrão) ou `Delete` , e fornecer um preço máximo ou `-1` . 
+O processo de criação de um VM com spot utilizando o CLI Azure é o mesmo que detalhado no [artigo de arranque rápido](./quick-create-cli.md). Basta adicionar o parâmetro "--prioridade Spot", definir o `--eviction-policy` Deallocate (este é o padrão) ou `Delete` , e fornecer um preço máximo ou `-1` . 
 
 
 ## <a name="install-azure-cli"></a>Instalar a CLI do Azure

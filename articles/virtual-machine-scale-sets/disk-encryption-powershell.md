@@ -9,11 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: a20abec6ab9925408dd769c5238186af9b7c3d1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70995575e745b74561745363a1290564c9ce3002
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83195893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029642"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Criptografe os discos de dados e os discos de dados anexados num conjunto de escala de máquina virtual com a Azure PowerShell
 
@@ -50,7 +51,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
-Primeiro, defina um nome de utilizador e uma palavra-passe para as instâncias da VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Primeiro, defina um nome de utilizador e uma palavra-passe para as instâncias da VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -146,7 +147,7 @@ Se já não pretender utilizar discos de instâncias VM encriptados, pode desati
 Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Neste artigo, usou o Azure PowerShell para encriptar um conjunto de escala de máquina virtual. Também pode utilizar os modelos [Azure CLI](disk-encryption-cli.md) ou [Azure Resource Manager](disk-encryption-azure-resource-manager.md).
 - Se desejar que a Encriptação do Disco Azure seja aplicada após a disponibilização de outra extensão, pode utilizar [a sequência de extensão](virtual-machine-scale-sets-extension-sequencing.md).

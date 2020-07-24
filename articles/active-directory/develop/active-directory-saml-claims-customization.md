@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f56427dabdee715412596557fa075c5eb4df500
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027313"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -68,7 +68,7 @@ O NameID transitório também é suportado, mas não está disponível no dropdo
 
 Selecione a fonte desejada para a `NameIdentifier` reclamação (ou NameID). Pode selecionar entre as seguintes opções.
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | E-mail | Endereço de e-mail do utilizador |
 | userprincipalName | Nome principal do utilizador (UPN) do utilizador |
@@ -164,7 +164,7 @@ Para adicionar uma condição de reclamação:
 
 1. In **Manage claim**, expandir as condições de Reclamação.
 2. Selecione o tipo de utilizador.
-3. Selecione o(s) grupo(s) a que o utilizador deve pertencer. Pode selecionar até 10 grupos únicos em todas as reclamações para uma determinada aplicação. 
+3. Selecione o(s) grupo(s) a que o utilizador deve pertencer. Pode selecionar até 50 grupos únicos em todas as reclamações para uma determinada aplicação. 
 4. Selecione a **Fonte** onde a reclamação vai recuperar o seu valor. Pode selecionar um atributo de utilizador a partir do atributo de origem ou aplicar uma transformação no atributo do utilizador antes de emissão como uma reclamação.
 
 A ordem pela qual se adiciona as condições são importantes. A Azure AD avalia as condições de cima para baixo para decidir qual o valor a emitir na reclamação. 
@@ -175,7 +175,7 @@ Em primeiro lugar, a Azure AD verifica se o tipo de utilizador da Britta é `All
 
 ![Configuração condicional de reclamações](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurar aplicações únicas de inscrição que não constam da galeria de candidaturas Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)

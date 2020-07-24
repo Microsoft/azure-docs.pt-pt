@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 51e4862fe55428f112841ef7176cdb916653de0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0853b08ced0b9ca328d5e7f506ca54299aebeee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083279"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028197"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilizar cliente Windows no Azure para cenários de desenvolvimento/teste
 Pode utilizar o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) em Azure para cenários dev/teste, desde que tenha uma subscrição adequada do Visual Studio (anteriormente MSDN). Este artigo descreve os requisitos de elegibilidade para executar o Windows 7, Windows 8.1, Windows 10 Enterprise em Azure e a utilização das seguintes imagens da Galeria Azure.
@@ -58,5 +58,4 @@ Também pode ver o ID da oferta a partir do [separador 'Subscrições'](https://
 ![Oferecer detalhes de ID do portal Azure Account](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora pode implementar os seus VMs utilizando [modelos](ps-template.md) [PowerShell,](quick-create-powershell.md)Resource Manager ou [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
+Agora pode implementar os seus VMs utilizando [modelos](ps-template.md) [PowerShell,](quick-create-powershell.md)Resource Manager ou [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

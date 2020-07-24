@@ -13,17 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77167031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028469"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos Windows - CMD e PowerShell
 
 Esta secção inclui comandos de exemplo para executar tarefas comuns em cenários onde poderá ter de utilizar o SAC para aceder ao seu VM do Windows, como quando precisa de resolver falhas de ligação RDP.
 
-O SAC foi incluído em todas as versões do Windows desde o Windows Server 2003, mas está desativado por padrão. A SAC conta com o condutor do `sacdrv.sys` núcleo, o `Special Administration Console Helper` serviço e `sacsvr` o `sacsess.exe` processo. Para obter mais informações, consulte [ferramentas e configurações dos Serviços de Gestão de Emergência](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+O SAC foi incluído em todas as versões do Windows desde o Windows Server 2003, mas está desativado por padrão. A SAC conta com o condutor do `sacdrv.sys` núcleo, o `Special Administration Console Helper` serviço e `sacsvr` o `sacsess.exe` processo. Para obter mais informações, consulte [ferramentas e configurações dos Serviços de Gestão de Emergência](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 O SAC permite-lhe ligar-se ao seu sistema operativo através da porta em série. Quando lançar o CMD da SAC, `sacsess.exe` `cmd.exe` lança-se dentro do seu sistema operativo. Pode ver isso no Task Manager se estiver a RDP ao seu VM ao mesmo tempo que está ligado ao SAC através da funcionalidade de consola em série. O CMD a que aceste via SAC é o mesmo `cmd.exe` que usas quando ligado via RDP. Todos os mesmos comandos e ferramentas estão disponíveis, incluindo a capacidade de lançar PowerShell a partir dessa instância CMD. Esta é uma grande diferença entre o SAC e o Windows Recovery Environment (WinRE) em que o SAC está a permitir-lhe gerir o seu sistema operativo operativo, onde as botas WinRE num sistema operativo diferente e mínimo. Embora os VMs do Azure não suportem a capacidade de aceder ao WinRE, com a funcionalidade de consola em série, os VMs Azure podem ser geridos via SAC.
 
@@ -90,7 +91,7 @@ ou
 ### <a name="set-nic-to-use-dhcp"></a>Definir NIC para usar DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-Para mais informações sobre `netsh` , [clique aqui.](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts)
+Para mais informações sobre `netsh` , [clique aqui.](/windows-server/networking/technologies/netsh/netsh-contexts)
 
 Os VMs Azure devem ser sempre configurados no so convidado para utilizar o DHCP para obter um endereço IP. A definição ip estática Azure ainda utiliza DHCP para dar o IP estático ao VM.
 ### <a name="ping"></a>Ping
@@ -182,11 +183,11 @@ Este exemplo devolve a versão de ficheiro do controlador NIC virtual, que é ne
 ### <a name="scan-for-system-file-corruption"></a>Scaneie para corrupção de ficheiros do sistema
 `sfc /scannow`
 
-Consulte também [a Reparação de uma Imagem do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Consulte também [a Reparação de uma Imagem do Windows](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### <a name="scan-for-system-file-corruption"></a>Scaneie para corrupção de ficheiros do sistema
 `dism /online /cleanup-image /scanhealth`
 
-Consulte também [a Reparação de uma Imagem do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Consulte também [a Reparação de uma Imagem do Windows](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### <a name="export-file-permissions-to-text-file"></a>Autorizações de ficheiros de exportação para ficheiro de texto
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 ### <a name="save-file-permissions-to-acl-file"></a>Guardar permissões de ficheiros para ficheiros ACL
@@ -435,7 +436,7 @@ Pode consultar metadados de instância Azure de dentro do seu VM Azure para visu
 
 Consulta de caso metadados requer uma conectividade saudável da rede de hóspedes, porque faz uma chamada REST através do anfitrião Azure para o serviço de metadados de instância. Portanto, se conseguir consultar metadados de exemplo, isso indica que o hóspede é capaz de comunicar através da rede a um serviço hospedado no Azure.
 
-Para obter mais informações, consulte [o serviço Azure Instance Metadados](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
+Para obter mais informações, consulte [o serviço Azure Instance Metadados](../windows/instance-metadata-service.md).
 
 ### <a name="instance-metadata"></a>Metadados de exemplo
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`
@@ -476,7 +477,7 @@ Para obter mais informações, consulte [o serviço Azure Instance Metadados](ht
 ### <a name="mac-address-instance-metadata"></a>Endereço MAC (Metusão de exemplo)
 `$im.network.interface.macAddress`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * A página principal de documentação do Windows da consola em série está localizada [aqui.](serial-console-windows.md)
 * A consola em série também está disponível para Os VMs [Linux.](serial-console-linux.md)
 * Saiba mais sobre [diagnósticos de arranque.](boot-diagnostics.md)

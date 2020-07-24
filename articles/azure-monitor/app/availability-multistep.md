@@ -3,11 +3,12 @@ title: Monitor com testes web em várias etapas - Azure Application Insights
 description: Confiúdedo de testes web em várias etapas para monitorizar as suas aplicações web com Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83873354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024781"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
@@ -16,7 +17,7 @@ Pode monitorizar uma sequência gravada de URLs e interações com um website at
 > [!NOTE]
 > Os testes web em várias etapas dependem de ficheiros de webtest do Visual Studio. Foi [anunciado](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que o Visual Studio 2019 será a última versão com a funcionalidade webtest. É importante entender que, apesar de não serem adicionadas novas funcionalidades, a funcionalidade do Webtest no Visual Studio 2019 ainda se encontra suportada e continuará a ser suportada durante o ciclo de suporte do produto. A equipa de produtos do Azure Monitor abordou questões sobre o futuro dos testes de disponibilidade em várias etapas [aqui.](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)  
 > </br>
-> Os testes web em várias etapas **não são suportados** na nuvem [do Governo Azure.](https://docs.microsoft.com/azure/azure-government/)
+> Os testes web em várias etapas **não são suportados** na nuvem [do Governo Azure.](../../azure-government/index.yml)
 
 
 ## <a name="pre-requisites"></a>Pré-requisitos
@@ -36,7 +37,7 @@ Para localizar as ferramentas de teste, é pré-requisito. Lançar o **Instalado
 > [!WARNING]
 > Já não recomendamos a utilização do gravador em várias etapas. O gravador foi desenvolvido para páginas estáticas de HTML com interações básicas, e não fornece uma experiência funcional para páginas web modernas.
 
-Para obter orientações sobre a criação de testes web do Visual Studio consulte a documentação oficial do [Visual Studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Para obter orientações sobre a criação de testes web do Visual Studio consulte a documentação oficial do [Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Faça o upload do teste web
 
@@ -142,7 +143,7 @@ Parametrizar os tokens definindo o parâmetro quando o token é devolvido do aut
 
 Artigo dedicado [à resolução de problemas.](troubleshoot-availability.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Alertas de Disponibilidade](availability-alerts.md)
 * [Testes web de url ping](monitor-web-app-availability.md)

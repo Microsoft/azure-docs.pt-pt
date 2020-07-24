@@ -12,15 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3c16724dc3eb99549b692df93ee6cd5f1fc0bf30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484065"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027704"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
-Para personalizar a experiência do utilizador final para autenticação multi-factor Azure, pode configurar opções para configurações como os limiares de bloqueio de conta ou alertas de fraude e notificações. Algumas configurações estão diretamente no portal Azure para O Diretório Ativo Azure (Azure AD), e algumas num portal separado de autenticação multi-factor Azure.]
+Para personalizar a experiência do utilizador final para autenticação multi-factor Azure, pode configurar opções para configurações como os limiares de bloqueio de conta ou alertas de fraude e notificações. Algumas configurações estão diretamente no portal Azure para Azure Ative Directory (Azure AD), e algumas num portal separado de autenticação multi-factor Azure.
 
 As seguintes definições de autenticação multi-factor Azure estão disponíveis no portal Azure:
 
@@ -293,7 +294,7 @@ Para permitir iPs fidedignos utilizando políticas de acesso condicional, comple
 Se não quiser utilizar políticas de Acesso Condicional para ativar IPs fidedignos, pode configurar as *definições* de serviço para autenticação multi-factor Azure utilizando os seguintes passos:
 
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, escolha **Utilizadores**.
-1. Selecione **a autenticação multi-factor**.
+1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **Definições de Serviço,** em **IPs Fidedignos,** escolha uma (ou ambas) das duas opções seguintes:
 
@@ -328,10 +329,10 @@ Para mais informações, consulte [que métodos de autenticação e verificaçã
 Para permitir ou desativar os métodos de verificação, complete as seguintes etapas:
 
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, escolha **Utilizadores**.
-1. Selecione **a autenticação multi-factor**.
+1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **Definições de Serviço,** nas **opções de verificação,** selecione/desescolte os métodos a fornecer aos seus utilizadores.
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 ## <a name="remember-multi-factor-authentication"></a>Lembre-se da autenticação multi-factor
 
@@ -363,7 +364,7 @@ A funcionalidade reduz o número de autenticações em aplicações web, que nor
 Para permitir e configurar a opção de os utilizadores se lembrarem do seu estado de MFA e de solicitarem o bypass, completem os seguintes passos:
 
 1. No portal Azure, procure e selecione **O Diretório Ativo Azure,** em seguida, escolha **Utilizadores**.
-1. Selecione **a autenticação multi-factor**.
+1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **'Definições de Serviço',** **gerencie a autenticação multi-factores**, selecione o **Permitir que os utilizadores se lembrem da autenticação de vários fatores nos dispositivos em que confiam na** opção.
 1. Desafie o número de dias para permitir que dispositivos fidedignos contornem a verificação em duas etapas. O padrão é de 14 dias.
@@ -373,6 +374,6 @@ Para permitir e configurar a opção de os utilizadores se lembrarem do seu esta
 
 Depois de ativar a funcionalidade de autenticação multi-factor de ressaltação, os utilizadores podem marcar um dispositivo como confiável quando iniciarem sação selecionando a opção para **Não voltar a perguntar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)

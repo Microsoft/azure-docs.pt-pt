@@ -8,11 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a14fafde8ecea0370c74cdbfd39a85d8dfb15612
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0210b3bf13bc852e2ace0e8b490b3ddf952dc288
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83651082"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028979"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Executar scripts de concha no seu Linux VM usando o Comando de Execução
 
@@ -81,7 +82,7 @@ Depois de escolher o comando, selecione **Executar** para executar o script. Ap�
 
 ### <a name="powershell"></a>PowerShell
 
-O exemplo a seguir utiliza o [cmdlet Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) para executar um script PowerShell num Azure VM. O cmdlet espera que o script referenciado no `-ScriptPath` parâmetro seja local para onde o cmdlet está sendo executado.
+O exemplo a seguir utiliza o [cmdlet Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) para executar um script PowerShell num Azure VM. O cmdlet espera que o script referenciado no `-ScriptPath` parâmetro seja local para onde o cmdlet está sendo executado.
 
 ```powershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
@@ -95,6 +96,6 @@ Executar um comando requer a `Microsoft.Compute/virtualMachines/runCommand/actio
 
 Pode utilizar uma das [funções incorporadas](../../role-based-access-control/built-in-roles.md) ou criar um [papel personalizado](../../role-based-access-control/custom-roles.md) para utilizar o Comando Run.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre outras formas de executar scripts e comandos remotamente no seu VM, consulte [scripts Run no seu Linux VM](run-scripts-in-vm.md).

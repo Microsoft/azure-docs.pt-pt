@@ -1,5 +1,6 @@
 ---
 title: Compreender o manifesto da app Azure Ative Directory
+titleSuffix: Microsoft identity platform
 description: Cobertura detalhada do manifesto da app Azure Ative Directory, que representa a configuração de identidade de uma aplicação num inquilino AZure AD, e é usado para facilitar a autorização da OAuth, experiência de consentimento, e muito mais.
 services: active-directory
 author: rwike77
@@ -12,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba490a1e88a242f19daf1a74fe38f02e659571da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026752"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
-O manifesto da aplicação contém uma definição de todos os atributos de um objeto de aplicação na plataforma de identidade da Microsoft. Também serve como um mecanismo para atualizar o objeto de aplicação. Para obter mais informações sobre a entidade aplicação e o seu esquema, consulte a documentação da [entidade de aplicação da API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)do gráfico.
+O manifesto da aplicação contém uma definição de todos os atributos de um objeto de aplicação na plataforma de identidade da Microsoft. Também serve como um mecanismo para atualizar o objeto de aplicação. Para obter mais informações sobre a entidade aplicação e o seu esquema, consulte a documentação da [entidade de aplicação da API](/graph/api/resources/application)do gráfico.
 
-Pode configurar os atributos de uma aplicação através do portal Azure ou utilizar programáticamente [a API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) ou [o PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que será necessário editar o manifesto da app para configurar o atributo de uma aplicação. Os cenários incluem:
+Pode configurar os atributos de uma aplicação através do portal Azure ou utilizar programáticamente [a API](/graph/api/resources/application) ou [o PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que será necessário editar o manifesto da app para configurar o atributo de uma aplicação. Os cenários incluem:
 
 * Se registou a aplicação como multi-inquilino e contas pessoais da Microsoft, não pode alterar as contas da Microsoft suportadas na UI. Em vez disso, deve utilizar o editor manifesto de aplicação para alterar o tipo de conta suportada.
 * Se precisar de definir permissões e funções que a sua aplicação suporta, tem de modificar o manifesto da aplicação.
@@ -32,8 +33,8 @@ Pode configurar os atributos de uma aplicação através do portal Azure ou util
 
 Para configurar o manifesto de aplicação:
 
-1. Vá ao [portal Azure.](https://portal.azure.com) Procure e selecione o serviço **Azure Ative Directory.**
-1. Selecione **Registos das aplicações**.
+1. Aceda ao [portal do Azure](https://portal.azure.com). Procure e selecione o serviço **Azure Ative Directory.**
+1. Selecione **Registos de aplicações**.
 1. Selecione a aplicação que pretende configurar.
 1. A partir da página **Descrição geral** da aplicação, selecione a secção **Manifesto**. Abre um editor manifesto baseado na web, permitindo-lhe editar o manifesto dentro do portal. Opcionalmente, pode selecionar **Download** para editar o manifesto localmente e, em seguida, usar **upload** para reaplicá-lo à sua aplicação.
 
@@ -45,7 +46,7 @@ Esta secção descreve os atributos encontrados no manifesto de aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| ID | String |
+| ID | Cadeia |
 
 O identificador único para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação protocolar. É usado para fazer referência ao objeto em consultas de diretório.
 
@@ -129,7 +130,7 @@ Definido como verdadeiro se o pedido for partilhado com outros inquilinos; caso 
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| appId | String |
+| appId | Cadeia |
 
 Especifica o identificador único para a aplicação que é atribuída a uma aplicação pela Azure AD.
 
@@ -168,7 +169,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| displayName | String |
+| displayName | Cadeia |
 
 O nome do visor da aplicação.
 
@@ -179,7 +180,7 @@ O nome do visor da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| errorUrl | String |
+| errorUrl | Cadeia |
 
 Sem apoio.
 
@@ -187,7 +188,7 @@ Sem apoio.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|groupMembershipClaims | String |
+|groupMembershipClaims | Cadeia |
 
 Configura a `groups` reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a app espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
@@ -205,7 +206,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| página inicial |String |
+| página inicial |Cadeia |
 
 O URL para a página inicial da aplicação.
 
@@ -216,7 +217,7 @@ O URL para a página inicial da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|objectId | String |
+|objectId | Cadeia |
 
 O identificador único para a aplicação no diretório.
 
@@ -232,7 +233,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| opcionalClaims | String |
+| opcionalClaims | Cadeia |
 
 As reclamações opcionais devolvidas no token pelo serviço de fichas de segurança para esta aplicação específica.
 
@@ -264,7 +265,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| informationalUrls | String |
+| informationalUrls | Cadeia |
 
 Especifica os links para os termos de serviço e declaração de privacidade da aplicação. Os termos de serviço e declaração de privacidade são divulgados aos utilizadores através da experiência de consentimento do utilizador. Para obter mais informações, consulte [Como: Adicionar Termos de serviço e declaração de privacidade para aplicações AD registadas.](howto-add-terms-of-service-privacy-statement.md)
 
@@ -321,7 +322,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoUrl | String |
+| logoUrl | Cadeia |
 
 Leia apenas o valor que aponta para o URL do CDN para o logotipo que foi carregado no portal.
 
@@ -335,7 +336,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoutUrl | String |
+| logoutUrl | Cadeia |
 
 O URL para sair da aplicação.
 
@@ -349,7 +350,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| name | String |
+| name | Cadeia |
 
 O nome do visor da aplicação.
 
@@ -430,10 +431,10 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| parentalControlSettings | String |
+| parentalControlSettings | Cadeia |
 
 - `countriesBlockedForMinors`especifica os países/regiões em que a aplicação está bloqueada para menores.
-- `legalAgeGroupRule`especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .  
+- `legalAgeGroupRule`especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
 
 Exemplo:
 
@@ -493,7 +494,7 @@ Exemplo:
 | :--- | :--- |
 | públicoCliente | Booleano|
 
-Especifica se esta aplicação é um cliente público (como uma aplicação instalada em execução num dispositivo móvel). 
+Especifica se esta aplicação é um cliente público (como uma aplicação instalada em execução num dispositivo móvel).
 
 Esta propriedade está disponível apenas na experiência de **registos da App (Legado).** Substituído pela `allowPublicClient` experiência de registos da [App.](https://go.microsoft.com/fwlink/?linkid=2083908)
 
@@ -501,7 +502,7 @@ Esta propriedade está disponível apenas na experiência de **registos da App (
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| publisherDomain | String |
+| publisherDomain | Cadeia |
 
 O domínio do editor verificado para a aplicação. Só para ler.
 
@@ -576,7 +577,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| samlMetadataUrl | String |
+| samlMetadataUrl | Cadeia |
 
 O URL para os metadados SAML para a aplicação.
 
@@ -590,7 +591,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInUrl | String |
+| signInUrl | Cadeia |
 
 Especifica o URL para a página inicial da aplicação.
 
@@ -604,7 +605,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInAudience | String |
+| signInAudience | Cadeia |
 
 Especifica quais as contas da Microsoft suportadas para a aplicação atual. Os valores suportados são:
 - `AzureADMyOrg`- Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD da minha organização (por exemplo, inquilino único)
@@ -669,10 +670,10 @@ Quando tentar carregar um manifesto previamente descarregado, poderá ver um dos
 
 Quando vir um destes erros, recomendamos as seguintes ações:
 
-1. Edite os atributos individualmente no editor manifesto em vez de carregar um manifesto previamente descarregado. Use a tabela [de referência manifesta](#manifest-reference) para entender a sintaxe e a semântica de atributos antigos e novos para que possa editar com sucesso os atributos em que está interessado. 
+1. Edite os atributos individualmente no editor manifesto em vez de carregar um manifesto previamente descarregado. Use a tabela [de referência manifesta](#manifest-reference) para entender a sintaxe e a semântica de atributos antigos e novos para que possa editar com sucesso os atributos em que está interessado.
 1. Se o seu fluxo de trabalho exigir que guarde os manifestos no seu repositório de origem para utilização posterior, sugerimos a rebasão dos manifestos guardados no seu repositório com o que vê na experiência de registos da **App.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a relação entre a aplicação de uma aplicação e o objeto principal de serviço, consulte [aplicações e objetos principais de serviço em Azure AD](app-objects-and-service-principals.md).
 * Consulte o [glossário de desenvolvedores de plataformas de identidade](developer-glossary.md) da Microsoft para definições de alguns conceitos de desenvolvedores de plataformas de identidade da Microsoft.

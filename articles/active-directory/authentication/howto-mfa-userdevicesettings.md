@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295738ee5943a6cf54bc7e1e3ce4bba621dbe29f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027534"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gerir as definições do utilizador para autenticação multi-factor Azure
 
@@ -26,7 +27,7 @@ Para ajudar a gerir os utilizadores da Autenticação Multi-Factor Azure, pode e
 Se lhe for atribuída a função *de Administrador de Autenticação,* pode exigir que os utilizadores repensem a sua palavra-passe, re-registem-se para MFA ou revoguem as sessões de MFA existentes a partir do seu objeto de utilizador. Para gerir as definições do utilizador, complete os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. À esquerda, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
+1. À esquerda, selecione **Azure Active Directory** > **Utilizadores** > **Todos os utilizadores**.
 1. Escolha o utilizador que deseja realizar uma ação e selecione **métodos de autenticação**. Na parte superior da janela, em seguida, escolha uma das seguintes opções para o utilizador:
    - **A Palavra-passe reinicializar** a palavra-passe do utilizador e atribui uma palavra-passe temporária que deve ser alterada no próximo sessão de sessão.
    - **Exigir re-registo MFA** faz com que, quando o utilizador assinar na próxima vez, seja solicitado que criem um novo método de autenticação MFA.
@@ -46,13 +47,13 @@ Para eliminar as palavras-passe da aplicação de um utilizador, complete os seg
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No lado esquerdo, selecione **Utilizadores do Diretório Azure Ative**  >  **Users**  >  **Todos os utilizadores**.
-1. Selecione **a autenticação multi-factor**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecione autenticação multi-factor a partir da janela do Utilizadores em Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Selecione **Multi-Factor Authentication**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecione autenticação multi-factor a partir da janela do Utilizadores em Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Verifique a caixa ao lado do utilizador ou utilizadores que deseja gerir. Uma lista de opções de passo rápido aparece à direita.
 1. **Selecione Gerir as definições**do utilizador, em seguida, verifique a caixa para Eliminar todas as **palavras-passe de aplicações existentes geradas pelos utilizadores selecionados**, como mostrado no exemplo seguinte: ![ Eliminar todas as palavras-passe de aplicações existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Selecione **guardar**e, em seguida, **fechar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo ajudou a configurar as configurações individuais do utilizador. Para configurar as definições do serviço de autenticação multi-factor Azure, consulte [as definições de autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md)
+Este artigo mostrou-lhe como configurar as definições individuais do utilizador. Para configurar as definições globais do serviço de autenticação multi-factor Azure, consulte as definições de [autenticação multi-factor Configure Azure](howto-mfa-mfasettings.md).
 
-Se os seus utilizadores precisarem de ajuda, consulte o [guia do Utilizador para autenticação multi-factor Azure](../user-help/multi-factor-authentication-end-user.md).
+Se os seus utilizadores precisarem de ajuda, consulte o [guia do Utilizador para autenticação multi-factor Azure](../user-help/multi-factor-authentication-end-user-first-time.md).

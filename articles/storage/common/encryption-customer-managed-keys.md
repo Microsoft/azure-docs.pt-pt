@@ -5,16 +5,17 @@ description: Pode utilizar a sua própria chave de encriptação para proteger o
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 5dedd70b51361936808724ef70b96cdf9cfa13f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d53818c91d32bc7435d1328c2ae73a8eb3172cd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029795"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Utilize chaves geridas pelo cliente com cofre de chaves Azure para gerir a encriptação de armazenamento Azure
 
@@ -46,13 +47,13 @@ Os dados nos serviços Blob e File estão sempre protegidos por chaves geridas p
 
 ## <a name="enable-customer-managed-keys-for-a-storage-account"></a>Ativar chaves geridas pelo cliente para uma conta de armazenamento
 
-As chaves geridas pelo cliente só podem ser ativadas nas contas de armazenamento existentes. O cofre-chave deve ser abastado com políticas de acesso que concedam permissões-chave à identidade gerida associada à conta de armazenamento. A identidade gerida só está disponível após a criação da conta de armazenamento.
-
 Ao configurar uma chave gerida pelo cliente, o Azure Storage embrulha a chave de encriptação de dados raiz para a conta com a chave gerida pelo cliente no cofre de chaves associado. Ativar as chaves geridas pelo cliente não afeta o desempenho e entra em vigor imediatamente.
 
-Quando modifica a chave utilizada para encriptação do Azure Storage, ativando ou desativando as teclas geridas pelo cliente, atualizando a versão chave ou especificando uma chave diferente, a encriptação da chave raiz muda, mas os dados na sua conta de Armazenamento Azure não precisam de ser reen encriptados.
-
 Quando ativa ou desativa as teclas geridas pelo cliente, ou quando modifica a chave ou a versão chave, a proteção da chave de encriptação raiz muda, mas os dados na sua conta de Armazenamento Azure não precisam de ser reencrim encriptados.
+
+As chaves geridas pelo cliente só podem ser ativadas nas contas de armazenamento existentes. O cofre-chave deve ser configurado com políticas de acesso que concedam permissões à identidade gerida associada à conta de armazenamento. A identidade gerida só está disponível após a criação da conta de armazenamento.
+
+Pode alternar entre as teclas geridas pelo cliente e as teclas geridas pela Microsoft a qualquer momento. Para obter mais informações sobre as teclas geridas pela Microsoft, consulte [sobre a gestão de chaves de encriptação](storage-service-encryption.md#about-encryption-key-management).
 
 Para aprender a usar chaves geridas pelo cliente com cofre de chaves Azure para encriptação de armazenamento Azure, consulte um destes artigos:
 
@@ -65,15 +66,22 @@ Para aprender a usar chaves geridas pelo cliente com cofre de chaves Azure para 
 
 ## <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazenar chaves geridas pelo cliente no Cofre da Chave Azure
 
-Para ativar as chaves geridas pelo cliente numa conta de armazenamento, tem de utilizar um Cofre de Chaves Azure para guardar as suas chaves. Tem de ativar as propriedades **Soft Delete** e **Não Purgar** no cofre da chave.
+Para ativar as chaves geridas pelo cliente numa conta de armazenamento, tem de utilizar um cofre de chaves Azure para guardar as suas chaves. Tem de ativar as propriedades **Soft Delete** e **Não Purgar** no cofre da chave.
 
 A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos 2048, 3072 e 4096. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
+A utilização do Cofre da Chave Azure tem custos associados. Para obter mais informações, consulte [os preços do Key Vault](/pricing/details/key-vault/).
+
 ## <a name="rotate-customer-managed-keys"></a>Rode as teclas geridas pelo cliente
 
-Pode rodar uma chave gerida pelo cliente no Cofre de Chaves Azure de acordo com as suas políticas de conformidade. Quando a tecla estiver rodada, tem de atualizar a conta de armazenamento para utilizar a nova versão URI da chave. Para saber como atualizar a conta de armazenamento para utilizar uma nova versão da chave no portal Azure, consulte a secção intitulada **Update the key version** in [Configure customer-managed for Azure Storage utilizando o portal Azure](storage-encryption-keys-portal.md).
+Pode rodar uma chave gerida pelo cliente no Cofre de Chaves Azure de acordo com as suas políticas de conformidade. Tem duas opções para rodar uma chave gerida pelo cliente:
 
-Rodar a tecla não desencadeia a reencriminação de dados na conta de armazenamento. Não é necessária nenhuma outra ação por parte do utilizador.
+- **Rotação automática:** Para configurar a rotação automática das teclas geridas pelo cliente, omita a versão chave quando ativar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Se a versão da chave for omitida, o Armazenamento do Microsoft Azure verificará diariamente o Azure Key Vault para confirmar se existe uma nova versão de uma chave gerida pelo cliente. Se estiver disponível uma nova versão da chave, o Armazenamento do Microsoft Azure utilizará automaticamente a versão mais recente da chave.
+- **Rotação manual:** Para utilizar uma versão chave específica para encriptação do Azure Storage, especifique essa versão chave quando ativar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Se especificar a versão chave, o Azure Storage utiliza essa versão para encriptação até atualizar manualmente a versão chave.
+
+    Quando a chave estiver rodada manualmente, tem de atualizar a conta de armazenamento para utilizar a nova versão URI da chave. Para saber como atualizar a conta de armazenamento para utilizar uma nova versão da chave no portal Azure, consulte [atualização manual da versão chave](storage-encryption-keys-portal.md#manually-update-the-key-version).
+
+A rotação de uma chave gerida pelo cliente não desencadeia a reencriminação de dados na conta de armazenamento. Não é necessária nenhuma outra ação por parte do utilizador.
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso às chaves geridas pelo cliente
 
@@ -87,7 +95,7 @@ Pode revogar o acesso da conta de armazenamento à chave gerida pelo cliente a q
 - [Snapshot Blob](/rest/api/storageservices/snapshot-blob), quando chamado com o cabeçalho do `x-ms-meta-name` pedido
 - [Bolha de cópia](/rest/api/storageservices/copy-blob)
 - [Bolha de cópia da URL](/rest/api/storageservices/copy-blob-from-url)
-- [Definir Camada de Blob](/rest/api/storageservices/set-blob-tier)
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (Definir Camada de Blob)
 - [Colocar Bloco](/rest/api/storageservices/put-block)
 - [Coloque o bloco de URL](/rest/api/storageservices/put-block-from-url)
 - [Bloco de Apêndice](/rest/api/storageservices/append-block)
@@ -107,7 +115,7 @@ Para revogar o acesso às chaves geridas pelo cliente, utilize [o PowerShell](st
 
 As chaves geridas pelo cliente também estão disponíveis para gerir a encriptação dos discos geridos pela Azure. As chaves geridas pelo cliente comportam-se de forma diferente para discos geridos do que para os recursos de Armazenamento Azure. Para obter mais informações, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/windows/disk-encryption.md) para encriptação lateral do Windows ou servidor dos discos geridos pelo [Azure](../../virtual-machines/linux/disk-encryption.md) para o Linux.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure as chaves geridas pelo cliente com o Key Vault para encriptação de armazenamento Azure a partir do portal Azure](storage-encryption-keys-portal.md)
 - [Configure as chaves geridas pelo cliente com o Key Vault para encriptação de armazenamento Azure da PowerShell](storage-encryption-keys-powershell.md)

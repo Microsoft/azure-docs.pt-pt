@@ -3,14 +3,14 @@ title: Visão geral do trabalhador do runbook híbrido da Azure Automation
 description: Este artigo fornece uma visão geral do Trabalhador de Runbook Híbrido, que pode usar para executar livros de execução em máquinas no seu datacenter local ou fornecedor de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0960dfe067e5092f3d64f66cad1d49c2bea28ae6
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186253"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024831"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
@@ -42,7 +42,7 @@ O processo de instalação de um Trabalhador De Runbook Híbrido depende do sist
 
 O método de instalação recomendado é utilizar um manual de automação Azure para automatizar completamente o processo de configuração de uma máquina Windows. Se isso não for viável, pode seguir um procedimento passo a passo para instalar e configurar manualmente o papel. Para máquinas Linux, você executou um script Python para instalar o agente na máquina.
 
-## <a name="network-planning"></a><a name="network-planning"></a>Planeamento da rede
+## <a name="network-planning"></a><a name="network-planning"></a>Planeamento de rede
 
 Para que o Trabalhador de Runbook Híbrido se conecte e registe com a Azure Automation, deve ter acesso ao número de porta e URLs descritos nesta secção. O trabalhador também deve ter acesso às [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o agente Log Analytics se conecte ao espaço de trabalho Azure Monitor Log Analytics.
 
@@ -77,6 +77,17 @@ A etiqueta de serviço para o serviço Azure Automation apenas fornece IPs utili
 >[!NOTE]
 >A tag de serviço **GuestAndHybridManagement** atualmente não suporta a execução de trabalho de runbook numa caixa de areia Azure, apenas diretamente em um Trabalhador De Runbook Híbrido.
 
+## <a name="support-for-impact-level-5-il5"></a>Suporte para o Nível de Impacto 5 (IL5)
+
+O Azure Automation Hybrid Runbook Worker pode ser usado no Governo Azure para suportar cargas de trabalho de nível de impacto 5 em qualquer uma das duas configurações seguintes:
+
+* [Máquina virtual isolada.](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines) Quando implantados, consomem todo o hospedeiro físico para que o VM forneça o nível de isolamento necessário para suportar as cargas de trabalho IL5.
+
+* [Azure Dedicated Hosts](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), que fornece servidores físicos capazes de hospedar uma ou mais máquinas virtuais, dedicadas a uma subscrição do Azure.
+
+>[!NOTE]
+>O isolamento computo através do papel de Trabalhador de Runbook Híbrido está disponível para nuvens do Governo Azure Comercial e dos EUA. 
+
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Gestão de atualização no trabalhador de runbook híbrido
 
 Quando a Azure Automation [Update Management](automation-update-management.md) estiver ativada, qualquer máquina ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como Um Trabalhador De Runbook Híbrido. Cada trabalhador pode suportar livros de execução direcionados para a gestão de atualizações.
@@ -85,13 +96,7 @@ Uma máquina configurada desta forma não está registada em nenhum grupo híbri
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de gestão de atualização para trabalhador de runbook híbrido
 
-Além dos endereços e portas padrão que o Trabalhador do Runbook Híbrido necessita, a Gestão de Atualização precisa dos endereços na tabela seguinte. A comunicação a estes endereços utiliza a porta 443.
-
-|Azure Público  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+Além dos endereços e portas padrão necessários para o Trabalhador de Runbook Híbrido, a Update Management tem requisitos adicionais de configuração de rede descritos na secção de planeamento da [rede.](automation-update-management.md#ports)
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Configuração do Estado da Automação Azure em um trabalhador de runbook híbrido
 
@@ -114,4 +119,5 @@ Uma vez que acedem a recursos não-Azure, os runbooks em execução num Trabalha
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a configurar os seus livros para automatizar processos no seu datacenter no local ou noutro ambiente em nuvem, consulte [runbooks Runbooks num Trabalhador de Runbook Híbrido](automation-hrw-run-runbooks.md).
+
 * Para aprender a resolver problemas com os seus Trabalhadores de Runbook Híbridos, consulte problemas de trabalho híbrido de [resolução de problemas.](troubleshoot/hybrid-runbook-worker.md#general)

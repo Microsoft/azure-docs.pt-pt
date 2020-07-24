@@ -7,17 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028590"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Manuseamento da manutenção planeada utilizando o PowerShell
 
 **Este artigo aplica-se a máquinas virtuais que executam o Linux e o Windows.**
 
-Pode utilizar a Azure PowerShell para ver quando estão programados VMs para [manutenção](maintenance-notifications.md). As informações de manutenção planeadas estão disponíveis a partir do cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) quando utilizar o `-status` parâmetro.
+Pode utilizar a Azure PowerShell para ver quando estão programados VMs para [manutenção](maintenance-notifications.md). As informações de manutenção planeadas estão disponíveis a partir do cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) quando utilizar o `-status` parâmetro.
   
 As informações de manutenção só são devolvidas se houver manutenção planeada. Se não for programada qualquer manutenção que tenha impacto no VM, o cmdlet não devolve nenhuma informação de manutenção. 
 
@@ -39,7 +40,7 @@ As seguintes propriedades são devolvidas em ManutençãoRedeployStatus:
 
 
 
-Também pode obter o estado de manutenção de todos os VMs de um grupo de recursos utilizando [o Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) e não especificando um VM.
+Também pode obter o estado de manutenção de todos os VMs de um grupo de recursos utilizando [o Get-AzVM](/powershell/module/az.compute/get-azvm) e não especificando um VM.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status
@@ -99,6 +100,6 @@ Para iniciar a manutenção no seu VM clássico, escreva:
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode manusear a manutenção planeada utilizando o [Azure CLI](maintenance-notifications-cli.md) ou [o portal](maintenance-notifications-portal.md).

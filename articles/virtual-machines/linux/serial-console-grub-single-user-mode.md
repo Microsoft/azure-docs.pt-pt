@@ -8,11 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d594f4d8019a7c23da79506cd702adbe9f25038d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758500"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028946"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilize a Consola Em Série para aceder ao GRUB e ao Modo Único de Utilizador
 Grub é o GRand Unified Bootloader. A partir de GRUB é capaz de modificar a sua configuração de arranque para iniciar em modo único utilizador, entre outras coisas.
@@ -77,7 +78,7 @@ Se tiver configurado o GRUB e o acesso à raiz com as instruções acima, pode i
 1. Pressione Ctrl + X para sair e reiniciar com as definições aplicadas
 1. Será solicitado a palavra-passe do administrador antes de poder introduzir o modo de utilizador único - esta é a mesma palavra-passe que criou nas instruções acima    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Imagem animada mostrando uma interface de linha de comando. O utilizador seleciona um servidor, localiza a extremidade da linha do núcleo e, em seguida, introduz o texto especificado.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Introduza o modo de utilizador único sem conta raiz ativada no RHEL
 Se não tiver passado pelos passos acima para ativar o utilizador raiz, ainda pode redefinir a sua palavra-passe de raiz. Utilize as seguintes instruções:
@@ -94,7 +95,7 @@ Se não tiver passado pelos passos acima para ativar o utilizador raiz, ainda po
 1. Assim que iniciar o modo de utilizador único, digite `chroot /sysroot` para mudar para a `sysroot` cadeia
 1. Agora és a raiz. Pode redefinir a palavra-passe de raiz com `passwd` e, em seguida, utilizar as instruções acima para introduzir o modo de utilizador único. Escreva `reboot -f` para reiniciar uma vez que terminar.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Imagem animada mostrando uma interface de linha de comando. O utilizador seleciona um servidor, localiza a extremidade da linha kernel e introduz os comandos especificados.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Nota: A execução das instruções acima irá deixá-lo na casca de emergência, para que também possa executar tarefas como a edição `fstab` . No entanto, a sugestão geralmente aceite é redefinir a sua palavra-passe de raiz e usá-lo para introduzir o modo de utilizador único. 
 
@@ -119,7 +120,7 @@ Por predefinição, as imagens Ubuntu não mostrarão automaticamente o ecrã GR
 1. Alterar o `GRUB_TIMEOUT` valor para um valor não-zero
 1. Abra `/etc/default/grub` em um editor de texto à sua escolha
 1. Comentar a `GRUB_HIDDEN_TIMEOUT=1` linha
-1. Execute `sudo update-grub`
+1. Executar `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Modo de utilizador único em Ubuntu
 Ubuntu irá deixá-lo automaticamente no modo de utilizador único se não conseguir arrancar normalmente. Para introduzir manualmente o modo de utilizador único, utilize as seguintes instruções:
@@ -156,7 +157,7 @@ O acesso GRUB em SLES requer configuração de bootloader via YaST. Para isso, s
 1. Para entrar no GRUB, reinicie o seu VM e pressione qualquer tecla durante a sequência de arranque para fazer com que o GRUB permaneça no ecrã
     - O tempo limite padrão para GRUB é 1s. Pode modificá-lo alterando a `GRUB_TIMEOUT` variável em`/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![Imagem animada mostrando uma interface de linha de comando. O utilizador introduz o texto especificado, seleciona a opção especificada e guarda as definições.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Modo único de utilizador em SUSE SLES
 Será automaticamente atirado para a concha de emergência se o SLES não conseguir arrancar normalmente. Para introduzir manualmente a concha de emergência, utilize as seguintes instruções:
@@ -176,8 +177,8 @@ Oracle Linux vem com GRUB ativado fora da caixa. Para entrar no GRUB, reinicie o
 ### <a name="single-user-mode-in-oracle-linux"></a>Modo de utilizador único no Oracle Linux
 Siga as instruções do RHEL acima para ativar o modo de utilizador único no Oracle Linux.
 
-## <a name="next-steps"></a>Próximos passos
-* A principal página de documentação da consola em série Linux está localizada [aqui.](serial-console.md)
+## <a name="next-steps"></a>Passos seguintes
+* A principal página de documentação da consola em série Linux está localizada [aqui.](../troubleshooting/serial-console-linux.md)
 * Utilize consola em série para [chamadas NMI e SysRq](serial-console-nmi-sysrq.md)
-* A Consola em Série também está disponível para [VMs windows](../windows/serial-console.md)
-* Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md)
+* A Consola em Série também está disponível para [VMs windows](../troubleshooting/serial-console-windows.md)
+* Saiba mais sobre [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md)

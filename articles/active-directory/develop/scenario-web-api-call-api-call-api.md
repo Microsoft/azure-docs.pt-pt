@@ -11,11 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6bbd24978891efd147b0c317c1746d13961ce5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b756d7df03bd3c06b703617dbf84a194d716f1e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885094"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026378"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API web que chama APIs web: Chame uma API
 
@@ -30,23 +31,10 @@ O seguinte código continua o código de exemplo que é mostrado numa [API web q
 Depois de ter adquirido o símbolo, use-o como símbolo portador para chamar a API a jusante.
 
 ```csharp
-private async Task GetTodoList(bool isAppStarting)
+private async Task CallTodoListService(string accessToken)
 {
- ...
- //
- // Get an access token to call the To Do service.
- //
- AuthenticationResult result = null;
- try
- {
-  app = BuildConfidentialClient(HttpContext, HttpContext.User);
-  result = await app.AcquireTokenSilent(Scopes, account)
-                     .ExecuteAsync()
-                     .ConfigureAwait(false);
- }
-...
 
-// After the token has been returned by Microsoft Authentication Library (MSAL), add it to the HTTP authorization header before making the call to access the To Do list service.
+// After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
 // Call the To Do list service.
@@ -84,7 +72,7 @@ Uma amostra que demonstra este fluxo com o MSAL Python ainda não está disponí
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Uma API web que chama APIs web: Mover para a produção](scenario-web-api-call-api-production.md)

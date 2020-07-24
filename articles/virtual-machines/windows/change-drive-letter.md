@@ -9,19 +9,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 511c3aa65bf0a10e42d7a54c98662cc388a5d711
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82083427"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028229"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilize o D: conduza como unidade de dados num VM do Windows
 Se a sua aplicação precisar de utilizar a unidade D para armazenar dados, siga estas instruções para utilizar uma letra de unidade diferente para o disco temporário. Nunca utilize o disco temporário para armazenar dados que precisa de guardar.
 
 Se redimensionar ou **parar (Deallocate)** uma máquina virtual, isto pode desencadear a colocação da máquina virtual para um novo hipervisor. Um evento de manutenção planeado ou não planeado também pode desencadear esta colocação. Neste cenário, o disco temporário será reatribuído à primeira carta de condução disponível. Se tiver uma aplicação que exija especificamente o D: unidade, tem de seguir estes passos para mover temporariamente o pagefile.sys, anexar um novo disco de dados e atribuí-lo à letra D e, em seguida, mover a pagefile.sys de volta para a unidade temporária. Uma vez concluído, O Azure não retira o D: se o VM se deslocar para um hipervisor diferente.
 
-Para obter mais informações sobre como o Azure utiliza o disco temporário, consulte [compreender a unidade temporária nas Máquinas Virtuais do Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Para obter mais informações sobre como o Azure utiliza o disco temporário, consulte [compreender a unidade temporária nas Máquinas Virtuais do Microsoft Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ## <a name="attach-the-data-disk"></a>Anexar o disco de dados
 Primeiro, terá de anexar o disco de dados à máquina virtual. Para o fazer utilizando o portal, consulte [Como anexar um disco de dados gerido no portal Azure](attach-managed-disk-portal.md).
@@ -59,4 +59,3 @@ Primeiro, terá de anexar o disco de dados à máquina virtual. Para o fazer uti
 
 ## <a name="next-steps"></a>Passos seguintes
 * Pode aumentar o armazenamento disponível para a sua máquina virtual [anexando um disco de dados adicional.](attach-managed-disk-portal.md)
-

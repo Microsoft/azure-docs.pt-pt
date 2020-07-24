@@ -9,11 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029302"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -319,13 +320,13 @@ Há um tipo de modificação nas propriedades definidas à escala global que nã
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell com [Set-AzVmssVm:](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm)
+- Azure PowerShell com [Set-AzVmssVm:](/powershell/module/az.compute/set-azvmssvm)
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI com [az vmss reimagem:](https://docs.microsoft.com/cli/azure/vmss)
+- Azure CLI com [az vmss reimagem:](/cli/azure/vmss)
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -368,12 +369,12 @@ Se uma aplicação for implementada numa escala definida através de extensões,
 Também é comum que as aplicações sejam implementadas através de uma imagem personalizada. Este cenário é abordado na secção seguinte.
 
 ### <a name="os-updates"></a>Atualizações do OS
-Se utilizar imagens da plataforma Azure, pode atualizar a imagem modificando a *imagemReferência* (mais informações, consulte a [documentação da API REST).](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
+Se utilizar imagens da plataforma Azure, pode atualizar a imagem modificando a *imagemReferência* (mais informações, consulte a [documentação da API REST).](/rest/api/compute/virtualmachinescalesets/createorupdate)
 
 >[!NOTE]
 > Com imagens de plataforma, é comum especificar "o mais recente" para a versão de referência de imagem. Quando cria, escala e reimagem, os VMs são criados com a versão mais recente disponível. No entanto, **não** significa que a imagem de SO seja atualizada automaticamente ao longo do tempo à medida que novas versões de imagem são lançadas. Uma funcionalidade separada encontra-se atualmente em pré-visualização que fornece atualizações automáticas de SO. Para mais informações, consulte a [documentação automática de atualizações do SISTEMA](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Se utilizar imagens personalizadas, pode atualizar a imagem atualizando o *ID* de referência de imagem (mais informações, consulte a [documentação DA API REST).](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)
+Se utilizar imagens personalizadas, pode atualizar a imagem atualizando o *ID* de referência de imagem (mais informações, consulte a [documentação DA API REST).](/rest/api/compute/virtualmachinescalesets/createorupdate)
 
 ## <a name="examples"></a>Exemplos
 
@@ -449,5 +450,5 @@ Digamos que tem uma balança definida com um Balançador de Carga Azure, e prete
 > Estes comandos assumem que existe apenas uma configuração IP e um balançador de carga no conjunto de escala. Se houver vários, poderá ter de utilizar um índice de lista que não *seja 0*.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Também pode executar tarefas de gestão comuns em conjuntos de escala com o [Azure CLI](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

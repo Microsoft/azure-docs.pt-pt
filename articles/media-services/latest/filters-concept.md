@@ -13,11 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708302"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023233"
 ---
 # <a name="filters"></a>Filtros
 
@@ -37,8 +38,8 @@ Os Serviços de Mídia permitem criar **filtros de conta** e **filtros de ativos
 
 Existem dois tipos de filtros: 
 
-* [Filtros de Conta](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - pode ser aplicado a qualquer ativo na conta Azure Media Services, ter uma vida inteira da conta.
-* [Filtros de Ativos](https://docs.microsoft.com/rest/api/media/assetfilters) (locais) - só pode ser aplicado a um ativo com o qual o filtro foi associado aquando da criação, ter uma vida útil do ativo. 
+* [Filtros de Conta](/rest/api/media/accountfilters) (global) - pode ser aplicado a qualquer ativo na conta Azure Media Services, ter uma vida inteira da conta.
+* [Filtros de Ativos](/rest/api/media/assetfilters) (locais) - só pode ser aplicado a um ativo com o qual o filtro foi associado aquando da criação, ter uma vida útil do ativo. 
 
 **Os tipos de Filtros de Conta** e **Filtros de Ativos** têm exatamente as mesmas propriedades para definir/descrever o filtro. Exceto ao criar o **Filtro de Ativos,** é necessário especificar o nome do ativo com o qual pretende associar o filtro.
 
@@ -46,7 +47,7 @@ Dependendo do seu cenário, decide que tipo de filtro é mais adequado (Filtro d
 
 Utiliza as seguintes propriedades para descrever os filtros. 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |primeira Igualdade|O primeiro bitrate de qualidade do filtro.|
 |apresentaçãoTimeRange|O intervalo de tempo de apresentação. Esta propriedade é utilizada para filtrar pontos de partida/fim manifestos, comprimento da janela de apresentação e posição de arranque ao vivo. <br/>Para mais informações, consulte [PresentationTimeRange](#presentationtimerange).|
@@ -56,7 +57,7 @@ Utiliza as seguintes propriedades para descrever os filtros.
 
 Utilize esta propriedade com **filtros de ativos.** Não é aconselhável definir o imóvel com **Filtros de Conta.**
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |**endTimestamp**|Aplica-se a Vídeo a Pedido (VoD).<br/>Para a apresentação live streaming, é silenciosamente ignorado e aplicado quando a apresentação termina e o fluxo torna-se VoD.<br/>Este é um valor longo que representa um ponto final absoluto da apresentação, arredondado para o próximo gop arranque mais próximo. A unidade é o calendário, por isso um fimtimestamp de 180000000000 seria por 3 minutos.<br/>Utilize o startTimestamp e endTimestamp para aparar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp=400000000 e endTimestamp=10000000000, utilizando o calendário padrão, gerará uma lista de reprodução que contém fragmentos entre 4 segundos e 10 segundos da apresentação do VoD. Se um fragmento se desbardar no limite, todo o fragmento será incluído no manifesto.|
 |**forceEndTimestamp**|Aplica-se apenas ao Live Streaming.<br/>Indica se a propriedade endTimestamp deve estar presente. Se for verdade, o fimtimestamp deve ser especificado ou um código de pedido mau é devolvido.<br/>Valores permitidos: falsos, verdadeiros.|
@@ -71,7 +72,7 @@ Especifica uma lista de condições de propriedade da faixa de filtro (FilterTra
 
 As condições de propriedade da faixa de filtro descrevem tipos de faixas, valores (descritos na tabela seguinte) e operações (Equal, NotEqual). 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |**Bitrate**|Utilize o bitrate da pista para filtrar.<br/><br/>O valor recomendado é uma gama de bitrates, em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: embora possa utilizar um valor bitrate específico, como 250000 (bits por segundo), esta abordagem não é recomendada, uma vez que os bitrates exatos podem oscilar de um Ativo para outro.|
 |**FourCC**|Utilize o valor FourCC da faixa para filtragem.<br/><br/>O valor é o primeiro elemento do formato codecs, conforme especificado no [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, os seguintes códigos são suportados: <br/>Para Vídeo: "avc1", "hev1", "hvc1"<br/>Para Áudio: "mp4a", "ec-3"<br/><br/>Para determinar os valores de FourCC para faixas num Ativo, obtenha e examine o ficheiro manifesto.|
@@ -138,7 +139,7 @@ O exemplo a seguir define um filtro live streaming:
 
 ## <a name="associating-filters-with-streaming-locator"></a>Associar filtros com localizador de streaming
 
-Pode especificar uma lista de [filtros](filters-concept.md) de ativos ou de conta no seu [Localizador de Streaming.](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body) O [Dynamic Packager](dynamic-packaging-overview.md) aplica esta lista de filtros juntamente com os que o seu cliente especifica no URL. Esta combinação gera um [Manifesto Dinâmico,](filters-dynamic-manifest-overview.md)que é baseado em filtros nos filtros URL + que especifica no Localizador de Streaming. 
+Pode especificar uma lista de [filtros](filters-concept.md) de ativos ou de conta no seu [Localizador de Streaming.](/rest/api/media/streaminglocators/create#request-body) O [Dynamic Packager](dynamic-packaging-overview.md) aplica esta lista de filtros juntamente com os que o seu cliente especifica no URL. Esta combinação gera um [Manifesto Dinâmico,](filters-dynamic-manifest-overview.md)que é baseado em filtros nos filtros URL + que especifica no Localizador de Streaming. 
 
 Veja os exemplos seguintes:
 
@@ -153,11 +154,10 @@ Não é aconselhável atualizar a definição de filtros associados a um **local
 
 Se a definição do filtro tiver de ser alterada, considere criar um novo filtro e adicioná-lo ao URL **do localizador de streaming** ou publicar um novo **Localizador de Streaming** que faz referência direta ao filtro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os seguintes artigos mostram como criar filtros programáticamente.  
 
 - [Criar filtros com APIs REST](filters-dynamic-manifest-rest-howto.md)
 - [Criar filtros com .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Criar filtros com CLI](filters-dynamic-manifest-cli-howto.md)
-

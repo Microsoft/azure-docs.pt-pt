@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023692"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar as operações do avião de controlo da Azure Cosmos DB
 
@@ -26,9 +27,9 @@ Seguem-se alguns cenários de exemplo em que a auditoria das operações dos avi
 
 ## <a name="disable-key-based-metadata-write-access"></a>Desativar metadados baseados em metadados
 
-Antes de auditar as operações do avião de controlo em Azure Cosmos DB, desative os metadados baseados em chaves para escrever o acesso na sua conta. Quando os metadados-chave escrevem o acesso é desativado, os clientes que se conectam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Pode desativar o acesso de escrita definindo a `disableKeyBasedMetadataWriteAccess` propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com o papel e credenciais adequados de controlo de acesso baseado em funções (RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção a partir do artigo dos SDKs.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) 
+Antes de auditar as operações do avião de controlo em Azure Cosmos DB, desative os metadados baseados em chaves para escrever o acesso na sua conta. Quando os metadados-chave escrevem o acesso é desativado, os clientes que se conectam à conta Azure Cosmos através de chaves de conta são impedidos de aceder à conta. Pode desativar o acesso de escrita definindo a `disableKeyBasedMetadataWriteAccess` propriedade como verdadeira. Depois de definir esta propriedade, as alterações a qualquer recurso podem ocorrer a partir de um utilizador com o papel e credenciais adequados de controlo de acesso baseado em funções (RBAC). Para saber mais sobre como definir esta propriedade, consulte as [alterações de Prevenção a partir do artigo dos SDKs.](role-based-access-control.md#prevent-sdk-changes) 
 
-Depois de `disableKeyBasedMetadataWriteAccess` ligado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"Operação 'POST' no recurso 'ContainerNameorDatabaseName' não é permitido através do ponto final do Azure Cosmos DB.* Tem de acessar o acesso a tais operações para a sua conta, ou realizar as operações de criação/atualização através do Azure Resource Manager, Azure CLI ou Azure PowerShell. Para voltar a mudar, desative o Desativado MetadataWriteAccess para **falso** utilizando o Azure CLI, conforme descrito no artigo De prevenção do artigo [da Cosmos SDK.](role-based-access-control.md#preventing-changes-from-cosmos-sdk) Certifique-se de mudar o valor de `disableKeyBasedMetadataWriteAccess` falso em vez de verdadeiro.
+Depois de `disableKeyBasedMetadataWriteAccess` ligado, se os clientes baseados em SDK executarem operações de criação ou atualização, um erro *"Operação 'POST' no recurso 'ContainerNameorDatabaseName' não é permitido através do ponto final do Azure Cosmos DB.* Tem de acessar o acesso a tais operações para a sua conta, ou realizar as operações de criação/atualização através do Azure Resource Manager, Azure CLI ou Azure PowerShell. Para voltar a mudar, desative o Desativado MetadataWriteAccess para **falso** utilizando o Azure CLI, conforme descrito no artigo De prevenção do artigo [da Cosmos SDK.](role-based-access-control.md#prevent-sdk-changes) Certifique-se de mudar o valor de `disableKeyBasedMetadataWriteAccess` falso em vez de verdadeiro.
 
 Considere os seguintes pontos ao desligar os metadados, escreva o acesso:
 
@@ -194,7 +195,7 @@ AzureDiagnostics 
 | where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Explore o Monitor Azure para Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
 * [Monitore e depure com métricas em Azure Cosmos DB](use-metrics.md)

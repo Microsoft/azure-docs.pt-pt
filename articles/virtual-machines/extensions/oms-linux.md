@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 905a42c5a9bc297e2c27408a58a5b3019755fdef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029098"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics virtual machine extension for Linux (Extensão de máquina virtual do Log Analytics para Linux)
 
@@ -186,7 +186,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolução de Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure CLI.
 
@@ -204,7 +204,7 @@ A saída de execução de extensão é registada no seguinte ficheiro:
 
 | Código de Erro | Significado | Possível Ação |
 | :---: | --- | --- |
-| 9 | Ativar chamado prematuramente | [Atualize o Agente Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
+| 9 | Ativar chamado prematuramente | [Atualize o Agente Azure Linux](./update-linux-agent.md) para a versão mais recente disponível. |
 | 10 | VM já está conectado a um espaço de trabalho Log Analytics | Para ligar o VM ao espaço de trabalho especificado no esquema de extensão, defina stopOnMultipleConnections para falso em configurações públicas ou remova esta propriedade. Este VM é cobrado uma vez por cada espaço de trabalho a que está ligado. |
 | 11 | Config inválido fornecido à extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implantação. |
 | 17 | Falha na instalação do pacote Log Analytics | 

@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029948"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Adicionar perfis de classificação a um índice do Azure Cognitive Search
 
@@ -254,7 +254,7 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Definir interpolações  
  As interpolações permitem definir a forma da inclinação utilizada para a pontuação. Como a pontuação é alta a baixa, a inclinação está sempre a diminuir, mas a interpolação determina a curva da inclinação descendente. Podem ser utilizadas as seguintes interpolações:  
 
-|||  
+| Interpolação | Descrição |  
 |-|-|  
 |`linear`|Para itens que se encontrem dentro da gama max e min, o impulso aplicado ao item será feito numa quantidade constantemente decrescente. Linear é a interpolação padrão para um perfil de pontuação.|  
 |`constant`|Para itens que estão dentro do intervalo de início e fim, será aplicado um impulso constante aos resultados do ranking.|  
@@ -279,8 +279,8 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 
  Para mais exemplos, consulte [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Ver também  
 
-+ [Referência API DE REPOUSO](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Referência da API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Criar API de Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)   
 + [Pesquisa Cognitiva Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
