@@ -1,5 +1,5 @@
 ---
-title: Novidades
+title: Novidades?
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Conheça as novas funcionalidades e melhorias de documentação para a Azure SQL Database & SQL Managed Instance.
 services: sql-database
@@ -9,21 +9,21 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981380"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067422"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo lista as funcionalidades Azure SQL Database e Azure SQL Managed Instance que estão atualmente em pré-visualização pública. Para atualizações e melhorias de exemplos de bases de dados sql e sql geridos, consulte a [Base de Dados SQL & atualizações do serviço sql Managed Instance](https://azure.microsoft.com/updates/?product=sql-database). Para atualizações e melhorias a outros serviços Azure, consulte [as atualizações do Serviço](https://azure.microsoft.com/updates).
 
-## <a name="whats-new"></a>Novidades
+## <a name="whats-new"></a>Novidades?
 
 A documentação da Azure SQL Database e da Azure SQL Managed Instance foi dividida em secções separadas. Também atualizámos a forma como nos referimos a um caso gerido da *Azure SQL Database gerido instância* para *Azure SQL Managed Instance*.
 
@@ -50,7 +50,6 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 
 | Funcionalidade | Detalhes |
 | ---| --- |
-| Novas gerações de hardware da série Fsv2 e da série M| Para obter informações, consulte [as gerações de Hardware.](service-tiers-vcore.md#hardware-generations)|
 | Recuperação acelerada da base de dados com bases de dados únicas e piscinas elásticas | Para obter informações, consulte [a Recuperação acelerada da base de dados.](../accelerated-database-recovery.md)|
 | Deteção e classificação de dados  |Para obter informações, consulte [a Base de Dados Azure SQL e a Azure Synapse Analytics para a descoberta de dados & classificação](data-discovery-and-classification-overview.md).|
 | Tarefas de base de dados elástica | Para obter informações, consulte [Criar, configurar e gerir trabalhos elásticos.](elastic-jobs-overview.md) |
@@ -98,8 +97,8 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 
 |Problema  |Data descoberta  |Estado  |Data resolvida  |
 |---------|---------|---------|---------|
-|[Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Tem Solução| |
-|[Agente torna-se sem resposta ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Automaticamente atenuado| |
+|[Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
+|[Agente torna-se sem resposta ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
 |[Permissões sobre grupo de recursos não aplicados à SQL Gestd Instance](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Fev 2020|Tem Solução||
 |[Limitação do failover manual através do portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem Solução||
 |[As funções do SQL Agent precisam de permissões EXECUTE explícitas para inícios de sessão não sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem Solução||

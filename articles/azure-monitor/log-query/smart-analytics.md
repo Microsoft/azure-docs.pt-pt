@@ -6,16 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/15/2019
-ms.openlocfilehash: 51584ccf5f845be8a06b1e049cae11e636edef11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82960845e357579b82c493958287cb602d75182e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659837"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067401"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics exemplos de análise inteligente
 Este artigo inclui exemplos que usam funções de análise inteligente no Log Analytics para realizar análises da atividade do utilizador. Pode utilizar estes exemplos para analisar as suas próprias aplicações monitorizadas pela Application Insights ou utilizar os conceitos nestas consultas para análises semelhantes em outros dados. 
 
-Consulte a [referência linguística de Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave utilizadas nestas amostras. Passe por uma [lição sobre a criação de consultas](get-started-queries.md) se for novo no Log Analytics.
+Consulte a [referência linguística de Kusto](/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave utilizadas nestas amostras. Passe por uma [lição sobre a criação de consultas](get-started-queries.md) se for novo no Log Analytics.
 
 ## <a name="cohorts-analytics"></a>Coortes analíticos
 
@@ -211,7 +212,7 @@ traces
 | project PatternMatch = iff(RSquare2 > minRsquare and Slope>0, "Spike detected", "No Match")
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência linguística do Data Explorer](/azure/kusto/query) para obter mais detalhes sobre o idioma.
 - Caminhe por uma [lição sobre consultas de escrita no Log Analytics](get-started-queries.md).

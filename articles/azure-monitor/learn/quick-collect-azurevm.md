@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067550"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Recolher dados de uma máquina virtual Azure com o Azure Monitor
 
-[O Azure Monitor](../overview.md) pode recolher dados diretamente das suas máquinas virtuais Azure num espaço de trabalho log Analytics para análise e correlação detalhadas. A instalação da extensão VM do Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) permite ao Azure Monitor recolher dados dos seus VMs Azure. Este quickstart mostra-lhe como configurar e recolher dados dos seus VMS Azure Linux ou Windows utilizando a extensão VM com alguns passos fáceis.  
+[O Azure Monitor](../overview.md) pode recolher dados diretamente das suas máquinas virtuais Azure num espaço de trabalho log Analytics para análise de detalhes e correlações. A instalação da extensão VM do Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) permite ao Azure Monitor recolher dados dos seus VMs Azure. Este quickstart mostra-lhe como configurar e recolher dados dos seus VMS Azure Linux ou Windows utilizando a extensão VM com alguns passos fáceis.  
  
 Este início rápido pressupõe que tem uma máquina virtual do Azure. Se não for o caso, pode [criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md) ou [criar uma VM do Linux](../../virtual-machines/linux/quick-create-cli.md) ao seguir os nossos inícios rápidos de VM.
 
@@ -141,4 +141,4 @@ Agora que está a recolher dados operacionais e de desempenho das máquinas virt
 Para saber como ver e analisar os dados, avance para o tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Ver ou analisar dados no Log Analytics](../log-query/get-started-portal.md)

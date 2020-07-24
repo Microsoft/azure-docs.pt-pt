@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 122f88e8bf14d3e3b082930716cffc3621afd336
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103913"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067704"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerir e manter o agente da Máquina Conectada
 
@@ -142,6 +142,9 @@ A ferramenta Azcmagent (Azcmagent.exe) é utilizada para configurar o Arco Azure
 * **-v ou --verbose** - Permitir a exploração de verbose
 
 Pode executar um **Connect**, **Disconnect**e **Reconnect** manualmente enquanto iniciado ininterruptamente, ou automatizar utilizando o mesmo principal serviço que usou para bordo de vários agentes ou com um [token de acesso à](../../active-directory/develop/access-tokens.md)plataforma de identidade da Microsoft . Se não usou um principal de serviço para registar a máquina com a Azure Arc para servidores (pré-visualização), consulte o [seguinte artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para criar um principal de serviço.
+
+>[!NOTE]
+>Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
 
 ### <a name="connect"></a>Ligar
 
@@ -312,7 +315,7 @@ Para configurar o agente para parar de comunicar através de um servidor proxy, 
 sudo azcmagent_proxy remove
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), e muito mais.
 

@@ -5,11 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da75498d6e4616b287ddb11c69df2469baaf2655
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77670071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067642"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Como utilizar o Micrometro com Azure Application Insights Java SDK
 A monitorização da aplicação de micrometros mede as métricas do código de aplicação baseado em JVM e permite exportar os dados para os seus sistemas de monitorização favoritos. Este artigo irá ensiná-lo a usar o Micrometro com Insights de Aplicação para aplicações de Boot de primavera e não-Spring Boot.
@@ -267,7 +268,7 @@ Adicione o seguinte código de ligação ao ficheiro de configuração:
     New GuavaCacheMetrics().bind(registry);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o Micrometro, consulte a documentação oficial do [Micrometro.](https://micrometer.io/docs)
-* Para saber mais sobre a primavera em Azure, consulte a documentação oficial [da primavera sobre Azure.](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable)
+* Para saber mais sobre a primavera em Azure, consulte a documentação oficial [da primavera sobre Azure.](/java/azure/spring-framework/?view=azure-java-stable)

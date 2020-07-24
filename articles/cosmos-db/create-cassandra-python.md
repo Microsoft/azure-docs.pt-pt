@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: tracking-python
-ms.openlocfilehash: dee07db85d8886ab44be096e405143ea0d881ba2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a388cde60e0d19aed1af9620f82b7baa6d5b08fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067317"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Python SDK e Azure Cosmos DB
 
@@ -137,9 +137,9 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
-1. Utilize o ![botão Copiar](./media/create-cassandra-python/copy.png) botão à direita do ecrã, para copiar o valor superior, o PONTO DE CONTACTO.
+1. Utilize o :::image type="icon" source="./media/create-cassandra-python/copy.png"::: botão no lado direito do ecrã para copiar o valor superior, o PONTO DE CONTACTO. 
 
-    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação":::
+   :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="Ver e copiar um nome de utilizador de acesso, palavra-passe e ponto de contacto no portal do Azure, painel da cadeia de ligação":::
 
 1. Abra o ficheiro *config.py.* 
 

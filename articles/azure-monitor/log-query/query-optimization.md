@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a454d04701160492539f5c9caba57c9e617401e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864254"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067477"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 O Azure Monitor Logs utiliza [o Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si, e otimiza-os para a sua carga de trabalho de análise de registo. Quando você faz uma consulta, é otimizado, e encaminhado para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto os Registos monitores Azure como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas ofereçam um impulso significativo, são em alguns casos onde você pode melhorar dramaticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -156,7 +157,7 @@ Heartbeat
 > Este indicador apresenta apenas CPU do cluster imediato. Em consultas multi-regiões, representaria apenas uma das regiões. Em consulta de vários espaços de trabalho, pode não incluir todos os espaços de trabalho.
 
 ### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Evite análises completas de XML e JSON quando a análise das cordas funcionar
-A análise completa de um objeto XML ou JSON pode consumir elevados recursos de CPU e memória. Em muitos casos, quando apenas um ou dois parâmetros são necessários e os objetos XML ou JSON são simples, é mais fácil analisá-los como cordas usando o operador de [parse](/azure/kusto/query/parseoperator) ou [outras técnicas de análise de texto](/azure/azure-monitor/log-query/parse-text). O aumento de desempenho será mais significativo à medida que o número de registos no objeto XML ou JSON aumenta. É essencial quando o número de registos atinge dezenas de milhões.
+A análise completa de um objeto XML ou JSON pode consumir elevados recursos de CPU e memória. Em muitos casos, quando apenas um ou dois parâmetros são necessários e os objetos XML ou JSON são simples, é mais fácil analisá-los como cordas usando o operador de [parse](/azure/kusto/query/parseoperator) ou [outras técnicas de análise de texto](./parse-text.md). O aumento de desempenho será mais significativo à medida que o número de registos no objeto XML ou JSON aumenta. É essencial quando o número de registos atinge dezenas de milhões.
 
 Por exemplo, a seguinte consulta devolverá exatamente os mesmos resultados que as consultas acima sem efetuar a análise completa do XML. Note que faz algumas suposições na estrutura de ficheiros XML, como o elemento FilePath vem depois do FileHash e nenhum deles tem atributos. 
 
@@ -218,6 +219,64 @@ SecurityEvent
 | where EventID == 4624 //Logon GUID is relevant only for logon event
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
+
+### <a name="avoid-multiple-scans-of-same-source-data-using-conditional-aggregation-functions-and-materialize-function"></a>Evite múltiplas análises de dados de mesma origem utilizando funções de agregação condicional e materialize a função
+Quando uma consulta tem várias sub-consultas que são fundidas usando operadores de junta ou união, cada sub-consulta digitaliza toda a fonte separadamente e, em seguida, funde os resultados. Isto múltipla o número de vezes que os dados são digitalizados - fator crítico em conjuntos de dados muito grandes.
+
+Uma técnica para evitar isto é utilizando as funções de agregação condicional. A maioria das funções de agregação que são [utilizadas](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) no operador resumido tem uma versão condicionada que lhe permite utilizar um único operador sumário com múltiplas condições. 
+
+Por exemplo, as seguintes consultas mostram o número de eventos de login e o número de eventos de execução de processos para cada conta. Devolvem os mesmos resultados, mas o primeiro é digitalizar os dados duas vezes, o segundo só uma vez:
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+Outro caso em que as sub-consultas são desnecessárias é a pré-filtragem para o operador de [parse](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) para se certificar de que processa apenas registos que correspondam a um padrão específico. Isto é desnecessário, uma vez que o operador de parse e outros operadores similares retornam resultados vazios quando o padrão não corresponde. Aqui estão duas consultas que devolvem exatamente os mesmos resultados enquanto a segunda consulta de dados de verificação apenas uma vez. Na segunda consulta, cada comando de parse é relevante apenas para os seus eventos. O operador de extensão mostra depois como se referir à situação de dados vazios.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+Quando o acima referido não permite evitar a utilização de sub-consultas, outra técnica é sugerir ao motor de consulta que existe um único dado de origem utilizado em cada um deles utilizando a [função de materialização.](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor) Isto é útil quando os dados de origem vêm de uma função que é usada várias vezes dentro da consulta.
+
+
 
 ### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>Reduzir o número de colunas que são recuperadas
 
@@ -379,6 +438,6 @@ Os comportamentos de consulta que podem reduzir o paralelismo incluem:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Documentação de referência para a língua de consulta kusto.](/azure/kusto/query/)
