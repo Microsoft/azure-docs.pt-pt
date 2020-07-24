@@ -1,0 +1,153 @@
+---
+title: Implementar uma especificação de modelo como um modelo ligado
+description: Aprenda a implementar uma especificação de modelo existente numa implementação ligada.
+ms.topic: conceptual
+ms.date: 07/20/2020
+ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87097731"
+---
+# <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementar uma especificação de modelo como um modelo ligado (Pré-visualização)
+
+Aprenda a implementar uma [especificação](template-specs.md) de modelo existente utilizando uma [implementação ligada](linked-templates.md#linked-template). Utiliza especificações de modelo para partilhar modelos ARM com outros utilizadores na sua organização. Depois de ter criado uma especificação de modelo, pode implementar a especificação do modelo utilizando o Azure PowerShell. Também pode implementar a especificação do modelo como parte da sua solução utilizando um modelo ligado.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+
+> [!NOTE]
+> As Especificações do Modelo estão atualmente em pré-visualização. Para usá-lo, tem de [se inscrever para a pré-visualização](https://aka.ms/templateSpecOnboarding).
+
+## <a name="create-a-template-spec"></a>Criar uma especificação de modelo
+
+Siga [o Quickstart: Crie e implemente a especificação do modelo](quickstart-create-template-specs.md) para criar uma especificação de modelo para a implementação de uma conta de armazenamento. Você precisa do nome do grupo de recursos da especificação do modelo, nome de especificação do modelo e versão de especificação do modelo na secção seguinte.
+
+## <a name="create-the-main-template"></a>Crie o modelo principal
+
+Para implementar uma especificação de modelo num modelo ARM, adicione um [recurso de implementações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na `templateLink` propriedade, especifique o ID de recurso de uma especificação de modelo. Criar um modelo com o seguinte JSON chamado **azuredeploy.jsem**. Este tutorial assume que guardou para um caminho **c:\Templates\deployTS\azuredeploy.js,** mas pode usar qualquer caminho.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "tsResourceGroup":{
+      "type": "string",
+      "metadata": {
+        "Description": "Specifies the resource group name of the template spec."
+      }
+    },
+    "tsName": {
+      "type": "string",
+      "metadata": {
+        "Description": "Specifies the name of the template spec."
+      }
+    },
+    "tsVersion": {
+      "type": "string",
+      "defaultValue": "1.0.0.0",
+      "metadata": {
+        "Description": "Specifies the version the template spec."
+      }
+    },
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "Description": "Specifies the storage account type required by the template spec."
+      }
+    }
+  },
+  "variables": {
+    "appServicePlanName": "[concat('plan', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2016-09-01",
+      "name": "[variables('appServicePlanName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "B1",
+        "tier": "Basic",
+        "size": "B1",
+        "family": "B",
+        "capacity": 1
+      },
+      "kind": "linux",
+      "properties": {
+        "perSiteScaling": false,
+        "reserved": true,
+        "targetWorkerCount": 0,
+        "targetWorkerSizeId": 0
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "createStorage",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "id": "[resourceId(parameters('tsResourceGroup'), 'Microsoft.Resources/templateSpecs/versions', parameters('tsName'), parameters('tsVersion'))]"
+        },
+        "parameters": {
+          "storageAccountType": {
+            "value": "[parameters('storageAccountType')]"
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "templateSpecId": {
+      "type": "string",
+      "value": "[resourceId(parameters('tsResourceGroup'), 'Microsoft.Resources/templateSpecs/versions', parameters('tsName'), parameters('tsVersion'))]"
+    }
+  }
+}
+```
+
+O ID de especificação do modelo é gerado utilizando a [`resourceID()`](template-functions-resource.md#resourceid) função. O argumento do grupo de recursos na função resourceID() é opcional se o modeloSpec estiver no mesmo grupo de recursos da implementação atual.  Também pode passar diretamente no ID de recurso como parâmetro. Para obter a ID, use:
+
+```azurepowershell-interactive
+$id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
+```
+
+A sintaxe para passar parâmetros para a especificação do modelo é:
+
+```json
+"parameters": {
+  "storageAccountType": {
+    "value": "[parameters('storageAccountType')]"
+  }
+}
+```
+
+> [!NOTE]
+> A apiversão `Microsoft.Resources/deployments` deve ser 2020-06-01 ou mais tarde.
+
+## <a name="deploy-the-template"></a>Implementar o modelo
+
+Quando implementa o modelo ligado, implementa tanto a aplicação web como a conta de armazenamento. A implementação é o mesmo que a implantação de outros modelos ARM.
+
+```azurepowershell
+New-AzResourceGroup `
+  -Name webRG `
+  -Location westus2
+
+New-AzResourceGroupDeployment `
+  -ResourceGroupName webRG `
+  -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
+```
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para aprender sobre a criação de uma especificação de modelo que inclui modelos ligados, consulte [Criar uma especificação de modelo de um modelo ligado.](template-specs-create-linked.md)
