@@ -3,28 +3,40 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 11/03/2016
-ms.openlocfilehash: 3a0cb48e7fe5f3eef101f644e4f72fcfa2689d6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: 06a503e800309d8689735417931820d9f16a6e75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789460"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102918"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma conta [OneDrive](https://OneDrive.com) 
+* Uma conta [OneDrive para Negócios](https://OneDrive.com) 
 
-Antes de poder utilizar a sua conta OneDrive para negócios numa aplicação Logic, tem de autorizar a aplicação Logic a ligar-se à sua conta OneDrive para Negócios. Felizmente, pode fazê-lo facilmente a partir da sua aplicação Logic no Portal Azure. 
+Antes de poder utilizar a sua conta OneDrive para negócios com aplicações lógicas, tem de autorizar as Aplicações Lógicas a ligarem-se à sua conta OneDrive para negócios no portal Azure.
 
-Aqui estão os passos para autorizar a sua aplicação Logic a ligar-se à sua conta OneDrive for Business:
+Siga estes passos para autorizar as Aplicações Lógicas a ligarem-se à sua conta OneDrive para negócios:  
 
-1. Para criar uma ligação ao OneDrive for Business, no designer de aplicações Logic, selecione **Mostrar APIs geridos pela Microsoft** na lista de drop down e, em seguida, insira o *OneDrive for Business* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de utilizar:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
-2. Se ainda não criou nenhuma ligação ao OneDrive para negócios, será solicitado que forneça as suas credenciais OneDrive para Negócios. Estas credenciais serão usadas para autorizar a sua aplicação Logic a ligar-se e aceder aos dados da sua conta OneDrive para negócios:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
-3. Forneça o seu nome de utilizador e palavra-passe OneDrive para autorizar a sua aplicação Logic:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
-4. Note que a ligação foi criada e agora está livre para prosseguir com os outros passos na sua aplicação Logic:  
-   ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
+1. Inicie sessão no portal do Azure. 
 
+1. Nos **serviços Azure**, selecione **Logic Apps**. Em seguida, selecione o nome da sua aplicação lógica na lista.
+
+1. No menu da sua aplicação lógica, selecione **o designer de aplicações Logic** em **Ferramentas de Desenvolvimento.**
+
+1. No Logic Apps Designer, selecione **Mostrar APIs geridos pela Microsoft** na lista de drop-down e, em seguida, insira o *OneDrive for Business* na caixa de pesquisa. Selecione o gatilho ou ação para usar:  
+
+   ![Screenshot do Logic Apps Designer, mostrando o gatilho de recorrência com o OneDrive para ações de API de negócios.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-1.png)
+
+2. Se ainda não criou nenhuma ligação ao OneDrive para negócios, siga o pedido para fornecer as suas credenciais OneDrive para Negócios. Estas credenciais são usadas para autorizar a sua aplicação lógica a aceder aos dados da sua conta OneDrive para negócios:  
+
+   ![Screenshot do Logic Apps Designer, mostrando o pedido de inscrição para o OneDrive para negócios.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
+
+3. Forneça o seu nome de utilizador e palavra-passe OneDrive para autorizar a sua aplicação lógica:  
+
+   ![Screenshot da página de sposição oneDrive para business, mostrando o pedido de inscrição.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
+
+4. A ligação está agora listada no degrau. Selecione guardar e, em seguida, continue a criar a sua aplicação lógica. 
+
+   ![Screenshot do Logic Apps Designer, mostrando o gatilho com a ligação OneDrive para negócios listada.](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   

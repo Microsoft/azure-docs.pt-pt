@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165707"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093073"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementação de tempo de inatividade zero para funções duradouras
 
-O [modelo de execução fiável](durable-functions-checkpointing-and-replay.md) de Funções Duradouras requer que as orquestrações sejam determinísticas, o que cria um desafio adicional a considerar quando implementa atualizações. Quando uma implantação contém alterações nas assinaturas de funções de atividade ou lógica de orquestrador, as instâncias de orquestração a bordo falham. Esta situação é especialmente um problema para exemplos de orquestrações de longa duração, que podem representar horas ou dias de trabalho.
+O [modelo de execução fiável](./durable-functions-orchestrations.md) de Funções Duradouras requer que as orquestrações sejam determinísticas, o que cria um desafio adicional a considerar quando implementa atualizações. Quando uma implantação contém alterações nas assinaturas de funções de atividade ou lógica de orquestrador, as instâncias de orquestração a bordo falham. Esta situação é especialmente um problema para exemplos de orquestrações de longa duração, que podem representar horas ou dias de trabalho.
 
 Para evitar que estas falhas aconteçam, tem duas opções: 
 - Atrase a sua colocação até que todas as instâncias de orquestração em execução tenham terminado.
@@ -52,7 +52,7 @@ Utilize o seguinte procedimento para configurar este cenário.
 
 1. Para cada slot, defina a definição da [aplicação AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) para a cadeia de ligação de uma conta de armazenamento partilhada. Esta cadeia de ligação à conta de armazenamento é utilizada pelo tempo de funcionamento das Funções Azure. Esta conta é utilizada pelo tempo de funcionamento das Funções Azure e gere as teclas da função.
 
-1. Para cada slot, crie uma nova configuração de aplicações, por exemplo, `DurableManagementStorage` . Desa couuser o seu valor à cadeia de ligação de diferentes contas de armazenamento. Estas contas de armazenamento são utilizadas pela extensão funções duráveis para [uma execução fiável](durable-functions-checkpointing-and-replay.md). Utilize uma conta de armazenamento separada para cada ranhura. Não marque esta definição como uma definição de ranhura de implantação.
+1. Para cada slot, crie uma nova configuração de aplicações, por exemplo, `DurableManagementStorage` . Desa couuser o seu valor à cadeia de ligação de diferentes contas de armazenamento. Estas contas de armazenamento são utilizadas pela extensão funções duráveis para [uma execução fiável](./durable-functions-orchestrations.md). Utilize uma conta de armazenamento separada para cada ranhura. Não marque esta definição como uma definição de ranhura de implantação.
 
 1. Nahost.jsda sua aplicação de função [na secção DuraableTask do ficheiro](durable-functions-bindings.md#hostjson-settings), especifique como o nome da `azureStorageConnectionStringName` definição de aplicação que criou no passo 3.
 
@@ -172,4 +172,3 @@ Para obter mais informações, consulte [Gerir casos em Funções Duradouras em 
 
 > [!div class="nextstepaction"]
 > [Versão Funções Duradouras](durable-functions-versioning.md)
-

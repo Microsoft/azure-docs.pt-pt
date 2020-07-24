@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 3d52e83aa574dcd506270dc8e2f244a9f96add53
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 6506dd0a0aea1957db85658e4f70aed4df72d071
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102935"
 ---
 <a name="HOLTop"></a>
 
@@ -91,7 +91,7 @@ dependencies {
 
 As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision Java SDK.
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 | [ComputadorVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Esta classe é necessária para todas as funcionalidades de Visão de Computador. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes.|
 |[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Esta classe provém do objeto do cliente e lida diretamente com todas as operações de imagem, tais como análise de imagem, deteção de texto e geração de miniaturas.|
@@ -140,7 +140,7 @@ Em seguida, especifique quais as funcionalidades visuais que gostaria de extrair
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
-### <a name="analyze"></a>Analisar
+### <a name="analyze"></a>Análise
 Este método imprime resultados detalhados na consola para cada âmbito de análise de imagem. Recomendamos que rodeie este método de chamada num bloco de tentativa/captura. O método **analyzeImageInStream** devolve um objeto **ImageAnalysis** que contém toda a informação extraída.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
@@ -210,7 +210,7 @@ A Visão computacional pode ler texto visível numa imagem e convertê-lo num fl
 
 ### <a name="call-the-recognize-api"></a>Ligue para a API reconhecendo
 
-Em primeiro lugar, utilize o seguinte código para ligar para o método **RecognisePrintedTextInStream** para a imagem dada. Ao adicionar este código ao seu projeto, tem de substituir o valor do `localTextImagePath` caminho para a sua imagem local. 
+Em primeiro lugar, utilize o seguinte código para ligar para o método **RecognisePrintedTextInStream** para a imagem dada. Ao adicionar este código ao seu projeto, tem de substituir o valor do `localTextImagePath` caminho para a sua imagem local. Você pode baixar uma [imagem de amostra](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) para usar aqui.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 

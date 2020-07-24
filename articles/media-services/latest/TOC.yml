@@ -7,7 +7,7 @@
     - name: Novidades nos Serviços de Multimédia
       displayName: release notes
       href: release-notes.md
-- name: Guias de Início Rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Evento em direto com o portal e Wirecast
@@ -52,7 +52,7 @@
   items:
     - name: Exemplos dos Serviços de Multimédia v3
       displayName: '.NET, Java'
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
+      href: /samples/browse/?products=azure-media-services
     - name: Exemplos de REST dos Serviços de Multimédia v3
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Conceitos
@@ -197,9 +197,6 @@
         - name: Vídeo a Pedido
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
-        - name: Transmissão em Fluxo
-          displayName: 'failover, bcdr, HA, high availability'
-          href: media-services-high-availability-streaming.md
     - name: Resolução de problemas
       items:
         - name: Perguntas mais frequentes
@@ -376,8 +373,8 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
-        - name: Ir
+          href: /javascript/api/overview/azure/mediaservices/management
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

@@ -1,5 +1,5 @@
 ---
-title: ficheiro de inclusão
+title: incluir ficheiro
 description: incluir ficheiros para páginas confidenciais de aterragem de cenário de cliente (daemon, web app, web API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76773390"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102915"
 ---
 ## <a name="register-secrets-or-certificates"></a>Registar segredos ou certificados
 
@@ -31,12 +31,10 @@ A gestão das credenciais de clientes ocorre na página **de segredos & certific
 
 ![Certificados & página de segredos](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
-- O segredo da aplicação (também nomeado o segredo do cliente) é gerado pela Azure AD durante o registo da aplicação confidencial do cliente. Esta geração acontece quando se seleciona **o novo segredo do cliente.** Nessa altura, tem de copiar a cadeia secreta para a área de transferência para utilização na sua aplicação, antes de selecionar **Save**. Esta corda não será apresentada mais.
+- Cria um *segredo de cliente* selecionando novo segredo de **cliente** no registo da app no portal Azure. Quando cria um segredo de cliente, _deve_ gravar a corda do segredo antes de navegar para longe do **painel de segredos & Certificados.** A corda do segredo nunca mais é exibida.
 - Durante o registo de pedidos, utilize o **botão de certificado upload** para carregar o certificado. A Azure AD suporta apenas certificados que estão diretamente registados no pedido e não seguem cadeias de certificados.
 
 Para mais detalhes, consulte [Quickstart: Configurar uma aplicação do cliente para aceder a APIs web Adicione credenciais à sua aplicação.](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
-
-
 
 ### <a name="register-client-secrets-by-using-powershell"></a>Registar segredos do cliente usando o PowerShell
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58e779e6feeba27711a1746fbf7d6878725790fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115749"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
@@ -130,7 +130,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
    - **Nome de valor**: A URL AD Azure onde os bilhetes Kerberos são reencaminhados.
    - **Valor** (Dados): **1** indica a zona Intranet.
 
-     O resultado é o seguinte:
+     O resultado tem o seguinte aspeto:
 
      Nome de valor:`https://autologon.microsoftazuread-sso.com`
   
@@ -162,9 +162,9 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
 4. Introduza os seguintes valores nos campos apropriados e clique **em OK**.
    - **Caminho chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Nome de valor:** ***https***.
-   - **Tipo de valor**: ***REG_DWORD***.
-   - **Dados de valor:** ***0000001***.
+   - **Nome do valor**: ***https***
+   - **Tipo de valor**: ***REG_DWORD***
+   - **Dados de valor:** ***0000001***
  
      ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -234,7 +234,7 @@ Para obter instruções sobre como rolar as teclas, consulte [O Diretório Azure
 >[!IMPORTANT]
 >Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Revir as chaves de desencriptação Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a função 'Sign-On' sem emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Sign-On Único Sem Emenda.

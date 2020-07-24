@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Traduzir o discurso para várias línguas, C# - Serviço de fala'
+title: 'Quickstart: Traduzir a fala para várias línguas, C# - Serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: a0acb96eaee73e3286f3957564ef3fa1a93e72bb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 58e0d916f876af916bc8db32c93af5029641878d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75468537"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102925"
 ---
-Se preferir saltar para dentro, ver ou baixar todas as <a href="https://aka.ms/speech/github-csharp">amostras do Speech SDK C#</a> no GitHub. Caso contrário, vamos começar.
+Pode visualizar ou baixar todas as <a href="https://aka.ms/speech/github-csharp">amostras do Speech SDK C#</a> no GitHub. 

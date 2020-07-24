@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a8d27b77e210236216883bf630464324a47d2e80
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: c1406b5e7297b1d48b23d9dfa684e0d76b68139f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102934"
 ---
 <a name="HOLTop"></a>
 
@@ -70,7 +70,7 @@ Na classe **programo** da aplicação, crie variáveis para o ponto final e chav
 Dentro do diretório de aplicações, instale a biblioteca cliente Computer Vision para .NET com o seguinte comando:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
 ```
 
 Se estiver a utilizar o Visual Studio IDE, a biblioteca do cliente está disponível como um pacote NuGet transferível.
@@ -79,7 +79,7 @@ Se estiver a utilizar o Visual Studio IDE, a biblioteca do cliente está dispon�
 
 As seguintes classes e interfaces lidam com algumas das principais características do Computer Vision .NET SDK.
 
-|Name|Description|
+|Nome|Descrição|
 |---|---|
 | [ComputadorVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | Esta classe é necessária para todas as funcionalidades de Visão de Computador. Você instantanea-o com as suas informações de subscrição, e você usá-lo para fazer a maioria das operações de imagem.|
 |[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| Esta classe contém métodos adicionais para o **ComputerVisionClient**.|
@@ -135,7 +135,7 @@ Insira qualquer um dos seguintes blocos de código no seu método **AnalyzeImage
 }
 ```
 
-### <a name="analyze"></a>Analisar
+### <a name="analyze"></a>Análise
 
 O método **AnalyzeImageAsync** devolve um objeto **ImageAnalysis** que contém toda a informação extraída.
 
@@ -211,7 +211,7 @@ O código que se segue imprime informações sobre o tipo de &mdash; imagem, sej
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
-A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. O código nesta secção define um método, `ExtractTextUrl` que utiliza o objeto do cliente para detetar e extrair texto impresso ou manuscrito na imagem.
+A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte o doc conceptual de [reconhecimento de caracteres óticos (OCR).](../../concept-recognizing-text.md#read-api) O código nesta secção define um método, `BatchReadFileUrl` que utiliza o objeto cliente para detetar e extrair texto na imagem.
 
 Adicione o método de chamada no seu `Main` método.
 
@@ -219,7 +219,7 @@ Adicione o método de chamada no seu `Main` método.
 
 ### <a name="set-up-test-image"></a>Configurar a imagem de teste
 
-Na sua aula **de Programa,** guarde uma referência ao URL da imagem de que pretende extrair texto.
+Na sua aula **de Programa,** guarde uma referência ao URL da imagem de que pretende extrair texto. Este snippet inclui imagens de amostra para texto impresso e manuscrito.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
 
@@ -228,13 +228,13 @@ Na sua aula **de Programa,** guarde uma referência ao URL da imagem de que pret
 
 ### <a name="call-the-read-api"></a>Ligue para a API de leitura
 
-Defina o novo método de leitura do texto. Adicione o código abaixo, que chama o método **BatchReadFileAsync** para a imagem dada. Isto devolve um ID de operação e inicia um processo assíncrona para ler o conteúdo da imagem.
+Defina o novo método de leitura do texto. Adicione o código abaixo, que chama o método **ReadAsync** para a imagem dada. Isto devolve um ID de operação e inicia um processo assíncrona para ler o conteúdo da imagem.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
 
 ### <a name="get-read-results"></a>Obter resultados de Leitura
 
-Em seguida, obtenha o ID de operação devolvido da chamada **BatchReadFileAsync** e use-o para consultar o serviço para obter resultados de operação. O código seguinte verifica a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, imprime os dados de texto extraídos para a consola.
+Em seguida, obtenha o ID de operação devolvido da chamada **ReadAsync,** e use-o para consultar o serviço para obter resultados de operação. O código seguinte verifica a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, imprime os dados de texto extraídos para a consola.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
 

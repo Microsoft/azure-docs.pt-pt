@@ -3,15 +3,16 @@ title: Lançar anotações para Insights de Aplicações / Microsoft Docs
 description: Adicione marcadores de implementação ou construção aos gráficos de exploradores de métricas em Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f6ffed8ae2039ec36ec8bd86518e6b359da65ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093039"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos métricos em Insights de Aplicação
 
-As anotações mostram onde implantaste uma nova construção, ou outros eventos significativos. As anotações facilitam a localização das alterações no desempenho da sua aplicação. Podem ser criados automaticamente pelo sistema de construção de [Gasodutos Azure.](https://docs.microsoft.com/azure/devops/pipelines/tasks/) Também pode criar anotações para sinalizar qualquer evento que goste, criando-as a partir do PowerShell.
+As anotações mostram onde implantaste uma nova construção, ou outros eventos significativos. As anotações facilitam a localização das alterações no desempenho da sua aplicação. Podem ser criados automaticamente pelo sistema de construção de [Gasodutos Azure.](/azure/devops/pipelines/tasks/) Também pode criar anotações para sinalizar qualquer evento que goste, criando-as a partir do PowerShell.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Liberar anotações com a construção de Gasodutos Azure
 
@@ -112,7 +113,7 @@ Pode utilizar o script [CreateReleaseAnnotation](https://github.com/Microsoft/Ap
 
 Pode modificar o script, por exemplo, para criar anotações para o passado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar itens de trabalho](../../azure-monitor/app/diagnostic-search.md#create-work-item)
 * [Automatização com o PowerShell](../../azure-monitor/app/powershell.md)

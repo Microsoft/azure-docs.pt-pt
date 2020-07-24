@@ -6,11 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 3a62dcbbec90ec73ded722a6efbbd5907fb21f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21ee65e6a4e51e91b23d9634917ec3f0267f1771
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115610"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para a segurança do pod no Serviço Azure Kubernetes (AKS)
 
@@ -102,7 +103,7 @@ Com o Key Vault, armazena e gira regularmente segredos como credenciais, chaves 
 
 Azure Key Vault com Secrets Store CSI Driver pode ser usado para nós e cápsulas Linux que requerem uma versão Kubernetes de 1.16 ou maior. Para os nós e cápsulas windows é necessária uma versão Kubernetes de 1.18 ou superior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo focou-se em como proteger as suas cápsulas. Para implementar algumas destas áreas, consulte os seguintes artigos:
 

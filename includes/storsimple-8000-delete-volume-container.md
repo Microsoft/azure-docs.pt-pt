@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storsimple
 author: alkohli
 ms.service: storsimple
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102906"
 ---
 Para apagar um recipiente de volume, é preciso
  - apagar volumes no recipiente de volume. Se o recipiente de volume tiver volumes associados, desative primeiro esses volumes. Siga os passos em [Tirar um volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Depois de os volumes estarem offline, pode eliminá-los. 
@@ -36,6 +36,6 @@ Quando o recipiente de volume não tiver volumes associados, políticas de backu
 
 A lista de recipientes de volume é atualizada para refletir o recipiente de volume eliminado.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![Screenshot da página do recipiente volume. A lista tabular dos recipientes de volume já não contém o recipiente apagado.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 

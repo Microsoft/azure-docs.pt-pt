@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974845"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093022"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pré-pagamento por Azure Cache para redis computa recursos com capacidade reservada
 
@@ -32,7 +32,7 @@ Para obter os detalhes sobre como os clientes da empresa e os clientes Pay-As-Yo
 
 O tamanho da reserva deve basear-se na quantidade total de tamanho de memória utilizada pela cache existente ou em breve implantada numa região específica e utilizando o mesmo nível de serviço.
 
-Por exemplo, suponhamos que esteja a executar dois caches - um a 13 GB e o outro a 26 GB. Vai precisar dos dois por pelo menos um ano. Além disso, vamos supor que planeia escalar os caches de 13 GB existentes para 26 GB durante um mês para satisfazer a sua procura sazonal, e depois reduzir. Neste caso, pode adquirir cache 1 P1 e 1 cache P2 ou 3 caches P1 numa reserva de um ano para maximizar a poupança. Receberá desconto na quantidade total de memória de cache que reserva, independentemente da forma como esse valor é atribuído através dos seus caches.
+Por exemplo, suponhamos que esteja a executar dois caches - um a 13 GB e o outro a 26 GB. Vai precisar dos dois por pelo menos um ano. Além disso, vamos supor que planeia escalar os caches de 13 GB existentes para 26 GB durante um mês para satisfazer a sua procura sazonal, e depois reduzir. Neste caso, pode adquirir cache de 1 P2 e cache 1 P3 ou 3 caches P2 numa reserva de um ano para maximizar a poupança. Receberá desconto na quantidade total de memória de cache que reserva, independentemente da forma como esse valor é atribuído através dos seus caches.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Compre Azure Cache para a capacidade reservada da Redis
@@ -55,7 +55,7 @@ A tabela a seguir descreve os campos necessários.
 | Região | A região de Azure que está coberta pela Cache Azure para reserva de capacidade reservada redis.
 | Escalão de preço | O nível de serviço para o Cache Azure para servidores Redis.
 | Termo | Um ano ou três anos
-| Quantidade | A quantidade de recursos computacionares que estão a ser adquiridos dentro da Cache Azure para reserva de capacidade reservada redis. A quantidade é uma série de caches na região de Azure selecionada e nível de serviço que estão sendo reservados e receberá o desconto de faturação. Por exemplo, se estiver a executar ou a planear executar um Cache Azure para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, então especificaria a quantidade como 26 para maximizar o benefício para todos os caches.
+| Quantidade | A quantidade de recursos computacionares que estão a ser adquiridos dentro da Cache Azure para reserva de capacidade reservada redis. A quantidade é uma série de caches na região de Azure selecionada e nível de serviço que estão sendo reservados e receberá o desconto de faturação. Por exemplo, se estiver a executar ou a planear executar um Cache Azure para servidores Redis com a capacidade total de cache de 26 GB na região leste dos EUA, então especificaria a quantidade que lhe dá o equivalente a 26 GB para maximizar o benefício para todos os caches. Isto pode ser 1 caches P3 ou 2 P2.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
