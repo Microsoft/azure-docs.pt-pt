@@ -2,19 +2,22 @@
 title: Carta morta e políticas de repetição - Azure Event Grid
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Desabrar um destino de letra morta e especificar quanto tempo para voltar a tentar a entrega.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105511"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074878"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Carta morta e políticas de relícula
 
 Ao criar uma subscrição de eventos, pode personalizar as definições para entrega de eventos. Este artigo mostra-lhe como configurar um local de letra morta e personalizar as definições de repetição. Para obter informações sobre estas funcionalidades, consulte [a entrega de mensagens de Grade de Eventos e redaça.](delivery-and-retry.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Para saber mais sobre a entrega de mensagens, retrórias e letras mortas, consulte o artigo conceptual: [Event Grid message delivery and retry]().
 
 ## <a name="set-dead-letter-location"></a>Definir localização de letra morta
 
@@ -95,7 +98,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Se definir ambos `event-ttl` `max-deliver-attempts` e, o Event Grid utiliza o primeiro para expirar para determinar quando parar a entrega do evento.
+> [!NOTE]
+> Se definir ambos `event-ttl` `max-deliver-attempts` e, o Event Grid utiliza o primeiro para expirar para determinar quando parar a entrega do evento. Por exemplo, se definir 30 minutos como tentativas de entrega de tempo para viver (TTL) e 10 no máximo. Quando um evento não é entregue após 30 minutos (ou) não é entregue após 10 tentativas, o que acontecer primeiro, o evento é sem carta.  
 
 ### <a name="powershell"></a>PowerShell
 
@@ -123,9 +127,10 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Se definir ambos `EventTtl` `MaxDeliveryAttempt` e, o Event Grid utiliza o primeiro para expirar para determinar quando parar a entrega do evento.
+> [!NOTE]
+> Se definir ambos `event-ttl` `max-deliver-attempts` e, o Event Grid utiliza o primeiro para expirar para determinar quando parar a entrega do evento. Por exemplo, se definir 30 minutos como tentativas de entrega de tempo para viver (TTL) e 10 no máximo. Quando um evento não é entregue após 30 minutos (ou) não é entregue após 10 tentativas, o que acontecer primeiro, o evento é sem carta.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma aplicação de amostra que utiliza uma aplicação Azure Function para processar eventos de letras mortas, consulte [amostras de letra morta da grelha de eventos Azure para .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * Para obter informações sobre entrega de eventos e retrórias, [entrega e redação de mensagens de Event Grid.](delivery-and-retry.md)

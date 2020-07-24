@@ -3,12 +3,12 @@ title: Conceitos de DevTest Labs Microsoft Docs
 description: Aprenda os conceitos básicos da DevTest Labs, e como pode facilitar a criação, gestão e monitorização de máquinas virtuais Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f82f0484caf23d20092318b5bc2a32b0e6b1f1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482756"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074969"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos de Laboratórios DevTest
 ## <a name="overview"></a>Descrição geral
@@ -56,7 +56,7 @@ As políticas ajudam a controlar os custos no seu laboratório. Por exemplo, pod
 As tampas são um mecanismo para minimizar o desperdício no seu laboratório. Por exemplo, pode definir uma tampa para restringir o número de VMs que podem ser criados por utilizador, ou em laboratório.
 
 ## <a name="security-levels"></a>Níveis de segurança
-O acesso à segurança é determinado pelo Azure Role-Based Access Control (RBAC). Para entender como o acesso funciona, ajuda a entender as diferenças entre uma permissão, um papel e um âmbito definido pelo RBAC.
+O acesso à segurança é determinado pelo controlo de acesso baseado em funções Azure (Azure RBAC). Para entender como o acesso funciona, ajuda a entender as diferenças entre uma permissão, um papel e um âmbito definido pelo RBAC.
 
 * Permissão - Uma permissão é um acesso definido a uma ação específica (por exemplo, acesso de leitura a todas as máquinas virtuais).
 * Função - Um papel é um conjunto de permissões que podem ser agrupadas e atribuídas a um utilizador. Por exemplo, a *função do proprietário* da subscrição tem acesso a todos os recursos dentro de uma subscrição.
@@ -78,5 +78,5 @@ Todos os conceitos discutidos neste artigo podem ser configurados utilizando mod
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Criar um laboratório em Laboratórios DevTest](devtest-lab-create-lab.md)

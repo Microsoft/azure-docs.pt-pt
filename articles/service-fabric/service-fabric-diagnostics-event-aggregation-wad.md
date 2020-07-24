@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: ff13f8301274ebfc8b31dcbe01ef2a0fe6cd6fcc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247834"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076132"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e recolha de eventos usando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -30,8 +30,8 @@ Uma forma de carregar e recolher registos é utilizar a extensão do Windows Azu
 As seguintes ferramentas são utilizadas neste artigo:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-* [Azure PowerShell](/powershell/azure/overview)
-* [Modelo de gestor de recursos Azure](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
+* [Azure PowerShell](/powershell/azure/)
+* [Modelo Azure Resource Manager](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos da plataforma de tecido de serviço
 O Service Fabric configura-o com alguns [canais de registo fora da caixa,](service-fabric-diagnostics-event-generation-infra.md)dos quais os seguintes canais são pré-configurados com a extensão para enviar dados de monitorização e diagnóstico para uma mesa de armazenamento ou em qualquer outro lugar:

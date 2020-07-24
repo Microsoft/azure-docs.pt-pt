@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: e8ab6e2e62bdcb08754d011a6b576cb615371a09
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076462"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -51,7 +51,7 @@ Para que um servidor PostgreSQL utilize teclas geridas pelo cliente armazenadas 
 * **wrapKey**: Para ser capaz de encriptar o DEK.
 * **desembrulharKey**: Para ser capaz de desencriptar o DEK.
 
-O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria do Key Vault,](../azure-monitor/insights/azure-key-vault.md)para que possam ser auditados mais tarde.
+O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria do Key Vault,](../azure-monitor/insights/key-vault-insights-overview.md)para que possam ser auditados mais tarde.
 
 Quando o servidor está configurado para utilizar a chave gerida pelo cliente armazenada no cofre de chaves, o servidor envia o DEK para o cofre de chaves para encriptação. O Key Vault devolve o DEK encriptado, que está armazenado na base de dados do utilizador. Da mesma forma, quando necessário, o servidor envia o DEK protegido para o cofre da chave para desencriptação. Os auditores podem usar o Azure Monitor para rever os registos de eventos de auditoria do Key Vault, se o registo estiver ativado.
 
@@ -140,7 +140,7 @@ Para a Base de Dados Azure para PostgreSQL, o suporte para encriptação de dado
 
 * A encriptação só é suportada com a chave criptográfica RSA 2048.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar a [encriptação de dados com uma chave gerida pelo cliente para a sua base de dados Azure para o servidor Single PostgreSQL utilizando o portal Azure](howto-data-encryption-portal.md).
 

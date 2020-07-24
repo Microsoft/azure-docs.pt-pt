@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 65c4e5d9e0752379541063c8a80a4316196ad7c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38e47469723d767561dd778b8f175780ab181fd4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076262"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Ligue a sua solução externa utilizando o Syslog
 
@@ -94,7 +94,9 @@ Esta deteção requer uma configuração específica do conector de dados Syslog
 
 2. Permitir a recolha de informações syslog. Em seguida, navegue até **Azure Sentinel - Logs**, e copie e cole a seguinte consulta:
     
-        Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```console
+    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```
     
     Altere o **intervalo de tempo,** se necessário, e selecione **Executar**.
     
@@ -102,7 +104,7 @@ Esta deteção requer uma configuração específica do conector de dados Syslog
     
     Se a contagem resultante for superior a zero, os seus dados de syslog são adequados para a deteção anómala de login SSH. Ativa esta deteção a partir de modelos de regras de **análise**  >   **Rule templates**  >  **(pré-visualização) Deteção de Login anómala**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar os aparelhos Syslog no local ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

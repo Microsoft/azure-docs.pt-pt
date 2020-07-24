@@ -9,24 +9,20 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 94d952bcb0693941624199370de092a581d7479b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518594"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076045"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Diagnosticar e resolver problemas numa aplicação distribuída hospedada num ambiente em nuvem pode ser mais complexo do que em ambientes tradicionais. As aplicações podem ser implantadas numa infraestrutura PaaS ou IaaS, nas instalações, num dispositivo móvel ou em alguma combinação destes ambientes. Normalmente, o tráfego de rede da sua aplicação pode atravessar redes públicas e privadas e a sua aplicação pode utilizar várias tecnologias de armazenamento, tais como Tabelas de Armazenamento do Microsoft Azure, Blobs, Filas ou Ficheiros, além de outras lojas de dados, como bases de dados relacionais e documentos.
 
 Para gerir estas aplicações com sucesso, deve monitorizá-las proativamente e entender como diagnosticar e resolver problemas de todos os aspetos das mesmos e das suas tecnologias dependentes. Como utilizador dos serviços de Armazenamento Azure, deve monitorizar continuamente os serviços de Armazenamento que a sua aplicação utiliza para quaisquer alterações inesperadas de comportamento (por exemplo, mais lentas do que os tempos de resposta habituais), e utilizar o registo para recolher dados mais detalhados e analisar um problema em profundidade. As informações de diagnóstico que obtém tanto da monitorização como do registo registado irão ajudá-lo a determinar a causa principal do problema que a sua aplicação encontrou. Em seguida, pode resolver o problema e determinar os passos adequados que pode tomar para remediar o problema. O Azure Storage é um serviço Azure core, e constitui uma parte importante da maioria das soluções que os clientes implementam para a infraestrutura Azure. O Azure Storage inclui capacidades para simplificar problemas de monitorização, diagnóstico e resolução de problemas nas suas aplicações baseadas na nuvem.
-
-> [!NOTE]
-> O Azure Files não suporta a sessão de registo neste momento.
->
 
 Para obter um guia prático para a resolução de problemas de ponta a ponta nas aplicações de Armazenamento Azure, consulte [a resolução de problemas de ponta a ponta utilizando métricas de armazenamento Azure e Logging, AzCopy e Message Analyzer](../storage-e2e-troubleshooting.md).
 
@@ -810,7 +806,7 @@ Também pode utilizar a funcionalidade Application Insights para Azure DevOps co
 
 Pode encontrar mais informações no [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a análise no Azure Storage, consulte estes recursos:
 

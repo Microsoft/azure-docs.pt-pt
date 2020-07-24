@@ -4,11 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f40d38d182e1a8c233b15f711fd557a5d72e8f30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248976"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077335"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -265,12 +266,12 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 [Saiba mais.][turbonomic-doc]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Azure Monitor](../../azure-monitor/overview.md)
 - [Métricas de acesso usando a API REST](rest-api-walkthrough.md)
-- [Transmita o Registo de Atividades para um serviço não Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Faça logins de recursos de fluxo para um serviço não Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Transmita o Registo de Atividades para um serviço não Microsoft](./activity-log.md#legacy-collection-methods)
+- [Faça logins de recursos de fluxo para um serviço não Microsoft](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -301,4 +302,3 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Documentação splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentação SumoLogic."
 [turbonomic-doc]: https://turbonomic.com/ "Introdução turbonómica."
-

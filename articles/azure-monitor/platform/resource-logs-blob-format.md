@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45b18352d88877a5d611f203d87da83fd0d58c6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79096772"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077126"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Prepare-se para a mudança de formato para registos de plataforma do Azure Monitor arquivados numa conta de armazenamento
 
 > [!WARNING]
-> Se estiver a enviar [registos ou métricas de recursos Azure para uma conta de armazenamento utilizando configurações](resource-logs-collect-storage.md) de diagnóstico ou [registos de atividade para uma conta de armazenamento utilizando perfis](resource-logs-collect-storage.md)de registo, o formato dos dados na conta de armazenamento foi alterado para JSON Lines em 1 de novembro de 2018. As instruções abaixo descrevem o impacto e como atualizar a sua ferramenta para lidar com o novo formato.
+> Se estiver a enviar [registos ou métricas de recursos Azure para uma conta de armazenamento utilizando configurações](./resource-logs.md#send-to-azure-storage) de diagnóstico ou [registos de atividade para uma conta de armazenamento utilizando perfis](./resource-logs.md#send-to-azure-storage)de registo, o formato dos dados na conta de armazenamento foi alterado para JSON Lines em 1 de novembro de 2018. As instruções abaixo descrevem o impacto e como atualizar a sua ferramenta para lidar com o novo formato.
 >
 
 ## <a name="what-changed"></a>O que mudou
@@ -28,9 +29,9 @@ O Azure Monitor oferece uma capacidade que lhe permite enviar registos de recurs
 * A definição de uma definição de diagnóstico entre antes de 1 de novembro continuou a emitir dados no formato atual até 1 de novembro.
 * Esta mudança ocorreu ao mesmo tempo em todas as regiões de nuvem pública. A mudança não ocorrerá no Microsoft Azure Operado pela 21Vianet, Azure Germany ou Azure Government.
 * Esta alteração tem impacto nos seguintes tipos de dados:
-  * [Registos de recursos Azure](archive-diagnostic-logs.md) [(ver lista de recursos aqui)](diagnostic-logs-schema.md)
+  * [Registos de recursos Azure](./resource-logs.md#send-to-azure-storage) [(ver lista de recursos aqui)](./resource-logs-schema.md)
   * [Métricas de recursos Azure sendo exportadas por configurações de diagnóstico](diagnostic-settings.md)
-  * [Dados de registo de atividade azure sendo exportados por perfis de registo](activity-log-collect.md)
+  * [Dados de registo de atividade azure sendo exportados por perfis de registo](./activity-log.md)
 * Esta alteração não tem impacto:
   * Registos de fluxo de rede
   * Os registos de serviço Azure ainda não foram disponibilizados através do Azure Monitor (por exemplo, registos de recursos do Azure App Service, registos de análise de armazenamento)
@@ -122,7 +123,7 @@ O novo formato utiliza [linhas JSON,](http://jsonlines.org/)onde cada evento é 
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-Este novo formato permite ao Azure Monitor empurrar ficheiros de registo utilizando [blobs de apêndice ,](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)que são mais eficientes para a anexar continuamente novos dados de eventos.
+Este novo formato permite ao Azure Monitor empurrar ficheiros de registo utilizando [blobs de apêndice ,](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs)que são mais eficientes para a anexar continuamente novos dados de eventos.
 
 ## <a name="how-to-update"></a>Como atualizar
 
@@ -130,8 +131,7 @@ Só precisa de fazer atualizações se tiver ferramentas personalizadas que inge
 
 As ferramentas personalizadas devem ser atualizadas para lidar tanto com o formato atual como com o formato JSON Lines acima descrito. Isto irá garantir que quando os dados começarem a aparecer no novo formato, as suas ferramentas não se quebram.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais [sobre arquivar registos de recursos de recursos para uma conta de armazenamento](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* Saiba mais sobre [arquivar dados de registo de atividades para uma conta de armazenamento](./../../azure-monitor/platform/archive-activity-log.md)
-
+* Saiba mais [sobre arquivar registos de recursos de recursos para uma conta de armazenamento](./resource-logs.md#send-to-azure-storage)
+* Saiba mais sobre [arquivar dados de registo de atividades para uma conta de armazenamento](./activity-log.md#legacy-collection-methods)

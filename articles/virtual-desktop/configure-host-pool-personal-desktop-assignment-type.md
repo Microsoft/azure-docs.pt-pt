@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop tipo de atribuição de ambiente de trabalho pessoal - Azure
-description: Como configurar o tipo de atribuição para um conjunto de anfitriões de ambiente de trabalho pessoal virtual do Windows Desktop.
+description: Como configurar uma atribuição automática ou direta para um conjunto de anfitriões de ambiente de trabalho pessoal do Windows Virtual Desktop.
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12caa6fce4d49e86d1ad5da16aa7abba30f26207
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8b000e9a83e6896266f0a6fc05195fc5599bc65f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077641"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal
 

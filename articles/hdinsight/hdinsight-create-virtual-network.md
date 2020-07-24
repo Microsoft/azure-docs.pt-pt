@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: e8619bd7159bbbd418548a5e014dd92f7b9c9e84
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074764"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters Azure HDInsight
 
@@ -27,7 +27,7 @@ Antes de executar qualquer uma das amostras de código deste artigo, tenha uma c
 
 Outros pré-requisitos para as amostras do presente artigo incluem os seguintes itens:
 
-* Se estiver a utilizar o PowerShell, terá de instalar o [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se estiver a utilizar o PowerShell, terá de instalar o [Módulo AZ](https://docs.microsoft.com/powershell/azure/).
 * Se pretender utilizar o Azure CLI e ainda não o tiver instalado, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
@@ -370,7 +370,7 @@ Este exemplo faz os seguintes pressupostos:
 
 Após completar estes passos, pode ligar-se a recursos na rede virtual utilizando nomes de domínio totalmente qualificados (FQDN). Agora pode instalar o HDInsight na rede virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter um exemplo completo de configurar o HDInsight para ligar a uma rede no local, consulte [Connect HDInsight a uma rede no local](./connect-on-premises-network.md).
 * Para configurar os clusters Apache HBase em redes virtuais Azure, consulte [criar clusters Apache HBase em HDInsight na Rede Virtual Azure](hbase/apache-hbase-provision-vnet.md).

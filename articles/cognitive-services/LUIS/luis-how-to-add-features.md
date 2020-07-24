@@ -1,5 +1,5 @@
 ---
-title: Características - LUIS
+title: Use funcionalidades para melhorar a lista de palavras LUIS
 titleSuffix: Azure Cognitive Services
 description: Use o Com understanding idioma (LUIS) para adicionar funcionalidades de aplicações que possam melhorar a deteção ou previsão de intenções e entidades que categorias e padrões
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 7d9f1e520ab5c96b9c5288383324b165a4cd74f0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25698fe2b05cbfb564e441e488bfa93221a9618a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344446"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075201"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Use funcionalidades para aumentar o sinal da lista de palavras
 
@@ -43,7 +43,7 @@ Reveja [conceitos](luis-concept-feature.md) para entender quando e porquê usar 
 
 1. A lista de frases pode aplicar-se a toda a aplicação com a configuração **Global,** ou a um modelo específico (intenção ou entidade). Se criar a lista de frases, como _recurso_ de uma intenção ou entidade, o toggle não está definido para global. Neste caso, o significado do toggle é que a funcionalidade é local apenas para este modelo, portanto, _não global_ para a aplicação.
 
-1. Selecione **Done** (Concluído). A nova funcionalidade é adicionada à página **ML Features.**
+1. Selecione **Concluído**. A nova funcionalidade é adicionada à página **ML Features.**
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>
@@ -67,6 +67,6 @@ Para adicionar uma entidade como recurso a uma intenção, selecione a intençã
 
 Para adicionar uma entidade como recurso a outra entidade, pode adicionar a funcionalidade na página de detalhes de Intenção utilizando a [Paleta de Entidade](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) ou pode adicionar a [funcionalidade](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) na página de detalhes da Entidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de adicionar, editar, eliminar ou desativar uma funcionalidade, [treine e teste novamente a aplicação](luis-interactive-test.md) para ver se o desempenho melhora.

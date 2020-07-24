@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077930"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações push com a Azure Notification Hubs: Perguntas frequentes
 
@@ -138,7 +138,7 @@ As inscrições no backend da app são úteis quando tem de autenticar os client
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>Qual é o modelo de segurança de entrega de notificações push?
 
-O Azure Notification Hubs utiliza um modelo de segurança baseado em assinaturas de [acesso partilhado.](../storage/common/storage-dotnet-shared-access-signature-part-1.md) Pode utilizar os tokens de assinatura de acesso partilhado ao nível do espaço de nome raiz ou ao nível do centro de notificação granular. Os tokens de assinatura de acesso partilhado podem ser definidos para seguir diferentes regras de autorização, por exemplo, para enviar permissões de mensagens ou para ouvir permissões de notificação. Para mais informações, consulte o documento do [modelo de segurança Do Centro de Notificação.]
+O Azure Notification Hubs utiliza um modelo de segurança baseado em assinaturas de [acesso partilhado.](../storage/common/storage-sas-overview.md) Pode utilizar os tokens de assinatura de acesso partilhado ao nível do espaço de nome raiz ou ao nível do centro de notificação granular. Os tokens de assinatura de acesso partilhado podem ser definidos para seguir diferentes regras de autorização, por exemplo, para enviar permissões de mensagens ou para ouvir permissões de notificação. Para mais informações, consulte o documento do [modelo de segurança Do Centro de Notificação.]
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Como devo lidar com a carga útil sensível em notificações push?
 
@@ -179,7 +179,7 @@ O Azure Notification Hubs encripta todos os dados do cliente em repouso, com exc
 
 ### <a name="is-there-audit-log-capability"></a>Existe capacidade de registo de auditoria?
 
-Sim. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
+Yes. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 
@@ -203,15 +203,15 @@ Também pode aceder programáticamente às métricas. Para obter mais informaç�
 [Portal do Azure]: https://portal.azure.com
 [Preços dos hubs de notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Centros de Notificação REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[Centros de Notificação REST APIs]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Orientação de registo de backend]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Orientação de registo de backend 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Modelo de segurança de Centros de Notificação]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Tutorial de push seguro de centros de notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Resolução de problemas dos Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Orientação de registo de backend]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[Orientação de registo de backend 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Modelo de segurança de Centros de Notificação]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Tutorial de push seguro de centros de notificação]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Resolução de problemas dos Hubs de Notificação]: ./notification-hubs-push-notification-fixer.md
 [Métricas de Centros de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Registos Exportação/Importação]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[Registos Exportação/Importação]: ./export-modify-registrations-bulk.md
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

@@ -1,5 +1,5 @@
 ---
-title: Escala automática Azure Synapse Apache Spark instâncias
+title: Escala automática casos de Faísca Apache
 description: Utilize a função Azure Synapse Autoscale para escalar automaticamente as instâncias de faíscas apaches
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 86e9b7425c8c75495a17b66af710d2c55e6e59ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6278d24e52159424c3e346b2382c93f4ab8160
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194285"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075798"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automática Piscinas Apache Spark Azure Synapse
 
@@ -24,7 +24,7 @@ A funcionalidade De Escala Automática da piscina Apache Spark for Azure Synapse
 
 A autoescala continuamente a instância Spark e recolhe as seguintes métricas:
 
-|Metric|Descrição|
+|Métrica|Descrição|
 |---|---|
 |CPU total pendente|O número total de núcleos necessários para iniciar a execução de todos os nós pendentes.|
 |Memória Total Pendente|A memória total (em MB) necessária para iniciar a execução de todos os nós pendentes.|
@@ -73,6 +73,6 @@ Durante o processo de escalonamento, a Autoscale colocará os nós em estado de 
 
 Os trabalhos de corrida continuarão a funcionar e a terminar. Os postos de trabalho pendentes aguardarão para ser agendados normalmente, com menos nós disponíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Quickstart para criar uma nova piscina Spark [Criar uma piscina spark](../quickstart-create-apache-spark-pool-portal.md)

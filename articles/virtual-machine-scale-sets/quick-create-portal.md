@@ -9,11 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3a607f03bf238b1b05a91c772a7ac77a79574515
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 33f7f407c1df45131b0ebb5b14e8fcad2626bffd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077542"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -43,8 +44,9 @@ Em primeiro lugar, crie um Balanceador de Carga Padrão público utilizando o po
     | Tipo          | Selecione **Público**.       |
     | SKU           | Selecione **Standard**.       |
     | Endereço IP público | Selecione **Criar novo**. |
-    | Nome do endereço IP público  | *MyPip*   |
+    | Nome do endereço IP público  | *myPip*   |
     | Atribuição| Estático |
+    | Zona de disponibilidade | Selecione **Zona redundante**. |
 
 1. Quando terminar, selecione **'Rever + criar'** 
 1. Depois de passar a validação, **selecione Criar**. 
@@ -54,11 +56,11 @@ Em primeiro lugar, crie um Balanceador de Carga Padrão público utilizando o po
 ## <a name="create-virtual-machine-scale-set"></a>Criar conjunto de dimensionamento da máquina virtual
 Pode implementar um conjunto de dimensionamento com uma imagem do Windows Server ou uma imagem do Linux, como RHEL, CentOS, Ubuntu ou SLES.
 
-1. Escala de tipo **definida** na caixa de pesquisa. Nos resultados, no **Marketplace,** selecione **conjuntos de escala de máquina virtual**. A página **de conjunto de escala de máquina virtual abrirá.** 
+1. Escala de tipo **definida** na caixa de pesquisa. Nos resultados, no **Marketplace,** selecione **conjuntos de escala de máquina virtual**. Selecione **Criar** na página **de conjuntos de escala de máquina virtual,** que abrirá a página **de conjunto de escala de máquina virtual.** 
 1. No separador **Noções básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** no grupo de recursos. Digite *myVMSSResourceGroup* para o nome e, em seguida, selecione **OK** . 
 1. Digite *o myScaleSet* como o nome do seu conjunto de escala.
 1. Na **Região,** selecione uma região próxima da sua área.
-1. Deixe o valor predefinido dos **VMs do ScaleSet** para **o Orquestrador**.
+1. Deixe o valor predefinido dos **VMs do ScaleSet** para **o modo de orquestração**.
 1. Selecione uma imagem de mercado para **imagem**. Neste exemplo, escolhemos *o Ubuntu Server 18.04 LTS*.
 1. Introduza o seu nome de utilizador pretendido e selecione o tipo de autenticação que preferir.
    - A **Palavra-passe** tem de ter, pelo menos, 12 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Para obter mais informações, veja [requisitos de nome de utilizador e palavra-passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).

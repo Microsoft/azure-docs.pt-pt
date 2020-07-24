@@ -7,13 +7,14 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: a05fbf6e1908f88014cd8da99fafb875de033f45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499326"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074706"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados de clientes
+# <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Recursos de pedido de dados do cliente para dispositivos Azure IoT Hub
 
 O Azure IoT Hub é um serviço de nuvem baseado em API com base em REST direcionado para clientes empresariais que permite uma comunicação segura e bidcional entre milhões de dispositivos e um serviço Azure dividido.
 

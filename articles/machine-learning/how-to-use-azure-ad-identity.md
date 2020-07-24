@@ -3,18 +3,19 @@ title: Use a identidade AAD com o seu serviço web
 titleSuffix: Azure Machine Learning
 description: Utilize a identidade AAD com o seu serviço web no Serviço Azure Kubernetes para aceder aos recursos da nuvem durante a pontuação.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+ms.author: larryfr
+author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 660cb14bd081dffbf3e9fb5f02b7690212915355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa434a4e19321e88e388661ccb488f15c98d3a0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807490"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078070"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utilize a identidade AZure AD com o seu serviço web de aprendizagem automática no Serviço Azure Kubernetes
 
@@ -150,6 +151,9 @@ secret_client = SecretClient(
 secret = secret_client.get_secret(my_secret_name)
 ```
 
+> [!IMPORTANT]
+> Este exemplo utiliza o DefaultAzureCredential. Para conceder o acesso à sua identidade utilizando uma política de acesso específica, consulte [a Parte 4: Recupere o segredo de si Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
+
 ### <a name="access-blob-from-your-web-service"></a>Aceder Blob a partir do seu serviço web
 
 Se tiver dado o seu Azure Identity leia o acesso aos dados dentro de uma **Bolha de Armazenamento,** `score.py` pode aceder-lhe através do seguinte código.
@@ -172,7 +176,7 @@ blob_data = blob_client.download_blob()
 blob_data.readall()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre como usar a biblioteca de clientes Python Azure Identity, consulte o [repositório](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity#azure-identity-client-library-for-python) no GitHub.
 * Para obter um guia detalhado sobre a implementação de modelos para os clusters de serviços Azure Kubernetes, consulte o [como fazer](how-to-deploy-azure-kubernetes-service.md).

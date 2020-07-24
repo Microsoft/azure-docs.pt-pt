@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 298ec15700537f2368ef33ead267e85f5f22bfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791797"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076442"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
 
@@ -29,7 +30,7 @@ Este artigo descreve como adicionar ou alterar as funções de Coadministrador e
 ## <a name="add-a-co-administrator"></a>Adicionar um Coadministrador
 
 > [!TIP]
-> Só precisa de adicionar um Coadministrador se o utilizador precisar de gerir as implementações clássicas do Azure utilizando o [Módulo PowerShell de Gestão de Serviços Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Se o utilizador utilizar apenas o portal Azure para gerir os recursos clássicos, não necessitará de adicionar o administrador clássico para o utilizador.
+> Só precisa de adicionar um Coadministrador se o utilizador precisar de gerir as implementações clássicas do Azure utilizando o [Módulo PowerShell de Gestão de Serviços Azure](/powershell/module/servicemanagement/azure.service). Se o utilizador utilizar apenas o portal Azure para gerir os recursos clássicos, não necessitará de adicionar o administrador clássico para o utilizador.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como Administrador de Serviço ou Coadministrador.
 
@@ -37,7 +38,7 @@ Este artigo descreve como adicionar ou alterar as funções de Coadministrador e
 
     Os coadministradores só podem ser atribuídos no âmbito da subscrição.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **Administradores Clássicos.**
 
@@ -82,7 +83,7 @@ Para obter informações que comparem utilizadores de membros e utilizadores [co
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **Administradores Clássicos.**
 
@@ -124,8 +125,8 @@ Só pode haver um Administrador de Serviço por Subscrição Azure. A alteraçã
 
 | Conta de Administrador de Conta | Pode alterar o Administrador de Serviço para uma conta Microsoft diferente? | Pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório? | Pode alterar o Administrador de Serviço para uma conta AD Azure num diretório diferente? |
 | --- | --- | --- | --- |
-| Conta Microsoft | Sim | Não | Não |
-| Conta do Azure AD | Sim | Sim | Não |
+| Conta Microsoft | Yes | Não | Não |
+| Conta do Azure AD | Sim | Sim | No |
 
 Se o Administrador de Conta for uma conta AD Azure, pode alterar o Administrador de Serviço para uma conta AD Azure no mesmo diretório, mas não num diretório diferente. Por exemplo, abby@contoso.com pode alterar o Administrador de Serviço para , mas não pode alterar o Administrador de Serviço para a bob@contoso.com menos que tenha uma presença no john@notcontoso.com john@notcontoso.com diretório contoso.com.
 
@@ -147,7 +148,7 @@ Siga estes passos para ver o Administrador de Conta.
 
     ![Screenshot mostrando o administrador de conta](./media/classic-administrators/account-admin.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Adicione ou remova atribuições de funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)

@@ -1,5 +1,5 @@
 ---
-title: Otimização de transações para pool SQL
+title: Otimizar transações para piscina SQL
 description: Aprenda a otimizar o desempenho do seu código transacional no pool SQL (data warehouse) ao mesmo tempo que minimiza o risco de retrocessos longos.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0c55cc6e0fc15b663667a5131e2dd333106418cd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ef87d5da2c2d56a4fdc3873410bb5a6e5c711d01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957067"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075715"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>Otimização de transações em pool SQL
 
@@ -420,6 +420,6 @@ O melhor cenário é deixar as transações de modificação de dados de voo con
 * Reescrever operações de longo prazo utilizando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Parta a operação em pedaços; operando num subconjunto das linhas
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [as Transações no pool SQL](develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para uma visão geral de outras Boas Práticas, consulte [as melhores práticas da piscina SQL.](best-practices-sql-pool.md)

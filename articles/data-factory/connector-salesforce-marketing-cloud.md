@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/25/2019
-ms.openlocfilehash: 1a5a2682198f9ce9f5cb39f21e244c723ca513d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 1f0fb1ee8580c0c7f6eb30228b65e0a3780ef0a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416654"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076805"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copiar dados da Salesforce Marketing Cloud usando a Azure Data Factory
 
@@ -34,7 +34,7 @@ Este conector Salesforce Marketing Cloud é suportado para as seguintes atividad
 
 Pode copiar dados da Salesforce Marketing Cloud para qualquer loja de dados de sumidouro suportado. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-O conector Salesforce Marketing Cloud suporta a autenticação OAuth 2. É construído em cima da [Salesforce Marketing Cloud REST API.](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm)
+O conector Salesforce Marketing Cloud suporta a autenticação OAuth 2, e suporta tanto tipos de pacotes antigos como melhorados. O conector é construído em cima da [API de Marketing Salesforce Marketing REST](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >Este conector não suporta a recuperação de objetos personalizados ou extensões de dados personalizadas.
@@ -49,16 +49,20 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Salesforce Marketing Cloud:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **SalesforceMarketingCloud** | Yes |
+| conexõesProperties | Um grupo de propriedades que define como se conectar com a Salesforce Marketing Cloud. | Yes |
+| ***Em `connectionProperties` :*** | | |
+| authenticationType | Especifica o método de autenticação a utilizar. Os valores permitidos são `Enhanced sts OAuth 2.0` ou `OAuth_2.0` .<br><br>O pacote legado Salesforce Marketing Cloud só `OAuth_2.0` suporta, enquanto o pacote melhorado precisa `Enhanced sts OAuth 2.0` . <br>Desde 1 de agosto de 2019, a Salesforce Marketing Cloud removeu a capacidade de criar pacotes antigos. Todos os novos pacotes são pacotes melhorados. | Yes |
+| anfitrião | Para um pacote melhorado, o anfitrião deve ser o seu [subdomínio](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) que é representado por uma corda de 28 caracteres a começar pelas letras "mc", por `mc563885gzs27c5t9-63k636ttgm` exemplo. <br>Para o pacote legado, especifique `www.exacttargetapis.com` . | Yes |
 | clientId | O ID do cliente associado à aplicação Salesforce Marketing Cloud.  | Yes |
-| segredo de clientes | O segredo do cliente associado à aplicação Salesforce Marketing Cloud. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Yes |
+| segredo de clientes | O segredo do cliente associado à aplicação Salesforce Marketing Cloud. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar o segredo no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí ao executar a cópia de dados - saiba mais com as credenciais da [Loja no Key Vault.](store-credentials-in-key-vault.md) | Yes |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
 | useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 | usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
-**Exemplo:**
+**Exemplo: utilização de autenticação STS OAuth 2 melhorada para pacote melhorado** 
 
 ```json
 {
@@ -66,14 +70,66 @@ As seguintes propriedades são suportadas para o serviço ligado à Salesforce M
     "properties": {
         "type": "SalesforceMarketingCloud",
         "typeProperties": {
-            "clientId" : "<clientId>",
+            "connectionProperties": {
+                "host": "<subdomain e.g. mc563885gzs27c5t9-63k636ttgm>",
+                "authenticationType": "Enhanced sts OAuth 2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+**Exemplo: utilização da autenticação OAuth 2 para pacote legado** 
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "www.exacttargetapis.com",
+                "authenticationType": "OAuth_2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+                },
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+Se estava a utilizar o serviço salesforce Marketing Cloud com a seguinte carga útil, ele ainda é suportado como está, enquanto é sugerido que use o novo que vai para a frente, o que adiciona um suporte de pacote melhorado.
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "clientId": "<clientId>",
             "clientSecret": {
                  "type": "SecureString",
                  "value": "<clientSecret>"
             },
-            "useEncryptedEndpoints" : true,
-            "useHostVerification" : true,
-            "usePeerVerification" : true
+            "useEncryptedEndpoints": true,
+            "useHostVerification": true,
+            "usePeerVerification": true
         }
     }
 }
@@ -86,7 +142,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Salesforce Marketing Cloud, defina a propriedade tipo do conjunto de dados para **SalesforceMarketingCloudObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SalesforceMarketingCloudObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -116,7 +172,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Salesforce Marketing Cloud, deteta o tipo de origem na atividade de cópia para **SalesforceMarketingCloudSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SalesforceMarketingCloudSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |

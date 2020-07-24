@@ -4,18 +4,18 @@ description: Como gerir o Azure Blockchain Service com a Azure CLI
 ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: fc00bedee5ff55033a1d65c6d5d6bfa766f0f01e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b41bc44c9efbf71621fcfba06e668f42caa0f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076944"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Gerir o Serviço Azure Blockchain utilizando o Azure CLI
 
 Além do portal Azure, pode utilizar o Azure CLI para gerir membros blockchain e nóns de transação para o seu Serviço Azure Blockchain.
 
-Certifique-se de que instalou o mais recente [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) e iniciou sessão numa conta Azure com `az login` .
+Certifique-se de que instalou o mais recente [Azure CLI](/cli/azure/install-azure-cli) e iniciou sessão numa conta Azure com `az login` .
 
 Nos exemplos seguintes, substitua o exemplo `<parameter names>` pelos seus próprios valores.
 
@@ -291,6 +291,6 @@ az role assignment delete \
 | **destinatário** | Identificação do utilizador AD Azure. Por exemplo, `user@contoso.com` |
 | **âmbito** | Âmbito da atribuição de papel. Pode ser um membro blockchain ou nó de transação. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [configurar os nós de transação do Serviço Azure Blockchain com o portal Azure](configure-transaction-nodes.md).

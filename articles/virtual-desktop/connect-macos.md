@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2b4696886c898eec5895c4ccb59347cf2a49f03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcd7bf46a3def963a4f9fe8913c4f8afcdce743f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208999"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075640"
 ---
-# <a name="connect-with-the-macos-client"></a>Ligar ao cliente de macOS
+# <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Conecte-se ao Windows Virtual Desktop com o cliente macOS
 
 > Aplica-se a: macOS 10.12 ou posterior
 
@@ -48,6 +48,6 @@ Depois de se inscrever, deve ver uma lista de recursos disponíveis.
 
 Uma vez subscrito um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base em alterações efetuadas pelo seu administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o cliente macOS, confira o Get start com a documentação [do cliente macOS.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/)

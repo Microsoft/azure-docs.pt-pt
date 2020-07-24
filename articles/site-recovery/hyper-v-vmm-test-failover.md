@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b6055cdf930c93ba096a21ebc0b74c204540a79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710682"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076062"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Faça um exercício DR para Hiper-V VMs para um local secundário
 
@@ -44,8 +45,8 @@ Quando executar um teste de falha, é-lhe pedido que selecione as definições d
 
 | **Opção** | **Detalhes** | |
 | --- | --- | --- |
-| **Nenhum** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem, e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina a uma rede VM depois de ter sido criada.| |
-| **Utilizar a existência** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem.<br/><br/>Crie uma rede VM isolada da sua rede de produção.<br/><br/>Se estiver a utilizar uma rede baseada em VLAN, recomendamos que crie uma rede lógica separada (não utilizada na produção) em VMM para este fim. Esta rede lógica é utilizada para criar redes VM para falhas de teste.<br/><br/>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores Hiper-V que estão a hospedar máquinas virtuais.<br/><br/>Para as redes lógicas VLAN, os sites de rede que adiciona à rede lógica devem ser isolados.<br/><br/>Se estiver a utilizar uma rede lógica baseada em virtualização da rede windows Network, a Azure Site Recovery cria automaticamente redes VM isoladas. | |
+| **Nenhuma** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem, e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina a uma rede VM depois de ter sido criada.| |
+| **Utilizar existente** | O VM de teste é criado no hospedeiro no qual está localizada a réplica VM. Não é adicionado à nuvem.<br/><br/>Crie uma rede VM isolada da sua rede de produção.<br/><br/>Se estiver a utilizar uma rede baseada em VLAN, recomendamos que crie uma rede lógica separada (não utilizada na produção) em VMM para este fim. Esta rede lógica é utilizada para criar redes VM para falhas de teste.<br/><br/>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores Hiper-V que estão a hospedar máquinas virtuais.<br/><br/>Para as redes lógicas VLAN, os sites de rede que adiciona à rede lógica devem ser isolados.<br/><br/>Se estiver a utilizar uma rede lógica baseada em virtualização da rede windows Network, a Azure Site Recovery cria automaticamente redes VM isoladas. | |
 | **Criar uma rede** | Uma rede de teste temporária é criada automaticamente com base na definição que especifica na **Rede Lógica** e nos seus sites de rede relacionados.<br/><br/> Verificações de falhas que vMs são criados.<br/><br/> Deve utilizar esta opção se um plano de recuperação utilizar mais do que uma rede VM.<br/><br/> Se estiver a utilizar redes de virtualização da rede Windows Network, esta opção pode criar automaticamente redes VM com as mesmas definições (sub-redes e piscinas de endereços IP) na rede da máquina virtual réplica. Estas redes VM são limpas automaticamente após a conclusão do teste.<br/><br/> O VM de teste é criado no hospedeiro no qual existe a réplica da máquina virtual. Não é adicionado à nuvem.|
 
 ### <a name="best-practices"></a>Melhores práticas
@@ -102,17 +103,17 @@ Prepare um servidor DNS para o teste de falha da seguinte forma:
 * **DHCP**: Se as máquinas virtuais utilizarem o DHCP, o endereço IP do DNS de teste deve ser atualizado no servidor DHCP de teste. Se estiver a utilizar um tipo de rede de Virtualização da Rede Windows, o servidor VMM funciona como o servidor DHCP. Por conseguinte, o endereço IP do DNS deve ser atualizado na rede de falha de teste. Neste caso, as máquinas virtuais registam-se no servidor DNS relevante.
 * **Endereço estático**: Se as máquinas virtuais utilizarem um endereço IP estático, o endereço IP do servidor DNS de teste deve ser atualizado na rede de falha de teste. Poderá ser necessário atualizar o DNS com o endereço IP das máquinas virtuais de teste. Pode utilizar o seguinte script de amostra para este fim:
 
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-
-
+  ```powershell
+  Param(
+  [string]$Zone,
+  [string]$name,
+  [string]$IP
+  )
+  $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+  $newrecord = $record.clone()
+  $newrecord.RecordData[0].IPv4Address  =  $IP
+  Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+  ```
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
@@ -142,7 +143,7 @@ Recomendamos que não faça um teste de falha na rede do site de recuperação d
 * Testes como este levam a tempo de inatividade para a sua aplicação de produção. Peça aos utilizadores da aplicação para não utilizarem a aplicação quando a broca DR estiver em andamento.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter feito um exercício DR com sucesso, pode [executar um fracasso total](site-recovery-failover.md).
 
 

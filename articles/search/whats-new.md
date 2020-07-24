@@ -7,12 +7,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 07/15/2020
-ms.openlocfilehash: 238ede3e79b7d7c5a22d24dfc52530fe391b600b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8c6486a3a64dcbe3dd37770844296da73724f3a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076339"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -24,9 +24,9 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
-| [**Biblioteca de cliente .NET**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK | Uma nova biblioteca de clientes lançada pela equipa da Azure SDK, projetada para a consistência com outras bibliotecas de clientes .NET. Versão 11. | Geralmente disponível. </br> Instale o [pacoteAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) da NuGet. |
-| [**Biblioteca de cliente Python**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK | Uma nova biblioteca de clientes lançada pela equipa da Azure SDK, projetada para a consistência com outras bibliotecas de clientes Python. Versão 11. | Geralmente disponível. </br> Instale o [pacote de documentos de pesquisa de azul](https://pypi.org/project/azure-search-documents/) a partir de PyPI. |
-| [**Biblioteca de clientes JavaScript**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html)  | Azure SDK | Uma nova biblioteca de clientes lançada pela equipa Azure SDK, projetada para a consistência com outras bibliotecas de clientes JavaScript. Versão 11. | Geralmente disponível. </br> Instale a [ @azure/search-documents embalagem](https://www.npmjs.com/package/@azure/search-documents) a partir da npm. |
+| [biblioteca de clientesAzure.Search.Doc](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | SDK do Azure para .NET | Biblioteca de clientes .NET lançada pela equipa Azure SDK, projetada para a consistência com outras bibliotecas de clientes .NET. <br/><br/>A versão 11 tem como alvo a versão api-versão search REST=2020-06-30, mas ainda não suporta a loja de conhecimento, geo-filtros ou [FieldBuilder.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet) | Geralmente disponível. </br> Instale o [pacoteAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) da NuGet. |
+| [biblioteca de clientesazure.search.doc](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | SDK do Azure para Python| Biblioteca de clientes Python lançada pela equipa Azure SDK, projetada para a consistência com outras bibliotecas de clientes Python. <br/><br/>A versão 11 tem como alvo a versão api-versão search REST=2020-06-30. | Geralmente disponível. </br> Instale o [pacote de documentos de pesquisa de azul](https://pypi.org/project/azure-search-documents/) a partir de PyPI. |
+| [@azure/search-documentsbiblioteca cliente](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | SDK do Azure para JavaScript | Biblioteca de clientes JavaScript lançada pela equipa Azure SDK, projetada para a consistência com outras bibliotecas de clientes JavaScript. <br/><br/>A versão 11 tem como alvo a versão api-versão search REST=2020-06-30. | Geralmente disponível. </br> Instale a [ @azure/search-documents embalagem](https://www.npmjs.com/package/@azure/search-documents) a partir da npm. |
 
 ### <a name="june-2020"></a>Junho de 2020
 

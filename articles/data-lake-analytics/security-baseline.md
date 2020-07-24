@@ -1,20 +1,20 @@
 ---
-title: Linha de segurança data Lake Analytics para referência de segurança Azure
+title: Linha de segurança Azure para Data Lake Analytics
 description: A linha de base de segurança Data Lake Analytics fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 5e6d5beaad5080bf3081d5f68722623fb62d6c8a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532090"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075083"
 ---
-# <a name="data-lake-analytics-security-baseline-for-azure-security-benchmark"></a>Linha de segurança data Lake Analytics para referência de segurança Azure
+# <a name="azure-security-baseline-for-data-lake-analytics"></a>Linha de segurança Azure para Data Lake Analytics
 
 A Linha de Base de Segurança Azure para Data Lake Analytics contém recomendações que o ajudarão a melhorar a postura de segurança da sua implantação.
 
@@ -983,7 +983,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

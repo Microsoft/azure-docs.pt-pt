@@ -6,11 +6,13 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: 4a836ae195674556c486592a421c188f7c40e3f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076020"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticar nuvem de primavera azure com cofre chave em ações do GitHub
 O cofre é um lugar seguro para guardar as chaves. Os utilizadores empresariais precisam de armazenar credenciais para ambientes CI/CD no âmbito que controlam. A chave para obter credenciais no cofre-chave deve limitar-se ao âmbito de recursos.  Tem acesso apenas ao alcance do cofre, não a toda a mira do Azure. É como uma chave que só pode abrir uma caixa forte e não uma chave mestra que pode abrir todas as portas de um edifício. É uma forma de obter uma chave com outra chave, que é útil num fluxo de trabalho CICD. 
@@ -47,7 +49,7 @@ Vá ao painel **de instrumentos key Vault** no portal Azure, clique no menu de c
 
 Copiar o nome credencial, por exemplo, `azure-cli-2020-01-19-04-39-02` . Abra o menu **de políticas de acesso,** clique em +Adicionar link **Política de Acesso.**  Selecione `Secret Management` para **Modelo**e, em seguida, selecione **Principal**. Cole o nome credencial na caixa de entrada **Principal** / **Select:**
 
- ![Selecionar](./media/github-actions/key-vault2.png)
+ ![Selecione](./media/github-actions/key-vault2.png)
 
  Clique no botão **Adicionar** o diálogo da política de **acesso ao adicionar** e, em seguida, clique em **Guardar**.
 
@@ -107,5 +109,5 @@ jobs:
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Ações do GitHub da Nuvem de primavera](./spring-cloud-howto-github-actions.md)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cbbdf724b9d7fe4948553e7526410b994f491b49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9eae210818cf623078090503deefc6295dab7164
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80435267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076352"
 ---
 # <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integre o Centro de Segurança Azure com o Windows Admin Center
 
@@ -46,7 +46,7 @@ Ao combinar estas duas ferramentas, o Security Center torna-se o seu único pain
 1. Siga as instruções para ligar o servidor ao Centro de Segurança. Depois de ter introduzido os detalhes necessários e confirmado, o Security Center faz as alterações de configuração necessárias para garantir que todas as seguintes são verdadeiras:
     * Um Gateway Azure está registado.
     * O servidor tem um espaço de trabalho para reportar e uma subscrição associada.
-    * A solução padrão do Log Analytics do Security Center está ativada no espaço de trabalho. Esta solução fornece funcionalidades de nível Standard do Security Center para *todos os* servidores e máquinas virtuais que reportam a este espaço de trabalho.
+    * A solução padrão do Log Analytics do Security Center está ativada no espaço de trabalho. Esta solução fornece as funcionalidades de nível padrão do Security Center para *todos os* servidores e máquinas virtuais que reportam a este espaço de trabalho.
     * O preço padrão de nível do Security Center para a Máquina Virtual está ativado na subscrição.
     * O agente Log Analytics está instalado no servidor e configurado para reportar ao espaço de trabalho selecionado. Se o servidor já reporta a outro espaço de trabalho, está configurado para reportar ao espaço de trabalho recém-selecionado também.
 

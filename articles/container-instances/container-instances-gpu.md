@@ -3,12 +3,12 @@ title: Implementar a instância do contentor ativada pela GPU
 description: Saiba como implantar instâncias de contentores Azure para executar aplicações de contentores intensivos com computação utilizando recursos gpu.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259585"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076865"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizem recursos da GPU
 
@@ -63,7 +63,7 @@ Ao utilizar recursos de GPU, desementa os recursos de CPU e memória adequados �
 
 * **Motoristas CUDA** - Os casos de contentores com recursos de GPU são pré-a provisionados com os condutores da NVIDIA CUDA e os tempos de funcionaamento dos contentores, para que possa utilizar imagens de contentores desenvolvidas para cargas de trabalho cuda.
 
-  Apoiamos a CUDA 9.0 nesta fase. Por exemplo, pode utilizar as seguintes imagens base para o seu ficheiro Docker:
+  Apoiamos apenas CUDA 9.0 nesta fase. Por exemplo, pode utilizar as seguintes imagens base para o seu ficheiro Docker:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflu: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     
@@ -207,7 +207,7 @@ Accuracy at step 990: 0.969
 Adding run metadata for 999
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Porque a utilização de recursos gpu pode ser dispendiosa, certifique-se de que os seus recipientes não funcionam inesperadamente por longos períodos. Monitorize os seus recipientes no portal Azure ou verifique o estado de um grupo de contentores com o comando de demonstração do [contentor az.][az-container-show] Por exemplo:
 

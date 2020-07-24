@@ -3,11 +3,12 @@ title: Gerir imagens assinadas
 description: Saiba como ativar a confiança de conteúdo para o seu registo de contentores Azure e empurre e puxe imagens assinadas. A confiança de conteúdo é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 74bc61f71fc001d5333fcd3c9ac47fa4dd90218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509564"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076851"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
 
@@ -113,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>` pode ser **appId** ou **objectId** do principal de serviço ou um dos respetivos **servicePrincipalNames**. Para obter mais informações sobre como trabalhar com os principais de serviço e o Azure Container Registry, veja [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md) (Autenticação do Azure Container Registry com principais de serviço).
 
 > [!IMPORTANT]
-> Após qualquer mudança de papel, corra `az acr login` para refrescar o símbolo de identidade local para o CLI Azure para que as novas funções possam produzir efeitos. Para obter informações sobre a verificação de funções para uma identidade, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC e o Azure CLI](../role-based-access-control/role-assignments-cli.md) e o [RBAC de resolução de problemas para recursos Azure](../role-based-access-control/troubleshooting.md).
+> Após qualquer mudança de papel, corra `az acr login` para refrescar o símbolo de identidade local para o CLI Azure para que as novas funções possam produzir efeitos. Para obter informações sobre a verificação de funções para uma identidade, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC e o Azure CLI](../role-based-access-control/role-assignments-cli.md) e o [Troubleshoot Azure RBAC](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Enviar uma imagem fiável
 
@@ -193,7 +194,7 @@ Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no
 
 ![Desativar a confiança do conteúdo num registo no portal do Azure][content-trust-03-portal]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte [a confiança do conteúdo no Docker][docker-content-trust] para obter informações adicionais sobre a confiança dos conteúdos. Embora este artigo tenha abordado vários pontos importantes, a confiança do conteúdo é um tópico extenso e é descrito mais pormenorizadamente na documentação do Docker.
 

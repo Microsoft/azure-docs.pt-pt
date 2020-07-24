@@ -2,17 +2,17 @@
 title: 'Configure autenticação Ad AD para ligação VPN do utilizador: WAN virtual'
 description: Saiba como configurar a autenticação do Azure Ative Directory para a VPN do Utilizador.
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
-ms.openlocfilehash: dd80724d62c71fdec81965fb4aa6a07a6233a288
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2028cae4908214db28de2545f02f5f2997eeb8af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753951"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077475"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurar autenticação do Diretório Ativo Azure para VPN do utilizador
 
@@ -158,11 +158,11 @@ Utilize este [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355q
 
 1. Selecione a elipse (...) ao lado do perfil do cliente que pretende eliminar. Em seguida, **selecione Remover**.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![eliminação](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Selecione **Remover** para eliminar.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![eliminação](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticar problemas de conexão
 
@@ -197,6 +197,6 @@ Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceG
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a WAN Virtual, veja a página [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual).

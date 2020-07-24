@@ -4,11 +4,12 @@ description: Serviço de Monitorização do Azure Blockchain através do Azure M
 ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
-ms.openlocfilehash: 9d5b3cb02f6e4cd0804dc7fb15a4eacc8370bb99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214048"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076922"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitor Azure Blockchain Service através do Azure Monitor  
 
@@ -16,20 +17,20 @@ ms.locfileid: "85214048"
 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 
-O Azure Blockchain Service cria dados de monitorização utilizando o Azure Monitor, que é um serviço completo de monitorização de pilhas em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure. Para obter mais informações sobre o Azure Monitor, consulte [os recursos de Monitor Azure com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource).
+O Azure Blockchain Service cria dados de monitorização utilizando o Azure Monitor, que é um serviço completo de monitorização de pilhas em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure. Para obter mais informações sobre o Azure Monitor, consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
  
 
 As secções seguintes baseiam-se neste artigo, descrevendo os dados específicos recolhidos do Serviço Azure Blockchain e fornecendo exemplos para configurar a recolha de dados e analisar estes dados com ferramentas Azure.
 
 ## <a name="monitor-data-collected-from-azure-blockchain-service"></a>Monitor de dados recolhidos do Serviço Azure Blockchain  
 
-O Azure Blockchain Service recolhe o mesmo tipo de dados de monitorização que outros recursos Azure, que são descritos na monitorização de [dados a](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data) partir de recursos Azure. Consulte [a referência de dados do Serviço Blockchain Monitor Azure](#monitor-azure-blockchain-service-data-reference) para uma referência detalhada dos registos e métricas criados pelo Azure Blockchain Service.
+O Azure Blockchain Service recolhe o mesmo tipo de dados de monitorização que outros recursos Azure, que são descritos na monitorização de [dados a](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data) partir de recursos Azure. Consulte [a referência de dados do Serviço Blockchain Monitor Azure](#monitor-azure-blockchain-service-data-reference) para uma referência detalhada dos registos e métricas criados pelo Azure Blockchain Service.
 
 A página geral no portal Azure para cada recurso membro do Azure Blockchain Service inclui uma breve visão das transações, incluindo os pedidos tratados e blocos processados. Alguns destes dados são recolhidos automaticamente e disponíveis para análise assim que criar o recurso membro do Azure Blockchain Service, enquanto pode ativar a recolha adicional de dados com configuração adicional.
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico  
 
-As métricas da plataforma e o registo de Atividade são recolhidos automaticamente, mas tem de criar uma definição de diagnóstico para recolher registos de recursos ou reencaizá-los para fora do Azure Monitor. Consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para o processo detalhado para criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell.
+As métricas da plataforma e o registo de Atividade são recolhidos automaticamente, mas tem de criar uma definição de diagnóstico para recolher registos de recursos ou reencaizá-los para fora do Azure Monitor. Consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/platform/diagnostic-settings.md) para o processo detalhado para criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell.
 
 Quando cria uma definição de diagnóstico, especifica quais as categorias de registos a recolher. As categorias para o Serviço Azure Blockchain estão listadas abaixo.
 
@@ -41,13 +42,13 @@ Quando cria uma definição de diagnóstico, especifica quais as categorias de r
 
 ## <a name="analyze-metric-data"></a>Analisar dados métricos  
 
-Pode analisar métricas para o Serviço Azure Blockchain com o explorador Métricas, navegar para o separador Métricas na secção de Monitorização na lâmina de recursos ABS. Consulte [o Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) para obter detalhes sobre a utilização da ferramenta. As métricas completas para o Serviço Azure Blockchain estão no namespace Azure Blockchain Service métricas métricas métricas.
+Pode analisar métricas para o Serviço Azure Blockchain com o explorador Métricas, navegar para o separador Métricas na secção de Monitorização na lâmina de recursos ABS. Consulte [o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) para obter detalhes sobre a utilização da ferramenta. As métricas completas para o Serviço Azure Blockchain estão no namespace Azure Blockchain Service métricas métricas métricas.
 
 Pode utilizar a dimensão **do nó** ao adicionar um filtro ou dividir as métricas, que basicamente fornece valores métricos por nó de transação e nódos de validador do membro ABS.
 
 ## <a name="analyze-log-data"></a>Analisar dados de registo
 
-Aqui ficam algumas consultas que pode introduzir na barra de pesquisa log para ajudá-lo a monitorizar os seus membros do Serviço Azure Blockchain. Estas consultas funcionam com a [nova linguagem.](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Aqui ficam algumas consultas que pode introduzir na barra de pesquisa log para ajudá-lo a monitorizar os seus membros do Serviço Azure Blockchain. Estas consultas funcionam com a [nova linguagem.](../../azure-monitor/log-query/log-query-overview.md)
 
 Para consultar as condições de erro nos registos de aplicações blockchain, utilize a consulta abaixo:
 
@@ -73,7 +74,7 @@ Este artigo fornece uma referência de dados de log e métrica recolhidos para a
 
 ### <a name="resource-logs"></a>Registos do recurso
 
-Todos os registos de recursos partilham um esquema comum de alto nível com poucas propriedades únicas específicas do serviço blockchain. Pode consultar o [esquema de registos de recursos de nível superior,](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema)detalhes das propriedades específicas do Serviço Azure Blockchain são cobertos abaixo  
+Todos os registos de recursos partilham um esquema comum de alto nível com poucas propriedades únicas específicas do serviço blockchain. Pode consultar o [esquema de registos de recursos de nível superior,](../../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema)detalhes das propriedades específicas do Serviço Azure Blockchain são cobertos abaixo  
 
 A tabela que se segue lista as propriedades dos registos de procuração Azure Blockchain quando são recolhidas em Registos monitores Azure ou Azure Storage.  
 
@@ -94,7 +95,7 @@ A tabela que se segue lista as propriedades dos registos de procuração Azure B
 | PedidoMetadName | Método HTTP chamado, os valores possíveis aqui são PUT for create member, GET for get details of existing member, DELETE for delete member, PATCH for updateing member.   |
 | BlockchainMemberName  | Nome do membro do Serviço Azure Blockchain fornecido pelo utilizador.  |
 | Consórcio | Nome do consórcio conforme fornecido pelo utilizador.   |
-| Remote  | O IP do cliente para onde o pedido está a chegar.  |
+| Remoto  | O IP do cliente para onde o pedido está a chegar.  |
 | Solicitação  | Tamanho do pedido feito em bytes.  |
 | Hora do Pedido  | A duração do pedido em milissegundos.|
 
@@ -123,7 +124,7 @@ A tabela que se segue lista as propriedades dos registos de aplicações do Azur
 
 As tabelas que se seguem listam as métricas da plataforma recolhidas para o Serviço Azure Blockchain. Todas as métricas são armazenadas no espaço de nome As métricas padrão **do Serviço Azure Blockchain.**
 
-Para obter uma lista de todas as métricas suportadas pelo Azure Monitor (incluindo o Serviço Azure Blockchain), consulte [as métricas suportadas pelo Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Para obter uma lista de todas as métricas suportadas pelo Azure Monitor (incluindo o Serviço Azure Blockchain), consulte [as métricas suportadas pelo Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="blockchain-metrics"></a>Métricas blockchain
 
@@ -132,10 +133,10 @@ A tabela seguinte especifica a lista de métricas blockchain que são recolhidas
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
-| Transações Pendentes   | Contagem  |  Média | O número de transações que estão à espera de ser minadas.   |
-| Blocos processados   | Contagem  | Soma  |  O número de blocos processados em cada intervalo de tempo. Atualmente o tamanho do bloco é de 5 segundos, portanto, em um minuto cada nó irá processar 12 blocos e 60 blocos em 5 minutos.   |
-|Transações Processadas    | Contagem  | Soma  | O número de transações processadas num bloco.    |
-|Transações em fila    |  Contagem | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque chegaram fora de ordem e o futuro está à espera que a transação prévia chegue. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto a segunda não pode ser extraída.   |
+| Transações Pendentes   | de palavras  |  Média | O número de transações que estão à espera de ser minadas.   |
+| Blocos processados   | de palavras  | Som  |  O número de blocos processados em cada intervalo de tempo. Atualmente o tamanho do bloco é de 5 segundos, portanto, em um minuto cada nó irá processar 12 blocos e 60 blocos em 5 minutos.   |
+|Transações Processadas    | de palavras  | Som  | O número de transações processadas num bloco.    |
+|Transações em fila    |  de palavras | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque chegaram fora de ordem e o futuro está à espera que a transação prévia chegue. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto a segunda não pode ser extraída.   |
 
 ### <a name="connection-metrics"></a>Métricas de ligação  
 
@@ -144,10 +145,10 @@ A tabela que se segue lista as diferentes métricas de ligação que são recolh
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição |
 |---|---|---|---|
-| Conexões Aceites   | Contagem  |  Soma | O número total de ligações de clientes aceites.   |
-| Ligações Ativas  | Contagem  | Média  |  O número atual de ligações ativas ao cliente, incluindo ligações de espera.    |
-|Conexões manuseidas    | Contagem  | Soma  | O número total de ligações manuseadas. Geralmente, o valor do parâmetro é o mesmo que as ligações aceites, a menos que alguns limites de recursos tenham sido atingidos.     |
-|Pedidos Tratados     |  Contagem | Soma  | O número total de pedidos de clientes.  |
+| Conexões Aceites   | de palavras  |  Som | O número total de ligações de clientes aceites.   |
+| Ligações Ativas  | de palavras  | Média  |  O número atual de ligações ativas ao cliente, incluindo ligações de espera.    |
+|Conexões manuseidas    | de palavras  | Som  | O número total de ligações manuseadas. Geralmente, o valor do parâmetro é o mesmo que as ligações aceites, a menos que alguns limites de recursos tenham sido atingidos.     |
+|Pedidos Tratados     |  de palavras | Som  | O número total de pedidos de clientes.  |
 
 
 ### <a name="performance-metrics"></a>Métricas de Desempenho
@@ -157,9 +158,9 @@ A tabela seguinte lista as métricas de desempenho que são recolhidas para cada
 
 | Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
-| Percentagem de utilização do CPU   | Percentagem  |  Máx. | A percentagem do uso do CPU.     |
-| IO Ler Bytes   | Kilobytes   | Soma  |  A soma de IO lê bytes em todos os nós do recurso membro blockchain.      |
-|IO Escrever Bytes     | Kilobytes   | Soma  | A soma de IO escreve bytes em todos os nós do recurso membro blockchain.     |
+| Percentagem de utilização do CPU   | Percentagem  |  Máx | A percentagem do uso do CPU.     |
+| IO Ler Bytes   | Kilobytes   | Som  |  A soma de IO lê bytes em todos os nós do recurso membro blockchain.      |
+|IO Escrever Bytes     | Kilobytes   | Som  | A soma de IO escreve bytes em todos os nós do recurso membro blockchain.     |
 |Limite de memória       |  Gigabytes   | Média    | Memória máxima disponível para o processo blockchain por nó. |
 |Utilização de Memória     | Gigabytes  |  Média | A quantidade de memória usada média em todos os nós.  |
 | Percentagem de Utilização de Memória     | Percentagem   | Média  |  A percentagem da memória usada média em todos os nós.       |
@@ -168,4 +169,4 @@ A tabela seguinte lista as métricas de desempenho que são recolhidas para cada
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre [o Blockchain Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) para capturar e transformar dados blockchain para Azure Event Grid.
+Saiba mais sobre [o Blockchain Data Manager](./data-manager.md) para capturar e transformar dados blockchain para Azure Event Grid.

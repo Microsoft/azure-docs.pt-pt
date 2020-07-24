@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ef1266b783034cf18dc2b3ea4be5ebc01bc12c70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7531a22d5b0f44fdaae837a75d17ea18852acf0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024692"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077301"
 ---
 # <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>Configurar aplicações e cargas de trabalho DNS e DHCP na sua CloudSimple Private Cloud
 
@@ -32,5 +33,5 @@ O Linux oferece vários pacotes para a configuração de servidores DNS.  Aqui e
 
 Estes tópicos da Microsoft descrevem como configurar um servidor Windows como um servidor DNS e como um servidor DHCP.
 
-* [Servidor Windows como Servidor DNS](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
-* [Servidor Windows como Servidor DHCP](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+* [Servidor Windows como Servidor DNS](/windows-server/networking/dns/dns-top)
+* [Servidor Windows como Servidor DHCP](/windows-server/networking/technologies/dhcp/dhcp-top)

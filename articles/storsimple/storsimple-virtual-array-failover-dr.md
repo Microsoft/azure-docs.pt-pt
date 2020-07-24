@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515215"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077782"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperação após desastre e ativação pós-falha do dispositivo para a Matriz Virtual do StorSimple através do portal do Azure
 
@@ -121,12 +122,12 @@ Execute os seguintes passos para restaurar o dispositivo num dispositivo virtual
 
 5. Na lâmina **desativada,** é solicitado a confirmação. A desativação do dispositivo é um processo *permanente* que não pode ser desfeito. Também é lembrado para tirar as suas ações/volumes offline no anfitrião. Digite o nome do dispositivo para confirmar e clique em **Desativar**.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![Screenshot da lâmina desativada. A caixa de nome do dispositivo é preenchida e o botão Desativado é realçado.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. A desativação começa. Receberá uma notificação após a desativação ser concluída com sucesso.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![Screenshot de uma barra de progresso indicando que o dispositivo está a ser desativado.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. Na página Dispositivos, o estado do dispositivo passará a ser alterado para **Desativado**.
-    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![Screenshot da página dispositivos. As propriedades do dispositivo desativado são apresentadas, incluindo o estado, que está listado como Desativado.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. Na lâmina **dispositivos,** selecione e clique no dispositivo de origem desativado para falhar. 
 9. Na lâmina do **painel de instrumentos** do dispositivo, clique **em 'Falha'.** 
 10. Na lâmina do **dispositivo 'Falha' sobre** o dispositivo, faça o seguinte:
@@ -139,22 +140,22 @@ Execute os seguintes passos para restaurar o dispositivo num dispositivo virtual
 
     4. Clique **em 'Falhar' mais**.
     
-        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![Screenshot da lâmina do dispositivo Fail over, com o dispositivo de origem e alvo preenchido, a opção verificada e o botão 'Falha' sobre.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Inicia-se um trabalho de represo e recebes uma notificação. Vá a **Dispositivos > Jobs** para monitorizar a falha.
     
-     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![Screenshot de uma barra de progresso indicando que o dispositivo está a falhar.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. Na lâmina **Jobs,** vê-se um trabalho de failover criado para o dispositivo de origem. Este trabalho realiza o pré-checks DR.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![Screenshot mostrando que um trabalho de failover começou com sucesso.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      Após o sucesso dos pré-testes dr, o trabalho de failover irá criar empregos de restauração para cada partilha/volume que existe no seu dispositivo de origem.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![Screenshot mostrando os detalhes do trabalho de failover, como o estado, o dispositivo e a duração.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. Depois de concluída a falha, aceda à lâmina **dispositivos.**
     
     1. Selecione e clique no dispositivo StorSimple que foi usado como o dispositivo alvo para o processo de falha.
     2. Aceda a **Definições > Management > Shares** (ou **Volumes** se o servidor iSCSI). Na lâmina **Shares,** pode visualizar todas as ações (volumes) do dispositivo antigo.
-        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![Screenshot da lâmina dos dispositivos. O dispositivo alvo está listado com um estado de Online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. Será necessário [criar um pseudónimo DNS](https://support.microsoft.com/kb/168322) para que todas as aplicações que estão a tentar ligar possam ser redirecionadas para o novo dispositivo.
 
 ## <a name="errors-during-dr"></a>Erros durante o DR
@@ -177,7 +178,7 @@ Um cenário de recuperação de desastres de continuidade do negócio (BCDR) oco
 
 Se existirem dispositivos StorSimple que foram registados pouco antes de ocorrer uma catástrofe, então estes dispositivos StorSimple podem ter de ser eliminados. Depois do desastre, podes recriar e configurar esses dispositivos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [administrar o seu StorSimple Virtual Array utilizando a UI web local.](storsimple-ova-web-ui-admin.md)
 

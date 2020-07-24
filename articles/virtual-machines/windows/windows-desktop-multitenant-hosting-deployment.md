@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: c85eef1a5d035e23c7e63632ac92c21440b15cae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40b5f4ee0c30e38c6cd5bd01c724ed783921670d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82101557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077435"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de hospedagem multitenant 
 Para clientes com Windows 10 Enterprise E3/E5 por utilizador ou Windows Virtual Desktop Access por utilizador (Licenças de subscrição de utilizador ou licenças de subscrição de utilizadores adicionais), os direitos de hospedagem multitenant para o Windows 10 permitem-lhe trazer as suas Licenças do Windows 10 para a nuvem e executar máquinas virtuais do Windows 10 no Azure sem pagar outra licença. Para mais informações, consulte [o Multitenant Hosting para windows 10.](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
@@ -55,7 +55,7 @@ Para obter mais informações:
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Implantação do Windows 10 com direitos de hospedagem multitenant
-Certifique-se de que [instalou e configura o mais recente Azure PowerShell](/powershell/azure/overview). Depois de ter preparado o seu VHD, faça o upload do VHD para a sua conta de Armazenamento Azure utilizando o `Add-AzVhd` cmdlet da seguinte forma:
+Certifique-se de que [instalou e configura o mais recente Azure PowerShell](/powershell/azure/). Depois de ter preparado o seu VHD, faça o upload do VHD para a sua conta de Armazenamento Azure utilizando o `Add-AzVhd` cmdlet da seguinte forma:
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -63,7 +63,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 ```
 
 
-**Implementar usando a implementação do modelo do gestor de recursos Azure** Dentro dos seus modelos de Gestor de Recursos, pode ser especificado um parâmetro `licenseType` adicional. Pode ler mais sobre [a autoria de modelos do Gestor de Recursos Azure.](../../resource-group-authoring-templates.md) Assim que tiver o seu VHD carregado para a Azure, edite o modelo de Gestor de Recursos para incluir o tipo de licença como parte do fornecedor de cálculo e implemente o seu modelo normalmente:
+**Implementar usando a implementação do modelo do gestor de recursos Azure** Dentro dos seus modelos de Gestor de Recursos, pode ser especificado um parâmetro `licenseType` adicional. Pode ler mais sobre [a autoria de modelos do Gestor de Recursos Azure.](../../azure-resource-manager/templates/template-syntax.md) Assim que tiver o seu VHD carregado para a Azure, edite o modelo de Gestor de Recursos para incluir o tipo de licença como parte do fornecedor de cálculo e implemente o seu modelo normalmente:
 ```json
 "properties": {
     "licenseType": "Windows_Client",
@@ -106,7 +106,5 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [configurar vDA para o Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
+- Saiba mais sobre [configurar vDA para o Windows 10](/windows/deployment/vda-subscription-activation)
 - Saiba mais sobre [o Multitenant Hosting para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
-
-

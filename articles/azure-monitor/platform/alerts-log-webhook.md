@@ -7,13 +7,14 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6c9bacfc4354351cbbf2eb735414ff3334cd7d0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84323676"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075265"
 ---
-# <a name="webhook-actions-for-log-alert-rules"></a>Ações webhook para regras de alerta de registo
+# <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta de registo
 Quando um [alerta de registo é criado em Azure,](alerts-log.md)tem a opção de o [configurar utilizando grupos](action-groups.md) de ação para executar uma ou mais ações. Este artigo descreve as diferentes ações do webhook que estão disponíveis e mostra como configurar um webhook personalizado baseado em JSON.
 
 > [!NOTE]
@@ -56,7 +57,7 @@ Os Webhooks incluem um URL e uma carga útil formatada em JSON que os dados envi
 | *Tipo de alerta*| #alerttype | O tipo de regra de alerta de registo configurado como [medição métrica](alerts-unified-log.md#metric-measurement-alert-rules) ou [número de resultados](alerts-unified-log.md#number-of-results-alert-rules).|
 | *WorkspaceID* |#workspaceid |ID do seu espaço de trabalho Log Analytics. |
 | *ID da Aplicação* |#applicationid |ID da sua aplicação Application Insights. |
-| *ID da subscrição* |#subscriptionid |ID da sua assinatura Azure usada. 
+| *ID da Subscrição* |#subscriptionid |ID da sua assinatura Azure usada. 
 
 > [!NOTE]
 > Os links fornecidos passam parâmetros como *SearchQuery*, *Search Interval StartTime*e *Search Interval End time* no URL para o portal Azure ou API.
@@ -260,10 +261,9 @@ A seguinte carga útil da amostra destina-se a uma ação personalizada do webho
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [os alertas de registo em alertas Azure](alerts-unified-log.md).
 - Entenda como [gerir os alertas de registo em Azure](alerts-log.md).
 - Criar e gerir [grupos de ação em Azure.](action-groups.md)
-- Saiba mais sobre [a Aplicação Insights](../../azure-monitor/app/analytics.md).
+- Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md).
 - Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md) 
-

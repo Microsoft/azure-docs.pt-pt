@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a0853266e4fda4393ba49fb740755e6b8bd03cf5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038060"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075786"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de desktop virtual do Windows
 
@@ -48,7 +48,22 @@ A Tecnologia 10ZiG, com hardware e software de ponta thin e zero cliente, é um 
 
 A liderança do mercado mundial da 10ZiG em dispositivos de ponta e software de gestão de clientes de clientes virtuais é exemplificada pela forma como trabalham para os seus clientes. O hardware do Cliente Fino vem com funcionalidades e opções de benefícios cuidadosamente construídas, concebidas para garantir que os clientes recebem os dispositivos clientes certos com base nas suas necessidades. O 10ZiG personaliza os seus dispositivos para se adaptarem aos ambientes de clientes com Clientes baseados no Windows e no Linux que proporcionam o melhor desempenho possível em ambientes de secretária virtuais, dentro e fora da nuvem.
 
-- [Vá ao site do parceiro.](https://www.10zig.com/)
+- [Vá ao site do parceiro.](https://www.10zig.com/about/microsoft-wvd)
+
+## <a name="automai"></a>Automai
+
+![Logotipo do automai](./media/partners/automai.png)
+
+Pode utilizar a plataforma de automação robótica da Automai para testar os principais processos de negócio num ambiente de desktop virtual do Windows antes da sua implementação entrar em direto.
+
+Com a ferramenta ScenarioBuilder da Automai e o motor de fluxo de trabalho baseado no GUI, as equipas de TI podem gravar fluxos de trabalho reais de utilizador final e traduzi-los automaticamente em scripts. A Automai utiliza então bots a executar processos a partir de ambientes de trabalho individuais para imitar a atividade do utilizador final numa simulação e reportar os resultados. Isto simplifica consideravelmente os processos de teste para que os administradores de TI possam testar o stress até mesmo os cenários mais complexos.
+
+Assim que estiver pronto para o lançamento, pode utilizar todos os scripts de fluxo de trabalho que criou para testes de carga para monitorizar continuamente o desempenho na produção. Os bots da Automai podem fazer mais do que apenas monitorização de disponibilidade. Os bots também podem testar fluxos de trabalho de utilizadores finais a partir de locais chave, tirar imagens e recolher relatórios de erro em tempo real. Isto leva a uma abordagem mais pró-ativa do que reativa às correções de bugs para aplicações virtual desktop do Windows.
+
+A Automai permite-lhe utilizar os mesmos scripts para testes de desempenho, testes funcionais, monitorização de desempenho e até mesmo automatização de processos robóticos, tudo numa plataforma.
+
+- [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
+- [Vá ao site do parceiro.](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580)
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -112,6 +127,17 @@ O licenciamento único flutuante dos clientes do Sistema Ekran é automatizado p
 
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Vá à página do parceiro.](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring)
+
+## <a name="fabulatech"></a>FabulaTech
+
+![Logotipo da FabulaTech](./media/partners/fabulatech.png)
+
+A FabulaTech integra-se perfeitamente com clientes do Windows Virtual Desktop. Uma vez instalado, o software FabulaTech começa automaticamente a funcionar quando estabelece uma ligação com um ambiente de trabalho remoto.
+
+Quando um utilizador assina o seu ambiente de trabalho virtual, o software FabulaTech cria um dispositivo virtual. Por exemplo, pode criar uma webcam virtual, scanner ou leitor de impressões digitais. Qualquer aplicação que seja em execução numa sessão remota pode aceder ao dispositivo virtual como se fosse um dispositivo físico. Pode configurar o dispositivo virtual no Windows Virtual Desktop com o menu Ícone do Tabuleiro do Sistema, o que significa que também pode utilizar esta solução em clientes finos. Além disso, todas as comunicações acontecem sobre a ligação remota de ambiente de trabalho existente, o que significa que a firewall está configurada para si. Tudo funciona fora da caixa.
+
+- [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B4zO).
+- [Vá ao site do parceiro.](https://www.fabulatech.com/partners/microsoft-windows-virtual-desktop/)
 
 ## <a name="flexxible-it"></a>TI flexxível
 
@@ -223,7 +249,7 @@ Quando usado com o Windows Virtual Desktop, o Cloudpaging reduz ainda mais os cu
 
 O PolicyPak Software é um parceiro virtual do Windows desktop que realiza a gestão total de configurações para aplicações, desktop, navegadores, Java e definições de segurança. O PolicyPak mantém as definições de ambiente de trabalho, sistema e segurança em conformidade. O PolicyPak melhora o valor do Windows Virtual Desktop adicionando um conjunto de componentes para melhorar a administração incorporada do Windows. Utilize a política e/ou Windows Intune existentes para fornecer as definições do PolicyPak e aumentar a capacidade dos administradores para gerirem as suas máquinas Windows 10. 
 
-Os casos de melhor utilização para o PolicyPak são remover os direitos de administração local e superar as solicitações UAC, bloquear o Ransomware, gerir vários navegadores, gerir os modos de Empresa e Compatibilidade do Internet Explorer, reduzir o número de GPOs, gerir as Associações de Ficheiros do Windows 10, gerir o Menu inicial e a Barra de Tarefas do Windows 10 e gerir funcionalidades e funcionalidades opcionais do Windows 10.  
+Os principais casos de utilização para o PolicyPak são remover os direitos de administração local e superar as solicitações UAC, bloquear o ransomware, gerir vários navegadores, gerir os modos de Empresa e Compatibilidade do Internet Explorer, reduzir o número de GPOs, gerir as Associações de Ficheiros do Windows 10, gerir o Menu inicial e a Barra de Tarefas do Windows 10 e gerir funcionalidades e funcionalidades opcionais do Windows 10.  
 
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Vá ao site do parceiro.](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html)
@@ -274,7 +300,7 @@ A Rimo3 oferece uma plataforma de teste de aplicações fácil, escalável e aut
 
 ![logotipo de sepago](./media/partners/sepago.png)
 
-Sepago foi fundada em 2002 por quatro amigos em Colónia. Hoje, o Sepago é uma consultoria de gestão de TI com um número cada vez maior de sepagistas, com localizações em toda a Alemanha em Colónia, Munique e Hamburgo. sepago são especialistas em provisão automatizada de aplicações, virtualização, soluções em nuvem e segurança de TI. O sepago apoia as médias e as grandes empresas a caminho da transformação digital e asseguram que os utilizadores possam trabalhar de forma segura e eficiente.
+Sepago foi fundada em 2002 por quatro amigos em Colónia. Hoje, o Sepago é uma consultoria de gestão de TI com um número cada vez maior de sepagistas, com localizações em toda a Alemanha em Colónia, Munique e Hamburgo. sepago são especialistas em provisão automatizada de aplicações, virtualização, soluções em nuvem e segurança de TI. O sepago apoia as médias e as grandes empresas a caminho da transformação digital e garante que os utilizadores podem trabalhar de forma segura e eficiente.
 
 O laboratório de inovação e desenvolvimento do sepago constrói soluções inteligentes utilizando tecnologias de big data e IA. Estas soluções focam-se em melhorar o negócio, a experiência do utilizador e as administrações de produtos parceiros como o Windows Virtual Desktop.
 
@@ -334,7 +360,7 @@ O Workspot alarga o valor do Windows Virtual Desktop simplificando o processo de
 - [Consulte o resumo da solução comum](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8P).
 - [Vá ao site do parceiro.](https://www.workspot.com/wvd)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Windows Virtual Desktop](overview.md).
 - [Criar um inquilino no Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

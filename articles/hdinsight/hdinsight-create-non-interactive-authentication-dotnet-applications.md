@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 48a5c192051d8e715deb7e354827ff4cd4152bcd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5be217cd2afbb95c4c02a958c1299db599c349d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077886"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074777"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar uma aplicação de autenticação não interativa .NET HDInsight
 
@@ -51,7 +51,7 @@ Atribua à sua aplicação AZure AD um [papel,](../role-based-access-control/bui
     * `Install-Package Microsoft.Azure.Management.HDInsight -Pre`
     * `Install-Package Microsoft.Azure.Management.Resources -Pre`
 
-3. Executar o seguinte código:
+3. Execute o seguinte código:
 
     ```csharp
     using System;
@@ -119,8 +119,8 @@ Atribua à sua aplicação AZure AD um [papel,](../role-based-access-control/bui
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um Azure Ative Directory e um diretor de serviço no portal Azure.](../active-directory/develop/howto-create-service-principal-portal.md)
 * Saiba como [autenticar um diretor de serviço com o Azure Resource Manager.](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* Saiba mais sobre [o Controlo de Acesso Baseado em Funções (RBAC) ( RBAC).](../role-based-access-control/role-assignments-portal.md)
+* Saiba mais sobre [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).

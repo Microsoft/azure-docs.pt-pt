@@ -1,5 +1,5 @@
 ---
-title: Utilização de transações
+title: Utilizar transações
 description: Dicas para implementar transações em pool SQL (data warehouse) para o desenvolvimento de soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 07c507eb139c4c4d339db1ede46956cb09a61dcf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d87da234e675059ba2c170f4322d0ba53965dc89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962922"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075698"
 ---
 # <a name="using-transactions-in-sql-pool"></a>Utilização de transações em piscina SQL
 
@@ -204,6 +204,6 @@ São os seguintes:
 * Sem transações marcadas
 * Sem suporte para DDL, como CREATE TABLE dentro de uma transação definida pelo utilizador
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a otimização de transações, consulte [as melhores práticas de Transações.](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) Guias adicionais de boas práticas também estão previstos para [piscina SQL](best-practices-sql-pool.md) e [SQL on demand (pré-visualização)](best-practices-sql-on-demand.md).

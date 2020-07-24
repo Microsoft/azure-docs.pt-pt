@@ -11,17 +11,18 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213555"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077679"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta na Azure Synapse Analytics
 
 O Azure Synapse Analytics proporciona uma experiência de monitorização rica dentro do portal Azure para obter informações sobre a carga de trabalho do seu armazém de dados. O portal Azure é a ferramenta recomendada para monitorizar o seu armazém de dados, uma vez que fornece períodos de retenção, alertas, recomendações e gráficos e dashboards personalizáveis para métricas e registos. O portal permite-lhe também integrar-se com outros serviços de monitorização do Azure, como o Azure Monitor (logs) com a analytics log para fornecer uma experiência de monitorização holística não só para o seu armazém de dados, mas também para toda a sua plataforma de análise Azure para uma experiência de monitorização integrada. Esta documentação descreve quais as capacidades de monitorização disponíveis para otimizar e gerir a sua plataforma de análise com o Synapse SQL.
 
-## <a name="resource-utilization"></a>Utilização de recursos
+## <a name="resource-utilization"></a>Utilização dos recursos
 
 As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Estas métricas são emergidas através do [Monitor Azure.](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics)
 
@@ -30,8 +31,8 @@ As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Est
 | Percentagem de CPU          | Utilização do CPU em todos os nós para o armazém de dados      | Avg, Min, Max    |
 | Percentagem de ES de Dados      | IO Utilização em todos os nós para o armazém de dados       | Avg, Min, Max    |
 | Percentagem de memória       | Utilização da memória (SQL Server) em todos os nós para o armazém de dados | Avg, Min, Max   |
-| Consultas ativas          | Número de consultas ativas executando no sistema             | Soma              |
-| Consultas em fila          | Número de consultas em fila à espera de começar a executar          | Soma              |
+| Consultas ativas          | Número de consultas ativas executando no sistema             | Som              |
+| Consultas em fila          | Número de consultas em fila à espera de começar a executar          | Som              |
 | Conexões bem sucedidas  | Número de ligações bem sucedidas (logins) na base de dados | Soma, Contagem       |
 | Ligações com Falhas      | Número de ligações falhadas (logins) na base de dados | Soma, Contagem       |
 | Bloqueado por Firewall     | Número de logins no armazém de dados que foi bloqueado     | Soma, Contagem       |
@@ -41,9 +42,6 @@ As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Est
 | Percentagem de impacto de cache    | (cache hits / cache miss) * 100 onde cache hits é a soma de todos os segmentos de colunas atinge na cache SSD local e cache miss é o segmento de loja de colunas falha na cache SSD local resumida em todos os nós | Avg, Min, Max    |
 | Percentagem utilizada em cache   | (cache utilizada / capacidade de cache) * 100 onde a cache utilizada é a soma de todos os bytes na cache SSD local em todos os nós e capacidade de cache é a soma da capacidade de armazenamento da cache SSD local em todos os nós | Avg, Min, Max    |
 | Percentagem de temporários locais | Utilização temporária local em todos os nós de computação - valores são emitidos a cada cinco minutos | Avg, Min, Max    |
-| Tamanho do armazenamento de dados (GB) | Tamanho total da base de dados. Isto inclui espaço usado, reservado e não atribuído. O espaço não atribuído é mantido para a base de dados para otimizar o desempenho da consulta e da carga. | Soma |
-| Tamanho da recuperação de desastres (GB) | Tamanho total do geo-backup tomado a cada 24 horas | Soma |
-| Tamanho do armazenamento instantâneo (GB) | Tamanho total dos instantâneos levados para fornecer pontos de restauro da base de dados. Isto inclui instantâneos automatizados e definidos pelo utilizador. | Soma |
 
 Coisas a ter em conta ao visualizar métricas e alertas de definição:
 
@@ -61,7 +59,7 @@ Para ver a lista de DMVs que se aplicam ao Sinaapse SQL, consulte esta [document
 
 Tanto as métricas como os registos podem ser exportados para o Azure Monitor, especificamente o componente [de registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acedidos programáticamente através de [consultas de registo.](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) A latência do log para Synapse SQL é de cerca de 10-15 minutos. Para mais detalhes sobre os fatores que impactam a latência, visite a seguinte documentação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O seguinte guia de como guiar descreve cenários comuns e casos de utilização ao monitorizar e gerir o seu armazém de dados:
 

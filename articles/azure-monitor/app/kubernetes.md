@@ -5,17 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a5e73039db541023b1fd4a9b75e7c14030c8e219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bb1af6ca2126b7ae58a6c836624ec78a071a5a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075287"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Monitorização zero da aplicação de instrumentação para Kubernetes acolheu aplicações com a Istio - DEPRECATED
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se atualmente a ser depreciada e deixará de ser suportada após o dia 1 de agosto de 2020.
-> Atualmente, a monitorização sem código só pode ser ativada para [a Java através de um agente autónomo](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). Para outros idiomas, utilize os SDKs para monitorizar as suas aplicações em AKS: [ASP.Net Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js, ](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)e [Python.](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+> Atualmente, a monitorização sem código só pode ser ativada para [a Java através de um agente autónomo](./java-in-process-agent.md). Para outros idiomas, utilize os SDKs para monitorizar as suas aplicações em AKS: [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js, ](./nodejs.md) [JavaScript](./javascript.md)e [Python.](./opencensus-python.md)
 
 O Azure Monitor aproveita agora a tecnologia de malha de serviço no seu cluster Kubernetes para fornecer a monitorização da aplicação da caixa para qualquer app hospedada em Kubernetes. Com funcionalidades de Insight de Aplicação predefinidos como [O Mapa de Aplicações](../../azure-monitor/app/app-map.md) para modelar as suas dependências, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para monitorização em tempo real, visualizações poderosas com o painel de [instrumentos padrão,](../../azure-monitor/app/overview-dashboard.md) [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md)e [Workbooks](../../azure-monitor/platform/workbooks-overview.md). Esta funcionalidade irá ajudar os utilizadores a detetar estrangulamentos de desempenho e hotspots de falha em todas as suas cargas de trabalho Kubernetes dentro de um espaço de nomes selecionado de Kubernetes. Ao capitalizar os investimentos existentes na malha de serviço com tecnologias como a Istio, o Azure Monitor permite a monitorização automática de aplicações sem qualquer modificação ao código da sua aplicação.
 
@@ -24,10 +25,10 @@ O Azure Monitor aproveita agora a tecnologia de malha de serviço no seu cluster
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [aglomerado de Kubernetes.](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
+- Um [aglomerado de Kubernetes.](../../aks/concepts-clusters-workloads.md)
 - Acesso à consola ao cluster para executar *kubectl*.
 - Um [recurso de Insight de Aplicação](create-new-resource.md)
-- Tenha uma malha de serviço. Se o seu cluster não tiver istio implantado, pode aprender a instalar e utilizar o [Istio no Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/istio-install).
+- Tenha uma malha de serviço. Se o seu cluster não tiver istio implantado, pode aprender a instalar e utilizar o [Istio no Serviço Azure Kubernetes](../../aks/servicemesh-istio-install.md).
 
 ## <a name="capabilities"></a>Capacidades
 
@@ -138,6 +139,6 @@ kubectl delete -f <filename.yaml>
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como o Azure Monitor e os contentores trabalham em conjunto, visite [o Azure Monitor para ver os recipientes](../../azure-monitor/insights/container-insights-overview.md)

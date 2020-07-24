@@ -3,12 +3,12 @@ title: Bibliotecas de gestão - Azure Event Hubs / Microsoft Docs
 description: Este artigo fornece informações sobre a biblioteca que pode utilizar para gerir espaços de nomes e entidades do Azure Event Hubs a partir de .NET.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79656d95cf925c21b0f0c5f2b3bafe6348e0b553
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074825"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gestão dos Hubs de Eventos
 
@@ -26,7 +26,7 @@ Para começar a utilizar as bibliotecas de gestão de Centros de Eventos, tem de
 
 * [Utilize o portal Azure para criar aplicação de Diretório Ativo e diretor de serviços que possa aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Utilize o CLI do Azure para criar um principal de serviço para aceder aos recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+* [Utilize o CLI do Azure para criar um principal de serviço para aceder aos recursos](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Estes tutoriais fornecem-lhe um `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todos eles utilizados para autenticação pelas bibliotecas de gestão. Tem de ter permissões **do Proprietário** para o grupo de recursos em que pretende executar.
 
@@ -66,6 +66,6 @@ O padrão para manipular qualquer recurso de Event Hubs segue um protocolo comum
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Amostra de gestão .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Microsoft.Azure.Management.EventHub Referência](/dotnet/api/Microsoft.Azure.Management.EventHub) 

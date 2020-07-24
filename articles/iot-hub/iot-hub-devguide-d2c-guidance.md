@@ -11,11 +11,12 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b86610910ed532e737720bb3b83e773596987aba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733218"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074671"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientação de comunicações dispositivo-nuvem
 
@@ -31,9 +32,9 @@ Ao enviar informações da aplicação do dispositivo para a solução back end,
 
 Aqui está uma comparação detalhada das várias opções de comunicação dispositivo-a-nuvem.
 
-|  | Mensagens do dispositivo para a cloud | Propriedades reportadas do Device Twin | Uploads de ficheiros |
+| Fator | Mensagens do dispositivo para a cloud | Propriedades reportadas do Device Twin | Uploads de ficheiros |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Séries e alertas de telemetria. Por exemplo, os lotes de dados de sensores 256-KB enviados a cada 5 minutos. | Capacidades e condições disponíveis. Por exemplo, o modo de conectividade do dispositivo atual, como celular ou Wi-Fi. Sincronizar fluxos de trabalho de longa duração, tais como configurações e atualizações de software. | Ficheiros de mídia. Grandes lotes de telemetria (tipicamente comprimidos). |
+| Cenário | Séries e alertas de telemetria. Por exemplo, os lotes de dados de sensores 256-KB enviados a cada 5 minutos. | Capacidades e condições disponíveis. Por exemplo, o modo de conectividade do dispositivo atual, como celular ou Wi-Fi. Sincronizar fluxos de trabalho de longa duração, tais como configurações e atualizações de software. | Ficheiros de mídia. Grandes lotes de telemetria (tipicamente comprimidos). |
 | Armazenamento e recuperação | Temporariamente armazenada pelo IoT Hub, até 7 dias. Só leitura sequencial. | Armazenado por IoT Hub no dispositivo twin. Recuperável utilizando a [linguagem de consulta IoT Hub](iot-hub-devguide-query-language.md). | Armazenada na conta Azure Storage fornecida pelo utilizador. |
 | Tamanho | Até 256-KB mensagens. | O tamanho máximo das propriedades reportadas é de 32 KB. | Tamanho máximo do ficheiro suportado pelo Azure Blob Storage. |
 | Frequência | Elevada. Para mais informações, consulte [os limites do IoT Hub.](iot-hub-devguide-quotas-throttling.md) | Média. Para mais informações, consulte [os limites do IoT Hub.](iot-hub-devguide-quotas-throttling.md) | Baixo. Para mais informações, consulte [os limites do IoT Hub.](iot-hub-devguide-quotas-throttling.md) |

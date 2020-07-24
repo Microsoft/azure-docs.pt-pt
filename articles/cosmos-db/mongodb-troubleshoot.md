@@ -5,31 +5,33 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 06/05/2019
+ms.date: 07/15/2020
 ms.author: lbosq
-ms.openlocfilehash: d9a4e336f582e866fd057f6c281f892ce07b34fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75374fc88923a0f131d513bebf0ffe1feeca359
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75941836"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076759"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Resolução de problemas comuns na API da Azure Cosmos DB para a MongoDB
 
-A Azure Cosmos DB implementa os protocolos de fio de bases de dados noSQL comuns, incluindo o MongoDB. Devido à implementação do protocolo de fio, pode interagir de forma transparente com a Azure Cosmos DB utilizando os SDKs, controladores e ferramentas existentes que funcionam com bases de dados NoSQL. A Azure Cosmos DB não utiliza nenhum código-fonte das bases de dados para fornecer APIs compatíveis com fios para qualquer uma das bases de dados NoSQL. Qualquer controlador cliente da MongoDB que compreenda as versões do protocolo de fio pode ligar-se à Azure Cosmos DB.
+O seguinte artigo descreve erros e soluções comuns para bases de dados utilizando a API API AZure Cosmos DB para a MongoDB.
 
-Embora a API da Azure Cosmos DB para o MongoDB seja compatível com a versão 3.2 do protocolo de fio do MongoDB (os operadores de consulta e funcionalidades adicionadas na versão 3.4 estão atualmente disponíveis como pré-visualização), existem alguns códigos de erro personalizados que correspondem a erros específicos do Azure Cosmos DB. Este artigo explica diferentes erros, códigos de erro e os passos para resolver esses erros.
+>[!Note]
+> A Azure Cosmos DB não acolhe o motor MongoDB. Fornece uma implementação da versão [3.6](mongodb-feature-support-36.md) do protocolo de arame MongoDB e suporte legado para [a versão 3.2](mongodb-feature-support.md)do protocolo de fio, portanto, alguns destes erros só são encontrados na API da Azure Cosmos DB para a MongoDB. 
 
 ## <a name="common-errors-and-solutions"></a>Erros e soluções comuns
 
 | Erro               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
+| UltrapassadoTimeLimit   | 50 | O pedido excedeu o tempo limite de 60 segundos de execução. | Pode haver muitas causas para este erro. Uma das causas é quando a capacidade atual das unidades de pedido não é suficiente para completar o pedido. Isto pode ser resolvido aumentando as unidades de pedido dessa recolha ou base de dados. Noutros casos, este erro pode ser trabalhado ao dividir um grande pedido em outros mais pequenos. |
 | TooManyRequests     | 16500 | O número total de unidades de pedido consumidas é superior à taxa de unidade de pedido prevista para a recolha e foi estrangulado. | Considere escalonar a produção atribuída a um contentor ou a um conjunto de contentores do portal Azure ou pode voltar a tentar a operação. |
 | LimiteMemóriaExcedido | 16501 | Como serviço multi-inquilino, a operação passou por cima do loteamento de memória do cliente. | Reduzir o âmbito de funcionamento através de critérios de consulta mais restritivos ou suporte de contacto do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | A trajetória de índice correspondente ao item de encomenda especificado está excluída / A ordem por consulta não tem um índice composto correspondente do qual possa ser servido. | 2 | A consulta solicita uma espécie num campo que não está indexado. | Crie um índice de correspondência (ou índice composto) para a consulta de tipo que está a ser tentada. |
 | Problemas da versão wire do MongoDB | - | As versões mais antigas dos condutores do MongoDB são incapazes de detetar o nome da conta Azure Cosmos nas cordas de ligação. | Append *appName=@**contaName** @ * no final da sua API de ligação cosmos DB para a cadeia de conexão MongoDB, onde o nome de ***contaName*** é o seu nome de conta Cosmos DB. |
 
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para a MongoDB.
 - Aprenda a [usar Robo 3T](mongodb-robomongo.md) com API da Azure Cosmos DB para a MongoDB.

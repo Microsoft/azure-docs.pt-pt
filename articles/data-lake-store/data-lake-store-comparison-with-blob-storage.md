@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ab1e2ed4aeace0ec98cb358f32a07f64c3dfea2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82691727"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075051"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparando o armazenamento de Azure Data Lake Gen1 e o armazenamento de blob Azure
 
@@ -19,8 +19,8 @@ ms.locfileid: "82691727"
 
 A tabela deste artigo resume as diferenças entre o Azure Data Lake Storage Gen1 e o Azure Blob Storage ao longo de alguns aspetos fundamentais do processamento de big data. O Azure Blob Storage é uma loja de objetos escaláveis para fins gerais que é projetada para uma grande variedade de cenários de armazenamento. Azure Data Lake Storage Gen1 é um repositório de hiperescala que é otimizado para grandes cargas de trabalho de análise de dados.
 
-|  | Armazenamento do Azure Data Lake Ger1 | Armazenamento de Blobs do Azure |
-| --- | --- | --- |
+| Categoria | Armazenamento do Azure Data Lake Ger1 | Armazenamento de Blobs do Azure |
+| -------- | ---------------------------- | ------------------ |
 | Objetivo |Armazenamento otimizado para grandes cargas de trabalho de análise de dados |Loja de objetos de finalidade geral para uma grande variedade de cenários de armazenamento, incluindo análise de big data |
 | Casos de Utilização |Dados de lote, análise interativa, streaming e aprendizagem automática, tais como ficheiros de registo, dados de IoT, streams de cliques, grandes conjuntos de dados |Qualquer tipo de texto ou dados binários, tais como final de aplicação, dados de backup, armazenamento de mídia para streaming e dados de finalidade geral. Adicionalmente, apoio total para cargas de trabalho analíticas; batch, interactive, streaming analytics e dados de aprendizagem automática, tais como ficheiros de registo, dados IoT, streams de cliques, grandes conjuntos de dados |
 | Conceitos-chave |A conta Gen1 de armazenamento de dados contém pastas, que por sua vez contêm dados armazenados como ficheiros |A conta de armazenamento tem contentores, que por sua vez têm dados sob a forma de bolhas |

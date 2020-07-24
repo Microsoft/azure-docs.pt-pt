@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 1a00a3c1e0d34a8c7abbcd5bfc7a6771d9e2a4c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82983045"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077394"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
 
@@ -46,7 +47,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [1612105] | DB6: FAQ em Db2 com HADR |
 
 
-| Documentation | 
+| Documentação | 
 | --- |
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Tem todas as notas SAP necessárias para Linux |
 | [Azure Virtual Machines planejamento e implementação para SAP no][planning-guide] guia Linux |
@@ -66,7 +67,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 
 
 ## <a name="overview"></a>Descrição geral
-Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ou em [zonas de disponibilidade Azure.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) 
+Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) ou em [zonas de disponibilidade Azure.](./sap-ha-availability-zones.md) 
 
 Os gráficos a seguir exibem uma configuração de dois VMs de servidor de base de dados Azure. Ambos os servidores de base de dados Azure VMs têm o seu próprio armazenamento anexado e estão em funcionamento. Em HADR, uma das caixas de dados de uma das VMs do Azure tem o papel da primeira instância. Todos os clientes estão ligados à primeira instância. Todas as alterações nas transações de base de dados são persistiu localmente no registo de transações Db2. À medida que os registos de registo de transações são persistidos localmente, os registos são transferidos via TCP/IP para a caixa de dados no segundo servidor de base de dados, no servidor de espera ou na instância de standby. A instância de espera atualiza a base de dados local, transmitindo os registos de registos de transações transferidos. Desta forma, o servidor de espera é mantido sincronizado com o servidor primário.
 
@@ -397,10 +398,10 @@ Estado de Daemon: corosync: pacemaker ativo/desativado: pcsd ativo/desativado: a
 
 
 ### <a name="configure-azure-load-balancer"></a>Configurar o Balanceador de Carga do Azure
-Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) e, em seguida, faça o seguinte;
+Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-overview.md) e, em seguida, faça o seguinte;
 
 > [!NOTE]
-> O Balancer de Carga Padrão SKU tem restrições que acedem a endereços IP públicos a partir dos nós por baixo do Balanceador de Carga. O artigo [Conectividade de ponto final público para máquinas virtuais usando O Balanceador de Carga Padrão Azure em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) está descrevendo formas de permitir que esses nóns acedam a endereços IP públicos
+> O Balancer de Carga Padrão SKU tem restrições que acedem a endereços IP públicos a partir dos nós por baixo do Balanceador de Carga. O artigo [Conectividade de ponto final público para máquinas virtuais usando O Balanceador de Carga Padrão Azure em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) está descrevendo formas de permitir que esses nóns acedam a endereços IP públicos
 
 
 
@@ -506,11 +507,11 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS ou GlusterFS, onde os registos são escritos a partir de ambos os nós. A participação da NFS ou a GlusterFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, consulte:
+Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, veja:
 
 - [GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver][glusterfs] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP][anf-rhel]
-- [Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (para criar ações NFS)
+- [Ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-introduction.md) (para criar ações NFS)
 
 ## <a name="test-the-cluster-setup"></a>Testar a configuração do cluster
 
@@ -814,8 +815,8 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
-## <a name="next-steps"></a>Próximos passos
-- [Arquitetura e cenários de alta disponibilidade para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+## <a name="next-steps"></a>Passos seguintes
+- [Arquitetura e cenários de alta disponibilidade para SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 - [Configuração do Pacemaker na Red Hat Enterprise Linux em Azure][rhel-pcs-azr]
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533

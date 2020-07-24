@@ -7,11 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 742706f4daa518faf06e5c8b735e679f345f1279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074728"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP
 
@@ -124,7 +125,7 @@ Note que `<ipFilterIndexToRemove>` deve corresponder à encomenda de filtros IP 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Os filtros IP do seu IoT Hub podem ser recuperados e definidos através do [Azure PowerShell](/powershell/azure/overview).
+Os filtros IP do seu IoT Hub podem ser recuperados e definidos através do [Azure PowerShell](/powershell/azure/).
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
@@ -162,7 +163,7 @@ Para guardar a nova ordem de regra do filtro IP, clique em **Guardar**.
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Altere a ordem das suas regras de filtro IP IoT HUb":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 

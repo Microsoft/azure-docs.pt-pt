@@ -3,16 +3,16 @@ title: Faça o back up ações de ficheiros Azure no portal Azure
 description: Saiba como usar o portal Azure para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58bcd7ecd7c6fac80f5b78fb2c8b568b63e3e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077145"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 
-Este artigo explica como usar o portal Azure para fazer o back up [Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Este artigo explica como usar o portal Azure para fazer o back up [Azure file shares](../storage/files/storage-files-introduction.md).
 
 Neste artigo, aprenderá a:
 
@@ -138,7 +138,7 @@ Ocasionalmente, pode querer gerar uma imagem de backup, ou ponto de recuperaçã
 
 * Não remova o cadeado tirado na conta de armazenamento pela Azure Backup. Se eliminar o bloqueio, a sua conta de armazenamento será propensa a eliminação acidental e, se for eliminada, perderá as suas fotos ou cópias de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
 

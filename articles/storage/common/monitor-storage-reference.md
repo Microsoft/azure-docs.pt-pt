@@ -9,11 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960219"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077856"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitorização do armazenamento Azure
 
@@ -33,7 +34,7 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 Esta tabela mostra [métricas de nível de conta.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts)
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------------------- | ----------------- |
 | Capacidade Usada | A quantidade de armazenamento utilizada pela conta de armazenamento. Para as contas de armazenamento standard, é a soma da capacidade utilizada pelos blobs, tabelas, ficheiros e filas. Para as contas de armazenamento premium e contas de armazenamento de blobs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
@@ -41,10 +42,11 @@ Esta tabela mostra [métricas de nível de conta.](https://docs.microsoft.com/az
 
 Esta tabela mostra [métricas de armazenamento Blob](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------------------- | ----------------- |
 | Capacidade blob | O total do armazenamento blob usado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType,** e **BlobTier** [(Definição)](#metrics-dimensions) |
 | BlobCount    | O número de objetos blob armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType,** e **BlobTier** [(Definição)](#metrics-dimensions) |
+| BlobProvisionedSize | A quantidade de armazenamento a provisionada na conta de armazenamento. Esta métrica aplica-se apenas às contas de armazenamento premium. <br/><br/> Unidade: bytes <br/> Tipo de agregação: Média |
 | Contagem de contentores    | O número de contentores na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Capacidade de Indexação     | A quantidade de armazenamento utilizada pelo Índice Hierárquico ADLS Gen2 <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
@@ -52,7 +54,7 @@ Esta tabela mostra [métricas de armazenamento Blob](https://docs.microsoft.com/
 
 Esta tabela mostra [métricas de armazenamento de mesa.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices)
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Mesa | A quantidade de armazenamento de mesa utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | MesaCount   | O número de mesas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -62,7 +64,7 @@ Esta tabela mostra [métricas de armazenamento de mesa.](https://docs.microsoft.
 
 Esta tabela mostra [métricas de armazenamento de fila.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices)
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Fila | A quantidade de armazenamento de fila utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Contagem de filas   | O número de filas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -72,11 +74,12 @@ Esta tabela mostra [métricas de armazenamento de fila.](https://docs.microsoft.
 
 Esta tabela mostra [métricas de armazenamento de ficheiros.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Ficheiros | A quantidade de armazenamento de ficheiros utilizado pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Contagem de ficheiros   | O número de ficheiros na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | FileShareCount | O número de ações de ficheiros na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| FileShareProvisionedIOPS | O número de IOPS provisido numa parte de ficheiro. Esta métrica aplica-se apenas ao armazenamento de ficheiros premium. <br/><br/> Unidade: bytes <br/> Tipo de agregação: Média |
 
 ### <a name="transaction-metrics"></a>Métricas de transação
 
@@ -84,7 +87,7 @@ As métricas de transação são emitidas em cada pedido para uma conta de armaz
 
 O Azure Storage fornece as seguintes métricas de transação no Azure Monitor.
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | ------------------- | ----------------- |
 | Transações | O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: ResponseType, GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions)<br/> Exemplo de valor: 1024 |
 | Entrada | A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e Autenticação[(Definição)](#metrics-dimensions) <br/> Exemplo de valor: 1024 |
@@ -104,7 +107,7 @@ O Azure Storage suporta as seguintes dimensões para métricas no Azure Monitor.
 | **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob**e **Azure Data Lake Storage**. Append Blob está incluído no BlockBlob. |
 | **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente**: Nível quente</li> <li>**Cool**: Cool tier</li> <li>**Arquivo**: Nível de arquivo</li> <li>**Premium**: Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nível para bolha de página premium</li> <li>**Standard**: Tipo de nível para página padrão Blob</li> <li>**Untiered**: Tipo de nível para fins gerais conta de armazenamento v1</li> |
 | **GeoTipo** | Transação do cluster primário ou secundário. Os valores disponíveis incluem **Primário** e **Secundário.** Aplica-se ao Read Access Geo Redundant Storage (RA-GRS) ao ler objetos de inquilino secundário. |
-| **Tipo de Resposta** | Tipo de resposta a transações. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: Todos os outros erros do lado do servidor exceto os descritos </li> <li>**ServerBusyError**: Pedido autenticado que devolveu um código de estado HTTP 503. </li> <li>**ServerTimeoutError**: Pedido autenticado com tempo de compensação que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li>**AutorizaçãoError**: Pedido autenticado que falhou devido ao acesso não autorizado de dados ou a uma falha de autorização. </li> <li>**NetworkError**: Pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li><li>**ClientAccountBandwidthThrottlingError**: O pedido é acelerado em largura de banda por exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: O pedido é acelerado na taxa de pedido para exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: Outro erro de estrangulamento do lado do cliente. O ClientAccountBandwidthThrottlingError e o ClientAccountRequestThrottlingError estão excluídos.</li> <li>**ClientTimeoutError**: Pedido autenticado com tempo de saída que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li>**ClientOtherError**: Todos os outros erros do lado do cliente, exceto os descritos. </li> <li>**Sucesso**: Pedido de sucesso</li> <li> **SuccessWithThrottling**: Pedido de sucesso quando um cliente SMB é estrangulado na primeira tentativa, mas consegue após retrações.</li> |
+| **Tipo de Resposta** | Tipo de resposta a transações. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: todos os outros erros do lado do servidor, exceto os descritos </li> <li>**ServerBusyError**: pedido autenticado que devolveu um código de estado HTTP 503. </li> <li>**ServerTimeoutError**: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li>**AuthorizationError**: pedido autenticado que falhou devido a acesso não autorizado a dados ou a uma falha de autorização. </li> <li>**NetworkError**: pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li><li>**ClientAccountBandwidthThrottlingError**: O pedido é acelerado em largura de banda por exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: O pedido é acelerado na taxa de pedido para exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: Outro erro de estrangulamento do lado do cliente. O ClientAccountBandwidthThrottlingError e o ClientAccountRequestThrottlingError estão excluídos.</li> <li>**ClientTimeoutError**: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li>**ClientOtherError**: todos os outros erros do lado do cliente, exceto os descritos. </li> <li>**Success**: pedido com êxito</li> <li> **SuccessWithThrottling**: Pedido de sucesso quando um cliente SMB é estrangulado na primeira tentativa, mas consegue após retrações.</li> |
 | **ApiName** | O nome da operação. Por exemplo: <br/> <li>**CriarContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para todos os nomes de operação, consulte [o documento.](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) |
 | **Autenticação** | Tipo de autenticação utilizado em transações. Os valores disponíveis incluem: <br/> <li>**ContaKey**: A transação é autenticada com a chave da conta de armazenamento.</li> <li>**SAS**: A transação é autenticada com assinaturas de acesso partilhado.</li> <li>**OAuth**: A transação é autenticada com fichas de acesso OAuth.</li> <li>**Anónimo**: A transação é solicitada anonimamente. Não inclui pedidos de pré-voo.</li> <li>**AnónimoPreflight**: A transação é um pedido de pré-voo.</li> |
 
@@ -139,15 +142,15 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 
 | Propriedade | Descrição |
 |:--- |:---|
-|**tempo** | O tempo universal coordenado (UTC) quando o pedido foi recebido por armazenamento. Por exemplo: `2018/11/08 21:09:36.6900118`.|
+|**Hora** | O tempo universal coordenado (UTC) quando o pedido foi recebido por armazenamento. Por exemplo: `2018/11/08 21:09:36.6900118`.|
 |**recursosId** | A identificação de recursos da conta de armazenamento. Por exemplo: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
 |**categoria** | A categoria da operação solicitada. Por exemplo: `StorageRead` `StorageWrite` , ou . `StorageDelete` .|
 |**operaçãoName** | O tipo de operação REST que foi realizada. <br> Para obter uma lista completa de operações, consulte [o tópico de Operações Registadas e Mensagens de Estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)do Storage Analytics . |
-|**operationVersion** | A versão do serviço de armazenamento que foi especificada quando o pedido foi feito. Isto equivale ao valor do cabeçalho **versão x-ms.** Por exemplo: `2017-04-17`.|
+|**operaçãoVer** | A versão do serviço de armazenamento que foi especificada quando o pedido foi feito. Isto equivale ao valor do cabeçalho **versão x-ms.** Por exemplo: `2017-04-17`.|
 |**schemaVersão** | A versão do esquema do registo. Por exemplo: `1.0`.|
 |**statusCode** | O código de estado HTTP para o pedido. Se o pedido for interrompido, este valor poderá ser definido para `Unknown` . <br> Por exemplo: `206` |
 |**statusTexto** | O estado da operação solicitada.  Para obter uma lista completa de mensagens de estado, consulte [o tópico de Operações registadas e mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)do Storage Analytics . Na versão 2017-04-17 e mais tarde, a mensagem de estado `ClientOtherError` não é usada. Em vez disso, este campo contém um código de erro. Por exemplo: `SASSuccess`  |
-|**durationMs** | O tempo total, expresso em milissegundos, para a realização da operação solicitada. Isto inclui o tempo para ler o pedido de entrada, e para enviar a resposta ao solicitador. Por exemplo: `12`.|
+|**duraçõesMs** | O tempo total, expresso em milissegundos, para a realização da operação solicitada. Isto inclui o tempo para ler o pedido de entrada, e para enviar a resposta ao solicitador. Por exemplo: `12`.|
 |**callerIpAddress** | O endereço IP do solicitador, incluindo o número da porta. Por exemplo: `192.100.0.102:4362`. |
 |**correlationId** | O ID que é usado para correlacionar registos entre os recursos. Por exemplo: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**localização** | A localização da conta de armazenamento. Por exemplo: `North Europe`. |
@@ -272,7 +275,7 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 |**smbCommandMajor uint32** | Valor no **SMB2_HEADER.Comando**. Atualmente, este é um número entre 0 e 18 inclusive. Por exemplo: `0x6` |
 |**smbCommandMinor** | A subclasse de **SmbCommandMajor,** se for caso disso. Por exemplo: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - Consulte [o Monitor Azure Storage](monitor-storage.md) para obter uma descrição da monitorização do armazenamento do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

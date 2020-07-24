@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075414"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
 
@@ -31,7 +32,7 @@ Este tutorial mostra-lhe como criar mapas interiores. Neste tutorial, você apre
 
 Para criar mapas interiores:
 
-1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 3. [Criar um recurso Criador](how-to-manage-creator.md)
 4. Descarregue o [pacote sample drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -51,7 +52,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
 2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção criada no passo anterior e, em seguida, **selecione Guardar**.
 
-3. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para carregar o pacote Drawing para o serviço Azure Maps. Para este pedido, e outros pedidos mencionados neste artigo, `<Azure-Maps-Primary-Subscription-key>` substitua-o pela sua chave de subscrição primária.
+3. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para carregar o pacote Drawing para o serviço Azure Maps. Para este pedido, e outros pedidos mencionados neste artigo, `{Azure-Maps-Primary-Subscription-key}` substitua-o pela sua chave de subscrição primária.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -63,10 +64,10 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
 5. Clique no botão **'Enviar'** azul e aguarde que o pedido seja processado. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta. Copie o valor da chave **localização,** que é a `status URL` .
 
-6. Para verificar o estado da chamada da API, crie um pedido **GET** HTTP sobre o `status URL` . Terá de anexar a chave de subscrição primária do URL para autenticação. O pedido **GET** deve gostar do seguinte URL:
+6. Para verificar o estado da chamada da API, crie um pedido **GET** HTTP sobre o `status URL` . Terá de anexar a chave de subscrição primária do URL para autenticação. O pedido **GET** deve parecer-se com o seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. Quando o pedido **GET** HTTP estiver concluído com sucesso, retornará um `resourceLocation` . Contém `resourceLocation` o único para o conteúdo `udid` carregado. Opcionalmente, pode utilizar o `resourceLocation` URL para recuperar metadados deste recurso no passo seguinte.
@@ -101,7 +102,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
  Agora que o pacote de desenho está carregado, usaremos `udid` para o pacote carregado para converter o pacote em dados de mapa. A API de Conversão utiliza uma transação de longa duração que implementa o padrão definido [aqui.](creator-long-running-operation.md) Assim que a operação estiver concluída, usaremos o `conversionId` para aceder aos dados convertidos. Siga os passos abaixo para obter o `conversionId` .
 
-1. Selecione **Novo**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**.
+1. Selecione **New** (Novo). Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Save** (Guardar).
 
 2. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para converter o seu pacote de desenho carregado em dados de mapa. Use o `udid` para o pacote carregado.
 
@@ -156,7 +157,7 @@ A amostra Desenhada deve ser convertida sem erros ou avisos. No entanto, se rece
 
 O conjunto de dados é uma coleção de características do mapa, tais como edifícios, níveis e quartos. Para criar um conjunto de dados, utilize o [Conjunto de Dados Criar API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). O conjunto de dados Create API leva o `conversionId` pacote de desenho convertido e devolve um dos `datasetId` conjuntos de dados criados. Os passos abaixo mostram-lhe como criar um conjunto de dados.
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique **em Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **DE** POST ao [Conjunto de Dados Criar API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) para criar um novo conjunto de dados. Antes de submeter o pedido, apedte a sua chave de subscrição e `conversionId` a com a obtida durante o processo de Conversão no passo `conversionId` 5.  O pedido deve parecer-se com o seguinte URL:
 
@@ -169,7 +170,7 @@ O conjunto de dados é uma coleção de características do mapa, tais como edif
 4. Faça um pedido **GET** no `statusURL` para obter o `datasetId` . Apecir a chave de subscrição primária do Azure Maps para a autenticação. O pedido deve parecer-se com o seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Quando o pedido **GET** HTTP estiver concluído com sucesso, o cabeçalho de resposta conterá `datasetId` o conjunto de dados criado. Copiar o `datasetId` . Terá de usar o `datasetId` para criar um azulejo.
@@ -187,7 +188,7 @@ O conjunto de dados é uma coleção de características do mapa, tais como edif
 
 Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets são criados a partir de conjuntos de dados existentes. No entanto, um teesto é independente do conjunto de dados a partir do qual foi obtido. Se o conjunto de dados for eliminado, o teset continuará a existir. Para criar um teesto, siga os passos abaixo:
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique **em Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **DEM** na conta do construtor. O URL do pedido deve parecer-se com o seguinte URL:
 
@@ -198,7 +199,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 3. Faça um pedido **GET** no `statusURL` para o azulejo. Apecir a chave de subscrição primária do Azure Maps para a autenticação. O pedido deve parecer-se com o seguinte URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Quando o pedido **GET** HTTP estiver concluído com sucesso, o cabeçalho de resposta conterá `tilesetId` o para o teesto criado. Copiar o `tilesetId` .
@@ -216,7 +217,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
  Conjuntos de dados podem ser consultados usando [a API WFS](https://docs.microsoft.com/rest/api/maps/wfs). Com a API WFS pode consultar-se para coleções de funcionalidades, uma coleção específica ou uma funcionalidade específica com um **ID de**recurso. O **ID de** funcionalidade identifica exclusivamente a funcionalidade dentro do conjunto de dados. É usado, por exemplo, para identificar que estado de recurso deve ser atualizado em um determinado estado.
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique **em Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **GET** para visualizar uma lista das coleções no seu conjunto de dados. `<dataset-id>`Substitua-a pela sua `datasetId` . Utilize a sua chave primária Azure Maps em vez do espaço reservado. O pedido deve parecer-se com o seguinte URL:
 
@@ -292,7 +293,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
 ## <a name="create-a-feature-stateset"></a>Criar um estadoet de recurso
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique **em Guardar**
+1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
 2. Faça um pedido **de CORREIO** à [API Create Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Utilize o `datasetId` conjunto de dados que contém o estado que pretende modificar. O pedido deve parecer-se com o seguinte URL:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e58df0997c62a131a3c9987369f8e076a62d6654
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82114164d70eae71678e70ff2bdb7ea44a54d4cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408350"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076312"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controlo de Segurança: Registo e Monitorização
 
@@ -34,7 +34,7 @@ A Microsoft mantém fontes de tempo para recursos Azure, no entanto, tem a opç�
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2,2 | 6.5, 6.6 | Cliente |
+| 2,2 | 6.5, 6.6 | Customer |
 
 Ingerir registos via Azure Monitor para agregar dados de segurança gerados por dispositivos de ponto final, recursos de rede e outros sistemas de segurança. Dentro do Azure Monitor, utilize o Log Analytics Workspace(s) para consultar e realizar análises, e utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
@@ -52,7 +52,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.3 | 6.2, 6.3 | Cliente |
+| 2.3 | 6.2, 6.3 | Customer |
 
 Ativar Definições de Diagnóstico em recursos Azure para acesso a registos de auditoria, segurança e diagnóstico. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis.
 
@@ -64,7 +64,7 @@ Ativar Definições de Diagnóstico em recursos Azure para acesso a registos de 
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2,4 | 6.2, 6.3 | Cliente |
+| 2,4 | 6.2, 6.3 | Customer |
 
 Se o recurso computacional for propriedade da Microsoft, então a Microsoft é responsável pela monitorização do mesmo. Se o recurso computacional é propriedade da sua organização, é da sua responsabilidade monitorizá-lo. Pode utilizar o Centro de Segurança Azure para monitorizar o SISTEMA. Os dados recolhidos pelo Security Center do sistema operativo incluem o tipo e versão de SISTEMA, OS (Registos de Eventos do Windows), processos de execução, nome da máquina, endereços IP e registados no utilizador. O Agente Descodudo de Log também recolhe ficheiros de despejo de acidentes.
 
@@ -76,7 +76,7 @@ Se o recurso computacional for propriedade da Microsoft, então a Microsoft é r
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.5 | 6.4 | Cliente |
+| 2.5 | 6.4 | Customer |
 
 Dentro do Azure Monitor, desa um período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
@@ -88,7 +88,7 @@ Dentro do Azure Monitor, desa um período de retenção do espaço de trabalho d
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2,6 | 6.7 | Cliente |
+| 2,6 | 6.7 | Customer |
 
 Analise e monitorize registos para comportamento anómalo e reveja regularmente os resultados. Utilize o log analytics workspace do Azure Monitor para rever registos e efetuar consultas nos dados de registo.
 
@@ -104,7 +104,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.7 | 6.8 | Cliente |
+| 2.7 | 6.8 | Customer |
 
 Utilize o Centro de Segurança Azure com log analytics workspace para monitorizar e alertar sobre a atividade anómala encontrada em registos de segurança e eventos.
 
@@ -120,13 +120,13 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2,8 | 8.6 | Cliente |
+| 2,8 | 8.6 | Customer |
 
 Ativar a recolha de eventos antimalware para máquinas virtuais Azure e Serviços cloud.
 
-- [Como configurar o Microsoft Antimalware para Máquinas Virtuais](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [Como configurar o Microsoft Antimalware para Máquinas Virtuais](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
 
-- [Como configurar o Microsoft Antimalware para serviços cloud](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Como configurar o Microsoft Antimalware para serviços cloud](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Compreenda o Antimalware da Microsoft](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
@@ -134,7 +134,7 @@ Ativar a recolha de eventos antimalware para máquinas virtuais Azure e Serviço
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2.9 | 8.7 | Cliente |
+| 2.9 | 8.7 | Customer |
 
 Implemente uma solução de terceiros a partir do Azure Marketplace para a solução de registo de DNS conforme as suas organizações precisam.  
 
@@ -142,7 +142,7 @@ Implemente uma solução de terceiros a partir do Azure Marketplace para a solu�
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 2,10 | 8.8 | Cliente |
+| 2,10 | 8.8 | Customer |
 
 Utilize o Agente de Monitorização do Microsoft em todas as máquinas virtuais suportadas do Azure Windows para registar o evento de criação de processos e o campo CommandLine.   Para máquinas virtuais suportadas Azure Linux, pode configurar manualmente o registo de consolas por nó e utilizar o Syslog para armazenar os dados.  Além disso, utilize o espaço de trabalho do Log Analytics do Azure Monitor para rever registos e realizar consultas em dados registados a partir de máquinas Virtuais Azure. 
 

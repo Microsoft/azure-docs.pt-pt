@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop diagnostics log analytics - Azure
-description: Como utilizar a análise de registo com a funcionalidade de diagnóstico virtual do Windows Desktop.
+title: Windows Virtual Desktop diagnostics log analytics (outono 2019) - Azure
+description: Saiba como utilizar a análise de registos com a funcionalidade de diagnóstico do Windows Virtual Desktop (lançamento de outono 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4c59268f63252813c7e08608d5d8ee499b11f53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205973"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077618"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico
+# <a name="use-log-analytics-for-the-diagnostics-feature-fall-2019-release"></a>Use Log Analytics para a funcionalidade de diagnóstico (lançamento outono 2019)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../diagnostics-log-analytics.md).
@@ -134,6 +134,6 @@ Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnaly
 
 Você precisa executar este cmdlet para cada inquilino que você quer parar de enviar dados de.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para rever cenários de erro comuns que a funcionalidade de diagnóstico pode identificar para si, consulte [identificar e diagnosticar problemas](diagnostics-role-service-2019.md#common-error-scenarios).

@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075975"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar quadros front-end e bibliotecas com pré-visualização de aplicações web estáticas Azure
 
@@ -36,7 +36,7 @@ A intenção das colunas de mesa é explicada pelos seguintes itens:
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
 | [Ember](https://emberjs.com/) | `dist` | n/a |
-| [Agitação](https://flutter.dev/) | `build/web` | `flutter build web` |
+| [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
 | [Quadro 7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Brilho](https://glimmerjs.com/) | `dist` | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
@@ -55,12 +55,12 @@ A intenção das colunas de mesa é explicada pelos seguintes itens:
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | n/a |
-| [Vue](http://vuejs.com/) | `dist` | n/a |
+| [Vue.js](https://vuejs.org/) | `dist` | n/a |
 
 <sup>1</sup> A tabela acima não se destina a ser uma lista exaustiva de quadros e bibliotecas que funcionam com aplicações web estáticas Azure.
 
 <sup>2</sup> Não aplicável
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configuração de compilação e fluxo de trabalho](github-actions-workflow.md)

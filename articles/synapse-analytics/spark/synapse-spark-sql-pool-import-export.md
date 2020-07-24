@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ebf948fdb1df76cb7bcb03ee5d85f581d856524f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: ca13cbd8bdba911882f7452e34c45cbc7918dd7f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918721"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077703"
 ---
 # <a name="introduction"></a>Introdução
 

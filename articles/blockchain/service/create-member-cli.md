@@ -1,19 +1,20 @@
 ---
 title: Criar um membro do Serviço Azure Blockchain - Azure CLI
-description: Crie um membro do Serviço Azure Blockchain para um consórcio blockchain utilizando o Azure CLI.
-ms.date: 03/30/2020
+description: Crie um membro do Serviço Azure Blockchain para um consórcio blockchain usando o Azure CLI.
+ms.date: 07/16/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 1561f485917ecbb64d51ffbe045ab4120fbf58ad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: references_regions
+ms.openlocfilehash: f459c9f577ac806c9121a46a200dd9f04ea5481a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075229"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Criar um membro blockchain Azure Blockchain Service usando o Azure CLI
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Quickstart: Criar um membro blockchain do Azure Blockchain Service usando O Azure CLI
 
-Neste arranque rápido, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando o Azure CLI.
+Neste quickstart, você implementa um novo membro blockchain e consórcio no Azure Blockchain Service usando Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,13 +26,13 @@ Nenhum.
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell em um [https://shell.azure.com/bash](https://shell.azure.com/bash)separado separado browser, indo para . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-Se preferir instalar e utilizar o CLI localmente, este quickstart requer a versão Azure CLI 2.0.51 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [a instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0.51 do CLI Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [a instalação do Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* na localização *oriental:*
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *este:*
 
 ```azurecli-interactive
 az group create \
@@ -41,9 +42,9 @@ az group create \
 
 ## <a name="create-a-blockchain-member"></a>Criar um membro blockchain
 
-Um membro do Azure Blockchain Service é um nó blockchain numa rede privada de blockchain de consórcio. Ao fornecer um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
+Um membro do Azure Blockchain Service é um nó blockchain numa rede de blockchain de consórcio privado. Ao providenciar um membro, pode criar ou aderir a uma rede de consórcios. Precisa de pelo menos um membro para uma rede de consórcios. O número de membros blockchain necessários pelos participantes depende do seu cenário. Os participantes do consórcio podem ter um ou mais membros blockchain ou podem partilhar membros com outros participantes. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
 
-Existem vários parâmetros e propriedades que precisa de passar. Substitua os parâmetros de exemplo com os seus valores.
+Existem vários parâmetros e propriedades que precisa passar. Substitua os parâmetros de exemplo pelos seus valores.
 
 ```azurecli-interactive
 az resource create \
@@ -56,19 +57,19 @@ az resource create \
 
 | Parâmetro | Descrição |
 |---------|-------------|
-| **grupo de recursos** | Nome de grupo de recursos onde os recursos do Serviço Azure Blockchain são criados. Utilize o grupo de recursos que criou na secção anterior.
-| **nome** | Um nome único que identifica o seu membro blockchain Azure Blockchain Service. O nome é usado para o endereço final do público. Por exemplo, `myblockchainmember.blockchain.azure.com`.
-| **localização** | Região azul onde o membro blockchain é criado. Por exemplo, `westus2`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
-| **palavra-passe** | A palavra-passe para o nó de transação padrão do membro. Utilize a palavra-passe para autenticação básica quando ligar ao ponto final de transação padrão do membro blockchain.
+| **grupo de recursos** | Nome do grupo de recursos onde são criados os recursos do Serviço Azure Blockchain. Utilize o grupo de recursos que criou na secção anterior.
+| **nome** | Um nome único que identifica o seu membro blockchain do Azure Blockchain Service. O nome é usado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`.
+| **localização** | Região de Azure onde o membro blockchain é criado. Por exemplo, `westus2`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure. As funcionalidades podem não estar disponíveis em algumas regiões. O Azure Blockchain Data Manager está disponível nas seguintes regiões de Azure: Leste dos EUA e Europa Ocidental.
+| **palavra-passe** | A palavra-passe para o nó de transação padrão do membro. Utilize a palavra-passe para autenticação básica ao ligar-se ao ponto final público do nó de transação padrão do membro blockchain.
 | **consórcio** | Nome do consórcio para aderir ou criar. Para obter mais informações sobre consórcios, consulte [o consórcio Azure Blockchain Service](consortium.md).
-| **consórcioAccountPassword** | A palavra-passe da conta do consórcio também é conhecida como a palavra-passe da conta membro. A palavra-passe da conta membro é usada para encriptar a chave privada da conta Ethereum que é criada para o seu membro. Utiliza a conta membro e a palavra-passe da conta membro para a gestão do consórcio.
-| **skuName** | Tipo nível. Utilize S0 para Standard e B0 para Básico. Utilize o nível *Básico* para desenvolvimento, teste e prova de conceitos. Utilize o nível *Standard* para implementações de qualidade de produção. Também deve utilizar o nível *Standard* se estiver a utilizar o Gestor de Dados blockchain ou a enviar um elevado volume de transações privadas. A alteração do nível de preços entre a criação de base e a norma após a criação dos membros não é suportada.
+| **consórcioExpalhoPasspa** | A senha da conta do consórcio também é conhecida como a palavra-passe da conta do membro. A palavra-passe da conta do membro é usada para encriptar a chave privada da conta Ethereum que é criada para o seu membro. Utilize a conta de membro e a palavra-passe da conta do membro para a gestão do consórcio.
+| **skuName** | Tipo de nível. Use S0 para Standard e B0 para Básico. Utilize o nível *básico* para desenvolvimento, teste e prova de conceitos. Utilize o nível *Standard* para implantações de nível de produção. Também deve utilizar o nível *Standard* se estiver a utilizar o Blockchain Data Manager ou a enviar um grande volume de transações privadas. A alteração do nível de preços entre o básico e o padrão após a criação dos membros não é apoiada.
 
-Leva cerca de 10 minutos para criar o membro blockchain e apoiar recursos.
+Leva cerca de 10 minutos para criar o membro blockchain e recursos de apoio.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode utilizar o membro blockchain que criou para o próximo quickstart ou tutorial. Quando já não for necessário, pode eliminar `myResourceGroup` os recursos eliminando o grupo de recursos que criou para o arranque rápido.
+Pode utilizar o membro blockchain que criou para o próximo quickstart ou tutorial. Quando já não é necessário, pode eliminar os recursos eliminando o `myResourceGroup` grupo de recursos que criou para o arranque rápido.
 
 Executar o seguinte comando para remover o grupo de recursos e todos os recursos relacionados.
 
@@ -80,7 +81,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, você implantou um membro do Serviço Azure Blockchain e um novo consórcio. Experimente o próximo quickstart a usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para ligar a um membro do Serviço Azure Blockchain.
+Neste quickstart, você lançou um membro do Azure Blockchain Service e um novo consórcio. Experimente o próximo quickstart para usar o Kit de Desenvolvimento Azure Blockchain para o Ethereum para se ligar a um membro do Serviço Azure Blockchain.
 
 > [!div class="nextstepaction"]
-> [Use o Código do Estúdio Visual para ligar ao Serviço Azure Blockchain](connect-vscode.md)
+> [Use código de estúdio visual para ligar ao Serviço Azure Blockchain](connect-vscode.md)

@@ -4,15 +4,15 @@ description: Saiba como transmitir registos de recursos do Azure para um espaço
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84947102"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077072"
 ---
 # <a name="azure-resource-logs"></a>Registos de recursos Azure
 Os registos de recursos Azure são [registos de plataformas](platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.
@@ -85,17 +85,15 @@ O exemplo acima resultaria na criação de três tabelas:
 
 
 ### <a name="select-the-collection-mode"></a>Selecione o modo de recolha
-A maioria dos recursos Azure escreverá dados para o espaço de trabalho no modo **Azure Diagnostic** ou **Resource-Specific** sem lhe dar uma escolha. Consulte a [documentação de cada serviço](diagnostic-logs-schema.md) para obter mais informações sobre o modo que utiliza. Todos os serviços Azure acabarão por utilizar o modo Específico de Recursos. Como parte desta transição, alguns recursos permitir-lhe-ão selecionar um modo na definição de diagnóstico. Especifique o modo específico de recursos para quaisquer novas definições de diagnóstico, uma vez que isto facilita a gestão dos dados e pode ajudá-lo a evitar migrações complexas numa data posterior.
+A maioria dos recursos Azure escreverá dados para o espaço de trabalho no modo **Azure Diagnostic** ou **Resource-Specific** sem lhe dar uma escolha. Consulte a [documentação de cada serviço](./resource-logs-schema.md) para obter mais informações sobre o modo que utiliza. Todos os serviços Azure acabarão por utilizar o modo Específico de Recursos. Como parte desta transição, alguns recursos permitir-lhe-ão selecionar um modo na definição de diagnóstico. Especifique o modo específico de recursos para quaisquer novas definições de diagnóstico, uma vez que isto facilita a gestão dos dados e pode ajudá-lo a evitar migrações complexas numa data posterior.
   
    ![Seletor de modo definições de diagnóstico](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> Atualmente, **os diagnósticos Azure** e o modo **específico de Recursos** só podem ser selecionados quando configurar a definição de diagnóstico no portal Azure. Se configurar a definição utilizando CLI, PowerShell ou Rest API, irá por defeito ao **diagnóstico Azure**.
+> Para um exemplo, definindo o modo de recolha utilizando um modelo de gestor de recursos, consulte [as amostras do modelo do Gestor de Recursos para definições de diagnóstico no Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
-Pode modificar uma definição de diagnóstico existente para o modo específico de recursos. Neste caso, os dados já recolhidos permanecerão na tabela _AzureDiagnostics_ até que seja removido de acordo com a sua definição de retenção para o espaço de trabalho. Novos dados serão recolhidos na tabela dedicada. Utilize o operador [sindical](https://docs.microsoft.com/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
+
+Pode modificar uma definição de diagnóstico existente para o modo específico de recursos. Neste caso, os dados já recolhidos permanecerão na tabela _AzureDiagnostics_ até que seja removido de acordo com a sua definição de retenção para o espaço de trabalho. Novos dados serão recolhidos na tabela dedicada. Utilize o operador [sindical](/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.
 
 Continue a ver o blog [Azure Updates](https://azure.microsoft.com/updates/) para anúncios sobre os serviços Azure que suportam o modo Específico de Recursos.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro da hora especificada no URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor dos minutos (m=00) é sempre de 00, uma vez que os eventos de registo de recursos são divididos em bolhas individuais por hora.
 
-Dentro do PT1H.jsno ficheiro, cada evento é armazenado com o seguinte formato. Isto utilizará um esquema comum de alto nível, mas será único para cada serviço Azure, conforme descrito no [esquema de registos de recursos](diagnostic-logs-schema.md).
+Dentro do PT1H.jsno ficheiro, cada evento é armazenado com o seguinte formato. Isto utilizará um esquema comum de alto nível, mas será único para cada serviço Azure, conforme descrito no [esquema de registos de recursos](./resource-logs-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
@@ -201,7 +199,7 @@ Dentro do PT1H.jsno ficheiro, cada evento é armazenado com o seguinte formato. 
 > Os registos da plataforma são escritos para o armazenamento de bolhas usando [linhas JSON](http://jsonlines.org/), onde cada evento é uma linha e o personagem newline indica um novo evento. Este formato foi implementado em novembro de 2018. Antes desta data, os registos foram escritos para o armazenamento de bolhas como um conjunto de registos json como descrito em [Prepare para a alteração de formato para registos de plataforma Azure Monitor arquivados numa conta de armazenamento](resource-logs-blob-format.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Leia mais sobre registos de recursos.](platform-logs-overview.md)
 * [Crie definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos](diagnostic-settings.md).

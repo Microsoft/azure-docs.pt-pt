@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: b853817b670f59bbfeef9ecd81c70dc63cbd367b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 108dd37370290a68d620a61f84b4553ed59792ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804621"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077864"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)
 
@@ -62,7 +62,7 @@ Pode assinar um SAS de duas formas:
 
 - Com a chave da conta de armazenamento. Tanto um serviço SAS como uma conta SAS são assinados com a chave da conta de armazenamento. Para criar um SAS assinado com a chave de conta, uma aplicação deve ter acesso à chave da conta.
 
-### <a name="sas-token"></a>Ficha SAS
+### <a name="sas-token"></a>Token de SAS
 
 O token SAS é uma cadeia que se gera do lado do cliente, por exemplo, utilizando uma das bibliotecas de clientes do Azure Storage. O token SAS não é rastreado pelo Azure Storage de forma alguma. Pode criar um número ilimitado de fichas SAS do lado do cliente. Depois de criar um SAS, pode distribuí-lo a aplicações de clientes que requerem acesso a recursos na sua conta de armazenamento.
 
@@ -109,7 +109,7 @@ As seguintes recomendações para a utilização de assinaturas de acesso partil
 - **Defina uma política de acesso armazenada para um serviço SAS.** As políticas de acesso armazenadas dão-lhe a opção de revogar permissões para um serviço SAS sem ter de regenerar as chaves da conta de armazenamento. Desloque a expiração sobre estes muito longe no futuro (ou infinito) e certifique-se de que é atualizado regularmente para movê-lo mais longe para o futuro.
 - **Utilize tempos de validade de curto prazo num serviço SAS ad hoc ou na conta SAS.** Desta forma, mesmo que um SAS esteja comprometido, é válido apenas por um curto período de tempo. Esta prática é especialmente importante se não puder fazer referência a uma política de acesso armazenada. Os tempos de validade a curto prazo também limitam a quantidade de dados que podem ser escritos a uma bolha, limitando o tempo disponível para o upload.
 - **Se necessário, os clientes renovam automaticamente o SAS.** Os clientes devem renovar o SAS muito antes do termo, de forma a dar tempo para as retrações se o serviço de prestação do SAS não estiver disponível. Se o seu SAS for destinado a ser utilizado para um pequeno número de operações imediatas e de curta duração que se espera que sejam concluídas dentro do período de validade, então isso pode ser desnecessário, uma vez que não se espera que o SAS seja renovado. No entanto, se tiver cliente que está a fazer pedidos rotineiramente através do SAS, então a possibilidade de expiração entra em jogo. A principal consideração é equilibrar a necessidade de o SAS ser de curta duração (como anteriormente declarado) com a necessidade de garantir que o cliente está a solicitar a renovação suficientemente cedo (para evitar perturbações devido à expiração do SAS antes da renovação bem sucedida).
-- **Tenha cuidado com a hora de início da SAS.** Se definir a hora de início para um SAS **até agora**, então devido a distorção do relógio (diferenças no tempo atual de acordo com diferentes máquinas), as falhas podem ser observadas intermitentemente durante os primeiros minutos. Em geral, desema esta hora de início para pelo menos 15 minutos no passado. Ou não o desemoquila, o que o tornará válido imediatamente em todos os casos. O mesmo geralmente aplica-se ao tempo de validade como bem-- lembre-se que pode observar até 15 minutos de distorção do relógio em qualquer direção em qualquer pedido. Para os clientes que utilizam uma versão REST antes de 2012-02-12, a duração máxima para um SAS que não faz referência a uma política de acesso armazenado é de 1 hora, e quaisquer políticas que especifiquem um prazo mais longo do que isso falhará.
+- **Tenha cuidado com a hora de início da SAS.** Se definir a hora de início de um SAS para a hora atual, poderá observar falhas que ocorrem intermitentemente durante os primeiros minutos devido a diferentes máquinas com ligeiras variações na hora atual (conhecida como distorção do relógio). Em geral, desema esta hora de início para pelo menos 15 minutos no passado. Ou não o desemoquila, o que o tornará válido imediatamente em todos os casos. O mesmo geralmente aplica-se ao tempo de validade como bem-- lembre-se que pode observar até 15 minutos de distorção do relógio em qualquer direção em qualquer pedido. Para os clientes que utilizam uma versão REST antes de 2012-02-12, a duração máxima para um SAS que não faz referência a uma política de acesso armazenado é de 1 hora, e quaisquer políticas que especifiquem um prazo mais longo do que isso falhará.
 - **Tenha cuidado com o formato de datação SAS.** Se definir a hora de início e/ou a expiração de um SAS, para alguns utilitários (por exemplo para o utilitário de linha de comando AzCopy) precisa do formato de data para ser '+%%m-%m-%dT%H:%M:%SZ', especificamente incluindo os segundos para que funcione usando o token SAS.  
 - **Seja específico com o recurso a ser acedido.** Uma melhor prática de segurança é proporcionar ao utilizador os privilégios mínimos exigidos. Se um utilizador apenas precisar de ter acesso lido a uma única entidade, então conceda-lhes que leia o acesso a essa entidade única e não leia/escreva/apague o acesso a todas as entidades. Isto também ajuda a diminuir os danos se um SAS estiver comprometido porque o SAS tem menos poder nas mãos de um intruso.
 - **Compreenda que a sua conta será cobrada para qualquer utilização, incluindo através de um SAS.** Se fornecer acesso de escrita a uma bolha, um utilizador pode optar por carregar uma bolha de 200 GB. Se também lhes deu acesso de leitura, podem optar por descarregá-lo 10 vezes, incorrendo 2 TB em custos de saída para si. Mais uma vez, forneça permissões limitadas para ajudar a mitigar as potenciais ações de utilizadores maliciosos. Utilize SAS de curta duração para reduzir esta ameaça (mas esteja atento ao desvio do relógio no tempo de fim).
@@ -135,7 +135,7 @@ Para começar com assinaturas de acesso partilhado, consulte os seguintes artigo
 
 - [Criar uma conta SAS com .NET](storage-account-sas-create-dotnet.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Delegado de acesso com uma assinatura de acesso partilhado (REST API)](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 - [Criar uma delegação de utilizadores SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

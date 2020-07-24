@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550b4fb7ba17d911618e0b60d16c0a9f9d1f2cfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80298340"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077281"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
 
@@ -149,7 +149,7 @@ Para instalar um gateway utilizando o assistente de configuração, siga estes p
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Instale o gateway Log Analytics utilizando a linha de comando
 
-O ficheiro descarregado para o gateway é um pacote do Windows Installer que suporta a instalação silenciosa a partir da linha de comando ou de outro método automatizado. Se não estiver familiarizado com as opções padrão da linha de comando para o Instalador do Windows, consulte [as opções da linha de comando](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+O ficheiro descarregado para o gateway é um pacote do Windows Installer que suporta a instalação silenciosa a partir da linha de comando ou de outro método automatizado. Se não estiver familiarizado com as opções padrão da linha de comando para o Instalador do Windows, consulte [as opções da linha de comando](/windows/desktop/msi/command-line-options).
  
 A tabela a seguir realça os parâmetros suportados pela configuração.
 
@@ -185,11 +185,11 @@ Após a instalação, pode confirmar que as definições são aceites (excluindo
 
 ## <a name="configure-network-load-balancing"></a>Configurar o equilíbrio da carga da rede
 
-Pode configurar o gateway para uma elevada disponibilidade utilizando o equilíbrio de carga de rede (NLB) utilizando o [Equilíbrio de Carga da Rede Microsoft (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), o Balançador de Carga [Azure](../../load-balancer/load-balancer-overview.md)ou os equilibradores de carga baseados em hardware. O equilibrador de carga gere o tráfego redirecionando as ligações solicitadas dos agentes do Log Analytics ou dos servidores de gestão do Gestor de Operações através dos seus nós. Se um servidor Gateway se desligar, o tráfego é redirecionado para outros nós.
+Pode configurar o gateway para uma elevada disponibilidade utilizando o equilíbrio de carga de rede (NLB) utilizando o [Equilíbrio de Carga da Rede Microsoft (NLB)](/windows-server/networking/technologies/network-load-balancing), o Balançador de Carga [Azure](../../load-balancer/load-balancer-overview.md)ou os equilibradores de carga baseados em hardware. O equilibrador de carga gere o tráfego redirecionando as ligações solicitadas dos agentes do Log Analytics ou dos servidores de gestão do Gestor de Operações através dos seus nós. Se um servidor Gateway se desligar, o tráfego é redirecionado para outros nós.
 
 ### <a name="microsoft-network-load-balancing"></a>Equilíbrio de carga de rede da Microsoft
 
-Para aprender a desenhar e implementar um cluster de equilíbrio de carga de rede do Windows Server 2016, consulte [o equilíbrio da carga da Rede](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Os seguintes passos descrevem como configurar um cluster de equilíbrio de carga de rede da Microsoft.  
+Para aprender a desenhar e implementar um cluster de equilíbrio de carga de rede do Windows Server 2016, consulte [o equilíbrio da carga da Rede](/windows-server/networking/technologies/network-load-balancing). Os seguintes passos descrevem como configurar um cluster de equilíbrio de carga de rede da Microsoft.  
 
 1. Inscreva-se no servidor windows que é um membro do cluster NLB com uma conta administrativa.  
 2. Abra o Gestor de Equilíbrio de Carga de Rede no Gestor do Servidor, clique em **Ferramentas**e, em seguida, clique em **Network Load Balance Manager**.
@@ -248,7 +248,7 @@ Para utilizar o OMS Gateway para apoiar o Gestor de Operações, tem de:
 
 Se o seu grupo de gestão de Gestor de Operações estiver a registar-se pela primeira vez com um espaço de trabalho Log Analytics, não verá a opção de especificar a configuração de procuração para o grupo de gestão na consola Operações. Esta opção só está disponível se o grupo de gestão tiver sido registado no serviço.  
 
-Para configurar a integração, atualize a configuração do sistema proxy utilizando o Netsh no sistema onde está a executar a consola Operações e em todos os servidores de gestão do grupo de gestão. Siga estes passos.
+Para configurar a integração, atualize a configuração do sistema proxy utilizando o Netsh no sistema onde está a executar a consola Operações e em todos os servidores de gestão do grupo de gestão. Siga estes passos:
 
 1. Abra uma solicitação de comando elevada:
 

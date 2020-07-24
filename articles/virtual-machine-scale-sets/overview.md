@@ -9,14 +9,15 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ec96cab0a147e661df48318aadb057f9f6785b1f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7539b951a4a138802150d9408221b6e4ad19e92b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026530"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075536"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
-Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou a uma agenda definida. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
+Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
 
 
 ## <a name="why-use-virtual-machine-scale-sets"></a>Porquê utilizar conjuntos de dimensionamento de máquinas virtuais?
@@ -27,7 +28,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem as capacidades de
 - **Facilidade em criar e gerir múltiplas VMs**
     - Quando tiver muitas VMs a executar a sua aplicação, é importante manter uma configuração consistente em todo o ambiente. Para um desempenho fiável da sua aplicação, o tamanho das VMs, a configuração de discos e as instalações de aplicações deverão ser iguais em todas as VMs.
     - Com os conjuntos de dimensionamento, todas as instâncias de VMs são criadas a partir da mesma configuração e imagem do SO de base. Esta abordagem permite-lhe facilmente gerir centenas de VMs sem gestão de rede ou tarefas de configuração adicionais.
-    - Os conjuntos de escala suportam a utilização do equilibrador de [carga Azure](../load-balancer/load-balancer-overview.md) para distribuição básica de tráfego em camadas 4, e [gateway de aplicação Azure](../application-gateway/application-gateway-introduction.md) para uma distribuição de tráfego de camadas 7 mais avançada e terminação TLS.
+    - Os conjuntos de escala suportam a utilização do equilibrador de [carga Azure](../load-balancer/load-balancer-overview.md) para distribuição básica de tráfego em camadas 4, e [gateway de aplicação Azure](../application-gateway/overview.md) para uma distribuição de tráfego de camadas 7 mais avançada e terminação TLS.
 
 - **Fornece disponibilidade elevada e resiliência de aplicações**
     - Os conjuntos de dimensionamento são utilizados para executar múltiplas instâncias da sua aplicação. Se uma destas instâncias de VM tiver um problema, os clientes continuarão a aceder à sua aplicação através de uma das outras instâncias de VMs com interrupções mínimas.

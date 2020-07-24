@@ -1,6 +1,6 @@
 ---
-title: JSON achatando e escapando regras - Azure Time Series Insights / Microsoft Docs
-description: Saiba mais sobre o achatamento, fuga e manuseamento de matrizes em Azure Time Series Insights.
+title: JSON achatando e escapando regras - Azure Time Series Insights Gen2 / Microsoft Docs
+description: Saiba mais sobre o achatamento, fuga e manuseamento de matrizes em Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,19 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
-ms.openlocfilehash: 45eeebcc092513a0344acaff52c31c2cebfb377c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075672"
 ---
 # <a name="ingestion-rules"></a>Regras de Ingestão
 ### <a name="json-flattening-escaping-and-array-handling"></a>JSON Flattening, Escaping e Array Handling
 
-O seu ambiente Azure Time Series Insights criará dinamicamente as colunas dos seus armazéns quentes e frios, seguindo um conjunto particular de convenções de nomeação. Quando um evento é ingerido, um conjunto de regras é aplicado à carga útil JSON e nomes de propriedade. Estes incluem escapar de certos caracteres especiais e achatar objetos JSON aninhados. É importante conhecer estas regras para que compreenda como a forma do seu JSON influenciará a forma como os seus eventos são armazenados e questionados. Consulte a tabela abaixo para ver a lista completa de regras. Exemplos A & B também demonstram como é capaz de lotar séries de tempo múltiplas de forma eficiente numa matriz.
+O seu ambiente Azure Time Series Insights Gen2 criará dinamicamente as colunas dos seus armazéns quentes e frios, seguindo um conjunto particular de convenções de nomeação. Quando um evento é ingerido, um conjunto de regras é aplicado à carga útil JSON e nomes de propriedade. Estes incluem escapar de certos caracteres especiais e achatar objetos JSON aninhados. É importante conhecer estas regras para que compreenda como a forma do seu JSON influenciará a forma como os seus eventos são armazenados e questionados. Consulte a tabela abaixo para ver a lista completa de regras. Exemplos A & B também demonstram como é capaz de lotar séries de tempo múltiplas de forma eficiente numa matriz.
 
 > [!IMPORTANT]
 >
@@ -28,8 +27,8 @@ O seu ambiente Azure Time Series Insights criará dinamicamente as colunas dos s
 
 | Regra | Exemplo JSON |Nome da coluna no armazenamento |
 |---|---|---|
-| O tipo de dados TSI é anexado ao final do seu nome de coluna como "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
-| A [propriedade de timetamp de](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) fonte de evento será guardada em TSI como "timetamp" em armazenamento, e o valor armazenado na UTC. Pode personalizar a propriedade de marca de tempo de fonte de evento para atender às necessidades da sua solução, mas o nome da coluna em armazenamento quente e frio é "timetamp". Outras propriedades JSON de data que não sejam o ponto de tempo de origem do evento serão guardadas com "_datetime" no nome da coluna, conforme mencionado na regra acima.  | ```"ts": "2020-03-19 14:40:38.318"``` | carimbo de data/hora |
+| O tipo de dados Azure Time Series Insights Gen2 é anexado ao final do seu nome de coluna como "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
+| A [propriedade de timetamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de fonte de evento será guardada em Azure Time Series Insights Gen2 como "timetamp" em armazenamento, e o valor armazenado na UTC. Pode personalizar a propriedade de marca de tempo de fonte de evento para atender às necessidades da sua solução, mas o nome da coluna em armazenamento quente e frio é "timetamp". Outras propriedades JSON de data que não sejam o ponto de tempo de origem do evento serão guardadas com "_datetime" no nome da coluna, conforme mencionado na regra acima.  | ```"ts": "2020-03-19 14:40:38.318"``` | carimbo de data/hora |
 | Nomes de propriedade JSON que incluem os caracteres especiais. [ \ e ' são escapadas usando [' e ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | ['id.vespa']_string |
 | Dentro de [' e '] há escapatória adicional de citações individuais e backslashes. Uma única citação será escrita como \' e um backslash será escrito como\\\ | ```"Foo's Law Value": "17.139999389648"``` | ['Foo's \' Law Value']_double |
 | Os objetos JSON aninhados são achatados com um período como separador. A nidificação até 10 níveis é suportada. |  ```"series": {"value" : 316 }``` | série.value_long |
@@ -184,6 +183,6 @@ A configuração e carga útil acima produzirá três colunas e um evento
 | ---- | ---- | ---- | 
 | `2020-11-01T10:00:00.000Z` | `800500054755`| ``[{"value": 120},{"value":124}]`` |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Compreenda as [limitações](concepts-streaming-throughput-limitations.md) de produção do seu ambiente
+* Compreenda as [limitações](./concepts-streaming-ingress-throughput-limits.md) de produção do seu ambiente

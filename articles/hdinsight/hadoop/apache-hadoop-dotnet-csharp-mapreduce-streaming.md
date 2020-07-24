@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 77d8143743f899bcb9fd3927de223d84d406ed6f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0a20a120f72c70cb50cae37cece54d5efad31f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074811"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com mapReduce streaming em Apache Hadoop em HDInsight
 
@@ -47,7 +47,7 @@ Para obter mais informações sobre o streaming, consulte [o Hadoop Streaming.](
 
 * Uma forma de enviar ficheiros .exe para o cluster. Os passos deste documento utilizam as Ferramentas do Lago de Dados para o Estúdio Visual para fazer o upload dos ficheiros para o armazenamento primário do cluster.
 
-* Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/overview).
+* Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/).
 
 * Um aglomerado Apache Hadoop em HDInsight. Ver [Começar com HDInsight no Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -267,7 +267,7 @@ yourselves      3
 youth   17
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use MapReduce em Apache Hadoop em HDInsight](hdinsight-use-mapreduce.md).
 * [Utilize uma função C# definida pelo utilizador com a Colmeia Apache e o Porco Apache](apache-hadoop-hive-pig-udf-dotnet-csharp.md).

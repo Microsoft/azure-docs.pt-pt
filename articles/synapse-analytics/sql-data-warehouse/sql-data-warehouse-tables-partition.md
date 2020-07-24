@@ -11,11 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075735"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Mesas de partição na piscina Sinapse SQL
 
@@ -31,21 +32,33 @@ A partilha pode beneficiar a manutenção de dados e o desempenho da consulta. S
 
 O principal benefício da partição no pool Sinaapse SQL é melhorar a eficiência e o desempenho dos dados de carregamento através da utilização da eliminação de divisórias, comutação e fusão. Na maioria dos casos, os dados são divididos numa coluna de datas que está intimamente ligada à ordem em que os dados são carregados na base de dados. Um dos maiores benefícios da utilização de divisórias para manter os dados é evitar a exploração de transações. Ao mesmo tempo que simplesmente inserir, atualizar ou eliminar dados pode ser a abordagem mais simples, com um pouco de pensamento e esforço, usar a partição durante o seu processo de carga pode melhorar substancialmente o desempenho.
 
-A comutação de partição pode ser utilizada para remover ou substituir rapidamente uma secção de uma tabela.  Por exemplo, uma tabela de factos de vendas pode conter apenas dados dos últimos 36 meses. No final de cada mês, os dados de vendas mais antigos são eliminados da tabela.  Estes dados podem ser eliminados utilizando uma declaração de exclusão para apagar os dados do mês mais antigo. No entanto, a eliminação de uma grande quantidade de dados linha a linha com uma declaração de eliminação pode demorar demasiado tempo, assim como criar o risco de grandes transações que demoram muito tempo a ser revotadas se algo correr mal. Uma abordagem mais ideal é deixar cair a divisão mais antiga de dados. Onde apagar as fileiras individuais pode levar horas, apagar uma divisória inteira pode levar segundos.
+A comutação de partição pode ser utilizada para remover ou substituir rapidamente uma secção de uma tabela.  Por exemplo, uma tabela de factos de vendas pode conter apenas dados dos últimos 36 meses. No final de cada mês, os dados de vendas mais antigos são eliminados da tabela.  Estes dados podem ser eliminados utilizando uma declaração de exclusão para apagar os dados do mês mais antigo. 
+
+No entanto, a eliminação de uma grande quantidade de dados linha a linha com uma declaração de eliminação pode demorar demasiado tempo, assim como criar o risco de grandes transações que demoram muito tempo a ser revotadas se algo correr mal. Uma abordagem mais ideal é deixar cair a divisão mais antiga de dados. Onde apagar as fileiras individuais pode levar horas, apagar uma divisória inteira pode levar segundos.
 
 ### <a name="benefits-to-queries"></a>Benefícios para consultas
 
-A partição também pode ser usada para melhorar o desempenho da consulta. Uma consulta que aplique um filtro a dados divididos pode limitar a digitalização apenas às divisórias elegíveis. Este método de filtragem pode evitar uma varredura completa da tabela e apenas digitalizar um subconjunto menor de dados. Com a introdução de índices de lojas de colunas agrupados, os benefícios de desempenho de eliminação predicado são menos benéficos, mas em alguns casos pode haver um benefício para as consultas. Por exemplo, se a tabela de factos de venda for dividida em 36 meses usando o campo de data de venda, então as consultas que filtram na data de venda podem saltar a procura em divisórias que não correspondem ao filtro.
+A partição também pode ser usada para melhorar o desempenho da consulta. Uma consulta que aplique um filtro a dados divididos pode limitar a digitalização apenas às divisórias elegíveis. Este método de filtragem pode evitar uma varredura completa da tabela e apenas digitalizar um subconjunto menor de dados. Com a introdução de índices de lojas de colunas agrupados, os benefícios de desempenho de eliminação predicado são menos benéficos, mas em alguns casos pode haver um benefício para as consultas. 
+
+Por exemplo, se a tabela de factos de venda for dividida em 36 meses usando o campo de data de venda, então as consultas que filtram na data de venda podem saltar a procura em divisórias que não correspondem ao filtro.
 
 ## <a name="sizing-partitions"></a>Divisórias de dimensionamento
 
-Embora a partição possa ser usada para melhorar o desempenho de alguns cenários, criar uma tabela com **muitas** divisórias pode prejudicar o desempenho em algumas circunstâncias.  Estas preocupações são especialmente verdadeiras para as mesas de lojas de colunas agrupadas. Para que a partição seja útil, é importante entender quando usar a partição e o número de divisórias para criar. Não existe uma regra difícil de quantas divisórias são demasiadas, depende dos seus dados e de quantas divisórias carrega simultaneamente. Um esquema de partição bem sucedido geralmente tem dezenas a centenas de divisórias, não milhares.
+Embora a partição possa ser usada para melhorar o desempenho de alguns cenários, criar uma tabela com **muitas** divisórias pode prejudicar o desempenho em algumas circunstâncias.  Estas preocupações são especialmente verdadeiras para as mesas de lojas de colunas agrupadas. 
 
-Ao criar divisórias em **mesas de lojas de colunas agrupadas,** é importante considerar quantas linhas pertencem a cada divisória. Para uma compressão e desempenho ótimos das mesas de loja de colunas agrupadas, é necessário um mínimo de 1 milhão de linhas por distribuição e partição. Antes de serem criadas as divisórias, a piscina Synapse SQL já divide cada mesa em 60 bases de dados distribuídas. Qualquer divisória adicionada a uma mesa é além das distribuições criadas nos bastidores. Usando este exemplo, se a tabela de factos de vendas continha 36 divisórias mensais, e dado que uma piscina Sinapse SQL tem 60 distribuições, então a tabela de factos de vendas deve conter 60 milhões de linhas por mês, ou 2,1 mil milhões de linhas quando todos os meses são povoados. Se uma tabela contiver menos do que o número mínimo recomendado de linhas por partição, considere a utilização de menos divisórias para aumentar o número de linhas por partição. Para mais informações, consulte o artigo [indexante,](sql-data-warehouse-tables-index.md) que inclui consultas que podem avaliar a qualidade dos índices de loja de colunas de cluster.
+Para que a partição seja útil, é importante entender quando usar a partição e o número de divisórias para criar. Não existe uma regra difícil de quantas divisórias são demasiadas, depende dos seus dados e de quantas divisórias carrega simultaneamente. Um esquema de partição bem sucedido geralmente tem dezenas a centenas de divisórias, não milhares.
+
+Ao criar divisórias em **mesas de lojas de colunas agrupadas,** é importante considerar quantas linhas pertencem a cada divisória. Para uma compressão e desempenho ótimos das mesas de loja de colunas agrupadas, é necessário um mínimo de 1 milhão de linhas por distribuição e partição. Antes de serem criadas as divisórias, a piscina Synapse SQL já divide cada mesa em 60 bases de dados distribuídas. 
+
+Qualquer divisória adicionada a uma mesa é além das distribuições criadas nos bastidores. Usando este exemplo, se a tabela de factos de vendas continha 36 divisórias mensais, e dado que uma piscina Sinapse SQL tem 60 distribuições, então a tabela de factos de vendas deve conter 60 milhões de linhas por mês, ou 2,1 mil milhões de linhas quando todos os meses são povoados. Se uma tabela contiver menos do que o número mínimo recomendado de linhas por partição, considere a utilização de menos divisórias para aumentar o número de linhas por partição. 
+
+Para mais informações, consulte o artigo [indexante,](sql-data-warehouse-tables-index.md) que inclui consultas que podem avaliar a qualidade dos índices de loja de colunas de cluster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferenças de sintaxe do SQL Server
 
-A piscina Sinaapse SQL introduz uma forma de definir divisórias que é mais simples do que o SQL Server. As funções e esquemas de partição não são utilizados na piscina Synapse SQL, uma vez que se encontram no SQL Server. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. Embora a sintaxe da partição possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. Sql Server e Synapse SQL suportem uma coluna de partição por tabela, que pode ser partição de gama. Para saber mais sobre a partição, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+A piscina Sinaapse SQL introduz uma forma de definir divisórias que é mais simples do que o SQL Server. As funções e esquemas de partição não são utilizados na piscina Synapse SQL, uma vez que se encontram no SQL Server. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. 
+
+Embora a sintaxe da partição possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. Sql Server e Synapse SQL suportem uma coluna de partição por tabela, que pode ser partição de gama. Para saber mais sobre a partição, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 O exemplo a seguir utiliza a declaração [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para dividir a tabela FactInternetSales na coluna OrderDateKey:
 
@@ -236,7 +249,11 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Carregue novos dados em divisórias que contenham dados num só passo
 
-Carregar dados em divisórias com comutação de partição é uma forma conveniente de colocar novos dados numa tabela que não é visível para os utilizadores a mudança nos novos dados.  Pode ser um desafio para os sistemas ocupados lidar com a contenção de bloqueio associada à comutação de divisórias.  Para limpar os dados existentes numa partição, `ALTER TABLE` é necessário que se altere os dados.  Em seguida, outro `ALTER TABLE` foi obrigado a mudar os novos dados.  Na piscina Synapse SQL, a `TRUNCATE_TARGET` opção é suportada no `ALTER TABLE` comando.  Com `TRUNCATE_TARGET` o comando substitui os `ALTER TABLE` dados existentes na partição com novos dados.  Abaixo está um exemplo que usa `CTAS` para criar uma nova tabela com os dados existentes, insere novos dados e, em seguida, muda todos os dados de volta para a tabela alvo, sobreescrita dos dados existentes.
+Carregar dados em divisórias com comutação de partição é uma forma conveniente de colocar novos dados numa tabela que não é visível para os utilizadores.  Pode ser um desafio para os sistemas ocupados lidar com a contenção de bloqueio associada à comutação de divisórias.  
+
+Para limpar os dados existentes numa partição, `ALTER TABLE` é necessário que se altere os dados.  Em seguida, outro `ALTER TABLE` foi obrigado a mudar os novos dados.  
+
+Na piscina Synapse SQL, a `TRUNCATE_TARGET` opção é suportada no `ALTER TABLE` comando.  Com `TRUNCATE_TARGET` o comando substitui os `ALTER TABLE` dados existentes na partição com novos dados.  Abaixo está um exemplo que usa `CTAS` para criar uma nova tabela com os dados existentes, insere novos dados e, em seguida, muda todos os dados de volta para a tabela alvo, sobreescrita dos dados existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -338,8 +355,8 @@ Para evitar que a definição de tabela **enferruje** no seu sistema de controlo
     DROP TABLE #partitions;
     ```
 
-Com esta abordagem, o código em controlo de origem permanece estático e os valores de fronteira de partição podem ser dinâmicos; evoluindo com a base de dados ao longo do tempo.
+Com esta abordagem, o código de controlo de origem permanece estático e os valores de fronteira de partição podem ser dinâmicos; evoluindo com a base de dados ao longo do tempo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o desenvolvimento de tabelas, consulte os artigos na [Visão Geral da Tabela](sql-data-warehouse-tables-overview.md).

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: ae352ead9e3ba6980c82ea48dca3db872b8d1e6d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: de152a636d8751616744887a521b2f94bbd386a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077757"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gestão .NET SDK: Criar e executar trabalhos de análise utilizando a API AZure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise utilizando a API stream Analytics para .NET utilizando a Management .NET SDK. Crie um projeto, crie fontes de entrada e saída, transformações e iniciar e parar empregos. Para os seus trabalhos de análise, pode transmitir dados a partir do armazenamento blob ou de um centro de eventos.
@@ -30,7 +30,7 @@ Antes de iniciar este artigo, deve ter os seguintes requisitos:
 
 * Instale o Visual Studio 2019 ou 2015.
 * Faça o download e instale [o Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Crie um Grupo de Recursos Azure na sua subscrição. O exemplo a seguir é uma amostra do script Azure PowerShell. Para obter informações sobre a Azure PowerShell, consulte [instalar e configurar a Azure PowerShell;](/powershell/azure/overview)  
+* Crie um Grupo de Recursos Azure na sua subscrição. O exemplo a seguir é uma amostra do script Azure PowerShell. Para obter informações sobre a Azure PowerShell, consulte [instalar e configurar a Azure PowerShell;](/powershell/azure/)  
 
    ```powershell
    # Log in to your Azure account
@@ -287,7 +287,7 @@ O método **Delete** eliminará o trabalho, bem como os sub-recursos subjacentes
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Aprendeu o básico de usar um .NET SDK para criar e executar trabalhos de análise. Para saber mais, consulte os seguintes artigos:
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 674ca8bea110d60557d1e50e7b68c9c3f7a92bf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564589"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077316"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Use o Azure AD como fornecedor de identidade para vCenter na CloudSimple Private Cloud
 
@@ -45,7 +46,7 @@ Antes de começar, terá de ter acesso à sua subscrição Azure com privilégio
 > [!NOTE]
 > Se já tem Azure AD, pode saltar esta secção.
 
-1. Configurar a Azure AD na sua subscrição, conforme descrito na [documentação AZure AD](../active-directory/fundamentals/get-started-azure-ad.md).
+1. Configurar a Azure AD na sua subscrição, conforme descrito na [documentação AZure AD](../active-directory/fundamentals/active-directory-whatis.md).
 2. Ativar o Azure Ative Directory Premium na sua subscrição, conforme descrito no [Inscrição para O Azure Ative Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
 3. Confie um nome de domínio personalizado e verifique o nome de domínio personalizado descrito no [Adicionar um nome de domínio personalizado ao Azure Ative Directory](../active-directory/fundamentals/add-custom-domain.md).
     1. Estabeleça um registo DNS no seu registo de domínio com as informações fornecidas no Azure.
@@ -58,17 +59,17 @@ Pode configurar opcionalmente outras funcionalidades AD Azure.  Estes não são 
 > [!NOTE]
 > Este é um passo importante para permitir a Azure AD como fonte de identidade para o vCenter.  Para evitar quaisquer problemas, certifique-se de que todos os passos são executados corretamente.
 
-1. Ativar os serviços de domínio Azure AD, conforme descrito no [Enable Azure Ative Directory, utilizando o portal Azure](../active-directory-domain-services/active-directory-ds-getting-started.md).
-2. Crie a rede que será utilizada pelos serviços de domínio Azure AD, conforme descrito no [Enable Azure Ative Directory Domain Services utilizando o portal Azure](../active-directory-domain-services/active-directory-ds-getting-started-network.md).
-3. Configure o Grupo de Administrador para a gestão dos Serviços de Domínio Azure AD, conforme descrito no [Enable Azure Ative Directory Domain Services utilizando o portal Azure](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
-4. Atualize as definições de DNS para os seus Serviços de Domínio Azure AD, conforme descrito no [Enable Azure Ative Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  Se pretender ligar a AD através da Internet, confiem o registo DNS para o endereço IP público dos serviços de domínio Azure AD ao nome de domínio.
-5. Ativar a sincronização de hash de palavra-passe para os utilizadores.  Este passo permite a sincronização dos hashes de palavra-passe necessários para a autenticação do NT LAN Manager (NTLM) e da autenticação kerberos para os Serviços de Domínio AD Azure. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa. Consulte [Ativar a sincronização de hash de palavra-passe para os Serviços de Domínio do Diretório Ativo Azure](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+1. Ativar os serviços de domínio Azure AD, conforme descrito no [Enable Azure Ative Directory, utilizando o portal Azure](../active-directory-domain-services/tutorial-create-instance.md).
+2. Crie a rede que será utilizada pelos serviços de domínio Azure AD, conforme descrito no [Enable Azure Ative Directory Domain Services utilizando o portal Azure](../active-directory-domain-services/tutorial-create-instance.md).
+3. Configure o Grupo de Administrador para a gestão dos Serviços de Domínio Azure AD, conforme descrito no [Enable Azure Ative Directory Domain Services utilizando o portal Azure](../active-directory-domain-services/tutorial-create-instance.md).
+4. Atualize as definições de DNS para os seus Serviços de Domínio Azure AD, conforme descrito no [Enable Azure Ative Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Se pretender ligar a AD através da Internet, confiem o registo DNS para o endereço IP público dos serviços de domínio Azure AD ao nome de domínio.
+5. Ativar a sincronização de hash de palavra-passe para os utilizadores.  Este passo permite a sincronização dos hashes de palavra-passe necessários para a autenticação do NT LAN Manager (NTLM) e da autenticação kerberos para os Serviços de Domínio AD Azure. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa. Consulte [Ativar a sincronização de hash de palavra-passe para os Serviços de Domínio do Diretório Ativo Azure](../active-directory-domain-services/tutorial-create-instance.md).
     1. Se os utilizadores apenas na nuvem estiverem presentes, devem alterar a sua palavra-passe utilizando <a href="http://myapps.microsoft.com/" target="_blank">o painel de acesso AD Azure</a> para garantir que os hashes de palavra-passe são armazenados no formato exigido pela NTLM ou pela Kerberos.  Siga as instruções em [Ativar a sincronização de hash de palavra-passe para o seu domínio gerido para contas de utilizador apenas na nuvem](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Este passo deve ser dado para os utilizadores individuais e para qualquer novo utilizador que seja criado no seu diretório AD Azure utilizando o portal Azure ou os cmdlets Azure AD PowerShell. Os utilizadores que necessitem de acesso aos serviços de domínio Azure AD devem utilizar o <a href="http://myapps.microsoft.com/" target="_blank">painel de acesso AZure AD</a> e aceder ao seu perfil para alterar a palavra-passe.
 
         > [!NOTE]
         > Se a sua organização tiver contas de utilizador apenas na cloud, todos os utilizadores que precisam de utilizar o Azure Active Directory Domain Services têm de alterar as respetivas palavras-passe. Uma conta de utilizador apenas na cloud é uma conta que foi criada no diretório do Azure AD com o portal do Azure ou os cmdlets do PowerShell do Azure AD. Essas contas de utilizador não são sincronizadas a partir de um diretório no local.
 
-    2. Se estiver a sincronizar palavras-passe a partir do seu diretório ativo, siga os passos na documentação do [Ative Directory](../active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md).
+    2. Se estiver a sincronizar palavras-passe a partir do seu diretório ativo, siga os passos na documentação do [Ative Directory](../active-directory-domain-services/tutorial-configure-password-hash-sync.md).
 
 6.  Configure lDAP seguro seguro nos seus Serviços de Domínio do Diretório Ativo Azure, conforme descrito em [Configure secure LDAP (LDAPS) para um domínio gerido por Serviços de Domínio AD AD Azure](../active-directory-domain-services/tutorial-configure-ldaps.md).
     1. Faça o upload de um certificado para utilização por LDAP seguro, conforme descrito no tópico Azure, [obtenha um certificado para LDAP seguro](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap).  A CloudSimple recomenda a utilização de um certificado assinado emitido por uma autoridade de certificados para garantir que o vCenter pode confiar no certificado.
@@ -92,7 +93,7 @@ Pode configurar opcionalmente outras funcionalidades AD Azure.  Estes não são 
     | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato  `ldaps://hostname:port` . A porta é tipicamente 636 para ligações LDAPS. <br><br>É necessário um certificado que estabeleça confiança para o ponto final LDAPS do servidor Ative Directory quando utilizar  `ldaps://`   no URL LDAP primário ou secundário. |
     | **URL do servidor secundário** | Endereço de um servidor LDAP controlador de domínio secundário que é utilizado para falha. |
     | **Escolha o certificado** | Se pretender utilizar LDAPS com o seu Servidor LDAP do Diretório Ativo ou fonte de identidade do Servidor OpenLDAP, um botão de certificado Escolha aparece depois de escrever  `ldaps://`   na caixa de texto URL. Não é necessária uma URL secundária. |
-    | **Nome de utilizador** | ID de um utilizador no domínio que tem um mínimo de acesso apenas de leitura à Base DN para utilizadores e grupos. |
+    | **Nome de Utilizador** | ID de um utilizador no domínio que tem um mínimo de acesso apenas de leitura à Base DN para utilizadores e grupos. |
     | **Palavra-passe** | Palavra-passe do utilizador que é especificado pelo Nome de Utilizador. |
 
 3. Inscreva-se no seu VCenter Private Cloud depois de os privilégios serem aumentados.
@@ -102,6 +103,6 @@ Pode configurar opcionalmente outras funcionalidades AD Azure.  Estes não são 
 > [!CAUTION]
 > Os novos utilizadores devem ser adicionados apenas ao *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group,* *Cloud-Global-Network-Admin-Group* ou, *Cloud-Global-VM-Admin-Group*.  Os utilizadores *adicionados* ao grupo de Administradores serão removidos automaticamente.  Apenas as contas de serviço devem ser adicionadas ao grupo *de Administradores.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre o modelo de permissão private Cloud](learn-private-cloud-permissions.md)

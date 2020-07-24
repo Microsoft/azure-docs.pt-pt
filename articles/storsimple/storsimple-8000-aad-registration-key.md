@@ -6,13 +6,14 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: b16132c24d35ee2c9902fa2b21c44416d8376b4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92a9370ec866b6d2c14988871e3c742a40679885
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77470909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077811"
 ---
-# <a name="use-the-new-authentication-for-your-storsimple"></a>Utilize a nova autenticação para o seu StorSimple
+# <a name="use-azuer-active-directory-ad-authentication-for-your-storsimple"></a>Utilize a autenticação do Diretório Ativo Azuer (AD) para o seu StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -87,7 +88,7 @@ Execute os seguintes passos para gerar uma chave de registo de serviço AAD.
     > [!NOTE] 
     > Se estiver a criar um Aparelho StorSimple Cloud no serviço registado no seu dispositivo da série StorSimple 8000, não gere uma chave de registo enquanto a criação estiver em curso. Aguarde que a criação se concretize e, em seguida, gere a chave de registo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como implementar [o dispositivo da série StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md).
 

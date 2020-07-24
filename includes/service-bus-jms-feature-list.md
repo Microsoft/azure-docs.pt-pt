@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: service-bus-messaging
 author: axisc
 ms.service: service-bus-messaging
@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
-ms.openlocfilehash: 3fd4c6416241302a4969d9b3de26fa6b8316c1f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4b9925459463ff66685c797f0edaba13883f4d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076231"
 ---
-A tabela abaixo lista as funcionalidades **do Java Message Service (JMS)** que são atualmente suportadas e não suportadas pela Azure Service Bus.
+A tabela que se segue lista as funcionalidades do Java Message Service (JMS) que a Azure Service Bus suporta atualmente. Também mostra características que não são apoiadas.
 
 
-| Funcionalidades | Estado |
+| Funcionalidade | Estado |
 |---|---|
 | Filas   | Suportado |
 | Tópicos   | Suportado |
-| Filas Temporárias | Suportado |
-| Tópicos Temporários | Suportado |
+| Filas temporárias | Suportado |
+| Tópicos temporários | Suportado |
 | Seletores de mensagens | Suportado |
 | Navegadores de fila | Suportado |
-| Assinaturas Duradouras Partilhadas | Suportado|
+| Assinaturas duradouras partilhadas | Suportado|
 | Assinaturas duradouras não partilhadas | Suportado |
 | Assinaturas partilhadas não duráveis | Suportado |
 | Assinaturas não partilhadas não duráveis | Suportado |
-| Transações Distribuídas | **Não suportado** |
-| Terminus durável | **Não suportado** |
+| Transações distribuídas | Não suportado |
+| Terminus durável | Não suportado |

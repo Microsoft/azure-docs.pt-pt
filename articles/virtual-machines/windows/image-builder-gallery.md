@@ -7,11 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0db618d63964c6f271f9a14b91849e704cfd7820
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83656666"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077516"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Partilhadas 
 
@@ -23,7 +24,7 @@ Para distribuir a imagem por uma Galeria de Imagens Partilhadas, o modelo utiliz
 
 O Azure Image Builder executa automaticamente sysprep para generalizar a imagem, este é um comando genérico sysprep, que pode [ser sobreposto](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) se necessário. 
 
-Esteja ciente de quantas vezes você camada personalizações. Pode executar o comando Sysprep até 8 vezes numa única imagem do Windows. Depois de executar o Sysprep 8 vezes, tem de recriar a sua imagem do Windows. Para mais informações, consulte [Limites sobre quantas vezes pode executar sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Esteja ciente de quantas vezes você camada personalizações. Pode executar o comando Sysprep até 8 vezes numa única imagem do Windows. Depois de executar o Sysprep 8 vezes, tem de recriar a sua imagem do Windows. Para mais informações, consulte [Limites sobre quantas vezes pode executar sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
@@ -97,7 +98,7 @@ New-AzResourceGroup `
 
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Criar uma identidade atribuída ao utilizador e definir permissões no grupo de recursos
-O Image Builder utilizará a [identidade do utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) fornecida para injetar a imagem na Galeria de Imagens Partilhadas Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
+O Image Builder utilizará a [identidade do utilizador](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) fornecida para injetar a imagem na Galeria de Imagens Partilhadas Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
 
 ```powershell
 # setup role def names, these need to be unique
@@ -239,7 +240,7 @@ Criar a imagem e replicá-la em ambas as regiões pode demorar algum tempo. Agua
 Para obter informações sobre opções para automatizar o estado de construção de imagem, consulte o [Readme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) para este modelo no GitHub.
 
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 
 Crie um VM a partir da versão de imagem que foi criada pelo Azure Image Builder.
 

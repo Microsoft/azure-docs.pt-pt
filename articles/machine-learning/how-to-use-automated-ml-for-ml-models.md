@@ -10,18 +10,23 @@ ms.author: nibaccam
 author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/20/2020
-ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: ac5357d0f8ba03943af14d7dd4ce6928b20db128
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074660"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste artigo, aprende-se a criar, explorar e implementar modelos automatizados de aprendizagem automática de máquinas sem uma única linha de código na interface de estúdio do Azure Machine Learning. O machine learning automatizado é um processo no qual é selecionado para si o melhor algoritmo de aprendizagem automática para os seus dados específicos. Este processo permite-lhe gerar modelos de aprendizagem automática rapidamente. [Saiba mais sobre aprendizagem automática de máquinas.](concept-automated-ml.md)
+Neste artigo, aprende-se a criar, explorar e implementar modelos automatizados de aprendizagem automática de máquinas sem uma única linha de código no estúdio Azure Machine Learning.
+
+>[!IMPORTANT]
+> A experiência automatizada de ML no estúdio de aprendizagem Azure Machine está em pré-visualização. Certas funcionalidades podem não ser suportadas ou têm capacidades limitadas.
+
+ O machine learning automatizado é um processo no qual é selecionado para si o melhor algoritmo de aprendizagem automática para os seus dados específicos. Este processo permite-lhe gerar modelos de aprendizagem automática rapidamente. [Saiba mais sobre aprendizagem automática de máquinas.](concept-automated-ml.md)
  
 Para um exemplo final, experimente o [tutorial para criar um modelo de classificação com a interface ML automatizada da Azure Machine Learning.](tutorial-first-experiment-automated-ml.md) 
 
@@ -51,18 +56,22 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. Selecione **+ Nova execução de ML automatizada** e povoe o formulário.
 
-1. Selecione um conjunto de dados do seu recipiente de armazenamento ou crie um novo conjunto de dados. Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls web, datastores ou conjuntos de dados abertos Azure. 
+1. Selecione um conjunto de dados do seu recipiente de armazenamento ou crie um novo conjunto de dados. Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls web, datastores ou conjuntos de dados abertos Azure. Saiba mais sobre [a criação do conjunto de dados.](how-to-create-register-datasets.md)  
 
     >[!Important]
     > Requisitos para dados de formação:
     >* Os dados devem estar em forma tabular.
     >* O valor que pretende prever (coluna-alvo) deve estar presente nos dados.
 
-    1. Para criar um novo conjunto de dados a partir de um ficheiro no seu computador local, **selecione Procurar** e, em seguida, selecione o ficheiro. 
+    1. Para criar um novo conjunto de dados a partir de um ficheiro no seu computador local, selecione **+Criar conjunto de dados** e, em seguida, selecione **A partir do ficheiro local**. 
 
-    1. Dê ao seu conjunto de dados um nome único e forneça uma descrição opcional. 
+    1. No formulário **de informações Básicas,** forneça ao seu conjunto de dados um nome único e forneça uma descrição opcional. 
 
     1. Selecione **Seguinte** para abrir o **formulário de seleção de datastore e ficheiros**. Neste formulário seleciona para onde carregar o conjunto de dados; o recipiente de armazenamento predefinido que é automaticamente criado com o seu espaço de trabalho, ou escolha um recipiente de armazenamento que deseja usar para a experiência. 
+    
+        1. Se os seus dados estiverem por detrás de uma rede virtual, tem de ativar **a função de validação** para garantir que o espaço de trabalho pode aceder aos seus dados. Saiba mais sobre [o isolamento da rede e a privacidade.](how-to-enable-virtual-network.md#machine-learning-studio) 
+    
+    1. **Selecione Procurar** para carregar o ficheiro de dados para o seu conjunto de dados. 
 
     1. Reveja as Definições e o formulário **de pré-visualização** para obter uma precisão. O formulário é inteligentemente povoado com base no tipo de ficheiro. 
 
@@ -96,8 +105,11 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     Campo|Descrição
     ---|---
     Nome computacional| Insira um nome único que identifique o seu contexto de computação.
+    Prioridade da máquina virtual| As máquinas virtuais de baixa prioridade são mais baratas, mas não garantem os nós de computação. 
+    Tipo de máquina virtual| Selecione CPU ou GPU para o tipo de máquina virtual.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para o seu cálculo.
-    Nós Min / Max (em Definições Avançadas)| Para perfilar os dados, tem de especificar 1 ou mais nós. Introduza o número máximo de nós para o seu cálculo. O padrão é de 6 nós para um AML Compute.
+    Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós. Introduza o número máximo de nós para o seu cálculo. O padrão é de 6 nós para um AML Compute.
+    Definições avançadas | Estas definições permitem configurar uma conta de utilizador e uma rede virtual existente para a sua experiência. 
     
     Selecione **Criar**. A criação de um novo cálculo pode demorar alguns minutos.
 
@@ -108,20 +120,22 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. No tipo de Tarefa e no formulário **de definições,** selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [os tipos de tarefas suportados](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
 
-    1. Para a classificação, também pode ativar uma aprendizagem profunda que é usada para ações de texto.
+    1. Para **a classificação,** também pode permitir uma aprendizagem profunda que é usada para ações de texto.
 
-    1. Para previsão:
-        1. Selecione coluna de tempo: Esta coluna contém os dados de tempo a utilizar.
+    1. Para **a previsão** que pode, 
+    
+        1. Permitir a aprendizagem profunda
+    
+        1. Selecione *coluna de tempo*: Esta coluna contém os dados de tempo a utilizar.
 
-        1. Selecione o horizonte de previsão: Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) serão capazes de prever para o futuro. Quanto mais o modelo for necessário para prever o futuro, menos preciso se tornará. [Saiba mais sobre previsão e previsão do horizonte.](how-to-auto-train-forecast.md)
+        1. Selecione *o horizonte de previsão*: Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) poderão prever para o futuro. Quanto mais o modelo for necessário para prever o futuro, menos preciso se tornará. [Saiba mais sobre previsão e previsão do horizonte.](how-to-auto-train-forecast.md)
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
     Configurações adicionais|Descrição
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#explore-model-metrics)
-    Caracterização automática| Selecione para ativar ou desativar a caracterização feita através de machine learning automatizado. A caracterização automática inclui limpeza automática de dados, preparação e transformação para gerar características sintéticas. Não suportado para o tipo de tarefa de previsão de séries de tempo. [Saiba mais sobre a exibição.](how-to-configure-auto-features.md#featurization) 
-    Explicar o melhor modelo | Selecione para permitir ou desativar para mostrar a explicabilidade do melhor modelo recomendado
+    Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar a explicabilidade do melhor modelo recomendado.
     Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino.
     Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)*: Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica*: Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para utilizar no trabalho de treino. [Saiba mais sobre validação cruzada.](how-to-configure-cross-validation-data-splits.md#prerequisites)
@@ -147,13 +161,13 @@ Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, 
 Distribuição de tipo| Contagem de valor em linha de tipos dentro de uma coluna. Os nulos são do seu próprio tipo, pelo que esta visualização é útil para detetar valores ímpares ou em falta.
 Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cordas, booleans, datas e decimais.
 Mín.| Valor mínimo da coluna. As entradas em branco aparecem para funcionalidades cujo tipo não tenha uma encomenda inerente (por exemplo, booleans).
-Máx.| Valor máximo da coluna. 
-Contagem| Número total de entradas desaparecidas e não desaparecidas na coluna.
+Máx| Valor máximo da coluna. 
+de palavras| Número total de entradas desaparecidas e não desaparecidas na coluna.
 Contagem não faltando| Número de entradas na coluna que não faltam. Cordas e erros vazios são tratados como valores, para que não contribuam para a "contagem não em falta".
 Rio Quantiles| Valores aproximados em cada quântico para fornecer uma sensação de distribuição dos dados.
 Média| Média aritmética ou média da coluna.
 Desvio padrão| Medida da quantidade de dispersão ou variação dos dados desta coluna.
-Desvio| Medida da distância que os dados desta coluna estão a partir do seu valor médio. 
+Variância| Medida da distância que os dados desta coluna estão a partir do seu valor médio. 
 Skewness| Medida de quão diferentes os dados desta coluna são de uma distribuição normal.
 Kurtose| Medida de quão fortemente seguido os dados desta coluna é comparado a uma distribuição normal.
 
@@ -185,7 +199,7 @@ O separador**Modelos** contém uma lista dos modelos criados encomendados pela p
 
 ### <a name="view-training-run-details"></a>Ver detalhes da execução de treino
 
-Desacompra qualquer um dos modelos preenchidos para ver detalhes de execução de treino, como métricas de execução no separador detalhes do **Modelo** ou gráficos de desempenho no separador **Visualizações.** Saiba mais [sobre gráficos](how-to-understand-automated-ml.md).
+Desa cosar em qualquer um dos modelos concluídos para ver detalhes de treino, como [Learn more about charts](how-to-understand-automated-ml.md)um resumo do modelo no separador **Modelo** ou gráficos de métrica de desempenho no separador **Métricas.**
 
 [![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
@@ -197,9 +211,14 @@ O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
 
 1. Tem algumas opções para a implantação. 
 
-    + Opção 1: Para implementar o melhor modelo (de acordo com os critérios métricos definidos), selecione o botão **de melhor modelo implementar** no separador **Detalhes.**
+    + Opção 1: Implementar o melhor modelo, de acordo com os critérios métricos definidos. 
+        1. Depois de concluída a experiência, navegue para a página de execução dos pais selecionando **Run 1** na parte superior do ecrã. 
+        1.  Selecione o modelo listado na secção **de resumo do modelo Best.** 
+        1. **Selecione Desdobre-se** na parte superior esquerda da janela. 
 
-    + Opção 2: Para implementar uma iteração específica de modelo a partir desta experiência, perfure o modelo para abrir o separador **de detalhes do Modelo** e selecione o modelo de **implementação**.
+    + Opção 2: Implementar uma iteração específica deste modelo a partir desta experiência.
+        1. Selecione o modelo desejado a partir do separador **Modelos**
+        1. **Selecione Desdobre-se** na parte superior esquerda da janela.
 
 1. Povoar o **painel de modelos de implantação.**
 
@@ -218,11 +237,11 @@ O ML automatizado ajuda-o a implementar o modelo sem código de escrita:
     O menu *Advanced* oferece funcionalidades de implementação predefinidos, tais como [configurações de recolha de dados](how-to-enable-app-insights.md) e utilização de recursos. Se desejar anular estas predefinições, faça-o neste menu.
 
 1. Selecione **Implementar**. A implantação pode demorar cerca de 20 minutos a ser concluída.
-    Assim que a implementação começar, o separador **de detalhes** do Modelo aparece. Consulte o progresso da implantação na secção de estado de **implantação** do painel **propriedades.** 
+    Assim que a implementação começar, aparece o separador **resumo do Modelo.** Consulte o progresso da implantação na secção **'Implementar'.** 
 
 Agora tem um serviço web operacional para gerar previsões! Pode testar as previsões consultando o serviço a partir do suporte de [aprendizagem automática Azure.](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como consumir um serviço web.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

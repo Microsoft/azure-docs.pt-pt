@@ -3,15 +3,15 @@ title: .NET Guia de programação - Azure Event Hubs (legado) / Microsoft Docs
 description: Este artigo fornece informações sobre como escrever código para Azure Event Hubs usando o Azure .NET SDK.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: de731d591c367e386fe8ef1eef03f1b90e0fa126
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0186357ec7f0f8541acf33c524a57cdb8e8dc55c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074847"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>.NET Guia de programação para Azure Event Hubs (pacote legado Microsoft.Azure.EventHubs)
-Este artigo discute alguns cenários comuns em código de escrita usando Azure Event Hubs. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md).
+Este artigo discute alguns cenários comuns em código de escrita usando Azure Event Hubs. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](./event-hubs-about.md).
 
 > [!WARNING]
 > Este guia destina-se ao antigo pacote **Microsoft.Azure.EventHubs.** Recomendamos que [emigure](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) o seu código para utilizar o mais recente pacote [Azure.Messaging.EventHubs.](get-started-dotnet-standard-send-v2.md)  
@@ -96,7 +96,7 @@ Um único lote não deve exceder o limite de 1 MB de um evento. Além disso, cad
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Enviar no modo assíncrono e enviar à escala
 
-Envia eventos para um centro de eventos assíncronosamente. O envio assíncronos aumenta a taxa a que um cliente é capaz de enviar eventos. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) devolve um objeto [de Tarefa.](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) Pode utilizar a aula [de RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) no cliente para controlar as opções de repetição do cliente.
+Envia eventos para um centro de eventos assíncronosamente. O envio assíncronos aumenta a taxa a que um cliente é capaz de enviar eventos. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) devolve um objeto [de Tarefa.](/dotnet/api/system.threading.tasks.task?view=netcore-3.1) Pode utilizar a aula [de RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) no cliente para controlar as opções de repetição do cliente.
 
 ## <a name="event-consumers"></a>Consumidores de eventos
 A classe [EventProcessorHost][] processa dados dos Event Hubs. Deve utilizar esta implementação quando criar os leitores dos eventos na plataforma .NET. O [EventProcessorHost][] fornece um ambiente de tempo de execução seguro para thread com vários processos para as implementações do processador de eventos que também fornece pontos de verificação e gestão da concessão da partição.
@@ -145,12 +145,12 @@ Além das funcionalidades avançadas de tempo de execução do Event Processor H
 
 Para obter mais informações sobre a revogação do publicador e sobre como enviar Hubs de Eventos como um publicador, veja o exemplo de [Event Hubs Large Scale Secure Publishing (Publicação Segura em Larga Escala dos Hubs de Eventos)](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os cenários dos Event Hubs, consulte estas ligações:
 
-* [Descrição geral da API dos Hubs de Eventos](event-hubs-api-overview.md)
-* [O que é Os Centros de Eventos](event-hubs-what-is-event-hubs.md)
+* [Descrição geral da API dos Hubs de Eventos](./event-hubs-samples.md)
+* [O que é Os Centros de Eventos](./event-hubs-about.md)
 * [Disponibilidade e consistência em Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [Referência API do processador de eventos](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 

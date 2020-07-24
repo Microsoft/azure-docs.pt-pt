@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b7e980f2ffd31bd10b481fe4fc8e0617c40717a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205089"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075822"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-restauro para piscina SQL
 
@@ -36,7 +36,7 @@ Para restaurar a partir de uma cópia de segurança, utilize o [cmdlet Get-AzSql
 > Você pode realizar um geo-restauro para a Gen2! Para tal, especifique um Nome Gen2 ServiceObjective (por exemplo, DW1000**c**) como um parâmetro opcional.
 >
 
-1. Antes de começar, certifique-se de [instalar a Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Antes de começar, certifique-se de [instalar a Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Abra o PowerShell.
 3. Ligue-se à sua conta Azure e enuseça todas as subscrições associadas à sua conta.
 4. Selecione a subscrição que contém o armazém de dados a restaurar.
@@ -77,7 +77,7 @@ A base de dados recuperada será ativada pelo TDE se a base de dados de origem e
 Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um geo-backup:
 
 1. Inscreva-se na sua conta [do portal Azure.](https://portal.azure.com/)
-2. Clique **+ Crie um recurso.**
+2. Clique em **+ Criar um recurso**.
 
    ![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
@@ -87,9 +87,9 @@ Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um ge
 
 4. Preencha as informações **solicitadas** no separador Básicos e clique em **Seguinte: Definições adicionais**.
 
-   ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Informações básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. Para utilizar o parâmetro **de dados existente,** selecione **Backup** e selecione a cópia de segurança adequada das opções de deslocamento para baixo. Clique **em Rever + Criar**.
+5. Para utilizar o parâmetro **de dados existente,** selecione **Backup** e selecione a cópia de segurança adequada das opções de deslocamento para baixo. Clique em **Rever + Criar**.
 
    ![cópia de segurança](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 

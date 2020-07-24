@@ -3,12 +3,12 @@ title: Faça o back up de uma partilha de ficheiros Azure usando o PowerShell
 description: Neste artigo, aprenda a fazer backup de uma partilha de ficheiros Azure Files utilizando o serviço de Backup Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 18c03eda9d9daca3a0fa536843e32f7fc3158287
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971033"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077001"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>Faça o back up de uma partilha de ficheiros Azure usando o PowerShell
 
@@ -89,13 +89,13 @@ O cofre dos Serviços de Recuperação é um recurso do Gestor de Recursos, pelo
 
 Siga estes passos para criar um cofre dos Serviços de Recuperação:
 
-1. Se não tiver um grupo de recursos existente, crie um novo utilizando o cmdlet [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0) Neste exemplo, criamos um grupo de recursos na região oeste dos EUA:
+1. Se não tiver um grupo de recursos existente, crie um novo utilizando o cmdlet [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) Neste exemplo, criamos um grupo de recursos na região oeste dos EUA:
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-1. Utilize o [cmdlet New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para criar o cofre. Especifique o mesmo local para o cofre que usou para o grupo de recursos.
+1. Utilize o [cmdlet New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) para criar o cofre. Especifique o mesmo local para o cofre que usou para o grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
@@ -103,7 +103,7 @@ Siga estes passos para criar um cofre dos Serviços de Recuperação:
 
 ### <a name="view-the-vaults-in-a-subscription"></a>Ver os cofres numa subscrição
 
-Para visualizar todos os cofres da subscrição, utilize [o Get-AzRecoveryServicesVault:](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0)
+Para visualizar todos os cofres da subscrição, utilize [o Get-AzRecoveryServicesVault:](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -127,7 +127,7 @@ Guarde o objeto do cofre numa variável e desaje no contexto do cofre.
 
 Muitos cmdlets de backup Azure requerem o objeto do cofre dos Serviços de Recuperação como uma entrada, por isso é conveniente armazenar o objeto do cofre numa variável.
 
-O contexto do cofre é o tipo de dados protegidos no cofre. Desconte-o utilizando [o Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). Após o contexto definido, aplica-se a todos os cmdlets subsequentes.
+O contexto do cofre é o tipo de dados protegidos no cofre. Desconte-o utilizando [o Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Após o contexto definido, aplica-se a todos os cmdlets subsequentes.
 
 O exemplo a seguir define o contexto do cofre para **o testvault:**
 
@@ -152,9 +152,9 @@ Uma política de apoio está associada a pelo menos uma política de retenção.
 
 Aqui estão alguns cmdlets para políticas de backup:
 
-* Ver a retenção de política de backup predefinida utilizando [o Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Consulte o calendário de política de backup predefinido utilizando [o Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Crie uma nova política de backup utilizando [a New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Introduza os objetos de política de programação e retenção como entrada.
+* Ver a retenção de política de backup predefinida utilizando [o Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject).
+* Consulte o calendário de política de backup predefinido utilizando [o Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
+* Crie uma nova política de backup utilizando [a New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy). Introduza os objetos de política de programação e retenção como entrada.
 
 Por predefinição, uma hora de início é definida no objeto da política de agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada deve estar no Tempo Coordenado Universal (UTC). O exemplo pressupõe que a hora de início desejada é 01:00 AM UTC para backups diários.
 
@@ -190,7 +190,7 @@ Depois de definir a política de backup, pode permitir a proteção para a parti
 
 ### <a name="retrieve-a-backup-policy"></a>Recuperar uma política de backup
 
-Obtém o objeto de política relevante utilizando [a Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Utilize este cmdlet para visualizar as políticas associadas a um tipo de carga de trabalho ou para obter uma política específica.
+Obtém o objeto de política relevante utilizando [a Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy). Utilize este cmdlet para visualizar as políticas associadas a um tipo de carga de trabalho ou para obter uma política específica.
 
 #### <a name="retrieve-a-policy-for-a-workload-type"></a>Recupere uma política para um tipo de carga de trabalho
 
@@ -221,7 +221,7 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 ### <a name="enable-protection-and-apply-the-policy"></a>Permitir a proteção e aplicar a política
 
-Ativar a proteção utilizando [a Proteção Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Depois da apólice estar associada ao cofre, as cópias de segurança são ativadas de acordo com o calendário da apólice.
+Ativar a proteção utilizando [a Proteção Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). Depois da apólice estar associada ao cofre, as cópias de segurança são ativadas de acordo com o calendário da apólice.
 
 O exemplo a seguir permite a proteção do teste de partilha de ficheiros **AzureAureFileShare** em teste de conta de **armazenamentoStorageAcct,** com os **dailyafs de**política :
 
@@ -237,7 +237,7 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-Para obter mais informações sobre como obter uma lista de ações de ficheiros para uma conta de armazenamento, consulte [este artigo](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+Para obter mais informações sobre como obter uma lista de ações de ficheiros para uma conta de armazenamento, consulte [este artigo](/powershell/module/az.storage/get-azstorageshare).
 
 ## <a name="important-notice-backup-item-identification"></a>Aviso importante: Identificação do item de backup
 
@@ -262,7 +262,7 @@ Recomendamos que registe itens e, em seguida, recupere o seu nome único no camp
 
 ## <a name="trigger-an-on-demand-backup"></a>Desencadear uma cópia de segurança a pedido
 
-Utilize [backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para executar uma cópia de segurança a pedido para uma partilha de ficheiros Azure protegida:
+Utilize [backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) para executar uma cópia de segurança a pedido para uma partilha de ficheiros Azure protegida:
 
 1. Recupere a conta de armazenamento do recipiente no cofre que detém os seus dados de backup utilizando [o Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. Para iniciar uma tarefa de backup, obtenha informações sobre a partilha de ficheiros Azure utilizando [o Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
@@ -286,7 +286,7 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 As fotos de partilha de ficheiros Azure são usadas enquanto as cópias de segurança são tomadas. Normalmente, o trabalho termina quando o comando devolve esta saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como fazer backup dos Ficheiros Azure no portal Azure](backup-afs.md).
 * Consulte o script da [amostra no GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) para utilizar um runbook da Azure Automation para agendar cópias de segurança.

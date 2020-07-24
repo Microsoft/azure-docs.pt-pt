@@ -5,17 +5,17 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9b1bdfc326ff217e68785d823b4af046af3241b7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075609"
 ---
-# <a name="safe-url-list"></a>Lista de URL seguro
+# <a name="safe-url-list"></a>Lista de URLs seguros
 
 Terá de desbloquear certos URLs para que a sua implementação virtual do Windows desktop funcione corretamente. Este artigo lista estes URLs para que saiba quais são seguros.
 
@@ -33,6 +33,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte ao portal Azure|AzureCloud|
+| 169.254.169.254 | 80 | [Ponto final do serviço de metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 
 >[!IMPORTANT]
 >O Windows Virtual Desktop suporta agora a tag FQDN. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Ambiente de Trabalho Virtual da Janela](../firewall/protect-windows-virtual-desktop.md).
@@ -59,8 +60,8 @@ A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Az
 >Deve utilizar o caractere wildcard (*) para URLs que envolvam tráfego de serviço. Se preferir não usar * para tráfego relacionado com agentes, eis como encontrar os URLs sem wildcards:
 >
 >1. Registe as suas máquinas virtuais na piscina de anfitriões virtual do Windows Desktop.
->2. Espectador **de Evento Aberto**, em seguida, vá ao Windows **logs**  >  **Application**  >  **WVD-Agent** e procure o ID do evento 3702.
->3. Whitelist os URLs que encontrar no âmbito do Evento ID 3702. Os URLs no âmbito do ID 3702 do evento são específicos da região. Terá de repetir o processo de desbloqueio com os URLs relevantes para cada região em que pretende implantar as suas máquinas virtuais.
+>2. Espectador **de Evento Aberto**, em seguida, vá ao Windows **logs**  >  **Application**  >  **WVD-Agent** e procure o ID do evento 3701.
+>3. Whitelist os URLs que encontrar no âmbito do Evento ID 3701. Os URLs no âmbito do ID 3701 do evento são específicos da região. Terá de repetir o processo de desbloqueio com os URLs relevantes para cada região em que pretende implantar as suas máquinas virtuais.
 
 ## <a name="remote-desktop-clients"></a>Clientes de Ambiente de Trabalho Remoto
 

@@ -7,10 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79274687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075256"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Fontes de dados de registo de eventos do Windows no Azure Monitor
 Os registos do Windows Event são uma das fontes de dados mais comuns para a recolha de [dados](agent-data-sources.md) utilizando agentes windows, uma vez que muitas aplicações escrevem no registo de eventos do Windows.  Pode recolher eventos a partir de registos padrão, como Sistema e Aplicação, além de especificar quaisquer registos personalizados criados pelas aplicações que precisa de monitorizar.
@@ -54,7 +55,7 @@ Os registos de eventos do Windows têm um tipo de **Evento** e têm as proprieda
 | Origem |Fonte do evento. |
 | SourceSystem |Tipo de agente do evento foi recolhido. <br> OpsManager – Agente Windows, ou connect direto ou Gestor de Operações gerido <br> Linux - Todos os agentes Linux  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |Data e hora o evento foi criado no Windows. |
-| UserName |Nome de utilizador da conta que registou o evento. |
+| Nome de Utilizador |Nome de utilizador da conta que registou o evento. |
 
 ## <a name="log-queries-with-windows-events"></a>Consultas de registo com eventos do Windows
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos do Windows Event.
@@ -67,7 +68,7 @@ A tabela seguinte fornece diferentes exemplos de consultas de registo que recupe
 | Evento &#124; onde EventLevelName == "erro" &#124; resumir a contagem() por Fonte |Contagem de erros do Windows por fonte. |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Configure o Log Analytics para recolher [outras fontes de dados](agent-data-sources.md) para análise.
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
 * Configure [a recolha de contadores de desempenho dos](data-sources-performance-counters.md) seus agentes Windows.

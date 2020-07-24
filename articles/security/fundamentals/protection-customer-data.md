@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/10/2020
 ms.author: terrylan
-ms.openlocfilehash: d723e60afe543808c88b1ae040e2979412ff324c
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 4f3b4b5e26c8feab44a01d3714c194eee0fc98e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076291"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados do cliente Azure   
 O acesso aos dados dos clientes pelas operações da Microsoft e o pessoal de suporte é negado por padrão. Quando o acesso a dados relacionados com um caso de apoio é concedido, só é concedido usando um modelo just-in-time (JIT) usando políticas que são auditadas e verificadas contra as nossas políticas de conformidade e privacidade.  Os requisitos de controlo de acesso são estabelecidos pela seguinte Política de Segurança Azure:

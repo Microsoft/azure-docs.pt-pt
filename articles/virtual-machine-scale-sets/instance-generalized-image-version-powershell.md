@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de escala a partir de uma imagem generalizada
+title: Crie um conjunto de escala a partir de uma imagem generalizada com Azure PowerShell
 description: Crie um conjunto de escala usando uma imagem generalizada numa Galeria de Imagens Partilhadas.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -9,11 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f61977c1c1be07ffe744608c1bf8ec5a8013f8d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82797087"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077558"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>Criar um conjunto de escala a partir de uma imagem generalizada
 
@@ -171,7 +172,7 @@ New-AzVmss `
 
 A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [O Azure Image Builder (pré-visualização)](../virtual-machines/linux/image-builder-overview.md) pode ajudar a automatizar a criação de versão de imagem, podendo até usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente.](../virtual-machines/linux/image-builder-gallery-update-image-version.md) 
 
 Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos. Existem vários modelos Azure Quickstart disponíveis: 

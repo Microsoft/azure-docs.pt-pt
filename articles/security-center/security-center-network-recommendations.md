@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77431490"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076371"
 ---
 # <a name="protect-your-network-resources"></a>Proteja os seus recursos de rede
 O Azure Security Center analisa continuamente o estado de segurança dos seus recursos Azure para as melhores práticas de segurança da rede. Quando o Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o orientam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
@@ -34,7 +35,7 @@ Este artigo aborda recomendações que se aplicam aos seus recursos Azure numa p
 
 A página **networking** fornece uma visão geral das secções em que pode mergulhar profundamente, para obter mais informações sobre a saúde dos seus recursos de rede:
 
-- Mapa de rede (apenas nível standard do Azure Security Center)
+- Mapa de rede (apenas nível padrão do Azure Security Center)
 - Proteção de Rede Ajustável
 - Recomendações de segurança em rede.
 - Lâmina **de rede** legacy (a lâmina de rede anterior) 
@@ -115,7 +116,7 @@ Para aprofundar um recurso:
 
 ## <a name="legacy-networking"></a>Rede de legados<a name ="legacy-networking"></a>
 
-Se não tiver o nível Standard do Centro de Segurança, esta secção explica como visualizar recomendações gratuitas de Networking.
+Se não tiver o nível padrão do Security Center, esta secção explica como visualizar recomendações gratuitas de networking.
 
 Para aceder a esta informação, na lâmina de rede, clique em **Ver redes antigas**. 
 
@@ -135,7 +136,7 @@ Nesta vista topologia, o primeiro nível apresenta Vnets. O segundo exibe sub-re
 
 O terceiro nível exibe máquinas virtuais, que são semelhantes às descritas anteriormente. Pode clicar em qualquer recurso para saber mais ou aplicar o controlo ou configuração de segurança necessários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações aplicáveis a outros tipos de recursos Azure, consulte o seguinte:
 

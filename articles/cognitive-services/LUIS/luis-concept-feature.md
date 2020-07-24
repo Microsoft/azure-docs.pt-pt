@@ -1,14 +1,14 @@
 ---
-title: Características - LUIS
+title: Características de aprendizagem automática com LUIS
 description: Adicione funcionalidades a um modelo de idioma para fornecer dicas sobre como reconhecer a entrada que deseja rotular ou classificar.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: fbf39382e418bef9a7d39886076a4100a26ce3e7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362463"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075161"
 ---
 # <a name="machine-learning-features"></a>Características de aprendizagem automática
 
@@ -200,7 +200,7 @@ Suponha que a sua empresa só envia para um conjunto limitado de países/regiõe
 
 |Nome canónico|Sinónimos|
 |--|--|
-|Estados Unidos da América|U.S.<br>E.U.A.<br>EUA<br>EUA<br>0|
+|Estados Unidos da América|U.S.<br>E.U.A.<br>EUA<br>E.U.A.<br>0|
 
 Uma aplicação do cliente, como um chat bot, pode fazer uma pergunta de acompanhamento para ajudar. Isto ajuda o cliente a entender que a seleção país/região é limitada e *necessária.*
 

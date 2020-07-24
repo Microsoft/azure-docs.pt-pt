@@ -1,6 +1,6 @@
 ---
-title: O pipeline monitor executa o Azure Synapse Studio (pré-visualização)
-description: Utilize o Azure Synapse Studio para monitorizar as suas operações de gasoduto de espaço de trabalho.
+title: O gasoduto monitor funciona usando o Synapse Studio
+description: Utilize o Estúdio Synapse para monitorizar as suas operações de gasoduto de espaço de trabalho.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16400d7f292ad5844add3d4a5fc019e84bd27127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 385b06dd7756c3bebf6557f9ea0b518473a37d49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075893"
 ---
-# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Use o Azure Synapse Studio para monitorizar as suas corridas de gasodutos de espaço de trabalho
+# <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Use o Synapse Studio para monitorizar as suas corridas de gasodutos de espaço de trabalho
 
-Com o Azure Synapse Analytics, pode criar oleodutos complexos que podem automatizar e orquestrar o seu movimento de dados, transformação de dados e atividades de computação dentro da sua solução. Pode autorizar e monitorizar estes oleodutos utilizando o Azure Synapse Studio (pré-visualização).
+Com o Azure Synapse Analytics, pode criar oleodutos complexos que podem automatizar e orquestrar o seu movimento de dados, transformação de dados e atividades de computação dentro da sua solução. Pode autorizar e monitorizar estes oleodutos utilizando o Synapse Studio (pré-visualização).
 
 Este artigo explica como monitorizar o seu pipeline runs, o que lhe permite estar atento ao estado mais recente, problemas e progresso dos seus oleodutos.
 
 ## <a name="access-the-list-of-pipeline-runs"></a>Aceda à lista de corridas de gasodutos
 
-Para ver a lista de gasodutos que funciona no seu espaço de trabalho, abra primeiro [o Azure Synapse Studio](https://web.azuresynapse.net/) e selecione o seu espaço de trabalho.
+Para ver a lista de gasodutos que funciona no seu espaço de trabalho, abra primeiro [o Synapse Studio](https://web.azuresynapse.net/) e selecione o seu espaço de trabalho.
 
 ![Faça login no espaço de trabalho](./media/common/login-workspace.png)
 
@@ -50,6 +50,6 @@ Por exemplo, pode filtrar a vista para ver apenas o gasoduto correr para o gasod
 
 Para ver detalhes sobre o seu percurso de gasoduto, selecione o curso do gasoduto. Em seguida, ver a atividade funciona associada à corrida do gasoduto. Se o oleoduto ainda estiver a funcionar, pode monitorizar o progresso. 
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre aplicações de monitorização, consulte o artigo [de aplicações monitor Apache Spark.](how-to-monitor-spark-applications.md) 

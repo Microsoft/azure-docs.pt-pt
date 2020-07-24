@@ -4,16 +4,16 @@ description: Utilize o conector Ethereum Blockchain com Azure Logic Apps para de
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200737"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077044"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utilize o conector Ethereum Blockchain com apps Azure Logic
 
-Utilize o [conector Ethereum Blockchain](https://docs.microsoft.com/connectors/blockchainethereum/) com [a Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para realizar ações de contrato inteligentes e responder a eventos de contrato inteligentes. Por exemplo, digamos que pretende criar um microserviço baseado em REST que retorna a informação de um livro de contabilidade blockchain. Ao utilizar uma aplicação lógica, pode aceitar pedidos HTTP que questionem as informações armazenadas num livro-razão blockchain.
+Utilize o [conector Ethereum Blockchain](/connectors/blockchainethereum/) com [a Azure Logic Apps](../../logic-apps/index.yml) para realizar ações de contrato inteligentes e responder a eventos de contrato inteligentes. Por exemplo, digamos que pretende criar um microserviço baseado em REST que retorna a informação de um livro de contabilidade blockchain. Ao utilizar uma aplicação lógica, pode aceitar pedidos HTTP que questionem as informações armazenadas num livro-razão blockchain.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -282,6 +282,6 @@ A trufa exibe o endereço do contrato após a implementação do contrato inteli
 
 ![Metadados com o valor do endereço no Código do Estúdio Visual](./media/ethereum-logic-app/contract-address-metadata.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja cenários comuns no vídeo [Fazendo mais com As Aplicações Lógicas](https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true).

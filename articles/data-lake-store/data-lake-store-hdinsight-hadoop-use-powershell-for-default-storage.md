@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 053ee85318d8ac9ccd5fb8b63fb44df966d34821
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075040"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Crie clusters HDInsight com Azure Data Lake Storage Gen1 como armazenamento padrão usando PowerShell
 
@@ -38,7 +38,7 @@ Para configurar o HDInsight para trabalhar com a Data Lake Storage Gen1 utilizan
 Antes de iniciar este tutorial, certifique-se de que cumpre os seguintes requisitos:
 
 * **Uma subscrição do Azure**: Vá a [obter o julgamento gratuito do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 ou superior**: Ver [como instalar e configurar o PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1.0 ou superior**: Ver [como instalar e configurar o PowerShell](/powershell/azure/).
 * **Windows Software Development Kit (SDK)**: Para instalar o Windows SDK, vá a [Downloads e ferramentas para o Windows 10](https://dev.windows.com/downloads). O SDK é usado para criar um certificado de segurança.
 * **Azure Ative Directory service principal**: Este tutorial descreve como criar um diretor de serviço em Azure Ative Directory (Azure AD). No entanto, para criar um principal de serviço, você deve ser um administrador AD Azure. Se for administrador, pode ignorar este pré-requisito e proceder ao tutorial.
 
@@ -281,7 +281,7 @@ hdfs dfs -ls adl:///
 
 Também pode usar o `hdfs dfs -put` comando para enviar alguns ficheiros para data lake storage gen1 e, em seguida, usar `hdfs dfs -ls` para verificar se os ficheiros foram carregados com sucesso.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Use data lake storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Portal Azure: Criar um cluster HDInsight para utilizar a Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

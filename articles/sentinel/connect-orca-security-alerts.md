@@ -1,6 +1,6 @@
 ---
-title: Connect Orca alerta para Azure Sentinel Microsoft Docs
-description: Saiba como ligar os dados de alerta de segurança da Orca ao Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação.
+title: Ligue os alertas de Segurança Orca ao Azure Sentinel. Microsoft Docs
+description: Saiba como ligar os dados de alerta de Segurança orca ao Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f2f67281079142f0c4fe4985738dc48332a107d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532261"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076272"
 ---
-# <a name="connect-your-orca-alerts-to-azure-sentinel"></a>Ligue os seus alertas orca ao Azure Sentinel 
+# <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Ligue os seus alertas de Segurança Orca ao Azure Sentinel 
+
+> [!IMPORTANT]
+> O conector de alerta de Segurança Orca em Azure Sentinel está atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O conector de alertas orca security permite-lhe trazer facilmente os alertas de segurança da [Sua Orca](https://orca.security/) para o Azure Sentinel, para que possa vê-los em livros de trabalho, usá-los para criar alertas personalizados e incorporá-los para melhorar a investigação. A integração entre os alertas de Segurança Orca e a Azure Sentinel faz uso da REST API.
 
@@ -45,7 +49,7 @@ Para utilizar o esquema relevante no Log Analytics para os alertas orca, procure
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar os alertas de segurança da Orca ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

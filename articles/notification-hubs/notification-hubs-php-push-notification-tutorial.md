@@ -14,18 +14,18 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fb2d2d33d380819a88da57a78c449e22256bf41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: daebf7c6a5fc9056e16b77a40ee9f90db598749f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169532"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076635"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Como utilizar os centros de notificação da PHP
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Pode aceder a todas as funcionalidades do Centro de Notificações a partir de um backend Java/PHP/Ruby utilizando a interface DeSE do Centro de Notificação de Notificações, tal como descrito no tópico MSDN [Notification Hubs REST APIs](https://msdn.microsoft.com/library/dn223264.aspx).
+Pode aceder a todas as funcionalidades do Centro de Notificações a partir de um backend Java/PHP/Ruby utilizando a interface DeSE do Centro de Notificação de Notificações, tal como descrito no tópico MSDN [Notification Hubs REST APIs](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 Neste tópico mostramos como:
 
@@ -56,7 +56,7 @@ $hub->sendNotification($notification, null);
 Se ainda não o fez, siga o tutorial [Começar a começar] até à última secção onde tem de implementar o backend.
 Além disso, se desejar, pode utilizar o código a partir da amostra de [invólucro PHP REST] e ir diretamente para a secção Complete a secção [tutorial.](#complete-tutorial)
 
-Todos os detalhes para implementar um invólucro REST completo podem ser encontrados na [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Nesta secção, descrevemos a implementação php dos principais passos necessários para aceder aos pontos finais do Centro de Notificação REST:
+Todos os detalhes para implementar um invólucro REST completo podem ser encontrados na [MSDN](/previous-versions/azure/reference/dn530746(v=azure.100)). Nesta secção, descrevemos a implementação php dos principais passos necessários para aceder aos pontos finais do Centro de Notificação REST:
 
 1. Analisar a cadeia de ligação
 2. Gerar o sinal de autorização
@@ -102,7 +102,7 @@ class NotificationHub {
 
 ### <a name="create-a-security-token"></a>Criar um símbolo de segurança
 
-Consulte a documentação do Azure para obter informações sobre como [criar um token de segurança SAS](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
+Consulte a documentação do Azure para obter informações sobre como [criar um token de segurança SAS](/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
 
 Adicione o `generateSasToken` método à classe para criar o símbolo com base no `NotificationHub` URI do pedido atual e nas credenciais extraídas da cadeia de ligação.
 
@@ -151,7 +151,7 @@ class Notification {
 
 Esta classe é um recipiente para um organismo de notificação nativa, ou um conjunto de propriedades em caso de notificação de modelo, e um conjunto de cabeçalhos, que contém formato (plataforma ou modelo nativo) e propriedades específicas da plataforma (como propriedade de expiração da Apple e cabeçalhos WNS).
 
-Consulte a documentação dos [Hubs de Notificação REST APIs](https://msdn.microsoft.com/library/dn495827.aspx) e os formatos específicos das plataformas de notificação para todas as opções disponíveis.
+Consulte a documentação dos [Hubs de Notificação REST APIs](/previous-versions/azure/reference/dn495827(v=azure.100)) e os formatos específicos das plataformas de notificação para todas as opções disponíveis.
 
 Armados com esta classe, podemos agora escrever os métodos de notificação de envio dentro da `NotificationHub` classe:
 
@@ -290,4 +290,3 @@ Para mais informações, consulte também o [Centro de Desenvolvimento php.](htt
 
 [Amostra de invólucro PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Enviar notificações push para aplicações iOS usando hubs de notificação Azure](ios-sdk-get-started.md))
-
