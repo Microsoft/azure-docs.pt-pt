@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 711f5293b205c1f500c6d9e08154342285ef959b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651972"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033219"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI elemento
 
@@ -19,11 +20,11 @@ Um grupo de controlos para selecionar uma rede virtual nova ou existente.
 
 Quando o utilizador escolhe uma nova rede virtual, o utilizador pode personalizar o nome e o prefixo de endereço de cada sub-rede. Configurar sub-redes é opcional.
 
-![Microsoft.Network.VirtualNetworkCombo novo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+![Microsoft.Network.VirtualNetworkCombo novo](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-new.png)
 
 Quando o utilizador escolhe uma rede virtual existente, o utilizador deve mapear cada sub-rede que o modelo de implementação requer para uma sub-rede existente. É necessário configurar sub-redes neste caso.
 
-![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
+![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft-network-virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -113,7 +114,7 @@ Quando o utilizador escolhe uma rede virtual existente, o utilizador deve mapear
 - A criação de sub-redes numa rede virtual existente não é suportada.
 - Se `options.hideExisting` for **verdade,** o utilizador não pode escolher uma rede virtual existente. O valor predefinido é **falso**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

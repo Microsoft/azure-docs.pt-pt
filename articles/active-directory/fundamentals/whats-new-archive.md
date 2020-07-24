@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04fcae1ba218949019637e9a101492a487b430f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e27adde84f62f8c8d79389e1de4e867439d5a3be
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034742"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -1468,7 +1468,7 @@ Estamos em processo de atualização de como o Exchange ActiveSync (EAS) avalia 
 
 - Localização do utilizador, com base no país, região ou endereço IP
 
-- Risco de inscrição
+- Risco de início de sessão
 
 - Plataforma de dispositivo
 
@@ -1697,8 +1697,8 @@ Os seguintes campos estão a mudar no esquema de auditoria:
 |----------|------------|----------|----------|
 |Categoria|Este era o campo **de Nome de Serviço.** Agora é o campo **das Categorias de Auditoria.** **O Nome de Serviço** foi renomeado para o campo **DeSema registado.**|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reset de senha de autosserviço</li></ul>|<ul><li>Gestão de Utilizadores</li><li>Gestão de Grupos</li><li>Gestão de Aplicações</li></ul>|
 |targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>Utilizador</li><li>Grupo</li></ul>|
-|registradoByService|Fornece o nome do serviço que gerou o registo de auditoria.|Null|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição personalizada de palavra-passe</li></ul>|
-|Resultado|Fornece o resultado dos registos de auditoria. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Êxito</li><li>Falha</li></ul>|
+|registradoByService|Fornece o nome do serviço que gerou o registo de auditoria.|Nulo|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição personalizada de palavra-passe</li></ul>|
+|Resultado|Fornece o resultado dos registos de auditoria. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Success</li><li>Falha</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Campos alterados no esquema de inscrição
 Os seguintes campos estão a mudar no esquema de inscrição:
@@ -1706,8 +1706,8 @@ Os seguintes campos estão a mudar no esquema de inscrição:
 |Nome do campo|O que mudou|Valores antigos|Novos Valores|
 |----------|------------|----------|----------|
 |aplicadaScionalAccessPolicies|Este era o campo **de segurança condicionada.** Agora é o campo **de Política Da Organização** Da Política.|Sem alterações|Sem alterações|
-|condicionalAccessStatus|Fornece o resultado do Estado da Política de Acesso Condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Êxito</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
-|aplicadoSacionalAcissess: resultado|Fornece o resultado do estado individual da política de acesso condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Êxito</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
+|condicionalAccessStatus|Fornece o resultado do Estado da Política de Acesso Condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
+|aplicadoSacionalAcissess: resultado|Fornece o resultado do estado individual da política de acesso condicional no início da sposição. Anteriormente, isto foi enumerado, mas agora mostramos o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
 
 Para obter mais informações sobre o esquema, consulte [o esquema de registos de auditoria AZure AD no Azure Monitor (pré-visualização)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
@@ -1969,7 +1969,7 @@ As seguintes aplicações estão na lista de [aplicações de clientes aprovadas
 
 - Microsoft Stream
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Acesso Condicional baseado em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
@@ -2319,7 +2319,7 @@ A notificação de aplicações móveis só pode ser ligada como parte de uma po
 
 ---
 
-## <a name="june-2018"></a>Junho de 2018
+## <a name="june-2018"></a>junho de 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança para o fluxo de autorização delegado para apps que utilizam Azure AD Activity Logs API
 
@@ -2463,7 +2463,7 @@ Para mais informações sobre a pré-visualização pública, consulte as [funç
 
 ---
 
-## <a name="may-2018"></a>May 2018
+## <a name="may-2018"></a>Maio de 2018
 
 ### <a name="expressroute-support-changes"></a>Alterações de suporte ExpressRoute
 
@@ -2633,7 +2633,7 @@ Para mais informações, consulte [Azure AD B2C: Solicitando fichas de acesso.](
 
 Ao configurar aplicações SSO baseadas em SAML, é capaz de testar a integração na página de configuração. Se encontrar um erro durante a entrada, pode fornecer o erro na experiência de teste e a Azure AD fornece-lhe medidas de resolução para resolver o problema específico.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
 - [Como depurar o único sign-on baseado em SAML para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
@@ -2768,7 +2768,7 @@ A Azure AD envia uma notificação quando um certificado para um pedido de galer
 
 Alguns utilizadores não receberam notificações para aplicações empresariais configuradas para um único sign-on baseado em SAML. Esta questão foi resolvida. A Azure AD envia notificação para certificados que expiram em 7, 30 e 60 dias. Você pode ver este evento nos registos de auditoria.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Gerir certificados para inscrição única federada no Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
 - [Relatório de atividade de auditoria no portal do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
@@ -2797,7 +2797,7 @@ Suporte de acesso condicional gerido **intune:** Agora pode exigir que os colabo
 
 Leia mais sobre isso na nossa [publicação de blog.](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/)
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Acesso Condicional baseado em aplicações de configuração](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
@@ -3058,7 +3058,7 @@ Azure AD Connect é a ferramenta preferida para sincronizar dados entre Azure AD
 
 Esta versão tem as seguintes atualizações e alterações:
 
-**Problemas corrigidos**
+**Questões fixas**
 
 - Fixar a janela de tempo nas tarefas de fundo para a página de filtragem de partição ao mudar para a página seguinte.
 
@@ -3114,7 +3114,7 @@ As seguintes candidaturas serão adicionadas até ao final de fevereiro:
 
 - Faturação da Microsoft
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Requisito de aplicação de cliente aprovado](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview)
 - [Acesso Condicional baseado em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -3211,7 +3211,7 @@ Com a disponibilidade geral da nova consola da Azure Ative Directory Administrat
 
 Como parte da transição para a nova consola de administração, disponibilizamos 2 novos APIs para recuperar registos de atividade azure. O novo conjunto de APIs fornece uma funcionalidade de filtragem e triagem mais rica, além de proporcionar atividades de auditoria e de inscrição mais ricas. Os dados anteriormente disponíveis através dos relatórios de segurança podem agora ser acedidos através da API de deteção de risco de Proteção de Identidade no Microsoft Graph.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Começar com o Diretório Ativo Azure reportando API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)
 
@@ -3227,7 +3227,7 @@ Para obter mais informações, consulte:
 
 Agora pode ir ao Painel de Acesso e ver os termos de utilização que aceitou anteriormente.
 
-Siga estes passos.
+Siga estes passos:
 
 1. Vá ao [portal MyApps](https://myapps.microsoft.com)e inscreva-se.
 
@@ -3323,7 +3323,7 @@ Para mais informações, consulte [as topologias skype for Business suportadas c
 
 **Tipo:** Categoria **de Serviço de** Funcionalidade Alterada: Capacidade privilegiada de produto de gestão de **identidade:** Gestão de Identidade privilegiada
 
-Com a atualização de pré-visualização pública da Azure AD Privileged Identity Management (PIM) para Azure Role-Based Access Control (RBAC), pode agora:
+Com a atualização de pré-visualização pública da Azure AD Privileged Identity Management (PIM) para o controlo de acesso baseado em funções Azure (Azure RBAC), pode agora:
 
 * Use apenas a administração suficiente.
 * Requer aprovação para ativar funções de recursos.
@@ -3372,7 +3372,7 @@ As seguintes aplicações estão na lista de [aplicações de clientes aprovadas
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - Microsoft StaffHub
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Requisito de aplicação de cliente aprovado](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview)
 - [Acesso Condicional baseado em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
@@ -3454,7 +3454,7 @@ Agora pode incluir (ou excluir) o macOS como condição da plataforma do disposi
 - **Certifique-se de que os dispositivos macOS aderem às políticas de conformidade da sua organização definidas no Intune.** No Intune, no portal Azure, pode agora configurar políticas de conformidade para dispositivos macOS.
 - **Restringir o acesso a aplicações em Azure AD a apenas dispositivos macOS compatíveis.** A autoria da política de acesso condicional tem o macOS como uma opção de plataforma de dispositivos separada. Agora pode autoria políticas de Acesso Condicional específicas ao macOS para a aplicação direcionada definida no Azure.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Criar uma política de conformidade para dispositivos macOS com o Intune](https://aka.ms/macoscompliancepolicy)
 - [Acesso Condicional em Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
@@ -3501,7 +3501,7 @@ As seguintes aplicações foram adicionadas à lista de [aplicações de cliente
 - Microsoft Planner
 - Azure Information Protection
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Requisito de aplicação de cliente aprovado](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview)
 - [Acesso Condicional baseado em aplicativos Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)

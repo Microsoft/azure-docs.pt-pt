@@ -3,11 +3,12 @@ title: Monitorização do desempenho da aplicação web - Azure Application Insi
 description: Como os Insights de Aplicação se enquadram no ciclo de devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa62e8840c14e87d24db029d6bb7a215124a0511
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033687"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que preciso de Insights de Aplicação?
@@ -109,7 +110,7 @@ O Application Map descobre automaticamente a topologia da sua aplicação, coloc
 ![Mapeamento de Aplicações](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Aplicações Insights Analytics
-Com [o Analytics,](../../azure-monitor/app/analytics.md)pode escrever consultas arbitrárias numa poderosa linguagem sql.  O diagnóstico em toda a pilha de aplicações torna-se fácil à medida que várias perspetivas se conectam e você pode fazer as perguntas certas para correlacionar o Desempenho do Serviço com as Métricas de Negócio e a Experiência do Cliente. 
+Com [o Analytics,](../log-query/log-query-overview.md)pode escrever consultas arbitrárias numa poderosa linguagem sql.  O diagnóstico em toda a pilha de aplicações torna-se fácil à medida que várias perspetivas se conectam e você pode fazer as perguntas certas para correlacionar o Desempenho do Serviço com as Métricas de Negócio e a Experiência do Cliente. 
 
 Pode consultar todas as suas instâncias de telemetria e dados métricos em bruto armazenados no portal. O idioma inclui filtro, junção, agregação e outras operações. Pode calcular campos e realizar análises estatísticas. Existem visualizações tabulares e gráficas.
 
@@ -153,10 +154,9 @@ Quando um alerta é levantado, o Application Insights pode criar automaticamente
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Começar com a Application Insights é fácil. As principais opções são:
 
 * [Servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), e também para [o Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumento o seu projeto durante o desenvolvimento. Pode [fazê-lo](../../azure-monitor/app/asp-net.md) para aplicações ASP.NET ou [Java,](../../azure-monitor/app/java-get-started.md) bem como [Node.js](../../azure-monitor/app/nodejs.md) e uma série de [outros tipos.](../../azure-monitor/app/platforms.md) 
 * Instrumento [qualquer página web](../../azure-monitor/app/javascript.md) adicionando um pequeno corte de código.
-

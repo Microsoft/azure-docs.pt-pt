@@ -4,12 +4,12 @@ description: O lote suporta o Azure AD para autenticação a partir do serviço 
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: a8601c69c37e973118a7ec9521070864caffb101
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032464"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço batch com Diretório Ativo
 
@@ -193,7 +193,7 @@ Aqui está um exemplo de uma definição de papel personalizado:
 }
 ```
 
-Para obter informações mais gerais sobre a criação de um papel personalizado, consulte [funções personalizadas para recursos Azure](../role-based-access-control/custom-roles.md).
+Para obter informações mais gerais sobre a criação de um papel personalizado, consulte [os papéis personalizados da Azure.](../role-based-access-control/custom-roles.md)
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Obtenha a iD do inquilino para o seu Diretório Ativo Azure
 

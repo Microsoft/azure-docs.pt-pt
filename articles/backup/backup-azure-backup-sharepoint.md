@@ -3,12 +3,12 @@ title: Apoiar uma quinta sharePoint para Azure com DPM
 description: Este artigo fornece uma visão geral da proteção do servidor de backup DPM/Azure de uma fazenda SharePoint para Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 447776af7cb021fd0c3381334bf3acf258ff22ab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032889"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Apoiar uma quinta sharePoint para Azure com DPM
 
@@ -32,7 +32,7 @@ Pré-requisitos e limitações adicionais podem ser encontrados no Back up Share
 
 ## <a name="configure-backup"></a>Configurar a cópia de segurança
 
-Para criar cópias de segurança do farm do SharePoint, configure a proteção para o SharePoint através do ConfigureSharePoint.exe e, em seguida, crie um grupo de proteção no DPM. Para obter instruções, consulte [a Cópia de Segurança configurada](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) na documentação DPM.
+Para criar cópias de segurança do farm do SharePoint, configure a proteção para o SharePoint através do ConfigureSharePoint.exe e, em seguida, crie um grupo de proteção no DPM. Para obter instruções, consulte [a Cópia de Segurança configurada](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) na documentação DPM.
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -73,7 +73,7 @@ Para aprender a restaurar um item SharePoint a partir de um disco com DPM, consu
 
 Se tiver mais do que um servidor web frontal e quiser mudar o servidor que o DPM utiliza para proteger a quinta, siga as instruções para [mudar o Servidor Web front-end](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Backup Server e DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
 * [Troubleshoot System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md) (Resolver Problemas do System Center Data Protection Manager)

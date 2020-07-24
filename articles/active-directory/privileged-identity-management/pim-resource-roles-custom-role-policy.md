@@ -1,6 +1,6 @@
 ---
-title: Use funções personalizadas para recursos Azure em PIM - Azure AD / Microsoft Docs
-description: Saiba como utilizar funções personalizadas para recursos Azure em Azure AD Gestão de Identidade Privilegiada (PIM).
+title: Use funções personalizadas Azure em PIM - Azure AD / Microsoft Docs
+description: Saiba como utilizar funções personalizadas Azure na Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,14 +14,14 @@ ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa51508746d0024be0a5acfaeeac62e86db67d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1c9255de6b9f449a89a994cb3286139daa28ea9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743750"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034104"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Use funções personalizadas para recursos Azure em Gestão de Identidade Privilegiada
+# <a name="use-azure-custom-roles-in-privileged-identity-management"></a>Use funções personalizadas Azure na Gestão de Identidade Privilegiada
 
 Poderá ter de aplicar configurações estritas de Gestão de Identidade Privilegiada (PIM) a alguns utilizadores num papel privilegiado na sua organização Azure Ative Directory (Azure AD), ao mesmo tempo que proporciona uma maior autonomia para outros. Considere, por exemplo, um cenário em que a sua organização contrata vários associados contratuais para ajudar no desenvolvimento de uma aplicação que será executada numa subscrição do Azure.
 
@@ -31,7 +31,7 @@ Siga os passos descritos na secção seguinte para configurar configurações de
 
 ## <a name="create-the-custom-role"></a>Criar o papel personalizado
 
-Para criar um papel personalizado para um recurso, siga os passos descritos na [Criar funções personalizadas para O Controlo de Acesso Baseado em Funções Azure](../role-based-access-control-custom-roles.md).
+Para criar um papel personalizado para um recurso, siga os passos descritos nas [funções personalizadas Azure](../role-based-access-control-custom-roles.md).
 
 Quando criar um papel personalizado, inclua um nome descritivo para que possa facilmente lembrar qual o papel incorporado que pretendia duplicar.
 
@@ -48,7 +48,7 @@ Depois de o papel ser criado na sua organização Azure AD, vá para a página *
 
 Por fim, [atribua funções](pim-resource-roles-assign-roles.md) ao distinto grupo de membros que pretende direcionar com estas definições.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
 - [Custom roles in Azure](../../role-based-access-control/custom-roles.md) (Funções personalizadas no Azure)

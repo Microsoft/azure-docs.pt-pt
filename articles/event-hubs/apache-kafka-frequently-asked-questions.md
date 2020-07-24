@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs para Apache Kafka
 description: Este artigo mostra como os consumidores e produtores que usam diferentes protocolos (AMQP, Apache Kafka e HTTPS) podem trocar eventos ao utilizarem os Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 066024f657e011aac1449106ec32689f145c5534
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bdd86d9f299a69d5f2d05bb8ec526ed94780608
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314180"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031688"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Perguntas frequentes - Centros de Eventos para Apache Kafka 
 Este artigo fornece respostas a algumas das perguntas frequentes sobre migração para Centros de Eventos para Apache Kafka.
@@ -35,11 +35,11 @@ Qual é a diferença entre um grupo de consumidores event hub e um grupo de cons
 - São totalmente distintos dos grupos de consumidores Event Hubs. Não **don't** precisa de usar o "$Default", nem precisa de se preocupar com os clientes da Kafka que interferem com as cargas de trabalho da AMQP.
 - Não são vistos no portal Azure. A informação do grupo de consumidores é acessível através de APIs kafka.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Guia de desenvolvedores apache Kafka para centros de eventos](apache-kafka-developer-guide.md)
 - [Guia de migração apache Kafka para centros de eventos](apache-kafka-migration-guide.md)
 - [Guia de resolução de problemas de Apache Kafka para centros de eventos](apache-kafka-troubleshooting-guide.md)
-- [Configurações recomendadas](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Configurações recomendadas](apache-kafka-configurations.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 07a6b84569fe0356267440e38b31ac738b2659d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6892f4ebb250290a0faad546fd000530baf4479
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260836"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038176"
 ---
 # <a name="step-3-validate-connectivity"></a>PASSO 3: Validar a conectividade
 
@@ -54,21 +54,23 @@ O script de validação executa as seguintes verificações:
 
 1. Verifica se o ficheiro inclui o seguinte texto:
 
-        <source>
-            type syslog
-            port 25226
-            bind 127.0.0.1
-            protocol_type tcp
-            tag oms.security
-            format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
-            <parse>
-                message_format auto
-            </parse>
-        </source>
+    ```console
+    <source>
+        type syslog
+        port 25226
+        bind 127.0.0.1
+        protocol_type tcp
+        tag oms.security
+        format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
+        <parse>
+            message_format auto
+        </parse>
+    </source>
 
-        <filter oms.security.**>
-            type filter_syslog_security
-        </filter>
+    <filter oms.security.**>
+        type filter_syslog_security
+    </filter>
+    ```
 
 1. Verifique se existem melhorias de segurança na máquina que possam estar a bloquear o tráfego da rede (como uma firewall de hospedeiro).
 
@@ -76,17 +78,21 @@ O script de validação executa as seguintes verificações:
 
     - Ficheiro de configuração:`/etc/rsyslog.d/security-config-omsagent.conf`
 
-            :rawmsg, regex, "CEF"|"ASA"
-            *.* @@127.0.0.1:25226
-
+        ```console
+        :rawmsg, regex, "CEF"|"ASA"
+        *.* @@127.0.0.1:25226
+        ```
+  
 1. Verifica se o syslog Daemon está a receber dados sobre o porto 514
 
 1. Verifica se estão estabelecidas as ligações necessárias: tcp 514 para receção de dados, tcp 25226 para comunicação interna entre o syslog daemon e o agente Log Analytics
 
 1. Envia dados MOCK para o porto 514 na localidade local. Estes dados devem ser observáveis no espaço de trabalho Azure Sentinel, executando a seguinte consulta:
 
-        CommonSecurityLog
-        | where DeviceProduct == "MOCK"
+    ```console
+    CommonSecurityLog
+    | where DeviceProduct == "MOCK"
+    ```
 
 # <a name="syslog-ng-daemon"></a>[syslog-ng daemon](#tab/syslogng)
 
@@ -96,21 +102,23 @@ O script de validação executa as seguintes verificações:
 
 1. Verifica se o ficheiro inclui o seguinte texto:
 
-        <source>
-            type syslog
-            port 25226
-            bind 127.0.0.1
-            protocol_type tcp
-            tag oms.security
-            format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
-            <parse>
-                message_format auto
-            </parse>
-        </source>
+    ```console
+    <source>
+        type syslog
+        port 25226
+        bind 127.0.0.1
+        protocol_type tcp
+        tag oms.security
+        format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
+        <parse>
+            message_format auto
+        </parse>
+    </source>
 
-        <filter oms.security.**>
-            type filter_syslog_security
-        </filter>
+    <filter oms.security.**>
+        type filter_syslog_security
+    </filter>
+    ```
 
 1. Verifique se existem melhorias de segurança na máquina que possam estar a bloquear o tráfego da rede (como uma firewall de hospedeiro).
 
@@ -118,9 +126,11 @@ O script de validação executa as seguintes verificações:
 
     - Ficheiro de configuração:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
-            filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-            destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
-            log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```console
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
 
 1. Verifica se o syslog Daemon está a receber dados sobre o porto 514
 
@@ -128,12 +138,13 @@ O script de validação executa as seguintes verificações:
 
 1. Envia dados MOCK para o porto 514 na localidade local. Estes dados devem ser observáveis no espaço de trabalho Azure Sentinel, executando a seguinte consulta:
 
-        CommonSecurityLog
-        | where DeviceProduct == "MOCK"
-
+    ```console
+    CommonSecurityLog
+    | where DeviceProduct == "MOCK"
+    ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16452337eeda86a9b019897954179bfe6db6e1b2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031997"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Restringir o acesso do utilizador apenas às operações de dados
 
@@ -51,7 +51,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## <a name="create-the-custom-azure-active-directory-role"></a>Crie o papel personalizado do Azure Ative Directory
 
-O seguinte script cria uma atribuição de papel de Azure Ative Directory com acesso "Key Only" para contas Azure Cosmos. O papel baseia-se em [papéis personalizados para recursos Azure](../role-based-access-control/custom-roles.md) e [ações granulares para Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Estes papéis e ações fazem parte do espaço de nome do `Microsoft.DocumentDB` Azure Ative Directory.
+O seguinte script cria uma atribuição de papel de Azure Ative Directory com acesso "Key Only" para contas Azure Cosmos. O papel baseia-se em [papéis personalizados da Azure](../role-based-access-control/custom-roles.md) e [ações granulares para a Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Estes papéis e ações fazem parte do espaço de nome do `Microsoft.DocumentDB` Azure Ative Directory.
 
 1. Em primeiro lugar, crie um documento JSON nomeado `AzureCosmosKeyOnlyAccess.json` com o seguinte conteúdo:
 
@@ -94,7 +94,7 @@ $cdba.Properties.disableKeyBasedMetadataWriteAccess="True"
 $cdba | Set-AzResource -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o controlo de acesso baseado em papéis da Cosmos DB](role-based-access-control.md)
 - Obtenha uma visão geral do [acesso seguro aos dados em Cosmos DB](secure-access-to-data.md)

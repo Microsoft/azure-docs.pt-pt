@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 699df6ab44a08645c9f46e95cd2ad279de75ea70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509664"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036935"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como alvo de backup com Backup Exec
 
@@ -314,7 +314,7 @@ Aqui está um exemplo de um horário de rotação GFS para quatro semanas, mensa
 |---|---|---|
 | Semanal (semanas 1-4) | Saturday | Segunda-feira a sexta-feira |
 | Mensalmente  | Saturday  |   |
-| Anual | Saturday  |   |
+| Anualmente | Saturday  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Atribuir volumes StorSimple a um trabalho de backup do Executivo de backup
@@ -388,7 +388,7 @@ A tabela seguinte mostra como configurar backups para executar nos discos locais
 | Semana 3 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2-4 |   |   |   |   |   |
 | Mensalmente | StorSimple mensalmente |   |   |   |   |   |
-| Anual | StorSimple anualmente  |   |   |   |   |   |
+| Anualmente | StorSimple anualmente  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Atribuir volumes StorSimple a um arquivo executivo de backup e trabalho de desduplica
@@ -439,7 +439,7 @@ A secção seguinte descreve como criar um script curto para iniciar e eliminar 
 
 ![Diagrama de ciclo de vida de reserva](./media/storsimple-configure-backup-target-using-backup-exec/backuplifecycle.png)
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
 -   O servidor que executa o script deve ter acesso aos recursos da nuvem Azure.
 -   A conta de utilizador deve ter as permissões necessárias.
@@ -448,7 +448,7 @@ A secção seguinte descreve como criar um script curto para iniciar e eliminar 
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar ou apagar uma imagem em nuvem
 
-1. [Instalar o Azure PowerShell](/powershell/azure/overview).
+1. [Instalar o Azure PowerShell](/powershell/azure/).
 2. Baixar e configurar [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) script PowerShell.
 3. No servidor que executa o script, executa o PowerShell como administrador. Certifique-se de que executa o script `-WhatIf $true` para ver quais as alterações que o script irá fazer. Uma vez concluída a validação, `-WhatIf $false` passe. Executar o comando abaixo:
    ```powershell
@@ -472,7 +472,7 @@ Os restauros de um dispositivo StorSimple funcionam como restauros de qualquer d
 
 Um desastre pode ser causado por uma variedade de fatores. A tabela que se segue lista cenários comuns de recuperação de desastres.
 
-| Scenario | Impacto | Como recuperar | Notas |
+| Cenário | Impacto | Como recuperar | Notas |
 |---|---|---|---|
 | Falha do dispositivo StorSimple | As operações de backup e restauro são interrompidas. | Substitua o dispositivo falhado e execute [a storSimple failover e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md). | Se necessitar de efetuar uma restauração após a recuperação do dispositivo, os conjuntos completos de trabalho de dados são recuperados da nuvem para o novo dispositivo. Todas as operações estão a velocidades de nuvem. O processo de indexação e catalogação de rescanning pode fazer com que todos os conjuntos de backup sejam digitalizados e puxados do nível de nuvem para o nível do dispositivo local, o que pode ser um processo demorado. |
 | Falha do servidor do Backup Exec | As operações de backup e restauro são interrompidas. | Reconstruir o servidor de backup e executar a restauração da base de dados conforme detalhado em [Como fazer uma base de dados manual de Backup e Restaurar o Backup Exec (BEDB).](http://www.veritas.com/docs/000041083) | Tem de reconstruir ou restaurar o servidor Backup Exec no local de recuperação de desastres. Restaurar a base de dados até ao ponto mais recente. Se a base de dados do Backup Exec restaurada não estiver sincronizada com os seus últimos trabalhos de backup, é necessário indexar e catalogar. Este processo de rescaning de índice e catálogo pode fazer com que todos os conjuntos de backup sejam digitalizados e retirados do nível de nuvem para o nível do dispositivo local. Isto torna-o mais intensivo em tempo. |
@@ -487,7 +487,7 @@ Para este artigo foram referenciados os seguintes documentos:
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias-sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como restaurar a [partir de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como executar o [failover do dispositivo e a recuperação de desastres](storsimple-device-failover-disaster-recovery.md).

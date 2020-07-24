@@ -6,14 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1a8f48ff365ffae4a7013d2bfd537721ba2bc381
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: a8e1d43138e0b7481ebb89d747fa26df9470a09f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172698"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037140"
 ---
-# <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e Base OS para aplicações de microserviços de primavera
+# <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e Base OS para Aplicações de Microsserviços Spring
 Seguem-se os princípios para a manutenção de java saudável e sistema operativo base para aplicações de microserviços da primavera.
 ## <a name="principles-for-healthy-java-and-base-os"></a>Princípios para java saudável e base OS
 * Deve ser o mesmo sistema operativo base em níveis - Básico Standard / Premium, prémio.

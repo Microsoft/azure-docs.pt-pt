@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 50c52369a5a957a4dd6279cac5079e2dea023106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61463408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038448"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Predefinições de amostra para Media Encoder Standard (MES)
 
@@ -29,7 +29,7 @@ ms.locfileid: "61463408"
 Os Serviços de Comunicação Social suportam totalmente a personalização de todos os valores em predefinições para satisfazer as suas necessidades e requisitos específicos de codificação. Se precisar de personalizar uma predefinição codificante, deve começar com uma das predefinições do sistema abaixo que são fornecidas nesta secção como um modelo para a sua configuração personalizada. Para obter explicações sobre o que significa cada elemento nestas predefinições e os valores válidos para cada elemento, consulte o tópico [de esquema padrão Media Encoder.](media-services-mes-schema.md)  
   
 > [!NOTE]
->  Ao utilizar uma pré-sintonia para codificações de 4k, deve obter o `S3` tipo de unidade reservada. Para mais informações, consulte [Como Escalar a Codificação.](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)  
+>  Ao utilizar uma pré-sintonia para codificações de 4k, deve obter o `S3` tipo de unidade reservada. Para mais informações, consulte [Como Escalar a Codificação.](./media-services-scale-media-processing-overview.md)  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>Definição padrão de rotação de vídeo em pré-sintonias:
 Ao trabalhar com o Media Encoder Standard, a rotação de vídeo é ativada por padrão. Se o seu vídeo tiver sido gravado num dispositivo móvel no modo Retrato, então estas predefinições irão rodá-las para o modo Paisagem antes da codificação.
@@ -86,4 +86,4 @@ Ao trabalhar com o Media Encoder Standard, a rotação de vídeo é ativada por 
   
  [H264 Single Bitrate Low Quality SD para Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produz um único ficheiro MP4 com um bitrate de 56 kbps, e áudio AAC estéreo.  
   
- Para obter mais informações relacionadas com os codificadores dos Media Services, consulte [a Codificação a Pedido com a Azure Media Services](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).
+ Para obter mais informações relacionadas com os codificadores dos Media Services, consulte [a Codificação a Pedido com a Azure Media Services](./media-services-encode-asset.md).

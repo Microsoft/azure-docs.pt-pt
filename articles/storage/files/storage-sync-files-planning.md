@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552181"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036799"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 
@@ -303,37 +303,37 @@ O Azure File Sync está disponível nas seguintes regiões:
 
 | Nuvem do Azure | Região geográfica | Região do Azure | Código da região |
 |-------------|-------------------|--------------|-------------|
-| Público | Ásia | Ásia Leste | `eastasia` |
-| Público | Ásia | Ásia Sudeste | `southeastasia` |
-| Público | Austrália | Leste da Austrália | `australiaeast` |
-| Público | Austrália | Austrália Sudeste | `australiasoutheast` |
-| Público | Brasil | Sul do Brasil | `brazilsouth` |
-| Público | Canadá | Canadá Central | `canadacentral` |
-| Público | Canadá | Leste do Canadá | `canadaeast` |
-| Público | Europa | Europa do Norte | `northeurope` |
-| Público | Europa | Europa Ocidental | `westeurope` |
-| Público | França | França Central | `francecentral` |
-| Público | França | França Sul* | `francesouth` |
-| Público | Índia | Índia Central | `centralindia` |
-| Público | Índia | Sul da Índia | `southindia` |
-| Público | Japão | Leste do Japão | `japaneast` |
-| Público | Japão | Oeste do Japão | `japanwest` |
-| Público | Coreia | Coreia do Sul Central | `koreacentral` |
-| Público | Coreia | Sul da Coreia do Sul | `koreasouth` |
-| Público | África do Sul | África do Sul Norte | `southafricanorth` |
-| Público | África do Sul | África do Sul Oeste* | `southafricawest` |
-| Público | E.A.U. | UAE Central* | `uaecentral` |
-| Público | E.A.U. | Uae Norte | `uaenorth` |
-| Público | REINO UNIDO | Sul do Reino Unido | `uksouth` |
-| Público | REINO UNIDO | Oeste do Reino Unido | `ukwest` |
-| Público | EUA | E.U.A. Central | `centralus` |
-| Público | EUA | E.U.A. Leste | `eastus` |
-| Público | EUA | E.U.A. Leste 2 | `eastus2` |
-| Público | EUA | E.U.A. Centro-Norte | `northcentralus` |
-| Público | EUA | E.U.A. Centro-Sul | `southcentralus` |
-| Público | EUA | E.U.A. Centro-Oeste | `westcentralus` |
-| Público | EUA | E.U.A. Oeste | `westus` |
-| Público | EUA | E.U.A.Oeste 2 | `westus2` |
+| Públicos | Ásia | Ásia Leste | `eastasia` |
+| Públicos | Ásia | Sudeste Asiático | `southeastasia` |
+| Públicos | Austrália | Leste da Austrália | `australiaeast` |
+| Públicos | Austrália | Sudeste da Austrália | `australiasoutheast` |
+| Públicos | Brasil | Sul do Brasil | `brazilsouth` |
+| Públicos | Canadá | Canadá Central | `canadacentral` |
+| Públicos | Canadá | Leste do Canadá | `canadaeast` |
+| Públicos | Europa | Europa do Norte | `northeurope` |
+| Públicos | Europa | Europa Ocidental | `westeurope` |
+| Públicos | França | França Central | `francecentral` |
+| Públicos | França | França Sul* | `francesouth` |
+| Públicos | Índia | Índia Central | `centralindia` |
+| Públicos | Índia | Sul da Índia | `southindia` |
+| Públicos | Japão | Leste do Japão | `japaneast` |
+| Públicos | Japão | Oeste do Japão | `japanwest` |
+| Públicos | Coreia | Coreia do Sul Central | `koreacentral` |
+| Públicos | Coreia | Sul da Coreia do Sul | `koreasouth` |
+| Públicos | África do Sul | África do Sul Norte | `southafricanorth` |
+| Públicos | África do Sul | África do Sul Oeste* | `southafricawest` |
+| Públicos | E.A.U. | UAE Central* | `uaecentral` |
+| Públicos | E.A.U. | Uae Norte | `uaenorth` |
+| Públicos | REINO UNIDO | Sul do Reino Unido | `uksouth` |
+| Públicos | REINO UNIDO | Oeste do Reino Unido | `ukwest` |
+| Públicos | EUA | E.U.A. Central | `centralus` |
+| Públicos | EUA | E.U.A. Leste | `eastus` |
+| Públicos | EUA | E.U.A. Leste 2 | `eastus2` |
+| Públicos | EUA | E.U.A. Centro-Norte | `northcentralus` |
+| Públicos | EUA | E.U.A. Centro-Sul | `southcentralus` |
+| Públicos | EUA | E.U.A. Centro-Oeste | `westcentralus` |
+| Públicos | EUA | E.U.A. Oeste | `westus` |
+| Públicos | EUA | E.U.A. Oeste 2 | `westus2` |
 | US Gov | EUA | US Gov - Arizona | `usgovarizona` |
 | US Gov | EUA | US Gov - Texas | `usgovtexas` |
 | US Gov | EUA | US Gov - Virginia | `usgovvirginia` |
@@ -360,7 +360,7 @@ Também é possível utilizar a Caixa de Dados para migrar dados para uma implem
 Um erro comum que os clientes cometem ao migrar dados para a sua nova implementação do Azure File Sync é copiar dados diretamente para a partilha de ficheiros Azure, em vez de nos seus servidores de ficheiros Windows. Embora o Azure File Sync identifique todos os novos ficheiros da partilha de ficheiros Azure e os sincronize de volta às partilhas de ficheiros do Windows, este é geralmente consideravelmente mais lento do que carregar dados através do servidor de ficheiros Windows. Ao utilizar ferramentas de cópia Azure, como a AzCopy, é importante utilizar a versão mais recente. Consulte a tabela de ferramentas de cópia de [ficheiros](storage-files-migration-overview.md#file-copy-tools) para obter uma visão geral das ferramentas de cópia do Azure para garantir que pode copiar todos os metadados importantes de um ficheiro, tais como timetamps e ACLs.
 
 ## <a name="antivirus"></a>Antivírus
-Como o antivírus funciona através da verificação de ficheiros para código malicioso conhecido, um produto antivírus pode causar a recolha de ficheiros hierárquicos. Nas versões 4.0 e acima do agente Azure File Sync, os ficheiros hierárquicos têm o atributo Windows seguro FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto. Recomendamos consultar o seu fornecedor de software para aprender a configurar a sua solução para saltar ficheiros de leitura com este conjunto de atributos (muitos o fazem automaticamente). 
+Como o antivírus funciona através da verificação de ficheiros para código malicioso conhecido, um produto antivírus pode causar a recolha de ficheiros hierárquicos, resultando em elevadas cargas de saída. Nas versões 4.0 e acima do agente Azure File Sync, os ficheiros hierárquicos têm o atributo Windows seguro FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto. Recomendamos consultar o seu fornecedor de software para aprender a configurar a sua solução para saltar ficheiros de leitura com este conjunto de atributos (muitos o fazem automaticamente). 
 
 As soluções antivírus internas da Microsoft, o Windows Defender e o System Center Endpoint Protection (SCEP), ambos saltam automaticamente os ficheiros de leitura que têm este conjunto de atributos. Testámo-los e identificámos um pequeno problema: quando adicionas um servidor a um grupo de sincronização existente, ficheiros com menos de 800 bytes são recolhidos (descarregados) no novo servidor. Estes ficheiros permanecerão no novo servidor e não serão nivelados, uma vez que não cumprem o requisito de tamanho de tiering (>64kb).
 
@@ -368,9 +368,9 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 > Os fornecedores antivírus podem verificar a compatibilidade entre o seu produto e o Azure File Sync, utilizando o [Azure File Sync Antivirus Compatibilidade Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Microsoft Download Center.
 
 ## <a name="backup"></a>Backup 
-Tal como as soluções antivírus, as soluções de backup podem causar a recolha de ficheiros hierárquicos. Recomendamos a utilização de uma solução de backup em nuvem para fazer backup da partilha de ficheiros Azure em vez de um produto de backup no local.
+Se o tiering da nuvem estiver ativado, não devem ser utilizadas soluções que recuem diretamente no ponto final do servidor ou num VM no qual se encontra o ponto final do servidor. O tiering em nuvem faz com que apenas um subconjunto dos seus dados seja armazenado no ponto final do servidor, com o conjunto de dados completo a residir na sua partilha de ficheiros Azure. Dependendo da solução de backup utilizada, os ficheiros hierárquicos serão ignorados e não apoiados (porque têm o FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS conjunto de atributos), ou serão chamados ao disco, resultando em elevadas cargas de saída. Recomendamos a utilização de uma solução de backup em nuvem para fazer backup diretamente na partilha de ficheiros Azure. Para obter mais informações, consulte [a cópia de segurança da partilha de ficheiros Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) ou contacte o seu fornecedor de backup para ver se suportam o backup das ações de ficheiros Azure.
 
-Se estiver a utilizar uma solução de backup no local, devem ser realizadas cópias de segurança num servidor do grupo de sincronização que tenha o tiering da nuvem desativado. Ao efetuar uma restauração, utilize as opções de restauro de nível de volume ou de nível de ficheiro. Os ficheiros restaurados utilizando a opção de restauro do nível de ficheiro serão sincronizados em todos os pontos finais do grupo de sincronização e os ficheiros existentes serão substituídos pela versão restaurada a partir da cópia de segurança.  As restaurações ao nível do volume não substituirão as versões de ficheiros mais recentes na partilha de ficheiros Azure ou noutros pontos finais do servidor.
+Se preferir utilizar uma solução de backup no local, as cópias de segurança devem ser realizadas num servidor do grupo de sincronização que tenha o tiering da nuvem desativado. Ao efetuar uma restauração, utilize as opções de restauro de nível de volume ou de nível de ficheiro. Os ficheiros restaurados utilizando a opção de restauro do nível de ficheiro serão sincronizados em todos os pontos finais do grupo de sincronização e os ficheiros existentes serão substituídos pela versão restaurada a partir da cópia de segurança.  As restaurações ao nível do volume não substituirão as versões de ficheiros mais recentes na partilha de ficheiros Azure ou noutros pontos finais do servidor.
 
 > [!Note]  
 > A restauração de metal nu (BMR) pode causar resultados inesperados e não está atualmente suportada.
@@ -381,9 +381,9 @@ Se estiver a utilizar uma solução de backup no local, devem ser realizadas có
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
-* [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
+* [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 * [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)
-* [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

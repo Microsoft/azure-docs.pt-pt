@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 9cdbe0630060c9155187e1f62aba3d7a40ceae98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037513"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -71,7 +72,7 @@ A Azure Spring Cloud suporta a exportação de registos e métricas de aplicaç�
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud suporta o rastreio distribuído?
 
-Sim. Para obter mais informações, consulte [Tutorial: Use Rastreio Distribuído com Nuvem de primavera Azure](spring-cloud-tutorial-distributed-tracing.md).
+Yes. Para obter mais informações, consulte [Tutorial: Use Rastreio Distribuído com Nuvem de primavera Azure](spring-cloud-tutorial-distributed-tracing.md).
 
 ### <a name="what-resource-types-does-service-binding-support"></a>Que tipos de recursos suporta o suporte de ligação de serviço?
 
@@ -82,7 +83,7 @@ Atualmente, três serviços são suportados:
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Posso ver, adicionar ou mover volumes persistentes de dentro das minhas aplicações?
 
-Sim.
+Yes.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando apagar/mover uma instância de serviço Azure Spring Cloud, os seus recursos de extensão também serão eliminados/movidos?
 
@@ -136,7 +137,7 @@ Patches de segurança críticos (pontuação CVE >= 9) aplicáveis à Nuvem de p
 ## <a name="deployment"></a>Implementação
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>A Azure Spring Cloud suporta a implantação azul-esverdeado?
-Sim. Para obter mais informações, consulte [Configurar um ambiente de preparação.](spring-cloud-howto-staging-environment.md)
+Yes. Para obter mais informações, consulte [Configurar um ambiente de preparação.](spring-cloud-howto-staging-environment.md)
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Posso aceder a Kubernetes para manipular os meus recipientes de aplicação?
 
@@ -144,7 +145,7 @@ Não.  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, pe
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>A Azure Spring Cloud suporta contentores de construção de fonte?
 
-Sim. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-launch-from-source.md).
+Yes. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-launch-from-source.md).
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>O Azure Spring Cloud suporta autoscaling em instâncias de aplicações?
 
@@ -161,6 +162,6 @@ Não.
 
 Após a migração, monitorize as suas métricas de CPU/RAM e o tráfego de rede para garantir que as instâncias de aplicação são dimensionadas adequadamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver mais perguntas, consulte o [guia de resolução de problemas da Nuvem de primavera de Azure](spring-cloud-troubleshoot.md).

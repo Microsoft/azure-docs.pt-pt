@@ -12,23 +12,23 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: ceaff4575713d4bf40bea621cbb08313aad11611
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 12d91e43576647b2ffbc1e78d2e059871dbe8a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267482"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033178"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database e Azure SQL Managed Instance connect and consultaer artigos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 O documento que se segue inclui links para exemplos Azure que mostram como conectar e consultar a Base de Dados Azure SQL e Azure SQL Managed Instance. Para algumas recomendações relacionadas para a Segurança do Nível de Transporte, consulte [considerações de TLS para a conectividade da base de dados.](#tls-considerations-for-database-connectivity)
 
-## <a name="quickstarts"></a>Guias de Início Rápido
+## <a name="quickstarts"></a>Inícios rápidos
 
-| |  |
+| Início Rápido | Descrição |
 |---|---|
-|[SQL Server Management Studio](connect-query-ssms.md)|Este quickstart demonstra como utilizar o SSMS para ligar a uma base de dados e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
+|[O SQL Server Management Studio](connect-query-ssms.md)|Este quickstart demonstra como utilizar o SSMS para ligar a uma base de dados e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este quickstart demonstra como usar o Azure Data Studio para se conectar a uma base de dados e, em seguida, usar declarações de Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
 |[Portal do Azure](connect-query-portal.md)|Este quickstart demonstra como utilizar o editor de consulta para ligar a uma base de dados (apenas Azure SQL Database), e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[Visual Studio Code](connect-query-vscode.md)|Este quickstart demonstra como usar o Código do Estúdio Visual para ligar a uma base de dados e, em seguida, usar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
@@ -36,7 +36,7 @@ O documento que se segue inclui links para exemplos Azure que mostram como conec
 |[.NET core](connect-query-dotnet-core.md)|Este quickstart demonstra como utilizar o Núcleo .NET no Windows/Linux/macOS para criar um programa C# para ligar a uma base de dados e utilizar declarações Transact-SQL para consultar dados.|
 |[Ir](connect-query-go.md)|Este quickstart demonstra como usar o Go para ligar a uma base de dados. As declarações Transact-SQL para consultar e modificar dados também são explicadas.|
 |[Java](connect-query-java.md)|Este quickstart demonstra como usar Java para ligar a uma base de dados e, em seguida, usar declarações Transact-SQL para consultar dados.|
-|[Node.js](connect-query-nodejs.md)|Este quickstart demonstra como usar o Node.js para criar um programa para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|
+|[Node.js](connect-query-nodejs.md)|Este quickstart demonstra como usar Node.js para criar um programa para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|
 |[PHP](connect-query-php.md)|Este quickstart demonstra como usar PHP para criar um programa para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|
 |[Python](connect-query-python.md)|Este quickstart demonstra como usar python para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados. |
 |[Ruby](connect-query-ruby.md)|Este quickstart demonstra como usar a Ruby para criar um programa para ligar a uma base de dados e usar declarações Transact-SQL para consultar dados.|
@@ -62,19 +62,19 @@ Pode utilizar várias bibliotecas e estruturas para ligar à Base de Dados Azure
 
 A tabela que se segue lista bibliotecas de conectividade ou *controladores* que as aplicações do cliente podem usar a partir de uma variedade de idiomas para se conectar e usar o SQL Server em funcionamento no local ou na nuvem. Pode usá-los em Linux, Windows ou Docker e usá-los para ligar à Base de Dados Azure SQL, Azure SQL Managed Instance e Azure SQL Data Warehouse.
 
-| Idioma | Plataforma | Recursos adicionais | Download | Introdução |
+| Linguagem | Plataforma | Recursos adicionais | Download | Introdução |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Transferir](https://www.microsoft.com/net/download/) | [Começar](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Controlador JDBC da Microsoft para SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Transferir](https://go.microsoft.com/fwlink/?linkid=852460) |  [Começar](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Controlador PHP SQL para SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Transferir](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Começar](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
-| Node.js | Windows, Linux, macOS | [Motorista de node.js para SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Instalar](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Começar](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Condutor python SQL](/sql/connect/python/python-driver-for-sql-server/) | Instalar escolhas: <br/> \*[pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \*[pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Começar](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Controlador de rubi para SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Instalar](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Começar](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Controlador ODBC da Microsoft para SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Transferir](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Transferência](https://www.microsoft.com/net/download/) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Controlador JDBC da Microsoft para SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Transferência](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Controlador PHP SQL para SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Transferência](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| Node.js | Windows, Linux, macOS | [Node.js controlador para o SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Instalar](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Condutor python SQL](/sql/connect/python/python-driver-for-sql-server/) | Instalar escolhas: <br/> \*[pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \*[pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Controlador de rubi para SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Instalar](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Controlador ODBC da Microsoft para SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Transferência](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
 
 A tabela que se segue lista exemplos de quadros de mapeamento relacional de objetos (ORM) e quadros web que as aplicações do cliente podem usar com SQL Server, Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics. Pode utilizar as estruturas em Linux, Windows ou Docker.
 
-| Idioma | Plataforma | ORM(s) |
+| Linguagem | Plataforma | ORM(s) |
 | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[Operação de hibernação](https://hibernate.org/orm)|
@@ -91,7 +91,7 @@ A tabela que se segue lista exemplos de quadros de mapeamento relacional de obje
 - Ligue à Base de Dados Azure SQL ou à Instância Gerida Azure SQL:
   - [Conecte-se e consulta usando .NET (C#)](connect-query-dotnet-core.md)
   - [Conecte-se e consultar PHP](connect-query-php.md)
-  - [Conecte-se e consultar o Node.js](connect-query-nodejs.md)
+  - [Conecte-se e consultar Node.js](connect-query-nodejs.md)
   - [Conecte-se e consultar o Java](connect-query-java.md)
   - [Conecte-se e consultar o Python](connect-query-python.md)
   - [Conecte-se e consultar o Ruby](connect-query-ruby.md)

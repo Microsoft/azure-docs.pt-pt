@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma piscina SQL Synapse (pré-visualização) usando o Synapse Studio'
+title: 'Quickstart: Criar uma piscina Sinapse SQL usando o Synapse Studio'
 description: Crie uma nova piscina Synapse SQL utilizando o Synapse Studio seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f85731a7f3ffef0adf35812ee8da4e0bbd89124f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036578"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Quickstart: Criar uma piscina SQL Synapse (pré-visualização) usando o Synapse Studio
+# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>Quickstart: Criar uma piscina Sinapse SQL usando o Synapse Studio
 
 O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar e analisar os seus dados. Uma piscina SQL oferece capacidades de computação e armazenamento baseadas em T-SQL. Depois de criar uma piscina SQL no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e entregues para uma visão analítica mais rápida.
 

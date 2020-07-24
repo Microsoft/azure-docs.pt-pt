@@ -3,12 +3,12 @@ title: Azure Service Bus - suspenda as entidades de mensagens
 description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagens Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339994"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038142"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar entidades de mensagens (desativar)
 
@@ -20,7 +20,7 @@ Uma suspensão ou reativação pode ser realizada pelo utilizador ou pelo sistem
 
 No portal, a secção **Propriedades** para a respetiva entidade permite alterar o estado; a imagem que se segue mostra o toggle para uma fila:
 
-![][1]
+![Screenshot da funcionalidade Service Bus com a definição de Propriedades realçada e a opção estado de fila definida para Ative e delineada a vermelho.][1]
 
 O portal só permite filas completamente incapacitantes. Também pode desativar as operações de envio e receção separadamente utilizando as APIs de [Nome de](/dotnet/api/microsoft.servicebus.namespacemanager) Serviços de ônibus no SDK.NET Framework, ou com um modelo de Gestor de Recursos Azure através do Azure CLI ou da Azure PowerShell.
 
@@ -47,7 +47,7 @@ $q.Status = "Disabled"
 Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

@@ -3,11 +3,12 @@ title: Utilização de Pesquisa em Insights de Aplicações Azure ! Microsoft Do
 description: Pesse e filtre a telemetria crua enviada pela sua aplicação web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a264f25f92bed1b93848c323fd59eafd7b09215
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695662"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033620"
 ---
 # <a name="using-search-in-application-insights"></a>Utilização de Pesquisa em Insights de Aplicações
 
@@ -91,7 +92,7 @@ Pode pesquisar por termos em qualquer um dos valores da propriedade. Isto é út
 
 Procure palavras completas, não sublagem. Utilize aspas para incluir caracteres especiais.
 
-| String | *Não* encontrado | Localizado |
+| Cadeia | *Não* encontrado | Localizado |
 | --- | --- | --- |
 | HomeController.Sobre |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Estados Unidos da América|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -142,9 +143,9 @@ Consulte o [resumo dos Limites.](../../azure-monitor/app/pricing.md#limits-summa
 
 Não registamos automaticamente os dados do POST, mas pode utilizar [chamadas trackTrace ou log](../../azure-monitor/app/asp-net-trace-logs.md). Coloque os dados POST no parâmetro da mensagem. Não é possível filtrar a mensagem da mesma forma que pode filtrar as propriedades, mas o limite de tamanho é maior.
 
-## <a name="next-steps"></a><a name="add"></a>Próximos passos
+## <a name="next-steps"></a><a name="add"></a>Passos seguintes
 
 * [Escreva consultas complexas em Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Enviar registos e telemetria personalizada para Insights de Aplicação](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Resolução de problemas](../../azure-monitor/app/troubleshoot-faq.md)
+* [Resolução de problemas](../faq.md)

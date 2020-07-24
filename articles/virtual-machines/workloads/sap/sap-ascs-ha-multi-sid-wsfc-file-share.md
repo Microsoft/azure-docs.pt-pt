@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978183"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035983"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>SAP ASCS/SCS exemplo multi-SID alta disponibilidade com Cluster de Falha de Falha do Servidor do Windows e partilha de ficheiros no Azure
 
@@ -41,10 +42,10 @@ Este artigo centra-se em como passar de uma única instalação ASCS/SCS para um
 >
 >O número máximo de casos SAP ASCS/SCS num cluster WSFC é igual ao número máximo de IPs frontais privados para cada balançador interno de carga Azure.
 >
-> A configuração introduzida nesta documentação ainda não é suportada para ser usada para [zonas de disponibilidade de Azure](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> A configuração introduzida nesta documentação ainda não é suportada para ser usada para [zonas de disponibilidade de Azure](../../../availability-zones/az-overview.md)
 > 
 
-Para obter mais informações sobre os limites do balanceador de carga, consulte a secção "IP frontal privado por balançador de carga" nos [limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere também a utilização do [SKU do Balanceador de Carga Padrão Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) em vez do SKU básico do balançador de carga Azure.
+Para obter mais informações sobre os limites do balanceador de carga, consulte a secção "IP frontal privado por balançador de carga" nos [limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere também a utilização do [SKU do Balanceador de Carga Padrão Azure](../../../load-balancer/load-balancer-standard-availability-zones.md) em vez do SKU básico do balançador de carga Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -287,7 +288,7 @@ Siga os mesmos passos de instalação e configuração descritos anteriormente p
 ### <a name="install-dbms-and-sap-application-servers"></a>Instalar servidores de aplicações DBMS e SAP
 Instale servidores de aplicações DBMS e SAP, conforme descrito anteriormente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Instale uma instância ASCS/SCS num cluster de falha sem discos partilhados][sap-official-ha-file-share-document]: Diretrizes oficiais do SAP para uma partilha de ficheiros HA
 

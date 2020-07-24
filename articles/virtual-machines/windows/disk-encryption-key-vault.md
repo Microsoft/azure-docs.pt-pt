@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa87fc874be5e60d018b5663b4655d069930ab88
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500757"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036153"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criar e configurar um cofre de chaves para o Azure Disk Encryption
 
@@ -25,7 +25,7 @@ A Azure Disk Encryption usa o Cofre da Chave Azure para controlar e gerir chaves
 Criar e configurar um cofre chave para uso com encriptação de disco Azure envolve três passos:
 
 > [!Note]
-> Tem de selecionar a opção nas definições de política de acesso do Azure Key Vault para permitir o acesso à Encriptação do Disco Azure para encriptação de volume.
+> Tem de selecionar a opção nas definições de política de acesso do Azure Key Vault para permitir o acesso à Encriptação do Disco Azure para encriptação de volume. Se ativou a firewall no cofre da chave, tem de ir ao separador 'Networking' no cofre de teclas e permitir o acesso aos Serviços Fidedignos da Microsoft. 
 
 1. Criar um grupo de recursos, se necessário.
 2. Criando um cofre de chaves. 
@@ -43,7 +43,7 @@ Pode também, se desejar, gerar ou importar uma chave de encriptação chave (KE
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instale ferramentas e ligue-se ao Azure
 
-Os passos deste artigo podem ser preenchidos com o [Azure CLI,](/cli/azure/)o [módulo Azure PowerShell Az,](/powershell/azure/overview)ou o [portal Azure](https://portal.azure.com).
+Os passos deste artigo podem ser preenchidos com o [Azure CLI,](/cli/azure/)o [módulo Azure PowerShell Az,](/powershell/azure/)ou o [portal Azure](https://portal.azure.com).
 
 Enquanto o portal é acessível através do seu navegador, a Azure CLI e a Azure PowerShell requerem instalação local; ver [Encriptação do Disco Azure para Windows: Instale ferramentas](disk-encryption-windows.md#install-tools-and-connect-to-azure) para mais detalhes.
 
@@ -61,7 +61,7 @@ Connect-AzAccount
 
 [!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Encriptação de disco Azure pré-requisitos do script CLI](https://github.com/ejarvi/ade-cli-getting-started)
 - [Encriptação de disco Azure pré-requisitos PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
-ms.openlocfilehash: 70a9e6392e21422d7513197fbf7a1a75e1f6ab8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037768"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Compreender o estado das aplicações no Azure Spring Cloud
 
@@ -31,7 +32,7 @@ Para visualizar o estado geral de um tipo de aplicação, selecione **Apps** no 
 
 | Enumeração | Definição |
 |:--:|:----------------:|
-| A executar | A implantação deve estar a funcionar. |
+| Em Execução | A implantação deve estar a funcionar. |
 | Parada | O destacamento deve ser interrompido. |
 
 **O estado de provisionamento só é acessível a partir do CLI.  É reportado como um dos seguintes valores:**
@@ -40,8 +41,8 @@ Para visualizar o estado geral de um tipo de aplicação, selecione **Apps** no 
 |:--:|:----------------:|
 | Criação | O recurso está a criar. |
 | Atualização | O recurso está a atualizar-se. |
-| Bem-sucedido | Forneceu recursos com sucesso e implanta o binário. |
-| Falhou | Não conseguiu alcançar o objetivo *bem sucedido.* |
+| Com êxito | Forneceu recursos com sucesso e implanta o binário. |
+| Com falhas | Não conseguiu alcançar o objetivo *bem sucedido.* |
 | Eliminar | O recurso está a ser apagado. Isto impede o funcionamento e o recurso não está disponível neste estado. |
 
 ## <a name="app-instances-status"></a>Estatuto de instâncias de aplicações
@@ -57,8 +58,8 @@ Para ver o estado de uma instância específica de uma aplicação implementada,
 | Enumeração | Definição |
 |:--:|:----------------:|
 | A iniciar | O binário é implantado com sucesso para o caso dado. O arranque do ficheiro do frasco pode falhar porque o frasco não pode funcionar corretamente. |
-| A executar | O caso funciona. |
-| Falhou | A aplicação não começou o binário do utilizador depois de várias retró concretizagens. |
+| Em Execução | O caso funciona. |
+| Com falhas | A aplicação não começou o binário do utilizador depois de várias retró concretizagens. |
 | Encerramento | A aplicação está a ser encerrada. |
 
 **O estado de descoberta do caso é reportado como um dos seguintes valores:**

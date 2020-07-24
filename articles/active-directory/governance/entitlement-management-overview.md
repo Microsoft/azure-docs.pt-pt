@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f05fa9f9f31011f04aee0d2bedbcd4c4dad5d39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338189"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034407"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -41,7 +41,7 @@ As organizações empresariais enfrentam frequentemente desafios na gestão do a
 Estes problemas são agravados para utilizadores que precisam de acesso de outra organização, como utilizadores externos que são de organizações da cadeia de fornecimento ou outros parceiros de negócio. Por exemplo:
 
 - Ninguém pode conhecer todos os indivíduos específicos nos diretórios de outra organização para poder convidá-los
-- Mesmo que pudessem convidar estes utilizadores, ninguém naquela organização se lembraria de gerir todos os acessos do utilizador de forma consistente.
+- Mesmo que pudessem convidar estes utilizadores, ninguém naquela organização se lembraria de gerir o acesso de todos os utilizadores de forma consistente.
 
 A gestão de direitos da AD Azure pode ajudar a resolver estes desafios.  Para saber mais sobre como os clientes têm usado a gestão de direitos Ad Azure, você pode ler o [estudo de caso Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) e o [estudo de caso Centrica.](https://customers.microsoft.com/story/757467-centrica-energy-azure)  Este vídeo fornece uma visão geral da gestão de direitos e do seu valor:
 
@@ -114,7 +114,7 @@ Os pacotes de acesso não substituem outros mecanismos de acesso.  São mais ade
 
 Para melhor compreender a gestão de direitos e a sua documentação, pode remeter para a seguinte lista de termos.
 
-| Termo | Description |
+| Termo | Descrição |
 | --- | --- |
 | pacote de acesso | Um conjunto de recursos que uma equipa ou projeto precisa e é governado com políticas. Um pacote de acesso está sempre contido num catálogo. Criaria um novo pacote de acesso para um cenário em que os utilizadores precisam de pedir acesso.  |
 | pedido de acesso | Um pedido de acesso aos recursos num pacote de acesso. Um pedido normalmente passa por um fluxo de trabalho de aprovação.  Se aprovado, o utilizador que solicita recebe uma atribuição de pacote de acesso. |

@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562071"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033569"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Acorrentação de funções em funções duradouras - Amostra de sequência de olá
 
@@ -59,7 +60,7 @@ Aqui está a função:
 
 Todas as funções de orquestração JavaScript devem incluir o [ `durable-functions` módulo.](https://www.npmjs.com/package/durable-functions) É uma biblioteca que lhe permite escrever Funções Duradouras em JavaScript. Existem três diferenças significativas entre uma função de orquestração e outras funções JavaScript:
 
-1. A função é uma [função geradora.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript). .
+1. A função é uma [função geradora.](/scripting/javascript/advanced/iterators-and-generators-javascript). .
 2. A função é envolta numa chamada para o `durable-functions` método do módulo `orchestrator` `df` (aqui).
 3. A função deve ser sincronizada. Como o método "orquestrador" trata do chamado "context.done", a função deve simplesmente "regressar".
 
@@ -175,7 +176,7 @@ Como pode ver, `runtimeStatus` o da instância é *concluído* e contém o `outp
 
 Olhe para os registos de execução de funções. A `E1_HelloSequence` função começou e completou várias vezes devido ao comportamento de repetição descrito no tópico de fiabilidade da [orquestração.](durable-functions-orchestrations.md#reliability) Por outro lado, houve apenas três `E1_SayHello` execuções, uma vez que essas execuções de funções não são repetidas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta amostra demonstrou uma simples orquestração de acorrentação de funções. A próxima amostra mostra como implementar o padrão de fan-out/fan-in.
 

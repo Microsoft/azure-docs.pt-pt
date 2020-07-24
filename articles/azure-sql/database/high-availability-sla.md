@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cc0c4b6bc7dd340f17ac500c5d319a83370a2f2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985334"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033056"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -104,9 +104,9 @@ Uma falha pode ser iniciada usando REST API ou PowerShell. Para REST API, consul
 
 ## <a name="conclusion"></a>Conclusão
 
-A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Está dependente do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para uma maior tolerância a falhas. Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
+A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Depende do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para maior tolerância a falhas (como mencionado anteriormente no documento ainda não aplicável ao Azure SQL Managed Instance). Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre [o Tecido de Serviço](../../service-fabric/service-fabric-overview.md)

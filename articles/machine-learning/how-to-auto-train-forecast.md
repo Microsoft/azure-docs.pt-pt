@@ -3,18 +3,18 @@ title: Treina automaticamente um modelo de previsão da série de tempo
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar a Azure Machine Learning para treinar um modelo de regressão de previsão de séries temporizadas utilizando machine learning automatizado.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+author: nibaccam
+ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: trbye
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 72b0a3074bfdfb6b6038f6c63eb01a7b33d45ea6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ec2ef52978a24619103d9a0a2b7fb8ed1099c40b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959131"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031597"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -135,7 +135,7 @@ Para as tarefas de previsão, a aprendizagem automática de máquinas utiliza et
 
 O [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objeto define as configurações e dados necessários para uma tarefa automatizada de aprendizagem automática de máquinas. À semelhança de um problema de regressão, define-se parâmetros de treino padrão como tipo de tarefa, número de iterações, dados de treino e número de validações cruzadas. Para as tarefas de previsão, há parâmetros adicionais que devem ser definidos que afetam a experiência. A tabela seguinte explica cada parâmetro e a sua utilização.
 
-| Nome do parâmetro &nbsp; | Descrição | Necessário |
+| Nome do parâmetro &nbsp; | Descrição | Obrigatório |
 |-------|-------|-------|
 |`time_column_name`|Utilizado para especificar a coluna de datas nos dados de entrada utilizados para a construção da série de tempo e inferir a sua frequência.|✓|
 |`grain_column_names`|Nome(s) que define grupos de séries individuais nos dados de entrada. Se o grão não for definido, presume-se que o conjunto de dados é uma série temporal.||
@@ -283,7 +283,7 @@ Repita os passos necessários para carregar estes dados futuros num dataframe e,
 > [!NOTE]
 > Não se pode prever valores para um número de períodos superiores aos do `max_horizon` . O modelo deve ser re-treinado com um horizonte maior para prever valores futuros para além do horizonte atual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Siga o [tutorial](tutorial-auto-train-models.md) para aprender a criar experiências com machine learning automatizado.
 * Consulte o [Azure Machine Learning SDK para](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) documentação de referência python.

@@ -3,11 +3,12 @@ title: Ativar a cópia de segurança quando cria uma VM do Azure
 description: Descreve como ativar o backup quando cria um Azure VM com Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672814"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032855"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -29,7 +30,7 @@ Se ainda não se inscreveu na sua conta, inscreva-se no [portal Azure.](https://
 
 2. No Mercado Azure, clique em **Compute**e, em seguida, selecione uma imagem VM.
 
-3. Configurar o VM de acordo com as instruções [do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou [Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+3. Configurar o VM de acordo com as instruções [do Windows](../virtual-machines/windows/quick-create-portal.md) ou [Linux.](../virtual-machines/linux/quick-create-portal.md)
 
 4. No separador **Gestão,** em **Ativar a cópia de segurança,** clique **em On**.
 5. Backups Azure para um cofre dos Serviços de Recuperação. Clique **em Criar Novo** se não tiver um cofre existente.
@@ -81,7 +82,7 @@ Após a criação do VM, faça o seguinte:
 
 Os passos anteriores explicam como usar o portal Azure para criar uma máquina virtual e protegê-la num cofre dos Serviços de Recuperação. Para implementar rapidamente um ou mais VMs e protegê-los num cofre dos Serviços de Recuperação, consulte o modelo [Implementar um VM do Windows e ativar a cópia de segurança](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que protegeste o teu VM, aprende a geri-los e a restaurá-los.
 

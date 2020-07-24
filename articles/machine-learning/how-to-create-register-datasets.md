@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 06/29/2020
-ms.openlocfilehash: baa238f36c41b5f494e8748cd5cd563bd212f483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c082c74ab448fda0926b5aab52088bf00fb719bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031172"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure
 
@@ -33,7 +33,8 @@ Com conjuntos de dados de aprendizagem automática Azure, pode:
 * Partilhe dados e colabore com outros utilizadores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-'Para criar e trabalhar com conjuntos de dados, você precisa:
+
+Para criar e trabalhar com conjuntos de dados, precisa de:
 
 * Uma subscrição do Azure. Se não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -42,13 +43,13 @@ Com conjuntos de dados de aprendizagem automática Azure, pode:
 * O [Azure Machine Learning SDK para Python instalado,](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)que inclui o pacote de conjuntos de dados azureml.
 
 > [!NOTE]
-> Algumas classes de conjuntos de dados têm dependências do pacote [azureml-dataprep,](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) que só é compatível com Python de 64 bits. Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Algumas classes de conjuntos de dados têm dependências do pacote [azureml-dataprep,](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) que só é compatível com Python de 64 bits. Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) e CentOS (7).
 
 ## <a name="compute-size-guidance"></a>Orientação do tamanho do cálculo
 
 Ao criar um conjunto de dados, reveja o seu poder de processamento de computação e o tamanho dos seus dados na memória. O tamanho dos seus dados no armazenamento não é o mesmo que o tamanho dos dados num dataframe. Por exemplo, os dados em ficheiros CSV podem expandir-se até 10x num dataframe, para que um ficheiro CSV de 1 GB possa tornar-se 10 GB num dataframe. 
 
-O principal fator é a grande quantidade do conjunto de dados na memória, ou seja, como um dataframe. Recomendamos que o seu tamanho de cálculo e potência de processamento contenham 2x do tamanho de RAM. Assim, se o seu dataframe for de 10GB, pretende um alvo de computação com mais de 20 GB de RAM para garantir que o dataframe pode encaixar na memória e ser processado. Se os seus dados forem comprimidos, pode expandir-se ainda mais; 20 GB de dados relativamente escassos armazenados em formato de parquet comprimido podem expandir-se para ~800 GB na memória. Uma vez que os ficheiros Parquet armazenam dados num formato colunar, se só precisa de metade das colunas, então só precisa carregar ~400 GB na memória.
+O principal fator é a grande quantidade do conjunto de dados na memória, ou seja, como um dataframe. Recomendamos que o seu tamanho de cálculo e potência de processamento contenham 2x do tamanho de RAM. Assim, se o seu dataframe for de 10GB, pretende um alvo de computação com mais de 20 GB de RAM para garantir que o dataframe pode caber na memória e ser processado. Se os seus dados forem comprimidos, pode expandir-se ainda mais; 20 GB de dados relativamente escassos armazenados em formato de parquet comprimido podem expandir-se para ~800 GB na memória. Uma vez que os ficheiros Parquet armazenam dados num formato colunar, se só precisa de metade das colunas, então só precisa carregar ~400 GB na memória.
  
 Se estás a usar pandas, não há razão para ter mais de 1 vCPU, já que é tudo o que vai usar. Você pode facilmente paralelizar com muitos vCPUs em um único Azure Machine Learning compute instance/nó via Modin e Dask/Ray, e escalar para um grande cluster, se necessário, simplesmente mudando `import pandas as pd` para `import modin.pandas as pd` . 
  
@@ -121,7 +122,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Sobreviveu|Pclass|Name|Sexo|Idade|SibSp|Pergaminho|Pedido de Suporte|Tarifa|Cabana|Embarcado
+|(Índice)|PassengerId|Sobreviveu|Pclass|Name|Sexo|Idade|SibSp|Pergaminho|Pedido de Suporte|Tarifa|Cabana|Embarcado
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris.|masculino|22.0|1|0|A/5 21171|7.2500||S
 1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs Th...|feminino|38.0|1|0|PC 17599|71.2833|C85|C
@@ -158,7 +159,7 @@ Utilize o [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-cor
 
 from azureml.core import Dataset, Datastore
 
-# create tabular dataset from a SQL database in datastore
+# create tabular dataset from a SQL database in datastore. Take note of double parenthesis.
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
@@ -186,7 +187,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-a-filedataset"></a>Criar um Conjunto de Dados de Ficheiros
 
-Utilize o [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) método na classe para carregar `FileDatasetFactory` ficheiros em qualquer formato e para criar um Data-Dataset de ficheiros não registado. Se o seu armazenamento estiver por detrás de uma rede virtual ou firewall, desa um parâmetro `validate =False` no seu `from_files()` método. Isto contorna o passo de validação inicial e garante que pode criar o seu conjunto de dados a partir destes ficheiros seguros.
+Utilize o [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) método na classe para carregar `FileDatasetFactory` ficheiros em qualquer formato e para criar um Data-Dataset de ficheiros não registado. Se o seu armazenamento estiver por detrás de uma rede virtual ou firewall, desa um parâmetro `validate=False` no seu `from_files()` método. Isto contorna o passo de validação inicial e garante que pode criar o seu conjunto de dados a partir destes ficheiros seguros.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -210,6 +211,7 @@ Para criar um conjunto de dados no estúdio:
 1. Selecione **Criar Conjunto de Dados** para escolher a origem do seu conjunto de dados. Esta fonte pode ser ficheiros locais, uma datastore ou URLs públicos.
 1. Selecione **Tabular** ou **Ficheiro** para o tipo de conjunto de dados.
 1. Selecione **Seguinte** para abrir o **formulário de seleção de datas e ficheiros.** Neste formulário seleciona onde manter o conjunto de dados após a criação, bem como selecione quais os ficheiros de dados a utilizar para o seu conjunto de dados. 
+    1. Ativar a validação do skip se os seus dados estiverem numa rede virtual. Saiba mais sobre [o isolamento e privacidade da rede virtual.](how-to-enable-virtual-network.md#machine-learning-studio)
 1. Selecione **Seguinte** para preencher as **Definições e pré-visualização** e **formulários De Esquema;** são povoados inteligentemente com base no tipo de ficheiro e pode configurar ainda mais o seu conjunto de dados antes da criação destes formulários. 
 1. Selecione **Seguinte** para rever o formulário **de detalhes de Confirmação.** Verifique as suas seleções e crie um perfil de dados opcional para o seu conjunto de dados. Saiba mais sobre [perfis de dados.](how-to-use-automated-ml-for-ml-models.md#profile) 
 1. Selecione **Criar** para completar a sua criação de conjunto de dados.
@@ -309,7 +311,7 @@ df = titanic_ds.to_pandas_dataframe()
 
 Se o seu espaço de trabalho estiver numa rede virtual, tem de configurar o conjunto de dados para saltar a validação. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o isolamento da Rede durante o treino & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como treinar com conjuntos de dados.](how-to-train-with-datasets.md)
 * Utilize machine learning automatizado para [treinar com OsDatasets Tabular](https://aka.ms/automl-dataset).

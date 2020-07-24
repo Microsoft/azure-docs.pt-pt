@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b47d579a8b086f86194d7129f5289f9c5c839c85
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 70244f6709e35271f63834fd818ea7c72e52a419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987525"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032073"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-and-c"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e C de Visão De Computador 3.0 REST #
 
@@ -44,7 +44,8 @@ Para criar a amostra no Estúdio Visual:
     2. Clique no separador **Procurar** e, na caixa do tipo **Pesquisa** "Newtonsoft.Json".
     3. Selecione **Newtonsoft.Json** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do seu projeto, e em **Instalar**.
 3. Copie e cole o código abaixo no ficheiro Program.cs na sua solução.
-4. Execute o programa.
+1. Definir `imageFilePath` o caminho da sua própria imagem. Pode descarregar uma [imagem de amostra](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) para usar.
+4. Executar o programa.
 
 ```csharp
 using Newtonsoft.Json.Linq;

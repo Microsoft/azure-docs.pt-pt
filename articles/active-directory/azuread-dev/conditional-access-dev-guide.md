@@ -13,13 +13,14 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c1c03a407315fc4f1b3eb967531e2800fc7497f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034844"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientações do programador para o Acesso Condicional ao Azure Active Directory
+# <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Orientação do programador para a funcionalidade de Acesso Condicional do Diretório Ativo Azure
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -174,7 +175,7 @@ A nossa aplicação precisa de apanhar o `error=interaction_required` . A aplica
 
 Para experimentar este cenário, consulte a nossa [amostra de código JS SPA Em nome de código.](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) Esta amostra de código utiliza a política de Acesso Condicional e a API web que registou anteriormente com um JS SPA para demonstrar este cenário. Mostra como lidar corretamente com o desafio de reclamações e obter um token de acesso que pode ser usado para a sua API Web. Alternativamente, check-out a amostra de [código geralAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) para orientação num SPA angular
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * Para saber mais sobre as capacidades, consulte [o Acesso Condicional no Diretório Ativo Azure.](../active-directory-conditional-access-azure-portal.md)
 * Para obter mais amostras de código AZure, consulte [o repo de amostras de código do GitHub.](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)

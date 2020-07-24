@@ -8,13 +8,13 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7d853a8e935f7732a05b33d9b8581dcf753d8873
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/11/2020
+ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038431"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexantes de pesquisa cognitiva Azure
 
@@ -212,7 +212,7 @@ A tabela seguinte compara diferentes codificações base64 da `00>00?00` cadeia.
 | Base64 com estofamento | `MDA+MDA/MDA=` | Use caracteres seguros de URL e remova o estofamento | Use caracteres base64 padrão e adicione estofamento |
 | Base64 sem enchimento | `MDA+MDA/MDA` | Use caracteres seguros url | Use caracteres base64 padrão |
 | BASE URL-safe64 com enchimento | `MDA-MDA_MDA=` | Remover o estofamento | Adicionar estofamento |
-| BASE URL-safe64 sem enchimento | `MDA-MDA_MDA` | Nenhuma | Nenhuma |
+| BASE URL-safe64 sem enchimento | `MDA-MDA_MDA` | Nenhum | Nenhum |
 
 <a name="extractTokenAtPositionFunction"></a>
 

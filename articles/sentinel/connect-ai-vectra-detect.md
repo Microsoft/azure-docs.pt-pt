@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 964bab2b81f6ce69e77fd69cab55f6d1894e4edb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038227"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Ligue a AI Vectra Detect a Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados AI Vectra Detect em Azure Sentinel encontra-se atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como ligar o seu aparelho [AI Vectra Detect](https://www.vectra.ai/product/cognito-detect) ao Azure Sentinel. O conector de dados AI Vectra Detect permite-lhe facilmente trazer os seus dados de AI Vectra Detect para o Azure Sentinel, para que possa vê-lo em livros de trabalho, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a investigação.
 
@@ -47,7 +51,7 @@ Configure a AI Vectra Detect para encaminhar mensagens Syslog formatadas por CEF
 
 4. Continuar a [PASSO 3: Validar a conectividade](connect-cef-verify.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar os aparelhos AI Vectra Detect ao Azure Sentinel. Para tirar o máximo partido das capacidades incorporadas neste conector de dados, clique no separador **passos seguintes** na página do conector de dados. Lá você encontrará algumas consultas de amostras prontas para que você possa começar a encontrar informações úteis.
 

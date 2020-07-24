@@ -8,13 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: laobri
 author: lobrien
-ms.date: 04/01/2020
+ms.date: 07/20/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 54b8161634d15853719d98a52d0d17e2e55a6bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c1a64b96e1548e0eeaadbccc5ff2ec3020f3ba2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030849"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
 
@@ -33,7 +34,7 @@ Este artigo irá mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de:
+Precisará:
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -234,7 +235,7 @@ step1_output_ds = step1_output_data.as_dataset()
 step1_output_ds.register(name="processed_data", create_new_version=True)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)

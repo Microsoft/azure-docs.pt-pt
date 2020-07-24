@@ -10,15 +10,19 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e0f1765f9f91824f716cb70f591ce6b178c4563
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7ee9d37b19d4796f826fbd9831f6e84a92a12e7c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223199"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031189"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detetar deriva de dados (pré-visualização) em conjuntos de dados
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!IMPORTANT]
+> A deteção da deriva de dados nos conjuntos de dados encontra-se atualmente em visualização pública.
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Aprenda a monitorizar a deriva de dados e desemprete alertas quando a deriva é elevada.  
 
@@ -88,7 +92,7 @@ Os monitores do Dataset dependem dos seguintes serviços Azure.
 | *Conjunto de dados* | Drift usa conjuntos de dados de Machine Learning para recuperar dados de treino e comparar dados para a formação de modelos.  Gerar perfil de dados é usado para gerar algumas das métricas relatadas, tais como min, máx, valores distintos, valores distintos contam. |
 | *Gasoduto e computação Azureml* | O trabalho de cálculo à deriva está alojado no gasoduto azureml.  O trabalho é desencadeado a pedido ou por horário para funcionar num cálculo configurado no tempo de criação do monitor de drift.
 | *Insights de aplicação*| Drift emite métricas para Application Insights pertencentes ao espaço de trabalho de machine learning.
-| *Armazenamento de bolhas Azure*| Drift emite métricas em formato json para armazenamento de bolhas Azure.
+| *Armazenamento de blobs do Azure*| Drift emite métricas em formato json para armazenamento de bolhas Azure.
 
 ## <a name="how-dataset-monitors-data"></a>Como o conjunto de dados monitoriza os dados
 
@@ -224,14 +228,14 @@ Clique no botão **+Criar monitor** e continue através do assistente clicando e
 
     | Definições | Descrição | Sugestões | Mutável | 
     | ------- | ----------- | ---- | ------- |
-    | Nome | Nome do monitor do conjunto de dados. | | Não |
-    | Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para a(s) características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente se desviem ao longo do tempo (mês, ano, índice, etc.). Pode preencher de costas e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Sim | 
-    | Destino de computação | Azure Machine Learning computação alvo para executar os trabalhos de monitor de conjunto de dados. | | Sim | 
-    | Ativar | Ativar ou desativar o horário no pipeline do monitor do conjunto de dados | Desative o calendário para analisar dados históricos com a definição de enchimento. Pode ser ativado após a criação do monitor do conjunto de dados. | Sim | 
-    | Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Cada execução compara dados no conjunto de dados-alvo de acordo com a frequência: <li>Diariamente: Compare o dia completo mais recente no conjunto de dados-alvo com a linha de base <li>Semanal: Compare a semana completa mais recente (segunda-feira a domingo) em conjunto de dados-alvo com linha de base <li>Mensalmente: Compare o mês completo mais recente no conjunto de dados-alvo com a linha de base | Não | 
-    | Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | Não | 
-    | Endereços de e-mail | Endereços de e-mail para alerta com base na violação do limiar percentual de deriva de dados. | Os e-mails são enviados através do Azure Monitor. | Sim | 
-    | Limiar | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Sim |
+    | Name | Nome do monitor do conjunto de dados. | | No |
+    | Funcionalidades | Lista de funcionalidades que serão analisadas para deriva de dados ao longo do tempo. | Definir para a(s) características de saída de um modelo para medir a deriva do conceito. Não inclua características que naturalmente se desviem ao longo do tempo (mês, ano, índice, etc.). Pode preencher de costas e monitorizar a deriva de dados existente depois de ajustar a lista de funcionalidades. | Yes | 
+    | Destino de computação | Azure Machine Learning computação alvo para executar os trabalhos de monitor de conjunto de dados. | | Yes | 
+    | Ativar | Ativar ou desativar o horário no pipeline do monitor do conjunto de dados | Desative o calendário para analisar dados históricos com a definição de enchimento. Pode ser ativado após a criação do monitor do conjunto de dados. | Yes | 
+    | Frequência | A frequência que será usada para agendar o trabalho do oleoduto e analisar dados históricos se executar um enchimento traseiro. As opções incluem diariamente, semanalmente ou mensalmente. | Cada execução compara dados no conjunto de dados-alvo de acordo com a frequência: <li>Diariamente: Compare o dia completo mais recente no conjunto de dados-alvo com a linha de base <li>Semanal: Compare a semana completa mais recente (segunda-feira a domingo) em conjunto de dados-alvo com linha de base <li>Mensalmente: Compare o mês completo mais recente no conjunto de dados-alvo com a linha de base | No | 
+    | Latência | O tempo, em horas, leva para os dados chegarem ao conjunto de dados. Por exemplo, se os dados demorarem três dias a chegar ao SQL DB, o conjunto de dados encapsula, definir a latência para 72. | Não pode ser alterado após a criação do monitor do conjunto de dados | No | 
+    | Endereços de e-mail | Endereços de e-mail para alerta com base na violação do limiar percentual de deriva de dados. | Os e-mails são enviados através do Azure Monitor. | Yes | 
+    | Limiar | Limite percentual de deriva de dados para alerta de e-mail. | Outros alertas e eventos podem ser definidos em muitas outras métricas no recurso de Insights de Aplicação associado do espaço de trabalho. | Yes |
 
 Após terminar o assistente, aparecerá na lista o monitor de conjuntos de dados resultante. Selecione-o para ir à página de detalhes do monitor.
 

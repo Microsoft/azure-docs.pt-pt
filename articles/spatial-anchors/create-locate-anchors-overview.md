@@ -1,6 +1,6 @@
 ---
-title: Criar & localizar a visão geral das âncoras
-description: Explicação aprofundada de como criar e localizar âncoras usando âncoras espaciais Azure.
+title: Criar & localizar âncoras visão geral
+description: Explicação aprofundada de como criar e localizar âncoras utilizando âncoras espaciais Azure.
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f406edb42204e7ffc94bcbfa1e22b269aea67b32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 000fb50c002353982d128d6715ae5d8006d35177
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74270443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037819"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors"></a>Como criar e localizar âncoras usando âncoras espaciais Azure
 
@@ -25,7 +25,7 @@ Apoia vários ambientes de desenvolvimento diferentes.
 Para saber mais, continue escolhendo o seu ambiente de desenvolvimento:
 
 > [!div class="nextstepaction"]
-> [C# on Unity (para HoloLens, iOS e Android)](how-tos/create-locate-anchors-unity.md)
+> [C# on Unitity (para HoloLens, iOS e Android)](how-tos/create-locate-anchors-unity.md)
 
 > [!div class="nextstepaction"]
 > [Objectivo-C no iOS](how-tos/create-locate-anchors-objc.md)

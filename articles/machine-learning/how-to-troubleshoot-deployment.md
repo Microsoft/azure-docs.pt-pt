@@ -11,11 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68c328bde853bbf4e48ab7ab1a6e2c7b51198f59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214371"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030696"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Resolução de problemas Colocação de Docker de modelos com serviço Azure Kubernetes e Instâncias de Contentores Azure 
 
@@ -23,7 +24,7 @@ Aprenda a resolver problemas e a resolver, ou a trabalhar em torno de erros comu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **assinatura Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * [O Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * O [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -99,6 +100,8 @@ Uma vez que tenha dividido o processo de implantação em tarefas individuais, p
 ## <a name="debug-locally"></a>Debug localmente
 
 Se encontrar problemas na implementação de um modelo para ACI ou AKS, tente implantá-lo como um serviço web local. A utilização de um serviço web local facilita a resolução de problemas. A imagem do Docker que contém o modelo é descarregada e iniciada no seu sistema local.
+
+Pode encontrar uma amostra [de um caderno de implementação local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) no repo [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) para explorar um exemplo runnable.
 
 > [!WARNING]
 > As implementações de serviços web locais não são suportadas para cenários de produção.
@@ -181,6 +184,7 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+
 ## <a name="container-cannot-be-scheduled"></a>O contentor não pode ser programado
 
 Ao implementar um serviço para um alvo de computação do Serviço Azure Kubernetes, a Azure Machine Learning tentará agendar o serviço com a quantidade de recursos solicitada. Se, após 5 minutos, não houver nós disponíveis no cluster com a quantidade adequada de recursos disponíveis, a implantação falhará com a mensagem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Pode resolver este erro adicionando mais nós, alterando o SKU dos seus nós ou alterando os requisitos de recursos do seu serviço. 
@@ -450,7 +454,7 @@ Para parar o recipiente, utilize o seguinte comando:
 docker stop debug
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a implementação:
 

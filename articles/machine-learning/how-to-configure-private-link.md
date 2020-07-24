@@ -9,17 +9,20 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: ed3b59b9e6aecb91f4ecb9d569b989b6b2396c48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 07/14/2020
+ms.openlocfilehash: 4e76a7adf7435cc1bdee3bb4e64f8cc699a16724
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134875"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031223"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configure Azure Private Link para um espaço de trabalho de aprendizagem de máquinas Azure (pré-visualização)
 
-Neste documento, aprende a utilizar o Azure Private Link com o seu espaço de trabalho Azure Machine Learning. Esta capacidade está atualmente em pré-visualização, e está disponível nas regiões norte-americanas do Leste, EUA West 2, Centro Sul dos EUA. 
+Neste documento, aprende a utilizar o Azure Private Link com o seu espaço de trabalho Azure Machine Learning. 
+
+> [!IMPORTANT]
+> A utilização do Azure Private Link com o espaço de trabalho Azure Machine Learning está atualmente em pré-visualização pública. Esta funcionalidade só está disponível nas regiões **norte-americanas do Oriente,** **EUA West 2**e **Centro Sul dos EUA.** Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Azure Private Link permite-lhe ligar-se ao seu espaço de trabalho utilizando um ponto final privado. O ponto final privado é um conjunto de endereços IP privados dentro da sua rede virtual. Em seguida, pode limitar o acesso ao seu espaço de trabalho para ocorrer apenas sobre os endereços IP privados. O Private Link ajuda a reduzir o risco de exfiltração de dados. Para saber mais sobre os pontos finais privados, consulte o artigo [Azure Private Link.](/azure/private-link/private-link-overview)
 
@@ -112,6 +115,9 @@ Para obter informações sobre máquinas virtuais Azure, consulte a [documentaç
 Para proteger a conta de Armazenamento Azure utilizada pelo seu espaço de trabalho, coloque-a dentro da rede virtual.
 
 Para obter informações sobre a colocação da conta de armazenamento na rede virtual, consulte [utilize uma conta de armazenamento para o seu espaço de trabalho.](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace)
+
+> [!WARNING]
+> O Azure Machine Learning não suporta a utilização de uma conta de Armazenamento Azure que tenha uma ligação privada ativada.
 
 ## <a name="using-azure-key-vault"></a>Usando o cofre da chave Azure
 
@@ -1161,6 +1167,6 @@ Para obter informações sobre a segurança do Registo do Contentor Azure dentro
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a segurança do seu espaço de trabalho Azure Machine Learning, consulte o artigo de segurança da [Enterprise.](concept-enterprise-security.md)

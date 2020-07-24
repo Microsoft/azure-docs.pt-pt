@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e917c261392da6044391efc98a81c8f90b619514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee58f21881c9799eba27dec3e71c601e94401deb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036714"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
@@ -127,7 +127,7 @@ Além disso, à medida que o AzCopy copia sobre ficheiros, verifica se dá nome 
 
 AWS S3 e Azure permitem diferentes conjuntos de caracteres nos nomes das teclas do objeto. Pode ler sobre os caracteres que a AWS S3 utiliza [aqui.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) Do lado Azure, as teclas de objetos blob aderem às regras de nomeação para [identificadores C#](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-Como parte de um comando AzCopy, `copy` pode fornecer um valor opcional para a bandeira que especifica como gostaria de lidar com `s2s-invalid-metadata-handle` ficheiros onde os metadados do ficheiro contêm nomes-chave incompatíveis. A tabela a seguir descreve cada valor da bandeira.
+Como parte de um comando AzCopy, `copy` pode fornecer um valor opcional para a bandeira que especifica como gostaria de lidar com `s2s-handle-invalid-metadata` ficheiros onde os metadados do ficheiro contêm nomes-chave incompatíveis. A tabela a seguir descreve cada valor da bandeira.
 
 | Valor da bandeira | Descrição  |
 |--------|-----------|
@@ -151,7 +151,7 @@ A AzCopy realiza estes passos:
    Esta chave será utilizada para guardar a chave inválida dos metadados **originais**.
    Pode utilizar esta chave para tentar recuperar os metadados do lado Azure, uma vez que a tecla de metadados é preservada como um valor no serviço de armazenamento Blob.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre mais exemplos em qualquer um destes artigos:
 
@@ -159,6 +159,6 @@ Encontre mais exemplos em qualquer um destes artigos:
 
 - [Transferir dados com AzCopy e armazenamento de bolhas](storage-use-azcopy-blobs.md)
 
-- [Transferir dados com a AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
+- [Transferir dados com o AzCopy e armazenamento de ficheiros](storage-use-azcopy-files.md)
 
 - [Configurar, otimizar e resolver problemas AzCopy](storage-use-azcopy-configure.md)

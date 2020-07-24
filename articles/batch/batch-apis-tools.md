@@ -4,11 +4,12 @@ description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvol
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1a3b2bb080e80e5ddc5ac12413f312dcd930d03f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c7484e59391be8f4853c2394bff20c6d9676dec9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958026"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032197"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
@@ -64,7 +65,7 @@ As APIs do Azure Resource Manager para o Batch concedem acesso programático às
 
 Estas ferramentas da linha de comandos fornecem a mesma funcionalidade que o serviço de Batch e as APIs de Gestão do Batch: 
 
-- [Cmdlets do Batch PowerShell](/powershell/module/az.batch/): os cmdlets do Azure Batch no módulo [Azure PowerShell](/powershell/azure/overview) permitem-lhe gerir recursos do Batch com o PowerShell.
+- [Cmdlets do Batch PowerShell](/powershell/module/az.batch/): os cmdlets do Azure Batch no módulo [Azure PowerShell](/powershell/azure/) permitem-lhe gerir recursos do Batch com o PowerShell.
 - [CLI do Azure](/cli/azure): a CLI do Azure é um conjunto de ferramentas para várias plataformas que fornece comandos shell para interagir com vários serviços do Azure, incluindo o serviço do Batch e o serviço de Gestão do Batch. Consulte [Manage Batch resources with Azure CLI](batch-cli-get-started.md)(Gerir recursos do Batch com a CLI do Azure), para obter mais informações sobre como utilizar a CLI do Azure com o Batch.
 
 ## <a name="other-tools-for-application-development"></a>Outras ferramentas para programação da aplicação
@@ -82,7 +83,7 @@ Estas ferramentas adicionais podem ser úteis para construir e depurar as suas a
 - Para obter informações de referência sobre os eventos levantados pelo serviço Batch, consulte [Batch Analytics](batch-analytics.md).
 - Para obter informações sobre variáveis ambientais para nós computacional, consulte variáveis do [ambiente de execução do Azure Batch](batch-compute-node-environment-variables.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.

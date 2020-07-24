@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: edc52198208aa86772704bde7637a2801688da59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203675"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036136"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -238,7 +238,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série Lsv2 (ver: [série Lsv2)](../lsv2-series.md)
 - VMs da série M com discos de acelerador de escrita.
-- Aplicação [de encriptação do lado do servidor com chaves geridas pelo cliente](disk-encryption.md) a um VMs encriptado por ADE, e vice-versa.
+- Aplicando ADE a um VM que tenha um disco de dados encriptado com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK), ou aplicando SSE + CMK a um disco de dados num VM encriptado com ADE.
 - Migrar um VM encriptado com ADE para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
 
 

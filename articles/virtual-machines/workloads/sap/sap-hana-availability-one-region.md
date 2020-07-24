@@ -15,20 +15,21 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27b6e2e3cedcc8eca84644562639e0436e48245d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255466"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035864"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade de SAP HANA dentro de uma região de Azure
-Este artigo descreve vários cenários de disponibilidade dentro de uma região de Azure. Azure tem muitas regiões, espalhadas por todo o mundo. Para a lista das regiões de Azure, consulte as [regiões de Azure.](https://azure.microsoft.com/regions/) Para a implementação do SAP HANA em VMs dentro de uma região de Azure, a Microsoft oferece a implementação de um único VM com uma instância HANA. Para uma maior disponibilidade, pode implementar dois VMs com duas instâncias HANA dentro de um [conjunto de disponibilidades Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) que utiliza a replicação do sistema HANA para disponibilidade. 
+Este artigo descreve vários cenários de disponibilidade dentro de uma região de Azure. Azure tem muitas regiões, espalhadas por todo o mundo. Para a lista das regiões de Azure, consulte as [regiões de Azure.](https://azure.microsoft.com/regions/) Para a implementação do SAP HANA em VMs dentro de uma região de Azure, a Microsoft oferece a implementação de um único VM com uma instância HANA. Para uma maior disponibilidade, pode implementar dois VMs com duas instâncias HANA dentro de um [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) que utiliza a replicação do sistema HANA para disponibilidade. 
 
-Atualmente, o Azure está a oferecer [Zonas de Disponibilidade Azure.](https://docs.microsoft.com/azure/availability-zones/az-overview) Este artigo não descreve as Zonas de Disponibilidade em detalhe. Mas, inclui uma discussão geral sobre a utilização de Conjuntos de Disponibilidade versus Zonas de Disponibilidade.
+Atualmente, o Azure está a oferecer [Zonas de Disponibilidade Azure.](../../../availability-zones/az-overview.md) Este artigo não descreve as Zonas de Disponibilidade em detalhe. Mas, inclui uma discussão geral sobre a utilização de Conjuntos de Disponibilidade versus Zonas de Disponibilidade.
 
 As regiões de Azure onde as Zonas de Disponibilidade são oferecidas têm vários centros de dados. Os datacenters são independentes no fornecimento de fonte de energia, arrefecimento e rede. A razão para oferecer diferentes zonas dentro de uma única região de Azure é implementar aplicações em duas ou três Zonas de Disponibilidade que são oferecidas. Implantando em zonas, problemas de energia e networking que afetam apenas uma infraestrutura da Zona de Disponibilidade Azure, a sua implementação de aplicações dentro de uma região do Azure ainda está funcional. Pode ocorrer alguma capacidade reduzida. Por exemplo, os VMs numa zona podem perder-se, mas os VM nas outras duas zonas ainda estariam em funcionamento. 
  
-Um Conjunto de Disponibilidade Azure é uma capacidade lógica de agrupamento que ajuda a garantir que os recursos VM que coloca dentro do Conjunto de Disponibilidade são isolados por falhas uns dos outros quando são implantados dentro de um datacenter Azure. O Azure garante que as VMs que colocar num Conjunto de Disponibilidade são executadas em vários servidores físicos, suportes de computação, unidades de armazenamento e comutadores de rede. Em alguma documentação Azure, esta configuração é referida como colocações em diferentes [domínios de atualização e avaria .](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) Estas colocações geralmente estão dentro de um datacenter Azure. Assumindo que a fonte de energia e os problemas de rede afetariam o datacenter que está a implementar, toda a sua capacidade numa região de Azure seria afetada.
+Um Conjunto de Disponibilidade Azure é uma capacidade lógica de agrupamento que ajuda a garantir que os recursos VM que coloca dentro do Conjunto de Disponibilidade são isolados por falhas uns dos outros quando são implantados dentro de um datacenter Azure. O Azure garante que as VMs que colocar num Conjunto de Disponibilidade são executadas em vários servidores físicos, suportes de computação, unidades de armazenamento e comutadores de rede. Em alguma documentação Azure, esta configuração é referida como colocações em diferentes [domínios de atualização e avaria .](../../windows/manage-availability.md) Estas colocações geralmente estão dentro de um datacenter Azure. Assumindo que a fonte de energia e os problemas de rede afetariam o datacenter que está a implementar, toda a sua capacidade numa região de Azure seria afetada.
 
 A colocação de datacenters que representam zonas de disponibilidade do Azure é um compromisso entre a prestação de latência de rede aceitável entre serviços implantados em diferentes zonas, e uma distância entre centros de dados. As catástrofes naturais idealmente não afetariam a energia, o fornecimento de rede e as infraestruturas para todas as Zonas de Disponibilidade desta região. No entanto, como as catástrofes naturais monumentais têm demonstrado, as Zonas de Disponibilidade nem sempre podem fornecer a disponibilidade que deseja dentro de uma região. Pense no furacão Maria que atingiu a ilha de Porto Rico em 20 de setembro de 2017. O furacão causou um apagão de quase 100% na ilha de 150 km de largura.
 
@@ -81,7 +82,7 @@ A arquitetura parece:
 
 Esta configuração não é adequada para alcançar grandes tempos de Objetivo de Ponto de Recuperação (RPO) e Objetivo do Tempo de Recuperação (RTO). Os tempos de RTO seriam especialmente sofridos devido à necessidade de restaurar totalmente a base de dados completa utilizando as cópias de segurança copiadas. No entanto, esta configuração é útil para a recuperação de eliminação de dados não intencionais nos principais casos. Com esta configuração, a qualquer momento, pode restaurar a qualquer ponto no tempo, extrair os dados e importar os dados eliminados no seu caso principal. Por isso, pode fazer sentido utilizar um método de cópia de backup em combinação com outras funcionalidades de alta disponibilidade. 
 
-Enquanto as cópias de segurança estão a ser copiadas, poderás utilizar um VM menor do que o VM principal em que a instância SAP HANA está a funcionar. Tenha em mente que pode anexar um número menor de VHDs a VMs menores. Para obter informações sobre os limites dos tipos de VM individuais, consulte [tamanhos para máquinas virtuais Linux em Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Enquanto as cópias de segurança estão a ser copiadas, poderás utilizar um VM menor do que o VM principal em que a instância SAP HANA está a funcionar. Tenha em mente que pode anexar um número menor de VHDs a VMs menores. Para obter informações sobre os limites dos tipos de VM individuais, consulte [tamanhos para máquinas virtuais Linux em Azure](../../linux/sizes.md).
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>Replicação do sistema SAP HANA sem falha automática
 
@@ -107,7 +108,7 @@ Neste cenário, os dados replicados para a instância HANA no segundo VM são pr
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replicação do sistema SAP HANA com falha automática
 
-Na configuração de disponibilidade padrão e mais comum dentro de uma região de Azure, dois VMs Azure que executam SLES Linux têm um cluster de failover definido. O cluster SLES Linux baseia-se na estrutura do [Pacemaker,](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) em conjunto com um dispositivo [STONITH.](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 
+Na configuração de disponibilidade padrão e mais comum dentro de uma região de Azure, dois VMs Azure que executam SLES Linux têm um cluster de failover definido. O cluster SLES Linux baseia-se na estrutura do [Pacemaker,](./high-availability-guide-suse-pacemaker.md) em conjunto com um dispositivo [STONITH.](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device) 
 
 Do ponto de vista SAP HANA, o modo de replicação utilizado é sincronizado e uma falha automática é configurada. No segundo VM, o caso SAP HANA funciona como um nó quente de espera. O nó de espera recebe um fluxo sincronizado de registos de mudança saindo da primeira instância SAP HANA. Uma vez que as transações são cometidas pelo pedido no nó primário HANA, o nó hana primário aguarda para confirmar o compromisso com o pedido até que o nó sap hana secundário confirme que recebeu o registo do compromisso. O SAP HANA oferece dois modos de replicação sincronizado. Para obter mais detalhes e para uma descrição das diferenças entre estes dois modos de replicação sincronizada, consulte os modos de replicação do artigo SAP [para a replicação do sistema SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 
@@ -117,7 +118,7 @@ A configuração geral parece:
 
 Pode escolher esta solução porque lhe permite obter um RPO=0 e um RTO baixo. Configurar a conectividade do cliente SAP HANA para que os clientes SAP HANA utilizem o endereço IP virtual para se ligarem à configuração de replicação do sistema HANA. Tal configuração elimina a necessidade de reconfigurar a aplicação se ocorrer uma falha no nó secundário. Neste cenário, os SKUs VM Azure para os VM primários e secundários devem ser os mesmos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter orientações passo a passo sobre a configuração destas configurações em Azure, consulte:
 
@@ -126,5 +127,4 @@ Para obter orientações passo a passo sobre a configuração destas configuraç
 
 Para obter mais informações sobre a disponibilidade do SAP HANA nas regiões de Azure, consulte:
 
-- [Disponibilidade de SAP HANA em todas as regiões de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
-
+- [Disponibilidade de SAP HANA em todas as regiões de Azure](./sap-hana-availability-across-regions.md) 

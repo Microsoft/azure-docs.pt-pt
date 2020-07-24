@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/27/2020
+ms.date: 07/17/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10b9e055ce5b1e2ba27d942a987bf6b38291f094
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080246"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031427"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás do Azure Firewall para a aprendizagem de máquinas Azure
 
@@ -62,6 +63,7 @@ Os anfitriões desta secção são utilizados para instalar pacotes Python. São
 | **anaconda.com** | Usado na instalação de pacotes conda |
 | **pypi.org** | Utilizado na instalação de pacotes de pip |
 
+
 ## <a name="r-hosts"></a>Anfitriões R
 
 Os anfitriões desta secção são utilizados para instalar pacotes R. São necessários durante o desenvolvimento, formação e implantação.
@@ -73,7 +75,7 @@ Os anfitriões desta secção são utilizados para instalar pacotes R. São nece
 | ---- | ---- |
 | **cloud.r-project.org** | Utilizado na instalação de embalagens CRAN. |
 
-Próximos passos
+Passos seguintes
 
 * [[Implementar e configurar firewall Azure](../firewall/tutorial-firewall-deploy-portal.md)]
 * [Secure Azure ML experimentação e inferências de empregos dentro de uma Rede Virtual Azure](how-to-enable-virtual-network.md)

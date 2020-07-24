@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abec9811cd407c1fab91cfb60412aabdd969690d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036986"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objetos para bolhas de bloco (pré-visualização)
 
@@ -63,6 +63,8 @@ A replicação de objetos é suportada apenas para contas de armazenamento v2 pa
 - França Central
 - Leste do Canadá
 - Canadá Central
+- E.U.A. Leste 2
+- E.U.A. Central
 
 Tanto as contas de origem como de destino devem residir numa dessas regiões, a fim de utilizar a replicação de objetos. As contas podem estar em duas regiões diferentes.
 
@@ -74,7 +76,7 @@ Durante a pré-visualização, não existem custos adicionais associados à repl
 ### <a name="prerequisites-for-object-replication"></a>Pré-requisitos para a replicação de objetos
 
 A replicação do objeto requer que as seguintes funcionalidades de Armazenamento Azure estejam ativadas: 
-- [Alterar alimentação](storage-blob-change-feed.md)
+- [Feed de alterações](storage-blob-change-feed.md)
 - [Controlo de versões](versioning-overview.md)
 
 Antes de configurar a replicação de objetos, ative os seus pré-requisitos. O feed de alteração deve ser ativado na conta de origem e a versão blob deve ser ativada tanto na conta de origem como de destino. Para obter mais informações sobre como ativar estas funcionalidades, consulte estes artigos:
@@ -156,7 +158,7 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 
 Para fazer perguntas sobre a pré-visualização da replicação do objeto, ou para fornecer feedback, contacte a Microsoft em AzureStorageFeedback@microsoft.com . Ideias e sugestões sobre o Azure Storage são sempre bem-vindos no [fórum de feedback do Azure Storage](https://feedback.azure.com/forums/217298-storage).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure a replicação do objeto (pré-visualização)](object-replication-configure.md)
 - [Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)](storage-blob-change-feed.md)

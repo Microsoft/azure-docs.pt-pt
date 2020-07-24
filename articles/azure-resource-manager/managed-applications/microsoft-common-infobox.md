@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d1e4a84904ef7022d9ce85803bf10285bf0b8ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7580ac0650706d6aee49bbf0e8235e8c5dab33f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652479"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033360"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI elemento
 
@@ -17,7 +18,7 @@ Um controlo que adiciona uma caixa de informação. A caixa contém textos impor
 
 ## <a name="ui-sample"></a>Amostra de UI
 
-![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft-common-infobox.png)
 
 
 ## <a name="schema"></a>Esquema
@@ -46,7 +47,7 @@ Um controlo que adiciona uma caixa de informação. A caixa contém textos impor
 * Para `icon` , usar **Nenhum**, **Informação**, **Aviso**ou **Erro**.
 * A `uri` propriedade é opcional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, v2, Azure Kinect, comparação, SDK, diferenças, hardware, software
-ms.openlocfilehash: ec105cef0c52b02c763487fbe5b2d8c018315f4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67452517"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031580"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Comparação Azure Kinect e Kinect Windows v2
 
@@ -22,8 +22,8 @@ Os kits de hardware E Desenvolvimento de Software Azure Kinect DK têm diferenç
 
 Diferenças de alto nível entre o kit de desenvolvimento Azure Kinect e o Kinect para o Windows v2 estão listados na tabela seguinte.
 
-|    |      | Azure Kinect DK |  Kinect para Windows v2 |
-|----------|---------------|--------| ------------|
+| Funcionalidade | Tipo | Azure Kinect DK | Kinect para Windows v2 |
+| ------- | ---- | --------------- | --------------------- |
 | **Áudio** | Detalhes  | Matriz circular de 7 mic | Matriz linear de 4 mic faseada |
 | **Sensor de movimento** | Detalhes | Acelerómetro de 3 eixos giroscópio de 3 eixos | Acelerómetro de 3 eixos |
 | **Câmera RGB**    | Detalhes | 3840 x 2160 px @30 fps | 1920 x 1080 px @30 fps |
@@ -32,7 +32,7 @@ Diferenças de alto nível entre o kit de desenvolvimento Azure Kinect e o Kinec
 |                   |            | 512 x 512 px @30 fps |                       |
 |                   |            | 1024x1024 px @15 fps |                       |
 | **Conetividade** | Dados | USB3.1 Gen 1 com tipo USB-C  | USB 3.1 gen 1|
-|  | Power | PSU externo ou USB-C | PSU externo |
+|  | Energia | PSU externo ou USB-C | PSU externo |
 |  | Sincronização | RGB & Profundidade dispositivo interno e externo| RGB & Profundidade interna apenas |
 | **Mecânica** | Dimensões | 103 x 39 x 126 mm | 249 x 66 x 67 mm |
 |  | Missa | 440 g | 970 g |

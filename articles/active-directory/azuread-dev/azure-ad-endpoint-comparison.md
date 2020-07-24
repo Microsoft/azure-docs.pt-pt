@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154921"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034912"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
 
@@ -141,34 +141,7 @@ As inscrições de aplicativos que suportam o trabalho e as contas escolares e c
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrições aos URLs de redirecionamento
 
-As aplicações registadas para a plataforma de identidade da Microsoft estão restritas a um conjunto limitado de valores DE URL de redirecionamento. O URL de redirecionamento para aplicações e serviços web deve começar com o esquema `https` , e todos os valores de URL de redirecionamento devem partilhar um único domínio DNS.  O sistema de registo compara todo o nome DNS do URL de redirecionamento existente ao nome DNS do URL de redirecionamento que está a adicionar. `http://localhost`também é suportado como um URL de redirecionamento.  
-
-O pedido para adicionar o nome DNS irá falhar, se uma das seguintes condições for verdadeira:  
-
-* Todo o nome DNS do novo URL de redirecionamento não corresponde ao nome DNS do URL de redirecionamento existente.
-* Todo o nome DNS do novo URL de redirecionamento não é um subdomínio do URL de redirecionamento existente.
-
-#### <a name="example-1"></a>Exemplo 1
-
-Se a aplicação tiver um URL de redirecionamento de `https://login.contoso.com` , pode adicionar um URL de redirecionamento onde o nome DNS corresponde exatamente, como mostrado no exemplo seguinte:
-
-`https://login.contoso.com/new`
-
-Ou, pode consultar um subdomínio de DNS de login.contoso.com, como mostra o seguinte exemplo:
-
-`https://new.login.contoso.com`
-
-#### <a name="example-2"></a>Exemplo 2
-
-Se quiser ter uma aplicação que tenha `login-east.contoso.com` e `login-west.contoso.com` como URLs de redirecionamento, deve adicionar esses URLs de redirecionamento na seguinte ordem:
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-Pode adicionar os dois últimos porque são subdomínios do primeiro URL de redirecionamento, contoso.com.
-
-Você pode ter apenas 20 URLs de resposta para uma determinada aplicação - este limite aplica-se em todos os tipos de aplicações que o registo suporta (aplicação de página única (SPA), cliente nativo, web app e serviço).  
+Para obter as informações mais atualizadas sobre restrições em URLs de redirecionamento para aplicações registadas para plataforma de identidade da Microsoft, consulte [as restrições e limitações de URL de redirecionamento uri/resposta](https://docs.microsoft.com/azure/active-directory/develop/reply-url) na documentação da plataforma de identidade da Microsoft.
 
 Para saber como registar uma aplicação para uso com a plataforma de identidade da Microsoft, consulte [Registar uma aplicação utilizando a experiência de registos da nova App.](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 

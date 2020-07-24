@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/09/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 49a1b190ece4ae4e937757e88af325a29f4825c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232156"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031121"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -30,7 +30,7 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 
 * Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="workspace-resource-manager-template"></a>Modelo de gestor de recursos de espaço de trabalho
 
@@ -154,6 +154,9 @@ O modelo de exemplo a seguir demonstra como criar um espaço de trabalho com tr�
 * Permitir configurações de alta confidencialidade para o espaço de trabalho
 * Ativar a encriptação para o espaço de trabalho
 * Usa um cofre de chaves Azure existente para recuperar chaves geridas pelo cliente
+
+> [!IMPORTANT]
+> Uma vez criado um espaço de trabalho, não é possível alterar as definições para dados confidenciais, encriptação, ID do cofre de chaves ou identificadores chave. Para alterar estes valores, é necessário criar um novo espaço de trabalho utilizando os novos valores.
 
 Para obter mais informações, consulte [a Encriptação em repouso](concept-enterprise-security.md#encryption-at-rest).
 
@@ -353,6 +356,9 @@ Uma configuração adicional que pode fornecer para os seus dados é definir o p
 * Limpa o disco de risco local entre as corridas.
 * Passa credenciais de segurança para a conta de armazenamento, registo de contentores e conta SSH da camada de execução para os seus clusters de computação utilizando o cofre de chaves.
 * Permite a filtragem IP para garantir que os lotes subjacentes não podem ser chamados por outros serviços externos que não o AzureMachineLearningService.
+
+    > [!IMPORTANT]
+    > Uma vez criado um espaço de trabalho, não é possível alterar as definições para dados confidenciais, encriptação, ID do cofre de chaves ou identificadores chave. Para alterar estes valores, é necessário criar um novo espaço de trabalho utilizando os novos valores.
 
   Para obter mais informações, consulte [a encriptação em repouso.](concept-enterprise-security.md#encryption-at-rest)
 

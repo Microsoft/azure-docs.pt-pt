@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697831"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033647"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duradouras
 
@@ -41,9 +41,9 @@ O ID de exemplo de uma orquestração é um parâmetro necessário para a maiori
 
 ## <a name="reliability"></a>Fiabilidade
 
-As funções do orquestrador mantêm de forma fiável o seu estado de execução utilizando o [padrão de](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) design de fornecimento de eventos. Em vez de armazenar diretamente o estado atual de uma orquestração, o Quadro de Tarefas Durable usa uma loja só para gravar a série completa de ações que a orquestração de funções toma. Uma loja só para apêndices tem muitos benefícios em comparação com o "dumping" do estado de tempo integral. Os benefícios incluem o aumento do desempenho, escalabilidade e capacidade de resposta. Você também obtém uma consistência eventual para dados transacionais e pistas de auditoria completa e histórico. Os trilhos de auditoria apoiam ações compensatórias fiáveis.
+As funções do orquestrador mantêm de forma fiável o seu estado de execução utilizando o [padrão de](/azure/architecture/patterns/event-sourcing) design de fornecimento de eventos. Em vez de armazenar diretamente o estado atual de uma orquestração, o Quadro de Tarefas Durable usa uma loja só para gravar a série completa de ações que a orquestração de funções toma. Uma loja só para apêndices tem muitos benefícios em comparação com o "dumping" do estado de tempo integral. Os benefícios incluem o aumento do desempenho, escalabilidade e capacidade de resposta. Você também obtém uma consistência eventual para dados transacionais e pistas de auditoria completa e histórico. Os trilhos de auditoria apoiam ações compensatórias fiáveis.
 
-Funções Duradouras utiliza o fornecimento de eventos de forma transparente. Nos bastidores, o `await` operador (C#) ou `yield` (JavaScript) numa função orquestradora rende o controlo da linha do orquestrador de volta ao despacho durable Task Framework. O expedidor compromete então quaisquer novas ações que a função do orquestrador tenha programado (como chamar uma ou mais funções infantis ou agendar um temporizador durável) para o armazenamento. A ação transparente compromete-se a aderir à história da execução da instância de orquestração. A história está guardada numa mesa de armazenamento. A ação de compromisso adiciona então mensagens a uma fila para agendar o trabalho real. Neste ponto, a função orquestradora pode ser descarregada da memória.
+Funções Duradouras utiliza o fornecimento de eventos de forma transparente. Nos bastidores, o `await` operador (C#) ou `yield` (JavaScript/Python) numa função orquestradora rende o controlo da linha do orquestrador de volta ao despacho durável task framework. O expedidor compromete então quaisquer novas ações que a função do orquestrador tenha programado (como chamar uma ou mais funções infantis ou agendar um temporizador durável) para o armazenamento. A ação transparente compromete-se a aderir à história da execução da instância de orquestração. A história está guardada numa mesa de armazenamento. A ação de compromisso adiciona então mensagens a uma fila para agendar o trabalho real. Neste ponto, a função orquestradora pode ser descarregada da memória.
 
 Quando uma função de orquestração é dada mais trabalho a fazer (por exemplo, uma mensagem de resposta é recebida ou um temporizador durável expira), o orquestrador acorda e re-executa toda a função desde o início para reconstruir o estado local. Durante a repetição, se o código tentar convocar uma função (ou fazer qualquer outro trabalho de assídua), o Quadro de Tarefas Durable consulta o histórico de execução da orquestração atual. Se descobrir que a [função](durable-functions-types-features-overview.md#activity-functions) de atividade já executou e deu um resultado, repete o resultado dessa função e o código do orquestrador continua a funcionar. A repetição continua até que o código de função esteja terminado ou até que tenha programado um novo trabalho de async.
 
@@ -91,9 +91,23 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity('SayHello', "Tokyo")
+    result2 = yield context.call_activity('SayHello', "Seattle")
+    result3 = yield context.call_activity('SayHello', "London")
+    return [result1, result2, result3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
-Em cada `await` declaração (C#) ou `yield` (JavaScript), o Quadro de Tarefas Durável verifica o estado de execução da função em algum backend de armazenamento durável (normalmente armazenamento da tabela Azure). Este estado é o que é referido como a história da *orquestração.*
+Em cada `await` declaração (C#) ou `yield` (JavaScript/Python), o Quadro de Tarefas Durável verifica o estado de execução da função em algum backend de armazenamento durável (normalmente armazenamento da tabela Azure). Este estado é o que é referido como a história da *orquestração.*
 
 ### <a name="history-table"></a>Tabela de história
 
@@ -110,7 +124,7 @@ Uma vez concluído o ponto de verificação, a função do orquestrador é livre
 
 Após a conclusão, a história da função mostrada anteriormente parece algo com a seguinte tabela no Armazenamento de Mesa Azure (abreviada para fins de ilustração):
 
-| PartitionKey (InstanceId)                     | EventType             | Carimbo de data/hora               | Entrada | Name             | Resultado                                                    | Estado |
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Name             | Resultado                                                    | Estado |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | Execução Começada      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrquestradorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -133,7 +147,7 @@ Algumas notas sobre os valores da coluna:
 
 * **PartitionKey**: Contém o ID de instância da orquestração.
 * **EventType**: Representa o tipo de evento. Pode ser um dos seguintes tipos:
-  * **OrquestraçãoStarted**: A função de orquestrador retomada a partir de um aguardado ou está a funcionar pela primeira vez. A `Timestamp` coluna é usada para povoar o valor determinístico para as `CurrentUtcDateTime` APIs (.NET) e `currentUtcDateTime` (JavaScript).
+  * **OrquestraçãoStarted**: A função de orquestrador retomada a partir de um aguardado ou está a funcionar pela primeira vez. A `Timestamp` coluna é usada para povoar o valor determinístico para as `CurrentUtcDateTime` `currentUtcDateTime` APIs (.NET), (JavaScript) e `current_utc_datetime` (Python).
   * **Execução Iniciada**: A função de orquestrador começou a executar pela primeira vez. Este evento também contém a entrada de função na `Input` coluna.
   * **TaskScheded**: Foi agendada uma função de atividade. O nome da função de atividade é capturado na `Name` coluna.
   * **TaskCompleted**: Uma função de atividade concluída. O resultado da função está na `Result` coluna.
@@ -151,7 +165,7 @@ Algumas notas sobre os valores da coluna:
 > [!WARNING]
 > Embora seja útil como ferramenta de depuragem, não tenha qualquer dependência desta mesa. Pode mudar à medida que a extensão de Funções Duradouras evolui.
 
-Sempre que a função retoma de um `await` (C#) ou `yield` (JavaScript), o Quadro de Tarefas Durável reexecuta a função orquestradora do zero. Em cada repetição, consulta o histórico de execução para determinar se a operação atual de async ocorreu.  Se a operação ocorreu, o quadro repete imediatamente a saída dessa operação e passa para a seguinte `await` (C#) ou `yield` (JavaScript). Este processo continua até que toda a história seja repetida. Uma vez que a história atual tenha sido repetida, as variáveis locais terão sido restauradas aos seus valores anteriores.
+Sempre que a função retoma de um `await` (C#) ou `yield` (JavaScript/Python), o Quadro de Tarefas Durável reexecuta a função orquestradora do zero. Em cada repetição, consulta o histórico de execução para determinar se a operação atual de async ocorreu.  Se a operação ocorreu, o quadro repete imediatamente a saída dessa operação e passa para a seguinte `await` (C#) ou `yield` (JavaScript/Python). Este processo continua até que toda a história seja repetida. Uma vez que a história atual tenha sido repetida, as variáveis locais terão sido restauradas aos seus valores anteriores.
 
 ## <a name="features-and-patterns"></a>Características e padrões
 
@@ -165,7 +179,7 @@ Para mais informações e, por exemplo, consulte o artigo [Sub-orquestrações.]
 
 ### <a name="durable-timers"></a>Temporizadores duráveis
 
-As orquestrações podem *agendar temporizadores duradouros* para implementar atrasos ou para estabelecer o tratamento de tempo limite em ações de async. Utilize temporizadores duráveis em funções de orquestrador em vez de `Thread.Sleep` e `Task.Delay` (C#) ou `setTimeout()` `setInterval()` (JavaScript).
+As orquestrações podem *agendar temporizadores duradouros* para implementar atrasos ou para estabelecer o tratamento de tempo limite em ações de async. Utilize temporizadores duráveis em funções de orquestrador em vez de `Thread.Sleep` e `Task.Delay` (C#), ou `setTimeout()` `setInterval()` (JavaScript), ou `time.sleep()` (Python).
 
 Para mais informações e, por exemplo, consulte o artigo [temporizadores duráveis.](durable-functions-timers.md)
 
@@ -252,6 +266,18 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    res = yield context.call_http('GET', url)
+    if res.status_code >= 400:
+        # handing of error code goes here
+```
 ---
 
 Além de apoiar padrões básicos de pedido/resposta, o método suporta o manuseamento automático de padrões de sondagens comuns de async HTTP 202, e também suporta a autenticação com serviços externos utilizando [Identidades Geridas.](../../active-directory/managed-identities-azure-resources/overview.md)
@@ -267,7 +293,7 @@ Não é possível passar vários parâmetros para uma função de atividade dire
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Em .NET também pode utilizar [objetos ValueTuples.](https://docs.microsoft.com/dotnet/csharp/tuples) A amostra a seguir está a utilizar novas funcionalidades de [ValueTuples adicionadas](https://docs.microsoft.com/dotnet/csharp/tuples) com [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+Em .NET também pode utilizar [objetos ValueTuples.](/dotnet/csharp/tuples) A amostra a seguir está a utilizar novas funcionalidades de [ValueTuples adicionadas](/dotnet/csharp/tuples) com [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -322,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="activity"></a>Atividade
+#### <a name="getweather-activity"></a>`GetWeather`Atividade
 
 ```javascript
 module.exports = async function (context, location) {
@@ -330,6 +356,36 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```python
+from collections import namedtuple
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    Location = namedtuple('Location', ['city', 'state'])
+    location = Location(city='Seattle', state= 'WA')
+
+    weather = yield context.call_activity("GetWeather", location)
+
+    # ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather`Atividade
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
+    city, state = location
+    return f"Hello {city}, {state}!"
 ```
 
 ---

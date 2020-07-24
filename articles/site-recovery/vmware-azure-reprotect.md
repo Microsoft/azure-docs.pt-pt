@@ -8,10 +8,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79257176"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037853"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Voltar a proteger do Azure para o local
 
@@ -70,7 +71,7 @@ Permitir a reproteção da seguinte forma:
     - Não ligue o VM no local depois de terminar a reprotecção.
    
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se encontrar algum problema, reveja o [artigo de resolução de problemas](vmware-azure-troubleshoot-failback-reprotect.md).
 - Depois de os VMs Azure estarem protegidos, pode [executar uma falha](vmware-azure-failback.md). Failback desliga o Azure VM e arranca o VM no local. Espere algum tempo de inatividade para a aplicação, e escolha um tempo de insí bem-estar em conformidade.

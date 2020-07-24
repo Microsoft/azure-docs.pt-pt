@@ -3,7 +3,7 @@ title: Delegação e funções na gestão de direitos - Azure AD
 description: Saiba como delegar a governação de acesso de administradores de TI a gestores de departamentos e gestores de projetos para que eles possam gerir o acesso a si mesmos.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa18b55884a22f6c64f1c08bd5be8a71b265029a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034388"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão dos direitos da AD Azure
 
@@ -90,7 +91,7 @@ Além disso, um aprovador designado e um solicitador de um pacote de acesso tamb
 
 A tabela que se segue enumera as tarefas que as funções de gestão de direitos podem desempenhar.
 
-| Tarefa | Administrador | Criador de catálogos | Proprietário do catálogo | Gestor de pacotes de acesso |
+| Tarefa | Admin | Criador de catálogos | Proprietário do catálogo | Gestor de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegado a um criador de catálogos](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Adicionar uma organização associada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
@@ -133,7 +134,7 @@ Para um utilizador que não seja um administrador global ou um administrador do 
 
 Para determinar o papel menos privilegiado para uma tarefa, também pode referenciar [as funções de Administrador através da tarefa de administração no Diretório Ativo Azure](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Delegar governação de acesso aos criadores de catálogos](entitlement-management-delegate-catalog.md)
 - [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)

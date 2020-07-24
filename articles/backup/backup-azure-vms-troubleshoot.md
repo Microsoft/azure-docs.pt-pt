@@ -4,30 +4,30 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e40b74cc5bf995e943b20ddcd21127ed4f7d7ead
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5393ba1b7c604ef49cee83f759ed798cfc473417
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184196"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032838"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
 Pode resolver os erros encontrados durante a utilização do Azure Backup com as informações listadas abaixo:
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 Esta secção cobre a falha de funcionamento de backup da máquina Virtual Azure.
 
 ### <a name="basic-troubleshooting"></a>Resolução de problemas básicos
 
-* Certifique-se de que o Agente VM (Agente WA) é a [versão mais recente.](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)
-* Certifique-se de que a versão Windows ou Linux VM OS está suportada, consulte a [Matriz de Suporte de Backup IaaS VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Certifique-se de que o Agente VM (Agente WA) é a [versão mais recente.](./backup-azure-arm-vms-prepare.md#install-the-vm-agent)
+* Certifique-se de que a versão Windows ou Linux VM OS está suportada, consulte a [Matriz de Suporte de Backup IaaS VM](./backup-support-matrix-iaas.md).
 * Verifique se outro serviço de cópia de segurança não está a funcionar.
-  * Para garantir que não existem problemas de extensão instantânea, [desinstale as extensões para forçar a recarga e, em seguida, re-tentar a cópia de segurança](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
+  * Para garantir que não existem problemas de extensão instantânea, [desinstale as extensões para forçar a recarga e, em seguida, re-tentar a cópia de segurança](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Verifique se o VM tem conectividade com a Internet.
   * Certifique-se de que outro serviço de reserva não está a funcionar.
-* A partir de `Services.msc` , certifique-se de que o serviço **de Agente Convidado Do Windows Azure** está **a funcionar**. Se faltar o serviço **de Agente Convidado Windows Azure,** instale-o a partir de [VMs Azure de back up num cofre dos Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* A partir de `Services.msc` , certifique-se de que o serviço **de Agente Convidado Do Windows Azure** está **a funcionar**. Se faltar o serviço **de Agente Convidado Windows Azure,** instale-o a partir de [VMs Azure de back up num cofre dos Serviços de Recuperação](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * O **registo do Evento** pode apresentar falhas de backup que são de outros produtos de backup, por exemplo, cópia de segurança do Windows Server, e não são devidos a cópia de segurança do Azure. Utilize os seguintes passos para determinar se o problema é com a Azure Backup:
   * Se houver um erro com uma **entrada Cópia de Segurança** na fonte ou mensagem do evento, verifique se as cópias de segurança do Azure IaaS VM foram bem sucedidas e se foi criado um Ponto de Restauro com o tipo de instantâneo pretendido.
   * Se o Azure Backup estiver a funcionar, então o problema é provável que esteja com outra solução de backup.
@@ -133,7 +133,7 @@ Se vir permissões no diretório **MachineKeys** que são diferentes das predefi
    * Ler permissões
 2. Eliminar todos os certificados em **que o Emitida é** o modelo clássico de implementação ou o Gerador de **Certificados CRP do Windows Azure:**
 
-   * [Abra os certificados numa consola de computador local.](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)
+   * [Abra os certificados numa consola de computador local.](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)
    * Nos **Personal**  >  **Certificados Pessoais,** elimine todos os certificados em **que o Emitida seja** o modelo clássico de implementação ou o Gerador de **Certificados CRP do Windows Azure**.
 3. Desencadeie um trabalho de reserva VM.
 
@@ -237,7 +237,7 @@ Código de erro: ExtensãoVCRedistInstallationFailure <br/> Error message: A ope
 ## <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy - Uma política inválida está configurada no VM que está a impedir a operação Snapshot
 Código de erro: UserErrorRequestDisallowedByPolicy <BR> Error message: Uma política inválida está configurada no VM que está a impedir o funcionamento do Snapshot.
 
-Se tiver uma Política Azure que [regule as etiquetas dentro](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)do seu ambiente, considere alterar a política de um [efeito Deny](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) para um [efeito Modificar,](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)ou criar o grupo de recursos manualmente de acordo com o [esquema de nomeação exigido pela Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+Se tiver uma Política Azure que [regule as etiquetas dentro](../governance/policy/tutorials/govern-tags.md)do seu ambiente, considere alterar a política de um [efeito Deny](../governance/policy/concepts/effects.md#deny) para um [efeito Modificar,](../governance/policy/concepts/effects.md#modify)ou criar o grupo de recursos manualmente de acordo com o [esquema de nomeação exigido pela Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ## <a name="jobs"></a>Tarefas
 
@@ -277,12 +277,12 @@ Tipicamente, o Agente VM já está presente em VMs que são criados a partir da 
 #### <a name="windows-vms"></a>VMs do Windows
 
 * Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa de privilégios de administrador para terminar a instalação.
-* Para máquinas virtuais criadas utilizando o modelo de implementação clássico, [atualize a propriedade VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Este passo não é necessário para máquinas virtuais Azure Resource Manager.
+* Para máquinas virtuais criadas utilizando o modelo de implementação clássico, [atualize a propriedade VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Este passo não é necessário para máquinas virtuais Azure Resource Manager.
 
 #### <a name="linux-vms"></a>VMs do Linux
 
 * Instale a versão mais recente do agente a partir do repositório de distribuição. Para mais informações sobre o nome do pacote, consulte o [repositório do Agente Linux.](https://github.com/Azure/WALinuxAgent)
-* Para VMs criados utilizando o modelo de implementação clássico, [atualize a propriedade VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos.
+* Para VMs criados utilizando o modelo de implementação clássico, [atualize a propriedade VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Este passo não é necessário para máquinas virtuais do Gestor de Recursos.
 
 ### <a name="update-the-vm-agent"></a>Atualizar o Agente VM
 
@@ -292,7 +292,7 @@ Tipicamente, o Agente VM já está presente em VMs que são criados a partir da 
 
 #### <a name="linux-vms"></a>VMs do Linux
 
-* Para atualizar o Agente Linux VM, siga as instruções do artigo [Atualização do Agente Linux VM](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Para atualizar o Agente Linux VM, siga as instruções do artigo [Atualização do Agente Linux VM](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 
     > [!NOTE]
     > Utilize sempre o repositório de distribuição para atualizar o agente.
@@ -326,5 +326,5 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:
 
-* [Como adicionar um IP interno estático a um VM existente](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
+* [Como adicionar um IP interno estático a um VM existente](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [Alterar o método de atribuição de um endereço IP privado atribuído a uma interface de rede](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)

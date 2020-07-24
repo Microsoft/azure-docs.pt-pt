@@ -6,11 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77655655"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033518"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Insights de Aplicações para Funções Azure suportados
 
@@ -30,23 +31,23 @@ Para obter mais informações sobre versões compatíveis de Insights de Aplica�
 | &bull;Exceções                   | Sim             | Sim               | 
 | &bull;Contadores de desempenho         | Sim             | Sim               |
 | &bull;Dependências                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash;HTTP      |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash;ServiceBus|                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash;EventHub  |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash;SQL       |                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash;HTTP      |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash;ServiceBus|                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash;EventHub  |                 | Yes               | 
+| &nbsp;&nbsp;&nbsp;&mdash;SQL       |                 | Yes               | 
 | | | | 
 | **Funcionalidades suportadas**                |                   |                   |               
 | &bull;QuickPulse/LiveMetrics       | Sim             | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash;Canal de Controlo Seguro|                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash;Canal de Controlo Seguro|                 | Yes               | 
 | &bull;Amostragem                     | Sim             | Sim               | 
-| &bull;Batimentos cardíacos                   |                 | Sim               | 
+| &bull;Batimentos cardíacos                   |                 | Yes               | 
 | | | | 
 | **Correlação**                       |                   |                   |               
-| &bull;ServiceBus                     |                   | Sim               | 
-| &bull;EventHub                       |                   | Sim               | 
+| &bull;ServiceBus                     |                   | Yes               | 
+| &bull;EventHub                       |                   | Yes               | 
 | | | | 
 | **Configurável**                      |                   |                   |           
-| &bull;Totalmente configurável.<br/>Consulte [as funções Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
+| &bull;Totalmente configurável.<br/>Consulte [as funções Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Yes                   | 
 
 
 ## <a name="performance-counters"></a>Contadores de Desempenho
@@ -56,11 +57,11 @@ A recolha automática de Contadores de Desempenho apenas funciona com máquinas 
 
 ## <a name="live-metrics--secure-control-channel"></a>Métricas ao vivo & Canal de Controlo Seguro
 
-Os critérios de filtros personalizados especificados são enviados de volta para o componente Métricas Vivas no SDK application Insights. Os filtros podem potencialmente conter informações sensíveis, tais como os ClientesIDs. Pode tornar o canal seguro com uma chave API secreta. Consulte [o canal de controlo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) para obter instruções.
+Os critérios de filtros personalizados especificados são enviados de volta para o componente Métricas Vivas no SDK application Insights. Os filtros podem potencialmente conter informações sensíveis, tais como os ClientesIDs. Pode tornar o canal seguro com uma chave API secreta. Consulte [o canal de controlo](./live-stream.md#secure-the-control-channel) para obter instruções.
 
 ## <a name="sampling"></a>Amostragem
 
-As funções Azure permitem a amostragem por defeito na sua configuração. Para obter mais informações, consulte [a Amostragem de Configuração.](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling)
+As funções Azure permitem a amostragem por defeito na sua configuração. Para obter mais informações, consulte [a Amostragem de Configuração.](../../azure-functions/functions-monitoring.md#configure-sampling)
 
 Se o seu projeto assumir uma dependência do SDK Application Insights para fazer rastreio manual de telemetria, poderá experimentar um comportamento estranho se a sua configuração de amostragem for diferente da configuração de amostragem das Funções. 
 

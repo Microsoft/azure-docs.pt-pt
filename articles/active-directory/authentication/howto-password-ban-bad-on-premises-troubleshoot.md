@@ -12,10 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79263650"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035490"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Resolução de problemas: Proteção de senha azure AD
 
@@ -246,7 +247,7 @@ Se for decidido desinstalar o software de proteção de senhas AZure AD e limpar
 
    Este caminho é diferente se a partilha sysvol tiver sido configurada num local não padrão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Perguntas frequentes para proteção de senha AD AZure](howto-password-ban-bad-on-premises-faq.md)
 

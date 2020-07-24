@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84483788"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035082"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Multi-Factor Authentication do Azure
 
@@ -55,6 +56,8 @@ Os campos opcionais podem ser configurados no Servidor de Autenticação Multi-F
 
 O resultado da verificação (sucesso ou negação), e o motivo se foi negado, é armazenado com os dados de autenticação. Estes dados estão disponíveis em relatórios de autenticação e utilização.
 
+Para obter mais informações, consulte [a residência de dados e os dados do cliente para autenticação multi-factor Azure.](concept-mfa-data-residency.md)
+
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>Que códigos curtos SMS são utilizados para o envio de mensagens SMS para os meus utilizadores?
 
 Nos Estados Unidos, utilizamos os seguintes códigos curtos SMS:
@@ -69,7 +72,9 @@ No Canadá, utilizamos os seguintes códigos curtos SMS:
 * *759731*
 * *673801*
 
-Não há garantia de uma entrega rápida de SMS ou multi-factor baseada em voz pelo mesmo número. No interesse dos nossos utilizadores, podemos adicionar ou remover códigos curtos a qualquer momento à medida que fazemos ajustes de rota para melhorar a entrega de SMS. Não apoiamos códigos curtos para países ou regiões além dos Estados Unidos e Canadá.
+Não há garantia de uma entrega rápida de SMS ou multi-factor baseada em voz pelo mesmo número. No interesse dos nossos utilizadores, podemos adicionar ou remover códigos curtos a qualquer momento à medida que fazemos ajustes de rota para melhorar a entrega de SMS.
+
+Não apoiamos códigos curtos para países ou regiões além dos Estados Unidos e Canadá.
 
 ## <a name="billing"></a>Faturação
 
@@ -249,7 +254,7 @@ O erro *0x800434D4L* ocorre quando se tenta iniciar sing a uma aplicação não 
 
 Uma solução alternativa para este erro é ter contas de utilizador separadas para operações de administração e não administração. Mais tarde, pode ligar caixas de correio entre a sua conta de administração e a conta não administrada para que possa iniciar sação no Outlook utilizando a sua conta de não administração. Para obter mais detalhes sobre esta solução, aprenda a dar a [um administrador a capacidade de abrir e ver o conteúdo da caixa de correio de um utilizador.](https://help.outlook.com/141/gg709759.aspx?sl=1)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se a sua pergunta não for respondida aqui, as seguintes opções de suporte estão disponíveis:
 

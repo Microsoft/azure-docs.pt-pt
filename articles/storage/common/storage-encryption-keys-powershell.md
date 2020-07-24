@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036833"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando o PowerShell
 
@@ -39,15 +39,16 @@ Para obter mais informações sobre a configuração de identidades geridas atri
 
 ## <a name="create-a-new-key-vault"></a>Criar um novo cofre-chave
 
-Para criar um novo cofre de chaves utilizando o PowerShell, ligue para [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). O cofre-chave que utiliza para armazenar chaves geridas pelo cliente para encriptação de armazenamento Azure deve ter duas definições de proteção de chaves ativadas, **Soft Delete** e **Não Purgar**.
+Para criar um novo cofre de chaves utilizando o PowerShell, instale a versão 2.0.0 ou posterior do módulo [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) PowerShell. Então ligue para [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) para criar um novo cofre chave.
 
-Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
+O cofre-chave que utiliza para armazenar chaves geridas pelo cliente para encriptação de armazenamento Azure deve ter duas definições de proteção de chaves ativadas, **Soft Delete** e **Não Purgar**. Na versão 2.0.0 e posterior do módulo Az.KeyVault, a eliminação suave é ativada por padrão quando cria um novo cofre de chave.
+
+O exemplo a seguir cria um novo cofre-chave com as propriedades **Soft Delete** e **Não Purgar** ativadas. Lembre-se de substituir os valores do espaço reservado nos parênteses pelos seus próprios valores.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
@@ -78,9 +79,27 @@ A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configurar encriptação com chaves geridas pelo cliente
 
-Por predefinição, a encriptação do Azure Storage utiliza as teclas geridas pela Microsoft. Neste passo, configufique a sua conta de Armazenamento Azure para utilizar as chaves geridas pelo cliente e especifique a chave para associar à conta de armazenamento.
+Por predefinição, a encriptação do Azure Storage utiliza as teclas geridas pela Microsoft. Neste passo, configufique a sua conta de Armazenamento Azure para utilizar chaves geridas pelo cliente com o Azure Key Vault e, em seguida, especifique a chave para associar à conta de armazenamento.
 
-Ligue [para o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento, como mostra o exemplo seguinte. Inclua a opção **-KeyvaultEncryption** para ativar as chaves geridas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
+Ao configurar a encriptação com as teclas geridas pelo cliente, pode optar por rodar automaticamente a chave utilizada para encriptação quando a versão muda no cofre de teclas associado. Em alternativa, pode especificar explicitamente uma versão chave a ser utilizada para encriptação até que a versão chave seja atualizada manualmente.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Encriptação configurada para rotação automática de chaves geridas pelo cliente
+
+Para configurar a encriptação para a rotação automática das teclas geridas pelo cliente, instale o módulo [Az.Storage,](https://www.powershellgallery.com/packages/Az.Storage) versão 2.0.0 ou posterior.
+
+Para rodar automaticamente as teclas geridas pelo cliente, omita a versão chave quando configurar as chaves geridas pelo cliente para a conta de armazenamento. Ligue [para o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte, e inclua a opção **-KeyvaultEncryption** para ativar as chaves geridas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Encriptação configurada para rotação manual de versões-chave
+
+Para especificar explicitamente uma versão chave a utilizar para encriptação, forneça a versão chave quando configurar a encriptação com as chaves geridas pelo cliente para a conta de armazenamento. Ligue [para o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento, como mostrado no exemplo seguinte, e inclua a opção **-KeyvaultEncryption** para ativar as chaves geridas pelo cliente para a conta de armazenamento. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -91,9 +110,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Atualizar a versão chave
-
-Quando criar uma nova versão de uma chave, terá de atualizar a conta de armazenamento para utilizar a nova versão. Primeiro, ligue para [o Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, ligue para [o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão da chave, como mostrado na secção anterior.
+Quando rodar manualmente a versão chave, terá de atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão. Primeiro, ligue para [o Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, ligue para [o Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento para utilizar a nova versão da chave, como mostrado no exemplo anterior.
 
 ## <a name="use-a-different-key"></a>Use uma chave diferente
 
@@ -101,7 +118,7 @@ Para alterar a chave utilizada para encriptação de armazenamento Azure, ligue 
 
 ## <a name="revoke-customer-managed-keys"></a>Revogar as chaves geridas pelo cliente
 
-Se acredita que uma chave pode ter sido comprometida, pode revogar as chaves geridas pelo cliente removendo a política de acesso ao cofre. Para revogar uma chave gerida pelo cliente, ligue para o comando [Remove-AzKeyVaultAccessPolicy,](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) como mostra o exemplo seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
+Pode revogar as chaves geridas pelo cliente removendo a política de acesso ao cofre. Para revogar uma chave gerida pelo cliente, ligue para o comando [Remove-AzKeyVaultAccessPolicy,](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy) como mostra o exemplo seguinte. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores e utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `
@@ -118,7 +135,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -StorageEncryption  
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
 - [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

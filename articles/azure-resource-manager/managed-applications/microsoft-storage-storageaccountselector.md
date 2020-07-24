@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fcaf0e5842ce8a65175d2fc1dfa2483a1203b2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe70c42387e9dedea8943b5dcce04a1f9ded5190
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033304"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAçãoSelector Elemento UI
 
@@ -19,11 +20,11 @@ Um controlo para selecionar uma conta de armazenamento nova ou existente.
 
 O controlo mostra o valor predefinido.
 
-![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
+![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft-storage-storageaccountselector.png)
 
 O controlo permite ao utilizador criar uma nova conta de armazenamento ou selecionar uma conta de armazenamento existente.
 
-![Microsoft.Storage.StorageAcoctor novo](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+![Microsoft.Storage.StorageAcoctor novo](./media/managed-application-elements/microsoft-storage-storageaccountselector-new.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -66,6 +67,6 @@ O controlo permite ao utilizador criar uma nova conta de armazenamento ou seleci
 - Qualquer tipo não especificado `constraints.allowedTypes` é escondido, e qualquer tipo não especificado `constraints.excludedTypes` é mostrado. `constraints.allowedTypes`e `constraints.excludedTypes` são ambos opcionais, mas não podem ser usados simultaneamente.
 - Se `options.hideExisting` for **verdade,** o utilizador não pode escolher uma conta de armazenamento existente. O valor predefinido é **falso**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

@@ -3,7 +3,7 @@ title: Gerir o acesso dos hóspedes com comentários de acesso - Azure AD
 description: Gerir utilizadores convidados como membros de um grupo ou atribuídos a uma aplicação com avaliações de acesso ao Azure Ative Directory
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/13/2018
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf2f9503ae704110786a1e73aec3da18c17e4ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75932433"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034127"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com as revisões de acesso do Azure AD
 
@@ -116,7 +117,7 @@ Em algumas organizações, os hóspedes podem não estar cientes dos seus membro
 
 5. Remova o acesso dos hóspedes a hóspedes que foram negados, não completaram a revisão, ou não aceitaram previamente o seu convite. Se alguns dos hóspedes forem contactos selecionados para participar na revisão ou não aceitarem previamente um convite, pode desativar as suas contas utilizando o portal Azure ou o PowerShell. Se o hóspede já não precisar de acesso e não for um contacto, pode remover o seu objeto de utilizador do seu diretório utilizando o portal Azure ou o PowerShell para eliminar o objeto do utilizador convidado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 

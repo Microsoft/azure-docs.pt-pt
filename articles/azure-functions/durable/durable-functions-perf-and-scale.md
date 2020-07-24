@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8f8df703030220f2c5a79bdb34e3ffbac8ee84a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762127"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033586"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performance and scale in Durable Functions (Azure Functions) (Desempenho e dimensionamento no Durable Functions [Funções do Azure])
 
@@ -22,13 +22,13 @@ Para entender o comportamento da escala, você tem que entender alguns dos detal
 
 A tabela **História** é uma tabela de Armazenamento Azure que contém os eventos de história para todos os casos de orquestração dentro de um centro de tarefas. O nome desta tabela está na forma *TaskHubName*History. À medida que os casos são executados, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela deriva do exemplo de identificação da orquestração. Um iD de caso é aleatório na maioria dos casos, o que garante uma distribuição ótima de divisórias internas no Azure Storage.
 
-Quando uma instância de orquestração precisa de ser executada, as linhas apropriadas da tabela História são carregadas na memória. Estes *eventos de história* são então reproduzidos no código de função do orquestrador para o colocar de volta no seu estado previamente posto de controlo. O uso da história da execução para reconstruir o estado desta forma é influenciado pelo [padrão de Sourcing de Eventos.](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)
+Quando uma instância de orquestração precisa de ser executada, as linhas apropriadas da tabela História são carregadas na memória. Estes *eventos de história* são então reproduzidos no código de função do orquestrador para o colocar de volta no seu estado previamente posto de controlo. O uso da história da execução para reconstruir o estado desta forma é influenciado pelo [padrão de Sourcing de Eventos.](/azure/architecture/patterns/event-sourcing)
 
 ## <a name="instances-table"></a>Tabela de casos
 
 A tabela **Instâncias** é outra tabela de Armazenamento Azure que contém os estatutos de todas as instâncias de orquestração e entidade dentro de um centro de tarefas. À medida que os casos são criados, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela é a identificação de instância de orquestração ou chave de entidade e a chave de linha é uma constante fixa. Há uma linha por orquestração ou instância de entidade.
 
-Esta tabela é utilizada para satisfazer pedidos de consulta de instâncias das `GetStatusAsync` APIs (.NET) e `getStatus` (JavaScript), bem como a [consulta de estado HTTP API](durable-functions-http-api.md#get-instance-status). É eventualmente mantido consistente com o conteúdo da tabela **História** mencionada anteriormente. A utilização de uma tabela de armazenamento Azure separada para satisfazer eficazmente as operações de consulta de instância desta forma é influenciada pelo [padrão de Segregação de Responsabilidade De Comando e Consulta (CQRS).](https://docs.microsoft.com/azure/architecture/patterns/cqrs)
+Esta tabela é utilizada para satisfazer pedidos de consulta de instâncias das `GetStatusAsync` APIs (.NET) e `getStatus` (JavaScript), bem como a [consulta de estado HTTP API](durable-functions-http-api.md#get-instance-status). É eventualmente mantido consistente com o conteúdo da tabela **História** mencionada anteriormente. A utilização de uma tabela de armazenamento Azure separada para satisfazer eficazmente as operações de consulta de instância desta forma é influenciada pelo [padrão de Segregação de Responsabilidade De Comando e Consulta (CQRS).](/azure/architecture/patterns/cqrs)
 
 ## <a name="internal-queue-triggers"></a>Gatilhos de fila internos
 
@@ -260,7 +260,7 @@ Ao planear utilizar Funções Duradouras para uma aplicação de produção, é 
 
 A tabela seguinte mostra os números *máximos* de produção esperados para os cenários previamente descritos. "Instance" refere-se a uma única instância de uma função orquestradora que funciona num único pequeno[(A1](../../virtual-machines/sizes-previous-gen.md)) VM em Azure App Service. Em todos os casos, presume-se que as [sessões prolongadas](#orchestrator-function-replay) estão habilitados. Os resultados reais podem variar dependendo do trabalho de CPU ou I/S realizado pelo código de função.
 
-| Scenario | Débito máximo |
+| Cenário | Débito máximo |
 |-|-|
 | Execução de atividade sequencial | 5 atividades por segundo, por exemplo |
 | Execução paralela da atividade (fan-out) | 100 atividades por segundo, por exemplo |
@@ -273,7 +273,7 @@ A tabela seguinte mostra os números *máximos* de produção esperados para os 
 
 Se não estiver a ver os números de produção que espera e o uso do CPU e da memória parece saudável, verifique se a causa está relacionada com [a saúde da sua conta de armazenamento.](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance) A extensão funções duradouras pode colocar carga significativa numa conta de Armazenamento Azure e cargas suficientemente elevadas podem resultar em estrangulamento da conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça a recuperação de desastres e geo-distribuição](durable-functions-disaster-recovery-geo-distribution.md)

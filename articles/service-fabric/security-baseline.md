@@ -1,20 +1,20 @@
 ---
-title: Linha de segurança do tecido de serviço para referência de segurança Azure
+title: Linha de base de segurança Azure para tecido de serviço
 description: A linha de base de segurança do Tecido de Serviço fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9d5d686c692c45acfff4fa811ed668c17f19861
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 97285ae9eadee3717f0b1a1510627392250424b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532260"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037870"
 ---
-# <a name="service-fabric-security-baseline-for-azure-security-benchmark"></a>Linha de segurança do tecido de serviço para referência de segurança Azure
+# <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança Azure para tecido de serviço
 
 A Linha de Base de Segurança Azure para o Tecido de Serviço contém recomendações que o ajudarão a melhorar a postura de segurança da sua implantação.
 
@@ -1138,7 +1138,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

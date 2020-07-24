@@ -11,19 +11,19 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/08/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d6b1d5c66c1dd15fa12638dd451d1ce2fa8fa79f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 194864d223d908cc2d8b1d7f14efe81e16bbd058
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146720"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031512"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas armazenam informações de conexão, como o ID de subscrição e a autorização simbólica no cofre de [chaves](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. 
 
-**Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma soluções de armazenamento Azure suportadas.  Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). 
+**Para soluções de armazenamento não suportadas**, e para poupar o custo da saída de dados durante as experiências de ML, [mova os seus dados](#move) para uma solução de armazenamento Azure suportada.  Pode criar datastores a partir [destas soluções de armazenamento Azure](#matrix). 
 
 Para entender onde as datas-tores se encaixam no fluxo de trabalho global de acesso a dados da Azure Machine Learning, consulte o artigo [de dados de acesso seguro.](concept-data.md#data-workflow)
 
@@ -92,8 +92,9 @@ Após a criação da datastore, esta validação é realizada apenas para métod
 ### <a name="python-sdk"></a>SDK Python
 
 Todos os métodos de registo estão na [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) classe e têm o `register_azure_*` formulário.
+
 > [!IMPORTANT]
-> Se planeia criar uma loja de dados para contas de armazenamento que se encontram numa rede virtual, consulte os dados do Access numa secção de rede virtual.
+> Se planeia criar uma loja de dados para contas de armazenamento que se encontram numa rede virtual, consulte os dados do Access numa secção [de rede virtual.](#access-data-in-a-virtual-network)
 
 Pode encontrar a informação necessária para preencher o `register_azure_*()` método no [portal Azure](https://portal.azure.com).
 
@@ -185,7 +186,7 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 Crie uma nova loja de dados em alguns passos no estúdio Azure Machine Learning:
 
 > [!IMPORTANT]
-> Se a sua conta de armazenamento de dados estiver numa rede virtual, são necessários passos de configuração adicionais para garantir que o estúdio tem acesso aos seus dados. Consulte [Isolamento de rede & privacidade] (como activar-virtual-network.md#machine-learning-studio) para garantir que as etapas de configuração apropriadas são aplicadas. 
+> Se a sua conta de armazenamento de dados estiver numa rede virtual, são necessários passos de configuração adicionais para garantir que o estúdio tem acesso aos seus dados. Consulte [o isolamento da rede & privacidade](how-to-enable-virtual-network.md#machine-learning-studio) para garantir que são aplicadas as etapas de configuração adequadas. 
 
 1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Datastores** no painel esquerdo em **Manage**.

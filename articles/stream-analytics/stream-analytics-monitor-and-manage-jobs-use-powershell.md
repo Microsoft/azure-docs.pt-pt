@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 74d3f154f9965e44c9fba42ec094b9240972b40d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0387b4363a438ac48142d97b2a829faf38f1895d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044350"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036663"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorize e gere os trabalhos do Stream Analytics com cmdlets Azure PowerShell
 Aprenda a monitorizar e gerir os recursos stream Analytics com cmdlets Azure PowerShell e scripts powershell que executam tarefas básicas de Stream Analytics.
@@ -20,7 +20,7 @@ Aprenda a monitorizar e gerir os recursos stream Analytics com cmdlets Azure Pow
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Pré-requisitos para executar cmdlets Azure PowerShell para Stream Analytics
-* Crie um Grupo de Recursos Azure na sua subscrição. Segue-se uma amostra do guião Azure PowerShell. Para obter informações sobre a Azure PowerShell, consulte [instalar e configurar a Azure PowerShell;](/powershell/azure/overview)  
+* Crie um Grupo de Recursos Azure na sua subscrição. Segue-se uma amostra do guião Azure PowerShell. Para obter informações sobre a Azure PowerShell, consulte [instalar e configurar a Azure PowerShell;](/powershell/azure/)  
 
 Azure PowerShell 0.9.8:  
 
@@ -544,7 +544,7 @@ Este comando PowerShell testa o estado de ligação da saída no StreamingJob.
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

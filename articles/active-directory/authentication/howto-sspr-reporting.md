@@ -11,11 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652160"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035303"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opções para os relatórios da gestão de palavras-passe do Azure AD)
 
@@ -50,9 +51,9 @@ Na experiência do portal Azure, melhorámos a forma como pode ver a atividade d
 6. A partir do menu **Filtro** na parte superior do painel, selecione a lista de drop-down **do Serviço** e altere-a para o tipo de serviço **de Gestão de Passwords self-service.**
 7. Opcionalmente, filtrar ainda mais a lista escolhendo a **Atividade** específica que lhe interessa.
 
-### <a name="converged-registration-preview"></a>Registo convergente (pré-visualização)
+### <a name="combined-registration"></a>Registo combinado
 
-Se estiver a participar na pré-visualização pública do registo convergente, serão **Security**encontradas informações relativas à atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de**Segurança .
+Se tiver ativado o [registo combinado,](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)serão encontradas informações **Security**sobre a atividade do utilizador nos registos de auditoria nos  >  **Métodos de Autenticação de**Segurança .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas de relatório no portal Azure
 
@@ -168,7 +169,7 @@ A seguinte lista explica esta atividade em detalhe:
      >[!NOTE]
      >Falha não significa que um utilizador seja incapaz de redefinir a sua própria palavra-passe. Significa que não terminaram o processo de registo. Se houver dados não verificados na sua conta que estejam corretos, como um número de telefone que não seja validado, mesmo que não tenham verificado este número de telefone, ainda podem usá-lo para redefinir a sua palavra-passe.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilização e informação sobre informações sobre o uso e informações sobre o uso da SSPR e do MFA](howto-authentication-methods-usage-insights.md)
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)

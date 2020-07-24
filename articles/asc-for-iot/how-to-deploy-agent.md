@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4253e496aca4cbf71fab7ef0ee388b1356df5c16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82103da3f2547baab62d0d95cf9a6084ef099cba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456798"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033772"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e coloque um agente de segurança no seu dispositivo IoT
 
@@ -43,19 +44,18 @@ O agente de segurança baseado em C tem uma pegada de memória mais baixa, e é 
 
 |     | Agente de segurança baseado em C | Agente de segurança baseado em C# |
 | --- | ----------- | --------- |
-| Fonte aberta | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-c) | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-cs) |
-| Linguagem de programação    | C | C# |
-| Plataformas suportadas do Windows? | Não | Sim |
-| Pré-requisitos do Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
-| Apoiou plataformas Linux? | Sim, x64 e x86 | Sim, apenas x64 |
-| Pré-requisitos do Linux | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins, sudo, netstat, iptables |
-| Pegada de disco | 10,5 MB | 90 MB |
-| Pegada de memória (em média) | 5,5 MB | 33 MB |
-| [Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub | Sim | Sim |
-| Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança | Sim | Sim |
-| Agregação de eventos | Sim | Sim |
-| Configuração remota através do [módulo de segurança twin](concept-security-module.md) | Sim | Sim |
-|
+| **Fonte aberta** | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-c) | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-cs) |
+| **Linguagem de programação**    | C | C# |
+| **Plataformas suportadas do Windows?** | Não | Yes |
+| **Pré-requisitos do Windows** | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| **Apoiou plataformas Linux?** | Sim, x64 e x86 | Sim, apenas x64 |
+| **Pré-requisitos linux** | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins, sudo, netstat, iptables |
+| **Pegada de disco** | 10,5 MB | 90 MB |
+| **Pegada de memória (em média)** | 5,5 MB | 33 MB |
+| **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Sim | Sim |
+| **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Sim | Sim |
+| **Agregação de eventos** | Sim | Sim |
+| **Configuração remota através do [módulo de segurança twin](concept-security-module.md)** | Sim | Sim |
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação de agentes de segurança
 
@@ -99,7 +99,7 @@ A lista a seguir inclui todas as plataformas suportadas atualmente.
 |C#|Windows 10 IoT Core, construa 17763    |X64|
 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre opções de configuração, continue a guiar como fazer para configurar o agente.
 > [!div class="nextstepaction"]

@@ -9,16 +9,16 @@ ms.author: johndeu
 ms.date: 04/16/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 53d68a18c5904b8b7e2f6145ae26221e99395a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87030670"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming verificados no local
 
-No Azure Media Services, um [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um oleoduto para o processamento de conteúdos de streaming em direto. O Live Event recebe streams de entrada ao vivo de uma de duas maneiras.
+No Azure Media Services, um [Live Event](/rest/api/media/liveevents) (canal) representa um oleoduto para o processamento de conteúdos de streaming em direto. O Live Event recebe streams de entrada ao vivo de uma de duas maneiras.
 
 * Um codificador ao vivo no local envia um stream rtmp multi-bitrate ou smooth streaming (MP4 fragmentado) para o Live Event que não está habilitado a realizar codificação ao vivo com serviços de media. Os fluxos ingeridos passam por Live Events sem qualquer processamento adicional. Este método **chama-se passagem.** Recomendamos que o codificadora ao vivo envie streams multi-bitrates em vez de um fluxo de bitrate para um evento ao vivo de passagem para permitir o streaming de bitrate adaptativo para o cliente. 
 
@@ -114,10 +114,10 @@ Para reproduzir conteúdo, tanto um stream de áudio como de vídeo deve estar p
 > [!IMPORTANT]
 > Observe a condição física da máquina (CPU / Memória / etc) pois o upload de fragmentos para a nuvem envolve operações de CPU e IO. Se alterar quaisquer definições no codificador, certifique-se de que repor os canais /evento ao vivo para que a alteração produza efeitos.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Streaming em direto com media services v3](live-streaming-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Como verificar o seu codificação](become-on-premises-encoder-partner.md)

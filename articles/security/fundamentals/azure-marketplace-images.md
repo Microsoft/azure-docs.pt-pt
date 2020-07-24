@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 3925e39824d1702ff43a6b981ac997ddab658b96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80548661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038278"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendações de segurança para imagens do mercado de Azure
 
@@ -27,9 +27,8 @@ Execute sempre uma deteção de vulnerabilidade de segurança na sua imagem ante
 
 ## <a name="open-source-based-images"></a>Imagens baseadas em código aberto
 
-|||
-|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Categoria**                                                 | **Verificar**                                                                                                                                                                                                                                                                              |
+| Categoria | Marcar |
+| -------- | ----- |
 | Segurança                                                     | Instale todos os patches de segurança mais recentes para a distribuição do Linux.                                                                                                                                                                                                              |
 | Segurança                                                     | Siga as diretrizes da indústria para garantir a imagem VM para a distribuição específica do Linux.                                                                                                                                                                                     |
 | Segurança                                                     | Limitar a superfície de ataque mantendo a pegada mínima apenas com as funções necessárias do Windows Server, funcionalidades, serviços e portas de rede.                                                                                                                                               |
@@ -40,8 +39,8 @@ Execute sempre uma deteção de vulnerabilidade de segurança na sua imagem ante
 | Segurança                                                     | Evite utilizar o LVM.                                                                                                                                                                                                                                            |
 | Segurança                                                     | Inclua as versões mais recentes das bibliotecas necessárias: </br> - OpenSSL v1.0 ou superior </br> - Python 2.5 ou superior (Python 2.6+ é altamente recomendado) </br> - Pacote Python pyasn1 se ainda não estiver instalado </br> - d.OpenSSL v 1.0 ou maior                                                                |
 | Segurança                                                     | Entradas claras da história bash/Shell.                                                                                                                                                                                                                                             |
-| Rede                                                   | Inclua o servidor SSH por predefinição. Set SSH mantenha-se vivo para sshd config com a seguinte opção: ClientAliveInterval 180.                                                                                                                                                        |
-| Rede                                                   | Remova qualquer configuração de rede personalizada da imagem. Eliminar o resolve.conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
+| Redes                                                   | Inclua o servidor SSH por predefinição. Set SSH mantenha-se vivo para sshd config com a seguinte opção: ClientAliveInterval 180.                                                                                                                                                        |
+| Redes                                                   | Remova qualquer configuração de rede personalizada da imagem. Eliminar o resolve.conf: `rm /etc/resolv.conf` .                                                                                                                                                                                |
 | Implementação                                                   | Instale o mais recente agente Azure Linux.</br> - Instalar utilizando o pacote RPM ou Deb.  </br> - Também pode utilizar o processo de instalação manual, mas as embalagens do instalador são recomendadas e preferidas. </br> - Se instalar o agente manualmente a partir do repositório GitHub, primeiro copie o `waagent` ficheiro para e corra `/usr/sbin` (como raiz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>O ficheiro de configuração do agente é colocado em `/etc/waagent.conf` . |
 | Implementação                                                   | Certifique-se de que o Suporte Azure pode fornecer aos nossos parceiros a saída da consola em série quando necessário e fornecer um tempo suficiente para a montagem do disco de SO a partir do armazenamento em nuvem. Adicione os seguintes parâmetros à imagem Kernel Boot Line: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` . |
 | Implementação                                                   | Sem troca de divisórias no disco de so. O Swap pode ser solicitado para criação no disco de recursos local pelo Agente Linux.         |
@@ -50,9 +49,8 @@ Execute sempre uma deteção de vulnerabilidade de segurança na sua imagem ante
 
 ## <a name="windows-server-based-images"></a>Imagens baseadas em servidores do Windows
 
-|||
-|-------------| -------------------------|
-| **Categoria**                                                     | **Verificar**                                                                                                                                                                |
+| Categoria | Marcar |
+|--------- | ----- |
 | Segurança                                                         | Utilize uma imagem base de SO segura. O VHD utilizado para a origem de qualquer imagem baseada no Windows Server deve ser a partir das imagens OOS do Windows Server fornecidas através do Microsoft Azure. |
 | Segurança                                                         | Instale todas as atualizações de segurança mais recentes.                                                                                                                                     |
 | Segurança                                                         | As aplicações não devem depender de nomes de utilizadores restritos, como administrador, raiz ou administrador.                                                                |

@@ -11,12 +11,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f5c4bfbe955c2989f420d7a6f325f8101556dddd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 069f18d6ef94dd7570cdd506823ef22a17594795
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201310"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031138"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 * Crie um espaço de [trabalho para aprendizagem automática Azure](how-to-manage-workspace.md) para manter todos os seus recursos de pipeline.
 
-* [Configure o seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o Azure Machine Learning SDK, ou utilize uma instância [computacional de aprendizagem automática Azure (pré-visualização)](concept-compute-instance.md) com o SDK já instalado.
+* [Configure o seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o Azure Machine Learning SDK, ou use uma instância de cálculo [Azure Machine Learning](concept-compute-instance.md) com o SDK já instalado.
 
 Comece por anexar o seu espaço de trabalho:
 
@@ -129,6 +129,8 @@ Abaixo estão exemplos de criação e anexação de metas de computação para:
 * Computação do Machine Learning
 * Azure Databricks 
 * Azure Data Lake Analytics
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning compute
 

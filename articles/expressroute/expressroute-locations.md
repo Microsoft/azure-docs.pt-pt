@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3505427ab88a2241aa2781366c3d15179b03f050
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 72408b4f17aa5e8601095b27478806883739a7a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231165"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031631"
 ---
-# <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
+# <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade ExpressRoute e locais de observação
 
 > [!div class="op_single_selector"]
 > * [Localizações por Fornecedor](expressroute-locations.md)
@@ -133,6 +133,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportado |Dallas, Los Angeles, Miami, São Paulo, Washington DC |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Suportado |Suportado |Melbourne, Perth, Sydney, Sydney2 |
+| **[NOS](https://www.nos.pt/empresas/corporate/cloud/cloud/Pages/nos-cloud-connect.aspx)** |Suportado |Suportado |Amesterdão2 |
 | **[Comunicações NTT](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Suportado |Suportado |Amesterdão, Hong Kong SAR, Londres, Los Angeles, Osaka, Singapura, Sydney, Tóquio, Washington DC |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Suportado |Suportado |Tóquio |
 | **[NTT Global DataCenters EMEA](https://www.ntt.com/en/services/data-center.html)** |Suportado |Suportado |Berlim |
@@ -355,7 +356,7 @@ A ativação da conectividade privada para atender as suas necessidades pode ser
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Ásia |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europa |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | América do Norte |
-| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | América do Norte |
+| **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | América do Norte |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europa |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | América do Sul |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrália |

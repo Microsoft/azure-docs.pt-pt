@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7e12b750f569a81f6931333a05f884e16ac4d9e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5cd335d34a67cc5a102bde11366813c53770266e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508020"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036340"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -73,7 +73,7 @@ ms.locfileid: "86508020"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -686,7 +686,7 @@ Como uma árvore de decisão áspera para decidir se um sistema SAP se encaixa n
 
 ![Decisão da árvore para decidir capacidade de implantar SAP em Azure][planning-guide-figure-700]
 
-1. A informação mais importante para começar é o requisito SAPS para um determinado sistema SAP. Os requisitos SAPS devem ser separados na parte DBMS e na parte da aplicação SAP, mesmo que o sistema SAP já esteja implantado no local numa configuração de 2 níveis. Para os sistemas existentes, o SAPS relacionado com o hardware em uso muitas vezes pode ser determinado ou estimado com base em parâmetros DE SAP existentes. Os resultados podem ser [consultados aqui.](https://sap.com/about/benchmark.html) Para os sistemas SAP recém-implantados, deveria ter passado por um exercício de dimensionamento, que deve determinar os requisitos saps do sistema. Consulte também este blog e documento anexo para [o tamanho SAP em Azure](https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx)
+1. A informação mais importante para começar é o requisito SAPS para um determinado sistema SAP. Os requisitos SAPS devem ser separados na parte DBMS e na parte da aplicação SAP, mesmo que o sistema SAP já esteja implantado no local numa configuração de 2 níveis. Para os sistemas existentes, o SAPS relacionado com o hardware em uso muitas vezes pode ser determinado ou estimado com base em parâmetros DE SAP existentes. Os resultados podem ser [consultados aqui.](https://sap.com/about/benchmark.html) Para os sistemas SAP recém-implantados, deveria ter passado por um exercício de dimensionamento, que deve determinar os requisitos saps do sistema. 
 1. Para os sistemas existentes, devem ser medidos os volumes de E/S e as operações de E/S por segundo no servidor DBMS. Para os sistemas recentemente planeados, o exercício de dimensionamento do novo sistema também deve dar ideias bruscas sobre os requisitos de E/S do lado do DBMS. Se não tiver certeza, eventualmente precisa de conduzir uma Prova de Conceito.
 1. Compare o requisito SAPS para o servidor DBMS com o SAPS os diferentes tipos de VM de Azure podem fornecer. A informação sobre o SAPS dos diferentes tipos Azure VM está documentada na Nota SAP [1928533]. O foco deve estar primeiro no DBMS VM uma vez que a camada de base de dados é a camada de um sistema SAP NetWeaver que não escala na maioria das implementações. Em contraste, a camada de aplicação SAP pode ser dimensionada. Se nenhum dos tipos de VM suportados pela SAP pode fornecer o SAPS necessário, a carga de trabalho do sistema SAP planeado não pode ser executada em Azure. Ou precisa de implantar o sistema no local ou tem de alterar o volume de carga de trabalho do sistema.
 1. Como documentado [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows),][virtual-machines-sizes-windows]o Azure impõe uma quota IOPS por disco independente quer utilize o Armazenamento Standard ou o Armazenamento Premium. Dependente do tipo VM, o número de discos de dados, que podem ser montados, varia. Como resultado, pode calcular um número máximo de IOPS que pode ser alcançado com cada um dos diferentes tipos de VM. Dependendo do layout do ficheiro de base de dados, pode riscar discos para se tornar um volume no sistema operativo convidado. No entanto, se o atual volume de IOPS de um sistema SAP implantado exceder os limites calculados do maior tipo de VM de Azure e se não houver possibilidade de compensar com mais memória, a carga de trabalho do sistema SAP pode ser severamente afetada. Nesses casos, pode atingir um ponto em que não deve implantar o sistema no Azure.
@@ -734,7 +734,7 @@ A implantação da extensão Azure para SAP (ver [extensão Azure][planning-guid
 
 Como o Azure fornece mais funcionalidade, novos cmdlets PS vão ser adicionados que requer uma atualização dos cmdlets. Por isso, faz sentido verificar o site Azure Download pelo menos uma vez por mês <https://azure.microsoft.com/downloads/> para uma nova versão dos cmdlets. A nova versão encontra-se instalada em cima da versão mais antiga.
 
-Para obter uma lista geral de comandos PowerShell relacionados com a Azure consulte aqui: <https://docs.microsoft.com/powershell/azure/overview> .
+Para obter uma lista geral de comandos PowerShell relacionados com a Azure consulte aqui: <https://docs.microsoft.com/powershell/azure/> .
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Gestão através dos comandos Microsoft Azure CLI
 
@@ -2005,7 +2005,7 @@ Os pontos-chave da Alta Disponibilidade para sistemas SAP em Azure são:
 * O backup das instâncias de diálogo SAP faz pouco sentido, uma vez que é geralmente mais rápido para recolocar instâncias de diálogo simples.
 * O backup do VM, que contém o diretório global do sistema SAP e com ele todos os perfis das diferentes instâncias, faz sentido e deve ser realizado com o Windows Backup ou, por exemplo, alcatrão no Linux. Uma vez que existem diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2), que facilitam o back up utilizando as versões mais recentes do Windows Server, recomendamos executar o Windows Server 2012 (R2) como sistema operativo para hóspedes do Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia os artigos:
 
 - [Implementação de máquinas virtuais Azure para SAP NetWeaver](./deployment-guide.md)
