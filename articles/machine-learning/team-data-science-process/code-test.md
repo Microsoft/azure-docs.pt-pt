@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090302"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testes de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipa e Serviços Azure DevOps
 Este artigo fornece orientações preliminares para testar código num fluxo de trabalho de ciência de dados. Estes testes conferem aos cientistas de dados uma forma sistemática e eficiente de verificar a qualidade e o resultado esperado do seu código. Utilizamos um projeto team data science process (TDSP) [que utiliza o conjunto de dados do Rendimento Adulto da UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicámos anteriormente para mostrar como os testes de código podem ser feitos. 
@@ -141,7 +142,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
     ![Botão de fila "Guardar &"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Agora, cada vez que um novo compromisso é empurrado para o repositório de código, o processo de construção começará automaticamente. (Aqui usamos o mestre como repositório, mas você pode definir qualquer ramo.) O processo executa o ficheiro **test1.py** na máquina do agente para se certificar de que tudo o que está definido no código funciona corretamente. 
+Agora, cada vez que um novo compromisso é empurrado para o repositório de código, o processo de construção começará automaticamente. Pode definir qualquer ramo. O processo executa o ficheiro **test1.py** na máquina do agente para se certificar de que tudo o que está definido no código funciona corretamente. 
 
 Se os alertas forem configurados corretamente, será notificado por e-mail quando a construção estiver concluída. Também pode verificar o estado de construção em Azure DevOps. Se falhar, pode verificar os detalhes da construção e descobrir qual a peça partida.
 
@@ -149,7 +150,7 @@ Se os alertas forem configurados corretamente, será notificado por e-mail quand
 
 ![Azure DevOps notificação de sucesso de construção](./media/code-test/vs_online_build_succeed.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Consulte o [repositório](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) de previsão de rendimento da UCI para exemplos concretos de testes unitários para cenários de ciência de dados.
 * Siga o esboço anterior e os exemplos do cenário de previsão de rendimento da UCI nos seus próprios projetos de ciência de dados.
 

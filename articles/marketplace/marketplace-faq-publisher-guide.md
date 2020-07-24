@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 05/08/2020
-ms.openlocfilehash: ad4e80c98097955703e4a6fb3c64e93a338f2720
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090149"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Questões comuns sobre o mercado comercial da Microsoft
 
@@ -46,7 +46,7 @@ Para saber mais, veja o vídeo no [Why sell através do marketplace](https://par
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Existe uma taxa de cotação para o mercado comercial da Microsoft?
 
-Não, não há custos para publicar ofertas no nosso mercado comercial. Mantemos uma pequena percentagem da venda, como taxa de transação, e investimo-la no programa Marketplace Rewards, inovação de plataformas e operações de marketplace comercial.
+Não, não há custos para publicar ofertas no nosso mercado comercial. Mantemos uma pequena percentagem da venda, como taxa de transação, e investimo-la no programa Marketplace Rewards, inovação de plataformas e operações de marketplace comercial. Esta taxa de transação é reduzida para ofertas incentivadas pela [Azure IP Co-venda.](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell)
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Como me inscrevo para ser editor no mercado comercial da Microsoft?
 
@@ -311,7 +311,7 @@ Para receber reembolsos, os clientes podem cancelar subscrições dentro de um p
 
 Aqui estão alguns recursos para começar:
 
-- [Introdução ao mercado comercial da Microsoft](/azure/marketplace/marketplace-publishers-guide)
+- [Introdução ao marketplace comercial da Microsoft](/azure/marketplace/marketplace-publishers-guide)
 - [Centro de parceiros de marketplace comercial da Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 - [Bem-vindo ao marketplace comercial](index.yml)
 
@@ -341,6 +341,6 @@ Para obter informações sobre o Microsoft Admin Center, consulte [Gerir subscri
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
 - [Centro de Confiança da Microsoft](https://www.microsoft.com/trust-center)
-- [Documentação do Governo de Azure](../azure-government/index.yml)
+- [Azure Government documentation](../azure-government/index.yml) (Documentação do Azure Government)
 - [Mercado do Governo de Azure](../azure-government/documentation-government-manage-marketplace.md)
 - [Conformidade do Governo de Azure](../azure-government/documentation-government-plan-compliance.md)

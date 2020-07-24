@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2020
 ms.author: allensu
-ms.openlocfilehash: dcf54e5a9bee5f7dc6cba9e3cb178027f53ed5fb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7e962b87b1bd7ef200aa276d8dbecffd5d3fed04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090438"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno com o módulo do Azure PowerShell
 
@@ -250,7 +250,7 @@ Primary              : False
 
 Utilize o comando `Add-AzVMNetworkInterface` para atribuir a NIC a uma máquina virtual.
 
-Para obter as instruções passo a passo para criar uma máquina virtual e atribuir a NIC, veja [Criar uma VM do Azure com o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Para obter as instruções passo a passo para criar uma máquina virtual e atribuir a NIC, veja [Criar uma VM do Azure com o PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 ## <a name="add-the-network-interface"></a>Adicionar a interface de rede
 
@@ -335,7 +335,7 @@ Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 > [!NOTE]
 > Utilize o comutador **-Force** opcional para impedir o pedido de confirmação da eliminação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar o modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 * [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

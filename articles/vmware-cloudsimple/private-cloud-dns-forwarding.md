@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76961130"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091254"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Ativar os servidores DNS private Cloud do Cloud para encaminhar a procura de DNS dos recursos no local para os seus servidores DNS
 
@@ -31,7 +32,7 @@ Reencaminhamento de DNS para o seu servidor DNS no local permite-lhe utilizar a 
 Uma ligação de rede deve estar presente da sua rede Private Cloud para a sua rede de acesso ao local para o encaminhamento de DNS para funcionar.  Pode configurar a ligação de rede utilizando:
 
 * [Ligue-se de instalações para CloudSimple usando ExpressRoute](on-premises-connection.md)
-* [Configurar um portal VPN site-to-site](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Configurar um portal VPN site-to-site](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 As portas de firewall devem ser abertas nesta ligação para o encaminhamento de DNS para funcionar.  As portas utilizadas são a porta TCP 53 ou a porta UDP 53.
 
@@ -50,7 +51,7 @@ Para permitir o encaminhamento de DNS da Private Cloud para o local, apresente u
 * Forneça o nome de domínio do seu domínio no local no painel de detalhes.
 * Forneça a lista dos seus servidores DNS no local para os quais o lookup será reencaminhado a partir da sua nuvem privada no painel de detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre a configuração de firewall no local](on-premises-firewall-configuration.md)
 * [Configuração do servidor DNS nas instalações](on-premises-dns-setup.md)

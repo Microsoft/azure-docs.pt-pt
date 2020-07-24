@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76908075"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090404"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Ver e criar consultas para monitorização e rastreio em registos do Azure Monitor para Apps Azure Logic
 
-Pode ver as consultas subjacentes que produzem os resultados dos registos do [Azure Monitor](../log-analytics/log-analytics-overview.md) e criar consultas que filtram os resultados com base nos seus critérios específicos. Por exemplo, pode encontrar mensagens com base num número específico de controlo de intercâmbio. As consultas utilizam o [idioma de consulta Kusto,](https://aka.ms/LogAnalyticsLanguageReference)que pode editar se quiser ver diferentes resultados. Para obter mais informações, consulte [as consultas de registo do Azure Monitor](../azure-monitor/log-query/query-language.md).
+Pode ver as consultas subjacentes que produzem os resultados dos registos do [Azure Monitor](../azure-monitor/log-query/log-query-overview.md) e criar consultas que filtram os resultados com base nos seus critérios específicos. Por exemplo, pode encontrar mensagens com base num número específico de controlo de intercâmbio. As consultas utilizam o [idioma de consulta Kusto,](https://aka.ms/LogAnalyticsLanguageReference)que pode editar se quiser ver diferentes resultados. Para obter mais informações, consulte [as consultas de registo do Azure Monitor](../azure-monitor/log-query/query-language.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,7 +63,7 @@ Para encontrar ou filtrar resultados com base em propriedades ou valores especí
 
      ![Comece com consulta vazia](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Esquemas de controlo de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Esquemas de controlo de X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)

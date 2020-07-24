@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2b5c28fccc411a8372ebd6015f796c8309146dfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2edf1574784ec93448495086fdd05c988a3e55a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476772"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090540"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -40,7 +40,7 @@ Antes de trabalhar com chaves, segredos ou certificados no seu cofre chave, irá
 
 - [Criar e gerir cofres-chave com CLI](../secrets/quick-create-cli.md)
 - [Criar e gerir cofres-chave com PowerShell](../secrets/quick-create-powershell.md)
-- [Criar e gerir cofres-chave com a porta Azure](../secrets/quick-create-portal.md)
+- [Criar e gerir cofres-chave com o portal Azure](../secrets/quick-create-portal.md)
 - [Criar e gerir cofres-chave com Python](../secrets/quick-create-python.md)
 - [Criar e gerir cofres-chave com Java](../secrets/quick-create-java.md)
 - [Criar e gerir cofres-chave com Node.js](../secrets/quick-create-node.md)
@@ -75,11 +75,11 @@ Para obter mais informações sobre a versão 2.x do .NET SDK, consulte as [nota
 
 Em Node.js, a API de gestão do Cofre-Chave e a API do key Vault estão separadas. O seguinte artigo de visão geral dá-lhe acesso a ambos. 
 
-[Módulos Azure Key Vault para Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Módulos Azure Key Vault para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Bibliotecas Azure Key Vault para Python](/python/api/overview/azure/key-vault?view=azure-python)
+[Bibliotecas Azure Key Vault para Python](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### <a name="azure-cli"></a>CLI do Azure
 
@@ -100,7 +100,7 @@ Para obter exemplos completos utilizando o Key Vault com as suas aplicações, c
 
 Os seguintes artigos e cenários fornecem orientações específicas para a tarefa para trabalhar com o Cofre da Chave Azure:
 
-- [Alterar o ID](subscription-move-fix.md) do inquilino do cofre chave após a mudança de subscrição - Quando você mudar a sua assinatura Azure do inquilino A para o inquilino B, os seus cofres-chave existentes são inacessíveis pelos principais (utilizadores e aplicações) no inquilino B. Corrija-o usando este guia.
+- [Alterar o ID](move-subscription.md) do inquilino do cofre chave após a mudança de subscrição - Quando você mudar a sua assinatura Azure do inquilino A para o inquilino B, os seus cofres-chave existentes são inacessíveis pelos principais (utilizadores e aplicações) no inquilino B. Corrija-o usando este guia.
 - [Aceder ao Key Vault atrás da firewall](access-behind-firewall.md) - Para aceder a um cofre chave, a aplicação do cliente do cofre principal precisa de ser capaz de aceder a vários pontos finais para várias funcionalidades.
 - [Como gerar e transferir chaves protegidas pelo HSM para o cofre da chave Azure](../keys/hsm-protected-keys.md) - Isto irá ajudá-lo a planear, gerar e, em seguida, transferir as suas próprias chaves protegidas pelo HSM para usar com o Cofre da Chave Azure.
 - [Como passar valores seguros (como palavras-passe) durante](../../azure-resource-manager/templates/key-vault-parameter.md) a implementação - Quando precisa de passar um valor seguro (como uma palavra-passe) como parâmetro durante a implementação, pode armazenar esse valor como segredo num Cofre de Chave Azure e fazer referência ao valor em outros modelos do Gestor de Recursos.

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 32ff08c62e53384b64981e1c40a3485b17a8ce11
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: f15f0c3f6b442419d3d2e3a253d15465e130eae2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090608"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -47,6 +47,8 @@ Antes de proceder, assegure-se de que sejam cumpridos os seguintes requisitos:
 * Para dispositivos que operam em redes no local, crie [rede privada virtual (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private espreitando no seu Azure VNet.
 
 ### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Criar um ponto final privado para a entrada do IoT Hub
+
+O ponto final privado funciona para APIs de dispositivo ioT hub (como mensagens de dispositivo para nuvem) bem como APIs de serviço (como criar e atualizar dispositivos).
 
 1. No portal Azure, **selecione Networking**, **Private endpoint connections**, e clique no **ponto final + Private**.
 
@@ -285,7 +287,7 @@ Para Python, baixe a nossa versão limitada do GitHub.
     > pip instalar ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Use os links abaixo para saber mais sobre as funcionalidades do IoT Hub:
 

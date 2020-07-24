@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9f6f428a930f03259986373ca70a95d5df1f7dc3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091492"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas frequentes sobre âncoras espaciais Azure
 
@@ -88,9 +88,9 @@ A Azure Spatial Anchors adere aos Termos do [Acordo de Serviço Azure](https://g
 
 O que isto significa é que tanto o computação como o armazenamento que alimentam este serviço estão nestas regiões. Dito isto, não existem restrições sobre onde os seus clientes estão localizados. 
 
-**P: Cobra por Âncoras Espaciais Azure? Alguma vez vai cobrar?**
+**P: Cobra por Âncoras Espaciais Azure?**
 
-**A:** Pode encontrar detalhes sobre preços durante a pré-visualização na nossa [página de preços.](https://azure.microsoft.com/pricing/details/spatial-anchors/)
+**A:** Pode encontrar detalhes sobre preços na nossa [página de preços.](https://azure.microsoft.com/pricing/details/spatial-anchors/)
 
 ## <a name="technical-faqs"></a>Perguntas frequentes técnicas
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107704"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090098"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Construir plano de migração com Azure Migrate
 
@@ -151,7 +151,7 @@ Antes de finalizar o seu plano de migração, certifique-se de que estas princip
 
 - Obtenha apoio para a sua implementação, se necessário. Muitas organizações optam por ajuda externa para apoiar a sua migração em nuvem. Para se deslocar para Azure de forma rápida e confiante com assistência personalizada, considere um [Fornecedor de Serviços Geridos Azure Expert](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF)ou    [FastTrack para a Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
-Crie um plano eficaz de migração em nuvem que inclua informações detalhadas sobre a lista/grupos de aplicações que pretende migrar, a disponibilidade da sua app e a disponibilidade de bases de dados e as restrições de tempo de inatividade e os marcos de migração desejados. O seu plano de migração também deve ter em conta o tempo que a cópia de dados irá demorar e incluir um tampão atencioso para testes pós-migração e atividades de corte. Os testes pós-migração devem incluir casos funcionais, de integração, segurança e testes de desempenho para garantir que as aplicações migradas funcionam como esperado e todos os objetos de base de dados e relações de dados foram transferidos com sucesso para a Cloud. Os testes pós-migração devem incluir casos funcionais, de integração, segurança e testes de desempenho para garantir que as aplicações migradas funcionam como esperado e todos os objetos de base de dados e relações de dados foram transferidos com sucesso para a Cloud.  
+Crie um plano eficaz de migração em nuvem que inclua informações detalhadas sobre a lista/grupos de aplicações que pretende migrar, a disponibilidade da sua app e a disponibilidade de bases de dados e as restrições de tempo de inatividade e os marcos de migração desejados. O seu plano de migração também deve ter em conta o tempo que a cópia de dados irá demorar e incluir um tampão atencioso para testes pós-migração e atividades de corte. Os testes pós-migração devem incluir casos funcionais, de integração, segurança e testes de desempenho para garantir que as aplicações migradas funcionam como esperado e todos os objetos de base de dados e relações de dados foram transferidos com sucesso para a Cloud.  
 
 Utilize esta análise para construir um roteiro de migração e declare uma janela de manutenção para migrar as suas aplicações e bases de dados com o mínimo a zero tempo de inatividade e limitar o potencial impacto operacional/negócio durante a migração.  
 
@@ -162,7 +162,7 @@ Assim que estiver pronto para migrar, utilize a *ferramenta de migração* de se
 > [!NOTE]
 > Para VMware VMs, a Avaliação do Servidor utiliza o sistema operativo especificado para o VM no vCenter Server para lidar com a análise do SO do hóspede. Para os VMs Linux em execução em VMware, atualmente não identifica a versão exata do núcleo do SO convidado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate)em nuvem   no Quadro de Azure Cloud Adopt.
 - [Começa](https://youtu.be/wFfq3YPxYHE) com o Azure Migrate.

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81450145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090336"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Melhorar a segurança das mensagens B2B com certificados
 
@@ -47,7 +47,7 @@ Para utilizar um *certificado público* em aplicações lógicas com capacidades
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Nome** | <*nome certificado*> | O nome do seu certificado, que é "publicCert" neste exemplo | 
-   | **Tipo de Certificado** | Público | O tipo do seu certificado |
+   | **Tipo de Certificado** | Públicos | O tipo do seu certificado |
    | **Certificado** | <*nome de certificado*> | Para encontrar e selecionar o ficheiro de certificado que pretende carregar, escolha o ícone da pasta ao lado da caixa **Certificate.** |
    ||||
 
@@ -59,7 +59,7 @@ Para utilizar um *certificado público* em aplicações lógicas com capacidades
 
 ## <a name="upload-a-private-certificate"></a>Faça upload de um certificado privado
 
-Para utilizar um *certificado privado* em aplicações lógicas com capacidades B2B, tem primeiro de fazer o upload do certificado para a sua conta de integração. Você também precisa ter uma chave privada que você primeiro adicionar ao [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Para utilizar um *certificado privado* em aplicações lógicas com capacidades B2B, tem primeiro de fazer o upload do certificado para a sua conta de integração. Você também precisa ter uma chave privada que você primeiro adicionar ao [Azure Key Vault](../key-vault/general/overview.md). 
 
 Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integration-agreements.md) que cria, o certificado está disponível para ajudá-lo a proteger as suas mensagens B2B.
 
@@ -68,7 +68,7 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
 
 1. [Adicione a sua chave privada ao Cofre de Chaves Azure](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) e forneça um **nome de chave**.
    
-2. Autorizar a Azure Logic Apps a realizar operações no Azure Key Vault. Para garantir o acesso ao principal do serviço De aplicações lógicas, utilize o comando PowerShell, [Set-AzKeyVaultAccessPolicy,](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)por exemplo:
+2. Autorizar a Azure Logic Apps a realizar operações no Azure Key Vault. Para garantir o acesso ao principal do serviço De aplicações lógicas, utilize o comando PowerShell, [Set-AzKeyVaultAccessPolicy,](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)por exemplo:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
@@ -86,7 +86,7 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Nome** | <*nome certificado*> | O nome do seu certificado, que é "privateCert" neste exemplo | 
-   | **Tipo de Certificado** | Privado | O tipo do seu certificado |
+   | **Tipo de Certificado** | Privada | O tipo do seu certificado |
    | **Certificado** | <*nome de certificado*> | Para encontrar e selecionar o ficheiro de certificado que pretende carregar, escolha o ícone da pasta ao lado da caixa **Certificate.** Ao utilizar um cofre chave para a chave privada, o ficheiro carregado será o certificado público. | 
    | **Grupo de Recursos** | <*integração-conta-grupo de recursos*> | O grupo de recursos da sua conta de integração, que é o "MyResourceGroup" neste exemplo | 
    | **Cofre de Chaves** | <*chave-abóbadas-nome*> | O nome do seu cofre de chaves Azure |

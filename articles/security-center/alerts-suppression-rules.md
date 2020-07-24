@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 18b1b4cb959603f5898e7c725102f35d7abc90cf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849019"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089945"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Suprimir alertas da proteção de ameaças do Centro de Segurança Azure
 
@@ -23,9 +23,7 @@ Esta página explica como pode usar regras de supressão de alertas para suprimi
 
 - Estado de lançamento: **Pré-visualização**
 - Funções necessárias: **Administração de segurança** e **Proprietário** podem criar/eliminar regras. **O leitor de segurança** e **o Reader** podem ver as regras.
-- Nuvens: 
-    - nuvens comerciais ✔
-    - ✔ Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)
+- Nuvens: ✔ Nuvens comerciais ✔ Nacional/Soberano (Gov dos EUA, China Gov, Outros Gov)
 
 
 ## <a name="what-are-suppression-rules"></a>O que são regras de supressão?
@@ -152,7 +150,7 @@ Os métodos HTTP relevantes para as regras de supressão na API REST são:
 Para obter todos os detalhes e exemplos de utilização, consulte a documentação da [API.](https://docs.microsoft.com/rest/api/securitycenter/) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu as regras de supressão no Azure Security Center que automaticamente descartam alertas indesejados.
 

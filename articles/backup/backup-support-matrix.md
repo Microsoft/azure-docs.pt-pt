@@ -3,11 +3,13 @@ title: Matriz de suporte do Azure Backup
 description: Fornece um resumo das definições e limitações de suporte para o serviço de backup Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 4946a4627d037053e441152182278c26b4f693fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: f84be4082eb6bc845459b6d88cb3157b2330f23d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091016"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -31,10 +33,10 @@ A tabela a seguir descreve as características dos cofres dos Serviços de Recup
 --- | ---
 **Cofres em subscrição** | Até 500 cofres dos Serviços de Recuperação numa única subscrição.
 **Máquinas em um cofre** | Até 1.000 VMs Azure num único cofre.<br/><br/> Até 50 servidores MABS podem ser registados num único cofre.
-**Origens de dados** | O tamanho máximo de uma fonte de [dados](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) individual é de 54.400 GB. Este limite não se aplica às cópias de segurança Azure VM. Não se aplicam limites à quantidade total de dados que podes fazer até ao cofre.
+**Origens de dados** | O tamanho máximo de uma fonte de [dados](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual é de 54.400 GB. Este limite não se aplica às cópias de segurança Azure VM. Não se aplicam limites à quantidade total de dados que podes fazer até ao cofre.
 **Backups para o cofre** | **VMs Azure:** Uma vez por dia.<br/><br/>**Máquinas protegidas por DPM/MABS:** Duas vezes por dia.<br/><br/> **Máquinas apoiadas diretamente utilizando o agente MARS:** Três vezes por dia.
 **Backups entre cofres** | O reforço está dentro de uma região.<br/><br/> Precisa de um cofre em todas as regiões do Azure que contenham VMs que queira apoiar. Não pode voltar para outra região.
-**Mover cofres** | Pode [mover cofres](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) através de subscrições ou entre grupos de recursos na mesma subscrição. No entanto, mover cofres através de regiões não é suportado.
+**Mover cofres** | Pode [mover cofres](./backup-azure-move-recovery-services-vault.md) através de subscrições ou entre grupos de recursos na mesma subscrição. No entanto, mover cofres através de regiões não é suportado.
 **Mover dados entre abóbadas** | Mover dados de apoio entre cofres não é suportado.
 **Modificar o tipo de armazenamento do cofre** | Pode modificar o tipo de replicação de armazenamento (armazenamento geo-redundante ou armazenamento localmente redundante) para um cofre antes de serem armazenadas cópias de segurança. Depois de começarem as cópias de segurança no cofre, o tipo de replicação não pode ser modificado.
 
@@ -55,7 +57,7 @@ Aqui está o que é suportado se você quiser apoiar as máquinas no local:
 
 **Limite** | **Detalhes**
 --- | ---
-**Discos de dados Azure VM** | Consulte a [matriz de suporte para a cópia de segurança Azure VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
+**Discos de dados Azure VM** | Consulte a [matriz de suporte para a cópia de segurança Azure VM](./backup-support-matrix-iaas.md#vm-storage-support).
 **Tamanho do disco de dados Azure VM** | O tamanho do disco individual pode ser até 32 TB e um máximo de 256 TB combinados para todos os discos num VM.
 
 ### <a name="azure-vm-backup-options"></a>Opções de backup Azure VM
@@ -128,7 +130,7 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 
 **Máquina** | **Comprimir para MABS/DPM (TCP)** | **Comprimir para cofre (HTTPS)**
 --- | --- | ---
-**Backup direto das máquinas Windows no local** | ND | ![Sim][green]
+**Backup direto das máquinas Windows no local** | ND | ![Yes][green]
 **Backup dos VMs Azure utilizando a extensão VM** | ND | ND
 **Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Sim][green] | ![Sim][green]
 
@@ -150,12 +152,12 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
-| Agente MARS/Nas instalações | Não                                                           | N/D               |
-| SQL /SAP HANA          | Não                                                           | N/D               |
-| AFS                    | Não                                                           | N/D               |
+| VM do Azure               | Yes.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
+| Agente MARS/Nas instalações | No                                                           | N/D               |
+| SQL /SAP HANA          | No                                                           | N/D               |
+| AFS                    | No                                                           | N/D               |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Rever matriz de suporte](backup-support-matrix-iaas.md) para backup Azure VM.
 

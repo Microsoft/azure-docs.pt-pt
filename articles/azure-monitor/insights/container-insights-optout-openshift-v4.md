@@ -3,12 +3,12 @@ title: Como parar de monitorizar o seu Azure e Red Hat OpenShift v4 cluster Micr
 description: Este artigo descreve como pode parar de monitorizar o seu Azure Red Hat OpenShift e red Hat OpenShift série 4 com Azure Monitor para recipientes.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 768c4db8d72778b555a4f343cf2e23b8fa861991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf61457b9c8cff40eb3fee2c93c7184fbaae6db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091152"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Como parar de monitorizar o seu cluster Azure e Red Hat OpenShift v4
 
@@ -49,4 +49,4 @@ A alteração de configuração pode demorar alguns minutos a ser concluída. Co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se o espaço de trabalho Log Analytics foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Se o espaço de trabalho Log Analytics foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics](../platform/delete-workspace.md).

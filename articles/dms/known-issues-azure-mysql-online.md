@@ -3,8 +3,8 @@ title: 'Questões conhecidas: Migrações online para Azure Database para o MySQ
 titleSuffix: Azure Database Migration Service
 description: Conheça questões conhecidas e limitações de migração com migrações on-line para Azure Database for MySQL ao utilizar o Serviço de Migração de Bases de Dados Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235283"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090710"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Questões de migração online & limitações ao Azure DB para o MySQL com o Azure Database Migration Service
 
@@ -135,6 +135,8 @@ Quando tentar efetuar uma migração on-line de AWS RDS MySQL para Azure Databas
     ```
 
 - No Serviço de Migração da Base de Dados Azure, o limite das bases de dados para migrar numa única atividade migratória é de quatro.
+
+- O Azure DMS não suporta a ação referencial CASCADE, que ajuda a eliminar ou atualizar automaticamente uma linha de correspondência na tabela infantil quando uma linha é eliminada ou atualizada na tabela dos pais. Para obter mais informações, na documentação do MySQL, consulte a secção Ações Referenciais do artigo [Restrições DE CHAVE ESTRANGEIRA](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). O Azure DMS requer que deixe cair os constrangimentos de chaves estrangeiras no servidor de base de dados-alvo durante a carga inicial de dados, e não pode utilizar ações referenciais. Se a sua carga de trabalho depender da atualização de uma tabela de crianças relacionada através desta ação referencial, recomendamos que efetue uma [lixeira e restaure.](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) 
 
 - **Erro:** Tamanho da linha demasiado grande (> 8126). Alterar algumas colunas para SMS ou BLOB pode ajudar. No formato de linha atual, o prefixo BLOB de 0 bytes é armazenado em linha.
 

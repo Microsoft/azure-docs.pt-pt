@@ -3,15 +3,16 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço Azure Backup apoia as máquinas Azure Virtual e como seguir as melhores práticas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091050"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup Azure VM
 
-Este artigo descreve como o [serviço de backup Azure](backup-introduction-to-azure-backup.md) faz backup de máquinas virtuais Azure (VMs).
+Este artigo descreve como o [serviço de backup Azure](./backup-overview.md) faz backup de máquinas virtuais Azure (VMs).
 
 A Azure Backup fornece backups independentes e isolados para proteger contra a destruição não intencional dos dados nos seus VMs. As cópias de segurança são armazenadas num cofre dos Serviços de Recuperação com gestão incorporada de pontos de recuperação. A configuração e o dimensionamento são simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
 
@@ -25,8 +26,8 @@ Eis como a Azure Backup completa uma cópia de segurança para os VMs do Azure:
 
 1. Para os VMs Azure que são selecionados para cópia de segurança, o Azure Backup inicia um trabalho de backup de acordo com o horário de backup especificado.
 1. Durante a primeira cópia de segurança, é instalada uma extensão de backup no VM se o VM estiver em funcionamento.
-    - Para os VMs do Windows, a [extensão VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows) está instalada.
-    - Para os VMs Linux, a [extensão VMSnapshotLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux) está instalada.
+    - Para os VMs do Windows, a [extensão VMSnapshot](../virtual-machines/extensions/vmsnapshot-windows.md) está instalada.
+    - Para os VMs Linux, a [extensão VMSnapshotLinux](../virtual-machines/extensions/vmsnapshot-linux.md) está instalada.
 1. Para os VMs do Windows que estão em execução, as coordenadas de backup com o Windows Volume Shadow Copy Service (VSS) para tirar uma imagem consistente da aplicação do VM.
     - Por predefinição, o Backup recebe cópias de segurança VSS completas.
     - Se o Backup não conseguir tirar uma imagem consistente da aplicação, então é necessário um instantâneo consistente de ficheiro do armazenamento subjacente (porque não ocorre nenhuma aplicação escrita enquanto o VM é parado).
@@ -63,7 +64,7 @@ As BEKs também estão apoiadas. Assim, se os BEKs estiverem perdidos, os utiliz
 
 O Azure Backup tira fotografias de acordo com o horário de reserva.
 
-- **VMs do Windows:** Para os VMs do Windows, o serviço de cópia de segurança coordena com o VSS para tirar uma imagem consistente dos discos VM.  Por predefinição, o Azure Backup recebe uma cópia de segurança completa do VSS (trunca os registos de aplicação como o SQL Server no momento da cópia de segurança para obter uma cópia de segurança consistente ao nível da aplicação).  Se estiver a utilizar uma base de dados do SQL Server na cópia de segurança do Azure VM, pode modificar a definição para obter uma cópia de segurança VSS Copy (para preservar registos). Para obter mais informações, consulte [este artigo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
+- **VMs do Windows:** Para os VMs do Windows, o serviço de cópia de segurança coordena com o VSS para tirar uma imagem consistente dos discos VM.  Por predefinição, o Azure Backup recebe uma cópia de segurança completa do VSS (trunca os registos de aplicação como o SQL Server no momento da cópia de segurança para obter uma cópia de segurança consistente ao nível da aplicação).  Se estiver a utilizar uma base de dados do SQL Server na cópia de segurança do Azure VM, pode modificar a definição para obter uma cópia de segurança VSS Copy (para preservar registos). Para obter mais informações, consulte [este artigo](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
 
 - **VMs Linux:** Para tirar fotos consistentes de aplicativos de VMs Linux, use a estrutura de pré-script e pós-script do Linux para escrever os seus próprios scripts personalizados para garantir a consistência.
 
@@ -80,6 +81,9 @@ A tabela a seguir explica os diferentes tipos de consistência instantânea:
 **Consistente com aplicação** | As cópias de segurança consistentes em termos de aplicações captam o conteúdo da memória e as operações de I/O pendentes. Os instantâneos consistentes com aplicações utilizam um escritor VSS (ou scripts pré/post para Linux) para garantir a consistência dos dados da aplicação antes de ocorrer uma cópia de segurança. | Quando está a recuperar um VM com uma imagem consistente com uma aplicação, o VM arranca. Não há corrupção ou perda de dados. As aplicações começam num estado consistente. | Windows: Todos os escritores da VSS sucederam<br/><br/> Linux: Os scripts pré/post são configurados e bem sucedidos
 **Sistema de ficheiros consistente** | As cópias de segurança consistentes do sistema de ficheiros proporcionam consistência, tirando uma imagem instantânea de todos os ficheiros ao mesmo tempo.<br/><br/> | Quando está a recuperar um VM com uma imagem consistente do sistema de ficheiros, o VM arranca. Não há corrupção ou perda de dados. As aplicações precisam implementar o seu próprio mecanismo de "correção" para garantir que os dados restaurados são consistentes. | Windows: Alguns escritores do VSS falharam <br/><br/> Linux: Padrão (se os scripts pré/post não estiverem configurados ou falhados)
 **Consistente com acidentes** | Normalmente, ocorrem instantâneos consistentes em acidentes se um VM Azure desligar no momento da cópia de segurança. Apenas os dados que já existem no disco no momento da cópia de segurança são capturados e apoiados. | Começa com o processo de arranque VM seguido de uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou operações de escrita que não tenham sido transferidas para o disco antes do acidente se perderem. As aplicações implementam a sua própria verificação de dados. Por exemplo, uma aplicação de base de dados pode usar o seu registo de transações para verificação. Se o registo de transações tiver entradas que não estão na base de dados, o software de base de dados ressa o resultado até que os dados sejam consistentes. | A VM está em estado de encerramento (parado/deallocated).
+
+>[!NOTE]
+> Se o estado de provisionamento for **bem sucedido,** o Azure Backup recebe cópias de segurança consistentes do sistema de ficheiros. Se o estado de provisionamento não estiver **disponível** ou **falhado,** serão tomadas cópias de segurança consistentes. Se o estado de provisionamento estiver **a criar** ou **a apagar,** isso significa que o backup do Azure está a voltar a tentar as operações.
 
 ## <a name="backup-and-restore-considerations"></a>Considerações sobre a cópia de segurança e o restauro
 
@@ -107,8 +111,8 @@ Estes cenários comuns podem afetar o tempo total de backup:
 Quando está a configurar cópias de segurança da VM, sugerimos que siga estas práticas:
 
 - Modifique as horas de agendamento predefinidas que são definidas numa política. Por exemplo, se a hora predefinida na política for 12:00, aumente o tempo em vários minutos para que os recursos sejam utilizados de forma ideal.
-- Se estiver a restaurar os VMs de um único cofre, recomendamos vivamente que utilize [diferentes contas de armazenamento v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para garantir que a conta de armazenamento do alvo não seja estrangulada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restaurados, utilize 10 contas de armazenamento diferentes.
-- Para a cópia de segurança dos VM que estão a utilizar armazenamento premium, com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. Os 50% de espaço livre não são um requisito para as cópias de segurança após a primeira cópia de segurança estar concluída
+- Se estiver a restaurar os VMs de um único cofre, recomendamos vivamente que utilize [diferentes contas de armazenamento v2](../storage/common/storage-account-upgrade.md) para garantir que a conta de armazenamento do alvo não seja estrangulada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restaurados, utilize 10 contas de armazenamento diferentes.
+- Para a cópia de segurança dos VM que estão a utilizar armazenamento premium com Instant Restore, recomendamos a atribuição de *50%* de espaço livre do espaço total de armazenamento atribuído, que é necessário **apenas** para a primeira cópia de segurança. O espaço livre de 50% não é um requisito para backups depois que o primeiro backup está completo
 - O limite ao número de discos por conta de armazenamento é relativo à frequência de acesso aos discos pelas aplicações que estão a ser executadas numa VM IaaS (infraestrutura como serviço). Como prática geral, se 5 a 10 discos ou mais estiverem presentes numa única conta de armazenamento, equilibre a carga ao mover alguns discos, de modo a separar as contas de armazenamento.
 
 ## <a name="backup-costs"></a>Custos de backup
@@ -134,6 +138,6 @@ Disco de dados 2 | 32 TB | 0 GB
 
 O tamanho real do VM neste caso é de 17 GB + 30 GB + 0 GB = 47 GB. Este tamanho de instância protegida (47 GB) torna-se a base para a fatura mensal. À medida que a quantidade de dados no VM cresce, o tamanho de instância protegida usado para alterações de faturação correspondem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, [prepare-se para o reforço Azure VM](backup-azure-arm-vms-prepare.md).

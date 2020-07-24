@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 8faff37e127e80447e0f066ef17e2885d4bcb597
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d79d1bf846cc023b86c3e33b17c91cce77ffe9ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089877"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja as suas máquinas e aplicações
 Quando o Azure Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiem através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
@@ -122,7 +123,7 @@ Num cenário em que tenha uma recomendação, siga os passos da recomendação p
 
 
 ### <a name="app-services"></a><a name="app-services"></a>Serviços de aplicações
-Para ver as informações do Serviço de Aplicações, tem de estar no nível de preços Standard do Security Center e ativar o Serviço de Aplicações na sua subscrição. Para obter instruções para ativar esta função, consulte [protect App Service com O Centro de Segurança Azure](security-center-app-services.md).
+Para ver as informações do Serviço de Aplicações, tem de estar no nível de preços padrão do Security Center e ativar o Serviço de Aplicações na sua subscrição. Para obter instruções para ativar esta função, consulte [protect App Service com O Centro de Segurança Azure](security-center-app-services.md).
 
 Nos **serviços da App,** encontra uma lista dos ambientes do seu serviço de Aplicação e o resumo da saúde com base na avaliação realizada pelo Centro de Segurança.
 
@@ -195,7 +196,7 @@ O Centro de Segurança analisa as suas configurações do Docker e fornece-lhe v
 ![separador de contentores](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte os seguintes artigos:
 
 * [Lista completa de recomendações de segurança do Azure Security Center](recommendations-reference.md)

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 9788c4663908497b51fbaaf7f824125d857e7c81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774417"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090166"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenha credenciais para aceder à API dos Serviços de Mídia  
 
@@ -26,9 +27,9 @@ Quando utiliza a autenticação Azure AD para aceder à API dos Serviços Azure 
 - **Autenticação principal do serviço** (recomendado)
 
     Autenticar um serviço. As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de nível médio ou trabalhos programados: aplicações web, apps de funções, apps lógicas, APIs ou um microserviço.
-- **Autenticação de utilizador**
+- **Autenticação do utilizador**
 
-    Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
+    Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto. 
 
 Este artigo descreve passos para obter credenciais para aceder à API dos Serviços de Media. Escolha entre os seguintes separadores.
 
@@ -55,7 +56,7 @@ Autentica um serviço utilizando uma aplicação Azure Ative Directory (Azure AD
 
 A **aplicação AAD e** a secção secreta permitem-lhe selecionar ou criar uma nova aplicação AD Azure e gerar um segredo. Por razões de segurança, o segredo não pode ser mostrado depois de a lâmina estar fechada. A aplicação utiliza o ID da aplicação e segredo para autenticação para obter um token válido para os serviços de comunicação.
 
-Certifique-se de que tem permissões suficientes para registar um pedido com o seu inquilino Azure AD e atribuir o pedido a uma função na sua subscrição Azure. Para mais informações, consulte [as permissões necessárias.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)
+Certifique-se de que tem permissões suficientes para registar um pedido com o seu inquilino Azure AD e atribuir o pedido a uma função na sua subscrição Azure. Para mais informações, consulte [as permissões necessárias.](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 
 #### <a name="connect-to-media-services-api"></a>Ligue-se à API dos Serviços de Mídia
 
@@ -75,6 +76,6 @@ Copie as suas credenciais para ligar a sua aplicação de utilizador a partir da
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial: Carregar, codificar e transmitir vídeos com o Media Services v3](stream-files-tutorial-with-api.md).

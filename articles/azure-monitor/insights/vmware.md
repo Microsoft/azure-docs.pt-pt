@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bda1acde914aa068fe3a87d307a29583f87af34f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77664784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091186"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de Monitorização VMware (Preprecada) no Azure Monitor
 
@@ -157,9 +158,9 @@ Guardar consultas de registo é uma funcionalidade padrão no Azure Monitor e po
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Criar alertas de consultas
-Depois de criar as suas consultas, talvez queira usar as consultas para alertá-lo quando ocorrerem eventos específicos. Consulte [alertas no Log Analytics](../platform/alerts-overview.md) para obter informações sobre como criar alertas. Para exemplos de consultas de alerta e outros exemplos de consultas, consulte o [Monitor VMware utilizando](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) o post de blog do Log Analytics.
+Depois de criar as suas consultas, talvez queira usar as consultas para alertá-lo quando ocorrerem eventos específicos. Consulte [alertas no Log Analytics](../platform/alerts-overview.md) para obter informações sobre como criar alertas. Para exemplos de consultas de alerta e outros exemplos de consultas, consulte o [Monitor VMware utilizando](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) o post de blog do Log Analytics.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>O que preciso fazer na configuração do anfitrião ESXi? Que impacto terá no meu ambiente atual?
 A solução utiliza o mecanismo de reencaminhamento Syslog host Syslog nativo. Não precisa de nenhum software adicional da Microsoft no ESXi Host para capturar os registos. Deve ter um baixo impacto no seu ambiente existente. No entanto, é necessário definir o encaminhamento do syslog, que é a funcionalidade ESXI.
 
@@ -173,7 +174,7 @@ Sim, tu podes. Pode utilizar as definições de nível de registo do anfitrião 
 Havia um bug de hospedeiro ESXi para o slogan do syslog. Para mais informações, consulte a Base de [Conhecimentos VMware.](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202) Depois de aplicar a solução alternativa, o Hostd deve funcionar normalmente.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Posso ter vários anfitriões ESXi a encaminhar dados de syslog para um único VM com omsagent?
-Sim. Pode ter vários anfitriões ESXi a encaminhar-se para um único VM com omsagent.
+Yes. Pode ter vários anfitriões ESXi a encaminhar-se para um único VM com omsagent.
 
 ### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>Por que não vejo dados a fluir para o Log Analytics?
 Pode haver várias razões:
@@ -197,7 +198,7 @@ Pode haver várias razões:
 
      d. Se o ficheiro não existir ou a definição do utilizador e do grupo estiver errada, tome medidas corretivas [preparando um servidor Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Utilize [consultas de registo](../log-query/log-query-overview.md) no Log Analytics para ver dados detalhados do anfitrião VMware.
 * [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) mostrando dados do anfitrião VMware.
 * [Crie alertas](../platform/alerts-overview.md) quando ocorrerem eventos específicos de anfitrião VMware.

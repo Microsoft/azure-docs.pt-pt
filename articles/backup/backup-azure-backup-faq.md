@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 6d05c06b1d27cd9d1bc396bddad49fcc89ba3ec3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091084"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -18,7 +18,7 @@ Este artigo responde a questões comuns sobre o serviço do Azure Backup.
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure?
 
-Sim. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
+Yes. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 
@@ -39,7 +39,7 @@ Os dados de servidores que quer recuperar em conjunto deverão utilizar a mesma 
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover o meu cofre entre subscrições?
 
-Sim. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
+Yes. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de cópia de segurança para outro cofre?
 
@@ -69,7 +69,7 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existem limites no agendamento de cópias de segurança?
 
-Sim.
+Yes.
 
 - Pode fazer cópias de segurança de computadores Windows ou Windows Server até três vezes por dia. Pode definir a política de agendamento para agendamentos diários ou semanais.
 - Pode fazer cópias de segurança do DPM até duas vezes por dia. Pode definir a política de agendamento para agendamentos diários, semanais, mensais e anuais.
@@ -79,14 +79,14 @@ Sim.
 
 O Azure Backup suporta estes sistemas operativos para criar cópias de segurança de ficheiros e pastas e aplicações protegidas pelo Azure Backup Server e DPM.
 
-**OS** | **SKU** | **Detalhes**
+**SO** | **SKU** | **Detalhes**
 --- | --- | ---
 Estação de trabalho | |
 Windows 10 de 64 bits | Enterprise, Pro, Home | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 8.1 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
-Server | |
+Servidor | |
 Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
@@ -111,13 +111,13 @@ Windows 8 ou posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-VM do Azure | Consulte a [matriz de suporte para backup Azure VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+VM do Azure | Consulte a [matriz de suporte para backup Azure VM](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da origem de dados?
 
 A tabela seguinte explica a forma como é determinado cada tamanho da origem de dados.
 
-**Origem de Dados** | **Detalhes**
+**Origem de dados** | **Detalhes**
 --- | ---
 Volume |A quantidade de dados para a cópia de segurança a partir de único volume de VM para a cópia de segurança.
 Base de dados do SQL Server |Tamanho do tamanho de uma única base de dados sendo apoiado.
@@ -127,7 +127,7 @@ BMR/Estado do sistema |Cada cópia individual da BMR ou estado do sistema do com
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Existe algum limite à quantidade de dados para os quais são criadas cópias de segurança com um cofre dos Serviços de Recuperação?
 
-Não há limite para a quantidade total de dados que pode fazer com o cofre dos Serviços de Recuperação. As fontes de dados individuais (com além dos VMs Azure), podem ter um tamanho máximo de 54.400 GB. Para obter mais informações sobre limites, consulte a [secção limites](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)do cofre na matriz de suporte .
+Não há limite para a quantidade total de dados que pode fazer com o cofre dos Serviços de Recuperação. As fontes de dados individuais (com além dos VMs Azure), podem ter um tamanho máximo de 54.400 GB. Para obter mais informações sobre limites, consulte a [secção limites](./backup-support-matrix.md#vault-support)do cofre na matriz de suporte .
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que é que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é mais pequeno do que os dados selecionados para cópia de segurança?
 
@@ -201,11 +201,11 @@ Quando é aplicada uma nova política, são seguidas o agendamento e a retençã
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados enviados para o Azure são encriptados?
 
-Sim. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
+Yes. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados da cópia de segurança no Azure também são encriptados?
 
-Sim. Os dados no Azure são encriptados inativamente.
+Yes. Os dados no Azure são encriptados inativamente.
 
 - Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure.
 - Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE).
@@ -220,7 +220,7 @@ A chave de encriptação deve ter, pelo menos, 16 caracteres se estiver a utiliz
 
 Apenas o seu site possui a chave utilizada para encriptar os dados da cópia de segurança. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se tiver colocado a chave num local incorreto, a Microsoft não poderá recuperar os dados da cópia de segurança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as outras FAQs:
 

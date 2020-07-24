@@ -11,11 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d6dd38c3d1802c3b5bec82edbda4f9d344fa28b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83834383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090523"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -64,7 +65,7 @@ As políticas de acesso ao Cofre chave concedem permissões separadamente a chav
 > [!IMPORTANT]
 > As políticas de acesso ao Cofre não suportam permissões granulares ao nível de objetos como uma chave específica, segredo ou certificado. Quando um utilizador tem permissão para criar e eliminar chaves, pode efetuar essas operações em todas as teclas do cofre.
 
-Para definir políticas de acesso para um cofre de chaves, utilize o [portal Azure,](https://portal.azure.com/)o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [o Azure PowerShell](/powershell/azureps-cmdlets-docs)ou as [APIs de Gestão de Cofres de Chaves](/rest/api/keyvault/).
+Para definir políticas de acesso para um cofre de chaves, utilize o [portal Azure,](https://portal.azure.com/)o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [o Azure PowerShell](/powershell/azure/)ou as [APIs de Gestão de Cofres de Chaves](/rest/api/keyvault/).
 
 Pode restringir o acesso a um plano de dados utilizando [pontos finais de serviço de rede virtual para a Azure Key Vault](overview-vnet-service-endpoints.md)). Pode configurar [firewalls e regras de rede virtuais](network-security.md) para uma camada adicional de segurança.
 

@@ -3,12 +3,12 @@ title: Criar alertas de saúde de recursos usando o Portal Azure
 description: Crie alerta utilizando o portal Azure que o notifica quando os seus recursos Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091577"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configurar alertas de estado de funcionamento dos recursos com o portal Azure
 
@@ -45,7 +45,7 @@ Alerta de saúde de recursos usando portal Azure
 1. No [portal](https://portal.azure.com/)Azure , selecione **Service Health**.
 
     ![Seleção de Saúde de Serviço](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. Na secção Saúde dos **Recursos,** selecione **Resource Health**.
+2. Na secção Saúde dos **Recursos,** selecione **Service Health**.
 3. **Selecione Adicionar alerta de saúde de recursos** e preencha os campos.
 4. Em Alerta, selecione a **Subscrição**, **Tipos de Recursos,** **Grupos de Recursos** e **Recursos** para os quais pretende ser alertado.
 
@@ -66,7 +66,7 @@ Alerta de saúde de recursos usando portal Azure
 A nova regra de alerta para o registo de atividade é criada e uma mensagem de confirmação aparece no canto superior direito da janela.
 Pode ativar, desativar, editar ou eliminar uma regra. Saiba mais sobre [como gerir as regras de registo de atividades.](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Saúde dos Recursos:
 

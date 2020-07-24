@@ -10,11 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: 119f26f8d5a425462382a873d7ca4bcfdd6f3d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18addfc6b7a0002aba26b668481d6bedb612fffc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214507"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090353"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Compreender os resultados de machine learning automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -22,8 +23,8 @@ ms.locfileid: "85214507"
 Neste artigo, você aprende a ver e entender os gráficos e métricas para cada uma das suas máquinas automáticas de aprendizagem. 
 
 Saiba mais sobre:
-+ [Métricas, gráficos e curvas para modelos de classificação](#classification)
-+ [Métricas, gráficos e gráficos para modelos de regressão](#regression)
++ [Métricas e gráficos para modelos de classificação](#classification)
++ [Métricas e gráficos para modelos de regressão](#regression)
 + [Interpretação do modelo e importância de característica](#explain-model)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -75,12 +76,12 @@ As seguintes métricas e gráficos estão disponíveis para todos os modelos de 
 
 As seguintes métricas são guardadas em cada iteração de execução para uma tarefa de classificação.
 
-Metric|Descrição|Cálculo|Parâmetros extra
+Métrica|Descrição|Cálculo|Parâmetros extra
 --|--|--|--
-AUC_Macro| AUC é a área sob a curva característica de funcionamento do recetor. Macro é a média aritmética da AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média="macro"|
-AUC_Micro| AUC é a área sob a curva característica de funcionamento do recetor. A Micro é calculada globalmente combinando os verdadeiros positivos e falsos positivos de cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média="micro"|
-AUC_Weighted  | AUC é a área sob a curva característica de funcionamento do recetor. Ponderada é a média aritmética da pontuação para cada classe, ponderada pelo número de casos verdadeiros em cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|média="ponderado"
-accuracy|Precisão é a percentagem de rótulos previstos que correspondem exatamente às verdadeiras etiquetas. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhuma|
+AUC_macro| AUC é a área sob a curva característica de funcionamento do recetor. Macro é a média aritmética da AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média="macro"|
+AUC_micro| AUC é a área sob a curva característica de funcionamento do recetor. A Micro é calculada globalmente combinando os verdadeiros positivos e falsos positivos de cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média="micro"|
+AUC_weighted  | AUC é a área sob a curva característica de funcionamento do recetor. Ponderada é a média aritmética da pontuação para cada classe, ponderada pelo número de casos verdadeiros em cada classe.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|média="ponderado"
+accuracy|Precisão é a percentagem de rótulos previstos que correspondem exatamente às verdadeiras etiquetas. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhum|
 average_precision_score_macro|A precisão média resume uma curva de precisão-recordação como a média ponderada de precisões alcançadas em cada limiar, com o aumento da recuperação do limiar anterior utilizado como peso. Macro é a média aritmética da pontuação média de precisão de cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média="macro"|
 average_precision_score_micro|A precisão média resume uma curva de precisão-recordação como a média ponderada de precisões alcançadas em cada limiar, com o aumento da recuperação do limiar anterior utilizado como peso. A Micro é calculada globalmente combinando os verdadeiros positivos e falsos positivos em cada corte.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média="micro"|
 average_precision_score_weighted|A precisão média resume uma curva de precisão-recordação como a média ponderada de precisões alcançadas em cada limiar, com o aumento da recuperação do limiar anterior utilizado como peso. Ponderada é a média aritmética da pontuação média de precisão para cada classe, ponderada pelo número de casos verdadeiros em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média="ponderado"|
@@ -88,7 +89,7 @@ balanced_accuracy|Precisão equilibrada é a média aritmética de recordação 
 f1_score_macro|A pontuação de F1 é a média harmónica de precisão e recordação. Macro é a média aritmética da pontuação de F1 para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média="macro"|
 f1_score_micro|A pontuação de F1 é a média harmónica de precisão e recordação. A Micro é calculada globalmente contando os verdadeiros positivos, falsos negativos e falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média="micro"|
 f1_score_weighted|A pontuação de F1 é a média harmónica de precisão e recordação. Média ponderada por frequência de classe da pontuação F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média="ponderado"|
-log_loss|Esta é a função de perda utilizada na regressão logística (multinomial) e extensões da mesmo, tais como redes neurais, definidas como a probabilidade negativa de log-probabilidade dos verdadeiros rótulos dadas as previsões de um classificador probabilístico. Para uma única amostra com yt de etiqueta verdadeira {0,1} e probabilidade estimada yp que yt = 1, a perda de log é -log P (yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhuma|
+log_loss|Esta é a função de perda utilizada na regressão logística (multinomial) e extensões da mesmo, tais como redes neurais, definidas como a probabilidade negativa de log-probabilidade dos verdadeiros rótulos dadas as previsões de um classificador probabilístico. Para uma única amostra com yt de etiqueta verdadeira {0,1} e probabilidade estimada yp que yt = 1, a perda de log é -log P (yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhum|
 norm_macro_recall|Macro Recall normalizado é Macro Recall normalizado de modo que o desempenho aleatório tem uma pontuação de 0 e desempenho perfeito tem uma pontuação de 1. Isto é conseguido por norm_macro_recall := (recall_score_macro - R)/(1 - R), onde R é o valor esperado de recall_score_macro para previsões aleatórias (i.e., R=0,5 para classificação binária e R=(1/C) para problemas de classificação classe C).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "macro" |
 precision_score_macro|Precisão é a percentagem de elementos positivamente previstos que estão corretamente rotulados. Macro é a média aritmética de precisão para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média="macro"|
 precision_score_micro|Precisão é a percentagem de elementos positivamente previstos que estão corretamente rotulados. A Micro é calculada globalmente contando os verdadeiros positivos e falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média="micro"|
@@ -97,6 +98,12 @@ recall_score_macro|Lembre-se é a percentagem de elementos corretamente rotulado
 recall_score_micro|Lembre-se é a percentagem de elementos corretamente rotulados de uma determinada classe. Micro é calculado globalmente contando os verdadeiros positivos totais, falsos negativos e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média="micro"|
 recall_score_weighted|Lembre-se é a percentagem de elementos corretamente rotulados de uma determinada classe. Ponderada é a média aritmética de recordação para cada classe, ponderada pelo número de casos verdadeiros em cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média="ponderado"|
 weighted_accuracy|Precisão ponderada é a precisão em que o peso dado a cada exemplo é igual à proporção de casos verdadeiros na verdadeira classe desse exemplo.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight é um vetor igual à proporção dessa classe para cada elemento no alvo|
+
+### <a name="binary-vs-multiclass-metrics"></a>Métricas binárias vs. multiclasse
+
+O AutoML não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, , , `precision_score` e `recall_score` `AUC` .
+
+Um exemplo concreto torna esta distinção mais clara: Em vez de calcular a recordação como `tp / (tp + fn)` , as médias médias multiclasse `micro` `macro` (, ou ) `weighted` médias em ambas as classes de um conjunto de dados de classificação binária. Isto equivale a calcular a recordação para a `true` classe e a classe `false` separadamente e, em seguida, tomar a média dos dois.
 
 <a name="confusion-matrix"></a>
 
@@ -143,15 +150,13 @@ Dependendo do objetivo do problema do negócio, a curva ideal de recuperação d
 ### <a name="roc-chart"></a>Gráfico ROC
 
 #### <a name="what-is-a-roc-chart"></a>O que é um gráfico ROC?
-Característica de funcionamento do recetor (ou ROC) é um enredo das etiquetas corretamente classificadas vs. as etiquetas incorretamente classificadas para um determinado modelo. A curva ROC pode ser menos informativa quando se treinam modelos em conjuntos de dados com elevado viés, uma vez que não mostrará as etiquetas falsas positivas.
+A característica de funcionamento do recetor (ou ROC) é um enredo das etiquetas corretamente classificadas vs. as etiquetas incorretamente classificadas para um determinado modelo. A curva ROC pode ser menos informativa quando se treinam modelos em conjuntos de dados com desequilíbrio de classe elevada, uma vez que a classe maioritária pode abafar a contribuição das classes minoritárias.
 
 #### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>O que faz a ML automatizada com a tabela ROC?
-O ML automatizado gera Macro Average Precision-Recall, Micro Average Precision-Recall e a recuperação de precisão associada a todas as classes para um modelo. 
-
-A média macro-média calculará a métrica independentemente de cada classe e, em seguida, tomará a média, tratando todas as classes de forma igual. No entanto, a micro-média irá agregar as contribuições de todas as classes para calcular a média. A micro-média é preferível se houver desequilíbrio de classe presente no conjunto de dados.
+Pode visualizar a área sob a tabela ROC como a proporção de amostras corretamente classificadas. Um utilizador avançado da tabela ROC pode olhar para além da área sob a curva e obter uma intuição para as verdadeiras taxas positivas e falsas positivas em função do limiar de classificação ou limite de decisão.
 
 #### <a name="what-does-a-good-model-look-like"></a>Como é um bom modelo?
-Idealmente, o modelo terá uma taxa positiva mais próxima de 100% e mais perto de 0% de uma taxa positiva falsa. 
+Uma curva ROC que se aproxima do canto superior esquerdo com uma taxa positiva 100% verdadeira e uma taxa positiva falsa de 0% será o melhor modelo. Um modelo aleatório exibiria como uma linha plana de baixo para a esquerda para o canto superior direito. Pior do que o aleatório mergulharia abaixo da linha y=x.
 
 ##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Exemplo 1: Um modelo de classificação com rótulos de baixa verdade e rótulos falsos elevados
 ![Modelo de classificação com rótulos de baixa verdade e rótulos falsos elevados](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
@@ -161,7 +166,8 @@ Idealmente, o modelo terá uma taxa positiva mais próxima de 100% e mais perto 
 <a name="lift-curve"></a>
 ### <a name="lift-chart"></a>Gráfico de elevação
 #### <a name="what-is-a-lift-chart"></a>O que é um gráfico de elevador?
-Os gráficos de elevação são usados para avaliar o desempenho de um modelo de classificação. Mostra o quanto se pode esperar fazer melhor com o modelo gerado em comparação com um modelo em termos de precisão.
+Os gráficos de elevação são usados para avaliar o desempenho dos modelos de classificação. Um gráfico de elevação mostra quantas vezes melhor um modelo executa em comparação com um modelo aleatório. Isto dá-lhe um desempenho relativo que tem em conta o facto de que a classificação fica mais difícil à medida que aumenta o número de turmas. Um modelo aleatório irá prever incorretamente uma fração mais alta de amostras de um conjunto de dados com dez classes em comparação com um conjunto de dados com duas classes.
+
 #### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>O que faz a ML automatizada com o gráfico de elevação?
 Pode comparar o elevador do modelo construído automaticamente com o Azure Machine Learning com a linha de base para ver o ganho de valor desse modelo em particular.
 #### <a name="what-does-a-good-model-look-like"></a>Como é um bom modelo?
@@ -171,10 +177,10 @@ Pode comparar o elevador do modelo construído automaticamente com o Azure Machi
 ##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Exemplo 2: Um modelo de classificação que funciona melhor do que um modelo de seleção aleatório
 ![Um modelo de classificação que tem um melhor desempenho](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 <a name="gains-curve"></a>
-### <a name="gains-chart"></a>Gráfico de ganhos
-#### <a name="what-is-a-gains-chart"></a>O que é um gráfico de ganhos?
+### <a name="cumulative-gains-chart"></a>Gráfico de ganhos acumulados
+#### <a name="what-is-a-cumulative-gains-chart"></a>O que é um gráfico de ganhos acumulados?
 
-Um gráfico de ganhos avalia o desempenho de um modelo de classificação por cada parte dos dados. Mostra para cada percentil do conjunto de dados, o quanto pode esperar um desempenho melhor em comparação com um modelo de seleção aleatório.
+Um gráfico de ganhos cumulativos avalia o desempenho de um modelo de classificação por cada parte dos dados. Para cada percentil do conjunto de dados, o gráfico mostra quantas mais amostras foram classificadas com precisão.
 
 #### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>O que a ML automatizada faz com o gráfico de ganhos?
 Utilize o gráfico de ganhos acumulados para ajudá-lo a escolher o corte de classificação usando uma percentagem que corresponde a um ganho desejado do modelo. Esta informação fornece outra forma de analisar os resultados no gráfico de elevação que o acompanha.
@@ -195,7 +201,7 @@ Para todos os problemas de classificação, pode rever a linha de calibração p
 
 A média macro-média calculará a métrica independentemente de cada classe e, em seguida, tomará a média, tratando todas as classes de forma igual. No entanto, a micro-média irá agregar as contribuições de todas as classes para calcular a média. 
 #### <a name="what-does-a-good-model-look-like"></a>Como é um bom modelo?
- Um modelo bem calibrado alinha-se com a linha y=x, onde está razoavelmente confiante nas suas previsões. Um modelo sobre-confiante alinha-se com a linha y=0, onde a probabilidade prevista está presente, mas não há probabilidade real. 
+Um modelo bem calibrado alinha-se com a linha y=x, onde prevê corretamente a probabilidade de as amostras pertencerem a cada classe. Um modelo sobre-confiante irá prever probabilidades excessivamente próximas de zero e um, raramente sendo incerto sobre a classe de cada amostra.
 
 
 ##### <a name="example-1-a-well-calibrated-model"></a>Exemplo 1: Um modelo bem calibrado
@@ -217,18 +223,18 @@ As seguintes métricas e gráficos estão disponíveis para cada modelo de regre
 
 As seguintes métricas são guardadas em cada iteração de execução para uma tarefa de regressão ou previsão.
 
-|Metric|Descrição|Cálculo|Parâmetros extra
+|Métrica|Descrição|Cálculo|Parâmetros extra
 --|--|--|--|
-explained_variance|A variação explicada é a proporção a que um modelo matemático explica a variação de um determinado conjunto de dados. É a diminuição percentual da variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, é igual a uma variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhuma|
-r2_score|R2 é o coeficiente de determinação ou a redução por cento dos erros quadrados em comparação com um modelo de base que produz a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhuma|
-spearman_correlation|A correlação de Spearman é uma medida nãoparamétrica da monótona relação entre dois conjuntos de dados. Ao contrário da correlação pearson, a correlação de Spearman não assume que ambos os conjuntos de dados são normalmente distribuídos. Como outros coeficientes de correlação, este varia entre -1 e +1 com 0 implicando nenhuma correlação. As correlações de -1 ou +1 implicam uma relação monótona exata. Correlações positivas implicam que à medida que x aumenta, y também. As correlações negativas implicam que à medida que x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhuma|
-mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nenhuma|
+explained_variance|A variação explicada é a proporção a que um modelo matemático explica a variação de um determinado conjunto de dados. É a diminuição percentual da variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, é igual a uma variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
+r2_score|R2 é o coeficiente de determinação ou a redução por cento dos erros quadrados em comparação com um modelo de base que produz a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|
+spearman_correlation|A correlação de Spearman é uma medida nãoparamétrica da monótona relação entre dois conjuntos de dados. Ao contrário da correlação pearson, a correlação de Spearman não assume que ambos os conjuntos de dados são normalmente distribuídos. Como outros coeficientes de correlação, este varia entre -1 e +1 com 0 implicando nenhuma correlação. As correlações de -1 ou +1 implicam uma relação monótona exata. Correlações positivas implicam que à medida que x aumenta, y também. As correlações negativas implicam que à medida que x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhum|
+mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nenhum|
 normalized_mean_absolute_error|Erro absoluto médio normalizado é erro absoluto dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Divida por intervalo de dados|
-median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre o alvo e a previsão. Esta perda é robusta para os forasteiros.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Nenhuma|
+median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre o alvo e a previsão. Esta perda é robusta para os forasteiros.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Nenhum|
 normalized_median_absolute_error|Erro absoluto mediano normalizado é erro absoluto mediano dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Divida por intervalo de dados|
-root_mean_squared_error|Erro quadrado de raiz é a raiz quadrada da diferença quadrada esperada entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhuma|
+root_mean_squared_error|Erro quadrado de raiz é a raiz quadrada da diferença quadrada esperada entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhum|
 normalized_root_mean_squared_error|Erro quadrado de raiz normalizado é erro quadrado de raiz dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divida por intervalo de dados|
-root_mean_squared_log_error|Erro de log quadrado de raiz é a raiz quadrada do erro logarítmico quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhuma|
+root_mean_squared_log_error|Erro de log quadrado de raiz é a raiz quadrada do erro logarítmico quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhum|
 normalized_root_mean_squared_log_error|Erro de registo quadrado de raiz normalizado é erro de registo quadrado de raiz dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo de dados|
 
 ### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Gráfico previsto vs. Verdadeiro gráfico
@@ -249,11 +255,11 @@ Após cada corrida, pode ver um gráfico previsto vs. verdadeiro para cada model
 
 ### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histograma de gráfico de residuais
 #### <a name="what-is-a-residuals-chart"></a>O que é um gráfico residual?
-Um residual representa um y observado – o y previsto. Para mostrar uma margem de erro com baixo viés, o histograma dos residuais deve ser moldado como uma curva sineira, centrada em torno de 0. 
+Um residual é a diferença entre a previsão e o valor real ( `y_pred - y_true` ). Para mostrar uma margem de erro com baixo viés, o histograma dos residuais deve ser moldado como uma curva sineira, centrada em torno de 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>O que faz a ML automatizada com o gráfico de residuais?
 O ML automatizado fornece automaticamente um gráfico residual para mostrar a distribuição de erros nas previsões.
 #### <a name="what-does-a-good-model-look-like"></a>Como é um bom modelo?
-Um bom modelo normalmente terá uma curva de sino ou erros em torno de zero.
+Um bom modelo normalmente terá residuais intimamente centrados em torno de zero.
 
 ##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exemplo 1: Um modelo de regressão com parcialidade nos seus erros
 ![Modelo de regressão sa com distorção nos seus erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
@@ -268,7 +274,7 @@ Para obter mais informações sobre a ativação de funcionalidades de interpret
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolverá um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre [ml automatizado](concept-automated-ml.md) em Azure Machine Learning.
 + Experimente os [cadernos de amostras de modelo de aprendizagem automática de](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) máquinas.

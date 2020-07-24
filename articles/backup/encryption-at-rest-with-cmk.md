@@ -3,16 +3,16 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172619"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091101"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
-O Azure Backup permite-lhe encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK) em vez de utilizar teclas geridas pela plataforma, que são ativadas por padrão. As suas chaves que são utilizadas para encriptar os dados de backup devem ser armazenadas no [Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/).
+O Azure Backup permite-lhe encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK) em vez de utilizar teclas geridas pela plataforma, que são ativadas por padrão. As suas chaves que são utilizadas para encriptar os dados de backup devem ser armazenadas no [Cofre da Chave Azure](../key-vault/index.yml).
 
 A chave de encriptação utilizada para encriptar cópias de segurança pode ser diferente da utilizada para a origem. Os dados estão protegidos utilizando uma chave de encriptação de dados baseada em AES 256 (DEK), que, por sua vez, está protegida usando as suas chaves (KEK). Isto dá-lhe controlo total sobre os dados e as chaves. Para permitir a encriptação, é necessário que o cofre dos Serviços de Recuperação tenha acesso à chave de encriptação no Cofre da Chave Azure. Pode alterar a chave conforme e quando necessário.
 
@@ -31,7 +31,7 @@ Este artigo aborda o seguinte:
 
 - Atualmente, esta funcionalidade **não suporta cópias de segurança utilizando o agente MARS**, e pode não ser capaz de utilizar um cofre encriptado cmk para o mesmo. O agente MARS utiliza uma encriptação baseada em palavras de utilizador. Esta funcionalidade também não suporta cópias de segurança dos VM clássicos.
 
-- Esta funcionalidade não está relacionada com a [Encriptação do Disco Azure,](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss)que utiliza encriptação baseada em convidados de discos de um VM utilizando BitLocker (para Windows) e DM-Crypt (para Linux)
+- Esta funcionalidade não está relacionada com a [Encriptação do Disco Azure,](../security/fundamentals/azure-disk-encryption-vms-vmss.md)que utiliza encriptação baseada em convidados de discos de um VM utilizando BitLocker (para Windows) e DM-Crypt (para Linux)
 
 - O cofre dos Serviços de Recuperação só pode ser encriptado com chaves armazenadas num Cofre de Chaves Azure, localizado na **mesma região.** Além disso, as chaves devem ser **apenas teclas RSA 2048** e devem estar em estado **ativado.**
 
@@ -92,7 +92,7 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Permitir a eliminação suave e a proteção de purga no Cofre da Chave Azure
 
-Tem de ativar a **proteção de eliminação e purga suave** no cofre da chave Azure que armazena a sua chave de encriptação. Pode fazê-lo a partir do Cofre da Chave Azure UI, como mostrado abaixo. (Alternativamente, estas propriedades podem ser definidas enquanto criam o Cofre da Chave). Leia mais sobre estas propriedades do Key Vault [aqui.](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+Tem de ativar a **proteção de eliminação e purga suave** no cofre da chave Azure que armazena a sua chave de encriptação. Pode fazê-lo a partir do Cofre da Chave Azure UI, como mostrado abaixo. (Alternativamente, estas propriedades podem ser definidas enquanto criam o Cofre da Chave). Leia mais sobre estas propriedades do Key Vault [aqui.](../key-vault/general/overview-soft-delete.md)
 
 ![Permitir a proteção suave de eliminação e purga](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -160,7 +160,7 @@ Para atribuir a chave:
 
         ![Selecione a chave do cofre da chave](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 1. **Rastreio do progresso da atualização da chave de encriptação:** Pode acompanhar o progresso da atribuição de chave utilizando o **Registo de Atividades** no cofre dos Serviços de Recuperação. O estatuto deve em breve mudar para **Sucesso**. O seu cofre irá agora encriptar todos os dados com a chave especificada como KEK.
 
@@ -193,13 +193,13 @@ Antes de proceder à proteção de configuração, recomendamos vivamente que ce
 >
 >Se todos os passos acima foram confirmados, apenas então proceda com a configuração do backup.
 
-O processo de configuração e realização de backups para um cofre dos Serviços de Recuperação encriptado com chaves geridas pelo cliente é o mesmo que um cofre que utiliza chaves geridas pela plataforma, **sem alterações na experiência.** Isto é válido para [a cópia de segurança dos VMs Azure,](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal) bem como para a cópia de segurança das cargas de trabalho que estão a funcionar dentro de um VM (por exemplo, BASES de dados SAP [HANA,](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) [SQL Server).](https://docs.microsoft.com/azure/backup/tutorial-sql-backup)
+O processo de configuração e realização de backups para um cofre dos Serviços de Recuperação encriptado com chaves geridas pelo cliente é o mesmo que um cofre que utiliza chaves geridas pela plataforma, **sem alterações na experiência.** Isto é válido para [a cópia de segurança dos VMs Azure,](./quick-backup-vm-portal.md) bem como para a cópia de segurança das cargas de trabalho que estão a funcionar dentro de um VM (por exemplo, BASES de dados SAP [HANA,](./tutorial-backup-sap-hana-db.md) [SQL Server).](./tutorial-sql-backup.md)
 
 ## <a name="restoring-data-from-backup"></a>Restaurar dados a partir de backup
 
 ### <a name="vm-backup"></a>Backup VM
 
-Os dados armazenados no cofre dos Serviços de Recuperação podem ser restaurados de acordo com os passos [descritos aqui.](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms) Ao restaurar a partir de um cofre de Serviços de Recuperação encriptado usando teclas geridas pelo cliente, pode optar por encriptar os dados restaurados com um Conjunto de Encriptação de Disco (DES).
+Os dados armazenados no cofre dos Serviços de Recuperação podem ser restaurados de acordo com os passos [descritos aqui.](./backup-azure-arm-restore-vms.md) Ao restaurar a partir de um cofre de Serviços de Recuperação encriptado usando teclas geridas pelo cliente, pode optar por encriptar os dados restaurados com um Conjunto de Encriptação de Disco (DES).
 
 #### <a name="restoring-vm--disk"></a>Restaurar VM / disco
 

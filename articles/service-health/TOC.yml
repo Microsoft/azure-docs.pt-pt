@@ -24,7 +24,7 @@
 - name: Procedimento
   items:
     - name: Configurar alertas para eventos de estado de funcionamento do serviço
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure
       href: service-notifications.md
     - name: Enviar alertas para sistemas externos através do webhook

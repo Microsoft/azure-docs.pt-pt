@@ -3,12 +3,12 @@ title: Azure Machine Learning como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de espaço de trabalho de machine learning com Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e72123a4f609b93e191c82f11443cbb1de7d012d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522079"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090676"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como fonte de grade de eventos
 
@@ -95,12 +95,12 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento.
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
-    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "ExperimentName": "automl-local-regression",
-    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "RunType": null,
-    "RunTags": {},
-    "RunProperties": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
         "runTemplate": "automl_child",
         "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
         "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
@@ -155,12 +155,12 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento.
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
-    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
-    "ExperimentName": "automl-local-regression",
-    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
-    "RunType": null,
-    "RunTags": {},
-    "RunProperties": {
+    "experimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "experimentName": "automl-local-regression",
+    "runId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "runType": null,
+    "runTags": {},
+    "runProperties": {
         "runTemplate": "automl_child",
         "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
         "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
@@ -175,7 +175,7 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento.
         "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
         "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
     },
-   "RunStatus": "failed"
+   "runStatus": "failed"
    },
   "dataVersion": "",
   "metadataVersion": "1"
@@ -222,12 +222,12 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 | Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| Experimentid | string | A identificação da experiência a que a corrida pertence. |
-| Nome de experiência | string | O nome da experiência a que a corrida pertence. |
-| RunId | string | A identificação da corrida que foi concluída. |
-| RunType | string | O Tipo de Execução da Execução concluída. |
-| RunTags | objeto | As etiquetas da corrida completa. |
-| RunProperties | objeto | As propriedades da Execução concluída. |
+| experimentid | string | A identificação da experiência a que a corrida pertence. |
+| experimentName | string | O nome da experiência a que a corrida pertence. |
+| runId | string | A identificação da corrida que foi concluída. |
+| executarTipo | string | O Tipo de Execução da Execução concluída. |
+| runTags | objeto | As etiquetas da corrida completa. |
+| runProperties | objeto | As propriedades da Execução concluída. |
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft.MachineLearningServices.DatasetDriftDetected
 
@@ -246,20 +246,20 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 | Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| Experimentid | string | A identificação da experiência a que a corrida pertence. |
-| Nome de experiência | string | O nome da experiência a que a corrida pertence. |
-| RunId | string | A identificação da corrida que foi concluída. |
-| RunType | string | O Tipo de Execução da Execução concluída. |
-| RunTags | objeto | As etiquetas da corrida completa. |
-| RunProperties | objeto | As propriedades da Execução concluída. |
-| RunStatus | string | O estado da Corrida. |
+| experimentid | string | A identificação da experiência a que a corrida pertence. |
+| experimentName | string | O nome da experiência a que a corrida pertence. |
+| runId | string | A identificação da corrida que foi concluída. |
+| executarTipo | string | O Tipo de Execução da Execução concluída. |
+| runTags | objeto | As etiquetas da corrida completa. |
+| runProperties | objeto | As propriedades da Execução concluída. |
+| runStatus | string | O estado da Corrida. |
 
 ## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
 | Título | Descrição |
 | ----- | ----- |
 | [Consumir eventos de aprendizagem automática Azure](../machine-learning/concept-event-grid-integration.md) | Visão geral da integração da Aprendizagem automática Azure com grelha de eventos. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição da Azure Event Grid, consulte [o esquema de subscrição da Event Grid](subscription-creation-schema.md)

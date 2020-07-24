@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 79b6d7f84cd54979421357efa94c5c6de38fb4f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a143752a5a6cbd32bf18fc5544831bb860097d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261397"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089860"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -164,7 +164,7 @@ Se remover a extensão de monitorização da Microsoft, o Security Center não p
 
 Pode desativar o fornecimento automático para as suas subscrições na política de segurança, mas isso não é recomendado. Desligar os limites automáticos de provisionamento limita as recomendações e alertas do Centro de Segurança. Para desativar o provisionamento automático:
 
-1. Se a sua subscrição estiver configurada para o nível Standard, abra a política de segurança para essa subscrição e selecione o nível **Free.**
+1. Se a sua subscrição estiver configurada para o nível padrão, abra a política de segurança para essa subscrição e selecione o nível **Free.**
 
    ![Escalão de preço][1]
 
@@ -259,7 +259,7 @@ Quando o Centro de Segurança deteta atividade suspeita no VM, o cliente é noti
 
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>O Centro de Segurança funcionará com um gateway OMS?
 
-Sim. O Azure Security Center aproveita o Azure Monitor para recolher dados de VMs e servidores Azure, utilizando o agente Log Analytics.
+Yes. O Azure Security Center aproveita o Azure Monitor para recolher dados de VMs e servidores Azure, utilizando o agente Log Analytics.
 Para recolher os dados, cada VM e servidor devem ligar-se à Internet utilizando HTTPS. A ligação pode ser direta, utilizando um proxy, ou através do [Portal OMS](../azure-monitor/platform/gateway.md).
 
 

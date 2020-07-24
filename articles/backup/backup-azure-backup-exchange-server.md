@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor de Intercâmbio para Azure B
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b45efa0623edbec47b8ae12d3a97b1e032626530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d547b1d86b95a4f90d3faaa2f676c7cc37255d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80396408"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091135"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer cópia de segurança de um servidor do Exchange para o Azure Backup com o System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Antes de continuar, certifique-se de que todos os [pré-requisitos](backup-azure
 
 Para instalar o agente de proteção DPM no servidor Exchange, siga estes passos:
 
-1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte [as exceções de firewall configure para o agente](https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Instale o agente no servidor Exchange clicando em **Gestão > agentes > instalar** na Consola de Administrador DPM. Consulte [a instalação do agente de proteção DPM](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter etapas detalhadas.
+1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte [as exceções de firewall configure para o agente](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Instale o agente no servidor Exchange clicando em **Gestão > agentes > instalar** na Consola de Administrador DPM. Consulte [a instalação do agente de proteção DPM](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter etapas detalhadas.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção para o servidor Exchange
 
@@ -49,7 +49,7 @@ Para instalar o agente de proteção DPM no servidor Exchange, siga estes passos
 4. Selecione a base de dados do servidor Exchange que pretende proteger e clique em **Seguinte**.
 
    > [!NOTE]
-   > Se estiver a proteger o Exchange 2013, consulte os [pré-requisitos da Bolsa de 2013.](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016)
+   > Se estiver a proteger o Exchange 2013, consulte os [pré-requisitos da Bolsa de 2013.](/system-center/dpm/back-up-exchange)
    >
    >
 
@@ -101,7 +101,7 @@ Para instalar o agente de proteção DPM no servidor Exchange, siga estes passos
 
     ![Especificar a política de retenção on-line](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Confirme as definições e, em seguida, clique em **Criar Grupo**.
-19. Clique em **Fechar**.
+19. Clique em **Close** (Fechar).
 
 ## <a name="recover-the-exchange-database"></a>Recuperar a base de dados de câmbio
 

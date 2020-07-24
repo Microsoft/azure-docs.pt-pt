@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 1aea1f3b2401d7b9639c32927ffa7390727d25b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c888fe0f2f4df722948cc6d22e1ef50fd1a3d42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090506"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre de chaves
 
@@ -59,7 +59,7 @@ A tabela seguinte mostra os pontos finais para os aviões de gestão e dados.
 
 ## <a name="management-plane-and-rbac"></a>Avião de gestão e RBAC
 
-No plano de gestão, você usa o RBAC (Role Based Access Control) para autorizar as operações que um chamador pode executar. No modelo RBAC, cada subscrição do Azure tem um exemplo de Azure AD. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure](https://portal.azure.com/), o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [a Azure PowerShell,](/powershell/azureps-cmdlets-docs)ou o [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+No plano de gestão, você usa o RBAC (Role Based Access Control) para autorizar as operações que um chamador pode executar. No modelo RBAC, cada subscrição do Azure tem um exemplo de Azure AD. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure](https://portal.azure.com/), o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [a Azure PowerShell,](/powershell/azure/)ou o [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Cria-se um cofre chave num grupo de recursos e gere o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Concede-se o acesso a um nível de âmbito específico, atribuindo funções de RBAC apropriadas. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
 
@@ -82,7 +82,7 @@ Você concede a um utilizador, grupo ou acesso de aplicação para executar oper
 
 Pode ver a lista completa de operações secretas e cofre e compreender as operações permitidas quando configurar as políticas de acesso ao cofre chave, visualizando a seguinte referência. [Referência da operação do cofre de chaves](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a>As políticas de acesso ao Cofre chave concedem permissões separadamente a chaves, segredos e certificados. Pode conceder acesso a um utilizador apenas às chaves e não aos segredos. As permissões de acesso para chaves, segredos e certificados estão ao nível do cofre. As políticas de acesso ao Cofre não suportam permissões granulares ao nível de objetos como uma chave específica, segredo ou certificado. Para definir políticas de acesso para um cofre de chaves, utilize o [portal Azure,](https://portal.azure.com/)o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [o Azure PowerShell](/powershell/azureps-cmdlets-docs)ou as [APIs de Gestão de Cofres de Chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+<a id="key-vault-access-policies"></a>As políticas de acesso ao Cofre chave concedem permissões separadamente a chaves, segredos e certificados. Pode conceder acesso a um utilizador apenas às chaves e não aos segredos. As permissões de acesso para chaves, segredos e certificados estão ao nível do cofre. As políticas de acesso ao Cofre não suportam permissões granulares ao nível de objetos como uma chave específica, segredo ou certificado. Para definir políticas de acesso para um cofre de chaves, utilize o [portal Azure,](https://portal.azure.com/)o [Azure CLI,](/cli/azure/install-azure-cli?view=azure-cli-latest) [o Azure PowerShell](/powershell/azure/)ou as [APIs de Gestão de Cofres de Chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > As principais políticas de acesso ao cofre aplicam-se ao nível do cofre. Quando um utilizador tem permissão para criar e eliminar chaves, pode efetuar essas operações em todas as teclas do cofre.
@@ -129,9 +129,9 @@ A tabela seguinte resume as permissões de acesso para as nossas funções e apl
 | Função | Permissões do plano de gestão | Permissões do plano de dados |
 | --- | --- | --- |
 | Equipa de segurança | Contribuidor do Cofre Chave | Chaves: criar cópia de segurança, criar, eliminar, obter, importar, listar, restaurar<br>Segredos: todas as operações |
-| Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhuma |
-| Auditores | Nenhuma | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. |
-| Aplicação | Nenhuma | Chaves: assinar<br>Segredos: obter |
+| Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhum |
+| Auditores | Nenhum | Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. |
+| Aplicação | Nenhum | Chaves: assinar<br>Segredos: obter |
 
 As três funções da equipa precisam de acesso a outros recursos, juntamente com permissões do Key Vault. Para implementar VMs (ou a funcionalidade de Aplicações Web do Azure App Service), os desenvolvedores e operadores precisam de `Contributor` acesso a esses tipos de recursos. Os auditores precisam de ler o acesso à conta de armazenamento onde os registos do Cofre de Chaves estão armazenados.
 
@@ -225,7 +225,7 @@ Recomendamos que crie um acesso adicional e seguro ao cofre de chaves [configura
 
 * [Descoda](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) e [remova a](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) política de acesso ao Cofre da Chave utilizando o PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Configure [firewalls key vault e redes virtuais](network-security.md).
 

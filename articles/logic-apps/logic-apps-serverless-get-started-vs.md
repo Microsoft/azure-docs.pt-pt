@@ -6,11 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 2e27958dd9379a26ca7e7f4d7e427e5afa216e29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ee81f3802b7ec7f8189123192c20143a08cf3d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75981153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090251"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Construa a sua primeira aplicação sem servidor utilizando apps Azure Logic e Azure Functions em Visual Studio
 
@@ -31,7 +32,7 @@ Para construir uma aplicação sem servidor no Visual Studio, precisa de:
     > Quando instalar o Visual Studio 2019 ou 2017, certifique-se de que seleciona a carga de trabalho de desenvolvimento do **Azure.**
 
   * [Microsoft Azure SDK para .NET (versão 2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). 
-  Saiba mais sobre o [SDK do Azure para .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -43,7 +44,7 @@ Para construir uma aplicação sem servidor no Visual Studio, precisa de:
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba [como instalar esta extensão a partir do Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+    Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba [como instalar esta extensão a partir do Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Certifique-se de que reinicia o Visual Studio depois de concluir a instalação.
 
   * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) for localmente depuração Funções.
@@ -135,7 +136,7 @@ Para editar a sua aplicação lógica após a implementação, abra a sua aplica
 
 ## <a name="create-your-azure-functions-project"></a>Crie o seu projeto Azure Functions
 
-Para criar o seu projeto e função funções utilizando JavaScript, Python, F#, PowerShell, Batch ou Bash, siga os passos em [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). Para desenvolver a sua função Azure utilizando C# dentro da sua solução, utilize uma biblioteca de classe C# seguindo os passos na [Publicação de uma biblioteca de classe .NET como uma App de Função](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+Para criar o seu projeto e função funções utilizando JavaScript, Python, F#, PowerShell, Batch ou Bash, siga os passos em [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). Para desenvolver a sua função Azure utilizando C# dentro da sua solução, utilize uma biblioteca de classe C# seguindo os passos na [Publicação de uma biblioteca de classe .NET como uma App de Função](https://azure.microsoft.com/blog/).
 
 ## <a name="deploy-functions-from-visual-studio"></a>Implementar funções do Visual Studio
 
@@ -156,6 +157,6 @@ Para aplicações lógicas já implementadas no Azure, ainda é possível editar
 
 Agora pode descarregar a aplicação lógica já publicada no seu projeto de grupo de recursos. Assim, apesar de ter iniciado uma aplicação lógica no portal Azure, ainda pode importar e gerir essa aplicação no Visual Studio. Para obter mais informações, consulte [Gerir aplicações lógicas com o Visual Studio.](../logic-apps/manage-logic-apps-with-visual-studio.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir aplicações lógicas com o Visual Studio](manage-logic-apps-with-visual-studio.md)

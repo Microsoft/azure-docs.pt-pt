@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b3aa15dd968b4cded831934103a02420d020b9a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: be4f9581e8a276b4296faedb65691232dee2ea95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521042"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090421"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -53,7 +53,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
   - Gerir máquinas conectadas utilizando construções Azure, tais como Azure Policy e marcação
   - Garantir que o mesmo conjunto de políticas são aplicadas em todos os ambientes híbridos dos clientes
   - Utilize o Azure Security Center para monitorizar a conformidade entre os ambientes híbridos dos clientes
-- Gerir clusters híbridos de Kubernetes em escala - [Azure Arc for Kubernetes (pré-visualização)](../../azure-arc/kubernetes/overview.md):
+- Gerir clusters híbridos de Kubernetes em escala - [Azure Arc habilitado Kubernetes (pré-visualização)](../../azure-arc/kubernetes/overview.md):
   - [Ligue um cluster Kubernetes ao Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) a subscrições delegadas e/ou grupos de recursos em Azure
   - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para clusters conectados
   - Impor políticas em todos os clusters conectados
@@ -155,7 +155,7 @@ Com todos os cenários, esteja atento às seguintes limitações atuais:
 - Enquanto você pode a bordo subscrições que usam Azure Databricks, os utilizadores no inquilino gerente não podem lançar espaços de trabalho Azure Databricks em uma subscrição delegada neste momento.
 - Embora possa embarcar subscrições e grupos de recursos que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - A bordo dos seus clientes para a Azure delegada gestão de recursos, quer [através da utilização de modelos do Azure Resource Manager,](../how-to/onboard-customer.md) quer através [da publicação de uma oferta de serviços geridos por empresas privadas ou públicas ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 - [Ver e gerir clientes](../how-to/view-manage-customers.md) indo para **os meus clientes** no portal Azure.

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 07/19/2020
 ms.author: memildin
-ms.openlocfilehash: f3ef633ff0271d74eea7320faadf17685976d3b6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 2f995f3f6defd73575d9e1bf19326a828f1e6038
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970472"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089911"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Integração do Registo de Contentores Azure com o Centro de Segurança
 
@@ -30,6 +30,11 @@ Se estiver no nível padrão do Centro de Segurança Azure, pode adicionar o pac
 
 - Estado de libertação: **Disponibilidade geral**
 - Funções necessárias: **Leitor de segurança** e [função de leitor de registo de contentores Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Registos suportados:
+    - ✔ registos ACR hospedados em Linux que são acessíveis a partir da internet pública e fornecem acesso à concha.
+    - ✘ registos ACR hospedados no Windows.
+    - ✘ registos 'Privados' - O Centro de Segurança exige que os seus registos sejam acessíveis a partir da internet pública. Se tiver acesso limitado aos seus registos com uma firewall, um ponto final de serviço ou utilizando o ponto final privado (por exemplo, Azure Private Link), o Security Center não pode atualmente ligar ou digitalizar o seu registo.
+    - ✘ imagens super minimalistas, como imagens [de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "descaídas" que contêm apenas uma aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou SISTEMA.
 - Nuvens: 
     - nuvens comerciais ✔
     - ✘ nuvem do governo dos EUA
@@ -40,7 +45,7 @@ Se estiver no nível padrão do Centro de Segurança Azure, pode adicionar o pac
 
 Sempre que uma imagem é empurrada para o seu registo, o Centro de Segurança digitaliza automaticamente essa imagem. Para ativar a digitalização de uma imagem, empurre-a para o seu repositório.
 
-Quando a varredura termina (normalmente após aproximadamente 10 minutos, mas pode ser até 40 minutos), os resultados estão disponíveis como recomendações do Centro de Segurança como esta:
+Quando a varredura termina (normalmente após aproximadamente 2 minutos, mas pode ser até 15 minutos), os resultados estão disponíveis como recomendações do Centro de Segurança como esta:
 
 [![Amostra da recomendação do Centro de Segurança Azure sobre vulnerabilidades descobertas numa imagem hospedada do Registo de Contentores Azure (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -59,11 +64,6 @@ O Security Center identifica registos ACR baseados na ARM na sua subscrição e 
 
 ## <a name="acr-with-security-center-faq"></a>ACR com Centro de Segurança FAQ
 
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>Que tipo de imagens o Azure Security Center pode digitalizar?
-O Centro de Segurança analisa imagens baseadas em Linux OS que fornecem acesso à concha. 
-
-O scanner Qualys não suporta imagens super minimalistas, como imagens [de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas a sua aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou SISTEMA.
-
 ### <a name="how-does-azure-security-center-scan-an-image"></a>Como é que o Azure Security Center digitaliza uma imagem?
 A imagem é retirada do registo. É então executado numa caixa de areia isolada com o scanner Qualys que extrai uma lista de vulnerabilidades conhecidas.
 
@@ -73,12 +73,12 @@ O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma
 As imagens são ativadas em cada impulso.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Posso obter os resultados da digitalização através da REST API?
-Sim. Os resultados estão em [Sub-Avaliações Rest API](/rest/api/securitycenter/subassessments/list/). Além disso, pode utilizar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
+Yes. Os resultados estão em [Sub-Avaliações Rest API](/rest/api/securitycenter/subassessments/list/). Além disso, pode utilizar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
  
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as funcionalidades de segurança do Security Center, consulte:
 

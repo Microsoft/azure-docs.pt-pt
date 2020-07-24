@@ -8,11 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82792365"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090387"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receba e confirme as mensagens B2B AS2 utilizando apps Azure Logic e Pacote de Integração Empresarial
 
@@ -34,7 +35,7 @@ Este artigo mostra como criar uma aplicação lógica que recebe um pedido HTTP 
 
   Se é novo em aplicações lógicas, [reveja O que é Azure Logic Apps e](../logic-apps/logic-apps-overview.md) [Quickstart: Crie a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Uma conta de [integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) que está associada à sua subscrição Azure e ligada à sua aplicação lógica. Tanto a sua aplicação lógica como a sua conta de integração devem existir no mesmo local ou na região de Azure.
+* Uma conta de [integração](./logic-apps-enterprise-integration-create-integration-account.md) que está associada à sua subscrição Azure e ligada à sua aplicação lógica. Tanto a sua aplicação lógica como a sua conta de integração devem existir no mesmo local ou na região de Azure.
 
 * Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que já definiu na sua conta de integração, juntamente com [os acordos AS2 e X12](logic-apps-enterprise-integration-agreements.md) para esses parceiros.
 
@@ -104,7 +105,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, pode retorna
 
 1. Sob a ação **AS2 Descodificar,** selecione **Novo passo**.
 
-1. Em **Seleção de uma ação,** sob a caixa de pesquisa, selecione **Built-in**. Na caixa de pesquisa, introduza `condition`. Na lista **de Ações,** selecione **Condição.**
+1. Em **Seleção de uma ação,** sob a caixa de pesquisa, selecione **Built-in**. Na caixa de pesquisa, introduza `condition`. Na lista **Ações**, selecione **Condição**.
 
    ![Adicione a ação "Condição"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
@@ -142,7 +143,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, pode retorna
 
    1. Para o caso de a ação **de descodificar** as AS2 falhar, na forma **Se for falsa,** selecione **Adicione uma ação**. Em **Selecione uma ação,** na caixa de pesquisa, insira `response` e selecione **Resposta**. Configurar a ação **Resposta** para devolver o estado e o erro que deseja.
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
 ## <a name="add-decode-x12-message-action"></a>Adicionar ação de mensagem Decode X12
 
@@ -166,7 +167,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, pode retorna
 
     ![Converter conteúdo codificado de base64 para uma cadeia](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
 
-1. Guarde a aplicação lógica.
+1. Guarde a sua aplicação lógica.
 
    Se precisar de passos adicionais para esta aplicação lógica, por exemplo, para descodificar o conteúdo da mensagem e a saída desse conteúdo no formato de objeto JSON, continue a construir a sua aplicação lógica.
 
@@ -177,7 +178,7 @@ Já acabou de configurar a sua aplicação lógica B2B. Numa aplicação do mund
 
 Para ligar as suas próprias aplicações LOB e utilizar estas APIs na sua aplicação lógica, pode adicionar mais ações ou [escrever APIs personalizados.](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Receber e responder às chamadas HTTPS recebidas](../connectors/connectors-native-reqres.md)
 * [Trocar mensagens AS2 para integração empresarial B2B](../logic-apps/logic-apps-enterprise-integration-as2.md)

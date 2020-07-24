@@ -1,5 +1,5 @@
 ---
-title: Classificar o Modelo de Imagem
+title: Utilize o módulo de recomendador & profundo do comboio
 titleSuffix: Azure Machine Learning
 description: Saiba como utilizar o módulo Train Wide & Deep Recommender para formar um modelo de recomendação.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84740058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090183"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Recomendador Profundo
 Este artigo descreve como usar o módulo **Train Wide & Deep Recommender** no Azure Machine Learning Designer (pré-visualização), para formar um modelo de recomendação. Este módulo é baseado em Wide & Deep learning, que é proposto pela Google.
@@ -39,7 +39,7 @@ Mais detalhes sobre o Grande & Recomendador Profundo e o seu algoritmo probabil�
 ## <a name="how-to-configure-train-wide--deep-recommender"></a>Como configurar o comboio wide & recomendador profundo  
 
 + [Preparar os dados de formação](#prepare-data)
-+ [Dar formação sobre o modelo](#train-the-model)
++ [Preparar o modelo](#train-the-model)
 
 ### <a name="prepare-data"></a>Preparar dados
 
@@ -66,7 +66,7 @@ O conjunto de dados das **funcionalidades** do utilizador deve conter identifica
 
 Por exemplo, um conjunto típico de funcionalidades do utilizador pode ser assim: 
 
-|IDUtilizador|Idade|Género|Juros|Localização|
+|IDUtilizador|Idade|Sexo|Juros|Localização|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|masculino| Drama    |Europa|
 |223|40|feminino|Romance|Ásia|
@@ -82,7 +82,7 @@ Por exemplo, um conjunto típico de funcionalidades de item pode ser assim:
 |68646|O Padrinho|Inglês|Drama|1972|
 |31381|Foi-se com o Vento|Inglês|Histórico|1939|
 
-### <a name="train-the-model"></a>Dar formação sobre o modelo
+### <a name="train-the-model"></a>Preparar o modelo
 
 1.  Adicione o módulo **Train Wide e Deep Recommender** à sua experiência no designer (pré-visualização) e conecte-o ao conjunto de dados de treino.  
   
@@ -144,6 +144,6 @@ O Wide & Deep treina em conjunto modelos lineares largos e redes neuronais profu
 Na implementação do recomendador Wide & Deep, o módulo utiliza uma estrutura de modelo padrão. O componente largo leva incorporações de utilizador, incorporações de item e a transformação transversal de ids de utilizador e ids de item como entrada. Para a parte profunda do modelo, um vetor incorporado é aprendido para cada característica categórica. Juntamente com outros vetores de recurso numérico, estes vetores são então alimentados na rede neural de feed-forward profundo. A parte larga e profunda são combinadas resumindo as suas odds finais de registo de saída como a previsão, que finalmente vai para uma função comum de perda para o treino conjunto.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 

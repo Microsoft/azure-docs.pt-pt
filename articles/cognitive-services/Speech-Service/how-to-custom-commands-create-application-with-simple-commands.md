@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6552d13ab68d8028cd95b18f2d0895d53bba462c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090965"
 ---
 # <a name="create-application-with-simple-commands"></a>Criar uma aplicação com comandos simples
 
@@ -84,7 +84,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Esta regra diz ao uti
     | Definição    | Valor sugerido                          | Descrição                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nome**       | ConfirmaçãoResponse                  | Um nome que descreve o propósito da regra          |
-    | **Condições** | Nenhuma                                     | Condições que determinam quando a regra pode ser executada    |
+    | **Condições** | Nenhum                                     | Condições que determinam quando a regra pode ser executada    |
     | **Ações**    | Envie resposta de fala > editor simples > Primeira variação >`Ok, turning the tv on` | A ação a tomar quando a condição de regra é verdadeira |
     
 
@@ -96,8 +96,7 @@ Em seguida, o comando precisa ter uma regra de conclusão. Esta regra diz ao uti
 1. **Selecione Guardar** para guardar a ação.
 1. De volta à secção **de regras de Conclusão,** selecione **Guardar** para guardar todas as alterações. 
 
-
- > [!NOTE]
+    > [!NOTE]
     > Não é necessário usar a regra de conclusão padrão que vem com o comando. Se necessário, pode eliminar a regra de conclusão por defeito existente e adicionar a sua própria regra.
 
 ### <a name="try-it-out"></a>Experimente
@@ -125,8 +124,8 @@ Em seguida, edite as regras de conclusão **existentes:**
 
 | Definição    | Valor sugerido                          |
 | ---------- | ---------------------------------------- |
-| Nome  | ConfirmaçãoResponse                  |
-| Condições | Nenhuma                                     |
+| Name  | ConfirmaçãoResponse                  |
+| Condições | Nenhum                                     |
 | Ações    | Envie resposta de fala > editor simples > Primeira variação >`Ok, setting temperature to 40 degrees` |
 
 **Selecione Guardar** para guardar todas as alterações no comando.
@@ -137,7 +136,7 @@ Crie um novo **Comando SetAlarm** usando a frase exemplo",**acende um alarme par
 | Definição    | Valor sugerido                          |
 | ---------- | ---------------------------------------- |
 | Nome da Regra  | ConfirmaçãoResponse                  |
-| Condições | Nenhuma                                     |
+| Condições | Nenhum                                     |
 | Ações    | Envie resposta à fala > editor simples > Primeira variação >`Ok, setting an alarm for 9 am tomorrow` |
 
 **Selecione Guardar** para guardar todas as alterações no comando.
@@ -145,7 +144,7 @@ Crie um novo **Comando SetAlarm** usando a frase exemplo",**acende um alarme par
 ## <a name="try-it-out"></a>Experimente
 
 Teste o comportamento usando o painel de chat test
-1. Selecione **Comboio**. Após o sucesso do treino, selecione **Teste** e experimente:
+1. Selecione **Train** (Preparar). Após o sucesso do treino, selecione **Teste** e experimente:
     - Você escreve: definir a temperatura para 40 graus
     - Resposta esperada: Ok, ajustar a temperatura para 40 graus
     - Escreve: ligue a televisão

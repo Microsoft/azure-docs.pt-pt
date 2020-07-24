@@ -4,11 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248265"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090982"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -38,7 +39,7 @@ A cura automática como capacidade é ativada para todos os utilizadores por pre
 
 ## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar quantas cópias de segurança simultâneas são executadas no servidor SQL?
 
-Sim. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
+Yes. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 
 1. Na instância do Servidor SQL, na pasta *de backup\bin de cópia de trabalho do programa C:\Azure,* crie a *ExtensionSettingsOverrides.jsno* ficheiro.
 2. Na *ExtensionSettingsOverrides.jsno* ficheiro, altere a definição **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
@@ -48,7 +49,7 @@ O valor predefinido de DefaultBackupTasksThreshold é **de 20**.
 
 3. Guarde as suas alterações e feche o ficheiro.
 4. Na instância do SqL Server, abra o **Gestor de Tarefas**. Reinicie o serviço **AzureWLBackupCoordinatorSvc.**<br/> <br/>
- Embora este método ajude se a aplicação de backup estiver a consumir uma grande quantidade de recursos, [o SqL](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) Server Resource Governor é uma forma mais genérica de especificar limites na quantidade de CPU, IO físico e memória que os pedidos de aplicação podem usar.
+ Embora este método ajude se a aplicação de backup estiver a consumir uma grande quantidade de recursos, [o SqL](/sql/relational-databases/resource-governor/resource-governor) Server Resource Governor é uma forma mais genérica de especificar limites na quantidade de CPU, IO físico e memória que os pedidos de aplicação podem usar.
 
 > [!NOTE]
 > No UX ainda pode avançar e agendar o máximo de backups em qualquer momento, no entanto eles serão processados numa janela deslizante de, digamos, 5, de acordo com o exemplo acima.
@@ -101,6 +102,6 @@ Uma base de dados que [adicione a uma instância autoprotegido](backup-sql-serve
 
   ![Descubra manualmente uma base de dados recém-adicionada](./media/backup-azure-sql-database/view-newly-added-database.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [fazer o back up de uma base de dados](backup-azure-sql-database.md) do SQL Server que está a funcionar num VM Azure.

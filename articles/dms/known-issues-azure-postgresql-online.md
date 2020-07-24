@@ -3,8 +3,8 @@ title: 'Questões conhecidas: Migrações online de PostgreSQL para Azure Databa
 titleSuffix: Azure Database Migration Service
 description: Conheça questões conhecidas e limitações de migração com migrações on-line de PostgreSQL a Azure Database for PostgreSQL utilizando o Serviço de Migração da Base de Dados Azure.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3d1bc627ccb8814ab2dfb61fb0653ef0ac644038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 564581a102ac3fab504e82db00ef54b3e45d0c19
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235271"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090744"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Questões conhecidas/limitações de migração com migrações on-line de PostgreSQL a Azure DB para PostgreSQL
 
@@ -91,12 +91,12 @@ Questões e limitações conhecidas associadas às migrações online de Postgre
 
 Quando tentar efetuar uma migração on-line de AWS RDSQL para Azure Database for PostgreSQL, poderá encontrar os seguintes erros.
 
-- **Erro**: O valor predefinido da coluna '{column}' na tabela '{table}' na base de dados '{database}' é diferente nos servidores de origem e alvo. É '{value on source}' na origem e '{value on target}' no destino.
+- **Erro**: O Valor predefinido de coluna '{column}' na tabela '{table}' na base de dados '{database}' é diferente nos servidores de origem e de destino. É '{value on source}' na origem e '{value on target}' no destino.
 
   **Limitação:** Este erro ocorre quando o valor predefinido num esquema de coluna é diferente entre as bases de dados de origem e alvo.
   **Solução alternativa**: Certifique-se de que o esquema no esquema do alvo corresponde ao esquema da fonte. Para obter detalhes sobre o esquema migratório, consulte a [documentação de migração online Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Erro**: Base de dados-alvo '{database}' tem tabelas de '{number of tables}' onde como base de dados de origem '{database}' tem tabelas de '{número de tabelas}'. O número de tabelas nas bases de dados de origem e de destino deve coincidir.
+- **Erro**: A base de dados de destino '{database}' tem '{number of tables}' tabelas, ao passo que a base de dados de origem '{database}' tem '{number of tables}' tabelas. O número de tabelas nas bases de dados de origem e de destino deve coincidir.
 
   **Limitação:** Este erro ocorre quando o número de tabelas é diferente entre as bases de dados de origem e alvo.
 

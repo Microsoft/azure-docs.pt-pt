@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f8850b83b2af7f0d3007cd716f9e077361a02e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505147"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091118"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics foi desenvolvido para uma gestão abrangente através de máquinas virtuais em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/). Os agentes windows e Linux enviam dados recolhidos de diferentes fontes para o seu espaço de trabalho Log Analytics no Azure Monitor, bem como quaisquer registos ou métricas únicos definidos numa solução de monitorização. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md)
@@ -153,6 +153,7 @@ A tabela seguinte realça as embalagens necessárias para os distros Linux supor
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x ou 1.1.x |
 |Curl | cURL cliente web | 7.15.5 |
+|Python | | 2.6+ ou 3.3+
 |Pitão-ctypes | | 
 |PAM | Módulos de Autenticação Incorporável | | 
 
@@ -188,10 +189,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
-|*.blob.core.windows.net |Porto 443 |Saída|Sim |
-|*.azure-automation.net |Porto 443 |Saída|Sim |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
+|*.blob.core.windows.net |Porto 443 |Saída|Yes |
+|*.azure-automation.net |Porto 443 |Saída|Yes |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 
@@ -223,7 +224,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja [as fontes de dados](agent-data-sources.md) para entender as fontes de dados disponíveis para recolher dados do seu sistema Windows ou Linux. 
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 

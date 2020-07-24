@@ -1,21 +1,21 @@
 ---
-title: Segurança
+title: Segurança dos Serviços Cognitivos Azure
 titleSuffix: Azure Cognitive Services
 description: Conheça as várias considerações de segurança para o uso dos Serviços Cognitivos.
 services: cognitive-services
-author: aahill
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 07/10/2020
+ms.author: erhopf
 ms.custom: tracking-python
-ms.openlocfilehash: d97b944d5d18a39d6eaf84b55363f487a2c17dbf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 51a9829a7ea19665e1081a48207f176b1a8e68c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611412"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090846"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 
@@ -203,9 +203,19 @@ O Lockbox do cliente está disponível para este Serviço Cognitivo:
 
 * Tradutor
 
-Para a compreensão da linguagem, os engenheiros da Microsoft não acederão a quaisquer dados do cliente no SKU E0. Para solicitar a capacidade de utilização do E0 SKU, preencha e envie o [Formulário de Pedido de Serviço LUIS.](https://aka.ms/cogsvc-cmk) Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização do E0 SKU com LUIS, terá de criar um novo recurso de Compreensão linguística a partir do portal Azure e selecionar o E0 como O Nível de Preços. Os utilizadores não poderão fazer upgrade do F0 para o novo E0 SKU.
+Para os seguintes serviços, os engenheiros da Microsoft não acederão a quaisquer dados do cliente no nível E0: 
 
-O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto, os dados do cliente podem ser armazenados utilizando BYOS ("Bring Your Own Storage"), permitindo-lhe obter controlos de dados semelhantes ao [Lockbox do Cliente.](../security/fundamentals/customer-lockbox-overview.md) Tenha em mente que os dados do serviço de fala permanecem e são processados na região onde o recurso Discurso foi criado. Isto aplica-se a quaisquer dados em repouso e dados em trânsito. Ao utilizar funcionalidades de personalização, como Discurso Personalizado e Voz Personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região onde residem os seus recursos DE SERVIÇO BYOS (se utilizados) e serviço de fala.
+* Compreensão de Idiomas
+* Face
+* Content Moderator
+* Personalizador
+
+> [!IMPORTANT]
+> Para **o Form Recogniser,** os engenheiros da Microsoft não acederão a quaisquer dados do cliente em recursos criados após 10 de julho de 2020.
+
+Para solicitar a capacidade de utilizar o E0 SKU, preencha e envie este [Formulário de Pedido.](https://aka.ms/cogsvc-cmk) Levará aproximadamente 3 a 5 dias úteis para ouvir de volta o estado do seu pedido. Dependendo da procura, você pode ser colocado em uma fila e aprovado à medida que o espaço fica disponível. Uma vez aprovado para a utilização do E0 SKU com o LUIS, terá de criar um novo recurso a partir do portal Azure e selecionar o E0 como O Nível de Preços. Os utilizadores não poderão fazer upgrade do F0 para o novo E0 SKU.
+
+O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto, os dados do cliente podem ser armazenados usando o seu próprio armazenamento (BYOS), permitindo-lhe obter controlos de dados semelhantes ao Lockbox do Cliente. Tenha em mente que os dados do serviço de fala permanecem e são processados na região onde o recurso Discurso foi criado. Isto aplica-se a quaisquer dados em repouso e dados em trânsito. Ao utilizar funcionalidades de personalização, como Discurso Personalizado e Voz Personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região onde residem os seus recursos DE SERVIÇO BYOS (se utilizados) e serviço de fala.
 
 > [!IMPORTANT]
 > A Microsoft **não** utiliza os dados dos clientes para melhorar os seus modelos De Discurso. Além disso, se a sessão de registo de pontos finais for desativada e não forem utilizadas personalizações, não são armazenados dados do cliente. 

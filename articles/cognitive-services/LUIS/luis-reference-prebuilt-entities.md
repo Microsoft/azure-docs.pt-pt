@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 831e766fbb10d616b3fbaf8f878228a9a51ece37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090948"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo LUIS
 
@@ -44,11 +44,11 @@ A disponibilidade de uma entidade pré-incorporada numa língua específica é d
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```zh-CN``` |
-------|:------:|
+| Entidade pré-construída | zh-CN |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -66,8 +66,8 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```nl-NL``` |
-------|:------:|
+| Entidade pré-construída | nl-NL |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -88,11 +88,11 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```en-US``` |
-------|:------:|
+| Entidade pré-construída | pt-PT |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
@@ -110,11 +110,11 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```fr-FR``` |
-------|:------:|
+| Entidade pré-construída | fr-FR |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -132,11 +132,11 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```fr-CA``` |
-------|:------:|
+| Entidade pré-construída | fr-CA |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -154,11 +154,11 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```de-DE``` |
-------|:------:|
+|Entidade pré-construída | de-DE |
+| -------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -178,8 +178,8 @@ Idade pré-construída italiana, moeda, dimensão, número, _resolução_ percen
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```it-IT``` |
-------|:------:|
+| Entidade pré-construída | it-IT |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -200,8 +200,8 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```ja-JP``` |
-------|:------:|
+|Entidade pré-construída | ja-JP |
+| -------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, -   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -222,8 +222,8 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```ko-KR``` |
-------|:------:|
+| Entidade pré-construída | ko-KR |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    -   |
 [Hora da data](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -244,11 +244,11 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```pt-BR``` |
-------|:------:|
+| Entidade pré-construída | pt-BR |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -266,11 +266,11 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```es-ES``` |
-------|:------:|
+| Entidade pré-construída | es-ES |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -288,11 +288,11 @@ São apoiadas as seguintes entidades:
 
 São apoiadas as seguintes entidades:
 
-|Entidade pré-construída|```es-MX``` |
-------|:------:|
+| Entidade pré-construída | es-MX |
+| --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    -   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    -   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    -   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    -   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -316,8 +316,8 @@ KeyPhrase não está disponível em todas as subculturas do Português (Brasil) 
 
 <!--
 
-|Prebuilt entity|```tr-tr``` |
-------|:------:|
+| Prebuilt entity | tr-tr |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |

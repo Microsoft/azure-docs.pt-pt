@@ -8,11 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77cbd5a3c293b137f49a11263580ef45407c6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090472"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -46,7 +47,7 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -163,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Permitir a regeneração de chaves
 
-Se quiser que o Key Vault regenerar periodicamente as chaves da sua conta de armazenamento, pode utilizar o cmdlet Azure PowerShell [Add-AzKeyVaagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para definir um período de regeneração. Neste exemplo, estabelecemos um período de regeneração de três dias. Após três dias, o Key Vault regenerará a 'key2' e trocará a chave ativa de 'key2' para 'key1' (substitua-a por 'primária' e 'secundária' para contas de armazenamento clássicas).
+Se quiser que o Key Vault regenerar periodicamente as chaves da sua conta de armazenamento, pode utilizar o cmdlet Azure PowerShell [Add-AzKeyVaagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) para definir um período de regeneração. Neste exemplo, estabelecemos um período de regeneração de três dias. Quando é hora de rodar, o Key Vault regenera a chave que não está ativa e, em seguida, define a chave recém-criada como ativa. Apenas uma das chaves é usada para emitir fichas SAS a qualquer momento. Esta é a chave ativa.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -266,7 +267,7 @@ Write-Host $secret.SecretValueText
 A saída deste comando mostrará a sua cadeia de definição SAS.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Amostras-chave da conta de armazenamento gerida](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [Referência PowerShell do cofre de chaves](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

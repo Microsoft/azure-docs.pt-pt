@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b718a0a67381e2b1eb19d2397ecf86e4a9c196d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382958"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090132"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Como codificar com uma transformação personalizada - Azure CLI
 
@@ -32,7 +32,7 @@ Ao criar predefinições personalizadas, aplicam-se as seguintes considerações
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.
+[Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 
 Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
 

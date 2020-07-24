@@ -3,12 +3,12 @@ title: Azure Migrar FAQ
 description: Obtenha respostas a perguntas comuns sobre o serviço Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 9b71888b284fd9cc125def4758d1e3800a92acf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 307a1d417b54ad9546c6e409ad8b105ea443da0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81530322"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090013"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns
 
@@ -32,6 +32,10 @@ Use a Azure Migrate para descobrir, avaliar e migrar para o local infraestrutura
 [A recuperação do local de Azure](../site-recovery/site-recovery-overview.md) é uma solução de recuperação de desastres. 
 
 A ferramenta Azure Migrate: Server Migration usa alguma funcionalidade de recuperação do site back-end para a migração de elevadores e turnos de algumas máquinas no local.
+
+## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Tenho um projeto com a experiência clássica anterior de Azure Migrate. Como começo a usar a nova versão?
+
+Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](how-to-add-tool-first-time.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre Azure Migrate: Avaliação do servidor e o kit de ferramentas MAP?
 

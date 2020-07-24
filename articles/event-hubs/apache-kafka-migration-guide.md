@@ -3,11 +3,12 @@ title: Migrar para Azure Event Hubs para Apache Kafka
 description: Este artigo mostra como os consumidores e produtores que usam diferentes protocolos (AMQP, Apache Kafka e HTTPS) podem trocar eventos ao utilizarem os Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f6c4cbdcbbc1d589b0803f36305f9a9fe6eebfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf585cdc0a43c595ec013ba78a2e3ae191c40b8d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322746"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090659"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrar para os Hubs de Eventos do Azure para Ecossistemas do Apache Kafka
 O Azure Event Hubs expõe um ponto final Apache Kafka, que lhe permite ligar-se aos Centros de Eventos usando o protocolo Kafka. Ao fazer alterações mínimas na sua aplicação Kafka existente, pode ligar-se aos Azure Event Hubs e colher os benefícios do ecossistema Azure. Os Centros de Eventos para Kafka suportam [a versão 1.0](https://kafka.apache.org/10/documentation.html) e posterior da Apache Kafka.
@@ -54,10 +55,10 @@ Execute a sua aplicação Kafka que envia eventos para o centro de eventos. Em s
 [![Verifique se o centro de eventos recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Guia de resolução de problemas de Apache Kafka para centros de eventos](apache-kafka-troubleshooting-guide.md)
 - [Perguntas frequentes - Centros de Eventos para Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Guia de desenvolvimento apache Kafka para hubs de eventos Azure](apache-kafka-developer-guide.md)
-- [Configurações recomendadas](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Configurações recomendadas](apache-kafka-configurations.md)

@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f4263d372b82779fe68a6a15cc7db61a31359e14
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ac5fad935e5c37df3a8bd64189a59612eaf097aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091373"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Aceda a contentores públicos e bolhas de forma anónima com .NET
 
-O Azure Storage suporta acesso anónimo e público para contentores e bolhas. Os clientes podem aceder a contentores e blobs públicos de forma anónima utilizando as bibliotecas de clientes do Azure Storage, bem como utilizando outras ferramentas e utilitários que suportem o acesso de dados ao Azure Storage.
+O Azure Storage suporta o acesso público opcional para recipientes e bolhas. Os clientes podem aceder a contentores e blobs públicos de forma anónima utilizando as bibliotecas de clientes do Azure Storage, bem como utilizando outras ferramentas e utilitários que suportem o acesso de dados ao Azure Storage.
 
-Este artigo mostra como aceder a um contentor público ou bolha a partir de .NET. Para obter informações sobre a configuração do acesso anónimo, leia o acesso a um contentor, consulte . Para obter informações sobre a prevenção de todo o acesso anónimo a uma conta de armazenamento, consulte .
+Este artigo mostra como aceder a um contentor público ou bolha a partir de .NET. Para obter informações sobre a configuração do acesso anónimo a um recipiente, consulte [o público anónimo Configure acesso a contentores e bolhas](anonymous-read-access-configure.md). Para obter informações sobre a prevenção de todo o acesso anónimo a uma conta de armazenamento, consulte [Prevent Anonymous Public Read Access to Containers and Blobs](anonymous-read-access-prevent.md).
 
 Um cliente que acede a contentores e bolhas anonimamente pode usar construtores que não requerem credenciais. Os exemplos a seguir mostram algumas formas diferentes de referenciar contentores e bolhas de forma anónima.
 

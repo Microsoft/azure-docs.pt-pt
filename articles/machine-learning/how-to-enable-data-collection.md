@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: d7e3aeba14373861d831056678576c52f6b2184f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ae1ec7eb566871402d44a0f24878b4ea92197f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090234"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recolher dados de modelos em produção
 
@@ -71,7 +71,7 @@ O caminho para os dados de saída na bolha segue esta sintaxe:
 
 ## <a name="enable-data-collection"></a>Ativar a recolha de dados
 
-Pode ativar a recolha de dados independentemente do modelo que implementa através do Azure Machine Learning ou de outras ferramentas.
+Pode ativar a recolha de [dados](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) independentemente do modelo que implementa através do Azure Machine Learning ou de outras ferramentas.
 
 Para ativar a recolha de dados, é necessário:
 
@@ -210,6 +210,6 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 1. Siga os passos no modelo para visualizar e analisar os seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Detete a deriva de dados](how-to-monitor-datasets.md) nos dados recolhidos.
