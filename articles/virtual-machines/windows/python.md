@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
-ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92b6d8c6cd59f82439beec24c003aac6673014e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84551980"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088330"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs windows em Azure usando Python
 
@@ -31,7 +32,7 @@ Leva cerca de 20 minutos para fazer estes passos.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-1. Se ainda não o fez, instale [o Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **o desenvolvimento python** na página Workloads e, em seguida, clique em **Instalar**. No resumo, pode ver que **python 3 64-bit (3.6.0)** é automaticamente selecionado para si. Se já instalou o Visual Studio, pode adicionar a carga de trabalho python utilizando o Lançador de Estúdio Visual.
+1. Se ainda não o fez, instale [o Visual Studio](/visualstudio/install/install-visual-studio). Selecione **o desenvolvimento python** na página Workloads e, em seguida, clique em **Instalar**. No resumo, pode ver que **python 3 64-bit (3.6.0)** é automaticamente selecionado para si. Se já instalou o Visual Studio, pode adicionar a carga de trabalho python utilizando o Lançador de Estúdio Visual.
 2. Depois de instalar e iniciar o Visual Studio, clique em **File**  >  **New**  >  **Project**.
 3. Clique **em Modelos**  >  **Python**  >  **Python Application,** insira *myPythonProject* para o nome do projeto, selecione a localização do projeto e, em seguida, clique **em OK**.
 
@@ -563,8 +564,7 @@ Como é cobrado pelos recursos utilizados no Azure, é sempre uma boa prática a
     Deve levar cerca de cinco minutos para que esta aplicação da consola corra completamente do início ao fim. Pode demorar vários minutos após o fim da aplicação antes de todos os recursos e o grupo de recursos serem eliminados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Se ocorreram problemas com a implementação, um passo seguinte será ver [Troubleshooting resource group deployments with Azure portal (Resolução de problemas com implementações do grupo de recursos com o portal do Azure)](../../resource-manager-troubleshoot-deployments-portal.md)
-- Saiba mais sobre a [Biblioteca Azure Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
+- Se ocorreram problemas com a implementação, um passo seguinte será ver [Troubleshooting resource group deployments with Azure portal (Resolução de problemas com implementações do grupo de recursos com o portal do Azure)](../../azure-resource-manager/templates/deployment-history.md)
+- Saiba mais sobre a [Biblioteca Azure Python](/python/api/overview/azure/?view=azure-python)

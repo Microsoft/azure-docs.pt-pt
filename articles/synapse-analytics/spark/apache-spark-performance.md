@@ -1,5 +1,5 @@
 ---
-title: Otimizar os empregos da Spark para o desempenho no Azure Synapse Analytics
+title: Otimizar empregos de faíscas para desempenho
 description: Este artigo fornece uma introdução ao Apache Spark in Azure Synapse Analytics e aos diferentes conceitos.
 services: synapse-analytics
 author: euangMS
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194863"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089265"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Otimizar os empregos da Apache Spark (pré-visualização) no Azure Synapse Analytics
 
-Aprenda a otimizar a configuração do cluster [Apache Spark](https://spark.apache.org/) para a sua carga de trabalho particular.  O desafio mais comum é a pressão da memória, devido a configurações impróprias (executores particularmente de tamanho errado), operações de longa duração e tarefas que resultam em operações cartesianas. Pode acelerar os postos de trabalho com o caching apropriado, e permitindo [distorcer os dados.](#optimize-joins-and-shuffles) Para obter o melhor desempenho, monitorize e reveja execuções de empregos de spark de longa duração e de consumo de recursos.
+Aprenda a otimizar a configuração do cluster [Apache Spark](https://spark.apache.org/) para a sua carga de trabalho particular.  O problema mais comum é a pressão da memória, devido a configurações inadequadas (em especial, executores com tamanho incorreto), operações de execução longa e tarefas que resultam em Operações cartesianas. Pode acelerar os postos de trabalho com o caching apropriado, e permitindo [distorcer os dados.](#optimize-joins-and-shuffles) Para obter o melhor desempenho, monitorize e reveja execuções de empregos de spark de longa duração e de consumo de recursos.
 
 As seguintes secções descrevem otimizações e recomendações comuns de emprego spark.
 
@@ -48,17 +48,17 @@ As versões Spark anteriores usam RDDs para dados abstratos, Spark 1.3 e 1.6 int
   * Alta GC sobrecarga.
   * Deve utilizar as APIs do legado Spark 1.x.
 
-## <a name="use-optimal-data-format"></a>Utilize o formato de dados ideal
+## <a name="use-optimal-data-format"></a>Utilizar o formato de dados ideal
 
 A faísca suporta muitos formatos, tais como csv, json, xml, parquet, orc e avro. A faísca pode ser estendida para suportar muitos mais formatos com fontes de dados externas - para mais informações, consulte [os pacotes Apache Spark](https://spark-packages.org).
 
 O melhor formato para desempenho é o parquet com *compressão snappy,* que é o padrão em Spark 2.x. O Parquet armazena dados em formato colunar, e está altamente otimizado em Spark. Além disso, enquanto *a compressão snappy* pode resultar em ficheiros maiores do que a compressão gzip. Devido à natureza splittable desses ficheiros, eles vão descomprimir mais rapidamente]
 
-## <a name="use-the-cache"></a>Use a cache
+## <a name="use-the-cache"></a>Utilizar a cache
 
 A faísca fornece os seus próprios mecanismos nativos de caching, que podem ser usados através de diferentes métodos, tais `.persist()` `.cache()` como, e `CACHE TABLE` . Este cache nativo é eficaz com pequenos conjuntos de dados, bem como em oleodutos ETL onde você precisa cache resultados intermédios. No entanto, o caching nativo de Spark atualmente não funciona bem com a partição, uma vez que uma mesa em cache não mantém os dados de partição.
 
-## <a name="use-memory-efficiently"></a>Use a memória de forma eficiente
+## <a name="use-memory-efficiently"></a>Utilizar a memória de forma eficiente
 
 A Spark opera colocando dados na memória, por isso gerir os recursos de memória é um aspeto fundamental para otimizar a execução de empregos spark.  Existem várias técnicas que pode aplicar para usar a memória do seu cluster de forma eficiente.
 
@@ -89,7 +89,7 @@ Os trabalhos de faísca são distribuídos, por isso a serialização adequada d
 * A serialização de Java é o padrão.
 * A serialização de Kryo é um formato mais recente e pode resultar numa serialização mais rápida e compacta do que a Java.  A Kryo requer que registe as aulas no seu programa, e ainda não suporta todos os tipos serializáveis.
 
-## <a name="use-bucketing"></a>Use balde
+## <a name="use-bucketing"></a>Utilizar os registos
 
 O balde é semelhante à partição de dados, mas cada balde pode conter um conjunto de valores de coluna em vez de apenas um. O balde funciona bem para a divisão em grandes (milhões ou mais) números de valores, como identificadores de produtos. Um balde é determinado por hashing a chave do balde da linha. As mesas baldeadas oferecem otimizações únicas porque armazenam metadados sobre como foram baldes e classificados.
 
@@ -101,7 +101,7 @@ Algumas características avançadas de balde são:
 
 Pode usar divisórias e baldes ao mesmo tempo.
 
-## <a name="optimize-joins-and-shuffles"></a>Otimizar juntas e baralhar
+## <a name="optimize-joins-and-shuffles"></a>Otimizar as associações e misturas
 
 Se tiver empregos lentos num Join ou Shuffle, a causa é provavelmente *distorcer dados*, o que é assimetria nos dados do seu trabalho. Por exemplo, um trabalho de mapa pode demorar 20 segundos, mas executar um trabalho onde os dados são unidos ou baralhados leva horas. Para corrigir o distorcer de dados, deve salgar toda a tecla ou utilizar um *sal isolado* para apenas alguns subconjuntos de teclas. Se estiver a utilizar um sal isolado, deve filtrar ainda mais o subconjunto de teclas salgadas em juntas de mapa. Outra opção é introduzir uma coluna de balde e pré-agregar primeiro em baldes.
 
@@ -162,7 +162,7 @@ Monitorize o desempenho da sua consulta para problemas de desempenho ou outliers
 
 Por exemplo, ter pelo menos o dobro das tarefas que o número de núcleos executor na aplicação. Também pode permitir a execução especulativa de tarefas com `conf: spark.speculation = true` .
 
-## <a name="optimize-job-execution"></a>Otimizar a execução de empregos
+## <a name="optimize-job-execution"></a>Otimizar a execução de tarefas
 
 * Cache, se necessário, por exemplo, se utilizar os dados duas vezes, em seguida, cache-os.
 * Variáveis de transmissão a todos os executores. As variáveis só são serializadas uma vez, resultando em procuras mais rápidas.

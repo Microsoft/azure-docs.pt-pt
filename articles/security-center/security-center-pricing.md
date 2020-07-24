@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 882f8ab7e4f55809759f3a94fd04fb2c410fe188
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801143"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089724"
 ---
-# <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Upgrade para nível standard para segurança reforçada
+# <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Upgrade para nível padrão para segurança reforçada
 
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbridas, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com ataques cibernéticos em rápida evolução.
 
@@ -44,7 +44,7 @@ Para obter o nível padrão:
 2. Selecione a subscrição que pretende atualizar para standard.
 3. **Selecione o nível de preços**.
 4. Selecione **Standard** para atualizar.
-5. Clique em **Guardar**.
+5. Clique em **Save** (Guardar).
 
 [![Preços do Centro de Segurança](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
@@ -68,8 +68,8 @@ O Security Center oferece uma maior segurança e proteção contra ameaças para
 
 
 
-## <a name="next-steps"></a>Próximos passos
-Neste artigo, foi introduzido no preço do Centro de Segurança. Para saber mais sobre a segurança reforçada do nível Standard e a proteção avançada de ameaças, consulte:
+## <a name="next-steps"></a>Passos seguintes
+Neste artigo, foi introduzido no preço do Centro de Segurança. Para saber mais sobre a segurança reforçada do nível padrão e a proteção avançada de ameaças, consulte:
 
 - [Proteção contra ameaças no Centro de Segurança do Azure](threat-protection.md)
 - [Controlo de acesso em VM just-in-time](security-center-just-in-time.md)

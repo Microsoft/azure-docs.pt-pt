@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
-ms.openlocfilehash: 6f367f7fb6201a62c7fb47e0c593d04d41e0b378
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b0d1476a6386569a09ee4b14d31403408d741ef7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079518"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087463"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Construa aplicações Java para Apache HBase
 
@@ -31,7 +31,7 @@ Os passos neste documento usam [Apache Maven](https://maven.apache.org/) para cr
 
 * Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Se utilizar o PowerShell, necessitará do [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se utilizar o PowerShell, necessitará do [Módulo AZ](https://docs.microsoft.com/powershell/azure/).
 
 * Um editor de texto. Este artigo utiliza o Microsoft Notepad.
 
@@ -707,6 +707,6 @@ Os passos seguintes utilizam o módulo Azure PowerShell [AZ](https://docs.micros
 
 Utilize o `-showErr` parâmetro para visualizar o erro padrão (STDERR) que é produzido durante a execução do trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como usar o SQLLine com o Apache HBase](apache-hbase-query-with-phoenix.md)

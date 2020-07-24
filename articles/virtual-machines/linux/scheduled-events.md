@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262111"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088738"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados Azure: Eventos Agendados para VMs Linux
 
@@ -39,7 +39,7 @@ Com Eventos Agendados, a sua aplicação pode descobrir quando a manutenção oc
 
 Eventos Agendados proporcionam eventos nos seguintes casos de utilização:
 
-- [Manutenção iniciada pela plataforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, reboot VM, migração ao vivo ou atualizações de preservação da memória para hospedeiro)
+- [Manutenção iniciada pela plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (por exemplo, reboot VM, migração ao vivo ou atualizações de preservação da memória para hospedeiro)
 - Máquina virtual está a funcionar com [hardware de hospedeiro degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que se prevê falhar em breve
 - Manutenção iniciada pelo utilizador (por exemplo, um utilizador reinicia ou reimplanta um VM)
 - [Spot VM](spot-vms.md) e [Spot escala definir](../../virtual-machine-scale-sets/use-spot.md) despejos de instância.
@@ -150,7 +150,7 @@ Cada evento está programado um período mínimo de tempo no futuro com base no 
 | Reiniciar | 15 minutos |
 | Voltar a implementar | 10 minutos |
 | Preempt | 30 segundos |
-| Terminar | [Configurar do utilizador:](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications)5 a 15 minutos |
+| Terminate | [Configurar do utilizador:](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications)5 a 15 minutos |
 
 > [!NOTE] 
 > Em alguns casos, o Azure é capaz de prever a falha do hospedeiro devido a hardware degradado e tentará mitigar a perturbação do seu serviço agendando uma migração. As máquinas virtuais afetadas receberão um evento agendado com um `NotBefore` que normalmente é de alguns dias no futuro. O tempo real varia em função da avaliação prevista do risco de falha. O Azure tenta dar um pré-aviso de 7 dias quando possível, mas o tempo real varia e pode ser menor se a previsão for que há uma alta probabilidade de o hardware falhar iminentemente. Para minimizar o risco para o seu serviço no caso de o hardware falhar antes da migração iniciada pelo sistema, recomendamos que se auto-reimplante a sua máquina virtual o mais rapidamente possível.
@@ -189,7 +189,7 @@ import json
 import socket
 import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01"
 this_host = socket.gethostname()
 
 
@@ -229,8 +229,8 @@ if __name__ == '__main__':
     main()
 ```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - Assista [a Eventos Agendados na Sexta-feira](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) azul para ver uma demonstração. 
 - Reveja as amostras de código de eventos programados no [repositório de metados de casos Azure Instance GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Leia mais sobre as APIs que estão disponíveis no [Serviço de Metadados de Exemplo.](instance-metadata-service.md)
-- Saiba mais sobre [a manutenção planeada para máquinas virtuais Linux em Azure.](planned-maintenance.md)
+- Saiba mais sobre [a manutenção planeada para máquinas virtuais Linux em Azure.](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json)

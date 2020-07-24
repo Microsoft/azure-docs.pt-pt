@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 07/21/2020
+ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087786"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Criar uma instância do Azure Database Migration Service com o portal do Azure
 
@@ -30,6 +30,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 Abra o browser, navegue para o [portal do Microsoft Azure](https://portal.azure.com/) e, em seguida, introduza as suas credenciais para iniciar sessão no portal.
 
 A vista predefinida é o dashboard de serviço.
+
+> [!NOTE]
+> Pode criar até 10 instâncias de DMS por subscrição. Se necessitar de um maior número de ocorrências, por favor crie um bilhete de apoio.
 
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
@@ -53,7 +56,7 @@ Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a primei
 
     - Escolha um **Nome de Serviço** que seja memorável e único para identificar o seu caso de Serviço de Migração de Bases de Dados Azure.
     - Selecione a sua **Subscrição** do Azure, na qual pretende criar a instância.
-    - Selecione um **Grupo de Recursos** existente ou crie um novo.
+    - Selecione um Grupo de **Recursos** existente ou crie um novo.
     - Escolha a **Localização** que esteja mais próxima do seu servidor de origem ou de destino.
     - Selecione uma **rede Virtual** existente ou crie uma.
 

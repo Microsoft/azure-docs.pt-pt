@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 35fd95272530ed31f8ee197679e9368ca74ebef1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089673"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Gestão de Identidade Azure e controlo de segurança de acessos as melhores práticas
 
@@ -216,7 +216,7 @@ Pode utilizar [o RBAC](/azure/role-based-access-control/overview) para atribuir 
 * **Grupo de gestão de segmentos** para equipas com âmbito limitado (geralmente devido a limites regulamentares ou outros limites organizacionais)
 
 **Melhores práticas**: Conceder as permissões adequadas às equipas de segurança que tenham responsabilidades operacionais diretas.
-**Detalhe**: Rever as funções incorporadas da RBAC para a atribuição de funções apropriadas. Se as funções incorporadas não corresponderem às necessidades específicas da sua organização, pode criar [papéis personalizados para os recursos Azure.](/azure/role-based-access-control/custom-roles) Tal como acontece com as funções incorporadas, pode atribuir funções personalizadas aos utilizadores, grupos e principais de serviços nos âmbitos de subscrição, grupo de recursos e recursos.
+**Detalhe**: Rever as funções incorporadas da RBAC para a atribuição de funções apropriadas. Se as funções incorporadas não corresponderem às necessidades específicas da sua organização, pode criar [funções personalizadas Azure](/azure/role-based-access-control/custom-roles). Tal como acontece com as funções incorporadas, pode atribuir funções personalizadas aos utilizadores, grupos e principais de serviços nos âmbitos de subscrição, grupo de recursos e recursos.
 
 **Boas práticas**: Grant Azure Security Center acesso a funções de segurança que precisam. O Centro de Segurança permite que as equipas de segurança identifiquem e remediam rapidamente os riscos.
 **Detalhe**: Adicione as equipas de segurança com estas necessidades ao papel [de Administrador de Segurança](/azure/role-based-access-control/built-in-roles#security-admin) da RBAC para que possam ver políticas de segurança, ver estados de segurança, editar políticas de segurança, ver alertas e recomendações e rejeitar alertas e recomendações. Pode fazê-lo utilizando o grupo de gestão de raiz ou o grupo de gestão de segmentos, dependendo do âmbito das responsabilidades.

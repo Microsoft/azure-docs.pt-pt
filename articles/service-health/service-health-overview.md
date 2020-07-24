@@ -3,12 +3,12 @@ title: Visão geral do Serviço de Saúde / Microsoft Docs
 description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas de serviço e manutenção atuais e futuros.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: bc1d07fdbba6da3540336438973fb1cfbb0c356b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089605"
 ---
 # <a name="service-health-overview"></a>Visão geral da saúde do serviço
 
@@ -68,10 +68,10 @@ Serviço de Filtragem Saúde para mostrar as suas subscrições, regiões e tipo
 
 ## <a name="configure-service-health-alerts"></a>Configurar alertas de saúde do serviço
 
-O Service Health integra-se com o Azure Monitor para alertá-lo através de e-mails, mensagens de texto e notificações webhook quando os seus recursos críticos do negócio são impactados. Configurar um alerta de registo de atividade para o evento de saúde do serviço apropriado. Encaminhe esse alerta para as pessoas apropriadas da sua organização usando Grupos de Ação. Para mais informações, consulte [Alertas de Configuração para Saúde de Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+O Service Health integra-se com o Azure Monitor para alertá-lo através de e-mails, mensagens de texto e notificações webhook quando os seus recursos críticos do negócio são impactados. Configurar um alerta de registo de atividade para o evento de saúde do serviço apropriado. Encaminhe esse alerta para as pessoas apropriadas da sua organização usando Grupos de Ação. Para mais informações, consulte [Alertas de Configuração para Saúde de Serviço](./alerts-activity-log-service-notifications-portal.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Adasse alertas para que você é notificado de problemas de saúde. Para mais informações, consulte [as melhores práticas para a criação de Alertas de Saúde do Serviço Azure.](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s) 

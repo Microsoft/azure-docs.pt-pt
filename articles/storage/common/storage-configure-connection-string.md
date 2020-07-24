@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087259"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar Cadeias de Ligação do Storage do Azure
 
 Um fio de ligação inclui as informações de autorização necessárias para a sua aplicação aceder aos dados numa conta de Armazenamento Azure em tempo de execução utilizando a autorização da Chave Partilhada. Pode configurar as cordas de ligação para:
 
-* Ligue-se ao emulador de armazenamento Azure.
+* Ligue-se ao emulador de armazenamento Azurite.
 * Aceda a uma conta de armazenamento em Azure.
 * Aceder a recursos especificados em Azure através de uma assinatura de acesso partilhado (SAS).
 
@@ -37,15 +37,15 @@ A sua aplicação precisa de aceder à cadeia de ligação em tempo de execuçã
 * Uma aplicação em execução no ambiente de trabalho ou num dispositivo pode armazenar a cadeia de ligação num **ficheiroapp.config** ou **web.config.** Adicione o fio de ligação à secção **AppSettings nestes** ficheiros.
 * Uma aplicação em execução num serviço de nuvem Azure pode armazenar a cadeia de ligação no esquema de configuração do [serviço Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Adicione o fio de ligação à secção **ConfiguraçõesSettings** do ficheiro de configuração de serviço.
 
-Armazenar a sua cadeia de ligação num ficheiro de configuração facilita a atualização da cadeia de ligação para alternar entre o emulador de armazenamento e uma conta de armazenamento Azure na nuvem. Basta editar a cadeia de ligação para apontar para o ambiente alvo.
+Armazenar a sua cadeia de ligação num ficheiro de configuração facilita a atualização da cadeia de ligação para alternar entre o [emulador de armazenamento Azurite](../common/storage-use-azurite.md) e uma conta de armazenamento Azure na nuvem. Basta editar a cadeia de ligação para apontar para o ambiente alvo.
 
 Pode utilizar o [Gestor de Configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para aceder à sua cadeia de ligação em tempo de execução, independentemente do local onde a sua aplicação esteja a ser executada.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configure uma cadeia de ligação para o emulador de armazenamento
+## <a name="configure-a-connection-string-for-azurite"></a>Configure uma cadeia de ligação para a azurite
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Para obter mais informações sobre o emulador de armazenamento, consulte [o emulador de armazenamento Azure para desenvolvimento e teste.](storage-use-emulator.md)
+Para obter mais informações sobre a Azurite, consulte [o emulador Azurite para o desenvolvimento local do armazenamento Azure.](../common/storage-use-azurite.md)
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configure uma cadeia de conexão para uma conta de armazenamento Azure
 
@@ -138,8 +138,8 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Utilize o emulador de armazenamento Azure para desenvolvimento e teste](storage-use-emulator.md)
+* [Utilize o emulador Azurite para o desenvolvimento local do armazenamento Azure](../common/storage-use-azurite.md)
 * [Exploradores de armazenamento Azure](storage-explorers.md)
 * [Utilização de assinaturas de acesso partilhado (SAS)](storage-sas-overview.md)

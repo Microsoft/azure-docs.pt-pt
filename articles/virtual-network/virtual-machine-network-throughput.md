@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cbec961f6249ebd59324dca1745bfd9e77f5388
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696005"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088177"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquinas virtuais
 
@@ -55,8 +56,8 @@ A transferência de dados entre pontos finais requer a criação de vários flux
 
 Hoje, a stack de rede Azure suporta fluxos totais de rede de 250K com bom desempenho para VMs com mais de 8 núcleos de CPU e fluxos totais de 100k com bom desempenho para VMs com menos de 8 núcleos de CPU. Para além deste limite, o desempenho da rede degrada-se graciosamente para fluxos adicionais até um limite rígido de fluxos totais de 500K, entrada de 250K e saída de 250K, após o qual os fluxos adicionais são reduzidos.
 
-||VMs com <8 Núcleos CPU|VMs com 8+ NÚCLEOs CPU|
-|---|---|---|
+| Nível de desempenho | VMs com <8 Núcleos CPU | VMs com 8+ NÚCLEOs CPU |
+| ----------------- | --------------------- | --------------------- |
 |<b>Bom desempenho</b>|Fluxos de 100K |Fluxos de 250K|
 |<b>Desempenho Degradado</b>|Acima de 100k Fluxos|Acima de 250K Fluxos|
 |<b>Limite de fluxo</b>|Fluxos de 500K|Fluxos de 500K|
@@ -67,7 +68,7 @@ As métricas estão disponíveis no [Azure Monitor](../azure-monitor/platform/me
 
 As taxas de estabelecimento de ligação e de terminação também podem afetar o desempenho da rede como estabelecimento de ligação e a rescisão de ações CPU com rotinas de processamento de pacotes. Recomendamos que compareça cargas de trabalho em comparação com os padrões de tráfego esperados e reduza as cargas de trabalho adequadamente para corresponder às suas necessidades de desempenho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Otimizar o débito de rede para o sistema operativo de uma máquina virtual](virtual-network-optimize-network-bandwidth.md)
 - [Produção de rede de teste](virtual-network-bandwidth-testing.md) para uma máquina virtual.

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Crie uma bolha com powerShell
+title: Quickstart - Crie uma bolha com PowerShell
 titleSuffix: Azure Storage
 description: Neste início rápido, irá utilizar o Azure PowerShell no armazenamento de objetos (Blobs). Em seguida, utilize o PowerShell para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 services: storage
@@ -9,14 +9,14 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: bca04317acf589e8bae46f086c6c79dfc82152a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d84867e598110c5d9a59b477d92a2c8e021358db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087374"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Quickstart: Upload, download e lista de blobs com PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Quickstart: Upload, download e list blobs com PowerShell
 
 Utilizar o módulo do Azure PowerShell para criar e gerir recursos do Azure. Pode criar ou gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia descreve como utilizar o PowerShell para transferir ficheiros entre o disco local e o armazenamento de Blobs do Azure.
 
@@ -24,11 +24,11 @@ Utilizar o módulo do Azure PowerShell para criar e gerir recursos do Azure. Pod
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para aceder ao Armazenamento Azure, necessitará de uma subscrição Azure. Se ainda não tem uma subscrição, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para aceder ao Azure Storage, precisará de uma subscrição do Azure. Se ainda não tem uma subscrição, então crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Este quickstart requer o módulo Azure PowerShell Az versão 0.7 ou posterior. Executar `Get-InstalledModule -Name Az -AllVersions | select Name,Version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell).
+Este arranque rápido requer a versão Azure PowerShell Az ou mais tarde. Executar `Get-InstalledModule -Name Az -AllVersions | select Name,Version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
@@ -36,7 +36,7 @@ Este quickstart requer o módulo Azure PowerShell Az versão 0.7 ou posterior. E
 
 Os Blobs são sempre carregados para um contentor. Pode organizar grupos de blobs, tal como organiza os ficheiros em pastas no seu computador.
 
-Delineie o nome do recipiente e, em seguida, crie o recipiente utilizando [o New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Defina as permissões para `blob`, para permitir o acesso público dos ficheiros. O nome do contentor neste exemplo é *quickstartblobs*.
+Desa estale o nome do recipiente e, em seguida, crie o recipiente utilizando [o New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Defina as permissões para `blob`, para permitir o acesso público dos ficheiros. O nome do contentor neste exemplo é *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -47,7 +47,7 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de páginas. Os ficheiros VHD que suportam as VMs IaaS são blobs de páginas. Utilize blobs de acréscimo para registo, como quando quer escrever num ficheiro e continue a adicionar mais informações. A maioria dos ficheiros guardados no armazenamento de Blobs são blobs de blocos. 
 
-Para carregar um ficheiro para um blob de blocos, obtenha uma referência de contentor e uma referência de blob de blocos nesse contentor. Uma vez que tenha a referência blob, pode fazer o upload de dados através do [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). Esta operação cria o blob, caso este não exista, ou substitui-o se já existir.
+Para carregar um ficheiro para um blob de blocos, obtenha uma referência de contentor e uma referência de blob de blocos nesse contentor. Uma vez que tenha a referência blob, pode enviar-lhe dados utilizando [o Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). Esta operação cria o blob, caso este não exista, ou substitui-o se já existir.
 
 Os exemplos seguintes carregam *Image001.jpg* e *Image002.png* da pasta *D:\\_TestImages* no disco local para o contentor que criou.
 
@@ -63,13 +63,19 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
+
+# upload a file to a folder
+Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
+  -Container $containerName `
+  -Blob "Foldername/Image003.jpg" `
+  -Context $ctx 
 ```
 
 Carregue os ficheiros que quiser antes de continuar.
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Obtenha uma lista de bolhas no recipiente utilizando [get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). Este exemplo mostra apenas os nomes dos blobs carregados.
+Obtenha uma lista de bolhas no recipiente utilizando [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). Este exemplo mostra apenas os nomes dos blobs carregados.
 
 ```powershell
 Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
@@ -77,7 +83,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Transferir blobs
 
-Transfira os blobs para o disco local. Para cada bolha que pretende descarregar, delineie o nome e ligue para [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) para descarregar a bolha.
+Transfira os blobs para o disco local. Para cada bolha que pretende descarregar, descreva o nome e ligue para [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) para descarregar a bolha.
 
 Este exemplo transfere os blobs para *D:\\_TestImages\Downloads* no disco local. 
 
@@ -97,9 +103,9 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Transferência de dados com o AzCopy
 
-O utilitário de linha de comando AzCopy oferece transferência de dados de alto desempenho e scriptable para o Armazenamento Azure. Pode utilizar o AzCopy para transferir dados de e para o armazenamento blob e ficheiros Azure. Para mais informações sobre o AzCopy v10, a versão mais recente do AzCopy, consulte [Get started with AzCopy](../common/storage-use-azcopy-v10.md). Para aprender sobre a utilização do AzCopy v10 com armazenamento Blob, consulte [os dados da Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md).
+O utilitário da linha de comando AzCopy oferece transferência de dados scriptable de alto desempenho para armazenamento Azure. Pode utilizar o AzCopy para transferir dados de e para o armazenamento blob e ficheiros Azure. Para mais informações sobre a AzCopy v10, a versão mais recente do AzCopy, consulte [Começar com a AzCopy](../common/storage-use-azcopy-v10.md). Para saber sobre a utilização do AzCopy v10 com armazenamento Blob, consulte [os dados de Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md).
 
-O exemplo que se segue utiliza o AzCopy para fazer o upload de um ficheiro local para uma bolha. Lembre-se de substituir os valores da amostra por valores próprios:
+O exemplo a seguir utiliza o AzCopy para enviar um ficheiro local para uma bolha. Lembre-se de substituir os valores da amostra pelos seus próprios valores:
 
 ```powershell
 azcopy login
@@ -116,7 +122,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, transferiu ficheiros entre um sistema de ficheiros local e o armazenamento do Azure Blob. Para saber mais sobre o trabalho com o armazenamento blob utilizando o PowerShell, explore as amostras da Azure PowerShell para armazenamento blob.
+Neste arranque rápido, transferiu ficheiros entre um sistema de ficheiros local e o armazenamento Azure Blob. Para saber mais sobre como trabalhar com o armazenamento blob utilizando o PowerShell, explore as amostras do Azure PowerShell para armazenamento blob.
 
 > [!div class="nextstepaction"]
 > [Exemplos do Azure PowerShell para o armazenamento de Blobs do Azure](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

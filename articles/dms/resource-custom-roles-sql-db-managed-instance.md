@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 479c5165c206ced9f387d7b4a475945173da8a16
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086233"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087684"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Funções personalizadas para o SQL Server para Azure SQL Managed Instance migração on-line
 
@@ -83,7 +83,7 @@ Atualmente recomendamos a criação de um mínimo de duas funções personalizad
 
 O json acima deve ser armazenado em três ficheiros de texto, e pode utilizar os cmdlets AzureRM, AZ PowerShell ou Azure CLI para criar as funções utilizando a **Definição New-AzureRmRole (AzureRM)** ou **a New-AzRoleDefinition (AZ)**.
 
-Para mais informações, consulte o artigo [Funções personalizadas para recursos Azure.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+Para mais informações, consulte o artigo [Azure.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
 Depois de criar estas funções personalizadas, deve adicionar atribuições de funções aos utilizadores e iD(s) de APP aos recursos ou grupos de recursos apropriados:
 
@@ -148,6 +148,6 @@ Para atribuir uma função aos utilizadores/ID app, abra o portal Azure, execute
 
   O seu(s) ID(s) app(s) aparece agora listado no separador **de atribuições de Função.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja a orientação de migração para o seu cenário no [Guia de Migração da Base de Dados da](https://datamigration.microsoft.com/)Microsoft.

@@ -9,11 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 5613453667e3bb278f4da22ebed4502def70235b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83675894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087276"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas Azure Storage Analytics (clássico)
 
@@ -145,18 +146,16 @@ Na secção **de Monitorização (clássica)** do painel de menus da sua conta d
 
 Se pretender descarregar as métricas para armazenamento a longo prazo ou analisá-las localmente, deve utilizar uma ferramenta ou escrever algum código para ler as tabelas. Tem de fazer o download das métricas minúsculas para análise. As tabelas não aparecem se listar todas as tabelas da sua conta de armazenamento, mas pode acessá-las diretamente pelo nome. Muitas ferramentas de navegação de armazenamento estão cientes destas tabelas e permitem vê-las diretamente. Para obter uma lista de ferramentas disponíveis, consulte as [ferramentas do cliente do Azure Storage](/azure/storage/storage-explorers).
 
-||||  
+|Métricas|Nomes de tabelas|Notas| 
 |-|-|-|  
-|**Métricas**|**Nomes de tabelas**|**Notas**|  
 |Métricas horárias|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Em versões anteriores a 15 de agosto de 2013, estas tabelas eram conhecidas como:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> As métricas do serviço de ficheiros estão disponíveis a partir da versão 5 de abril de 2015.|  
 |Métricas minúsculas|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Só pode ser ativado utilizando o PowerShell ou programático.<br /><br /> As métricas do serviço de ficheiros estão disponíveis a partir da versão 5 de abril de 2015.|  
 |Capacidade|$MetricsCapacityBlob|Serviço blob apenas.|  
 
 Para obter todos os detalhes dos esquemas para estas tabelas, consulte o esquema de [tabela de métricas storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema). As seguintes linhas de amostra mostram apenas um subconjunto das colunas disponíveis, mas ilustram algumas características importantes da forma como as métricas de armazenamento salvam estas métricas:  
 
-||||||||||||  
+|PartitionKey|RowKey|Timestamp|TotalRequests|TotalBillableRequests|TotalIngress|TotalEgress|Disponibilidade|AverageE2ELatency|AverageServerLatency|PercentSuccess| 
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Carimbo de data/hora**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|utilizador; Todos os|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|utilizador; Consultas|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|utilizador; Entidade de Consultaria|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
@@ -232,7 +231,7 @@ A capacidade utilizada pelas tabelas de métricas também é faturada. Utilizar 
 -   Se dentro de cada hora um serviço utilizar cada API no serviço, aproximadamente 12 KB de dados é armazenado a cada hora nas tabelas de transações de métricas se ativar apenas um resumo ao nível do serviço.  
 -   A tabela de capacidade para bolhas tem duas linhas adicionadas por dia, desde que tenha optado por registos. Este cenário implica que todos os dias o tamanho desta tabela aumenta em cerca de 300 bytes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Monitorizar uma conta de armazenamento](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
 * [Armazenamento Analytics métricas esquema de tabela](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
 * [Armazenamento Analytics registou operações e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   

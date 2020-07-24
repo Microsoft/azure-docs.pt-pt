@@ -5,15 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ba7830cc1c0a3e6a563b4343b37ec07f7d508af4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891599"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087990"
 ---
 # <a name="dependency-auto-collection"></a>Coleção automática da dependência
 
-Abaixo está a lista de chamadas de dependência atualmente suportadas que são automaticamente detetadas como dependências sem exigir qualquer modificação adicional ao código da sua aplicação. Estas dependências são visualizadas no mapa da [Aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) insights e pontos de vista [de diagnóstico de transação.](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) Se a sua dependência não estiver na lista abaixo, ainda pode rastreá-la manualmente com uma [chamada de dependência da faixa](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Abaixo está a lista de chamadas de dependência atualmente suportadas que são automaticamente detetadas como dependências sem exigir qualquer modificação adicional ao código da sua aplicação. Estas dependências são visualizadas no mapa da [Aplicação](./app-map.md) insights e pontos de vista [de diagnóstico de transação.](./transaction-diagnostics.md) Se a sua dependência não estiver na lista abaixo, ainda pode rastreá-la manualmente com uma [chamada de dependência da faixa](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -22,7 +23,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | formas web ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | ASP.NET WebAPI | 4.5+ |
-| Núcleo de ASP.NET | 1.1+ |
+| ASP.NET Core | 1.1+ |
 | <b>Bibliotecas de comunicação</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
@@ -43,7 +44,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>Quadros de aplicativos</b> |  |
-| [Spring](https://spring.io/) | 3.0 |
+| [Spring](https://spring.io/) | 3,0 |
 | [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
 | Java Servlet | 3.1+ |
 | <b>Bibliotecas de comunicação</b> |  |
@@ -61,7 +62,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 
 > [!NOTE]
 > *Exceto suporte de programação reativo.
-> <br>†Requer a instalação do [Agente JVM.](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java)
+> <br>†Requer a instalação do [Agente JVM.](./java-agent.md#install-the-application-insights-agent-for-java)
 
 ## <a name="nodejs"></a>Node.js
 
@@ -85,7 +86,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | ------------------------|----------|
 | [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Todos |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Configurar o rastreio de dependência personalizada para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
 - Configurar o rastreio de dependência personalizada para [Java.](../../azure-monitor/app/java-agent.md)

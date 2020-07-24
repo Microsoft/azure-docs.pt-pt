@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cec3e3ad4934ce368baa44984d252dc981d5d81
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687978"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088211"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP a máquinas virtuais utilizando o portal Azure
 
@@ -29,7 +30,7 @@ ms.locfileid: "84687978"
 
 ## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Criar uma VM com vários endereços IP
 
-Se pretender criar um VM com vários endereços IP ou um endereço IP estático privado, deve criá-lo utilizando o PowerShell ou o Azure CLI. Para saber como, clique nas opções PowerShell ou CLI no topo deste artigo. Pode criar um VM com um único endereço IP privado dinâmico e (opcionalmente) um único endereço IP público. Utilize o portal seguindo os passos no [Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [crie artigos Linux VM.](../virtual-machines/linux/quick-create-portal.md) Depois de criar o VM, pode alterar o tipo de endereço IP de dinâmico para estático e adicionar endereços IP adicionais utilizando o portal seguindo os passos nos [endereços Add IP para uma](#add) secção VM deste artigo.
+Se pretender criar um VM com vários endereços IP ou um endereço IP estático privado, deve criá-lo utilizando o PowerShell ou o Azure CLI. Para saber como, clique nas opções PowerShell ou CLI no topo deste artigo. Pode criar um VM com um único endereço IP privado dinâmico e (opcionalmente) um único endereço IP público. Utilize o portal seguindo os passos no [Windows VM](../virtual-machines/windows/quick-create-portal.md) ou [crie artigos Linux VM.](../virtual-machines/linux/quick-create-portal.md) Depois de criar o VM, pode alterar o tipo de endereço IP de dinâmico para estático e adicionar endereços IP adicionais utilizando o portal seguindo os passos nos [endereços Add IP para uma](#add) secção VM deste artigo.
 
 ## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Adicionar endereços IP a um VM
 

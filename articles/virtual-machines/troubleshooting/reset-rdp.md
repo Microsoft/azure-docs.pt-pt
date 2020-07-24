@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03c1d8e6d6b5b1d55fee964b509c1bc08537cf6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088585"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Repor serviços de ambiente de trabalho remoto ou a sua senha de administrador num VM do Windows
 Se não conseguir ligar-se a uma máquina virtual do Windows (VM), pode redefinir a palavra-passe do administrador local ou redefinir a configuração de Serviços de Ambiente de Trabalho Remoto (não suportado nos controladores de domínio do Windows). Para repor a palavra-passe, utilize o portal do Azure ou a extensão VM Access, no Azure PowerShell. Depois de iniciar sessão na VM, reponha a palavra-passe desse administrador local.  
-Se estiver a utilizar o PowerShell, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/overview) e está inscrito na sua subscrição Azure. Também pode [seguir estes passos para VMs criadas com o modelo de implementação clássica](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+Se estiver a utilizar o PowerShell, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/) e está inscrito na sua subscrição Azure. Também pode [seguir estes passos para VMs criadas com o modelo de implementação clássica](/azure/virtual-machines/windows/classic/reset-rdp).
 
 Pode repor os Serviços de Ambiente de Trabalho Remoto e as credenciais das seguintes formas:
 
@@ -55,11 +55,11 @@ Este processo permitirá o serviço de ambiente de trabalho remoto no VM e criar
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Reinicializar utilizando a extensão VMAccess e PowerShell
 
-Em primeiro lugar, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/overview) e está inscrito na sua subscrição Azure utilizando o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+Em primeiro lugar, certifique-se de que tem o [mais recente módulo PowerShell instalado e configurado](/powershell/azure/) e está inscrito na sua subscrição Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount)
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Redefinir a senha de conta do administrador local**
 
-- Redefinir a palavra-passe do administrador ou o nome de utilizador com o cmdlet PowerShell do [Set-AzVMAccessExtension.](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) A `typeHandlerVersion` regulação deve ser 2.0 ou superior, porque a versão 1 está precotado. 
+- Redefinir a palavra-passe do administrador ou o nome de utilizador com o cmdlet PowerShell do [Set-AzVMAccessExtension.](/powershell/module/az.compute/set-azvmaccessextension) A `typeHandlerVersion` regulação deve ser 2.0 ou superior, porque a versão 1 está precotado. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -77,7 +77,7 @@ Em primeiro lugar, certifique-se de que tem o [mais recente módulo PowerShell i
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Redefinir a configuração dos Serviços de Ambiente de Trabalho Remoto**
 
-1. Reinicie o acesso remoto ao seu VM com o cmdlet PowerShell de [Configuração Set-AzVMAccessExtension.](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) O exemplo a seguir repõe a extensão de acesso nomeada `myVMAccess` no VM nomeado `myVM` no grupo `myResourceGroup` de recursos:
+1. Reinicie o acesso remoto ao seu VM com o cmdlet PowerShell de [Configuração Set-AzVMAccessExtension.](/powershell/module/az.compute/set-azvmaccessextension) O exemplo a seguir repõe a extensão de acesso nomeada `myVMAccess` no VM nomeado `myVM` no grupo `myResourceGroup` de recursos:
 
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
@@ -94,7 +94,6 @@ Em primeiro lugar, certifique-se de que tem o [mais recente módulo PowerShell i
 
 - [Saiba mais sobre extensões e funcionalidades Azure VM](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-- [Ligue-se a uma máquina virtual Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+- [Ligue-se a uma máquina virtual Azure com RDP ou SSH](/previous-versions/azure/dn535788(v=azure.100)).
 
 - [Resolução de problemas Ligações de ambiente de trabalho remoto a uma máquina virtual Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

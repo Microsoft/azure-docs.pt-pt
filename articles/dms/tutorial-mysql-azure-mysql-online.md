@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar o MySQL online para a Base de Dados Azure para o MySQL'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line do MySQL no local para a Azure Database for MySQL utilizando o Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e9fc2913a526e01ea5279c476e3deab779db88c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ea351fb6b88a020a466849181fed0381baa7f04
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087752"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
 
@@ -138,6 +139,11 @@ SET group_concat_max_len = 8192;
  ```
 
 Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta para remover a chave externa.
+
+> [!NOTE]
+> O Azure DMS não suporta a ação referencial CASCADE, que ajuda a eliminar ou atualizar automaticamente uma linha de correspondência na tabela infantil quando uma linha é eliminada ou atualizada na tabela dos pais. Para obter mais informações, na documentação do MySQL, consulte a secção Ações Referenciais do artigo [Restrições DE CHAVE ESTRANGEIRA](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
+> O Azure DMS requer que deixe cair os constrangimentos de chaves estrangeiras no servidor de base de dados-alvo durante a carga inicial de dados, e não pode utilizar ações referenciais. Se a sua carga de trabalho depender da atualização de uma tabela de crianças relacionada através desta ação referencial, recomendamos que efetue uma [lixeira e restaure.](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) 
+
 
 > [!IMPORTANT]
 > Se importar dados utilizando uma cópia de segurança, remova os comandos CREATE DEFINER manualmente ou utilizando o comando --skip-definer quando efetuar uma mysqldump. O DEFINER requer super privilégios para criar e é restringido na Base de Dados Azure para o MySQL.
@@ -269,7 +275,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
 3. Selecione **Confirmar** e depois **Aplicar**.
 4. Quando o estado da migração de base de dados apresentar **Concluído**, ligue as suas aplicações à nova Base de Dados SQL do Azure de destino.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para MySQL, veja o artigo [Problemas conhecidos e soluções alternativas com migrações online da Base de Dados do Azure para MySQL](known-issues-azure-mysql-online.md).
 * Para obter informações sobre o Serviço de Migração da Base de Dados Azure, consulte o artigo [O que é o Serviço de Migração da Base de Dados Azure?](https://docs.microsoft.com/azure/dms/dms-overview)

@@ -1,22 +1,22 @@
 ---
 title: Use emulador Azurite para o desenvolvimento local do armazenamento Azure
-description: O emulador de código aberto Azurite (pré-visualização) proporciona um ambiente local gratuito para testar as suas aplicações de armazenamento Azure.
+description: O emulador de código aberto Azurite proporciona um ambiente local gratuito para testar as suas aplicações de armazenamento Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/01/2020
+ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: af846b0c203934468b7f6282234819142093286f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089418"
 ---
-# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utilize o emulador Azurite para o desenvolvimento e testes locais de armazenamento da Azure (pré-visualização)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Utilize o emulador Azurite para o desenvolvimento local do armazenamento Azure
 
-O emulador de código aberto Azurite (pré-visualização) proporciona um ambiente local gratuito para testar as suas aplicações de blob Azure e armazenamento de filas. Quando estiver satisfeito com o funcionamento da sua aplicação localmente, mude para a utilização de uma conta de Armazenamento Azure na nuvem. O emulador fornece suporte de plataforma cruzada no Windows, Linux e macOS. A azurite v3 suporta APIs implementadas pelo serviço Azure Blob.
+O emulador de código aberto Azurite proporciona um ambiente local gratuito para testar as suas aplicações de blob E armazenamento de filas Azure. Quando estiver satisfeito com o funcionamento da sua aplicação localmente, mude para a utilização de uma conta de Armazenamento Azure na nuvem. O emulador fornece suporte de plataforma cruzada no Windows, Linux e macOS.
 
 Azurite é a futura plataforma de emulador de armazenamento. Azurite substitui o [Emulador de Armazenamento Azure](storage-use-emulator.md). O Azurite continuará a ser atualizado para suportar as versões mais recentes das APIs de Armazenamento Azure.
 
@@ -34,8 +34,6 @@ No Código do Estúdio Visual, selecione o painel **EXTENSÕES** e procure *Azur
 ![Mercado de extensões de Código de Estúdio Visual](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 Também pode navegar para o [mercado de extensão visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) no seu navegador. Selecione o botão **Instalar** para abrir o Código do Estúdio Visual e vá diretamente para a página de extensão Azurite.
-
-Pode iniciar ou fechar rapidamente a Azurite na barra de status do Código do Estúdio Visual. Clique em **[Serviço de Bolhas Azurite]** ou **[Serviço de Fila Azurite]**.
 
 A extensão suporta os seguintes comandos visual Studio Code. Para abrir a paleta de comando, prima F1 no Código do Estúdio Visual. 
 
@@ -67,6 +65,7 @@ São suportadas as seguintes definições:
    - **Azurite: Anfitrião de fila** - O ponto final de audição do serviço de fila. A definição predefinida é de 127.0.0.1.
    - **Azurite: Porta de fila** - A porta de escuta do serviço de fila. A porta padrão é 10001.
    - **Azurite: Silent** - Modo silencioso desativa o registo de acesso. O valor predefinido é **falso**.
+   - **Azurite: Skip Api Version Check** - Ignore a verificação da versão API do pedido. O valor predefinido é **falso**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instale e corra a Azurite utilizando o NPM
 
@@ -311,6 +310,15 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 
 O Azurite suporta a autenticação básica especificando o `basic` parâmetro para o `--oauth` interruptor. A Azurite fará a autenticação básica, como validar o token do portador de entrada, verificar o emitente, o público e a caducidade. Azurite não vai verificar a assinatura ou permissões simbólicas.
 
+### <a name="skip-api-version-check"></a>Versão de versão API
+
+**Opcional** - Ao iniciar, a Azurite verifica se a versão API solicitada é válida. O seguinte comando ignora a verificação da versão API:
+
+```console
+azurite --skipApiVersionCheck
+```
+
+
 ## <a name="authorization-for-tools-and-sdks"></a>Autorização de ferramentas e SDKs
 
 Ligue-se ao Azurite a partir de SDKs de armazenamento Azure, como [o Azure Storage Explorer,](https://azure.microsoft.com/features/storage-explorer/)utilizando qualquer estratégia de autenticação. É necessária autenticação. A Azurite suporta a autorização com AAuth, Shared Key e assinaturas de acesso compartilhado (SAS). Azurite também apoia o acesso anónimo a contentores públicos.
@@ -551,7 +559,7 @@ A azurite suporta a replicação geo-redundante de acesso à leitura (RA-GRS). P
 
 As contribuições e sugestões para a Azurite são bem-vindas. Vá à página do projeto Azurite [GitHub](https://github.com/Azure/Azurite/projects) ou [aos problemas do GitHub](https://github.com/Azure/Azurite/issues) para marcos e itens de trabalho que estamos a seguir para as próximas funcionalidades e correções de bugs. Itens de trabalho detalhados também são rastreados no GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilize o emulador de armazenamento Azure para desenvolvimento e teste](storage-use-emulator.md) de documentos o emulador de armazenamento Azure, que está a ser substituído pela Azurite.
-- [As cordas de conexão de armazenamento Azure configure](storage-configure-connection-string.md) explicam como montar uma cadeia de ligação Azure STorage válida.
+- [As cordas de conexão de armazenamento Azure configure](storage-configure-connection-string.md) explicam como montar uma cadeia de ligação de armazenamento Azure válida.

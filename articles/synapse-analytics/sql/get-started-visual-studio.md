@@ -1,5 +1,5 @@
 ---
-title: Conecte-se e consultar o Synapse SQL com o Visual Studio e o SSDT
+title: Conecte e consulta Synapse SQL com Visual Studio e SSDT
 description: Utilize o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f98a9d6dd79ba1da1a3be1e9e187ed4e8eca8ee
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089248"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conecte-se ao SYNapse SQL com o Visual Studio e o SSDT
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Agora que foi estabelecida uma ligação à sua base de dados, irá escrever uma
    
     ![Resultados da consulta](./media/get-started-visual-studio/query-results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).
 Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [autenticação para piscina SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

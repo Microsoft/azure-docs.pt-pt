@@ -3,11 +3,12 @@ title: Ver notificações do estado de funcionamento do serviço ao utilizar o p
 description: As notificações de saúde do serviço permitem-lhe visualizar mensagens de saúde de serviço publicadas pela Microsoft Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 21416edc95d345eb183030a9b0cccb7529305d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f8297ae708d3f4e7921221f2c4bacee12a7a2b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75748648"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089571"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure
 
@@ -29,8 +30,8 @@ Para obter mais informações sobre as várias classes de notificações de saú
 
     ![Screenshot do registo de atividade do monitor, com alertas selecionados](./media/service-notifications/service-health-summary.png)
 
-1. Selecione **+Adicionar o alerta de registo de atividades**e crie um alerta para garantir que é notificado para futuras notificações de serviço. Para obter mais informações, consulte [Criar alertas de registo de atividades nas notificações de serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Selecione **+Adicionar o alerta de registo de atividades**e crie um alerta para garantir que é notificado para futuras notificações de serviço. Para obter mais informações, consulte [Criar alertas de registo de atividades nas notificações de serviço](./alerts-activity-log-service-notifications-portal.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [os alertas de registo de atividades.](../azure-monitor/platform/activity-log-alerts.md)

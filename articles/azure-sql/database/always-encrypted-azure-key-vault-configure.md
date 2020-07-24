@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 46b899b1891a6759ea2b9501f43c687990198f1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078022"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087968"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configure Sempre Encriptado usando o Cofre da Chave Azure 
 
@@ -45,7 +45,7 @@ Siga os passos deste artigo e aprenda a configurar Sempre Encriptado para a sua 
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versão 13.0.700.242 ou mais tarde.
 - [.NET Quadro 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou posterior (no computador cliente).
 - [Estúdio Visual](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](/powershell/azure/overview) ou [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure PowerShell](/powershell/azure/) ou [Azure CLI](/cli/azure/install-azure-cli)
 
 ## <a name="enable-client-application-access"></a>Ativar o acesso à aplicação do cliente
 
@@ -596,7 +596,7 @@ Em seguida, adicione o *parâmetro de definição de encriptação da coluna=ati
    
    ![Nova aplicação para consolas](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de a sua base de dados estar configurada para utilizar Sempre Encriptado, pode querer fazer o seguinte:
 
@@ -606,7 +606,7 @@ Depois de a sua base de dados estar configurada para utilizar Sempre Encriptado,
 ## <a name="related-information"></a>Informações relacionadas
 
 - [Sempre encriptado (desenvolvimento do cliente)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Encriptação de Dados Transparente](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Encriptação de dados transparente](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Encriptação do Servidor SQL](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Feiticeiro sempre encriptado](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog sempre encriptado](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

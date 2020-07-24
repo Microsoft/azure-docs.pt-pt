@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar o SQL Server offline para uma base de dados única SQL'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar do SQL Server para o Azure SQL Database offline utilizando o Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 45a343fdbd41abf1388556131f1f53a675d8ab49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d2353364767dfb1fd73d517926d0fa63c11a1d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087718"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS
 
@@ -149,7 +149,7 @@ Para migrar o esquema **AdventureWorks2012** para uma única base de dados ou ba
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
-1. Inicie sessão no Portal do Azure. Procure e **selecione Subscrições.**
+1. Inicie sessão no portal do Azure. Procure e **selecione Subscrições.**
 
    ![Mostrar subscrições no portal](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e66af8e55f7b60347d9577c64b7183c6ef8b44f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193418"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089316"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -40,7 +40,7 @@ Este documento utiliza nomes padrão para simplificar as instruções. Substitua
 | :------ | :-------------- | :---------- |
 | **Espaço de trabalho sinapse** | WS1 |  O nome que o espaço de trabalho da Sinapse terá. |
 | **Conta ADLSGEN2** | STG1 | A conta ADLS para usar com o seu espaço de trabalho. |
-| **Contentor** | CNT1 | O recipiente em STG1 que o espaço de trabalho utilizará por defeito. |
+| **Container** (Contentor) | CNT1 | O recipiente em STG1 que o espaço de trabalho utilizará por defeito. |
 | **Inquilino de diretório ativo** | contoso | o nome de inquilino de diretório ativo.|
 ||||
 
@@ -112,7 +112,7 @@ Embora possa atribuir manualmente os utilizadores às funções de Sinapse, se o
 
 Os utilizadores de cada função precisam de completar os seguintes passos:
 
-|   | Passo | Administradores de área de trabalho | Administradores de faíscas | Administradores SQL |
+| Número | Passo | Administradores de área de trabalho | Administradores de faíscas | Administradores SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Faça o upload de um ficheiro parquet para a CNT1 | SIM | SIM | SIM |
 | 2 | Leia o ficheiro parquet usando SQL on demand | SIM | NO | SIM |
@@ -182,6 +182,6 @@ O Synapse Studio comportar-se-á de forma diferente com base nas funções dos u
 > [1] O acesso aos dados em contentores depende do controlo de acesso na ADLS Gen2. </br>
 > [2] As tabelas SQL OD e as tabelas Spark armazenam os seus dados na ADLS Gen2 e o acesso requer as permissões adequadas na ADLS Gen2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criar um [espaço de trabalho sinapse](../quickstart-create-workspace.md)

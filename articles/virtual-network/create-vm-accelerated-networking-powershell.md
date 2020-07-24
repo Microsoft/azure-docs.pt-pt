@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 582553675284e88e4707812b1f6b459a4e67f14a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975797"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088194"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar um VM do Windows com rede acelerada utilizando a Azure PowerShell
 
@@ -63,7 +63,7 @@ As seguintes distribuições são suportadas diretamente a partir da Galeria Azu
 
 A rede acelerada é suportada na maioria dos tamanhos de instância otimizados para o cálculo com dois ou mais CPUs virtuais (vCPUs).  Estas séries suportadas são: Dv2/DSv2 e F/Fs.
 
-Em casos que suportam a hiper-leitura, a rede acelerada é suportada em instâncias VM com quatro ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
+Em casos que suportam a hiper-leitura, a rede acelerada é suportada em instâncias VM com quatro ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
 Para obter mais informações sobre as instâncias VM, consulte [tamanhos para máquinas virtuais windows em Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: c60303d2306ca167a4d90b0cc27c1d265f2e2db8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53e70fbb1321f33849073bbd6b2176f5d88a1f8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089002"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows para session host máquinas virtuais
 
@@ -27,7 +27,7 @@ Existem algumas formas de utilizar a licença de ambiente de trabalho virtual do
 - Pode aplicar uma licença a uma máquina virtual de anfitrião de sessão existente. Para isso, siga primeiro as instruções em [Criar uma piscina de anfitrião com PowerShell](./create-host-pools-powershell.md) para criar uma piscina de anfitrião e VMs associados, em seguida, voltar a este artigo para aprender a aplicar a licença.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Aplicar uma licença do Windows a um VM anfitrião de sessão
-Certifique-se de que [instalou e configura o mais recente Azure PowerShell](/powershell/azure/overview). Executar o seguinte cmdlet PowerShell para aplicar a licença Windows:
+Certifique-se de que [instalou e configura o mais recente Azure PowerShell](/powershell/azure/). Executar o seguinte cmdlet PowerShell para aplicar a licença Windows:
 
 ```powershell
 $vm = Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>

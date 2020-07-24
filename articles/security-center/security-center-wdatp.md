@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970812"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089707"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada de ameaças do Microsoft Defender com Centro de Segurança Azure
 
@@ -44,7 +44,7 @@ Ao integrar o Defender ATP com o Azure Security Center, também pode beneficiar 
 
 ## <a name="platform-support"></a>Suporte da plataforma
 
-O Microsoft Defender ATP no Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1. Para VMs Azure você precisa de uma subscrição standard tier e para VMs não-Azure você precisa de nível Standard apenas no nível de espaço de trabalho.
+O Microsoft Defender ATP no Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1. Para VMs Azure você precisa de uma subscrição de nível padrão e para VMs não-Azure você precisa de nível padrão apenas no nível do espaço de trabalho.
 
 A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC.
 
@@ -59,8 +59,9 @@ Uma vez configurados, não é possível alterar o local onde os seus dados são 
 
 Para servidores a bordo do Security Center, clique em **Ir ao Azure Security Center para servidores** a bordo do servidor ATP do Microsoft Defender no embarque.
 
-1. Na área **de Embarque,** selecione ou crie um espaço de trabalho para armazenar os dados. <br>
-2. Se não consegue ver todos os seus espaços de trabalho, pode ser devido à falta de permissões, certifique-se de que o seu espaço de trabalho está definido para o nível padrão de segurança Azure. Para obter mais informações, consulte [o nível standard do Security Center para melhorar a segurança.](security-center-pricing.md)
+1. Na área **de Embarque,** selecione ou crie um espaço de trabalho para armazenar os dados.
+
+2. Se não consegue ver todos os seus espaços de trabalho, pode ser devido à falta de permissões, certifique-se de que o seu espaço de trabalho está definido para o nível de preços padrão da Azure Security. Para obter mais informações, consulte [o nível padrão do Centro de Segurança para uma maior segurança](security-center-pricing.md).
     
 3. **Selecione Adicionar servidores** para visualizar instruções sobre como instalar o agente Log Analytics. 
 
@@ -111,7 +112,7 @@ Para gerar um alerta de teste ATP do Microsoft Defender benigno:
 
 1. A partir da janela de investigação, selecione o link para ir ao portal ATP do Microsoft Defender.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Plataformas e funcionalidades suportadas pelo Centro de Segurança do Azure](security-center-os-coverage.md)
 - [Definição de políticas de segurança no Azure Security Center](tutorial-security-policy.md): Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

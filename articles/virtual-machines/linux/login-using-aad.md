@@ -1,18 +1,18 @@
 ---
 title: Faça login num Linux VM com credenciais de Diretório Ativo Azure
 description: Aprenda a criar e configurar um Linux VM para iniciar sessão com a autenticação do Azure Ative Directory.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: 89b89d30de46727f4d5b52a236a4b0133e663bb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088772"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Pré-visualização: Inicie sessão numa máquina virtual Linux em Azure utilizando a autenticação do Azure Ative Directory
 
@@ -113,7 +113,7 @@ O *Estado de Provisionamento* de *Sucesso* é mostrado uma vez que a extensão �
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configure atribuições de funções para o VM
 
-A política de Controlo de Acesso Baseado em Função (RBAC) determina quem pode iniciar sessão no VM. Duas funções RBAC são usadas para autorizar o login em VM:
+A política de controlo de acesso baseado em funções (Azure RBAC) determina quem pode iniciar sessão no VM. Duas funções RBAC são usadas para autorizar o login em VM:
 
 - **Início de entrada do Administrador de Máquina Virtual**: Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios do Windows Administrator ou linux root user privileges.
 - **Início de Sessão do Utilizador de Máquinas Virtuais**: Os utilizadores com esta função atribuída podem iniciar sessão numa máquina virtual Azure com privilégios regulares do utilizador.
@@ -212,6 +212,6 @@ Os utilizadores que herdam os direitos de acesso através de grupos aninhados ou
 
 Partilhe o seu feedback sobre este recurso de pré-visualização ou reporte problemas que o utilizem no fórum de feedback da [AD Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o Diretório Ativo Azure, consulte [o que é o Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-whatis.md)

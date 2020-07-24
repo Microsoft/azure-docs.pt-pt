@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar RDS PostgreSQL on-line para Azure Database for PostgreS
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line de RDS PostgreSQL para Azure Database for PostgreSQL utilizando o Serviço de Migração da Base de Dados Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: be6f0cd734d31f43557b49f8e9314e925b383899
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b466a42e1e232d35bd7bd70c8943a254b026f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113954"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087701"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: Migrar RDS PostgreSQL para Azure DB para PostgreSQL on-line usando DMS
 
@@ -157,7 +158,7 @@ Para concluir este tutorial, precisa de:
 
     ![Registar o fornecedor de recursos](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Serviço de Migração de Bases de Dados de Azure
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Azure Database Migration Service
 
 1. No portal do Azure, selecione + **Criar um recurso**, procure o Azure Database Migration Service e selecione **Azure Database Migration Service** na lista pendente.
 
@@ -220,7 +221,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 1. Selecione **Guardar**, e, em seguida, no ecrã **de detalhes do Target,** especifique os detalhes de ligação para o target Azure Database para o servidor PostgreSQL, que é pré-a provisionado e tem o esquema **de Aluguer de DVD** implantado usando pg_dump.
 
-    ![Detalhes do alvo](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
+    ![Detalhes do destino](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-target-details.png)
 
 2. Selecione **Guardar** e, no ecrã **Mapear para bases de dados de destino**, mapeie as bases de dados de origem e destino para migração.
 
@@ -266,7 +267,7 @@ Depois de concluída a carga inicial full, as bases de dados estão marcadas **P
 
 A sua migração on-line de um caso no local de RDS PostgreSQL para Azure Database for PostgreSQL está agora completa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Para obter informações sobre a Base de Dados Azure para PostgreSQL, consulte o artigo [O que é a Base de Dados Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview)

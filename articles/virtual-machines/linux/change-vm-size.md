@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: daberry
-ms.openlocfilehash: cf2716ce5d24aa86e32f6f521134590c671d5011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 270029fa62f657af7a992ecb963108b448d310e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120985"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088823"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Redimensionar uma máquina virtual do Linux com a CLI do Azure 
 
@@ -44,10 +45,10 @@ Para redimensionar um VM, precisa do mais recente [Azure CLI](/cli/azure/install
    > [!WARNING]
    > A deallocação do VM também lança quaisquer endereços IP dinâmicos atribuídos ao VM. O SO e os discos de dados não são afetados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para uma escalabilidade adicional, executar vários casos de VM e escalar para fora. Para obter mais informações, consulte [automaticamente as máquinas Linux num conjunto de balanças de máquinas virtuais.][scale-set] 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
+[scale-set]: ../../virtual-machine-scale-sets/tutorial-autoscale-cli.md 
 [vm-sizes]:sizes.md

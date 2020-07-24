@@ -3,16 +3,16 @@ title: Criar um centro de eventos com captura ativada - Azure Event Hubs Microso
 description: Criar um espaço de nomes de Hubs de Eventos do Azure com o hub de um evento e ativar a Captura através de um modelo do Azure Resource Manager
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 51b654635fa7e06901a257c930e04bff3ea86cf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7308d951cf48d8123df050bdf58772ec914aac3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315705"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087599"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um espaço de nomes com o hub de eventos e ativar a captura utilizando um modelo
 
-Este artigo mostra como utiliza um modelo do Azure Resource Manager que cria um espaço de nomes de [Hubs de Eventos](event-hubs-what-is-event-hubs.md) com uma instância de hubs de eventos e também ativa a [funcionalidade Captura](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais os recursos que são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
+Este artigo mostra como utiliza um modelo do Azure Resource Manager que cria um espaço de nomes de [Hubs de Eventos](./event-hubs-about.md) com uma instância de hubs de eventos e também ativa a [funcionalidade Captura](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais os recursos que são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
 Este artigo mostra também como especificar que eventos são capturados nos Azure Storage Blobs ou num Azure Data Lake Store, com base no destino que escolher.
 
@@ -412,14 +412,14 @@ Azure Data Lake Store como destino:
 az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode configurar a Captura de Hubs de Eventos através do [portal do Azure](https://portal.azure.com). Para mais informações, consulte [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md) (Ativar Captura de Hubs de Eventos no portal do Azure).
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Descrição geral dos Event Hubs](./event-hubs-about.md)
+* [Criar um centro de eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md

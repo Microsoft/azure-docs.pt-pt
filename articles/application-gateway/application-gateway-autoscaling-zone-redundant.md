@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4caed3f330dd3e50fe2652a2cd33c0e4249f2fd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a82a35f1736aa7908928cbca3397cbe9c705e5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088111"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway de Aplicação com dimensionamento automático e redundância entre zonas v2 
 
@@ -148,10 +148,10 @@ No entanto, a criação de um novo caso pode demorar algum tempo (cerca de seis 
 
 A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 
-|                                                   | v1 SKU   | v2 SKU   |
+| Funcionalidade                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Dimensionamento automático                                       |          | &#x2713; |
-| Redundância de zona                                   |          | &#x2713; |
+| Redundância entre zonas                                   |          | &#x2713; |
 | VIP estático                                        |          | &#x2713; |
 | Controlador de ingresss do Serviço Azure Kubernetes (AKS) |          | &#x2713; |
 | Integração do Cofre de Chaves do Azure                       |          | &#x2713; |
@@ -193,7 +193,7 @@ Esta secção descreve características e limitações do V2 SKU que difere do V
 
 Um script Azure PowerShell está disponível na galeria PowerShell para ajudá-lo a migrar do seu V1 Application Gateway/WAF para o V2 Autoscaling SKU. Este script ajuda-o a copiar a configuração do seu gateway V1. A migração do tráfego continua a ser da sua responsabilidade. Para mais informações, consulte [o Portal de Aplicações Migrate Azure de v1 a v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure](quick-create-portal.md)
 - [Crie um porta de aplicação redundante de zona de auto-estação com um endereço IP virtual reservado usando a Azure PowerShell](tutorial-autoscale-ps.md)

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8f668844951a2416b25d1649721fc005a0d70b75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0270cebec21ca10327a86ea5efebef9a52455930
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089350"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas nas distribuições linux utilizando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros Azure: a pedido com o `mount` comando e no arranque, criando uma entrada em `/etc/fstab` .
 
 A forma recomendada de montar uma partilha de ficheiros Azure no Linux está a utilizar sMB 3.0. Por padrão, os Ficheiros Azure requerem encriptação em trânsito, que só é suportado por SMB 3.0. O Azure Files também suporta sMB 2.1, que não suporta encriptação em trânsito, mas não pode montar partilhas de ficheiros Azure com SMB 2.1 de outra região de Azure ou no local por razões de segurança. A menos que a sua aplicação exija especificamente SMB 2.1, não há razão para usá-lo desde o mais popular, recentemente lançado, apoio de distribuição Linux SMB 3.0:  
 
-| | SMB 2.1 <br>(Montes em VMs na mesma região de Azure) | SMB 3.0 <br>(Montes a partir de instalações e de região transversal) |
+| Distribuição linux | SMB 2.1 <br>(Montes em VMs na mesma região de Azure) | SMB 3.0 <br>(Montes a partir de instalações e de região transversal) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
@@ -248,22 +248,22 @@ Começando pelo kernel Linux 4.18, o módulo de kernel SMB, chamado `cifs` por r
 
 | Distribuição | Pode desativar o SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Não |
-| Ubuntu 18.04 | Sim |
-| Ubuntu 19.04+ | Sim |
-| Debian 8-9 | Não |
-| Debian 10+ | Sim |
-| Fedora 29+ | Sim |
-| CentOS 7 | Não | 
-| CentOS 8+ | Sim |
-| Red Hat Enterprise Linux 6.x-7.x | Não |
-| Red Hat Enterprise Linux 8+ | Sim |
-| openSUSE Leap 15.0 | Não |
-| openSUSE Leap 15.1+ | Sim |
-| openSUSE Tumbleweed | Sim |
-| SUSE Linux Enterprise 11.x-12.x | Não |
-| Empresa SUSE Linux 15 | Não |
-| Empresa SUSE Linux 15.1 | Não |
+| Ubuntu 14.04-16.04 | No |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04+ | Yes |
+| Debian 8-9 | No |
+| Debian 10+ | Yes |
+| Fedora 29+ | Yes |
+| CentOS 7 | No | 
+| CentOS 8+ | Yes |
+| Red Hat Enterprise Linux 6.x-7.x | No |
+| Red Hat Enterprise Linux 8+ | Yes |
+| openSUSE Leap 15.0 | No |
+| openSUSE Leap 15.1+ | Yes |
+| openSUSE Tumbleweed | Yes |
+| SUSE Linux Enterprise 11.x-12.x | No |
+| Empresa SUSE Linux 15 | No |
+| Empresa SUSE Linux 15.1 | No |
 
 Pode verificar se a sua distribuição Linux suporta o parâmetro do `disable_legacy_dialects` módulo através do seguinte comando.
 
@@ -320,9 +320,9 @@ sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 
-* [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
+* [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 * [FAQ](../storage-files-faq.md)
 * [Resolução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

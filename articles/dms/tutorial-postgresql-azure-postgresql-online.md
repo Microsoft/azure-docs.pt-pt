@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar postgreSQL para base de dados de Azure para postgreSQL 
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line de PostgreSQL no local para a Base de Dados Azure para PostgreSQL utilizando o Serviço de Migração da Base de Dados Azure através do CLI.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087633"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL on-line usando DMS via Azure CLI
 
@@ -181,7 +182,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
        ```azurecli
        az extension list -otable
        ```
-       Deverá ver o resultado seguinte:
+       Deverá ver o seguinte resultado:
 
        ```output
        ExtensionType    Name
@@ -523,7 +524,7 @@ Se precisar de cancelar ou eliminar qualquer tarefa, projeto ou serviço do DMS,
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para PostgreSQL, veja o artigo [Problemas conhecidos e soluções alternativas das migrações online da Base de Dados do Azure para PostgreSQL](known-issues-azure-postgresql-online.md).
 * Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).

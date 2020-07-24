@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: da50fb9f331e91089bb6bf0fb373cab8045639f0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260507"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089622"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
 
@@ -86,7 +86,7 @@ Também no ficheiro *ApplicationManifest.xml,* **altere o PasswordEncrypted** pa
 
 O seguinte script de amostra cria um cluster de tecido de serviço de cinco nós protegido com um certificado X.509. O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves. O certificado é também copiado para um diretório local. Pode aprender mais sobre a criação de um cluster utilizando este script no [Create a Service Fabric cluster.](scripts/service-fabric-powershell-create-secure-cluster-cert.md)
 
-Se necessário, instale o Azure PowerShell utilizando as instruções encontradas no [guia Azure PowerShell](/powershell/azure/overview).
+Se necessário, instale o Azure PowerShell utilizando as instruções encontradas no [guia Azure PowerShell](/powershell/azure/).
 
 Antes de executar o seguinte script, na powerShell run `Connect-AzAccount` para criar uma ligação com Azure.
 
@@ -138,7 +138,7 @@ Clique em **Parâmetros de Ligação Avançada** e verifique as informações do
 
 ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Clique em **Publicar**.
+Clique em **Publish** (Publicar).
 
 Cada aplicação no cluster tem de ter um nome exclusivo. Se houver um conflito de nomes, mude o nome do projeto Visual Studio e volte a ser implementado.
 

@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos suportados do Gestor de Recursos Azure
 description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
-ms.date: 06/04/2020
+ms.date: 07/16/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 7a1890c8decb6f918ecacee99764e45817e3d38a
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970574"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087531"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
@@ -19,6 +19,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 
 - microsoft.advisor/configurações
 - microsoft.advisor/recomendações
+- microsoft.advisor/recommendations/supressões
 - microsoft.advisor/supressões
 
 ## <a name="alertsmanagementresources"></a>alertasmanagementresources
@@ -486,7 +487,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.security/regulatórios padrões/regulatórios
 - microsoft.security/regulamentstandards/regulatorycompliancecontrols/regulatórios
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [língua de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)

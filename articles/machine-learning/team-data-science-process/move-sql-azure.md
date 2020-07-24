@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99e637099e54698e9d6eabb14920251a9d4a81f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194382"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087429"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
 
@@ -33,10 +34,10 @@ A tabela seguinte resume as opções de deslocação de dados para uma Base de D
 ## <a name="prerequisites"></a><a name="prereqs"></a>Pré-requisitos
 Os procedimentos aqui descritos exigem que tenha:
 
-* Uma **assinatura Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento Azure.** Utilize uma conta de armazenamento Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 * Acesso a uma **Base de Dados Azure SQL**. Se tiver de configurar uma Base de Dados Azure SQL, [começar com a Base de Dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornece informações sobre como fornecer uma nova instância de uma Base de Dados SQL Azure.
-* Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/overview).
+* Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 **Dados**: Os processos de migração são demonstrados utilizando o [conjunto de dados do Táxi nyc](https://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados do Táxi nyc contém informações sobre dados de viagem e feiras e está disponível no armazenamento de blob Azure: [NYC Taxi Data](https://www.andresmh.com/nyctaxitrips/). Uma amostra e descrição destes ficheiros são fornecidas na Descrição do Conjunto de [Datas de Viagens de Táxi de NYC](sql-walkthrough.md#dataset).
 

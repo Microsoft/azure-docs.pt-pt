@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar RDS MySQL on-line para Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line de RDS MySQL para Azure Database for MySQL utilizando o Serviço de Migração da Base de Dados Azure.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/09/2020
-ms.openlocfilehash: 8cfe8d1a87b8b52c21927696101704bd01b7641a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0c62cf28c9e9368e80982fa7c5badeb79d40ae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609255"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087735"
 ---
-# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar RDS MySQL para Azure Database para MySQL on-line usando DMS
+# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o RDS MySQL para a Base de Dados do Azure para MySQL online com o DMS
 
 Pode utilizar o Azure Database Migration Service para migrar bases de dados de um caso RDS MySQL para [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) enquanto a base de dados de origem permanece on-line durante a migração. Por outras palavras, a migração pode ser alcançada com um mínimo de tempo de inatividade para a aplicação. Neste tutorial, migra a base de dados de amostras de **Empregados** de um caso de RDS MySQL para Azure Database for MySQL utilizando a atividade de migração online no Azure Database Migration Service.
 
@@ -122,6 +123,10 @@ Para concluir este tutorial, precisa de:
 
 4. Passe a chave estrangeira de queda (que é a segunda coluna) no resultado da consulta para deixar cair a tecla estrangeira.
 
+> [!NOTE]
+> O Azure DMS não suporta a ação referencial CASCADE, que ajuda a eliminar ou atualizar automaticamente uma linha de correspondência na tabela infantil quando uma linha é eliminada ou atualizada na tabela dos pais. Para obter mais informações, na documentação do MySQL, consulte a secção Ações Referenciais do artigo [Restrições DE CHAVE ESTRANGEIRA](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
+> O Azure DMS requer que deixe cair os constrangimentos de chaves estrangeiras no servidor de base de dados-alvo durante a carga inicial de dados, e não pode utilizar ações referenciais. Se a sua carga de trabalho depender da atualização de uma tabela de crianças relacionada através desta ação referencial, recomendamos que efetue uma [lixeira e restaure.](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) 
+
 5. Se tiver gatilhos (inserir ou atualizar o gatilho) nos dados, irá impor a integridade dos dados no alvo antes de replicar dados da fonte. A recomendação é desativar os gatilhos em todas as tabelas *do alvo* durante a migração e, em seguida, ativar os gatilhos após a conclusão da migração.
 
     Para desativar os gatilhos na base de dados-alvo:
@@ -147,7 +152,7 @@ Para concluir este tutorial, precisa de:
 
     ![Registar o fornecedor de recursos](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Serviço de Migração de Bases de Dados de Azure
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Criar uma instância do Azure Database Migration Service
 
 1. No portal do Azure, selecione + **Criar um recurso**, procure o Azure Database Migration Service e selecione **Azure Database Migration Service** na lista pendente.
 
@@ -260,7 +265,7 @@ Depois de concluída a carga inicial full, as bases de dados estão marcadas **P
 
 A sua migração on-line de um caso no local do MySQL para a Azure Database para o MySQL está agora concluída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 * Para obter informações sobre a Base de Dados Azure para o MySQL, consulte o artigo [O que é a Base de Dados Azure para o MySQL?](https://docs.microsoft.com/azure/mysql/overview)

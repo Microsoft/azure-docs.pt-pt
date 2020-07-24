@@ -1,5 +1,5 @@
 ---
-title: Crie uma sonda personalizada utilizando PowerShell - Azure Application Gateway
+title: Crie uma sonda personalizada utilizando o modelo de implementação Clássico - Azure Application Gateway
 description: Saiba como criar uma sonda personalizada para o Application Gateway utilizando o PowerShell no modelo clássico de implementação
 services: application-gateway
 author: vhorne
@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 3a555fff758fdd1f4ddff60c7828a3e44af008ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807293"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088075"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Crie uma sonda personalizada para Azure Application Gateway (clássico) utilizando o PowerShell
 
@@ -146,7 +146,7 @@ Os parâmetros de configuração são:
 | **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
 | **Anfitrião** e **Caminho** | Percurso URL completo que é invocado pela porta de aplicação para determinar a saúde do caso. Por exemplo, se tiver um website http: \/ /contoso.com/, então a sonda personalizada pode ser configurada para "http: \/ /contoso.com/path/custompath.htm" para que as verificações da sonda tenham uma resposta HTTP bem sucedida.|
 | **Intervalo** | Configura o intervalo da sonda verifica em segundos.|
-| **Tempo Limite** | Define o tempo de tempo da sonda para uma verificação de resposta HTTP.|
+| **Intervalo de tempo** | Define o tempo de tempo da sonda para uma verificação de resposta HTTP.|
 | **InsalubreThreshold** | O número de respostas HTTP falhadas necessárias para sinalizar o caso de back-end como *pouco saudável*.|
 
 O nome da sonda é referenciado na \<BackendHttpSettings\> configuração para atribuir qual o pool back-end que utiliza configurações de sonda personalizadas.
@@ -198,7 +198,7 @@ Alterar a configuração atual de um gateway de aplicações requer três passos
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se pretender configurar a Segurança da Camada de Transporte (TLS), anteriormente conhecida como descarga Secure Sockets Layer (SSL), consulte [configurar um gateway de aplicações para descarregamento de TLS](application-gateway-ssl.md).
 

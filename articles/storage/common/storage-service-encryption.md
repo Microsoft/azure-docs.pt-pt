@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b6244b3ab72f7fa8ea375ff67a08e8d1d241df4a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 002eeaedf4ae479408cd1ba0c7a373d8a2661cdc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089401"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -39,7 +39,7 @@ Para obter informações sobre encriptação e gestão de chaves para discos ger
 Os dados de uma nova conta de armazenamento são encriptados com as chaves geridas pela Microsoft. Pode confiar nas teclas geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, tem duas opções:
 
 - Pode especificar uma *chave gerida pelo cliente* com o Azure Key Vault para usar para encriptar e desencriptar dados no armazenamento blob e nos Ficheiros Azure. <sup>1,2</sup> Para obter mais informações sobre as chaves geridas pelo cliente, consulte [utilize as teclas geridas pelo cliente com o Cofre da Chave Azure para gerir a encriptação do Armazenamento Azure](encryption-customer-managed-keys.md).
-- Pode especificar uma *chave fornecida pelo cliente* nas operações de armazenamento Blob. Um cliente que faça um pedido de leitura ou escrita contra o armazenamento blob pode incluir uma chave de encriptação no pedido de controlo granular sobre como os dados blob são encriptados e desencriptados. Para obter mais informações sobre as chaves fornecidas pelo cliente, consulte fornecer uma chave de [encriptação sobre um pedido de armazenamento Blob (pré-visualização)](encryption-customer-provided-keys.md).
+- Pode especificar uma *chave fornecida pelo cliente* nas operações de armazenamento Blob. Um cliente que faça um pedido de leitura ou escrita contra o armazenamento blob pode incluir uma chave de encriptação no pedido de controlo granular sobre como os dados blob são encriptados e desencriptados. Para obter mais informações sobre as chaves fornecidas pelo cliente, consulte fornecer uma chave de [encriptação sobre um pedido de armazenamento Blob](encryption-customer-provided-keys.md).
 
 A tabela seguinte compara as opções de gestão chave para a encriptação do Azure Storage.
 
@@ -94,7 +94,7 @@ Se o seu âmbito de encriptação estiver protegido com chaves geridas pelo clie
 > [!NOTE]
 > Não é possível eliminar um âmbito de encriptação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
 - [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no portal do Azure](storage-encryption-keys-portal.md)

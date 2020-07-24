@@ -4,19 +4,20 @@ description: API para recuperar a oferta especificada dentro do espaço de nomes
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
-ms.openlocfilehash: a4bbe133d8b223bf717597467336eb486f432380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: dsindona
+ms.author: dsindona
+ms.date: 07/14/2020
+ms.openlocfilehash: bf64645f672e54849064d86f9250a62efeac8d66
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115541"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087412"
 ---
-<a name="retrieve-a-specific-offer"></a>Recupere uma oferta específica
-=========================
+# <a name="retrieve-a-specific-offer"></a>Recupere uma oferta específica
 
 > [!NOTE]
-> As APIs do Portal do Parceiro cloud estão integradas no Partner Center e continuarão a funcionar após as suas ofertas serem migradas para o Partner Center. A integração introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a migração para o Partner Center.
+> As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as alterações listadas no [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
 Recupera a oferta especificada dentro do espaço de nome da editora.  
 
@@ -34,23 +35,18 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 
 ```
 
-
-<a name="uri-parameters"></a>Parâmetros URI
---------------
-
+## <a name="uri-parameters"></a>Parâmetros URI
 
 | **Nome**    | **Descrição**                                                                          | **Tipo de dados** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Por exemplo, Contoso                                                        | String        |
-| offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
-| versão     | Versão da oferta a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Número inteiro       |
+| publisherId | publisherId. Por exemplo, Contoso                                                        | Cadeia        |
+| offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia        |
+| versão     | Versão da oferta a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer (Número inteiro)       |
 | slotId      | A ranhura a partir da qual a oferta deve ser recuperada, pode ser uma das:      <br/>  - `Draft`(predefinido) recupera a versão da oferta atualmente em projeto.  <br/>  -  `Preview`recupera a versão oferta atualmente em pré-visualização.     <br/>  -  `Production`recupera a versão de oferta atualmente em produção.          |      enum |
 | api-version | Última versão da API                                                                    | Data          |
 |  |  |  |
 
-
-<a name="header"></a>Cabeçalho
-------
+## <a name="header"></a>Cabeçalho
 
 |  **Nome**          |   **Valor**            |
 |  ---------------   |  --------------        |
@@ -58,9 +54,7 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 |  Autorização     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
-
-<a name="body-example"></a>Exemplo corporal
-------------
+## <a name="body-example"></a>Exemplo corporal
 
 ### <a name="response"></a>Resposta
 
@@ -175,7 +169,6 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 }
 ```
 
-
 ### <a name="response-body-properties"></a>Propriedades do corpo de resposta
 
 |  **Nome**       |   **Descrição**                                                                                                               |
@@ -189,7 +182,6 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 |  mudou de tempo    | Data da UTC quando a oferta foi modificada pela última vez                                                                                   |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Códigos de estado de resposta
 
 | **Código**  | **Descrição**                                                                                                                 |
@@ -200,7 +192,6 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 |  404      | `Not found`- A entidade especificada não existe. O cliente deve verificar o publisherId, offerId e versão (se especificado).      |
 |  |  |
 
-
 ### <a name="offer-status"></a>Estado da oferta
 
 |  **Nome**                   |   **Descrição**                             |
@@ -208,8 +199,8 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 |  Nunca publicado             | A oferta nunca foi publicada.               |
 |  Não Começou                 | A oferta é nova, mas ainda não começou.              |
 |  WaitingForPublisherReview  | A oferta está à espera da aprovação dos editores.      |
-|  A executar                    | A submissão da oferta está a ser processada.          |
-|  Bem-sucedido                  | A submissão da oferta completou o processamento.    |
+|  Em Execução                    | A submissão da oferta está a ser processada.          |
+|  Com êxito                  | A submissão da oferta completou o processamento.    |
 |  Cancelado                   | A submissão da oferta foi cancelada.                |
-|  Falhou                     | A submissão da oferta falhou.                      |
+|  Com falhas                     | A submissão da oferta falhou.                      |
 |  |  |

@@ -3,12 +3,12 @@ title: 'Quickstart: Receba eventos usando Apache Storm - Azure Event Hubs'
 description: 'Quickstart: Este artigo fornece informações sobre como receber eventos de Azure Event Hubs usando Apache Storm.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 05973a9a930cd7b42a5a00554c48832065c794ec
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85315361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087582"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Quickstart: Receber eventos de Centros de Eventos usando a Tempestade Apache
 
@@ -234,11 +234,11 @@ Este tutorial utiliza uma instalação [HDInsight Storm,][HDInsight Storm] que v
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs][Event Hubs overview]
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Criar um centro de eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
 [Tempestade HDInsight com exemplo de Event Hub]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 

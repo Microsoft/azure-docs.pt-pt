@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83664992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088670"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Erro do Gestor de Boot do Windows de resolução de problemas - 0xC000225 "Estado não encontrado"
  
@@ -26,7 +27,7 @@ Este artigo fornece medidas para resolver problemas onde o código de erro 0xC00
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem de imagem mostra um Erro de Início com o código de estado *0xc0000225*.
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, verá que a imagem de imagem mostra um Erro de Início com o código de estado *0xc0000225*.
 
 O ficheiro associado a este código de erro irá informá-lo quais as medidas a tomar para resolver o problema. Localize o **Arquivo:** texto da secção para determinar o curso de ação adequado.
 
@@ -89,7 +90,7 @@ Uma corrupção de colmeia de registo pode ser devido a:
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e Aceder a um VM de reparação
 
-1. Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
+1. Utilize os passos 1-3 dos Comandos de [Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um VM de reparação.
 1. Utilizando ligação de ambiente de trabalho remoto, ligue-se ao VM de reparação.
 
 ### <a name="select-a-solution"></a>Selecione uma solução
@@ -177,7 +178,7 @@ Se esta recolha de informações apresentar um erro em que não exista um fichei
          sel disk <DISK #>
          ```
 
-         A imagem a seguir mostra os resultados da listagem e seleção de um disco. Disco 0 (127 GB ] Online), Disco 1 (32 GB ! Online) e Disco 2 (127 GB / Online) estão listados, com o Disco 2 a ser selecionado usando o comando `sel disk 2` .
+         A imagem a seguir mostra os resultados da listagem e seleção de um disco. O disco 0 (127 GB / Online), o disco 1 (32 GB / Online) e o Disco 2 (127 GB / Online) estão listados, tendo o Disco 2 sido selecionado utilizando o comando `sel disk 2` .
 
          ![Os resultados da listagem e, em seguida, a seleção de um disco. Disco 0 (127 GB ] Online), Disco 1 (32 GB ! Online) e Disco 2 (127 GB / Online) estão listados, com o Disco 2 a ser selecionado.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -188,7 +189,7 @@ Se esta recolha de informações apresentar um erro em que não exista um fichei
          sel partition <PARTITION #>
          ```
 
-         A imagem a seguir mostra os resultados da listagem e da seleção de uma partição. Estão listadas a partição 1 (Reservada / 16MB), Partição 2 (Sistema / 100MB) e Partição 3 (Primária / 126 GB), com a Partição 2 a ser selecionada através do `sel part 2` comando.
+         A imagem a seguir mostra os resultados da listagem e da seleção de uma partição. Estão listadas a partição 1 (Reservada / 16MB), Partição 2 (Sistema / 100MB) e Partição 3 (Primária / 126 GB), com a Partição 2 a ser selecionada utilizando o comando `sel part 2` .
 
          ![Os resultados da listagem e, em seguida, a seleção de uma divisória. Estão listadas a partição 1 (Reservada / 16MB), Partição 2 (Sistema / 100MB) e Partição 3 (Primária / 126 GB), com a Partição 2 a ser selecionada.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -302,4 +303,4 @@ O erro **do Ficheiro de Registo** tem uma solução, mas terá de criar um bilhe
    
 ### <a name="rebuild-the-vm"></a>Reconstruir o VM
 
-Utilize [o passo 5 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para reconstruir o VM.
+Utilize [o passo 5 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para reconstruir o VM.

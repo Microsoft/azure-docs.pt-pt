@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a277c6205dfb9dfa04565fb3ebcb3da589669764
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807752"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087888"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP com o SSH e o Azure Logic Apps
 
@@ -23,6 +23,7 @@ Para automatizar tarefas que monitorizem, criem, enviem e recebam ficheiros num 
 > O conector SFTP-SSH não suporta atualmente estes servidores SFTP:
 > 
 > * IBM DataPower
+> * Mensagem Caminho
 > * OpenText Secure MFT
 > * OpenText GXS
 
@@ -51,7 +52,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
 
   | Ação | Suporte de chunking | Sobrepor suporte do tamanho do pedaço |
   |--------|------------------|-----------------------------|
-  | **Ficheiro de cópia** | Não | Não aplicável |
+  | **Ficheiro de cópia** | No | Não aplicável |
   | **Criar ficheiro** | Sim | Sim |
   | **Criar pasta** | Não aplicável | Não aplicável |
   | **Eliminar mosaico** | Não aplicável | Não aplicável |
@@ -62,7 +63,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, reveja a sec
   | **Obtenha metadados de ficheiros usando o caminho** | Não aplicável | Não aplicável |
   | **Listar ficheiros na pasta** | Não aplicável | Não aplicável |
   | **Arquivo de renomeação** | Não aplicável | Não aplicável |
-  | **Atualizar ficheiro** | Não | Não aplicável |
+  | **Atualizar ficheiro** | No | Não aplicável |
   ||||
 
 * Os gatilhos SFTP-SSH não suportam a mensagem a bater. Ao solicitar o conteúdo do ficheiro, os gatilhos selecionam apenas ficheiros com 15 MB ou menores. Para obter ficheiros maiores que 15 MB, siga este padrão em vez disso:
@@ -259,6 +260,6 @@ Para obter mais detalhes técnicos sobre este conector, tais como gatilhos, aç�
 > [!NOTE]
 > Para aplicações lógicas num ambiente de [serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão com rótulo ISE deste conector requer que se utilizem os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar o Oracle on-line para a Base de Dados de Azure para Pos
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line a partir de Oracle no local ou em máquinas virtuais para Azure Database for PostgreSQL usando o Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255569"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087769"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migrar o Oráculo para Azure Database para postgreSQL on-line usando DMS (Preview)
 
@@ -382,7 +383,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
  > [!NOTE]
  > Uma vez que o PostgreSQL por predefinição tem schema.table.column em minúsculas, pode reverter de maiúsito para minúscula, utilizando o script na **Configuração do esquema na Base de Dados Azure para a secção PostgreSQL** no início deste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para PostgreSQL, veja o artigo [Problemas conhecidos e soluções alternativas das migrações online da Base de Dados do Azure para PostgreSQL](known-issues-azure-postgresql-online.md).
 * Para obter informações sobre o Serviço de Migração de Bases de Dados Azure, consulte o artigo [O que é o Serviço de Migração da Base de Dados Azure?](https://docs.microsoft.com/azure/dms/dms-overview)

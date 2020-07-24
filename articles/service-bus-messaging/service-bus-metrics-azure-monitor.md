@@ -2,12 +2,13 @@
 title: Métricas de autocarro da Azure Service em Azure Monitor Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorizar as entidades de Service Bus (filas, tópicos e subscrições).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 57b791e67157908447956a14fae99545843f3bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340295"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089690"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço Azure em Azure Monitor
 
@@ -28,17 +29,17 @@ As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de da
 
 Pode monitorizar métricas ao longo do tempo no [portal Azure](https://portal.azure.com). O exemplo a seguir mostra como visualizar pedidos bem sucedidos e pedidos de entrada ao nível da conta:
 
-![][1]
+![Screenshot da página Monitor - Métricas (pré-visualização) no portal Azure.][1]
 
 Também pode aceder às métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nome e, em seguida, clique em **Métricas**. Para apresentar métricas filtradas no âmbito da entidade, selecione a entidade e, em seguida, clique em **Métricas**.
 
-![][2]
+![Screenshot da página Monitor - Métricas (pré-visualização) filtrada no âmbito da entidade.][2]
 
 Para as métricas que suportam dimensões, deve filtrar com o valor de dimensão pretendido.
 
 ## <a name="billing"></a>Faturação
 
-As métricas e alertas no Monitor Azure são carregados por alerta. Estas cargas devem estar disponíveis no portal quando o alerta estiver configurado e antes de ser guardado. 
+As métricas e alertas no Monitor Azure são carregados por alerta. Estas cargas devem estar disponíveis no portal quando o alerta for configurado e antes de ser guardado. 
 
 Soluções adicionais que ingerem dados de métricas são faturadas diretamente por essas soluções. Por exemplo, é faturado pelo Azure Storage se arquivar dados de métricas numa conta de Armazenamento Azure. Também é faturado pelo Log Analytics se transmitir dados de métricas para Registar Analytics para análise avançada.
 
@@ -55,11 +56,11 @@ Conta o número de pedidos de dados e operações de gestão.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Pedidos Recebidos| O número de pedidos feitos ao serviço service bus durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Pedidos Com Êxito|O número de pedidos bem sucedidos feitos ao serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Erros do servidor|O número de pedidos não processados devido a um erro no serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Erros do utilizador (ver a seguinte subsecção)|O número de pedidos não processados devido a erros do utilizador durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Pedidos de Aceleração|O número de pedidos que foram estrangulados porque o uso foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+| Pedidos Recebidos| O número de pedidos feitos ao serviço service bus durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Pedidos Com Êxito|O número de pedidos bem sucedidos feitos ao serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Erros do servidor|O número de pedidos não processados devido a um erro no serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Erros do utilizador (ver a seguinte subsecção)|O número de pedidos não processados devido a erros do utilizador durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Pedidos de Aceleração|O número de pedidos que foram estrangulados porque o uso foi excedido.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 
 ### <a name="user-errors"></a>Erros do utilizador
 
@@ -73,12 +74,13 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens Recebidas|O número de eventos ou mensagens enviadas para a Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Mensagens Enviadas|O número de eventos ou mensagens recebidas da Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-| Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da Entidade |
-| ActiveMessages| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da Entidade |
-| Mensagens com letras mortas| Contagem de mensagens com letras mortas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: Nome da Entidade |
-| Mensagens agendadas| Contagem de mensagens programadas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: Nome da Entidade |
+|Mensagens Recebidas|O número de eventos ou mensagens enviadas para a Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Mensagens Enviadas|O número de eventos ou mensagens recebidas da Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+| Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da entidade |
+| Mensagens Ativas| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da entidade |
+| Mensagens com letras mortas| Contagem de mensagens com letras mortas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: Nome da entidade |
+| Mensagens agendadas| Contagem de mensagens programadas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: Nome da entidade |
+| Tamanho | Tamanho de uma entidade (fila ou tópico) em bytes. <br/><br/>Unidade: Contagem <br/>Tipo de agregação: Média <br/>Dimensão: Nome da entidade | 
 
 > [!NOTE]
 > Os valores para as seguintes métricas são valores pontuais. As mensagens recebidas que foram consumidas imediatamente após esse ponto-a-tempo podem não ser refletidas nestas métricas. 
@@ -91,9 +93,9 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|ActiveConnections|O número de ligações ativas num espaço de nome, bem como numa entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Ligações Abertas |O número de ligações abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|Ligações Fechadas |O número de ligações fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|Ligações Ativas|O número de ligações ativas num espaço de nome, bem como numa entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Ligações Abertas |O número de ligações abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Ligações Fechadas |O número de ligações fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 
 ## <a name="resource-usage-metrics"></a>Métricas de utilização de recursos
 
@@ -106,8 +108,8 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Utilização do CPU por espaço de nome|A percentagem de utilização do CPU do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: Nome da Entidade|
-|Uso do tamanho da memória por espaço de nome|O uso percentual da memória do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: Nome da Entidade|
+|Utilização do CPU por espaço de nome|A percentagem de utilização do CPU do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: Nome da entidade|
+|Uso do tamanho da memória por espaço de nome|O uso percentual da memória do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: Nome da entidade|
 
 ## <a name="metrics-dimensions"></a>Dimensões das métricas
 
@@ -115,7 +117,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
 
 |Nome de dimensão|Descrição|
 | ------------------- | ----------------- |
-|Nome de Entidade| A Service Bus suporta entidades de mensagens no espaço de nomes.|
+|Nome da entidade| A Service Bus suporta entidades de mensagens no espaço de nomes.|
 
 ## <a name="set-up-alerts-on-metrics"></a>Configurar alertas sobre métricas
 
@@ -126,7 +128,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
     1. Selecione **espaços de nomeação de ônibus** de serviço para o **filtro por** tipo de recurso. 
     2. Selecione a sua subscrição para o campo **de subscrição Filter.**
     3. Selecione o **espaço de nome do ônibus** de serviço na lista. 
-    4. Selecione **Done** (Concluído). 
+    4. Selecione **Concluído**. 
     
         ![Selecionar espaço de nomes](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. **Selecione Adicionar critérios**e faça as seguintes ações na página lógica de **sinal de configuração:**
@@ -137,7 +139,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
     1. Selecione **Maior do que** para a **Condição**.
     2. Selecione **Total** para **agregação de tempo**. 
     3. Introduza **5** para **o limiar**. 
-    4. Selecione **Done** (Concluído).    
+    4. Selecione **Concluído**.    
 
         ![Especifique condição](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
 1. Na página **'Criar** regras', expandir **detalhes de alerta,** e fazer as seguintes ações:
@@ -165,7 +167,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
 
     ![Criar botão de regra de alerta](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte a visão geral do [Monitor Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

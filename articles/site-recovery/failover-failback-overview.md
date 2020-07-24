@@ -4,10 +4,11 @@ description: Saiba mais sobre falhas e falhas na Recuperação do Local de Azure
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281811"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089537"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre a recuperação de desastres no local/failback
 
@@ -53,7 +54,7 @@ Para ligar aos VMs Azure criados após a falha usando RDP/SSH, existem uma séri
 
 A Recuperação do Site fornece diferentes opções de failover.
 
-**Ativação pós-falha** | **Detalhes** | **Recuperação** | **Fluxo de trabalho**
+**Ativação pós-falha** | **Detalhes** | **Recuperação** | **Workflow**
 --- | --- | --- | ---
 **Teste de failover** | Usado para executar um exercício que valida a sua estratégia BCDR, sem qualquer perda de dados ou tempo de inatividade.| Cria uma cópia do VM em Azure, sem impacto na replicação em curso, ou no seu ambiente de produção. | 1. Executar um teste de failover num único VM, ou em vários VMs num plano de recuperação.<br/><br/> 2. Selecione um ponto de recuperação para utilizar para a falha do teste.<br/><br/> 3. Selecione uma rede Azure na qual o Azure VM será localizado quando for criado após o failover. A rede só é utilizada para o teste de falha.<br/><br/> 4. Verifique se a broca funcionou como esperado. A Recuperação do Local limpa automaticamente os VMs criados em Azure durante a broca.
 **Failover-Hyper-V planeado**  | Normalmente usado para o tempo de inatividade planeado.<br/><br/> Os VMs de origem estão desligados. Os dados mais recentes são sincronizados antes de iniciar a falha. | Perda zero de dados para o fluxo de trabalho planeado. | 1. Planeie uma janela de manutenção de tempo de inatividade e notifique os utilizadores.<br/><br/> 2. Desativar as aplicações viradas para o utilizador.<br/><br/> 3. Iniciar uma falha planeada com o último ponto de recuperação. O fracasso não funciona se a máquina não for desligada, ou se forem encontrados erros.<br/><br/> 4. Após a falha, verifique se a réplica Azure VM está ativa em Azure.<br/><br/> 5. Comprometa o fracasso para terminar. A ação de cometer elimina todos os pontos de recuperação.
@@ -156,7 +157,7 @@ Depois de ter falhado no local, ativa a **Reverse Replicate** para começar a re
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Falha em [VMware VMs específicos](vmware-azure-tutorial-failover-failback.md)
 - Falha em [VMs hiper-V específicos.](hyper-v-azure-failover-failback-tutorial.md)
 - [Criar](site-recovery-create-recovery-plans.md) um plano de recuperação.

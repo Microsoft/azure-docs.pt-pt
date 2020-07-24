@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c666a11f8d5e13d022309eddab16edb6aab76381
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5fb992edea38c3dff9beffab1f131d3e7a6fdbf6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527766"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087225"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalize propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) para uma piscina de anfitriões
 
@@ -30,18 +30,6 @@ Consulte [as definições de ficheiros RDP suportados](https://docs.microsoft.co
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, siga as instruções em [Configurar o módulo Virtual Desktop PowerShell](powershell-module.md) para configurar o módulo PowerShell e iniciar o súm na Azure.
-
-## <a name="default-rdp-properties"></a>Propriedades RDP predefinidos
-
-Por predefinição, os ficheiros RDP publicados contêm as seguintes propriedades:
-
-|Propriedades de RDP | Computadores de Secretária | RemotasApps |
-|---|---| --- |
-| Modo multi-monitor | Ativado | N/D |
-| Redirecionamentos de unidade ativados | Unidades, pranchetas, impressoras, portas COM, dispositivos USB e smartcards| Unidades, pranchetas e impressoras |
-| Modo áudio remoto | Jogue localmente | Jogue localmente |
-
-Quaisquer propriedades personalizadas que você definir para a piscina anfitriã irá anular estes padrão.
 
 ## <a name="configure-rdp-properties-in-the-azure-portal"></a>Configure propriedades RDP no portal Azure
 
@@ -128,7 +116,7 @@ Name              : <hostpoolname>
 CustomRdpProperty : <CustomRDPpropertystring>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que personalizou as propriedades RDP para uma determinada piscina de anfitriões, pode iniciar sessão num cliente virtual do Windows desktop para testá-las como parte de uma sessão de utilizador. Estes próximos guias de como ligar-se a uma sessão utilizando o cliente à sua escolha:
 

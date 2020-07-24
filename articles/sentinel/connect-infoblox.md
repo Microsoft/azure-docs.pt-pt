@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: ed4f2d769dbda3dec7b353fddfd1e5e0f3d00f9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532171"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089656"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Ligue o infoblox NIOS ao Azure Sentinel
+
+> [!IMPORTANT]
+> O conector de dados Infoblox NIOS em Azure Sentinel encontra-se atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como ligar o seu [aparelho do Sistema Operativo de Identidade de Rede Infoblox (NIOS)](https://www.infoblox.com/glossary/network-identity-operating-system-nios/) ao Azure Sentinel. O conector de dados Infoblox NIOS permite-lhe conectar facilmente os seus registos Infoblox com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A integração entre Infoblox NIOS e Azure Sentinel faz uso do Syslog.
 
@@ -46,7 +50,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analyt
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar Infoblox NIOS ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

@@ -1,5 +1,5 @@
 ---
-title: Como conceder permissões para gerir a identidade no espaço de trabalho Azure Synapse
+title: Conceder permissões para gerir a identidade no espaço de trabalho da Sinapse
 description: Um artigo que explica como configurar permissões para identidade gerida no espaço de trabalho Azure Synapse.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8e33bd127fca9ddce7b15d144fd287ec4a6bf0e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cb1ddceff30b247caf3ecd9ee3bc21d5addb519
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193469"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089452"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões à identidade gerida pelo espaço de trabalho (pré-visualização)
 
@@ -117,6 +117,6 @@ Selecione **Access Control (IAM)** e, em seguida, selecione **atribuições de f
 Deverá ver a sua identidade gerida listada na secção **Storage Blob Data Contributor** com a função de Contribuinte de *Dados blob de armazenamento* que lhe foi atribuída. 
 ![Seleção de contentores de conta de armazenamento ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a identidade gerida do Workspace](./synapse-workspace-managed-identity.md)

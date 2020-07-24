@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 30b4386c223240217096550330c0920ad9ab6871
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088550"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows mostra erro do ecrã azul ao iniciar um VM Azure
 Este artigo descreve erros de ecrã azul que poderá encontrar quando iniciar uma Máquina Virtual do Windows (VM) no Microsoft Azure. Fornece passos para ajudá-lo a recolher dados para um bilhete de apoio. 
@@ -47,7 +47,7 @@ Para resolver este problema, você precisaria primeiro de recolher o ficheiro de
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Ligue o disco de SO a um VM de recuperação
 
 1. Tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Fixe o disco DE A uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md). 
+2. [Fixe o disco DE A uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Ambiente de trabalho remoto para o VM de recuperação.
 
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
@@ -100,9 +100,6 @@ Para ativar o registo de despejo e a Consola em Série, execute o seguinte scrip
     reg unload HKLM\BROKENSYSTEM
     ```
 
-3. [Retire o disco de SO e, em seguida, re-prenda o disco de SO ao VM afetado](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Retire o disco de SO e, em seguida, re-prenda o disco de SO ao VM afetado](./troubleshoot-recovery-disks-portal-windows.md).
 4. Inicie o VM para reproduzir o problema, em seguida, um ficheiro de despejo será gerado.
 5. Fixe o disco DE A um VM de recuperação, recolha o ficheiro de despejo e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo.
-
-
-

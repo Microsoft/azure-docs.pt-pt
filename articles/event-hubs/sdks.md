@@ -3,12 +3,12 @@ title: Azure Event Hubs - Client SDKs Microsoft Docs
 description: Este artigo fornece informações sobre SDKs clientes para Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c3557556500f2a536e20331bd3d05d84f608f0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b75a66197b152425198b94a68ac77e392cb4c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85312554"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087565"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs - SDKs de clientes
 Este artigo fornece as seguintes informações para os SDKs apoiados por Azure Event Hubs: 
@@ -33,7 +33,7 @@ A tabela seguinte descreve todos os clientes atualmente disponíveis Azure Event
 |        | [azure-eventhub-checkpointstoreblob-aio](https://pypi.org/project/azure-eventhub-checkpointstoreblob-aio/) | <ul><li>[Localização gitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio)</li><li>[Tutorial](get-started-python-send-v2.md)</li></ul> |
 | JavaScript | [azure/evento-hubs](https://www.npmjs.com/package/@azure/event-hubs) | <ul><li>[Localização gitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs)</li><li>[Tutorial](get-started-node-send-v2.md)</li></ul> |
 |            | [azure/eventhubs-checkpointstore-blob](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob) | <ul><li>[Localização gitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/eventhubs-checkpointstore-blob)</li><li>[Tutorial](get-started-node-send-v2.md)</li></ul> |
-| Ir | [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[Localização gitHub](https://github.com/Azure/azure-event-hubs-go)</li><li>[Tutorial](event-hubs-go-get-started-send.md)</li></ul> |
+| Go | [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go) | <ul><li>[Localização gitHub](https://github.com/Azure/azure-event-hubs-go)</li><li>[Tutorial](event-hubs-go-get-started-send.md)</li></ul> |
 | C | [azure-event-hubs-c](https://github.com/Azure/azure-event-hubs-c) | <ul><li>[Localização gitHub](https://github.com/Azure/azure-event-hubs-c)</li><li>[Tutorial](event-hubs-c-getstarted-send.md)</li></ul> |
 
 ## <a name="management-sdks"></a>SDKs de gestão
@@ -44,10 +44,10 @@ A tabela que se segue lista todas as bibliotecas específicas da gestão atualme
 | .NET Standard | [Microsoft.Azure.Management.EventHub](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) |<ul><li>[Localização gitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.Management.EventHub)</li><li>[Tutorial](get-started-dotnet-standard-send-v2.md)</li></ul> |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Criar um Centro de Eventos](event-hubs-create.md)
+* [Descrição geral dos Event Hubs](./event-hubs-about.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)

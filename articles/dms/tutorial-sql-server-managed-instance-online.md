@@ -3,8 +3,8 @@ title: 'Tutorial: Migrar o SQL Server online para a SQL Managed Instance'
 titleSuffix: Azure Database Migration Service
 description: Aprenda a realizar uma migração on-line do SQL Server para um Azure SQL Managed Instance utilizando o Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087667"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para um Azure SQL Managed Instance on-line usando DMS
 
@@ -88,6 +88,9 @@ Para concluir este tutorial, precisa de:
   > O Serviço de Migração da Base de Dados Azure requer a permissão do Contribuinte na subscrição do ID de aplicação especificado. Em alternativa, pode criar funções personalizadas que concedam as permissões específicas que o Serviço de Migração da Base de Dados Azure necessita. Para obter orientações passo a passo sobre a utilização de funções personalizadas, consulte o artigo [Funções personalizadas para SQL Server para SQL Managed Instance migrações on-line](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Crie ou anote o **escalão de Desempenho Standard**, a Conta de Armazenamento do Azure, que permite ao serviço DMS carregar os ficheiros de cópia de segurança para a base de dados e utilizá-la para a migração de bases de dados.  Certifique-se de criar a Conta de Armazenamento Azure na mesma região que o caso do Serviço de Migração da Base de Dados Azure.
+
+  > [!NOTE]
+  > Quando migrar uma base de dados protegida pela [Encriptação de Dados Transparente](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview) para um caso gerido através da migração online, o certificado correspondente a partir do local ou da instância do Servidor SQL Azure VM deve ser migrado antes da restauração da base de dados. Para obter etapas detalhadas, consulte [Migrar um certificado TDE para um caso gerido](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
@@ -264,7 +267,7 @@ Após a recuperação completa da base de dados ser restaurada no caso-alvo de S
 
     ![Transferência concluída](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para um tutorial que lhe mostre como migrar uma base de dados para SQL Managed Instance utilizando o comando T-SQL RESTORE, consulte [Restaurar uma cópia de segurança para SQL Managed Instance utilizando o comando de restauro](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
 * Para obter informações sobre a SQL Managed Instance, consulte [o que é a sql Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).

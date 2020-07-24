@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: d569bf454a62272a5c60cc92abc0f24715218894
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958400"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088602"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Resolver problemas de ligação de RDP da VM do Azure por ID de Evento 
 
@@ -273,8 +274,8 @@ O início de sê-lo na base de dados falhou.
 **Descrição:** A descrição para o Evento ID 1296 da fonte Microsoft-Windows-TerminalServices-SessionBroker-Client não pode ser encontrada. Ou o componente que levanta este evento não está instalado no computador local ou a instalação está corrompida. Pode instalar ou reparar o componente no computador local.
 Se o evento tiver origem noutro computador, as informações do visor tiveram de ser guardadas com o evento.
 As seguintes informações foram incluídas no evento:  <br />
-*texto* <br />
-*texto* <br />
+*Texto* <br />
+*Texto* <br />
 O Corretor de Ligação remota do Ambiente de Trabalho não está pronto para a comunicação RPC.
 
 ### <a name="cause"></a>Causa
@@ -289,13 +290,12 @@ Para corrigir este problema, a função De Corretor de Conexão de Ambiente de T
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Eventos do Canal da Schannel](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
+[Eventos do Canal da Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786445(v=ws.11))
 
-[Descrição Geral Técnica do Schannel SSP](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
+[Descrição Geral Técnica do Schannel SSP](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786429(v=ws.11))
 
-[RDP Falha com o Evento ID 1058 & Event 36870 com Certificado de Anfitrião de Sessão de Secretária Remota & Comunicação SSL](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
+[RDP Falha com o Evento ID 1058 & Event 36870 com Certificado de Anfitrião de Sessão de Secretária Remota & Comunicação SSL](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 
-[Canalil 36872 ou Schannel 36870 num Controlador de Domínio](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/)
+[Canalil 36872 ou Schannel 36870 num Controlador de Domínio](/archive/blogs/instan/schannel-36872-or-schannel-36870-on-a-domain-controller)
 
-[ID do evento 1058 — Autenticação e Encriptação de Serviços de Ambiente de Trabalho Remoto](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
-
+[ID do evento 1058 — Autenticação e Encriptação de Serviços de Ambiente de Trabalho Remoto](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee890862(v=ws.10))

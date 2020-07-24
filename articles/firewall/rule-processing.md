@@ -7,13 +7,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113441"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087548"
 ---
-# <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regras do Azure Firewall
+# <a name="configure-azure-firewall-rules"></a>Configurar regras de Firewall Azure
 Pode configurar regras DE NAT, regras de rede e aplicações no Azure Firewall. As recolhas de regras são processadas de acordo com o tipo de regra em ordem prioritária, números mais baixos para números mais altos de 100 a 65.000. Um nome de coleção de regras só pode ter letras, números, sublinhados, períodos ou hífens. Deve começar com uma letra ou número, e terminar com uma letra, número ou sublinhado. O comprimento máximo do nome é de 80 caracteres.
 
 O melhor é inicialmente espaçar os números prioritários da sua coleção de regras em 100 incrementos (100, 200, 300, e assim por diante) para que tenha espaço para adicionar mais coleções de regras, se necessário.
@@ -54,7 +55,7 @@ A ligação à google.com é permitida devido a uma regra de rede correspondente
 
 **Regra de candidatura**
 
-- Ação: Negar
+- Ação: Deny
 
 |name  |Tipo de origem  |Origem  |Protocolo:Porto|FQDNs alvo|
 |---------|---------|---------|---------|----------|----------|
@@ -82,7 +83,7 @@ O tráfego SSH é negado porque uma prioridade maior A recolha de regras de rede
 
 - Nome: Coleção Deny
 - Prioridade: 100
-- Ação: Negar
+- Ação: Deny
 
 |name  |Protocolo  |Tipo de origem  |Origem  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
@@ -96,6 +97,6 @@ As ligações SSH são negadas porque uma recolha de regras de rede de maior pri
 
 Se alterar uma regra para negar o tráfego previamente permitido, quaisquer sessões relevantes existentes serão retiradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [implantar e configurar um Azure Firewall](tutorial-firewall-deploy-portal.md).

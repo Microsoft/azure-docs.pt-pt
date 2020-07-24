@@ -3,12 +3,12 @@ title: Novidades na Recuperação do Local de Azure
 description: Fornece um resumo de novas funcionalidades e as últimas atualizações no serviço de Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3017be90e84441ad84c6a5a9d54498028388dffe
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4e3153ae611f368f66b045a69bab23ca0a52a033
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206399"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089520"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -22,7 +22,8 @@ Para os componentes de Recuperação de Sítios, apoiamos as versões N-4, onde 
 
 **Atualizar** |  **Configuração Unificada** | **Óvulo do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Sítios** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
-[Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
+[Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+[Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Máquinas HyperV - 2.0.9183.0 <br> Máquinas VMware - 2.0.9177.0
 [Rollup 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
@@ -34,6 +35,18 @@ Para os componentes de Recuperação de Sítios, apoiamos as versões N-4, onde 
 > O rollup de atualização 44 não é mostrado na tabela porque não incluiu atualizações para os fornecedores e agentes de Recuperação do Site.
 
 ## <a name="updates-july-2020"></a>Atualizações (julho 2020)
+
+### <a name="update-rollup-48"></a>Atualização rollup 48
+
+[O rollup de atualização 48](https://support.microsoft.com/help/4573888/update-rollup-48-for-azure-site-recovery) fornece as seguintes atualizações:
+
+**Atualizar** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para agentes e fornecedores de Recuperação de Locais conforme detalhado no rollup.
+**Correções/melhorias de problemas** | Uma série de correções e melhorias conforme detalhado no rollup.
+
+> [!NOTE]
+> O rollup 48 da atualização tem um problema conhecido com a replicação de máquinas Linux encriptadas através do ADE. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
 
 ### <a name="update-rollup-47"></a>Atualização rollup 47
 

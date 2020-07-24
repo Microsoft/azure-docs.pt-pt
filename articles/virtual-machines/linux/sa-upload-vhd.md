@@ -8,11 +8,12 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts
-ms.openlocfilehash: 7ec9b670f8b2eb1731511deb1d01cfc7db55054f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc7c69809ae623606bd091821c5f2fc661f6c8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758568"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088755"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Faça upload e crie um Linux VM a partir de disco personalizado com o Azure CLI
 
@@ -73,15 +74,15 @@ az vm create --resource-group myResourceGroup --location westus \
 
 A conta de armazenamento de destino tem de ser a mesma de onde fez o upload do seu disco virtual. Também precisa de especificar, ou responder a solicitações para, todos os parâmetros adicionais exigidos pelo **az vm criar** comando como rede virtual, endereço IP público, nome de utilizador e teclas SSH. Pode ler mais sobre os [parâmetros clássicos do Gestor de Recursos CLI disponíveis.](../azure-cli-arm-commands.md#virtual-machines)
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 Para completar os seguintes passos, é necessário:
 
 * **Sistema operativo Linux instalado num ficheiro .vhd** - Instale uma distribuição Linux com base no [Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consulte [informações para distribuições não endossadas)](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)num disco virtual no formato VHD. Existem várias ferramentas para criar um VM e VHD:
   * Instale e configuure [o QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [o KVM,](https://www.linux-kvm.org/page/RunningKVM)tendo o cuidado de utilizar o VHD como formato de imagem. Se necessário, pode [converter uma imagem](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) utilizando `qemu-img convert` .
-  * Também pode utilizar o Hyper-V [no Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) ou [no Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
+  * Também pode utilizar o Hyper-V [no Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) ou [no Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> O novo formato VHDX não é suportado no Azure. Quando criar um VM, especifique o VHD como o formato. Se necessário, pode converter discos VHDX em VHD utilizando [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou o [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) cmdlet PowerShell. Além disso, o Azure não suporta o upload de VHDs dinâmicos, por isso é necessário converter esses discos em VHDs estáticos antes de carregar. Pode utilizar ferramentas como [Azure VHD Utilities para GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter discos dinâmicos durante o processo de upload para Azure.
+> O novo formato VHDX não é suportado no Azure. Quando criar um VM, especifique o VHD como o formato. Se necessário, pode converter discos VHDX em VHD utilizando [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou o [`Convert-VHD`](/powershell/module/hyper-v/convert-vhd?view=win10-ps) cmdlet PowerShell. Além disso, o Azure não suporta o upload de VHDs dinâmicos, por isso é necessário converter esses discos em VHDs estáticos antes de carregar. Pode utilizar ferramentas como [Azure VHD Utilities para GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter discos dinâmicos durante o processo de upload para Azure.
 > 
 > 
 
@@ -156,7 +157,7 @@ info:    storage account keys list command OK
 
 Tome nota da `key1` forma como irá usá-lo para interagir com a sua conta de armazenamento nos próximos passos.
 
-## <a name="create-a-storage-container"></a>Criar um recipiente de armazenamento
+## <a name="create-a-storage-container"></a>Criar um contentor de armazenamento
 Da mesma forma que cria diferentes diretórios para organizar logicamente o seu sistema de ficheiros local, cria contentores dentro de uma conta de armazenamento para organizar os seus discos. Uma conta de armazenamento pode conter qualquer número de contentores. Criar um recipiente com [recipiente de armazenamento az criar](/cli/azure/storage/container).
 
 O exemplo a seguir cria um recipiente `mydisks` denominado:
@@ -178,7 +179,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-## <a name="create-the-vm"></a>Crie a VM
+## <a name="create-the-vm"></a>Criar a VM
 Para criar um VM com discos não geridos, especifique o URI para o seu disco `--image` () com [az vm criar](/cli/azure/vm). O exemplo a seguir cria um VM nomeado `myVM` utilizando o disco virtual previamente carregado:
 
 Especifica o `--image` parâmetro com [az vm criar](/cli/azure/vm) para apontar para o seu disco personalizado. Certifique-se de que `--storage-account` corresponde à conta de armazenamento onde o seu disco personalizado está armazenado. Não é preciso utilizar o mesmo recipiente que o disco personalizado para armazenar os seus VMs. Certifique-se de criar quaisquer recipientes adicionais da mesma forma que os passos anteriores antes de carregar o seu disco personalizado.
@@ -234,6 +235,5 @@ az group deployment create --resource-group myNewResourceGroup \
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter preparado e carregado o seu disco virtual personalizado, pode ler mais sobre [a utilização de Gestor de Recursos e modelos.](../../azure-resource-manager/management/overview.md) Também pode querer [adicionar um disco de dados](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aos seus novos VMs. Se tiver aplicações em execução nos seus VMs a que necessita de aceder, certifique-se de [abrir portas e pontos finais](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

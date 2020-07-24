@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088092"
 ---
 # <a name="application-gateway-components"></a>Componentes do Gateway de Aplicação
 
@@ -69,13 +69,13 @@ Há dois tipos de ouvintes:
 
 - **Básico**. Este tipo de ouvinte ouve um único site de domínio, onde tem um único mapeamento dns para o endereço IP do gateway de aplicações. Esta configuração do ouvinte é necessária quando hospeda um único site atrás de um gateway de aplicações.
 
-- **Multi-site**. Esta configuração do ouvinte é necessária quando configurar mais de uma aplicação web na mesma instância de gateway de aplicações. Permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três subdomínios, abc.contoso.com, xyz.contoso.com e pqr.contoso.com, apontam para o endereço IP do gateway de aplicações. Criaria três ouvintes multi-locais e configuraria cada ouvinte para a respetiva definição de porta e protocolo.
+- **Multi-site**. Esta configuração do ouvinte é necessária quando pretende configurar o encaminhamento com base no nome do anfitrião ou no nome de domínio para mais de uma aplicação web no mesmo gateway de aplicações. Permite-lhe configurar uma topologia mais eficiente para as suas implementações, adicionando até 100 websites a um gateway de aplicações. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicações. Criaria três [ouvintes multi-locais](multiple-site-overview.md) e configuraria cada ouvinte para a respetiva definição de porta e protocolo. 
 
-    Para obter mais informações, consulte [o alojamento em vários locais.](application-gateway-web-app-overview.md)
+    Também pode definir nomes de anfitriões wildcard num ouvinte multi-site e até 5 nomes de anfitriões por ouvinte. Para saber mais, consulte [os nomes dos anfitriões wildcard no ouvinte (pré-visualização)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
-Depois de criar um ouvinte, associá-lo a uma regra de encaminhamento de pedidos. Esta regra determina como o pedido recebido no ouvinte deve ser encaminhado para o backend.
+    Para obter mais informações sobre como configurar um ouvinte multi-site, consulte [o alojamento em vários locais em Application Gateway utilizando o portal Azure](create-multiple-sites-portal.md).
 
-Application Gateway processa os ouvintes na [ordem mostrada](configuration-overview.md#order-of-processing-listeners).
+Depois de criar um ouvinte, associá-lo a uma regra de encaminhamento de pedidos. Esta regra determina como o pedido recebido no ouvinte deve ser encaminhado para o backend. A regra de encaminhamento de pedidos também contém o pool de backend a ser encaminhado para e a definição HTTP onde a porta de backend, protocolo, etc. são mencionados.
 
 ## <a name="request-routing-rules"></a>Solicitar regras de encaminhamento
 
@@ -99,13 +99,13 @@ Pode escolher o alvo de redirecionamento para ser outro ouvinte (o que pode ajud
 
 Para obter mais informações, consulte [redirecionar o tráfego no seu gateway de aplicações.](redirect-overview.md)
 
-### <a name="rewrite-http-headers"></a>Rescrever cabeçalhos HTTP
+### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
 
-Ao utilizar as regras de encaminhamento de pedidos, pode adicionar, remover ou atualizar os cabeçalhos de pedido e resposta HTTP(S) à medida que os pacotes de pedido e resposta se movem entre o cliente e os pools de backend através do gateway de aplicação.
+Ao utilizar regras de reescrita, pode adicionar, remover ou atualizar os cabeçalhos de pedido e resposta HTTP(S), bem como os parâmetros de trajetória e de consulta de URL, à medida que os pacotes de pedido e resposta se movem entre o cliente e as piscinas de backend através do gateway de aplicação.
 
-Os cabeçalhos podem ser definidos para valores estáticos ou para outras variáveis de cabeçalhos e servidores. Isto ajuda com casos importantes de utilização, tais como a extração de endereços IP do cliente, a remoção de informações sensíveis sobre o backend, adicionando mais segurança, e assim por diante.
+Os cabeçalhos e parâmetros URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis do servidor. Isto ajuda com casos importantes de utilização, tais como a extração de endereços IP do cliente, a remoção de informações sensíveis sobre o backend, adicionando mais segurança, e assim por diante.
 
-Para obter mais informações, consulte [os cabeçalhos HTTP da sua aplicação.](rewrite-http-headers.md)
+Para obter mais informações, consulte [os cabeçalhos HTTP e URL da sua aplicação gateway](rewrite-http-headers-url.md).
 
 ## <a name="http-settings"></a>Definições de HTTP
 

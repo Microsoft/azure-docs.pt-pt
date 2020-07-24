@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d1787b5bfc2939dca23c6898d89130aa3fcb170
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b4d6b20e63c42616aad0f8776fae159a0f2aa455
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088381"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos Common PowerShell para Redes Virtuais Azure
 
 Se pretender criar uma máquina virtual, precisa de criar uma [rede virtual](../../virtual-network/virtual-networks-overview.md) ou de conhecer uma rede virtual existente na qual o VM pode ser adicionado. Normalmente, quando se cria um VM, também é necessário considerar a criação dos recursos descritos neste artigo.
 
-Veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) para obter informações sobre como instalar a versão mais recente do Azure PowerShell, selecionar a subscrição que quer utilizar e iniciar sessão na sua conta do Azure.
+Veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/) para obter informações sobre como instalar a versão mais recente do Azure PowerShell, selecionar a subscrição que quer utilizar e iniciar sessão na sua conta do Azure.
 
 Algumas variáveis podem ser úteis para si se executar mais do que um dos comandos neste artigo:
 

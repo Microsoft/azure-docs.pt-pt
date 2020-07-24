@@ -11,11 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/28/2020
-ms.openlocfilehash: 5449bb335232d3c7a6f2b97c5cce41a8bd2cf0f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdf5d006cf47f4552684aac8af4a759ed1761c93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249776"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087971"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -237,7 +238,7 @@ Para medir o atraso no que diz respeito às alterações na base de dados primá
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestão programática de geo-replicação ativa
 
-Como discutido anteriormente, a geo-replicação ativa também pode ser gerida programáticamente usando a Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. A geo-replicação ativa inclui um conjunto de APIs do Gestor de Recursos Azure para gestão, incluindo os cmdlets [AZURE SQL Database REST](https://docs.microsoft.com/rest/api/sql/) E [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas APIs requerem a utilização de grupos de recursos e apoiam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [o Azure Role-Based Access Control](../../role-based-access-control/overview.md).
+Como discutido anteriormente, a geo-replicação ativa também pode ser gerida programáticamente usando a Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. A geo-replicação ativa inclui um conjunto de APIs do Gestor de Recursos Azure para gestão, incluindo os cmdlets [AZURE SQL Database REST](https://docs.microsoft.com/rest/api/sql/) E [Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Estas APIs requerem a utilização de grupos de recursos e apoiam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [o Azure Role-Based Access Control](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Gerir o failover de bases de dados individuais e agmbadas
 
@@ -286,7 +287,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 | [Eliminar ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
 |  | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para os scripts de amostra, consulte:
   - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/setup-geodr-and-failover-database-powershell.md)

@@ -70,6 +70,8 @@
           href: diagnostics-log-analytics-2019.md
     - name: Publicar aplicações incorporadas
       href: publish-apps-2019.md
+    - name: Configurar o Multi-Factor Authentication do Azure
+      href: ../set-up-mfa.md
 - name: Conceitos
   items:
     - name: Ambiente do Windows Virtual Desktop

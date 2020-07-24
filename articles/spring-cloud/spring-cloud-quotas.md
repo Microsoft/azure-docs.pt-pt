@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: dc4426fc08efff44bc46ba37eb6fbc6fe31f356b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: cda22c63a70c5121e6a6972c66bdc0a4bb5158fc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735443"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089469"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quotas e Planos de Serviço para Azure Spring Cloud
 
@@ -29,6 +31,6 @@ Volumes persistentes | 1 GB/app x 10 apps | 50 GB/app x 10 apps
 
 Durante o período de pré-visualização, a Azure Spring Cloud oferece apenas um nível de serviço. Quando atingir um limite, receberá um erro de 400 que diz: "A quota excede o limite de subscrição da *sua subscrição* na *região onde o seu serviço Azure Spring Cloud é criado.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Alguns limites de predefinição podem ser aumentados. Se a sua configuração necessitar de um aumento, [crie um pedido de apoio](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).

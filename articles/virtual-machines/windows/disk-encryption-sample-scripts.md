@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a0bac96c3daa0d81786b1a3facf6ccd328cd579
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: dce46fd5de4eb4584af32c24738ebbdc2282ef83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076764"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088483"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de exemplo do Azure Disk Encryption 
 
@@ -87,14 +87,14 @@ ServerManagerCmd -install BitLockers
 ```
 
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Prepare o volume de SO para BitLocker utilizando`bdehdcfg`
-Para comprimir a partição de SO e preparar a máquina para BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) se necessário:
+Para comprimir a partição de SO e preparar a máquina para BitLocker, execute o [bdehdcfg](/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) se necessário:
 
 ```console
 bdehdcfg -target c: shrink -quiet 
 ```
 
 ### <a name="protect-the-os-volume-by-using-bitlocker"></a>Proteja o volume de SO utilizando o BitLocker
-Utilize o [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) comando para ativar a encriptação no volume de arranque utilizando um protetor de teclas externo. Coloque também a chave externa (.ficheiro bek) na unidade ou volume externos. A encriptação é ativada no volume de sistema/arranque após o próximo reboot.
+Utilize o [`manage-bde`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff829849(v=ws.11)) comando para ativar a encriptação no volume de arranque utilizando um protetor de teclas externo. Coloque também a chave externa (.ficheiro bek) na unidade ou volume externos. A encriptação é ativada no volume de sistema/arranque após o próximo reboot.
 
 ```console
 manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
@@ -150,7 +150,7 @@ Para configurar o segredo no seu cofre de chaves, utilize [o Set-AzKeyVaultSecre
 Utilize o `$secretUrl` passo seguinte para fixar o disco DE SEM utilizar [KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segredo de encriptação de disco encriptado com um KEK
-Antes de enviar o segredo para o cofre da chave, pode criptografá-lo opcionalmente usando uma chave de encriptação. Utilize a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de embrulho para encriptar primeiro o segredo utilizando a chave de encriptação. A saída desta operação de embrulho é uma cadeia codificada de URL base64, que pode então carregar como um segredo usando o [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Antes de enviar o segredo para o cofre da chave, pode criptografá-lo opcionalmente usando uma chave de encriptação. Utilize a [API](/rest/api/keyvault/wrapkey) de embrulho para encriptar primeiro o segredo utilizando a chave de encriptação. A saída desta operação de embrulho é uma cadeia codificada de URL base64, que pode então carregar como um segredo usando o [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

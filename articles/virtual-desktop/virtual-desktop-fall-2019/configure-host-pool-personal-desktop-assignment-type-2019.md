@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop tipo de atribuição de ambiente de trabalho pessoal - Azure
-description: Como configurar o tipo de atribuição para um conjunto de anfitriões de ambiente de trabalho pessoal virtual do Windows Desktop.
+title: Windows Virtual Desktop atribuição de desktop pessoal (outono 2019) - Azure
+description: Saiba como configurar o tipo de atribuição para um conjunto de anfitriões pessoais do Windows Virtual Desktop (Lançamento outono 2019).
 services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 036e144922fcb49c486813b8668d944dd771536e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259803"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087191"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configure o tipo de atribuição de piscina de anfitriões de ambiente de trabalho pessoal
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-fall-2019-release"></a>Configure o tipo de atribuição de piscina de anfitriões de desktop pessoais (lançamento outono 2019)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../configure-host-pool-personal-desktop-assignment-type.md).

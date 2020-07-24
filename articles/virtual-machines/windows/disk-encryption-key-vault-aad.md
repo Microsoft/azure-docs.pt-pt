@@ -8,18 +8,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dcd0bbad41964e09665552a716d2577b1ccc0856
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8ad34d0a3db3b2b9d3662329e95b27c214dfc247
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080334"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088517"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)
 
 **A nova versão da Encriptação do Disco Azure elimina o requisito para fornecer um parâmetro de aplicação AD Azure para permitir a encriptação do disco VM. Com a nova versão, já não é obrigado a fornecer credenciais AZure AD durante o passo de encriptação ativa. Todos os novos VMs devem ser encriptados sem os parâmetros da aplicação AD Azure utilizando a nova versão. Para visualizar instruções para ativar a encriptação do disco VM utilizando a nova versão, consulte [Azure Disk Encryption](disk-encryption-overview.md). Os VMs que já estavam encriptados com os parâmetros da aplicação AD Azure ainda são suportados e devem continuar a ser mantidos com a sintaxe AAD.**
 
-A Azure Disk Encryption usa o Cofre da Chave Azure para controlar e gerir chaves e segredos de encriptação de discos.  Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../../key-vault/key-vault-get-started.md) e Proteger o cofre da [chave.](../../key-vault/general/secure-your-key-vault.md) 
+A Azure Disk Encryption usa o Cofre da Chave Azure para controlar e gerir chaves e segredos de encriptação de discos.  Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../../key-vault/general/overview.md) e Proteger o cofre da [chave.](../../key-vault/general/secure-your-key-vault.md) 
 
 Criar e configurar um cofre chave para uso com encriptação de disco Azure com Azure AD (versão anterior) envolve três passos:
 
@@ -37,7 +37,7 @@ Consulte o principal Criando e configurando um cofre chave para o artigo [de enc
 
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves 
-A Azure Disk Encryption está integrada com [o Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do cofre chave. Pode criar um cofre de chaves ou utilizar um existente para encriptação de disco Azure. Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../../key-vault/key-vault-get-started.md) e Proteger o cofre da [chave.](../../key-vault/general/secure-your-key-vault.md) Pode utilizar um modelo de Gestor de Recursos, Azure PowerShell ou o CLI Azure para criar um cofre de chaves. 
+A Azure Disk Encryption está integrada com [o Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do cofre chave. Pode criar um cofre de chaves ou utilizar um existente para encriptação de disco Azure. Para obter mais informações sobre cofres chave, consulte [Começar com o Cofre da Chave Azure](../../key-vault/general/overview.md) e Proteger o cofre da [chave.](../../key-vault/general/secure-your-key-vault.md) Pode utilizar um modelo de Gestor de Recursos, Azure PowerShell ou o CLI Azure para criar um cofre de chaves. 
 
 
 >[!WARNING]
@@ -138,7 +138,7 @@ Para escrever segredos de encriptação para um cofre de chaves especificado, a 
 > A Azure Disk Encryption requer que configuure as seguintes políticas de acesso à sua aplicação de cliente AZure AD: _Permissões WrapKey_ e _set._
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a>Desconfiem da política de acesso ao cofre da chave para a aplicação AD Azure com a Azure PowerShell
-A sua aplicação AZure AD precisa de direitos para aceder às chaves ou segredos no cofre. Utilize o [cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para conceder permissões à aplicação, utilizando o ID do cliente (que foi gerado quando a aplicação foi registada) como o valor do parâmetro _-ServicePrincipalName._ Para saber mais, consulte o blog post [Azure Key Vault - Step by Step](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
+A sua aplicação AZure AD precisa de direitos para aceder às chaves ou segredos no cofre. Utilize o [cmdlet Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para conceder permissões à aplicação, utilizando o ID do cliente (que foi gerado quando a aplicação foi registada) como o valor do parâmetro _-ServicePrincipalName._ Para saber mais, consulte o blog post [Azure Key Vault - Step by Step](/archive/blogs/kv/azure-key-vault-step-by-step). 
 
 1. Desa estade a política de acesso ao cofre de chaves para a aplicação AD com o PowerShell.
 
@@ -220,7 +220,7 @@ Utilize [a atualização do keyvault az](/cli/azure/keyvault#az-keyvault-update)
 1. Selecione o seu keyvault, vá às **Políticas de Acesso**e clique para mostrar políticas de acesso **avançadas.**
 2. Selecione a caixa com a etiqueta **Ativar o acesso à Encriptação do Disco Azure para encriptação de volume**.
 3. **Selecione Permitir o acesso a Máquinas Virtuais Azure para implantação** e/ou Permitir o Acesso ao Gestor de Recursos **Azure para a implementação do modelo,** se necessário. 
-4. Clique em **Guardar**.
+4. Clique em **Save** (Guardar).
 
 ![Azure key vault políticas avançadas de acesso](../media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -455,6 +455,6 @@ Se quiser utilizar a autenticação do certificado e embrulhar a chave de encrip
 ```
 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Ativar encriptação do disco Azure com Azure AD em VMs do Windows (versão anterior)](disk-encryption-windows-aad.md)

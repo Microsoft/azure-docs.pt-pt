@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 877d1442c346b321562cb396a77224a6b40c7df2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512413"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087242"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema do sistema Importar/Exportar do Microsoft Azure
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre contas de armazenamento, consulte [a visão 
 Cada trabalho pode ser utilizado para transferir dados de ou para uma única conta de armazenamento. Por outras palavras, uma única empresa de importação/exportação não pode abranger várias contas de armazenamento. Para obter informações sobre a criação de uma nova conta de armazenamento, consulte [Como Criar uma Conta de Armazenamento.](storage-account-create.md)
 
 > [!IMPORTANT]
-> O serviço Azure Import Export não suporta contas de armazenamento onde a funcionalidade [Endpoints de Serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)foi   ativada. 
+> Para contas de armazenamento onde a funcionalidade [Endpoints do Serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)foi   ativada, utilize a definição **de Permitir serviços da Microsoft fidedignos...** para permitir que o serviço [de importação/exportação](/storage-network-security.md) efetue a importação/exportação de dados de/para a Azure.
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento suportados
 
@@ -92,6 +92,6 @@ Um grande número de unidades de unidades pode ser distribuída por vários post
 
 Ao preparar discos rígidos e copiar os dados utilizando a ferramenta WAImportExport, pode utilizar adaptadores USB externos. A maioria dos adaptadores USB 3.0 ou posteriormente fora da prateleira devem funcionar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
