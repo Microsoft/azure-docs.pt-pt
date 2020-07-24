@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: 7be1c350af6c9bb84669b45a9bc8a1d9dd808133
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b8edbbc397a56f4fcf5b3ae070f04ca61659d98d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045346"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertas de registo de resolução de problemas no Azure Monitor  
 
 Este artigo mostra-lhe como resolver problemas comuns com alertas de registo no Azure Monitor. Também fornece soluções para problemas comuns com a funcionalidade e configuração de alertas de log.
 
-O termo alerta de registo descreve *regras* que disparam com base numa consulta de log num [espaço de trabalho Azure Log Analytics](../learn/tutorial-viewdata.md) ou em [Azure Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos em [alertas de Log no Azure Monitor.](../platform/alerts-unified-log.md)
+O termo alerta de registo descreve *regras* que disparam com base numa consulta de log num [espaço de trabalho Azure Log Analytics](../log-query/get-started-portal.md) ou em [Azure Application Insights](../log-query/log-query-overview.md). Saiba mais sobre funcionalidades, terminologia e tipos em [alertas de Log no Azure Monitor.](../platform/alerts-unified-log.md)
 
 > [!NOTE]
 > Este artigo não considera casos em que o portal Azure apresente uma regra de alerta desencadeada e uma notificação não seja realizada por um grupo de ação associado. Para estes casos, consulte os detalhes na [Criar e gerir grupos de ação no portal Azure.](../platform/action-groups.md)
@@ -28,7 +28,7 @@ Eis algumas razões comuns para que o estado para uma regra de alerta de registo
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para registos
 
-Um alerta de registo executa periodicamente a sua consulta com base em [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Uma vez que o Azure Monitor processa muitos terabytes de dados de milhares de clientes de fontes variadas em todo o mundo, o serviço é suscetível a diferentes atrasos de tempo. Para obter mais informações, consulte [o tempo de ingestão de dados nos registos do Azure Monitor](../platform/data-ingestion-time.md).
+Um alerta de registo executa periodicamente a sua consulta com base em [Log Analytics](../log-query/get-started-portal.md) ou [Application Insights](../log-query/log-query-overview.md). Uma vez que o Azure Monitor processa muitos terabytes de dados de milhares de clientes de fontes variadas em todo o mundo, o serviço é suscetível a diferentes atrasos de tempo. Para obter mais informações, consulte [o tempo de ingestão de dados nos registos do Azure Monitor](../platform/data-ingestion-time.md).
 
 Para mitigar os atrasos, o sistema aguarda e retricha a consulta de alerta várias vezes se encontrar os dados necessários ainda não ingeridos. O sistema tem um tempo de espera exponencialmente crescente. O alerta de registo só é desencadeado após a disponibilização dos dados, pelo que o atraso pode dever-se à ingestão lenta de dados de registo.
 
@@ -99,7 +99,7 @@ Fornece a lógica dos alertas de registo numa consulta analítica. A consulta an
 
 ![Consulta a ser executada](media/alert-log-troubleshoot/LogAlertPreview.png)
 
-A **caixa de consulta a executar** é o que o serviço de alerta de registo funciona. Se quiser entender qual pode ser a saída de consulta de alerta antes de criar o alerta, pode executar a consulta indicada e o intervalo de tempo através do [portal Analytics](../log-query/portals.md) ou da [API de Analytics](https://docs.microsoft.com/rest/api/loganalytics/).
+A **caixa de consulta a executar** é o que o serviço de alerta de registo funciona. Se quiser entender qual pode ser a saída de consulta de alerta antes de criar o alerta, pode executar a consulta indicada e o intervalo de tempo através do [portal Analytics](../log-query/log-query-overview.md) ou da [API de Analytics](/rest/api/loganalytics/).
 
 ## <a name="log-alert-was-disabled"></a>O alerta de registo foi desativado
 
@@ -181,15 +181,48 @@ Cada regra de alerta de registo criada no Azure Monitor como parte da sua config
 - A consulta é escrita para [correr através de vários recursos](../log-query/cross-workspace-query.md). E um ou mais dos recursos especificados já não existem.
 - [O alerta de registo do tipo de medição métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configurado tem uma consulta de alerta que não está em conformidade com as normas de sintaxe
 - Não houve fluxo de dados para a plataforma de análise. A [execução de consultas dá um erro](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque não há dados para a consulta fornecida.
-- As alterações no [idioma de consulta](https://docs.microsoft.com/azure/kusto/query/) incluem um formato revisto para comandos e funções. Assim, a consulta fornecida anteriormente numa regra de alerta já não é válida.
+- As alterações no [idioma de consulta](/azure/kusto/query/) incluem um formato revisto para comandos e funções. Assim, a consulta fornecida anteriormente numa regra de alerta já não é válida.
 
 [O Conselheiro Azure](../../advisor/advisor-overview.md) avisa-o sobre este comportamento. É adicionada uma recomendação para a regra específica de alerta de registo no Azure Advisor, na categoria de Alta Disponibilidade com impacto médio e uma descrição de "Repare a sua regra de alerta de registo para garantir a monitorização".
 
 > [!NOTE]
 > Se uma consulta de alerta na regra de alerta de registo não for retificada depois de o Azure Advisor ter fornecido uma recomendação durante sete dias, o Azure Monitor desativará o alerta de registo e garantirá que não é faturado desnecessariamente quando a regra não pode ser executada continuamente por um período considerável (7 dias). Pode encontrar a hora exata em que o Azure Monitor desativou a regra do alerta de registo procurando um evento no [Registo de Atividades Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
+## <a name="alert-rule-quota-was-reached"></a>A quota de regra de alerta foi atingida
+
+O número de regras de alerta de registo por subscrição e recurso está sujeito aos limites de quota [descritos aqui.](https://docs.microsoft.com/azure/azure-monitor/service-limits)
+
+### <a name="recommended-steps"></a>Passos Recomendados
+    
+Se tiver atingido o limite de quota, os seguintes passos podem ajudar a resolver a questão.
+
+1. Tente eliminar ou desativar as regras de alerta de pesquisa de registo que já não são usadas.
+2. Se necessitar de um aumento do limite de quota, abra um pedido de suporte e forneça as seguintes informações:
+
+    - IDs de subscrição para os quais os limites de quota têm de ser aumentados
+    - Razão para o aumento das quotas
+    - Tipo de recurso para o aumento da quota: **Log Analytics,** **Application Insights** ect.
+    - Limite de quota solicitado
+
+
+### <a name="to-check-the-current-usage-of-new-log-alert-rules"></a>Para verificar o uso atual de novas regras de alerta de registo
+    
+#### <a name="from-the-azure-portal"></a>No portal do Azure
+
+1. Abra o ecrã *Alertas* e clique em *Gerir regras de alerta*
+2. Filtre pela subscrição relevante com o controlo pendente *Subscrição*
+3. NÃO filtre por um grupo de recursos, tipo de recurso ou recurso específico
+4. No controlo de dropdown *do tipo Sinal,* selecione 'Log Search'
+5. Verifique se o controlo pendente *Estado* está definido como “Ativado”
+6. O número total de regras de alerta de pesquisa de registo será exibido acima da lista de regras
+
+#### <a name="from-api"></a>Na API
+
+- PowerShell - [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
+- API REST – [Listar por subscrição](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/listbysubscription)
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os alertas de registo em Azure](../platform/alerts-unified-log.md).
-- Saiba mais sobre [a Aplicação Insights](../../azure-monitor/app/analytics.md).
+- Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md).
 - Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)

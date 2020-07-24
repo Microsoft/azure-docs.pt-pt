@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d73c280e3f5639b11e0d07b9ef2f775f48cd3c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81682050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038493"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-A Azure Media Services API é uma API RESTful. Pode usá-lo para realizar operações em recursos de mídia utilizando uma API REST ou utilizando SDKs de clientes disponíveis. A Azure Media Services oferece um cliente de Media Services SDK para a Microsoft .NET. Para ser autorizado a aceder aos recursos dos Serviços de Comunicação social e à API dos Serviços de Comunicação Social, tem primeiro de ser autenticado. 
+A Azure Media Services API é uma API RESTful. Pode usá-lo para realizar operações em recursos de mídia utilizando uma API REST ou utilizando SDKs de clientes disponíveis. A Azure Media Services oferece um cliente de Media Services SDK para a Microsoft .NET. Para obter autorização para aceder aos recursos dos Serviços de Multimédia e à API dos Serviços de Multimédia, primeiro tem de se autenticar. 
 
 Os Serviços de Comunicação Social suportam [a autenticação baseada em Azure Ative Directory (Azure AD).](../../active-directory/fundamentals/active-directory-whatis.md) O serviço Azure Media REST exige que o utilizador ou aplicação que faz os pedidos de API REST tenha a função **de Contribuinte** ou **Proprietário** para aceder aos recursos. Para obter mais informações, consulte [Começar com o Controlo de Acesso Baseado em Fun no portal Azure.](../../role-based-access-control/overview.md)  
 
@@ -45,8 +46,8 @@ Os pedidos não autorizados falham, com o código de estado do 401. Se vir este 
  
 Quando utiliza a autenticação AZure AD com a Azure Media Services, tem duas opções de autenticação:
 
-- **Autenticação de utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
-- **Autenticação principal do serviço.** Autenticar um serviço. As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de nível médio ou trabalhos programados. Exemplos são aplicações web, apps de funções, aplicações lógicas, API e microserviços.
+- **Autenticação de utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto. 
+- **Autenticação principal do serviço.** Autenticar um serviço. As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de camada média ou tarefas agendadas. Exemplos são aplicações web, apps de funções, aplicações lógicas, API e microserviços.
 
 ### <a name="user-authentication"></a>Autenticação de utilizador 
 
@@ -148,12 +149,11 @@ Solução: Para que o pedido de DESCANSO dos Serviços de Comunicação Social t
 
 Os seguintes artigos são visão geral dos conceitos de autenticação AZure AD: 
 
-- [Cenários de autenticação abordados pela Azure AD](../../active-directory/develop/authentication-scenarios.md)
-- [Adicionar, atualizar ou remover uma aplicação no Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Cenários de autenticação abordados pela Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
+- [Adicionar, atualizar ou remover uma aplicação no Azure AD](../../active-directory/develop/quickstart-register-app.md)
 - [Configure e gera o Controlo de Acesso Baseado em Fun, utilizando o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize o portal Azure para aceder à [autenticação Azure AD para consumir Azure Media Services API](media-services-portal-get-started-with-aad.md).
 * Utilize a autenticação Azure AD para aceder à [Azure Media Services API com .NET](media-services-dotnet-get-started-with-aad.md).
-

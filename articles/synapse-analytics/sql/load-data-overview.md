@@ -1,5 +1,5 @@
 ---
-title: Em vez de ETL, desenhe ELT para piscina Sinaapse SQL / Microsoft Docs
+title: Desenhe uma estratégia de carregamento de dados da PolyBase para piscina SQL
 description: Em vez de ETL, desenhe um processo de extrato, carga e transformação (ELT) para carregar dados ou piscina SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965579"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046769"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Conceber uma estratégia de carregamento de dados da PolyBase para o pool SQL do Azure Synapse
 
-Os armazéns de dados tradicionais SMP utilizam um processo de extração, transformação e carga (ETL) para os dados de carregamento. A piscina Azure SQL é uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento. Utilizar um processo de Extração, Carga e Transformação (ELT) pode tirar partido do MPP e eliminar os recursos necessários para transformar os dados antes do carregamento.
+Os armazéns de dados tradicionais SMP utilizam um processo de extração, transformação e carga (ETL) para o carregamento de dados. A piscina Azure SQL é uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento. A utilização de um processo de Extração, Carga e Transformação (ELT) pode tirar partido do MPP e eliminar os recursos necessários para transformar os dados antes do carregamento.
 
 Enquanto a piscina SQL suporta muitos métodos de carregamento, incluindo opções não-Polybase, como BCP e SQL BulkCopy API, a forma mais rápida e escalável de carregar data é através da PolyBase.  PolyBase é uma tecnologia que acede a dados externos armazenados no armazenamento Azure Blob ou na Azure Data Lake Store através da linguagem T-SQL.
 
@@ -69,12 +69,12 @@ Se estiver a exportar a partir do SQL Server, pode utilizar a [ferramenta da lin
 |        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinário                           |
-|       carimbo de data/hora       |                             date                             |
+|       carimbo de data/hora       |                             data                             |
 |       carimbo de data/hora       |                        hora pequena                         |
 |       carimbo de data/hora       |                          datetime2                           |
 |       carimbo de data/hora       |                           datetime                           |
 |       carimbo de data/hora       |                             hora                             |
-|       date            |                             date                             |
+|       data            |                             data                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Aterre os dados no armazenamento da Azure Blob ou na Azure Data Lake Store
@@ -95,7 +95,7 @@ Poderá ter de preparar e limpar os dados na sua conta de armazenamento antes de
 
 Antes de poder carregar dados, tem de definir tabelas externas no seu armazém de dados. A PolyBase utiliza tabelas externas para definir e aceder aos dados no Azure Storage. Uma tabela externa é semelhante a uma visão de base de dados. A tabela externa contém o esquema de tabela e aponta para dados que são armazenados fora do armazém de dados.
 
-Definir tabelas externas envolve especificar a fonte de dados, o formato dos ficheiros de texto e as definições de tabela. Estes são os tópicos de sintaxe T-SQL que você precisará:
+Definir tabelas externas envolve especificar a fonte de dados, o formato dos ficheiros de texto e as definições de tabela. Seguem-se os tópicos de sintaxe T-SQL de que vai precisar:
 
 - [CRIAR FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -141,6 +141,6 @@ Ao conceber um processo ETL, tente executar o processo numa pequena amostra de t
 
 Muitos dos nossos parceiros têm soluções de carregamento. Para saber mais, consulte uma lista dos [nossos parceiros de solução.](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter orientação de carregamento, consulte [orientação para os dados de carga](data-loading-best-practices.md).

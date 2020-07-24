@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 13691fe05ca42af3a9d5b09ea36eb58bcdf1df08
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187477"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042146"
 ---
 # <a name="configure-runbook-input-parameters"></a>Configurar parâmetros de entrada do runbook
 
@@ -27,7 +27,7 @@ Os livros de fluxo de trabalho PowerShell e PowerShell em Azure Automation supor
 | **Propriedade** | **Descrição** |
 |:--- |:--- |
 | Tipo |Necessário. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
-| Nome |Necessário. O nome do parâmetro. Este nome deve ser único dentro do livro de bordo, deve começar com uma letra, e pode conter apenas letras, números ou caracteres de sublinhado. |
+| Name |Necessário. O nome do parâmetro. Este nome deve ser único dentro do livro de bordo, deve começar com uma letra, e pode conter apenas letras, números ou caracteres de sublinhado. |
 | Obrigatório |Opcional. Valor booleano especificando se o parâmetro requer um valor. Se o definir para True, deve ser fornecido um valor quando o livro de bordo for iniciado. Se definir isto para Falso, um valor é opcional. Se não especificar um valor para a propriedade, o `Mandatory` PowerShell considera o parâmetro de entrada opcional por padrão. |
 | Valor predefinido |Opcional. Um valor que é utilizado para o parâmetro se não for transmitido qualquer valor de entrada quando o livro de execução começar. O livro de execução pode definir um valor predefinido para qualquer parâmetro. |
 
@@ -148,7 +148,7 @@ Na etiqueta por baixo da caixa de entrada, pode ver as propriedades que foram de
      Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
    ```
 
-* **Cmdlets de modelo clássico de implantação Azure:** Pode iniciar um runbook de automatização criado num grupo de recursos predefinidos utilizando [o Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
+* **Cmdlets de modelo clássico de implantação Azure:** Pode iniciar um runbook de automatização criado num grupo de recursos predefinidos utilizando [o Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure.service/start-azureautomationrunbook).
   
    ```powershell
      $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}

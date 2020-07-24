@@ -5,11 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: e635c243a887690fb1f7a5dcd017c1130d74a747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97c1819d665e6964343e853249a0d22aa07c3588
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81114587"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045582"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas métricos clássicos usando o Azure Monitor
 
@@ -51,7 +52,7 @@ Depois de criar um alerta, pode selecioná-lo e fazer uma das seguintes tarefas:
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
-As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas utilizando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
+As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas utilizando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest).
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Obtenha todas as regras clássicas de alerta métrico em um grupo de recursos
 
@@ -87,7 +88,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 Estas secções mostram como usar os comandos PowerShell criam, vêem e gerem alertas métricos clássicos. Os exemplos do artigo ilustram como pode utilizar cmdlets Azure Monitor para alertas métricos clássicos.
 
-1. Se ainda não o fez, configura o PowerShell para executar o seu computador. Para obter mais informações, consulte [Como Instalar e Configurar o PowerShell](/powershell/azure/overview). Também pode rever toda a lista de cmdlets Azure Monitor PowerShell no [Azure Monitor (Insights) Cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+1. Se ainda não o fez, configura o PowerShell para executar o seu computador. Para obter mais informações, consulte [Como Instalar e Configurar o PowerShell](/powershell/azure/). Também pode rever toda a lista de cmdlets Azure Monitor PowerShell no [Azure Monitor (Insights) Cmdlets](/powershell/module/az.applicationinsights).
 
 2. Primeiro, faça login na sua assinatura Azure.
 
@@ -127,7 +128,7 @@ Estas secções mostram como usar os comandos PowerShell criam, vêem e gerem al
 
 8. As regras clássicas de alerta já não podem ser criadas através do PowerShell. Para criar uma regra de alerta, é necessário utilizar o novo comando ['Add-AzMetricAlertRule'.](/powershell/module/az.monitor/add-azmetricalertrule)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie um alerta métrico clássico com um modelo de Gestor de Recursos.](../../azure-monitor/platform/alerts-enable-template.md)
 - [Tenha um alerta métrico clássico que notifique um sistema não-Azure utilizando um webhook](../../azure-monitor/platform/alerts-webhooks.md).

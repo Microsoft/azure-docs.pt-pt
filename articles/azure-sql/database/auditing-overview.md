@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040594"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,6 +79,9 @@ Pode configurar a auditoria para diferentes tipos de ações e grupos de ação 
 A Azure SQL Database e a Azure Synapse Audit armazenam 4000 caracteres de dados para campos de caracteres num registo de auditoria. Quando a **declaração** ou os valores **data_sensitivity_information** devolvidos de uma ação auditável contenham mais de 4000 caracteres, quaisquer dados para além dos primeiros 4000 caracteres serão **truncados e não auditados.**
 A secção seguinte descreve a configuração da auditoria utilizando o portal Azure.
 
+  > [!NOTE]
+  > Não é possível permitir a auditoria a uma piscina SQL de Sinaapse pausada. Para permitir a auditoria, desempasse a piscina Synapse SQL. Saiba mais sobre [a piscina Synapse SQL.](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool)
+
 1. Aceda ao [portal do Azure](https://portal.azure.com).
 2. Navegue para **a Auditoria** sob o título de Segurança na sua base **de dados SQL** ou painel **de servidor SQL.**
 3. Se preferir configurar uma política de auditoria do servidor, pode selecionar o link de definições do servidor Ver na página de auditoria da base de **dados.** Pode então visualizar ou modificar as definições de auditoria do servidor. As políticas de auditoria do servidor aplicam-se a todas as bases de dados existentes e recentemente criadas neste servidor.
@@ -119,10 +122,6 @@ Para configurar os registos de auditoria de escrita para um espaço de trabalho 
 Para obter mais detalhes sobre os espaços de trabalho dos registos do monitor Azure, consulte [a conceção da sua implementação de Registos monitores Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria ao destino Event Hub
-
-> [!WARNING]
-> Permitir a auditoria num servidor que tenha uma piscina de base de dados SQL nele **resulta em retomar a piscina SQL Database e voltar a fazer uma pausa,** o que pode incorrer em encargos de faturação.
-> Não é possível permitir a auditoria num pool de base de dados SQL pausado. Para o ativar, desemodore a piscina sql Database.
 
 Para configurar registos de auditoria de escrita para um centro de eventos, selecione **Event Hub (Preview)** e abra detalhes do **Event Hub**. Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique em **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
 

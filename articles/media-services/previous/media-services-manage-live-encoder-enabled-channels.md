@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641110"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042808"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -70,9 +71,9 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | Estado do canal | Indicadores de UI do Portal | É Billing? |
 | --- | --- | --- |
 | A iniciar |A iniciar |Não (estado transitório) |
-| A executar |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
+| Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |Não |
+| Parada |Parada |No |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligação automática para canais não reutilizados
 A partir de 25 de janeiro de 2016, os Media Services lançaram uma atualização que para automaticamente um Canal (com codificação ao vivo ativada) depois de ter estado a funcionar num estado não reutilizado durante um longo período. Isto aplica-se a Canais que não têm Programas ativos, e que não receberam um feed de contribuição por um longo período de tempo.
@@ -216,14 +217,14 @@ Especifica a predefinição a ser utilizada pelo codificar vivo dentro deste Can
 
 #### <a name="output-video-stream"></a>Fluxo de vídeo de saída
 
-| BitRate | Largura | Altura | MaxFPS | Perfil | Nome do fluxo de saída |
+| BitRate | Width | Height | MaxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 
@@ -312,9 +313,9 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | Estado do canal | Indicadores de UI do Portal | Cobrado? |
 | --- | --- | --- |
 | A iniciar |A iniciar |Não (estado transitório) |
-| A executar |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |Sim |
+| Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |Yes |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |Não |
+| Parada |Parada |No |
 
 > [!NOTE]
 > Atualmente, a média de início do Canal é de cerca de 2 minutos, mas às vezes pode demorar até 20 minutos. Os resets do canal podem demorar até 5 minutos.
@@ -359,11 +360,10 @@ Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [Criar canais que realizem codificação ao vivo a partir de um bitrate de singe para fluxo bitrate adaptativo com .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Gerir canais com REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Gerir canais com REST API](/rest/api/media/operations/channel)
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
 [Azure Media Services Fragmentado MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

@@ -14,32 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6911b16c3fdf5bb94d42a40198943c3b1baa00da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74887073"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042828"
 ---
-# <a name="azure-media-services-error-codes"></a>Códigos de erro do Azure Media Services
+# <a name="azure-media-services-error-codes"></a>Códigos de erro dos Serviços de Multimédia do Azure
 Ao utilizar o Microsoft Azure Media Services, poderá receber códigos de erro HTTP do serviço dependendo de problemas como tokens de autenticação que expirem a ações que não são suportadas nos Serviços de Media. Segue-se uma lista de códigos de erro HTTP que podem ser **devolvidos** pelos Media Services e as possíveis causas para os mesmos.  
 
-## <a name="400-bad-request"></a>400 Mau Pedido
+## <a name="400-bad-request"></a>400 Pedido Incorreto
 O pedido contém informações inválidas e é rejeitado devido a uma das seguintes razões:
 
 * Uma versão API não suportada é especificada. Para a versão mais atual, consulte [Configuração para Serviços de Mídia REST Desenvolvimento da API](media-services-rest-how-to-use.md).
-* A versão API dos Serviços de Comunicação social não é especificada. Para obter informações sobre como especificar a versão API, consulte [As Operações de Serviços de Mídia REST Referência API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+* A versão API dos Serviços de Comunicação social não é especificada. Para obter informações sobre como especificar a versão API, consulte [As Operações de Serviços de Mídia REST Referência API](/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Se estiver a utilizar os SDKs .NET ou Java para ligar aos Serviços de Mídia, a versão API é especificada para si sempre que tentar realizar alguma ação contra os Serviços de Media.
   > 
   > 
-* Uma propriedade indefinida foi especificada. O nome da propriedade está na mensagem de erro. Apenas as propriedades que são membros de uma determinada entidade podem ser especificadas. Consulte [a Azure Media Services API Referência](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) para uma lista de entidades e seus imóveis.
+* Uma propriedade indefinida foi especificada. O nome da propriedade está na mensagem de erro. Apenas as propriedades que são membros de uma determinada entidade podem ser especificadas. Consulte [a Azure Media Services API Referência](/rest/api/media/operations/azure-media-services-rest-api-reference) para uma lista de entidades e seus imóveis.
 * Foi especificado um valor de propriedade inválido. O nome da propriedade está na mensagem de erro. Consulte o link anterior para os tipos de propriedade válidos e seus valores.
 * Falta um valor patrimonial e é necessário.
 * Parte do URL especificado contém um mau valor.
 * Foi feita uma tentativa de atualizar uma propriedade da WriteOnce.
 * Foi feita uma tentativa de criar um Job que tenha um Ativo de entrada com um AssetFile primário que não foi especificado ou não pôde ser determinado.
-* Foi feita uma tentativa de atualizar um localizador SAS. Os localizadores SAS só podem ser criados ou eliminados. Os localizadores de streaming podem ser atualizados. Para mais informações, consulte [localizadores.](https://docs.microsoft.com/rest/api/media/operations/locator)
+* Foi feita uma tentativa de atualizar um localizador SAS. Os localizadores SAS só podem ser criados ou eliminados. Os localizadores de streaming podem ser atualizados. Para mais informações, consulte [localizadores.](/rest/api/media/operations/locator)
 * Foi submetida uma operação ou consulta não apoiada.
 
 ## <a name="401-unauthorized"></a>401 Não Autorizado
@@ -87,7 +88,7 @@ O pedido não é permitido devido a uma das seguintes razões:
 * Foi feita uma tentativa de criar um localizador para um Ativo que já tem 5 localizadores em uso. (O Azure Storage impõe o limite de cinco políticas de acesso partilhado num recipiente de armazenamento.)
 * Ligar a conta de armazenamento de um Ativo a um IngestManifestAsset não é a mesma que a conta de armazenamento utilizada pelo progenitor IngestManifest.  
 
-## <a name="500-internal-server-error"></a>500 Erro de Servidor Interno
+## <a name="500-internal-server-error"></a>Erro Interno do Servidor 500
 Durante o processamento do pedido, os Serviços de Comunicação encontram algum erro que impede que o processamento continue. Isto pode dever-se a um dos seguintes motivos:
 
 * A criação de um Ativo ou Job falha porque a informação de quota de serviço da conta de Media Services está temporariamente indisponível.
@@ -95,10 +96,10 @@ Durante o processamento do pedido, os Serviços de Comunicação encontram algum
 * Outro erro inesperado.
 
 ## <a name="503-service-unavailable"></a>503 Serviço Indisponível
-O servidor não consegue receber pedidos. Este erro pode ser causado por pedidos excessivos ao serviço. O mecanismo de estrangulamento dos Serviços de Comunicação Social restringe o uso de recursos para aplicações que fazem um pedido excessivo ao serviço.
+O servidor não consegue receber pedidos. Este erro pode ser causado por excesso de pedidos ao serviço. O mecanismo de limitação dos Serviços de Multimédia restringe a utilização de recursos para aplicações que fazem pedidos em excesso ao serviço.
 
 > [!NOTE]
-> Verifique a mensagem de erro e o código de erro para obter informações mais detalhadas sobre a razão pela qual obteve o erro 503. Este erro nem sempre significa estrangulamento.
+> Verifique a mensagem de erro e a cadeia de código do erro para obter informações mais detalhadas sobre o motivo pelo qual obteve o erro 503. Este erro nem sempre significa limitação.
 > 
 > 
 
@@ -108,7 +109,7 @@ As possíveis descrições do estado são:
 * "O servidor está ocupado. Mais do que {0} pedidos por segundo pode ser estrangulado.
 * "O servidor está ocupado. Mais do que {0} pedidos em {1} segundos podem ser acelerados."
 
-Para lidar com este erro, recomendamos a utilização de uma lógica de retrocesso exponencial. Isto significa que a utilização de esperas progressivamente mais longas entre as retrações para respostas de erro consecutivas.  Para obter mais informações, consulte [o Bloco de Aplicação de Tratamento de Falhas Transitórias](https://msdn.microsoft.com/library/hh680905.aspx).
+Para lidar com este erro, recomendamos a utilização de uma lógica de retrocesso exponencial. Isto significa que a utilização de esperas progressivamente mais longas entre as retrações para respostas de erro consecutivas.  Para obter mais informações, consulte [o Bloco de Aplicação de Tratamento de Falhas Transitórias](/previous-versions/msp-n-p/hh680905(v=pandp.50)).
 
 > [!NOTE]
 > Se estiver a utilizar [o Azure Media Services SDK para .Net,](https://github.com/Azure/azure-sdk-for-media-services/tree/master)a lógica de repetição do erro 503 foi implementada pelo SDK.  
@@ -116,11 +117,10 @@ Para lidar com este erro, recomendamos a utilização de uma lógica de retroces
 > 
 
 ## <a name="see-also"></a>Consulte também
-[Códigos de erro de gestão de serviços de mídia](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Códigos de erro de gestão de serviços de mídia](/rest/api/media/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

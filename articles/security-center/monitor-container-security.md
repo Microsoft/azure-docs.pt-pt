@@ -8,11 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801381"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038619"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorize a segurança dos seus contentores
 
@@ -35,13 +36,11 @@ Esta página explica como utilizar as funcionalidades de segurança do contentor
 
 1. Para ativar a digitalização de uma imagem, empurre-a para o seu registo. 
 
-    Quando a varredura estiver concluída (normalmente após aproximadamente 10 minutos), os resultados estão disponíveis nas recomendações do Centro de Segurança.
-    
+    Quando a varredura termina (normalmente após aproximadamente 2 minutos, mas pode ser até 15 minutos), os resultados estão disponíveis como recomendações do Centro de Segurança como esta:
 
 1. Para ver os resultados, vá à página **de Recomendações.** Se os problemas forem encontrados, verá a seguinte recomendação:
 
     ![Recomendação para remediar questões ](media/monitor-container-security/acr-finding.png)
-
 
 1. Selecione a recomendação. 
     A página de detalhes da recomendação abre com informações adicionais. Esta informação inclui a lista de registos com imagens vulneráveis ("Recursos afetados") e as medidas de reparação. 
@@ -125,7 +124,7 @@ Para ver as recomendações de segurança do Azure Security Center para os anfit
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar as funcionalidades de segurança do Security Center. 
 

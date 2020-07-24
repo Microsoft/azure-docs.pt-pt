@@ -5,15 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/09/2020
+ms.date: 07/20/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1b2f74af02db1560dbcdd0bf0c72976dc6dcea8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8edb36345de4516077b3c857cff33389062cc7f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022338"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044559"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Resolver Problemas dos Conectores do Azure Data Factory
 
@@ -122,7 +123,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Resolução**: Na cadeia de ligação MongoDB, adicione opção "**uuidRepresentation=standard**". Para obter mais informações, consulte a [cadeia de ligação MongoDB](connector-mongodb.md#linked-service-properties).
             
 
-## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
+## <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
 
 ### <a name="error-code--adlsgen2operationfailed"></a>Código de erro: AdlsGen2OperationFailed
 
@@ -156,12 +157,28 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Mensagem:**`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-### <a name="error-code--adlsgen2timeouterror"></a>Código de erro: AdlsGen2TimeoutError
+### <a name="error-code-adlsgen2timeouterror"></a>Código de erro: AdlsGen2TimeoutError
 
 - **Mensagem:**`Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
-## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
+## <a name="azure-data-lake-storage-gen1"></a>Armazenamento do Azure Data Lake Ger1
+
+### <a name="error-message-the-underlying-connection-was-closed-could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Mensagem de erro: A ligação subjacente foi fechada: Não foi possível estabelecer uma relação de confiança para o canal seguro SSL/TLS.
+
+- **Sintomas**: A atividade de cópia falha com o seguinte erro: 
+
+    ```
+    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    ```
+
+- **Causa**: A validação do certificado falhou durante o aperto de mão TLS.
+
+- **Resolução**: Resolução : Resolução: Utilize cópia encenada para saltar a validação TLS para a ADLS Gen1. Você precisa reproduzir este problema e recolher vestígios netmon, e em seguida, envolver a sua equipa de rede para verificar a configuração da rede local após [este artigo](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace).
+
+
+    ![Resolução de problemas ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>Error message: The remote server retornou um erro: (403) Proibido
 
@@ -221,6 +238,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Causa**: Se a mensagem de erro contiver "InvalidOperationException", normalmente é causada por dados de entrada inválidos.
 
 - **Recomendação**: Para identificar qual a linha que encontra o problema, por favor, permita a função de tolerância à falha na atividade da cópia, que pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Doc de referência: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
+
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Código de erro: SqlUnauthorizedAccess
@@ -371,7 +389,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Resolução**: Na pia de atividade de cópia, sob as definições de Polybase, defina a opção "**use opção padrão do tipo**" para falso.
 
-### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>Mensagem de erro: Mensagem de exceção Java:HdfsBridge::CreateRecordReader
+### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>Mensagem de erro: Mensagem de exceção Java: HdfsBridge::CreateRecordReader
 
 - **Sintomas**: Copia dados no Armazém de Dados Azure SQL utilizando a PolyBase e atinge o seguinte erro:
 
@@ -423,7 +441,7 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 
 - **Mensagem:**`The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Causa**: Quando definir 'firstRowAsHeader' em atividade, a primeira linha será usada como nome de coluna. Este erro significa que a primeira linha contém valor vazio. Por exemplo: 'ColunaA,ColunaB'.
+- **Causa**: Quando definir 'firstRowAsHeader' em atividade, a primeira linha será usada como nome de coluna. Este erro significa que a primeira linha contém valor vazio. Por exemplo: 'ColunaA,, ColunaB'.
 
 - **Recomendação**: Verifique a primeira linha e fixe o valor se houver valor vazio.
 
@@ -670,13 +688,13 @@ Este artigo explora métodos comuns de resolução de problemas para conectores 
 - **Mensagem:**`Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)

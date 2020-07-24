@@ -5,20 +5,21 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81263391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046435"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorize e mitige o estrangulamento para reduzir a latência em Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorize e mitige o estrangulamento para reduzir a latência em Azure Time Series Insights Gen1
 
 Quando a quantidade de dados de entrada exceder a configuração do seu ambiente, poderá experimentar latência ou estrangulamento em Azure Time Series Insights.
 
@@ -26,14 +27,14 @@ Pode evitar a latência e a aceleração configurando corretamente o seu ambient
 
 É mais provável que experimente latência e estrangulamento quando:
 
-- Adicione uma fonte de evento que contenha dados antigos que possam exceder a sua taxa de entrada atribuída (o Time Series Insights terá de recuperar).
+- Adicione uma fonte de evento que contenha dados antigos que possam exceder a sua taxa de entrada atribuída (Azure Time Series Insights terá de recuperar).
 - Adicione mais fontes de eventos a um ambiente, resultando num pico de eventos adicionais (que podem exceder a capacidade do seu ambiente).
-- Empurre grandes quantidades de eventos históricos para uma fonte de evento, resultando num lag (a Time Series Insights terá de recuperar).
+- Empurre grandes quantidades de eventos históricos para uma fonte de evento, resultando num lag (Azure Time Series Insights terá de recuperar).
 - Junte os dados de referência com a telemetria, resultando em maior tamanho do evento. O tamanho máximo permitido do pacote é de 32 KB; pacotes de dados maiores do que 32 KB são truncados.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Saiba mais sobre o comportamento de insights de informação da Série De Tempo e como planeá-lo.</br>
+### <a name="learn-about-azure-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Saiba mais sobre o comportamento da Azure Time Series Insights e como planeá-lo.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -41,9 +42,9 @@ Pode evitar a latência e a aceleração configurando corretamente o seu ambient
 
 Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que ocorrem no seu ambiente.
 
-1. No portal Azure, selecione o ambiente de Insights de Séries Tempotadas. Em seguida, selecione **Alertas**.
+1. No portal Azure, selecione o ambiente Azure Time Series Insights. Em seguida, selecione **Alertas**.
 
-   [![Adicione um alerta ao seu ambiente de Insights de Séries Tempos](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Adicione um alerta ao seu ambiente Azure Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. Selecione **+ Nova regra de alerta**. O painel **de regras Criar** será então apresentado. **Selecione Adicionar** em **CONDIÇÕES**.
 
@@ -55,7 +56,7 @@ Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que o
 
    A partir daí, pode configurar alertas utilizando algumas das seguintes condições:
 
-   |Metric  |Descrição  |
+   |Métrica  |Descrição  |
    |---------|---------|
    |**Ingress Recebido Bytes**     | Contagem de bytes crus lidos de fontes de evento. A contagem bruta geralmente inclui o nome e o valor da propriedade.  |  
    |**Ingress recebeu mensagens inválidas**     | Contagem de mensagens inválidas lidas de todos os hubs de eventos Azure ou fontes de eventos Azure IoT Hub.      |
@@ -65,7 +66,7 @@ Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que o
    |**Ingress recebeu atraso de tempo da mensagem**   |  Diferença de segundos entre o tempo em que a mensagem é encosa na fonte do evento e o tempo que é processado em Ingress.      |
    |**Ingress Recebeu Mensagem Contagem DeSfasamento**   |  Diferença entre o número de sequência da última mensagem encosa na partição de fonte de evento e o número de sequência de mensagem a ser processada em Ingress.      |
 
-   Selecione **Done** (Concluído).
+   Selecione **Concluído**.
 
 1. Depois de configurar a lógica de sinal desejada, reveja a regra de alerta escolhida visualmente.
 
@@ -73,7 +74,7 @@ Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que o
 
 ## <a name="throttling-and-ingress-management"></a>Gestão de estrangulamento e de entrada
 
-* Se estiver a ser estrangulado, será registado um valor para o *Ingress Received Message Time Lag* informando-o sobre quantos segundos atrás do ambiente de Insights da Série TIme são a partir do momento em que a mensagem chega à fonte do evento (excluindo o tempo de indexação do appx. 30-60 segundos).  
+* Se estiver a ser estrangulado, será registado um valor para o *Ingress Received Message Time Lag* informando-o sobre quantos segundos atrás do ambiente Azure Time Series Insights é a partir do momento em que a mensagem chega à fonte do evento (excluindo o tempo de indexação do appx. 30-60 segundos).  
 
   *Ingress Received Message Count Lag* também deve ter um valor, permitindo-lhe determinar quantas mensagens estão atrás de si.  A maneira mais fácil de ser apanhado é aumentar a capacidade do seu ambiente para um tamanho que lhe permitirá superar a diferença.  
 
@@ -83,7 +84,7 @@ Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que o
 
   Por exemplo, se tiver três unidades S1 a formos (ou 2100 eventos por minuto de capacidade de entrada), pode definir um alerta **de Eventos Armazenados ingress** para >= 1900 eventos durante 2 horas. Se estiver constantemente a exceder este limiar e, portanto, desencadeando o seu alerta, é provável que esteja sub-a provisionado.  
 
-* Se suspeitar que está a ser estrangulado, pode comparar as suas **Mensagens Recebidas de Entrada** com as mensagens emitidas pela fonte do evento.  Se a entrada no seu Centro de Eventos for maior do que as **mensagens recebidas de Ingress,** as suas Insights de Séries Hortemitas estão provavelmente a ser estranguladas.
+* Se suspeitar que está a ser estrangulado, pode comparar as suas **Mensagens Recebidas de Entrada** com as mensagens emitidas pela fonte do evento.  Se a entrada no seu Centro de Eventos for maior do que as **mensagens recebidas de Ingress,** as suas Inzure Time Series Insights estão provavelmente a ser estranguladas.
 
 ## <a name="improving-performance"></a>Melhorar o desempenho
 
@@ -91,8 +92,8 @@ Para reduzir a aceleração ou a gravidez, a melhor maneira de corrigi-la é aum
 
 Pode evitar a latência e a aceleração configurando corretamente o seu ambiente para a quantidade de dados que pretende analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, leia [Escalar o seu ambiente](time-series-insights-how-to-scale-your-environment.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Leia sobre [diagnosticar e resolver problemas no seu ambiente de Insights de Séries Tempotuais](time-series-insights-diagnose-and-solve-problems.md).
+- Leia sobre [diagnosticar e resolver problemas no ambiente Azure Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Saiba [como escalar o ambiente de Insights de Séries Tempo .](time-series-insights-how-to-scale-your-environment.md)
+- Saiba [como escalar o ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

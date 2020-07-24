@@ -2,12 +2,13 @@
 title: Modos de implementação
 description: Descreve como especificar se deve utilizar um modo de implementação completo ou incremental com o Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: f20f41e989e1a994b7806aecf6e7cee5a4c27014
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460250"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040432"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Gestor de Recursos Azure
 
@@ -20,6 +21,9 @@ O modo predefinido é incremental.
 ## <a name="complete-mode"></a>Modo completo
 
 Em modo completo, o Gestor de Recursos elimina os recursos **existentes** no grupo de recursos, mas não estão especificados no modelo.
+
+> [!NOTE]
+> Utilize sempre o [funcionamento do "e se"](template-deploy-what-if.md) antes de colocar um modelo em modo completo. E se lhe mostrar quais os recursos que serão criados, eliminados ou modificados. Use o que se para evitar apagar involuntariamente recursos.
 
 Se o seu modelo incluir um recurso que não é implementado porque [a condição](conditional-resource-deployment.md) avalia a falsa, o resultado depende da versão API REST que utiliza para implementar o modelo. Se utilizar uma versão anterior a 2019-05-10, o recurso **não é eliminado**. Com 2019-05-10 ou posteriormente, o recurso **é eliminado.** As versões mais recentes da Azure PowerShell e do Azure CLI apagam o recurso.
 
@@ -49,6 +53,8 @@ Em modo incremental, o Gestor de Recursos deixa recursos **inalterados** que exi
 
 > [!NOTE]
 > Ao recolocar um recurso existente em modo incremental, todas as propriedades são reaplicadas. As **propriedades não são adicionadas gradualmente.** Um mal-entendido comum é pensar que as propriedades que não são especificadas no modelo são deixadas inalteradas. Se não especificar determinadas propriedades, o Gestor de Recursos interpreta a implementação como uma sobreposição desses valores. As propriedades que não estão incluídas no modelo são reiniciadas para os valores predefinidos. Especifique todos os valores não predefinidos para o recurso, e não apenas os que está a atualizar. A definição de recursos no modelo contém sempre o estado final do recurso. Não pode representar uma atualização parcial a um recurso existente.
+>
+> Em casos raros, as propriedades que especifica para um recurso são realmente implementadas como um recurso infantil. Por exemplo, quando fornece valores de configuração do site para uma aplicação web, esses valores são implementados no tipo de recurso infantil `Microsoft.Web/sites/config` . Se recolocar a aplicação web e especificar um objeto vazio para os valores de configuração do site, o recurso da criança não é atualizado. No entanto, se fornecer novos valores de configuração do site, o tipo de recurso para criança é atualizado.
 
 ## <a name="example-result"></a>Exemplo resultado
 
@@ -118,7 +124,7 @@ O exemplo a seguir mostra um modelo ligado definido para o modo de implementaç�
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber sobre a criação de modelos de Gestor de Recursos, consulte os modelos do [Gestor de Recursos Azure.](template-syntax.md)
 * Para saber mais sobre a implementação de recursos, consulte [implementar uma aplicação com o modelo Azure Resource Manager](deploy-powershell.md).

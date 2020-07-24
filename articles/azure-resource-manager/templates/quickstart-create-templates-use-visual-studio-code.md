@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040512"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Quickstart: Criar modelos de gestor de recursos Azure com Código de Estúdio Visual
 
@@ -102,7 +102,7 @@ Selecione `New`  >  `All Parameters` > Selecione um nome e localização para o 
 
 Esta ação cria um novo arquivo de parâmetros e mapeia-o com o modelo a partir do qual foi criado. Pode ver e modificar o mapeamento de ficheiros do modelo/parâmetro atual na barra de estado do Código do Estúdio Visual enquanto o modelo é selecionado.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Imagem mostrando o mapeamento de ficheiro de modelo/parâmetro na barra de estado do Código do Estúdio Visual.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Agora que o ficheiro de parâmetros foi mapeado para o modelo, a extensão valida tanto o modelo como o ficheiro de parâmetros juntos. Para ver esta validação na prática, adicione um valor de dois caracteres ao `storageAccountName` parâmetro no ficheiro do parâmetro e guarde o ficheiro.
 

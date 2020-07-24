@@ -3,13 +3,14 @@ title: Singletons para Funções Duradouras - Azure
 description: Como utilizar singletons na extensão de Funções Duradouras para Funções Azure.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: deb64cf8128fd548cb74c064ab9fd6f169db5300
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76262814"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041929"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores Singleton em Funções Duradouras (Funções Azure)
 
@@ -55,7 +56,7 @@ public static async Task<HttpResponseMessage> RunSingle(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-**function.js**
+**function.json**
 
 ```json
 {
@@ -111,16 +112,72 @@ module.exports = async function(context, req) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+**__init__.py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = req.route_params['instanceId']
+    function_name = req.route_params['functionName']
+
+    existing_instance = await client.get_status(instance_id)
+
+    if existing_instance != None:
+        event_data = req.get_body()
+        instance_id = await client.start_new(function_name, instance_id, event_data)
+        logging.info(f"Started orchestration with ID = '{instance_id}'.")
+        return client.create_check_status_response(req, instance_id)
+    else:
+        return {
+            'status': 409,
+            'body': f"An instance with ID '${instance_id}' already exists"
+        }
+
+```
+
 ---
 
-Por padrão, os IDs de instância são gerados aleatoriamente GUIDs. No exemplo anterior, no entanto, o ID de instância é passado em dados de rota a partir do URL. O código chama `GetStatusAsync` (C#) ou `getStatus` (JavaScript) para verificar se uma instância com o ID especificado já está em execução. Se tal instância não estiver em execução, um novo caso é criado com esse ID.
+Por padrão, os IDs de instância são gerados aleatoriamente GUIDs. No exemplo anterior, no entanto, o ID de instância é passado em dados de rota a partir do URL. O código chama `GetStatusAsync` (C#), `getStatus` (JavaScript) ou `get_status` (Python) para verificar se um caso com o ID especificado já está em execução. Se tal instância não estiver em execução, um novo caso é criado com esse ID.
 
 > [!NOTE]
 > Há uma condição de raça potencial nesta amostra. Se duas instâncias de **HttpStartSingle** executarem simultaneamente, ambas as chamadas de função reportarão o sucesso, mas apenas uma instância de orquestração irá realmente começar. Dependendo dos seus requisitos, isto pode ter efeitos colaterais indesejáveis. Por esta razão, é importante garantir que nenhum dois pedidos podem executar esta função de gatilho simultaneamente.
 
 Os detalhes de implementação da função orquestradora não importam. Pode ser uma função orquestradora regular que começa e completa, ou pode ser uma que corre para sempre (isto é, uma [Orquestração Eterna).](durable-functions-eternal-orchestrations.md) O importante é que só há um caso a decorrer de cada vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça as características http nativas das orquestrações](durable-functions-http-features.md)

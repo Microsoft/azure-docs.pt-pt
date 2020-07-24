@@ -14,11 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c41538acdb8ed94ee4995ad8d5f5e4cebb2e14d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043446"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo em serviços de mídia
 
@@ -29,11 +30,11 @@ A Azure Media Services permite-lhe entregar eventos ao vivo aos seus clientes na
 
 ## <a name="live-events"></a>Eventos em Direto
 
-Os [Eventos em Direto](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um Evento Ao Vivo, é criado um ponto final de entrada primário e secundário que pode utilizar para enviar um sinal ao vivo a partir de um codificar remoto. O codificadora ao vivo remoto envia o feed de contribuição para esse ponto final de entrada utilizando o protocolo de entrada [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmentado-MP4). Para o protocolo rtmp ingest, o conteúdo pode ser enviado de forma clara `rtmp://` ou encriptada de forma segura no `rtmps://` fio. Para o protocolo Smooth Streaming ingest, os sistemas de URL suportados são `http://` ou `https://` .  
+Os [Eventos em Direto](/rest/api/media/liveevents) são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um Evento Ao Vivo, é criado um ponto final de entrada primário e secundário que pode utilizar para enviar um sinal ao vivo a partir de um codificar remoto. O codificadora ao vivo remoto envia o feed de contribuição para esse ponto final de entrada utilizando o protocolo de entrada [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (fragmentado-MP4). Para o protocolo rtmp ingest, o conteúdo pode ser enviado de forma clara `rtmp://` ou encriptada de forma segura no `rtmps://` fio. Para o protocolo Smooth Streaming ingest, os sistemas de URL suportados são `http://` ou `https://` .  
 
 ## <a name="live-event-types"></a>Tipos de eventos ao vivo
 
-Um [Evento Ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) pode ser configurado para um passe *através* (um codificadora ao vivo no local envia um fluxo bitrate múltiplo) ou *codificação ao vivo* (um codificadora ao vivo no local envia um único fluxo de bitrate). Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+Um [Evento Ao Vivo](/rest/api/media/liveevents) pode ser configurado para um passe *através* (um codificadora ao vivo no local envia um fluxo bitrate múltiplo) ou *codificação ao vivo* (um codificadora ao vivo no local envia um único fluxo de bitrate). Os tipos são definidos durante a criação usando [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType.None**: Um codificador ao vivo no local envia um fluxo bitrate múltiplo. O fluxo ingerido passa pelo Live Event sem qualquer processamento adicional. Também chamado de modo de passagem.
 * **LiveEventEncodingType.Standard**: Um codificador ao vivo no local envia um único fluxo bitrate para o Live Event e Media Services cria vários streams bitrate. Se o feed de contribuição for de 720p ou resolução superior, a predefinição Predefinição **Default720p** codificará um conjunto de pares de resolução/bitrates de 6.
@@ -86,7 +87,7 @@ Ao criar um Evento Ao Vivo, pode especificar as seguintes opções:
 ### <a name="naming-rules"></a>Regras de nomenclatura
 
 * Max live event name é 32 caracteres.
-* O nome deve seguir este padrão [regex:](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
+* O nome deve seguir este padrão [regex:](/dotnet/standard/base-types/regular-expression-language-quick-reference) `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
 Consulte também [as convenções de nomeação de Endpoints streaming.](streaming-endpoint-concept.md#naming-convention)
 
@@ -123,9 +124,9 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 
     |Linguagem|Ativar URL de vaidade|Definir o token de acesso|
     |---|---|---|
-    |REST|[propriedades.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--vaidade-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token de acesso](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[propriedades.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vaidade-url](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token de acesso](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura dos URLs de ingestão em direto
 
@@ -163,7 +164,7 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 
 ## <a name="live-event-preview-url"></a>URL de pré-visualização do evento ao vivo
 
-Assim que o Live Event começar a receber o feed de contribuição, pode utilizar o seu ponto final de pré-visualização para visualizar e validar que está a receber o live stream antes de publicar mais. Depois de verificar que o stream de pré-visualização é bom, pode utilizar o Live Event para disponibilizar o stream ao vivo para entrega através de um ou mais pontos de streaming (pré-criados). Para isso, crie uma nova [Produção Ao Vivo](https://docs.microsoft.com/rest/api/media/liveoutputs) no Live Event.
+Assim que o Live Event começar a receber o feed de contribuição, pode utilizar o seu ponto final de pré-visualização para visualizar e validar que está a receber o live stream antes de publicar mais. Depois de verificar que o stream de pré-visualização é bom, pode utilizar o Live Event para disponibilizar o stream ao vivo para entrega através de um ou mais pontos de streaming (pré-criados). Para isso, crie uma nova [Produção Ao Vivo](/rest/api/media/liveoutputs) no Live Event.
 
 > [!IMPORTANT]
 > Certifique-se de que o vídeo está a fluir para o URL de pré-visualização antes de continuar!
@@ -174,11 +175,11 @@ Para mais detalhes, consulte [operações de longa duração.](media-services-ap
 
 ## <a name="live-outputs"></a>Saídas em Direto
 
-Assim que tiver o stream fluindo para o Live Event, pode iniciar o evento de streaming criando um [Ativo,](https://docs.microsoft.com/rest/api/media/assets) [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs)e [Streaming Localizador.](https://docs.microsoft.com/rest/api/media/streaminglocators) A Live Output irá arquivar o fluxo e disponibilizá-lo aos espectadores através do [Streaming Endpoint.](https://docs.microsoft.com/rest/api/media/streamingendpoints)  
+Assim que tiver o stream fluindo para o Live Event, pode iniciar o evento de streaming criando um [Ativo,](/rest/api/media/assets) [Live Output](/rest/api/media/liveoutputs)e [Streaming Localizador.](/rest/api/media/streaminglocators) A Live Output irá arquivar o fluxo e disponibilizá-lo aos espectadores através do [Streaming Endpoint.](/rest/api/media/streamingendpoints)  
 
 Para obter informações detalhadas sobre as saídas ao vivo, consulte [utilizando um DVR em nuvem](live-event-cloud-dvr.md).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-streaming)
 
@@ -186,6 +187,6 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

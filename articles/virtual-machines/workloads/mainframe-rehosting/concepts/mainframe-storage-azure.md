@@ -6,11 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76288919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042588"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento do computador principal para Azure
 
@@ -44,7 +45,7 @@ As opções de infraestrutura azul como serviço[(IaaS)](https://azure.microsoft
 
 A Microsoft oferece petabytes de armazenamento para aplicações hospedadas no Azure, e tem várias opções de armazenamento. Estes variam desde o armazenamento SSD para alto desempenho até armazenamento de blob de baixo custo para armazenamento em massa e arquivos. Além disso, o Azure fornece uma opção de redundância de dados para armazenamento - algo que requer mais esforço para se configurar em um ambiente mainframe.
 
-O armazenamento Azure está disponível como [Azure Disks](/azure/virtual-machines/windows/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction)e [Azure Blobs](/azure/storage/blobs/storage-blobs-overview) como resume a tabela seguinte. Saiba mais sobre [quando usar cada um.](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
+O armazenamento Azure está disponível como [Azure Disks](../../../windows/managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)e [Azure Blobs](../../../../storage/blobs/storage-blobs-overview.md) como resume a tabela seguinte. Saiba mais sobre [quando usar cada um.](../../../../storage/common/storage-introduction.md)
 
 <!-- markdownlint-disable MD033 -->
 
@@ -101,13 +102,13 @@ Os SSDs proporcionam o maior desempenho de armazenamento em Azure. Estão dispon
 
 O armazenamento de blob fornece o maior volume de armazenamento em Azure. Além do tamanho de armazenamento, a Azure oferece armazenamento gerido e não gerido. Com o armazenamento gerido, a Azure cuida da gestão das contas de armazenamento subjacentes. Com o armazenamento não gerido, o utilizador assume a responsabilidade de configurar contas de armazenamento Azure de tamanho adequado para satisfazer os requisitos de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Rehosagem de mainframe em Máquinas Virtuais Azure](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Rehosagem de mainframe em Máquinas Virtuais Azure](../overview.md)
 - [Mover o computador principal para Azure](mainframe-compute-Azure.md)
-- [Decidir quando usar Azure Blobs, Ficheiros Azure ou Discos Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
-- [Discos geridos standard SSD para cargas de trabalho Azure VM](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
+- [Decidir quando usar Azure Blobs, Ficheiros Azure ou Discos Azure](../../../../storage/common/storage-introduction.md)
+- [Discos geridos standard SSD para cargas de trabalho Azure VM](../../../windows/disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>Recursos IBM
 

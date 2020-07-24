@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 8dd54fec963b8f4775a8ade6277b071d62ca3850
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524216"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040252"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Aceda e gere ficheiros no conector OneDrive utilizando apps Azure Logic
 
@@ -40,7 +40,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 
 1. No Logic App Designer, `onedrive` escreva para obter uma lista dos gatilhos:  
 
-   ![Uma caixa de diálogo intitulada "Show Microsoft managed APIs" tem uma caixa que contém "onedrive". Abaixo está uma lista de quatro gatilhos. A primeira delas é "OneDrive - Quando um ficheiro é criado". O segundo, "OneDrive - Quando um ficheiro é modificado", foi selecionado.](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Uma caixa de diálogo intitulada "Show Microsoft managed A P I's" tem uma caixa que contém "onedrive". Abaixo está uma lista de quatro gatilhos. A primeira delas é "OneDrive - Quando um ficheiro é criado". O segundo, "OneDrive - Quando um ficheiro é modificado", foi selecionado.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Selecione **Quando um ficheiro for modificado**. Se já existir uma ligação, selecione o botão 'Show Picker' para selecionar uma pasta.
 
@@ -68,7 +68,7 @@ Uma ação é uma operação realizada pelo fluxo de trabalho definido numa apli
 
 3. Na caixa de pesquisa, `onedrive` escreva para obter uma lista de todas as ações disponíveis.
 
-   ![Uma caixa de diálogo intitulada "Show Microsoft managed APIs" tem uma caixa que contém "onedrive". Abaixo está uma lista de oito ações. O primeiro é "OneDrive - Criar ficheiro", e é selecionado.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![Uma caixa de diálogo intitulada "Show Microsoft managed A P I's" tem uma caixa que contém "onedrive". Abaixo está uma lista de oito ações. O primeiro é "OneDrive - Criar ficheiro", e é selecionado.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. No nosso exemplo, escolha **OneDrive - Criar ficheiro**. Se já existir uma ligação, então selecione o Caminho da **Pasta** para colocar o ficheiro, introduza o **Nome do Ficheiro**e escolha o Conteúdo de **Ficheiro** que pretende:  
 
@@ -86,6 +86,6 @@ Uma ação é uma operação realizada pelo fluxo de trabalho definido numa apli
 
 Ver quaisquer gatilhos e ações definidos no swagger, e também ver quaisquer limites nos detalhes do [conector](/connectors/onedriveconnector/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conectores para o Azure Logic Apps](apis-list.md)

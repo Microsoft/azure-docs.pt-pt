@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Serviço de Sinalização Azure REST API
-description: Aprenda a utilizar a API REST com o Serviço de Sinalização Azure após amostras. Encontre detalhes da especificação REST API.
+title: Quickstart - Azure SignalR Service REST API
+description: Aprenda a utilizar a API REST com o Serviço Azure SignalR seguindo amostras. Encontre detalhes da especificação da API REST.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 707547cb39487111e2e9353de7e82c2409638324
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80548134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045013"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmitir mensagens em tempo real a partir da aplicação de consola
 
@@ -126,7 +126,7 @@ Versão | Estado da API | Porta | Específico
 
 A lista de APIs disponíveis para cada versão específica está disponível na lista seguinte.
 
-API | `1.0-preview` | `1.0`
+API | 1.0 pré-visualização | 1,0
 --- | --- | ---
 [Difundir para todos](#broadcast) | **&#x2713;** | **&#x2713;**
 [Difundir para um grupo](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -136,12 +136,12 @@ Enviar para alguns utilizadores | **&#x2713;** (Depreciado) | `N / A`
 [A adicionar um utilizador a um grupo](#add-user-to-group) | `N / A` | **&#x2713;**
 [A remover um utilizador de um grupo](#remove-user-from-group) | `N / A` | **&#x2713;**
 [Verifique a existência do utilizador](#check-user-existence) | `N / A` | **&#x2713;**
-[Remova um utilizador de todos os grupos](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
+[Remover um utilizador de todos os grupos](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
 [Enviar para uma ligação](#send-connection) | `N / A` | **&#x2713;**
-[Adicione uma ligação a um grupo](#add-connection-to-group) | `N / A` | **&#x2713;**
+[Adicionar uma ligação a um grupo](#add-connection-to-group) | `N / A` | **&#x2713;**
 [Remover uma ligação de um grupo](#remove-connection-from-group) | `N / A` | **&#x2713;**
-[Fechar uma ligação ao cliente](#close-connection) | `N / A` | **&#x2713;**
-[Service Health](#service-health) | `N / A` | **&#x2713;**
+[Fechar uma ligação com o cliente](#close-connection) | `N / A` | **&#x2713;**
+[Estado de funcionamento dos serviços](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Difundir para todos
@@ -160,7 +160,7 @@ Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Mesmo que acima
 
 <a name="send-user"> </a>
-### <a name="sending-to-a-user"></a>Envio a um utilizador
+### <a name="sending-to-a-user"></a>Envio para um utilizador
 
 Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 --- | --- | --- | ---
@@ -182,7 +182,7 @@ Versão | Método HTTP da API | URL do Pedido
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="check-user-existence"> </a>
-### <a name="check-user-existence-in-a-group"></a>Verifique a existência do utilizador num grupo
+### <a name="check-user-existence-in-a-group"></a>Verifique a existência do utilizador em um grupo
 
 Versão da API | Método HTTP da API | URL do Pedido
 ---|---|---
@@ -191,11 +191,11 @@ Versão da API | Método HTTP da API | URL do Pedido
 
 Código de Estado da Resposta | Descrição
 ---|---
-`200` | Utilizador existe
-`404` | Utilizador não existe
+`200` | O utilizador existe
+`404` | O utilizador não existe
 
 <a name="remove-user-from-all-groups"> </a>
-### <a name="remove-a-user-from-all-groups"></a>Remova um utilizador de todos os grupos
+### <a name="remove-a-user-from-all-groups"></a>Remover um utilizador de todos os grupos
 
 Versão da API | Método HTTP da API | URL do Pedido
 ---|---|---
@@ -209,7 +209,7 @@ Versão da API | Método HTTP da API | URL do Pedido | Corpo do Pedido
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
 
 <a name="add-connection-to-group"> </a>
-### <a name="add-a-connection-to-a-group"></a>Adicione uma ligação a um grupo
+### <a name="add-a-connection-to-a-group"></a>Adicionar uma ligação a um grupo
 
 Versão da API | Método HTTP da API | URL do Pedido
 ---|---|---
@@ -225,7 +225,7 @@ Versão da API | Método HTTP da API | URL do Pedido
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
 
 <a name="close-connection"> </a>
-### <a name="close-a-client-connection"></a>Fechar uma ligação ao cliente
+### <a name="close-a-client-connection"></a>Fechar uma ligação com o cliente
 
 Versão da API | Método HTTP da API | URL do Pedido
 ---|---|---
@@ -241,14 +241,14 @@ Versão da API | Método HTTP da API | URL do Pedido
 
 Código de Estado da Resposta | Descrição
 ---|---
-`200` | Serviço Bom
-`503` | Serviço Indisponível
+`200` | Bom serviço
+`5xx` | Erro de serviço
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, aprendeu a usar a API REST para transmitir mensagens em tempo real do SignalR Service para os clientes. Em seguida, saiba mais sobre como desenvolver e implementar funções Azure com ligação do Serviço SignalR, que é construído em cima da API REST.
+Neste quickstart, aprendeu a usar a API REST para transmitir mensagem em tempo real do Serviço SignalR aos clientes. Em seguida, saiba mais sobre como desenvolver e implementar Funções Azure com ligação SignalR Service, que é construída em cima da API REST.
 
 > [!div class="nextstepaction"]
-> [Desenvolver funções Azure utilizando encadernações do Serviço De Sinalização Azure](signalr-quickstart-azure-functions-csharp.md)
+> [Desenvolver funções Azure utilizando encadernações do Serviço Azure SignalR](signalr-quickstart-azure-functions-csharp.md)

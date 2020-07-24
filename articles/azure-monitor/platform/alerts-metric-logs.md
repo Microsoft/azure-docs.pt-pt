@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4c9998488013ce89b17a30a6c3948a02407d06bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53ea43213a48cb712eb6ce685f03b733b83948b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945329"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045529"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas métricos para registos no Monitor Azure
 
@@ -68,10 +68,10 @@ Para obter detalhes e amostras passo a passo - consulte [a criação e gestão d
 - Sinal escolhido para alerta métrico para o espaço de trabalho do *Log Analytics* selecionado é do tipo **Métrico**
 - Filtrar para condições específicas ou recursos utilizando filtros de dimensão; métricas para troncos são multidimensionais
 - Ao configurar a Lógica de *Sinal,* pode ser criado um único alerta para abranger múltiplos valores de dimensão (como o Computador)
-- Se **não** utilizar o portal Azure para criar um alerta métrico para *o espaço de trabalho*do Log Analytics selecionado; em seguida, o utilizador deve primeiro criar uma regra explícita para converter dados de registo numa métrica utilizando [O Monitor Azure - Regras de Consulta Programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
+- Se **não** utilizar o portal Azure para criar um alerta métrico para *o espaço de trabalho*do Log Analytics selecionado; em seguida, o utilizador deve primeiro criar uma regra explícita para converter dados de registo numa métrica utilizando [O Monitor Azure - Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
-> Ao criar um alerta métrico para o log analytics espaço de trabalho através do portal Azure - regra correspondente para converter dados de registo em métrica via [Azure Monitor - As Regras de Consulta Programadas](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) são automaticamente criadas em segundo plano, *sem necessidade de qualquer intervenção ou ação do utilizador*. Para alerta métrico para criação de registos utilizando meios que não o portal Azure, consulte [o Modelo de Recurso para Alertas Métricos para](#resource-template-for-metric-alerts-for-logs) a secção de Registos em meios de amostragem de criação de um registo baseado em Placas de Marcação para regra de conversão métrica antes da criação de alerta métrico - caso contrário, não haverá dados para o alerta métrico nos registos criados.
+> Ao criar um alerta métrico para o log analytics espaço de trabalho através do portal Azure - regra correspondente para converter dados de registo em métrica via [Azure Monitor - As Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules) são automaticamente criadas em segundo plano, *sem necessidade de qualquer intervenção ou ação do utilizador*. Para alerta métrico para criação de registos utilizando meios que não o portal Azure, consulte [o Modelo de Recurso para Alertas Métricos para](#resource-template-for-metric-alerts-for-logs) a secção de Registos em meios de amostragem de criação de um registo baseado em Placas de Marcação para regra de conversão métrica antes da criação de alerta métrico - caso contrário, não haverá dados para o alerta métrico nos registos criados.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Modelo de recursos para alertas métricos para registos
 
@@ -685,7 +685,7 @@ Ou use o modelo de recursos de implementação usando O Azure CLI:
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [alertas métricos.](alerts-metric.md)
 - Saiba mais sobre [os alertas de registo em Azure](../../azure-monitor/platform/alerts-unified-log.md).

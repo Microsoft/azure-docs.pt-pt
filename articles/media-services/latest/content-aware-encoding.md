@@ -12,15 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84234887"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039147"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize a predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução
 
-Para preparar o conteúdo para a entrega através do [streaming de bitrate adaptativo,](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)o vídeo precisa de ser codificado a várias taxas de bit (de alto a baixo). Isto garante uma degradação graciosa da qualidade, uma vez que o bitrate é reduzido assim como a resolução do vídeo. Esta codificação de bit-rate múltipla faz uso de uma chamada escada codificadora – uma tabela de resoluções e bitrates, ver as [predefinições codificadoras dos](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)Media Services.
+Para preparar o conteúdo para a entrega através do [streaming de bitrate adaptativo,](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)o vídeo precisa de ser codificado a várias taxas de bit (de alto a baixo). Isto garante uma degradação graciosa da qualidade, uma vez que o bitrate é reduzido assim como a resolução do vídeo. Esta codificação de bit-rate múltipla faz uso de uma chamada escada codificadora – uma tabela de resoluções e bitrates, ver as [predefinições codificadoras dos](/rest/api/media/transforms/createorupdate#encodernamedpreset)Media Services.
 
 Deve estar ciente do conteúdo que está a processar e personalizar/afinar a escada de codificação para a complexidade do vídeo individual. Em cada resolução, há um bitrate para além do qual qualquer aumento de qualidade não é percetivo – o codificador opera a este valor bitrate ideal. O próximo nível de otimização é selecionar as resoluções com base no conteúdo – por exemplo, um vídeo de uma apresentação do PowerPoint não beneficia de ir abaixo dos 720p. Indo mais longe, o codificador pode ser incumbido de otimizar as definições para cada filmagem dentro do vídeo. 
 
@@ -78,10 +79,10 @@ TransformOutput[] output = new TransformOutput[]
 > [!NOTE]
 > Os trabalhos de codificação utilizando a `ContentAwareEncoding` predefinição estão a ser faturados com base nas atas de saída. 
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Carregar, codificar e transmitir vídeos com o Media Services v3](stream-files-tutorial-with-api.md)
-* [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
+* [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)
 * [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - CLI](stream-files-cli-quickstart.md)
 * [Tutorial: Codificar um ficheiro remoto com base no URL e transmitir o vídeo - .NET](stream-files-dotnet-quickstart.md)
 * [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Node.js](stream-files-nodejs-quickstart.md)

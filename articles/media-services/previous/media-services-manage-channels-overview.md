@@ -14,16 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b28e200cab2edb4c1f603e4c67264cdc1c46d7f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042852"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral do Live Streaming usando serviços de mídia
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -73,17 +74,17 @@ A tabela seguinte fornece um guia para comparar os dois tipos de Canal suportado
 
 | Funcionalidade | Canal de passagem | Canal Standard |
 | --- | --- | --- |
-| A entrada bitrate única é codificada em vários bitrates na nuvem |Não |Sim |
+| A entrada bitrate única é codificada em vários bitrates na nuvem |Não |Yes |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Streaming Suave |RTMP, Streaming Suave |
 | Preço |Veja [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Live Video" |Consulte [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo máximo de execução |24x7 |8 horas |
-| Suporte para inserção de ardósias |Não |Sim |
-| Suporte para sinalização de anúncios |Não |Sim |
+| Suporte para inserção de ardósias |Não |Yes |
+| Suporte para sinalização de anúncios |Não |Yes |
 | Pass-through CEA 608/708 legendas |Sim |Sim |
-| Suporte para GOPs de entrada não uniforme |Sim |Não – a entrada deve ser fixada 2sec GOPs |
-| Suporte para entrada de taxa de fotogramas variáveis |Sim |Não – a entrada deve ser fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o codificadores não pode cair para 10 fotogramas/seg. |
-| Desligação automática dos canais quando o feed de entrada é perdido |Não |Depois de 12 horas, se não houver programa em execução |
+| Suporte para GOPs de entrada não uniforme |Yes |Não – a entrada deve ser fixada 2sec GOPs |
+| Suporte para entrada de taxa de fotogramas variáveis |Yes |Não – a entrada deve ser fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o codificadores não pode cair para 10 fotogramas/seg. |
+| Desligação automática dos canais quando o feed de entrada é perdido |No |Depois de 12 horas, se não houver programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhar com Canais que recebem transmissões em fluxo em direto com velocidade de transmissão múltipla a partir de codificadores no local (pass-through)
 
@@ -105,7 +106,7 @@ Para obter mais informações, consulte [Trabalhar com Canais Ativados para Real
 
 ### <a name="channel"></a>Canal
 
-Nos Serviços de Comunicação Social, [os Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s são responsáveis pelo processamento de conteúdos de streaming ao vivo. Um Canal fornece um ponto final de entrada (ingest URL) que fornece a um transcodificador vivo. O canal recebe streams de entrada ao vivo a partir do transcodificador ao vivo e disponibiliza-o para streaming através de um ou mais StreamingEndpoints. Os canais também fornecem um ponto final de pré-visualização (URL de pré-visualização) que utiliza para visualizar e validar o seu fluxo antes de ser processado e entregue.
+Nos Serviços de Comunicação Social, [os Channel](/rest/api/media/operations/channel)s são responsáveis pelo processamento de conteúdos de streaming ao vivo. Um Canal fornece um ponto final de entrada (ingest URL) que fornece a um transcodificador vivo. O canal recebe streams de entrada ao vivo a partir do transcodificador ao vivo e disponibiliza-o para streaming através de um ou mais StreamingEndpoints. Os canais também fornecem um ponto final de pré-visualização (URL de pré-visualização) que utiliza para visualizar e validar o seu fluxo antes de ser processado e entregue.
 
 Pode obter o URL de ingestão e o URL de pré-visualização quando criar o canal. Para obter estes URLs, o canal não tem que estar no estado iniciado. Quando estiver pronto para começar a empurrar dados de um transcodificador vivo para o canal, o canal tem de ser iniciado. Assim que o transcodificador vivo começar a ingerir dados, pode visualizar o seu fluxo.
 
@@ -114,7 +115,7 @@ Cada conta de Serviços de Mídia pode conter vários canais, vários programas 
 Ao criar um Canal, pode especificar endereços IP autorizados num dos seguintes formatos: endereço IpV4 com 4 números, intervalo de endereços CIDR.
 
 ### <a name="program"></a>Programa
-Um [Programa](https://docs.microsoft.com/rest/api/media/operations/program) permite-lhe controlar a publicação e armazenamento de segmentos num live stream. Canais gerem Programas. A relação entre o Canal e o Programa é muito semelhante à multimédia tradicional onde um canal tem uma transmissão em fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.
+Um [Programa](/rest/api/media/operations/program) permite-lhe controlar a publicação e armazenamento de segmentos num live stream. Canais gerem Programas. A relação entre o Canal e o Programa é muito semelhante à multimédia tradicional onde um canal tem uma transmissão em fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.
 Pode especificar o número de horas que pretende reter o conteúdo gravado para o programa, definindo a propriedade **ArchiveWindowLength.** Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas.
 
 O ArchiveWindowLength também dita o tempo máximo que os clientes podem procurar no tempo a partir da atual posição ao vivo. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor deste imóvel também determina quanto tempo os manifestos do cliente podem crescer.
@@ -150,9 +151,9 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | Estado do canal | Indicadores de UI do Portal | É Billing? |
 | --- | --- | --- |
 | A iniciar |A iniciar |Não (estado transitório) |
-| A executar |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
+| Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |Não |
+| Parada |Parada |No |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

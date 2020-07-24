@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8544ad292d9e8982e236566fb53189c70922232c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233963"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041386"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -35,7 +35,7 @@ Este artigo irá ajudá-lo a resolver problemas comuns que podem ocorrer quando 
 |----|---------|
 |Uma tentativa de ligação falhou porque a parte ligada não respondeu corretamente após um período de tempo  | Agentes de teste em certos locais estão a ser bloqueados por uma firewall.|
 |    |O reencaminhamento de certos endereços IP está a ocorrer através de (Balanceadores de Carga, Gestores de Tráfego Geo, Rota Azure Express.) 
-|    |Se utilizar o Azure ExpressRoute, existem cenários em que os pacotes podem ser eliminados nos casos em [que ocorre o encaminhamento assimétrico](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
+|    |Se utilizar o Azure ExpressRoute, existem cenários em que os pacotes podem ser eliminados nos casos em [que ocorre o encaminhamento assimétrico](../../expressroute/expressroute-asymmetric-routing.md).|
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>Falha no teste com um erro de violação do protocolo
 
@@ -66,11 +66,11 @@ Consulte a configuração de alertas clássicos para confirmar que o seu e-mail 
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Não recebi a notificação do webhook?
 
-Verifique se a aplicação que recebe a notificação do webhook está disponível e processa com sucesso os pedidos do webhook. Consulte [isto](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) para mais informações.
+Verifique se a aplicação que recebe a notificação do webhook está disponível e processa com sucesso os pedidos do webhook. Consulte [isto](../platform/alerts-log-webhook.md) para mais informações.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Estou a receber 403 erros proibidos, o que significa isto?
 
-Este erro indica que é necessário adicionar exceções de firewall para permitir que os agentes de disponibilidade testem o url do seu teste de destino. Para obter uma lista completa dos endereços IP do agente para permitir, consulte o [artigo de exceção IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+Este erro indica que é necessário adicionar exceções de firewall para permitir que os agentes de disponibilidade testem o url do seu teste de destino. Para obter uma lista completa dos endereços IP do agente para permitir, consulte o [artigo de exceção IP](./ip-addresses.md#availability-tests).
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Falha de teste intermitente com um erro de violação do protocolo?
 
@@ -97,7 +97,7 @@ Ambos os termos podem ser utilizados alternadamente. “Testes de disponibilidad
    Existem duas soluções possíveis:
 
    * Configure a firewall para permitir pedidos recebidos a partir dos [endereços IP dos nossos agentes de teste Web](../../azure-monitor/app/ip-addresses.md).
-   * Escreva o seu próprio código para testar periodicamente o seu servidor interno. Execute o código como um processo em segundo plano num servidor de teste atrás da firewall. O processo de teste pode enviar os resultados para o Application Insights através da API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK core. Isto requer que o servidor de teste tenha acesso de envio para o ponto final de ingestão do Application Insights, mas é um risco de segurança muito inferior do que a alternativa de permitir pedidos recebidos. Os resultados aparecerão nas lâminas de testes web de disponibilidade, embora a experiência seja ligeiramente simplificada a partir do que está disponível para testes criados através do portal. Os testes de disponibilidade personalizada também aparecerão como resultados de disponibilidade em Analytics, Search e Metrics.
+   * Escreva o seu próprio código para testar periodicamente o seu servidor interno. Execute o código como um processo em segundo plano num servidor de teste atrás da firewall. O processo de teste pode enviar os resultados para o Application Insights através da API [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK core. Isto requer que o servidor de teste tenha acesso de envio para o ponto final de ingestão do Application Insights, mas é um risco de segurança muito inferior do que a alternativa de permitir pedidos recebidos. Os resultados aparecerão nas lâminas de testes web de disponibilidade, embora a experiência seja ligeiramente simplificada a partir do que está disponível para testes criados através do portal. Os testes de disponibilidade personalizada também aparecerão como resultados de disponibilidade em Analytics, Search e Metrics.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>O carregamento de um teste Web com vários passos falhou
 

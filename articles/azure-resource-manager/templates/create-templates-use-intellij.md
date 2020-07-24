@@ -4,12 +4,12 @@ description: Aprenda a criar o seu primeiro modelo de Gestor de Recursos Azure u
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bce3d8ff2662ff62e1493cb26d797619b65c2762
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057454"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040734"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implementar modelos ARM utilizando o IntelliJ IDEA
 
@@ -27,7 +27,7 @@ Para concluir este artigo, precisa de:
 
 * As Edições [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate ou Community instaladas
 * O [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) instalado; obtenha mais informações no [guia de gestão de plug-ins do IntelliJ](https://www.jetbrains.com/help/idea/managing-plugins.html).
-* Ter [sessão iniciada](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) na conta do Azure do Azure Toolkit for IntelliJ
+* Ter [sessão iniciada](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) na conta do Azure do Azure Toolkit for IntelliJ
 
 ## <a name="deploy-a-quickstart-template"></a>Implemente um modelo quickstart
 
@@ -78,7 +78,7 @@ Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início 
 > [!NOTE]
 > Note que eliminar uma implantação não eliminará os recursos criados pela implantação. Por favor, elimine o grupo de recursos correspondente ou recursos específicos se já não precisar deles.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O principal foco deste artigo é usar o IntelliJ IDEA para implementar um modelo existente a partir de modelos Azure Quickstart. Também aprendeu a ver e atualizar uma implementação existente no Azure. Os modelos de Início Rápido do Azure poderão não fornecer-lhe tudo o que precisa. Para saber mais sobre o desenvolvimento do modelo, consulte a nossa nova série tutorial de principiantes:
 

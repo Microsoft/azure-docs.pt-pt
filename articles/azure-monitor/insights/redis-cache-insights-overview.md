@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045868"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explore o Azure Monitor para Azure Cache para Redis (pré-visualização)
 
@@ -120,7 +120,7 @@ Quando seleciona **Falhas** no topo da página, abre-se a tabela **Falhas** do m
 
 ### <a name="metric-definitions"></a>Definições métricas
 
-Para obter uma lista completa das definições métricas que formam estes livros, consulte o [artigo sobre as métricas disponíveis e intervalos de reporte](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Para obter uma lista completa das definições métricas que formam estes livros, consulte o [artigo sobre as métricas disponíveis e intervalos de reporte](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Vista de uma Cache Azure para recurso Redis
 
@@ -156,7 +156,7 @@ A seleção de qualquer um dos outros separadores para **Performance** ou **Oper
 
 ## <a name="pin-export-and-expand"></a>Pin, exportação e expansão
 
-Para fixar qualquer secção métrica num [painel Azure,](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)selecione o símbolo do pino na parte superior direita da secção.
+Para fixar qualquer secção métrica num [painel Azure,](../../azure-portal/azure-portal-dashboards.md)selecione o símbolo do pino na parte superior direita da secção.
 
 ![Uma secção métrica com o símbolo do pino realçado](./media/cosmosdb-insights-overview/pin.png)
 
@@ -184,8 +184,8 @@ Depois de guardar um livro personalizado, vá à galeria do livro para abri-lo.
 
 Para obter orientações sobre resolução de problemas, consulte o artigo dedicado baseado em insights baseados em [livros](troubleshoot-workbooks.md)de trabalho .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications.md) de serviço para configurar alertas automatizados que ajudam na deteção de problemas.
+* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados que ajudam na deteção de problemas.
 
 * Conheça os cenários que os livros suportam, como autor ou personalizar relatórios, e mais através da revisão [Criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)

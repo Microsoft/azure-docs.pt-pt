@@ -3,11 +3,12 @@ title: Gravação contínua de vídeo - Azure
 description: Gravação contínua de vídeo (CVR) refere-se ao processo de gravação contínua do vídeo a partir de uma fonte de vídeo. Este tópico discute o que é CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043315"
 ---
 # <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
 
@@ -33,7 +34,7 @@ O Live Video Analytics on IoT Edge suporta operar em condições de rede menos p
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-As duas últimas propriedades são relevantes para a gravação resiliente (ambas são também propriedades necessárias para um nó de pia de ativo). A propriedade localMediaCachePath diz ao ativo para usar esse caminho de pasta para cache dados de mídia antes de carregar para o ativo. Pode ver [este](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) artigo para entender como o módulo edge pode fazer uso do armazenamento local do seu dispositivo. A propriedade localMediaCacheMaximumSizeMiB define quanto espaço de disco o lavatório do ativo pode usar como cache (1 MiB = 1024 * 1024 bytes). 
+As duas últimas propriedades são relevantes para a gravação resiliente (ambas são também propriedades necessárias para um nó de pia de ativo). A propriedade localMediaCachePath diz ao ativo para usar esse caminho de pasta para cache dados de mídia antes de carregar para o ativo. Pode ver [este](../../iot-edge/how-to-access-host-storage-from-module.md) artigo para entender como o módulo edge pode fazer uso do armazenamento local do seu dispositivo. A propriedade localMediaCacheMaximumSizeMiB define quanto espaço de disco o lavatório do ativo pode usar como cache (1 MiB = 1024 * 1024 bytes). 
 
 Se o módulo edge perde conectividade por muito tempo e o conteúdo armazenado na pasta cache atinge o valor localMediaCacheMaximumSizeMiB, o lavatório de ativos começará a descartar dados da cache, a partir dos dados mais antigos. Por exemplo, se o dispositivo perdeu a conectividade às 10:00 e a cache atingir o limite máximo às 18:00, então o lavatório do ativo começa a apagar os dados registados às 10:00. 
 
@@ -51,12 +52,12 @@ A propriedade segmentLength garante que o módulo de borda irá carregar o víde
 >Consulte [este](playback-recordings-how-to.md) artigo para obter o efeito que o segmentoLength tem na reprodução.
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Reprodução de conteúdo gravado](video-playback-concept.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial: gravação contínua de vídeo](continuous-video-recording-tutorial.md)

@@ -7,12 +7,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: e7055964f9515189450fac5c993f6acda946bfd4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4bca70fbec5cf847a6bb5c0b97ed3496d6c2f8c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524170"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039984"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector da Oracle Database
 
@@ -77,7 +77,7 @@ Este artigo mostra-lhe como utilizar o conector Oracle Database numa aplicação
 
     No exemplo seguinte, os dados do trabalho estão a ser devolvidos a partir de uma base de dados de Recursos Humanos: 
 
-    ![A caixa de diálogo intitulada "Get row (Preview)" tem duas caixas de texto: "Nome de tabela", que contém "HRJOBS" e tem uma lista de down-down, e "Row id", que contém "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![A caixa de diálogo intitulada "Get row (Preview)" tem duas caixas de texto: "Table name", que contém "H R JOBS" e tem uma lista de down-down, e "Row i d", que contém "S A _ REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. Neste próximo passo, pode utilizar qualquer um dos outros conectores para construir o seu fluxo de trabalho. Se quiser testar a obtenção de dados da Oracle, envie um e-mail com os dados da Oracle utilizando um dos conectores de e-mail de envio, como o Office 365 Outlook. Use os tokens dinâmicos da mesa Oráculo para construir o `Subject` e `Body` do seu e-mail:
 
@@ -127,5 +127,5 @@ O [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](https://d
 Pode ajudar a melhorar as Aplicações lógicas e os conectores votando e submetendo as suas ideias em [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish) . 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Crie uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)e explore os conectores disponíveis em Aplicações Lógicas na [lista de APIs.](apis-list.md)

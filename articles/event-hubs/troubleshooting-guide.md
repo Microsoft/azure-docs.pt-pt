@@ -3,12 +3,12 @@ title: Problemas de conectividade de resolução de problemas - Azure Event Hubs
 description: Este artigo fornece informações sobre problemas de conectividade com os Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039332"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Problemas de conectividade de resolução de problemas - Azure Event Hubs
 Existem várias razões para as aplicações do cliente não conseguirem ligar-se a um centro de eventos. Os problemas de conectividade que experimenta podem ser permanentes ou transitórios. Se o problema acontecer a toda a hora (permanente), pode querer verificar a cadeia de ligação, as definições de firewall da sua organização, definições de firewall IP, definições de segurança da rede (pontos finais de serviço, pontos finais privados, etc.) e muito mais. Para questões transitórias, o upgrade para a versão mais recente do SDK, executar comandos para verificar pacotes abandonados, e obter vestígios de rede pode ajudar a resolver problemas. 
@@ -48,7 +48,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Verifique se os endereços IP são permitidos na sua firewall corporativa
-Quando está a trabalhar com o Azure, por vezes tem de permitir que intervalos de endereços IP específicos ou URLs na sua firewall corporativa ou procuração acedam a todos os serviços Azure que está a usar ou a tentar utilizar. Verifique se o tráfego é permitido nos endereços IP utilizados pelos Centros de Eventos. Para endereços IP utilizados pelos Azure Event Hubs: consulte [gamas IP Azure e Tags de Serviço - Cloud e](https://www.microsoft.com/download/details.aspx?id=56519) Service tag público - [EventHub](network-security.md#service-tags).
+Quando está a trabalhar com o Azure, por vezes tem de permitir que intervalos de endereços IP específicos ou URLs na sua firewall corporativa ou procuração acedam a todos os serviços Azure que está a usar ou a tentar utilizar. Verifique se o tráfego é permitido nos endereços IP utilizados pelos Centros de Eventos. Para endereços IP utilizados pelos Azure Event Hubs: consulte [gamas IP Azure e Tags de Serviço - Nuvem Pública](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Além disso, verifique se o endereço IP para o seu espaço de nome é permitido. Para encontrar os endereços IP certos para permitir as suas ligações, siga estes passos:
 
@@ -75,13 +75,16 @@ Se utilizar a redundância da zona para o seu espaço de nome, tem de fazer algu
     ```
 3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP dos três casos em execução em três zonas de disponibilidade. 
 
+### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Verifique se a etiqueta de serviço AzureEventGrid é permitida nos seus grupos de segurança de rede
+Se a sua aplicação estiver a decorrer dentro de uma sub-rede e houver um grupo de segurança de rede associado, confirme se a saída da Internet é permitida ou se é permitida a etiqueta de serviço AzureEventGrid. Consulte [as etiquetas de serviço de rede virtual](../virtual-network/service-tags-overview.md) e `EventHub` procure.
+
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Verifique se a aplicação precisa de estar a funcionar numa sub-rede específica de uma rede
 Confirme que a sua aplicação está a ser executada numa sub-rede de rede virtual que tem acesso ao espaço de nomes. Se não for, execute a aplicação na sub-rede que tenha acesso ao espaço de nome ou adicione o endereço IP da máquina em que a aplicação está a correr para a [firewall IP](event-hubs-ip-filtering.md). 
 
 Quando cria um ponto final de serviço de rede virtual para um espaço de nome de centro de eventos, o espaço de nomes aceita o tráfego apenas a partir da sub-rede que está ligada ao ponto final de serviço. Há uma exceção a este comportamento. Pode adicionar endereços IP específicos na firewall IP para permitir o acesso ao ponto final público do Event Hub. Para obter mais informações, consulte [os pontos finais do serviço de rede](event-hubs-service-endpoints.md).
 
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Verifique as definições ip firewall para o seu espaço de nome
-Verifique se o seu endereço IP da máquina em que a aplicação está a funcionar não está bloqueado pela firewall IP.  
+Verifique se o endereço IP público da máquina em que a aplicação está a funcionar não está bloqueado pela firewall IP.  
 
 Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
@@ -108,9 +111,9 @@ Ativar registos de diagnóstico para [eventos de ligação de rede virtual do Ev
 ### <a name="check-if-the-namespace-can-be-accessed-using-only-a-private-endpoint"></a>Verifique se o espaço de nome pode ser acedido usando apenas um ponto final privado
 Se o espaço de nomes do Event Hubs estiver configurado para ser acessível apenas através de um ponto final privado, confirme que a aplicação do cliente está a aceder ao espaço de nomes sobre o ponto final privado. 
 
-[O serviço Azure Private Link](../private-link/private-link-overview.md) permite-lhe aceder aos Azure Event Hubs sobre um **ponto final privado** na sua rede virtual. Um ponto final privado é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
+[O serviço Azure Private Link](../private-link/private-link-overview.md) permite-lhe aceder aos Azure Event Hubs sobre um **ponto final privado** na sua rede virtual. Um ponto final privado é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. O ponto final privado utiliza um endereço IP privado a partir da sua rede virtual, efetivamente trazendo o serviço para a sua rede virtual. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ligações ExpressRoute ou VPN, ou endereços IP públicos. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Pode ligar-se a um recurso Azure, dando-lhe o mais alto nível de granularidade no controlo de acessos.
 
-Para obter mais informações, consulte [os pontos finais privados Configure](private-link-service.md). 
+Para obter mais informações, consulte [os pontos finais privados Configure](private-link-service.md). Consulte a Validação de que a secção **de ligação de ponto final privado funciona** para confirmar a utilização de um ponto final privado. 
 
 ### <a name="troubleshoot-network-related-issues"></a>Problemas relacionados com a rede de resolução de problemas
 Para resolver problemas relacionados com a rede com os Centros de Eventos, siga estes passos: 
@@ -160,9 +163,9 @@ Problemas de conectividade transitórios podem ocorrer devido a atualizações e
 - As aplicações podem ser desligadas do serviço durante alguns segundos.
 - Os pedidos podem ser momentaneamente estrangulados.
 
-Se o código de aplicação utilizar o SDK, a política de retíria já está incorporada e ativa. A aplicação reconectará-se sem impacto significativo na aplicação/fluxo de trabalho. Caso contrário, volte a tentar ligar-se ao serviço após alguns minutos para ver se os problemas desaparecem. 
+Se o código de aplicação utilizar o SDK, a política de retíria já está incorporada e ativa. A aplicação reconectará-se sem impacto significativo na aplicação/fluxo de trabalho. Apanhar estes erros transitórios, recuar e, em seguida, voltar a tentar a chamada, garantirá que o seu código é resistente a estas questões transitórias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 * [Resolver problemas de autenticação e autorização](troubleshoot-authentication-authorization.md)

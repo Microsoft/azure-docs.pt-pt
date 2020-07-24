@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187426"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045905"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de segurança Azure para Automação
 
@@ -918,7 +918,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a recomend
 
 * [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
-* [Implementar uma Conta de Automação utilizando um modelo de Gestor de Recursos Azure](./automation-create-account-template.md#deploy-the-template)
+* [Implementar uma Conta de Automação utilizando um modelo de Gestor de Recursos Azure](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Amostra de política Azure incorporada para a Azure Automation](./policy-samples.md)
 
@@ -1064,7 +1064,7 @@ Ao utilizar a funcionalidade Trabalhador do Runbook Híbrido, utilize a Configur
 
 **Orientação**: Implementar o Scanner credencial para identificar credenciais dentro do código. O Scanner Credencial também encorajará a mudança de credenciais descobertas para locais mais seguros, como o Azure Key Vault.
 
-* [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -1124,7 +1124,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 * [Referência do modelo do Gestor de Recursos Azure para os recursos da Azure Automation](/azure/templates/microsoft.automation/allversions)
 
-* [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure](./automation-create-account-template.md)
+* [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure](./quickstart-create-automation-account-template.md)
 
 * [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Utilize a função de integração do controlo de fonte para manter os seus livr
 
 * [Referência do modelo do Gestor de Recursos Azure para os recursos da Azure Automation](/azure/templates/microsoft.automation/allversions)
 
-* [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure](./automation-create-account-template.md)
+* [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure](./quickstart-create-automation-account-template.md)
 
 * [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 

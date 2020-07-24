@@ -7,11 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9bfd601642ff9d6b5b5c5a1c2c508d1821e19c7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125813"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042187"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações
 
@@ -208,7 +209,7 @@ Para criar um alerta contra os seus registos, siga as instruções em [Criar, ve
 
 Se tiver vários ASEs, talvez queira que alguns ASEs sejam atualizados antes de outros. Dentro do objeto ASE **HostingEnvironment Resource Manager,** pode definir um valor para **upgradePreferência**. A **definição de actualizaçãoPreference** pode ser configurada utilizando um modelo, ARMClient ou https://resources.azure.com . Os três valores possíveis são:
 
-- **Nenhum**: O Azure atualizará o seu ASE num lote específico. este valor é a predefinição.
+- **Nenhum**: O Azure atualizará o seu ASE num lote específico. Este valor é a predefinição.
 - **Início**: O seu ASE será atualizado na primeira metade das atualizações do Serviço de Aplicações.
 - **Tarde**: O seu ASE será atualizado na segunda metade das atualizações do Serviço de Aplicações.
 
@@ -250,6 +251,30 @@ Para eliminar um ASE:
     ![Eliminação de ASE][3]
 
 1. Selecione **OK**.
+
+## <a name="ase-cli"></a>ASE CLI
+
+Existem capacidades de linha de comando para administrar a um ASE.  Os comandos az cli são notados abaixo.
+
+```azurecli
+C:\>az appservice ase --help
+
+Group
+    az appservice ase : Manage App Service Environments v2.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    create         : Create app service environment.
+    delete         : Delete app service environment.
+    list           : List app service environments.
+    list-addresses : List VIPs associated with an app service environment.
+    list-plans     : List app service plans associated with an app service environment.
+    show           : Show details of an app service environment.
+    update         : Update app service environment.
+
+For more specific examples, use: az find "az appservice ase"
+```
+
+
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

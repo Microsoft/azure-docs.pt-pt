@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87277c0c61f6d63e453386724dd472d2663e3148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124550"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045216"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envie métricas de OS para a base de dados de métricas do Azure Monitor para uma máquina virtual do Windows (clássica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A extensão Azure Monitor [Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conhecida como "WAD" ou "Diagnostics") permite-lhe recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+A extensão Azure Monitor [Diagnostics](./diagnostics-extension-overview.md) (conhecida como "WAD" ou "Diagnostics") permite-lhe recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para uma máquina virtual do Windows (clássica) para a base de dados métrica do Azure Monitor. A partir da versão 1.11 do Diagnostics, pode escrever métricas diretamente na loja de métricas do Azure Monitor, onde já são recolhidas métricas padrão da plataforma. 
 
@@ -30,9 +30,9 @@ O processo que está delineado neste artigo funciona apenas em máquinas virtuai
 
 - Deve ser [administrador de serviço ou coadministrador](../../cost-management-billing/manage/add-change-subscription-administrator.md) na sua assinatura Azure. 
 
-- A sua subscrição deve estar registada no [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- A sua subscrição deve estar registada no [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instaladas.
+- Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](../../cloud-shell/overview.md) instaladas.
 
 - O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](metrics-custom-overview.md#supported-regions)
 
@@ -202,6 +202,5 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" ao recurso con
    ![Métricas de enredo](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
-

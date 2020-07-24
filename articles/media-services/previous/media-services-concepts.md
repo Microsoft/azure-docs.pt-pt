@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: dc39ef8f3d72b2b8fc5aa55aacb2e2503b052023
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ca1b8b453be433f7db428f3b256677b9945ce40
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038907"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Azure Media Services 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tópico dá uma visão geral dos conceitos mais importantes dos Media Services.
 
-## <a name="assets-and-storage"></a><a id="assets"/>Ativos e Armazenamento
+## <a name="assets-and-storage"></a><a name="assets"></a>Ativos e Armazenamento
 ### <a name="assets"></a>Elementos
-Um [Ativo](https://docs.microsoft.com/rest/api/media/operations/asset) contém ficheiros digitais (incluindo vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados) e os metadados sobre estes ficheiros. Depois de os ficheiros digitais serem enviados para um ativo, podem ser utilizados nos fluxos de trabalho de codificação e streaming dos Serviços de Comunicação Social.
+Um [Ativo](/rest/api/media/operations/asset) contém ficheiros digitais (incluindo vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados) e os metadados sobre estes ficheiros. Depois de os ficheiros digitais serem enviados para um ativo, podem ser utilizados nos fluxos de trabalho de codificação e streaming dos Serviços de Comunicação Social.
 
 Um ativo é mapeado para um recipiente de bolhas na conta de Armazenamento Azure e os ficheiros do ativo são armazenados como bolhas de bloco nesse recipiente. As bolhas de página não são suportadas pela Azure Media Services.
 
@@ -39,7 +39,7 @@ Ao decidir que conteúdo sonoro e armazenado num ativo, aplicam-se as seguintes 
 * Um ativo não deve conter múltiplas representações ou edições de um ficheiro audiovisual. Um exemplo de um uso impróprio de um Ativo seria tentar armazenar mais de um episódio de TV, publicidade ou múltiplos ângulos de câmara de uma única produção dentro de um ativo. Armazenar múltiplas representações ou edições de um ficheiro audiovisual num ativo pode resultar em dificuldades na apresentação de postos de trabalho, streaming e garantia da entrega do ativo mais tarde no fluxo de trabalho.  
 
 ### <a name="asset-file"></a>Arquivo de ativos
-Um [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um ficheiro de vídeo ou áudio real que é armazenado num recipiente de bolhas. Um ficheiro de ativos está sempre associado a um ativo, e um ativo pode conter um ou muitos ficheiros. A tarefa Media Services Encoder falha se um objeto de ficheiro de ativo não estiver associado a um ficheiro digital num recipiente de bolhas.
+Um [AssetFile](/rest/api/media/operations/assetfile) representa um ficheiro de vídeo ou áudio real que é armazenado num recipiente de bolhas. Um ficheiro de ativos está sempre associado a um ativo, e um ativo pode conter um ou muitos ficheiros. A tarefa Media Services Encoder falha se um objeto de ficheiro de ativo não estiver associado a um ficheiro digital num recipiente de bolhas.
 
 A instância **do AssetFile** e o ficheiro de mídia real são dois objetos distintos. A instância Do Ficheiro Do Ativo contém metadados sobre o ficheiro de mídia, enquanto o ficheiro de mídia contém o conteúdo real dos meios de comunicação.
 
@@ -62,7 +62,7 @@ Para entregar um ativo encriptado de armazenamento, tem de configurar a polític
 **EnvelopeEncryptionProtected** – Utilize esta opção se pretender proteger (ou carregar já protegido) HTTP Live Streaming (HLS) encriptado com Padrão avançado de encriptação (AES). Se está a carregar o HLS já encriptado com a AES, deve ter sido encriptado pelo Transform Manager.
 
 ### <a name="access-policy"></a>Política de acesso
-Uma [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) define permissões (como ler, escrever e lista) e duração do acesso a um ativo. Normalmente, passaria um objeto AccessPolicy a um localizador que seria usado para aceder aos ficheiros contidos num ativo.
+Uma [AccessPolicy](/rest/api/media/operations/accesspolicy) define permissões (como ler, escrever e lista) e duração do acesso a um ativo. Normalmente, passaria um objeto AccessPolicy a um localizador que seria usado para aceder aos ficheiros contidos num ativo.
 
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
@@ -75,8 +75,8 @@ Um recipiente de bolhas fornece um agrupamento de um conjunto de bolhas. Os cont
 > 
 > 
 
-### <a name="locators"></a><a id="locators"/>Localizadores
-[Os localizadores](https://docs.microsoft.com/rest/api/media/operations/locator)s fornecem um ponto de entrada para aceder aos ficheiros contidos num ativo. Uma política de acesso é usada para definir as permissões e a duração que um cliente tem acesso a um determinado ativo. Os localizadores podem ter uma relação de muitos a um com uma política de acesso, de modo a que diferentes localizadores possam fornecer diferentes tempos de início e tipos de conexão a diferentes clientes, enquanto todos usam as mesmas definições de permissão e duração; no entanto, devido a uma restrição de política de acesso partilhado definida pelos serviços de armazenamento Azure, você não pode ter mais de cinco localizadores únicos associados a um determinado ativo de uma só vez. 
+### <a name="locators"></a><a name="locators"></a>Localizadores
+[Os localizadores](/rest/api/media/operations/locator)s fornecem um ponto de entrada para aceder aos ficheiros contidos num ativo. Uma política de acesso é usada para definir as permissões e a duração que um cliente tem acesso a um determinado ativo. Os localizadores podem ter uma relação de muitos a um com uma política de acesso, de modo a que diferentes localizadores possam fornecer diferentes tempos de início e tipos de conexão a diferentes clientes, enquanto todos usam as mesmas definições de permissão e duração; no entanto, devido a uma restrição de política de acesso partilhado definida pelos serviços de armazenamento Azure, você não pode ter mais de cinco localizadores únicos associados a um determinado ativo de uma só vez. 
 
 Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir meios de comunicação (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou descarregar progressivamente meios de comunicação e localizadores DE URL SAS, usados para carregar ou descarregar ficheiros de mídia para\a partir do armazenamento da Azure. 
 
@@ -84,12 +84,12 @@ Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOr
 >A permissão de lista (AccessPermissions.List) não deve ser utilizada ao criar um localizador OnDemandOrigin. 
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Todo o acesso ao Azure Storage é feito através de uma conta de armazenamento. Uma conta Media Service pode associar-se a uma ou mais contas de armazenamento. Uma conta pode conter um número ilimitado de contentores, desde que o seu tamanho total seja inferior a 500TB por conta de armazenamento.  Os Serviços de Media fornecem ferramentas de nível SDK para que possa gerir várias contas de armazenamento e equilibrar a distribuição dos seus ativos durante o upload para estas contas com base em métricas ou distribuição aleatória. Para mais informações, consulte Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
+Todo o acesso ao Azure Storage é feito através de uma conta de armazenamento. Uma conta Media Service pode associar-se a uma ou mais contas de armazenamento. Uma conta pode conter um número ilimitado de contentores, desde que o seu tamanho total seja inferior a 500TB por conta de armazenamento.  Os Serviços de Media fornecem ferramentas de nível SDK para que possa gerir várias contas de armazenamento e equilibrar a distribuição dos seus ativos durante o upload para estas contas com base em métricas ou distribuição aleatória. Para mais informações, consulte Working with [Azure Storage](/previous-versions/azure/dn767951(v=azure.100)). 
 
 ## <a name="jobs-and-tasks"></a>Trabalhos e tarefas
-Um [trabalho](https://docs.microsoft.com/rest/api/media/operations/job) é normalmente usado para processar (por exemplo, índice ou codificação) uma apresentação áudio/vídeo. Se estiver a processar vários vídeos, crie um trabalho para que cada vídeo seja codificado.
+Um [trabalho](/rest/api/media/operations/job) é normalmente usado para processar (por exemplo, índice ou codificação) uma apresentação áudio/vídeo. Se estiver a processar vários vídeos, crie um trabalho para que cada vídeo seja codificado.
 
-Um trabalho contém metadados sobre o processamento a ser realizado. Cada trabalho contém uma ou mais [tarefas](https://docs.microsoft.com/rest/api/media/operations/task)que especificam uma tarefa de processamento atómico, os seus Ativos de entrada, ativos de saída, um processador de mídia e as suas definições associadas. As tarefas dentro de um trabalho podem ser acorrentadas em conjunto, onde o ativo de saída de uma tarefa é dado como o ativo de entrada para a tarefa seguinte. Desta forma, um trabalho pode conter todo o processamento necessário para uma apresentação mediática.
+Um trabalho contém metadados sobre o processamento a ser realizado. Cada trabalho contém uma ou mais [tarefas](/rest/api/media/operations/task)que especificam uma tarefa de processamento atómico, os seus Ativos de entrada, ativos de saída, um processador de mídia e as suas definições associadas. As tarefas dentro de um trabalho podem ser acorrentadas em conjunto, onde o ativo de saída de uma tarefa é dado como o ativo de entrada para a tarefa seguinte. Desta forma, um trabalho pode conter todo o processamento necessário para uma apresentação mediática.
 
 ## <a name="encoding"></a><a id="encoding"></a>Encoding
 A Azure Media Services oferece múltiplas opções para a codificação de meios na nuvem.
@@ -115,14 +115,14 @@ No Azure Media Services, um Canal representa um oleoduto para o processamento de
 * Um único fluxo bitrate (num dos seguintes formatos: RTMP, ou Smooth Streaming (MP4 fragmentado)) é enviado para o Canal que está habilitado a realizar codificação ao vivo com serviços de mídia. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
 ### <a name="channel"></a>Canal
-Nos Serviços de Comunicação Social, [os Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s são responsáveis pelo processamento de conteúdos de streaming ao vivo. Um Canal fornece um ponto final de entrada (ingest URL) que fornece a um transcodificador vivo. O canal recebe streams de entrada ao vivo a partir do transcodificador ao vivo e disponibiliza-o para streaming através de um ou mais StreamingEndpoints. Os canais também fornecem um ponto final de pré-visualização (URL de pré-visualização) que utiliza para visualizar e validar o seu fluxo antes de ser processado e entregue.
+Nos Serviços de Comunicação Social, [os Channel](/rest/api/media/operations/channel)s são responsáveis pelo processamento de conteúdos de streaming ao vivo. Um Canal fornece um ponto final de entrada (ingest URL) que fornece a um transcodificador vivo. O canal recebe streams de entrada ao vivo a partir do transcodificador ao vivo e disponibiliza-o para streaming através de um ou mais StreamingEndpoints. Os canais também fornecem um ponto final de pré-visualização (URL de pré-visualização) que utiliza para visualizar e validar o seu fluxo antes de ser processado e entregue.
 
 Pode obter o URL de ingestão e o URL de pré-visualização quando criar o canal. Para obter estes URLs, o canal não tem que estar no estado iniciado. Quando estiver pronto para começar a empurrar dados de um transcodificador vivo para o canal, o canal tem de ser iniciado. Assim que o transcodificador vivo começar a ingerir dados, pode visualizar o seu fluxo.
 
 Cada conta de Serviços de Mídia pode conter vários canais, vários programas e vários streamingEndpoints. Dependendo da largura de banda e das necessidades de segurança, os serviços de StreamingEndpoint podem ser dedicados a um ou mais canais. Qualquer StreamingEndpoint pode puxar de qualquer Canal.
 
 ### <a name="program-event"></a>Programa (evento)
-Um [Programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite-lhe controlar a publicação e armazenamento de segmentos num stream ao vivo. Os canais gerem programas (eventos). A relação channel and Program é semelhante aos meios tradicionais onde um canal tem um fluxo constante de conteúdo e um programa é telescópio para algum evento cronometrado nesse canal.
+Um [Programa (evento)](/rest/api/media/operations/program) permite-lhe controlar a publicação e armazenamento de segmentos num stream ao vivo. Os canais gerem programas (eventos). A relação channel and Program é semelhante aos meios tradicionais onde um canal tem um fluxo constante de conteúdo e um programa é telescópio para algum evento cronometrado nesse canal.
 Pode especificar o número de horas que pretende reter o conteúdo gravado para o programa, definindo a propriedade **ArchiveWindowLength.** Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas.
 
 O ArchiveWindowLength também dita o tempo máximo que os clientes podem procurar no tempo a partir da atual posição ao vivo. Os programas podem ser executados durante o período de tempo especificado, mas o conteúdo que se situe atrás da duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
@@ -131,7 +131,7 @@ Cada programa (evento) está associado a um Ativo. Para publicar o programa tem 
 
 Um canal suporta até três programas em execução em simultâneo para que possa criar vários arquivos da mesma transmissão em fluxo recebida. Isto permite publicar e arquivar diferentes partes de um evento, conforme necessário. Por exemplo, os seus requisitos de negócios devem arquivar 6 horas de um programa, mas difundir apenas os últimos 10 minutos. Para tal, tem de criar dois programas em execução em simultâneo. Um programa está definido para arquivar 6 horas do evento, mas o programa não está publicado. O outro programa está definido para arquivar durante 10 minutos e este está publicado.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 * [Trabalhar com canais que estão habilitados a executar a codificação ao vivo com os Serviços de Media Azure](media-services-manage-live-encoder-enabled-channels.md)
 * [Trabalhar com Canais que Recebem Transmissões em Fluxo em Direto com Velocidade de Transmissão Múltipla a partir de Codificadores no Local](media-services-live-streaming-with-onprem-encoders.md)
@@ -160,7 +160,7 @@ Para obter mais informações, veja os seguintes artigos:
 - [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Entrega
-### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Empacotamento dinâmico
+### <a name="dynamic-packaging"></a><a name="dynamic_packaging"></a>Empacotamento dinâmico
 Ao trabalhar com os Media Services, recomenda-se codificar os seus ficheiros mezaninos num conjunto de MP4 de bitragem adaptativa e, em seguida, converter o conjunto para o formato pretendido utilizando a [Embalagem Dinâmica](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Ponto final de transmissão em fluxo
@@ -180,7 +180,7 @@ Por predefinição, pode ter até 2 pontos finais de streaming na sua conta de M
 Só é cobrado quando o seu StreamingEndpoint está em funcionamento.
 
 ### <a name="asset-delivery-policy"></a>Política de entrega de ativos
-Um dos passos no fluxo de trabalho de entrega de conteúdos dos Media Services é configurar políticas de [entrega de ativos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que pretende ser transmitido. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: em que protocolo de streaming o seu ativo será embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou tudo), quer queira ou não encriptar dinamicamente o seu ativo e como (envelope ou encriptação comum).
+Um dos passos no fluxo de trabalho de entrega de conteúdos dos Media Services é configurar políticas de [entrega de ativos](/rest/api/media/operations/assetdeliverypolicy)que pretende ser transmitido. A política de entrega de ativos diz aos Media Services como pretende que o seu ativo seja entregue: em que protocolo de streaming o seu ativo será embalado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming, ou tudo), quer queira ou não encriptar dinamicamente o seu ativo e como (envelope ou encriptação comum).
 
 Se tiver um ativo encriptado de armazenamento, antes de o seu ativo poder ser transmitido, o servidor de streaming remove a encriptação de armazenamento e transmite o seu conteúdo utilizando a política de entrega especificada. Por exemplo, para entregar o seu ativo encriptado com a chave de encriptação Advanced Encryption Standard (AES), desafie o tipo de política para DynamicEnvelopeEncrycrytion. Para remover a encriptação de armazenamento e transmitir o ativo de forma clara, desafie o tipo de política para NoDynamicEncrycryption.
 
@@ -237,4 +237,3 @@ http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

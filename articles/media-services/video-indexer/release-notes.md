@@ -12,11 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84325070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042635"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -28,6 +29,18 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidade preterida
+
+## <a name="june-2020"></a>Junho de 2020
+
+### <a name="search-by-topics"></a>Pesquisar por tópicos
+
+Agora pode utilizar a API de pesquisa para procurar vídeos com tópicos específicos (apenas API).
+
+Os tópicos são adicionados como parte do `textScope` (parâmetro opcional). Consulte [a API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) para mais detalhes.  
+
+### <a name="labels-enhancement"></a>Melhoria dos rótulos
+
+O tagger da etiqueta foi atualizado e agora inclui mais etiquetas visuais que podem ser identificadas.
 
 ## <a name="may-2020"></a>Maio de 2020
 
@@ -162,7 +175,7 @@ Múltiplos avanços anunciados no IBC 2019:
     Capacidade de detetar anúncios de grupo reconhecem caracteres em conteúdo animado, através da integração com visão personalizada. Para obter mais informações, consulte [a deteção de caracteres animados.](animated-characters-recognition.md)
 * Identificação multi-linguístico (pré-visualização pública)
 
-    Detete segmentos em vários idiomas na faixa áudio e crie uma transcrição multilíngue baseada neles. Apoio inicial: Inglês, Espanhol, Alemão e Francês. Para obter mais informações, consulte [identificar e transcrever automaticamente o conteúdo multi-linguístico.](multi-language-identification-transcription.md)
+    Detete segmentos em vários idiomas na faixa áudio e crie uma transcrição multilíngue baseada neles. Apoio inicial: Inglês, Espanhol, Alemão e Francês. Para obter mais informações, veja [Identificar e transcrever automaticamente conteúdo de vários idiomas](multi-language-identification-transcription.md).
 * Extração de entidades nomeadas para pessoas e localização
 
     Extrai marcas, locais e pessoas de linguagem e texto visual através do processamento de linguagem natural (NLP).
@@ -254,6 +267,6 @@ Ao ligar para a [transcrição do Vídeo de Atualização API,](https://api-port
 
 Além do formato de legendagem fechado já suportado (SRT, VTT e TTML), o Video Indexer suporta agora o download da transcrição nos formatos TXT e CSV.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral](video-indexer-overview.md)

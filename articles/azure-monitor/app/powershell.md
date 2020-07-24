@@ -3,11 +3,12 @@ title: Automatizar insights de aplicação Azure com PowerShell Microsoft Docs
 description: Automatizar a criação e gestão de recursos, alertas e testes de disponibilidade no PowerShell utilizando um modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: c4e7c4fe14d829338e98a4b7e73726b1e605707c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a0a3a5b186d57e8670201e601eee48ee858c976
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485411"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041630"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerir recursos de Insights de Aplicação utilizando o PowerShell
 
@@ -25,7 +26,7 @@ Instale o módulo Azure PowerShell na máquina onde pretende executar os scripts
 1. Instale o Instalador da Plataforma Web do [Microsoft (v5 ou superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Utilize-o para instalar o Microsoft Azure PowerShell.
 
-Além de utilizar modelos de Gestor de Recursos, existe um rico conjunto de [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)de Insights de Aplicação, que facilitam a configuração dos recursos de Insights de Aplicação programaticamente. As capacidades ativadas pelos cmdlets incluem:
+Além de utilizar modelos de Gestor de Recursos, existe um rico conjunto de [cmdlets PowerShell](/powershell/module/az.applicationinsights)de Insights de Aplicação, que facilitam a configuração dos recursos de Insights de Aplicação programaticamente. As capacidades ativadas pelos cmdlets incluem:
 
 * Criar e eliminar recursos de Insights de Aplicação
 * Obtenha listas de recursos de Insights de Aplicação e suas propriedades
@@ -36,7 +37,7 @@ Além de utilizar modelos de Gestor de Recursos, existe um rico conjunto de [cmd
 
 ## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>Criar recursos de Insights de Aplicação utilizando um cmdlet PowerShell
 
-Eis como criar um novo recurso application insights no centro de dados Azure East US usando o [cmdlet New-AzApplicationInsights:](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights)
+Eis como criar um novo recurso application insights no centro de dados Azure East US usando o [cmdlet New-AzApplicationInsights:](/powershell/module/az.applicationinsights/new-azapplicationinsights)
 
 ```PS
 New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
@@ -226,7 +227,7 @@ Propriedades adicionais estão disponíveis através dos cmdlets:
 * `Get-AzApplicationInsightsApiKey`
 * `Get-AzApplicationInsightsContinuousExport`
 
-Consulte a [documentação detalhada](https://docs.microsoft.com/powershell/module/az.applicationinsights) para os parâmetros destes cmdlets.  
+Consulte a [documentação detalhada](/powershell/module/az.applicationinsights) para os parâmetros destes cmdlets.  
 
 ## <a name="set-the-data-retention"></a>Definir a retenção de dados
 
@@ -329,7 +330,7 @@ Set-ApplicationInsightsRetention `
 
 ## <a name="set-the-daily-cap"></a>Definir a tampa diária
 
-Para obter as propriedades da tampa diária, utilize o [cmdlet Set-AzApplicationInsightsPricingPlan:](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) 
+Para obter as propriedades da tampa diária, utilize o [cmdlet Set-AzApplicationInsightsPricingPlan:](/powershell/module/az.applicationinsights/set-azapplicationinsightspricingplan) 
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -358,7 +359,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>Definir o plano de preços 
 
-Para obter o plano de preços atual, utilize o [cmdlet Set-AzApplicationInsightsPricingPlan:](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan)
+Para obter o plano de preços atual, utilize o [cmdlet Set-AzApplicationInsightsPricingPlan:](/powershell/module/az.applicationinsights/set-azapplicationinsightspricingplan)
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -403,12 +404,12 @@ Isto irá definir o limite diário para 200 GB/dia, configurar o tempo de reset 
 
 ## <a name="add-a-metric-alert"></a>Adicione um alerta métrico
 
-Para automatizar a criação de alertas métricos, consulte o [artigo do modelo de alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
+Para automatizar a criação de alertas métricos, consulte o [artigo do modelo de alertas métricos](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## <a name="add-an-availability-test"></a>Adicionar um teste de disponibilidade
 
-Para automatizar os testes de disponibilidade, consulte o [artigo do modelo de alertas métricos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
+Para automatizar os testes de disponibilidade, consulte o [artigo do modelo de alertas métricos](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="add-more-resources"></a>Adicionar mais recursos
 
@@ -465,10 +466,10 @@ Azure deve criar os recursos em ordem estrita. Para se certificar de que uma con
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Outros artigos de automação:
 
-* [Crie um recurso Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) - método rápido sem usar um modelo.
+* [Crie um recurso Application Insights](./create-new-resource.md#creating-a-resource-automatically) - método rápido sem usar um modelo.
 * [Configurar alertas](powershell-alerts.md)
 * [Criar testes Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Enviar o Diagnóstico do Azure ao Application Insights](powershell-azure-diagnostics.md)

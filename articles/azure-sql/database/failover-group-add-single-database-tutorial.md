@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 53645b6ba9f1463eac14ea974a17c356c1791db6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad4ef93b34639abffaf15c806fd86d550e03f0bc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045258"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicione uma Base de Dados Azure SQL a um grupo de autofailover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,9 +42,9 @@ Para concluir este tutorial, confirme que tem:
 Para completar o tutorial, certifique-se de que tem os seguintes itens:
 
 - Uma subscrição do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se ainda não tiver uma.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Para completar o tutorial, certifique-se de que tem os seguintes itens:
 
@@ -172,7 +172,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 | [Base de Dados Get-AzSql](/powershell/module/az.sql/get-azsqldatabase) | Obtém uma ou mais bases de dados na Base de Dados Azure SQL. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adiciona uma ou mais bases de dados a um grupo de failover na Base de Dados Azure SQL. |
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Crie o seu grupo de failover e adicione-lhe a sua base de dados utilizando o Azure CLI.
 
@@ -291,7 +291,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtém ou lista grupos de failover da Base de Dados Azure SQL. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executa uma falha de um grupo de failover da Base de Dados Azure SQL. |
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Teste failover usando o Azure CLI.
 
@@ -359,7 +359,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos |
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Elimine o grupo de recursos utilizando o Azure CLI.
 
@@ -427,7 +427,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 Pode encontrar aqui outros scripts da Base de Dados Azure SQL: [Azure PowerShell](powershell-script-content-guide.md) e [Azure CLI](az-cli-script-samples-content-guide.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, adicionou uma base de dados na Base de Dados Azure SQL a um grupo de failover, e testou o failover. Aprendeu a:
 

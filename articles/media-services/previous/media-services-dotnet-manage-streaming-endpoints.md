@@ -15,16 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901279"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038737"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerir pontos finais de streaming com .NET SDK  
 
 >[!NOTE]
->Certifique-se de rever o artigo [geral.](media-services-streaming-endpoints-overview.md) Além disso, [reveja streamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Certifique-se de rever o artigo [geral.](media-services-streaming-endpoints-overview.md) Além disso, [reveja streamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 O código deste artigo mostra como fazer as seguintes tarefas utilizando os Azure Media Services .NET SDK:
 
@@ -142,11 +143,10 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

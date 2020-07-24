@@ -6,11 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b535cda8fe7d98748eb0657a599a61ed1f8549d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79369391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045359"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas com o Azure Monitor
 
@@ -89,7 +90,7 @@ Pode ver e gerir as regras de alerta métricas utilizando a lâmina 'Gerir regra
 
 ## <a name="with-azure-cli"></a>Com a CLI do Azure
 
-As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas usando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). Para este artigo, usaremos a Cloud Shell.
+As secções anteriores descreveram como criar, visualizar e gerir regras de alerta métricas usando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). Para este artigo, usaremos a Cloud Shell.
 
 1. Vá ao portal Azure, clique em **Cloud Shell**.
 
@@ -133,10 +134,9 @@ As secções anteriores descreveram como criar, visualizar e gerir regras de ale
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie alertas métricos utilizando modelos de gestor de recursos Azure](../../azure-monitor/platform/alerts-metric-create-templates.md).
 - [Entenda como funcionam os alertas métricos.](alerts-metric-overview.md)
 - [Entenda como os alertas métricos com limiares dinâmicos condicionam o funcionamento.](alerts-dynamic-thresholds.md)
 - [Compreenda o esquema do gancho web para alertas métricos](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
-

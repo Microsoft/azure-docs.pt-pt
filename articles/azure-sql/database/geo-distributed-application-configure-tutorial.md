@@ -11,11 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 523fd3103585865a969f6463b3dc41fe362b9130
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e76ccc83be8f269cb14826b5e3e8873d4c7c427a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324730"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045030"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementar uma base de dados geo-distribuída (Base de Dados Azure SQL)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,10 +40,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para completar o tutorial, certifique-se de que instalou os seguintes itens:
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - Uma única base de dados na Base de Dados Azure SQL. Para criar uma utilização,
   - [O Portal Azure](single-database-create-quickstart.md)
-  - [O Azure CLI](az-cli-script-samples-content-guide.md)
+  - [A CLI do Azure](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
@@ -91,7 +92,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Corra `az login` para entrar em Azure.
@@ -343,7 +344,7 @@ Para testar uma falha:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="the-azure-cli"></a>[O Azure CLI](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
 Pode verificar a função do servidor de recuperação de desastres durante o teste com o seguinte comando:
 
@@ -367,7 +368,7 @@ Para testar uma falha:
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configuraste uma base de dados na Base de Dados Azure SQL e uma aplicação para falha numa região remota e testou um plano de falha. Aprendeu a:
 

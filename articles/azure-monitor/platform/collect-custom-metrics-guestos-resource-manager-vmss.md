@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76f73df01b34cb20be48aefa3b5b3a6392a35b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125779"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045196"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envie métricas de SO para a loja métrica do Azure Monitor utilizando um modelo de Gestor de Recursos Azure para um conjunto de escala de máquina virtual Windows
 
@@ -25,9 +26,9 @@ Se você é novo em modelos de Gestor de Recursos, aprenda sobre [implementaçõ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A sua subscrição deve estar registada no [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- A sua subscrição deve estar registada no [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Você precisa ter [Azure PowerShell](/powershell/azure) instalado, ou você pode usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Você precisa ter [Azure PowerShell](/powershell/azure) instalado, ou você pode usar [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 - O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](metrics-custom-overview.md#supported-regions)
 
@@ -270,7 +271,7 @@ Para implementar o modelo de Gestor de Recursos, utilize a Azure PowerShell:
 
 ## <a name="chart-your-metrics"></a>Mapear as suas métricas 
 
-1. Inicie sessão no Portal do Azure. 
+1. Inicie sessão no portal do Azure. 
 
 1. No menu da esquerda, selecione **Monitor**. 
 
@@ -290,7 +291,5 @@ Em seguida, também pode optar por utilizar as dimensões desta métrica para ca
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)
-
-

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19acd39be11a33424008662eb27cd68ec0005f77
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80382924"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038958"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitor Media Services registos de diagnóstico
 
@@ -28,7 +28,7 @@ Este artigo mostra-lhe como encaminhar os dados para a conta de armazenamento e,
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 - Rever [métricas de Serviços de Mídia monitor e registos de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Encaminhar os dados para a conta de armazenamento utilizando o portal
@@ -49,7 +49,7 @@ Este artigo mostra-lhe como encaminhar os dados para a conta de armazenamento e,
 
    ![Secção Definições de diagnóstico](media/media-services-diagnostic-logs/logs02.png)
 1. Defina o controlo de deslize **Retenção (dias)** para 30. Este controlo de deslize define um número de dias durante os quais os dados de monitorização vão ser retidos na conta de armazenamento. O Azure Monitor elimina automaticamente os dados mais antigos em comparação com o número de dias especificado. A retenção de zero dias armazena os dados indefinidamente.
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 Os dados de monitorização do seu recurso estão agora a ser encaminhados para a conta de armazenamento.
 

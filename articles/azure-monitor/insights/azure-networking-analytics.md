@@ -6,11 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96df96fd6145d1c6e58eb5dfc672ec324da75202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041599"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização da rede Azure no Azure Monitor
 
@@ -23,18 +24,18 @@ O Azure Monitor oferece as seguintes soluções para monitorizar as suas redes:
     * Registos de gateway de aplicação Azure
     * Métricas de Gateway de Aplicação Azure
 * Soluções para monitorizar e auditar a atividade da rede na sua rede de nuvem
-    * [Análise de Tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Análise de Tráfego](../../networking/network-monitoring-overview.md#traffic-analytics) 
     * Azure Network Security Group Analytics
 
 ## <a name="network-performance-monitor-npm"></a>Monitor de desempenho da rede (NPM)
 
-A solução de gestão [do Monitor de Desempenho da Rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) é uma solução de monitorização da rede, que monitoriza a saúde, disponibilidade e alcance das redes.  É utilizado para monitorizar a conectividade entre:
+A solução de gestão [do Monitor de Desempenho da Rede](../../networking/network-monitoring-overview.md) é uma solução de monitorização da rede, que monitoriza a saúde, disponibilidade e alcance das redes.  É utilizado para monitorizar a conectividade entre:
 
 * Nuvem pública e no local
 * Centros de dados e localizações de utilizadores (sucursais)
 * Sub-redes que hospedam vários níveis de uma aplicação multi-camadas.
 
-Para obter mais informações, consulte [o Monitor de Desempenho da Rede.](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
+Para obter mais informações, consulte [o Monitor de Desempenho da Rede.](../../networking/network-monitoring-overview.md)
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway e Network Security Group analytics
 Para utilizar as soluções:
@@ -227,5 +228,5 @@ Os dados recolhidos antes da alteração não são visíveis na nova solução. 
 ## <a name="troubleshooting"></a>Resolução de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Utilize [consultas de log no Azure Monitor](../log-query/log-query-overview.md) para ver dados de diagnósticos detalhados do Azure.

@@ -7,11 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: charwen
-ms.openlocfilehash: 5c4bbdde04176edf693fc58d172a7dcc250c495a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d094f614cbaf75158c38b86345fd5f925310d6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039315"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Mova os circuitos ExpressRoute do modelo de implementação clássico para o gestor de recursos usando o PowerShell
 
@@ -21,7 +22,7 @@ Para utilizar um circuito ExpressRoute para os modelos clássicos e gestores de 
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* Verifique se instalou os módulos clássicos e Az Azure PowerShell localmente no seu computador. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+* Verifique se instalou os módulos clássicos e Az Azure PowerShell localmente no seu computador. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/).
 * Certifique-se de que reviu os [pré-requisitos,](expressroute-prerequisites.md) [os requisitos de encaminhamento](expressroute-routing.md)e [os fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 * Reveja as informações fornecidas no [movimento de um circuito ExpressRoute de clássico para gestor de recursos.](expressroute-move.md) Certifique-se de que compreende completamente os limites e limitações.
 * Verifique se o circuito está totalmente operacional no modelo clássico de implantação.
@@ -153,7 +154,7 @@ Executar os seguintes cmdlets para desativar o acesso ao modelo de implementaç�
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Crie e modifique o encaminhamento para o seu circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Ligue a sua rede virtual ao circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)

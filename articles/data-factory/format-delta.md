@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: 74c2e738153b1afa5c90f4769b6d9b0e982af363
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225372"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044536"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta na Azure Data Factory
 
@@ -23,6 +23,8 @@ Este artigo destaca como copiar dados de e para um lago delta armazenado em [Azu
 > [!NOTE]
 > O conector de formato delta para mapeamento de fluxos de dados está atualmente disponível como pré-visualização pública.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
+
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
 Este conector está disponível como um [conjunto de dados inline](data-flow-source.md#inline-datasets) no mapeamento de fluxos de dados como uma fonte e um lavatório.
@@ -31,13 +33,13 @@ Este conector está disponível como um [conjunto de dados inline](data-flow-sou
 
 A tabela abaixo lista as propriedades suportadas por uma fonte delta. Pode editar estas propriedades no separador **Opções Fonte.**
 
-| Nome | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser`delta` | sim | `delta` | formato |
-| Sistema de ficheiros | O sistema de contentores/arquivos do lago delta | sim | String | sistema de ficheiros |
-| Folder path | O direto do lago delta | sim | String | folderPath |
+| Sistema de ficheiros | O sistema de contentores/arquivos do lago delta | sim | Cadeia | sistema de ficheiros |
+| Folder path | O direto do lago delta | sim | Cadeia | folderPath |
 | Tipo de compressão | O tipo de compressão da tabela delta | não | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressãoType |
-| Nível de compressão | Escolha se a compressão se completa o mais rapidamente possível ou se o ficheiro resultante deve ser comprimido da melhor forma. | necessário se `compressedType` for especificado. | compressãoLevel |
+| Nível de compressão | Escolha se a compressão se completa o mais rapidamente possível ou se o ficheiro resultante deve ser comprimido da melhor forma. | necessário se `compressedType` for especificado. | `Optimal` ou `Fastest` | compressãoLevel |
 | Viagem no tempo | Escolha se deve consultar um instantâneo mais antigo de uma tabela delta | não | Consulta por timetamp: Timetamp <br> Consulta por versão: Inteiro | timetampAsOf <br> versõesAsOf |
 
 #### <a name="import-schema"></a>Esquema de importação
@@ -67,14 +69,14 @@ source(output(movieId as integer,
 
 A tabela abaixo lista as propriedades suportadas por um lavatório delta. Pode editar estas propriedades no **separador Definições.**
 
-| Nome | Descrição | Necessário | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Formato deve ser`delta` | sim | `delta` | formato |
-| Sistema de ficheiros | O sistema de contentores/arquivos do lago delta | sim | String | sistema de ficheiros |
-| Folder path | O direto do lago delta | sim | String | folderPath |
+| Sistema de ficheiros | O sistema de contentores/arquivos do lago delta | sim | Cadeia | sistema de ficheiros |
+| Folder path | O direto do lago delta | sim | Cadeia | folderPath |
 | Tipo de compressão | O tipo de compressão da tabela delta | não | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressãoType |
-| Nível de compressão | Escolha se a compressão se completa o mais rapidamente possível ou se o ficheiro resultante deve ser comprimido da melhor forma. | necessário se `compressedType` for especificado. | compressãoLevel |
-| Limpeza | Especifique o limiar de retenção em horas para versões mais antigas da tabela. Um valor de 0 ou menos incumprimentos para 30 dias | sim | Número inteiro | vácuo |
+| Nível de compressão | Escolha se a compressão se completa o mais rapidamente possível ou se o ficheiro resultante deve ser comprimido da melhor forma. | necessário se `compressedType` for especificado. | `Optimal` ou `Fastest` | compressãoLevel |
+| Limpeza | Especifique o limiar de retenção em horas para versões mais antigas da tabela. Um valor de 0 ou menos incumprimentos para 30 dias | sim | Integer (Número inteiro) | vácuo |
 | Método de atualização | Especifique quais as operações de atualização permitidas no lago delta. Para métodos que não são inseridos, uma transformação de linha alterante anterior é necessária para marcar linhas. | sim | `true` ou `false` | deletable <br> inserível <br> atualizável <br> upsertable |
 
 ### <a name="delta-sink-script-example"></a>Exemplo de script de pia delta

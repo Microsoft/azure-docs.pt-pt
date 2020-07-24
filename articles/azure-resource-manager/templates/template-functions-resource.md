@@ -3,11 +3,12 @@ title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19f5b6c07010c82ba6675e6db031e663ef7c5cdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044950"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -35,10 +36,10 @@ Devolve o ID de recurso para um [recurso de extensão](../management/extension-r
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sim |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceId |Yes |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -113,9 +114,9 @@ A sintaxe para esta função varia em função do nome das operações da lista.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Identificador único para o recurso. |
-| apiVersion |Sim |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
-| funçõesValues |Não |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
+| recursoName ou identificador de recursos |Yes |string |Identificador único para o recurso. |
+| apiVersion |Yes |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
+| funçõesValues |No |objeto | Um objeto que tem valores para a função. Apenas forneça este objeto para funções que suportem a receção de um objeto com valores de parâmetros, como **listAccountSas** numa conta de armazenamento. Neste artigo é mostrado um exemplo de valores de função de passagem. |
 
 ### <a name="valid-uses"></a>Usos válidos
 
@@ -137,6 +138,7 @@ As possíveis utilizações da lista* são apresentadas na tabela seguinte.
 | Microsoft.BatchAI/workspaces/experiências/empregos | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft.BotService/botServices/canais | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/contas | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
@@ -324,8 +326,8 @@ Devolve informações sobre um fornecedor de recursos e os seus tipos de recurso
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |string |Espaço de nome do fornecedor |
-| resourceType |Não |string |O tipo de recurso dentro do espaço de nome especificado. |
+| providerNamespace |Yes |string |Espaço de nome do fornecedor |
+| resourceType |No |string |O tipo de recurso dentro do espaço de nome especificado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -399,9 +401,9 @@ Devolve um objeto que representa o estado de execução de um recurso.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| recursoName ou identificador de recursos |Sim |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
-| apiVersion |Não |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
-| 'Cheio' |Não |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
+| recursoName ou identificador de recursos |Yes |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
+| apiVersion |No |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
+| 'Cheio' |No |string |Valor que especifica se deve devolver o objeto de recurso completo. Se não `'Full'` especificar, apenas o objeto de propriedades do recurso é devolvido. O objeto completo inclui valores como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -722,11 +724,11 @@ Devolve o identificador único de um recurso. Utilize esta função quando o nom
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
-| resourceGroupName |Não |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
+| resourceGroupName |No |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -860,12 +862,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
-| diferenteRSoutput | String | /subscrições/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
-| diferentesSubOutput | String | /subscrições/11111111-1111-1111-1111-111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAcontamentos/exemplostorage |
-| nestedResourceOutput | String | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.SQL/servers/serverName/databases |
+| sameRGOutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
+| diferenteRSoutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/exemplostorage |
+| diferentesSubOutput | Cadeia | /subscrições/11111111-1111-1111-1111-111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAcontamentos/exemplostorage |
+| nestedResourceOutput | Cadeia | /subscrições/{current-sub-id}/resourceGroups/exemplogroup/providers/Microsoft.SQL/servers/serverName/databases |
 
 ## <a name="subscription"></a>subscrição
 
@@ -918,10 +920,10 @@ Devolve o identificador único para um recurso implantado ao nível da subscriç
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Não |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| subscriptionId |No |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1000,9 +1002,9 @@ Devolve o identificador único para um recurso implantado ao nível do inquilino
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
-| recursoName1 |Sim |string |Nome do recurso. |
-| recursoName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
+| recursoName1 |Yes |string |Nome do recurso. |
+| recursoName2 |No |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue a adicionar nomes de recursos como parâmetros quando o tipo de recurso inclui mais segmentos.
 
@@ -1018,7 +1020,7 @@ O identificador é devolvido no seguinte formato:
 
 Você usa esta função para obter o ID de recurso para um recurso que é implantado para o inquilino. O ID devolvido difere dos valores devolvidos por outras funções de ID de recursos, não incluindo o grupo de recursos ou os valores de subscrição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo do Gestor de Recursos Azure, consulte [os modelos do Gestor de Recursos Azure.](template-syntax.md)
 * Para fundir vários modelos, consulte [utilizando modelos ligados com O Gestor de Recursos Azure](linked-templates.md).

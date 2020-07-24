@@ -7,11 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798129"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045777"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorize grupos de recursos com monitor Azure (pré-visualização)
 
@@ -45,10 +46,10 @@ A página de insights do grupo de recursos fornece várias outras ferramentas te
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Veja, crie e gere os seus alertas. |
-   | [**Métricas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize e explore os seus dados métricos.    |
-   | [**Registos de atividade**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Eventos de nível de subscrição que ocorreram em Azure.  |
-   | [**Mapa de aplicação**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navegue na topologia da sua aplicação distribuída para identificar estrangulamentos de desempenho ou hotspots de falha. |
+   | [**Alertas**](../platform/alerts-overview.md)      |  Veja, crie e gere os seus alertas. |
+   | [**Métricas**](../platform/data-platform.md) | Visualize e explore os seus dados métricos.    |
+   | [**Troncos de atividade**](../platform/platform-logs-overview.md) | Eventos de nível de subscrição que ocorreram em Azure.  |
+   | [**Mapa de aplicação**](../app/app-map.md) | Navegue na topologia da sua aplicação distribuída para identificar estrangulamentos de desempenho ou hotspots de falha. |
 
 ## <a name="failures-and-performance"></a>Falhas e desempenho
 
@@ -114,8 +115,8 @@ O Azure Monitor for Resource Groups conta com o sistema de gestão de alertas de
 * Abertura do Monitor Azure para grupos de recursos para qualquer grupo de recursos na subscrição.
 * Ou indo para a subscrição, clicando em **Fornecedores de Recursos,** clicando em **Registar para Alertas.Management**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Livros de trabalho do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
-- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Alertas de Monitor Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Livros de trabalho do Monitor Azure](../platform/workbooks-overview.md)
+- [Azure Resource Health](../../service-health/resource-health-overview.md)
+- [Alertas do Azure Monitor](../platform/alerts-overview.md)

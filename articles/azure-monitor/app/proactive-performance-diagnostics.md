@@ -4,11 +4,12 @@ description: A Application Insights realiza uma análise inteligente da telemetr
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5152a3deb73c7069655ff016fbfc03f6b9cee16d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84016853"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045790"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de desempenho
 
@@ -48,7 +49,7 @@ As notificações incluem informações de diagnóstico. Eis um exemplo:
 
 ## <a name="configure-email-notifications"></a>Configure notificações de e-mail
 
-As notificações de Deteção Inteligente são ativadas por padrão e enviadas para aqueles que têm o [Monitore de Monitorização](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [o Acompanhamento do Contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) acesso à subscrição em que reside o recurso Application Insights. Para alterar isto, clique em **Configurar** na notificação de e-mail ou abra definições de Deteção Inteligente em Insights de Aplicação. 
+As notificações de Deteção Inteligente são ativadas por padrão e enviadas para aqueles que têm o [Monitore de Monitorização](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [o Acompanhamento do Contribuinte](../../role-based-access-control/built-in-roles.md#monitoring-contributor) acesso à subscrição em que reside o recurso Application Insights. Para alterar isto, clique em **Configurar** na notificação de e-mail ou abra definições de Deteção Inteligente em Insights de Aplicação. 
   
   ![Definições de deteção inteligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -69,12 +70,12 @@ Os e-mails sobre anomalias de desempenho de Smart Detections estão limitados a 
 * *Posso criar as minhas próprias regras de deteção de anomalias ou personalizar as regras existentes?*
 
   * Ainda não, mas pode:
-    * [Configurar alertas](/azure/azure-monitor/platform/alerts-log) que lhe digam quando uma métrica cruza um limiar.
+    * [Configurar alertas](../platform/alerts-log.md) que lhe digam quando uma métrica cruza um limiar.
     * [Exporte telemetria](../../azure-monitor/app/export-telemetry.md) para uma [base de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou [para Power BI,](../../azure-monitor/app/export-power-bi.md )onde você pode analisá-la por si mesmo.
 * *Com que frequência é feita a análise?*
 
   * Fazemos a análise diariamente sobre a telemetria do dia anterior (dia inteiro no fuso horário utc).
-* *Isto substitui [os alertas métricos?](/azure/azure-monitor/platform/alerts-log)*
+* *Isto substitui [os alertas métricos?](../platform/alerts-log.md)*
   * Não.  Não nos comprometemos a detetar todos os comportamentos que possa supor anormais.
 
 
@@ -169,15 +170,15 @@ Clique nos links para abrir o Metric Explorer e pesquisar relatórios relevantes
 
 Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria a partir da sua aplicação:
 
 * [Gerador de perfis](profiler.md) 
 * [Debugger snapshot](../../azure-monitor/app/snapshot-debugger.md)
 * [Análise](../../azure-monitor/log-query/get-started-portal.md)
-* [Analytics diagnósticos inteligentes](../../azure-monitor/app/analytics.md)
+* [Analytics diagnósticos inteligentes](../log-query/log-query-overview.md)
 
 As deteções inteligentes são completamente automáticas. Mas talvez queira fazer mais alguns alertas?
 
-* [Alertas métricos configurados manualmente](/azure/azure-monitor/platform/alerts-log)
+* [Alertas métricos configurados manualmente](../platform/alerts-log.md)
 * [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)

@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52b737e88e13c59d260da73c6fa37a1088cb91d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74895782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038472"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria Azure Media Services  
 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 A Azure Media Services (AMS) permite-lhe aceder a dados de telemetria/métricas para os seus serviços. A versão atual da AMS permite-lhe recolher dados de telemetria para o **Canal**live, **StreamingEndpoint**e entidades live **Archive.** 
 
@@ -50,7 +51,7 @@ A telemetria é escrita para uma Tabela de Armazenamento Azure na conta de armaz
 
 Pode consumir dados de telemetria de uma das seguintes formas:
 
-- Leia os dados diretamente do Azure Table Storage (por exemplo, utilizando o SDK de armazenamento). Para a descrição das tabelas de armazenamento de telemetria, consulte as **informações de telemetria consumista** [neste](https://msdn.microsoft.com/library/mt742089.aspx) tópico.
+- Leia os dados diretamente do Azure Table Storage (por exemplo, utilizando o SDK de armazenamento). Para a descrição das tabelas de armazenamento de telemetria, consulte as **informações de telemetria consumista** [neste](/previous-versions/azure/mt742089(v=azure.100)) tópico.
 
 Ou
 
@@ -77,7 +78,7 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|{iD da conta}_{iD da entidade}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>O ID da conta está incluído na chave de partição para simplificar os fluxos de trabalho onde várias contas de Serviços de Mídia estão escrevendo para a mesma conta de armazenamento.
 RowKey|{segundos para meia-noite}_{valor aleatório}|01688_00199<br/><br/>A tecla de linha começa com o número de segundos à meia-noite para permitir consultas de estilo top n dentro de uma partição. Para mais informações, consulte [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
-Carimbo de data/hora|Data/Hora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
+Timestamp|Date/Time|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|O tipo de entidade que fornece dados de telemetria|Canal/StreamingEndpoint/Arquivo<br/><br/>O tipo de evento é apenas um valor de corda.
 Name|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 Tempo observado|A hora em que ocorreu o evento de telemetria (UTC)|2016-09-09T22:42:36.924Z<br/><br/>O tempo observado é fornecido pela entidade que envia a telemetria (por exemplo, um canal). Pode haver problemas de sincronização de tempo entre componentes, pelo que este valor é aproximado
@@ -98,12 +99,12 @@ Propriedade|Valor|Exemplos
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Carimbo de data/hora|Carimbo de data/hora|Marca de tempo automático da Tabela Azure 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Marca de tempo automático da Tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|StreamingEndpoint
 Name|Name|StreamingEndpointRequestLog
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
 ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-NomedeAnfitrião|Nome de anfitrião do ponto final|builddemoserver.origin.mediaservices.windows.net
+Nome do Anfitrião|Nome de anfitrião do ponto final|builddemoserver.origin.mediaservices.windows.net
 Código de Estado|Registos HTTP|200
 Resultados Código|Detalhe do código de resultados|S_OK
 PedidoCount|Pedido total na agregação|3
@@ -117,7 +118,7 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Carimbo de data/hora|Carimbo de data/hora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|Canal
 Name|Name|ChannelHeartbeat
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
@@ -142,7 +143,7 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Carimbo de data/hora|Carimbo de data/hora|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Marca de tempo automática da tabela Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|Arquivo
 Name|Name|ArchiveHeartbeat
 Tempo observado|Tempo observado|2016-09-09T22:42:36.924Z
@@ -215,7 +216,7 @@ Os dados telemétricos podem ser processados e visualizados com as seguintes fer
 
 O sistema de telemetria não fornece gestão de retenção de dados ou eliminação automática de registos antigos. Assim, é necessário gerir e apagar registos antigos manualmente da mesa de armazenamento. Pode consultar o SDK de armazenamento para saber como fazê-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

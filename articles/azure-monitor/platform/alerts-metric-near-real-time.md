@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 3/5/2020
 ms.subservice: alerts
-ms.openlocfilehash: c036fa3708d718d6199d27989e60b11015a1227e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc3b11cd09c1c987a74ad07b12117e62b065a6de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80585859"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045410"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos apoiados para alertas métricos no Azure Monitor
 
@@ -21,7 +21,7 @@ O Azure Monitor suporta agora um [novo tipo de alerta métrico](../../azure-moni
 Também pode utilizar alertas métricos mais recentes em dados de registo populares armazenados num espaço de trabalho log analytics extraído como métricas. Para mais informações, consulte [Alertas métricos para Registos](../../azure-monitor/platform/alerts-metric-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Suporte portal, PowerShell, CLI, REST
-Atualmente, pode criar alertas métricos mais recentes apenas no portal Azure, [REST API,](https://docs.microsoft.com/rest/api/monitor/metricalerts/)ou [Modelos de Gestor de Recursos.](../../azure-monitor/platform/alerts-metric-create-templates.md) O suporte para configurar alertas mais recentes utilizando as versões PowerShell e Azure CLI 2.0 e superiores está para breve.
+Atualmente, pode criar alertas métricos mais recentes apenas no portal Azure, [REST API,](/rest/api/monitor/metricalerts/)ou [Modelos de Gestor de Recursos.](../../azure-monitor/platform/alerts-metric-create-templates.md) O suporte para configurar alertas mais recentes utilizando as versões PowerShell e Azure CLI 2.0 e superiores está para breve.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas e Dimensões Suportadas
 Mais recentes alertas métricos alertam para métricas que usam dimensões. Pode utilizar as dimensões para filtrar a sua métrica para o nível certo. Todas as métricas suportadas juntamente com as dimensões aplicáveis podem ser exploradas e visualizadas a partir do [Azure Monitor - Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
@@ -59,7 +59,7 @@ Aqui está a lista completa de fontes métricas do monitor Azure apoiadas pelos 
 |Microsoft.EventHub/espaços de nome |Sim| No |[Hubs de Eventos](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/cofres| Não |Não |[Cofres](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows |N/D | No |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft.MachineLearningServices/workspaces|Sim| No | [Machine Learning](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.MachineLearningServices/workspaces|Sim| No | [Aprendizagem automática](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft.NetApp/netAppAccounts/capacityPools |Sim| No | [Piscinas de capacidade Azure NetApp](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
 |Microsoft.NetApp/netAppAccounts/capacityPools/volumes |Sim| No | [Azure NetApp Volumes](../../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft.Network/applicationGateways|N/D| No |  |

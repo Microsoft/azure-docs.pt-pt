@@ -13,28 +13,29 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ea74c85af062ce00dbccf8a486ce39cbd524bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515060"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043409"
 ---
-# <a name="develop-with-media-services-v3-apis"></a>Desenvolver com Serviços de Mídia v3 APIs
+# <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
-Como desenvolvedor, pode utilizar [a API](https://docs.microsoft.com/rest/api/media/) dos Serviços de Media OU bibliotecas de clientes que lhe permitem interagir com a API REST para criar, gerir e manter fluxos de trabalho personalizados para os meios de comunicação. O [Serviço de Mídia v3](https://aka.ms/ams-v3-rest-sdk) API baseia-se na especificação OpenAPI (anteriormente conhecida como Swagger).
+Como desenvolvedor, pode utilizar [a API](/rest/api/media/) dos Serviços de Media OU bibliotecas de clientes que lhe permitem interagir com a API REST para criar, gerir e manter fluxos de trabalho personalizados para os meios de comunicação. O [Serviço de Mídia v3](https://aka.ms/ams-v3-rest-sdk) API baseia-se na especificação OpenAPI (anteriormente conhecida como Swagger).
 
 Este artigo discute regras que se aplicam a entidades e APIs quando se desenvolve com os Media Services v3.
 
-## <a name="accessing-the-azure-media-services-api"></a>Acesso à Azure Media Services API
+## <a name="accessing-the-azure-media-services-api"></a>Aceder à API dos Serviços de Multimédia do Azure
 
-Para ser autorizado a aceder aos recursos dos Serviços de Comunicação social e à API dos Serviços de Comunicação Social, tem primeiro de ser autenticado. Os Serviços de Comunicação Social suportam a autenticação [baseada no Azure Ative Directory (Azure AD).](../../active-directory/fundamentals/active-directory-whatis.md) Duas opções comuns de autenticação são:
+Para obter autorização para aceder aos recursos dos Serviços de Multimédia e à API dos Serviços de Multimédia, primeiro tem de se autenticar. Os Serviços de Multimédia suportam a autenticação baseada no [Azure Active Directory (AAD)](../../active-directory/fundamentals/active-directory-whatis.md). As duas opções de autenticação comuns são:
  
-* **Autenticação principal do serviço**: Usado para autenticar um serviço (por exemplo: aplicações web, aplicações de função, aplicações lógicas, API e microserviços). As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de nível médio ou trabalhos programados. Por exemplo, para aplicações web deve haver sempre um nível médio que se conecta aos Serviços de Mídia com um Principal de Serviço.
-* **Autenticação do utilizador**: Usado para autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo.
+* **Autenticação do principal de serviço**: utilizada para autenticar um serviço (por exemplo: aplicações Web, aplicações de funções, aplicações lógicas, API e microsserviços). As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de camada média ou tarefas agendadas. Por exemplo, para aplicações web deve haver sempre um nível médio que se conecta aos Serviços de Mídia com um Principal de Serviço.
+* **Autenticação do utilizador**: utilizada para autenticar uma pessoa que está a utilizar a aplicação para interagir com os recursos dos Serviços de Multimédia. A aplicação interativa deve primeiro pedir ao utilizador as suas credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto.
 
-A API dos Serviços de Mídia exige que o utilizador ou app que faz os pedidos de API REST tenha acesso ao recurso da conta dos Serviços de Mídia e utilize uma função **de Contribuinte** ou **Proprietário.** A API pode ser acedida com a função **Reader,** mas apenas as operações **Get** ou **List** estarão disponíveis.Para obter mais informações, consulte [o controlo de acesso baseado em funções para contas de Serviços de Mídia.](rbac-overview.md)
+A API dos Serviços de Multimédia exige que o utilizador ou a aplicação que faz os pedidos da API REST tenha acesso ao recurso da conta dos Serviços de Multimédia e utilize uma função de **Contribuidor** ou **Proprietário**. É possível aceder à API com a função de **Leitor**, mas estarão disponíveis apenas as operações **Obter** ou **Listar**.Para obter mais informações, veja [Controlo de acesso baseado em funções das contas dos Serviços de Multimédia](rbac-overview.md).
 
-Em vez de criar um principal de serviço, considere usar identidades geridas para os recursos da Azure acederem à API dos Serviços de Comunicação Através do Azure Resource Manager. Para saber mais sobre identidades geridas para recursos Azure, veja [o que é gerida identidades para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Em vez de criar um principal de serviço, considere utilizar identidades geridas para os recursos do Azure para aceder à API dos Serviços de Multimédia através do Azure Resource Manager. Para saber mais sobre as identidades geridas dos recursos do Azure, veja [O que são identidades geridas dos recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="azure-ad-service-principal"></a>Diretor de serviço AZure AD
 
@@ -53,7 +54,7 @@ No seguinte número, os números representam o fluxo dos pedidos por ordem crono
    * URI de recurso para rest media Services.
    * Valores de aplicação AD AZure: o ID do cliente e o segredo do cliente.
 
-   Para obter todos os valores necessários, consulte [a Access Azure Media Services API](access-api-cli-how-to.md).
+   Para obter todos os valores necessários, consulte [a Access Azure Media Services API](./access-api-howto.md).
 
 2. O sinal de acesso Azure AD é enviado para o nível médio.
 4. O nível médio envia pedido à Azure Media REST API com o token AD Azure.
@@ -79,36 +80,36 @@ Para obter mais informações sobre o nome do Azure Resource Manager, consulte [
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>Nomes de ficheiros/bolhas dentro de um ativo
 
-Os nomes de ficheiros/bolhas dentro de um ativo devem seguir tanto os requisitos de [nome blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) como os requisitos de [nome NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). A razão para estes requisitos é que os ficheiros podem ser copiados do armazenamento de bolhas para um disco NTFS local para processamento.
+Os nomes de ficheiros/bolhas dentro de um ativo devem seguir tanto os requisitos de [nome blob](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) como os requisitos de [nome NTFS](/windows/win32/fileio/naming-a-file). A razão para estes requisitos é que os ficheiros podem ser copiados do armazenamento de bolhas para um disco NTFS local para processamento.
 
 ## <a name="long-running-operations"></a>Operações de longa duração
 
 As operações `x-ms-long-running-operation` marcadas nos [ficheiros](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) swagger da Azure Media Services são operações de longa duração. 
 
-Para mais detalhes sobre como rastrear as operações assíncronas do Azure, consulte [as operações da Async](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
+Para mais detalhes sobre como rastrear as operações assíncronas do Azure, consulte [as operações da Async](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation).
 
 Os Serviços de Comunicação Social têm as seguintes operações de longo prazo:
 
-* [Criar eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Atualizar eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents/update)
-* [Excluir evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Início ao evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents/start)
-* [Parar LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+* [Criar eventos ao vivo](/rest/api/media/liveevents/create)
+* [Atualizar eventos ao vivo](/rest/api/media/liveevents/update)
+* [Excluir evento ao vivo](/rest/api/media/liveevents/delete)
+* [Início ao evento ao vivo](/rest/api/media/liveevents/start)
+* [Parar LiveEvent](/rest/api/media/liveevents/stop)
 
   Utilize o `removeOutputsOnStop` parâmetro para eliminar todas as saídas ao vivo associadas ao interromper o evento.  
-* [Reset LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
-* [Criar LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
-* [Excluir LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
-* [Criar StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
-* [Atualização StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
-* [Excluir streamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
-* [Iniciar streamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* [Parar streamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
-* [Escala streamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+* [Reset LiveEvent](/rest/api/media/liveevents/reset)
+* [Criar LiveOutput](/rest/api/media/liveevents/create)
+* [Excluir LiveOutput](/rest/api/media/liveevents/delete)
+* [Criar StreamingEndpoint](/rest/api/media/streamingendpoints/create)
+* [Atualização StreamingEndpoint](/rest/api/media/streamingendpoints/update)
+* [Excluir streamingEndpoint](/rest/api/media/streamingendpoints/delete)
+* [Iniciar streamingEndpoint](/rest/api/media/streamingendpoints/start)
+* [Parar streamingEndpoint](/rest/api/media/streamingendpoints/stop)
+* [Escala streamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
 Após a submissão bem sucedida de uma longa operação, recebe um '202 Accepted' e deve sondar para conclusão da operação utilizando o ID de operação devolvido.
 
-O artigo [de operações assíncronas da Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) explica em profundidade como acompanhar o estado das operações assíncronas do Azure através de valores devolvidos na resposta.
+O artigo [de operações assíncronas da Azure](../../azure-resource-manager/management/async-operations.md) explica em profundidade como acompanhar o estado das operações assíncronas do Azure através de valores devolvidos na resposta.
 
 Apenas uma operação de longa duração é suportada para um determinado Evento Ao Vivo ou qualquer uma das suas saídas ao vivo associadas. Uma vez iniciado, uma operação de longa duração deve ser concluída antes de iniciar uma operação de longo prazo subsequente no mesmo LiveEvent ou em quaisquer Saídas Ao Vivo associadas. Para eventos ao vivo com várias Saídas Ao Vivo, deve aguardar a conclusão de uma longa operação em execução numa Saída Ao Vivo antes de desencadear uma longa operação em execução em outra Saída Ao Vivo. 
 
@@ -126,7 +127,7 @@ Apenas uma operação de longa duração é suportada para um determinado Evento
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Ver também
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -145,11 +146,11 @@ Consulte [a filtragem, encomenda, paging de entidades da Azure Media Services](e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-Para obter todos os valores necessários, consulte [a Access Azure Media Services API](access-api-cli-how-to.md).
+Para obter todos os valores necessários, consulte [a Access Azure Media Services API](./access-api-howto.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligue-se aos Serviços de Comunicação Social com a Java](configure-connect-java-howto.md)
 * [Ligar aos Serviços de Mídia com .NET](configure-connect-dotnet-howto.md)

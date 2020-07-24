@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6b064c6e4107da5695e2a9945240e4276ac795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 621d654e54d1f42a8714605c0c864b7653524f05
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211855"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046283"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
+# <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Crie uma piscina de anfitriões virtual do Windows desktop com PowerShell
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à atualização primavera 2020 com objetos de desktop virtual do Windows Manager do Azure. Se estiver a utilizar o desbloqueio virtual do Windows Desktop Fall 2019 sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
@@ -122,7 +122,7 @@ Para registar os agentes do Windows Virtual Desktop, faça o seguinte em cada m�
 >[!IMPORTANT]
 >Para ajudar a proteger o ambiente de ambiente de trabalho virtual do Windows em Azure, recomendamos que não abra a porta de entrada 3389 nos seus VMs. O Windows Virtual Desktop não necessita de uma porta de entrada aberta 3389 para os utilizadores acederem aos VMs da piscina anfitriã. Se tiver de abrir a porta 3389 para efeitos de resolução de problemas, recomendamos que utilize [acesso vm just-in-time](../security-center/security-center-just-in-time.md). Recomendamos também que não atribua os seus VMs a um IP público.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez uma piscina de anfitriões, pode povoá-la com RemoteApps. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, consulte o tutorial de grupos de aplicações Manage.
 

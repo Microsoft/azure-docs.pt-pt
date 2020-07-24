@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c6b3732d0a77580c27f6cc8720b414e8e49d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982174"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038992"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Atualizações de documentação do Azure Media Services v3
 
@@ -26,7 +26,7 @@ Este artigo fala sobre as mais recentes atualizações de documentação dos Med
 
 ## <a name="june-2020"></a>Junho de 2020
 
-* A pré-estreia de Live Video Analytics no IoT Edge tornou-se pública. Veja os detalhes na documentação do [IoT Edge no Vídeo Ao Vivo.](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/)
+* A pré-estreia de Live Video Analytics no IoT Edge tornou-se pública. Veja os detalhes na documentação do [IoT Edge no Vídeo Ao Vivo.](../live-video-analytics-edge/index.yml)
 * Novos quickstarts:
 
     * [Utilizar o portal para carregar, codificar e transmitir conteúdo em fluxo](manage-assets-quickstart.md)
@@ -41,7 +41,7 @@ Este artigo fala sobre as mais recentes atualizações de documentação dos Med
 
 O [streaming ao vivo com telestream Wirecast](live-events-wirecast-quickstart.md) quickstart foi adicionado. Mostra-lhe como criar um live stream da Azure Media Services utilizando o portal Azure e o Telestream Wirecast.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral](media-services-overview.md)
 - [Media Services v3 notas de lançamento](release-notes.md)

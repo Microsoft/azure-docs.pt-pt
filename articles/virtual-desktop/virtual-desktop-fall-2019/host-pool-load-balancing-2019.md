@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop host pool load-balance - Azure
-description: Hospedar métodos de equilíbrio de carga da piscina para um ambiente de ambiente de trabalho virtual do Windows.
+title: Windows Virtual Desktop host pool load-balance (outono 2019) - Azure
+description: Saiba mais sobre os métodos de equilíbrio de carga da piscina do anfitrião para um ambiente de desktop virtual do Windows (lançamento outono 2019).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2bfbd580d0e114cf4a135879340745107183b6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50819fc6b1e13aeb1c0eddf306ecdfbe8147a44f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614814"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046261"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga do agrupamento de anfitriões
+# <a name="host-pool-load-balancing-methods-fall-2019-release"></a>Métodos de equilíbrio de piscinas anfitriões (lançamento outono 2019)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../host-pool-load-balancing.md).

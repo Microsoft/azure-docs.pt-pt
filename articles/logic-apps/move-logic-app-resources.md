@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: d420f244b0d1e5ccf9a7aaa78c10f613cdbad38f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e844934852f3eb45f665a67bbdb7087a8ba0202
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039164"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Mover recursos de aplicativos lógicos para outros grupos de recursos Azure, regiões ou subscrições
 
@@ -94,7 +94,7 @@ Alguns recursos da Azure, como os recursos de gateway de dados no local em Azure
 
 Por exemplo, para ligar uma aplicação lógica a uma conta de integração, ambos os recursos devem existir na mesma região. Em cenários como a recuperação de desastres, normalmente quer contas de integração que tenham a mesma configuração e artefactos. Noutros cenários, poderá necessitar de contas de integração com diferentes configurações e artefactos.
 
-Conectores personalizados em Azure Logic Apps são visíveis para os autores e utilizadores dos conectores que têm a mesma subscrição Azure e o mesmo inquilino do Azure Ative Directory. Estes conectores estão disponíveis na mesma região onde as aplicações lógicas são implementadas. Para obter mais informações, veja [Partilhar conectores personalizados na sua organização](https://docs.microsoft.com/connectors/custom-connectors/share).
+Conectores personalizados em Azure Logic Apps são visíveis para os autores e utilizadores dos conectores que têm a mesma subscrição Azure e o mesmo inquilino do Azure Ative Directory. Estes conectores estão disponíveis na mesma região onde as aplicações lógicas são implementadas. Para obter mais informações, veja [Partilhar conectores personalizados na sua organização](/connectors/custom-connectors/share).
 
 O modelo que obtém do Visual Studio inclui apenas as definições de recursos para a sua aplicação lógica e suas ligações. Assim, se a sua aplicação lógica utilizar outros recursos, por exemplo, uma conta de integração e artefactos B2B, como parceiros, acordos e esquemas, deve exportar o modelo dessa conta de integração utilizando o portal Azure. Este modelo inclui as definições de recursos tanto para a conta de integração como para os artefactos. No entanto, o modelo não é totalmente parametrizado. Por isso, deve parametrizar manualmente os valores que pretende utilizar para a implantação.
 
@@ -108,6 +108,6 @@ O modelo que obtém do Visual Studio inclui apenas as definições de recursos p
 
 1. Abra e edite o modelo para parametrizar os valores necessários para a implantação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Mover recursos da Azure para novos grupos de recursos ou subscrições](../azure-resource-manager/management/move-resource-group-and-subscription.md)

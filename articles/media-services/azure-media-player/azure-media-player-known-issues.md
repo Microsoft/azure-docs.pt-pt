@@ -6,11 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
-ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83124640"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043617"
 ---
 # <a name="known-issues"></a>Problemas Conhecidos #
 
@@ -49,7 +50,7 @@ O lançamento atual tem as seguintes questões conhecidas:
 
 - Os ativos que são áudio só não serão reproduzidos através da tecnologia AzureHtml5JS.
   - Se quiser reproduzir ativos sem áudio, pode fazê-lo inserindo áudio em branco utilizando a [ferramenta Azure Media Services Explorer](https://aka.ms/amse)
-  - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+  - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
 ## <a name="flash"></a>Flash ##
 
@@ -110,6 +111,6 @@ O lançamento atual tem as seguintes questões conhecidas:
 - O conteúdo de fichas AES e restrito não reproduz usando dispositivos Android iOS e mais antigos.
   - Para alcançar este cenário, deve ser adicionado um representante ao seu serviço.
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

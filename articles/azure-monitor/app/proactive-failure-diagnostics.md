@@ -4,12 +4,12 @@ description: Alerta-o para alterações invulgares na taxa de pedidos falhados n
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27cf38a1cfcf8a9f87582ab3e78b48e78f3c63c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254791"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045801"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção Inteligente - Anomalias de falha
 [O Application Insights](../../azure-monitor/app/app-insights-overview.md) alerta-o automaticamente em tempo real se a sua aplicação web experimentar um aumento anormal na taxa de pedidos falhados. Deteta um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência que são reportadas como falhadas. Para pedidos, os pedidos falhados geralmente têm códigos de resposta de 400 ou mais. Para o ajudar a triagem e diagnóstico do problema, é fornecida uma análise das características das falhas e dados de aplicações relacionados nos detalhes do alerta. Existem também ligações ao portal Application Insights para um diagnóstico mais aprofundado. A funcionalidade não necessita de configuração nem configuração, pois utiliza algoritmos de aprendizagem automática para prever a taxa normal de falha.
@@ -61,13 +61,13 @@ Os alertas são desencadeados pelo nosso algoritmo de aprendizagem automática p
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Pode desativar a regra de alerta de Deteção Inteligente a partir do portal ou utilizar o Gestor de Recursos Azure[(ver exemplo do modelo).](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)
+Pode desativar a regra de alerta de Deteção Inteligente a partir do portal ou utilizar o Gestor de Recursos Azure[(ver exemplo do modelo).](./proactive-arm-config.md)
 
-Esta regra de alerta é criada com um [Grupo de Ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associado chamado "Application Insights Smart Detection" que contém ações de e-mail e webhook, e pode ser estendida para desencadear ações adicionais quando o alerta dispara.
+Esta regra de alerta é criada com um [Grupo de Ação](../platform/action-groups.md) associado chamado "Application Insights Smart Detection" que contém ações de e-mail e webhook, e pode ser estendida para desencadear ações adicionais quando o alerta dispara.
 
 > [!NOTE]
-> As notificações por e-mail enviadas a partir desta regra de alerta são agora enviadas por defeito aos utilizadores associados às funções de Monitor e Monitoring Da subscrição. Mais informações sobre isto estão disponíveis [aqui.](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)
-> As notificações enviadas a partir desta regra de alerta seguem o [esquema comum de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+> As notificações por e-mail enviadas a partir desta regra de alerta são agora enviadas por defeito aos utilizadores associados às funções de Monitor e Monitoring Da subscrição. Mais informações sobre isto estão disponíveis [aqui.](./proactive-email-notification.md)
+> As notificações enviadas a partir desta regra de alerta seguem o [esquema comum de alerta](../platform/alerts-common-schema.md).
 >
 
 Abra a página Alertas. As regras de alerta de anomalias de avaria estão incluídas juntamente com quaisquer alertas que tenha definido manualmente, e pode ver se está atualmente em estado de alerta.
@@ -348,9 +348,9 @@ A Deteção Inteligente de anomalias de falha complementa outras característica
 
 *Alguns dos alertas são sobre questões conhecidas e não quero recebê-los.*
 
-* Pode utilizar a função de supressão [de regras de ação de alerta.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules)
+* Pode utilizar a função de supressão [de regras de ação de alerta.](../platform/alerts-action-rules.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Estas ferramentas de diagnóstico ajudam-no a inspecionar os dados da sua aplicação:
 
 * [Explorador métrico](../../azure-monitor/platform/metrics-charts.md)

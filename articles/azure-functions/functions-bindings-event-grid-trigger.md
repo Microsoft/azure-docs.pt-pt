@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit, tracking-python
-ms.openlocfilehash: c86a58c384c7356ecdaf668644f08c011a4c0a40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d40618c5d1a7200b452268a6b36841a846c6cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87041903"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da grelha de eventos Azure para funções Azure
 
@@ -413,7 +413,7 @@ Para obter mais informações sobre como criar subscrições utilizando o portal
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma subscrição utilizando [o Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)utilize o comando [de criação de eventos az eventgrid.](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)
+Para criar uma subscrição utilizando [o Azure CLI,](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)utilize o comando [de criação de eventos az eventgrid.](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)
 
 O comando requer o URL do ponto final que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
@@ -508,7 +508,7 @@ Para testar um gatilho de Grade de Eventos localmente, tem de obter pedidos HTTP
 1. [Gere um pedido](#generate-a-request) e copie o corpo de pedido da aplicação do espectador.
 1. [Publique manualmente o pedido](#manually-post-the-request) para o URL local da sua função de gatilho de Grelha de Evento.
 
-Quando terminar os testes, pode utilizar a mesma subscrição para produção atualizando o ponto final. Utilize o comando Azure CLI [da atualização de subscrição de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure.
+Quando terminar os testes, pode utilizar a mesma subscrição para produção atualizando o ponto final. Utilize o comando Azure CLI [da atualização de subscrição de eventos](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Criar uma aplicação web de espectadores
 
@@ -572,6 +572,6 @@ A função de gatilho de 'Grade de Evento' executa e mostra registos semelhantes
 
 ![Registos de função de gatilho da grelha de evento de amostra](media/functions-bindings-event-grid/eg-output.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Despachar um evento de Grade de Eventos](./functions-bindings-event-grid-output.md)

@@ -5,23 +5,24 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.custom: seodec18~~~~
-ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/30/2020
+ms.custom: seodec18
+ms.openlocfilehash: 2503a58f7d5fe05240f374fabbe2bf88d34dcf6c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838523"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046621"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Crie um conjunto de dados de referência para o seu ambiente time series Insights utilizando o portal Azure
+# <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Crie um conjunto de dados de referência para o seu ambiente Azure Time Series Insights Gen1 utilizando o portal Azure
 
 Este artigo descreve como adicionar um conjunto de dados de referência ao ambiente Azure Time Series Insights. Os dados de referência são úteis para se juntar aos seus dados de origem para aumentar os valores.
 
-Um Conjunto de Dados de Referência é uma coleção de itens que aumentam os eventos a partir da sua fonte de evento. O motor de entrada time Series Insights junta-se a cada evento a partir da sua fonte de evento com a correspondente linha de dados no seu conjunto de dados de referência. Esse evento aumentado fica então disponível para consulta. Esta junção baseia-se na coluna(s) da Chave Primária definida no seu conjunto de dados de referência.
+Um Conjunto de Dados de Referência é uma coleção de itens que aumentam os eventos a partir da sua fonte de evento. O motor de entrada de Ingress Azure Time Series Insights junta-se a cada evento a partir da sua fonte de evento com a correspondente linha de dados no seu conjunto de dados de referência. Esse evento aumentado fica então disponível para consulta. Esta junção baseia-se na coluna(s) da Chave Primária definida no seu conjunto de dados de referência.
 
 Os dados de referência não são unidos retroativamente. Assim, apenas os dados atuais e futuros de entrada são combinados e unidos à data de referência definida, uma vez configurados e carregados.
 
@@ -35,15 +36,15 @@ Os dados de referência não são unidos retroativamente. Assim, apenas os dados
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Localize o ambiente existente da Série de TempoS Azure Insights. Selecione **Todos os recursos** no menu do lado esquerdo do portal Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize o ambiente existente da Série de TempoS Azure Insights. Selecione **Todos os recursos** no menu do lado esquerdo do portal Azure. Selecione o seu ambiente Azure Time Series Insights.
 
-1. Selecione a página **'Vista Geral'.** Expanda a secção **Essentials** perto do topo da página para localizar o **URL do explorador de Insights de Séries Tempos** e abrir o link.  
+1. Selecione a página **Descrição geral**. Expanda a secção **Essentials** perto do topo da página para localizar o URL do **Time Series Insights Explorer** e abrir o link.  
 
    [![Expandir a secção Essencial](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Consulte o explorador para o seu ambiente de Insights de Séries Tempo.
+   Consulte o Explorer para o seu ambiente Azure Time Series Insights.
 
-1. Expandir o seletor de ambiente no explorador de Insights da Série Tempo. Escolha o ambiente ativo. Selecione o ícone de dados de referência na parte superior direita na página do explorador.
+1. Expandir o seletor de ambiente no Azure Time Series Insights Explorer. Escolha o ambiente ativo. Selecione o ícone de dados de referência na parte superior direita na página Explorer.
 
    [![Adicionar dados de referência](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
@@ -113,7 +114,7 @@ Os dados de referência não são unidos retroativamente. Assim, apenas os dados
    > [!NOTE]
    > As linhas adicionadas **não** precisam de ser *retangulares* - podem ter menos, maiores ou diferentes colunas das outras entradas no conjunto de dados de referência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir dados de referência](time-series-insights-manage-reference-data-csharp.md) através de programação.
 

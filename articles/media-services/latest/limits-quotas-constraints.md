@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82995881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043501"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quotas e limites da Azure Media Services
@@ -92,7 +93,7 @@ Qualquer registo de Trabalho na sua conta com mais de 90 dias será automaticame
 | [Políticas de streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizadores de streaming exclusivos associados](streaming-locators-concept.md) a um Ativo de uma só vez | 100<sup>(7)</sup> (fixo) |
 
-<sup>6</sup> Ao utilizar uma [Política de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. Não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
+<sup>6</sup> Ao utilizar uma [Política de Streaming](/rest/api/media/streamingpolicies)personalizada, deverá conceber um conjunto limitado de tais políticas para a sua conta de Media Service e reutilizá-las para os seus StreamingLocators sempre que forem necessárias as mesmas opções e protocolos de encriptação. Não deve criar uma nova Política de Streaming para cada Localizador de Streaming.
 
 <sup>7</sup> Os localizadores de streaming não foram concebidos para gerir o controlo de acesso por utilizador. Para conceder direitos de acesso diferentes a utilizadores individuais, utilize soluções de Gestão de Direitos Digitais (Digital Rights Management, DRM).
 
@@ -107,6 +108,6 @@ Qualquer registo de Trabalho na sua conta com mais de 90 dias será automaticame
 
 Para os recursos que não são fixados, pode solicitar o auser das quotas, abrindo um [bilhete de apoio.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Incluir informações pormenorizadas no pedido sobre as alterações de quota desejadas, cenários de casos de utilização e regiões necessárias. <br/>**Não** crie contas dos Serviços de Multimédia do Azure adicionais numa tentativa de obter limites superiores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral](media-services-overview.md)

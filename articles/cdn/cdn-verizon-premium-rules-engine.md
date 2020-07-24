@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887427"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040205"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Anular o comportamento http usando o Azure CDN do motor de regras Verizon Premium
 
@@ -55,7 +55,7 @@ Para aceder ao motor de regras, tem primeiro de selecionar **Gerir** a partir da
     ![Novas opções de regras da CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > A ordem pela qual são listadas várias regras afeta a forma como são tratadas. Uma regra subsequente pode anular as ações especificadas por uma regra anterior.
+   > A ordem pela qual são listadas várias regras afeta a forma como são tratadas. Uma regra subsequente pode anular as ações especificadas por uma regra anterior. Por exemplo, se tiver uma regra que permite o acesso a um recurso baseado num imóvel de pedido e uma regra que nega o acesso a todos os pedidos, a segunda regra substitui a primeira. As regras só se sobrepõem a regras anteriores se interagirem com as mesmas propriedades.
    >
 
 3. Introduza um nome na caixa de texto **Nome / Descrição.**
@@ -93,7 +93,7 @@ Para aceder ao motor de regras, tem primeiro de selecionar **Gerir** a partir da
    >
    >
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Visão geral do Azure CDN](cdn-overview.md)
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)

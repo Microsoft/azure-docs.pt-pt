@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a88570805a9fc23904bfe82f91813b3460d0b10
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117232"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045938"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -119,7 +119,7 @@ Por exemplo, assuma que quer configurar a Azure Cosmos DB para aceitar o tráfeg
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
-[Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) é uma característica do Azure Relay que pode usar para aceder a recursos de aplicações noutras redes. Fornece acesso da sua aplicação a um ponto final de aplicação. Não pode usá-lo para aceder à sua aplicação. As Ligações Híbridas estão disponíveis para funções que funcionam no Windows em todos, menos no plano de Consumo.
+[Hybrid Connections](../azure-relay/relay-hybrid-connections-protocol.md) é uma característica do Azure Relay que pode usar para aceder a recursos de aplicações noutras redes. Fornece acesso da sua aplicação a um ponto final de aplicação. Não pode usá-lo para aceder à sua aplicação. As Ligações Híbridas estão disponíveis para funções que funcionam no Windows em todos, menos no plano de Consumo.
 
 Como usado em Funções Azure, cada ligação híbrida está relacionada com um único hospedeiro TCP e combinação de porta. Isto significa que o ponto final da ligação híbrida pode estar em qualquer sistema operativo e qualquer aplicação, desde que aceda a uma porta de escuta TCP. A funcionalidade Ligações Híbridas não sabe nem se importa com o protocolo de aplicação ou o que está a aceder. Só dá acesso à rede.
 
@@ -144,7 +144,7 @@ As seguintes APIs permitem gerir programáticamente integrações de redes virtu
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre networking e Funções Azure:
 

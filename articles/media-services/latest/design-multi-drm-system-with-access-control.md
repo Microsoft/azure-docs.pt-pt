@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3d02c335f6e950300a7ced36643e6276c3d8d16a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957380"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039196"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso 
 
@@ -132,7 +133,7 @@ A tabela a seguir mostra o mapeamento.
 
 | **Bloco de construção** | **Tecnologia** |
 | --- | --- |
-| **Leitor** |[Media Player do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Jogador** |[Media Player do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **Fornecedor de Identidade (IDP)** |Azure Active Directory (Azure AD) |
 | **Serviço De Token Seguro (STS)** |Azure AD |
 | **Fluxo de trabalho de proteção DRM** |Proteção dinâmica dos Azure Media Services |
@@ -213,7 +214,7 @@ Para obter mais informações, consulte [a autenticação simbólica JWT nos Ser
 Para obter informações sobre a Azure AD:
 
 * Pode encontrar informações sobre o desenvolvedor no [guia do programador Azure Ative Directory](../../active-directory/develop/v2-overview.md).
-* Você pode encontrar informações de administrador em [Administrar o seu diretório de inquilinos Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Você pode encontrar informações de administrador em [Administrar o seu diretório de inquilinos Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Algumas questões em implementação
 
@@ -281,7 +282,7 @@ Apesar de o Azure ter sido inicialmente autorizado a aceder apenas pelos utiliza
 
 Uma vez que a Azure AD confia no domínio da conta da Microsoft, pode adicionar quaisquer contas de qualquer um dos seguintes domínios ao inquilino AD AD personalizado e utilizar a conta para iniciar scontabilidade:
 
-| **Nome de domínio** | **Domain** |
+| **Nome de domínio** | **Domínio** |
 | --- | --- |
 | **Domínio de inquilino azure ad personalizado** |somename.onmicrosoft.com |
 | **Domínio corporativo** |microsoft.com |
@@ -355,7 +356,7 @@ A imagem a seguir mostra um cenário que usa uma chave assimétrica através de 
 
 Em ambos os casos anteriores, a autenticação do utilizador mantém-se a mesma. Passa-se através do Azure AD. A única diferença é que os JWTs são emitidos pela STS personalizada em vez de Azure AD. Ao configurar uma proteção dinâmica do CENC, a restrição do serviço de entrega de licença especifica o tipo de JWT, seja uma chave simétrica ou assimétrica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Perguntas mais frequentes](frequently-asked-questions.md)
 * [Visão geral da proteção de conteúdos](content-protection-overview.md)

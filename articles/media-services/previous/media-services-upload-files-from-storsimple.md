@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e6a834e98d3b8447a68d149bb40e75d74959f39
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "64868301"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038499"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia do Azure a partir do Azure StorSimple  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 > 
 > O Azure StorSimple Data Manager está atualmente em pré-visualização privada. 
 > 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Nos Serviços de Multimédia, os ficheiros digitais são carregados para um elemento. O Ativo pode conter vídeo, áudio, imagens, recolhas de miniaturas, faixas de texto e ficheiros de legendas fechados (e os metadados sobre estes ficheiros.) Uma vez que os ficheiros são carregados, o seu conteúdo é armazenado de forma segura na nuvem para posterior processamento e streaming.
 
-O [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) utiliza o armazenamento na cloud como extensão da solução no local e categoriza os dados em camadas automaticamente no armazenamento no local e na cloud. O dispositivo do StorSimple deduz e comprime os dados antes de os enviar para a cloud, tornando muito eficiente de enviar ficheiros grandes para a cloud. O serviço do [Gestor de Dados do StorSimple](../../storsimple/storsimple-data-manager-overview.md) oferece APIs que lhe permitem extrair dados do StorSimple e apresentá-los como ativos de AMS.
+O [Azure StorSimple](../../storsimple/index.yml) utiliza o armazenamento na cloud como extensão da solução no local e categoriza os dados em camadas automaticamente no armazenamento no local e na cloud. O dispositivo do StorSimple deduz e comprime os dados antes de os enviar para a cloud, tornando muito eficiente de enviar ficheiros grandes para a cloud. O serviço do [Gestor de Dados do StorSimple](../../storsimple/storsimple-data-manager-overview.md) oferece APIs que lhe permitem extrair dados do StorSimple e apresentá-los como ativos de AMS.
 
 ## <a name="get-started"></a>Introdução
 

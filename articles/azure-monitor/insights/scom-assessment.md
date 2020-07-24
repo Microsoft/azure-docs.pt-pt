@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b71c6d8e0890bde377fae761f4486803229ceff4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80055417"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045696"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimize your environment with the System Center Operations Manager Health Check (Preview) solution (Otimizar o ambiente com a solução Verificação de Estado de Funcionamento do System Center Operations Manager [Pré-visualização])
 
@@ -64,7 +64,7 @@ Os dados são recolhidos no servidor de gestão e reencaminhados para Log Analyt
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Contas Run As do Operations Manager para o Log Analytics
 
-O Log Analytics baseia-se em pacotes de gestão para cargas de trabalho para fornecer serviços de valor acrescentado. Cada carga de trabalho requer privilégios específicos da carga de trabalho para executar pacotes de gestão num contexto de segurança diferente, como uma conta de utilizador de domínio. Configure um Gestor de Operações Executado como conta com credenciais privilegiadas. Para obter informações adicionais, consulte [Como criar uma conta Run As](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) na documentação do Gestor de Operações.
+O Log Analytics baseia-se em pacotes de gestão para cargas de trabalho para fornecer serviços de valor acrescentado. Cada carga de trabalho requer privilégios específicos da carga de trabalho para executar pacotes de gestão num contexto de segurança diferente, como uma conta de utilizador de domínio. Configure um Gestor de Operações Executado como conta com credenciais privilegiadas. Para obter informações adicionais, consulte [Como criar uma conta Run As](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) na documentação do Gestor de Operações.
 
 Utilize as seguintes informações para definir o Gestor de Operações executado como conta para o System Center Operations Manager Health Check.
 
@@ -82,7 +82,7 @@ A conta Run As deve satisfazer os seguintes requisitos antes de prosseguir:
 4. Na página **Propriedades Gerais,** selecione **Windows** in the **Run As Account type:** list.
 5. Digite um nome de exibição na caixa de texto **do Nome do Visor** e digite opcionalmente uma descrição na caixa **Descrição** e, em seguida, clique em **Seguinte**.
 6. Na página **de Segurança de Distribuição,** selecione **Mais seguro**.
-7. Clique em **Criar**.  
+7. Clique em **Create** (Criar).  
 
 Agora que a conta Run As foi criada, precisa de direcionar os servidores de gestão no grupo de gestão e associado a uma execução pré-definida Como perfil para que os fluxos de trabalho sejam executados usando as credenciais.  
 
@@ -147,7 +147,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 O pacote de gestão do Gestor de Operações do Sistema Health Check inclui uma regra chamada *Microsoft System Center Operations Manager Run Health Check Rule*. Esta regra é responsável pela execução do exame de saúde. Para ativar a regra e configurar a frequência, utilize os procedimentos abaixo.
 
-Por predefinição, o Gestor de Operações do Microsoft System Center Executar a Regra de Verificação de Saúde está desativado. Para executar a verificação de saúde, deve ativar a regra num servidor de gestão. Siga os passos abaixo.
+Por predefinição, o Gestor de Operações do Microsoft System Center Executar a Regra de Verificação de Saúde está desativado. Para executar a verificação de saúde, deve ativar a regra num servidor de gestão. Utilize os passos seguintes.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Ativar a regra para um servidor de gestão específico
 
@@ -268,7 +268,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 - [Configure a regra do Gestor de Verificação de Saúde do Gestor de Operações do System Center](#configure-the-health-check-rule)
 
 
-*Há uma maneira de configurar com que frequência o cheque é executado?* Sim. Consulte [a configuração da frequência de funcionamento](#configure-the-run-frequency).
+*Há uma maneira de configurar com que frequência o cheque é executado?* Yes. Consulte [a configuração da frequência de funcionamento](#configure-the-run-frequency).
 
 *Se outro servidor for descoberto depois de eu ter adicionado a solução de Verificação de Saúde do Gestor de Operações do System Center, será verificado?* Sim, após a descoberta é verificado a partir daí, por defeito a cada sete dias.
 
