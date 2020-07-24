@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 955a3b8d12eb3b93bc9d44c624953cd5c1007318
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062062"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -23,7 +23,7 @@ Numa solução Azure Digital Twins, as entidades do seu ambiente são representa
 
 ## <a name="digital-twins"></a>Gémeos digitais
 
-Antes de criar um gémeo digital na sua instância Azure Digital Twins, precisa de ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relacionamentos que um gémeo em particular pode ter, entre outras coisas. Para os tipos de informação que são definidos num modelo, consulte [Conceitos: Modelos personalizados.](concepts-models.md)
+Antes de criar um gémeo digital na sua instância Azure Digital Twins, precisa de ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relacionamentos que um gémeo em particular pode ter, entre outras coisas. Para os tipos de informação que são definidos num modelo, consulte [*Conceitos: Modelos personalizados.*](concepts-models.md)
 
 Depois de criar e carregar um modelo, a sua aplicação de clientes pode criar uma instância do tipo; este é um gémeo digital. Por exemplo, depois de criar um modelo de *Floor,* pode criar um ou vários gémeos digitais que usam este tipo (como um twin tipo *chão*chamado *GroundFloor*, outro chamado *Floor2*, etc.). 
 
@@ -197,8 +197,8 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como gerir elementos gráficos com APIs Azure Digital Twin:
-* [Como fazer: Gerir gémeos digitais](how-to-manage-twin.md)
-* [Como fazer: Gerir o gráfico gémeo com relacionamentos](how-to-manage-graph.md)
+* [*Como fazer: Gerir gémeos digitais*](how-to-manage-twin.md)
+* [*Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)
 
 Ou, saiba se consulta o gráfico gémeo Azure Digital Twins para obter informações:
-* [Conceitos: Linguagem de consulta](concepts-query-language.md)
+* [*Conceitos: Linguagem de consulta*](concepts-query-language.md)

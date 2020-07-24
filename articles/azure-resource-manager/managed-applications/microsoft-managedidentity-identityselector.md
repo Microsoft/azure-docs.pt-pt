@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
-ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91e3cd0b99825fd72eb342ce7a8555b046455538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77087547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063371"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.ManagedIdentity.IdentitySelector UI elemento
 
@@ -19,15 +20,15 @@ Um controlo para atribuir [identidades geridas](../../active-directory/managed-i
 
 O controlo consiste nos seguintes elementos:
 
-![Microsoft.ManagedIdentity.IdentitySelector primeiro passo](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Microsoft.ManagedIdentity.IdentitySelector primeiro passo](./media/managed-application-elements/microsoft-managedidentity-identityselector-1.png)
 
 Quando o utilizador seleciona **Adicionar,** abre-se o seguinte formulário. O utilizador pode selecionar uma ou mais identidades atribuídas pelo utilizador para o recurso.
 
-![Microsoft.ManagedIdentity.IdentitySelector segundo passo](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Microsoft.ManagedIdentity.IdentitySelector segundo passo](./media/managed-application-elements/microsoft-managedidentity-identityselector-2.png)
 
 As identidades selecionadas são apresentadas na tabela. O utilizador pode adicionar ou eliminar itens desta tabela.
 
-![Microsoft.ManagedIdentity.IdentitySelector terceiro passo](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Microsoft.ManagedIdentity.IdentitySelector terceiro passo](./media/managed-application-elements/microsoft-managedidentity-identityselector-3.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -77,7 +78,7 @@ As identidades selecionadas são apresentadas na tabela. O utilizador pode adici
 - Se **as opções.hideSystemAssignedIdentity** estiver definida como **verdadeira,** a UI para configurar a identidade atribuída ao sistema não é apresentada. O valor predefinido para esta opção é **falso.**
 - Se **opções.hideUserAssignedIdentity** estiver definida como **verdadeira,** o UI para configurar a identidade atribuída pelo utilizador não é apresentado. O recurso não é atribuído a um utilizador de identidade atribuída. O valor predefinido para esta opção é **falso.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 - Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

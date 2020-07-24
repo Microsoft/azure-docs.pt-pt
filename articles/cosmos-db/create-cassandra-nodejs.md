@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: fbb24ac1974c23bf5292a987fc64a84dff69bf7d
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 7575ad7f6444162c7e8ce2a781beeef9555c6240
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118360"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062673"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com Node.js SDK e Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Neste quickstart, você cria uma conta Azure Cosmos DB Cassandra API, e usa uma 
 
 Além disso, necessita:
 * [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) versão v0.10.29 ou superior
-* [Git](https://git-scm.com/)
+* [Rio Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -170,7 +170,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Connection String**. 
 
-1. Utilize o ![botão Copiar](./media/create-cassandra-nodejs/copy.png) botão à direita do ecrã, para copiar o valor superior, o PONTO DE CONTACTO.
+1. Utilize o :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: botão no lado direito do ecrã para copiar o valor superior, o PONTO DE CONTACTO.
 
     :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="Ver e copiar o PONTO DE CONTACTO, o NOME DE UTILIZADOR e a PALAVRA-PASSE do portal do Azure, página da cadeia de ligação":::
 

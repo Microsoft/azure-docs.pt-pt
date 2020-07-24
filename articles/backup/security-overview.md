@@ -3,12 +3,12 @@ title: Visão geral das funcionalidades de segurança
 description: Saiba mais sobre as capacidades de segurança no Azure Backup que o ajudam a proteger os seus dados de backup e a satisfazer as necessidades de segurança do seu negócio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: ce6d8a43b48be5189f0459c9f82c69354f40689f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 750ad7b10969ef5f83e0b5058e350066d3f97351
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513206"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062603"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral das funcionalidades de segurança no Azure Backup
 
@@ -16,7 +16,7 @@ Um dos passos mais importantes que pode tomar para proteger os seus dados é ter
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gestão e controlo da identidade e do acesso ao utilizador
 
-As contas de armazenamento utilizadas pelos cofres dos serviços de recuperação estão isoladas e não podem ser acedidas pelos utilizadores para fins maliciosos. O acesso só é permitido através de operações de gestão de Backup Azure, como a restauração. O Azure Backup permite-lhe controlar as operações geridas através de um acesso fino utilizando [o Controlo de Acesso Baseado em Funções Azure (RBAC)](./backup-rbac-rs-vault.md). O RBAC permite-lhe segregar funções dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores necessário para fazer o seu trabalho.
+As contas de armazenamento utilizadas pelos cofres dos serviços de recuperação estão isoladas e não podem ser acedidas pelos utilizadores para fins maliciosos. O acesso só é permitido através de operações de gestão de Backup Azure, como a restauração. O Azure Backup permite-lhe controlar as operações geridas através de um acesso fino utilizando [o controlo de acesso baseado em funções Azure (Azure RBAC)](./backup-rbac-rs-vault.md). O RBAC permite-lhe segregar funções dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores necessário para fazer o seu trabalho.
 
 A Azure Backup fornece três [funções incorporadas](../role-based-access-control/built-in-roles.md) para controlar as operações de gestão de backup:
 
@@ -72,7 +72,7 @@ O serviço Azure Backup utiliza o agente Microsoft Azure Recovery Services (MARS
 
 Para ajudar as organizações a cumprirem os requisitos nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados individuais, o Microsoft Azure & Azure Backup oferecem um conjunto abrangente de certificações e atestados. [Consulte a lista de certificações de conformidade](compliance-offerings.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Funcionalidades de segurança para ajudar a proteger cargas de trabalho em nuvem que usam backup Azure](backup-azure-security-feature-cloud.md)
 * [Funcionalidades de segurança para ajudar a proteger backups híbridos que usam backup Azure](backup-azure-security-feature.md)

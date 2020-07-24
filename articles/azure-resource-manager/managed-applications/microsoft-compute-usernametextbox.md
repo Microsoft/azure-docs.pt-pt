@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7544ae7d872a64547cb6c57ce8af9a09fc6c3d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82478f322e1df22bde50769b90f0424140920e9a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063567"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI elemento
 
@@ -17,7 +18,7 @@ Um controlo de caixa de texto com validação incorporada para nomes de utilizad
 
 ## <a name="ui-sample"></a>Amostra de UI
 
-![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
+![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft-compute-usernametextbox.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -52,7 +53,7 @@ Um controlo de caixa de texto com validação incorporada para nomes de utilizad
 - `constraints.validationMessage`é uma cadeia para visualizar quando o valor da caixa de texto falha na validação especificada por `constraints.regex` . Se não for especificado, as mensagens de validação incorporadas da caixa de texto são utilizadas. O valor por defeito é **nulo.**
 - Este elemento tem validação incorporada que se baseia no valor especificado para `osPlatform` . A validação incorporada pode ser usada juntamente com uma expressão regular personalizada. Se for especificado um `constraints.regex` valor, então ambas as validações incorporadas e personalizadas são desencadeadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

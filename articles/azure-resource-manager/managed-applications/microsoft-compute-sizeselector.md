@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: d98ddbb09ac4f1f933237b3288db7a0cb78380b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6408f8c08694ae681d302ae35f5778894091733
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75652050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063617"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI elemento
 
@@ -19,11 +20,11 @@ Um controlo para selecionar um tamanho para uma ou mais instâncias de máquinas
 
 O utilizador vê um seletor com valores predefinidos a partir da definição de elemento.
 
-![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft-compute-sizeselector.png)
 
 Depois de selecionar o controlo, o utilizador vê uma visão expandida dos tamanhos disponíveis.
 
-![Microsoft.Compute.SizeSelector expandido](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
+![Microsoft.Compute.SizeSelector expandido](./media/managed-application-elements/microsoft-compute-sizeselector-expanded.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -75,7 +76,7 @@ Depois de selecionar o controlo, o utilizador vê uma visão expandida dos taman
 - A `numAvailabilityZonesRequired` lata é 1, 2 ou 3.
 - Por defeito, `hideDiskTypeFilter` é **falso**. O filtro do tipo disco permite ao utilizador ver todos os tipos de discos ou apenas SSD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).

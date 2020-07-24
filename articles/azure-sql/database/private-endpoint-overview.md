@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344004"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063272"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,7 @@ O resultado mostra que um endereço IP está em cima; que corresponde ao endere�
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verifique a conectividade utilizando o SQL Server Management Studio (SSMS)
 > [!NOTE]
-> Utilize o **Nome de Domínio Totalmente Qualificado (FQDN)** do servidor em cadeias de ligação para os seus clientes. Quaisquer tentativas de login feitas diretamente para o endereço IP falharão. Este comportamento é por design, uma vez que o ponto final privado encaminha o tráfego para o SQL Gateway na região e o FQDN precisa de ser especificado para que os logins tenham sucesso.
+> Utilize o **Nome de Domínio Totalmente Qualificado (FQDN)** do servidor em cadeias de ligação para os seus clientes `<server>.database.windows.net` (). Quaisquer tentativas de login efetuadas diretamente para o endereço IP ou utilizando o link privado FQDN `<server>.privatelink.database.windows.net` () falharão. Este comportamento é por design, uma vez que o ponto final privado encaminha o tráfego para o SQL Gateway na região e o FQDN correto precisa de ser especificado para que os logins tenham sucesso.
 
 Siga os passos aqui para utilizar [o SSMS para ligar à Base de Dados SQL.](connect-query-ssms.md) Depois de ligar à Base de Dados SQL utilizando SSMS, verifique se está a ligar a partir do endereço IP privado do Azure VM executando a seguinte consulta:
 
@@ -179,7 +179,7 @@ Para estabelecer conectividade de um ambiente no local até à base de dados na 
 
 PolyBase é comumente usado para carregar dados em Azure Synapse Analytics a partir de contas de Armazenamento Azure. Se a conta de Armazenamento Azure que está a carregar dados de limites de acesso apenas a um conjunto de sub-redes de rede virtuais através de Pontos Finais Privados, Endpoints de Serviço ou firewalls baseadas em IP, a conectividade da PolyBase para a conta quebrará. Para permitir tanto cenários de importação e exportação da PolyBase com a Azure Synapse Analytics conectando-se ao Azure Storage que está seguro a uma rede virtual, siga os passos fornecidos [aqui.](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma visão geral da segurança da Base de Dados Azure SQL, consulte [a sua base de dados](security-overview.md)
 - Para uma visão geral da conectividade da Base de Dados [Azure SQL, consulte Azure SQL Connectivity Architecture](connectivity-architecture.md)

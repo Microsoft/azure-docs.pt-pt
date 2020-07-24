@@ -5,11 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5def6db9d551b3882204c9f997f164a0df7ac223
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75651920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063302"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI elemento
 
@@ -17,7 +18,7 @@ Um grupo de controlos para selecionar um endereço IP público novo ou existente
 
 ## <a name="ui-sample"></a>Amostra de UI
 
-![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
+![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft-network-publicipaddresscombo.png)
 
 - Se o utilizador selecionar 'Nenhum' para endereço IP público, a caixa de texto do rótulo de domínio está ocultada.
 - Se o utilizador selecionar um endereço IP público existente, a caixa de texto do rótulo de domínio está desativada. O seu valor é o rótulo de nome de domínio do endereço IP selecionado.
@@ -90,7 +91,7 @@ Se o utilizador selecionar um endereço IP novo ou existente, o controlo devolve
 - Se `options.hideExisting` for verdade, então o utilizador não é capaz de escolher um endereço IP público existente. O valor predefinido é **falso**.
 - Para `zone` , apenas endereços IP públicos para a zona especificada ou zona resiliente endereços IP públicos estão disponíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de UI, consulte [os elementos CreateUiDefinition](create-uidefinition-elements.md).
