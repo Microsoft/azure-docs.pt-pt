@@ -14,11 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c5e3fe7fe84b968b59d0668619b3feddacc4f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce3a97678dea7e7b26caa3b1b091b023eca1a555
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727828"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015702"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Ative Directory versão 2 cmdlets para gestão de grupos
 
@@ -49,7 +50,7 @@ Para verificar se o módulo está pronto a ser utilizado, utilize o seguinte com
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-Agora pode começar a utilizar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo AD Azure, consulte a documentação de referência on-line para a versão 2 do [Azure Ative Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
+Agora pode começar a utilizar os cmdlets no módulo. Para obter uma descrição completa dos cmdlets no módulo AD Azure, consulte a documentação de referência on-line para a versão 2 do [Azure Ative Directory PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 > [!NOTE]
 > Os cmdlets Azure AD PowerShell não funcionam com o novo Powershell 7, uma vez que se baseia em .net Core. Estamos cientes e isso está em vias de ser atualizado. A partir de agora, sugerimos a utilização do Módulo Windows Powershell 5.x para ser utilizado para operações de powershell AD Azure. 
@@ -335,9 +336,9 @@ Para mais detalhes, consulte a documentação para o [serviço de sincronizaçã
 
 O office 365 group writeback é uma funcionalidade de pré-visualização pública do Azure Ative Directory (Azure AD) e está disponível com qualquer plano de licença AZure AD pago. Para obter algumas informações legais sobre pré-visualizações, consulte [Termos Complementares de Utilização para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Pode encontrar mais documentação do Azure Ative Directory PowerShell na [Azure Ative Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
+Pode encontrar mais documentação do Azure Ative Directory PowerShell na [Azure Ative Directory Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

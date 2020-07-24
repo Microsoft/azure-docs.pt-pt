@@ -14,11 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91eb361d4bcae304734817ee7f57141d6f06415
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd060972e562759fcc1071f2c6549578bd3d4ed9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727862"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015719"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 
@@ -31,7 +32,7 @@ Para obter mais informações sobre como evitar que os utilizadores não adminis
 
 As definições de grupos do Office 365 são configuradas utilizando um objeto De definições e um objeto SetsTemplate. Inicialmente, não vê nenhum objeto de Definições no seu diretório, porque o seu diretório está configurado com as definições predefinidas. Para alterar as definições predefinidos, tem de criar um novo objeto de definições utilizando um modelo de definições. Os modelos de definições são definidos pela Microsoft. Existem vários modelos de configurações diferentes. Para configurar as definições de grupo do Office 365 para o seu diretório, utilize o modelo denominado "Group.Unified". Para configurar as definições de grupo do Office 365 num único grupo, utilize o modelo denominado "Group.Unified.Guest". Este modelo é usado para gerir o acesso dos hóspedes a um grupo office 365. 
 
-Os cmdlets fazem parte do módulo PowerShell V2 do Diretório Ativo Azure. Para obter instruções sobre como descarregar e instalar o módulo no seu computador, consulte o artigo [Azure Ative Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). Pode instalar a versão 2 do módulo a partir [da galeria PowerShell.](https://www.powershellgallery.com/packages/AzureAD/)
+Os cmdlets fazem parte do módulo PowerShell V2 do Diretório Ativo Azure. Para obter instruções sobre como descarregar e instalar o módulo no seu computador, consulte o artigo [Azure Ative Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/overview). Pode instalar a versão 2 do módulo a partir [da galeria PowerShell.](https://www.powershellgallery.com/packages/AzureAD/)
 
 ## <a name="install-powershell-cmdlets"></a>Instalar cmdlets do PowerShell
 
@@ -318,7 +319,7 @@ Este passo remove as definições ao nível do diretório, que se aplicam a todo
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Referência da sintaxe do Cmdlet
-Pode encontrar mais documentação do Azure Ative Directory PowerShell na [Azure Ative Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
+Pode encontrar mais documentação do Azure Ative Directory PowerShell na [Azure Ative Directory Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 ## <a name="additional-reading"></a>Leitura adicional
 

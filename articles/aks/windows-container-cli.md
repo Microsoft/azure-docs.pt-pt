@@ -1,15 +1,15 @@
 ---
-title: Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS)
+title: Criar um recipiente do Windows Server num cluster AKS utilizando o Azure CLI
 description: Aprenda a criar rapidamente um cluster Kubernetes, implementar uma aplicação num contentor do Windows Server no Serviço Azure Kubernetes (AKS) utilizando o Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: 5baa4f807002cc39428eb46e5a86cf59bd022cb2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015634"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um recipiente do Windows Server num cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
 
@@ -70,7 +70,7 @@ A saída de exemplo a seguir mostra o grupo de recursos criado com sucesso:
 Para executar um cluster AKS que suporta piscinas de nós para recipientes do Windows Server, o seu cluster precisa de utilizar uma política de rede que utilize plugin de rede [Azure CNI][azure-cni-about] (avançado). Para obter informações mais pormenorizadas para ajudar a planear as gamas de sub-redes necessárias e considerações de rede, consulte [a configuração da rede CNI Azure][use-advanced-networking]. Utilize os [az aks criar][az-aks-create] comando para criar um cluster AKS chamado *myAKSCluster*. Este comando criará os recursos de rede necessários se não existirem.
 
 * O cluster está configurado com dois nóns
-* Os parâmetros *de nome de utilizador do windows-admin* e do nome de utilizador do administrador do *Windows* definem as credenciais de administração de quaisquer recipientes do Windows Server criados no cluster.
+* Os parâmetros *de nome de utilizador do windows-admin* e do nome de utilizador do *windows-admin* definem as credenciais de administração de quaisquer recipientes do Windows Server criados no cluster e devem satisfazer os [requisitos de senha do Windows Server][windows-server-password].
 * A piscina de nó usa`VirtualMachineScaleSets`
 
 > [!NOTE]
@@ -250,7 +250,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete]. Se usou uma identidade gerida, a identidade é gerida pela plataforma e não necessita de remoção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, implementou um cluster Kubernetes e implementou uma aplicação de amostra ASP.NET num recipiente do Windows Server. [Aceda ao painel web Kubernetes][kubernetes-dashboard] para o cluster que acabou de criar.
 
@@ -294,3 +294,4 @@ Para saber mais sobre o AKS e ver um exemplo completo de código para implementa
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
