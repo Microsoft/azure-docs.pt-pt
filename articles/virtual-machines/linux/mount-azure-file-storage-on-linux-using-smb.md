@@ -7,11 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658151"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085491"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de arquivos Mount Azure em LMs Linux usando SMB
 
@@ -62,7 +63,7 @@ STORAGEKEY=$(az storage account keys list \
 
 Crie a parte de armazenamento de ficheiro usando [a az armazenamento criar.](/cli/azure/storage/share) 
 
-Os nomes de partilha precisam de ser todas as letras minúsculas, números e hífens simples, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes de partilha precisam de ser todas as letras minúsculas, números e hífens simples, mas não podem começar com um hífen. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata).
 
 Este exemplo cria uma quota chamada *myshare* com uma quota de 10 GiB. 
 
@@ -105,9 +106,8 @@ Quando reinicia o LM Linux, a parte SMB montada é desmontada durante o encerram
 
 Para uma maior segurança em ambientes de produção, deve armazenar as suas credenciais fora do fstab.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Usando cloud-init para personalizar um Linux VM durante a criação](using-cloud-init.md)
 - [Adicionar um disco a uma VM do Linux](add-disk.md)
 - [Encriptação do disco Azure para VMs Linux](disk-encryption-overview.md)
-

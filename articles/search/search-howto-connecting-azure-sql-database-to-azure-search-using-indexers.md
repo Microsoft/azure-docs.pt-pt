@@ -8,13 +8,13 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 862b3056445bddb358e6485ce5fec4de4d53eace
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/12/2020
+ms.openlocfilehash: 725ee57a06d3d547142fdd39ef03e1c7e7c296a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039284"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084148"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
 
@@ -176,7 +176,7 @@ A Azure Cognitive Search usa **indexação incremental** para evitar ter que rei
 ### <a name="sql-integrated-change-tracking-policy"></a>Política integrada de rastreio de alterações DA SQL
 Se a sua base de dados SQL suportar o rastreio de [alterações,](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)recomendamos a utilização **da Política integrada de rastreio de alterações SQL.** Esta é a política mais eficiente. Além disso, permite que a Azure Cognitive Search identifique linhas eliminadas sem ter de adicionar uma coluna explícita de "soft delete" à sua mesa.
 
-#### <a name="requirements"></a>Requirements 
+#### <a name="requirements"></a>Requisitos 
 
 + Requisitos de versão da base de dados:
   * SQL Server 2012 SP3 e mais tarde, se estiver a utilizar o SQL Server em VMs Azure.
@@ -212,7 +212,7 @@ Ao utilizar a política integrada de rastreio de alterações SQL, não especifi
 
 Esta política de deteção de alterações baseia-se numa coluna de "marca de água elevada" que captura a versão ou hora em que uma linha foi atualizada pela última vez. Se estiver a usar uma vista, deve usar uma política de marca de água elevada. A coluna de alta marca de água deve satisfazer os seguintes requisitos.
 
-#### <a name="requirements"></a>Requirements 
+#### <a name="requirements"></a>Requisitos 
 
 * Todos os inserções especificam um valor para a coluna.
 * Todas as atualizações para um item também alteram o valor da coluna.
@@ -350,7 +350,7 @@ Estas definições são utilizadas no `parameters.configuration` objeto na defin
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados SQL em funcionamento em IaaS VMs em Azure?**
 
-Sim. No entanto, tem de permitir que o seu serviço de pesquisa se conecte à sua base de dados. Para obter mais informações, consulte [configurar uma ligação de um indexante de Pesquisa Cognitiva Azure ao SQL Server num VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Yes. No entanto, tem de permitir que o seu serviço de pesquisa se conecte à sua base de dados. Para obter mais informações, consulte [configurar uma ligação de um indexante de Pesquisa Cognitiva Azure ao SQL Server num VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados SQL a funcionar no local?**
 
@@ -362,11 +362,11 @@ Não. Não apoiamos este cenário, porque não testámos o indexante com bases d
 
 **P: Posso criar vários indexadores em execução num horário?**
 
-Sim. No entanto, apenas um indexante pode estar a funcionar com um nó de cada vez. Se precisar de vários indexadores em execução em simultâneo, considere aumentar o seu serviço de pesquisa para mais de uma unidade de pesquisa.
+Yes. No entanto, apenas um indexante pode estar a funcionar com um nó de cada vez. Se precisar de vários indexadores em execução em simultâneo, considere aumentar o seu serviço de pesquisa para mais de uma unidade de pesquisa.
 
 **P: Executar um indexante afeta a minha carga de trabalho de consulta?**
 
-Sim. O Indexer funciona num dos nós do seu serviço de pesquisa, e os recursos do nó são partilhados entre indexação e serviço de tráfego de consulta e outros pedidos de API. Se executar cargas de trabalho de indexação e consulta intensivas e encontrar uma taxa elevada de 503 erros ou aumentar os tempos de resposta, considere [aumentar o seu serviço de pesquisa](search-capacity-planning.md).
+Yes. O Indexer funciona num dos nós do seu serviço de pesquisa, e os recursos do nó são partilhados entre indexação e serviço de tráfego de consulta e outros pedidos de API. Se executar cargas de trabalho de indexação e consulta intensivas e encontrar uma taxa elevada de 503 erros ou aumentar os tempos de resposta, considere [aumentar o seu serviço de pesquisa](search-capacity-planning.md).
 
 **P: Posso usar uma réplica secundária num [cluster de falha](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) como fonte de dados?**
 

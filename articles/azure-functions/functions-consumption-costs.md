@@ -3,11 +3,12 @@ title: Estimativa dos custos do plano de consumo em Funções Azure
 description: Saiba como estimar melhor os custos que poderá incorrer ao executar a sua aplicação de função num plano de Consumo em Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76963993"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083043"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimativa dos custos do plano de consumo
 
@@ -60,7 +61,7 @@ Os seguintes comportamentos das suas funções podem ter impacto no tempo de exe
 
 ## <a name="view-execution-data"></a>Ver dados de execução
 
-Na [sua fatura,](/azure/billing/billing-download-azure-invoice)pode consultar os dados relacionados com o custo das **Execuções Totais - Funções** e **Tempo de Execução - Funções,** juntamente com os custos reais cobrados. No entanto, estes dados da fatura são um agregado mensal para um período de faturação anterior. 
+Na [sua fatura,](../cost-management-billing/understand/download-azure-invoice.md)pode consultar os dados relacionados com o custo das **Execuções Totais - Funções** e **Tempo de Execução - Funções,** juntamente com os custos reais cobrados. No entanto, estes dados da fatura são um agregado mensal para um período de faturação anterior. 
 
 Para entender melhor o impacto de custos das suas funções, pode utilizar o Azure Monitor para visualizar métricas relacionadas com os custos atualmente geradas pelas suas aplicações de função. Pode utilizar o [explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) no portal [Azure] ou NAS DERES PARA obter estes dados.
 
@@ -231,7 +232,7 @@ customMetrics
 | FilaTrigger MaxDurationMs | 90 \. 249                     |
 | FilaTrigger MinDurationMs | 8 \. 522                      |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre aplicações de função de monitorização](functions-monitoring.md)

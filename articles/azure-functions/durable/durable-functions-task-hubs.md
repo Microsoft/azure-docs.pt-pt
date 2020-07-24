@@ -3,13 +3,14 @@ title: Centros de tarefas em Funções Duradouras - Azure
 description: Saiba o que é um centro de tarefas na extensão de Funções Duradouras para Funções Azure. Aprenda a configurar centros de tarefas.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afee79aecaad97ec4b441df0758166073b2413cf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81604605"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083111"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centros de tarefas em Funções Duradouras (Funções Azure)
 
@@ -139,6 +140,19 @@ A propriedade do hub de tarefa no `function.json` ficheiro é definida através 
 }
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+A propriedade do hub de tarefa no `function.json` ficheiro é definida através da Definição de Aplicação:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
+}
+```
+
 ---
 
 Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, será utilizado um nome de hub de tarefa predefinido como indicado no quadro seguinte:
@@ -153,7 +167,7 @@ Para obter mais informações sobre as diferenças entre as versões de extensã
 > [!NOTE]
 > O nome é o que diferencia um centro de tarefas de outro quando existem múltiplos centros de tarefas numa conta de armazenamento partilhada. Se tiver várias aplicações de funções que partilhem uma conta de armazenamento partilhada, tem de configurar explicitamente diferentes nomes para cada centro de tarefas no *host.jsem* ficheiros. Caso contrário, as aplicações de múltiplas funções competirão entre si por mensagens, o que pode resultar em comportamentos indefinidos, incluindo orquestrações ficando inesperadamente "presas" no `Pending` `Running` ou no estado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com a versão de orquestração](durable-functions-versioning.md)

@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
-ms.openlocfilehash: d65bd76fbef66f741f51292b24483e7df5da7c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 1cea1bbe86c411e856784d38e8b7d2471a9822bb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083706"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Recursos de desenvolvimento da Cloud Azure Spring
 

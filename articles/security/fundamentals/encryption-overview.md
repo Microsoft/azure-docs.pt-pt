@@ -2,25 +2,19 @@
 title: Visão geral da encriptação Azure / Microsoft Docs
 description: Saiba mais sobre várias opções de encriptação em Azure
 services: security
-documentationcenter: na
-author: Barclayn
-manager: barbkess
-editor: TomShinder
+author: msmbaldwin
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4990d696986336e52fec3e87f4c3ea0c7517d3f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 14808016b627bc593d90ff88fc9bddf2449f6ee5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083961"
 ---
 # <a name="azure-encryption-overview"></a>Descrição geral da encriptação do Azure
 
@@ -205,7 +199,7 @@ Sem proteção e gestão adequadas das chaves, a encriptação torna-se inútil.
 
 Key Vault alivia as organizações da necessidade de configurar, corrigir e manter módulos de segurança de hardware (HSMs) e software de gestão de chaves. Quando se usa o Cofre de Chaves, mantém-se o controlo. A Microsoft nunca vê as suas chaves e as aplicações não têm acesso direto às mesmos. Também pode importar ou gerar chaves em HSMs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança da rede Azure](network-overview.md)

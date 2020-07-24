@@ -4,12 +4,12 @@ description: Crie a sua primeira aplicação de contentor do Linux no Azure Serv
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 783f6a06d57a447998710e2c8ff349b23ef751c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 547030b983dd02e7b65d404188dccdcc24d53a22
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083842"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ Para executar uma aplicação existente num contentor do Linux num cluster do Se
   * [SDK e ferramentas do Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE para Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [CLI do Service Fabric](service-fabric-cli.md)
+
+* Um aglomerado Linux com três ou mais nós.
 
 * Um registo no Azure Container Registry - [Criar um registo de contentor](../container-registry/container-registry-get-started-portal.md) na sua subscrição do Azure. 
 
@@ -371,7 +373,7 @@ Seguem-se os manifestos completos do serviço e da aplicação utilizados neste 
 Para adicionar outro serviço de contentor a uma aplicação já criada com o yeoman, execute os seguintes passos:
 
 1. Altere o diretório para a raiz da aplicação existente. Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é a aplicação criada por Yeoman.
-2. Execute `yo azuresfcontainer:AddService`
+2. Executar `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

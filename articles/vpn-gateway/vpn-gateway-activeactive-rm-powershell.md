@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 854ca905ca8f951fb7678e46268b8bef57bd02bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b4707ec7d6de3b617572b194bbad76b608f185a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082040"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configure ligações S2S VPN ativas ativas com gateways Azure VPN
 
@@ -48,7 +49,7 @@ As outras propriedades são as mesmas que os gateways não ativos.
 
 ### <a name="before-you-begin"></a>Before you begin
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Terá de instalar os cmdlets PowerShell do Azure Resource Manager. Consulte [a visão geral do Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre a instalação dos cmdlets PowerShell.
+* Terá de instalar os cmdlets PowerShell do Azure Resource Manager. Consulte [a visão geral do Azure PowerShell](/powershell/azure/) para obter mais informações sobre a instalação dos cmdlets PowerShell.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Passo 1 - Criar e configurar vNet1
 #### <a name="1-declare-your-variables"></a>1. Declare as suas variáveis
@@ -443,5 +444,5 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActiveFeatu
 
 Esta atualização pode demorar até 30 a 45 minutos.
 
-## <a name="next-steps"></a>Próximos passos
-Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter os passos.
+## <a name="next-steps"></a>Passos seguintes
+Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter os passos.

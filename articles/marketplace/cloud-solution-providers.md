@@ -3,16 +3,16 @@ title: Cloud Solution Provider - Mercado comercial da Microsoft
 description: Saiba como vender as suas ofertas através do canal parceiro de programas microsoft Cloud Solution Provider (CSP) no mercado comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
-ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082815"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa fornecedor de solução de nuvem
 
@@ -30,31 +30,31 @@ As seguintes ofertas são elegíveis para serem vendidas por parceiros no progra
 - Aplicações geridas
 
 > [!NOTE]
-> Os SkUs VM (ByOL) de Contentores e Bring Your Own License (BYOL) são optados por serem vendidos por parceiros no programa CSP por padrão.
+> Os planos de VM de Contentores e Bring Your Own (BYOL) são optados por serem vendidos por parceiros no programa CSP por padrão.
 
-## <a name="how-to-configure-an-offering"></a>Como configurar uma oferta
+## <a name="how-to-configure-an-offer"></a>Como configurar uma oferta
 
-A definição de opt-in do programa CSP está configurada no Partner Center ou no Cloud Partner Portal oferecem experiência de criação. [Saiba mais sobre a experiência da editora em mudança.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)
+Configure a definição de opt-in do programa CSP quando criar a oferta no Partner Center. [Saiba mais sobre a experiência da editora em mudança.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)
 
 ### <a name="partner-center-opt-in"></a>Opt-in do Centro parceiro
 
-No Partner Center, encontrará a experiência de opt-in no módulo de audiência do Revendedor CSP.
+A experiência de opt-in está localizada sob o módulo de audiência do Revendedor CSP:
 
 ![Público revendedor CSP](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-No módulo de audiência do Revendedor CSP, tem três opções para escolher:
+Escolha entre três opções:
 
-- Opção um: Qualquer parceiro no programa CSP
-- Opção dois: Parceiros específicos no programa CSP que seleciono
-- Opção três: Sem parceiros no programa CSP
+1. Qualquer parceiro no programa CSP.
+2. Parceiros específicos no programa CSP que seleciono.
+3. Sem parceiros no programa CSP.
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>Opção um: Qualquer parceiro no programa CSP
+#### <a name="option-1-any-partner-in-the-csp-program"></a>Opção 1: Qualquer parceiro no programa CSP
 
 ![Qualquer parceiro no programa CSP](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  Ao escolher esta opção, todos os parceiros do programa CSP são elegíveis para revender a sua oferta aos seus clientes.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Opção dois: Parceiros específicos no programa CSP que seleciono
+#### <a name="option-2-specific-partners-in-the-csp-program-i-select"></a>Opção 2: Parceiros específicos no programa CSP que seleciono
 
 ![Parceiros específicos no programa CSP eu seleciono](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
@@ -87,17 +87,11 @@ Se estiver a atualizar a lista de CSP de uma oferta já publicada, adicione os p
 
 Se tiver uma oferta que já tenha uma lista de parceiros autorizados e gostaria de usar a mesma lista para outra oferta, use **Import/Export**. Navegue para a oferta que tem a lista de CSP e selecione **Export CSPs**. A função desenvolve um ficheiro .csv que pode ser importado para outra oferta.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>Opção três: Sem parceiros no programa CSP
+#### <a name="option-3-no-partners-in-the-csp-program"></a>Opção 3: Sem parceiros no programa CSP
 
 ![Sem parceiros no programa CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 Ao escolher esta opção, está a optar pela sua oferta fora do programa CSP. Pode alterar esta seleção a qualquer momento.
-
-### <a name="cloud-partner-portal-opt-in"></a>Opt-in do Portal do Parceiro de Nuvem
-
-No Portal cloud partner, o opt-in é definido no separador Marketplace ou Storefront. A capacidade de escolher parceiros específicos no programa CSP só está disponível no Partner Center.
-
-![Experiência de opt-in da CSP no CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
 ## <a name="deauthorize-partners-in-the-csp-program"></a>Desautorizar parceiros no programa CSP
 
@@ -115,9 +109,6 @@ Se um parceiro no programa CSP não tiver vendido o seu produto aos seus cliente
 4. Para **Selecionar um problema que melhor descreve o problema**, selecione **Atualização da oferta existente**.
 5. Selecione **Next** para ser direcionado para a **página de detalhes do Assunto** para introduzir mais detalhes sobre o seu problema.
 6. Utilize **a Deautorize CSP** como título de emissão e preencha as restantes secções necessárias.
-
-
-
 
 ## <a name="navigate-between-options"></a>Navegar entre opções
 
@@ -183,13 +174,7 @@ Se optou pelo canal CSP no Partner Center, os editores devem introduzir um URL q
 
 ![Informações colaterais do Centro Parceiro CSP](media/marketplace-publishers-guide/pc-csp-channel.png)
 
-### <a name="cloud-partner-portal-csp-channel"></a>Canal CSP do Portal do Parceiro de Nuvem
-
-Se optou pelo canal CSP no Portal do Parceiro cloud, os editores devem introduzir um URL que hospeda materiais de marketing relevantes e informações de contacto de canal para o canal CSP:
-
-![Informações colaterais do Portal do Parceiro de Nuvem CSP](media/marketplace-publishers-guide/cpp-csp-information.png)
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Visite o [Azure Marketplace e o AppSource Publisher Guide.](marketplace-publishers-guide.md)
 

@@ -7,16 +7,16 @@ ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6ab1b92e67c6e98e8c675c1ba4474cd854b98021
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1948adeeb7988c7e1aabb276d2f2f79b93cdc8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509890"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085372"
 ---
 # <a name="ncv2-series"></a>Série NCv2
 
-Os VMs da série NCv2 são alimentados por [GPUs NVIDIA Tesla P100.](https://www.nvidia.com/data-center/tesla-p100/) Estas GPUs podem fornecer mais de 2x o desempenho computacional da série NC. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho tradicionais de HPC, tais como modelação de reservatórios, sequenciação de ADN, análise de proteínas, simulações de Monte Carlo, entre outros. Além das GPUs, os VMs da série NCv2 também são alimentados por CPUs Intel Xeon E5-2690 v4 (Broadwell).
+Os VMs da série NCv2 são alimentados por GPUs NVIDIA Tesla P100. Estas GPUs podem fornecer mais de 2x o desempenho computacional da série NC. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho tradicionais de HPC, tais como modelação de reservatórios, sequenciação de ADN, análise de proteínas, simulações de Monte Carlo, entre outros. Além das GPUs, os VMs da série NCv2 também são alimentados por CPUs Intel Xeon E5-2690 v4 (Broadwell).
 
 A configuração NC24rs v2 proporciona uma interface de rede de baixa latência e alta produção otimizada para cargas de trabalho de computação paralela bem acopladas.
 
@@ -61,6 +61,6 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

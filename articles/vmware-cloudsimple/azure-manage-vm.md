@@ -8,11 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77015002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082074"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gerencie as suas máquinas virtuais CloudSimple Cloud em Azure
 
@@ -28,7 +29,7 @@ Os seguintes controlos estão disponíveis na página **'Vista Geral'** para a s
 | Iniciar | Inicie o VM especificado.  |
 | Reiniciar | Desligue e, em seguida, ligue o VM especificado.  |
 | Parar | Desligue o VM específico.  |
-| Captura | Capture uma imagem do VM especificado para que possa ser usado como uma imagem para criar outros VMs. Ver [Criar uma imagem gerida de um VM generalizado em Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Recolha | Capture uma imagem do VM especificado para que possa ser usado como uma imagem para criar outros VMs. Ver [Criar uma imagem gerida de um VM generalizado em Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Mover | Mova-se para o VM especificado.  |
 | Eliminar | Remova o VM especificado.  |
 | Atualizar | Refresque os dados no visor.  |
@@ -48,11 +49,11 @@ São apresentados os seguintes gráficos.
 
 ## <a name="manage-vm-disks"></a>Gerir discos VM
 
-Para adicionar um disco VM, abra a página **Discos** para o VM selecionado. Para adicionar um disco, clique **em Adicionar disco**. Configure cada uma das seguintes definições introduzindo ou selecionando uma opção inline. Clique em **Guardar**.
+Para adicionar um disco VM, abra a página **Discos** para o VM selecionado. Para adicionar um disco, clique **em Adicionar disco**. Configure cada uma das seguintes definições introduzindo ou selecionando uma opção inline. Clique em **Save** (Guardar).
 
    | Item | Descrição |
    | ------------ | ------------- |
-   | Name | Insira um nome para identificar o disco.  |
+   | Nome | Insira um nome para identificar o disco.  |
    | Tamanho | Selecione um dos tamanhos disponíveis.  |
    | Controlador SCSI | Selecione um controlador SCSI. Os controladores disponíveis variam para os diferentes sistemas operativos suportados.  |
    | Modo | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> - Persistente independente: Todos os dados escritos no disco são escritos permanentemente.<br> - Independente, não persistente: As alterações escritas no disco são descartadas quando desliga ou repõe a máquina virtual.  Este modo permite-lhe reiniciar sempre o VM no mesmo estado. Para mais informações, consulte a [documentação VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
@@ -71,11 +72,11 @@ Para alterar a capacidade do VM, abra a página **Tamanho** para o VM selecionad
 
 ## <a name="manage-network-interfaces"></a>Gerir interfaces de rede
 
-Para adicionar uma interface, clique em **Adicionar interface de rede**. Configure cada uma das seguintes definições introduzindo ou selecione uma opção inline. Clique em **Guardar**.
+Para adicionar uma interface, clique em **Adicionar interface de rede**. Configure cada uma das seguintes definições introduzindo ou selecione uma opção inline. Clique em **Save** (Guardar).
 
    | Controlo | Descrição |
    | ------------ | ------------- |
-   | Name | Insira um nome para identificar a interface.  |
+   | Nome | Insira um nome para identificar a interface.  |
    | Rede | Selecione a partir da lista de redes configuradas na sua Nuvem Privada vSphere.  |
    | Adaptador | Selecione um adaptador vSphere da lista de tipos disponíveis configurados para o VM. Para obter mais informações, consulte o artigo base de conhecimento VMware [Escolher um adaptador de rede para a sua máquina virtual.](https://kb.vmware.com/s/article/1001805) |
    | Energia ligado no Boot | Escolha se ativa o hardware NIC quando o VM for iniciado. O padrão é **Ativar**. |

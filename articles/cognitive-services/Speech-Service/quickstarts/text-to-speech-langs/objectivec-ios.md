@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Sintetizar o discurso, Objective-C - Serviço de fala'
+title: 'Quickstart: Sintetizar o discurso no Objective-C usando o SDK do discurso'
 titleSuffix: Azure Cognitive Services
 description: Saiba como sintetizar o discurso em Objective-C no iOS usando o SDK do discurso
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 7a1cc2c45988e0c5a8c757e4d280b48dbbe56daa
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fa1b62a987cb6c158c8d7f1fceb57bc47e5800eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084845"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Quickstart: Sintetizar o discurso em Objective-C no iOS usando o SDK de discurso
 

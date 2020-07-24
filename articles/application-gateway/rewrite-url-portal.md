@@ -7,16 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2e2925723ee07ee2215bdd82bb730e31cdcdadc9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532220"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083162"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Reescrever URL com Gateway de Aplicação Azure - Portal Azure (Pré-visualização)
 
 Este artigo descreve como usar o portal Azure para configurar uma [instância SKU do Gateway v2 para](application-gateway-autoscaling-zone-redundant.md) reescrever URL.
+
+>[!NOTE]
+> A funcionalidade de reescrita de URL está em pré-visualização e está disponível apenas para Standard_v2 e WAF_v2 SKU de Application Gateway. Não é recomendado para utilização em ambiente de produção. Para saber mais sobre pré-visualizações, consulte [os termos de utilização aqui.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -115,6 +118,6 @@ Observe os campos abaixo nos registos de acesso para verificar se a reescrita de
 
 Para mais informações sobre todos os campos nos registos de acesso, consulte [aqui.](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku)
 
-##  <a name="next-steps"></a>Próximos passos
+##  <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como configurar reescritas para alguns casos de uso comum, consulte [cenários comuns de reescrita](rewrite-http-headers.md).

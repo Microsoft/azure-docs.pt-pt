@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 3fe5ea98f8db633eed7ce4e2c0ac0cafa56408ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5d975b73afcf03ad97bafd1c6f68f2b55263c2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82194521"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084726"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Otimizar o desenvolvimento e testar o custo no Azure Cosmos DB
 
@@ -23,7 +23,9 @@ Este artigo descreve as diferentes opções de utilização do Azure Cosmos DB p
 
 ## <a name="azure-cosmos-db-free-tier"></a>Azure Cosmos DB free tier
 
-O nível livre de DB da Azure Cosmos facilita o início, o desenvolvimento e o teste das suas aplicações, ou até mesmo executar pequenas cargas de trabalho de produção gratuitamente. Quando o nível livre estiver ativado numa conta, obterá os primeiros 400 RU/s e 5 GB de armazenamento na conta gratuitamente. Também pode criar uma base de dados de produção partilhada com 25 contentores que partilham 400 RU/s ao nível da base de dados, todos cobertos por nível livre (bases de dados de produção partilhadas limite 5 numa conta de nível livre). O nível livre dura indefinidamente para a vida útil da conta e vem com todos os [benefícios e características](introduction.md#key-benefits) de uma conta DB Azure Cosmos regular, incluindo armazenamento ilimitado e produção (RU/s), SLAs, alta disponibilidade, distribuição global chave na mão em todas as regiões do Azure, e muito mais. Pode ter até uma conta de nível livre por subscrição Azure e deve optar pela criação da conta. Para começar, [crie uma nova conta no portal Azure com nível gratuito ou](create-cosmosdb-resources-portal.md) utilize um modelo [ARM](manage-sql-with-resource-manager.md#free-tier). Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter mais informações.
+O nível livre de DB da Azure Cosmos facilita o início, o desenvolvimento e o teste das suas aplicações, ou até mesmo executar pequenas cargas de trabalho de produção gratuitamente. Quando o nível livre estiver ativado numa conta, obterá os primeiros 400 RU/s e 5 GB de armazenamento na conta gratuitamente. Também pode criar uma base de dados de produção partilhada com 25 contentores que partilham 400 RU/s ao nível da base de dados, todos cobertos por nível livre (bases de dados de produção partilhadas limite 5 numa conta de nível livre). Ao utilizar o nível livre, se forrou uma base de dados partilhada com um rendimento mínimo de 400 RU/s, todos os contentores nessa base de dados podem partilhar o resultado. Quaisquer novas bases de dados com produção partilhada ou contentores com produção dedicada são faturadas ao preço regular.
+
+O nível livre dura indefinidamente para a vida útil da conta e vem com todos os [benefícios e características](introduction.md#key-benefits) de uma conta DB Azure Cosmos regular, incluindo armazenamento ilimitado e produção (RU/s), SLAs, alta disponibilidade, distribuição global chave na mão em todas as regiões do Azure, e muito mais. Pode ter até uma conta de nível livre por subscrição Azure e deve optar pela criação da conta. Para começar, [crie uma nova conta no portal Azure com nível gratuito ou](create-cosmosdb-resources-portal.md) utilize um modelo [ARM](manage-sql-with-resource-manager.md#free-tier). Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter mais informações.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Experimentar o Azure Cosmos DB gratuitamente
 

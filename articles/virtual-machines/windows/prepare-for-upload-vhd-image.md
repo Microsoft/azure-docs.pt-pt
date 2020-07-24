@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 3aa0a0d31e70300814f35c337197b383877fe7be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610222"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083519"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Prepare a Windows VHD or VHDX to upload to Azure  (Preparar um VHD ou um VHDX do Windows para carregamento para o Azure)
 
@@ -62,7 +62,7 @@ Utilize um dos métodos nesta secção para converter e redimensionar o seu disc
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Use o PowerShell para converter o disco
 
-Pode converter um disco virtual utilizando o [cmdlet Convert-VHD](/powershell/module/hyper-v/convert-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet clique [aqui.](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+Pode converter um disco virtual utilizando o [cmdlet Convert-VHD](/powershell/module/hyper-v/convert-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet clique [aqui.](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
 
 O exemplo a seguir converte o disco de VHDX para VHD. Também converte o disco de um disco de expansão dinâmica para um disco de tamanho fixo.
 
@@ -86,7 +86,7 @@ Se tiver uma imagem VM do Windows no [formato de ficheiro VMDK,](https://en.wiki
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Use o PowerShell para redimensionar o disco
 
-Pode redimensionar um disco virtual utilizando o cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet clique [aqui.](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+Pode redimensionar um disco virtual utilizando o cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) em PowerShell. Se precisar de informações sobre a instalação deste cmdlet clique [aqui.](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
 
 O exemplo a seguir redimensiona o disco de 100,5 MiB para 101 MiB para satisfazer o requisito de alinhamento Azure.
 
@@ -138,7 +138,7 @@ Depois de concluída a verificação SFC, instale as Atualizações do Windows e
    netsh.exe winhttp reset proxy
    ```
 
-    Se o VM precisar de trabalhar com um representante específico, adicione uma exceção proxy para o endereço IP Azure[(168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) para que o VM possa ligar-se ao Azure:
+    Se o VM precisar de trabalhar com um representante específico, adicione uma exceção proxy para o endereço IP Azure[(168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) para que o VM possa ligar-se ao Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -405,7 +405,7 @@ Certifique-se de que o VM está saudável, seguro e pDR acessível:
 
    - Operadores de Cópia de Segurança
 
-   - Todos os utilizadores
+   - Todas as pessoas
 
    - Utilizadores
 
@@ -472,7 +472,7 @@ Normalmente corre `sysprep.exe` para criar um modelo a partir do qual pode imple
 Para criar apenas um VM a partir de um disco, não é preciso usar o Sysprep. Em vez disso, pode criar o VM a partir de uma *imagem especializada.* Para obter informações sobre como criar um VM a partir de um disco especializado, consulte:
 
 - [Criar uma VM a partir de um disco especializado](create-vm-specialized.md)
-- [Criar um VM a partir de um disco VHD especializado](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Criar um VM a partir de um disco VHD especializado](./create-vm-specialized-portal.md)
 
 Para criar uma imagem generalizada, é preciso executar o Sysprep. Para obter mais informações, consulte [Como utilizar o Sysprep: Uma introdução](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -516,7 +516,7 @@ As seguintes definições não afetam o upload de VHD. No entanto, recomendamos 
 
   - Recomendamos desativar bloqueadores de scripts que possam ser fornecidos por software antivírus. Podem interferir e bloquear os scripts do Agente de Provisionamento do Windows executados quando implementar um novo VM a partir da sua imagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Faça o upload de uma imagem do Windows VM para Azure para implementações do Gestor de Recursos](upload-generalized-managed.md)
-- [Problemas de ativação do Azure Windows VM](troubleshoot-activation-problems.md)
+- [Problemas de ativação do Azure Windows VM](../troubleshooting/troubleshoot-activation-problems.md)

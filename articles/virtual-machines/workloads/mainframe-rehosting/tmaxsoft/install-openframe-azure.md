@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72436059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082397"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 
@@ -64,7 +64,7 @@ A tabela que se segue enumera os requisitos para a instalação em Azure.
 
 <table>
 <thead>
-    <tr><th>Requisito</th><th>Description</th></tr>
+    <tr><th>Requisito</th><th>Descrição</th></tr>
 </thead>
 <tbody>
 <tr><td>Distribuição de Linux suportada em Azure
@@ -349,7 +349,7 @@ Tibero fornece as várias funções-chave no ambiente OpenFrame em Azure:
      )
     ```
 
-7. Crie a base de dados. É apresentado o seguinte resultado:
+7. Crie a base de dados. É apresentada a seguinte saída:
 
     ```
     Change core dump dir to /opt/tmaxdb/tibero6/bin/prof.
@@ -1167,7 +1167,7 @@ O OSC é o ambiente OpenFrame semelhante ao IBM CICS que suporta transações OL
      Quando terminada, é visualizada a mensagem "Instalação Completa".
 
 4. Verifique se o perfil de bash é atualizado com variáveis OSC.
-5. Reveja o ficheiro OpenFrame \_ OSC7 \_ 0 \_ \_ InstallLog.log. Deverá ter um aspeto semelhante a:
+5. Reveja o ficheiro OpenFrame \_ OSC7 \_ 0 \_ \_ InstallLog.log. Deve ter um aspeto semelhante a:
 
      ```
      Summary 
@@ -1476,6 +1476,6 @@ Isto completa a instalação dos componentes OpenFrame.
 
 Se está a considerar uma migração de computador central, o nosso ecossistema parceiro em expansão está disponível para o ajudar. Para obter orientações detalhadas sobre a escolha de uma solução de parceiro, consulte a [Plataforma Modernização Aliança.](https://datamigration.microsoft.com/)
 
--   [Introdução ao Azure](https://docs.microsoft.com/azure/)
--   [Documentação do Host Integration Server (HIS)](https://docs.microsoft.com/host-integration-server/)
--   [Guia de elevação e mudança do centro de dados virtuais Azure](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Introdução ao Azure](../../../../index.yml)
+-   [Documentação do Host Integration Server (HIS)](/host-integration-server/)
+-   [Guia de elevação e mudança do centro de dados virtuais Azure](/archive/blogs/azurecat/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide)

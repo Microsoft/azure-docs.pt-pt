@@ -6,11 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027244"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084828"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligue-se ao Azure Cosmos DB utilizando ferramentas de análise de BI com o controlador ODBC
 
@@ -235,9 +236,9 @@ Pode utilizar o seu novo DSN para ligar ao Azure Cosmos DB com quaisquer ferrame
 
 1. Para visualizar os dados no ambiente de trabalho Power BI, verifique a caixa em frente ao nome da tabela e, em seguida, clique em **Carregar**.
 
-1. No Power BI Desktop, à esquerda, selecione o separador Dados ![Separador de dados no Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) para confirmar que os seus dados foram importados.
+1. No Power BI Desktop, à esquerda, selecione o separador Dados :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: para confirmar que os seus dados foram importados. 
 
-1. Agora pode criar visuais utilizando o Power BI clicando no separador Relatório reportar ![ no Ambiente de Trabalho Power BI, clicando em New ](./media/odbc-driver/odbc-driver-report-tab.png) **Visual**e, em seguida, personalizando o seu azulejo. Para obter mais informações sobre a criação de visualizações no Power BI Desktop, consulte [os tipos de Visualização no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. Agora pode criar visuais utilizando o Power BI clicando no separador :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png"::: Relatório, clicando em **Novo Visual**e, em seguida, personalizando o seu azulejo. Para obter mais informações sobre a criação de visualizações no Power BI Desktop, consulte [os tipos de Visualização no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -248,6 +249,6 @@ Se receber o seguinte erro, certifique-se de que os valores da Chave **anfitriã
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Azure Cosmos DB, veja [Bem-vindo ao Azure Cosmos DB](introduction.md).

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ea986b338d977102d78e9c12bcbe5b2f2c510e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098531"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083451"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implementar VMs para grupos de colocação de proximidade usando PowerShell
 
@@ -24,7 +24,7 @@ Um grupo de colocação de proximidade é um agrupamento lógico usado para gara
 
 
 ## <a name="create-a-proximity-placement-group"></a>Criar um grupo de colocação em proximidade
-Crie um grupo de colocação de proximidade utilizando o [cmdlet New-AzProximityPlacementGroup.](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) 
+Crie um grupo de colocação de proximidade utilizando o [cmdlet New-AzProximityPlacementGroup.](/powershell/module/az.compute/new-azproximityplacementgroup) 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
-Crie um VM no grupo de colocação de proximidade utilizando `-ProximityPlacementGroup $ppg.Id` para se referir ao ID do grupo de colocação de proximidade quando utilizar o [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para criar o VM.
+Crie um VM no grupo de colocação de proximidade utilizando `-ProximityPlacementGroup $ppg.Id` para se referir ao ID do grupo de colocação de proximidade quando utilizar o [New-AzVM](/powershell/module/az.compute/new-azvm) para criar o VM.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -146,7 +146,7 @@ foreach ($vmId in $vmIDs){
 
 ## <a name="scale-sets"></a>Conjuntos de dimensionamento
 
-Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Use o mesmo `-ProximityPlacementGroup` parâmetro com [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
+Também pode criar um conjunto de escala no seu grupo de colocação de proximidade. Use o mesmo `-ProximityPlacementGroup` parâmetro com [New-AzVmss](/powershell/module/az.compute/new-azvmss) para criar um conjunto de escala e todas as instâncias serão criadas no mesmo grupo de colocação de proximidade.
 
 
 Para adicionar ou remover uma escala existente definida para um grupo de colocação de proximidade, primeiro precisa parar o conjunto de escala. 

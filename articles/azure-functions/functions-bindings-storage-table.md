@@ -6,11 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: dd98d27f5a14d284174dd779ae20b29f534920b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d8ca41c56239bc994b34119600dfa9db60ada6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083094"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Encadernações de armazenamento de mesa Azure para funções Azure
 
@@ -139,7 +140,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-Para obter mais informações sobre como utilizar o CloudTable, consulte [Começar com o armazenamento da Tabela Azure.](../cosmos-db/table-storage-how-to-use-dotnet.md)
+Para obter mais informações sobre como utilizar o CloudTable, consulte [Começar com o armazenamento da Tabela Azure.](../cosmos-db/tutorial-develop-table-dotnet.md)
 
 Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
@@ -305,7 +306,7 @@ public class LogEntity : TableEntity
 }
 ```
 
-Para obter mais informações sobre como utilizar o CloudTable, consulte [Começar com o armazenamento da Tabela Azure.](../cosmos-db/table-storage-how-to-use-dotnet.md)
+Para obter mais informações sobre como utilizar o CloudTable, consulte [Começar com o armazenamento da Tabela Azure.](../cosmos-db/tutorial-develop-table-dotnet.md)
 
 Se tentar ligar-se `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](#azure-storage-sdk-version-in-functions-1x).
 
@@ -562,7 +563,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**tableName** | **Nome de mesa** | O nome da mesa.| 
 |**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de mesa para ler. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de mesa para ler. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
-|**tomar** |**Tomar** | Opcional. O número máximo de entidades a ler no JavaScript. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
+|**take** |**Tomar** | Opcional. O número máximo de entidades a ler no JavaScript. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**filtro** |**Filtro** | Opcional. Uma expressão de filtro OData para entrada de tabela em JavaScript. Consulte a secção [de utilização](#input---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**conexão** |**Ligação** | O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. A definição pode ser o nome de uma definição de aplicação pré-fixa "AzureWebJobs" ou nome de cadeia de ligação. Por exemplo, se o seu nome de definição for "AzureWebJobsMyStorage", pode especificar "MyStorage" aqui. O tempo de execução das Funções procurará automaticamente uma definição de aplicação com o nome de "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
 
@@ -606,7 +607,7 @@ Os dados da tabela são transmitidos para a função como uma cadeia JSON. Des-s
 
 # <a name="java"></a>[Java](#tab/java)
 
-O atributo [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) dá-lhe acesso à linha de mesa que desencadeou a função.
+O atributo [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) dá-lhe acesso à linha de mesa que desencadeou a função.
 
 ---
 
@@ -977,15 +978,15 @@ Existem duas opções para a saída de uma mensagem de linha de armazenamento de
 
 - **Valor de retorno**: Desa estafunction.js`name` o *imóvel.* `$return` Com esta configuração, o valor de retorno da função é persistido como uma linha de armazenamento de mesa.
 
-- **Imperativo**: Passe um valor ao método [definido](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem do Event Hub.
+- **Imperativo**: Passe um valor ao método [definido](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out.](/python/api/azure-functions/azure.functions.out?view=azure-python) O valor passado `set` é persistido como uma mensagem do Event Hub.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Existem duas opções para a saída de uma linha de armazenamento de mesa a partir de uma função, utilizando a anotação [TableStorageOutput:](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet)
+Existem duas opções para a saída de uma linha de armazenamento de mesa a partir de uma função, utilizando a anotação [TableStorageOutput:](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet)
 
 - **Valor de retorno**: Aplicando a anotação à função em si, o valor de retorno da função é persistido como uma linha de armazenamento de mesa.
 
-- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) tipo, onde `T` inclui o e as `PartitionKey` `RowKey` propriedades. Estas propriedades são frequentemente acompanhadas pela implementação `ITableEntity` ou `TableEntity` herdação.
+- **Imperativo**: Para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) tipo, onde `T` inclui o e as `PartitionKey` `RowKey` propriedades. Estas propriedades são frequentemente acompanhadas pela implementação `ITableEntity` ou `TableEntity` herdação.
 
 ---
 
@@ -993,11 +994,11 @@ Existem duas opções para a saída de uma linha de armazenamento de mesa a part
 
 | Enlace | Referência |
 |---|---|
-| Tabela | [Códigos de erro de tabela](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
-| Blob, Mesa, Fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Mesa, Fila | [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Tabela | [Códigos de erro de tabela](/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, Mesa, Fila | [Códigos de erro de armazenamento](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Mesa, Fila | [Resolução de problemas](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções Azure desencadeia e encaderna](functions-triggers-bindings.md)

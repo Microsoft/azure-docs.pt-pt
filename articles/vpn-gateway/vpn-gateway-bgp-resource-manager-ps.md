@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 6896cc268f6472b1816608067340c2c5868a2547
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75147da49a602cb384a1c0283192214ae32967f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984637"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082023"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways Azure VPN usando PowerShell
 Este artigo percorre os passos para permitir o BGP numa ligação VPN site-to-site (S2S) transversal e uma ligação VNet-to-VNet utilizando o modelo de implementação do Gestor de Recursos e powerShell.
@@ -44,7 +45,7 @@ Os passos de configuração configuram os parâmetros BGP do gateway Azure VPN, 
 
 ### <a name="before-you-begin"></a>Before you begin
 * Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Instale os cmdlets PowerShell do Gestor de Recursos Azure. Para obter mais informações sobre como instalar os cmdlets do PowerShell, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) . 
+* Instale os cmdlets PowerShell do Gestor de Recursos Azure. Para obter mais informações sobre como instalar os cmdlets do PowerShell, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/) . 
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Passo 1 - Criar e configurar vNet1
 #### <a name="1-declare-your-variables"></a>1. Declare as suas variáveis
@@ -311,6 +312,6 @@ Se completou as três partes deste exercício, estabeleceu a seguinte topologia 
 
 ![BGP para VNet-to-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter os passos.
+Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/windows/quick-create-portal.md) para obter os passos.

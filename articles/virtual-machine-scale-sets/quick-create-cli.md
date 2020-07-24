@@ -9,11 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 5c7621915d9393adce373f68363f6c57b70d9907
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 416b5c03686f1b008473dd843c71bbe1139c444c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083587"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de escala de máquina virtual permite-lhe implantar e gerir um conjunto de máquinas virtuais de escala automática. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI do Azure.
@@ -48,7 +49,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 
 ## <a name="deploy-sample-application"></a>Implementar aplicação de exemplo
-Para testar o conjunto de dimensionamento, instale uma aplicação Web básica. A Extensão de Script Personalizado do Azure serve para transferir e executar um script que instala uma aplicação nas instâncias de VM. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
+Para testar o conjunto de dimensionamento, instale uma aplicação Web básica. A Extensão de Script Personalizado do Azure serve para transferir e executar um script que instala uma aplicação nas instâncias de VM. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-linux.md).
 
 Utilize a Extensão de Script Personalizado para instalar um servidor Web de NGINX básico. Aplique a Extensão de Script Personalizado que instala o NGINX com [az vmss extension set](/cli/azure/vmss/extension), da seguinte forma:
 
@@ -108,4 +109,3 @@ Neste início rápido, criou um conjunto de dimensionamento básico e utilizou a
 
 > [!div class="nextstepaction"]
 > [Criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure](tutorial-create-and-manage-cli.md)
-

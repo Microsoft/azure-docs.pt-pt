@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71748959f8b5350a4bd34349eefedbf9d99c76e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373675"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083621"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurar configurar configurações de aplicações para visualização de aplicações web estáticas Azure
 
@@ -33,7 +33,7 @@ As definições de aplicação também são por vezes referidas como variáveis 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma aplicação de aplicações web estáticas Azure
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="types-of-application-settings"></a>Tipos de configurações de aplicações
 
@@ -109,7 +109,7 @@ O portal Azure fornece uma interface para criar, atualizar e eliminar configura�
 
 1. Clique em **OK**.
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
@@ -164,7 +164,7 @@ As definições de aplicação estão disponíveis para visualização através 
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar desenvolvimento local](local-development.md)

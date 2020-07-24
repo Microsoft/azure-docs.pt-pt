@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: fd4f57350e97ad38c2c78aec29b1e51d775e8a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4df1aa53c09777ac2470581df07ac132255b005a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083672"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -53,7 +53,7 @@ Em seguida, você cria um projeto Azure Functions como API da aplicação.
 1. Dentro do projeto _my-vanilla-api,_ crie uma sub-pasta chamada **api**.
 1. Prima **F1** para abrir a Paleta de Comando
 1. Funções do Tipo **Azure: Criar novo projeto...**
-1. **Entrada de imprensa**
+1. Prima **Enter**
 1. Escolha **Procurar**
 1. Selecione a pasta **api** como diretório para o seu espaço de trabalho do projeto
 1. Escolha **Selecionar**
@@ -133,7 +133,7 @@ Com as definições acima, o ponto final da API é:
 
 ## <a name="run-the-api-locally"></a>Executar a API localmente
 
-O Código do Estúdio Visual integra-se com [as Ferramentas Core do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-run-local) para permitir que execute este projeto no seu computador de desenvolvimento local antes de publicar para o Azure.
+O Código do Estúdio Visual integra-se com [as Ferramentas Core do Azure Functions](../azure-functions/functions-run-local.md) para permitir que execute este projeto no seu computador de desenvolvimento local antes de publicar para o Azure.
 
 > [!TIP]
 > Certifique-se de que tem todos os recursos listados na secção [de pré-requisitos instalados](#prerequisites) antes de prosseguir.
@@ -217,11 +217,11 @@ Utilizando o Código do Estúdio Visual, comprometa e empurre as suas alteraçõ
 
 ## <a name="create-a-static-web-app"></a>Crie uma aplicação web estática
 
-1. Navegue para o [portal do Azure](https://portal.azure.com)
-1. Clique **em Criar um recurso**
+1. Navegue até ao [portal Azure](https://portal.azure.com)
+1. Clique em **Criar um Recurso**.
 1. Pesquisa por **Aplicação Web Estática**
 1. Clique **em Aplicativo Web Estático (pré-visualização)**
-1. Clique **em Criar**
+1. Clique em **Criar**
 
 Em seguida, adicione as definições específicas da aplicação.
 
@@ -230,11 +230,11 @@ Em seguida, adicione as definições específicas da aplicação.
 1. Nomeie a aplicação **my-vanilla-api.**
 1. Selecione _Região_ mais próxima de si
 1. Selecione o _SKU_ **gratuito**
-1. Clique no **'Iniciar s-in' com** o botão GitHub e autense com o GitHub
+1. Clique no botão **Iniciar sessão com o GitHub** e autentique-se no GitHub
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **my-vanilla-api** do _repositório_ drop-down
 1. Selecione **mestre** do _ramo_ drop-down
-1. Clique no **Seguinte: Construa >** botão para editar a configuração de construção
+1. Clique no botão **Seguinte: Compilar>** para editar a configuração de compilação
 
 Em seguida, adicione os seguintes detalhes de construção.
 
@@ -242,7 +242,7 @@ Em seguida, adicione os seguintes detalhes de construção.
 1. Introduza **a Api** na caixa _de localização da Api._
 1. Limpe o valor predefinido da localização do artefacto da _App,_ deixando a caixa vazia.
 1. Clique em **Rever + criar**.
-1. Clique no botão **Criar**
+1. Clique no botão **Criar**.
 
     Uma vez que clica no botão _Criar,_ o Azure faz duas coisas. Em primeiro lugar, os serviços de nuvem subjacentes são criados para suportar a app. Em seguida, um processo de fundo começa a construir e implementar a aplicação.
 
@@ -260,7 +260,7 @@ Em seguida, adicione os seguintes detalhes de construção.
 
 Se não quiser manter esta aplicação para posterior utilização, pode utilizar os seguintes passos para eliminar a App Web Estática Azure e os seus recursos relacionados.
 
-1. Navegue para o [portal do Azure](https://portal.azure.com)
+1. Navegue até ao [portal Azure](https://portal.azure.com)
 1. Na barra de pesquisa superior, tipo **grupos de recursos**
 1. Clique **em grupos de recursos**
 1. Selecione **myResourceGroup**

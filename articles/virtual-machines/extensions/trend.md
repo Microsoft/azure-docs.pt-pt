@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: 874e6f9b1c0bebedb5f50ca38d0703420be69de5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c4a4f641283a9a4771a236ba844cfe296b31c28c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186967"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082683"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows
 
@@ -38,7 +38,7 @@ Se tiver uma subscrição atual da Trend Micro para uma solução no local, pode
 
 O [portal Azure](https://portal.azure.com) permite instalar a extensão de segurança Trend Micro quando utiliza uma imagem do **Marketplace** para criar a máquina virtual. Se estiver a criar uma única máquina virtual, usar o portal é uma forma fácil de adicionar proteção à Trend Micro.
 
-A utilização de uma entrada no **Marketplace** abre um assistente que o ajuda a configurar a máquina virtual. Utilize a lâmina **Definições,** o terceiro painel do assistente, para instalar a extensão de segurança Trend Micro.  Para obter instruções gerais, consulte [Criar uma máquina virtual que executa o Windows no portal Azure](../windows/classic/tutorial.md).
+A utilização de uma entrada no **Marketplace** abre um assistente que o ajuda a configurar a máquina virtual. Utilize a lâmina **Definições,** o terceiro painel do assistente, para instalar a extensão de segurança Trend Micro.  Para obter instruções gerais, consulte [Criar uma máquina virtual que executa o Windows no portal Azure](../windows/quick-create-portal.md).
 
 Quando chegar à lâmina **de Definições** do assistente, faça os seguintes passos:
 
@@ -57,7 +57,7 @@ Quando chegar à lâmina **de Definições** do assistente, faça os seguintes p
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Instale o Agente de Segurança Profunda num VM existente
 Para instalar o agente num VM existente, necessita dos seguintes itens:
 
-* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalado no seu computador local. Pode verificar a versão do Azure PowerShell que instalou utilizando o comando **get-Module azure / formato-table version.** Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/overview). Inicie sessão na sua assinatura Azure utilizando `Add-AzureAccount` .
+* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, instalado no seu computador local. Pode verificar a versão do Azure PowerShell que instalou utilizando o comando **get-Module azure / formato-table version.** Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar a Azure PowerShell](/powershell/azure/). Inicie sessão na sua assinatura Azure utilizando `Add-AzureAccount` .
 * O Agente VM instalado na máquina virtual alvo.
 
 Primeiro, verifique se o Agente VM já está instalado. Preencha o nome do serviço de nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos num pedido de comando Azure PowerShell ao nível do administrador. Substitua tudo dentro das citações, incluindo os caracteres < e >.

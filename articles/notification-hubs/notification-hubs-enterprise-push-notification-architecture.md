@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e53e9599da3c12fdf01c8902a7275fc75ce86643
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 36d74a8819285c5eb5fb0367a2b32ae299ae6c8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084318"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 
@@ -289,8 +289,8 @@ O código de amostra completo está disponível nas [Amostras do Hub de Notifica
 <!-- Links -->
 [Amostras do hub de notificação]: https://github.com/Azure/azure-notificationhubs-samples
 [Serviço Móvel Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
-[Service Bus do Azure]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Programação de autocarros de serviço/sub]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure Service Bus]: ../service-bus-messaging/service-bus-messaging-overview.md
+[Programação de autocarros de serviço/sub]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Azure WebJob]: ../app-service/webjobs-create.md
-[Centros de Notificação - Tutorial Universal do Windows]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Centros de Notificação - Tutorial Universal do Windows]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Portal do Azure]: https://portal.azure.com/

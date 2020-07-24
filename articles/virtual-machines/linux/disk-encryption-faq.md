@@ -8,11 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d28d7bd85326e8a4cf27dba1f3f605b64477c5aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0bdc5b9f3d43075cbeba664a5cfb4277c20de57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83829943"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082550"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Encriptação do disco Azure para máquinas virtuais Linux FAQ
 
@@ -100,7 +101,7 @@ Existem pré-requisitos para encriptação do disco Azure. Consulte a Criação 
 Existem pré-requisitos para encriptação do disco Azure. Consulte a Encriptação do Disco Azure com o conteúdo [Azure AD](disk-encryption-linux-aad.md) para criar uma aplicação Azure Ative Directory, criar um novo cofre de chaves ou configurar um cofre-chave existente para acesso à encriptação do disco para permitir a encriptação e salvaguardar segredos e chaves. Para obter mais informações sobre os principais cenários de suporte à chave de encriptação, consulte [criar e configurar um cofre-chave para encriptação de disco Azure com Azure AD](disk-encryption-key-vault-aad.md).
 
 ## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>A Encriptação do Disco Azure está a utilizar uma aplicação AD AZure (versão anterior) ainda suportada?
-Sim. A encriptação do disco utilizando uma aplicação AD Azure ainda é suportada. No entanto, ao encriptar novos VMs é recomendado que use o novo método em vez de encriptar com uma aplicação AD Azure. 
+Yes. A encriptação do disco utilizando uma aplicação AD Azure ainda é suportada. No entanto, ao encriptar novos VMs é recomendado que use o novo método em vez de encriptar com uma aplicação AD Azure. 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Posso migrar VMs que foram encriptados com uma aplicação AD AD Azure para encriptação sem uma aplicação AD AZure?
   Atualmente, não existe um caminho de migração direta para máquinas que foram encriptadas com uma aplicação AD AD Azure para encriptar sem uma aplicação AD AZure. Além disso, não existe um caminho direto desde a encriptação sem uma aplicação AD AZure até encriptação com uma aplicação AD. 
@@ -153,15 +154,15 @@ A encriptação dos discos de dados XFS só é suportada quando o parâmetro Enc
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Posso fazer cópias de segurança e restaurar um VM encriptado? 
 
-O Azure Backup fornece um mecanismo para fazer backup e restaurar vMs encriptados dentro da mesma subscrição e região.  Para obter instruções, consulte [o Back up e restaure as máquinas virtuais encriptadas com a Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Restaurar um VM encriptado para uma região diferente não é suportado atualmente.  
+O Azure Backup fornece um mecanismo para fazer backup e restaurar vMs encriptados dentro da mesma subscrição e região.  Para obter instruções, consulte [o Back up e restaure as máquinas virtuais encriptadas com a Azure Backup](../../backup/backup-azure-vms-encryption.md).  Restaurar um VM encriptado para uma região diferente não é suportado atualmente.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Onde posso ir para fazer perguntas ou dar feedback?
 
-Pode fazer perguntas ou fornecer feedback sobre a [página de perguntas do Microsoft Q&Uma página de perguntas para encriptação do disco Azure](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
+Pode fazer perguntas ou fornecer feedback sobre a [página de perguntas do Microsoft Q&Uma página de perguntas para encriptação do disco Azure](/answers/topics/azure-disk-encryption.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu mais sobre as questões mais frequentes relacionadas com a Encriptação do Disco Azure. Para obter mais informações sobre este serviço, consulte os seguintes artigos:
 
 - [Descrição geral do Azure Disk Encryption](disk-encryption-overview.md)
-- [Aplicar encriptação de disco no Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Encriptação de dados Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Aplicar encriptação de disco no Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Encriptação de dados inativa do Azure](../../security/fundamentals/encryption-atrest.md)

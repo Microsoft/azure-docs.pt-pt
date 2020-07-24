@@ -3,13 +3,14 @@ title: Criptografe a sua fonte de aplicação em repouso
 description: Criptografe os dados da sua aplicação no Azure Storage e implemente-os como um ficheiro de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 62179e900ace0d6d7b8b1f07e8f0ab685508f991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dfb56a5ef6b1ab3cfbd0762bf7816e37ce0aa39
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79408729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081887"
 ---
-# <a name="encryption-at-rest-using-customer-managed-keys"></a>Encriptação em repouso usando chaves geridas pelo cliente
+# <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Criptografe os dados da sua aplicação em repouso utilizando as teclas geridas pelo cliente
 
 Encriptar os dados de aplicação da sua aplicação de função em repouso requer uma conta de armazenamento Azure e um Cofre de Chaves Azure. Estes serviços são utilizados quando executam a sua aplicação a partir de um pacote de implementação.
 
@@ -116,7 +117,7 @@ Apenas o custo associado à Conta de Armazenamento Azure e quaisquer encargos de
 - Os formatos TAR e GZIP não são suportados.
 - Esta função não é compatível com cache local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Referências do Cofre chave para o Serviço de Aplicações](../app-service/app-service-key-vault-references.md)
 - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)

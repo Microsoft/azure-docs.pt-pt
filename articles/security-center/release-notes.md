@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: e8dc2edf19279aff05e5d5be6096505acf1b3438
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66c8db580d0da29aa0be1193bf41b491f388e55a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083978"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -33,8 +33,8 @@ Esta página é atualizada regularmente, por isso revisite-a com frequência. Se
 
 As atualizações em julho incluem:
 - [Proteção contra ameaças para o Azure Storage expandido para incluir ficheiros Azure e Azure Data Lake Storage Gen2 (pré-visualização)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Melhorias na segurança do contentor - digitalização mais rápida do registo e documentação atualizada](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
 - [Seis políticas para a segurança avançada de dados SQL depreciadas](#six-policies-for-sql-advanced-data-security-deprecated)
-
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Proteção contra ameaças para o Azure Storage expandido para incluir ficheiros Azure e Azure Data Lake Storage Gen2 (pré-visualização)
@@ -44,6 +44,25 @@ A proteção contra ameaças para o Armazenamento Azure deteta atividade potenci
 Os seus dados podem ser protegidos quer sejam armazenados como recipientes blob, partilhas de ficheiros ou lagos de dados. 
 
 Saiba mais sobre [a proteção contra ameaças para o Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Melhorias na segurança do contentor - digitalização mais rápida do registo e documentação atualizada
+
+Como parte dos investimentos contínuos no domínio de segurança do contentor, temos o prazer de partilhar uma melhoria significativa de desempenho nas imagens dinâmicas do Security Center de imagens de contentores armazenadas no Registo de Contentores Azure. Os exames normalmente completam-se em aproximadamente dois minutos. Em alguns casos, podem levar até 15 minutos.
+
+Para melhorar a clareza e orientação sobre as capacidades de segurança do Azure Security Center, também refrescamos as páginas de documentação de segurança do contentor. 
+
+Saiba mais sobre a segurança do contentor do Security Center nos seguintes artigos:
+
+- [Visão geral das funcionalidades de segurança do centro de segurança](https://docs.microsoft.com/azure/security-center/container-security)
+- [Detalhes da integração com o Registo de Contentores Azure](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+- [Detalhes da integração com o Serviço Azure Kubernetes](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
+- [Como digitalizar os seus registos e endurecer os seus anfitriões Docker](https://docs.microsoft.com/azure/security-center/monitor-container-security)
+- [Alertas de segurança das funcionalidades de proteção contra ameaças para os clusters de serviços Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Alertas de segurança das funcionalidades de proteção contra ameaças para os anfitriões do Serviço Azure Kubernetes](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
+- [Recomendações de segurança para contentores](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+
+
 
 
 ### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Seis políticas para a segurança avançada de dados SQL depreciadas
@@ -132,7 +151,7 @@ As políticas podem ser encontradas na política de Azure:
 |Objetivo  |Política  |ID de política  |
 |---------|---------|---------|
 |Exportação contínua para centro de eventos|[Implementar exportação para Centro de Eventos para alertas e recomendações do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Exportação contínua para o espaço de trabalho Log Analytics|[Implementar exportação para log analytics espaço de trabalho para alertas e recomendações do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Exportação contínua para log analytics espaço de trabalho|[Implementar exportação para log analytics espaço de trabalho para alertas e recomendações do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
 |Automatização do fluxo de trabalho para alertas de segurança|[Implementar alertas de automatização de fluxos de trabalho para alertas do Centro de Segurança Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
 |Automatização do fluxo de trabalho para recomendações de segurança|[Implementar recomendações do Workflow Automation for Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
 ||||
@@ -230,7 +249,7 @@ Esta atualização traz as seguintes alterações a esta funcionalidade:
 
 - A recomendação que o aconselha a ativar o JIT num VM foi renomeada. Anteriormente, "O controlo de acesso à rede just-in-time deve ser aplicado em máquinas virtuais" é agora: "As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time".
 
-- A recomendação só foi desencadeada se existirem portos de gestão abertos.
+- A recomendação só é desencadeada se existirem portos de gestão abertos.
 
 Saiba mais sobre [a funcionalidade de acesso JIT.](security-center-just-in-time.md)
 
@@ -250,7 +269,7 @@ Os controlos de segurança são grupos lógicos de recomendações de segurança
 
 Para ver imediatamente o quão bem a sua organização está a proteger cada superfície de ataque individual, reveja as pontuações para cada controlo de segurança.
 
-Por predefinição, as suas recomendações são apresentadas nos controlos de segurança. A partir desta atualização também pode exibi-los como uma lista. Para vê-los como uma lista simples classificada pelo estado de saúde dos recursos afetados, utilize o novo "Grupo por controlos". O toggle está acima da lista no portal.
+Por predefinição, as suas recomendações são apresentadas nos controlos de segurança. A partir desta atualização, também pode exibi-los como uma lista. Para vê-los como uma lista simples classificada pelo estado de saúde dos recursos afetados, utilize o novo "Grupo por controlos". O toggle está acima da lista no portal.
 
 Os controlos de segurança - e este alternador - fazem parte da nova experiência de pontuação segura. Lembre-se de enviar-nos o seu feedback de dentro do portal.
 

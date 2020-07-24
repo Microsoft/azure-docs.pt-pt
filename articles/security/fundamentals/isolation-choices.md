@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 9cb516b6d13b4b57a89bb276683857c62a758618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084058"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Nuvem Pública de Azure
 
@@ -63,9 +64,9 @@ O conceito de contentores de inquilinos está profundamente enraizado no serviç
 
 Mesmo quando os metadados de vários inquilinos do Azure Ative Directory são armazenados no mesmo disco físico, não há qualquer relação entre os contentores que não o que é definido pelo serviço de diretório, que por sua vez é ditado pelo administrador do arrendatário.
 
-### <a name="azure-role-based-access-control-rbac"></a>Controlo de Acesso baseado em funções Azure (RBAC)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções Azure (Azure RBAC)
 
-[O Azure Role-Based Access Control (RBAC) ajuda-o](../../role-based-access-control/overview.md) a partilhar vários componentes disponíveis dentro de uma subscrição do Azure, fornecendo uma gestão de acesso de grãos finos para o Azure. O Azure RBAC permite-lhe segregar funções dentro da sua organização e conceder acesso com base no que os utilizadores precisam para desempenhar os seus trabalhos. Em vez de dar a todos permissões ilimitadas na subscrição ou recursos do Azure, você pode permitir apenas certas ações.
+[O controlo de acesso baseado em funções (Azure RBAC) ajuda-o](../../role-based-access-control/overview.md) a partilhar vários componentes disponíveis dentro de uma subscrição do Azure, fornecendo uma gestão de acesso de grãos finos para o Azure. O Azure RBAC permite-lhe segregar funções dentro da sua organização e conceder acesso com base no que os utilizadores precisam para desempenhar os seus trabalhos. Em vez de dar a todos permissões ilimitadas na subscrição ou recursos do Azure, você pode permitir apenas certas ações.
 
 O Azure RBAC tem três funções básicas que se aplicam a todos os tipos de recursos:
 
@@ -144,7 +145,7 @@ O Controlador de Tecidos Azure é responsável pela alocação de recursos de in
 
 O hipervisor Azure impõe a separação da memória e do processo entre máquinas virtuais, e liga de forma segura o tráfego de rede aos inquilinos convidados do SO. Isto elimina a possibilidade de ataque de canal lateral a nível de VM.
 
-Em Azure, a raiz VM é especial: executa um sistema operativo endurecido chamado o SISTEMA raiz que acolhe um agente de tecido (FA). As FAs são usadas por sua vez para gerir agentes convidados (GA) dentro de OSes de hóspedes em VMs do cliente. As FAs também gerem os nós de armazenamento.
+Em Azure, a raiz VM é especial: executa um sistema operativo endurecido chamado o SISTEMA raiz que acolhe um agente de tecido (FA). As FAs são usadas por sua vez para gerir agentes convidados (GA) dentro dos sistemas operativos dos hóspedes em VMs do cliente. As FAs também gerem os nós de armazenamento.
 
 A coleção de hipervisor Azure, raiz OS/FA e VMs/GAs do cliente compreende um nó computacional. As FAs são geridas por um controlador de tecido (FC), que existe fora dos nosmos de computação e armazenamento (os clusters de computação e armazenamento são geridos por FCs separados). Se um cliente atualizar o ficheiro de configuração da sua aplicação enquanto está em execução, o FC comunica com a FA, que então contacta GAs, que notificam a aplicação da alteração de configuração. Em caso de falha de hardware, o FC irá automaticamente encontrar hardware disponível e reiniciar o VM lá.
 
@@ -208,7 +209,7 @@ Os dados de armazenamento IP podem ser protegidos de utilizadores não autorizad
 A Azure oferece os seguintes tipos de Encriptação para proteger os dados:
 
 - Encriptação de dados em circulação
-- Encriptação inativa
+- Encriptação de dados inativos
 
 #### <a name="encryption-in-transit"></a>Encriptação em Trânsito
 
@@ -272,7 +273,7 @@ Os servidores e bases de dados lógicos do SQL são conceitos específicos da Ba
 
 Os servidores na Base de Dados SQL não são casos físicos ou VM, em vez disso são coleções de bases de dados, partilha de políticas de gestão e segurança, que são armazenadas na chamada base de dados "lógico mestre".
 
-![SQL Database](./media/isolation-choices/azure-isolation-fig11.png)
+![Base de Dados SQL](./media/isolation-choices/azure-isolation-fig11.png)
 
 As bases de dados lógicos incluem:
 
@@ -318,4 +319,4 @@ A implantação de azul tem várias camadas de isolamento de rede. O diagrama qu
 
 - Saiba mais sobre [opções de isolamento de rede para máquinas em redes virtuais Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Isto inclui o cenário clássico frontal e traseiro em que as máquinas de uma determinada rede ou sub-rede de back-end só podem permitir que determinados clientes ou outros computadores se conectem a um determinado ponto final com base numa lista de endereços IP.
 
-- Saiba mais sobre [o isolamento virtual da máquina em Azure.](../../virtual-machines/windows/isolation.md) O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente.
+- Saiba mais sobre [o isolamento virtual da máquina em Azure.](../../virtual-machines/isolation.md) O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente.

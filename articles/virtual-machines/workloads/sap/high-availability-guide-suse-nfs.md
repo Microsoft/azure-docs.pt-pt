@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d522d66642abf55e478cea7579e36bdc64a8cf79
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80348878"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085168"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server
 
@@ -78,7 +78,7 @@ Leia primeiro as seguintes notas e artigos SAP
 * [SUSE Linux Enterprise Server para aplicações SAP 12 GUIAs de boas práticas SP3][sles-for-sap-bp]
 * [SUSE Extensão de Alta Disponibilidade 12 Notas de lançamento SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para obter uma elevada disponibilidade, o SAP NetWeaver necessita de um servidor NFS. O servidor NFS está configurado num cluster separado e pode ser utilizado por vários sistemas SAP.
 
@@ -136,7 +136,7 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
    SLES Para Aplicações SAP 12 SP3 (BYOS) é usado  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione um disco de dados para cada sistema SAP em ambas as máquinas virtuais.
-1. Criar um equilibrador de carga (interno). Recomendamos o [balanceador de carga padrão.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)  
+1. Criar um equilibrador de carga (interno). Recomendamos o [balanceador de carga padrão.](../../../load-balancer/load-balancer-overview.md)  
    1. Siga estas instruções para criar o balanceador de carga padrão:
       1. Criar os endereços IP frontend
          1. Endereço IP 10.0.0.4 para NW1
@@ -213,10 +213,10 @@ Primeiro, é necessário criar as máquinas virtuais para este cluster NFS. Em s
             * Repita os passos acima para o porto 2049 e UDP para NW2
 
 > [!Note]
-> Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Quando os VMs sem endereços IP públicos forem colocados no pool de backend de saldos de carga standard Azure (sem endereço IP público), não haverá conectividade de saída na Internet, a menos que seja realizada uma configuração adicional para permitir o encaminhamento para pontos finais públicos. Para obter detalhes sobre como alcançar a conectividade de saída, consulte [a conectividade do ponto final público para máquinas virtuais utilizando o Azure Standard Load Balancer em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Não ative os cartas temporais TCP em VMs Azure colocados atrás do Balançador de Carga Azure. Permitir os tempos de TCP fará com que as sondas de saúde falhem. Definir parâmetro **net.ipv4.tcp_timestamps** a **0**. Para mais detalhes consulte [as sondas de saúde load balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### <a name="create-pacemaker-cluster"></a>Criar cluster pacemaker
 

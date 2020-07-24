@@ -5,11 +5,12 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74689252"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084862"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar uma aplicação no Azure
 Este artigo mostra-lhe como restaurar uma aplicação no [Azure App Service](../app-service/overview.md) que já fez anteriormente (ver [Back up your app in Azure).](manage-backup.md) Pode restaurar a sua aplicação com as suas bases de dados ligadas a pedido de um estado anterior ou criar uma nova aplicação com base numa das cópias de segurança da sua aplicação original. O Azure App Service suporta as seguintes bases de dados para cópia de segurança e restauro:
@@ -28,14 +29,14 @@ Restaurar a partir de backups está disponível para aplicações em execução 
     ![Escolha restaurar agora][ChooseRestoreNow]
 2. Na página **'Restaurar',** selecione primeiro a fonte de reserva.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![Screenshot que mostra onde selecionar a fonte de reserva.](./media/web-sites-restore/021ChooseSource1.png)
    
     A opção **de backup da App** mostra-lhe todas as cópias de segurança existentes da aplicação atual, e pode facilmente selecionar uma.
     A opção **de Armazenamento** permite selecionar qualquer ficheiro ZIP de reserva de qualquer conta e recipiente de Armazenamento Azure existente na sua subscrição.
     Se estiver a tentar restaurar uma cópia de segurança de outra aplicação, utilize a opção **Storage.**
 3. Em seguida, especifique o destino para a restauração da aplicação no **destino Restaurar.**
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![Screenshot que mostra onde especificar o destino para a restauração da aplicação.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Se escolher **Overwrite,** todos os dados existentes na sua aplicação atual são apagados e substituídos. Antes de clicar **em OK,** certifique-se de que é exatamente o que quer fazer.
@@ -76,12 +77,12 @@ A página de detalhes exibe as informações disponíveis relacionadas com a ope
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
-Pode automatizar a gestão de backup com scripts, utilizando o [Azure CLI](/cli/azure/install-azure-cli) ou [o Azure PowerShell](/powershell/azure/overview).
+Pode automatizar a gestão de backup com scripts, utilizando o [Azure CLI](/cli/azure/install-azure-cli) ou [o Azure PowerShell](/powershell/azure/).
 
 Para amostras, consulte:
 
 - [Exemplos da CLI do Azure](samples-cli.md)
-- [Exemplos do Azure PowerShell](samples-powershell.md)
+- [Amostras Azure PowerShell](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

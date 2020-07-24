@@ -4,12 +4,12 @@ description: Saiba como instalar a extensão de Funções Duradouras para Funç�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 7eee3c36620d0cc9f5906e355b76e7418c61b477
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807966"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081921"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar Funções Duráveis utilizando o portal Azure
 
@@ -20,7 +20,7 @@ A extensão [de Funções Duradouras](durable-functions-overview.md) para Funç�
 > * Se estiver a desenvolver funções duráveis em C#, deve considerar o [desenvolvimento do Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se estiver a desenvolver funções duráveis no JavaScript, deverá considerar o [desenvolvimento do Código do Estúdio Visual.](./quickstart-js-vscode.md)
 
-## <a name="create-a-function-app"></a>Criar uma aplicação de função
+## <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 Deve ter uma aplicação de função para hospedar a execução de qualquer função. Uma aplicação de função permite-lhe agrupar as suas funções como uma unidade lógica para facilitar a gestão, implementação, escala e partilha de recursos. Pode criar uma aplicação .NET ou JavaScript.
 
@@ -58,8 +58,6 @@ Se estiver a criar Funções Duradouras JavaScript, terá de instalar o [ `durab
 
    ![Kudu executar npm instalar](./media/durable-functions-create-portal/kudu-npm-install.png)
    
-5. Por último, [permita o modo de compatibilidade](https://docs.microsoft.com/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1) adicionando uma definição de aplicação com valor de `FUNCTIONS_V2_COMPATIBILITY_MODE` `true` .
-
 ## <a name="create-an-orchestrator-function"></a>Criar uma função orquestradora
 
 1. Na sua aplicação de funções, selecione **Funções** a partir do painel esquerdo e, em seguida, **selecione Adicione** no menu superior. 
@@ -128,7 +126,7 @@ Se estiver a criar Funções Duradouras JavaScript, terá de instalar o [ `durab
 
 A sua primeira função durável está agora a funcionar em Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre padrões comuns de função durável](durable-functions-overview.md#application-patterns)

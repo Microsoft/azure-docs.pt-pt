@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ffbc850c580daee5890f9c75021cc518918d098e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084080"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurar uma ligação a uma conta de Armazenamento Azure utilizando uma identidade gerida (pré-visualização)
 
@@ -53,17 +53,19 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
     ![Adicionar atribuição de função](./media/search-managed-identities/add-role-assignment-storage.png "Adicionar atribuição de função")
 
 4. Selecione as funções adequadas com base no tipo de conta de armazenamento que gostaria de indexar:
-    1. O armazenamento Azure Blob requer que adicione o seu serviço de pesquisa às funções **de Leitor e Acesso de Dados** e Armazenamento **blob Data Reader.**
-    1. A Azure Data Lake Storage Gen2 requer que adicione o seu serviço de pesquisa às funções **de Leitor e Acesso de Dados** e Armazenamento de **Leitores blob.**
-    1. O armazenamento da tabela Azure requer que adicione o seu serviço de pesquisa apenas à função **Reader e Data Access.**
+    1. O armazenamento Azure Blob requer que adicione o seu serviço de pesquisa à função **de Leitor de Dados de Armazenamento Blob.**
+    1. A Azure Data Lake Storage Gen2 requer que adicione o seu serviço de pesquisa à função **de Leitor de Dados de Armazenamento Blob.**
+    1. O armazenamento da tabela Azure requer que adicione o seu serviço de pesquisa à função **Reader e Data Access.**
 5.  Deixar **Atribuir acesso a** utilizador, grupo ou principal de serviço **Azure**
 6.  Procure o seu serviço de pesquisa, selecione-o e, em seguida, **selecione Guardar**
 
+    Exemplo para o armazenamento de Azure Blob e Azure Data Lake Storage Gen2:
+
+    ![Adicionar atribuição de função de leitor de dados blob de armazenamento](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Adicionar atribuição de função de leitor de dados blob de armazenamento")
+
+    Exemplo para o armazenamento da mesa Azure:
+
     ![Adicionar atribuição de função de leitor e acesso a dados](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Adicionar atribuição de função de leitor e acesso a dados")
-
-Note que ao ligar ao armazenamento de blob Azure e ao Azure Data Lake Storage Gen2, também deve adicionar a atribuição de função **de Leitor de Dados blob de armazenamento.**
-
-![Adicionar atribuição de função de leitor de dados blob de armazenamento](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Adicionar atribuição de função de leitor de dados blob de armazenamento")
 
 ### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
 
@@ -146,7 +148,7 @@ Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Index
 
 Para obter mais informações sobre a definição de horários de indexantes, consulte [Como agendar indexadores para a Pesquisa Cognitiva do Azure](search-howto-schedule-indexers.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Saiba mais sobre os indexantes de armazenamento Azure:
 * [Indexador Azure Blob](search-howto-indexing-azure-blob-storage.md)

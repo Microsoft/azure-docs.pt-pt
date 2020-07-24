@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 98a118ef662abd323854911e9fc1ffc6b7374db2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a62cb11e862bb8733e2758297d82aa7732b2d739
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84232984"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082469"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -30,7 +30,7 @@ As máquinas virtuais do Azure podem ser utilizadas de várias formas. Alguns ex
 O número de VMs que a aplicação utiliza pode ser vertical e horizontalmente aumentado para o valor que for preciso para satisfazer as necessidades.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>O que é preciso ter em conta antes de criar uma VM?
-Existem sempre inúmeras [considerações de design](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) quando está a desenvolver uma infraestrutura de aplicação no Azure. Estes aspetos de uma VM são importantes e devem ser ponderados antes de começar:
+Existem sempre inúmeras [considerações de design](/azure/architecture/reference-architectures/n-tier/windows-vm) quando está a desenvolver uma infraestrutura de aplicação no Azure. Estes aspetos de uma VM são importantes e devem ser ponderados antes de começar:
 
 * Os nomes dos recursos da aplicação
 * A localização onde os recursos são armazenados
@@ -48,9 +48,9 @@ Esta tabela apresenta algumas das formas de obter uma lista de localizações di
 | Método | Descrição |
 | --- | --- |
 | Portal do Azure |Selecione uma localização da lista ao criar uma VM. |
-| Azure PowerShell |Use o comando [Get-AzLocation.](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) |
-| API REST |Utilize a operação [Listar localizações](https://docs.microsoft.com/rest/api/resources/subscriptions). |
-| CLI do Azure |Utilize a operação [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
+| Azure PowerShell |Use o comando [Get-AzLocation.](/powershell/module/az.resources/get-azlocation) |
+| API REST |Utilize a operação [Listar localizações](/rest/api/resources/subscriptions). |
+| CLI do Azure |Utilize a operação [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Disponibilidade
 O Azure anunciou um Contrato de Nível de Serviço líder da indústria de 99,9% para máquinas virtuais de instância única, desde que implemente a VM com armazenamento premium para todos os discos.  Para a sua implementação se qualificar para o Contrato de Nível de Serviço de VM de 99,95% standard, continua a ter de implementar duas ou mais VMs que executem a sua carga de trabalho num conjunto de disponibilidade. Um conjunto de disponibilidade garante que as suas VMs são distribuídas em vários domínios de falha nos datacenters do Azure, bem como implementadas em anfitriões com diferentes janelas de manutenção. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -95,7 +95,7 @@ A Microsoft trabalha de perto com os parceiros para garantir que as imagens disp
 Para obter uma cultura de Dev/Ops adequada, toda a infraestrutura deve ser código.  Quando toda a infraestrutura vive em código, pode ser facilmente recriada.  O Azure funciona com as principais ferramentas de automatização, como Ansible, Chef, SaltStack e Puppet.  O Azure também tem as suas próprias ferramentas de automatização:
 
 * [Modelos Azure](create-ssh-secured-vm-from-template.md)
-* [VMAccess do Azure](using-vmaccess-extension.md)
+* [VMAccess do Azure](../extensions/vmaccess.md)
 
 O Azure suporta [a inibição de nuvens na](https://cloud-init.io/) maioria dos Distros Linux que o suportam.  Estamos a trabalhar ativamente com os nossos parceiros de distro Linux endossados, de forma a ter imagens ativadas em nuvem disponíveis no mercado Azure. Estas imagens farão com que as suas implementações e configurações de ineção em nuvem funcionem perfeitamente com VMs e conjuntos de escala de máquinas virtuais.
 
@@ -120,4 +120,3 @@ Crie o seu primeiro VM!
 - [Portal](quick-create-portal.md)
 - [CLI do Azure](quick-create-cli.md)
 - [PowerShell](quick-create-powershell.md)
-

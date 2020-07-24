@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084199"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Como filtrar por linguagem na Pesquisa Cognitiva do Azure 
 
@@ -34,7 +34,7 @@ Na Pesquisa Cognitiva Azure, as consultas têm como alvo um único índice. Os d
 
 O exemplo a seguir é da [amostra imobiliária](search-get-started-portal.md) que tem vários campos de cordas contendo conteúdo em diferentes línguas. Note as atribuições de analisadores de idioma para os campos neste índice. Os campos que contêm cordas funcionam melhor na pesquisa completa de texto quando emparelhado com um analisador projetado para lidar com as regras linguísticas da linguagem-alvo.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Screenshot mostrando o ecrã fields da amostra imobiliária. Um grupo de campos é destacado para salientar como as atribuições de analisadores de idioma correspondem às línguas para os campos destacados.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Para exemplos de código que mostrem definições de campo com analisadores de línguas, consulte [definir um índice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [definir um índice (REST)](search-create-index-rest-api.md).

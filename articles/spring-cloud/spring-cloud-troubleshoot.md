@@ -6,11 +6,13 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791661"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083689"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Resolução de problemas problemas comuns da Nuvem de primavera de Azure
 
@@ -172,7 +174,7 @@ As variáveis ambientais informam o quadro Azure Spring Cloud, garantindo que a 
 
 1. Reinicie a sua candidatura.
 
-1. Vá `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  Deve ter o seguinte aspeto:
+1. Vá `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  Deverá ter o seguinte aspeto:
 
     ```json
     {

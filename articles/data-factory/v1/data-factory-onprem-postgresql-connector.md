@@ -13,10 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082839"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -69,23 +70,23 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado postgreSQL.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OnPremisesPostgreSql** |Sim |
-| servidor |Nome do servidor PostgreSQL. |Sim |
-| base de dados |Nome da base de dados PostgreSQL. |Sim |
-| esquema |O nome do esquema na base de dados. O nome do esquema é sensível a maiíssimos. |Não |
-| authenticationType |Tipo de autenticação utilizada para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
-| o nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
-| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
-| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados PostgreSQL no local. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesPostgreSql** |Yes |
+| servidor |Nome do servidor PostgreSQL. |Yes |
+| base de dados |Nome da base de dados PostgreSQL. |Yes |
+| esquema |O nome do esquema na base de dados. O nome do esquema é sensível a maiíssimos. |No |
+| authenticationType |Tipo de autenticação utilizada para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, Básico e Windows. |Yes |
+| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |No |
+| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |No |
+| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados PostgreSQL no local. |Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção de tipos de favores para conjunto de dados do tipo **RelationalTable** (que inclui conjunto de dados PostgreSQL) tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na página da Base de Dados PostgreSQL a que o serviço ligado se refere. A mesa No nome é sensível a casos. |Não (se a **consulta** de **RelationalSource** for especificada) |
 
@@ -311,30 +312,30 @@ Ao mover dados para PostgreSQL, os seguintes mapeamentos são usados do tipo Pos
 | boolean |bool |Booleano |
 | caixa | |Byte[], String |
 | bytea | |Byte[], String |
-| carácter [n)] |char [n)] |String |
-| caracteres variando [n)] |varchar [n)] |String |
-| cid | |String |
-| cidr | |String |
+| carácter [n)] |char [n)] |Cadeia |
+| caracteres variando [n)] |varchar [n)] |Cadeia |
+| cid | |Cadeia |
+| cidr | |Cadeia |
 | círculo | |Byte[], String |
-| date | |Datetime |
-| encontro | |String |
-| dupla precisão |flutuar8 |Double |
+| data | |Datetime |
+| encontro | |Cadeia |
+| dupla precisão |flutuar8 |Double (Duplo) |
 | inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
+| intarry | |Cadeia |
+| int4range | |Cadeia |
+| int8range | |Cadeia |
 | número inteiro |int, int4 |Int32 |
 | intervalo [campos] [p)] | |Timespan |
-| json | |String |
+| json | |Cadeia |
 | jsonb | |Byte[] |
 | linha | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | dinheiro | |Decimal |
 | numérico [p, s)] |decimal [p,s)] |Decimal |
-| numrange | |String |
+| numrange | |Cadeia |
 | oid | |Int32 |
-| path | |Byte[], String |
+| caminho | |Byte[], String |
 | pg_lsn | |Int64 |
 | ponto | |Byte[], String |
 | polígono | |Byte[], String |
@@ -342,7 +343,7 @@ Ao mover dados para PostgreSQL, os seguintes mapeamentos são usados do tipo Pos
 | smallint |int2 |Int16 |
 | menores |série2 |Int16 |
 | série |série4 |Int32 |
-| texto | |String |
+| texto | |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para obter informações sobre as colunas de mapeamento em conjunto de dados de origem para colunas no conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).

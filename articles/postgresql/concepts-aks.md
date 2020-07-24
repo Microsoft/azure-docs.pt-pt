@@ -4,13 +4,14 @@ description: Saiba como ligar o Serviço Azure Kubernetes (AKS) com a Base de Da
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 5/6/2019
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4214b01f3f3651f8785f8644cf12326bf182bce7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74769885"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084182"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Ligação do Serviço Azure Kubernetes e base de dados Azure para PostgreSQL - Servidor Único
 
@@ -40,11 +41,6 @@ A saída será o grupo de recursos gerado que a AKS cria contendo a interface de
 az network nic list --resource-group nodeResourceGroup -o table
 ```
 
-## <a name="open-service-broker-for-azure"></a>Abrir o Open Service Broker para o Azure 
-[O Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) permite-lhe a prestação de serviços Azure diretamente de Kubernetes ou Cloud Foundry. É uma implementação [da API do Corretor de Serviço Aberto](https://www.openservicebrokerapi.org/) para o Azure.
-
-Com o OSBA, pode criar uma Base de Dados Azure para servidor PostgreSQL e ligá-la ao seu cluster AKS utilizando a língua nativa de Kubernetes. Saiba como utilizar a BASE de Dados OSBA e Azure para PostgreSQL juntos na [página OSBA GitHub](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
-
 
 ## <a name="connection-pooling"></a>Agrupamento de conexão
 Um pooler de ligação minimiza o custo e o tempo associados à criação e encerramento de novas ligações à base de dados. A piscina é uma coleção de conexões que podem ser reutilizadas. 
@@ -52,5 +48,5 @@ Um pooler de ligação minimiza o custo e o tempo associados à criação e ence
 Existem vários poolers de conexão que pode usar com PostgreSQL. Um deles é [PgBouncer.](https://pgbouncer.github.io/) No Registo de Contentores da Microsoft, fornecemos um PgBouncer leve e contentorizado que pode ser usado num sidecar para juntar ligações de AKS a Azure Database para PostgreSQL. Visite a página do [estivador](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/) para aprender a aceder e usar esta imagem. 
 
 
-## <a name="next-steps"></a>Próximos passos
--  [Criar um cluster de serviço Azure Kubernetes](../aks/kubernetes-walkthrough.md)
+## <a name="next-steps"></a>Passos seguintes
+-  [Criar um cluster do Azure Kubernetes Service](../aks/kubernetes-walkthrough.md)

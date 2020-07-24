@@ -5,11 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77562144"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081870"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições do código de função do orquestrador
 
@@ -17,7 +18,7 @@ Funções Duradouras é uma extensão de [Funções Azure](../functions-overview
 
 ## <a name="orchestrator-code-constraints"></a>Restrições de código do orquestrador
 
-As funções do orquestrador utilizam [o abastecimento de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) para garantir uma execução fiável e para manter o estado variável local. O comportamento de [repetição](durable-functions-orchestrations.md#reliability) do código orquestrador cria constrangimentos no tipo de código que pode escrever numa função orquestradora. Por exemplo, as funções orquestradoras devem ser *determinísticas:* uma função orquestradora será repetida várias vezes, e deve produzir o mesmo resultado de cada vez.
+As funções do orquestrador utilizam [o abastecimento de eventos](/azure/architecture/patterns/event-sourcing) para garantir uma execução fiável e para manter o estado variável local. O comportamento de [repetição](durable-functions-orchestrations.md#reliability) do código orquestrador cria constrangimentos no tipo de código que pode escrever numa função orquestradora. Por exemplo, as funções orquestradoras devem ser *determinísticas:* uma função orquestradora será repetida várias vezes, e deve produzir o mesmo resultado de cada vez.
 
 ### <a name="using-deterministic-apis"></a>Utilização de APIs determinísticos
 
@@ -65,7 +66,7 @@ A descrição desta secção de comportamento em tempo de execução deve ajudá
 
 Para saber mais sobre como o Quadro de Tarefas Duráveis executa funções de orquestrador, consulte o [código fonte de tarefa durável no GitHub](https://github.com/Azure/durabletask). Em particular, ver [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como invocar sub-orquestrações](durable-functions-sub-orchestrations.md)

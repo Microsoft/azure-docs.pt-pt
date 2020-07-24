@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: caa3717fdf915e205c1a4f82f4e199346ca29fcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75454196"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082820"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Utilize o serviço de gestão de certificados OPC Vault
 
@@ -37,7 +38,7 @@ Se ainda não o fez, crie o certificado emitente ca. Para mais detalhes, consult
 
 1. Abra o seu serviço de certificados `https://myResourceGroup-app.azurewebsites.net` em, e inscreva-se.
 2. Vá para **registar novo.** Para um registo de inscrição, um utilizador precisa de ter pelo menos a função De Escritor atribuída.
-2. O formulário de inscrição segue as convenções de nomeação na UA da OPC. Por exemplo, na seguinte imagem, são mostradas as definições para a amostra do [Servidor de Referência OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) na pilha OPC UA .NET Standard:
+2. O formulário de inscrição segue as convenções de nomeação na UA da OPC. Por exemplo, na seguinte imagem, são mostradas as definições para a amostra do [Servidor de Referência OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/Applications/ReferenceServer) na pilha OPC UA .NET Standard:
 
    ![Screenshot do registo do servidor de referência da UA](media/howto-opc-vault-secure/reference-server-registration.png "Registo do servidor de referência da UA")
 
@@ -101,7 +102,7 @@ Agora depende do dispositivo OPC UA como aplicar o novo certificado. Normalmente
 
 O dispositivo OPC UA está agora pronto para comunicar com outros dispositivos OPC UA protegidos por certificados assinados pela AC, sem configuração adicional.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a proteger dispositivos OPC UA, pode:
 

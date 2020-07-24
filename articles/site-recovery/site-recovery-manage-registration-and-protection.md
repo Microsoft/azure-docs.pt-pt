@@ -7,11 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77dc21b4a04ec5de440b1a17da4747a3dcc711f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699639"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083723"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
@@ -168,11 +169,11 @@ Os anfitriões hiper-V que não são geridos pelo VMM são recolhidos num site d
    - **Desativar a replicação e remover (recomendado)** - Esta opção remove o item replicado da Recuperação do Local de Azure e a replicação da máquina é interrompida. A configuração de replicação na máquina virtual no local será limpa e a faturação de recuperação do local para este servidor protegido é interrompida.
    - **Remover** - Esta opção só deve ser utilizada se o ambiente de origem for eliminado ou não estiver acessível (não ligado). Isto remove o item replicado da Recuperação do Local de Azure (a faturação está interrompida). A configuração de replicação na máquina virtual no local **não será** limpa. 
 
- > [!NOTE]
-     > Se escolheu a opção **Remover,** então execute o seguinte conjunto de scripts para limpar as definições de replicação no servidor Hiper-V no local.
+    > [!NOTE]
+    > Se escolheu a opção **Remover,** então execute o seguinte conjunto de scripts para limpar as definições de replicação no servidor Hiper-V no local.
 
-> [!NOTE]
-> Se já falhou sobre um VM e está a funcionar em Azure, note que a proteção para desativar não remove/afeta a falha sobre vM.
+    > [!NOTE]
+    > Se já falhou sobre um VM e está a funcionar em Azure, note que a proteção para desativar não remove/afeta a falha sobre vM.
 
 1. No servidor anfitrião Hyper-V de origem, para remover a replicação para a máquina virtual. Substitua o SQLVM1 pelo nome da sua máquina virtual e execute o script a partir de um PowerShell administrativo
 
@@ -195,8 +196,11 @@ Os anfitriões hiper-V que não são geridos pelo VMM são recolhidos num site d
      > Se escolheu a opção **Remover,** em seguida, afinar os seguintes scripts para limpar as definições de replicação no local VMM Server.
 3. Execute este script no servidor VMM de origem, utilizando o PowerShell (privilégios de administrador necessários) a partir da consola VMM. Substitua o espaço reservado **SQLVM1** pelo nome da sua máquina virtual.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. Os passos acima limpam as definições de replicação no servidor VMM. Para parar a replicação da máquina virtual em funcionamento no servidor anfitrião Hyper-V, executa este script. Substitua o SQLVM1 pelo nome da sua máquina virtual e host01.contoso.com com o nome do servidor anfitrião Hyper-V.
 
 ```powershell
@@ -219,17 +223,21 @@ Os anfitriões hiper-V que não são geridos pelo VMM são recolhidos num site d
 
 3. Execute este script no servidor VMM de origem, utilizando o PowerShell (privilégios de administrador necessários) a partir da consola VMM. Substitua o espaço reservado **SQLVM1** pelo nome da sua máquina virtual.
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Set-SCVirtualMachine -VM $vm -ClearDRProtection
+    ```
+
 4. No servidor VMM secundário, execute este script para limpar as definições para a máquina virtual secundária:
 
-        $vm = get-scvirtualmachine -Name "SQLVM1"
-        Remove-SCVirtualMachine -VM $vm -Force
+    ```powershell
+    $vm = get-scvirtualmachine -Name "SQLVM1"
+    Remove-SCVirtualMachine -VM $vm -Force
+    ```
+
 5. No servidor VMM secundário, refresque as máquinas virtuais no servidor anfitrião Hiper-V, de modo a que o VM secundário seja novamente detetado na consola VMM.
 6. Os passos acima limpam as definições de replicação no servidor VMM. Se quiser parar a replicação para a máquina virtual, execute o seguinte script oh os VMs primários e secundários. Substitua o SQLVM1 pelo nome da sua máquina virtual.
 
-        Remove-VMReplication –VMName “SQLVM1”
-
-
-
-
+    ```powershell
+    Remove-VMReplication –VMName "SQLVM1"
+    ```

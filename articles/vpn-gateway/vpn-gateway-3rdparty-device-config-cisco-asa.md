@@ -7,28 +7,26 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f693f6a40b87d024430c7626736fab0d0a032238
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986096"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082006"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração da amostra: Dispositivo Cisco ASA (IKEv2/no BGP)
 Este artigo fornece configurações de amostra para ligar dispositivos Cisco Adaptive Security Appliance (ASA) a gateways Azure VPN. O exemplo aplica-se aos dispositivos Cisco ASA que estão a executar o IKEv2 sem o Protocolo de Gateway fronteiriço (BGP). 
 
 ## <a name="device-at-a-glance"></a>Dispositivo num relance
 
-|                        |                                   |
-| ---                    | ---                               |
-| Fornecedor de dispositivos          | Cisco                             |
-| Modelo do dispositivo           | ASA                               |
-| Versão-alvo         | 8.4 e mais tarde                     |
-| Modelo testado           | ASA 5505                          |
-| Versão testada         | 9.2                               |
-| Versão IKE            | IKEv2                             |
-| BGP                    | Não                                |
-| Tipo de gateway Azure VPN | Gateway VPN baseado em rotas           |
-|                        |                                   |
+* Fornecedor de dispositivos: **Cisco**
+* Modelo do dispositivo: **ASA**           
+* Versão alvo: **8.4 e mais tarde**
+* Modelo testado: **ASA 5505**
+* Versão testada: **9.2**             
+* Versão IKE: **IKEv2**                  
+* BGP: **Não**      
+* Tipo de gateway Azure VPN: **Gateway VPN baseado em rota**
 
 > [!NOTE]
 > A configuração da amostra liga um dispositivo Cisco ASA a um gateway VPN **baseado em rotas** Azure. A ligação utiliza uma política personalizada IPsec/IKE com a opção **UsePolicyBasedTrafficSelectors,** conforme descrito neste [artigo](vpn-gateway-connect-multiple-policybased-rm-ps.md).
@@ -299,5 +297,5 @@ Utilize os seguintes comandos ASA para fins de depuragem:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para configurar as instalações cruzadas ativas ativas e as ligações VNet-to-VNet, consulte as [portas VPN ativas ativas .](vpn-gateway-activeactive-rm-powershell.md)

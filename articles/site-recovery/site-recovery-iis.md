@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aece41329d6481b8ad15090a834c8758f86abdc2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131333"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083774"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastres para uma aplicação web baseada em IIS de vários níveis
 
@@ -58,12 +58,12 @@ Para os exemplos deste artigo, utilizamos máquinas virtuais VMware com IIS 7.5 
 
 ### <a name="source-and-target"></a>Fonte e alvo
 
-Scenario | Para um site secundário | Para o Azure
+Cenário | Para um site secundário | Para o Azure
 --- | --- | ---
 Hyper-V | Sim | Sim
 VMware | Sim | Sim
-Servidor físico | Não | Sim
-Azure|ND|Sim
+Servidor físico | Não | Yes
+Azure|ND|Yes
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
@@ -102,12 +102,14 @@ A cadeia de ligação especifica a base de dados com a qual o website comunica. 
 
 Se o fio de ligação se referir à máquina virtual da base de dados utilizando um endereço IP, tem de ser atualizado após a falha. Por exemplo, o seguinte fio de ligação aponta para a base de dados com o endereço IP 127.0.1.2:
 
-        <?xml version="1.0" encoding="utf-8"?>
-        <configuration>
-        <connectionStrings>
-        <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
-        </connectionStrings>
-        </configuration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+<connectionStrings>
+<add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+</connectionStrings>
+</configuration>
+```
 
 Para atualizar a cadeia de ligação no nível web, adicione um [script de atualização de ligação IIS](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) após o Grupo 3 no plano de recuperação.
 
@@ -158,5 +160,5 @@ Para obter mais informações, consulte [test failover to Azure in Site Recovery
 
 Para obter mais informações, consulte [Failover na Recuperação do Local.](site-recovery-failover.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a replicação de outras aplicações](site-recovery-workload.md) utilizando a Recuperação do Site.

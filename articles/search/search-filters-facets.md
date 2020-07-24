@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792901"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084216"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Como construir um filtro de faceta na Pesquisa Cognitiva Azure 
 
@@ -28,7 +28,7 @@ A navegação frontal é utilizada para filtragem auto-direcionada em resultados
 
 As facetas são dinâmicas e devolvidas numa consulta. As respostas de pesquisa trazem consigo as categorias de facetas utilizadas para navegar nos resultados. Se não está familiarizado com as facetas, o exemplo a seguir é uma ilustração de uma estrutura de navegação faceta.
 
-  ![](./media/search-filters-facets/facet-nav.png)
+  ![Uma imagem mostrando um diálogo de pesquisa com resultados de pesquisa filtrados agrupados por título de negócio. Uma seta indica que os resultados são facetas que são exibidas numa estrutura de navegação faceta.](./media/search-filters-facets/facet-nav.png)
 
 Nova navegação virada para a frente e quer mais detalhes? Veja [como implementar a navegação facetada na Pesquisa Cognitiva Azure.](search-faceted-navigation.md)
 

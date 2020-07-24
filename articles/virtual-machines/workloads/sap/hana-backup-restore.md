@@ -13,13 +13,14 @@ ms.workload: infrastructure
 ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cb2647cc5ac2dc60f5ae7327ee39ed2ff625193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79ef279423c524f0d409815e7ae163aa699f5428
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82901378"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082210"
 ---
-# <a name="backup-and-restore"></a>Cópia de segurança e restauro
+# <a name="backup-and-restore-on-sap-hana-on-azure"></a>Backup e restauro em SAP HANA em Azure
 
 >[!IMPORTANT]
 >Este artigo não substitui a documentação da administração SAP HANA ou as Notas SAP. Esperamos que tenha uma compreensão sólida e experiência na administração e operações da SAP HANA, especialmente para apoio, restauro, elevada disponibilidade e recuperação de desastres. Neste artigo, são mostradas imagens do ESTÚDIO SAP HANA. O conteúdo, a estrutura e a natureza dos ecrãs das ferramentas de administração SAP e das próprias ferramentas podem mudar de lançamento SAP HANA para lançamento.
@@ -400,5 +401,5 @@ Para restaurar a partir de uma cópia de segurança instantânea, consulte [o gu
 Para restaurar a um determinado ponto do tempo, consulte "Recuperar a base de dados até ao ponto seguinte no tempo" no [guia de recuperação manual para SAP HANA em Azure a partir de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [os princípios de recuperação de desastres e a preparação.](hana-concept-preparation.md)

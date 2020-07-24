@@ -2,17 +2,17 @@
 title: 'VPN Gateway: cliente VPN para ligações P2S do protocolo OpenVPN: Autenticação Azure AD'
 description: Pode utilizar o P2S VPN para ligar ao seu VNet utilizando a autenticação AD Azure
 services: vpn-gateway
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: alzam
-ms.openlocfilehash: bf507ff75d88ac4c549233e50a44ea60ab212886
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf978f9551e5b2db885ca28d14f66586c029d913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482994"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082227"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Configurar um cliente VPN para ligações de protocolo P2S OpenVPN: autenticação do Azure Active Directory)
 
@@ -88,11 +88,11 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
 1. Selecione as elipses ao lado do perfil do cliente que pretende eliminar. Em seguida, **selecione Remover**.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![eliminação](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Selecione **Remover** para eliminar.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![eliminação](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Criar uma ligação
 
@@ -251,6 +251,6 @@ Pode modificar o ficheiro XML de ** \<excluderoutes> \<route> \<destination> \<m
 </azvpnprofile>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [Criar um inquilino do Azure Ative Directory para ligações P2S Open VPN que utilizam a autenticação AZURE AD](openvpn-azure-ad-tenant.md).

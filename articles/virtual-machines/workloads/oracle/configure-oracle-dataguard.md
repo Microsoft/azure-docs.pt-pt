@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 2b0b85792fe1266d2ec6478561193ef0c80ac98f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224303"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083383"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a Oracle Data Guard numa máquina virtual Azure Linux 
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este artigo descreve como usar o Azure CLI para implantar uma base de dados Oracle Database 12c a partir da imagem do Azure Marketplace. Este artigo mostra-lhe, passo a passo, como instalar e configurar a Data Guard numa máquina virtual Azure (VM).
 
-Antes de começar, certifique-se de que o Azure CLI está instalado. Para mais informações, consulte o guia de instalação do [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Antes de começar, certifique-se de que o Azure CLI está instalado. Para mais informações, consulte o guia de instalação do [Azure CLI.](/cli/azure/install-azure-cli)
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 ### <a name="assumptions"></a>Pressupostos
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Criar um conjunto de disponibilidade é opcional, mas recomendamos. Para mais informações, consulte [as diretrizes de disponibilidade do Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)
+Criar um conjunto de disponibilidade é opcional, mas recomendamos. Para mais informações, consulte [as diretrizes de disponibilidade do Azure.](../../windows/infrastructure-example.md)
 
 ```azurecli
 az vm availability-set create \

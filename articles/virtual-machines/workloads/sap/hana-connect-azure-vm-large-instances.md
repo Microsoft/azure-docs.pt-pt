@@ -15,15 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3231241e2fbc6e02725b5611d05b9ee4f0f1a35a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74224718"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082176"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Ligar VMs do Azure para Instâncias Grandes do HANA
 
-O artigo [O que é SAP HANA em Azure (Grandes Instâncias)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) refere que a implantação mínima de HANA Large Instances com a camada de aplicação SAP em Azure se parece com o seguinte:
+O artigo [O que é SAP HANA em Azure (Grandes Instâncias)?](./hana-overview-architecture.md) refere que a implantação mínima de HANA Large Instances com a camada de aplicação SAP em Azure se parece com o seguinte:
 
 ![Azure VNet ligado ao SAP HANA em Azure (Grandes Instâncias) e no local](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -93,13 +94,13 @@ Algumas das gamas de endereços IP que são necessárias para a implantação de
 
 Intervalos de endereço IP opcionais que eventualmente precisam de ser submetidos à Microsoft:
 
-- Se optar por utilizar o [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para ativar o encaminhamento direto das unidades HANA Large Instance, tem de reservar outro intervalo de endereços IP /29. Este intervalo pode não se sobrepor a nenhum dos outros intervalos de endereço IP definidos anteriormente.
-- Se optar por utilizar o [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para permitir o encaminhamento direto de um inquilino HANA Large Instance numa região de Azure para outro inquilino da HANA Large Instance noutra região de Azure, precisa de reservar outra gama de endereços IP /29. Este intervalo pode não se sobrepor a nenhum dos outros intervalos de endereço IP definidos anteriormente.
+- Se optar por utilizar o [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) para ativar o encaminhamento direto das unidades HANA Large Instance, tem de reservar outro intervalo de endereços IP /29. Este intervalo pode não se sobrepor a nenhum dos outros intervalos de endereço IP definidos anteriormente.
+- Se optar por utilizar o [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) para permitir o encaminhamento direto de um inquilino HANA Large Instance numa região de Azure para outro inquilino da HANA Large Instance noutra região de Azure, precisa de reservar outra gama de endereços IP /29. Este intervalo pode não se sobrepor a nenhum dos outros intervalos de endereço IP definidos anteriormente.
 
 Para obter mais informações sobre o ExpressRoute Global Reach e utilização em torno de grandes instâncias HANA, verifique os documentos:
 
-- [SAP HANA (Grandes Instâncias) arquitetura de rede](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [Ligue uma rede virtual a grandes instâncias HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [SAP HANA (Grandes Instâncias) arquitetura de rede](./hana-network-architecture.md)
+- [Ligue uma rede virtual a grandes instâncias HANA](./hana-connect-vnet-express-route.md)
  
 É necessário definir e planear os intervalos de endereços IP que foram descritos anteriormente. No entanto, não é necessário transmiti-los todos à Microsoft. Os intervalos de endereço IP que é obrigado a nomear para a Microsoft são:
 
@@ -145,6 +146,6 @@ No final do processo de implementação, a Microsoft fornece-lhe os seguintes da
 
 Também pode encontrar a sequência de ligação de grandes instâncias HANA no documento [SAP HANA na configuração de Azure (Grandes Instâncias).](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/) Muitos dos seguintes passos são mostrados num exemplo de implantação nesse documento. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [Ligação de uma rede virtual ao HANA Large Instance ExpressRoute](hana-connect-vnet-express-route.md).

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3839efecc1f5c645e8365ca6441731868412371e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68a33f2aa7420de21a606d4e38b11db2509226ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976851"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084573"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Criar uma conta de Serviços de Mídia utilizando o portal Azure
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 O portal do Azure proporciona uma forma para criar rapidamente uma conta dos Serviços de Multimédia do Azure (AMS). Pode utilizar a sua conta para aceder aos Media Services que permitem armazenar, encriptar, codificar, gerir e transmitir conteúdo no Azure. No momento em que cria uma conta de Serviços de Mídia, também cria uma conta de armazenamento associada (ou utiliza uma existente). Se eliminar uma conta de Media Services, os blobs na sua conta do Storage relacionada não são eliminados.
 
@@ -66,7 +66,7 @@ Os passos nesta secção explicam como criar uma conta dos AMS.
 
 Para gerir a sua conta do AMS (por exemplo, ligar à API AMS através de programação, carregar vídeos, codificar elementos, configurar a proteção de conteúdos, monitorizar o progresso da tarefa) selecione **Definições** no lado esquerdo do portal. A partir das **Definições**, navegue até um dos painéis disponíveis (por exemplo: **Acesso à API**, **Elementos**, **Tarefas**, **Proteção de Conteúdo**).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora, pode carregar ficheiros para a sua conta do AMS. Para obter mais informações, veja [Carregar ficheiros](media-services-portal-upload-files.md).
 
@@ -77,4 +77,3 @@ Se pretender aceder à API AMS através de programação, veja [Aceder à API do
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

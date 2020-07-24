@@ -13,11 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617192"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082159"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Ligue uma rede virtual a grandes instâncias HANA
 
@@ -95,7 +96,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> O último parâmetro no comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** é um novo parâmetro que permite o Caminho Rápido ExpressRoute. Uma funcionalidade que reduz a latência da rede entre as suas unidades HANA Large Instance e Azure VMs. A funcionalidade foi adicionada em maio de 2019. Para mais detalhes, consulte a arquitetura da [rede SAP HANA (Grandes Instâncias).](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) Certifique-se de que está a executar a versão mais recente dos cmdlets PowerShell antes de executar os comandos.
+> O último parâmetro no comando New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** é um novo parâmetro que permite o Caminho Rápido ExpressRoute. Uma funcionalidade que reduz a latência da rede entre as suas unidades HANA Large Instance e Azure VMs. A funcionalidade foi adicionada em maio de 2019. Para mais detalhes, consulte a arquitetura da [rede SAP HANA (Grandes Instâncias).](./hana-network-architecture.md) Certifique-se de que está a executar a versão mais recente dos cmdlets PowerShell antes de executar os comandos.
 
 Para ligar o gateway a mais de um circuito ExpressRoute associado à sua subscrição, poderá ter de executar este passo mais de uma vez. Por exemplo, é provável que ligue a mesma porta de entrada de rede virtual ao circuito ExpressRoute que liga a rede virtual à sua rede no local.
 
@@ -138,7 +139,7 @@ tem de considerar isso:
 - Existe uma limitação nas ASNs (Número de Sistema Autónomo) que pode ser usada para anunciar as suas rotas no local para HANA Large Instances. Os seus locais não devem anunciar quaisquer rotas com ASNs privadas na gama de 65000 - 65020 ou 65515. 
 - Para o cenário de ligar acesso direto ao HANA Grandes instâncias, é necessário calcular uma taxa para o circuito que o liga ao Azure. Para obter preços, verifique os preços do [Global Reach Add-On](https://azure.microsoft.com/pricing/details/expressroute/).
 
-Para obter um ou ambos os cenários aplicados à sua implantação, abra uma mensagem de apoio com a Azure, conforme descrito no Open um pedido de [apoio para HANA grandes Instâncias](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
+Para obter um ou ambos os cenários aplicados à sua implantação, abra uma mensagem de apoio com a Azure, conforme descrito no Open um pedido de [apoio para HANA grandes Instâncias](./hana-li-portal.md#open-a-support-request-for-hana-large-instances)
 
 Os dados necessários e as palavras-chave que precisa de utilizar para a Microsoft poder fazer a rota e executar a seu pedido, parecem:
 
@@ -156,6 +157,6 @@ Os dados necessários e as palavras-chave que precisa de utilizar para a Microso
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Requisitos adicionais de rede para o HLI](hana-additional-network-requirements.md)

@@ -6,11 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78b11a4d900b8c9cf30a1d37a2b7e6380d6b989a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78970278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082567"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Crie uma máquina virtual Linux que utilize a autenticação SSH com a API REST
 
@@ -45,7 +46,7 @@ Os seguintes cabeçalhos são obrigatórios:
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
 | *Content-Type:*  | Necessário. Definido como `application/json`. |
-| *Authorization:* | Necessário. Definido como um  [token de acesso `Bearer`](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+| *Authorization:* | Necessário. Definido como um  [token de acesso `Bearer`](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 Para obter informações gerais sobre o trabalho com pedidos de API REST, consulte [componentes de um pedido/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -121,13 +122,13 @@ Para obter uma lista completa das definições disponíveis no organismo de pedi
 
 ## <a name="sending-the-request"></a>Envio do pedido
 
-Poderá utilizar o cliente da sua preferência para o envio deste pedido HTTP. Também pode utilizar uma [ferramenta no navegador](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) clicando no botão **Tentar.**
+Poderá utilizar o cliente da sua preferência para o envio deste pedido HTTP. Também pode utilizar uma [ferramenta no navegador](/rest/api/compute/virtualmachines/createorupdate) clicando no botão **Tentar.**
 
 ### <a name="responses"></a>Respostas
 
 Existem duas respostas bem sucedidas para a operação para criar ou atualizar uma máquina virtual:
 
-| Name        | Tipo                                                                              | Description |
+| Nome        | Tipo                                                                              | Description |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |
@@ -143,11 +144,11 @@ Uma resposta condensada *201 Criada* a partir do organismo de pedido de exemplo 
 
 Para obter mais informações sobre as respostas da API rest, consulte [processar a mensagem de resposta](/rest/api/azure/#process-the-response-message).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as APIs Azure REST ou outras ferramentas de gestão, tais como Azure CLI ou Azure PowerShell, consulte o seguinte:
 
 - [Azure Compute provider REST API](/rest/api/compute/)
 - [Introdução à API REST do Azure](/rest/api/azure/)
 - [CLI do Azure](/cli/azure/)
-- [Módulo do Azure PowerShell](/powershell/azure/overview)
+- [Módulo do Azure PowerShell](/powershell/azure/)

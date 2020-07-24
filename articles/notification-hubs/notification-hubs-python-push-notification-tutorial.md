@@ -17,18 +17,18 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: af03d0fc091c34bfef7f38b1a215832086de57c6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5688caa16faf4a9d83b6d23b24676d43ad16697b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220070"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084301"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os centros de notificação da Python
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Pode aceder a todas as funcionalidades do Centro de Notificações a partir de um back-end Java/PHP/Python/Ruby utilizando a interface DeRESO do Hub de Notificação, tal como descrito no artigo DA MSDN [Notification Hubs REST APIs](https://msdn.microsoft.com/library/dn223264.aspx).
+Pode aceder a todas as funcionalidades do Centro de Notificações a partir de um back-end Java/PHP/Python/Ruby utilizando a interface DeRESO do Hub de Notificação, tal como descrito no artigo DA MSDN [Notification Hubs REST APIs](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 > [!NOTE]
 > Esta é uma implementação de referência de amostra para implementar a notificação envia em Python e não é o Hub Python SDK de notificações oficialmente suportado. A amostra foi criada com python 3.4.
@@ -68,7 +68,7 @@ hub.send_windows_notification(wns_payload)
 
 Se ainda não o fez, siga o [tutorial Get até] à última secção onde tem de implementar o back-end.
 
-Todos os detalhes para implementar um invólucro REST completo podem ser encontrados na [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Esta secção descreve a implementação python dos principais passos necessários para aceder aos pontos finais do Centro de Notificação REST e enviar notificações
+Todos os detalhes para implementar um invólucro REST completo podem ser encontrados na [MSDN](/previous-versions/azure/reference/dn530746(v=azure.100)). Esta secção descreve a implementação python dos principais passos necessários para aceder aos pontos finais do Centro de Notificação REST e enviar notificações
 
 1. Analisar a cadeia de ligação
 2. Gerar o sinal de autorização
@@ -103,7 +103,7 @@ class NotificationHub:
 
 ### <a name="create-security-token"></a>Criar ficha de segurança
 
-Os detalhes da criação de fichas de segurança estão disponíveis [aqui.](https://msdn.microsoft.com/library/dn495627.aspx)
+Os detalhes da criação de fichas de segurança estão disponíveis [aqui.](/previous-versions/azure/reference/dn495627(v=azure.100))
 Adicione os seguintes métodos à `NotificationHub` classe para criar o símbolo com base no URI do pedido atual e nas credenciais extraídas da cadeia de ligação.
 
 ```python
@@ -164,7 +164,7 @@ class Notification:
 
 Esta classe é um recipiente para um corpo de notificação nativo ou um conjunto de propriedades de uma notificação de modelo, um conjunto de cabeçalhos, que contém formato (plataforma ou modelo nativo) e propriedades específicas da plataforma (como propriedade de expiração da Apple e cabeçalhos WNS).
 
-Consulte a documentação dos [Hubs de Notificação REST APIs](https://msdn.microsoft.com/library/dn495827.aspx) e os formatos específicos das plataformas de notificação para todas as opções disponíveis.
+Consulte a documentação dos [Hubs de Notificação REST APIs](/previous-versions/azure/reference/dn495827(v=azure.100)) e os formatos específicos das plataformas de notificação para todas as opções disponíveis.
 
 Agora com esta aula, escreva os métodos de notificação de envio dentro da `NotificationHub` classe.
 
@@ -293,7 +293,7 @@ Estes métodos enviam um pedido HTTP POST para o ponto final /mensagens do seu c
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Utilização de propriedade de depurg para permitir registos detalhados
 
 Permitir a depuração da propriedade enquanto inicializa o Centro de Notificação escreve informações detalhadas sobre o pedido HTTP e o despejo de resposta, bem como o resultado de envio de mensagem de notificação detalhada.
-A [propriedade TestSend testsend do Notification Hubsend](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) devolve informações detalhadas sobre o resultado do envio de notificação.
+A [propriedade TestSend testsend do Notification Hubsend](/previous-versions/azure/reference/dn495827(v=azure.100)) devolve informações detalhadas sobre o resultado do envio de notificação.
 Para usá-lo - inicialize utilizando o seguinte código:
 
 ```python
@@ -456,9 +456,9 @@ Este artigo mostrou como criar um cliente Python REST para Centros de Notificaç
 
 <!-- URLs -->
 [Amostra de invólucro Python REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[Tutorial de introdução]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Tutorial de Notícias de Última Hora]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Tutorial de Notícias 2019]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Tutorial de introdução]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Tutorial de Notícias de Última Hora]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Tutorial de Notícias 2019]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

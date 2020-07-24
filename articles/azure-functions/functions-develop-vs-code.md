@@ -3,11 +3,12 @@ title: Desenvolver funções de Azure utilizando o Código do Estúdio Visual
 description: Aprenda a desenvolver e testar funções Azure utilizando a extensão de Funções Azure para Código do Estúdio Visual.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 459162c277a9510297580a99acb8a88b0702a290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ccb93013b16fc919630251aa02edf48e30ce6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732480"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083128"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções de Azure utilizando o Código do Estúdio Visual
 
@@ -185,7 +186,7 @@ O Visual Studio Code permite-lhe adicionar encadernações à sua function.jsno 
 
 Seguem-se os exemplos de solicitações para definir uma nova ligação de saída de armazenamento:
 
-| Mensagem | Valor | Descrição |
+| Prompt | Valor | Descrição |
 | -------- | ----- | ----------- |
 | **Selecione direção de encadernação** | `out` | A ligação é uma ligação de saída. |
 | **Selecione encadernação com direção** | `Azure Queue Storage` | A encadernação é uma encadernação de fila de armazenamento Azure. |
@@ -249,7 +250,7 @@ Os seguintes passos publicam o seu projeto para uma nova app de função criada 
 
 1. Seguindo as indicações, forneça estas informações:
 
-    | Mensagem | Valor | Descrição |
+    | Prompt | Valor | Descrição |
     | ------ | ----- | ----------- |
     | Selecione app de função em Azure | Criar nova aplicação de funções em Azure | Na próxima posição, escreva um nome globalmente único que identifique a sua nova aplicação de função e, em seguida, selecione Enter. Os carateres válidos para um nome de aplicação de funções são `a-z`, `0-9` e `-`. |
     | Selecione um SISTEMA | Windows | A aplicação de função é executado no Windows. |
@@ -294,7 +295,7 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
     | Linguagem | Requisito |
     | -------- | --------- |
-    | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger para extensão de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
@@ -441,11 +442,11 @@ A extensão Azure Functions fornece uma interface gráfica útil na área para i
 | **Ver Cometer no GitHub** | Mostra-lhe o mais recente compromisso numa implementação específica quando a sua aplicação de função está ligada a um repositório. |
 | **Ver Registos de Implementação** | Mostra-lhe os registos para uma implementação específica para a aplicação de função em Azure. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as ferramentas principais do Azure Functions, consulte [Ferramentas principais do Trabalho com Funções Azure.](functions-run-local.md)
 
 Para saber mais sobre o desenvolvimento de funções como bibliotecas de classe .NET, consulte [a referência do programador Azure Functions C#](functions-dotnet-class-library.md). Este artigo também fornece links para exemplos de como usar atributos para declarar os vários tipos de encadernações suportados por Funções Azure.
 
 [Extensão das Funções do Azure para o Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
-[Ferramentas principais de funções Azure]: functions-run-local.md
+[Azure Functions Core Tools]: functions-run-local.md

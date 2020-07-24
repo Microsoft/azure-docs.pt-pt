@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0c2a9612fab6c685cbc690aa9bbc12d1c7b7b746
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d0e2487632971579a1a473375eb2200f3a63a46
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74978207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084539"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configure políticas de proteção de conteúdos utilizando o portal Azure
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não estão a ser adicionadas novas funcionalidades ou funcionalidades aos Serviços de Comunicação Social v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
  Com a Azure Media Services, pode proteger os seus meios de comunicação a partir do momento em que este deixa o computador através do armazenamento, processamento e entrega. Pode utilizar os Serviços de Comunicação social para fornecer o seu conteúdo encriptado dinamicamente com o Padrão avançado de encriptação (AES) utilizando chaves de encriptação de 128 bits. Também pode usá-lo com encriptação comum (CENC) utilizando a PlayReady e/ou Widevine digital rights management (DRM) e Apple FairPlay. 
@@ -72,7 +73,7 @@ Se configurar uma licença como persistente, é guardada em armazenamento persis
 ## <a name="widevine-license-template"></a>Modelo de licença do Widevine
 O modelo de licença Widevine define a funcionalidade que está ativada nas suas licenças Widevine.
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 Quando seleciona **Basic,** o modelo é criado com todos os valores predefinidos.
 
 ### <a name="advanced"></a>Avançado
@@ -127,9 +128,8 @@ A encriptação de chave clara AES está ativada em todos os protocolos de strea
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

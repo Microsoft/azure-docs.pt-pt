@@ -7,12 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bf25c74f0190bc67e7da703e242d5d4bb3e299f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/12/2020
+ms.openlocfilehash: eacfc75b31efaf9a53ed116ed9e75983146d8575
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020647"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084131"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configure uma ligação de um indexante de pesquisa cognitiva Azure para SQL Server em um VM Azure
 
@@ -90,6 +91,6 @@ Uma terceira abordagem viável (mas não particularmente segura) consiste em esp
 #### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Incluir os endereços IP do portal de pesquisa cognitiva Azure
 Se estiver a utilizar o portal Azure para criar um indexante, a lógica do portal Azure Cognitive Search também precisa de acesso ao seu SQL Azure VM durante o tempo de criação. Os endereços IP do portal de pesquisa cognitiva Azure podem ser encontrados através do `stamp2.search.ext.azure.com` pinging .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Com a configuração fora do caminho, pode agora especificar um SQL Server no Azure VM como a fonte de dados para um indexante de Pesquisa Cognitiva Azure. Consulte [a Base de Dados Azure SQL de Ligação à Pesquisa Cognitiva Azure utilizando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
 

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 627eca1f9a775f12fc9d504629c2a3abbcc919a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74900888"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084505"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal (Gerir os pontos finais de transmissão em fluxo com o portal do Azure) 
 
@@ -66,7 +67,7 @@ O Streaming Endpoint permite-lhe configurar as seguintes propriedades:
 * Controlo de cache
 * Políticas de acesso ao site transversal
 
-Para obter informações detalhadas sobre estas propriedades, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+Para obter informações detalhadas sobre estas propriedades, consulte [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
 >Quando o CDN está ativado, não é possível aceder ao acesso IP. O acesso IP só é aplicável quando não tiver CDN.
@@ -114,11 +115,10 @@ Pode configurar o perfil CDN selecionando o botão **Manage CDN** a partir da pa
 
 ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

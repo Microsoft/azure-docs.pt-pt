@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76544723"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082618"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão do Chef VM para Linux e Windows
 
@@ -77,15 +78,15 @@ O JSON seguinte mostra o esquema para a extensão do Chef VM. A extensão requer
 
 | Name | Valor / Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ----
-| definições/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | cadeia (url) | S |
-| definições/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
-| definições/lista de corredores | `recipe[mycookbook::default]` | string | S |
+| definições/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | cadeia (url) | Y |
+| definições/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
+| definições/lista de corredores | `recipe[mycookbook::default]` | string | Y |
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
 | Name | Exemplo | Tipo de Dados | Necessário?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
 
 <!--
 ### Linux-specific settings
@@ -105,7 +106,7 @@ As extensões Azure VM podem ser implementadas com modelos Azure Resource Manage
 
 Um modelo de gestor de recursos de amostra que inclui a extensão do Chef VM pode ser encontrado na [galeria de arranque rápido Azure.](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm)
 
-A configuração JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo do recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/resource-manager-template-child-resource.md)
+A configuração JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual, ou colocada no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação da configuração JSON afeta o valor do nome e do tipo do recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/templates/child-resource-name-type.md)
 
 ## <a name="azure-cli-deployment"></a>Implantação do Azure CLI
 
@@ -154,6 +155,6 @@ Informações adicionais de resolução de problemas podem ser encontradas na le
 > [!NOTE]
 > Para qualquer outra coisa diretamente relacionada com chef, contacte [o Chef Support.](https://www.chef.io/support/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

@@ -5,40 +5,41 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89dc81cdd06bedb6237cf48312ee7ed0510d93ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262740"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084743"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referência dos dados de monitorização do Azure Cosmos DB
-Este artigo fornece uma referência dos registos e dos dados métricos recolhidos para analisar o desempenho e a disponibilidade do Azure Cosmos DB. Consulte [a Monitorização da DB do Cosmos](monitor-cosmos-db.md) para obter mais detalhes sobre a recolha e análise de dados de monitorização para Azure Cosmos DB.
 
+Este artigo fornece uma referência dos registos e dos dados métricos recolhidos para analisar o desempenho e a disponibilidade do Azure Cosmos DB. Consulte o artigo do [Monitor Azure Cosmos DB](monitor-cosmos-db.md) sobre como recolher e analisar dados de monitorização para Azure Cosmos DB.
 
 ## <a name="resource-logs"></a>Registos do recurso
-A tabela que se segue lista as propriedades dos registos de recursos DB da Azure Cosmos quando são recolhidas em Registos monitores Azure ou Azure Storage. Nos Registos do Monitor Azure, são recolhidos na tabela **AzureDiagnostics** com um valor **Deprovider** de recursos *deMICROSOFT.DOCUMENTDB*. 
+
+A tabela que se segue lista as propriedades dos registos de recursos em Azure Cosmos DB. Os registos de recursos são recolhidos em Registos monitores Azure ou Azure Storage. No Azure Monitor, os registos são recolhidos na tabela **AzureDiagnostics** sob o nome do fornecedor de recursos** de `MICROSOFT.DOCUMENTDB` .
 
 | Campo ou propriedade de Armazenamento Azure | Propriedade Azure Monitor Logs | Descrição |
 | --- | --- | --- |
-| **tempo** | **TimeGenerated** | A data e a hora (UTC) quando ocorreu a operação. |
+| **Hora** | **TimeGenerated** | A data e a hora (UTC) quando ocorreu a operação. |
 | **recursosId** | **Recurso** | A conta DB do Azure Cosmos para os registos que estão ativados.|
-| **categoria** | **Categoria** | Para os registos DB da Azure Cosmos, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** são os tipos de registo disponíveis. |
-| **operaçãoName** | **OperationName** | O nome da operação. Este valor pode ser qualquer uma das seguintes operações: Criar, Atualizar, Ler, Ler, Ler, Eliminar, Substituir, Executar, SqlQuery, Consulta, JSQuery, HeadFeed ou Upsert.   |
+| **categoria** | **Categoria** | Para Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** são os tipos de registos disponíveis. |
+| **operaçãoName** | **OperationName** | O nome da operação. O nome da operação pode ser `Create` , , , , , , , , `Update` , , , `Read` , , , `ReadFeed` , , , `Delete` ou `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` `Upsert` .   |
 | **propriedades** | n/a | O conteúdo deste campo é descrito nas linhas que se seguem. |
 | **activityId** | **activityId_g** | O GUIA único para a operação registada. |
-| **userAgent** | **userAgent_s** | Uma cadeia que especifica o agente utilizador cliente que está a realizar o pedido. O formato é {user agent name}/{version}.|
-| **solicitamResourceType** | **requestResourceType_s** | O tipo de recurso acedido. Este valor pode ser qualquer um dos seguintes tipos de recursos: Base de dados, Contentor, Documento, Anexo, Utilizador, Permissão,Procedure Armazenado, Gatilho, Utilização do Utilizador ou Oferta. |
+| **userAgent** | **userAgent_s** | Uma cadeia que especifica o agente utilizador cliente a partir do qual o pedido foi enviado. O formato do agente utilizador é `{user agent name}/{version}` .|
+| **solicitamResourceType** | **requestResourceType_s** | O tipo de recurso acedido. Este valor pode ser base de dados, contentor, documento, anexo, utilizador, permissão, procedimento armazenado, gatilho, função definida pelo utilizador ou uma oferta. |
 | **statusCode** | **statusCode_s** | O estado de resposta da operação. |
-| **requestResourceId** | **ResourceId** | Os recursosid que diz respeito ao pedido. O valor pode apontar para base de dadosRid, collectionRid ou documentoRid dependendo da operação realizada.|
+| **requestResourceId** | **ResourceId** | Os recursosid que diz respeito ao pedido. Dependendo da operação realizada, este valor pode apontar para `databaseRid` `collectionRid` , ou `documentRid` .|
 | **clienteIpAddress** | **clientIpAddress_s** | O endereço IP do cliente. |
-| **requestCharge** | **requestCharge_s** | O número de RUs que são usados pela operação |
+| **requestCharge** | **requestCharge_s** | O número de RU/s que são usados pela operação |
 | **coleçãoRid** | **collectionId_s** | A identificação única para a coleção.|
-| **duração** | **duration_s** | A duração da operação, em milissegundos. |
+| **duração** | **duration_d** | A duração da operação, em milissegundos. |
 | **solicitaçãoLength** | **requestLength_s** | A duração do pedido, em bytes. |
 | **respostaLength** | **responseLength_s** | A duração da resposta, em bytes.|
 | **recursoTokenUserRid** | **resourceTokenUserRid_s** | Este valor não é vazio quando [os tokens de recursos](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para a autenticação. O valor aponta para o ID de recurso do utilizador. |
@@ -49,7 +50,7 @@ Para obter uma lista de todas as categorias de registos do Azure Monitor e links
 ## <a name="metrics"></a>Métricas
 As tabelas seguintes listam as métricas da plataforma recolhidas para Azure CosmOS DB. Todas as métricas são armazenadas no namespace **Cosmos DB métricas métricas padrão**.
 
-Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluindo cosmosDB), consulte [as métricas suportadas pelo Monitor Azure](../azure-monitor/platform/metrics-supported.md). 
+Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluindo Azure Cosmos DB), consulte [as métricas suportadas pelo Azure Monitor](../azure-monitor/platform/metrics-supported.md). 
 
 #### <a name="request-metrics"></a>Solicitar métricas
             
@@ -98,7 +99,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluind
 |Métrica (Nome de Exibição Métrica)|Unidade (Tipo de agregação)|Descrição|Dimensões| Granularidades do tempo| Utilização |
 |---|---|---|---| ---| ---|
 | CassandraRequests (Pedidos de Cassandra) | Contagem (Contagem) | Número de pedidos da Cassandra API feitos| Nome de dados, Nome de Recolha, Código de Erro, Região, OperaçãoType,Tip de Recursos| Todos| Usado para monitorizar os pedidos de Cassandra num minuto de granularidade. Para obter pedidos médios por segundo, use a agregação count ao minuto e divida por 60.|
-| CassandraRequestCharges (Cassandra Request Charges) | Conde (Soma, Min, Max, Avg) | Unidades de pedido consumidas por pedidos da API de Cassandra| Nome de dados, Nome de Recolha, Região, OperaçãoType,Tip de Recursos| Todos| Usado para monitorizar rUs usados por minuto por uma conta API Cassandra.|
+| CassandraRequestCharges (Cassandra Request Charges) | Conde (Soma, Min, Max, Avg) | Unidades de pedido consumidas pela API cassandra | Nome de dados, Nome de Recolha, Região, OperaçãoType,Tip de Recursos| Todos| Usado para monitorizar rUs usados por minuto por uma conta API Cassandra.|
 | CassandraConnectionClosures (Encerramentos de Conexões Cassandra) |Contagem (Contagem) |Número de Ligações Cassandra encerrado| ClosureReason, Região| Todos | Usado para monitorizar a conectividade entre clientes e a API API AZURE Cosmos DB Cassandra.|
 
 ## <a name="see-also"></a>Consulte também

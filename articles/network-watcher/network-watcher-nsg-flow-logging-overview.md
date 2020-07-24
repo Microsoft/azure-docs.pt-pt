@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: e59a985f59da1b6a40a6b583d5e2a490611a702c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043857"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084369"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança da rede
 
@@ -357,7 +357,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Custos de registo do fluxo**: A exploração de fluxo NSG é faturada no volume de registos produzidos. O elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. O preço do registo do NSG Flow não inclui os custos subjacentes de armazenamento. A utilização da função de política de retenção com a NSG Flow Logging significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se não necessitar da função de política de retenção, recomendamos que desemote este valor para 0. Para mais informações, consulte [o Preço do Observador de Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os Preços de Armazenamento [Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
 
-**Byte incorreto e contagens de pacotes para fluxos de entrada**: [Grupos de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview) são implementados como uma [firewall stateful](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, devido às limitações da plataforma, as regras que controlam os fluxos de entrada são implementadas de forma apátrida. Devido a este bytes e contagem de pacotes não são registados para estes fluxos. Consequentemente, o número de bytes e pacotes relatados em Registos de Fluxo NSG (e Traffic Analytics) poderia ser diferente dos números reais. Além disso, os fluxos de entrada não terminam agora. Esta limitação deverá ser corrigida até dezembro de 2020. 
+**Problemas com as regras de entrada definidas pelo utilizador**: [Os Grupos de Segurança da Rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview) são implementados como uma firewall [stateful](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, devido às limitações atuais da plataforma, as regras definidas pelo utilizador que afetam os fluxos de TCP de entrada são implementadas de forma apátrida. Devido a isso, os fluxos afetados pelas regras de entrada definidas pelo utilizador tornam-se não-terminantes. Adicionalmente, as contagens de byte e pacotes não são registadas para estes fluxos. Consequentemente, o número de bytes e pacotes relatados em Registos de Fluxo NSG (e Traffic Analytics) poderia ser diferente dos números reais. Uma bandeira de opt-in que corrige estas questões está prevista para dezembro de 2020. Entretanto, os clientes que enfrentam problemas graves devido a este comportamento podem solicitar a opt-in via Support, por favor, levantem um pedido de suporte no âmbito do Network Watcher > NSG Flow Logs.  
 
 **Fluxos de entrada registados de IPs de internet para VMs sem IPs públicos**: VMs que não têm um endereço IP público atribuído através de um endereço IP público associado ao NIC como um IP público de nível de instância, ou que fazem parte de um pool de back-end do balancer de carga básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md) e têm um endereço IP atribuído pela Azure para facilitar a conectividade de saída. Como resultado, pode ver entradas de registo de fluxo para fluxos a partir de endereços IP da Internet, se o fluxo estiver destinado a uma porta na gama de portas atribuídas ao SNAT. Embora o Azure não permita estes fluxos para o VM, a tentativa é registada e aparece no registo de fluxo NSG do Observador de Rede por design. Recomendamos que o tráfego de internet de entrada indesejada seja explicitamente bloqueado com o NSG.
 

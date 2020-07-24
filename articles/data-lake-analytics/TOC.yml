@@ -21,6 +21,12 @@
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+- name: Conceitos
+  items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança para a Referência de Segurança do Azure
+          href: security-baseline.md
 - name: Procedimento
   items:
     - name: Gerir o Data Lake Analytics
@@ -87,7 +93,7 @@
               href: data-lake-analytics-data-lake-tools-develop-usql-database.md
             - name: Procurar e ver tarefas
               href: data-lake-analytics-data-lake-tools-view-jobs.md
-            - name: 'Depurar código personalizado em C#'
+            - name: Depurar código personalizado em C#
               href: data-lake-analytics-debug-u-sql-jobs.md
             - name: Resolver problemas relacionados com tarefas periódicas
               href: data-lake-analytics-data-lake-tools-debug-recurring-job.md

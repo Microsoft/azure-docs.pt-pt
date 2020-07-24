@@ -4,11 +4,12 @@ description: Um tutorial de .NET que ajuda a desenvolver uma aplicação multica
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c7a64e708d860fe9e5832ad3f1375f41f9b86724
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083944"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -27,7 +28,7 @@ Neste tutorial, compilará e executará a aplicação multicamadas num serviço 
 
 A imagem que se segue mostra a aplicação completa.
 
-![][0]
+![Screenshot da página de submissão da aplicação.][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Descrição geral do cenário: comunicação entre funções
 Para submeter um pedido para processamento, o componente de IU do front-end, em execução na função da Web, deve interagir com a lógica da camada média em execução na função de trabalho. Este exemplo utiliza mensagens do Service Bus para a comunicação entre as camadas.
@@ -36,7 +37,7 @@ A utilização de mensagens do Service Bus entre as camadas média e da Web desa
 
 O Service Bus fornece duas entidades para suportar mensagens mediadas: as filas e os tópicos. Com as filas, cada mensagem enviada para a fila é consumida por um único recetor. Os tópicos suportam o padrão publicar/subscrever em que cada mensagem publicada é disponibilizada para uma subscrição registada com o tópico. Cada subscrição mantém logicamente a sua própria fila de mensagens. As subscrições também podem ser configuradas com regras de filtragem que restringem o conjunto de mensagens transmitidas para a fila de subscrição para as correspondentes ao filtro. O exemplo seguinte utiliza as filas do Service Bus.
 
-![][1]
+![Diagrama mostrando a comunicação entre o Papel Web, o Autocarro de Serviço e o Papel do Trabalhador.][1]
 
 Este mecanismo de comunicação tem várias vantagens em relação às mensagens diretas:
 
@@ -44,7 +45,7 @@ Este mecanismo de comunicação tem várias vantagens em relação às mensagens
 * **Nivelamento de carga.** Em muitas aplicações, a carga do sistema varia ao longo do tempo, enquanto o tempo de processamento necessário para cada unidade de trabalho é geralmente constante. A intermediação de produtores e consumidores de mensagens através de uma fila significa que a aplicação de consumo (o trabalho) apenas precisa de ser aprovisionada para acomodar uma carga média em vez de um pico de carga. A profundidade da fila aumenta e contrai à medida que a carga a receber varia. Tal poupa diretamente dinheiro em termos de quantidade de infraestrutura necessária para a manutenção da carga da aplicação.
 * **Equilíbrio de carga.** À medida que a carga aumenta, podem ser adicionados mais processos de trabalho para a leitura a partir da fila. Cada mensagem é processada apenas por um dos processos de trabalho. Além disso, este balanceamento de carga baseado na solicitação permite a utilização otimizada das máquinas de trabalho mesmo se as máquinas de trabalho diferirem em termos de poder de processamento, uma vez que transmitirão as mensagens à sua própria taxa máxima. Este padrão é frequentemente denominado padrão de *consumidor concorrente*.
   
-  ![][2]
+  ![Diagrama mostrando a comunicação entre o Papel Web, o Autocarro de Serviço e duas Funções de Trabalhador.][2]
 
 As secções seguintes abordam o código que implementa esta arquitetura.
 
@@ -63,27 +64,27 @@ Em seguida, adicione o código que submete itens para a fila do Service Bus e mo
 
 1. Com os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa **Visual Studio** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, abordado posteriormente neste artigo, necessita que o Visual Studio seja iniciado com privilégios de administrador.
    
-   No Visual Studio, no menu **Ficheiro**, clique em **Novo** e, de seguida, em **Projeto**.
+   No Visual Studio, no menu **File** (Ficheiro), clique em **New** (Novo) e, em seguida, em **Project** (Projeto).
 2. A partir de **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e, de seguida, em **Serviço em Nuvem do Azure**. Atribua o nome **MultiTierApp** ao projeto. Em seguida, clique em **OK**.
    
-   ![][9]
+   ![Screenshot da caixa de diálogo new project com Cloud selecionado e Azure Cloud Service Visual C# realçado e delineado a vermelho.][9]
 3. No painel **Funções**, faça duplo clique em **Função da Web ASP.NET**.
    
-   ![][10]
+   ![Screenshot da nova caixa de diálogo do Serviço de Nuvem Azure da Microsoft com ASP.NET Web Role selecionado e WebRole1 também selecionado.][10]
 4. Coloque o cursor sobre **WebRole1** em **Solução do Serviço em Nuvem do Azure**, clique no ícone lápis e mude o nome da função da Web para **FrontendWebRole**. Em seguida, clique em **OK**. (Certifique-se de que introduz "Frontend" com um "e" em minúsculas e não "FrontEnd".)
    
-   ![][11]
+   ![Screenshot da nova caixa de diálogo do Serviço de Nuvem Azure da Microsoft com a solução renomeada para FrontendWebRole.][11]
 5. A partir da caixa de diálogo **Novo Projeto ASP.NET**, na lista **Selecionar um modelo**, clique em **MVC**.
    
-   ![][12]
+   ![Screenshot da caixa de diálogo new ASP.NET Project com MVC realçado e delineado a vermelho e a opção De autenticação de alteração delineada a vermelho.][12]
 6. Ainda na caixa de diálogo **Novo Projeto ASP.NET**, clique no botão **Alterar Autenticação**. Na caixa de diálogo **Alterar Autenticação**, certifique-se de que **Sem Autenticação** está selecionada e, em seguida, clique em **OK**. Para este tutorial, está a implementar uma aplicação que não necessita de um início de sessão do utilizador.
    
-    ![][16]
+    ![Screenshot da caixa de diálogo de autenticação change com a opção Sem Autenticação selecionada e delineada a vermelho.][16]
 7. Novamente na caixa de diálogo **Novo Projeto ASP.NET**, clique em **OK** para criar o projeto.
 8. No **Explorador de Soluções**, no projeto **FrontendWebRole**, clique com o botão direito em **Referências** e, em seguida, clique em **Gerir Pacotes NuGet**.
 9. Clique no separador **Procurar** e, em seguida, procure **WindowsAzure.ServiceBus**. Selecione o pacote **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de utilização.
    
-   ![][13]
+   ![Screenshot da caixa de diálogo Manage NuGet Packages com o WindowsAzure.ServiceBus realçado e a opção de Instalação delineada a vermelho.][13]
    
    Tenha em atenção que os conjuntos de clientes necessários estão agora referenciados e foram adicionados alguns ficheiros de código novos.
 10. No **Explorador de Soluções**, clique com o botão direito em **Modelos**, clique em **Adicionar** e, de seguida, em **Classe**. Na caixa **Nome**, escreva o nome **OnlineOrder.cs**. Em seguida, clique em **Adicionar**.
@@ -165,16 +166,16 @@ Nesta secção, crie as várias páginas a serem apresentadas pela aplicação.
 4. No menu **Compilar**, clique em **Compilar Solução** para testar a precisão do seu trabalho até ao momento.
 5. Agora, crie a vista para o método `Submit()` que criou anteriormente. Clique com o botão direito no método `Submit()` (a sobrecarga de `Submit()` que não recebe parâmetros) e, em seguida, escolha **Adicionar Vista**.
    
-   ![][14]
+   ![Screenshot do código com foco no método Enviar e uma lista de drop-down com a opção Add View realçada.][14]
 6. É apresentada uma caixa de diálogo para criar a vista. Na lista **Modelo**, escolha **Criar**. Na lista **Classe de modelo**, selecione a classe **OnlineOrder**.
    
-   ![][15]
+   ![Uma imagem da caixa de diálogo Add View com as listas de drop-down de classe modelo e modelo delineadas a vermelho.][15]
 7. Clique em **Adicionar**.
 8. Agora, altere o nome apresentado da sua aplicação. No **Explorador de Soluções**, faça duplo clique no ficheiro **Views\Shared\\_Layout.cshtml** para abri-lo no editor do Visual Studio.
 9. Substitua todas as ocorrências de **A Minha Aplicação ASP.NET** por **Produtos da Northwind Traders**.
 10. Remova as hiperligações **Home**, **Sobre** e **Contacto**. Elimine o código realçado:
     
-    ![][28]
+    ![Screenshot do código com três linhas de H T M L Action Link código realçado.][28]
 11. Por fim, modifique a página de submissão para incluir algumas informações sobre a fila. No **Explorador de Soluções**, faça duplo clique no ficheiro **Views\Home\Submit.cshtml** para abri-lo no editor do Visual Studio. Adicione a linha seguinte após `<h2>Submit</h2>`. Por agora, o `ViewBag.MessageCount` está vazio. Preencherá o mesmo mais adiante.
     
     ```html
@@ -182,7 +183,7 @@ Nesta secção, crie as várias páginas a serem apresentadas pela aplicação.
     ```
 12. Implementou agora a sua IU. Pode premir **F5** para executar a aplicação e confirmar que tem o aspeto esperado.
     
-    ![][17]
+    ![Screenshot da página de submissão da aplicação.][17]
 
 ### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Escrever o código para submeter itens para uma fila do Service Bus
 Agora adicione o código para submeter itens para uma fila. Em primeiro lugar, crie uma classe com as informações de ligação da fila do Service Bus. Em seguida, inicialize a ligação a partir de Global.aspx.cs. Por fim, atualize o código de submissão criado anteriormente em HomeController.cs para submeter, de facto, itens para uma fila do Service Bus.
@@ -289,13 +290,13 @@ Agora adicione o código para submeter itens para uma fila. Em primeiro lugar, c
        }
        else
        {
-           return View(order);
+           return View(order); 
        }
    }
    ```
 9. Pode agora executar novamente a aplicação. Sempre que submete um pedido, a contagem de mensagens aumenta.
    
-   ![][18]
+   ![Screenshot da página de submissão da aplicação com a contagem de mensagens incrementada para 1.][18]
 
 ## <a name="create-the-worker-role"></a>Criar a função de trabalho
 Agora criará a função de trabalho que processa as submissões de pedidos. Este exemplo utiliza o modelo de projeto **Função de Trabalho com Fila do Service Bus** do Visual Studio. Já obteve as credenciais necessárias a partir do portal.
@@ -304,16 +305,16 @@ Agora criará a função de trabalho que processa as submissões de pedidos. Est
 2. No Visual Studio, no **Explorador de Soluções**, clique com o botão direito na pasta **Funções** no projeto **MultiTierApp**.
 3. Clique em **Adicionar** e, de seguida, em **Novo Projeto de Função de Trabalho**. Aparece a caixa de diálogo **Adicionar Novo Projeto de Função**.
    
-   ![][26]
+   ![Screenshot do painel Soultion Explorer com a opção New Worker Role Project e Adicionar opção realçada.][26]
 4. Na caixa de diálogo **Adicionar Novo Projeto de Função**, clique em **Função de Trabalho com Fila do Service Bus**.
    
-   ![][23]
+   ![Screenshot da caixa de diálogo do Projeto Novo Papel com a função do trabalhador com a opção de fila de autocarros de serviço realçada e delineada a vermelho.][23]
 5. Na caixa **Nome**, atribua o nome **OrderProcessingRole** ao projeto. Em seguida, clique em **Adicionar**.
 6. Copie a cadeia de ligação obtida no passo 9 da secção "Criar um espaço de nomes do Service Bus" para a área de transferência.
 7. No **Explorador de Soluções**, clique com o botão direito em **OrderProcessingRole** que criou no passo 5 (certifique-se de que clica com o botão direito em **OrderProcessingRole** em **Funções** e não na classe). Em seguida, clique em **Propriedades**.
 8. No separador **Definições** da caixa de diálogo **Propriedades**, clique no interior da caixa **Valor** para **Microsoft.ServiceBus.ConnectionString** e, em seguida, cole o valor do ponto final que copiou no passo 6.
    
-   ![][25]
+   ![Screenshot da caixa de diálogo Properties com o separador Definições selecionado e a linha de tabela Microsoft.ServiceBus.ConnectionString delineada a vermelho.][25]
 9. Crie uma classe **OnlineOrder** para representar os pedidos à medida que processa os mesmos a partir da fila. Pode reutilizar uma classe já criada. No **Explorador de Soluções**, clique com o botão direito na classe **OrderProcessingRole** (clique com o botão direito no ícone da classe e não na função). Clique em **Adicionar** e, de seguida, em **Item Existente**.
 10. Navegue para a subpasta para **FrontendWebRole\Models** e, em seguida, faça duplo clique em **OnlineOrder.cs** para adicioná-lo a este projeto.
 11. Em **WorkerRole.cs**, altere o valor da variável **QueueName** de `"ProcessingQueue"` para `"OrdersQueue"` conforme mostrado no código seguinte.
@@ -338,11 +339,11 @@ Agora criará a função de trabalho que processa as submissões de pedidos. Est
     ```
 14. Concluiu a aplicação. Pode testar a aplicação completa clicando com o botão direito no projeto MultiTierApp no Explorador de Soluções, selecionando **Configurar como Projeto de Arranque** e premindo, em seguida, F5. Tenha em atenção que a contagem de mensagens não aumenta, uma vez que a função de trabalho processa itens a partir da fila e marca os mesmos como concluídos. Pode ver os resultados de rastreio da função de trabalho visualizando a IU do Emulador de Computação do Azure. Pode fazer isto clicando com o botão direito no ícone do emulador na área de notificação da barra de tarefas e selecionando **Mostrar a IU do Emulador de Computação**.
     
-    ![][19]
+    ![Screenshot do que aparece quando clica no ícone do emulador. Mostrar A UI do Emulator Compute está na lista de opções.][19]
     
-    ![][20]
+    ![Screenshot da caixa de diálogo Microsoft Azure Compute Emulator (Express).][20]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o Service Bus, consulte os seguintes recursos:  
 
 * [Introdução às filas do Service Bus][sbacomqhowto]

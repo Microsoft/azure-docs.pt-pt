@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 3cc561a7f7f6f58c439a70315eba857e63def09d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d266dbd0ee908c41a7d29ddbb6d9c73fcfdc7c9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561319"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083468"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Executar Micro Focus Enterprise Server 5.0 em um recipiente Docker em Azure
 
@@ -169,8 +169,8 @@ Neste momento, o VM está a funcionar e a ser anexado via RDP. Está inscrito e 
 
 Já está! Agora estás a gerir e a gerir uma aplicação do CICS num contentor do Docker.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
--   [Instalar Micro Focus Enterprise Server 5.0 e Enterprise Developer 5.0 em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/set-up-micro-focus-azure)
+-   [Instalar Micro Focus Enterprise Server 5.0 e Enterprise Developer 5.0 em Azure](./set-up-micro-focus-azure.md)
 
--   [Migração de aplicações de mainframe](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [Migração de aplicações de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

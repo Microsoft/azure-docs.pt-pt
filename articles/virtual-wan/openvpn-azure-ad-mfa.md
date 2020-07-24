@@ -1,20 +1,20 @@
 ---
-title: 'Ativar MFA para utilizadores VPN: Autenticação Azure AD'
+title: Ativar O MFA para utilizadores VPN utilizando a autenticação AZure AD
 description: Ativar a autenticação de vários fatores para utilizadores VPN
 services: virtual-wan
-author: anzaman
+author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 01/16/2020
 ms.author: alzam
-ms.openlocfilehash: 4dcda4d553eba2829aba4626e1020a27d5215850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7adcdcf00f22020daf66192e777b1aca151349e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84752777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082125"
 ---
-# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Ativar a autenticação multi-factor (MFA) para utilizadores VPN
+# <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users-by-using-azure-ad-authentication"></a>Ativar a autenticação multi-factor (MFA) para utilizadores VPN utilizando a autenticação AZure AD
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
@@ -34,6 +34,6 @@ ms.locfileid: "84752777"
 
 [!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para se ligar à sua rede virtual, tem de criar e configurar um perfil de cliente VPN. Consulte [a autenticação AD configurada para a ligação ponto-a-local ao Azure](virtual-wan-point-to-site-azure-ad.md).

@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984620"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081989"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Ligue as portas VPN da Azure a vários dispositivos VPN baseados em políticas no local utilizando o PowerShell
 
@@ -35,9 +36,9 @@ Os seguintes diagramas destacam os dois modelos:
 ### <a name="azure-support-for-policy-based-vpn"></a>Apoio à VPN baseada em políticas
 Atualmente, a Azure suporta ambos os modos de gateways VPN: gateways VPN baseados em rotas e gateways VPN baseados em políticas. São construídas em diferentes plataformas internas, que resultam em diferentes especificações:
 
-|                          | **Gateway VPN de VPN** | **RouteBased VPN Gateway**       |**RouteBased VPN Gateway**                          |
-| ---                      | ---                         | ---                              |---                                                 |
-| **Azure Gateway SKU**    | Básica                       | Básica                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| Categoria | Gateway VPN de VPN | RouteBased VPN Gateway | RouteBased VPN Gateway |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
+| **Azure Gateway SKU**    | Básico                       | Básico                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Versão IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
 | **Max, max. Ligações S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
@@ -203,7 +204,7 @@ A seguinte linha mostra se os seletores de tráfego baseados em políticas são 
       Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
       ```
 
-## <a name="next-steps"></a>Próximos passos
-Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter os passos.
+## <a name="next-steps"></a>Passos seguintes
+Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja [Criar uma Máquina Virtual](../virtual-machines/windows/quick-create-portal.md) para obter os passos.
 
 Reveja também [a política de Configuração IPsec/IKE para ligações S2S VPN ou VNet-to-VNet](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter mais detalhes sobre as políticas IPsec/IKE personalizadas.

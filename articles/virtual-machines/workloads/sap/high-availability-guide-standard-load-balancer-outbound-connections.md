@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9419ed320089ff85722e0d9c0582e92491377ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082142"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto final público para máquinas virtuais usando O Balançador de Carga Padrão Azure em cenários de alta disponibilidade SAP
 
@@ -31,11 +31,11 @@ O artigo apresenta várias opções para que possa selecionar a opção mais ade
 
 ## <a name="overview"></a>Descrição geral
 
-Ao implementar uma elevada disponibilidade para soluções SAP através de clustering, um dos componentes necessários é o [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). A Azure oferece dois SKUs de balançadores de carga: standard e básico.
+Ao implementar uma elevada disponibilidade para soluções SAP através de clustering, um dos componentes necessários é o [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). A Azure oferece dois SKUs de balançadores de carga: standard e básico.
 
 O balanceador de carga Standard Azure oferece algumas vantagens sobre o balanceador de carga Básico. Por exemplo, funciona em todas as zonas de Disponibilidade Azure, tem melhores capacidades de monitorização e registo para facilitar a resolução de problemas, redução da latência. A funcionalidade "portas HA" abrange todas as portas, ou seja, já não é necessário listar todas as portas individuais.  
 
-Existem algumas diferenças importantes entre o básico e o padrão SKU do equilibrador de carga Azure. Um deles é o manuseamento do tráfego de saída para o ponto final público. Para uma comparação completa do balanceador de carga Basic versus Standard SKU, consulte [a comparação do balanceador de carga SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
+Existem algumas diferenças importantes entre o básico e o padrão SKU do equilibrador de carga Azure. Um deles é o manuseamento do tráfego de saída para o ponto final público. Para uma comparação completa do balanceador de carga Basic versus Standard SKU, consulte [a comparação do balanceador de carga SKU](../../../load-balancer/load-balancer-overview.md).  
  
 Quando os VMs sem endereços IP públicos são colocados no pool de backend de saldo de carga IP interno (sem endereço IP público) Balanceador de carga Standard Azure, não há conectividade de saída para pontos finais públicos, a menos que seja feita uma configuração adicional.  
 
@@ -60,20 +60,20 @@ Se a sua implementação SAP não necessitar de conectividade de saída para pon
 Leia primeiro os seguintes artigos:
 
 * Balançador de carga padrão Azure
-  * [Visão geral do balançor de carga padrão Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) - visão geral abrangente do equilibrador de carga padrão Azure, princípios importantes, conceitos e tutoriais 
-  * [Conexões de saída em Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios) - cenários sobre como alcançar a conectividade de saída em Azure
-  * [Regras de saída do balanceador](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)de carga - explica os conceitos das regras de saída do balanceador de carga e como criar regras de saída
+  * [Visão geral do balançor de carga padrão Azure](../../../load-balancer/load-balancer-overview.md) - visão geral abrangente do equilibrador de carga padrão Azure, princípios importantes, conceitos e tutoriais 
+  * [Conexões de saída em Azure](../../../load-balancer/load-balancer-outbound-connections.md#scenarios) - cenários sobre como alcançar a conectividade de saída em Azure
+  * [Regras de saída do balanceador](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)de carga - explica os conceitos das regras de saída do balanceador de carga e como criar regras de saída
 * Azure Firewall
-  * [Visão geral do Azure Firewall](https://docs.microsoft.com/azure/firewall/overview)- visão geral do Azure Firewall
-  * [Tutorial: Implementar e configurar a Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) - instruções sobre como configurar a Firewall Azure via portal Azure
-* [Redes Virtuais -Regras definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) - Conceitos e regras de encaminhamento Azure  
-* [Tags de serviço grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) - como simplificar os seus Grupos de Segurança de Rede e configuração de Firewall com tags de serviço
+  * [Visão geral do Azure Firewall](../../../firewall/overview.md)- visão geral do Azure Firewall
+  * [Tutorial: Implementar e configurar a Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md) - instruções sobre como configurar a Firewall Azure via portal Azure
+* [Redes Virtuais -Regras definidas pelo utilizador](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Conceitos e regras de encaminhamento Azure  
+* [Tags de serviço grupos de segurança](../../../virtual-network/security-overview.md#service-tags) - como simplificar os seus Grupos de Segurança de Rede e configuração de Firewall com tags de serviço
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Balançador de carga padrão Azure externo adicional para ligações de saída à internet
 
-Uma opção para alcançar a conectividade de saída para os pontos finais públicos, sem permitir a conectividade de entrada para o VM a partir do ponto final público, é criar um segundo equilibrador de carga com endereço IP público, adicionar os VMs ao pool de backend do segundo equilibrador de carga e definir apenas [regras](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)de saída .  
-Utilize [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para controlar os pontos finais do público, que estão acessíveis para chamadas de saída do VM.  
-Para obter mais informações, consulte o Cenário 2 em [ligações de saída de documentos](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios).  
+Uma opção para alcançar a conectividade de saída para os pontos finais públicos, sem permitir a conectividade de entrada para o VM a partir do ponto final público, é criar um segundo equilibrador de carga com endereço IP público, adicionar os VMs ao pool de backend do segundo equilibrador de carga e definir apenas [regras](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)de saída .  
+Utilize [grupos de segurança de rede](../../../virtual-network/security-overview.md) para controlar os pontos finais do público, que estão acessíveis para chamadas de saída do VM.  
+Para obter mais informações, consulte o Cenário 2 em [ligações de saída de documentos](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 A configuração seria como:  
 
 ![Controlar a conectividade para os pontos finais públicos com grupos de segurança de rede](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
@@ -81,17 +81,17 @@ A configuração seria como:
 ### <a name="important-considerations"></a>Considerações importantes
 
 - Você pode usar um Balancer de Carga Pública adicional para vários VMs na mesma sub-rede para alcançar a conectividade de saída para o ponto final público e otimizar o custo  
-- Utilize [grupos de segurança de](https://docs.microsoft.com/azure/virtual-network/security-overview) rede para controlar quais os pontos finais públicos acessíveis a partir dos VMs. Pode atribuir o Grupo de Segurança da Rede quer à sub-rede, quer a cada VM. Sempre que possível, utilize [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para reduzir a complexidade das regras de segurança.  
+- Utilize [grupos de segurança de](../../../virtual-network/security-overview.md) rede para controlar quais os pontos finais públicos acessíveis a partir dos VMs. Pode atribuir o Grupo de Segurança da Rede quer à sub-rede, quer a cada VM. Sempre que possível, utilize [etiquetas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade das regras de segurança.  
 - O equilibrador de carga padrão Azure com endereço IP público e regras de saída permite o acesso direto ao ponto final público. Se tiver requisitos de segurança corporativa para ter todo o passe de tráfego de saída através de solução corporativa centralizada para auditoria e registo, poderá não conseguir cumprir o requisito com este cenário.  
 
 >[!TIP]
->Sempre que possível, utilize [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para reduzir a complexidade do Grupo de Segurança da Rede . 
+>Sempre que possível, utilize [etiquetas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade do Grupo de Segurança da Rede . 
 
 ### <a name="deployment-steps"></a>Passos da implementação
 
 1. Criar balanceador de carga  
    1. No [portal Azure](https://portal.azure.com) , clique em Todos os recursos, Adicione e, em seguida, procure por **Balanceador de Carga**  
-   1. Clique **em Criar** 
+   1. Clique em **Criar** 
    1. Nome do balanceador de carga **MyPublicILB**  
    1. Selecione **Público** como um tipo, **standard** como SKU  
    1. Selecione **Criar endereço IP público** e especificar como um nome **MyPublicILFrondEndIP**  
@@ -100,7 +100,7 @@ A configuração seria como:
 2. Crie o pool Backend **MyBackendPoolOfPublicILB** e adicione os VMs.  
    1. Selecione a rede Virtual  
    1. Selecione os VMs e os seus endereços IP e adicione-os ao pool backend  
-3. [Criar regras de saída.](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule) Atualmente não é possível criar regras de saída a partir do portal Azure. Pode criar regras de saída com [o Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
+3. [Criar regras de saída.](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule) Atualmente não é possível criar regras de saída a partir do portal Azure. Pode criar regras de saída com [o Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
@@ -117,13 +117,13 @@ A configuração seria como:
 
    ![Ligação de saída com segundo balanceador de carga com IP público](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Para obter mais informações sobre os grupos de segurança da Rede Azure, consulte [os Grupos de Segurança ](https://docs.microsoft.com/azure/virtual-network/security-overview). 
+   Para obter mais informações sobre os grupos de segurança da Rede Azure, consulte [os Grupos de Segurança ](../../../virtual-network/security-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Azure Firewall para ligações de saída à internet
 
 Outra opção para alcançar a conectividade de saída para os pontos finais públicos, sem permitir a conectividade de entrada para o VM a partir de pontos finais públicos, é com o Azure Firewall. O Azure Firewall é um serviço gerido, com alta disponibilidade incorporada e pode abranger várias Zonas de Disponibilidade.  
-Também terá de implantar a Rota Definida pelo [Utilizador,](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)associada à sub-rede onde estão implantados VMs e o equilibrador de carga Azure, apontando para a firewall Azure, para encaminhar o tráfego através da Firewall Azure.  
-Para obter mais informações sobre como implementar a Firewall Azure, consulte [implementar e configurar a Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal).  
+Também terá de implantar a Rota Definida pelo [Utilizador,](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes)associada à sub-rede onde estão implantados VMs e o equilibrador de carga Azure, apontando para a firewall Azure, para encaminhar o tráfego através da Firewall Azure.  
+Para obter mais informações sobre como implementar a Firewall Azure, consulte [implementar e configurar a Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md).  
 
 A arquitetura seria como:
 
@@ -137,7 +137,7 @@ A arquitetura seria como:
 - Se a solução de Firewall corporativa não for a Azure Firewall, e tiver requisitos de segurança para ter todo o passe de tráfego de saída embora solução corporativa centralizada, esta solução pode não ser prática.  
 
 >[!TIP]
->Sempre que possível, utilize [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para reduzir a complexidade das regras do Azure Firewall.  
+>Sempre que possível, utilize [etiquetas de serviço](../../../virtual-network/security-overview.md#service-tags) para reduzir a complexidade das regras do Azure Firewall.  
 
 ### <a name="deployment-steps"></a>Passos da implementação
 
@@ -227,7 +227,7 @@ Se o tráfego de saída for encaminhado através de firewall de terceiros:
 - se utilizar o agente de cerca Azure certifique-se de que a configuração da firewall permite a conectividade de saída à API de gestão Azure: `https://management.azure.com``https://login.microsoftonline.com`   
 - se utilizar a infraestrutura de atualização de nuvem pública Azure da SUSE para aplicar atualizações e patches, consulte [a Infraestrutura de Atualização da Nuvem Pública do Azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como configurar o Pacemaker na SUSE em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-* [Saiba como configurar pacemaker no Chapéu Vermelho em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)
+* [Saiba como configurar o Pacemaker na SUSE em Azure](./high-availability-guide-suse-pacemaker.md)
+* [Saiba como configurar pacemaker no Chapéu Vermelho em Azure](./high-availability-guide-rhel-pacemaker.md)

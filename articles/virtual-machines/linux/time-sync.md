@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b47fb242a82097a9fa5c9c41dac99f0a7f8ab2c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782777"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085440"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para Os VMs Linux em Azure
 
@@ -127,11 +128,11 @@ Neste exemplo, o valor devolvido é *ptp0,* por isso usamos isso para verificar 
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Isto deve devolver **o hiperv.**
+Isto deve `hyperv` voltar.
 
 ### <a name="chrony"></a>cronrony
 
-Nas versões Ubuntu 19.10 e posterior, Red Hat Enterprise Linux e CentOS 7.x, [o cronografo](https://chrony.tuxfamily.org/) está configurado para usar um relógio de origem PTP. Em vez de chrony, as versões linux mais antigas usam o daemon do Protocolo de Tempo de Rede (ntpd), que não suporta fontes de PTP. Para permitir o PTP nessas versões, o cronoy deve ser instalado manualmente e configurado (em chrony.conf) utilizando o seguinte código:
+Nas versões Ubuntu 19.10 e posterior, Red Hat Enterprise Linux e CentOS 8.x, [o cronografo](https://chrony.tuxfamily.org/) está configurado para usar um relógio de origem PTP. Em vez de chrony, as versões linux mais antigas usam o daemon do Protocolo de Tempo de Rede (ntpd), que não suporta fontes de PTP. Para permitir o PTP nessas versões, o cronoy deve ser instalado manualmente e configurado (em chrony.conf) utilizando o seguinte código:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
@@ -143,9 +144,9 @@ Para obter mais informações sobre o Red Hat e o NTP, consulte [Configure NTP](
 
 Para obter mais informações sobre o cronoy, consulte [Usando o crono.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony)
 
-Se as fontes cronónicas e timeSync estiverem ativadas simultaneamente, pode marcar uma como **preferir**, o que define a outra fonte como uma cópia de segurança. Como os serviços NTP não atualizam o relógio para grandes distorções, exceto após um longo período, o VMICTimeSync recuperará o relógio de eventos VM pausados muito mais rapidamente do que apenas ferramentas baseadas em NTP.
+Se as fontes chrony e VMICTimeSync estiverem ativadas simultaneamente, pode marcar uma como **preferir**, o que define a outra fonte como uma cópia de segurança. Como os serviços NTP não atualizam o relógio para grandes distorções, exceto após um longo período, o VMICTimeSync recuperará o relógio de eventos VM pausados muito mais rapidamente do que apenas ferramentas baseadas em NTP.
 
-Por predefinição, o cronondo acelera ou abranda o relógio do sistema para corrigir qualquer deriva temporal. Se a deriva se tornar muito grande, o cronoy não consegue consertar a deriva. Para ultrapassar isto, o `makestep` parâmetro em **/etc/chrony.conf** pode ser alterado para forçar um timesync se a deriva exceder o limiar especificado.
+Por predefinição, o cronondo acelera ou abranda o relógio do sistema para corrigir qualquer deriva temporal. Se a deriva se tornar muito grande, o cronoy não consegue consertar a deriva. Para ultrapassar isto, o `makestep` parâmetro em **/etc/chrony.conf** pode ser alterado para forçar uma sincronização temporal se a deriva exceder o limiar especificado.
 
  ```bash
 makestep 1.0 -1
@@ -161,7 +162,7 @@ systemctl restart chronyd
 
 Nos lançamentos SUSE e Ubuntu antes das 19.10, a sincronização do tempo é configurada utilizando [sistemas](https://www.freedesktop.org/wiki/Software/systemd/). Para obter mais informações sobre ubuntu, consulte [a Sincronização temporal.](https://help.ubuntu.com/lts/serverguide/NTP.html) Para obter mais informações sobre sUSE, consulte a Secção 4.5.8 no [SUSE Linux Enterprise Server 12 SP3 Notas de lançamento](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [a hora exata para o Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time).
 

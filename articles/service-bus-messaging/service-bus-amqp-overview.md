@@ -3,11 +3,12 @@ title: Visão geral do AMQP 1.0 em Azure Service Bus
 description: Saiba como o Azure Service Bus suporta o Protocolo avançado de Fila de Mensagens (AMQP), um protocolo padrão aberto.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8ddeadde85e3e0b574c93db0227dcba6ad746f64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083876"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte AMQP 1.0 em Service Bus
 Tanto o serviço de nuvem de autocarros Azure Service e no [local, Service Bus for Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) suportam o Protocolo avançado de fila de mensagens (AMQP) 1.0. A AMQP permite-lhe construir aplicações híbridas e inter-plataforma usando um protocolo padrão aberto. Pode construir aplicações utilizando componentes que são construídos usando diferentes idiomas e quadros, e que funcionam em diferentes sistemas operativos. Todos estes componentes podem ligar-se ao Service Bus e trocar sem problemas mensagens de negócio estruturadas de forma eficiente e plena.
@@ -53,7 +54,7 @@ O suporte AMQP 1.0 no Azure Service Bus significa que agora pode aproveitar a fi
 
 A seguinte figura ilustra uma implementação de exemplo em que os clientes java que executam no Linux, escritos utilizando os clientes padrão java message Service (JMS) API e .NET que executam no Windows, trocam mensagens através do Service Bus utilizando amQP 1.0.
 
-![][0]
+![Diagrama mostrando um Service Bus trocando mensagens com dois ambientes Linux e dois ambientes Windows.][0]
 
 **Figura 1: Cenário de implantação de exemplo mostrando mensagens trans plataformas usando Service Bus e AMQP 1.0**
 
@@ -73,7 +74,7 @@ Neste momento, as seguintes bibliotecas de clientes são conhecidas por trabalha
 * AMQP 1.0 é um protocolo de mensagens aberto e fiável que pode usar para construir aplicações híbridas e inter-plataforma. AMQP 1.0 é um padrão OASIS.
 * O suporte AMQP 1.0 já está disponível no Azure Service Bus, bem como no Service Bus para Windows Server (Service Bus 1.1). Os preços são os mesmos que para os protocolos existentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Está pronto para saber mais? Visite os seguintes links:
 
 * [Utilização de ônibus de serviço a partir de .NET com AMQP]

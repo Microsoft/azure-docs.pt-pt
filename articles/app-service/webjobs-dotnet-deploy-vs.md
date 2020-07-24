@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 971ab39ddf4b383f92f0cd81e5258ad357e76e99
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cf2437443350cf9b21b6abc0d0dd1dbd5d22e41f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083196"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Develop and deploy WebJobs using Visual Studio - Azure App Service (Programar e implementar WebJobs com o Visual Studio – Serviço de Aplicações do Azure)
 
@@ -225,7 +225,7 @@ Quando [cria um WebJob a partir do portal Azure,](webjobs-create.md)o ficheiro d
 
 ### <a name="cron-expressions"></a>Expressões cron
 
-O WebJobs utiliza as mesmas expressões CRON para agendar como o gatilho do temporizador em Funções Azure. Para saber mais sobre o suporte ao CRON, consulte o artigo de referência do gatilho do [temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+O WebJobs utiliza as mesmas expressões CRON para agendar como o gatilho do temporizador em Funções Azure. Para saber mais sobre o suporte cron, consulte [o gatilho do Temporizador para Funções Azure](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
@@ -240,7 +240,7 @@ As seguintes definições são suportadas pela WebJobs:
 | `schedule` | Desencadeado | Execute o WebJob num horário baseado em CRON. Para saber mais, consulte o artigo de referência do gatilho do [temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
 | `stopping_wait_time`| Todos | Permite o controlo do comportamento de paragem. Para saber mais, veja [o encerramento graceful.](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o WebJobs SDK](webjobs-sdk-how-to.md)

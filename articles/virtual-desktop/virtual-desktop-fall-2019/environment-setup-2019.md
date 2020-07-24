@@ -1,6 +1,6 @@
 ---
-title: Windows Ambiente de Trabalho Virtual - Azure
-description: Os elementos básicos de um ambiente de ambiente de trabalho virtual do Windows.
+title: Windows Virtual Desktop environment (outono 2019) - Azure
+description: Conheça os elementos básicos de um ambiente de desktop virtual do Windows (lançamento de outono 2019), como inquilinos e piscinas de anfitriões.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8cb41b4f94b14a94c79b490e38889825fd9d8d1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082652"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Ambiente do Windows Virtual Desktop
+# <a name="windows-virtual-desktop-environment-fall-2019-release"></a>Windows Virtual Desktop environment (lançamento outono 2019)
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../environment-setup.md).

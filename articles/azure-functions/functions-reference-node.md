@@ -3,23 +3,27 @@ title: Referência do desenvolvedor JavaScript para Funções Azure
 description: Entenda como desenvolver funções usando o JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: d71301ef73cd94c13b12e17c923ec73abb8e4aae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/17/2020
+ms.openlocfilehash: c0e5dd7e1869accd309656b69bd2a07d21b1a3ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252732"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082975"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
-Este guia contém informações sobre os meandros de escrever Funções Azure com JavaScript.
+Este guia contém informações detalhadas para ajudá-lo a desenvolver funções Azure utilizando o JavaScript.
 
-Uma função JavaScript é uma função exportada `function` que executa quando aciona[(os gatilhos são configurados em function.jsem](functions-triggers-bindings.md)). O primeiro argumento passado para cada função é um `context` objeto, que é usado para receber e enviar dados vinculativos, registar e comunicar com o tempo de execução.
+Como um Express.js, Node.js ou javaScript developer, se você é novo em Azure Functions, por favor considere primeira leitura um dos seguintes artigos:
 
-Este artigo pressupõe que já leu a referência do [programador Azure Functions](functions-reference.md). Complete o arranque rápido das Funções para criar a sua primeira função, utilizando o [Código do Estúdio Visual](functions-create-first-function-vs-code.md) ou no [portal](functions-create-first-azure-function.md).
+| Introdução | Conceitos| Aprendizagem guiada |
+| -- | -- | -- | 
+| <ul><li>[Node.js função usando Código de Estúdio Visual](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)</li><li>[Node.js função com o terminal/comando](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guia para programadores](functions-reference.md)</li><li>[Opções de alojamento](functions-scale.md)</li><li>[Funções TypeScript](#typescript)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicações sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js e APIs express a APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
-Este artigo também suporta [o desenvolvimento de aplicações TypeScript.](#typescript)
+## <a name="javascript-function-basics"></a>Básicos de função JavaScript
+
+Uma função JavaScript (Node.js) é uma função exportada `function` que executa quando aciona[(os gatilhos são configurados em function.jsligados).](functions-triggers-bindings.md) O primeiro argumento passado para cada função é um `context` objeto, que é usado para receber e enviar dados vinculativos, registar e comunicar com o tempo de execução.
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 
@@ -118,7 +122,7 @@ A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do
    };
    ```
    
- - **Como entradas utilizando o [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto JavaScript.** Isto é essencialmente o mesmo que passar entradas como parâmetros, mas permite-lhe lidar dinamicamente com as entradas.
+ - **Como entradas utilizando o [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) objeto JavaScript.** Isto é essencialmente o mesmo que passar entradas como parâmetros, mas permite-lhe lidar dinamicamente com as entradas.
  
    ```javascript
    module.exports = async function(context) { 
@@ -559,11 +563,11 @@ Neste exemplo, é importante notar que, embora um objeto esteja a ser exportado,
 
 Quando iniciado com o `--inspect` parâmetro, um processo Node.js ouve um cliente depuração na porta especificada. Nas Funções Azure 2.x, pode especificar argumentos para passar para o processo Node.js que executa o seu código adicionando a variável ambiental ou a Definição de Aplicações `languageWorkers:node:arguments = <args>` . 
 
-Para depurar localmente, adicione `"languageWorkers:node:arguments": "--inspect=5858"` `Values` abaixo o seu [local.settings.jsem](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) arquivo e anexe um depurar à porta 5858.
+Para depurar localmente, adicione `"languageWorkers:node:arguments": "--inspect=5858"` `Values` abaixo o seu [local.settings.jsem](./functions-run-local.md#local-settings-file) arquivo e anexe um depurar à porta 5858.
 
 Ao depurar usando o Código VS, o `--inspect` parâmetro é automaticamente adicionado usando o valor na launch.jsdo projeto em `port` arquivo.
 
-Na versão 1.x, a definição `languageWorkers:node:arguments` não funcionará. A porta de depuração pode ser selecionada com o [`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parâmetro em Azure Functions Core Tools.
+Na versão 1.x, a definição `languageWorkers:node:arguments` não funcionará. A porta de depuração pode ser selecionada com o [`--nodeDebugPort`](./functions-run-local.md#start) parâmetro em Azure Functions Core Tools.
 
 ## <a name="typescript"></a>TypeScript
 
@@ -632,7 +636,7 @@ Quando trabalhar com funções JavaScript, esteja ciente das considerações nas
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Escolha planos de serviço de aplicações single-vCPU
 
-Quando cria uma aplicação de função que utiliza o plano de Serviço de Aplicações, recomendamos que selecione um plano de um único vCPU em vez de um plano com vários vCPUs. Hoje em dia, as funções javaScript funcionam de forma mais eficiente em VMs single-vCPU, e usar VMs maiores não produz as melhorias de desempenho esperadas. Quando necessário, pode escalar manualmente adicionando mais instâncias VM single-vCPU, ou pode ativar a autoescala. Para obter mais informações, consulte [a contagem de instâncias de escala manual ou automática.](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)
+Quando cria uma aplicação de função que utiliza o plano de Serviço de Aplicações, recomendamos que selecione um plano de um único vCPU em vez de um plano com vários vCPUs. Hoje em dia, as funções javaScript funcionam de forma mais eficiente em VMs single-vCPU, e usar VMs maiores não produz as melhorias de desempenho esperadas. Quando necessário, pode escalar manualmente adicionando mais instâncias VM single-vCPU, ou pode ativar a autoescala. Para obter mais informações, consulte [a contagem de instâncias de escala manual ou automática.](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)
 
 ### <a name="cold-start"></a>Início a Frio
 

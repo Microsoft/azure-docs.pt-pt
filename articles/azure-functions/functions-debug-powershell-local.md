@@ -6,11 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78163765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082992"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Debug PowerShell Azure Funções localmente
 
@@ -37,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Esta aplicação de função é semelhante à que obtém quando completa o [arranque rápido powerShell](functions-create-first-function-powershell.md).
+Esta aplicação de função é semelhante à que obtém quando completa o [arranque rápido powerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 O código de função `run.ps1` parece o seguinte script:
 
@@ -94,7 +95,7 @@ Para depurar as suas funções PowerShell no Código do Estúdio Visual, tem de 
 * [Extensão das Funções do Azure para o Visual Studio Code](functions-create-first-function-vs-code.md)
 * [PowerShell Core 6.2 ou superior](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Depois de instalar estas dependências, carregue um projeto de Funções PowerShell existente ou [crie o seu primeiro projeto PowerShell Functions](functions-create-first-function-powershell.md).
+Depois de instalar estas dependências, carregue um projeto de Funções PowerShell existente ou [crie o seu primeiro projeto PowerShell Functions](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 >[!NOTE]
 > Se o seu projeto não tiver os ficheiros de configuração necessários, é solicitado que os adicione.
@@ -242,6 +243,6 @@ O tempo de execução do Azure Functions executa alguns comandos antes de invoca
 
 Se esta rutura acontecer, passe o `continue` ou o comando para passar por cima deste ponto de `c` rutura. Depois para no ponto de rutura esperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o desenvolvimento de funções utilizando o PowerShell, consulte [o guia de desenvolvedores powershell das funções Azure](functions-reference-powershell.md).

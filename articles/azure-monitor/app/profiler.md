@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9dffa4d32980a16377f33a4ddb23987b3c2f3dd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c9907555301c55cd5e55f421f27518fd4a9960d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085062"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil ao vivo Aplicativos Azure App Service com Insights de Aplicações
 
@@ -49,7 +50,7 @@ Aqui estão as definições necessárias para ativar o perfil:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager) [Azure PowerShell,](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Pode definir estes valores utilizando [modelos de gestores de recursos Azure,](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager) [Azure PowerShell,](/powershell/module/az.websites/set-azwebapp) [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Habilitação do Profiler para outras nuvens manualmente
 
@@ -71,9 +72,9 @@ Recomendamos que tenha o Profiler habilitado em todas as suas aplicações para 
 Os ficheiros do profiler podem ser eliminados quando utilizar o WebDeploy para implementar alterações na sua aplicação web. Pode evitar a eliminação excluindo a pasta App_Data de ser eliminada durante a colocação. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Trabalhar com o Application Insights no Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+* [Trabalhar com o Application Insights no Visual Studio](./visual-studio.md)
 
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png

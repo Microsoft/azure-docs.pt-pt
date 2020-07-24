@@ -8,13 +8,13 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 8e86721d9f8644adabd1e01920c432217354d654
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/11/2020
+ms.openlocfilehash: 880238558c03cca6a582960eef4e647c0e6875e8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084114"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Documentos de indexação em Azure Data Lake Storage Gen2
 

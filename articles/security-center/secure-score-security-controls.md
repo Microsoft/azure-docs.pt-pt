@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2ad817afd8f4e80e99055646dca34b9bb05d100f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1956090f1b927d9fd4e205eaa57bf1952cb1b070
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083995"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Pontuação garantida reforçada no Azure Security Center
 
@@ -84,7 +84,7 @@ A pontuação máxima para este controlo, Aplicar atualizações do sistema, é 
 
 ### <a name="calculations---understanding-your-score"></a>Cálculos - compreender a sua pontuação
 
-|Metric|Fórmula e exemplo|
+|Métrica|Fórmula e exemplo|
 |-|-|
 |**Pontuação atual do controlo de segurança**|<br>![Equação para calcular a pontuação atual de um controlo de segurança](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Cada controlo de segurança individual contribui para a Pontuação de Segurança. Cada recurso afetado por uma recomendação dentro do controlo, contribui para a pontuação atual do controlo. A pontuação atual para cada controlo é uma medida do estado dos recursos *sob* controlo.<br>![Dicas de ferramentas que mostram os valores utilizados no cálculo da pontuação atual do controlo de segurança](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Neste exemplo, a pontuação máxima de 6 seria dividida por 78 porque essa é a soma dos recursos saudáveis e insalubres.<br>6 / 78 = 0,0769<br>Multiplicar-se pelo número de recursos saudáveis (4) resulta na pontuação atual:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Classificação de segurança**<br>Subscrição individual|<br>![Equação para calcular a pontuação segura atual](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Pontuação segura de subscrição única com todos os controlos ativados](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Neste exemplo, existe uma única subscrição com todos os controlos de segurança disponíveis (uma pontuação máxima potencial de 60 pontos). A pontuação mostra 28 pontos de um possível 60 e os restantes 32 pontos refletem-se nos números de "Potencial aumento de pontuação" dos controlos de segurança.<br>![Lista de controlos e o aumento potencial da pontuação](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
@@ -172,7 +172,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implementar as melhores práticas de segurança (pontuação máxima 0)</p></strong>As práticas de segurança modernas "assumem a violação" do perímetro da rede. Por essa razão, muitas das melhores práticas neste controlo concentram-se na gestão de identidades.<br>Perder chaves e credenciais é um problema comum. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">O Azure Key Vault</a> protege chaves e segredos encriptando chaves, ficheiros .pfx e palavras-passe.<br>As redes privadas virtuais (VPNs) são uma forma segura de aceder às suas máquinas virtuais. Se as VPNs não estiverem disponíveis, utilize frases-passe complexas e autenticação de dois fatores, tais como <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">autenticação multi-factor Azure</a>. A autenticação de dois fatores evita as fraquezas inerentes à dependência apenas de nomes de utilizador e palavras-passe.<br>A utilização de plataformas de autenticação e autorização fortes é outra das melhores práticas. A utilização de identidades federadas permite que as organizações deleguem a gestão de identidades autorizadas. Isto também é importante quando os trabalhadores são despedidos, e o seu acesso precisa de ser revogado.</td>
-    <td class="tg-lboi"; width=55%>-Um máximo de 3 proprietários deve ser designado para a sua subscrição<br>-As contas externas com permissões de leitura devem ser removidas da sua subscrição<br>-MFA deve ser ativado em contas com permissões de leitura na sua subscrição<br>-O acesso a contas de armazenamento com firewall e configurações de rede virtuais deve ser restringido<br>-Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub<br>-Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL<br>-As regras de autorização relativas à instância do Centro de Eventos devem ser definidas<br>-As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure<br>-Máquinas virtuais devem ser migradas para novos recursos do Azure Resource Manager<br>-As definições avançadas de segurança de dados para a Base de Dados SQL devem conter um endereço de e-mail para receber alertas de segurança<br>-A segurança avançada dos dados deve ser ativada nas suas instâncias geridas<br>-Todos os tipos avançados de proteção contra ameaças devem ser ativados nas definições avançadas de segurança de dados da SQL Managed Instance<br>-As notificações por e-mail para administradores e proprietários de subscrições devem ser ativadas nas definições avançadas de segurança de dados do servidor SQL<br>-Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' nas definições avançadas de segurança de dados do servidor SQL<br>-As subnetas devem ser associadas a um Grupo de Segurança de Rede<br>-Todos os tipos avançados de proteção contra ameaças devem ser ativados nas definições avançadas de segurança de dados da Base de Dados SQL para o seu servidor<br>-[Pré-visualização] A proteção de exploração do Windows deve ser ativada <br>-[Pré-visualização] O agente de configuração do hóspede deve ser instalado<br>-Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede</td>
+    <td class="tg-lboi"; width=55%>-Um máximo de 3 proprietários deve ser designado para a sua subscrição<br>-As contas externas com permissões de leitura devem ser removidas da sua subscrição<br>-MFA deve ser ativado em contas com permissões de leitura na sua subscrição<br>-O acesso a contas de armazenamento com firewall e configurações de rede virtuais deve ser restringido<br>-Todas as regras de autorização, exceto RootManageSharedAccessKey, devem ser removidas do espaço de nomes do Event Hub<br>-Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL<br>-A segurança avançada dos dados deve ser ativada nas suas instâncias geridas<br>-As regras de autorização relativas à instância do Centro de Eventos devem ser definidas<br>-As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure<br>-Máquinas virtuais devem ser migradas para novos recursos do Azure Resource Manager<br>-As subnetas devem ser associadas a um Grupo de Segurança de Rede<br>-[Pré-visualização] A proteção de exploração do Windows deve ser ativada <br>-[Pré-visualização] O agente de configuração do hóspede deve ser instalado<br>-Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede</td>
   </tr>
 </tbody>
 </table>
@@ -195,12 +195,12 @@ Não. Não mudará até que remediar todas as recomendações para um único rec
 Não. Durante algum tempo correram lado a lado para facilitar a transição. O modelo anterior foi agora depreciado. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se uma recomendação não for aplicável a mim, e eu a desativar na apólice, o meu controlo de segurança será cumprido e a minha pontuação segura atualizada?
-Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
+Yes. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
 
 ### <a name="if-a-security-control-offers-me-zero-points-towards-my-secure-score-should-i-ignore-it"></a>Se um controlo de segurança me oferece zero pontos para a minha pontuação segura, devo ignorá-la?
 Em alguns casos, verá uma pontuação máxima de controlo superior a zero, mas o impacto é zero. Quando a pontuação incremental para a fixação de recursos é insignificante, é arredondada para zero. Não ignore estas recomendações, pois ainda trazem melhorias de segurança. A única exceção é o controlo "Melhores Práticas Adicionais". Remediar estas recomendações não aumentará a sua pontuação, mas aumentará a sua segurança geral.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu a pontuação segura e os controlos de segurança que introduz. Para obter material relacionado, consulte os seguintes artigos:
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040759"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082057"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o PowerShell
 
@@ -29,7 +29,7 @@ Ligar um VNet clássico a um VNet do Gestor de Recursos é semelhante à ligaç�
 
 Se ainda não tiver um gateway de rede virtual e não quiser criar um, talvez queira considerar ligar os seus VNets utilizando o VNet Peering. O VNet peering não utiliza um gateway de VPN. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Os passos seguintes acompanham-no através das definições necessárias para configurar um gateway dinâmico ou baseado em rotas para cada VNet e criar uma ligação VPN entre os gateways. Esta configuração não suporta gateways estáticos ou baseados em políticas.
 
@@ -37,7 +37,7 @@ Os passos seguintes acompanham-no através das definições necessárias para co
 
 * Ambos os VNets já foram criados. Se precisar de criar uma rede virtual de gestor de recursos, consulte [criar um grupo de recursos e uma rede virtual.](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network) Para criar uma rede virtual clássica, consulte [Criar um VNet clássico.](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)
 * Os intervalos de endereços para os VNets não se sobrepõem entre si, nem se sobrepõem a qualquer uma das gamas para outras ligações a que os gateways podem estar ligados.
-* Instalou os mais recentes cmdlets PowerShell. Veja [como instalar e configurar a Azure PowerShell](/powershell/azure/overview) para obter mais informações. Certifique-se de que instala tanto os cmdlets de Gestão de Serviços (SM) como os cmdlets do Gestor de Recursos (RM). 
+* Instalou os mais recentes cmdlets PowerShell. Veja [como instalar e configurar a Azure PowerShell](/powershell/azure/) para obter mais informações. Certifique-se de que instala tanto os cmdlets de Gestão de Serviços (SM) como os cmdlets do Gestor de Recursos (RM). 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>Definições de exemplo
 

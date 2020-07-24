@@ -5,24 +5,24 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c400ffc6a84696a82c219294f133b729754259
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3bddfe22f70c1044ca02fb41a1959884f41797bb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262029"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083553"
 ---
-# <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
+# <a name="connect-with-the-windows-desktop-client---fall-2019"></a>Conecte-se com o cliente Windows Desktop - outono 2019
 
 > Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se à versão outono 2019 que não suporta objetos de ambiente de trabalho virtuais do Gestor de Recursos Azure. Se está a tentar gerir os objetos virtuais do Azure Resource Manager Windows, introduzidos na atualização da primavera de 2020, consulte [este artigo](../connect-windows-7-10.md).
 
-Pode aceder aos recursos de Desktop Virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise utilizando o cliente Windows Desktop.
+Pode aceder aos recursos de Desktop Virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise utilizando o cliente Windows Desktop. O cliente não suporta o Windows 8 ou o Windows 8.1.
 
 >[!NOTE]
 >O cliente Windows falha automaticamente na versão virtual do Windows Desktop Fall 2019. No entanto, se o cliente detetar que o utilizador também tem recursos Azure Resource Manager, adiciona automaticamente os recursos ou notifica o utilizador de que está disponível.

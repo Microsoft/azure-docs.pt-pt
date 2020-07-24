@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
-ms.openlocfilehash: 8d576f8660d140a95eb67f7babf1c0af61f04278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515457"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082771"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Resolução de problemas Na configuração e problemas de alvo de armazenamento NFS
 
@@ -20,7 +20,7 @@ Este artigo fornece soluções para alguns erros de configuração comuns e outr
 Este artigo inclui detalhes sobre como verificar portas e como permitir o acesso à raiz a um sistema NAS. Inclui também informações detalhadas sobre questões menos comuns que podem levar à criação de alvos de armazenamento NFS.
 
 > [!TIP]
-> Antes de utilizar este guia, leia [os pré-requisitos para os alvos de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements).
+> Antes de utilizar este guia, leia [os pré-requisitos para os alvos de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 Se a solução para o seu problema não estiver incluída aqui, por favor [abra um bilhete de suporte](hpc-cache-support-ticket.md) para que o Microsoft Service and Support possa trabalhar consigo para investigar e resolver o problema.
 
@@ -145,6 +145,6 @@ Se o seu sistema reportar o seu estilo de segurança como UNIX ou POSIX sem incl
 
 Para os sistemas que utilizam ACLs, a Cache Azure HPC precisa de rastrear valores adicionais específicos do utilizador para controlar o acesso aos ficheiros. Isto é feito através da ativação de uma cache de acesso. Não existe um controlo virado para o utilizador para ligar a cache de acesso, mas pode abrir um bilhete de apoio para solicitar que seja ativado para os alvos de armazenamento afetados no seu sistema cache.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver um problema que não foi abordado neste artigo, [abra um bilhete de apoio](hpc-cache-support-ticket.md) para obter ajuda especializada.

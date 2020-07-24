@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: charwen
-ms.openlocfilehash: b1efaecc0bb857478a6a9f94db33ddaf547f1ac2
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 673c0e7af4be330f3d63d2fe6ed68c73142da5d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084811"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site (clássico)
 > [!div class="op_single_selector"]
@@ -84,7 +84,7 @@ Existem dois conjuntos diferentes de procedimentos à sua escolha para configura
 ## <a name="to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Para criar uma nova rede virtual e ligações coexistentes
 Este procedimento irá explicar-lhe como criar uma VNet e criar ligações coexistentes ExpressRoute e de Rede de VPNs.
 
-1. Terá de instalar a versão mais recente dos cmdlets do Azure PowerShell. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre como instalar os cmdlets PowerShell. Tenha em atenção que os cmdlets que irá utilizar para esta configuração podem ser ligeiramente diferentes do que poderá estar familiarizado. Confirme que utiliza os cmdlets especificados nestas instruções. 
+1. Terá de instalar a versão mais recente dos cmdlets do Azure PowerShell. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter mais informações sobre como instalar os cmdlets PowerShell. Tenha em atenção que os cmdlets que irá utilizar para esta configuração podem ser ligeiramente diferentes do que poderá estar familiarizado. Confirme que utiliza os cmdlets especificados nestas instruções. 
 2. Crie um esquema para a sua rede virtual. Para obter mais informações sobre a configuração do esquema, veja [Esquema de configuração da Virtual Network do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
    
     Quando cria o seu esquema, confirme que utiliza os seguintes valores:
@@ -215,7 +215,7 @@ Se a sub-rede do gateway é /27 ou superior e a rede virtual está ligada atrav�
 > 
 > 
 
-1. Terá de instalar a versão mais recente dos cmdlets PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre como instalar os cmdlets PowerShell. Tenha em atenção que os cmdlets que irá utilizar para esta configuração podem ser ligeiramente diferentes do que poderá estar familiarizado. Confirme que utiliza os cmdlets especificados nestas instruções. 
+1. Terá de instalar a versão mais recente dos cmdlets PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter mais informações sobre como instalar os cmdlets PowerShell. Tenha em atenção que os cmdlets que irá utilizar para esta configuração podem ser ligeiramente diferentes do que poderá estar familiarizado. Confirme que utiliza os cmdlets especificados nestas instruções. 
 2. Elimine o gateway ExpressRoute ou de Rede de VPNs existente. Utilize o cmdlet seguinte, substituindo os valores com os seus próprios.
    
     ```azurepowershell
@@ -251,6 +251,6 @@ Se a sub-rede do gateway é /27 ou superior e a rede virtual está ligada atrav�
     ```
 6. Neste momento, terá uma VNet sem quaisquer gateways. Para criar gateways novos e concluir as suas ligações, pode continuar com [Passo 4 – Criar um gateway ExpressRoute](#gw), presente no conjunto de passos anterior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md)
 

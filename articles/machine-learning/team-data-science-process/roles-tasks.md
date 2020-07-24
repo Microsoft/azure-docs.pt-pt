@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720015"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082754"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Funções e tarefas do Processo de Ciência de Dados de Equipa
 
@@ -116,7 +117,7 @@ As etapas de fluxo de trabalho podem ser agrupadas em três atividades:
 
 - Project Leads conduzem planeamento de sprint
 - Cientistas de dados desenvolvem artefactos em `git` ramos para abordar itens de trabalho
-- Project Leads ou outros membros da equipa fazem revisões de código e fundem ramos de trabalho para o ramo principal
+- Project Leads ou outros membros da equipa fazem revisões de código e fundem ramos de trabalho para o ramo primário
 
 Para obter instruções detalhadas sobre o fluxo de trabalho de execução do projeto, consulte [o desenvolvimento ágil de projetos de ciência de dados.](agile-development.md)
 
@@ -124,7 +125,7 @@ Para obter instruções detalhadas sobre o fluxo de trabalho de execução do pr
 
 Utilize o [repositório](https://github.com/Azure/Azure-TDSP-ProjectTemplate) de modelos de projeto da equipa da Microsoft TDSP para apoiar a execução e colaboração eficientes do projeto. O repositório dá-lhe uma estrutura de diretório padronizada e modelos de documentos que pode usar para os seus próprios projetos TDSP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore descrições mais detalhadas das funções e tarefas definidas pelo Processo de Ciência de Dados de Equipa:
 

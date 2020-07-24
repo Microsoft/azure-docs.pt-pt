@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f3861ab8839ba0483c5096e29cd09b6268bd765e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 44d58b4e68e9f846b6bdb87765e96bcab90274a3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563912"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083604"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com Azure Data Lake Storage Gen2
 
@@ -110,6 +110,8 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
+
+A definição para dias de retenção ainda não está suportada, mas pode eliminar registos manualmente utilizando qualquer ferramenta suportada, como O Explorador de Armazenamento Azure, REST ou um SDK.
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gestão do ciclo de vida
 

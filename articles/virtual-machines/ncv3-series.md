@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: c553117aa02106e744150469dee533da3ddc0265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cd5cee2d452e7762d784b90e80f8b9e39cf2007
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736990"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085355"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
-Os VMs da série NCv3 são alimentados por [GPUs NVIDIA Tesla V100.](https://www.nvidia.com/data-center/tesla-v100/) Estas GPUs podem fornecer 1,5x o desempenho computacional da série NCv2. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho tradicionais de HPC, tais como modelação de reservatórios, sequenciação de ADN, análise de proteínas, simulações de Monte Carlo, entre outros. A configuração NC24rs v3 proporciona uma interface de rede de baixa latência e alta produção otimizada para cargas de trabalho de computação paralela bem acopladas. Além das GPUs, os VMs da série NCv3 também são alimentados por CPUs Intel Xeon E5-2690 v4 (Broadwell).
+Os VMs da série NCv3 são alimentados por GPUs NVIDIA Tesla V100. Estas GPUs podem fornecer 1,5x o desempenho computacional da série NCv2. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho tradicionais de HPC, tais como modelação de reservatórios, sequenciação de ADN, análise de proteínas, simulações de Monte Carlo, entre outros. A configuração NC24rs v3 proporciona uma interface de rede de baixa latência e alta produção otimizada para cargas de trabalho de computação paralela bem acopladas. Além das GPUs, os VMs da série NCv3 também são alimentados por CPUs Intel Xeon E5-2690 v4 (Broadwell).
 
 Armazenamento Premium: Suportado
 
@@ -27,7 +27,7 @@ Migração ao vivo: Não suportado
 Atualizações de preservação da memória: Não suportadas
 
 > [!IMPORTANT]
-> Para esta série VM, a quota vCPU (core) na sua subscrição está inicialmente definida para 0 em cada região. [Solicitar um aumento da quota vCPU](../azure-supportability/resource-manager-core-quotas-request.md) para esta série numa [região disponível](https://azure.microsoft.com/regions/services/).
+> Para esta série VM, a quota vCPU (core) na sua subscrição está inicialmente definida para 0 em cada região. [Solicitar um aumento da quota vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta série numa [região disponível](https://azure.microsoft.com/regions/services/).
 >
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos |
 |---|---|---|---|---|---|---|---|---|
@@ -55,10 +55,10 @@ Se optar por instalar manualmente os controladores da NVIDIA GPU, consulte a [co
 - [Fins gerais](sizes-general.md)
 - [Com otimização de memória](sizes-memory.md)
 - [Com otimização de armazenamento](sizes-storage.md)
-- [Com otimização de GPU](sizes-gpu.md)
+- [Otimizada para GPU](sizes-gpu.md)
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.

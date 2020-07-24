@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130449"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083825"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Resolução de problemas Erros de replicação Azure-to-Azure VM
 
@@ -535,6 +535,44 @@ Este problema pode ocorrer se a máquina virtual foi previamente protegida, e qu
 
 Elimine o disco de réplica identificado na mensagem de erro e relemque o trabalho de proteção falhado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>Ativar a proteção falhada uma vez que o instalador não consegue encontrar o disco raiz (código de erro 151137)
+
+Este erro ocorre para máquinas Linux onde o disco OS é encriptado usando encriptação do disco Azure (ADE). Esta é uma emissão válida apenas na versão 9.35 do Agente.
+
+### <a name="possible-causes"></a>Causas Possíveis
+
+O instalador não consegue encontrar o disco raiz que acolhe o sistema de ficheiros raiz.
+
+### <a name="fix-the-problem"></a>Corrigir o problema
+
+Siga os passos abaixo para corrigir este problema -
+
+1. Encontre as brocas de agente sob o diretório _/var/lib/waagent_ nas máquinas RHEL e CentOS utilizando o comando abaixo: <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   Resultado esperado:
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Crie um novo diretório e mude o diretório para este novo diretório.
+3. Extrair o ficheiro agente encontrado no primeiro passo aqui, utilizando o comando abaixo:
+
+    `tar -xf <Tar Ball File>`
+
+4. Abra o ficheiro _prereq_check_installer.js_ ligado e elimine as seguintes linhas. Guarde o ficheiro depois disso.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Invoque o instalador utilizando o comando: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. Se o instalador tiver sucesso, ressacaia o trabalho de replicação ativa.
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Replicar VMs Azure para outra região do Azure](azure-to-azure-how-to-enable-replication.md)

@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 37ade037b7f3c88f5ff33d7fc4640b19f366fe7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 05a9b8009d896a2ee87df3e1c4493d249a887566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532031"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083927"
 ---
 # <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Ligue o seu Okta Single Sign-On ao Azure Sentinel com a função Azure
+
+> [!IMPORTANT]
+> O conector de dados Okta Single Sign-On em Azure Sentinel está atualmente em pré-visualização pública.
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O conector Okta Single Sign-On (SSO) permite-lhe ligar facilmente todos os seus registos de solução de segurança [Okta Single Sign-On (SSO)](https://www.okta.com/products/single-sign-on/) com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A integração entre Okta Single Sign-On e Azure Sentinel faz uso de Funções Azure para retirar dados de registo usando a API REST.
 
@@ -46,7 +50,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analyt
 
 Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar Okta Single Sign-On ao Azure Sentinel usando Apps de Função Azure. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

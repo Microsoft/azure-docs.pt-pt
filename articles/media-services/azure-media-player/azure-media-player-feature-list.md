@@ -6,17 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81727232"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082720"
 ---
 # <a name="feature-list"></a>Lista de funcionalidades #
 Aqui está a lista de funcionalidades testadas e funcionalidades não apoiadas:
 
-|                                         | TESTADO | PARCIALMENTE TESTADO | NÃO TESTADO | SEM APOIO | NOTAS                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| Funcionalidade | TESTADO | PARCIALMENTE TESTADO | NÃO TESTADO | SEM APOIO | NOTAS |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | Reproduzir                                |        |                  |          |             |                                                                                                                      |
 | Reprodução básica a pedido                | X      |                  |          |             | Suporta streams apenas da Azure Media Services                                                                      |
 | Reprodução ao vivo básica                     | X      |                  |          |             | Suporta streams apenas da Azure Media Services                                                                      |
@@ -65,5 +66,5 @@ Aqui está a lista de funcionalidades testadas e funcionalidades não apoiadas:
 | Vários ângulos de câmara                  |        |                  |          | X           |                                                                                                                      |
 | Velocidade de reprodução                          |        | X                |          |             | A velocidade de reprodução é suportada na maioria dos cenários, exceto no caso móvel devido a um bug parcial no Chrome                 |
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

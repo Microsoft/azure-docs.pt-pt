@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1c2d6287a89c7816c30cf26978859c07dba0251d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78fa6b343a01e96c000b6c64a55d5fdf1f0284f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78197509"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084658"
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
 
 > [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Media que está a utilizar:"]
-> * [Versão 3](../latest/media-services-overview.md)
+> * [Versão 3](../latest/media-services-overview.md)
 > * [Versão 2](media-services-overview.md)
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Os Serviços de Multimédia são baseados nas APIs REST, que permitem carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para o envio de transmissão em fluxo, tanto a pedido como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
@@ -56,7 +57,7 @@ Para começar a utilizar os Media Services do Azure, deve ter o seguinte:
 
 Para compilar soluções de Media Services, pode utilizar:
 
-* [API REST dos Serviços de Multimédia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
+* [API REST dos Serviços de Multimédia](/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Um dos SDKs do Cliente disponíveis:
     * Azure Media Services SDK para .NET
     
@@ -70,7 +71,7 @@ Para compilar soluções de Media Services, pode utilizar:
     * [Explorador de Media Services do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE – Azure Media Services Explorer, uma aplicação Winforms/C# para Windows)
 
 > [!NOTE]
-> Para obter a versão mais recente do Java SDK e começar a programar com o Java, veja [Introdução ao SDK do cliente de Java dos Serviços de Multimédia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para obter a versão mais recente do Java SDK e começar a programar com o Java, veja [Introdução ao SDK do cliente de Java dos Serviços de Multimédia](./media-services-java-how-to-use.md). <br/>
 > Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowAzure no [repositório Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="code-samples"></a>Exemplos de código

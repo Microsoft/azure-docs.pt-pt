@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ee04fa7120f5510d703d72e662036f4fe952cd66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208019bbc86b22443c7d012400d4e4324679aee9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78330673"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084471"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introdução à autenticação do Azure AD através do portal do Azure
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Saiba como utilizar o portal Azure para aceder à autenticação do Azure Ative Directory (Azure AD) para aceder à API dos Serviços de Media Azure.
 
@@ -34,7 +35,7 @@ Saiba como utilizar o portal Azure para aceder à autenticação do Azure Ative 
 Quando utiliza a autenticação AZure AD com a Azure Media Services, tem duas opções de autenticação:
 
 - **Autenticação principal do serviço.** Autenticar um serviço. As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de nível médio ou trabalhos programados: aplicações web, apps de funções, apps lógicas, APIs ou um microserviço.
-- **Autenticação de utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação de consola de gestão usada por utilizadores autorizados para monitorizar trabalhos de codificação ou streaming ao vivo. 
+- **Autenticação de utilizador**. Autenticar uma pessoa que está a usar a app para interagir com os recursos dos Media Services. A aplicação interativa deve primeiro solicitar ao utilizador credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto. 
 
 ## <a name="access-the-media-services-api"></a>Aceder à API dos Serviços de Multimédia
 
@@ -52,7 +53,7 @@ Autentica um serviço utilizando uma aplicação Azure Ative Directory (Azure AD
 
 A **aplicação AAD e** a secção secreta permitem-lhe selecionar ou criar uma nova aplicação AD Azure e gerar um segredo. Por razões de segurança, o segredo não pode ser mostrado depois de a lâmina estar fechada. A aplicação utiliza o ID da aplicação e segredo para autenticação para obter um token válido para os serviços de comunicação.
 
-Certifique-se de que tem permissões suficientes para registar um pedido com o seu inquilino Azure AD e atribuir o pedido a uma função na sua subscrição Azure. Para mais informações, consulte [as permissões necessárias.](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)
+Certifique-se de que tem permissões suficientes para registar um pedido com o seu inquilino Azure AD e atribuir o pedido a uma função na sua subscrição Azure. Para mais informações, consulte [as permissões necessárias.](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 
 ### <a name="connect-to-media-services-api"></a>Ligue-se à API dos Serviços de Mídia
 
@@ -66,6 +67,6 @@ Esta opção poderia ser usada para autenticar um empregado ou membro de um Dire
 
 Copie as suas credenciais para ligar a sua aplicação de utilizador a partir da secção **API de Serviços de Comunicação Social.** Pode obter valores de texto ou copiar os blocos JSON ou XML.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com [o upload de ficheiros para a tua conta.](media-services-portal-upload-files.md)

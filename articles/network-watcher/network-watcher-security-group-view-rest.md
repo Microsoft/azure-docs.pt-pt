@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3bf3086d255a6aacfe4001879b3a3f00df2ba219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466879daae65b8c7fa896b0ead417c8d5eb51e28
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084352"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analise a segurança da sua máquina virtual com vista de grupo de segurança usando a API REST
 
@@ -25,6 +25,9 @@ ms.locfileid: "84738739"
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [CLI do Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
+
+> [!NOTE]
+> A API do Grupo de Segurança já não está a ser mantida e será depreciada em breve. Utilize a [funcionalidade Regras de Segurança Eficazes](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) que fornece a mesma funcionalidade. 
 
 A visão do grupo de segurança devolve regras de segurança configuradas e eficazes de segurança de rede que são aplicadas a uma máquina virtual. Esta capacidade é útil para auditar e diagnosticar grupos de segurança de rede e regras que são configuradas num VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos como recuperar as regras de segurança eficazes e aplicadas a uma máquina virtual usando REST API
 
@@ -37,7 +40,7 @@ Neste cenário, ligue para a API do Observador de Rede para obter a visão do gr
 
 Este cenário pressupõe que já seguiu os passos na [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário pressupõe ainda que exista um Grupo de Recursos com uma máquina virtual válida.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 O cenário abordado neste artigo recupera as regras de segurança eficazes e aplicadas para uma determinada máquina virtual.
 
@@ -180,7 +183,7 @@ A amostra a seguir é a resposta devolvida do comando anterior. Os resultados mo
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Visite [grupos de segurança de rede de auditoria (NSG) com o Observador de Rede](network-watcher-security-group-view-powershell.md) para aprender a automatizar a validação de Grupos de Segurança da Rede.
 

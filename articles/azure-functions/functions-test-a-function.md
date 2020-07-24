@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832564"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085083"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar o seu código nas Funções do Azure
 
@@ -40,13 +40,13 @@ Para configurar o seu ambiente, crie uma aplicação de função e teste. Os seg
 3. [Crie uma função temporizador a partir do modelo](./functions-create-scheduled-function.md) e nomeie-o **MyTimerTrigger**.
 4. [Crie uma aplicação de teste xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) na solução e nomeie-a **Funções.Testes**.
 5. Utilize o NuGet para adicionar uma referência da aplicação de teste à [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Referenciar a aplicação *Funções* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) a partir da aplicação *Funções.Testes.*
+6. [Referenciar a aplicação *Funções* ](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) a partir da aplicação *Funções.Testes.*
 
 ### <a name="create-test-classes"></a>Criar aulas de teste
 
 Agora que os projetos são criados, pode criar as classes usadas para executar os testes automatizados.
 
-Cada função requer um exemplo de [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) para lidar com o registo de mensagens. Alguns testes ou não registam mensagens ou não têm qualquer preocupação com a forma como o registo é implementado. Outros testes precisam de avaliar as mensagens registadas para determinar se um teste está a passar.
+Cada função requer um exemplo de [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) para lidar com o registo de mensagens. Alguns testes ou não registam mensagens ou não têm qualquer preocupação com a forma como o registo é implementado. Outros testes precisam de avaliar as mensagens registadas para determinar se um teste está a passar.
 
 Irá criar uma nova classe com o nome `ListLogger` de uma lista interna de mensagens para avaliar durante um teste. Para implementar a `ILogger` interface necessária, a classe precisa de um âmbito. A classe seguinte ridiculariza uma margem para que os casos de teste passem para a `ListLogger` classe.
 
@@ -192,7 +192,7 @@ namespace Functions.Tests
 
 A `TestFactory` classe implementa os seguintes membros:
 
-- **Dados**: Esta propriedade devolve uma recolha [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) de dados de amostra. Os pares de valor-chave representam valores que são passados para uma cadeia de consulta.
+- **Dados**: Esta propriedade devolve uma recolha [IEnumerable](/dotnet/api/system.collections.ienumerable) de dados de amostra. Os pares de valor-chave representam valores que são passados para uma cadeia de consulta.
 
 - **CreateDictionary**: Este método aceita um par chave/valor como argumentos e devolve um novo `Dictionary` usado para criar para representar `QueryCollection` valores de cadeia de consulta.
 
@@ -380,7 +380,7 @@ Para depurar os seus testes, adicione a seguinte configuração à sua *launch.j
 
 Em seguida, desaponte um ponto de rutura no seu teste e prima **F5**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a escrever testes automatizados para as suas funções, continue com estes recursos:
 

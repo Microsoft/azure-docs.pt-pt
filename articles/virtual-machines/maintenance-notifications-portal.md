@@ -7,11 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 77d5731738fbade97be08841428c3bc6b712a7a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09693a09e35503a2a221f8de1903b4218b8766f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678737"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082448"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Manipulação de notificações de manutenção planeadas utilizando o portal
 
@@ -49,7 +50,7 @@ Pode utilizar o portal Azure e procurar VMs agendados para manutenção.
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica um horário de manutenção planeada enviando um e-mail ao proprietário da assinatura e ao grupo de coproprietários. Pode adicionar destinatários e canais adicionais a esta comunicação criando alertas de registo de atividades Azure. Para obter mais informações, consulte [Criar alertas de registo de atividades nas notificações de serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+O Azure comunica um horário de manutenção planeada enviando um e-mail ao proprietário da assinatura e ao grupo de coproprietários. Pode adicionar destinatários e canais adicionais a esta comunicação criando alertas de registo de atividades Azure. Para obter mais informações, consulte [Criar alertas de registo de atividades nas notificações de serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Certifique-se de que define o **tipo de Evento** como manutenção **planeada**, e **serviços** como **conjuntos de balança de máquinas virtuais** e/ou **máquinas virtuais.**
 
@@ -66,6 +67,6 @@ Assim que iniciar a manutenção, a sua máquina virtual será mantida e o estad
 Se perdeu a janela de autosserviço, ainda poderá ver a janela quando o seu VM será mantido pelo Azure. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode manusear a manutenção planeada utilizando o [Azure CLI](maintenance-notifications-cli.md) ou [o PowerShell](maintenance-notifications-powershell.md).

@@ -4,11 +4,12 @@ description: Como utilizar gatilhos e encadernações para a extensão de Funç�
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698066"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081853"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Encadernações para funções duradouras (Funções Azure)
 
@@ -18,7 +19,7 @@ A extensão [Funções Duradouras](durable-functions-overview.md) introduz duas 
 
 O gatilho de orquestração permite-lhe autorizar [funções orquestradoras duráveis](durable-functions-types-features-overview.md#orchestrator-functions). Este gatilho suporta o início de novas instâncias de função orquestradora e o reinício de instâncias de função orquestradora existentes que estão "à espera" de uma tarefa.
 
-Quando utiliza as ferramentas Visual Studio para Funções Azure, o gatilho de orquestração é configurado utilizando o atributo [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .NET.
+Quando utiliza as ferramentas Visual Studio para Funções Azure, o gatilho de orquestração é configurado utilizando o atributo [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute?view=azure-dotnet) .NET.
 
 Quando escreve funções de orquestrador em idiomas de script (por exemplo, scripts JavaScript ou C#), o gatilho de orquestração é definido pelo seguinte objeto JSON na `bindings` matriz dofunction.js*no* ficheiro:
 
@@ -463,7 +464,7 @@ As classes de entidades têm mecanismos especiais para interagir com encadernaç
 
 O código a seguir é um exemplo de uma simples entidade *Counter* implementada como uma função durável escrita no JavaScript. Esta função define três `add` operações, e cada uma das quais opera num estado `reset` `get` inteiro.
 
-**function.js**
+**function.json**
 ```json
 {
   "bindings": [
@@ -601,7 +602,7 @@ Em particular, não faz sentido sinalizar a `Get` operação, uma vez que nenhum
 
 Aqui está um exemplo de função desencadeada por filas que assinala uma entidade "Counter" no JavaScript.
 
-**function.js**
+**function.json**
 ```json
 {
     "bindings": [
@@ -640,7 +641,7 @@ module.exports = async function (context) {
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência de API HTTP incorporada para gestão de exemplo](durable-functions-http-api.md)

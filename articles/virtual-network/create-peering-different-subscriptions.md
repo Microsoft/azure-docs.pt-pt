@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 26d82d4381649bc86950b1898c5c5351a97ec697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55993162c4ea3cd5bf60a9ee9acc869cc088a9d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085134"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Criar um espreitamento de rede virtual - Gestor de Recursos, diferentes subscrições e inquilinos do Azure Ative Directory
 
@@ -180,7 +181,7 @@ Quaisquer recursos Azure que crie em qualquer rede virtual são agora capazes de
 
 Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todas as etapas, saltar os passos para iniciar sessão fora do Azure e remover as linhas de script que criam atribuições de funções de utilizador. Substitua UserA@azure.com e em todos os UserB@azure.com seguintes scripts pelos nomes de utilizador que está a utilizar para UserA e UserB.
 
-1. Confirme que tem a versão 1.0.0 ou superior do Azure PowerShell. Pode fazê-lo executando o `Get-Module -Name Az` Recomendamos a instalação da versão mais recente do módulo PowerShell [Az](/powershell/azure/install-az-ps). Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirme que tem a versão 1.0.0 ou superior do Azure PowerShell. Pode fazê-lo executando o `Get-Module -Name Az` Recomendamos a instalação da versão mais recente do módulo PowerShell [Az](/powershell/azure/install-az-ps). Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Inicie uma sessão PowerShell.
 3. Em PowerShell, faça login no Azure como UserA inserindo o `Connect-AzAccount` comando. A conta com que inicia sessão deve ter as permissões necessárias para criar uma rede virtual de observação. Para obter uma lista de permissões, consulte [permissões de espreitar rede virtual](virtual-network-manage-peering.md#permissions).
 4. Crie um grupo de recursos e rede virtual A. Copie o seguinte script para um editor de texto no seu PC. `<SubscriptionA-Id>`Substitua-o pelo ID da SubscriçãoA. Se não conhece o seu ID de assinatura, insira o `Get-AzSubscription` comando para o visualizar. O valor **para id** na saída devolvida é o seu ID de subscrição. Para executar o script, copie o script modificado, cole-o no PowerShell e, em seguida, prima `Enter` .
@@ -286,7 +287,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 ## <a name="delete-resources"></a><a name="delete"></a>Eliminar recursos
 Quando terminar este tutorial, talvez queira apagar os recursos que criou no tutorial, para não incorrer em taxas de utilização. A eliminação de um grupo de recursos também elimina todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
 
 1. Faça login no portal Azure como UserA.
 2. Na caixa de pesquisa do portal, insira **o myResourceGroupA**. Nos resultados da pesquisa, selecione **myResourceGroupA**.
@@ -325,7 +326,7 @@ Quando terminar este tutorial, talvez queira apagar os recursos que criou no tut
    Remove-AzResourceGroup -Name myResourceGroupB -force
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Familiarize-se completamente com [importantes restrições e comportamentos de observação de rede virtuais](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar uma rede virtual que espreita para uso de produção.
 - Saiba mais sobre todas as [definições de observação de rede virtual](virtual-network-manage-peering.md#create-a-peering).

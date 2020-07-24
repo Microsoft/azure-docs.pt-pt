@@ -9,13 +9,14 @@ ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh
-ms.openlocfilehash: 5b86335ab8bcc3af75dbd8af39e3d913f2461e58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dad6e161518ba1f6a4f6fccb21b0f2a53f8e3a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83119846"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083536"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partilhar imagens da galeria VM em inquilinos do Azure
+# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Partilhar imagens da galeria VM através de inquilinos em Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -48,6 +49,6 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se encontrar algum problema, pode [resolver as galerias de imagens partilhadas.](troubleshooting-shared-images.md)

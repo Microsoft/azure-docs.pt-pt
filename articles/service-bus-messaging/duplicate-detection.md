@@ -3,11 +3,12 @@ title: Azure Service Bus duplica a deteção de mensagens / Microsoft Docs
 description: Este artigo explica como pode detetar duplicados em mensagens de autocarro da Azure Service. A mensagem duplicada pode ser ignorada e deixada.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337902"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083893"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 
@@ -32,7 +33,7 @@ O *MessageId* pode sempre ser um pouco GUID, mas ancorar o identificador ao proc
 
 No portal, a funcionalidade é ativada durante a criação de entidades com a caixa **de verificação de deteção de duplicação Enable,** que está desligada por padrão. A configuração para a criação de novos tópicos é equivalente.
 
-![][1]
+![Screenshot da caixa de diálogo de fila Create com a opção de deteção de duplicação de ativação selecionada e delineada a vermelho.][1]
 
 > [!IMPORTANT]
 > Não é possível ativar/desativar a deteção de duplicados após a criação da fila. Só pode fazê-lo no momento de criar a fila. 
@@ -41,7 +42,7 @@ Programáticamente, você definiu a bandeira com a [FilaDescription.requerDuplic
 
 O histórico de tempo de deteção duplicado é de 30 segundos para filas e tópicos, com um valor máximo de sete dias. Pode alterar esta definição na janela de propriedades de fila e tópico no portal Azure.
 
-![][2]
+![Screenshot da funcionalidade Service Bus com a definição de Propriedades realçada e a opção de histórico de deteção duplicado delineada a vermelho.][2]
 
 Programáticamente, pode configurar o tamanho da janela de deteção duplicada durante a qual os ids de mensagens são retidos, utilizando a propriedade [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) com a API completa .NET Framework. Com a Azure Resource Manager API, o valor é definido com a [propriedade de queueProperties.duplicateDetectionHistoryTimeWindow.](/azure/templates/microsoft.servicebus/namespaces/queues#property-values)
 
@@ -49,7 +50,7 @@ Permitir a deteção duplicada e o tamanho da janela impactam diretamente a entr
 
 Manter a janela pequena significa que menos ids de mensagens devem ser mantidos e combinados, e a produção é menos impactada. Para entidades de alta produção que necessitem de deteção duplicada, deve manter a janela o mais pequena possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

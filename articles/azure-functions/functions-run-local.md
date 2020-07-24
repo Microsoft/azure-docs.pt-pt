@@ -1,18 +1,18 @@
 ---
-title: Trabalhar com as funções Azure Core Tools
+title: Trabalhar com o Azure Functions Core Tools
 description: Aprenda a codificar e a testar as funções Azure a partir da solicitação de comando ou terminal no seu computador local antes de as executar em Funções Azure.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 611cb5b94ee2ad458fa00a61af673696d7e7a212
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170365"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085151"
 ---
-# <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções Azure Core Tools
+# <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
 O Azure Functions Core Tools permite desenvolver e testar as suas funções no computador local a partir da linha de comandos ou terminal. As suas funções locais podem ligar-se aos serviços Azure vivos e pode desormesar as suas funções no computador local utilizando o tempo de funcionamento completo das Funções. Pode até implementar uma aplicação de função na sua subscrição Azure.
 
@@ -35,7 +35,7 @@ Existem três versões de Azure Functions Core Tools. A versão que utiliza depe
 
 + **Versão 1.x**: Suporta a versão 1.x do tempo de funcionamento das Funções Azure. Esta versão das ferramentas só é suportada em computadores Windows e é instalada a partir de um [pacote npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Versão 3.x/2.x**](#v2): Suporta a [versão 3.x ou 2.x do tempo de funcionamento das Funções Azure](functions-versions.md). Estas versões suportam [o Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) e utilizam gestores de pacotes específicos da plataforma ou npm para instalação.
++ [**Versão 3.x/2.x**](#v2): Suporta a [versão 3.x ou 2.x do tempo de funcionamento das Funções Azure](functions-versions.md). Estas versões suportam [o Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2)e [Linux](?tabs=linux#v2) e utilizam gestores de pacotes específicos da plataforma ou npm para instalação.
 
 Salvo indicação em contrário, os exemplos deste artigo são para a versão 3.x.
 
@@ -48,7 +48,7 @@ Salvo indicação em contrário, os exemplos deste artigo são para a versão 3.
 
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Versão 3.x e 2.x
 
-Versão 3.x/2.x das ferramentas utiliza o tempo de execução das Funções Azure que é construído em .NET Core. Esta versão é suportada em todas as plataformas suportes .NET Core, incluindo [Windows,](/azure/azure-functions/functions-run-local?tabs=windows#v2) [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)e [Linux.](/azure/azure-functions/functions-run-local?tabs=linux#v2) 
+Versão 3.x/2.x das ferramentas utiliza o tempo de execução das Funções Azure que é construído em .NET Core. Esta versão é suportada em todas as plataformas suportes .NET Core, incluindo [Windows,](?tabs=windows#v2) [macOS](?tabs=macos#v2)e [Linux.](?tabs=linux#v2) 
 
 > [!IMPORTANT]
 > Pode contornar o requisito de instalação do .NET Core SDK utilizando [pacotes de extensão].
@@ -240,7 +240,7 @@ Quando não está definida nenhuma cadeia de ligação de armazenamento válida 
 
 ### <a name="get-your-storage-connection-strings"></a>Obtenha as cordas de conexão de armazenamento
 
-Mesmo quando utilizar o Emulador de Armazenamento Microsoft Azure para desenvolvimento, é melhor testar com uma ligação de armazenamento real. Assumindo que já [criou uma conta de armazenamento,](../storage/common/storage-create-storage-account.md)pode obter uma cadeia de ligação de armazenamento válida de uma das seguintes formas:
+Mesmo quando utilizar o Emulador de Armazenamento Microsoft Azure para desenvolvimento, é melhor testar com uma ligação de armazenamento real. Assumindo que já [criou uma conta de armazenamento,](../storage/common/storage-account-create.md)pode obter uma cadeia de ligação de armazenamento válida de uma das seguintes formas:
 
 - A partir do [portal Azure,]procure e selecione **contas de Armazenamento.** 
   ![Selecione contas de armazenamento do portal Azure](./media/functions-run-local/select-storage-accounts.png)
@@ -343,7 +343,7 @@ func start
 ```
 func start
 ```
-Este comando deve ser [executado num ambiente virtual](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+Este comando deve ser [executado num ambiente virtual](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -486,7 +486,7 @@ Por exemplo, para chamar uma função desencadeada por HTTP e passar o corpo do 
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-## <a name="publish-to-azure"></a><a name="publish"></a>Publicar para Azure
+## <a name="publish-to-azure"></a><a name="publish"></a>Publicar no Azure
 
 As Ferramentas Principais de Funções Azure suportam dois tipos de implementação: implantar ficheiros de projetos de função diretamente para a sua aplicação de função através do [Zip Deploy](functions-deployment-technologies.md#zip-deploy) e [implantar um recipiente Docker personalizado](functions-deployment-technologies.md#docker-container). Já deve ter [criado uma aplicação de função na sua subscrição Azure,](functions-cli-samples.md#create)para a qual irá implementar o seu código. Os projetos que exigem a compilação devem ser construídos para que os binários possam ser implantados.
 
@@ -574,12 +574,12 @@ Este tipo de registos de streaming requer que a integração do Application Insi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a desenvolver, testar e publicar Funções Azure utilizando as ferramentas principais do Azure Functions [A Microsoft learn module](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools é open source e hospedado no [GitHub](https://github.com/azure/azure-functions-cli).  
+Aprenda a desenvolver, testar e publicar Funções Azure utilizando as ferramentas principais do Azure Functions [A Microsoft learn module](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) Azure Functions Core Tools é open source e hospedado no [GitHub](https://github.com/azure/azure-functions-cli).  
 Para arquivar um pedido de bug ou recurso, [abra um problema do GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 
-[Ferramentas principais de funções Azure]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime

@@ -7,11 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082108"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conecte redes virtuais de diferentes modelos de implementação usando o portal
 
@@ -27,13 +28,13 @@ Ligar um VNet clássico a um VNet do Gestor de Recursos é semelhante à ligaç�
 
 Se ainda não tiver um gateway de rede virtual e não quiser criar um, talvez queira considerar ligar os seus VNets utilizando o VNet Peering. O VNet peering não utiliza um gateway de VPN. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="before-you-begin"></a><a name="before"></a>Before you begin
+### <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 
 
 * Estes passos pressupõem que ambos os VNets já foram criados. Se estiver a usar este artigo como exercício e não tiver VNets, existem links nos passos para o ajudar a criá-los.
 * Verifique se os intervalos de endereços dos VNets não se sobrepõem entre si, nem se sobrepõe a qualquer uma das gamas para outras ligações a que os gateways possam estar ligados.
-* Instale os mais recentes cmdlets PowerShell para gestor de recursos e gestão de serviços (clássico). Neste artigo, usamos o portal Azure e o PowerShell. O PowerShell é necessário para criar a ligação do VNet clássico ao VNet do Gestor de Recursos. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). 
+* Instale os mais recentes cmdlets PowerShell para gestor de recursos e gestão de serviços (clássico). Neste artigo, usamos o portal Azure e o PowerShell. O PowerShell é necessário para criar a ligação do VNet clássico ao VNet do Gestor de Recursos. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/). 
 
 ### <a name="example-settings"></a><a name="values"></a>Definições de exemplo
 

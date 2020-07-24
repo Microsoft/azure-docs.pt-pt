@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78f02c07932c6a058ba4fa27289640b7efd56169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2242e8febad5d55813721266f1286250af47111
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113675"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082890"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Presença regional com Azure Cosmos DB
 
-Azure Cosmos DB é um serviço fundamental em Azure, e, por padrão, está sempre disponível em todas as regiões, onde o Azure está disponível. Atualmente, a Azure está disponível em [54 regiões](https://azure.microsoft.com/global-infrastructure/regions/) em todo o mundo. 
+Azure Cosmos DB é um serviço fundamental em Azure, e, por defeito, está sempre disponível em [todas as regiões onde o Azure está disponível.](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all)
 
 :::image type="content" source="./media/regional-presence/regional-presence.png" alt-text="Regiões onde a Azure Cosmos DB está disponível" lightbox="./media/regional-presence/regional-presence.png" border="false":::
 
@@ -26,7 +26,7 @@ Cosmos DB está disponível em todos os cinco ambientes distintos da nuvem Azure
 
 * **O Azure China 21Vianet** está disponível através de uma parceria única entre a Microsoft e a 21Vianet, um dos maiores fornecedores de internet do país na China.
 
-* **A Azure Germany** presta serviços ao abrigo de um modelo de fiduciário de dados, que garante que os dados dos clientes permanecem na Alemanha sob o controlo da T-Systems International GmbH, uma subsidiária da Deutsche Telecom, atuando como o administrador de dados alemão.
+* **A Azure Germany** presta serviços ao abrigo de um modelo de fiduciário de dados, que garante que os dados dos clientes permanecem na Alemanha sob o controlo da T-Systems International GmbH, uma subsidiária da Deutsche Telekom, atuando como administradora de dados alemã.
 
 * **O Governo de Azure** está disponível em quatro regiões dos Estados Unidos para agências governamentais dos EUA e seus parceiros. 
 
@@ -38,7 +38,9 @@ Todas as APIs expostas por Azure Cosmos DB (incluindo SQL, MongoDB, Cassandra, G
 
 Azure Cosmos DB é um serviço de base de [dados distribuído globalmente.](distribute-data-globally.md) Pode associar qualquer número de regiões do Azure à sua conta Azure Cosmos e os seus dados são replicados de forma automática e transparente. Pode adicionar ou remover uma região na sua conta Azure Cosmos a qualquer momento. Com a capacidade de distribuição global chave na mão e o protocolo de replicação multi-masterizado, a Azure Cosmos DB oferece menos de 10 ms de leitura e escrita de latências no percentil 99, 99.999 leitura e escrita disponibilidade, e capacidade de dimensionar elasticamente a produção provisível para leituras e escritas em todas as regiões associadas à sua conta Azure Cosmos. A Azure Cosmos DB, também oferece cinco modelos de consistência bem definidos e pode optar por aplicar um modelo de consistência específico aos seus dados. Finalmente, a Azure Cosmos DB é o único serviço de base de dados na indústria que fornece um acordo abrangente [de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) que engloba a produção, latência no percentil 99, alta disponibilidade e consistência. As capacidades acima estão disponíveis em todas as nuvens Azure.
 
-## <a name="next-steps"></a>Próximos passos
+O suporte global de replicação é alargado a um ambiente de nuvem Azure. Por exemplo, as contas DB do Azure Cosmos em *Azure podem* replicar-se a qualquer região de Azure dentro *do público de Azure* - mas não podem ser replicadas nas Regiões Azure na *Azure China 21Vianet*.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode aprender sobre conceitos fundamentais da Azure Cosmos DB com os seguintes artigos:
 

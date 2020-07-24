@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9b81d58bbb79b05ea54af8b3f06f29b4a45a6555
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 2be430fc032acd94f851072f80d14a43638c8863
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084590"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configure uma política de autorização chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -33,7 +33,7 @@ Este artigo mostra como usar o portal Azure para configurar a política de autor
 
 Quando um jogador solicita um fluxo que está programado para ser encriptado dinamicamente, os Media Services utilizam a chave configurada para encriptar dinamicamente o seu conteúdo utilizando encriptação AES ou DRM. Para desencriptar a transmissão em fluxo, o leitor solicita a chave ao serviço de entrega de chaves. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
-Se pretender ter várias teclas de conteúdo ou quiser especificar um URL de serviço de entrega de chave/licença que não seja o serviço de entrega de chaves dos Serviços de Comunicação Social, utilize os Serviços de Comunicação Social .NET SDK ou REST APIs. Para obter mais informações, consulte:
+Se pretender ter várias teclas de conteúdo ou quiser especificar um URL de serviço de entrega de chave/licença que não seja o serviço de entrega de chaves dos Serviços de Comunicação Social, utilize os Serviços de Comunicação Social .NET SDK ou REST APIs. Para obter mais informações, veja:
 
 * [Configure uma política de autorização chave de conteúdo utilizando os Serviços de Comunicação Social .NET SDK](media-services-dotnet-configure-content-key-auth-policy.md)
 * [Configure uma política de autorização chave de conteúdo utilizando a API dos Serviços de Mídia](media-services-rest-configure-content-key-auth-policy.md)
@@ -57,7 +57,7 @@ A restrição aberta significa que o sistema fornece a chave para quem faz um pe
 ### <a name="token-restriction"></a>Restrição simbólica
 Para escolher a política restrita simbólica, selecione o botão **TOKEN.**
 
-A política restrita simbólica deve ser acompanhada de um símbolo emitido por um serviço de fichas de segurança (STS). Os Media Services suportam fichas nos formatos web token simples[(SWT)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)e JSON Web Token (JWT). Para mais informações, consulte [a autenticação JWT.](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+A política restrita simbólica deve ser acompanhada de um símbolo emitido por um serviço de fichas de segurança (STS). Os Media Services suportam fichas nos formatos web token simples[(SWT)](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)e JSON Web Token (JWT). Para mais informações, consulte [a autenticação JWT.](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
 Os Serviços de Comunicação Social não fornecem STS. Você pode criar um STS personalizado para emitir fichas. O STS deve ser configurado para criar um símbolo assinado com a chave especificada e emitir alegações que especificou na configuração da restrição simbólica. Se o token for válido e as reclamações no token corresponderem às configuradas para a chave de conteúdo, o serviço de entrega de chaves dos Serviços de Media devolve a chave de encriptação ao cliente.
 
@@ -86,7 +86,7 @@ Pode selecionar o botão **xml** da política de importação e fornecer um XML 
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
@@ -94,4 +94,3 @@ Pode selecionar o botão **xml** da política de importação e fornecer um XML 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-

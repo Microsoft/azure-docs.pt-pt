@@ -5,26 +5,25 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 07/13/2020
 ms.author: victorh
-ms.openlocfilehash: 58f670f3f55a63f0c1823adc13c98f5863d4d650
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77444553"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084675"
 ---
 # <a name="azure-firewall-central-management"></a>Gestão central do Azure Firewall
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
 Se gerir várias firewalls, sabe que mudar continuamente as regras de firewall dificulta mantê-las sincronizadas. As equipas centrais de TI precisam de uma forma de definir as políticas de firewall base e executá-las em várias unidades de negócio. Ao mesmo tempo, as equipas da DevOps querem criar as suas próprias políticas de firewall derivadas locais para uma melhor agilidade.
 
-A pré-visualização do Azure Firewall Manager pode ajudar a resolver estes problemas.
+O Azure Firewall Manager pode ajudar a resolver estes problemas.
 
 
-## <a name="azure-firewall-manager-preview"></a>Pré-visualização do gestor de firewall Azure
+## <a name="azure-firewall-manager"></a>Azure Firewall Manager
 
-A Azure Firewall Manager Preview é um serviço de gestão de segurança de rede que fornece política de segurança central e gestão de rotas para perímetros de segurança baseados na nuvem. Torna mais fácil para as equipas de TI da Enterprise definir centralmente regras de nível de rede e aplicação para filtragem de tráfego em vários casos de Azure Firewall. Você pode abranger diferentes regiões e subscrições de Azure no centro e falou de arquiteturas para governação e proteção de tráfego. Também fornece aos DevOps uma melhor agilidade com políticas de segurança locais derivadas que são implementadas em todas as organizações.
+O Azure Firewall Manager é um serviço de gestão de segurança de rede que fornece política de segurança central e gestão de rotas para perímetros de segurança baseados na nuvem. Torna mais fácil para as equipas de TI da Enterprise definir centralmente regras de nível de rede e aplicação para filtragem de tráfego em vários casos de Azure Firewall. Você pode abranger diferentes regiões e subscrições de Azure no centro e falou de arquiteturas para governação e proteção de tráfego. Também fornece aos DevOps uma melhor agilidade com políticas de segurança locais derivadas que são implementadas em todas as organizações.
 
 ### <a name="firewall-policy"></a>Política de firewall
 
@@ -45,6 +44,6 @@ As seguintes soluções líderes de terceiros suportam a gestão central do Azur
 - [Tufin Orca](https://www.tufin.com/products/tufin-orca)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações sobre a pré-visualização do Azure Firewall Manager, veja [o que é a pré-visualização do Azure Firewall Manager?](../firewall-manager/overview.md)
+Para mais informações sobre o Azure Firewall Manager, veja [o que é O Gestor de Firewall da Azure?](../firewall-manager/overview.md)

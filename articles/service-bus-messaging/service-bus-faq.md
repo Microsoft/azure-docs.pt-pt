@@ -2,12 +2,13 @@
 title: Azure Service Bus frequentemente fez perguntas (FAQ) Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre a Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 01d7869a158a3c2b5418f38f2a5d88fc161796c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083859"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
 
@@ -17,7 +18,7 @@ Este artigo discute algumas perguntas frequentes sobre a Microsoft Azure Service
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
-[A Azure Service Bus](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncrona que lhe permite enviar dados entre sistemas dissociados. A Microsoft oferece esta funcionalidade como um serviço, o que significa que não precisa de hospedar o seu próprio hardware para a utilizar.
+[A Azure Service Bus](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncrona que lhe permite enviar dados entre sistemas dissociados. A Microsoft oferece esta funcionalidade como um serviço, o que significa que não precisa de hospedar o seu próprio hardware para o utilizar.
 
 ### <a name="what-is-a-service-bus-namespace"></a>O que é um espaço de nomes de autocarros de serviço?
 Um [espaço de nome](service-bus-create-namespace-portal.md) fornece um recipiente de deteção para abordar os recursos do Service Bus dentro da sua aplicação. Criar um espaço de nome é necessário para usar o Service Bus e é um dos primeiros passos para começar.
@@ -29,7 +30,7 @@ Uma [fila de autocarros de serviço](service-bus-queues-topics-subscriptions.md)
 Um tópico pode ser visualizado como uma fila e ao usar várias subscrições, torna-se um modelo de mensagens mais rico; essencialmente uma ferramenta de comunicação de um para muitos. Este modelo de publicação/subscrição *(pub/sub)* permite que uma aplicação que envie uma mensagem para um tópico com várias subscrições tenha essa mensagem recebida por várias aplicações.
 
 ### <a name="what-is-a-partitioned-entity"></a>O que é uma entidade dividida?
-Uma fila ou tópico convencional é tratado por um único corretor de mensagens e armazenado numa loja de mensagens. Suportado apenas nos níveis de mensagens Basic e Standard, uma [fila ou tópico dividido](service-bus-partitioning.md) é tratado por vários corretores de mensagens e armazenado em várias lojas de mensagens. Esta funcionalidade significa que o rendimento geral de uma fila ou tópico dividido já não é limitado pelo desempenho de um único corretor de mensagens ou loja de mensagens. Além disso, uma paragem temporária de uma loja de mensagens não torna uma fila ou tópico divididos indisponíveis.
+Uma fila ou tópico convencional é tratado por um único corretor de mensagens e armazenado numa loja de mensagens. Suportado apenas nos níveis de mensagens Basic e Standard, uma [fila dividida ou tópico](service-bus-partitioning.md) é tratado por vários corretores de mensagens e armazenado em várias lojas de mensagens. Esta funcionalidade significa que o rendimento geral de uma fila ou tópico dividido já não é limitado pelo desempenho de um único corretor de mensagens ou loja de mensagens. Além disso, uma paragem temporária de uma loja de mensagens não torna uma fila ou tópico dividido indisponíveis.
 
 A encomenda não é assegurada quando se utiliza entidades divididas. No caso de uma partição não existir, pode ainda enviar e receber mensagens das outras divisórias.
 
@@ -50,15 +51,15 @@ Consulte a tabela seguinte para as portas de saída que precisa de abrir para ut
 | SBMP | 9350 a 9354 | Ver [modo conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Que endereços IP preciso para a lista branca?
-Para encontrar os endereços IP certos para lista branca para as suas ligações, siga estes passos:
+### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Que endereços IP preciso de adicionar para permitir a lista?
+Para encontrar os endereços IP certos para adicionar para permitir a lista para as suas ligações, siga estes passos:
 
 1. Executar o seguinte comando a partir de um pedido de comando: 
 
     ```
     nslookup <YourNamespaceName>.cloudapp.net
     ```
-2. Note o endereço IP devolvido em `Non-authoritative answer` . Este endereço IP é estático. O único ponto no tempo que mudaria é se restaurar o espaço de nome para um cluster diferente.
+2. Note o endereço IP devolvido em `Non-authoritative answer` . Este endereço IP é estático. A única altura em que mudaria é se restaurares o espaço de nomes num aglomerado diferente.
 
 Se utilizar a redundância da zona para o seu espaço de nome, tem de fazer alguns passos adicionais: 
 
@@ -76,6 +77,10 @@ Se utilizar a redundância da zona para o seu espaço de nome, tem de fazer algu
     ```
 3. Executar nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP dos três casos em execução em três zonas de disponibilidade, 
 
+### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Onde posso encontrar o endereço IP do cliente enviando/recebendo mensagens de/para um espaço de nome? 
+Não registamos os endereços IP dos clientes que enviam ou recebem mensagens de/para o seu espaço de nome. Regenerar as chaves para que todos os clientes existentes não autentiquem e revejam as definições de controlo de acesso baseado em funções[(RBAC)](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)para garantir que apenas os utilizadores ou aplicações autorizados tenham acesso ao espaço de nome. 
+
+Se estiver a utilizar um espaço de nome **premium,** utilize [a filtragem IP,](service-bus-ip-filtering.md) [os pontos finais do serviço de rede virtual](service-bus-service-endpoints.md)e os [pontos finais privados](private-link-service.md) para limitar o acesso ao espaço de nomes. 
 
 ## <a name="best-practices"></a>Melhores práticas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são as melhores práticas do Azure Service Bus?
@@ -99,18 +104,18 @@ Também pode visitar as [FAQs de Suporte Azure](https://azure.microsoft.com/supp
 ### <a name="how-do-you-charge-for-service-bus"></a>Como cobra pela Service Bus?
 Para obter informações completas sobre os preços do Service Bus, consulte [os detalhes dos preços do Service Bus][Pricing overview]. Além dos preços anotados, é cobrado por transferências de dados associadas para saídas fora do centro de dados em que a sua aplicação é a provisionada.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Que utilização da Service Bus está sujeita a transferência de dados? O que não é?
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-isnt"></a>Que utilização da Service Bus está sujeita a transferência de dados? O que não é?
 Qualquer transferência de dados dentro de uma determinada região de Azure é fornecida gratuitamente, bem como qualquer transferência de dados de entrada. A transferência de dados para fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui.](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Service Bus cobra pelo armazenamento?
-Não, a Service Bus não cobra pelo armazenamento. No entanto, existe um contingente que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
+Não. A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um espaço de nomes padrão de autocarro de serviço. Por que vejo acusações no âmbito do grupo de recursos "$system"?
-A Azure Service Bus atualizou recentemente os componentes de faturação. Devido a isso, se tiver um espaço de nomes Service Bus Standard, poderá ver itens de linha para o recurso '/subscrições/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.
+A Azure Service Bus atualizou recentemente os componentes de faturação. Devido a esta alteração, se tiver um espaço de nomes Service Bus Standard, poderá ver itens de linha para o recurso '/subscrições/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.
 
 Estes encargos representam a taxa base por subscrição Azure que adpôs um espaço de nome Service Bus Standard. 
 
-É importante notar que estas não são novas taxas, ou seja, também existiam no modelo de faturação anterior. A única mudança é que estão agora listados em "$system". Isto é feito devido a contraints no novo sistema de faturação que agrum as taxas de nível de subscrição, não ligadas a um recurso específico, no âmbito do id de recursos "$system".
+É importante notar que estas acusações não são novas, ou seja, também existiam no modelo de faturação anterior. A única mudança é que estão agora listados em "$system". É feito devido a restrições no novo sistema de faturação que agrum taxas de nível de subscrição, não ligadas a um recurso específico, sob o ID de recursos "$system".
 
 ## <a name="quotas"></a>Quotas
 
@@ -153,7 +158,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a Service Bus, consulte os seguintes artigos:
 
 * [Apresentando Azure Service Bus Premium (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
