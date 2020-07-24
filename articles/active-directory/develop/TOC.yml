@@ -34,7 +34,7 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: Núcleo de ASP.NET
+        - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -343,8 +343,6 @@
               href: msal-js-use-ie-browser.md
             - name: Problemas conhecidos – IE e Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
-            - name: Problemas conhecidos – Safari
-              href: msal-js-known-issues-safari-browser.md
             - name: Lidar com erros e exceções
               href: msal-handling-exceptions.md?tabs=javascript
             - name: Registo

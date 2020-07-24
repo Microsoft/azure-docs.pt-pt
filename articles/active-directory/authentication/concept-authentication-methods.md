@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 642f2705f54fe8f84cfde7ff039c9a723be59595
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c224f40996625ead4592a3bf50e02f0877c76db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83770964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051323"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Que métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -34,16 +35,16 @@ O quadro que se segue descreve quais os métodos disponíveis para a autenticaç
 
 | Método | Autenticação primária | Autenticação secundária |
 | --- | --- | --- |
-| [Palavra-passe](#password) | Sim | |
+| [Palavra-passe](#password) | Yes | |
 | [Aplicação Microsoft Authenticator](#microsoft-authenticator-app) | Sim (pré-visualização) | MFA e SSPR |
-| [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Sim | Apenas MFA |
-| [Fichas de software OATH](#oath-software-tokens) | Não | MFA |
-| [Fichas de hardware do OATH (pré-visualização)](#oath-hardware-tokens-preview) | Sim | MFA |
+| [Teclas de segurança FIDO2 (pré-visualização)](#fido2-security-keys) | Yes | Apenas MFA |
+| [Fichas de software OATH](#oath-software-tokens) | No | MFA |
+| [Fichas de hardware do OATH (pré-visualização)](#oath-hardware-tokens-preview) | Yes | MFA |
 | [SMS](#phone-options) | Sim (pré-visualização) | MFA e SSPR |
-| [Chamada de voz](#phone-options) | Não | MFA e SSPR |
-| [Questões de segurança](#security-questions) | Não | Apenas SSPR |
-| [Endereço de correio eletrónico](#email-address) | Não | Apenas SSPR |
-| [Palavras-passe da aplicação](#app-passwords) | Não | MFA apenas em certos casos |
+| [Chamada de voz](#phone-options) | No | MFA e SSPR |
+| [Perguntas de segurança](#security-questions) | No | Apenas SSPR |
+| [Endereço de e-mail](#email-address) | No | Apenas SSPR |
+| [Palavras-passe da aplicação](#app-passwords) | No | MFA apenas em certos casos |
 
 Este artigo descreve estes diferentes métodos de autenticação e verificação disponíveis no AZure AD e quaisquer limitações ou restrições específicas.
 
@@ -289,7 +290,7 @@ Se a sua organização for federada para um único sign-on (SSO) com Azure AD e 
     * Para clientes que autenticam uma infraestrutura no local, utilizaria um nome de utilizador organizacional e uma palavra-passe.
     * Para clientes que autenticam contra a Azure AD, utilizaria a palavra-passe da aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte o [tutorial para reset de senha de autosserviço (SSPR)][tutorial-sspr] e [autenticação multi-factor Azure][tutorial-azure-mfa].
 

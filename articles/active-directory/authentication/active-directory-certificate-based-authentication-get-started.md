@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202866"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051357"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificado no Azure Active Directory
 
@@ -93,7 +93,7 @@ O esquema de uma autoridade de certificados é o seguinte:
     }
 ```
 
-Para a configuração, pode utilizar o [Azure Ative Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
+Para a configuração, pode utilizar o [Azure Ative Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
 
 1. Inicie o Windows PowerShell com privilégios de administrador.
 2. Instale a versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior do módulo AD Azure.
@@ -104,7 +104,7 @@ Para a configuração, pode utilizar o [Azure Ative Directory PowerShell Version
 
 Como primeiro passo de configuração, você precisa estabelecer uma ligação com o seu inquilino. Assim que existir uma ligação com o seu inquilino, pode rever, adicionar, excluir e modificar as autoridades de certificados fidedignos que são definidas no seu diretório.
 
-### <a name="connect"></a>Ligar-se
+### <a name="connect"></a>Ligar
 
 Para estabelecer uma ligação com o seu inquilino, utilize o cmdlet [Connect-AzureAD:](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
@@ -122,7 +122,7 @@ Para recuperar as autoridades de certificados fidedignos que estão definidas no
 
 ### <a name="add"></a>Adicionar
 
-Para criar uma autoridade de certificados de confiança, utilize o cmdlet de certificado [new-AzureADTrustedCertificatee](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e desconte o atributo **crlDistributionPoint** para um valor correto:
+Para criar uma autoridade de certificados de confiança, utilize o cmdlet de certificado [new-AzureADTrustedCertificatee](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e desconte o atributo **crlDistributionPoint** para um valor correto:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

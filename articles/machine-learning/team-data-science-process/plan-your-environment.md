@@ -11,11 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29190cee748db17caee32497de5512bee736bae0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267930"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047718"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planear o processamento de dados de análises avançadas
 
@@ -144,7 +145,7 @@ Existem muitas opções para línguas, ambientes de desenvolvimento e ferramenta
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Que ferramentas deve utilizar para análise de dados?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview) - uma linguagem de script usada para administrar os seus recursos Azure em um idioma script
+* [Microsoft Azure PowerShell](/powershell/azure/) - uma linguagem de script usada para administrar os seus recursos Azure em um idioma script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Análise da Revolução](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
@@ -157,7 +158,7 @@ Existem muitas opções para línguas, ambientes de desenvolvimento e ferramenta
 
 Depois de ter respondido às perguntas na secção anterior, está pronto para determinar qual o cenário que melhor se adequa ao seu caso. Os cenários da amostra são delineados em [Cenários para análises avançadas em Azure Machine Learning](plan-sample-scenarios.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [O que é o Team Data Science Process (TDSP)?](overview.md)

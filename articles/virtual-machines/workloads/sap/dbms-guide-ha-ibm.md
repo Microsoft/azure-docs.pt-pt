@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
-ms.openlocfilehash: a9041b373c215ac226764b737ee3bf35b008e5db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052001"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
 
@@ -45,7 +46,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [1612105] | DB6: FAQ em Db2 com HADR |
 
 
-| Documentation | 
+| Documentação | 
 | --- |
 | [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Tem todas as notas SAP necessárias para Linux |
 | [Azure Virtual Machines planejamento e implementação para SAP no][planning-guide] guia Linux |
@@ -59,7 +60,7 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 | [IBM DB2 HADR R 10.5][db2-hadr-10.5] |
 
 ## <a name="overview"></a>Descrição geral
-Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ou em [zonas de disponibilidade Azure.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) 
+Para obter uma elevada disponibilidade, a IBM Db2 LUW com HADR é instalada em pelo menos duas máquinas virtuais Azure, que são implantadas num [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) ou em [zonas de disponibilidade Azure.](./sap-ha-availability-zones.md) 
 
 Os gráficos a seguir exibem uma configuração de dois VMs de servidor de base de dados Azure. Ambos os servidores de base de dados Azure VMs têm o seu próprio armazenamento anexado e estão em funcionamento. Em HADR, uma das caixas de dados de uma das VMs do Azure tem o papel da primeira instância. Todos os clientes estão ligados a esta primeira instância. Todas as alterações nas transações de base de dados são persistiu localmente no registo de transações Db2. À medida que os registos de registo de transações são persistidos localmente, os registos são transferidos via TCP/IP para a caixa de dados no segundo servidor de base de dados, no servidor de espera ou na instância de standby. A instância de espera atualiza a base de dados local, transmitindo os registos de registos de transações transferidos. Desta forma, o servidor de espera é mantido sincronizado com o servidor primário.
 
@@ -109,7 +110,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
-Para obter mais informações sobre o Pacemaker Linux em Azure, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker).
+Para obter mais informações sobre o Pacemaker Linux em Azure, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](./high-availability-guide-suse-pacemaker.md).
 
 ## <a name="deployment-on-suse-linux"></a>Implantação em SUSE Linux
 
@@ -395,10 +396,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 
 ### <a name="configure-azure-load-balancer"></a>Configurar o Balanceador de Carga do Azure
-Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) e, em seguida, faça o seguinte;
+Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-overview.md) e, em seguida, faça o seguinte;
 
 > [!NOTE]
-> O Balancer de Carga Padrão SKU tem restrições que acedem a endereços IP públicos a partir dos nós por baixo do Balanceador de Carga. O artigo [Conectividade de ponto final público para máquinas virtuais usando O Balanceador de Carga Padrão Azure em cenários de alta disponibilidade SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) está descrevendo formas de permitir que esses nóns acedam a endereços IP públicos
+> O Balancer de Carga Padrão SKU tem restrições que acedem a endereços IP públicos a partir dos nós por baixo do Balanceador de Carga. O artigo [Conectividade de ponto final público para máquinas virtuais usando O Balanceador de Carga Padrão Azure em cenários de alta disponibilidade SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md) está descrevendo formas de permitir que esses nóns acedam a endereços IP públicos
 
 1. Criar um pool IP frontal:
 
@@ -494,11 +495,11 @@ O arquivo de registos é realizado apenas pela base de dados primária. Se alter
 
 Recomendamos configurar uma partilha comum de NFS onde os registos são escritos de ambos os nós. A quota da NFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, consulte:
+Você pode usar ações NFS altamente disponíveis para transportes ou um diretório de perfil. Para obter mais informações, veja:
 
 - [Alta disponibilidade para NFS em VMs Azure no SUSE Linux Enterprise Server][nfs-ha] 
-- [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-- [Ficheiros Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (para criar ações NFS)
+- [Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP](./high-availability-guide-suse-netapp-files.md)
+- [Ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-introduction.md) (para criar ações NFS)
 
 
 ## <a name="test-the-cluster-setup"></a>Testar a configuração do cluster
@@ -877,9 +878,9 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Masters: [ azibmdb02 ]
      Slaves: [ azibmdb01 ]</code></pre>
 
-## <a name="next-steps"></a>Próximos passos
-- [Arquitetura e cenários de alta disponibilidade para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-- [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
+## <a name="next-steps"></a>Passos seguintes
+- [Arquitetura e cenários de alta disponibilidade para SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
+- [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](./high-availability-guide-suse-pacemaker.md)
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553

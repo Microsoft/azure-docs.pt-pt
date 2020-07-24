@@ -15,11 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 842ab7a1562c731e790ba03b2fd5acdc3987a90d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022595"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051963"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>IMPLANTAÇÃO DE SAP MaxDB, liveCache e Servidor de Conteúdo em VMs Azure
 
@@ -73,7 +74,7 @@ ms.locfileid: "84022595"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -308,7 +309,7 @@ ms.locfileid: "84022595"
 
 
 
-Este documento abrange várias áreas diferentes a ter em conta ao implementar MaxDB, liveCache e Content Server em Azure IaaS. Como condição prévia para este documento, deveria ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Este documento abrange várias áreas diferentes a ter em conta ao implementar MaxDB, liveCache e Content Server em Azure IaaS. Como condição prévia para este documento, deveria ter lido o documento [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP,](dbms_guide_general.md) bem como outros guias na [carga de trabalho SAP sobre documentação Azure](./get-started.md). 
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Especificidades para as implementações DOE MaxDB no Windows
 ### <a name="sap-maxdb-version-support-on-azure"></a>Suporte de versão SAP MaxDB em Azure
@@ -328,7 +329,7 @@ Pode encontrar a lista atualizada de documentação SAP MaxDB na seguinte Nota [
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração SAP MaxDB para instalações SAP em VMs Azure
 #### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuração de armazenamento
-As melhores práticas de armazenamento da Azure para o SAP MaxDB seguem as recomendações gerais mencionadas na estrutura de armazenamento do capítulo [de um VM para implantações RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+As melhores práticas de armazenamento da Azure para o SAP MaxDB seguem as recomendações gerais mencionadas na estrutura de armazenamento do capítulo [de um VM para implantações RDBMS](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > À semelhança de outras bases de dados, o SAP MaxDB também tem ficheiros de dados e registos. No entanto, na terminologia SAP MaxDB o termo correto é "volume" (não "ficheiro"). Por exemplo, existem volumes de dados SAP MaxDB e volumes de registo. Não confunda isto com volumes de disco sonoro. 
@@ -466,7 +467,7 @@ Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros na base de da
 
 Se configurar o Servidor de Conteúdo SAP para armazenar ficheiros no sistema de ficheiros, uma opção é executar a cópia de segurança/restauro manual de toda a estrutura de ficheiros onde os documentos estão localizados. Semelhante ao backup/restauro SAP MaxDB, recomenda-se ter um volume de disco dedicado para fins de backup. 
 
-#### <a name="other"></a>Outros
+#### <a name="other"></a>Outro
 Outras definições específicas do Servidor de Conteúdo SAP são transparentes para VMs Azure e são descritas em vários documentos e notas SAP:
 
 * <https://service.sap.com/contentserver> 

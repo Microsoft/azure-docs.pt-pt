@@ -3,11 +3,12 @@ title: Remover Insights de Aplicações em Estúdio Visual - Monitor Azure
 description: Como remover a Aplicação Insights SDK para ASP.NET e ASP.NET Core em Estúdio Visual.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 1c9ff8d3d305645ac7d113421e2c6c5f8451bd2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08a6d29e9170dde4bf3cc12015d126874006a778
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80805108"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049762"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Como remover insights de aplicações em Estúdio Visual
 
@@ -226,6 +227,6 @@ Quando adiciona telemetria application insights a um projeto de modelo de ASP.NE
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
+- [Azure Monitor](../overview.md)

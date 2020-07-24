@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65761801"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053323"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Como codificar com uma transformação personalizada - REST
 
@@ -32,7 +32,7 @@ Ao criar predefinições personalizadas, aplicam-se as seguintes considerações
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. <br/>Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. <br/>Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
 - [Configure Carteiro para Azure Media Services REST Chamadas API](media-rest-apis-with-postman.md).<br/>Certifique-se de seguir o último passo do tema [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-custom-preset"></a>Defina uma predefinição personalizada
@@ -133,7 +133,7 @@ Neste exemplo, primeiro adicionamos uma camada AacAudio para a codificação de 
 
 ## <a name="create-a-new-transform"></a>Criar uma nova transformação  
 
-Neste exemplo, criamos uma **Transformação** que se baseia na predefinição personalizada que definimos anteriormente. Ao criar uma Transform, deve primeiro utilizar [o Get](https://docs.microsoft.com/rest/api/media/transforms/get) to check if one já existe. Se a Transformação existe, reutilizá-la. 
+Neste exemplo, criamos uma **Transformação** que se baseia na predefinição personalizada que definimos anteriormente. Ao criar uma Transform, deve primeiro utilizar [o Get](/rest/api/media/transforms/get) to check if one já existe. Se a Transformação existe, reutilizá-la. 
 
 Na coleção do Carteiro que descarregou, selecione **Transforms and Jobs** -> **Create ou Update Transform**.
 
@@ -145,10 +145,10 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 Selecione o **separador 'Corpo'** e substitua o corpo pelo código json que [definiu anteriormente](#define-a-custom-preset). Para que os Serviços de Comunicação Social apliquem a Transformação ao vídeo ou áudio especificado, é necessário submeter um Job ao abrigo dessa Transformação.
 
-Selecione **Enviar**. 
+Selecione **Send** (Enviar). 
 
 Para que os Serviços de Comunicação Social apliquem a Transformação ao vídeo ou áudio especificado, é necessário submeter um Job ao abrigo dessa Transformação. Para um exemplo completo que mostre como submeter um trabalho sob uma transformação, consulte [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ver [outras operações REST](https://docs.microsoft.com/rest/api/media/)
+Ver [outras operações REST](/rest/api/media/)

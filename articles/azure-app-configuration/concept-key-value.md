@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: b8f8bda52be63a4176411855dd9ff9919e9e31f5
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 14ff1a00b40d956f369b1978f15f01f113c50270
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050147"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
@@ -77,7 +77,7 @@ Pode utilizar qualquer personagem unicode nas etiquetas `*` exceto , `,` e `\` .
 
 Cada valor chave é identificado exclusivamente pela sua chave mais um rótulo que pode ser `null` . Consulta uma loja de configuração de aplicações para valores-chave especificando um padrão. A loja de Configuração de Aplicações devolve todos os valores-chave que correspondem ao padrão e aos seus valores e atributos correspondentes. Utilize os seguintes padrões-chave nas chamadas DE API rest para a Configuração da Aplicação:
 
-| Chave | |
+| Chave | Descrição |
 |---|---|
 | `key`é omitido ou`key=*` | Corresponde a todas as chaves |
 | `key=abc` | Corresponde exatamente ao nome chave **abc** |
@@ -86,7 +86,7 @@ Cada valor chave é identificado exclusivamente pela sua chave mais um rótulo q
 
 Também pode incluir os seguintes padrões de etiqueta:
 
-| Etiqueta | |
+| Etiqueta | Descrição |
 |---|---|
 | `label`é omitido ou`label=*` | Corresponde a qualquer rótulo, que inclui`null` |
 | `label=%00` | `null`Etiqueta de correspondência |
@@ -100,7 +100,7 @@ Os valores atribuídos às teclas também são cordas unicódigo. Pode utilizar 
 
 Os dados de configuração armazenados numa loja de Configuração de Aplicações são encriptados em repouso e em trânsito. As chaves não estão encriptadas em repouso. A Configuração de Aplicativos não é uma solução de substituição para o Cofre da Chave Azure. Não guarde segredos de aplicações nele.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Instantâneo para um ponto anterior no tempo](./concept-point-time-snapshot.md)  
 * [Gestão de funcionalidades](./concept-feature-management.md)  

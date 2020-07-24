@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050323"
 ---
 # <a name="azure-api-management-faqs"></a>FaQs de gestão da Azure API
 Obtenha as respostas para perguntas, padrões e boas práticas comuns para a Azure API Management.
@@ -77,7 +77,7 @@ Eis como pode adicionar um utilizador ao grupo de Administradores:
 2. Vá ao grupo de recursos que tem a instância de Gestão API que pretende atualizar.
 3. Na Gestão da API, atribua o papel de Contribuinte do **Serviço de Gestão da API** ao utilizador.
 
-Agora o colaborador recém-adicionado pode usar [cmdlets](/powershell/azure/overview)Azure PowerShell . Eis como se inscrever como administrador:
+Agora o colaborador recém-adicionado pode usar [cmdlets](/powershell/azure/)Azure PowerShell . Eis como se inscrever como administrador:
 
 1. Utilize o `Connect-AzAccount` cmdlet para iniciar sinserção.
 2. Desa parte para a subscrição que tem o serviço utilizando `Set-AzContext -SubscriptionID <subscriptionGUID>` .
@@ -103,10 +103,10 @@ Para aprender a configurar um servidor de autorização OAuth 2.0 com segurança
 A API Management utiliza o [método de encaminhamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance) em implementações para vários locais geográficos. O tráfego de entrada é encaminhado para o portal API mais próximo. Se uma região ficar offline, o tráfego de entrada é automaticamente encaminhado para o portão mais próximo. Saiba mais sobre os métodos de encaminhamento nos [métodos de encaminhamento do Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Posso utilizar um modelo de Gestor de Recursos Azure para criar uma instância de serviço de Gestão API?
-Sim. Consulte os modelos de arranque rápido [do Serviço de Gestão AZure API.](https://aka.ms/apimtemplate)
+Yes. Consulte os modelos de arranque rápido [do Serviço de Gestão AZure API.](https://aka.ms/apimtemplate)
 
 ### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>Posso usar um certificado TLS/SSL auto-assinado para uma parte traseira?
-Sim. Isto pode ser feito através do PowerShell ou submetendo-se diretamente à API. Isto irá desativar a validação da cadeia de certificados e permitir-lhe-á utilizar certificados auto-assinados ou assinados por subscrição privada ao comunicar da API Management para os serviços de back-end.
+Yes. Isto pode ser feito através do PowerShell ou submetendo-se diretamente à API. Isto irá desativar a validação da cadeia de certificados e permitir-lhe-á utilizar certificados auto-assinados ou assinados por subscrição privada ao comunicar da API Management para os serviços de back-end.
 
 #### <a name="powershell-method"></a>Método Powershell ####
 Utilize os [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) cmdlets PowerShell (para nova extremidade traseira) ou [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (para a parte traseira existente) e desa um `-SkipCertificateChainValidation` parâmetro para `True` .
@@ -125,7 +125,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 Se utilizar o Git Credential Manager, ou se estiver a tentar clonar um repositório de Git utilizando o Visual Studio, poderá encontrar um problema conhecido com a caixa de diálogo de credenciais do Windows. A caixa de diálogo limita o comprimento da palavra-passe a 127 caracteres e trunca a palavra-passe gerada pela Microsoft. Estamos a tentar encurtar a senha. Por enquanto, por favor, use Git Bash para clonar o seu repositório git.
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>A API Management trabalha com a Azure ExpressRoute?
-Sim. A API Management trabalha com a Azure ExpressRoute.
+Yes. A API Management trabalha com a Azure ExpressRoute.
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Por que exigimos uma sub-rede dedicada no estilo VNETs do gestor de recursos quando a API Management é implantada neles?
 O requisito dedicado da sub-rede para a Gestão da API provém do facto de ser construído no modelo de implantação Classic (camada PAAS V1). Embora possamos implantar numa VNET (camada V2) do Gestor de Recursos, existem consequências para isso. O modelo de implantação Clássico em Azure não está muito associado ao modelo de Gestor de Recursos e por isso, se criar um recurso na camada V2, a camada V1 não sabe e os problemas podem acontecer, como a API Management tentando usar um IP que já está atribuído a um NIC (construído em V2).
@@ -135,7 +135,7 @@ Para saber mais sobre a diferença dos modelos Classic e Resource Manager em Azu
 O tamanho mínimo da sub-rede necessária para implantar a API Management é [/29,](../virtual-network/virtual-networks-faq.md#configuration)que é o tamanho mínimo da sub-rede que a Azure suporta.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Posso mover um serviço da Gestão de API de uma subscrição para outra?
-Sim. Para saber como, consulte [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Yes. Para saber como, consulte [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Existem restrições ou questões conhecidas com a importação da minha API?
 [Questões e restrições conhecidas](api-management-api-import-restrictions.md) para formatos Open API(Swagger), WSDL e WADL.

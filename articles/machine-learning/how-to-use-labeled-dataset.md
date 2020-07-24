@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 9aec584271975982e1d58cc3525faee0d403e1af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025731"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048086"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Criar e explorar o conjunto de dados de aprendizagem automática Azure com rótulos (pré-visualização)
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Criar e explorar conjunto de dados de aprendizagem automática Azure com rótulos
 
 Neste artigo, você aprenderá a exportar os rótulos de dados de um projeto de rotulagem de dados Azure Machine Learning e carregá-los em formatos populares, como, um dataframe pandas para a exploração de dados ou um conjunto de dados da Torchvision para a transformação de imagem. 
 
@@ -96,6 +96,6 @@ gray_image = F.to_grayscale(pil_image, num_output_channels=3)
 imgplot = plt.imshow(gray_image)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte o [conjunto de dados com o caderno de etiquetas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb) para obter uma amostra completa de treino.

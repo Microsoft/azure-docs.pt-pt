@@ -6,17 +6,17 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84148349"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049790"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemas de resolução de problemas que permitem ou visualizam o perfil de insights de aplicações
 
-## <a name="active-issues"></a>Questões ativas
-
-* O perfil para aplicações core 3.x ASP.NET é suportado agora nos Serviços de Aplicações Azure.
+> [!CAUTION]
+> Existe um perfil de execução de bugs para aplicações core ASP.NET no Azure App Service. Temos uma solução, mas levará algumas semanas para implantar em todo o mundo. Pode trabalhar à volta do bug adicionando o SDK Application Insights à sua aplicação com instruções [aqui.](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio)
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Resolução geral de problemas
 
@@ -75,7 +75,7 @@ Para que o Profiler funcione corretamente:
 
 
 * O trabalho web **ApplicationInsightsProfiler3** deve estar em execução. Para verificar o trabalho web:
-   1. Vá a [Kudu.](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)
+   1. Vá a [Kudu.](/archive/blogs/cdndevs/the-kudu-debug-console-azure-websites-best-kept-secret)
    1. No menu **Ferramentas,** selecione **WebJobs Dashboard**.  
       O **painel WebJobs** abre. 
    
@@ -193,11 +193,3 @@ Se a sua aplicação se ligar à Internet através de um proxy ou de uma firewal
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
-
-
-
-
-
-
-
-

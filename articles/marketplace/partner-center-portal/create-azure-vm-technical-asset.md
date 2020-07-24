@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: dannyevers
 ms.author: mingshen
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5bed073799521498efe5302ab9af616dcdf9f9ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107160"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053570"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie os seus ativos técnicos da Azure Virtual Machine
 
@@ -43,7 +43,7 @@ Projetar, construir e testar estes ativos leva tempo e requer conhecimento técn
 
 Considere usar um dos seguintes ambientes de script para ajudar a gerir VMs e VHDs:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [CLI do Azure](https://code.visualstudio.com/)
 
 Além disso, considere adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
@@ -125,7 +125,7 @@ Este artigo detalha como utilizar o suporte RDP do Windows incorporado para liga
 
 Para se ligar a um VM baseado em Linux, precisa de um cliente seguro do protocolo de concha (SSH). Os seguintes passos utilizem o terminal [Putty](https://www.ssh.com/ssh/putty/) SHH gratuito.
 
-1. Vá ao [portal Azure.](https://ms.portal.azure.com/)
+1. Aceda ao [portal do Azure](https://ms.portal.azure.com/).
 2. Procure e selecione **máquinas Virtuais.**
 3. Selecione o VM a que pretende ligar.
 4. Inicie o VM se ainda não estiver a funcionar.
@@ -276,7 +276,7 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
     1. No portal Azure, selecione o seu grupo de recursos (RG) e desatribua o VM.
     2. O seu VHD está agora generalizado e pode criar um novo VM utilizando este VHD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dificuldades em criar o seu novo VHD baseado em Azure, consulte [questões comuns durante a criação de VHD.](common-issues-during-vhd-creation.md)
 

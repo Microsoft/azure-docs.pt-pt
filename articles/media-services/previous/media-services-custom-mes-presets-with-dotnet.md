@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 085a186ffd98220257ad912ede93f43d339707f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956724"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052936"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalização de predefinições padrão media Encoder  
 
@@ -30,7 +30,7 @@ Este artigo mostra como realizar codificação avançada com a Media Encoder Sta
 Este artigo mostra-lhe como personalizar uma predefinição tomando o [Bitrate Múltiplo H264 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinido e reduzindo o número de camadas. O artigo [de predefinição de pré-sintonias do Media Encoder de Personalização](media-services-advanced-encoding-with-mes.md) demonstra predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
 
 > [!NOTE]
-> As predefinições personalizadas descritas neste artigo não podem ser utilizadas nas transformações [dos Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) ou nos comandos CLI. Consulte a [orientação de migração de V2 a V3](../latest/migrate-from-v2-to-v3.md) para mais detalhes.
+> As predefinições personalizadas descritas neste artigo não podem ser utilizadas nas transformações [dos Media Services V3](../latest/index.yml) ou nos comandos CLI. Consulte a [orientação de migração de V2 a V3](../latest/migrate-from-v2-to-v3.md) para mais detalhes.
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a>Personalizar uma predefinição MES
 
@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Como codificar com uma transformação personalizada usando o CLI](../latest/custom-preset-cli-howto.md)
 - [Codificação com os Serviços de Multimédia do Azure v3](../latest/encoding-concept.md)

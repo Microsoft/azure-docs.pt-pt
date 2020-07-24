@@ -9,12 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
-ms.author: anzaman
-ms.openlocfilehash: f29e651f5c8542722f0dc2c9878184ac0d2a6a1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: 28cb73df2df91fc96d7ac19e25d7bd13f47df41e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79499969"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047308"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalize um modelo de Pessoa com o site do Indexer de Vídeo
 
@@ -209,6 +210,6 @@ A pessoa, se tivesse sido nomeada, também continuará a existir no modelo Pesso
 
 ![Apague um rosto no seu vídeo](./media/customize-face-model/delete-face.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Personalizar modelo pessoa usando APIs](customize-person-model-with-api.md)

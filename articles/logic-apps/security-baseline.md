@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d27abfda789a9bb1bd5479b059355703388333f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e547cf3f08e49ce707cd079778588fb6be5acb5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520651"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048432"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança Azure para Apps Lógicas
 
@@ -643,7 +643,7 @@ A Microsoft gere a infraestrutura subjacente às Apps Azure Logic e implementou 
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
 
-**Orientação**: Só é possível permitir que utilizadores ou grupos específicos executem tarefas específicas, tais como gerir, editar e visualizar aplicações lógicas. Para controlar as suas permissões, utilize o Controlo de Acesso Baseado em Funções (RBAC) para que possa atribuir funções personalizadas ou integradas aos membros da sua subscrição Azure:
+**Orientação**: Só é possível permitir que utilizadores ou grupos específicos executem tarefas específicas, tais como gerir, editar e visualizar aplicações lógicas. Para controlar as suas permissões, utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para que possa atribuir funções personalizadas ou incorporadas aos membros da sua subscrição Azure:
 - Logic App Contributor: Permite-lhe gerir aplicações lógicas, mas não pode alterar o acesso às mesmos.
 - Operador de aplicativos logicos: Permite-lhe ler, ativar e desativar aplicações lógicas, mas não pode editá-las ou atualizá-las.
 
@@ -1285,7 +1285,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

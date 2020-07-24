@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712501"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052821"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver funções de Azure com serviços de mídia
 
@@ -31,7 +32,7 @@ Se pretende explorar e implementar as Funções Azure existentes que utilizam os
 - Antes de poder criar a sua primeira função, tem de ter uma conta do Azure ativa. Se ainda não tiver uma conta do Azure, [estão disponíveis contas gratuitas](https://azure.microsoft.com/free/).
 - Se vai criar Funções Azure que executam ações na sua conta Azure Media Services (AMS) ou ouvir eventos enviados pelos Media Services, deverá criar uma conta AMS, como descrito [aqui.](media-services-portal-create-account.md)
     
-## <a name="create-a-function-app"></a>Criar uma aplicação de função
+## <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 1. Aceda ao [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 2. Crie uma aplicação de função como descrito [aqui.](../../azure-functions/functions-create-function-app-portal.md)
@@ -69,7 +70,7 @@ Uma vez implementada a sua aplicação de função, pode encontrá-la entre as F
 
     ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Clique em **Criar**. 
+4. Clique em **Create** (Criar). 
 
 ## <a name="files"></a>Ficheiros
 
@@ -337,9 +338,9 @@ Para testar a sua função, é necessário enviar um ficheiro MP4 para o recipie
 4. Prima **upload** e navegue num ficheiro .mp4 que pretende carregar.
 
 >[!NOTE]
-> Quando se está a usar um gatilho de bolhas num plano de Consumo, pode haver até um atraso de 10 minutos no processamento de novas bolhas depois de uma aplicação de função ter ficado inativa. Após o funcionamento da aplicação de função, as bolhas são processadas imediatamente. Para obter mais informações, consulte [os gatilhos e encadernações de armazenamento Blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> Quando se está a usar um gatilho de bolhas num plano de Consumo, pode haver até um atraso de 10 minutos no processamento de novas bolhas depois de uma aplicação de função ter ficado inativa. Após o funcionamento da aplicação de função, as bolhas são processadas imediatamente. Para obter mais informações, consulte [os gatilhos e encadernações de armazenamento Blob](../../azure-functions/functions-bindings-storage-blob.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste momento, está pronto para começar a desenvolver uma aplicação de Serviços de Mídia. 
  
@@ -349,4 +350,3 @@ Consulte também [o Azure WebHooks para monitorizar as notificações de trabalh
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

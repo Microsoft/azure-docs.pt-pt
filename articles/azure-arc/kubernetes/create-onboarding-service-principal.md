@@ -8,11 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Criar um diretor de serviço de bordo ativado pelo Arco Azure '
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050073"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar um principal de serviço de embarque ativado pelo Arco Azure (Pré-visualização)
 
@@ -44,7 +45,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Atribuir permissões
 
-Depois de criar o novo Diretor de Serviços, atribua o papel de "Azure Arc for Kubernetes Onboarding" ao recém-criado diretor. Este é um papel de Azure incorporado com permissões limitadas, que apenas permite ao diretor registar clusters para Azure. O principal não pode atualizar, eliminar ou modificar quaisquer outros clusters ou recursos dentro da subscrição.
+Depois de criar o novo Diretor de Serviços, atribua o papel de "Kubernetes Cluster - Azure Arc Onboarding" ao recém-criado principal. Este é um papel de Azure incorporado com permissões limitadas, que apenas permite ao diretor registar clusters para Azure. O principal não pode atualizar, eliminar ou modificar quaisquer outros clusters ou recursos dentro da subscrição.
 
 Dadas as capacidades limitadas, os clientes podem facilmente reutilizar este principal para embarcar em vários clusters.
 
@@ -86,6 +87,6 @@ az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTe
 az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use a política do Azure para governar a configuração do cluster](./use-azure-policy.md)

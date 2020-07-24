@@ -3,12 +3,12 @@ title: Use o portal para carregar, codificar e transmitir conteúdo - Azure
 description: Este quickstart mostra-lhe como usar o portal para carregar, codificar e transmitir conteúdo com a Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232479"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053350"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Quickstart: Carregar, codificar e transmitir conteúdo com portal
 
@@ -35,7 +35,7 @@ Este quickstart mostra-lhe como usar o portal Azure para carregar, codificar e t
 
         Atualmente, ao utilizar o portal Azure, pode fazer o seguinte: gerar um TTML e ficheiros de legendas webVTT fechados. Os ficheiros nestes formatos podem ser utilizados para tornar os ficheiros de áudio e vídeo acessíveis a pessoas com deficiência auditiva. Também pode extrair palavras-chave do seu conteúdo.
 
-        Para uma experiência rica que lhe permite extrair insights dos seus ficheiros de vídeo e áudio, utilize predefinições de Serviços de Comunicação (como descrito em [Tutorial: Analise vídeos com Serviços de Comunicação social v3).](analyze-videos-tutorial-with-api.md) <br/>Se quiser informações mais detalhadas, utilize o [Índice de Vídeo](https://docs.microsoft.com/azure/media-services/video-indexer/) diretamente.    
+        Para uma experiência rica que lhe permite extrair insights dos seus ficheiros de vídeo e áudio, utilize predefinições de Serviços de Comunicação (como descrito em [Tutorial: Analise vídeos com Serviços de Comunicação social v3).](analyze-videos-tutorial-with-api.md) <br/>Se quiser informações mais detalhadas, utilize o [Índice de Vídeo](../video-indexer/index.yml) diretamente.    
 * Uma vez processado o seu conteúdo, pode entregar conteúdo sonoro aos jogadores clientes. Para disponibilizar vídeos no ativo de saída para os clientes para reprodução, tem de criar um **localizador de streaming**. Ao criar o **localizador de streaming,** é necessário especificar uma **política de streaming**. **As políticas de streaming** permitem-lhe definir protocolos de streaming e opções de encriptação (se houver) para os seus **localizadores de streaming**.
     
     Comentário:

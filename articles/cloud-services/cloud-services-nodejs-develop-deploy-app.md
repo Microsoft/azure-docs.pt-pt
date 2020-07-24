@@ -9,11 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-ms.openlocfilehash: 774d2bb58fd7dd75825be8f433f078d70c13fe8c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 25cde21d72de49c5a4f51121f2aa4295319899ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919981"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049201"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
 
@@ -170,16 +171,16 @@ Depois de implementar a aplicação, poderá pretender desativá-la, para evitar
    > [!NOTE]
    > A eliminação do serviço não elimina a conta do Storage que foi criada quando o serviço foi inicialmente publicado. por isso, continuará a ser-lhe cobrado o armazenamento utilizado. Se mais nada estiver a utilizar o armazenamento, poderá querer eliminá-lo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para mais informações, consulte o [Centro de Programadores de Node.js].
 
 <!-- URL List -->
 
 [Comparação de Web Sites, Cloud Services e Virtual Machines do Azure]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [utilização de uma aplicação Web simples]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Azure PowerShell]: /powershell/azure/
 [Azure SDK para .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Ligue o PowerShell]: /powershell/azureps-cmdlets-docs
+[Ligue o PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
 [Descrição Geral da Criação de um Serviço Alojado do Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro de Programadores do Node.js]: https://azure.microsoft.com/develop/nodejs/

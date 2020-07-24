@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 110e8d3be88fb2e1bd958f40d5defa23f8c679f3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 366a302e4683c74e2ba62d76c066365a3c81b045
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525403"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051879"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -114,7 +114,7 @@ Para os discos que contêm os caminhos de armazenamento Db2 para os seus diretó
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Todas as outras áreas gerais como os Conjuntos de Disponibilidade de Azure ou a monitorização SAP aplicam-se como descrito no documento [Considerações para a implantação de DBMS de máquinas virtuais Azure para](dbms_guide_general.md) a carga de trabalho SAP para implementações de VMs com a Base de Dados IBM também.
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -167,7 +167,7 @@ Todas as outras áreas gerais como os Conjuntos de Disponibilidade de Azure ou a
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md

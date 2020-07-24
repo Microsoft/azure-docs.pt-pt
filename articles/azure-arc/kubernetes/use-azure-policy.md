@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Use a Política Azure para aplicar configurações de cluster à escala
 keywords: Kubernetes, Arc, Azure, K8s, contentores
-ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050035"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Utilize a Política Azure para aplicar configurações de cluster à escala (Visualização)
 
@@ -22,6 +22,10 @@ ms.locfileid: "86111274"
 Use a Política Azure para impor que cada `Microsoft.Kubernetes/connectedclusters` recurso ou recurso habilitado a Git-Ops `Microsoft.ContainerService/managedClusters` tenha aplicado especificamente `Microsoft.KubernetesConfiguration/sourceControlConfigurations` nele. Para utilizar a Política Azure selecione uma definição de política existente e crie uma atribuição de política. Ao criar a atribuição de política, definiu o âmbito para a atribuição: este será um grupo de recursos Azure ou subscrição. Também definiu os parâmetros para o `sourceControlConfiguration` que será criado. Uma vez criada a atribuição, o motor Policy identificará todos `connectedCluster` ou `managedCluster` recursos que estão localizados dentro do âmbito e aplicará o `sourceControlConfiguration` a cada um.
 
 Se estiver a utilizar vários repos git como fontes de verdade para cada cluster (por exemplo, um repo para operador central de TI/cluster e outros repos para equipas de aplicação), pode permitir isso utilizando várias atribuições políticas, cada atribuição de política configurada para usar um repo Git diferente.
+
+## <a name="prerequisite"></a>Pré-requisito
+
+Certifique-se de que tem `Microsoft.Authorization/policyAssignments/write` permissões no âmbito (grupo de subscrição ou recursos) onde pretende criar esta atribuição de política.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
@@ -42,13 +46,13 @@ Após a criação da atribuição da política, para qualquer novo `connectedClu
 
 ## <a name="verify-a-policy-assignment"></a>Verifique uma atribuição de política
 
-1. No portal Azure, navegue para um dos seus `connectedCluster` recursos, e na secção **Definições** da barra lateral, selecione **Políticas**. (O cluster gerido UX para AKS ainda não está implementado, mas está a chegar.)
+1. No portal Azure, navegue para um dos seus `connectedCluster` recursos, e na secção **Definições** da barra lateral, selecione **Políticas**. (O cluster UX para AKS ainda não está implementado, mas está a chegar.)
 2. Na lista, deverá ver a atribuição de política que criou acima, e o **estado de Conformidade** deve ser *conforme.*
 3. Na secção **Definições** da barra lateral, selecione **Configurações**.
 4. Na lista, deve ver o `sourceControlConfiguration` que a atribuição de política criou.
 5. Use **kubectl** para interrogar o cluster: você deve ver o espaço de nome e artefactos que foram criados pelo `sourceControlConfiguration` .
 6. Dentro de 5 minutos, você deve ver no aglomerado os artefactos que são descritos nos manifestos no repo Git configurado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar o Monitor Azure para contentores com arco habilitado a clusters Kubernetes](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)

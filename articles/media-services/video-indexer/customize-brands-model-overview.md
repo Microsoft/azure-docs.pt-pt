@@ -9,12 +9,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
-ms.author: anzaman
-ms.openlocfilehash: ca3d825fb2f4184448cc279d9408f47ad4ad004a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: kumud
+ms.openlocfilehash: a1b2738e3be2e2b8a388ef80ca94764cdae99b08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73838364"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047360"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personalize um modelo de Marcas no Índice de Vídeo
 
@@ -32,7 +33,7 @@ Falar de janelas no contexto da construção não vai detetar a palavra "Windows
 
 Para trazer as suas próprias marcas, confira os próximos passos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Personalize o modelo de Marcas usando APIs](customize-brands-model-with-api.md)
 

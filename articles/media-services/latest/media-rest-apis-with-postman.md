@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c74e10e88d3f8eacd8f59222adbdb19be813ef
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75779642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053204"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configure Carteiro para Serviços de Mídia v3 REST Chamadas API
 
@@ -27,8 +28,8 @@ Antes de começar a [desenvolver,reveja o Desenvolvimento com os Serviços de Me
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
-- Obtenha informações necessárias para aceder a [APIs](access-api-cli-how-to.md)
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
+- Obtenha informações necessárias para aceder a [APIs](./access-api-howto.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
     Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Código de Estúdio Visual** com o plugin REST ou o **Fiddler Telerik**. 
@@ -96,13 +97,13 @@ Antes de começar a manipular os recursos AMS v3, precisa de obter e definir Azu
 * Se a sua aplicação falhar com "HTTP 504: Gateway Timeout", certifique-se de que a variável de localização não foi explicitamente definida para outro valor que não a localização esperada da conta Serviços de Comunicação. 
 * Se obtém um erro de "conta não encontrada", verifique também se a propriedade de localização na mensagem Body JSON está definida para o local onde se encontra a conta dos Serviços de Comunicação Social. 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Faça upload de ficheiros numa conta de Serviços de Comunicação Social - REST](upload-files-rest-how-to.md)
 - [Criar filtros com Serviços de Mídia - REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Transmitir ficheiros com REST](stream-files-tutorial-with-rest.md).  
-- [Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
+- [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)

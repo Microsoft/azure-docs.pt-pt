@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051622"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um espreitamento de rede virtual - diferentes modelos de implementação e subscrições
 
@@ -56,7 +57,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 6. Na lâmina **myVnetA - Controlo de acesso (IAM)** que aparece, clique **+ Adicione a atribuição de função**.
 7. Na lâmina **de atribuição de funções Adicionar** que aparece, selecione o contribuinte de **rede** na caixa **Role.**
 8. Na caixa **Select,** selecione UserB ou digite o endereço de e-mail do UtilizadorB para o procurar. A lista de utilizadores mostrados é do mesmo inquilino do Azure Ative Directory que a rede virtual que está a configurar. Clique no UserB quando aparecer na lista.
-9. Clique em **Guardar**.
+9. Clique em **Save** (Guardar).
 10. Faça login no portal como UserA e, em seguida, faça login como UserB.
 11. Clique **em + Nova**, *digite rede Virtual* na caixa De Procurar o **Mercado** e, em seguida, clique na rede **Virtual** nos resultados de pesquisa.
 12. Na lâmina **de rede virtual** que aparece, selecione **Classic** na caixa de modelo **de implementação** e, em seguida, clique em **Criar**.
@@ -182,7 +183,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 
 Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todas as etapas, saltar os passos para iniciar sessão fora do Azure e remover as linhas de script que criam atribuições de funções de utilizador. Substitua UserA@azure.com e em todos os UserB@azure.com seguintes scripts pelos nomes de utilizador que está a utilizar para UserA e UserB. 
 
-1. Instale a versão mais recente dos módulos PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [Az.](https://www.powershellgallery.com/packages/Az) Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Instale a versão mais recente dos módulos PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [Az.](https://www.powershellgallery.com/packages/Az) Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão PowerShell.
 3. No PowerShell, inicie sessão na subscrição do UserB como UserB, introduzindo o `Add-AzureAccount` comando. A conta com que inicia sessão deve ter as permissões necessárias para criar uma rede virtual de observação. Para obter uma lista de permissões, consulte [permissões de espreitar rede virtual](virtual-network-manage-peering.md#permissions).
 4. Para criar uma rede virtual (clássica) com o PowerShell, tem de criar um novo, ou modificar um ficheiro de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração da rede](virtual-networks-using-network-configuration-file.md). O ficheiro deve incluir o seguinte elemento **VirtualNetworkSite** para a rede virtual utilizada neste tutorial:
@@ -271,7 +272,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 ## <a name="delete-resources"></a><a name="delete"></a>Eliminar recursos
 Quando terminar este tutorial, talvez queira apagar os recursos que criou no tutorial, para não incorrer em taxas de utilização. A eliminação de um grupo de recursos também elimina todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
 
 1. Na caixa de pesquisa do portal, insira **o myResourceGroupA**. Nos resultados da pesquisa, clique **no myResourceGroupA**.
 2. Na lâmina **myResourceGroupA,** clique no ícone **Eliminar.**
@@ -322,7 +323,7 @@ Quando terminar este tutorial, talvez queira apagar os recursos que criou no tut
    > [!WARNING]
    > Importar um ficheiro de configuração de rede alterado pode causar alterações nas redes virtuais existentes (clássicas) na sua subscrição. Certifique-se de que remove apenas a rede virtual anterior e que não altera ou remove quaisquer outras redes virtuais existentes da sua subscrição. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Familiarize-se completamente com [importantes restrições e comportamentos de observação de rede virtuais](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar uma rede virtual que espreita para uso de produção.
 - Saiba mais sobre todas as [definições de observação de rede virtual](virtual-network-manage-peering.md#create-a-peering).

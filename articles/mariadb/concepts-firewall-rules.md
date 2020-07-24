@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 4b5898629c373e31d94ad09ca4af66de0428a7a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532047"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047617"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Base de dados Azure para regras de firewall de servidor mariaDB
 As firewalls impedem todo o acesso ao servidor da base de dados até especificar quais os computadores que têm permissão. A firewall concede acesso ao servidor com base no endereço IP originário de cada pedido.
@@ -40,7 +40,7 @@ Recomenda-se que encontre o endereço IP de saída de qualquer aplicação ou se
 Se um endereço IP de saída fixo não estiver disponível para o seu serviço Azure, pode considerar ativar ligações a partir de todos os endereços IP do datacenter Azure. Esta definição pode ser ativada a partir do portal Azure, definindo a opção **De acesso a Serviços Azure** para **ON** a partir do painel de segurança **De Ligação** e batendo **Save**. A partir do CLI Azure, uma definição de regra de firewall com endereço inicial e final igual a 0.0.0.0 faz o equivalente. Se a tentativa de ligação não for permitida, o pedido não chega à Base de Dados Azure para o servidor MariaDB.
 
 > [!IMPORTANT]
-> A opção **de acesso a serviços Azure** configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações a partir das subscrições de outros clientes. Quando seleciona esta opção, certifique-se de que as permissões de início de sessão e de utilizador limitam o acesso a utilizadores autorizados apenas.
+> A opção **de acesso a serviços Azure** configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações a partir das subscrições de outros clientes. Quando selecionar esta opção, certifique-se de que as suas permissões de início de sessão e de utilizador limitam o acesso apenas a utilizadores autorizados.
 > 
 
 ![Configure Permitir o acesso aos serviços da Azure no portal](./media/concepts-firewall-rules/allow-azure-services.png)
@@ -67,6 +67,11 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
    * Em alternativa, obtenha o endereçamento IP estático para os computadores cliente e adicione os endereços IP como regras de firewall.
 
 * **O IP do servidor parece ser público:** As ligações à Base de Dados Azure para o servidor MariaDB são encaminhada através de um gateway Azure acessível ao público. No entanto, o IP real do servidor está protegido pela firewall. Para obter mais informações, veja o [artigo sobre a arquitetura de conectividade](concepts-connectivity-architecture.md). 
+
+* **Não é possível ligar a partir do recurso Azure com IP permitido:** Verifique se o ponto final do serviço **Microsoft.Sql** está ativado para a sub-rede a que está a ligar. Se **o Microsoft.Sql** estiver ativado, indica que só pretende utilizar [as regras do ponto final de serviço VNet](concepts-data-access-security-vnet.md) nessa sub-rede.
+
+   Por exemplo, poderá ver o seguinte erro se estiver a ligar a partir de um Azure VM numa sub-rede que tenha **o Microsoft.Sql** ativado mas não tem nenhuma regra VNet correspondente:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Criar e gerir a Base de Dados Azure para regras de firewall MariaDB utilizando o portal Azure](./howto-manage-firewall-portal.md)

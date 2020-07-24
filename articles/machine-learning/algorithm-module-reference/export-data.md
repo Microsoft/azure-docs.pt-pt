@@ -9,11 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 279ba2ca5b82d7bad5b55736179f92a0146bdc84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456306"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048160"
 ---
 # <a name="export-data-module"></a>Módulo de Dados de Exportação
 
@@ -27,6 +28,7 @@ Este módulo suporta a exportação dos seus dados para os seguintes serviços d
 - Partilha de Ficheiros do Azure
 - Azure Data Lake
 - Azure Data Lake Gen2
+- Base de dados SQL do Azure
 
 Antes de exportar os seus dados, tem de registar primeiro uma loja de dados no seu espaço de trabalho Azure Machine Learning. Para mais informações, consulte [os dados do Access nos serviços de armazenamento Azure.](../how-to-access-data.md)
 
@@ -53,6 +55,6 @@ Antes de exportar os seus dados, tem de registar primeiro uma loja de dados no s
  
 1. Envie o oleoduto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

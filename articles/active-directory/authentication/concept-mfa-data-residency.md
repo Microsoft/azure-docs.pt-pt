@@ -5,17 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a75e9d5c8501274553edef36b475b2bd21b7875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee4b15311dfefecd9a533add9c5a028a9b7b22fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738806"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051156"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residência de dados e dados do cliente para autenticação multi-factor Azure
 
@@ -45,7 +46,7 @@ Esta informação é retida por 90 dias.
 
 A autenticação multi-factor Azure não regista dados pessoais como nome de utilizador, número de telefone ou endereço IP, mas existe um *UserObjectId* que identifica tentativas de autenticação multi-factor para os utilizadores. Os dados de registo são armazenados durante 30 dias.
 
-### <a name="azure-multi-factor-authentication"></a>Multi-Factor Authentication do Azure
+### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
 
 Para as nuvens públicas Azure, excluindo a autenticação Azure B2C, extensão NPS e Adaptador AD FS 2016 ou 2019, os seguintes dados pessoais são armazenados:
 
@@ -104,6 +105,6 @@ Onde a informação de registo é armazenada depende da região em que são proc
 
 Alguns dados de registo de autenticação do núcleo são armazenados apenas nos Estados Unidos. A Microsoft Azure Germany e o Microsoft Azure Operados pela 21Vianet estão sempre armazenados na sua respetiva nuvem. Os dados de registo da Cloud do Governo da Microsoft são sempre armazenados nos Estados Unidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as informações do utilizador recolhidas pelo Azure Multi-Factor Authentication e pelo Azure Multi-Factor Authentication Server, consulte a recolha de dados de [autenticação multi-factor Azure](howto-mfa-reporting-datacollection.md).

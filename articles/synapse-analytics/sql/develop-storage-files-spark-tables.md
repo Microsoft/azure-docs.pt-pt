@@ -1,5 +1,5 @@
 ---
-title: Sincronizar a Faísca Apache para as definições de tabela externa Azure Synapse em SQL on-demand (pré-visualização)
+title: Sincronizar o Apache Spark para definições de tabela externa em SQL on-demand (pré-visualização)
 description: Visão geral de como consultar tabelas spark usando SQL on demand (pré-visualização)
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e9f688a31d2847505e974ab6a1557aa6a7b2047
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247052"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046847"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizar a Faísca Apache para as definições de tabela externa Azure Synapse em SQL on-demand (pré-visualização)
 
@@ -22,7 +22,7 @@ O SQL on demand (pré-visualização) pode sincronizar automaticamente metadados
 
 Para cada tabela externa Spark baseada no Parquet e localizada no Azure Storage, é criada uma tabela externa na base de dados sql on-demand. Como tal, pode fechar as suas piscinas Spark e ainda consultar mesas externas Spark a partir de SQL a pedido.
 
-Quando uma mesa é dividida em Spark, os ficheiros no armazenamento são organizados por pastas. O SQL on-demand utilizará metadados de partição e apenas direcionará as pastas e ficheiros relevantes para a sua consulta.
+Quando uma mesa é dividida em Spark, os ficheiros no armazenamento são organizados por pastas. O SQL on-demand utilizará metadados de partição e apenas direciona-se para as pastas e ficheiros relevantes para a sua consulta.
 
 A sincronização de metadados é configurada automaticamente para cada pool spark alojado no espaço de trabalho Azure Synapse. Pode começar a consultar as tabelas externas da Spark instantaneamente.
 
@@ -35,21 +35,21 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> Adicione, deixe cair ou altere a coluna de tabela externa Spark não será refletida em tabela externa em SQL on-demand.
+> Adicione, deixe cair ou altere os comandos de tabela externo spark para uma coluna não será refletido na tabela externa em SQL on-demand.
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Tipos de dados Apache Spark para mapeamento de tipos de dados SQL
 
 | Tipo de dados de faísca | Tipo de dados SQL               |
 | --------------- | --------------------------- |
 | ByteType        | smallint                    |
-| CurtoTip       | smallint                    |
+| Tipo Curto       | smallint                    |
 | InteiroType     | int                         |
 | LongType        | bigint                      |
 | Boia DeTiputype       | real                        |
 | DuploTipo      | float                       |
 | DecimalType     | decimal                     |
 | TimetampType   | datetime2                   |
-| DataType        | date                        |
+| DataType        | data                        |
 | Tipo de Corda      | varchar (máx)*               |
 | BinárioTip      | varbinário                   |
 | BooleanType     | bit                         |

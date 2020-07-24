@@ -7,7 +7,7 @@
       href: overview.md
     - name: Novidades
       href: whats-new.md
-- name: Guias de Início Rápido
+- name: Inícios rápidos
   expaned: true
   items:
     - name: Utilizar a biblioteca de cliente
@@ -40,8 +40,6 @@
               href: quickstarts/python-layout.md
 - name: Tutoriais
   items:
-    - name: Utilizar o Reconhecedor de Formato com o Azure Logic Apps
-      href: tutorial-form-recognizer-with-logic-apps.md
     - name: Utilizar o Reconhecedor de Formato com o Cognitive Search
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: Guias de procedimentos
@@ -66,8 +64,6 @@
   items:
     - name: API do Reconhecedor de Formato v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
-    - name: API do Reconhecedor de Formato v1.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDKs
       items:
         - name: .NET
@@ -75,9 +71,9 @@
         - name: Python
           href: 'https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/formrecognizer'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre'
         - name: JavaScript
-          href: 'https://docs.microsoft.com/azure/cognitive-services/form-recognizer/'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre'
 - name: Recursos
   items:
     - name: Preços e limites

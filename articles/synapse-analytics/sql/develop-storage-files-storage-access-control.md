@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5f3b5c60907260a0e868d491a4d55ea3624c2bce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046797"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -55,7 +55,7 @@ Pode obter um token SAS navegando para o **portal Azure -> Storage Account -> As
 
 É necessário criar credenciais de âmbito de base de dados ou de âmbito de servidor para permitir o acesso através do token SAS.
 
-### <a name="managed-identity"></a>[Identidade gerida](#tab/managed-identity)
+### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
 **A Identidade Gerida** também é conhecida como MSI. É uma característica do Azure Ative Directory (Azure AD) que fornece serviços Azure para SQL on-demand. Além disso, implementa uma identidade gerida automaticamente no Azure AD. Esta identidade pode ser utilizada para autorizar o pedido de acesso aos dados no Azure Storage.
 
@@ -75,7 +75,7 @@ Na tabela abaixo pode encontrar os tipos de autorização disponíveis:
 | ------------------------------------- | ------------- | -----------    |
 | [Identidade do Utilizador](?tabs=user-identity#supported-storage-authorization-types)       | Não suportado | Suportado      |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Suportado     | Suportado      |
-| [Identidade gerida](?tabs=managed-identity#supported-storage-authorization-types) | Não suportado | Suportado      |
+| [Identidade Gerida](?tabs=managed-identity#supported-storage-authorization-types) | Não suportado | Suportado      |
 
 ### <a name="supported-storages-and-authorization-types"></a>Armazenamentos e tipos de autorização apoiados
 
@@ -86,6 +86,11 @@ Pode utilizar as seguintes combinações de autorizações e tipos de armazename
 | *SAS*               | Suportado      | Não suportado   | Suportado     |
 | *Identidade gerida* | Suportado      | Suportado        | Suportado     |
 | *Identidade do Utilizador*    | Suportado      | Suportado        | Suportado     |
+
+
+> [!IMPORTANT]
+> Ao aceder ao armazenamento protegido com a firewall, só é possível utilizar a Identidade Gerida. Precisa de [permitir serviços de confiança da Microsoft... definição](../../storage/common/storage-network-security.md#trusted-microsoft-services) e atribuição explicitamente [de um papel RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recursos. Neste caso, o âmbito de acesso, por exemplo, corresponde à função RBAC atribuída à identidade gerida.
+>
 
 ## <a name="credentials"></a>Credenciais
 
@@ -109,11 +114,7 @@ Para utilizar a credencial, o utilizador deve ter `REFERENCES` permissão numa c
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Para garantir uma experiência de passagem AD Azure suave, todos os utilizadores terão, por padrão, o direito de usar a `UserIdentity` credencial. Isto é conseguido através de uma execução automática da seguinte declaração sobre o provisionamento do espaço de trabalho Azure Synapse:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+Para garantir uma experiência de passagem AD Azure suave, todos os utilizadores terão, por padrão, o direito de usar a `UserIdentity` credencial.
 
 ## <a name="server-scoped-credential"></a>Credencial de âmbito do servidor
 
@@ -151,7 +152,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="managed-identity"></a>[Identidade gerida](#tab/managed-identity)
+### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
 O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando identidade gerida pelo espaço de trabalho.
 
@@ -189,7 +190,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 GO
 ```
 
-### <a name="managed-identity"></a>[Identidade gerida](#tab/managed-identity)
+### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
 O seguinte script cria uma credencial de âmbito de base de dados que pode ser usada para personificar o atual utilizador Azure AD como Identidade Gerida de Serviço. 
 

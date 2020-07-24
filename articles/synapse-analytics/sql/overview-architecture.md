@@ -1,5 +1,5 @@
 ---
-title: Arquitetura Azure Synapse SQL
+title: Arquitetura SQL do Synapse
 description: Saiba como o Azure Synapse SQL combina um processamento paralelo maciço (MPP) com o Azure Storage para alcançar um alto desempenho e escalabilidade.
 services: synapse-analytics
 author: mlee3gsd
@@ -10,11 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83658909"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046857"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura Azure Synapse SQL 
 
@@ -114,6 +115,6 @@ O diagrama abaixo mostra uma tabela replicada que é em cache na primeira distri
 
 ![Tabela replicada](media/overview-architecture/replicated-table.png "Tabela replicada") 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe um pouco sobre o Sinaapse SQL, aprenda a criar rapidamente [uma piscina SQL](../quickstart-create-sql-pool-portal.md) e [carregue dados de amostra](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). Ou começa a [utilizar o SQL a pedido.](../quickstart-sql-on-demand.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) quando se deparar com terminologia nova. 

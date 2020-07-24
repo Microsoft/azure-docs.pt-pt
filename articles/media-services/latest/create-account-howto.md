@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
-ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e32a9053e4ab7cc3618f7b50b7291a660a14e1b1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79478802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053492"
 ---
 # <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
 
@@ -38,7 +39,7 @@ Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para:
 
 * gerir os Serviços de Comunicação Social v3 [Live Events,](live-events-outputs-concept.md) 
 * ver (não gerir) v3 [Ativos,](assets-concept.md) 
-* [obter informações sobre o acesso a APIs](access-api-portal.md). 
+* [obter informações sobre o acesso a APIs](./access-api-howto.md). 
 
 Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
@@ -50,7 +51,7 @@ Este artigo mostra como criar uma conta de Serviços de Comunicação através d
 1. Clique **+Criar um recurso**  >  **Media**  >  **Media Services**.
 1. Na secção **Criar uma conta de Serviços de Mídia** introduza os valores necessários.
     
-    | Name | Descrição |
+    | Nome | Descrição |
     | ---|---|
     |**Nome da Conta**|Insira o nome da nova conta dos Serviços de Comunicação Social. Um nome de conta dos Serviços de Multimédia é composto por letras minúsculas ou números sem espaços, com 3 a 24 carateres de comprimento.|
     |**Subscrição**|Se tiver mais de uma subscrição, selecione uma da lista de subscrições Azure a que tem acesso.|
@@ -89,9 +90,9 @@ az group create --name amsResourceGroup --location westus2
 
 Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia. Para obter mais informações sobre a forma como as contas de armazenamento são utilizadas nos Serviços de Multimédia, veja [Storage accounts](storage-account-concept.md) (Contas de armazenamento).
 
-Tem de ter uma conta de armazenamento **Principal** e pode ter qualquer número de contas de armazenamento **Secundárias** associadas à conta dos Serviços de Multimédia. Os Serviços de Multimédia suportam contas para **Fins gerais v2** (GPv2) ou **Fins gerais v1** (GPv1). As contas apenas de blobs não são permitidas como **Principais**. Se quiser saber mais sobre as contas de armazenamento, veja [Opções de contas de Armazenamento do Azure](../../storage/common/storage-account-options.md). 
+Tem de ter uma conta de armazenamento **Principal** e pode ter qualquer número de contas de armazenamento **Secundárias** associadas à conta dos Serviços de Multimédia. Os Serviços de Multimédia suportam contas para **Fins gerais v2** (GPv2) ou **Fins gerais v1** (GPv1). As contas apenas de blobs não são permitidas como **Principais**. Se quiser saber mais sobre as contas de armazenamento, veja [Opções de contas de Armazenamento do Azure](../../storage/common/storage-account-overview.md). 
 
-Neste exemplo, criamos uma conta LRS Standard para Fins Gerais v2. Se quiser experimentar contas de armazenamento, use `--sku Standard_LRS` . No entanto, ao escolher um SKU para produção deve considerar, `--sku Standard_RAGRS` que fornece replicação geográfica para a continuidade do negócio. Para mais informações, consulte [as contas de armazenamento.](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)
+Neste exemplo, criamos uma conta LRS Standard para Fins Gerais v2. Se quiser experimentar contas de armazenamento, use `--sku Standard_LRS` . No entanto, ao escolher um SKU para produção deve considerar, `--sku Standard_RAGRS` que fornece replicação geográfica para a continuidade do negócio. Para mais informações, consulte [as contas de armazenamento.](/cli/azure/storage/account?view=azure-cli-latest)
  
 O comando seguinte cria uma conta de Armazenamento que será associada à conta dos Serviços de Multimédia. No script abaixo, pode substituir `storageaccountforams` pelo seu valor. `amsResourceGroup`deve corresponder ao valor que deu para o grupo de recursos no passo anterior. O nome da conta de armazenamento deve ter um comprimento inferior a 24.
 
@@ -113,13 +114,13 @@ az ams account create --name amsaccount \
    -l westus2 
 ```
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Ver também
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-* [Anexar um armazenamento secundário a uma conta de Serviços de Mídia](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+* [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)
+* [Anexar um armazenamento secundário a uma conta de Serviços de Mídia](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)

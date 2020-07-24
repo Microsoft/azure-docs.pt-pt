@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 902210f0ba6fc195cd219dd5a24e7098ed484d8f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: b1a228e9d15a349f032291fb0678bdd0ad9d95b3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855657"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048843"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Use a Azure PowerShell para criar um cluster HDInsight com Azure Data Lake Storage Gen1 (como armazenamento adicional)
 
@@ -51,7 +51,7 @@ Configurar a HDInsight para trabalhar com a Data Lake Storage Gen1 utilizando o 
 Antes de começar este tutorial, tem de ter o seguinte:
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/).
 * **Windows SDK**. Pode instalá-lo a partir [daqui](https://dev.windows.com/en-us/downloads). Usa isto para criar um certificado de segurança.
 * **Azure Ative Directory Service Principal**. Passos neste tutorial fornecem instruções sobre como criar um diretor de serviço em Azure AD. No entanto, você deve ser um administrador AD Azure para ser capaz de criar um principal serviço. Se você é um administrador AD Azure, você pode saltar este pré-requisito e proceder com o tutorial.
 

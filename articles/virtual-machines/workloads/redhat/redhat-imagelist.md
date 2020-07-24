@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux imagens em Azure Microsoft Docs
+title: Imagens Red Hat Enterprise Linux disponíveis em Azure
 description: Saiba mais sobre imagens Red Hat Enterprise Linux no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9c4389e2c950fe68c8be171b4c50d3d6271c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838591"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052030"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Imagens red hat enterprise Linux (RHEL) disponíveis em Azure
 O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
@@ -54,10 +55,14 @@ RHEL          | 6.7      | RAW    | Agente Linux |
 |             | 78-gen2  | LVM    | Agente Linux | Anexado aos repositórios regulares (EUS indisponível para RHEL 7.8)
 |             | 8-LVM    | LVM    | Agente Linux | FAMÍLIA RHEL 8.x de imagens. Ligado a repositórios regulares.
 |             | 8-lvm-gen2| LVM    | Agente Linux | Hiper-V Geração 2 - FAMÍLIA RHEL 8.x de imagens. Ligado a repositórios regulares.
-|             | 8        | LVM    | Agente Linux | Imagens RHEL 8.0
+|             | 8        | LVM    | Agente Linux | Imagens RHEL 8.0.
 |             | 8-gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - IMAGENS RHEL 8.0.
-|             | 8.1      | LVM    | Agente Linux | Imagens RHEL 8.1. Atualmente ligado a repositórios regulares.
+|             | 8.1      | LVM    | Agente Linux | Imagens RHEL 8.2. Atualmente ligado a repositórios regulares.
 |             | 81gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - IMAGENS RHEL 8.1. Atualmente ligado a repositórios regulares.
+|             | 8.1-ci   | LVM    | Agente Linux | Imagens RHEL 8.1 que usam a cloud-init como agente de provisionamento. Atualmente ligado a repositórios regulares.
+|             | 81-ci-gen2| LVM    | Agente Linux | Hiper-V Geração 2 - Imagens RHEL 8.1 usando a nuvem como agente de provisionamento. Atualmente ligado a repositórios regulares.
+|             | 8.2      | LVM    | Agente Linux | Imagens RHEL 8.2. Atualmente ligado a repositórios regulares.
+|             | 82gen2   | LVM    | Agente Linux | Hiper-V Geração 2 - IMAGENS RHEL 8.1. Atualmente ligado a repositórios regulares.
 RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7.4 para SAP HANA e Business Apps. Anexados aos repositórios E4S, cobrará um prémio pela SAP e pela RHEL, bem como pela taxa de cálculo base.
 |             | 74sap-gen2| LVM    | Agente Linux | RHEL 7.4 para SAP HANA e Business Apps. Imagem de geração 2. Anexados aos repositórios E4S, cobrará um prémio pela SAP e pela RHEL, bem como pela taxa de cálculo base.
 |             | 7,5       | LVM    | Agente Linux | RHEL 7.5 para SAP HANA e Business Apps. Anexados aos repositórios E4S, cobrará um prémio pela SAP e pela RHEL, bem como pela taxa de cálculo base.
@@ -84,12 +89,13 @@ rhel-byos     |rhel-lvm74| LVM    | Agente Linux | As imagens RHEL 7.4 BYOS, nã
 |             |rhel-lvm75| LVM    | Agente Linux | As imagens RHEL 7.5 BYOS, não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
 |             |rhel-lvm76| LVM    | Agente Linux | As imagens RHEL 7.6 BYOS, não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
 |             |rhel-lvm77| LVM    | Agente Linux | As imagens RHEL 7.7 BYOS, não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
-|             |rhel-lvm8 | LVM    | Agente Linux | As imagens RHEL 8 BYOS (versão MENOR RHEL é mostrada no valor da versão de imagem), não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
+|             |rhel-lvm8 | LVM    | Agente Linux | As imagens RHEL 8.0 BYOS , não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
+|             |rhel-lvm81 | LVM    | Agente Linux | As imagens RHEL 8.1 BYOS , não anexadas a nenhuma fonte de atualizações, não cobrarão um prémio RHEL.
 
 > [!NOTE]
 > A oferta de produtos RHEL-SAP-HANA é considerada fim de vida pela Red Hat. As implementações existentes continuarão a funcionar normalmente, mas a Red Hat recomenda que os clientes migram das imagens RHEL-SAP-HANA para as imagens RHEL-SAP-HA, que inclui os repositórios SAP HANA, bem como o addon HA. Mais detalhes sobre as ofertas de nuvem SAP da Red Hat estão disponíveis [aqui.](https://access.redhat.com/articles/3751271)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre as [imagens do Chapéu Vermelho em Azure.](./redhat-images.md)
 * Saiba mais sobre a [Infraestrutura de Atualização do Chapéu Vermelho.](./redhat-rhui.md)
 * Saiba mais sobre a [oferta DA RHEL BYOS.](./byos.md)

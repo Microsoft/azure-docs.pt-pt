@@ -6,11 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7c5dfe6ed08df01f78346c76fd5a35e7d64ab520
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8beb1d60ca8dcc18978ffeb523a7d63f90ca6c01
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671584"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049803"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Aplicativos web de perfil em execução em uma máquina virtual Azure ou uma escala de máquina virtual definida usando o Perfil de Insights de Aplicação
 
@@ -24,7 +25,7 @@ Também pode implementar o Azure Application Insights Profiler nestes serviços:
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Implementar profiler em uma máquina virtual ou um conjunto de escala de máquina virtual
 Este artigo mostra-lhe como obter o Profiler Application Insights a funcionar na sua máquina virtual Azure (VM) ou no conjunto de escala de máquina virtual Azure. O profiler é instalado com a extensão Azure Diagnostics para VMs. Configure a extensão para executar profiler e construa o Application Insights SDK na sua aplicação.
 
-1. Adicione o SDK de Insights de Aplicação à sua [aplicação ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Adicione o SDK de Insights de Aplicação à sua [aplicação ASP.NET](./asp-net.md).
 
    Para visualizar perfis para os seus pedidos, tem de enviar telemetria para Informações de Aplicação.
 
@@ -71,7 +72,7 @@ Este artigo mostra-lhe como obter o Profiler Application Insights a funcionar na
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. Se estabelecer o acesso remoto é um problema, pode utilizar o [CLI Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para executar o seguinte comando:  
+   b. Se estabelecer o acesso remoto é um problema, pode utilizar o [CLI Azure](/cli/azure/get-started-with-azure-cli) para executar o seguinte comando:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
@@ -106,7 +107,7 @@ Ainda não temos forma de definir o perfil de insights de aplicação do portal.
 ## <a name="can-profiler-run-on-on-premises-servers"></a>O Profiler pode funcionar nos servidores do local?
 Não temos nenhum plano para suportar o Profiler Application Insights para servidores no local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Gere tráfego para a sua aplicação (por exemplo, lance um [teste de disponibilidade).](monitor-web-app-availability.md) Em seguida, aguarde 10 a 15 minutos para que os vestígios comecem a ser enviados para a instância De Insights de Aplicação.
 - Consulte [os vestígios do Profiler](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal Azure.

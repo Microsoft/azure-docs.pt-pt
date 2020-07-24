@@ -7,11 +7,13 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699435"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050368"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Mover serviços de análise para uma região diferente
 
@@ -264,7 +266,7 @@ Opcional: Depois de restaurar a base de dados do modelo, processe o modelo e as 
 
 2. Expandir **tabelas,** clicar à direita numa tabela. Em **Tabelas de Processos,** selecione todas as tabelas e, em seguida, selecione **OK**.
 
-## <a name="verify"></a>Verificar
+## <a name="verify"></a>Verificação
 
 1. No portal, vá para o novo servidor alvo.
 

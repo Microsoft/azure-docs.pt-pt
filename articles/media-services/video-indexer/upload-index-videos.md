@@ -10,43 +10,44 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77468767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052483"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
-Ao carregar vídeos com API do Indexer de Vídeo, tem as seguintes opções de upload: 
+Ao carregar vídeos com a API do Video Indexer, tem as seguintes opções de carregamento: 
 
 * carregar o vídeo a partir de um URL (preferencial),
 * enviar o ficheiro de vídeo como um conjunto de byte no corpo de pedido,
-* Utilize o ativo Azure Media Services existente fornecendo o [ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) do ativo (suportado apenas em contas pagas).
+* Utilizar o recurso existente dos Serviços de Multimédia do Azure ao disponibilizar o [ID do recurso](../latest/assets-concept.md) (suportado apenas em contas pagas).
 
-Uma vez que o seu vídeo tenha sido carregado, o Video Indexer (opcionalmente) codifica o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com opção paga, cria uma conta de Indexer de Vídeo que está [ligada à sua subscrição Azure e a uma conta Azure Media Services](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
+Uma vez que o seu vídeo tenha sido carregado, o Video Indexer (opcionalmente) codifica o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer, [ligada à subscrição do Azure, e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
 O artigo mostra como carregar e indexar os seus vídeos com estas opções:
 
-* [O site do Video Indexer](#website) 
-* [Os APIs do Indexador de Vídeo](#apis)
+* [Site do Video Indexer](#website) 
+* [APIs do Video Indexer](#apis)
 
-## <a name="uploading-considerations-and-limitations"></a>Uploading considerações e limitações
+## <a name="uploading-considerations-and-limitations"></a>Considerações e limitações de carregamento
  
-- Um nome do vídeo não deve ser superior a 80 caracteres.
-- Ao carregar o seu vídeo com base no URL (preferencial) o ponto final deve ser fixado com TLS 1.2 (ou superior).
-- O tamanho do upload com a opção URL é limitado a 30GB.
-- O comprimento do URL do pedido é limitado a 6144 caracteres onde o comprimento do URL de cadeia de consulta é limitado a 4096 caracteres .
-- O tamanho do upload com a opção byte array está limitado a 2GB.
-- A opção byte array vezes fora após 30 min.
+- O nome do vídeo não pode ter mais de 80 carateres.
+- Ao carregar o vídeo com base no URL (preferencial), o ponto final tem de estar protegido pelo TLS 1.2 (ou posterior).
+- O tamanho do carregamento com a opção de URL está limitado a 30 GB.
+- O comprimento do URL do pedido está limitado a 6144 carateres, ao passo que o comprimento do URL da cadeia de consulta está limitado a 4096 caracteres.
+- O tamanho do carregamento com a opção de matriz de bytes está limitado a 2 GB.
+- A opção de matriz de bytes excede o tempo limite após 30 min.
 - A URL fornecida no `videoURL` param precisa de ser codificada.
-- Indexar os ativos dos Serviços de Mídia tem a mesma limitação que a indexação da URL.
-- O Indexer de Vídeo tem um limite máximo de duração de 4 horas para um único ficheiro.
-- O URL tem de ser acessível (por exemplo, um URL público). 
+- Indexar os recursos dos Serviços de Multimédia tem a mesma limitação que a indexação do URL.
+- O Video Indexer tem uma duração máxima de 4 horas para um único ficheiro.
+- O URL tem de estar acessível (por exemplo, um URL público). 
 
-    Se for uma URL privada, o sinal de acesso deve ser fornecido no pedido.
+    Se for um URL privado, o token de acesso terá ser disponibilizado no pedido.
 - O URL tem de apontar para um ficheiro de mídia válido e não para uma página web, como um link para a `www.youtube.com` página.
-- Numa conta paga pode fazer o upload de até 50 filmes por minuto e numa conta experimental até 5 filmes por minuto.
+- Numa conta paga, pode carregar até 50 filmes por minuto e, numa conta de avaliação, até 5 filmes por minuto.
 
 > [!Tip]
 > Recomenda-se a utilização da versão 4.6.2 do .NET Framework ou superior porque as versões .NET Framework mais antigas não têm como predefinição o TLS 1.2.
@@ -57,10 +58,10 @@ O artigo mostra como carregar e indexar os seus vídeos com estas opções:
 
 Consulte o artigo [de formatos de recipiente/ficheiro](../latest/media-encoder-standard-formats.md#input-containerfile-formats) de entrada para obter uma lista de formatos de ficheiros que pode utilizar com o Video Indexer.
 
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Faça upload e indexe um vídeo utilizando o site do Indexer de Vídeo
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Faça upload e indexe um vídeo utilizando o site do Indexer de Vídeo
 
 > [!NOTE]
-> Um nome do vídeo não deve ser superior a 80 caracteres.
+> O nome do vídeo não pode ter mais de 80 carateres.
 
 1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/).
 2. Para carregar um vídeo, selecione o botão ou ligação **Upload** (Carregar)
@@ -73,7 +74,7 @@ Consulte o artigo [de formatos de recipiente/ficheiro](../latest/media-encoder-s
 
     Quando o Video Indexer concluir a análise, será apresentada uma notificação com uma ligação para o seu vídeo juntamente com uma breve descrição dos conteúdos encontrados no mesmo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
 
-## <a name="upload-and-index-with-api"></a><a id="apis"/>Upload e índice com API
+## <a name="upload-and-index-with-api"></a><a name="apis"></a>Upload e índice com API
 
 Utilize a API [de vídeo upload](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para carregar e indexar os seus vídeos com base num URL. A amostra de código que se segue inclui o código comentado que mostra como carregar o conjunto byte. 
 
@@ -92,7 +93,7 @@ Um URL que é usado para notificar o cliente (usando um pedido POST) sobre os se
 - Alteração do estado de indexação: 
     - Propriedades:    
     
-        |Name|Descrição|
+        |Nome|Descrição|
         |---|---|
         |ID|A iD de vídeo|
         |state|O estado do vídeo|  
@@ -100,7 +101,7 @@ Um URL que é usado para notificar o cliente (usando um pedido POST) sobre os se
 - Pessoa identificada em vídeo:
   - Propriedades
     
-      |Name|Descrição|
+      |Nome|Descrição|
       |---|---|
       |ID| A iD de vídeo|
       |faceId|O ID do rosto que aparece no índice de vídeo|
@@ -141,7 +142,7 @@ Assim que o seu vídeo for carregado, o Video Indexer codifica opcionalmente o v
 
 Ao utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Reindexar Vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), um dos parâmetros opcionais é `streamingPreset`. Se definir o parâmetro `streamingPreset` para `Default`, `SingleBitrate` ou `AdaptiveBitrate`, o processo de codificação é acionado. Assim que as tarefas de indexação e codificação estiverem concluídas, o vídeo é publicado para que também o possa transmitir em fluxo. O Ponto Final de Transmissão em Fluxo a partir do qual quer transmitir o vídeo tem de estar no estado **Em execução**.
 
-Para executar as tarefas de indexação e codificação, a [conta dos Serviços de Multimédia do Azure associada à sua conta do Video Indexer](connect-to-azure.md) necessita de Unidades Reservadas. Para obter mais informações, veja [Scaling Media Processing](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) (Dimensionar o Processamento de Multimédia). Como estas são tarefas de computação intensiva, o tipo de unidade S3 é altamente recomendado. O número de RUs define o número máximo de tarefas que podem ser executadas em paralelo. A recomendação de linha de base é de 10 RUs S3. 
+Para executar as tarefas de indexação e codificação, a [conta dos Serviços de Multimédia do Azure associada à sua conta do Video Indexer](connect-to-azure.md) necessita de Unidades Reservadas. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Como estas são tarefas de computação intensiva, o tipo de unidade S3 é altamente recomendado. O número de RUs define o número máximo de tarefas que podem ser executadas em paralelo. A recomendação de linha de base é de 10 RUs S3. 
 
 Se quiser indexar o seu vídeo mas não quiser codificá-lo, defina o parâmetro `streamingPreset` para `NoStreaming`.
 
@@ -353,6 +354,6 @@ Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela ope
 |400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|
 |429||As contas de julgamento são permitidas 5 uploads por minuto. As contas pagas são permitidas 50 uploads por minuto.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Examinar a produção do Azure Video Indexer produzido pela API](video-indexer-output-json-v2.md)

@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75980369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053117"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Gerir contas V3 da Azure Media Services
 
@@ -36,10 +37,10 @@ Se precisar de mover uma conta de Serviços de Comunicação para uma nova subsc
 > [!IMPORTANT]
 > Não inicie o Streaming Endpoint até que o movimento esteja concluído com sucesso.
 
-### <a name="troubleshoot"></a>Resolução de problemas 
+### <a name="troubleshoot"></a>Resolução de Problemas 
 
 Se uma conta de Serviços de Mídia ou uma conta de Armazenamento Azure associada ficar "desligada" após o movimento do grupo de recursos, tente rodar as teclas de Conta de Armazenamento. Se a rotação das teclas 'Conta de Armazenamento' não resolver o estado "desligado" da conta Serviços de Comunicação, apresente um novo pedido de apoio do menu "Suporte + resolução de problemas" na conta dos Serviços de Comunicação.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Criar uma conta](create-account-cli-quickstart.md)
+[Criar uma conta](./create-account-howto.md)

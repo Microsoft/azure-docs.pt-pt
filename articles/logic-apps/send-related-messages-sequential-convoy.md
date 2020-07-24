@@ -6,15 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987612"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048666"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envie mensagens relacionadas por ordem usando um comboio sequencial em Azure Logic Apps com Azure Service Bus
 
-Quando precisa de enviar mensagens correlacionadas numa ordem específica, pode seguir o padrão do [ *comboio sequencial* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) ao utilizar [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
+Quando precisa de enviar mensagens correlacionadas numa ordem específica, pode seguir o padrão do [ *comboio sequencial* ](/azure/architecture/patterns/sequential-convoy) ao utilizar [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) utilizando o [conector Azure Service Bus](../connectors/connectors-create-api-servicebus.md). As mensagens correlacionadas têm uma propriedade que define a relação entre essas mensagens, como o ID para a [sessão](../service-bus-messaging/message-sessions.md) em Service Bus.
 
 Por exemplo, suponha que tem 10 mensagens para uma sessão chamada "Sessão 1", e tem 5 mensagens para uma sessão chamada "Session 2" que são todas enviadas para a mesma [fila de autocarros](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)de serviço. Pode criar uma aplicação lógica que processa mensagens a partir da fila para que todas as mensagens de "Sessão 1" sejam manuseadas por um único gatilho e todas as mensagens de "Sessão 2" sejam tratadas pelo próximo gatilho.
 
@@ -28,7 +29,7 @@ Este artigo mostra como criar uma aplicação lógica que implementa este padrã
 
 Para rever o ficheiro JSON deste modelo, consulte [GitHub: service-bus-sessions.jsem](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-Para mais informações, consulte [o padrão do comboio sequencial - Azure Architecture Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+Para mais informações, consulte [o padrão do comboio sequencial - Azure Architecture Cloud Design Patterns](/azure/architecture/patterns/sequential-convoy).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,7 +117,7 @@ Aqui está o fluxo de trabalho de alto nível na entrega de encomenda correlacio
 
 ![Fluxo de trabalho de alto nível do modelo](./media/send-related-messages-sequential-convoy/template-top-level-flow.png)
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | **`When a message is received in a queue (peek-lock)`** | Com base na recorrência especificada, este gatilho do Service Bus verifica a fila de serviços especificado para qualquer mensagem. Se existe uma mensagem na fila, o gatilho dispara, o que cria e executa uma instância de fluxo de trabalho. <p><p>O termo *"peek-lock"* significa que o gatilho envia um pedido para recuperar uma mensagem da fila. Se existir uma mensagem, o gatilho recupera e bloqueia a mensagem de modo a que nenhum outro tratamento aconteça nessa mensagem até que o período de bloqueio expire. Para mais detalhes, [inicialize a sessão](#initialize-session). |
 | **`Init isDone`** | Esta [ **ação variável inicializa** ](../logic-apps/logic-apps-create-variables-store-values.md#initialize-variable) uma variável Booleana que está definida `false` e indica quando as seguintes condições são verdadeiras: <p><p>- Não há mais mensagens disponíveis para ler. <br>- O bloqueio da sessão já não precisa de ser renovado para que a atual instância de fluxo de trabalho possa terminar. <p><p>Para mais detalhes, consulte [Initialize the session](#initialize-session). |
@@ -132,7 +133,7 @@ Aqui está o fluxo de alto nível na `Try` [ação](../logic-apps/logic-apps-con
 
 ![Fluxo de trabalho de ação de âmbito "Tente"](./media/send-related-messages-sequential-convoy/try-scope-action.png)
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | **`Send initial message to topic`** | Pode substituir esta ação por qualquer ação que queira lidar com a primeira mensagem da sessão na fila. O ID da sessão especifica a sessão. <p><p>Para este modelo, uma ação de Service Bus envia a primeira mensagem para um tópico de ônibus de serviço. Para mais informações, consulte [Handle the initial message](#handle-initial-message). |
 | (ramo paralelo) | Esta [ação paralela do ramo](../logic-apps/logic-apps-control-flow-branches.md) cria dois caminhos: <p><p>- #1 de ramificação: Continue a processar a mensagem. Para obter mais informações, consulte [Branch #1: Complete a mensagem inicial na fila](#complete-initial-message). <p><p>- Filial #2: Abandone a mensagem se algo correr mal e liberte-a para ser recolhida por outro gatilho. Para mais informações, consulte [Branch #2: Abandone a mensagem inicial da fila](#abandon-initial-message). <p><p>Ambos os caminhos se juntam mais tarde na **sessão Close numa fila e sucedem** a ação, descrita na linha seguinte. |
@@ -143,7 +144,7 @@ Aqui está o fluxo de alto nível na `Try` [ação](../logic-apps/logic-apps-con
 
 #### <a name="branch-1-complete-initial-message-in-queue"></a>#1 de filial: Complete a mensagem inicial na fila
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | `Complete initial message in queue` | Esta ação do Service Bus marca uma mensagem recuperada com sucesso como completa e remove a mensagem da fila para evitar o reprocessamento. Para mais informações, consulte [Handle the initial message](#handle-initial-message). |
 | `While there are more messages for the session in the queue` | Este loop [ **Até** ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) que o loop continue a receber mensagens enquanto as mensagens existem ou até que uma hora passe. Para obter mais informações sobre as ações neste ciclo, consulte [Enquanto houver mais mensagens para a sessão na fila.](#while-more-messages-for-session) |
@@ -167,7 +168,7 @@ Aqui está o fluxo de alto nível na ação de `Catch` âmbito quando os detalhe
 
 ![Fluxo de trabalho de ação de âmbito "Catch"](./media/send-related-messages-sequential-convoy/catch-scope-action.png)
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | **`Close a session in a queue and fail`** | Esta ação de Service Bus encerra a sessão na fila para que o bloqueio da sessão não fique aberto. Para mais detalhes, consulte [Fechar uma sessão numa fila e falhar](#close-session-fail). |
 | **`Find failure msg from 'Try' block`** | Esta ação [ **Filter Array** ](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action) cria um conjunto a partir das entradas e saídas de todas as ações dentro do `Try` âmbito com base nos critérios especificados. Neste caso, esta ação devolve os resultados das ações que resultaram em `Failed` estatuto. Para mais detalhes, consulte [Find Fail MSG do bloco 'Try'.](#find-failure-message) |
@@ -194,14 +195,14 @@ Para fornecer os valores para o gatilho e ações na entrega correlacionada de e
 
   | Propriedade | Necessário para este cenário | Valor | Descrição |
   |----------|----------------------------|-------|-------------|
-  | **Nome da fila** | Sim | <*nome de fila*> | O nome da sua fila de ônibus de serviço anteriormente criada. Este exemplo utiliza "Fabrikam-Service-Bus-Queue". |
-  | **Tipo de fila** | Sim | **Principal** | Sua fila de ônibus de serviço primário |
-  | **Id de sessão** | Sim | **Próximo disponível** | Esta opção obtém uma sessão para cada gatilho, com base no ID da sessão a partir da mensagem na fila do Service Bus. A sessão também está bloqueada para que nenhuma outra aplicação lógica ou outro cliente possa processar mensagens relacionadas com esta sessão. As ações subsequentes do fluxo de trabalho processam todas as mensagens que estão associadas a essa sessão, como descrito mais tarde neste artigo. <p><p>Aqui está mais informações sobre as outras opções **de id session:** <p>- **Nenhuma**: A opção padrão, que não resulta em sessões e não pode ser usada para implementar o padrão do comboio sequencial. <p>- **Insira o valor personalizado**: Utilize esta opção quando souber o ID da sessão que pretende utilizar e sempre pretenda executar o gatilho para esse ID de sessão. <p>**Nota:** O conector Service Bus pode guardar um número limitado de sessões únicas de cada vez desde a Azure Service Bus até à cache do conector. Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para obter mais informações, consulte [mensagens exchange na nuvem com Azure Logic Apps e Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
-  | **Intervalo** | Sim | <*número de intervalos*> | O número de unidades de tempo entre recorrências antes de verificar uma mensagem. |
-  | **Frequência** | Sim | **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** | A unidade de tempo para a recorrência usar ao verificar uma mensagem. <p>**Sugestão**: Para adicionar um **fuso horário** ou **hora de início,** selecione estas propriedades da nova lista **de parâmetros** adicionar. |
+  | **Nome da fila** | Yes | <*nome de fila*> | O nome da sua fila de ônibus de serviço anteriormente criada. Este exemplo utiliza "Fabrikam-Service-Bus-Queue". |
+  | **Tipo de fila** | Yes | **Principal** | Sua fila de ônibus de serviço primário |
+  | **Id de sessão** | Yes | **Próximo disponível** | Esta opção obtém uma sessão para cada gatilho, com base no ID da sessão a partir da mensagem na fila do Service Bus. A sessão também está bloqueada para que nenhuma outra aplicação lógica ou outro cliente possa processar mensagens relacionadas com esta sessão. As ações subsequentes do fluxo de trabalho processam todas as mensagens que estão associadas a essa sessão, como descrito mais tarde neste artigo. <p><p>Aqui está mais informações sobre as outras opções **de id session:** <p>- **Nenhuma**: A opção padrão, que não resulta em sessões e não pode ser usada para implementar o padrão do comboio sequencial. <p>- **Insira o valor personalizado**: Utilize esta opção quando souber o ID da sessão que pretende utilizar e sempre pretenda executar o gatilho para esse ID de sessão. <p>**Nota:** O conector Service Bus pode guardar um número limitado de sessões únicas de cada vez desde a Azure Service Bus até à cache do conector. Se a contagem de sessão exceder este limite, as sessões antigas são removidas da cache. Para obter mais informações, consulte [mensagens exchange na nuvem com Azure Logic Apps e Azure Service Bus](../connectors/connectors-create-api-servicebus.md#connector-reference). |
+  | **Intervalo** | Yes | <*número de intervalos*> | O número de unidades de tempo entre recorrências antes de verificar uma mensagem. |
+  | **Frequência** | Yes | **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana**ou **Mês** | A unidade de tempo para a recorrência usar ao verificar uma mensagem. <p>**Sugestão**: Para adicionar um **fuso horário** ou **hora de início,** selecione estas propriedades da nova lista **de parâmetros** adicionar. |
   |||||
 
-  Para obter mais informações sobre o gatilho, consulte [o Service Bus - Quando uma mensagem é recebida numa fila (peek-lock)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). O gatilho produz um [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  Para obter mais informações sobre o gatilho, consulte [o Service Bus - Quando uma mensagem é recebida numa fila (peek-lock)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). O gatilho produz um [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 Após a inicialização da sessão, o fluxo de trabalho utiliza a ação **variável Initialize** para criar uma variável Booleana que inicialmente se definiu `false` e indica quando as seguintes condições são verdadeiras: 
 
@@ -419,6 +420,6 @@ Depois de completar o modelo, pode agora guardar a sua aplicação lógica. Na b
 
 Para testar a sua aplicação lógica, envie mensagens para a sua fila de Service Bus. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre os [gatilhos e ações do conector do Service Bus](https://docs.microsoft.com/connectors/servicebus/)
+* Saiba mais sobre os [gatilhos e ações do conector do Service Bus](/connectors/servicebus/)

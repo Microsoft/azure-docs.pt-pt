@@ -5,21 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051301"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Gestão de passwords frequentemente perguntas
+# <a name="self-service-password-reset-frequently-asked-questions"></a>Redefinição de senha de autosserviço frequentemente feita perguntas
 
-Seguem-se algumas perguntas frequentes (FAQ) para todas as coisas relacionadas com o reset da palavra-passe.
+Seguem-se algumas perguntas frequentes (FAQ) para todas as coisas relacionadas com o reset da palavra-passe de autosserviço.
 
 Se tiver uma pergunta geral sobre o Azure Ative Directory (Azure AD) e o reset da palavra-passe de autosserviço (SSPR) que não seja respondida aqui, pode pedir assistência à comunidade no [Microsoft Q&Página de perguntas para o Azure Ative Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Os membros da comunidade incluem engenheiros, gestores de produtos, MVPs e outros profissionais de TI.
 
@@ -37,7 +38,7 @@ Esta FAQ é dividida nas seguintes secções:
 
   > **R:** Sim. Enquanto a palavra-passe estiver ativada e estiver licenciada, os utilizadores podem ir ao portal de registo de redefinição de passwords ( https://aka.ms/ssprsetup) para registar as suas informações de autenticação. Os utilizadores também podem inscrever-se através do Painel de Acesso ( Painel de https://myapps.microsoft.com) Acesso). Para se registarem através do Painel de Acesso, têm de selecionar a sua imagem de perfil, selecionar **Perfil**e, em seguida, selecionar o Registo para a opção **de reset da palavra-passe.**
   >
-  >
+  > Se ativar [o registo combinado,](concept-registration-mfa-sspr-combined.md)os utilizadores podem registar-se tanto para a Autenticação Multi-Factor SSPR como para a Azure ao mesmo tempo.
 * **P: Se eu permitir o reset da palavra-passe para um grupo e, em seguida, decidir capacitá-lo para todos os meus utilizadores são obrigados a re-registrar?**
 
   > **R:** Não. Os utilizadores que tenham preenchido os dados de autenticação não são obrigados a re-registar-se.
@@ -276,7 +277,7 @@ Esta FAQ é dividida nas seguintes secções:
   >
   >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
 * [Redefinir ou alterar a sua palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)

@@ -7,11 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dfa9de94665c0ee98d0252be6de807f18e39b087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050454"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir o Azure Analysis Services com o PowerShell
 
@@ -25,7 +26,7 @@ Tarefas de gestão de recursos do servidor como criar ou eliminar um servidor, s
 
 A maioria das tarefas powerShell requerem que tenha privilégios de Administração no servidor de Serviços de Análise que está a gerir. As tarefas programadas da PowerShell são operações não acompanhadas. A conta ou o principal do serviço que executam o programador devem ter privilégios de administração no servidor de Serviços de Análise. 
 
-Para operações de servidor utilizando cmdlets Azure PowerShell, a sua conta ou o programador de execução da conta também devem pertencer à função do Proprietário para o recurso em [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
+Para operações de servidor utilizando cmdlets Azure PowerShell, a sua conta ou o programador de execução da conta também devem pertencer à função Proprietário para o recurso no controlo de acesso baseado em [funções Azure (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-and-server-operations"></a>Operações de recursos e servidores 
 

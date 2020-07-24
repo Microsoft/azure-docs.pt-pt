@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 94a5fd3ae1de0708f0e5550547f7ab2fc9f881cb
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146238"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050294"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar a aplicação do Serviço de Aplicações eliminada com o PowerShell
 
@@ -58,7 +58,7 @@ As informações detalhadas incluem:
 Uma vez identificada a aplicação que pretende restaurar, pode restaurá-la `Restore-AzDeletedWebApp` utilizando.
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
 > As ranhuras de implementação não são restauradas como parte da sua aplicação. Se precisar de restaurar uma ranhura de paragem, utilize a `-Slot <slot-name>` bandeira.
@@ -66,7 +66,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 
 As entradas para o comando são:
 
-- **Grupo de Recursos**: Grupo de recursos-alvo onde a app será restaurada
+- **Target Resource Group**: Grupo de recursos-alvo onde a app será restaurada
 - **Nome**: Nome para a aplicação, deve ser globalmente único.
 - **TargetAppServicePlanName**: Plano de Serviço de Aplicações ligado à app
 

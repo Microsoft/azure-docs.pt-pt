@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: laurenhughes
   ms.author: lahugh
-  ms.date: 03/25/2020
-  ms.openlocfilehash: c3a5651df8ad1f07f3b9800abfe4b48e829ff27b
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.date: 07/21/2020
+  ms.openlocfilehash: 0a1efee059f0606248c5514dd37d1568e73897f6
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86251659"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87025205"
 landingContent:
 - title: Acerca do Azure Kubernetes Service (AKS)
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
     links:
     - text: Principais conceitos do Kubernetes para o AKS
       url: concepts-clusters-workloads.md
+    - text: Arquitetura de linha de base para um cluster do AKS
+      url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
     - text: Clusters e cargas de trabalho
       url: concepts-clusters-workloads.md
     - text: Acesso e identidade
@@ -55,7 +57,7 @@ landingContent:
     - text: Utilizar o Processo Local com o Kubernetes com o Visual Studio Code (pré-visualização)
       url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
     - text: Utilizar o Processo Local com o Kubernetes com o Visual Studio (pré-visualização)
-      url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
+      url: /visualstudio/containers/local-process-kubernetes
 - title: Implementar, gerir e atualizar aplicações
   linkLists:
   - linkListType: tutorial

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a069ee40c2db99b05e9620cf83c06c49cc9e29fc
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: da7f115224db10ad1d66e8ffe7b86e58e43ae866
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052456"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 
@@ -56,14 +56,14 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
     > [!IMPORTANT]
     > O espaço de trabalho Azure Synapse precisa de ser capaz de ler e escrever para a conta ADLS Gen2 selecionada. Além disso, para qualquer conta de armazenamento que ligue como conta de armazenamento primário, deve ter ativado espaço **de nome hierárquico** na criação da conta de armazenamento.
     >
-    > Abaixo dos campos de seleção da ADLS Gen2, há uma nota a dizer que a identidade gerida do espaço de trabalho será atribuída ao papel **de Contribuinte de Dados Storaqe Blob** no sistema de ficheiros data lake de armazenamento selecionado Gen2, concedendo-lhe acesso total.
+    > Abaixo dos campos de seleção da ADLS Gen2, há uma nota a dizer que a identidade gerida do espaço de trabalho será atribuída ao papel **de Colaborador de Dados blob de armazenamento** no sistema de ficheiros selecionado data lake storage Gen2, permitindo-lhe acesso total.
 
 4. (Opcional) Modificar qualquer um dos **separadores de predefinição de segurança + rede:**
 5. (Opcional) Adicione todas as etiquetas no **separador Tags.**
 6. O **separador Resumo** executará as validações necessárias para garantir que o espaço de trabalho possa ser criado com sucesso. Uma vez que a validação tenha sucesso, prima **Crie** ![ Workspace provisioning flow - separador de confirmação.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
 7. Uma vez concluído o processo de fornecimento de recursos com sucesso, verá uma entrada para o espaço de trabalho criado na lista de espaços de trabalho da Synapse. ![Listagem de espaços de trabalho da Sinaapse mostrando o espaço de trabalho recentemente atado.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Siga os passos abaixo para eliminar o espaço de trabalho Azure Synapse.
 > [!WARNING]

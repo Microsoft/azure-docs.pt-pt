@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 21/16/2020
-  ms.openlocfilehash: 1cd7e2a4cb4e86e6acfc0ec3d3909bc887a6f943
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 16d0d86b18eb37f9435aa5818e4fd95e1e703f68
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79472123"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87023097"
 landingContent:
 - title: Sobre os Serviços de Multimédia
   linkLists:
@@ -62,7 +62,7 @@ landingContent:
     - text: CLI do Azure
       url: https://aka.ms/ams-v3-cli-ref
     - text: REST
-      url: https://docs.microsoft.com/rest/api/media/
+      url: /rest/api/media/
     - text: .NET
       url: https://aka.ms/ams-v3-dotnet-ref
     - text: Java

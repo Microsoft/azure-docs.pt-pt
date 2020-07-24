@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbd460b584789aa7d40de9ba6430ff6202c3764b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74885641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052526"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos finais do streaming  
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 No Microsoft Azure Media Services (AMS), um **Streaming Endpoint** representa um serviço de streaming que pode entregar conteúdo diretamente a uma aplicação de cliente, ou a uma Rede de Entrega de Conteúdos (CDN) para posterior distribuição. Os Media Services também proporcionam uma integração perfeita do Azure CDN. O stream de saída de um serviço StreamingEndpoint pode ser um stream ao vivo, um vídeo a pedido ou um download progressivo do seu ativo na sua conta de Media Services. Cada conta Azure Media Services inclui um StreamingEndpoint predefinido. Os StreamingEndpoints adicionais podem ser criados na conta. Existem duas versões de StreamingEndpoints, 1.0 e 2.0. A partir de 10 de janeiro de 2017, quaisquer contas AMS recém-criadas incluirão a versão 2.0 **default** StreamingEndpoint. Os pontos finais de streaming adicionais que adicionar a esta conta também serão a versão 2.0. Esta alteração não terá impacto nas contas existentes; Os StreamingEndpoints existentes serão a versão 1.0 e podem ser atualizados para a versão 2.0. Com esta alteração haverá mudanças de comportamento, faturação e funcionalidade (para mais informações, consulte os tipos de Streaming e a secção **de versões** documentadas abaixo).
 
-A Azure Media Services adicionou as seguintes propriedades à entidade streaming Endpoint: **CdnProvider,** **CdnProfile,** **StreamingEndpointVersion**. Para uma visão geral detalhada destas propriedades, consulte [isto.](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint) 
+A Azure Media Services adicionou as seguintes propriedades à entidade streaming Endpoint: **CdnProvider,** **CdnProfile,** **StreamingEndpointVersion**. Para uma visão geral detalhada destas propriedades, consulte [isto.](/rest/api/media/operations/streamingendpoint) 
 
 Quando cria uma conta Azure Media Services é criado um ponto final de streaming padrão padrão para si no estado **Stop.** Não é possível eliminar o ponto final de streaming predefinido. Dependendo da disponibilidade do Azure CDN na região visada, por padrão o ponto final de streaming padrão recentemente criado também inclui a integração do fornecedor CDN "StandardVerizon". 
                 
@@ -76,10 +77,10 @@ Se a sua **versão "1.0"** streaming endpoint tiver >=1 unidades de streaming pr
 
 |Tipo|StreamingEndpointVersion|Unidades de escala|CDN|Faturação|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássico|1.0|0|ND|Gratuito|
-|Ponto final de streaming padrão (pré-visualização)|2.0|0|Sim|Pago|
-|Unidades de streaming premium|1.0|>0|Sim|Pago|
-|Unidades de streaming premium|2.0|>0|Sim|Pago|
+|Clássico|1,0|0|ND|Gratuito|
+|Ponto final de streaming padrão (pré-visualização)|2,0|0|Yes|Pago|
+|Unidades de streaming premium|1,0|>0|Yes|Pago|
+|Unidades de streaming premium|2,0|>0|Yes|Pago|
 
 ### <a name="features"></a>Funcionalidades
 
@@ -114,11 +115,10 @@ Versão 1.0 com SU >= 1 com CDN|Standard/Premium sem CDN|Permitido no estado **p
 Versão 1.0 com SU >= 1 com CDN|Padrão com/sem CDN|Permitido no estado **parado.** Não é permitido no estado **iniciado.** A versão 1.0 CDN será eliminada e nova criada e iniciada.
 Versão 1.0 com SU >= 1 com CDN|Premium com/sem CDN|Permitido no estado **parado.** Não é permitido no estado **iniciado.** O CDN clássico será eliminado e o novo criado e iniciado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

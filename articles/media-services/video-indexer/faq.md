@@ -10,11 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652176"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046960"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Indexer de vídeo frequentemente fez perguntas
 
@@ -58,13 +59,13 @@ Não, o Video Indexer proporciona a integração de vários modelos de aprendiza
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Que formatos de mídia suportam o Video Indexer?
 
-O Indexer de Vídeo suporta os formatos de mídia mais comuns. Consulte a lista [de formatos padrão Azure Media Encoder](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para obter mais detalhes.
+O Indexer de Vídeo suporta os formatos de mídia mais comuns. Consulte a lista [de formatos padrão Azure Media Encoder](../latest/media-encoder-standard-formats.md) para obter mais detalhes.
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Como faço o upload de um ficheiro de media para o Video Indexer e quais são as limitações?
 
 No portal baseado na web do Índice de Vídeo Indexer, pode fazer o upload de um ficheiro de mídia utilizando o diálogo de upload de ficheiros ou apontando para um URL que acolhe diretamente o ficheiro de origem (ver [exemplo).](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4) Qualquer URL que acolhia o conteúdo do meio-dia utilizando um código iFrame ou incorporado não funcionará (ver [exemplo).](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11) 
 
-Para mais informações, por favor leia as [boas-na-voz.](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos)
+Para mais informações, por favor leia as [boas-na-voz.](./upload-index-videos.md)
 
 #### <a name="limitations"></a>Limitações
 
@@ -75,7 +76,7 @@ Para a lista completa, consulte [as considerações e limitações de upload](up
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Quanto tempo demora o Video Indexer a extrair informações dos meios de comunicação?
 
-O tempo necessário para indexar um ficheiro de vídeo ou áudio, tanto utilizando a API do Indexer de Vídeo como a interface web do Indexer de Vídeo, depende de vários parâmetros, como o comprimento e qualidade do ficheiro, o número de insights encontrados no ficheiro, o número de [unidades reservadas](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponíveis e se o [ponto final de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) está ativado ou não. Recomendamos que execute alguns ficheiros de teste com o seu próprio conteúdo e tome uma média para ter uma ideia melhor.
+O tempo necessário para indexar um ficheiro de vídeo ou áudio, tanto utilizando a API do Indexer de Vídeo como a interface web do Indexer de Vídeo, depende de vários parâmetros, como o comprimento e qualidade do ficheiro, o número de insights encontrados no ficheiro, o número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md) disponíveis e se o [ponto final de streaming](../previous/media-services-streaming-endpoints-overview.md) está ativado ou não. Recomendamos que execute alguns ficheiros de teste com o seu próprio conteúdo e tome uma média para ter uma ideia melhor.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Posso criar fluxos de trabalho personalizados para automatizar processos com Índice de Vídeo?
 
@@ -87,7 +88,7 @@ Pode ver quais regiões Azure Video Indexer está disponível na página das [re
 
 ### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>Posso personalizar os modelos de Indexer de Vídeo para o meu caso de utilização específica? 
 
-Sim. No Video Indexer pode personalizar alguns dos modelos disponíveis para melhor se adaptar às suas necessidades. 
+Yes. No Video Indexer pode personalizar alguns dos modelos disponíveis para melhor se adaptar às suas necessidades. 
 
 Por exemplo, o nosso modelo Pessoa suporta 1.000.000 rostos fora da caixa de reconhecimento de celebridades, mas também pode treiná-lo para reconhecer outras caras que não estão nessa base de dados. 
 
@@ -95,7 +96,7 @@ Para mais detalhes, consulte artigos sobre personalizar modelos [pessoais,](cust
 
 ###  <a name="can-i-edit-the-videos-in-my-library"></a>Posso editar os vídeos na minha biblioteca?
 
-Sim. Prima o botão de **vídeo de edição** a partir do visor da biblioteca ou o botão **de editor aberto** a partir do visor do leitor para chegar ao separador **Projetos.** Pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los juntos, uma vez que você está feito você pode renderizar o seu vídeo e baixar. 
+Yes. Prima o botão de **vídeo de edição** a partir do visor da biblioteca ou o botão **de editor aberto** a partir do visor do leitor para chegar ao separador **Projetos.** Pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los juntos, uma vez que você está feito você pode renderizar o seu vídeo e baixar. 
 
 Se quiser obter informações sobre o seu novo vídeo, indexe-o ao Video Indexer e aparecerá na sua biblioteca com as suas ideias.
 
@@ -214,6 +215,6 @@ Ao enviar um vídeo a ser indexado, o utilizador definirá o indexante para ser 
 
 Sim, o Video Indexer oferece um teste gratuito que dá serviço completo e funcionalidade de API. Existe uma quota de 600 minutos de vídeos para utilizadores de interface baseados na Web e 2.400 minutos para utilizadores de API. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral](video-indexer-overview.md)

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 593edecd2cc1bbdd3627430af41c64be4d6a022b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c54738b1ab3c90118c86bbf78bdcc3348658e0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508644"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048707"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Crie um cluster HDInsight com Azure Data Lake Storage Gen1 usando o modelo de Gestor de Recursos Azure
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Neste artigo, disponibilizamos um cluster Hadoop com data lake storage gen1 como
 Antes de começar este tutorial, tem de ter o seguinte:
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/).
 * **Azure Ative Directory Service Principal**. Passos neste tutorial fornecem instruções sobre como criar um diretor de serviço em Azure AD. No entanto, você deve ser um administrador AD Azure para ser capaz de criar um principal serviço. Se você é um administrador AD Azure, você pode saltar este pré-requisito e proceder com o tutorial.
 
     **Se não for administrador da AD Azure,** não poderá executar os passos necessários para criar um diretor de serviço. Neste caso, o seu administrador AD Azure deve primeiro criar um principal serviço antes de poder criar um cluster HDInsight com data lake storage gen1. Além disso, o principal de serviço deve ser criado com um certificado, conforme descrito na [Create a service principal com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
@@ -139,6 +139,6 @@ Found 1 items
 Também pode usar o `hdfs dfs -put` comando para enviar alguns ficheiros para data lake storage gen1 e, em seguida, usar `hdfs dfs -ls` para verificar se os ficheiros foram carregados com sucesso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Copiar dados de Azure Storage Blobs para Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
 * [Use data lake storage Gen1 com clusters Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

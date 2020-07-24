@@ -4,12 +4,13 @@ description: Saiba como proteger os casulos com a política Azure no Serviço Az
 services: container-service
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8a5107b9ba3c05c92a06753b2cb30bcfc2896d91
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+author: jluk
+ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090939"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050464"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Cápsulas seguras com política Azure (pré-visualização)
 
@@ -63,7 +64,7 @@ Este documento detalha como utilizar a Política Azure para proteger as cápsula
 
 Após a instalação do Add-on de Política Azure, nenhuma política é aplicada por defeito.
 
-São catorze (14) políticas individuais de Azure incorporadas e duas (2) iniciativas incorporadas que especificamente asseguram cápsulas num cluster AKS.
+Existem onze (11) políticas individuais de Azure incorporadas e duas (2) iniciativas incorporadas que especificamente protegem os casulos num cluster AKS.
 Cada política pode ser personalizada com um efeito. Uma lista completa das [políticas da AKS e os seus efeitos apoiados está listada aqui.][policy-samples] Leia mais sobre [os efeitos da Política Azure](../governance/policy/concepts/effects.md).
 
 As políticas de Azure podem ser aplicadas ao nível do grupo de gestão, subscrição ou grupo de recursos. Ao atribuir uma política ao nível do grupo de recursos, certifique-se de que o grupo de recursos target AKS é selecionado no âmbito da política. Todos os clusters no âmbito atribuído com o Add-on de Política Azure instalado estão em alcance para a política.
@@ -78,24 +79,41 @@ A Azure Policy for Kubernetes oferece duas iniciativas incorporadas que garantem
 
 Ambas as iniciativas incorporadas são construídas a partir de definições utilizadas na [política de segurança de pods da Kubernetes.](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml)
 
-|[Controlo da política de segurança da Pod](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Ligação de definição de política Azure| Iniciativa de base | Iniciativa restrita |
+|[Controlo da política de segurança da Pod](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Ligação de definição de política Azure| [Iniciativa de base](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) | [Iniciativa restrita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) |
 |---|---|---|---|
 |Não permitir a execução de contentores privilegiados|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4)| Sim | Sim
 |Não permitir o uso partilhado de espaços de nomes de hospedeiros|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8)| Sim | Sim
-|Restringir a utilização de redes de anfitriões e portas a uma lista conhecida|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Sim | Sim
-|Restringir a utilização do sistema de ficheiros hospedeiro|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Sim | Sim
-|Adicionar capacidades Linux para além do [conjunto padrão](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Sim | Sim
-|Restringir a utilização de tipos de volume definidos|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sim
-|Escalada de privilégio para raiz|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Sim |
-|Restringir os IDs do utilizador e do grupo do recipiente|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim |
-|Restringir a atribuição de um FSGroup que detém os volumes da cápsula|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim |
-|Requer que o perfil de seccomp seja usado|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | - |
-|Restringir o perfil sisctl utilizado pelos contentores|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56d0a13f-712f-466b-8416-56fb354fb823) | - | - |
-|Os tipos de montagem Proc predefinidos são definidos para reduzir a superfície de ataque|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff85eb0dd-92ee-40e9-8a76-db25a507d6d3) | - | - |
-|Restringir a controladores flexvolume específicos|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | - | - |
-|Permitir suportes que não são lidos apenas|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | - | - |
-|Defina o contexto personalizado SELinux de um recipiente|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e6c427-07d9-46ab-9689-bfa85431e636) | - | - |
-|Defina o perfil AppArmor utilizado por contentores|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | - | - |
+|Restringir todo o uso da rede de anfitriões e portas|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Sim | Sim
+|Restringir qualquer utilização do sistema de ficheiros hospedeiro|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Sim | Sim
+|Restringir as capacidades do Linux ao [conjunto predefinido](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Sim | Sim
+|Restringir a utilização de tipos de volume definidos|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sim - os tipos de volume permitidos `configMap` `emptyDir` são, `projected` , `downwardAPI` ,`persistentVolumeClaim`|
+|Escalada de privilégio para raiz|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
+|Restringir os IDs do utilizador e do grupo do recipiente|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes|
+|Restringir a atribuição de um FSGroup que detém os volumes da cápsula|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim - regras permitidas `runAsUser: mustRunAsNonRoot` `supplementalGroup: mustRunAs 1:65536` são, `fsGroup: mustRunAs 1:65535` , . . `runAsGroup: mustRunAs 1:65535` .  |
+|Requer perfil de seccomp|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Sim, os Proffiles permitidos são * `docker/default` ou`runtime/default` |
+
+\*docker/default é depreciado em Kubernetes desde v1.11
+
+### <a name="additional-optional-policies"></a>Políticas opcionais adicionais
+
+Existem políticas adicionais de Azure que podem ser aplicadas sem rodeios fora da aplicação de uma iniciativa. Considere a possibilidade de anexar estas políticas para além de iniciativas se os seus requisitos não forem cumpridos pelas iniciativas incorporadas.
+
+|[Controlo da política de segurança da Pod](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Ligação de definição de política Azure| Aplicar para além da iniciativa Baseline | Candidatar-se para além da iniciativa restrita |
+|---|---|---|---|
+|Defina o perfil AppArmor utilizado por contentores|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | Opcional | Opcional |
+|Permitir suportes que não são lidos apenas|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | Opcional | Opcional |
+|Restringir a controladores flexvolume específicos|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Opcional - use se quiser apenas restringir os controladores FlexVolume, mas não outros definidos por "Restringir a utilização de tipos de volume definidos" | Não aplicável - A iniciativa restrita inclui "Restringir a utilização de tipos de volume definido" que não permite a todos os condutores da FlexVolume |
+
+### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>Políticas não apoiadas para clusters AKS geridos
+
+> [!NOTE]
+> As 3 políticas seguintes não são **apoiadas na AKS** devido à personalização de aspetos geridos e garantidos pela AKS como um serviço gerido. Estas políticas são construídas especificamente para aglomerados ligados a Azure Arc com aviões de controlo não geridos.
+
+|[Controlo da política de segurança da Pod](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)|
+|---|
+|Defina o contexto personalizado SELinux de um recipiente|
+|Restringir o perfil sisctl utilizado pelos contentores|
+|Os tipos de montagem Proc predefinidos são definidos para reduzir a superfície de ataque|
 
 <!---
 # Removing until custom initiatives are supported the week after preview
@@ -260,7 +278,7 @@ Para migrar da política de segurança da pod, você precisa tomar as seguintes 
 
 Abaixo está um resumo das mudanças de comportamento entre a política de segurança da pod e a Política Azure.
 
-|Scenario| Política de segurança da Pod | Azure Policy |
+|Cenário| Política de segurança da Pod | Azure Policy |
 |---|---|---|
 |Instalação|Ativar a funcionalidade de política de segurança do pod |Ativar o Add-on da Política Azure
 |Implementar políticas| Implementar recurso de política de segurança de pod| Atribua as políticas Azure ao âmbito do grupo de subscrição ou recursos. O Add-on de política Azure é necessário para aplicações de recursos Kubernetes.
@@ -276,7 +294,7 @@ Abaixo está um resumo das mudanças de comportamento entre a política de segur
 | [Norma de política de segurança do pod - Linha de Base/Padrão](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | O utilizador instala um recurso de base de política de segurança do pod. | A Azure Policy fornece uma [iniciativa de base incorporada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) que mapeia a política de segurança da cápsula de base.
 | [Padrão de política de segurança pod - Restrito](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | O utilizador instala um recurso restrito de política de segurança do pod. | A Azure Policy oferece uma [iniciativa restrita incorporada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) que mapeia a política restrita de segurança das cápsulas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo mostrou-lhe como aplicar uma política Azure que restringe a implementação de cápsulas privilegiadas para impedir o uso de acesso privilegiado. Há muitas políticas que podem ser aplicadas, como as que restringem a utilização de volumes. Para obter mais informações sobre as opções disponíveis, consulte a [Política Azure para os docs de referência de Kubernetes][kubernetes-policy-reference].
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047594"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do Portal do Mercado Comercial no Centro de Parceiros
 
@@ -28,9 +28,9 @@ Partner Center é o centro de uma experiência de parceiro da Microsoft. Para as
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Migração do Portal do Parceiro cloud
 
-O Partner Center está a evoluir para melhor integrar todos os aspetos da nossa relação com editores de software. Como parte desta evolução, migramos toda a gestão de ofertas de marketplace comercial do Portal de [Parceiros cloud](https://cloudpartner.azure.com/) para o Partner Center.
+O Partner Center está a evoluir para melhor integrar todos os aspetos da nossa relação com editores de software. Como parte desta evolução, migramos toda a gestão de ofertas de marketplace comercial do Portal de Parceiros cloud (CPP) para o Partner Center.
 
-As editoras existentes que anteriormente utilizaram o Portal do Parceiro Cloud encontrarão uma experiência familiar, mas melhorada e intuitiva com o Partner Center. Os utilizadores serão perfeitamente direcionados para o local apropriado. Os clientes não serão afetados por este upgrade de experiência de parceiro.
+Os editores existentes que anteriormente utilizaram o CPP encontrarão uma experiência familiar, mas melhorada e intuitiva com o Partner Center. Os utilizadores serão perfeitamente direcionados para o local apropriado. Os clientes não serão afetados por este upgrade de experiência de parceiro.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Melhorias na publicação e oferta de experiência do utilizador de gestão
 
@@ -52,7 +52,7 @@ A análise do Partner Center proporciona uma visão do desempenho das suas ofert
 
 Saiba mais sobre lançamentos recentes e futuros visitando o roteiro do mercado comercial da [Microsoft,](../marketplace-roadmap.md)ou junte-se à conversa na [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para os novos parceiros da Microsoft que estejam interessados em publicar uma oferta para os mercados, consulte [Criar uma conta de Mercado Comercial no Partner Center.](create-account.md)
 - Para os parceiros existentes que já publicaram ofertas no Portal do Parceiro Cloud, [Gerencie a sua conta de Mercado Comercial no Partner Center.](manage-account.md)

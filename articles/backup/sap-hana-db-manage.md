@@ -3,17 +3,18 @@ title: Gerir bases de dados SAP HANA em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e3705750e32b8b34ed397b8f68f22b0728129266
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701117"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049463"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
-Este artigo descreve tarefas comuns para gerir e monitorizar bases de dados SAP HANA que estão a funcionar numa máquina virtual Azure (VM) e que são apoiadas até um cofre dos Serviços de Recuperação de Backup Azure pelo serviço [de backup Azure.](https://docs.microsoft.com/azure/backup/backup-overview) Você vai aprender a monitorizar empregos e alertas, desencadear uma cópia de segurança a pedido, editar políticas, parar e retomar a proteção da base de dados e não registar um VM de backups.
+Este artigo descreve tarefas comuns para gerir e monitorizar bases de dados SAP HANA que estão a funcionar numa máquina virtual Azure (VM) e que são apoiadas até um cofre dos Serviços de Recuperação de Backup Azure pelo serviço [de backup Azure.](./backup-overview.md) Você vai aprender a monitorizar empregos e alertas, desencadear uma cópia de segurança a pedido, editar políticas, parar e retomar a proteção da base de dados e não registar um VM de backups.
 
-Se ainda não tiver configurado backups para as suas bases de dados SAP HANA, consulte [as bases de dados SAP HANA em VMs Azure](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Se ainda não tiver configurado backups para as suas bases de dados SAP HANA, consulte [as bases de dados SAP HANA em VMs Azure](./backup-azure-sap-hana-database.md).
 
 ## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorize trabalhos de backup manual no portal
 
@@ -25,7 +26,7 @@ Os trabalhos que você vê neste portal incluem descoberta e registo de bases de
 
 ![Lista de empregos de reserva](./media/sap-hana-db-manage/backup-jobs-list.png)
 
-Para saber mais sobre monitorização, vá à [Monitorização no portal Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) e monitorização utilizando o [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Para saber mais sobre monitorização, vá à [Monitorização no portal Azure](./backup-azure-monitoring-built-in-monitor.md) e monitorização utilizando o [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="view-backup-alerts"></a>Ver alertas de backup
 
@@ -50,7 +51,7 @@ Hoje, o Azure Backup permite o envio de alertas por e-mail. Estes alertas são:
 * Consolidado ao nível da base de dados por código de erro.
 * Enviado apenas para a primeira falha de reserva de uma base de dados.
 
-Para saber mais sobre monitorização, vá à [Monitorização no portal Azure](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) e monitorização utilizando o [Azure Monitor](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor).
+Para saber mais sobre monitorização, vá à [Monitorização no portal Azure](./backup-azure-monitoring-built-in-monitor.md) e monitorização utilizando o [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="management-operations"></a>Operações de Gestão
 
@@ -62,7 +63,7 @@ Os backups são executados de acordo com o calendário de apólices. Pode execut
 
 1. No menu do cofre, clique em **itens de cópia de segurança.**
 2. Em **Itens de Cópia de Segurança**, selecione o VM que executa a base de dados SAP HANA e, em seguida, clique em Backup **agora**.
-3. Em **Backup Now,** utilize o controlo do calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
+3. In **Backup Now,** escolha o tipo de cópia de segurança que pretende realizar. Em seguida, clique em **OK**. Esta cópia de segurança será mantida de acordo com a política associada a este item de backup.
 4. Monitorize as notificações do portal. Pode monitorizar o progresso do trabalho no painel de segurança do cofre > **trabalhos de reserva**  >  **em curso**. Dependendo do tamanho da sua base de dados, a criação da cópia de segurança inicial pode demorar algum tempo.
 
 ### <a name="hana-native-client-integration"></a>Integração de clientes nativos HANA
@@ -73,7 +74,7 @@ Cópias de segurança a pedido desencadeadas por qualquer um dos clientes nativo
 
 ![Últimas cópias de segurança](./media/sap-hana-db-manage/last-backups.png)
 
-Também pode [monitorizar estas cópias de segurança](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) a partir da página de **trabalhos de backup.**
+Também pode [monitorizar estas cópias de segurança](#monitor-manual-backup-jobs-in-the-portal) a partir da página de **trabalhos de backup.**
 
 Estes backups a pedido também aparecerão na lista de pontos de restauro para restauro.
 
@@ -81,7 +82,7 @@ Estes backups a pedido também aparecerão na lista de pontos de restauro para r
 
 #### <a name="restore"></a>Restauro
 
-Os restauros desencadeados por clientes nativos da HANA (usando **Backint**) para restaurar a mesma máquina podem ser [monitorizados](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) a partir da página **de trabalhos de backup.**
+Os restauros desencadeados por clientes nativos da HANA (usando **Backint**) para restaurar a mesma máquina podem ser [monitorizados](#monitor-manual-backup-jobs-in-the-portal) a partir da página **de trabalhos de backup.**
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Faça backup de clientes nativos SAP HANA em uma base de dados com backup Azure ativado
 
@@ -115,7 +116,7 @@ Pode alterar a política subjacente a um item de backup SAP HANA.
 
   ![Selecione a política de backup existente](./media/sap-hana-db-manage/existing-backup-policy.png)
 
-* Mude a política, escolhendo a lista. [Criar uma nova política de backup,](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) se necessário.
+* Mude a política, escolhendo a lista. [Criar uma nova política de backup,](./backup-azure-sap-hana-database.md#create-a-backup-policy) se necessário.
 
   ![Escolha a política da lista de drop-down](./media/sap-hana-db-manage/choose-backup-policy.png)
 
@@ -197,7 +198,7 @@ Para parar a proteção de uma base de dados:
 
 ### <a name="resume-protection-for-an-sap-hana-database"></a>Retomar a proteção para uma base de dados SAP HANA
 
-Quando parar a proteção para a base de dados SAP HANA, se selecionar a opção **'Retenha dados de reserva',** poderá retomar a proteção posteriormente. Se não reter os dados de back-up, não poderá retomar a proteção.
+Quando parar a proteção para a base de dados SAP HANA, se selecionar a opção **'Retenha dados de reserva',** poderá retomar a proteção posteriormente. Se não reter os dados de back-up, não pode retomar a proteção.
 
 Para retomar a proteção de uma base de dados SAP HANA:
 
@@ -213,7 +214,7 @@ Saiba como continuar a fazer backup para uma base de dados SAP HANA [depois de a
 
 ### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Upgrade de SDC para MDC sem alteração sid
 
-Saiba como continuar a fazer backup de uma base de dados SAP HANA cujo [SID não mudou após a atualização de SDC para MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
+Saiba como continuar a fazer backup de uma base de dados SAP HANA cujo [SID não mudou após o upgrade de SDC para MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Não registre um caso SAP HANA
 
@@ -239,6 +240,6 @@ Por vezes, a extensão da carga de trabalho no VM pode ser afetada por uma razã
 
 Utilize esta opção com cuidado: quando acionado num VM com uma extensão já saudável, esta operação fará com que a extensão seja reiniciada. Isto pode fazer com que todos os empregos em curso falhem. Verifique se existem um ou mais [dos sintomas](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) antes de desencadear a operação de re-registo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba como [resolver problemas comuns ao fazer o backup das bases de dados SAP HANA.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
+* Saiba como [resolver problemas comuns ao fazer o backup das bases de dados SAP HANA.](./backup-azure-sap-hana-database-troubleshoot.md)

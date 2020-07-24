@@ -10,12 +10,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 09/09/2019
-  ms.openlocfilehash: 8ff93dc3071a442f28878baa958d3583bc046b44
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: c6d3c26e59610e98e0c1fe037a51cb75236ac199
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77115574"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87009514"
 landingContent:
 - title: Funcionalidades mais recentes
   linkLists:
@@ -32,28 +32,28 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Portal do Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-portal
+      url: ./quick-create-portal.md
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell
+      url: ./quick-create-powershell.md
     - text: CLI do Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli
+      url: ./quick-create-cli.md
 - title: Guias passo a passo
   linkLists:
   - linkListType: tutorial
     links:
     - text: Criar e gerir VMs do Windows
-      url: /azure/virtual-machines/windows/tutorial-manage-vm
+      url: ./tutorial-manage-vm.md
     - text: Discos de VM
-      url: /azure/virtual-machines/windows/tutorial-manage-data-disk
+      url: ./tutorial-manage-data-disk.md
     - text: Automatizar a configuração da VM
-      url: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      url: ./tutorial-automate-vm-deployment.md
     - text: Criar imagens de VM personalizadas
-      url: /azure/virtual-machines/windows/tutorial-custom-images
+      url: ./tutorial-custom-images.md
     - text: Gerir VMs com redes virtuais
-      url: /azure/virtual-machines/windows/tutorial-virtual-network
+      url: ./tutorial-virtual-network.md
 - title: Formação personalizada
   linkLists:
   - linkListType: learn
     links:
     - text: " Criar uma máquina virtual do Windows no Azure"
-      url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/
+      url: /learn/modules/create-windows-virtual-machine-in-azure/

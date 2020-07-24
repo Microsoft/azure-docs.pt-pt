@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 78a56b6a848139c47d7934a47decb126afe00b7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7799e873afb117481cebafd982df59a3267f4405
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051562"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento a pedido
 O provisionamento a pedido permite-lhe a provisionar um utilizador numa aplicação em segundos. Pode utilizar a capacidade para resolver rapidamente problemas de configuração, validar expressões que definiu, testar filtros de deteção e muito mais. 
@@ -30,6 +30,8 @@ O provisionamento a pedido permite-lhe a provisionar um utilizador numa aplicaç
 5. Clique **na provisão a pedido.**
 6. Procure um utilizador com o primeiro nome, apelido, nome de exibição, nome principal do utilizador ou e-mail.
 7. Selecione a provisão na parte inferior da página.
+
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="A pedido de um utilizador.":::
 
 ## <a name="understanding-the-provisioning-steps"></a>Compreender os passos de provisionamento
 A capacidade de provisionamento a pedido tenta mostrar as medidas que o serviço de fornecimento toma ao providenciar um utilizador. Existem normalmente cinco passos para o provisionamento de um utilizador, e um ou mais dos passos abaixo serão mostrados na experiência de fornecimento de pedidos a pedido.
@@ -88,6 +90,8 @@ As páginas de detalhes da visualização mostram as propriedades do(s) utilizad
 ### <a name="step-5-perform-action"></a>Passo 5: Realizar ação
 Finalmente, o serviço de prestação de serviços toma uma ação como criar, atualizar, eliminar ou saltar o utilizador. 
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Fornecimento bem sucedido de utilizador.":::
+
 **Ver detalhes**
 
 A secção de detalhes de visualização exibe os atributos que foram modificados na aplicação alvo. Isto representa a produção final da atividade de serviço de prestação de serviços e os atributos que foram exportados. Se este passo falhar, os atributos apresentados representam os atributos que o serviço de fornecimento tentou modificar.  
@@ -96,17 +100,17 @@ A secção de detalhes de visualização exibe os atributos que foram modificado
 * As falhas nas exportações podem variar muito. Consulte a [documentação](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) dos registos de provisionamento para falhas comuns.
 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 **Precisa de desligar o provisionamento para utilizar o provisionamento a pedido?** Para aplicações que utilizem um token portador de longa duração ou nome de utilizador e senha para autorização, não são necessários passos adicionais. Os pedidos que utilizam o OAuth para autorização exigem atualmente que o trabalho de provisionamento seja interrompido antes de utilizar o provisionamento a pedido. Aplicações como G Suite, Box, Workplace by Facebook e Slack enquadram-se nesta categoria. Estão em curso trabalhos para permitir o fornecimento a pedido de todos os pedidos, sem ter de deixar de provisões. 
 
 **Quanto tempo demora o provisionamento a pedido?** Geralmente demora menos de 30 segundos. 
 
 ## <a name="known-limitations"></a>Limitações Conhecidas
-Há algumas limitações conhecidas hoje. Por favor, publique no [UserVoice](https://aka.ms/appprovisioningfeaturerequest) para que possamos priorizar melhor quais as melhorias a fazer a seguir. Note que estas limitações são específicas da capacidade de provisionamento a pedido. para obter informações específicas sobre se uma aplicação suporta grupos de provisionamento, supressões, etc., verifique o tutorial de aplicação. 
+Há algumas limitações conhecidas hoje. Por favor, publique no [User Voice](https://aka.ms/appprovisioningfeaturerequest) para que possamos priorizar melhor quais as melhorias a fazer a seguir. Note que estas limitações são específicas da capacidade de provisionamento a pedido. para obter informações específicas sobre se uma aplicação suporta grupos de provisionamento, supressões, etc., verifique o tutorial de aplicação. 
 
 * As aplicações Workday, AWS e SuccessFactors não apoiam o provisionamento a pedido.
 * O provisionamento de grupos e papéis a pedido não é apoiado.
-* Não é suportado a desativação ou eliminação de utilizadores e grupos.
+* O fornecimento a pedido suporta desativar utilizadores que não tenham sido atribuídos à aplicação, mas que não suportem a desativar ou eliminar utilizadores que tenham sido desativados ou eliminados do Azure Ative Directory (esses utilizadores não aparecerão quando procuram um utilizador).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

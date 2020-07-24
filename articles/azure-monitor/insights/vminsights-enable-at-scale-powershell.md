@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 77fe4b4ffbf7c189a5bf64e662f395fc78e53944
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 021e5e8ee01745dd0b534e53dbb6d75b5b78c419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82581497"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049620"
 ---
 # <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Ativar o Monitor Azure para VMs utilizando modelos Azure PowerShell ou Resource Manager
 
@@ -31,7 +31,7 @@ Se não souber como implementar recursos utilizando um modelo, consulte:
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 1. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -122,7 +122,7 @@ Se não souber como implementar recursos utilizando um modelo, consulte:
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Implementar recursos com modelos de Gestor de Recursos e o CLI Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI localmente. Deve estar a executar a versão Azure CLI 2.0.27 ou posterior. Para identificar a sua versão, corra `az --version` . Para instalar ou atualizar o Azure CLI, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="download-templates"></a>Modelos de descarregamento
 
@@ -178,7 +178,7 @@ Para ativar o Monitor Azure para VMs para vários VMs ou conjuntos de balanças 
 
 Para cada conjunto de escala de VM ou máquina virtual, o script verifica se a extensão VM já está instalada. Se a extensão VM for instalada, o script tenta reinstalá-la. Se a extensão VM não for instalada, o script instala as extensões VM do agente Log Analytics e Dependency.
 
-Verifique se está a utilizar o módulo Azure PowerShell versão 1.0.0 ou posterior com `Enable-AzureRM` pseudónimos ativados. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure.
+Verifique se está a utilizar o módulo Azure PowerShell versão 1.0.0 ou posterior com `Enable-AzureRM` pseudónimos ativados. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure.
 
 Para obter uma lista dos detalhes do argumento do script e da utilização de exemplo, corra `Get-Help` .
 

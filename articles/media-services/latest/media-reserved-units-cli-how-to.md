@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 79f2df0f94b212ea45c01c825b23f1dbb4cc40db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582281"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053213"
 ---
 # <a name="scaling-media-processing"></a>Scaling media processing (Dimensionar o processamento de multimédia)
 
@@ -49,7 +49,7 @@ O resto do artigo mostra como usar os [Media Services v3 CLI](https://aka.ms/ams
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-[Criar uma conta de Serviços de Comunicação](create-account-cli-how-to.md)Social.
+[Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -57,7 +57,7 @@ O resto do artigo mostra como usar os [Media Services v3 CLI](https://aka.ms/ams
 
 Execute o comando `mru`.
 
-O comando [mru da conta AZ AMS](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) define As Unidades Reservadas de Mídia na conta "amsaccount" utilizando os parâmetros **de contagem** e **tipo.**
+O comando [mru da conta AZ AMS](/cli/azure/ams/account/mru?view=azure-cli-latest) define As Unidades Reservadas de Mídia na conta "amsaccount" utilizando os parâmetros **de contagem** e **tipo.**
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -74,4 +74,4 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ## <a name="see-also"></a>Ver também
 
 * [Quotas e limites](limits-quotas-constraints.md)
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)

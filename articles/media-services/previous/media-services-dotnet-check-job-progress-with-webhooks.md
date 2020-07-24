@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c0e4d281880b3870c81352efca146ece7100be74
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 0a82050bef36e139c122ea97f777fb5cb1906974
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052968"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilize webhooks Azure para monitorizar notificações de emprego dos Media Services com .NET 
 
 > [!NOTE]
-> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. Pode monitorizar as notificações de emprego dos Media Services utilizando o armazenamento de Azure Webhooks ou [Azure Queue](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
@@ -50,7 +50,7 @@ O seguinte é necessário para concluir o tutorial:
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
 * Compreensão de [como utilizar funções Azure](../../azure-functions/functions-overview.md). Além disso, reveja as [funções Azure HTTP e as ligações webhook](../../azure-functions/functions-bindings-http-webhook.md).
 
-## <a name="create-a-function-app"></a>Criar uma aplicação de função
+## <a name="create-a-function-app"></a>Criar uma aplicação de funções
 
 1. Aceda ao [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 2. Crie uma aplicação de função como descrito [aqui.](../../azure-functions/functions-create-function-app-portal.md)
@@ -518,7 +518,7 @@ Nesta secção, é apresentado o código que adiciona uma notificação webhook 
             }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

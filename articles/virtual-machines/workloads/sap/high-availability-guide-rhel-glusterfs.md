@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: 388a2db2c888be541d89c5f4274bd38b37e4ca28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77591919"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051649"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
 
@@ -101,7 +102,7 @@ Você pode usar um dos modelos de arranque rápido no github para implementar to
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementar o Linux manualmente através do portal Azure
 
-Primeiro, tens de criar as máquinas virtuais para este cluster. Em seguida, cria-se um equilibrador de carga e utiliza-se as máquinas virtuais nas piscinas de backend. Recomendamos o [balanceador de carga padrão.](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)  
+Primeiro, tens de criar as máquinas virtuais para este cluster. Em seguida, cria-se um equilibrador de carga e utiliza-se as máquinas virtuais nas piscinas de backend. Recomendamos o [balanceador de carga padrão.](../../../load-balancer/load-balancer-overview.md)  
 
 1. Criar um Grupo de Recursos
 1. Criar uma Rede Virtual
@@ -347,7 +348,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    sudo gluster volume start <b>NW2</b>-aers
    </code></pre>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Instalar o SAP ASCS e a base de dados](high-availability-guide-rhel.md)
 * [Azure Virtual Machines planejamento e implementação para SAP][planning-guide]

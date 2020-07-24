@@ -1,6 +1,6 @@
 ---
-title: Monitore aplicações Apache Spark
-description: Utilize o Azure Synapse Studio para monitorizar as suas aplicações Apache Spark.
+title: Monitor Apache Spark aplicações usando o Synapse Studio
+description: Utilize o Synapse Studio para monitorizar as suas aplicações Apache Spark.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 20c4216e7af0cb4100204ebae1b484a53e3c50a6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: ecc34b84e5be2d0470cc5a58a71a70e9ffcab1b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971352"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052546"
 ---
-# <a name="use-the-azure-synapse-studio-to-monitor-your-apache-spark-applications"></a>Utilize o Azure Synapse Studio para monitorizar as suas aplicações Apache Spark
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio para monitorizar as suas aplicações Apache Spark
 
 Com a Azure Synapse Analytics, você pode usar Apache Spark para executar cadernos, empregos e outros tipos de aplicações nas suas piscinas Apache Spark no seu espaço de trabalho.
 
@@ -33,7 +33,7 @@ Este tutorial abrange as seguintes tarefas:
 
 Antes de começar este tutorial, certifique-se de que cumpre os seguintes requisitos:
 
-- Um espaço de trabalho do Azure Synapse Studio. Para obter instruções, consulte [Criar um espaço de trabalho do Estúdio Azure Synapse](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- Um espaço de trabalho do Estúdio Synapse. Para obter instruções, consulte Criar um espaço de [trabalho do Estúdio Synapse](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
 - Uma piscina Apache Spark.
 
@@ -145,6 +145,6 @@ Abrir **monitor**, em seguida, selecione **as aplicações Apache Spark**. Para 
 
    ![informação de trabalho falhado](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o gasoduto de monitorização, consulte o gasoduto Monitor que executa o artigo [do Azure Synapse Studio.](how-to-monitor-pipeline-runs.md)  
+Para obter mais informações sobre o gasoduto de monitorização, consulte o gasoduto Monitor funciona usando o artigo [do Synapse Studio.](how-to-monitor-pipeline-runs.md)  

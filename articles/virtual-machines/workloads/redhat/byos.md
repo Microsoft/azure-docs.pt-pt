@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052165"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens de ouro em Azure
 
@@ -68,7 +69,7 @@ O resto deste documento centra-se no método CLI para prever e aceitar termos na
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Use as imagens de ouro do chapéu vermelho do Azure CLI
 
-As seguintes instruções acompanham-no através do processo de implantação inicial de um RHEL VM utilizando o Azure CLI. Estas instruções pressupõem que tem o [Azure CLI instalado](https://docs.microsoft.com/cli/azure/install-azure-cli).
+As seguintes instruções acompanham-no através do processo de implantação inicial de um RHEL VM utilizando o Azure CLI. Estas instruções pressupõem que tem o [Azure CLI instalado](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Certifique-se de que utiliza todas as letras minúsculas na editora, oferta, plano e referências de imagem para todos os seguintes comandos.
@@ -199,7 +200,7 @@ Para obter medidas para aplicar a encriptação do disco Azure, consulte [os cen
 
     Neste caso, contacte a Microsoft ou a Red Hat para ativar a sua subscrição.
 
-- Se modificar uma imagem de UMA IMAGEM RHEL BYOS e tentar publicar essa imagem personalizada na Galeria de [Imagens Partilhadas,](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)deve fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ser assim:
+- Se modificar uma imagem de UMA IMAGEM RHEL BYOS e tentar publicar essa imagem personalizada na Galeria de [Imagens Partilhadas,](../../linux/shared-image-galleries.md)deve fornecer informações de plano que correspondam à origem original do instantâneo. Por exemplo, o comando pode ser assim:
 
     ```azurecli
     az vm create –image \
@@ -214,7 +215,7 @@ Para obter medidas para aplicar a encriptação do disco Azure, consulte [os cen
 
 - Se utilizar a automatização para fornecer VMs a partir das imagens RHEL BYOS, deve fornecer parâmetros de plano semelhantes aos mostrados nos comandos da amostra. Por exemplo, se utilizar o Terraform, fornece as informações do plano num [bloco de planos.](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Mais detalhes sobre o Red Hat Cloud Access estão disponíveis na [documentação da nuvem pública do Chapéu Vermelho](https://access.redhat.com/public-cloud)
 - Para guias passo a passo e detalhes do programa para o Acesso à Nuvem, consulte a [documentação do Red Hat Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).

@@ -10,13 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047493"
 ---
-# <a name="animated-character-detection-preview"></a>Deteção de caracteres animados (pré-visualização)
+# <a name="animated-character-detection-preview"></a>Deteção de carateres animados (pré-visualização)
 
 O Azure Media Services Video Indexer suporta a deteção, agrupamento e reconhecimento de personagens em conteúdo animado através da integração com [a visão personalizada dos Serviços Cognitivos.](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) Esta funcionalidade encontra-se disponível tanto através do portal como através da API.
 
@@ -68,7 +69,7 @@ Siga estes passos para ligar a conta De Visão Personalizada ao Indexador de Ví
 
     * Chave de formação (para o recurso de formação)
     * Chave de previsão (para o recurso de previsão)
-    * Ponto Final 
+    * Ponto final 
     * ID de recurso de previsão
     
     > [!NOTE]
@@ -133,7 +134,7 @@ Siga estes passos para ligar a conta De Visão Personalizada ao Indexador de Ví
         ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization-tab.png)
 
      1. Uma vez treinado, qualquer vídeo que seja indexado ou reindexado com este modelo reconhecerá os caracteres treinados. 
-    As contas pagas que tenham acesso à sua conta De Visão Personalizada podem ver os modelos e imagens marcadas lá. Saiba mais sobre [como melhorar o seu classificador em Visão Personalizada.](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)
+    As contas pagas que tenham acesso à sua conta De Visão Personalizada podem ver os modelos e imagens marcadas lá. Saiba mais sobre [como melhorar o seu classificador em Visão Personalizada.](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)
 
 1. Apague um personagem animado.
 
@@ -159,7 +160,7 @@ Siga estes passos para ligar a conta De Visão Personalizada ao Indexador de Ví
 1. Conecte uma conta Visão Personalizada.
 
     Se possuir uma conta paga por Video Indexer, tem de ligar primeiro uma conta De Visão Personalizada. <br/>
-    Se já não tem uma conta Visão Personalizada, por favor crie uma. Para mais informações, consulte [a Visão Personalizada.](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)
+    Se já não tem uma conta Visão Personalizada, por favor crie uma. Para mais informações, consulte [a Visão Personalizada.](../../cognitive-services/custom-vision-service/home.md)
 
     [Ligue a sua conta De Visão Personalizada utilizando a API.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag)
 1. Crie um modelo de personagens animados.
@@ -211,6 +212,6 @@ Veja os caracteres animados no ficheiro JSON gerado.
 * As personagens que parecem ser pequenas ou distantes no vídeo podem não ser identificadas corretamente se a qualidade do vídeo for fraca.
 * A recomendação é usar um modelo por conjunto de caracteres animados (por exemplo, por uma série animada).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)

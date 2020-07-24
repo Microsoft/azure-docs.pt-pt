@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0295a73d325d8de7673b9a66c7047a80d82b09
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981860"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051286"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
-A autenticação multi-factor (MFA) é uma ótima maneira de proteger a sua organização, mas os utilizadores muitas vezes ficam frustrados com a camada de segurança adicional além de terem de se lembrar das suas palavras-passe. Os métodos de autenticação sem palavras-passe são mais convenientes porque a palavra-passe é removida e substituída por algo que tem, além de algo que é ou algo que sabe.
+Funcionalidades como a autenticação de vários fatores (MFA) são uma ótima forma de proteger a sua organização, mas os utilizadores muitas vezes ficam frustrados com a camada de segurança adicional além de terem de se lembrar das suas palavras-passe. Os métodos de autenticação sem palavras-passe são mais convenientes porque a palavra-passe é removida e substituída por algo que tem, além de algo que é ou algo que sabe.
 
 | Autenticação  | Algo que tem. | Algo que és ou sabes |
 | --- | --- | --- |
@@ -28,19 +28,19 @@ A autenticação multi-factor (MFA) é uma ótima maneira de proteger a sua orga
 
 Cada organização tem necessidades diferentes no que diz respeito à autenticação. A Microsoft oferece as seguintes três opções de autenticação sem palavras-passe que se integram com o Azure Ative Directory (Azure AD):
 
-- Windows Hello para empresas
+- Windows Hello para Empresas
 - Aplicação Microsoft Authenticator
 - Chaves de segurança FIDO2
 
 ![Autenticação: Segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello para empresas
+## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
 
-O Windows Hello for Business é ideal para os trabalhadores da informação que têm o seu próprio PC Windows designado. O biométrico e PIN está diretamente ligado ao PC do utilizador, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de infraestruturas de chaves públicas (PKI) e suporte integrado para um único sign-on (SSO), o Windows Hello for Business fornece um método conveniente para aceder perfeitamente aos recursos corporativos no local e na nuvem.
+O Windows Hello for Business é ideal para os trabalhadores da informação que têm o seu próprio PC Windows designado. As credenciais biométricas e PIN estão diretamente ligadas ao PC do utilizador, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de infraestruturas de chaves públicas (PKI) e suporte integrado para um único sign-on (SSO), o Windows Hello for Business fornece um método conveniente para aceder perfeitamente aos recursos corporativos no local e na nuvem.
 
 ![Exemplo de um utilizador que inscreva com o Windows Hello for Business](./media/concept-authentication-passwordless/windows-hellow-sign-in.jpeg)
 
-Os passos seguintes mostram como o processo de inscrição funciona com o Azure Ative Directory.
+Os seguintes passos mostram como o processo de inscrição funciona com a Azure AD:
 
 ![Diagrama que descreve os passos envolvidos para o s-in do utilizador com o Windows Hello for Business](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
@@ -56,13 +56,13 @@ O guia de [planeamento](https://docs.microsoft.com/windows/security/identity-pro
 
 ## <a name="microsoft-authenticator-app"></a>App autenticador microsoft
 
-Permita que o telefone do seu colaborador se torne um método de autenticação sem palavras-passe. Pode já estar a utilizar a App autenticador microsoft como uma opção de autenticação multi-factor conveniente, além de uma palavra-passe. Também pode utilizar a App Authenticator como opção sem palavras-passe.
+Também pode permitir que o telefone do seu colaborador se torne um método de autenticação sem palavras-passe. Pode já estar a utilizar a App autenticador microsoft como uma opção de autenticação multi-factor conveniente, além de uma palavra-passe. Também pode utilizar a App Authenticator como opção sem palavras-passe.
 
 ![Inscreva-se no Microsoft Edge com a aplicação Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 A App Authenticator transforma qualquer telefone iOS ou Android numa credencial forte e sem palavras-passe. Os utilizadores podem iniciar sposição em qualquer plataforma ou navegador através da notificação do seu telemóvel, correspondendo um número exibido no ecrã ao do telemóvel e, em seguida, utilizando o seu biométrico (toque ou rosto) ou PIN para confirmar. Consulte o [Download e instale a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) para obter detalhes de instalação.
 
-A autenticação sem palavras-passe utilizando a App Autenticador segue o mesmo padrão básico que o Windows Hello for Business. É um pouco mais complicado, uma vez que o utilizador precisa de ser identificado para que o Azure AD possa encontrar a versão da Microsoft Authenticator App a ser utilizada:
+A autenticação sem palavras-passe utilizando a aplicação Authenticator segue o mesmo padrão básico que o Windows Hello for Business. É um pouco mais complicado, uma vez que o utilizador precisa de ser identificado para que o Azure AD possa encontrar a versão da Microsoft Authenticator App a ser utilizada:
 
 ![Diagrama que descreve os passos envolvidos para o sôm-in do utilizador com a App autenticador da Microsoft](./media/concept-authentication-passwordless/authenticator-app-flow.png)
 
@@ -75,11 +75,18 @@ A autenticação sem palavras-passe utilizando a App Autenticador segue o mesmo 
 1. O nonce é assinado com a chave privada e enviado de volta para a Azure AD.
 1. A Azure AD realiza a validação de chaves públicas/privadas e devolve um token.
 
+Para começar com o início do sing-in sem palavra-passe, complete o seguinte como:
+
+> [!div class="nextstepaction"]
+> [Ativar o sinal sem palavra-passe utilizando a aplicação Authenticator](howto-authentication-passwordless-phone.md)
+
 ## <a name="fido2-security-keys"></a>Chaves de segurança FIDO2
 
 As chaves de segurança FIDO2 são um método de autenticação sem palavras-passe sem padrões que pode vir em qualquer fator de forma. Fast Identity Online (FIDO) é um padrão aberto para a autenticação sem palavras-passe. O FIDO permite que os utilizadores e organizações aproveitem a norma para iniciar sedus nos seus recursos sem um nome de utilizador ou palavra-passe utilizando uma chave de segurança externa ou uma chave de plataforma incorporada num dispositivo.
 
-Para visualização pública, os colaboradores podem usar chaves de segurança para iniciar súmito no seu AD Azure ou AZure AD híbrido que se juntou aos dispositivos Windows 10 e obter um único sinal sobre os seus recursos na nuvem e no local. Os utilizadores também podem iniciar sedução para navegadores suportados. As chaves de segurança FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou têm cenários ou funcionários que não estão dispostos ou capazes de usar o seu telefone como um segundo fator.
+Os colaboradores podem usar chaves de segurança para iniciar seduca no seu AD Azure ou AZure AD híbrido que se juntou aos dispositivos windows 10 e obter um único sinal nos seus recursos na nuvem e no local. Os utilizadores também podem iniciar sedução para navegadores suportados. As chaves de segurança FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou têm cenários ou funcionários que não estão dispostos ou capazes de usar o seu telefone como um segundo fator.
+
+As chaves de segurança FIDO2 do Azure AD estão atualmente em pré-visualização.
 
 ![Inscreva-se no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -127,7 +134,15 @@ Os seguintes fornecedores oferecem chaves de segurança FIDO2 de diferentes fato
 
 Se é um fornecedor e quer colocar o seu dispositivo nesta lista de dispositivos suportados, [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com) contacte.
 
+Para começar com as chaves de segurança FIDO2, complete o seguinte como:
+
+> [!div class="nextstepaction"]
+> [Ativar sinal sem palavra-passe usando chaves de segurança FIDO2](howto-authentication-passwordless-security-key.md)
+
+
 ## <a name="what-scenarios-work-with-the-preview"></a>Que cenários funcionam com a pré-estreia?
+
+As funcionalidades de sing insusição sem palavras-passe Azure Estão atualmente em pré-visualização. As seguintes considerações são aplicáveis:
 
 - Os administradores podem ativar métodos de autenticação sem palavras-passe para o seu inquilino
 - Os administradores podem direcionar todos os utilizadores ou selecionar utilizadores/grupos dentro do seu inquilino para cada método
@@ -142,7 +157,7 @@ A escolha entre estas três opções sem palavras-passe depende da segurança, p
 
 Aqui ficam alguns fatores a ter em conta na escolha da tecnologia sem palavras-passe da Microsoft:
 
-||**Windows Hello para empresas**|**Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator**|**Chaves de segurança FIDO2**|
+||**Windows Hello para Empresas**|**Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou mais tarde<br>Azure Active Directory| Aplicação Microsoft Authenticator<br>Telefone (dispositivos iOS e Android com Android 6.0 ou superior.)|Windows 10, versão 1809 ou mais tarde<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|
@@ -152,7 +167,7 @@ Aqui ficam alguns fatores a ter em conta na escolha da tecnologia sem palavras-p
 
 Utilize a seguinte tabela para escolher qual o método que suporta os seus requisitos e utilizadores.
 
-|Persona|Scenario|Ambiente|Tecnologia sem palavras-passe|
+|Persona|Cenário|Ambiente|Tecnologia sem palavras-passe|
 |:-|:-|:-|:-|
 |**Administração**|Acesso seguro a um dispositivo para tarefas de gestão|Dispositivo atribuído ao Windows 10|Windows Hello para chave de segurança Business e/ou FIDO2|
 |**Administração**|Tarefas de gestão em dispositivos não Windows| Dispositivo móvel ou não-janelas|Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator|
@@ -160,14 +175,14 @@ Utilize a seguinte tabela para escolher qual o método que suporta os seus requi
 |**Técnico de informação**|Trabalho de produtividade| Dispositivo móvel ou não-janelas|Iniciar sing-in sem palavra-passe com a aplicação Microsoft Authenticator|
 |**Trabalhador da linha da frente**|Quiosques numa fábrica, instalações, retalhistas ou entrada de dados|Dispositivos compartilhados do Windows 10|Chaves de segurança FIDO2|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Ativar opções sem palavras-passe chave de segurança FIDO2 na sua organização](howto-authentication-passwordless-security-key.md)
+Para começar com sem palavras-passe em Azure AD, complete um dos seguintes como-tos:
 
-[Ativar opções sem palavras-passe baseadas em telefone na sua organização](howto-authentication-passwordless-phone.md)
+* [Ativar o sinal de acesso sem palavras-passe da chave de segurança FIDO2](howto-authentication-passwordless-security-key.md)
+* [Ativar o acesso sem palavras-passe com base no telefone com a aplicação Authenticator](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Links Externos
 
-[Aliança FIDO](https://fidoalliance.org/)
-
-[Especificação DO FIDO2 CTAP](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)
+* [Aliança FIDO](https://fidoalliance.org/)
+* [Especificação DO FIDO2 CTAP](https://fidoalliance.org/specs/fido-v2.0-id-20180227/fido-client-to-authenticator-protocol-v2.0-id-20180227.html)

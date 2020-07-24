@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6879d11a4b47c0090f13baa0a15dcc696c8534
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3301667c0ee6ad739b6fb734c2cea3aef4889bd9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525386"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051842"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação DBMS de máquinas virtuais Azure para carga de trabalho SAP
 
@@ -74,7 +74,7 @@ ms.locfileid: "86525386"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -420,7 +420,7 @@ Para obter mais informações sobre a recuperação de desastres para bases de d
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para as implementações da Oracle no Windows, recomendamos vivamente uma rede acelerada, tal como descrito em [rede acelerada Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com Oracle Database, incluindo conjuntos de disponibilidade de Azure e monitorização SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificidades para a Oracle Database em Oracle Linux
@@ -523,5 +523,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com Oracle Database, incluindo conjuntos de disponibilidade de Azure e monitorização SAP.

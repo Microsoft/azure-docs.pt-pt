@@ -271,7 +271,7 @@
                 - name: Serviço de Aplicações
                   href: reservations/prepay-app-service-isolated-stamp.md
                 - name: Reserva da Cache do Azure para Redis
-                  href: ../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+                  href: /azure/data-explorer/pricing-reserved-capacity
                 - name: BD do Cosmos
                   href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
                 - name: Databricks
@@ -465,4 +465,4 @@
             - name: FAQ do Cloudyn
               href: cloudyn/cost-mgt-faq.md
             - name: Contactar o apoio ao cliente do Cloudyn
-              href: /cloudyn/open-support-request.md
+              href: 'https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request'

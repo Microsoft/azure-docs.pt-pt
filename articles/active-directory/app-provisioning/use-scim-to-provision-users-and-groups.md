@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8138f125c55e3b2d76cb680ea48366c5a3e05fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117323"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051520"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -60,7 +60,7 @@ Cada aplicação requer diferentes atributos para criar um utilizador ou grupo. 
 |etiqueta|urn:ietf:params:scim:schemas:extensão:2.0:CustomExtension:tag|extensãoAttribute1|
 |status|ativo|isSoftDeleted (valor calculado não armazenado no utilizador)|
 
-O esquema acima definido seria representado utilizando a carga útil Json abaixo. Note que além dos atributos necessários para a aplicação, a representação JSON inclui os atributos "id", "externalId" e "meta".
+O esquema acima definido seria representado utilizando a carga útil JSON abaixo. Note que além dos atributos necessários para a aplicação, a representação JSON inclui os `id` `externalId` necessários, e `meta` atributos.
 
 ```json
 {
@@ -134,7 +134,7 @@ Existem vários pontos finais definidos no SCIM RFC. Pode começar com o ponto f
 |/Grupo|Execute operações CRUD num objeto de grupo.|
 |/ServiceProviderConfig|Fornece detalhes sobre as características da norma SCIM que são suportadas, por exemplo os recursos que são suportados e o método de autenticação.|
 |/RecursosTypes|Especifica metadados sobre cada recurso|
-|/Schemas|O conjunto de atributos suportados por cada cliente e prestador de serviços pode variar. Enquanto um prestador de serviços pode incluir "nome", "título" e "e-mails", enquanto outro prestador de serviços usa "nome", "título" e "telefoneNumbers". O ponto final dos esquemas permite a descoberta dos atributos suportados.|
+|/Schemas|O conjunto de atributos suportados por cada cliente e prestador de serviços pode variar. Um prestador de serviços pode incluir `name` `title` , `emails` e, enquanto outro prestador de serviços usa `name` , e `title` `phoneNumbers` . O ponto final dos esquemas permite a descoberta dos atributos suportados.|
 |/Granel|As operações a granel permitem realizar operações numa grande coleção de objetos de recursos numa única operação (por exemplo, atualizações para um grande grupo).|
 
 
@@ -149,7 +149,7 @@ Dentro da especificação do [protocolo SCIM 2.0,](http://www.simplecloud.info/#
 * Suporta a criação de utilizadores, e opcionalmente também grupos, de acordo com a secção [3.3 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Suporta modificar utilizadores ou grupos com pedidos PATCH, de acordo com [a secção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Suporta a recuperação de um recurso conhecido para um utilizador ou grupo criado anteriormente, de acordo com [a secção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` `username` `externalid` e, e os grupos são questionados por `displayName` .  
+* Suporta consulta de utilizadores ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os utilizadores são recuperados pelos seus `id` `username` `externalId` e, e os grupos são questionados por `displayName` .  
 * Suporta consulta do utilizador por ID e por gestor, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Suporta grupos de consulta por ID e por membro, de acordo com a secção 3.4.2 do protocolo SCIM.  
 * Aceita um único sinal de portador para autenticação e autorização da Azure AD para a sua aplicação.
@@ -224,7 +224,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="create-user"></a>Criar Utilizador
 
-###### <a name="request"></a>Pedir
+###### <a name="request"></a>Pedido
 
 *POST /Utilizadores*
 ```json
@@ -282,7 +282,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-user"></a>Obter Utilizador
 
-###### <a name="request"></a><a name="request-1"></a>Pedir
+###### <a name="request"></a><a name="request-1"></a>Pedido
 *GET /Utilizadores/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Resposta (Utilizador encontrado)
@@ -312,7 +312,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 }
 ```
 
-###### <a name="request"></a>Pedir
+###### <a name="request"></a>Pedido
 *GET /Utilizadores/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Resposta (Utilizador não encontrado. Note que o detalhe não é necessário, apenas o estado.)
@@ -329,7 +329,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-user-by-query"></a>Obtenha o utilizador por consulta
 
-##### <a name="request"></a><a name="request-2"></a>Pedir
+##### <a name="request"></a><a name="request-2"></a>Pedido
 
 *GET /Utilizadores?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
@@ -370,7 +370,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-user-by-query---zero-results"></a>Obtenha o Utilizador por consulta - Resultados zero
 
-##### <a name="request"></a><a name="request-3"></a>Pedir
+##### <a name="request"></a><a name="request-3"></a>Pedido
 
 *GET /Utilizadores?filter=userName eq "utilizador inexistente"*
 
@@ -390,7 +390,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-user-multi-valued-properties"></a>Atualizar o Utilizador [propriedades multi-valorizadas]
 
-##### <a name="request"></a><a name="request-4"></a>Pedir
+##### <a name="request"></a><a name="request-4"></a>Pedido
 
 *PATCH /Utilizadores/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -441,7 +441,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-user-single-valued-properties"></a>Atualizar o Utilizador [propriedades de valor único]
 
-##### <a name="request"></a><a name="request-5"></a>Pedir
+##### <a name="request"></a><a name="request-5"></a>Pedido
 
 *PATCH /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -486,7 +486,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 ### <a name="disable-user"></a>Desativar Utilizador
 
-##### <a name="request"></a><a name="request-14"></a>Pedir
+##### <a name="request"></a><a name="request-14"></a>Pedido
 
 *PATCH /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -540,7 +540,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 ```
 #### <a name="delete-user"></a>Eliminar Utilizador
 
-##### <a name="request"></a><a name="request-6"></a>Pedir
+##### <a name="request"></a><a name="request-6"></a>Pedido
 
 *DELETE /Utilizadores/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -557,7 +557,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="create-group"></a>Criar Grupo
 
-##### <a name="request"></a><a name="request-7"></a>Pedir
+##### <a name="request"></a><a name="request-7"></a>Pedido
 
 *POST /Grupos HTTP/1.1*
 ```json
@@ -592,7 +592,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-group"></a>Obter Grupo
 
-##### <a name="request"></a><a name="request-8"></a>Pedir
+##### <a name="request"></a><a name="request-8"></a>Pedido
 
 *GET /Groups/40734ae655284ad3abcc?excluídosAttributes=membros HTTP/1.1*
 
@@ -614,7 +614,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="get-group-by-displayname"></a>Obtenha grupo por displayName
 
-##### <a name="request"></a><a name="request-9"></a>Pedir
+##### <a name="request"></a><a name="request-9"></a>Pedido
 *GET /Groups?excluiuAttributes=membros&filtro=displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Resposta
@@ -643,7 +643,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-group-non-member-attributes"></a>Grupo de Atualização [Atributos não membros]
 
-##### <a name="request"></a><a name="request-10"></a>Pedir
+##### <a name="request"></a><a name="request-10"></a>Pedido
 
 *PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -663,7 +663,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 ### <a name="update-group-add-members"></a>Grupo de Atualização [Adicionar Membros]
 
-##### <a name="request"></a><a name="request-11"></a>Pedir
+##### <a name="request"></a><a name="request-11"></a>Pedido
 
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -686,7 +686,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="update-group-remove-members"></a>Grupo de atualização [Remover Membros]
 
-##### <a name="request"></a><a name="request-12"></a>Pedir
+##### <a name="request"></a><a name="request-12"></a>Pedido
 
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -709,7 +709,7 @@ Esta secção fornece o exemplo dos pedidos do SCIM emitidos pelo cliente Azure 
 
 #### <a name="delete-group"></a>Eliminar Grupo
 
-##### <a name="request"></a><a name="request-13"></a>Pedir
+##### <a name="request"></a><a name="request-13"></a>Pedido
 
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
@@ -745,7 +745,7 @@ Barra mínima TLS 1.2 Cipher Suites:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Gamas IP
-O serviço de fornecimento Azure AD pode atualmente opperate sob qualquer gama Azure IP. Estão em curso trabalhos para consolidar o conjunto de gamas IP em que o serviço opera. Este documento será atualizado assim que a lista de intervalos IP estiver consolidada. 
+O serviço de fornecimento Azure AD pode atualmente funcionar sob qualquer gama Azure IP. Estão em curso trabalhos para consolidar o conjunto de gamas IP em que o serviço opera. Este documento será atualizado assim que a lista de intervalos IP estiver consolidada. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final SCIM
 
@@ -915,10 +915,10 @@ Envie um pedido GET ao controlador Token para obter um token ao portador válido
 
 ***Exemplo 1. Consultar o serviço para um utilizador que corresponde***
 
-O Azure Ative Directory consulta o serviço para um utilizador com um valor de atributo ExternoId correspondente ao valor de atributo mailNickname de um utilizador em Azure AD. A consulta é expressa como um pedido de Hipertext Transfer Protocol (HTTP) como este exemplo, em que jyoung é uma amostra de um nome de correioNickname de um utilizador em Azure Ative Directory.
+O Azure Ative Directory consulta o serviço para um utilizador com um `externalId` valor de atributo correspondente ao valor de atributo mailSname de um utilizador em Azure AD. A consulta é expressa como um pedido de Hipertext Transfer Protocol (HTTP) como este exemplo, em que jyoung é uma amostra de um nome de correioNickname de um utilizador em Azure Ative Directory.
 
 >[!NOTE]
-> Este é apenas um exemplo. Nem todos os utilizadores terão um atributo de mailNickname, e o valor que um utilizador tem pode não ser único no diretório. Além disso, o atributo utilizado para a correspondência (que neste caso é externoId) é configurável nos [mapeamentos de atributos AD Azure](customize-application-attributes.md).
+> Este é apenas um exemplo. Nem todos os utilizadores terão um atributo de mailNickname, e o valor que um utilizador tem pode não ser único no diretório. Além disso, o atributo utilizado para a correspondência (que neste caso `externalId` é) é configurável nos [mapeamentos de atributos AD Azure](customize-application-attributes.md).
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -939,7 +939,7 @@ No código de amostra, o pedido é traduzido numa chamada para o método QueryAs
  Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
 ```
 
-Na consulta da amostra, para um utilizador com um determinado valor para o atributo externoid, os valores dos argumentos transmitidos ao método QueryAsync são:
+Na consulta da amostra, para um utilizador com um dado valor para o `externalId` atributo, os valores dos argumentos transmitidos ao método QueryAsync são:
 
 * parâmetros. Filtros Alternativos.Contagem: 1
 * parâmetros. AlternateFiltros.ElementAt(0). AtributoPath: "externalId"
@@ -948,7 +948,7 @@ Na consulta da amostra, para um utilizador com um determinado valor para o atrib
 
 ***Exemplo 2. Provisionamento de um utilizador***
 
-Se a resposta a uma consulta ao serviço web para um utilizador com um valor de atributo ExternoId que corresponda ao valor de atributo mailSname de um utilizador não devolve nenhum utilizador, então o Azure Ative Directory solicita que a prestação de serviço seja um utilizador correspondente ao do Azure Ative Directory.  Aqui está um exemplo de tal pedido: 
+Se a resposta a uma consulta ao serviço web para um utilizador com um `externalId` valor de atributo que corresponda ao valor de atributo mailSname de um utilizador não devolver nenhum utilizador, então o Azure Ative Directory solicita que a prestação de serviço seja um utilizador correspondente ao do Diretório Ativo Azure.  Aqui está um exemplo de tal pedido: 
 
 ```
  POST https://.../scim/Users HTTP/1.1
@@ -1187,11 +1187,11 @@ Siga a lista de verificação abaixo para garantir que a sua aplicação está a
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização de provisionamento de conectores na galeria de aplicações
 A especificação SCIM não define um regime específico scim para a autenticação e autorização. Baseia-se na utilização das normas industriais existentes. O cliente azure AD que fornece apoio dois métodos de autorização para pedidos na galeria. 
 
-|Método de autorização|Vantagens|Contras|Suporte|
+|Método de autorização|Vantagens|Desvantagens|Suporte|
 |--|--|--|--|
 |Nome de utilizador e palavra-passe (não recomendado ou suportado pelo Azure AD)|Fácil de implementar|Inseguro - [O seu pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Suportado caso a caso para aplicações de galeria. Não suportado para aplicações não-galeria.|
 |Ficha de portador de longa data|Fichas de longa duração não requerem a presença de um utilizador. São fáceis de utilizar para os administradores na configuração do provisionamento.|Fichas de longa duração podem ser difíceis de partilhar com um administrador sem usar métodos inseguros como e-mail. |Suportado para apps de galeria e não galeria. |
-|Concessão de código de autorização OAu|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador sair da organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para aplicativos de galeria. O suporte para aplicações não-galeria está em andamento.|
+|Concessão de código de autorização OAu|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm.  Um utilizador real deve estar presente durante a autorização inicial, adicionando um nível de prestação de contas. |Requer que um utilizador esteja presente. Se o utilizador sair da organização, o token é inválido e a autorização terá de ser concluída novamente.|Suportado para apps de galeria, mas não para aplicações não-galeria. O apoio à não-galeria está nos nossos atrasos.|
 |Concessão de credenciais de cliente oauth|Os tokens de acesso são muito mais curtos do que as palavras-passe, e têm um mecanismo automatizado de atualização que os tokens portadores de longa duração não têm. Tanto a concessão do código de autorização como as credenciais do cliente concedem criam o mesmo tipo de sinal de acesso, pelo que a deslocação entre estes métodos é transparente para a API.  O provisionamento pode ser completamente automatizado, e novos tokens podem ser solicitados silenciosamente sem a interação do utilizador. ||Não suportado para apps de galeria e não-galeria. O apoio está nos nossos atrasos.|
 
 > [!NOTE]
@@ -1209,7 +1209,7 @@ Boas práticas (recomendadas, mas não necessárias):
 * Suporte urls de redirecionamento múltiplos. Os administradores podem configurar o fornecimento de "portal.azure.com" e "aad.portal.azure.com". O suporte a múltiplos URLs de redirecionamento garantirá que os utilizadores podem autorizar o acesso a partir de qualquer portal.
 * Apoie vários segredos para garantir uma renovação secreta suave, sem tempo de inatividade. 
 
-**Fichas de portador de OAuth há muito tempo:** Se a sua aplicação não suportar o fluxo de concessão de código de autorização OAuth, também pode gerar um token portador de OAuth de longa duração do que aquele que um administrador pode usar para configurar a integração do provisionamento. O símbolo deve ser perpétuo, ou então o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o símbolo expirar. Este token deve ser inferior a 1KB de tamanho.  
+**Fichas portadoras de OAuth de longa duração:** Se a sua aplicação não suportar o fluxo de concessão de código de autorização OAuth, também pode gerar um token portador de OAuth de longa duração do que aquele que um administrador pode usar para configurar a integração do provisionamento. O símbolo deve ser perpétuo, ou então o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o símbolo expirar. Este token deve ser inferior a 1KB de tamanho.  
 
 Para métodos adicionais de autenticação e autorização, informe-nos no [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
